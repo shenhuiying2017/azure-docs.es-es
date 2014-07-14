@@ -1,3 +1,4 @@
+
 ## Complemento de Azure para Eclipse con Java (de Microsoft Open Technologies)
 
 Requisitos previos:
@@ -15,12 +16,7 @@ Pasos de instalación:
 3.  Seleccione los elementos que se vayan a instalar y haga clic en
     **Finish**.
 
-Este complemento usa la última versión del SDK de Azure. Puede
-descargarlo mediante el Instalador de plataforma web (WebPI) en [http://go.microsoft.com/fwlink/?LinkID=252838][2]. Sin
-embargo, si no lo tiene instalado, cuando cree su primer proyecto de
-implementación de Azure, el complemento de Azure para Eclipse con Java
-(de Microsoft Open Technologies) instalará automáticamente la versión
-adecuada del SDK de Azure.
+Este complemento usa la última versión del SDK de Azure. Puede descargarlo mediante el Instalador de plataforma web (WebPI) en [http://go.microsoft.com/fwlink/?LinkID=252838][2]. Sin embargo, si no lo tiene instalado, cuando cree su primer proyecto de implementación de Azure, el complemento de Azure para Eclipse con Java (de Microsoft Open Technologies) instalará automáticamente la versión adecuada del SDK de Azure.
 
 [1]: http//dl.msopentech.com/
 [2]: http://go.microsoft.com/fwlink/?LinkID=252838

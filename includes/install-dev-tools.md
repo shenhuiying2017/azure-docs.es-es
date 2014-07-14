@@ -1,6 +1,5 @@
-> [WACOM.NOTE] Para completar correctamente esta sección, debe
-> disponer de una instalación en funcionamiento de Node.js y el SDK de
-> Azure para Node.js para su plataforma.
+> [WACOM.NOTE] 
+Para completar correctamente esta sección, debe disponer de una instalación en funcionamiento de Node.js y el SDK de Azure para Node.js para su plataforma.
 
 > * Instale el SDK de Azure para Node.js: [instalador de Windows][1] \| [instalador de Mac][2] \| [descarga de Linux][3]</li>
 

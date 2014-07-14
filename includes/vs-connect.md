@@ -4,8 +4,7 @@
   
 	En **Server Explorer**, haga clic en el botón **Connect to Azure**. También puede hacer clic con el botón secundario en el nodo **Azure** y, a continuación, hacer clic en **Connect to Azure** en el menú contextual.
 
-* Instale un certificado de administración que permita el acceso a su
-  cuenta.
+* Instale un certificado de administración que permita el acceso a su cuenta.
   
 	En **Server Explorer**, haga clic con el botón secundario en el nodo **Azure** y, a continuación, haga clic en **Manage Subscriptions** en el menú contextual. En el cuadro de diálogo **Manage Azure Subscriptions**, haga clic en la pestaña **Certificates** y, a continuación, en **Import**. Siga las instrucciones para descargar y  luego importar un archivo de suscripción (también conocido como archivo *.publishsettings*) para su cuenta de Azure.
 	
@@ -15,4 +14,3 @@
 	</div>
 
     Para obtener más información, consulte [Conexión a Azure desde Visual Studio](http://go.microsoft.com/fwlink/?LinkId=324796).
-

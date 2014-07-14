@@ -1,17 +1,12 @@
-## <a  name="what-is"> </a>Qué es el almacenamiento de blobs
 
-El almacenamiento de blobs de Azure es un servicio para almacenar
-grandes cantidades de datos no estructurados a los que puede obtenerse
-acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Un blob
+## <a name="what-is"> </a>Qué es el almacenamiento de blobs
+
+El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados a los que puede obtenerse acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Un blob
 único puede ocupar cientos de gigabytes y una cuenta de almacenamiento
 única puede contener hasta 200 TB de blobs si se creó a partir del 8 de
-junio de 2012; las cuentas de almacenamiento creadas antes de esa fecha
-pueden contener hasta 100 TB de blobs. Consulte [Azure Storage
-Scalability and Performance Targets][1] para obtener información sobre
-la capacidad de la cuenta de almacenamiento.
+junio de 2012; las cuentas de almacenamiento creadas antes de esa fecha pueden contener hasta 100 TB de blobs. Consulte [Azure Storage Scalability and Performance Targets][1] para obtener información sobre la capacidad de la cuenta de almacenamiento.
 
-El almacenamiento de blobs suele usarse para realizar las siguientes
-tareas:
+El almacenamiento de blobs suele usarse para realizar las siguientes tareas:
 
 * Servicio de imágenes o documentos directamente a un explorador
 * Almacenamiento de archivos para acceso distribuido
@@ -20,9 +15,9 @@ tareas:
 * Almacenamiento de datos para el análisis en local o en un servicio
   hospedado de Azure
 
-Puede usar el almacenamiento de blobs para exponer datos públicamente o
-de manera privada para el almacenamiento interno de aplicaciones.
-## <a  name="concepts"> </a>Conceptos
+Puede usar el almacenamiento de blobs para exponer datos públicamente o de manera privada para el almacenamiento interno de aplicaciones.
+
+## <a name="concepts"> </a>Conceptos
 
 El servicio de blobs contiene los siguientes componentes:
 

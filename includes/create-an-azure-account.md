@@ -1,9 +1,8 @@
+
 # Creación de una cuenta de Azure y habilitación de la características de vista previa
 
-Necesita una cuenta para implementar aplicaciones en Azure. En este
-artículo se describe cómo crear una cuenta de evaluación gratuita y cómo
-habilitar las características de vista previa de Azure, incluidos los
-servicios de BizTalk, HDInsight y Azure Back para la cuenta.
+Necesita una cuenta para implementar aplicaciones en Azure. En este artículo se describe cómo crear una cuenta de evaluación gratuita y cómo habilitar las características de vista previa de Azure, incluidos los servicios de BizTalk, HDInsight y Azure Back para la cuenta.
+
 ## Creación de una cuenta de Azure
 
 1.  Abra un explorador web y diríjase a
@@ -14,11 +13,9 @@ servicios de BizTalk, HDInsight y Azure Back para la cuenta.
     cuenta mediante la activación de los beneficios para suscriptores a
     MSDN.
 
-También puede dirigirse a la página [Creación de una cuenta de
-evaluación gratuita](/en-us/pricing/free-trial/) y seguir los pasos para crear una cuenta de prueba.
-Necesitará un número de tarjeta de crédito y un número de teléfono móvil como prueba de identidad. No se le cobrará nada.
+También puede dirigirse a la página [Creación de una cuenta de evaluación gratuita](/en-us/pricing/free-trial/) y seguir los pasos para crear una cuenta de prueba. Necesitará un número de tarjeta de crédito y un número de teléfono móvil como prueba de identidad. No se le cobrará nada.
 
-##<a  id="enable" /></a>Habilitación de las características de vista previa de Azure
+## <a id="enable" /></a>Habilitación de las características de vista previa de Azure
 
 
 1.  Diríjase a [https://account.windowsazure.com/][2] e inicie sesión

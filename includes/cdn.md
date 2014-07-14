@@ -1,12 +1,7 @@
+
 # Uso de la red CDN en Azure
 
-La Red de entrega de contenido de Azure (CDN) ofrece a los
-desarrolladores una solución global de entrega de contenido con alto
-ancho de banda; para ello, almacena en memoria caché los blobs y los
-contenidos estáticos de las instancias de proceso en nodos físicos
-ubicados en Estados Unidos, Europa, Asia, Australia y Sudamérica. Para
-obtener una lista actualizada de las ubicaciones de nodos de la red CDN,
-consulte [Ubicaciones del nodo red CDN de Azure][1].
+La Red de entrega de contenido de Azure (CDN) ofrece a los desarrolladores una solución global de entrega de contenido con alto ancho de banda; para ello, almacena en memoria caché los blobs y los contenidos estáticos de las instancias de proceso en nodos físicos ubicados en Estados Unidos, Europa, Asia, Australia y Sudamérica. Para obtener una lista actualizada de las ubicaciones de nodos de la red CDN, consulte [Ubicaciones del nodo red CDN de Azure][1].
 
 Esta tarea incluye los siguientes pasos:
 
@@ -16,8 +11,7 @@ Esta tarea incluye los siguientes pasos:
 * [Paso 3: Obtener acceso a su contenido de la red CDN](#Step3)
 * [Paso 4: Eliminar su contenido de la red CDN](#Step4)
 
-Entre las ventajas de utilizar la red CDN para almacenar en memoria
-caché los datos de Azure se incluyen:
+Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los datos de Azure se incluyen:
 
 * Mejor rendimiento y experiencia de usuario para aquellos usuarios
   finales que están lejos de un origen de contenido y utilicen
@@ -27,28 +21,16 @@ caché los datos de Azure se incluyen:
   instantáneas pesadas, por ejemplo, al comienzo de un acontecimiento
   como el lanzamiento de un producto.
 
-Los clientes existentes de la red CDN ahora pueden usar la red CDN de
-Azure mediante el [Portal de administración de Azure][2]. La red CDN es
-una solución complementaria a su suscripción y tiene un [plan de
-facturación](/en-us/pricing/calculator/?scenario=full) independiente.
+Los clientes existentes de la red CDN ahora pueden usar la red CDN de Azure mediante el [Portal de administración de Azure][2]. La red CDN es una solución complementaria a su suscripción y tiene un [plan de facturación](/en-us/pricing/calculator/?scenario=full) independiente.
 
-<a  id="Step1"> </a>
+<a id="Step1"> </a>
 
 <h2>Paso 1: Crear una cuenta de almacenamiento</h2>
 
 
-Use el siguiente procedimiento para crear una nueva cuenta de
-almacenamiento para una suscripción de Azure. Una cuenta de
-almacenamiento proporciona acceso a los servicios de almacenamiento de
-Azure. La cuenta de almacenamiento representa el máximo nivel de espacio
-de nombres para tener acceso a todos los componentes del servicio de
-almacenamiento de Azure: servicios Blob, servicios Cola y servicios
-Tabla. Para obtener más información acerca de los servicios de
-almacenamiento de Azure, consulte [Uso de los servicios de
-almacenamiento de Azure][3].
+Use el siguiente procedimiento para crear una nueva cuenta de almacenamiento para una suscripción de Azure. Una cuenta de almacenamiento proporciona acceso a los servicios de almacenamiento de Azure. La cuenta de almacenamiento representa el máximo nivel de espacio de nombres para tener acceso a todos los componentes del servicio de almacenamiento de Azure: servicios Blob, servicios Cola y servicios Tabla. Para obtener más información acerca de los servicios de almacenamiento de Azure, consulte [Uso de los servicios de almacenamiento de Azure][3].
 
-Para crear una cuenta de almacenamiento, debe ser administrador del
-servicio o coadministrador de la suscripción correspondiente.
+Para crear una cuenta de almacenamiento, debe ser administrador del servicio o coadministrador de la suscripción correspondiente.
 
 <div  class="dev-callout" markdown="1">
 <strong>Nota:</strong>
@@ -62,8 +44,7 @@ mediante la API de administración de servicios de Azure, consulte el tema de re
 **Para crear una cuenta de almacenamiento para una suscripción de
 Azure**
 
-1.  Inicie sesión en el [Portal de administración de Azure][2].
-2.  En la esquina inferior izquierda, haga clic en **New** y, a
+1.  Inicie sesión en el [Portal de administración de Azure][2]. 2.  En la esquina inferior izquierda, haga clic en **New** y, a
     continuación, haga clic en **Almacenamiento**.
 3.  Haga clic en **Quick Create**.
     
@@ -107,18 +88,12 @@ Azure**
     correctamente, verifique que la cuenta aparece en la lista de
     elementos de **Almacenamiento** con el estado de **Online**.
 
-<a  id="Step2"> </a>
+<a id="Step2"> </a>
 
 <h2>Paso 2: Crear un nuevo extremo de la red CDN para su cuenta de almacenamiento</h2>
 
 
-Una vez que haya habilitado el acceso de la red CDN a una cuenta de
-almacenamiento o servicio hospedado, todos los objetos disponibles de
-forma pública se pueden almacenar en la memoria caché perimetral de la
-red CDN. Si modifica un objeto que está almacenado en la memoria caché
-de la red CDN actualmente, el nuevo contenido no estará disponible a
-través de la red CDN hasta que la red CDN actualice su contenido al
-cumplir el período de vida del contenido almacenado en caché.
+Una vez que haya habilitado el acceso de la red CDN a una cuenta de almacenamiento o servicio hospedado, todos los objetos disponibles de forma pública se pueden almacenar en la memoria caché perimetral de la red CDN. Si modifica un objeto que está almacenado en la memoria caché de la red CDN actualmente, el nuevo contenido no estará disponible a través de la red CDN hasta que la red CDN actualice su contenido al cumplir el período de vida del contenido almacenado en caché.
 
 **Para crear un nuevo extremo de la red CDN para su cuenta de
 almacenamiento**
@@ -164,26 +139,21 @@ almacenamiento**
     
     </div>
 
-<a  id="Step3"> </a>
+<a id="Step3"> </a>
 
 <h2>Paso 3: Obtener acceso a su contenido de la red CDN</h2>
 
 
-Para obtener acceso al contenido almacenado en la memoria caché de la
-red CDN, use la URL de la red CDN que se le ha proporcionado en el
-portal. La dirección del blob en caché será similar a la siguiente:
+Para obtener acceso al contenido almacenado en la memoria caché de la red CDN, use la URL de la red CDN que se le ha proporcionado en el portal. La dirección del blob en caché será similar a la siguiente:
 
-http://&lt;*espacio de nombres de la red CDN*&gt;.vo.msecnd.net/&lt;*mi
-contenedor público*&gt;/&lt;*nombre del blob*&gt;
+http://&lt;*espacio de nombres de la red CDN*&gt;.vo.msecnd.net/&lt;*mi contenedor público*&gt;/&lt;*nombre del blob*&gt;
 
-<a  id="Step4"> </a>
+<a id="Step4"> </a>
 
 <h2>Paso 4: Eliminar su contenido de la red CDN</h2>
 
 
-Si no desea seguir almacenando un objeto en la memoria caché de la Red
-de entrega de contenido de Azure (CDN), puede realizar uno de los
-siguientes pasos:
+Si no desea seguir almacenando un objeto en la memoria caché de la Red de entrega de contenido de Azure (CDN), puede realizar uno de los siguientes pasos:
 
 * Para un blob de Azure, puede eliminar el blob desde el contenedor
   público.
@@ -194,15 +164,10 @@ siguientes pasos:
 * Puede modificar su servicio hospedado para no seguir respondiendo las
   solicitudes del objeto.
 
-Un objeto que ya está almacenado en la memoria caché de la red CDN
-permanecerá almacenado en caché hasta que cumpla el período de vida del
-objeto. Al cumplir el período de vida, la red CDN comprobará si el
-extremo de la red CDN sigue siendo válido y si el objeto sigue siendo
-accesible de forma anónima. Si no lo es, el objeto dejará de estar
-almacenado en caché.
+Un objeto que ya está almacenado en la memoria caché de la red CDN permanecerá almacenado en caché hasta que cumpla el período de vida del objeto. Al cumplir el período de vida, la red CDN comprobará si el extremo de la red CDN sigue siendo válido y si el objeto sigue siendo accesible de forma anónima. Si no lo es, el objeto dejará de estar almacenado en caché.
 
-Actualmente no existe una herramienta de depuración específica
-disponible para la red CDN de Azure.
+Actualmente no existe una herramienta de depuración específica disponible para la red CDN de Azure.
+
 ## Recursos adicionales
 
 * [Creación de un grupo de afinidad en Azure][5]

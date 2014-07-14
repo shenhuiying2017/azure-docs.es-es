@@ -1,16 +1,10 @@
 <properties  writer="kathydav" editor="tysonn" manager="jeffreyg" />
+
 # Creación rápida de una máquina virtual
 
-Use el método **Quick Create** para crear rápidamente una máquina
-virtual en el Portal de administración. Cuando cree esa máquina, use un
-cuadro de diálogo para proporcionar la información de la configuración.
+Use el método **Quick Create** para crear rápidamente una máquina virtual en el Portal de administración. Cuando cree esa máquina, use un cuadro de diálogo para proporcionar la información de la configuración.
 
-**Nota**: en este artículo se crea una máquina virtual que no está
-conectada a una red virtual. Si desea que la máquina virtual use una red
-virtual, utilice el método **From Gallery** y especifique la red virtual
-cuando cree la máquina virtual. Para obtener más información acerca de
-redes virtuales, consulte [Información general sobre redes virtuales de
-Azure][1].
+**Nota**: en este artículo se crea una máquina virtual que no está conectada a una red virtual. Si desea que la máquina virtual use una red virtual, utilice el método **From Gallery** y especifique la red virtual cuando cree la máquina virtual. Para obtener más información acerca de redes virtuales, consulte [Información general sobre redes virtuales de Azure][1].
 
 1.  Inicie sesión en el [Portal de administración de Azure][2].
 
@@ -41,8 +35,7 @@ Azure][1].
 
 5.  Haga clic en la marca de verificación para crear la máquina virtual.
     
-    **Nota:** se crea una cuenta de almacenamiento automáticamente para
-    que contenga esa máquina virtual.
+    **Nota:** se crea una cuenta de almacenamiento automáticamente para que contenga esa máquina virtual.
     
     Verá la nueva máquina virtual en la página **Máquinas virtuales**.
     

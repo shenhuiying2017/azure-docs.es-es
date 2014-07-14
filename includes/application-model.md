@@ -1,15 +1,9 @@
+
 # Proceso
 
-Azure permite implementar y supervisar cualquier código de aplicación
-que se ejecute en un centro de datos de Microsoft. Al crear una
-aplicación y ejecutarla en Azure, el código y la configuración se
-denominan conjuntamente un servicio hospedado de Azure. Los servicios
-hospedados son fáciles de administrar, escalar verticalmente, volver a
-configurar y actualizar con versiones nuevas del código de la
-aplicación. Este artículo se centra en el modelo de aplicación de los
-servicios hospedados de Azure.<a  id="compare"
-name="compare" /></a>
-## Tabla de contenido<a  id="_GoBack" name="_GoBack" /></a>
+Azure permite implementar y supervisar cualquier código de aplicación que se ejecute en un centro de datos de Microsoft. Al crear una aplicación y ejecutarla en Azure, el código y la configuración se denominan conjuntamente un servicio hospedado de Azure. Los servicios hospedados son fáciles de administrar, escalar verticalmente, volver a configurar y actualizar con versiones nuevas del código de la aplicación. Este artículo se centra en el modelo de aplicación de los servicios hospedados de Azure.<a id="compare" name="compare" /></a>
+
+## Tabla de contenido<a id="_GoBack" name="_GoBack" /></a>
 
 * [Beneficios del modelo de aplicación de Azure](#benefits)
 * [Conceptos básicos de los servicios hospedados](#concepts)
@@ -21,16 +15,10 @@ name="compare" /></a>
 * [Archivo de configuración de servicio](#cfg)
 * [Creación e implementación de servicios hospedados](#hostedservices)
 * [Referencias](#references)
-## <a  id="benefits"> </a>Beneficios del modelo de aplicación de Azure
 
-Al implementar una aplicación como un servicio hospedado, Azure crea una
-o varias máquinas virtuales (VM) que contienen el código de la
-aplicación y arranca las VM en las máquinas físicas que residen en
-cualquiera de los centros de datos de Azure. A medida que las
-solicitudes de los clientes a la aplicación hospedada entran en el
-centro de datos, un equilibrador de carga las distribuye equitativamente
-entre las VM. Si la aplicación se hospeda en Azure, obtiene tres
-beneficios principales:
+## <a id="benefits"> </a>Beneficios del modelo de aplicación de Azure
+
+Al implementar una aplicación como un servicio hospedado, Azure crea una o varias máquinas virtuales (VM) que contienen el código de la aplicación y arranca las VM en las máquinas físicas que residen en cualquiera de los centros de datos de Azure. A medida que las solicitudes de los clientes a la aplicación hospedada entran en el centro de datos, un equilibrador de carga las distribuye equitativamente entre las VM. Si la aplicación se hospeda en Azure, obtiene tres beneficios principales:
 
 * **Alta disponibilidad.** Alta disponibilidad significa que Azure
   garantiza que la aplicación se ejecuta durante tanto tiempo como sea
@@ -73,64 +61,32 @@ beneficios principales:
   Dado que todas las máquinas virtuales ejecutan Windows Server 2008,
   todo el código que se ejecute en Windows Server 2008 funcionará
   correctamente en Azure.
-## <a  id="concepts"> </a>Conceptos básicos de los servicios hospedados
 
-Si una aplicación se implementa como servicio hospedado en Azure, se
-ejecuta como uno o varios *roles.* Un *rol* sencillamente hace
-referencia a los archivos y la configuración de una aplicación. Puede
-definir uno o varios roles para una aplicación, cada uno de ellos con su
-propio conjunto y configuración de archivos de aplicación. Para cada rol
-de la aplicación puede especificar el número de VM, o *instancias de
-rol*, que se ejecutan. En la siguiente ilustración se muestran dos
-ejemplos simples de una aplicación modelada como servicio hospedado con
-roles e instancias de rol.
+## <a id="concepts"> </a>Conceptos básicos de los servicios hospedados
+
+Si una aplicación se implementa como servicio hospedado en Azure, se ejecuta como uno o varios *roles.* Un *rol* sencillamente hace referencia a los archivos y la configuración de una aplicación. Puede definir uno o varios roles para una aplicación, cada uno de ellos con su propio conjunto y configuración de archivos de aplicación. Para cada rol de la aplicación puede especificar el número de VM, o *instancias de rol*, que se ejecutan. En la siguiente ilustración se muestran dos ejemplos simples de una aplicación modelada como servicio hospedado con roles e instancias de rol.
+
 ##### Ilustración 1: Un único rol con tres instancias (VM) que se ejecutan en un centro de datos de Azure
 
 ![imagen](./media/application-model/application-model-3.jpg)
+
 ##### Ilustración 2: Dos roles, cada uno de ellos con dos instancias (máquinas virtuales), que se ejecutan en un centro de datos de Azure
 
 ![imagen](./media/application-model/application-model-4.jpg)
 
-Las instancias de rol suelen procesar las solicitudes de cliente de
-Internet que entran en el centro de datos a través de lo que se denomina
-un *extremo de entrada*. Un único rol puede tener 0, o más, extremos de
-entrada, y cada uno de estos extremos indica un protocolo (HTTP, HTTPS o
-TCP) y un puerto. Es habitual configurar un rol para que tenga dos
-extremos de entrada: HTTP que escucha en el puerto 80 y HTTPS que
-escucha en el puerto 443. En la siguiente ilustración se muestra un
-ejemplo de dos roles diferentes con distintos extremos de entrada que
-les dirigen las solicitudes de los clientes.
+Las instancias de rol suelen procesar las solicitudes de cliente de Internet que entran en el centro de datos a través de lo que se denomina un *extremo de entrada*. Un único rol puede tener 0, o más, extremos de entrada, y cada uno de estos extremos indica un protocolo (HTTP, HTTPS o TCP) y un puerto. Es habitual configurar un rol para que tenga dos extremos de entrada: HTTP que escucha en el puerto 80 y HTTPS que escucha en el puerto 443. En la siguiente ilustración se muestra un ejemplo de dos roles diferentes con distintos extremos de entrada que les dirigen las solicitudes de los clientes.
 
 ![imagen](./media/application-model/application-model-5.jpg)
 
-Al crear un servicio hospedado en Azure, se le asigna una dirección IP
-direccionable públicamente que los clientes pueden utilizar para poder
-tener acceso a él. Tras crear el servicio hospedado también es preciso
-seleccionar un prefijo de URL que se asigna a dicha dirección IP. Dicho
-prefijo debe ser único, ya que básicamente se reserva la URL
+Al crear un servicio hospedado en Azure, se le asigna una dirección IP direccionable públicamente que los clientes pueden utilizar para poder tener acceso a él. Tras crear el servicio hospedado también es preciso seleccionar un prefijo de URL que se asigna a dicha dirección IP. Dicho prefijo debe ser único, ya que básicamente se reserva la URL
 *prefijo*.cloudapp.net para que nadie más pueda tenerla. Los clientes se
-comunican con las instancias de rol a través de la URL. Normalmente, la
-URL *prefijo*.cloudapp.net de Azure no se distribuye ni se publica. En
-su lugar, se compra un nombre DNS al registrador de DNS que desee y se
-configura para que redireccione las solicitudes de cliente a la URL de
-Azure. Para obtener más información, consulte [Configuración de un
-nombre de dominio personalizado en Azure][1].
-## <a  id="considerations"> </a>Consideraciones acerca del diseño de servicios hospedados
+comunican con las instancias de rol a través de la URL. Normalmente, la URL *prefijo*.cloudapp.net de Azure no se distribuye ni se publica. En su lugar, se compra un nombre DNS al registrador de DNS que desee y se configura para que redireccione las solicitudes de cliente a la URL de Azure. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado en Azure][1].
 
-Al diseñar una aplicación para que se ejecute en un entorno de nube, se
-deben tener en cuenta varias consideraciones, como la latencia, la alta
-disponibilidad y la escalabilidad.
+## <a id="considerations"> </a>Consideraciones acerca del diseño de servicios hospedados
 
-Decidir dónde ubicar el código de aplicación es una consideración
-importante al ejecutar un servicio hospedado en Azure. Es habitual
-implementar la aplicación en los centros de datos más próximos a los
-clientes, con el fin de reducir la latencia y obtener el mejor
-rendimiento posible. Sin embargo, también se puede elegir un centro de
-datos más cercano a la empresa o a los datos si hay problemas
-jurisdiccionales o legales con los datos y con el lugar en que residen.
-Hay seis centros de datos por todo el mundo que sean capaces de hospedar
-el código de aplicación. En la siguiente tabla se indican las
-ubicaciones disponibles:
+Al diseñar una aplicación para que se ejecute en un entorno de nube, se deben tener en cuenta varias consideraciones, como la latencia, la alta disponibilidad y la escalabilidad.
+
+Decidir dónde ubicar el código de aplicación es una consideración importante al ejecutar un servicio hospedado en Azure. Es habitual implementar la aplicación en los centros de datos más próximos a los clientes, con el fin de reducir la latencia y obtener el mejor rendimiento posible. Sin embargo, también se puede elegir un centro de datos más cercano a la empresa o a los datos si hay problemas jurisdiccionales o legales con los datos y con el lugar en que residen. Hay seis centros de datos por todo el mundo que sean capaces de hospedar el código de aplicación. En la siguiente tabla se indican las ubicaciones disponibles:
 
 <table  border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
 <tbody>
@@ -190,128 +146,43 @@ Sudoriental
 
 </table>
 
-Al crear un servicio hospedado, se selecciona una subregión que indica
-la ubicación en la que se desea que se ejecute el código.
+Al crear un servicio hospedado, se selecciona una subregión que indica la ubicación en la que se desea que se ejecute el código.
 
-Para lograr una alta disponibilidad y escalabilidad, es muy importante
-que los datos de la aplicación se guarden en un repositorio central al
-que pueden tener acceso varias instancias de rol. Para ayudarle, Azure
-ofrece varias opciones de almacenamiento como blobs, tablas y Base de
-datos SQL. Para obtener más información acerca de estas tecnologías de
-almacenamiento, consulte el artículo [Ofertas para el almacenamiento de
-datos en Azure][2]. En la ilustración siguiente se muestra la forma en
-que el equilibrador de carga del centro de datos de Azure distribuye las
-solicitudes de cliente a diferentes instancias de rol que tienen acceso
-al mismo almacén de datos.
+Para lograr una alta disponibilidad y escalabilidad, es muy importante que los datos de la aplicación se guarden en un repositorio central al que pueden tener acceso varias instancias de rol. Para ayudarle, Azure ofrece varias opciones de almacenamiento como blobs, tablas y Base de datos SQL. Para obtener más información acerca de estas tecnologías de almacenamiento, consulte el artículo [Ofertas para el almacenamiento de datos en Azure][2]. En la ilustración siguiente se muestra la forma en que el equilibrador de carga del centro de datos de Azure distribuye las solicitudes de cliente a diferentes instancias de rol que tienen acceso al mismo almacén de datos.
 
 ![imagen](./media/application-model/application-model-6.jpg)
 
-Normalmente, el código de aplicación y los datos se ubican en el mismo
-centro de datos, ya que así se reduce la latencia (se mejora el
-rendimiento) cuando el código de aplicación obtiene acceso a los datos.
-Además, cuando los datos se mueven por el mismo centro de datos no se
-cobra el ancho de banda.
-## <a  id="scale"> </a>Diseño de aplicaciones para escala
+Normalmente, el código de aplicación y los datos se ubican en el mismo centro de datos, ya que así se reduce la latencia (se mejora el rendimiento) cuando el código de aplicación obtiene acceso a los datos. Además, cuando los datos se mueven por el mismo centro de datos no se cobra el ancho de banda.
 
-A veces puede tomar una aplicación individual (como un sitio web simple)
-y hospedarla en Azure. Pero con frecuencia, una aplicación puede constar
-de varios roles que funcionan conjuntamente. Por ejemplo, en la
-ilustración siguiente hay dos instancias de rol de sitio web, tres
-instancias de rol de procesamiento de pedidos y una instancia del rol de
-generador de informes. Todos estos roles funcionan conjuntamente y el
-código de todos ellos se puede empaquetar conjuntamente e implementarlo
-como una única unidad en Azure.
+## <a id="scale"> </a>Diseño de aplicaciones para escala
+
+A veces puede tomar una aplicación individual (como un sitio web simple) y hospedarla en Azure. Pero con frecuencia, una aplicación puede constar de varios roles que funcionan conjuntamente. Por ejemplo, en la ilustración siguiente hay dos instancias de rol de sitio web, tres instancias de rol de procesamiento de pedidos y una instancia del rol de generador de informes. Todos estos roles funcionan conjuntamente y el código de todos ellos se puede empaquetar conjuntamente e implementarlo como una única unidad en Azure.
 
 ![imagen](./media/application-model/application-model-7.jpg)
 
-La razón principal para dividir una aplicación en distintos roles, cada
-uno de ellos ejecutándose en su propio conjunto de instancias de rol (es
-decir, VM), es escalar los roles de forma independiente. Por ejemplo,
-durante el periodo vacacional, es posible que muchos clientes compren
-productos en su empresa, por lo que quizás desee aumentar el número de
-instancias de rol que ejecutan su rol de sitio web, así como el número
-de instancias de rol que ejecutan su rol de procesamiento de pedidos.
-Después del periodo vacacional es posible que devuelvan muchos
-productos, por lo que es posible que siga necesitando muchas instancias
-de sitio web, pero menos de procesamiento de pedidos. Durante el resto
-del año, es posible que necesite pocas instancias de sitio web y de
-procesamiento de pedidos. Durante todo el tiempo, es posible que solo
-necesite una instancia de generador de informes. La flexibilidad de las
-implementaciones basadas en roles en Azure le permite adaptar fácilmente
-su aplicación a sus necesidades empresariales.
+La razón principal para dividir una aplicación en distintos roles, cada uno de ellos ejecutándose en su propio conjunto de instancias de rol (es decir, VM), es escalar los roles de forma independiente. Por ejemplo, durante el periodo vacacional, es posible que muchos clientes compren productos en su empresa, por lo que quizás desee aumentar el número de instancias de rol que ejecutan su rol de sitio web, así como el número de instancias de rol que ejecutan su rol de procesamiento de pedidos. Después del periodo vacacional es posible que devuelvan muchos productos, por lo que es posible que siga necesitando muchas instancias de sitio web, pero menos de procesamiento de pedidos. Durante el resto del año, es posible que necesite pocas instancias de sitio web y de procesamiento de pedidos. Durante todo el tiempo, es posible que solo necesite una instancia de generador de informes. La flexibilidad de las implementaciones basadas en roles en Azure le permite adaptar fácilmente su aplicación a sus necesidades empresariales.
 
-Es común que las instancias de rol del servicio hospedado se comuniquen
-entre sí. Por ejemplo, el rol de sitio web acepta un pedido de un
-cliente, pero posteriormente descarga el procesamiento de dicho pedido a
-las instancias del rol de procesamiento de pedidos. La mejor forma de
-pasar trabajo de un conjunto de instancias de rol a otro es utilizar la
-tecnología de puesta en cola que proporciona Azure, el servicio de la
-cola o las colas del Bus de servicio. Aquí es fundamental utilizar una
-cola, ya que la cola permite al servicio hospedado escalar sus roles de
-forma independiente, lo que le permite lograr el equilibrio entre carga
-de trabajo y coste. Si el número de mensajes de la cola aumenta con el
-tiempo, puede escalar verticalmente el número de instancias de rol de
-procesamiento de pedidos. Si el número de mensajes de la cola disminuye
-con el tiempo, puede reducir verticalmente el número de instancias de
-rol de procesamiento de pedidos. De esta forma, solo va a pagar por las
-instancias necesarias para controlar la carga de trabajo real.
+Es común que las instancias de rol del servicio hospedado se comuniquen entre sí. Por ejemplo, el rol de sitio web acepta un pedido de un cliente, pero posteriormente descarga el procesamiento de dicho pedido a las instancias del rol de procesamiento de pedidos. La mejor forma de pasar trabajo de un conjunto de instancias de rol a otro es utilizar la tecnología de puesta en cola que proporciona Azure, el servicio de la cola o las colas del Bus de servicio. Aquí es fundamental utilizar una cola, ya que la cola permite al servicio hospedado escalar sus roles de forma independiente, lo que le permite lograr el equilibrio entre carga de trabajo y coste. Si el número de mensajes de la cola aumenta con el tiempo, puede escalar verticalmente el número de instancias de rol de procesamiento de pedidos. Si el número de mensajes de la cola disminuye con el tiempo, puede reducir verticalmente el número de instancias de rol de procesamiento de pedidos. De esta forma, solo va a pagar por las instancias necesarias para controlar la carga de trabajo real.
 
-La cola también proporciona confiabilidad. Al reducir verticalmente el
-número de instancias de rol de procesamiento de pedidos, Azure decide
-las instancias que va a terminar. Puede decidir terminar una instancia
-que esté en medio del procesamiento del mensaje de una cola. Sin
-embargo, como el procesamiento del mensaje no ha finalizado
-correctamente, otra instancia del rol de procesamiento de pedidos vuelve
-a ver el mensaje, por lo que lo selecciona y lo procesa. Dada la
-visibilidad de los mensajes de la cola, se garantiza que finalmente
-todos ellos se procesan. La cola también actúa como equilibrador de
-carga, ya que distribuye eficazmente sus mensajes a todas las instancias
-de rol que se los solicitan.
+La cola también proporciona confiabilidad. Al reducir verticalmente el número de instancias de rol de procesamiento de pedidos, Azure decide las instancias que va a terminar. Puede decidir terminar una instancia que esté en medio del procesamiento del mensaje de una cola. Sin embargo, como el procesamiento del mensaje no ha finalizado correctamente, otra instancia del rol de procesamiento de pedidos vuelve a ver el mensaje, por lo que lo selecciona y lo procesa. Dada la visibilidad de los mensajes de la cola, se garantiza que finalmente todos ellos se procesan. La cola también actúa como equilibrador de carga, ya que distribuye eficazmente sus mensajes a todas las instancias de rol que se los solicitan.
 
-En el caso de las instancias de rol de sitio web, es posible tanto
-supervisar el tráfico que llega a ellas como decidir escalar
-verticalmente varias de ellas. La cola permite escalar el número de
-instancias de rol de sitio web independientemente de las instancias del
-rol de procesamiento de pedidos. Esta posibilidad es muy eficaz y le
-proporciona gran flexibilidad. Indudablemente, si la aplicación contiene
-roles adicionales, se pueden agregar colas adicionales como conducto
-para comunicarse entre ellos, a fin de sacar provecho de los mismos
-beneficios de ajuste de escala y coste.
-## <a  id="defandcfg"> </a>Definición y configuración de servicios hospedados
+En el caso de las instancias de rol de sitio web, es posible tanto supervisar el tráfico que llega a ellas como decidir escalar verticalmente varias de ellas. La cola permite escalar el número de instancias de rol de sitio web independientemente de las instancias del rol de procesamiento de pedidos. Esta posibilidad es muy eficaz y le proporciona gran flexibilidad. Indudablemente, si la aplicación contiene roles adicionales, se pueden agregar colas adicionales como conducto para comunicarse entre ellos, a fin de sacar provecho de los mismos beneficios de ajuste de escala y coste.
 
-La implementación de un servicio hospedado en Azure requiere tener
-también un archivo de definición de servicio y un archivo de
-configuración de servicio. Ambos son archivos XML y permiten especificar
-mediante declaración las opciones de implementación de un servicio
-hospedado. El archivo de definición de servicio describe todos los roles
-que conforman un servicio hospedado y la forma en que se comunican. El
-archivo de configuración de servicio describe el número de instancias de
-cada rol y la configuración de cada una de estas instancias.
-## <a  id="def"> </a>Archivo de definición de servicio
+## <a id="defandcfg"> </a>Definición y configuración de servicios hospedados
 
-Como ya se ha mencionado, el archivo de definición de servicio (CSDEF)
-es un archivo XML que describe los distintos roles que conforman toda la
-aplicación. Aquí se puede encontrar el esquema completo del archivo XML:
-\[http://msdn.microsoft.com/es-es/library/windowsazure/ee758711.aspx\]\[\].
-El archivo CSDEF contiene un elemento WebRole o WorkerRole para cada rol
-que desee en su aplicación. La implementación de un rol como rol web
+La implementación de un servicio hospedado en Azure requiere tener también un archivo de definición de servicio y un archivo de configuración de servicio. Ambos son archivos XML y permiten especificar mediante declaración las opciones de implementación de un servicio hospedado. El archivo de definición de servicio describe todos los roles que conforman un servicio hospedado y la forma en que se comunican. El archivo de configuración de servicio describe el número de instancias de cada rol y la configuración de cada una de estas instancias.
+
+## <a id="def"> </a>Archivo de definición de servicio
+
+Como ya se ha mencionado, el archivo de definición de servicio (CSDEF) es un archivo XML que describe los distintos roles que conforman toda la aplicación. Aquí se puede encontrar el esquema completo del archivo XML:
+[http://msdn.microsoft.com/es-es/library/windowsazure/ee758711.aspx].
+El archivo CSDEF contiene un elemento WebRole o WorkerRole para cada rol que desee en su aplicación. La implementación de un rol como rol web
 (mediante el elemento WebRole) significa que el código se ejecutará en
-una instancia de rol que contenga Windows Server 2008 e Internet
-Information Services (IIS). La implementación de un rol como rol de
-trabajo (mediante el elemento WorkerRole) significa que la instancia de
-rol tendrá Windows Server 2008 (IIS no estará instalado).
+una instancia de rol que contenga Windows Server 2008 e Internet Information Services (IIS). La implementación de un rol como rol de trabajo (mediante el elemento WorkerRole) significa que la instancia de rol tendrá Windows Server 2008 (IIS no estará instalado).
 
-Puede crear e implementar un rol de trabajo que use otro mecanismo para
-escuchar solicitudes web de entrada (por ejemplo, el código podría crear
-y usar un HttpListener .NET). Dado que todas las instancias de rol
-ejecutan Windows Server 2008, el código puede realizar todas las
-operaciones que normalmente están a disposición de cualquier aplicación
-que se ejecute en Windows Server 2008.
+Puede crear e implementar un rol de trabajo que use otro mecanismo para escuchar solicitudes web de entrada (por ejemplo, el código podría crear y usar un HttpListener .NET). Dado que todas las instancias de rol ejecutan Windows Server 2008, el código puede realizar todas las operaciones que normalmente están a disposición de cualquier aplicación que se ejecute en Windows Server 2008.
 
-En cada rol se indica el tamaño de VM deseado que las instancias de
-dicho rol deben usar. En la siguiente tabla se muestran los distintos
-tamaños de VM disponibles en la actualidad y los atributos de cada uno
-de ellos:
+En cada rol se indica el tamaño de VM deseado que las instancias de dicho rol deben usar. En la siguiente tabla se muestran los distintos tamaños de VM disponibles en la actualidad y los atributos de cada uno de ellos:
 
 <table  border="2" cellspacing="0" cellpadding="5" style="border: 2px solid #000000;">
 <tbody>
@@ -487,22 +358,9 @@ de ellos:
 
 </table>
 
-Se cobra por horas cada VM que se usa como instancia de rol y también se
-cobran todos los datos que las instancias de rol envían fuera del centro
-de datos. No se cobra por los datos que entran en el centro de datos.
-Para obtener más información, consulte [Precios de Azure][3]. En
-general, se aconseja utilizar muchas instancias de rol pequeñas, en
-lugar de pocas instancias grandes, con lo que la aplicación será más
-resistente ante errores. Después de todo, cuantas menos instancias de
-rol tenga, más perjudicial resulta un error en cualquiera de ellas para
-la aplicación general. Además, como se ha indicado anteriormente, debe
-implementar al menos dos instancias en cada rol para obtener el contrato
-del nivel de servicio del 99,95% que Microsoft proporciona.
+Se cobra por horas cada VM que se usa como instancia de rol y también se cobran todos los datos que las instancias de rol envían fuera del centro de datos. No se cobra por los datos que entran en el centro de datos. Para obtener más información, consulte [Precios de Azure][3]. En general, se aconseja utilizar muchas instancias de rol pequeñas, en lugar de pocas instancias grandes, con lo que la aplicación será más resistente ante errores. Después de todo, cuantas menos instancias de rol tenga, más perjudicial resulta un error en cualquiera de ellas para la aplicación general. Además, como se ha indicado anteriormente, debe implementar al menos dos instancias en cada rol para obtener el contrato del nivel de servicio del 99,95% que Microsoft proporciona.
 
-El archivo de definición de servicio (CSDEF) es también el lugar en el
-que se especifican muchos atributos acerca de cada rol de la aplicación.
-Estos son algunos de los elementos más útiles que tiene a su
-disposición:
+El archivo de definición de servicio (CSDEF) es también el lugar en el que se especifican muchos atributos acerca de cada rol de la aplicación. Estos son algunos de los elementos más útiles que tiene a su disposición:
 
 * **Certificados**. Los certificados se usan para cifrar datos o si un
   servicio web admite SSL. Todos los certificados tienen que cargarse en
@@ -545,16 +403,12 @@ disposición:
   de instalar los componentes necesarios en una instancia de rol cuando
   se arranca. Si se requiere, las tareas se pueden ejecutar con permisos
   elevados como administrador.
-## <a  id="cfg"> </a>Archivo de configuración de servicio
 
-El archivo de configuración de servicio (CSCFG) es un archivo XML que
-describe las opciones que se pueden cambiar sin tener que volver a
-implementar la aplicación. Aquí se puede encontrar el esquema completo
-del archivo XML:
+## <a id="cfg"> </a>Archivo de configuración de servicio
+
+El archivo de configuración de servicio (CSCFG) es un archivo XML que describe las opciones que se pueden cambiar sin tener que volver a implementar la aplicación. Aquí se puede encontrar el esquema completo del archivo XML:
 [http://msdn.microsoft.com/es-es/library/windowsazure/ee758710.aspx][5].
-El archivo CSCFG contiene un elemento Role para cada rol de la
-aplicación. Estos son algunos de los elementos que se pueden especificar
-en el archivo CSCFG:
+El archivo CSCFG contiene un elemento Role para cada rol de la aplicación. Estos son algunos de los elementos que se pueden especificar en el archivo CSCFG:
 
 * **Versión de SO**. Este atributo permite seleccionar la versión del
   sistema operativo que se desea que se use en todas las instancias de
@@ -590,38 +444,18 @@ en el archivo CSCFG:
   opciones de configuración se suelen usar para las cadenas de conexión
   a Base de datos SQL o a Almacenamiento de Azure, pero se pueden usar
   para cualquier fin que se desee.
-## <a  id="hostedservices"> </a>Creación e implementación de servicios hospedados
 
-La creación de un servicio hospedado requiere que, en primer lugar, vaya
-al Portal de administración de Azure y aprovisione un servicio hospedado
-mediante la especificación de un prefijo de DNS y el centro de datos en
-el que desea que se ejecute el código. A continuación, en su entorno de
-desarrollo, cree el archivo de definición de servicio (CSDEF), compile
-su código de aplicación y empaquete (comprima) todos estos archivos en
-un archivo de paquete de servicio (CSPKG). También debe preparar su
-archivo de configuración de servicio (CSCFG). Para implementar su rol,
-cargue los archivos CSPKG y CSCFG con la API de administración de
-servicios de Azure. Una vez implementado, Azure aprovisionará instancias
-de rol en el centro de datos (basándose en los datos de configuración),
-extraerá del paquete el código de aplicación, lo copiará en las
-instancias de rol y arrancará las instancias. Ahora el código ya está en
-funcionamiento.
+## <a id="hostedservices"> </a>Creación e implementación de servicios hospedados
 
-En la siguiente ilustración se muestran los archivos CSPKG y CSCFG que
-crea en el equipo de desarrollo. El archivo CSPKG contiene el archivo
-CSDEF y el código de dos roles. Después de cargar los archivos CSPKG y
-CSCFG con la API de administración de servicios de Azure, Azure crea las
-instancias de rol en el centro de datos. En este ejemplo, el archivo
-CSCFG indicaba que Azure debería crear tres instancias del rol 1 y dos
-instancias del rol 2.
+La creación de un servicio hospedado requiere que, en primer lugar, vaya al Portal de administración de Azure y aprovisione un servicio hospedado mediante la especificación de un prefijo de DNS y el centro de datos en el que desea que se ejecute el código. A continuación, en su entorno de desarrollo, cree el archivo de definición de servicio (CSDEF), compile su código de aplicación y empaquete (comprima) todos estos archivos en un archivo de paquete de servicio (CSPKG). También debe preparar su archivo de configuración de servicio (CSCFG). Para implementar su rol, cargue los archivos CSPKG y CSCFG con la API de administración de servicios de Azure. Una vez implementado, Azure aprovisionará instancias de rol en el centro de datos (basándose en los datos de configuración), extraerá del paquete el código de aplicación, lo copiará en las instancias de rol y arrancará las instancias. Ahora el código ya está en funcionamiento.
+
+En la siguiente ilustración se muestran los archivos CSPKG y CSCFG que crea en el equipo de desarrollo. El archivo CSPKG contiene el archivo CSDEF y el código de dos roles. Después de cargar los archivos CSPKG y CSCFG con la API de administración de servicios de Azure, Azure crea las instancias de rol en el centro de datos. En este ejemplo, el archivo CSCFG indicaba que Azure debería crear tres instancias del rol 1 y dos instancias del rol 2.
 
 ![imagen](./media/application-model/application-model-8.jpg)
 
-Para obtener más información acerca de cómo implementar, actualizar y
-volver a configurar roles, consulte el artículo [Implementación y
-actualización de aplicaciones de Azure][8].<a data-morhtml="true"
-id="Ref" name="Ref" />
-## <a  id="references"> </a>Referencias
+Para obtener más información acerca de cómo implementar, actualizar y volver a configurar roles, consulte el artículo [Implementación y actualización de aplicaciones de Azure][8].<a data-morhtml="true" id="Ref" name="Ref" />
+
+## <a id="references"> </a>Referencias
 
 * [Creating a Hosted Service for Azure][9]
 

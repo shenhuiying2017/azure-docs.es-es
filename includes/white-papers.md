@@ -1,8 +1,7 @@
 <h1>Documentos sobre Azure</h1>
 
 
-Los documentos que se muestran a continuación proporcionan puntos de
-vista y perspectivas adicionales sobre los servicios de Azure.
+Los documentos que se muestran a continuación proporcionan puntos de vista y perspectivas adicionales sobre los servicios de Azure.
 
 
 (en orden de popularidad)
@@ -12,7 +11,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
     <tbody>
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9751405">Security Best Practices For Developing Azure Applications</a>
+          <a href="http://go.microsoft.com/?linkid=9751405">Security Best Practices For Developing Azure Applications</a>
 
         </td>
 
@@ -22,7 +21,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf">Azure Security Overview</a>
+          <a href="http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf">Azure Security Overview</a>
 
         </td>
 
@@ -32,7 +31,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://download.microsoft.com/download/F/2/6/F26E80C5-C43B-4913-99AB-F2E4DFBFCBBF/Single%20Sign-On%20from%20Active%20Directory%20to%20a%20Windows%20Azure%20Application%20Whitepaper-RTW.pdf">Single Sign-On from Active Directory to a Azure Application Whitepaper</a>
+          <a href="http://download.microsoft.com/download/F/2/6/F26E80C5-C43B-4913-99AB-F2E4DFBFCBBF/Single%20Sign-On%20from%20Active%20Directory%20to%20a%20Windows%20Azure%20Application%20Whitepaper-RTW.pdf">Single Sign-On from Active Directory to a Azure Application Whitepaper</a>
 
         </td>
 
@@ -42,7 +41,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/fwlink/?LinkId=153401">Azure Table - Programming Table Storage</a>
+          <a href="http://go.microsoft.com/fwlink/?LinkId=153401">Azure Table - Programming Table Storage</a>
 
         </td>
 
@@ -52,7 +51,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9751403">A Developer's Guide to Service Bus for the Azure AppFabric</a>
+          <a href="http://go.microsoft.com/?linkid=9751403">A Developer's Guide to Service Bus for the Azure AppFabric</a>
 
         </td>
 
@@ -62,7 +61,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/fwlink/?LinkId=153402">Azure Queue - Programming Queue Storage</a>
+          <a href="http://go.microsoft.com/fwlink/?LinkId=153402">Azure Queue - Programming Queue Storage</a>
 
         </td>
 
@@ -72,7 +71,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9710117">Azure Drive Whitepaper - Using a Durable Drive for your NTFS Cloud Applications</a>
+          <a href="http://go.microsoft.com/?linkid=9710117">Azure Drive Whitepaper - Using a Durable Drive for your NTFS Cloud Applications</a>
 
         </td>
 
@@ -82,7 +81,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9682907">Introducing Azure</a>
+          <a href="http://go.microsoft.com/?linkid=9682907">Introducing Azure</a>
 
         </td>
 
@@ -92,7 +91,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/fwlink/?LinkId=153400">Azure Blob - Programming Blob Storage</a>
+          <a href="http://go.microsoft.com/fwlink/?LinkId=153400">Azure Blob - Programming Blob Storage</a>
 
         </td>
 
@@ -102,7 +101,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9751501">The Azure Programming Model</a>
+          <a href="http://go.microsoft.com/?linkid=9751501">The Azure Programming Model</a>
 
         </td>
 
@@ -113,7 +112,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9752158">Windows HPC Server and Azure</a>
+          <a href="http://go.microsoft.com/?linkid=9752158">Windows HPC Server and Azure</a>
 
         </td>
 
@@ -123,7 +122,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9692818">Similarities and Differences - SQL Azure vs. SQL Server</a>
+          <a href="http://go.microsoft.com/?linkid=9692818">Similarities and Differences - SQL Azure vs. SQL Server</a>
 
         </td>
 
@@ -133,7 +132,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9752188">IT as a Service</a>
+          <a href="http://go.microsoft.com/?linkid=9752188">IT as a Service</a>
 
         </td>
 
@@ -143,7 +142,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9736945">Security Guidelines for SQL Azure</a>
+          <a href="http://go.microsoft.com/?linkid=9736945">Security Guidelines for SQL Azure</a>
 
         </td>
 
@@ -153,7 +152,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://download.microsoft.com/download/E/B/5/EB512F2E-7771-40A3-8025-0DC6D9429951/An%20Introduction%20to%20Windows%20Azure%20platform%20AppFabric%20for%20Developers.docx">An Introduction to Azure AppFabric for Developers</a>
+          <a href="http://download.microsoft.com/download/E/B/5/EB512F2E-7771-40A3-8025-0DC6D9429951/An%20Introduction%20to%20Windows%20Azure%20platform%20AppFabric%20for%20Developers.docx">An Introduction to Azure AppFabric for Developers</a>
 
         </td>
 
@@ -163,7 +162,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://download.microsoft.com/download/F/9/E/F9EAD956-18D1-42D8-AB1C-7F119856ABBF/Windows%20Azure%20for%20ISVs,%20v1.2--Chappell.pdf">Azure and ISVs - A Guide for Decision Makers</a>
+          <a href="http://download.microsoft.com/download/F/9/E/F9EAD956-18D1-42D8-AB1C-7F119856ABBF/Windows%20Azure%20for%20ISVs,%20v1.2--Chappell.pdf">Azure and ISVs - A Guide for Decision Makers</a>
 
         </td>
 
@@ -173,7 +172,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9751401">Cloud Optimization - A framework for making business decisions about cloud computing</a>
+          <a href="http://go.microsoft.com/?linkid=9751401">Cloud Optimization - A framework for making business decisions about cloud computing</a>
 
         </td>
 
@@ -183,7 +182,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://download.microsoft.com/download/C/A/7/CA7A9801-736E-421E-A386-16B37C83FFE8/Windows-Azure-AppFabric-PDC10-Overview.docx">Azure AppFabric Overview</a>
+          <a href="http://download.microsoft.com/download/C/A/7/CA7A9801-736E-421E-A386-16B37C83FFE8/Windows-Azure-AppFabric-PDC10-Overview.docx">Azure AppFabric Overview</a>
 
         </td>
 
@@ -193,7 +192,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9752190">Cloud Economics</a>
+          <a href="http://go.microsoft.com/?linkid=9752190">Cloud Economics</a>
 
         </td>
 
@@ -203,7 +202,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9696879">System Integrator Whitepaper</a>
+          <a href="http://go.microsoft.com/?linkid=9696879">System Integrator Whitepaper</a>
 
         </td>
 
@@ -213,7 +212,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9761001">Cloud Platforms for Business Leaders</a>
+          <a href="http://go.microsoft.com/?linkid=9761001">Cloud Platforms for Business Leaders</a>
 
         </td>
 
@@ -223,7 +222,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9776229">Architecting Applications to Use Azure AppFabric Caching</a>
+          <a href="http://go.microsoft.com/?linkid=9776229">Architecting Applications to Use Azure AppFabric Caching</a>
 
         </td>
 
@@ -233,7 +232,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9686976">Overview of Microsoft SQL Azure</a>
+          <a href="http://go.microsoft.com/?linkid=9686976">Overview of Microsoft SQL Azure</a>
 
         </td>
 
@@ -243,7 +242,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9737837">Custom IIS Web/Microsoft SQL Server Application Migration Scenario</a>
+          <a href="http://go.microsoft.com/?linkid=9737837">Custom IIS Web/Microsoft SQL Server Application Migration Scenario</a>
 
         </td>
 
@@ -253,7 +252,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9737839">Custom Web (Rapid Scaling Focus) Application Migration Scenario</a>
+          <a href="http://go.microsoft.com/?linkid=9737839">Custom Web (Rapid Scaling Focus) Application Migration Scenario</a>
 
         </td>
 
@@ -263,7 +262,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9737838">Custom E-Commerce (Elasticity Focus) Application Migration Scenario</a>
+          <a href="http://go.microsoft.com/?linkid=9737838">Custom E-Commerce (Elasticity Focus) Application Migration Scenario</a>
 
         </td>
 
@@ -273,7 +272,7 @@ vista y perspectivas adicionales sobre los servicios de Azure.
 
       <tr>
         <td  style="width: 200px;">
-          <a  href="http://go.microsoft.com/?linkid=9736946">Developing and Deploying with SQL Azure</a>
+          <a href="http://go.microsoft.com/?linkid=9736946">Developing and Deploying with SQL Azure</a>
 
         </td>
 
@@ -285,4 +284,3 @@ vista y perspectivas adicionales sobre los servicios de Azure.
   
 </tbody>
 </table>
-

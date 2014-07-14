@@ -1,25 +1,13 @@
-<a  id="what-are-service-bus-queues" ></a>
-##&iquest;Qué son las colas del bus de servicio?
+<a id="what-are-service-bus-queues" ></a>
 
-Las colas del bus de servicio son compatibles con el modelo de
-**comunicación de mensajería asíncrona**. Cuando se usan colas, los
-componentes de una aplicación distribuida no se comunican directamente
-entre ellos, sino que intercambian mensajes a través de una cola, que
-actúa como un intermediario. El productor del mensaje (remitente) manda
-un mensaje a la cola y, a continuación sigue con su procesamiento. De
-forma asíncrona, el destinatario del mensaje (receptor) extrae el
-mensaje de la cola y lo procesa. El productor no tiene que esperar una
-respuesta del destinatario para continuar el proceso y el envío de más
-mensajes. Las colas ofrecen una entrega de mensajes **FIFO (PEPS,
-primero en entrar, primero en salir)** a uno o más destinatarios de la
-competencia. Es decir, normalmente los receptores reciben y procesan los
-mensajes en el orden en el que se agregaron a la cola y solo un
-destinatario del mensaje recibe y procesa cada uno de los mensajes.
+## &iquest;Qué son las colas del bus de servicio?
+
+Las colas del bus de servicio son compatibles con el modelo de **comunicación de mensajería asíncrona**. Cuando se usan colas, los
+componentes de una aplicación distribuida no se comunican directamente entre ellos, sino que intercambian mensajes a través de una cola, que actúa como un intermediario. El productor del mensaje (remitente) manda un mensaje a la cola y, a continuación sigue con su procesamiento. De forma asíncrona, el destinatario del mensaje (receptor) extrae el mensaje de la cola y lo procesa. El productor no tiene que esperar una respuesta del destinatario para continuar el proceso y el envío de más mensajes. Las colas ofrecen una entrega de mensajes **FIFO (PEPS, primero en entrar, primero en salir)** a uno o más destinatarios de la competencia. Es decir, normalmente los receptores reciben y procesan los mensajes en el orden en el que se agregaron a la cola y solo un destinatario del mensaje recibe y procesa cada uno de los mensajes.
 
 ![QueueConcepts](./media/howto-service-bus-queues/sb-queues-08.png)
 
-Las colas del bus de servicio son una tecnología de uso general que
-puede utilizarse en una variedad de escenarios:
+Las colas del bus de servicio son una tecnología de uso general que puede utilizarse en una variedad de escenarios:
 
 * Comunicación entre los roles de trabajo y web en una aplicación de
   Azure de niveles múltiples
@@ -29,95 +17,60 @@ puede utilizarse en una variedad de escenarios:
   ejecuta en local en distintas organizaciones o departamentos de una
   organización
 
-El uso de las colas puede permitirle escalar mejor sus aplicaciones
-horizontalmente y dotar de más resiliencia a su arquitectura.
+El uso de las colas puede permitirle escalar mejor sus aplicaciones horizontalmente y dotar de más resiliencia a su arquitectura.
 
-<a  id="create-a-service-namespace" ></a>
+<a id="create-a-service-namespace" ></a>
 
 <h2>Creación de un espacio de nombres de servicio</h2>
 
 
-Para comenzar a usar colas del bus de servicio en Azure, primero debe
-crear un espacio de nombres de servicio. Un espacio de nombres de
-servicio proporciona un contenedor con un ámbito para el desvío de
-recursos del bus de servicio en la aplicación.
+Para comenzar a usar colas del bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
 
 Para crear un nombre de espacio de servicio:
 
 1.  Inicie sesión en el [Portal de administración de Azure][1].
 
-2.  En el panel de navegación izquierdo del Portal de administración,
-    haga clic en **Bus de servicio**.
+2.  En el panel de navegación izquierdo del Portal de administración, haga clic en **Bus de servicio**.
 
-3.  En el panel inferior del Portal de administración, haga clic en
-    **Create**.   
+3.  En el panel inferior del Portal de administración, haga clic en **Create**.   
      ![](./media/howto-service-bus-queues/sb-queues-03.png)
 
-4.  En el cuadro de diálogo **Add a new namespace**, especifique un
-    nombre de espacio de nombres. El sistema realiza la comprobación
-    automáticamente para ver si el nombre está disponible.   
+4.  En el cuadro de diálogo **Add a new namespace**, especifique un nombre de espacio de nombres. El sistema realiza la comprobación automáticamente para ver si el nombre está disponible.   
      ![](./media/howto-service-bus-queues/sb-queues-04.png)
 
-5.  Después de asegurarse de que el nombre de espacio de nombres esté
-    disponible, seleccione el país o región en el que debe hospedarse el
-    espacio de nombres (asegúrese de que usa el mismo país o la misma
-    región en los que está realizando la implementación de los recursos
-    de proceso).
+5.  Después de asegurarse de que el nombre de espacio de nombres esté disponible, seleccione el país o región en el que debe hospedarse el espacio de nombres (asegúrese de que usa el mismo país o la misma región en los que está realizando la implementación de los recursos de proceso).
     
-    IMPORTANTE: seleccione la **misma región** que vaya a seleccionar
-    para la implementación de la aplicación. Con esto conseguirá el
-    máximo rendimiento.
+    IMPORTANTE: seleccione la **misma región** que vaya a seleccionar para la implementación de la aplicación. Con esto conseguirá el máximo rendimiento.
 
-6.  Haga clic en la marca de verificación. El sistema crea ahora el
-    espacio de nombres del servicio y lo habilita. Es posible que tenga
-    que esperar algunos minutos mientras el sistema realiza el
-    aprovisionamiento de los recursos para la cuenta.
+6.  Haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
     
     ![](./media/howto-service-bus-queues/getting-started-multi-tier-27.png)
 
-El espacio de nombres que creó aparecerá a continuación en el Portal de
-administración y tardará un poco en activarse. Espere hasta que el
-estado sea **Active** antes de continuar.
+El espacio de nombres que creó aparecerá a continuación en el Portal de administración y tardará un poco en activarse. Espere hasta que el estado sea **Active** antes de continuar.
 
-<a  id="obtain-default-credentials" ></a>
+<a id="obtain-default-credentials" ></a>
 
 <h2>Obtención de credenciales de administración predeterminadas para el espacio de nombres</h2>
 
 
-Para realizar operaciones de administración (como la creación de una
-cola) en el nuevo espacio de nombres, debe obtener las credenciales de
-administración para el espacio de nombres. Puede obtener estas
-credenciales en el Portal de administración o en el Explorador de
-servidores de Visual Studio.
+Para realizar operaciones de administración (como la creación de una cola) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres. Puede obtener estas credenciales en el Portal de administración o en el Explorador de servidores de Visual Studio.
+
 ### Para obtener las credenciales de administración desde el portal
 
-1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de
-    servicio** para ver la lista de espacios de nombres disponibles:   
+1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para ver la lista de espacios de nombres disponibles:   
      ![](./media/howto-service-bus-queues/sb-queues-13.png)
 
-2.  Seleccione el espacio de nombres que acaba de crear en la lista
-    desplegable:   
+2.  Seleccione el espacio de nombres que acaba de crear en la lista desplegable:   
      ![](./media/howto-service-bus-queues/sb-queues-09.png)
 
 3.  Haga clic en **Connection Information**.   
      ![](./media/howto-service-bus-queues/sb-queues-06.png)
 
-4.  En el cuadro de diálogo **Access connection information**, busque
-    las entradas **Default Issuer** y **Default Key**. Anote estos
-    valores, ya que usará la información que aparece a continuación para
-    realizar operaciones con el espacio de nombres.
+4.  En el cuadro de diálogo **Access connection information**, busque las entradas **Default Issuer** y **Default Key**. Anote estos valores, ya que usará la información que aparece a continuación para realizar operaciones con el espacio de nombres.
+
 ### Para obtener las credenciales de administración desde el Explorador de servidores
 
-Para obtener la información de conexión utilizando Visual Studio en vez
-del Portal de administración, siga el procedimiento descrito [aquí][2],
-en la sección titulada **Para conectar a Azure desde Visual Studio**. Al
-iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol
-**Microsoft Azure** del Explorador de servidores se rellena
-automáticamente con los espacios de nombre que ya haya creado. Haga clic
-con el botón secundario en cualquier espacio de nombre, a continuación
-haga clic en **Propiedades** para ver la cadena de conexión y otros
-metadatos asociados a este nombre de espacio en el panel **Propiedades**
-de Visual Studio.
+Para obtener la información de conexión utilizando Visual Studio en vez del Portal de administración, siga el procedimiento descrito [aquí][2], en la sección titulada **Para conectar a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Microsoft Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombre que ya haya creado. Haga clic con el botón secundario en cualquier espacio de nombre, a continuación haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio.
 
 Anote el valor de **SharedAccessKey**, o cópielo en el Portapapeles:
 

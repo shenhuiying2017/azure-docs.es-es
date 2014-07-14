@@ -12,8 +12,7 @@ Azure.
 	<p>Descargue el archivo de suscripción en una carpeta ajena a los directorios de código fuente (por ejemplo, en la carpeta Descargas) y elimínelo una vez que finalice la importación. Si un usuario malintencionado obtuviera acceso al archivo de suscripción, podría editar, crear y eliminar servicios de Azure.</p>
 </div>
 
-Para obtener más información, consulte [Administrar cuentas,
-suscripciones y roles administrativos][1].
+	Para obtener más información, consulte [Administrar cuentas, suscripciones y roles administrativos][1].
 
 
 

@@ -1,16 +1,12 @@
-<h2><a  id="AdditionalServices" ></a><span  class="short-header">Uso de servicios Twilio adicionales</span>Uso de servicios Twilio adicionales</h2>
+<h2><a id="AdditionalServices" ></a><span  class="short-header">Uso de servicios Twilio adicionales</span>Uso de servicios Twilio adicionales</h2>
 
 
-Además de los ejemplos aquí mostrados, Twilio ofrece API basadas en Web
-que puede utilizar para aprovechar las funciones adicionales de Twilio
-desde su aplicación de Azure. Para obtener los detalles completos,
-consulte [Twilio API documentation][1].
+Además de los ejemplos aquí mostrados, Twilio ofrece API basadas en Web que puede utilizar para aprovechar las funciones adicionales de Twilio desde su aplicación de Azure. Para obtener los detalles completos, consulte [Twilio API documentation][1].
 
-<h2><a  id="NextSteps" ></a><span  class="short-header">Pasos siguientes</span>Pasos siguientes</h2>
+<h2><a id="NextSteps" ></a><span  class="short-header">Pasos siguientes</span>Pasos siguientes</h2>
 
 
-Ahora que conoce los fundamentos del servicio Twilio, siga estos
-vínculos para obtener más información:
+Ahora que conoce los fundamentos del servicio Twilio, siga estos vínculos para obtener más información:
 
 * [Twilio Security Guidelines][2]
 * [Twilio HowTos and Example Code][3]

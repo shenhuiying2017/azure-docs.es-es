@@ -1,7 +1,6 @@
-Necesita una cuenta de almacenamiento de Azure para usar operaciones de
-almacenamiento. Siga estos pasos para crear una cuenta de
-almacenamiento. También puede crear una cuenta de almacenamiento [usando
-la API de REST][1].
+Necesita una cuenta de almacenamiento de Azure para usar operaciones de almacenamiento. 
+Siga estos pasos para crear una cuenta de almacenamiento. (También puede 
+crear una cuenta de almacenamiento [usando la API de REST][1].)
 
 1.  Inicie sesión en el [Portal de administración de Azure][2].
 
@@ -9,8 +8,7 @@ la API de REST][1].
     
     ![+new](./media/create-storage-account/plus-new.png)
 
-3.  Haga clic en **DATA SERVICES**, en **STORAGE** y, a continuación, en
-    **QUICK CREATE**.
+3.  Haga clic en **DATA SERVICES**, en **STORAGE** y, a continuación, en **QUICK CREATE**.
     
     ![Cuadro de di&aacute;logo Quick
     create](./media/create-storage-account/quick-storage-2.png)

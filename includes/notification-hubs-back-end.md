@@ -1,42 +1,30 @@
-En esta sección se muestra cómo enviar notificaciones de dos formas
-diferentes:
+En esta sección se muestra cómo enviar notificaciones de dos formas diferentes:
 
 * [Desde una aplicación de consola](#console)
 * [Desde los Servicios móviles](#mobile-services)
 
-Ambos back-ends envían notificaciones a dispositivos de la Tienda
-Windows e iOS. Puede enviar notificaciones desde cualquier back-end
-mediante la [API REST de notificaciones de inserción][1].
+Ambos back-ends envían notificaciones a dispositivos de la Tienda Windows e iOS. Puede enviar notificaciones desde cualquier back-end mediante la [API REST de notificaciones de inserción][1].
 
 <h3><a name="console"></a>Para enviar notificaciones desde una aplicación de consola en C#</h3>
 
 
-Si creó una aplicación de consola cuando realizó el tutorial
-[Introducción a los Centros de
-notificaciones](/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/),
-omita los pasos del 1 al 3.
+Si creó una aplicación de consola cuando realizó el tutorial [Introducción a los Centros de notificaciones](/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/), omita los pasos del 1 al 3.
 
 1.  En Visual Studio, cree una aplicación de consola en Visual C#:
 
 	![][13]
 
-2.  En el menú principal de Visual Studio, haga clic sucesivamente en
-    **Herramientas**, **Library Package Manager** y **Consola del
-    Administrador de paquetes**; a continuación, en la ventana de la
-    consola, escriba lo siguiente y presione **Entrar**:
+2.  En el menú principal de Visual Studio, haga clic sucesivamente en **Herramientas**, **Library Package Manager** y **Consola del Administrador de paquetes**; a continuación, en la ventana de la consola, escriba lo siguiente y presione **Entrar**:
     
          Install-Package WindowsAzure.ServiceBus
     
-    Se agrega una referencia al SDK de Bus de servicio de Azure mediante
-    [WindowsAzure.ServiceBus NuGet package][2].
+    Se agrega una referencia al SDK de Bus de servicio de Azure mediante <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet package</a>.
 
-3.  Abra el archivo Program.cs y agregue la siguiente instrucción
-    `using`:
+3.  Abra el archivo Program.cs y agregue la siguiente instrucción `using`:
     
          using Microsoft.ServiceBus.Notifications;
 
-4.  En la clase `Program`, agregue el siguiente método o sustitúyalo si
-    ya existe:
+4.  En la clase `Program`, agregue el siguiente método o sustitúyalo si ya existe:
     
          private static async void SendNotificationAsync()
          {
@@ -84,11 +72,7 @@ omita los pasos del 1 al 3.
              }
           }
     
-    Este código envía notificaciones para cada una de las seis etiquetas
-    de la matriz de cadenas a dispositivos de la Tienda Windows, Windows
-    Phone y iOS. El uso de etiquetas ofrece la seguridad de que los
-    dispositivos reciben notificaciones solo de las categorías
-    registradas.
+    Este código envía notificaciones para cada una de las seis etiquetas de la matriz de cadenas a dispositivos de la Tienda Windows, Windows Phone y iOS. El uso de etiquetas ofrece la seguridad de que los dispositivos reciben notificaciones solo de las categorías registradas.
 
 	<div class="dev-callout">
 	<b>Nota:</b>
@@ -99,32 +83,22 @@ omita los pasos del 1 al 3.
 </div>
 
 
-5.  En el código anterior, sustituya los marcadores de posición `<hub
-     name>` y `<connection  string
-    with full access>` por el nombre del centro de notificaciones y la
-    cadena de conexión de
-    *FirmaDeAccesoCompartidoCompletoPredeterminado* que obtuvo
-    anteriormente.
+5.  En el código anterior, sustituya los marcadores de posición `<hub name>` y `<connection  string with full access>` por el nombre del centro de notificaciones y la cadena de conexión de *FirmaDeAccesoCompartidoCompletoPredeterminado* que obtuvo anteriormente.
 
 6.  Agregue las siguientes líneas al método **Main**:
     
           SendNotificationAsync();
           Console.ReadLine();
 
-Ahora puede continuar con [Ejecución de la aplicación y generación de
-notificaciones](#test-app).
+Ahora puede continuar con [Ejecución de la aplicación y generación de notificaciones](#test-app).
+
 ### <a name="mobile-services"></a>Para enviar notificaciones desde los Servicios móviles
 
-Para enviar una notificación mediante un servicio móvil, lleve a cabo
-los siguientes pasos:
+Para enviar una notificación mediante un servicio móvil, lleve a cabo los siguientes pasos:
 
-1.  Realice el tutorial [Introducción a los Servicios
-    móviles](/en-us/develop/mobile/tutorials/get-started/#create-new-service)
-    para crear el servicio móvil.
+1.  Realice el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started/#create-new-service) para crear el servicio móvil.
 
-2.  Inicie sesión en el [Portal de administración de Azure][3], haga
-    clic en Servicios móviles y, a continuación, haga clic en el
-    servicio móvil.
+2.  Inicie sesión en el [Portal de administración de Azure], haga clic en Servicios móviles y, a continuación, haga clic en el servicio móvil.
 
 3.  Haga clic en la pestaña **Scheduler** y, a continuación, en **Create**.  
 
@@ -134,8 +108,7 @@ los siguientes pasos:
 	
 	![][16]
 
-5.  Después de crear el trabajo, haga clic en el nombre del trabajo y, a continuación, en la pestaña **Script**, inserte el siguiente script
-    en la función de trabajo programado:
+5.  Después de crear el trabajo, haga clic en el nombre del trabajo y, a continuación, en la pestaña **Script**, inserte el siguiente script en la función de trabajo programado:
     
         var azure = require('azure');
          var notificationHubService = azure.createNotificationHubService(
@@ -159,21 +132,11 @@ los siguientes pasos:
                  }, sendComplete);
              }
     
-    Este código envía notificaciones para cada una de las seis etiquetas
-    de la matriz de cadenas a dispositivos de la Tienda Windows, Windows
-    Phone y iOS. El uso de etiquetas ofrece la seguridad de que los
-    dispositivos reciben notificaciones solo de las categorías
-    registradas.
+    Este código envía notificaciones para cada una de las seis etiquetas de la matriz de cadenas a dispositivos de la Tienda Windows, Windows Phone y iOS. El uso de etiquetas ofrece la seguridad de que los dispositivos reciben notificaciones solo de las categorías registradas.
 
-6.  En el código anterior, sustituya los marcadores de posición `<hub
-     name>` y `<connection  string
-    with full access>` por el nombre del centro de notificaciones y la
-    cadena de conexión de
-    *FirmaDeAccesoCompartidoCompletoPredeterminado* que obtuvo
-    anteriormente.
+6.  En el código anterior, sustituya los marcadores de posición `<hub name>` y `<connection  string with full access>` por el nombre del centro de notificaciones y la cadena de conexión de *FirmaDeAccesoCompartidoCompletoPredeterminado* que obtuvo anteriormente.
 
-7.  Agregue la siguiente función auxiliar después de la función de
-    trabajo programado y, a continuación, haga clic en **Save**:
+7.  Agregue la siguiente función auxiliar después de la función de trabajo programado y, a continuación, haga clic en **Save**:
     
          function sendComplete(error) {   
     		if (error) {
@@ -213,7 +176,7 @@ Ahora puede continuar con [Ejecución de la aplicación y generación de notific
 [get-started]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Use Notification Hubs to send notifications to users]: ../notificationhubs/tutorial-notify-users-mobileservices.md
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Azure Management Portal]: https://manage.windowsazure.com/
+[Portal de administración de Azure]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Uso de los Centros de notificaciones para	difundir noticias de última hora localizadas]: http://msdn.microsoft.com/en-us/library/jj927172.aspx

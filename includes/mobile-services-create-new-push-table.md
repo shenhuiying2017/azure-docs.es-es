@@ -15,11 +15,9 @@
     
     ![](./media/mobile-services-create-new-push-table/mobile-create-registrations-table.png)
 
-Esto crea la tabla **Registrations**, la cual almacena los URI de canal
-que se usan para enviar notificaciones de inserción.
+Esto crea la tabla **Registrations**, la cual almacena los URI de canal que se usan para enviar notificaciones de inserción.
 
-Después, podrá modificar su aplicación para habilitar las notificaciones
-de inserción.
+Después, podrá modificar su aplicación para habilitar las notificaciones de inserción.
 
 <!-- URLs -->
 
