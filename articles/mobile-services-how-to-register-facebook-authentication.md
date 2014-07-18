@@ -1,0 +1,60 @@
+<properties linkid="develop-mobile-how-to-guides-register-for-facebook-authentication" urlDisplayName="Register for Facebook Authentication" pageTitle="Register for Facebook authentication - Mobile Services" metaKeywords="Azure Facebook, Azure Facebook, Azure authenticate Mobile Services" description="Learn how to use Facebook authentication in your Azure Mobile Services app." metaCanonical="" services="" documentationCenter="" title="Register your apps for Facebook authentication with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+
+Registro de las aplicaciones para la autenticación de Facebook con Servicios móviles
+====================================================================================
+
+En este tema se muestra cómo registrar las aplicaciones a fin de poder usar Facebook para la autenticación con Servicios móviles de Azure.
+
+**Nota:**
+
+Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Facebook asociada a una dirección de correo electrónico verificada y a un número de teléfono móvil. Para crear una cuenta de Facebook, vaya a [facebook.com](http://go.microsoft.com/fwlink/p/?LinkId=268285).
+
+1.  Desplácese hasta el sitio web para [desarrolladores de Facebook](http://go.microsoft.com/fwlink/p/?LinkId=268286) e inicie sesión con las credenciales de su cuenta de Facebook.
+
+2.  (Opcional) Si aún no está registrado, haga clic en **Aplicaciones** y, a continuación, en **Register as a Developer**; acepte la política y siga los pasos de registro.
+
+	![][0]
+
+3.  Haga clic en **Aplicaciones** y, a continuación, en **Crea una nueva aplicación**.
+
+	![][1]
+
+4.  Elija un nombre exclusivo para la aplicación, seleccione **Aplicaciones para páginas**, haga clic en **Creación de aplicaciones** y conteste a la pregunta de seguridad.
+
+	![][2]
+
+    De esta manera la aplicación se registra en Facebook.
+
+5.  Haga clic en **Configuración**, escriba el dominio de su servicio móvil en **App Domains**, y, a continuación, haga clic en **Añadir plataforma** y seleccione **Página web**.
+
+	![][3]
+
+6.  Escriba la URL de su servicio móvil en **URL del sitio** y, a continuación, haga clic en **Guardar cambios**.
+
+    ![](./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app-2.png)
+
+7.  Haga clic en **Mostrar**, escriba su contraseña si se le solicita y, a continuación, tome nota de los valores de los campos **ID de la aplicación** y **App Secret**.
+
+	![][5]
+
+    **Nota de seguridad:**
+
+    El secreto de aplicación es una credencial de seguridad importante, por lo que no debe compartirlo con nadie ni distribuirlo con su aplicación.
+
+Ahora ya puede habilitar el uso del inicio de sesión de Facebook para autenticarse en la aplicación facilitando el identificador y el secreto de la aplicación a Servicios móviles.
+
+
+<!-- Anchors. -->
+
+<!-- Images. -->
+[0]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-developer-register.png
+[1]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-add-app.png
+[2]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-new-app-dialog.png
+[3]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app.png
+[4]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app-2.png
+[5]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-completed.png
+
+<!-- URLs. -->
+[Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Azure Management Portal]: https://manage.windowsazure.com/
