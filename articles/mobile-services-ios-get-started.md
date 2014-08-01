@@ -69,35 +69,41 @@ Ejecución de la nueva aplicación de iOS
 
     ![](./media/mobile-services-ios-get-started/mobile-data-browse.png)
 
-    ## Pasos siguientes Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles: \* [Introducción a los datos]
-    Obtenga más información sobre almacenar y consultar datos con los Servicios móviles. \* [Introducción a la autenticación]
-    Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades. \* [Introducción a las notificaciones de inserción]
-    Aprenda a enviar una notificación de inserción muy básica a la aplicación. [Introducción a los Servicios móviles]:\#getting-started [Creación de un servicio móvil]:\#create-new-service [Definición de la instancia de servicio móvil]:\#define-mobile-service-instance [Pasos siguientes]:\#next-steps [0]: ./media/mobile-services-ios-get-started/mobile-quickstart-completed-ios.png [6]: ./media/mobile-services-ios-get-started/mobile-portal-quickstart-ios.png [7]: ./media/mobile-services-ios-get-started/mobile-quickstart-steps-ios.png [8]: ./media/mobile-services-ios-get-started/mobile-xcode-project.png [10]: ./media/mobile-services-ios-get-started/mobile-quickstart-startup-ios.png [11]: ./media/mobile-services-ios-get-started/mobile-data-tab.png [12]: ./media/mobile-services-ios-get-started/mobile-data-browse.png [Introducción a los datos]: /en-us/develop/mobile/tutorials/get-started-with-data-ios [Introducción a la autenticación]: /en-us/develop/mobile/tutorials/get-started-with-users-ios [Introducción a las notificaciones de inserción]: /en-us/develop/mobile/tutorials/get-started-with-push-ios [SDK de iOS para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533 [Portal de administración]: https://manage.windowsazure.com/ [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532 [Versión de back-end de .NET]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
+## Pasos siguientes
+Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles: 
+* [Introducción a los datos]
+
+  Obtenga más información sobre almacenar y consultar datos con los Servicios móviles. 
+
+* [Introducción a la autenticación]
+
+  Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades. 
+
+* [Introducción a las notificaciones de inserción]
+
+  Aprenda a enviar una notificación de inserción muy básica a la aplicación. 
 
 <!-- Anchors. -->
-[Getting started with Mobile Services]:#getting-started
-[Create a new mobile service]:#create-new-service
-[Define the mobile service instance]:#define-mobile-service-instance
-[Next Steps]:#next-steps
+[Introducción a los Servicios móviles]:\#getting-started 
+[Creación de un servicio móvil]:\#create-new-service 
+[Definición de la instancia de servicio móvil]:\#define-mobile-service-instance 
+[Pasos siguientes]:\#next-steps 
 
 <!-- Images. -->
-[0]: ./media/mobile-services-ios-get-started/mobile-quickstart-completed-ios.png
-
-[6]: ./media/mobile-services-ios-get-started/mobile-portal-quickstart-ios.png
-[7]: ./media/mobile-services-ios-get-started/mobile-quickstart-steps-ios.png
-[8]: ./media/mobile-services-ios-get-started/mobile-xcode-project.png
-
-[10]: ./media/mobile-services-ios-get-started/mobile-quickstart-startup-ios.png
-[11]: ./media/mobile-services-ios-get-started/mobile-data-tab.png
-[12]: ./media/mobile-services-ios-get-started/mobile-data-browse.png
-
+[0]: ./media/mobile-services-ios-get-started/mobile-quickstart-completed-ios.png 
+[6]: ./media/mobile-services-ios-get-started/mobile-portal-quickstart-ios.png 
+[7]: ./media/mobile-services-ios-get-started/mobile-quickstart-steps-ios.png 
+[8]: ./media/mobile-services-ios-get-started/mobile-xcode-project.png 
+[10]: ./media/mobile-services-ios-get-started/mobile-quickstart-startup-ios.png 
+[11]: ./media/mobile-services-ios-get-started/mobile-data-tab.png 
+[12]: ./media/mobile-services-ios-get-started/mobile-data-browse.png 
 
 <!-- URLs. -->
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
+[Introducción a los datos]: /en-us/develop/mobile/tutorials/get-started-with-data-ios 
+[Introducción a la autenticación]: /en-us/develop/mobile/tutorials/get-started-with-users-ios 
+[Introducción a las notificaciones de inserción]: /en-us/develop/mobile/tutorials/get-started-with-push-ios 
 
-[Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Management Portal]: https://manage.windowsazure.com/
-[XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[.NET backend version]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
+[SDK de iOS para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533 
+[Portal de administración]: https://manage.windowsazure.com/ 
+[XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532 
+[Versión de back-end de .NET]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started

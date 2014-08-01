@@ -25,12 +25,9 @@ inglés)</span></a>
 
 En este tutorial se realiza un recorrido por los pasos básicos para habilitar la autenticación en su aplicación:
 
-1.  [Registro de la aplicación para la autenticación y configuración de
-    Servicios móviles](#register)
-2.  [Restricción de los permisos de tabla a usuarios
-    autenticados](#permissions)
-3.  [Incorporación de autenticación a la
-    aplicación](#add-authentication)
+1.  [Registro de la aplicación para la autenticación y configuración de Servicios móviles](#register)
+2.  [Restricción de los permisos de tabla a usuarios autenticados](#permissions)
+3.  [Incorporación de autenticación a la aplicación](#add-authentication)
 
 Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started).
 
@@ -50,11 +47,11 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
 
 1.  Inicie sesión en el [Portal de administración de Azure][3], haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
     
-    ![][img4]
+    ![][4]
 
 2.  Haga clic en la pestaña **Panel** y anote el valor de **Mobile Service URL**.
     
-    ![][img5]
+    ![][5]
     
     Es posible que tenga que proporcionar ese valor al proveedor de identidades cuando registre la aplicación.
 
@@ -80,7 +77,7 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
 
 1.  Vuelva al Portal de administración, haga clic en la pestaña **Identity**, especifique el identificador de la aplicación y los valores secretos compartidos que le proporcionó el proveedor de identidades y haga clic en **Save**.
     
-     ![][img13]
+     ![][13]
 
 2.  (Opcional) Complete los pasos en [Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft](/en-us/develop/mobile/how-to-guides/register-windows-store-app-package).
     
@@ -100,11 +97,11 @@ El servicio móvil y la aplicación están ahora configurados para que funcionen
 
 1.  En el Portal de administración, haga clic en la pestaña **Data** y, a continuación, en la tabla **TodoItem**.
     
-    ![][img14]
+    ![][14]
 
 2.  Haga clic en la pestaña **Permissions**, establezca todos los permisos en **Only authenticated users** y, a continuación, haga clic en **Save**. De esta forma, se garantiza que todas las operaciones en la tabla **TodoItem** requieren un usuario autenticado. Esto también simplifica los scripts del próximo tutorial, ya que no existirá la posibilidad de permitir usuarios anónimos.
     
-    ![][img15]
+    ![][15]
 
 3.  En Visual Studio 2012 Express para Windows 8, abra el proyecto que creó cuando completó el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started).
 
@@ -177,21 +174,34 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 En el siguiente tutorial, [Autorización de usuarios con scripts](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet), usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. Obtenga más información sobre cómo usar Servicios móviles con .NET en [Referencia conceptual de Servicios móviles con.NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library).
 
 <!-- Anchors. -->
+[Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
+[Restricción de los permisos de tabla a usuarios autenticados]: #permissions
+[Incorporación de autenticación a la aplicación]: #add-authentication
+[Pasos siguientes]:#next-steps
 
 <!-- Images. -->
 
+[4]: ./media/mobile-services-dotnet-get-started-users/mobile-services-selection.png
+[5]: ./media/mobile-services-dotnet-get-started-users/mobile-service-uri.png
+
+
+[13]: ./media/mobile-services-dotnet-get-started-users/mobile-identity-tab.png
+[14]: ./media/mobile-services-dotnet-get-started-users/mobile-portal-data-tables.png
+[15]: ./media/mobile-services-dotnet-get-started-users/mobile-portal-change-table-perms.png
+
+
 <!-- URLs. -->
+[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Single sign-on for Windows Store apps by using Live Connect]: ./mobile-services-single-sign-on-win8-dotnet.md
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-dotnet
+[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js
 
-
-
-[1]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Introduction-to-Windows-Azure-Mobile-Services
-[2]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services
-[3]: https://manage.windowsazure.com/
-[4]: http://go.microsoft.com/fwlink/p/?LinkId=311594
-
-[img4]: ./media/mobile-services-dotnet-get-started-users/mobile-services-selection.png
-[img5]: ./media/mobile-services-dotnet-get-started-users/mobile-service-uri.png
-
-[img13]: ./media/mobile-services-dotnet-get-started-users/mobile-identity-tab.png
-[img14]: ./media/mobile-services-dotnet-get-started-users/mobile-portal-data-tables.png
-[img15]: ./media/mobile-services-dotnet-get-started-users/mobile-portal-change-table-perms.png
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
+[Register your Windows Store app package for Microsoft authentication]: /en-us/develop/mobile/how-to-guides/register-windows-store-app-package
