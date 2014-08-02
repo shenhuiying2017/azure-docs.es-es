@@ -34,7 +34,7 @@ certificado con nombre alternativo del sujeto (subjectAltName, SAN).
 
 Los **certificados básicos** son certificados en los que el nombre común (CN) del certificado se establece para el dominio o subdominio específico que los clientes usarán para visitar el sitio. Por ejemplo, **www.contoso.com**. Estos certificados solo protegen el nombre de dominio que especifica el nombre común.
 
-Los **certificados comodín** son certificados en los que el nombre común del certificado contiene un comodín '\*' en el nivel del subdominio. Gracias a ello, el certificado coincide con un único nivel de subdominios de un dominio determinado. Por ejemplo, un certificado comodín de **\*.contoso.com** sería válido para **www.contoso.com**, **payment.contoso.com** y **login.contoso.com**. No sería válido para **test.login.contoso.com**, dado que agrega un nivel de subdominio adicional. Tampoco sería válido para **contoso.com**, puesto que es el nivel de dominio raíz y no un subdominio.
+Los **certificados comodín** son certificados en los que el nombre común del certificado contiene un comodín \'\*\' en el nivel del subdominio. Gracias a ello, el certificado coincide con un único nivel de subdominios de un dominio determinado. Por ejemplo, un certificado comodín de **\*.contoso.com** sería válido para **www.contoso.com**, **payment.contoso.com** y **login.contoso.com**. No sería válido para **test.login.contoso.com**, dado que agrega un nivel de subdominio adicional. Tampoco sería válido para **contoso.com**, puesto que es el nivel de dominio raíz y no un subdominio.
 
 Un certificado comodín es lo que proporciona Microsoft para el nombre de dominio \*.azurewebsites.net, que se crea automáticamente para su sitio web.
 
@@ -263,7 +263,7 @@ La habilitación de HTTPS para un dominio personalizado solo está disponible pa
 5.  Haga clic en **Save**. Cuando se le solicite, haga clic en **Yes**.
     
     > \[WACOM.NOTE\] Si recibe un error "Configuring scale for web site
-    > '&lt;nombre del sitio&gt;' failed", puede utilizar el botón de
+    > \'&lt;nombre del sitio&gt;\' failed", puede utilizar el botón de
     > información para obtener más información. Puede que reciba un
     > error "Not enough available standard instance servers to satisfy
     > this request". Si recibe este error, póngase en contacto con el
