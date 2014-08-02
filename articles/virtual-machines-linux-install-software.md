@@ -1,0 +1,66 @@
+<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Azure" metaKeywords="" description="Learn how to install software on your Linux virtual machine in Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install software on your Linux virtual machine in Azure" authors="" solutions="" manager="" editor="" />
+
+Instalación del software en la máquina virtual de Linux en Azure
+================================================================
+
+Las distribuciones de Linux suelen usar paquetes de software para instalar software. Estos paquetes se administran normalmente mediante un conjunto de comandos, como `apt` o `yum`. También puede instalar programas sin un paquete, como con *tarball* del código fuente.
+
+Mostraremos cómo usar administradores de paquetes para algunas de las distribuciones comunes de Linux. Los pasos variarán según la distribución de Linux que use.
+
+**Nota:** según la forma en la que se configure el entorno, estos comandos pueden requerir que se ejecuten con privilegios raíz (a través de `sudo`).
+
+CentOS/Red Hat
+--------------
+
+CentOS incorpora `yum` para la administración de paquetes. Con esta herramienta, puede instalar, desinstalar, actualizar, enumerar paquetes instalados, etc. Consulte a continuación para ver la sintaxis para estos comandos.
+
+### Instalación
+
+Mediante este paso, se instalará un paquete y todos los paquetes de los que dependa. Debido a las dependencias, puede instalarse más de un paquete.
+
+    yum install [nombre del paquete]
+
+### Desinstalación
+
+Mediante este paso, se desinstalará un paquete de la máquina. Tenga en cuenta que no se quitarán las dependencias.
+
+    yum remove [nombre del paquete]
+
+### Actualización
+
+Mediante este paso, se actualizará un paquete a la versión más reciente. El paquete debe instalarse para poder actualizarlo.
+
+    yum update [nombre del paquete]
+
+### Enumeración de los paquetes instalados
+
+Mediante este paso, se mostrará una lista de los paquetes instalados en la máquina.
+
+    yum list installed
+
+Ubuntu
+------
+
+Ubuntu incorpora `apt` (herramienta de empaquetado avanzado) para la administración de paquetes. Con esta herramienta, puede instalar, desinstalar, actualizar, enumerar paquetes instalados, etc. Consulte a continuación para ver la sintaxis para estos comandos.
+
+### Instalación
+
+Mediante este paso, se instalará un paquete y todos los paquetes de los que dependa. Debido a las dependencias, puede instalarse más de un paquete.
+
+    apt-get install [nombre del paquete]
+
+### Desinstalación
+
+Mediante este paso, se desinstalará un paquete de la máquina. Tenga en cuenta que no se quitarán las dependencias.
+
+    apt-get remove [nombre del paquete]
+
+### Actualización
+
+Para actualizar a una nueva versión, tendrá que usar dos comandos: uno para actualizar el índice del paquete y otro para actualizar los paquetes. Ejecute el siguiente comando para actualizar el índice del paquete.
+
+    apt-get update
+
+Una vez que se haya actualizado el índice del paquete, ejecute el siguiente comando para actualizar los paquetes:
+
+    apt-get upgrade

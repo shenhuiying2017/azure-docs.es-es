@@ -1,0 +1,251 @@
+<properties  linkid="manage-services-hdinsight-howto-blob-store" urlDisplayName="Blob Storage with HDInsight" pageTitle="Use Blob storage with HDInsight | Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Use Azure Blob storage with HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
+
+# Uso del almacenamiento de blobs de Azure con HDInsight
+
+HDInsight de Azure admite el sistema de archivos distribuidos Hadoop (HDFS) y el almacenamiento de blobs de Azure para almacenar datos. El almacenamiento de blobs es una solución eficaz y de uso general de Azure. El almacenamiento de blobs proporciona una interfaz HDFS con todas las características para ofrecer una experiencia sin igual que habilita un conjunto completo de componentes en el ecosistema de Hadoop para operar (de forma predeterminada) directamente en los datos. El almacenamiento de blobs no es solo una solución de bajo coste; almacenar datos en un almacenamiento de blobs permite eliminar de forma segura de los clústeres de HDInsight usados para los cálculos sin perder los datos del usuario.
+
+> [WACOM.NOTE] La sintaxis *asv://* no es compatible con la versión 3.0 de los clústeres de HDInsight y tampoco será compatible con las versiones futuras. Es decir, que los trabajos enviados a un clúster de HDInsight cuya versión sea 3.0 y que use explícitamente la sintaxis “asv://” tendrá errores. Debería usarse la sintaxis *wasb://* en lugar de la anterior. Además, los trabajos enviados a cualquier clúster de HDInsight cuya versión sea 3.0 y que se hayan creado con un metastore existente que contenga referencias explícitas a recursos con la sintaxis asv:// tendrán errores. Estos metastores tendrán que volver a crearse usando wasb:// para recursos de dirección.
+
+> [WACOM.NOTE] Actualmente HDInsight solo es compatible con blobs en bloques.
+
+> [WACOM.NOTE] La mayoría de los comandos HDFS como **ls**{: data-morhtml="true"}, **copyFromLocal**, **mkdir**, entre otros, seguirán funcionando según lo previsto. Únicamente los comandos específicos de la implementación nativa de HDFS (a la que nos referiremos como DFS), como **fschk** y **dfsadmin**{: data-morhtml="true"}, exhibirán comportamientos diferentes en el almacenamiento de blobs de Azure.
+
+Para obtener información acerca de cómo aprovisionar un clúster de HDInsight, consulte [Introducción a HDInsight](../hdinsight-get-started/) o [Aprovisionamiento de clústeres de HDInsight](../hdinsight-provision-clusters/).
+
+## En este artículo
+
+* [Arquitectura de almacenamiento de HDInsight](#architecture)
+* [Ventajas del almacenamiento de blobs de Azure](#benefits)
+* [Preparación de un contenedor para el almacenamiento de blobs](#preparingblobstorage)
+* [Archivos de dirección en almacenamiento de blobs](#addressing)
+* [Acceso a un blob usando PowerShell](#powershell)
+* [Pasos siguientes](#nextsteps)
+
+## <a id="architecture" ></a>Arquitectura de almacenamiento de HDInsight
+
+El diagrama siguiente proporciona una panorámica de la arquitectura de almacenamiento de HDInsight:
+
+![HDI.ASVArch](./media/hdinsight-use-blob-storage/HDI.ASVArch.png
+"Arquitectura de almacenamiento de HDInsight")
+
+HDInsight brinda acceso al sistema de archivos distribuidos que se adjunta localmente a los nodos de ejecución. Se puede acceder a este sistema de archivos usando el URI completo. Por ejemplo:
+
+    hdfs://<namenodehost>/<path>
+    
+    
+   Además, HDInsight ofrece la capacidad de acceder a los datos almacenados en el almacenamiento de blobs. La sintaxis para acceder al almacenamiento de blobs es la siguiente:
+    
+    wasb[s]://@.blob.core.windows.net/
+    
+    
+   Hadoop admite una noción del sistema de archivos predeterminado. El sistema de archivos predeterminado implica un esquema y una autoridad predeterminados y también se puede usar para solucionar rutas relativas. Durante el proceso de aprovisionamiento de HDInsight, se designan una cuenta de almacenamiento de Azure y un contenedor de almacenamiento de blobs específico de dicha cuenta como sistema de archivos predeterminado.
+    
+   Además de esta cuenta de almacenamiento, puede agregar más cuentas de almacenamiento desde la misma suscripción de Azure o desde otras diferentes durante el proceso de aprovisionamiento. Para obtener instrucciones acerca de cómo agregar más cuentas de almacenamiento, consulte Aprovisionamiento de clústeres de HDInsight. 
+    
+    
+
+
+-    Los contenedores de las cuentas de almacenamiento que están conectados a un clúster: Como el nombre y la clave de la cuenta se almacenan en core-site.xml, tendrá acceso total a los blobs de dichos contenedores.
+      
+
+
+-    Los contenedores o los blobs públicos de las cuentas de almacenamiento que NO están conectados a un clúster: Solo tendrá permiso de lectura en los blobs de los contenedores.
+    
+        
+   >[WACOM.NOTE] 
+   > Un contenedor público le permite obtener una lista de todos los blobs disponibles del contenedor en cuestión y obtener sus metadatos. Los blobs públicos le permiten obtener acceso a los blobs solo si conoce la URL exacta. Para obtener más información, consulte Acceso restringido a contenedores y blobs.
+        
+      
+
+
+- **Los contenedores privados de las cuentas de almacenamiento que NO están conectados a un clúster:** No puede acceder a los blobs de los contenedores.
+    
+    
+   Los contenedores del almacenamiento de blobs almacenan los datos como pares de clave/valor y no hay jerarquía de directorios. No obstante, el carácter "/" se puede usar en el nombre de la clave para que parezca que el archivo está almacenado dentro de una estructura de directorios. Por ejemplo, la clave de un blob puede ser input/log1.txt. No hay directorios input, pero dada la presencia del carácter "/" en el nombre de la clave, parece la ruta de un archivo.
+    
+## Ventajas del almacenamiento de blobs de Azure
+   El coste de rendimiento implícito por no tener ubicados juntos la ejecución y el almacenamiento se ve mitigado por el modo en que los clústeres de cálculo se aprovisionan cerca de los recursos de la cuenta de almacenamiento, dentro del centro de datos de Azure, donde la red de alta velocidad consigue que los nodos de ejecución sean muy eficientes en el acceso a los datos del almacenamiento de blobs.
+    
+   Hay varias ventajas asociadas al almacenamiento de datos en blobs en lugar de utilizar HDFS:
+    
+    
+   
+
+   - **Reutilización y uso compartido de los datos:** Los datos de HDFS se ubican dentro del clúster de cálculo. Solamente las aplicaciones que tengan acceso al clúster de cálculo podrán usar los datos usando la API HDFS. Se puede acceder a los datos del almacenamiento de blobs a través de las API HDFS o las API REST de almacenamiento de blobs. Por lo tanto, se puede usar un conjunto mayor de aplicaciones (incluyendo otros clústeres de HDInsight) y herramientas para producir y consumir los datos. 
+   - **Archivado de datos:** Almacenar los datos en un almacenamiento de blobs hace que los clústeres de HDInsight que se usan para los cálculos se eliminen de forma segura sin perder los datos del usuario. 
+   -  **Coste del almacenamiento de datos:** Almacenar datos en DFS es más caro a largo plazo que almacenarlos en el almacenamiento de blobs, ya que el coste de un clúster de cálculo es superior al de un contenedor de almacenamiento de blobs. Además, como no hay que volver a cargar los datos para cada generación de clúster de cálculo, también se ahorra en costes de carga de datos.
+   -  **Escalado horizontal elástico:** Aunque HDFS proporciona un sistema de archivos escalable en horizontal, la escala se determina en función del número de nodos que aprovisione para su clúster. Cambiar la escala puede ser un proceso más complicado que basarse en las capacidades de escalado elástico del almacenamiento de blobs que tiene automáticamente.
+   - **Replicación geográfica:** Sus contenedores de almacenamiento de blobs se pueden replicar geográficamente mediante el Portal de Azure. Mientras que esto le aporta recuperación geográfica y redundancia de datos, una conmutación por error en la ubicación replicada geográficamente afectaría gravemente a su rendimiento y podría incurrir en costes adicionales. Por lo tanto, nuestra recomendación es que elija la replicación geográfica de forma inteligente y únicamente si merece la pena pagar el coste adicional por el valor de los datos.
+    
+    
+Determinados trabajos y paquetes de MapReduce podrían crear resultados intermedios que realmente no desea almacenar en el contenedor de almacenamiento de blobs. En tal caso, puede seguir optando por almacenar los datos en el HDFS local. De hecho, HDInsight usa DFS para varios de estos resultados intermedios en los trabajos de Hive y otros procesos. 
+    
+## Preparación de un contenedor para el almacenamiento de blobs
+   Para usar los blobs, primero debe crear una cuenta de almacenamiento de Azure. Como parte de este proceso, debe especificar un centro de datos de Azure que almacenará los objetos que cree con esta cuenta. Tanto el clúster como la cuenta de almacenamiento deben hospedarse en el mismo centro de datos (además, la base de datos SQL de Hive metastore y la base de datos SQL de Oozie metastore deben estar ubicadas en el mismo centro de datos). Cualquiera que sea su ubicación, todos los blobs que cree pertenecerán a algún contenedor de su cuenta de almacenamiento. Este contenedor puede ser un contenedor de almacenamiento de blobs existente creado fuera de HDInsight, o bien un contenedor que se haya creado para un clúster de HDInsight. 
+    
+## Creación de un contendor de blobs para HDInsight usando el Portal de administración
+    
+   Al aprovisionar un clúster de HDInsight desde el Portal de administración de Azure, tiene dos opciones: quick create y custom create. La opción de creación rápida (quick create) requiere la creación previa de la cuenta de almacenamiento de Azure.  Para obtener instrucciones, consulte Creación de una cuenta de almacenamiento. 
+    
+   Al usar la opción de creación rápida, puede elegir una cuenta de almacenamiento existente. El proceso de aprovisionamiento crea un nuevo contenedor con el mismo nombre que el del clúster de HDInsight. Este contenedor se usa como sistema de archivos predeterminado.
+    
+   ![HDI.QuickCreate](./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png "HDInsight Cluster Quick Create") 
+    
+   Al usar la creación personalizada (custom create), puede elegir un contenedor de almacenamiento de blobs existente o crear uno predeterminado. El contenedor predeterminado tiene el mismo nombre que el del clúster de HDInsight.
+    
+   ![HDI.CustomCreateStorageAccount](./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png "Custom Create Storage Account") 
+    
+### Creación de un contenedor usando Azure PowerShell.
+   Azure PowerShell se puede usar para crear contenedores de blobs. A continuación se muestra un ejemplo de script de PowerShell:
+    
+    $subscriptionName = ""
+    $storageAccountName = ""
+    $containerName=""
+    
+    Add-AzureAccount # La conexión es buena durante 12 horas.
+    Select-AzureSubscription $subscriptionName # Obligatorio solamente si tiene varias suscripciones.
+
+    # Cree un objeto de contexto de almacenamiento.
+    $storageAccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
+    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+
+    # Cree un contenedor de almacenamiento de blobs.
+    New-AzureStorageContainer -Name $containerName -Context $destContext 
+    
+    
+## Archivos de dirección en almacenamiento de blobs
+    
+   El esquema URI para obtener acceso a los archivos del almacenamiento de blobs es: 
+    
+    wasb[s]://@.blob.core.windows.net/
+    
+    
+   >[WACOM.NOTE] La sintaxis para enviar los archivos al emulador de almacenamiento (que se ejecuta en el emulador de HDInsight) es wasb://@storageemulator.
+    
+    
+   El esquema de URI proporciona tanto acceso no cifrado con el prefijo wasb: como acceso SSL cifrado con wasbs. Se recomienda usar wasbs siempre que sea posible, incluso al obtener acceso a los datos que residen en el mismo centro de datos de Azure.
+    
+   El valor de  identifica el nombre del contenedor de almacenamiento de blobs. El valor de  identifica el nombre de la cuenta de almacenamiento de Azure. Se necesita el nombre completo de dominio (FQDN).
+    
+   Si no se ha especificado ningún valor en  ni en , se usará el sistema de archivos predeterminado. Para los archivos del sistema de archivos predeterminado, puede usar una ruta relativa o absoluta. Por ejemplo, se puede hacer referencia al archivo hadoop-mapreduce-examples.jar que viene con los clústeres de HDInsight usando uno de los siguientes:
+    
+    wasb://mycontainer@myaccount.blob.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+    wasb:///example/jars/hadoop-mapreduce-examples.jar
+    /example/jars/hadoop-mapreduce-examples.jar
+    
+    
+    
+   >[WACOM.NOTE] El nombre del archivo es hadoop-examples.jar en las versiones 1.6 y 2.1 de los clústeres de HDInsight.
+    
+    
+   La ruta  es el nombre de la ruta HDFS del archivo o el directorio. Como los contenedores de almacenamiento de blobs son solamente un almacén de pares clave-valor, no hay un sistema de archivos jerárquico real. Una "/" dentro de la clave de blob se interpreta como separador de directorios. Por ejemplo, el nombre del blob para hadoop-mapreduce-examples.jar es:
+    
+    example/jars/hadoop-mapreduce-examples.jar
+    
+    
+## Acceso a un blob usando Azure PowerShell
+    
+   Consulte Instalación y configuración de Azure PowerShell para obtener información acerca de la instalación y la configuración de Azure PowerShell en su estación de trabajo. Puede usar la ventana de la consola de Azure PowerShell o PowerShell_ISE para ejecutar los cmdlets de PowerShell. 
+    
+   Utilice el comando siguiente para incluir los cmdlets relacionados con el blob:
+    
+    Get-Command *blob*
+    
+![Blob.PowerShell.cmdlets][img-hdi-powershell-blobcommands]    
+    
+    
+**Ejemplo de PowerShell para cargar un archivo**
+    
+   Consulte Carga de datos en HDInsight.
+    
+**Ejemplo de PowerShell para descargar un archivo**
+    
+   El script siguiente descarga un blob en bloques a la carpeta actual. Antes de ejecutar el script, cambie el directorio a una carpeta en la que tenga permiso de escritura. 
+    
+    $storageAccountName = ""   # La cuenta de almacenamiento usada para el sistema de archivos predeterminado especificado en el momento del aprovisionamiento.
+    $containerName = ""  # El contenedor del sistema de archivos predeterminado tiene el mismo nombre que el clúster.
+    $blob = "example/data/sample.log" # El nombre del blob que se va a descargar.
+
+    # Use Add-AzureAccount si no se ha conectado a su suscripción de Azure.
+    #Add-AzureAccount # La conexión es buena durante 12 horas.
+
+    # Use estos dos comandos si tiene varias suscripciones.
+    #$subscriptionName = ""       
+    #Select-AzureSubscription $subscriptionName
+    
+    Write-Host "Create a context object ... " -ForegroundColor Green
+    $storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+    $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+    
+    Write-Host "Download the blob ..." -ForegroundColor Green
+    Get-AzureStorageBlobContent -Container $ContainerName -Blob $blob -Context $storageContext -Force
+    
+    Write-Host "List the downloaded file ..." -ForegroundColor Green
+    cat "./$blob"
+    
+    
+**Ejemplo de PowerShell para eliminar un archivo**
+    
+    $storageAccountName = ""   # La cuenta de almacenamiento usada para el sistema de archivos predeterminado especificado en el momento del aprovisionamiento.
+    $containerName = ""  # El contenedor del sistema de archivos predeterminado tiene el mismo nombre que el clúster.
+    $blob = "example/data/sample.log" # El nombre del blob que se va a descargar.
+
+    # Use Add-AzureAccount si no se ha conectado a su suscripción de Azure.
+    #Add-AzureAccount # La conexión es buena durante 12 horas.
+
+    # Use estos dos comandos si tiene varias suscripciones.
+    #$subscriptionName = ""       
+    #Select-AzureSubscription $subscriptionName
+    
+    Write-Host "Create a context object ... " -ForegroundColor Green
+    $storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+    $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+    
+    Write-Host "Delete the blob ..." -ForegroundColor Green
+    Remove-AzureStorageBlob -Container $containerName -Context $storageContext -blob $blob 
+    
+    
+**Ejemplo de PowerShell para incluir archivos en una carpeta**
+    
+    $storageAccountName = ""   # La cuenta de almacenamiento usada para el sistema de archivos predeterminado especificado en el momento del aprovisionamiento.
+    $containerName = ""  # El contenedor del sistema de archivos predeterminado tiene el mismo nombre que el clúster.
+    $blobPrefix = "example/data/"
+
+    # Use Add-AzureAccount si no se ha conectado a su suscripción de Azure.
+    #Add-AzureAccount # La conexión es buena durante 12 horas.
+
+    # Use estos dos comandos si tiene varias suscripciones.
+    #$subscriptionName = ""       
+    #Select-AzureSubscription $subscriptionName
+    
+    Write-Host "Create a context object ... " -ForegroundColor Green
+    $storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
+    $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
+    
+    Write-Host "List the files in $blobPrefix ..."
+    Get-AzureStorageBlob -Container $containerName -Context $storageContext -prefix $blobPrefix
+    
+    
+## Pasos siguientes
+    
+   En este artículo, ha aprendido a usar el almacenamiento de blobs con HDInsight y que el almacenamiento de blobs es un componente fundamental de HDInsight. Esto le permite crear soluciones de adquisición de datos de archivado escalable y a largo plazo con el almacenamiento de blobs de Azure; además de usar HDInsight para desbloquear la información que hay dentro de los datos almacenados.
+    
+   Para obtener más información, consulte los artículos siguientes:
+    
+    
+-    Introducción a HDInsight de Azure
+-    Carga de datos en HDInsight
+-    Uso de Hive con HDInsight
+-    Uso de Pig con HDInsight
+
+
+[Powershell-install]: ../install-configure-powershell/
+[hdinsight-provision]: ../hdinsight-provision-clusters/
+[hdinsight-getting-started]: ../hdinsight-get-started/
+[hdinsight-upload-data]: ../hdinsight-upload-data/
+[hdinsight-hive]: ../hdinsight-use-hive/
+[hdinsight-pig]: ../hdinsight-use-pig/
+
+[Powershell-install]: ../install-configure-powershell/
+
+[img-hdi-powershell-blobcommands]: ./media/hdinsight-use-blob-storage/HDI.PowerShell.BlobCommands.png 
