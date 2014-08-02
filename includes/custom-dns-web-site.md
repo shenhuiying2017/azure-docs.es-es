@@ -132,7 +132,7 @@ Para crear un registro CNAME, debe agregar una nueva entrada en la tabla DNS par
 
 3.  Ahora busque el lugar en el que puede seleccionar o especificar los registros CNAME. Es posible que tenga que seleccionar el tipo de registro de un menú desplegable o ir a una página de configuración avanzada. Debe buscar las palabras **CNAME**, **Alias** o **Subdomains**.
 
-4.  También debe proporcionar el alias del dominio o del subdominio para CNAME. Por ejemplo, **www** si desea crear un alias para **www.customdomain.com**. Si desea crear un alias para el dominio raíz, puede ponerse en una lista como el símbolo \'**@**\' en las herramientas de DNS de su registrador.
+4.  También debe proporcionar el alias del dominio o del subdominio para CNAME. Por ejemplo, **www** si desea crear un alias para **www.customdomain.com**. Si desea crear un alias para el dominio raíz, puede ponerse en una lista como el símbolo '**@**' en las herramientas de DNS de su registrador.
 
 5.  Debe proporcionar un nombre de host que sea el nombre de dominio canónico para ese alias de CNAME. Ese es el nombre **.azurewebsite.net** de su sitio web.
 

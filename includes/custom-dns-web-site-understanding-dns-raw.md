@@ -1,48 +1,48 @@
-The Domain Name System (DNS) is used to locate things on the internet. For example, when you enter an address in your browser, or click a link on a web page, it uses DNS to translate the domain into an IP address. The IP address is sort of like a street address, but it's not very human friendly. For example, it is much easier to remember a DNS name like **contoso.com** than it is to remember an IP address such as 192.168.1.88 or 2001:0:4137:1f67:24a2:3888:9cce:fea3.
+El Sistema de nombres de dominio (DNS) se utiliza para realizar búsquedas en Internet. Por ejemplo, cuando escribe una dirección en el explorador o hace clic en un vínculo de una página web, utiliza DNS para traducir el dominio en una dirección IP. La dirección IP es algo parecido a la dirección de una calle, pero su sistema es algo complejo. Por ejemplo, es mucho más fácil recordar un nombre DNS como **contoso.com** que recordar una dirección IP como 192.168.1.88 o 2001:0:4137:1f67:24a2:3888:9cce:fea3.
 
-The DNS system is based on *records*. Records associate a specific *name*, such as **contoso.com**, with either an IP address or another DNS name. When an application, such as a web browser, looks up a name in DNS, it finds the record, and uses whatever it points to as the address. If the value it points to is an IP address, the browser will use that value. If it points to another DNS name, then the application has to do resolution again. Ultimately, all name resolution will end in an IP address.
+El sistema DNS se basa en *registros*. Los registros asocian un *nombre* específico, como **contoso.com**, a una dirección IP u otro nombre DNS. Cuando una aplicación, como un explorador web, busca un nombre en DNS, encuentra el registro y utiliza aquello a lo que apunte como dirección. Si el valor al que apunta es una dirección IP, el explorador utilizará ese valor. Si apunta a otro nombre DNS, la aplicación tiene que volver a realizar una resolución. En última instancia, todas las resoluciones de nombre terminarán en una dirección IP.
 
-When you create an Azure Web Site, a DNS name is automatically assigned to the site. This name takes the form of **&lt;yoursitename&gt;.azurewebsites.net**. There is also an virtual IP address available for use when creating DNS records, so you can either create records that point to the **.azurewebsites.net**, or you can point to the IP address.
+Cuando se crea un sitio web de Azure, se asigna un nombre DNS automáticamente al sitio. Este nombre adquiere la forma de **&lt;nombredelsitio\>.azurewebsites.net**. También hay una dirección IP virtual disponible para el uso al crear registros DNS, por lo que puede crear registros que apunten a **.azurewebsites.net**, o puede apuntar a la dirección IP.
 
-> [WACOM.NOTE] The IP address of your web site will change if you delete and recreate your web site, or change the web site mode to free after it has been set to basic, shared, or standard.
+> [WACOM.NOTE] La dirección IP del sitio web cambiará si elimina y vuelve a crear el sitio web, o si cambia el modo de sitio web a gratuito después de que se haya establecido en básico, compartido o estándar.
 
-There are also multiple types of records, each with their own functions and limitations, but for web sites we only care about two, *CNAME* and *A* records.
+También hay varios tipos de registros, cada uno con sus propias funciones y limitaciones, pero para los sitios web, solo nos interesan dos, los registros *CNAME* y *D*.
 
-###CNAME or Alias record
+### Registro de CNAME o Alias
 
-A CNAME record maps a *specific* DNS name, such as **mail.contoso.com** or **www.contoso.com**, to another (canonical) domain name. In the case of Azure Web Sites, the canonical domain name is the **&lt;myapp>.azurewebsites.net** domain name of your web site. Once created, the CNAME creates an alias for the **&lt;myapp>.azurewebsites.net** domain name. The CNAME entry will resolve to the IP address of your **&lt;myapp>.azurewebsites.net** domain name automatically, so if the IP address of the web site changes, you do not have to take any action.
+Un registro CNAME asigna un nombre DNS *específico*, como **mail.contoso.com** o **www.contoso.com**, a otro nombre de dominio (canónico). En el caso de Sitios web Azure, el nombre de dominio canónico es el nombre de dominio **&lt;myapp\>.azurewebsites.net** de su sitio web. Una vez creado, el CNAME crea un alias para el nombre de dominio **&lt;myapp\>.azurewebsites.net**. La entrada de CNAME se resolverá en la dirección IP del servicio del nombre de dominio **&lt;myapp\>.azurewebsites.net** de manera automática, por lo que si la dirección IP del sitio web cambia, no tiene que realizar ninguna acción.
 
-> [WACOM.NOTE] Some domain registrars only allow you to map subdomains when using a CNAME record, such as **www.contoso.com**, and not root names, such as **contoso.com**. For more information on CNAME records, see the documentation provided by your registrar, <a href="http://en.wikipedia.org/wiki/CNAME_record">the Wikipedia entry on CNAME record</a>, or the <a href="http://tools.ietf.org/html/rfc1035">IETF Domain Names - Implementation and Specification</a> document.
+> [WACOM.NOTE] Algunos registradores de dominio solo permiten asignar subdominios cuando se utiliza un registro CNAME, como **www.contoso.com** y no los nombres raíz, como **contoso.com**. Para obtener más información acerca de los registros CNAME, consulte la documentación que proporciona el registrador, [la entrada de Wikipedia sobre el registro CNAME](http://en.wikipedia.org/wiki/CNAME_record) o el documento [IETF Domain Names - Implementation and Specification](http://tools.ietf.org/html/rfc1035).
 
-###A record
+### Registro D
 
-An A record maps a domain, such as **contoso.com** or **www.contoso.com**, *or a wildcard domain* such as **\*.contoso.com**, to an IP address. In the case of an Azure Web Site, either the virtual IP of the service or a specific IP address that you purchased for your web site.
+El registro D asigna un dominio, como **contoso.com** o **www.contoso.com**, *o un dominio con comodín* como **\*.contoso.com**, a una dirección IP. En el caso de un Sitio web Azure, la IP virtual del servicio o una dirección IP específica que haya adquirido para el sitio web.
 
-The main benefits of an A record over a CNAME record are:
+Las principales ventajas de un registro D sobre un registro CNAME son:
 
-* You can map a root domain such as **contoso.com** to an IP address; many registrars only allow this using A records
+-   Puede asignar un dominio raíz, como **contoso.com** a una dirección IP; muchos registradores solo lo permiten con los registros D.
 
-* You can have one entry that uses a wildcard, such as **\*.contoso.com**, which would handle requests for multiple sub-domains such as **mail.contoso.com**, **login.contoso.com**, or **www.contso.com**.
+-   Puede disponer de una entrada que utilice un carácter comodín, como **\*.contoso.com**, que administraría las solicitudes de varios subdominios como **mail.contoso.com**, **login.contoso.com** o **www.contoso.com**.
 
-> [WACOM.NOTE] Since an A record is mapped to a static IP address, it cannot automatically resolve changes to the IP address of your web site. An IP address for use with A records is provided when you configure custom domain name settings for your web site; however, this value may change if you delete and recreate your web site, or change the web site mode to back to free.
+> [WACOM.NOTE] Puesto que un registro D se asigna a una dirección IP estática, no puede resolver automáticamente cambios en la dirección IP de su sitio web. Se proporciona una dirección IP para que se use con registros D cuando establezca la configuración del nombre de dominio personalizado para su sitio web; sin embargo, este valor podría cambiar si elimina y vuelve a crear su sitio web o cambia el modo del sitio web para que vuelva a ser gratuito.
 
-###Azure Web Site DNS specifics
+### Aspectos específicos de DNS de un sitio web Azure
 
-Using an A record with Azure Web Sites requires you to first create an CNAME record that maps either:
+El uso de un registro D con Sitios web Azure requiere crear primero un registro CNAME que asigna:
 
-* A DNS name of **www** to your **&lt;yourwebsitename&gt;.azurewebsites.net**.
-OR
-* A DNS name of **awverify.www** to **awverify.&lt;yourwebsitename&gt;.azurewebsites.net**.
+-   Un nombre DNS de **www** a su **&lt;nombredelsitioweb\>.azurewebsites.net**. O bien
+-   Un nombre DNS de **awverify.www** a **awverify.&lt;nombredelsitioweb\>.azurewebsites.net**.
 
-This CNAME record is used to verify that you own the domain you are attempting to use. This is in addition to creating an A record pointing to the virtual IP address of your web site.
+Este registro CNAME se utiliza para verificar que se posee el dominio que está intentando utilizar. Esto se suma a la creación de un registro D que apunta a la dirección IP virtual del sitio web.
 
-You can find the IP address, as well as the **awverify.www** name and **.azurewebsites.net** names for your web site by performing the following steps:
+Puede encontrar la dirección IP, así como el nombre **awverify.www** y los nombres **.azurewebsites.net** para el sitio web al realizar los siguientes pasos:
 
-1. In your browser, open the [Azure Management Portal](https://manage.windowsazure.com).
+1.  En el explorador, abra el [Portal de administración de Azure](https://manage.windowsazure.com).
 
-2. In the **Web Sites** tab, click the name of your site, select **Dashboard**, and then select **Manage Domains** from the bottom of the page.
+2.  En la pestaña **Sitios web**, haga clic en el nombre del sitio, seleccione **Panel** y, a continuación, seleccione **Administrar dominios** en la parte inferior de la página.
 
-	![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
 
-6. In the **MANAGE CUSTOM DOMAINS** dialog, you will see the **awverify** information, the currently assigned **.azurewebsites.net** domain name, and the virtual IP address.
+3.  En el cuadro de diálogo **ADMINISTRAR DOMINIOS PERSONALIZADOS**, verá la información de **awverify**, el nombre de dominio **.azurewebsites.net** actualmente asignado y la dirección IP virtual.
+
 

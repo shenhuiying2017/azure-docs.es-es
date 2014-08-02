@@ -1,101 +1,98 @@
 
-##<a name="update-app"></a>Update the app to call the custom API
 
-1. We will add a button labelled "Complete All" next to the existing button, and move both buttons down a line. In Eclipse, open the *res\layout\activity_to_do.xml* file in your quickstart project, locate the **LinearLayout** element that contains the **Button** element named `buttonAddToDo`. Copy the **LinearLayout** and paste it immediately following the original one. Delete the **Button** element from the first **LinearLayout**.
+Actualización de la aplicación para llamar a la API personalizada
+-----------------------------------------------------------------
 
-2. In the second **LinearLayout**, delete the **EditText** element, and add the following  code immediately following the existing **Button** element: 
+1.  Agregaremos un botón llamado "Complete All" al lado del botón existente y moveremos ambos botones una línea hacia abajo. En Eclipse, abra el archivo *res\\layout\\activity\_to\_do.xml* en su proyecto de inicio rápido, busque el elemento **LinearLayout** que contiene el elemento **Button** llamado `buttonAddToDo`. Copie **LinearLayout** y péguelo inmediatamente después del original. Elimine el elemento **Button** del primer **LinearLayout**.
 
-        <Button
-            android:id="@+id/buttonCompleteItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="completeItem"
-            android:text="@string/complete_button_text" />
+2.  En el segundo **LinearLayout**, elimine el elemento **EditText** y agregue el siguiente código inmediatamente después del elemento **Button** existente:
 
-	This adds a new button to the page, on a separate line, next to the existing button.
+         <Button android:id="@+id/buttonCompleteItem"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:onClick="completeItem"
+             android:text="@string/complete_button_text" />
 
-3. The second **LinearLayout** now looks like this:
+    Esto agrega un botón nuevo a la página, en una línea aparte, al lado del botón existente.
 
-	     <LinearLayout
-	        android:layout_width="match_parent" 
-	        android:layout_height="wrap_content" 
-	        android:background="#71BCFA"
-	        android:padding="6dip"  >
-	        <Button
-	            android:id="@+id/buttonAddToDo"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:onClick="addItem"
-	            android:text="@string/add_button_text" />
-	        <Button
-	            android:id="@+id/buttonCompleteItem"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:onClick="completeItem"
-	            android:text="@string/complete_button_text" />
-	    </LinearLayout>
-	
+3.  El segundo **LinearLayout** ahora se ve así:
 
-4. Open the res\values\string.xml file and add the following line of code:
+          <LinearLayout android:layout_width="match_parent" 
+             android:layout_height="wrap_content" 
+             android:background="#71BCFA"
+             android:padding="6dip"  >
+             <Button android:id="@+id/buttonAddToDo"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:onClick="addItem"
+                 android:text="@string/add_button_text" />
+             <Button android:id="@+id/buttonCompleteItem"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:onClick="completeItem"
+                 android:text="@string/complete_button_text" />
+         </LinearLayout>
 
-    	<string name="complete_button_text">Complete All</string>
+4.  Abra el archivo res\\values\\string.xml y agregue la siguiente línea de código:
 
+    Complete All
 
-5. In Package Explorer, right click the project name in the *src* folder (`com.example.{your projects name}`), choose **New** then **Class**. In the dialog, enter **MarkAllResult** in the class name field, choose OK, and replace the resulting class definition with the following code:
+5.  En el Explorador de paquetes, haga clic con el botón secundario en el nombre del proyecto en la carpeta *src* (`com.example.{your projects name}`), seleccione **New** y, a continuación, **Class**. En el cuadro de diálogo, escriba **MarkAllResult** en el campo de nombre de clase, seleccione OK y reemplace la definición de clase resultante por el siguiente código:
 
-		import com.google.gson.annotations.SerializedName;
-		
-		public class MarkAllResult {
-		    @SerializedName("count")
-		    public int mCount;
-		    
-		    public int getCount() {
-		        return mCount;
-			}
-		
-			public void setCount(int count) {
-			        this.mCount = count;
-			}
-		}
+         import com.google.gson.annotations.SerializedName;
+            
+         public class MarkAllResult {
+             @SerializedName("count")
+             public int mCount;
+                
+             public int getCount() {
+                 return mCount;
+             }
+            
+             public void setCount(int count) {
+                     this.mCount = count;
+             }
+         }
 
-	This class is used to hold the row count value returned by the custom API. 
+    Esta clase se usa para mantener el valor de recuento de filas que devuelve la API personalizada.
 
-6. Locate the **refreshItemsFromTable** method in the **ToDoActivity.java** file, and make sure that the first line of code starts out like this:
+6.  Busque el método **refreshItemsFromTable** en el archivo **ToDoActivity.java** y asegúrese de que la primera línea de código comienza de la siguiente manera:
 
-        mToDoTable.where().field("complete").eq(false)
+         mToDoTable.where().field("complete").eq(false)
 
-	This filters the items so that completed items are not returned by the query.
+    Esto filtra los elementos para que la consulta no devuelva los elementos completados.
 
-7. In the **ToDoActivity.java** file, add the following method:
+7.  En el archivo **ToDoActivity.java**, agregue el siguiente método:
 
-		public void completeItem(View view) {
-			mClient.invokeApi("completeAll", MarkAllResult.class, new ApiOperationCallback<MarkAllResult>() {
-		        @Override
-		        public void onCompleted(MarkAllResult result, Exception error, ServiceFilterResponse response) {
-		            if (error != null) {
-						createAndShowDialog(error, "Error");
-		            } else {
-						createAndShowDialog(result.getCount() + " item(s) marked as complete.", "Completed Items");
-						refreshItemsFromTable();
-		            }
-		        }
-		    });
-		}
-	
-	This method handles the **Click** event for the new button. The **invokeApi** method is called on the client, which sends a POST request to the new custom API. The result returned by the custom API is displayed in a message dialog, as are any errors.
+         public void completeItem(View view) {
+             mClient.invokeApi("completeAll", MarkAllResult.class, new ApiOperationCallback<MarkAllResult>() {
+                 @Override
+                 public void onCompleted(MarkAllResult result, Exception error, ServiceFilterResponse response) {
+                     if (error != null) {
+                         createAndShowDialog(error, "Error");
+                     } else {
+                         createAndShowDialog(result.getCount() + " item(s) marked as complete.", "Completed Items");
+                         refreshItemsFromTable();
+                     }
+                 }
+             });
+         }
 
-## Test the app
+    Este método controla el evento **Click** del nuevo botón. El método **invokeApi** se llama en el cliente, el cual envía una solicitud de POST a la nueva API personalizada. El resultado devuelto por la API personalizada se muestra en un cuadro de diálogo de mensaje, al igual que todos los errores.
 
-1. From the **Run** menu, click **Run** to start the project in the Android emulator.
+Prueba de la aplicación
+-----------------------
 
-	This executes your app, built with the Android SDK, that uses the client library to send a query that returns items from your mobile service.
+1.  Haga clic en la opción **Run** del menú **Run** para iniciar el proyecto en el emulador de Android.
 
-2. In the app, type some text in **Insert a TodoItem**, then click **Add**.
+    De este modo se ejecuta su aplicación, que se ha creado con el SDK de Android, y se usa la biblioteca del cliente para enviar una consulta que devuelve los elementos desde su servicio móvil.
 
-3. Repeat the previous step until you have added several todo items to the list.
+2.  En la aplicación, escriba algún texto en **Insert a TodoItem** y, a continuación, haga clic en **Add**.
 
-4. Click the **Complete All** button.
+3.  Repita el paso anterior hasta que haya agregado varios elementos todo a la lista.
 
-  	![](./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png)
+4.  Haga clic en el botón **Complete All**.
 
-	A message dialog is displayed that indicates the number of items marked complete and the filtered query is executed again, which clears all items from the list.
+	![](./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png)
+
+    Aparece un cuadro de diálogo de mensaje que indica el número de elementos marcados como completos y la consulta filtrada se vuelve a ejecutar, con lo que se borran todos los elementos de la lista.

@@ -59,7 +59,7 @@ Siga estos pasos para crear un sitio web de Azure y, a continuación, activar la
 
 ## Compilación y comprobación de la aplicación localmente
 
-En esta sección, creará un archivo **server.js** que contiene el ejemplo \'hello world\' de [nodejs.org]. Este ejemplo se ha modificado a partir del ejemplo original agregando process.env.PORT como el puerto en el que se debe escuchar al ejecutarlo en un sitio web de Azure.
+En esta sección, creará un archivo **server.js** que contiene el ejemplo 'hello world' de [nodejs.org]. Este ejemplo se ha modificado a partir del ejemplo original agregando process.env.PORT como el puerto en el que se debe escuchar al ejecutarlo en un sitio web de Azure.
 
 1.  Mediante un editor de texto, cree un nuevo archivo con nombre **server.js** en el directorio **helloworld**. Si el directorio **helloworld** no existe, créelo.
 2.  Agregue lo siguiente como contenido del archivo **server.js** y, a continuación, guárdelo:

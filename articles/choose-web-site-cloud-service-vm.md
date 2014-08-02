@@ -1,4 +1,5 @@
 <properties linkid="manage-scenarios-choose-web-app-service" urlDisplayName="Web Options for Azure" pageTitle="When to Choose Azure Web Sites, Cloud Services, or Virtual Machines" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Web Sites, Cloud Services, and Virtual Machines for hosting web applications" metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title=" Cloud Services" authors="jroth" solutions="" manager="paulettm" editor="mollybos" />
+
 Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales
 =============================================================================
 
@@ -16,7 +17,7 @@ Sitios web es más fácil de configurar, administrar y supervisar, pero presenta
 -   [Resúmenes de servicio](#services)
 -   [Comparación de características](#features)
 
-Escenarios
+<a name="scenarios"></a>Escenarios
 ----------
 
 ### Soy dueño de un negocio pequeño y necesito una forma económica de hospedar mi sitio, pero con un crecimiento a futuro en mente.
@@ -84,7 +85,7 @@ Los servicios web HTTP le permiten admitir una amplia variedad de clientes, incl
 -   Conseguir contratos de nivel de servicio para disponibilidad con una sola instancia, o escalar horizontalmente a varias máquinas dedicadas.
 -   Usar el sitio publicado para proporcionar API de REST a cualquier cliente HTTP, incluidos los clientes móviles.
 
-Resúmenes de servicio
+<a name="services"></a>Resúmenes de servicio
 ---------------------
 
 [Sitios web Azure](http://go.microsoft.com/fwlink/?LinkId=306051) le permite generar sitios web altamente escalables rápidamente en Azure. Puede usar el Portal de Azure o las herramientas de línea de comandos para configurar un sitio web con lenguajes populares como .NET, PHP, Node.js y Python. Los marcos compatibles ya están implementados y no requieren más pasos de instalación. La galería de Sitios web Azure contiene muchas aplicaciones de terceros, como Drupal y WordPress, además de marcos de desarrollo como Django y CakePHP. Después de crear un sitio, puede migrar un sitio web existente o generar un sitio web completamente nuevo. Sitios web elimina la necesidad de administrar el hardware físico y también proporciona varias opciones de escalado. Puede cambiar desde un modelo multiinquilino compartido hasta un modo estándar donde máquinas dedicadas atienden el tráfico entrante. Sitios web le permite también integrarse con otros servicios de Azure, como Base de datos SQL, Bus de servicio y Almacenamiento. Con la versión preliminar de [SDK de WebJobs de Azure (en inglés)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs), puede agregar procesamiento en segundo plano. En resumen, Sitios web Azure facilita aún más el enfoque en el desarrollo de aplicaciones al admitir una amplia gama de lenguajes, aplicaciones de código abierto y metodologías de implementación (FTP, Git, Web Deploy o TFS). Si no tiene requisitos especializados que requieren Servicios en la nube o Máquinas virtuales, un Sitio web de Azure es, probablemente, la mejor opción.
@@ -93,7 +94,7 @@ Resúmenes de servicio
 
 [Máquinas virtuales](http://go.microsoft.com/fwlink/?LinkID=306053) le permite ejecutar aplicaciones web en máquinas virtuales en Azure. Esta capacidad se conoce también como infraestructura como servicio (IaaS). Cree nuevas máquinas de Windows Server o Linux a través del portal o cargue la imagen de una máquina virtual existente. Maquinas virtuales le otorga el máximo control sobre el sistema operativo, la configuración y el software y los servicios instalados. Esta es una buena opción para migrar rápidamente complejas aplicaciones web desde entornos locales a la nube, porque las máquinas se pueden mover como un todo. Con Redes virtuales, puede conectar también estas máquinas virtuales a las redes corporativas en un entorno local. Como ocurre con Servicios en la nube, tiene acceso remoto a estas máquinas y la capacidad de realizar cambios en la configuración en el nivel administrativo. Sin embargo, a diferencia de Sitios web y Servicios en la nube, deberá administrar las imágenes de su máquina virtual y la arquitectura de la aplicación completamente en el nivel de infraestructura. Un ejemplo básico es que es usted quien debe hacerse cargo de la aplicación de sus propias revisiones en el sistema operativo.
 
-Comparación de características
+<a name="features"></a>Comparación de características
 ------------------------------
 
 La siguiente tabla compara las capacidades de Sitios web, Servicios en la nube y Máquinas virtuales para ayudarle a tomar la mejor decisión. Las notas a continuación de la tabla ofrecen una explicación adicional de las casillas con un asterisco.
@@ -412,3 +413,34 @@ La siguiente tabla compara las capacidades de Sitios web, Servicios en la nube y
 
 <sup>4</sup> Web Deploy es compatible para los servicios en la nube cuando se implementa en roles de una sola instancia. No obstante, los roles de producción requieren varias instancias para satisfacer el contrato de nivel de servicio de Azure. Por lo tanto, Web Deploy no es un mecanismo de implementación adecuado para los servicios en la nube en producción.
 
+  [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_2.png
+  
+  [Sitios web Azure]: http://go.microsoft.com/fwlink/?LinkId=306051
+  
+  [Servicios en la nube]: http://go.microsoft.com/fwlink/?LinkId=306052
+  
+  [Máquinas virtuales]: http://go.microsoft.com/fwlink/?LinkID=306053
+  
+  [ClearDB]: http://www.cleardb.com/
+  
+  [SDK de WebJobs de Azure (en inglés)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs
+ 
+  [Configuración de un certificado SSL para un sitio web de Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
+
+  [azurestore]: http://www.windowsazure.com/en-us/gallery/store/
+
+  [scripting]: http://www.windowsazure.com/en-us/documentation/scripts/?services=web-sites
+
+  [dotnet]: http://www.windowsazure.com/en-us/develop/net/
+
+  [nodejs]: http://www.windowsazure.com/en-us/develop/nodejs/
+
+  [PHP]: http://www.windowsazure.com/en-us/develop/php/
+
+  [Python]: http://www.windowsazure.com/en-us/develop/python/
+
+  [servicebus]: http://www.windowsazure.com/en-us/documentation/services/service-bus/
+
+  [sqldatabase]: http://www.windowsazure.com/en-us/documentation/services/sql-database/
+
+  [Storage]: http://www.windowsazure.com/en-us/documentation/services/storage/

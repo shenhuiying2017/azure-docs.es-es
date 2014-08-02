@@ -482,7 +482,7 @@ A continuación se indican los principales mecanismos de seguridad de WIF. La in
   confianza.
 * **cookieHandler requireSsl="true"**. Especifica si las cookies de
   sesión transferidas en el protocolo SSL.
-* **wsFederation\'s requireHttps="true"**. Especifica si la comunicación
+* **wsFederation's requireHttps="true"**. Especifica si la comunicación
   del protocolo de federación con el proveedor de identidad se realiza
   sobre el protocolo de SSL.
 * **tokenReplayDetection enabled="true"**. Especifica si está habilitada

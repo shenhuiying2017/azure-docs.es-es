@@ -1,20 +1,23 @@
 
-The mobile service project that you download lets you to run your new mobile service right on your local computer or virtual machine. This makes it easy to debug your service code before you even publish it to Azure.
 
-In this section, you will test your new app against the mobile service running locally.
+El proyecto de servicio móvil descargado le permite ejecutar el nuevo servicio móvil en el equipo o máquina virtual local. De este modo, resulta sencillo depurar el código del servicio antes de publicarlo en Azure.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the solution file in Visual Studio.
+En esta sección, probará la nueva aplicación en el servicio móvil que se ejecuta de manera local.
 
-2. Press the **F5** key to rebuild the project and start the mobile service locally.
+1.  Vaya a la ubicación donde guardó los archivos comprimidos del proyecto, expándalos en su equipo y abra el archivo de solución en Visual Studio.
 
-	![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
+2.  Presione la tecla **F5** para recompilar el proyecto e iniciar el servicio móvil de manera local.
 
-	A web page is displayed after the mobile service starts successfully.
+    ![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
 
-3. In Solution Explorer in Visual Studio, right-click your client app project and click **Set as StartUp Project** and then press the **F5** key to rebuild the project and start the app.
+    Una vez que se inicia el servicio móvil correctamente, aparece una página web.
 
-	This starts the app, which connects to the local mobile service instance.	
+3.  En el Explorador de soluciones de Visual Studio, haga clic con el botón secundario en el proyecto de aplicación cliente, luego en **Establecer como proyecto de inicio** y, a continuación, presione la tecla **F5** para recompilar el proyecto e iniciar la aplicación.
 
-4. In the app, type meaningful text, such as _Complete the tutorial_, in **Insert a TodoItem**, and then click **Save**.
+    De este modo, se inicia la aplicación, que se conecta a la instancia local de servicio móvil.
 
-	This sends a POST request to the local mobile service. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the second column in the app.
+4.  En la aplicación, escriba un texto significativo, como *Realice el tutorial*, en **Insert a TodoItem** y, a continuación, haga clic en **Save**.
+
+    De este modo, se envía una solicitud POST al servicio móvil local. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y se muestran los datos en la segunda columna de la aplicación.
+
+

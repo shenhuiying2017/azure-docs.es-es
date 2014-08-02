@@ -1,40 +1,37 @@
 
 
-Follow these steps to create a new mobile service.
+Siga los pasos siguientes para crear un servicio móvil nuevo.
 
-1.	Log into the [Management Portal]. 
+1.  Inicie sesión en el [Portal de administración](https://manage.windowsazure.com/).
 
-2.	At the bottom of the navigation pane, click **+NEW**.
+2.  En la parte inferior del panel de navegación, haga clic en **+NEW**.
 
-	![](./media/mobile-services-dotnet-backend-create-new-service/plus-new.png)
+    ![](./media/mobile-services-dotnet-backend-create-new-service/plus-new.png)
 
-3.	Expand **Compute** and **Mobile Service**, then click **Create**.
+3.  Expanda **Proceso** y **Mobile Service** y, a continuación, haga clic en **Create**.
 
-	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create.png)
+    ![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create.png)
 
-	This displays the **New Mobile Service** dialog.
+    Se muestra el cuadro de diálogo **New Mobile Service**.
 
-4.	In the **Create a mobile service** page, select **Create a free 20 MB SQL Database**, select **.NET** runtime, then type a subdomain name for the new mobile service in the **URL** textbox and wait for name verification. Once name verification completes, click the right arrow button to go to the next page.	
+4.  En la página **Create a mobile service**, seleccione **Create a free 20 MB SQL Database**, seleccione el tiempo de ejecución **.NET**, luego escriba un nombre de subdominio para el servicio móvil nuevo en el cuadro de texto **URL** y espere la verificación del nombre. Cuando se haya verificado el nombre, haga clic en el botón de la flecha derecha para ir a la página siguiente.
 
-	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page1.png)
+    ![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page1.png)
 
-   	This displays the **Specify database settings** page.
-
-	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>As part of this tutorial, you create a new SQL Database instance and server. You can reuse this new database and administer it as you would any other SQL Database instance. If you already have a database in the same region as the new mobile service, you can instead choose <strong>Use existing Database</strong> and then select that database. The use of a database in a different region is not recommended because of additional bandwidth costs and higher latencies.</p></div>	
-
-6.	In **Name**, type the name of the new database, then type **Login name**, which is the administrator login name for the new SQL Database server, type and confirm the password, and click the check button to complete the process.
-
-	![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page2.png)
+  Se muestra la página **Specify database settings**.
 
 	<div class="dev-callout"> 
-	<b>Note</b> 
-	<p>When the password that you supply does not meet the minimum requirements or when there is a mismatch, a warning is displayed. <br/>We recommend that you make a note of the administrator login name and password that you specify; you will need this information to reuse the SQL Database instance or the server in the future.</p> 
-	</div>
+	<b>Nota:</b> 
+	<p>Como parte de este tutorial, va a crear una instancia y un servidor de Base de datos SQL. Puede reutilizar esta nueva base de datos y administrarla como lo haría con cualquier otra instancia de Base de datos SQL. Si ya tiene una base de datos en la misma región que el nuevo servicio móvil, también puede elegir <strong>Use existing Database</strong> y, a continuación, seleccionar la base de datos. No se recomienda el uso de una base de datos en una región diferente debido a los costes adicionales de ancho de banda y las elevadas latencias.</p></div>   
 
-You have now created a new mobile service that can be used by your mobile apps.
+1.  En **Name**, escriba el nombre de la base de datos nueva, luego escriba el **Login name**, que es el nombre de inicio de sesión de administrador para el nuevo servidor de Base de datos SQL, escriba y confirme la contraseña y haga clic en el botón de comprobación para completar el proceso.
 
+    ![](./media/mobile-services-dotnet-backend-create-new-service/mobile-create-page2.png)
 
-<!-- URLs. -->
-[Management Portal]: https://manage.windowsazure.com/
+    **Nota:**
+
+    Aparece una advertencia cuando la contraseña que proporciona no cumple los requisitos mínimos o cuando no coincide con su confirmación.
+    Recomendamos que tome nota del nombre de inicio de sesión de administrador y la contraseña que especifique; necesitará esta información para volver a usar la instancia de la Base de datos SQL o el servidor más adelante.
+
+Ahora ha creado un servicio móvil que pueden usar sus aplicaciones móviles.
+

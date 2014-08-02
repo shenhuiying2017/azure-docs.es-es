@@ -1,44 +1,36 @@
 
-It is always a good practice to validate the length of data that is submitted by users. In this section you will add code to the mobile service that validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.
 
-1. Start Visual Studio with the **Run as administrator** option and open the solution that contains the mobile service project that you worked with in the [Getting Started] or [Get started with data] tutorial.
+Siempre es conveniente validar la longitud de los datos enviados por los usuarios. En esta sección, agregará código al servicio móvil que valida la longitud de los datos de la cadena enviados al servicio móvil y rechaza las cadenas que son demasiado largas, en este caso, con más de 10 caracteres.
 
-2. In the Solution Explorer window expand the todo list service project and expand **Contollers**. Open the TodoItemController.cs file which is part of the mobile service project.  
+1.  Inicie Visual Studio con la opción **Ejecutar como administrador** y abra la solución que contiene el proyecto de servicio móvil con el que trabajó en el tutorial de [Introducción](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) o de [Introducción a los datos](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-).
 
-   	![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-open-todoitemcontroller.png)
+2.  En la ventana del Explorador de soluciones, expanda el proyecto de servicio de la lista todo y expanda **Controllers**. Abra el archivo TodoItemController.cs que forma parte del proyecto de servicios móviles.
 
-3. Replace the `PostTodoItem` method with the following method which will validate that the text string is not greater than 10 characters. For items that do have a text length greater than 10 characters, the method returns an HTTP Status code 400 Bad Request with a descriptive message included as content.
+	![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-open-todoitemcontroller.png)
 
+3.  Vuelva a colocar el método `PostTodoItem` con el siguiente método que valida que la cadena de texto no tiene más de 10 caracteres. En el caso de los elementos que sí tienen una longitud de texto de más de 10 caracteres, el método devuelve un código de estado HTTP 400 de solicitud incorrecta con un mensaje descriptivo incluido como contenido.
 
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
-        {
-            if (item.Text.Length > 10)
-            {
-                return BadRequest("The Item's Text length must not be greater than 10.");
-            }
-            else
-            {
-                TodoItem current = await InsertAsync(item);
-                return CreatedAtRoute("Tables", new { id = current.Id }, current);
-            } 
-        }
+         public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
+         {
+             if (item.Text.Length > 10)
+             {
+                 return BadRequest("The Item's Text length must not be greater than 10.");
+             }
+             else
+             {
+                 TodoItem current = await InsertAsync(item);
+                 return CreatedAtRoute("Tables", new { id = current.Id }, current);
+             } 
+         }
 
+4.  Haga clic con el botón secundario en el proyecto de servicio y haga clic en **Build** para compilar el proyecto de servicio móvil. Compruebe que no haya errores.
 
+	![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-build-dotnet-service.png)
 
-4. Right click the service project and click **Build** to build the mobile service project. Verify no errors occurred.
+5.  Haga clic con el botón secundario en el proyecto de servicio y haga clic en **Publicar**. Publique el servicio móvil en su cuenta de Microsoft Azure usando la configuración de publicación que utilizó anteriormente en el tutorial [Introducción](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/) o [Introducción a los datos](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-).
 
-   	![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-build-dotnet-service.png)
-
-5. Right click the service project and click **Publish**. Publish the mobile service to your Microsoft Azure account using the publishing settings you previously used in the [Getting Started] or [Get started with data] tutorial.
- 
-     >[WACOM.NOTE] You can alternatively test with the service hosted locally in IIS Express. For more information see the [Get started with data] tutorial.
+    > [WACOM.NOTE] Puede probar alternativamente el servicio hospedado localmente en IIS Express. Para obtener más información, consulte el tutorial [Introducción a los datos](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-).
 
     ![](./media/mobile-services-dotnet-backend-add-validation/mobile-services-publish-dotnet-service.png)
 
 
-
-
-
-<!-- URLs. -->
-[Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-

@@ -5,7 +5,7 @@ Configuración de SSL para una aplicación en Azure
 
 El cifrado de Capa de sockets seguros (SSL) es el método más usado para proteger los datos que se envían por Internet. Esta tarea común analiza cómo especificar un extremo HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación.
 
-Nota:
+### Nota:
 
 Los procedimientos de esta tarea se aplican a los Servicios en la nube de Azure; para los Sitios web, consulte [Configuración de un certificado SSL para un sitio web de Azure](../web-sites-configure-ssl-certificate/).
 
@@ -18,7 +18,7 @@ Esta tarea incluye los siguientes pasos:
 
 Esta tarea utiliza una implementación de producción; al final de este tema se entrega información sobre el uso de una implementación de ensayo.
 
-Obtener un certificado SSLPaso 1: Obtener un certificado SSL
+<a name="step1"></a>Obtener un certificado SSLPaso 1: Obtener un certificado SSL
 ------------------------------------------------------------
 
 Para configurar SSL para una aplicación, necesita primero obtener un certificado SSL que haya sido firmado por una entidad de certificación (CA), un tercero de confianza que emite certificados para este propósito. Si todavía no tiene una de estas firmas, deberá obtenerla mediante una compañía que venda certificados SSL.
@@ -34,7 +34,7 @@ Para propósitos de prueba, puede crear y usar un certificado autofirmado. Un ce
 
 A continuación, debe incluir información sobre el certificado en su definición de servicio y los archivos de configuración del servicio.
 
-Modificar archivos svc/configPaso 2: Modificar la definición del servicio y los archivos de configuración
+<a name="step2"></a>Modificar archivos svc/configPaso 2: Modificar la definición del servicio y los archivos de configuración
 ---------------------------------------------------------------------------------------------------------
 
 Su aplicación debe estar configurada para usar el certificado y se debe agregar un extremo HTTPS. Como resultado, se deben actualizar la definición de servicio y los archivos de configuración del servicio.
@@ -96,7 +96,7 @@ Su aplicación debe estar configurada para usar el certificado y se debe agregar
 
 Ahora que se actualizaron los archivos de definición del servicio y configuración del servicio, prepare su implementación para cargarla en Azure. Si va a usar **cspack**, asegúrese de no usar la etiqueta **/generateConfigurationFile**, puesto que así se sobrescribe la información del certificado que acaba de insertar.
 
-Cargar en AzurePaso 3: Cargar el paquete de implementación y el certificado
+<a name="step3"></a>Cargar en AzurePaso 3: Cargar el paquete de implementación y el certificado
 ---------------------------------------------------------------------------
 
 Su paquete de implementación se actualizó para usar el certificado y se agregó un extremo HTTPS. Ahora podrá cargar el paquete y el certificado en Azure con el Portal de administración.
@@ -119,7 +119,7 @@ Su paquete de implementación se actualizó para usar el certificado y se agreg�
 
 8.  Haga clic en el botón **Complete** para crear su servicio en la nube. Cuando la implementación haya llegado al estado **Ready**, puede continuar con los pasos siguientes.
 
-Conectarse mediante HTTPSPaso 4: Conectarse a la instancia de rol con HTTPS
+<a name="step4"></a>Conectarse mediante HTTPSPaso 4: Conectarse a la instancia de rol con HTTPS
 ---------------------------------------------------------------------------
 
 Ahora que su implementación está funcionando en Azure, puede conectarse a ella con HTTPS.
@@ -136,11 +136,23 @@ Ahora que su implementación está funcionando en Azure, puede conectarse a ella
 
 Si desea usar SSL para una implementación de ensayo en vez de una implementación de producción, tendrá que determinar primero la dirección URL que se usó para la implementación de ensayo. Implemente su servicio en la nube para el entorno de ensayo sin incluir un certificado ni ninguna información del certificado. Después de implementado, puede determinar la dirección URL basada en el GUID, que se menciona en el campo **Site URL** del Portal de administración. Cree un certificado con un nombre común (CN) igual a la URL basado en el GUID (por ejemplo, **32818777-6e77-4ced-a8fc-57609d404462.cloudapp.net**), use el Portal de administración para agregar el certificado a su servicio en la nube de ensayo, agregue la información del certificado a sus archivos CSDEF y CSCFG, vuelva a empaquetar la aplicación y actualice su implementación de ensayo a fin de usar el paquete y el archivo CSCFG nuevos.
 
-Recursos adicionalesRecursos adicionales
+<a name="additional_resources"></a>Recursos adicionalesRecursos adicionales
 ----------------------------------------
 
--   [How to associate a certificate with a service](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx)
+-   [Asociación de un certificado con un servicio](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx)
 
--   [How to configure an SSL certificate on an HTTPS endpoint](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx)
+-   [Configurar un certificado SSL en un extremo HTTPS](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx)
 
-
+  [Paso 1: Obtener un certificado SSL]: #step1
+  [Paso 2: Modificar la definición del servicio y los archivos de configuración]: #step2
+  [Paso 3: Cargar el paquete de implementación y el certificado]: #step3
+  [Paso 4: Conectarse a la instancia de rol con HTTPS]: #step4
+  [Crear un certificado del servicio para Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx
+  [Asociación de un certificado con un servicio]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
+  [Azure Management Portal]: http://manage.windowsazure.com
+  [0]: ./media/cloud-services-dotnet-configure-ssl-certificate/CreateCloudService.png
+  [1]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificate.png
+  [2]: ./media/cloud-services-dotnet-configure-ssl-certificate/CopyURL.png
+  [3]: ./media/cloud-services-dotnet-configure-ssl-certificate/SSLCloudService.png
+  [4]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificateComplete.png  
+  [Configurar un certificado SSL en un extremo HTTPS]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx

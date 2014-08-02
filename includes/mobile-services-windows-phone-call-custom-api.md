@@ -1,65 +1,69 @@
-##<a name="update-app"></a>Update the app to call the custom API
+<h2><a name="update-app"></a>Actualizaci&oacute;n de la aplicaci&oacute;n para llamar a la API personalizada</h2>
 
-1. In Visual Studio 2012 Express for Windows Phone, open the MainPage.xaml file in your quickstart project, locate the **Button** element named `ButtonRefresh`, and replace it with the following XAML code: 
+Actualización de la aplicación para llamar a la API personalizada
+-----------------------------------------------------------------
 
-        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
-            <Button Width="225" Name="ButtonRefresh" 
-                Click="ButtonRefresh_Click">Refresh</Button>
-            <Button Width="225"  Name="ButtonCompleteAll" 
-                Click="ButtonCompleteAll_Click">Complete All</Button>
-        </StackPanel>
+1.  En Visual Studio 2012 Express para Windows Phone, abra el archivo MainPage.xaml en el proyecto de inicio rápido, busque el elemento **Button** con el nombre `ButtonRefresh` y reemplácelo por el siguiente código XAML:
 
-	This adds a new button to the page. 
+         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
+             <Button Width="225" Name="ButtonRefresh" 
+                 Click="ButtonRefresh_Click">Refresh</Button>
+             <Button Width="225"  Name="ButtonCompleteAll" 
+                 Click="ButtonCompleteAll_Click">Complete All</Button>
+         </StackPanel>
 
-2. Open the MainPage.xaml.cs code file, and add the following class definition code:
+    Esta acción agrega un nuevo botón a la página.
 
-	    public class MarkAllResult
-	    {
-	        public int Count { get; set; }
-	    }
+2.  Abra el archivo de código MainPage.xaml.cs y agregue el siguiente código de definición de clase:
 
-	This class is used to hold the row count value returned by the custom API. 
+         public class MarkAllResult
+         {
+             public int Count { get; set; }
+         }
 
-3. Locate the **RefreshTodoItems** method in the **MainPage** class, and make sure that the `query` is defined by using the following **Where** method:
+    Esta clase se usa para mantener el valor de recuento de filas que devuelve la API personalizada.
 
-        .Where(todoItem => todoItem.Complete == false)
+3.  Busque el método **RefreshTodoItems** en la clase **MainPage** y asegúrese de que `query` se defina usando el siguiente método **Where**:
 
-	This filters the items so that completed items are not returned by the query.
+         .Where(todoItem => todoItem.Complete == false)
 
-3. In the **MainPage** class, add the following method:
+    Esto filtra los elementos para que la consulta no devuelva los elementos completados.
 
-		private async void ButtonCompleteAll_Click(object sender, RoutedEventArgs e)
-		{
-		    string message;
-		    try
-		    {
-		        // Asynchronously call the custom API using the POST method. 
-		        var result = await App.MobileService
-		            .InvokeApiAsync<MarkAllResult>("completeAll", 
-		            System.Net.Http.HttpMethod.Post, null);
-		        message =  result.Count + " item(s) marked as complete.";
-		        RefreshTodoItems();
-		    }
-		    catch (MobileServiceInvalidOperationException ex)
-		    {
-		        message = ex.Message;                
-		    }
-		
-		    MessageBox.Show(message);  
-		}
+4.  En la clase **MainPage**, agregue el siguiente método:
 
-	This method handles the **Click** event for the new button. The **InvokeApiAsync** method is called on the client, which sends a request to the new custom API. The result returned by the custom API is displayed in a message dialog.
+         private async void ButtonCompleteAll_Click(object sender, RoutedEventArgs e)
+         {
+             string message;
+             try
+             {
+                 // De manera asincrónica, llamar a la API personalizada mediante el método POST. 
+                 var result = await App.MobileService
+                     .InvokeApiAsync<MarkAllResult>("completeAll", 
+                     System.Net.Http.HttpMethod.Post, null);
+                 message =  result.Count + " item(s) marked as complete.";
+                 RefreshTodoItems();
+             }
+             catch (MobileServiceInvalidOperationException ex)
+             {
+                 message = ex.Message;                
+             }
+            
+             MessageBox.Show(message);  
+         }
 
-## <a name="test-app"></a>Test the app
+    Este método controla el evento **Click** del nuevo botón. Se llama al método **InvokeApiAsync** en el cliente, que envía una solicitud a la nueva API personalizada. El resultado devuelto por la API personalizada se muestra en un cuadro de diálogo de mensaje.
 
-1. In Visual Studio, press the **F5** key to rebuild the project and start the app.
+Prueba de la aplicación
+-----------------------
 
-2. In the app, type some text in **Insert a TodoItem**, then tap **Save**.
+1.  En Visual Studio, presione la tecla **F5** para recompilar el proyecto e iniciar la aplicación.
 
-3. Repeat the previous step until you have added several todo items to the list.
+2.  En la aplicación, escriba algún texto en **Insert a TodoItem** y, a continuación, seleccione **Save**.
 
-4. Tap the **Complete All** button.
+3.  Repita el paso anterior hasta que haya agregado varios elementos todo a la lista.
 
-  	![](./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png)
+4.  Haga clic en el botón **Complete All**.
 
-	A message box is displayed that indicates the number of items marked complete and the filtered query is executed again, which clears all items from the list.
+	![](./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png)
+
+    Se mostrará un cuadro de mensaje que indica el número de elementos marcados como completados y la consulta filtrada se vuelve a ejecutar, por lo que se borran todos los elementos de la lista.

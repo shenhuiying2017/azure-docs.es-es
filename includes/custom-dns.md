@@ -52,7 +52,7 @@ Guarde el nombre de dominio que se usó en la URL devuelta por cualquier método
 
 2.  Busque ahora dónde puede seleccionar o escribir el de CNAME. Es posible que tenga que seleccionar el tipo de registro de un menú desplegable o ir a una página de configuración avanzada. Debe buscar las palabras **CNAME**, **Alias** o **Subdomains**.
 
-3.  Debe también proporcionar el alias del dominio o subdominio para el CNAME, como **www** si desea crear un alias para **www.customdomain.com**. Si desea crear un alias para el dominio raíz, puede ponerse en una lista como el símbolo \'**@**\' en las herramientas de DNS de su registrador.
+3.  Debe también proporcionar el alias del dominio o subdominio para el CNAME, como **www** si desea crear un alias para **www.customdomain.com**. Si desea crear un alias para el dominio raíz, puede ponerse en una lista como el símbolo '**@**' en las herramientas de DNS de su registrador.
 
 4.  A continuación, debe proporcionar un nombre de host canónico que, en este caso, es el dominio **cloudapp.net** de su aplicación.
 

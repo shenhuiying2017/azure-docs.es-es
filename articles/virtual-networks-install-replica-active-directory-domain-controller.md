@@ -215,7 +215,7 @@ Este tutorial le guiará a través de los pasos para instalar un controlador de 
 
 2.  Haga clic en **Inicio**, haga clic con el botón secundario en **Símbolo del sistema** y, a continuación, haga clic en **Ejecutar como administrador**.
 
-3.  Escriba el siguiente comando y pulse Entrar: \'Dcdiag /c /v\'
+3.  Escriba el siguiente comando y pulse Entrar: 'Dcdiag /c /v'
 
 4.  Compruebe que las pruebas se ejecutaron correctamente.
 

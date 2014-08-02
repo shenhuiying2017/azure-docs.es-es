@@ -261,7 +261,7 @@ A continuación se indican los errores o problemas que se suelen encontrar al ut
 
 **Causa**: Este error puede ocurrir si está implementando una aplicación Node.js que contiene un archivo package.json que especifica módulos requeridos adicionales.
 
-**Resolución**: Los mensajes adicionales que contienen \'npm ERR!\' deberían registrarse antes de este error y pueden proporcionar contexto adicional sobre el error. A continuación se indican las causas conocidas de este error y el mensaje \'npm ERR!\' correspondiente:
+**Resolución**: Los mensajes adicionales que contienen 'npm ERR!' deberían registrarse antes de este error y pueden proporcionar contexto adicional sobre el error. A continuación se indican las causas conocidas de este error y el mensaje 'npm ERR!' correspondiente:
 
 * **Archivo package.json formado incorrectamente**: npm ERR! No se pudieron leer las dependencias.
 

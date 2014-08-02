@@ -1,10 +1,8 @@
-> [WACOM.NOTE] The procedures in this task apply to Web Sites; for Cloud Services, see <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/">Configuring a Custom Domain Name in Azure</a>.
+<blockquote>
 
+> [WACOM.NOTE] Los procedimientos que se incluyen en esta tarea se aplican a Sitios web; para Servicios en la nube, consulte [Configuración de un nombre de dominio personalizado en Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/).
 
-> [WACOM.NOTE] The steps in this task are specific to Web Sites that do not use Traffic Manager to load balance traffic. If your web site uses Traffic Manager, use the selector at the top of this article to select the Traffic Manager specific steps.
+> [WACOM.NOTE] Los pasos de esta tarea son específicos de sitios web que no utilizan el Administrador de tráfico para equilibrar la carga del tráfico. Si el sitio web utiliza el Administrador de tráfico, use el selector de la parte superior de este artículo para seleccionar los pasos específicos de Traffic Manager.
 
-
-> [WACOM.NOTE] The steps in this task require you to configure your web sites for Shared, Basic, or Standard mode, which may change how much you are billed for your subscription. See <a href="http://www.windowsazure.com/en-us/pricing/details/web-sites/">Web Sites Pricing Details</a> for more information.
-
-
+> [WACOM.NOTE] Los pasos de esta tarea requieren que configure los sitios web para el modo compartido, básico o estándar, lo que puede cambiar el importe que se le cobrará por la suscripción. Consulte [Información sobre el precio de Sitios web](http://www.windowsazure.com/en-us/pricing/details/web-sites/) para obtener más información.
 

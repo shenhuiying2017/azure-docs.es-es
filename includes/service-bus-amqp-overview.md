@@ -128,7 +128,7 @@ Para obtener más información sobre cómo obtener y usar estas bibliotecas con 
 * [Uso de AMQP 1.0 con la API .NET del bus de servicio][1]
 * [Uso de la API de Java Message Service (JMS) con el bus de servicio y
   AMQP 1.0][2]
-* [Service Bus AMQP 1.0 Developer\'s Guide][3]
+* [Service Bus AMQP 1.0 Developer's Guide][3]
 * [OASIS Advanced Message Queuing Protocol (AMQP) Version 1.0
   specification][4]
 

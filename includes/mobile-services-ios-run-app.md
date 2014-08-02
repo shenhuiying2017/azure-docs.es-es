@@ -1,19 +1,20 @@
 
 
+La etapa final de este tutorial consiste en crear y ejecutar la aplicación nueva.
 
-The final stage of this tutorial is to build and run your new app.
+1.  Vaya a la ubicación donde guardó los archivos comprimidos del proyecto, expándalos en su equipo y abra el archivo de proyecto utilizando Xcode.
 
-1. Browse to the location where you saved the compressed project files, expand the files on your computer, and open the project file using Xcode.
+      ![](./media/mobile-services-ios-run-app/mobile-xcode-project.png)
 
-   	![](./media/mobile-services-ios-run-app/mobile-xcode-project.png)
+2.  Presione el botón **Run** para crear el proyecto e iniciar la aplicación en el emulador de iPhone, que es la solución predeterminada para este proyecto.
 
-2. Press the **Run** button to build the project and start the app in the iPhone emulator, which is the default for this project.
+3.  En la aplicación, escriba un texto significativo, como *Realice el tutorial*. A continuación, haga clic en el icono de suma (**+**).
 
-3. In the app, type meaningful text, such as _Complete the tutorial_ and then click the plus (**+**) icon.
+      ![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
 
-   	![](./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png)
+      Esta acción envía una solicitud POST al nuevo servicio móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
 
-   	This sends a POST request to the new mobile service hosted in Azure. Data from the request is inserted into the TodoItem table. Items stored in the table are returned by the mobile service, and the data is displayed in the list.
-
-	>[WACOM.NOTE]You can review the code that accesses your mobile service to query and insert data, which is found in the TodoService.m file.</p> 
+    > [WACOM.NOTE]Puede revisar el código que tiene acceso a su servicio móvil para consultar e insertar datos, que se encuentra en el archivo TodoService.m.</p> 
  	</div>
+
+

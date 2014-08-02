@@ -341,7 +341,7 @@ La xplat-cli le permite administrar fácilmente los servicios de Azure. En este 
     > implementaciones en el sitio web de Azure usando el comando `git
     > push azure master`.
     
-    > [WACOM.NOTE] Si recibe un error que indica que \'site\' no es un
+    > [WACOM.NOTE] Si recibe un error que indica que 'site' no es un
     > comando de azure, es muy probable que la xplat-cli esté en modo de
     > grupo de recursos. Para volver a cambiar al modo de recursos, use
     > el comando `azure config mode asm`.
@@ -377,7 +377,7 @@ Aunque puede usar la xplat-cli para emitir comandos manualmente, también puede 
 
     azure site list | grep 'Running' | awk '{system("azure site stop "$2)}'
 
-Este ejemplo proporciona una lista de sitios web para el comando `grep`, que inspecciona cada línea en busca de la cadena \'Running\'. Todas las líneas que coincidan se canalizan al comando `awk`, que llama `azure site stop` y usa la segunda columna que pasa a él (el nombre del sitio en ejecución) como el nombre del sitio que hay que detener.
+Este ejemplo proporciona una lista de sitios web para el comando `grep`, que inspecciona cada línea en busca de la cadena 'Running'. Todas las líneas que coincidan se canalizan al comando `awk`, que llama `azure site stop` y usa la segunda columna que pasa a él (el nombre del sitio en ejecución) como el nombre del sitio que hay que detener.
 
 Aunque esto demuestra cómo se pueden encadenar unos comandos a otros, también puede crear scripts más elaborados usando las funciones de scripting proporcionadas por su intérprete de línea de comandos. Los diferentes intérpretes de línea de comandos tienen distintas características y sintaxis de scripting. Bash es probablemente el intérprete de línea de comandos más usado para los sistemas basados en UNIX, incluyendo Linux y OS X.
 

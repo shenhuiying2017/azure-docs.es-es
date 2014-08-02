@@ -1,4 +1,5 @@
 <properties title="Troubleshooting Azure Web Sites in Visual Studio" pageTitle="Troubleshooting Azure Web Sites in Visual Studio" metaKeywords="troubleshoot debug azure web site tracing logging" description="Learn how to troubleshoot an Azure Web Site by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013." metaCanonical="" services="web-sites" documentationCenter="Web Sites" authors="tdykstra" solutions="" />
+
 # Solución de problemas de Sitios web Azure en Visual Studio
 
 Durante el desarrollo y la prueba de una aplicación web, puede solucionar problemas si la [ejecuta en modo de depuración](http://www.visualstudio.com/en-us/get-started/debug-your-app-vs.aspx) o si utiliza [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx). Puede ejecutar en modo de depuración locamente en IIS Express o de manera remota en un sitio web de Azure. Pero en lo que respecta a errores que solo se producen en producción, la mejor manera de depurarlos podría ser revisar los registros que crea el código de la aplicación o el servidor web. En este tutorial se muestra cómo utilizar herramientas de Visual Studio para ayudar a depurar una aplicación mientras se ejecuta en un sitio web de Azure, ya sea en modo de depuración de manera remota o viendo los registros del servidor web o de aplicación.
@@ -301,7 +302,7 @@ En esta sección realizará las siguientes tareas:
 
 	`WebPageTraceListener` le permite ver el resultado del seguimiento si navega a `/trace.axd`.
 
-1.  Agregue un [elemento de seguimiento](http://msdn.microsoft.com/en-us/library/vstudio/6915t83k%28v=vs.100%29.aspx) bajo `<system.web>` en el archivo Web.config, tal como en el siguiente ejemplo:
+1.  Agregue un [elemento de seguimiento](http://msdn.microsoft.com/en-us/library/vstudio/6915t83k(v=vs.100).aspx) bajo `<system.web>` en el archivo Web.config, tal como en el siguiente ejemplo:
 
 		<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" /\>
 

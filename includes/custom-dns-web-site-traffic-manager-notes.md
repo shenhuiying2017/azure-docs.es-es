@@ -1,1 +1,2 @@
-If you do not already have a Traffic Manager profile, use the information in [Create a Traffic Manager profile using Quick Create](http://msdn.microsoft.com/en-us/library/windowsazure/dn339012.aspx) to create one. Note the **.trafficmanager.net** domain name associated with your Traffic Manager profile, as this will be used later by later steps in this document.
+Si todavía no tiene un perfil de Administrador de tráfico, utilice la información que se muestra en [Crear un perfil de Traffic Manager mediante Creación rápida](http://msdn.microsoft.com/en-us/library/windowsazure/dn339012.aspx) para crear uno. Tome nota del nombre de dominio **.trafficmanager.net** asociado a su perfil de Administrador de tráfico, ya que se utilizará más tarde en este documento.
+
