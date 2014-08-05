@@ -737,7 +737,7 @@ Para crear un inicio de sesión, primero debe conectase a la base de datos maest
     
          CREATE LOGIN SQLDBLogin WITH password='Password1';
 
-7.  Ejecute el comando para crear un nuevo inicio de sesión de SQL Server con el nombre \'SQLDBLogin\'.
+7.  Ejecute el comando para crear un nuevo inicio de sesión de SQL Server con el nombre 'SQLDBLogin'.
 
 <h4><a  id="CreateDBuser" ></a>Crear un usuario de base de datos y asignar permisos</h4>
 
@@ -780,7 +780,7 @@ Si tiene Excel 2010 instalado en su equipo, puede usar los siguientes pasos para
 
 Puede encontrar el nombre de servidor en la página **Database** en **Quick Links**. También puede encontrarse el nombre de servidor en el Portal de administración de Azure, en Base de datos SQL, en la página Server, en el Panel o en **Manage URL**.
 
-El nombre de servidor consta de una serie de letras y números seguidos de \'.database.windows.net\'. Especifique este nombre en el asistente para la conexión de base de datos. No incluya el prefijo http:// o https:// cuando especifique el nombre.
+El nombre de servidor consta de una serie de letras y números seguidos de '.database.windows.net'. Especifique este nombre en el asistente para la conexión de base de datos. No incluya el prefijo http:// o https:// cuando especifique el nombre.
 
 Especifique un inicio de sesión de autenticación de SQL Server. Para propósitos de prueba, puede usar el inicio de sesión de administrador que creó cuando configuró el servidor. Para obtener acceso a datos de forma normal, use un inicio de sesión de usuario de base de datos similar al que acaba de crear.
 
