@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor web sites - Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Learn how to monitor Azure web sites by using the Monitor page in the Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Web Sites" authors="" solutions="" manager="" editor="" />
 
-Supervisión de sitios web
+<a name="howtomonitor"></a>Supervisión de sitios web
 =========================
 
 Los sitios web proporcionan la funcionalidad de supervisión a través de la página de administración de supervisión. La página de administración de supervisión brinda estadísticas del rendimiento de un sitio web, tal como se describe a continuación.
@@ -16,7 +16,7 @@ Tabla de contenido
 -   [Configuración de registros de diagnóstico y descarga para un sitio web](#howtoconfigdiagnostics)
 -   [Supervisión del estado de extremo web](#webendpointstatus)
 
-Incorporación de métricas de sitio web
+<a name="websitemetrics"></a>Incorporación de métricas de sitio web
 --------------------------------------
 
 1.  En el [Portal de administración de Azure](http://manage.windowsazure.com/), en las páginas de administración del sitio web, haga clic en la pestaña **Monitor** para mostrar la página de administración **Monitor**. De manera predeterminada, el gráfico de la pantalla **Monitor** muestra las mismas métricas que el gráfico de la página **Panel**.
@@ -46,12 +46,12 @@ La siguiente lista describe las métricas que puede ver en el gráfico de la pá
 -   **Http 404 errors**: Cantidad de mensajes http "404 Not Found" http enviados.
 -   **Http 406 errors**: Cantidad de mensajes http "406 Not Acceptable" http enviados.
 
-Recepción de alertas desde métricas de sitio web
+<a name="howtoreceivealerts"></a>Recepción de alertas desde métricas de sitio web
 ------------------------------------------------
 
 En el modo de sitio web **estándar**, puede recibir alertas según las métricas de supervisión de su sitio web. La característica de alerta requiere primero configurar un extremo web para supervisión, lo que puede hacer en la sección **Monitoring** de la página **Configure**. En la página **Settings** del Portal de administración de Azure, puede crear una regla para desencadenar una alerta cuando la métrica seleccionada alcance el valor que haya especificado. Puede también elegir que se envíe un correo electrónico cuando se desencadene la alerta. Para obtener más información, consulte [Recibir notificaciones de alerta y administrar reglas de alerta en Azure](http://go.microsoft.com/fwlink/?LinkId=309356).
 
-Visualización de cuotas de uso para un sitio web
+<a name="howtoviewusage"></a>Visualización de cuotas de uso para un sitio web
 ------------------------------------------------
 
 Los sitios web pueden estar configurados para ejecutarse en modo de sitio web **compartido** o **estándar** desde la página de administración **Scale** del sitio web. Cada suscripción a Azure tiene acceso a un conjunto de recursos que tienen como finalidad la ejecución de hasta 100 sitios web por región en el modo de sitio web **compartido**. El grupo de recursos disponibles para cada suscripción de Sitio web con este fin es compartido por otros sitios web en la misma región geográfica que estén configurados para ejecutarse en modo **compartido**. Como estos recursos son compartidos para su uso de parte de otros sitios web, todas las suscripciones tienen límites en el uso que hacen de estos recursos. Los límites que se aplican al uso que una suscripción hace de estos recursos se expresan como cuotas de uso enumeradas bajo la sección de información general de uso en la página de administración de **Panel** de cada sitio web.
@@ -74,7 +74,7 @@ Las cuotas de uso de recursos ayudan a evitar el uso excesivo de los siguientes 
 
 Cuando se exceden las cuotas de uso de una suscripción, Azure actúa para detener el uso excesivo de los recursos. Esto se hace para evitar que algún suscriptor agote los recursos en perjuicio de otros suscriptores.
 
-Reducción del uso de recursos
+<a name="resourceusage"></a>Reducción del uso de recursos
 -----------------------------
 
 Debido a que Azure calcula las cuotas de uso de recursos al medir los recursos que utilizan los sitios web en modo compartido de una suscripción durante un intervalo de cuota de 24 horas, considere lo siguiente:
@@ -82,7 +82,7 @@ Debido a que Azure calcula las cuotas de uso de recursos al medir los recursos q
 -   Dado que la cantidad de sitios web configurados para ejecutarse en modo compartido aumenta, también aumenta la probabilidad de exceder las cuotas de uso de recursos en modo compartido. Considere reducir la cantidad de sitios web que están configurados para ejecutarse en modo compartido si se exceden las cuotas de uso de recursos.
 -   De manera similar, dado que la cantidad de instancias de cualquier sitio web en ejecución en modo compartido aumenta, también aumenta la probabilidad de exceder las cuotas de uso de recursos en modo compartido. Considere volver a escalar instancias adicionales de sitios web en modo compartido si se están excediendo las cuotas de uso.
 
-¿Qué sucede cuando se supera una cuota de uso de recursos?
+<a name="exceeded"></a>¿Qué sucede cuando se supera una cuota de uso de recursos?
 ----------------------------------------------------------
 
 Azure lleva a cabo las siguientes acciones si se superan las cuotas de uso de recursos de una suscripción en un intervalo de cuota (24 horas):
@@ -93,7 +93,7 @@ Azure lleva a cabo las siguientes acciones si se superan las cuotas de uso de re
 
 -   **File System Storage**: Azure evita la implementación de cualquier sitio web para una suscripción que esté configurado para ejecutarse en modo compartido si la implementación hará que se exceda la cuota de uso del almacenamiento de sistema de archivos. Cuando el recurso de almacenamiento de sistema de archivos llega al tamaño máximo permitido por su cuota, el almacenamiento de sistema de archivos queda accesible para las operaciones de lectura, pero se bloquean todas las operaciones de escritura, incluidas las necesarias para la actividad normal de un sitio web. Cuando esto ocurre, puede configurar uno o más sitios web en ejecución en modo compartido de sitio web para que se ejecuten en modo estándar de sitio web, o bien, reducir el uso de almacenamiento del sistema de archivos por debajo de la cuota de uso del almacenamiento del sistema de archivos.
 
-Configuración de registros de diagnóstico y descarga para un sitio web
+<a name="howtoconfigdiagnostics"></a>Configuración de registros de diagnóstico y descarga para un sitio web
 ----------------------------------------------------------------------
 
 Los diagnósticos se habilitan en la página de administración **Configure** del sitio web. Existen dos tipos de diagnóstico: **diagnósticos de la aplicación** y **diagnósticos del sitio**.
@@ -272,7 +272,7 @@ Los archivos .htm incluyen las siguientes opciones:
 
 -   Lea los archivos con: Analizador de registro. Se usa para analizar y consultar archivos de registro de IIS. El Analizador de registro 2.2 está disponible en el Centro de descarga de Microsoft en <http://go.microsoft.com/fwlink/?LinkId=246619>.
 
-Supervisión de estado de extremo web
+<a name="webendpointstatus"></a>Supervisión de estado de extremo web
 ------------------------------------
 
 Esta característica, disponible en modo **estándar**, le permite supervisar hasta dos extremos desde hasta tres ubicaciones geográficas.
@@ -301,3 +301,5 @@ Vea el siguiente vídeo para obtener más información sobre la supervisión de 
 -   [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 
+[fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
+[vmsizes]:http://go.microsoft.com/fwlink/?LinkID=309169

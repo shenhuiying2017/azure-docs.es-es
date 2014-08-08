@@ -129,6 +129,11 @@ Ahora que ha creado una notificación periódica, podría averiguar más informa
 
     Obtenga más información sobre la creación de API personalizadas.
 
+<!-- Anchors. -->
+[Define the custom API]: #define-custom-api
+[Update the app to turn on period notifications]: #update-app
+[Test the app]: #test-app
+[Next Steps]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-services-selection.png
@@ -136,3 +141,16 @@ Ahora que ha creado una notificación periódica, podría averiguar más informa
 [2]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-create-dialog.png
 [3]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-select.png
 [4]: ./media/mobile-services-windows-store-javascript-create-pull-notifications/mobile-custom-api-live-tile.png
+
+<!-- URLs. -->
+[Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
+[Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
+[My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /en-us/develop/mobile/tutorials/started-with-data-js
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-js
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+[JavaScript and HTML]: mobile-services-win8-javascript/
+
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Periodic notifications]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx

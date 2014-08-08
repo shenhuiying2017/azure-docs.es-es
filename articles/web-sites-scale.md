@@ -186,3 +186,29 @@ Según el modo de plan de hospedaje web, se encuentran disponibles las siguiente
     [Escalación de sitios web de Azure: con Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/how-azure-web-sites-scale/)
 
 
+<!-- LINKS -->
+[vmsizes]:http://go.microsoft.com/fwlink/?LinkId=309169
+[SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
+[azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
+[portal]: https://manage.windowsazure.com/
+
+<!-- IMAGES -->
+[SelectWebsite]: ./media/web-sites-scale/01SelectWebSite.png
+[SelectScaleTab]: ./media/web-sites-scale/02SelectScaleTab.png
+
+[ChooseWHP]: ./media/web-sites-scale/03aChooseWHP.png
+[ChooseBasicInstanceSize]: ./media/web-sites-scale/03bChooseBasicInstanceSize.png
+[ChooseBasicInstanceCount]: ./media/web-sites-scale/04ChooseBasicInstanceCount.png
+[SaveButton]: ./media/web-sites-scale/05SaveButton.png
+[BasicComplete]: ./media/web-sites-scale/06BasicComplete.png
+[ChooseStandard]: ./media/web-sites-scale/07ChooseStandard.png
+[CapacitySectionStandard]: ./media/web-sites-scale/08CapacitySectionStandard.png
+[ChooseInstanceSize]: ./media/web-sites-scale/09ChooseInstanceSize.png
+[SetUpScheduleTimesButton]: ./media/web-sites-scale/10SetUpScheduleTimesButton.png
+[SetUpScheduleTimesDialog]: ./media/web-sites-scale/11SetUpScheduleTimesDialog.png
+[EditScaleSettingsForSchedule]: ./media/web-sites-scale/12EditScaleSettingsForSchedule.png
+[ScaleByMetric]: ./media/web-sites-scale/13ScaleByMetric.png
+[InstanceCount]: ./media/web-sites-scale/14InstanceCount.png
+[TargetCPU]: ./media/web-sites-scale/15TargetCPU.png
+[LinkedResources]: ./media/web-sites-scale/16LinkedResources.png
+[ScaleDatabase]: ./media/web-sites-scale/17ScaleDatabase.png

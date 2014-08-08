@@ -1,5 +1,7 @@
 
 
+<properties linkid="develop-mobile-tutorials-handle-conflcits-offline-data-dotnet" urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Handle Conflicts with offline data in Mobile Services (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to handle conflicts with offline data in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" />
+
 Control de conflictos con datos sin conexión en Servicios móviles
 =================================================================
 
@@ -180,3 +182,35 @@ Esto detendrá la operación de inserción actual, pero mantendrá todos los cam
 
 Cuando se cancela la inserción, `PushAsync` lanzará una excepción `MobileServicePushFailedException` y la propiedad de excepción `PushResult.Status` tendrá el valor `MobileServicePushStatus.CancelledByOperation`.
 
+
+<!-- Anchors. -->
+[Download the Windows Store app project]: #download-app
+[Create the mobile service]: #create-service
+[Add a due date column for the database]: #add-column
+[Updating the database for .NET backend mobile services]: #dotnet-backend  
+[Updating the database for JavaScript mobile services]: #javascript-backend
+[Test the app against a mobile service]: #test-app
+[Manually update the data in the backend to create a conflict]: #handle-conflict
+[Next Steps]:#next-steps
+
+<!-- Images -->
+[0]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
+[1]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-todowithdate-empty.png
+[2]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-todowithdate-empty-sql.png
+[3]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-todowithdate-push1.png
+[4]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-todowithdate-design-edit.png
+[5]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-server-explorer.png
+[6]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-sql-server-object-explorer-update-data.png
+[7]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run2.png
+[8]: ./media/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run3.png
+
+
+
+
+<!-- URLs -->
+[Handling conflicts code sample]: http://go.microsoft.com/fwlink/?LinkId=394787
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
+[Get started with offline data]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data
+[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
+[Azure Management Portal]: https://manage.windowsazure.com/
+[Handling Database Conflicts]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/#test-app

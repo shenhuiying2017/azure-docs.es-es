@@ -49,7 +49,7 @@ Necesita una cuenta de Azure para completar este tutorial. Puede crear una [cuen
 
 [WACOM.INCLUDE [install-sdk-2012-only](../includes/install-sdk-2012-only.md)]
 
-Creación de una cuenta de almacenamientoCreación de una cuenta de almacenamiento de Azure
+<a name="createWASA"></a>Creación de una cuenta de almacenamientoCreación de una cuenta de almacenamiento de Azure
 -----------------------------------------------------------------------------------------
 
 Cuando ejecuta la aplicación de ejemplo en Visual Studio, puede obtener acceso a tablas, colas y blobs en el almacenamiento de desarrollo de Azure o en una cuenta de almacenamiento de Azure en la nube. El almacenamiento de desarrollo usa una base de datos LocalDB de SQL Server Express para emular la forma en la que el almacenamiento de Azure funciona en la nube. En este tutorial comenzará usando el almacenamiento de desarrollo y, a continuación, conocerá cómo configurar la aplicación para usar una cuenta de almacenamiento en la nube cuando se ejecute en Visual Studio. En esta sección del tutorial, creará la cuenta de almacenamiento de Azure que configurará en Visual Studio para usarla más tarde en el tutorial.
@@ -94,7 +94,7 @@ Cuando ejecuta la aplicación de ejemplo en Visual Studio, puede obtener acceso 
 
 9.  Copie una de estas claves en el Portapapeles para usarla en la siguiente sección.
 
-Instalación de ASEInstalación del Explorador de almacenamiento de Azure
+<a name="installASE"></a>Instalación de ASEInstalación del Explorador de almacenamiento de Azure
 -----------------------------------------------------------------------
 
 El **Explorador de almacenamiento de Azure** (ASE) es una herramienta que puede usar para realizar consultas y actualizar blobs, colas y tablas de almacenamiento de Azure. Lo usará a lo largo de este tutorial para comprobar que los datos se han actualizado correctamente y para crear datos de prueba.
@@ -144,7 +144,7 @@ Creación de un servicio en la nubeCreación de un servicio en la nube
 
     Puede ir al siguiente paso sin esperar a que se complete este paso.
 
-Descarga y ejecuciónDescarga y ejecución de la solución completa
+<a name="downloadcnfg"></a>Descarga y ejecuciónDescarga y ejecución de la solución completa
 ----------------------------------------------------------------
 
 1.  Descargue y descomprima la [solución completa](http://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36) (información en inglés).
@@ -207,7 +207,7 @@ Descarga y ejecuciónDescarga y ejecución de la solución completa
 
 Los datos que ha especificado y visualizado se almacenan en el almacenamiento de desarrollo de Azure. El almacenamiento de desarrollo usa una base de datos LocalDB de SQL Server Express para emular la forma en la que el almacenamiento de Azure funciona en la nube. La aplicación usa el almacenamiento de desarrollo porque es lo que se decidió en la configuración del proyecto en el momento de su descarga. Esta configuración se almacena en los archivos *.cscfg* en el proyecto **AzureEmailService**. El archivo *ServiceConfiguration.Local.cscfg* determina lo que se usa cuando se ejecuta la aplicación localmente en Visual Studio y el archivo *ServiceConfiguration.Cloud.cscfg* determina lo que se usa cuando implementa la aplicación en la nube. Más adelante verá cómo configurar la aplicación para usar la cuenta de almacenamiento de Azure que creó anteriormente.
 
-Almacenamiento del desarrolladorVisualización del almacenamiento del desarrollador en Visual Studio
+<a name="StorageExpVS"></a>Almacenamiento del desarrolladorVisualización del almacenamiento del desarrollador en Visual Studio
 ---------------------------------------------------------------------------------------------------
 
 El **Explorador de almacenamiento de Azure** en el **Explorador de servidores** proporciona una práctica vista de solo lectura de los recursos del almacenamiento de Azure.
@@ -232,7 +232,7 @@ No puede usar el explorador de almacenamiento en Visual Studio para actualizar o
 
 > [WACOM.NOTE] Con la versión más reciente del SDK, puede actualizar el almacenamiento de desarrollo en el **Explorador de servidores**.
 
-Uso de la cuenta de almacenamientoConfiguración de la aplicación para usar la cuenta de almacenamiento de Azure
+<a name="conf4azureStorage"></a>Uso de la cuenta de almacenamientoConfiguración de la aplicación para usar la cuenta de almacenamiento de Azure
 ---------------------------------------------------------------------------------------------------------------
 
 A continuación, verá cómo configurar la aplicación de manera que use la cuenta de almacenamiento de Azure cuando se ejecute en Visual Studio en lugar del almacenamiento de desarrollo. Existe una nueva forma de hacer esto en Visual Studio que se introdujo en la versión 1.8 del SDK, y una forma más antigua que implica copiar y pegar la configuración del Portal de administración de Azure. Los siguientes pasos muestran la nueva forma de configurar los valores de la cuenta de almacenamiento.
@@ -367,7 +367,7 @@ Si no usa el emulador de almacenamiento, puede disminuir el tiempo de inicio del
 
     ![ASE](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-se4.png)
 
-SendGridConfiguración de la aplicación para usar SendGrid
+<a name="sendGrid"></a>SendGridConfiguración de la aplicación para usar SendGrid
 ---------------------------------------------------------
 
 La aplicación de ejemplo usa SendGrid para enviar correos electrónicos. Para enviar correos electrónicos mediante SendGrid, tiene que configurar una cuenta de SendGrid y, a continuación, actualizar un archivo de configuración con las credenciales de SendGrid.
@@ -392,7 +392,7 @@ Los siguientes pasos muestran un método alternativo para el establecimiento de 
 
 Si actualiza el archivo de configuración en la nube, está configurando los valores que se usarán cuando se ejecute la aplicación en la nube. Si quería que la aplicación enviara correos electrónicos mientras se ejecutaba localmente, también tendría que actualizar el archivo *ServiceConfiguration.Local.cscfg*.
 
-Implementación de AzureImplementación de la aplicación en Azure
+<a name="deployAz"></a>Implementación de AzureImplementación de la aplicación en Azure
 ---------------------------------------------------------------
 
 Para implementar la aplicación, puede crear un paquete en Visual Studio y cargarlo usando el Portal de administración de Azure o realizar la publicación directamente desde Visual Studio. En este tutorial usará el método de publicación.
@@ -504,7 +504,7 @@ ProducciónAumento de nivel de la aplicación de ensayo a producción
 
     Si no ha cambiado la configuración de la cuenta de almacenamiento, los datos que especificó mientras probaba la versión de ensayo de la aplicación se muestran cuando ejecuta la aplicación en la nube.
 
-SeguimientoConfiguración y visualización de los datos de seguimiento
+<a name="trace"></a>SeguimientoConfiguración y visualización de los datos de seguimiento
 --------------------------------------------------------------------
 
 El seguimiento es una herramienta inestimable para la depuración de una aplicación en la nube. En esta sección del tutorial, verá cómo visualizar datos de seguimiento.
@@ -538,7 +538,7 @@ El seguimiento es una herramienta inestimable para la depuración de una aplicac
 
     ![Panel](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-trc.png)
 
-Incorporación de una instancia de rolIncorporación de otra instancia de rol de trabajo para gestionar la carga mejorada
+<a name="addRole"></a>Incorporación de una instancia de rolIncorporación de otra instancia de rol de trabajo para gestionar la carga mejorada
 -----------------------------------------------------------------------------------------------------------------------
 
 Existen dos enfoques para realizar la escalación de recursos informáticos en los roles de Azure: la especificación del [tamaño de la máquina virtual](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "VM sizes") o la especificación del recuento de instancias de las máquinas virtuales en ejecución.
@@ -575,11 +575,94 @@ En los siguientes pasos se explica cómo escalar horizontalmente mediante el Por
 
     ![Visualización de instancias](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-in2.png)
 
-Pasos siguientesPasos siguientes
+<a name="nextsteps"></a>Pasos siguientesPasos siguientes
 --------------------------------
 
 Ya ha visto cómo configurar, implementar y escalar la aplicación completa. Los siguientes tutoriales muestran cómo crear la aplicación desde el principio. En el [próximo tutorial](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/), creará un rol web.
 
 Podrá encontrar vínculos a recursos adicionales acerca de cómo utilizar las tablas, colas y blobs de almacenamiento de Azure al final del [último tutorial de la serie](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/).
 [Tutorial 3](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/)
+
+
+[Set up the development environment]: #setupdevenv
+[Set up a free Azure account]: #setupwindowsazure
+[Create an Azure Storage account]: #createWASA
+[Install Azure Storage Explorer]: #installASE
+[Create a Cloud Service]: #createcloudsvc
+[Download and run the completed solution]: #downloadcnfg
+[View developer storage in Visual Studio]: #StorageExpVS
+[Configure the application for Azure Storage]: #conf4azureStorage
+[Deploy the application to Azure]: #deployAz
+[Promote the application from staging to production]: #swap
+[Configure the application to use SendGrid]: #sendGrid
+[Configure and view trace data]: #trace
+[Add another worker role instance to handle increased load]: #addRole
+
+[firsttutorial]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+
+[tut3]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/
+[tut5]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+[NewPortal]: http://manage.windowsazure.com
+[managestorage]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
+[autoscalingappblock]: /en-us/develop/net/how-to-guides/autoscaling/
+
+
+[mtas-portal-new-storage]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-portal-new-storage.png
+[mtas-storage-quick]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-storage-quick.png
+[mtas-create-storage-url-test]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create-storage-url-test.png
+[mtas-manage-keys]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-manage-keys.png
+[mtas-guid-keys]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-guid-keys.PNG
+[mtas-new-cloud]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-new-cloud.png
+[mtas-create-cloud]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create-cloud.png
+[mtas-ase-add]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-ase-add.png
+[mtas-ase-add2]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-ase-add2.png
+
+[mtas-rt-prop]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-rt-prop.png
+[mtas-mailinglist1]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-mailinglist1.png
+[mtas-create1]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-create1.png
+[mtas-mailing-list-index-page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-mailing-list-index-page.png
+[mtas-subscribers-index-page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-subscribers-index-page.png
+[mtas-message-create-page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-message-create-page.png
+[mtas-message-index-page]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-message-index-page.png
+[mtas-serverExplorer]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-serverExplorer.png
+[mtas-wasVSdata]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-wasVSdata.png
+[mtas-elip]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-elip.png
+[mtas-enter]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-enter.png
+[mtas-ase1]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-ase1.png
+
+
+[mtas-se3]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-se3.png
+[mtas-aesp]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-aesp.png
+[mtas-1]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-1.png
+[mtas-se4]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-se4.png
+
+
+
+
+
+
+
+
+
+[mtas-c6]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c6.png
+[mtas-c7]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c7.png
+
+[mtas-sg]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-sg.png
+[mtas-trc]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-trc.png
+[mtas-instanceCnt]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-instanceCnt.png
+
+[mtas-in3]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-in3.png
+[mtas-in2]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-in2.png
+[mtas-3]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-3.png
+[mtas-5]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-5.png
+[mtas-6]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-6.png
+[mtas-16]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-16.png
+[mtas-7]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-7.png
+[mtas-8]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-8.png
+[mtas-9]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-9.png
+[mtas-11]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-11.png
+[mtas-12]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-12.png
+[mtas-c55]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-c55.png
+
+[mtas-19]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-19.png
 

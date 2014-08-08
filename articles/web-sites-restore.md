@@ -106,3 +106,17 @@ En este artículo
 
 
 
+<!-- IMAGES -->
+[ChooseBackupSource]: ./media/web-sites-restore/01ChooseBackupSource.png
+[StorageAccountFile]: ./media/web-sites-restore/02StorageAccountFile.png
+[BrowseCloudStorage]: ./media/web-sites-restore/03BrowseCloudStorage.png
+[StorageAccountFileSelected]: ./media/web-sites-restore/04StorageAccountFileSelected.png
+[ChooseRestoreSettings]: ./media/web-sites-restore/05ChooseRestoreSettings.png
+[ChooseDBServer]: ./media/web-sites-restore/06ChooseDBServer.png
+[RestoreToNewSQLDB]: ./media/web-sites-restore/07RestoreToNewSQLDB.png
+[NewSQLDBConfig]: ./media/web-sites-restore/08NewSQLDBConfig.png
+[RestoredContosoWebSite]: ./media/web-sites-restore/09RestoredContosoWebSite.png
+[DashboardOperationLogsLink]: ./media/web-sites-restore/10DashboardOperationLogsLink.png
+[ManagementServicesOperationLogsList]: ./media/web-sites-restore/11ManagementServicesOperationLogsList.png
+[DetailsButton]: ./media/web-sites-restore/12DetailsButton.png
+[OperationDetails]: ./media/web-sites-restore/13OperationDetails.png

@@ -1,3 +1,7 @@
+<properties linkid="develop-net-how-to-guides-new-relic" urlDisplayName="New Relic" pageTitle="Using New Relic with Azure - Azure feature guides" metaKeywords="" description="Learn how to use the New Relic service to manage and monitor your Azure application." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Azure" authors="" solutions="" manager="" editor="" />
+
+
+
 <!-- saved from url=(0022)http://internet.e-mail -->
 
 Administración del rendimiento de la aplicación New Relic en Azure
