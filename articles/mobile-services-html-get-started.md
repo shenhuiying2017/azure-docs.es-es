@@ -3,7 +3,7 @@
 Introducción a los Servicios móviles
 ====================================
 
-[Tienda Windows](/en-us/documentation/articles/mobile-services-windows-store-get-started "Tienda Windows") [Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/en-us/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/en-us/documentation/articles/mobile-services-android-get-started "Android") [HTML](/en-us/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/en-us/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
+[Tienda Windows](/es-es/documentation/articles/mobile-services-windows-store-get-started "Tienda Windows") [Windows Phone](/es-es/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/es-es/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/es-es/documentation/articles/mobile-services-android-get-started "Android") [HTML](/es-es/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/es-es/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/es-es/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/es-es/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/es-es/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
 
 En este tutorial se indica cómo agregar un servicio back-end basado en la nube a una aplicación HTML mediante los Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de *Lista de pendientes* que almacena datos de la aplicación en el servicio móvil nuevo. Puede ver la versión en vídeo de este tutorial haciendo clic en el clip de la derecha.
 
@@ -17,7 +17,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Serv
 
 **Nota:**
 
-Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F).
+Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F).
 
 ### Requisitos adicionales
 
@@ -64,7 +64,7 @@ En esta sección, creará una aplicación de HTML que se conecta al servicio mó
 	![](./media/mobile-services-html-get-started/mobile-services-set-cors-localhost.png)
 
     <div class="dev-callout"><b>Nota:</b>
-        <p>Si implementa la aplicación de inicio rápido en un servidor web que no sea localhost, debe agregar el nombre de host del servidor web a la lista <strong>Allow requests from host names</strong>. Para obtener más información, consulte <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn155871.aspx" target="_blank">Uso compartido de recursos entre orígenes</a>.</p>
+        <p>Si implementa la aplicación de inicio rápido en un servidor web que no sea localhost, debe agregar el nombre de host del servidor web a la lista <strong>Allow requests from host names</strong>. Para obtener más información, consulte <a href="http://msdn.microsoft.com/es-es/library/windowsazure/dn155871.aspx" target="_blank">Uso compartido de recursos entre orígenes</a>.</p>
     </div>
 
 Hospedaje y ejecución de su aplicación HTML
@@ -109,13 +109,13 @@ Pasos siguientes
 
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
--   **[Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-html)**  
+-   **[Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-html)**  
     Obtenga más información sobre almacenar y consultar datos con los Servicios móviles.
 
--   **[Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-html)**  
+-   **[Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-html)**  
     Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
--   **[Referencia conceptual de Servicios móviles con HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client)**  
+-   **[Referencia conceptual de Servicios móviles con HTML/JavaScript](/es-es/develop/mobile/how-to-guides/work-with-html-js-client)**  
     Obtenga más información acerca de cómo utilizar los Servicios móviles con HTML/JavaScript.
 
 

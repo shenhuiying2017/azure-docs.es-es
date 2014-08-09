@@ -137,7 +137,7 @@ Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena 
 
    	Este script llama a la API de consulta de Twitter mediante las credenciales almacenadas para solicitar los tweets recientes que contienen el hashtag `#mobileservices`. Las respuestas y tweets duplicados se quitan de los resultados antes de almacenarse en la tabla.
 
-    > [WACOM.NOTE]En este ejemplo se presupone que solo se insertan algunas filas en la tabla durante cada ejecución programada. En los casos en los que se inserten muchas filas en un bucle, es posible que se agoten las conexiones con el nivel gratis. En ese caso, debe realizar inserciones en los lotes. Para obtener más información, consulte [Realización de inserciones en masa](/en-us/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts).
+    > [WACOM.NOTE]En este ejemplo se presupone que solo se insertan algunas filas en la tabla durante cada ejecución programada. En los casos en los que se inserten muchas filas en un bucle, es posible que se agoten las conexiones con el nivel gratis. En ese caso, debe realizar inserciones en los lotes. Para obtener más información, consulte [Realización de inserciones en masa](/es-es/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts).
 
 5.  Haga clic en **Run Once** para probar el script.
 

@@ -21,8 +21,8 @@ Creación de un proyecto de equipo
 2.  Haga clic en **New** en la esquina inferior izquierda.
 3.  Haga clic en **Proyecto de equipo**.
 4.  Ponga un nombre al proyecto de equipo. Tenga en cuenta que no podrá cambiar el nombre del proyecto de equipo una vez que lo haya creado.
-5.  Elija el tipo de control de versiones que le gustaría usar para el proyecto. Puede elegir entre Git (un sistema de control de versiones distribuido) o el control de versiones de Team Foundation (un sistema de control de versiones centralizado). ¿No está seguro de qué sistema debe usar? Obtenga más información [aquí](http://msdn.microsoft.com/en-us/library/ms181368.aspx).
-6.  Elija la plantilla de proceso. Para ver una comparación de las plantillas de proceso, consulte [Trabajar con artefactos de proyecto de equipo](http://msdn.microsoft.com/en-us/library/ms400752.aspx).
+5.  Elija el tipo de control de versiones que le gustaría usar para el proyecto. Puede elegir entre Git (un sistema de control de versiones distribuido) o el control de versiones de Team Foundation (un sistema de control de versiones centralizado). ¿No está seguro de qué sistema debe usar? Obtenga más información [aquí](http://msdn.microsoft.com/es-es/library/ms181368.aspx).
+6.  Elija la plantilla de proceso. Para ver una comparación de las plantillas de proceso, consulte [Trabajar con artefactos de proyecto de equipo](http://msdn.microsoft.com/es-es/library/ms400752.aspx).
 7.  Seleccione la cuenta de Visual Studio Online que desee usar para crear este proyecto de equipo, agregue usuarios y supervise el uso de los recursos.
 8.  Deje activada la casilla **Add to Startboard** para que el nuevo proyecto de equipo aparezca automáticamente en el panel de inicio.
 9.  Haga clic en **Crear**.

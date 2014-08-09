@@ -5,7 +5,7 @@ Compilación e implementación de una aplicación Node.js en un Servicio en la n
 
 Cuando finalice esta guía, tendrá una aplicación Node.js sencilla en ejecución en un Servicio en la nube de Azure. Los Servicios en la nube son los bloques de compilación de aplicaciones en la nube escalables en Azure. Permiten la separación y la administración independiente de los componentes front-end y back-end de su aplicación, así como su escalación horizontal. Los Servicios en la nube proporcionan una máquina virtual dedicada y robusta para hospedar cada rol de forma fiable.
 
-Para obtener más información acerca de los Servicios en la nube y sobre su comparación con Sitios web Azure y Maquinas virtuales, consulte[Sitios web, Servicios en la nube y Máquinas virtuales de Azure: cuándo usar cada uno](http://msdn.microsoft.com/en-us/library/windowsazure/jj218759.aspx).
+Para obtener más información acerca de los Servicios en la nube y sobre su comparación con Sitios web Azure y Maquinas virtuales, consulte[Sitios web, Servicios en la nube y Máquinas virtuales de Azure: cuándo usar cada uno](http://msdn.microsoft.com/es-es/library/windowsazure/jj218759.aspx).
 
 **¿Desea compilar un sitio web sencillo?**
 
@@ -15,7 +15,7 @@ Siguiendo este tutorial, podrá compilar una aplicación web sencilla hospedada 
 
 A continuación se muestra una captura de pantalla de la aplicación completada:
 
-![Ventana del explorador que muestra la página Hello World. La URL indica que la página está hospedada en Azure.](https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png)
+![Ventana del explorador que muestra la página Hello World. La URL indica que la página está hospedada en Azure.](https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png)
 
 Creación de una nueva aplicación Node
 -------------------------------------
@@ -46,7 +46,7 @@ Realice las siguientes tareas para crear un nuevo proyecto de Servicio en la nub
 
     -   **ServiceConfiguration.Cloud.cscfg**, **ServiceConfiguration.Local.cscfg** y **ServiceDefinition.csdef** son archivos específicos de Azure necesarios para publicar su aplicación.
 
-    Para obtener más información acerca de estos archivos, consulte [Información general para crear un Servicio hospedado para Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx).
+    Para obtener más información acerca de estos archivos, consulte [Información general para crear un Servicio hospedado para Azure](http://msdn.microsoft.com/es-es/library/windowsazure/jj155995.aspx).
 
     -   **deploymentSettings.json** almacena la configuración local que utilizan los cmdlet de implementación de Azure PowerShell.
 
@@ -142,7 +142,7 @@ Con el fin de implementar su aplicación en Azure, debe descargar primero la con
 
 3.  Crea una nueva **cuenta de almacenamiento** si no hay ninguna disponible. La cuenta de almacenamiento de Azure se utiliza para almacenar el paquete de la aplicación durante la implementación. Una vez finalizada la implementación, puede eliminar de forma segura la cuenta de almacenamiento.
 
-4.  Crea un nuevo **servicio en la nube** si todavía no hay ninguno disponible. Un **servicio en la nube** es el contenedor en el que su aplicación se hospeda cuando se implementa en Azure. Para obtener más información, consulte [Overview of Creating a Hosted Service for Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx).
+4.  Crea un nuevo **servicio en la nube** si todavía no hay ninguno disponible. Un **servicio en la nube** es el contenedor en el que su aplicación se hospeda cuando se implementa en Azure. Para obtener más información, consulte [Overview of Creating a Hosted Service for Azure](http://msdn.microsoft.com/es-es/library/windowsazure/jj155995.aspx).
 
 5.  Publica el paquete de implementación en Azure.
 
@@ -179,7 +179,7 @@ Después de implementar su aplicación, es posible que desee deshabilitarla para
 
     **Nota:**
 
-    La eliminación del servicio no elimina la cuenta de almacenamiento que se creó al publicar por primera vez el servicio, por lo que se le seguirá facturando por el almacenamiento utilizado. Para obtener más información acerca de la eliminación de una cuenta de almacenamiento, consulte [Eliminar una cuenta de almacenamiento de una suscripción de Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh531562.aspx).
+    La eliminación del servicio no elimina la cuenta de almacenamiento que se creó al publicar por primera vez el servicio, por lo que se le seguirá facturando por el almacenamiento utilizado. Para obtener más información acerca de la eliminación de una cuenta de almacenamiento, consulte [Eliminar una cuenta de almacenamiento de una suscripción de Windows Azure](http://msdn.microsoft.com/es-es/library/windowsazure/hh531562.aspx).
 
 
 

@@ -148,4 +148,4 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
 [1]: http://en.wikipedia.org/wiki/CNAME_record
 [2]: http://tools.ietf.org/html/rfc1035
 [3]: https://manage.windowsazure.com
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+[4]: http://msdn.microsoft.com/es-es/library/windowsazure/gg680307.aspx

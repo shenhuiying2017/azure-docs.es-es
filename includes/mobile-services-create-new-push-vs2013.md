@@ -1,6 +1,6 @@
 Primero, use el Asistente para agregar notificaciones de inserción en Visual Studio 2013 a fin de registrar su aplicación en la Tienda Windows, configure su servicio móvil para habilitar las notificaciones de inserción y agregue código a su aplicación para registrar un canal de dispositivo.
 
-1.  Si todavía no lo ha hecho, siga los pasos que aparecen en [Importación del archivo publishsettings en Visual Studio 2013](/en-us/documentation/articles/mobile-services-windows-how-to-import-publishsettings/) para importar el archivo publisher.settings en Visual Studio.
+1.  Si todavía no lo ha hecho, siga los pasos que aparecen en [Importación del archivo publishsettings en Visual Studio 2013](/es-es/documentation/articles/mobile-services-windows-how-to-import-publishsettings/) para importar el archivo publisher.settings en Visual Studio.
     
     No es necesario que haga esto si ya usó Visual Studio para crear o administrar servicios móviles en su suscripción de Azure.
 
@@ -20,7 +20,7 @@ Primero, use el Asistente para agregar notificaciones de inserción en Visual St
     
     ![mobile-add-push-notifications-vs2013-3](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-3.png)
 
-5.  En el cuadro de diálogo **Seleccionar un servicio**, haga clic en el nombre del servicio móvil que creó cuando completó la [Introducción a los servicios móviles](/en-us/develop/mobile/tutorials/get-started/) o la [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/) y, a continuación, haga clic en **Siguiente** y en **Finalizar**.
+5.  En el cuadro de diálogo **Seleccionar un servicio**, haga clic en el nombre del servicio móvil que creó cuando completó la [Introducción a los servicios móviles](/es-es/develop/mobile/tutorials/get-started/) o la [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet/) y, a continuación, haga clic en **Siguiente** y en **Finalizar**.
     
     El servicio móvil se actualiza para registrar su SID del paquete de aplicaciones y el secreto de cliente, y se crea una tabla de **canales** nueva. Servicios móviles está ahora configurado para trabajar con los Servicios de notificaciones de inserción de Windows (WNS) para poder enviar notificaciones a su aplicación.
 	<div class="dev-callout">

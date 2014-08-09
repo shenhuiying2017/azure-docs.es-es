@@ -1,6 +1,6 @@
 Se registra un nuevo script de inserción que genera un SAS cuando se inserta un nuevo "Todo item".
 
-1.  Si todavía no ha creado su cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](/en-us/manage/services/storage/how-to-create-a-storage-account).
+1.  Si todavía no ha creado su cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](/es-es/manage/services/storage/how-to-create-a-storage-account).
 
 2.  En el Portal de administración, haga clic en **Almacenamiento**, haga clic en la cuenta de almacenamiento y, a continuación, haga clic en **Manage Keys**.
 
@@ -94,4 +94,4 @@ A continuación, actualizará la aplicación de inicio rápido para agregar la f
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[1]: http://msdn.microsoft.com/es-es/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

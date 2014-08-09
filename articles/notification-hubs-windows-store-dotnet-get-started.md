@@ -3,7 +3,7 @@
 Introducción a los Centros de notificaciones
 ============================================
 
-[C\# para Tienda Windows](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet "C# para Tienda Windows")[Windows Phone](/en-us/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone")[iOS](/en-us/documentation/articles/notification-hubs-ios-get-started/ "iOS")[Android](/en-us/documentation/articles/notification-hubs-android-get-started/ "Android")[Kindle](/en-us/documentation/articles/notification-hubs-kindle-get-started/ "Kindle")[Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS")[Xamarin.Android](/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android")
+[C\# para Tienda Windows](/es-es/manage/services/notification-hubs/getting-started-windows-dotnet "C# para Tienda Windows")[Windows Phone](/es-es/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone")[iOS](/es-es/documentation/articles/notification-hubs-ios-get-started/ "iOS")[Android](/es-es/documentation/articles/notification-hubs-android-get-started/ "Android")[Kindle](/es-es/documentation/articles/notification-hubs-kindle-get-started/ "Kindle")[Xamarin.iOS](/es-es/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS")[Xamarin.Android](/es-es/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android")
 
 Este tema muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación de la Tienda Windows. En este tutorial puede crear una aplicación de la Tienda Windows vacía que recibe notificaciones de inserción mediante el servicio de notificaciones de inserción de Windows (WNS). Cuando haya finalizado, podrá difundir notificaciones de inserción a todos los dispositivos que ejecutan su aplicación usando su centro de notificaciones.
 
@@ -23,7 +23,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Cent
 
 **Nota:**
 
-para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F).
+para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F).
 
 Registro de la aplicaciónRegistro de la aplicación para la Tienda Windows
 -------------------------------------------------------------------------
@@ -154,7 +154,7 @@ Conexión de su aplicaciónConexión de su aplicación al Centro de notificacion
 Envío de notificacionesEnvío de notificaciones desde su back-end
 ----------------------------------------------------------------
 
-Puede enviar notificaciones mediante los centros de notificaciones desde cualquier back-end que use la [interfaz REST](http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx). En este tutorial puede enviar notificaciones con una aplicación de consola .NET y con un Servicio móvil mediante un script de Node.
+Puede enviar notificaciones mediante los centros de notificaciones desde cualquier back-end que use la [interfaz REST](http://msdn.microsoft.com/es-es/library/windowsazure/dn223264.aspx). En este tutorial puede enviar notificaciones con una aplicación de consola .NET y con un Servicio móvil mediante un script de Node.
 
 Para enviar notificaciones mediante una aplicación .NET:
 
@@ -200,9 +200,9 @@ Para enviar notificaciones mediante una aplicación .NET:
 
 	![][14]
 
-Puede encontrar todas las cargas posibles en MSDN en el [catálogo de notificaciones del sistema](http://msdn.microsoft.com/en-us/library/windows/apps/hh761494.aspx), el [catálogo de iconos](http://msdn.microsoft.com/en-us/library/windows/apps/hh761491.aspx) y la [información general de distintivos](http://msdn.microsoft.com/en-us/library/windows/apps/hh779719.aspx) (en inglés).
+Puede encontrar todas las cargas posibles en MSDN en el [catálogo de notificaciones del sistema](http://msdn.microsoft.com/es-es/library/windows/apps/hh761494.aspx), el [catálogo de iconos](http://msdn.microsoft.com/es-es/library/windows/apps/hh761491.aspx) y la [información general de distintivos](http://msdn.microsoft.com/es-es/library/windows/apps/hh779719.aspx) (en inglés).
 
-Para enviar una notificación usando un Servicio móvil, siga la [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started/#create-new-service) y, a continuación, realice lo siguiente:
+Para enviar una notificación usando un Servicio móvil, siga la [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started/#create-new-service) y, a continuación, realice lo siguiente:
 
 1.  Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com/) y haga clic en su Servicio móvil.
 
@@ -236,7 +236,7 @@ Para enviar una notificación usando un Servicio móvil, siga la [Introducción 
 Pasos siguientes
 ----------------
 
-En este sencillo ejemplo, difunde notificaciones a todos los dispositivos con Windows. Para abordar usuarios específicos, consulte el tutorial [Uso de Centros de notificaciones para insertar notificaciones en los usuarios](/en-us/manage/services/notification-hubs/notify-users-aspnet). Si desea segmentar a sus usuarios por grupos de interés, consulte [Uso de Centros de notificaciones para enviar noticias de último minuto](/en-us/manage/services/notification-hubs/breaking-news-dotnet). Para obtener más información sobre el uso de los Centros de notificaciones, consulte la [orientación sobre los Centros de notificaciones](http://msdn.microsoft.com/en-us/library/jj927170.aspx) y los [procedimientos de los Centros de notificaciones para la Tienda Windows](http://msdn.microsoft.com/en-us/library/jj927172.aspx) (en inglés).
+En este sencillo ejemplo, difunde notificaciones a todos los dispositivos con Windows. Para abordar usuarios específicos, consulte el tutorial [Uso de Centros de notificaciones para insertar notificaciones en los usuarios](/es-es/manage/services/notification-hubs/notify-users-aspnet). Si desea segmentar a sus usuarios por grupos de interés, consulte [Uso de Centros de notificaciones para enviar noticias de último minuto](/es-es/manage/services/notification-hubs/breaking-news-dotnet). Para obtener más información sobre el uso de los Centros de notificaciones, consulte la [orientación sobre los Centros de notificaciones](http://msdn.microsoft.com/es-es/library/jj927170.aspx) y los [procedimientos de los Centros de notificaciones para la Tienda Windows](http://msdn.microsoft.com/es-es/library/jj927172.aspx) (en inglés).
 
 <!-- Images. -->
 [0]: ./media/notification-hubs-windows-store-dotnet-get-started/mobile-services-submit-win8-app.png

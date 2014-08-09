@@ -3,7 +3,7 @@
 Uso del almacenamiento de blobs en Java
 =======================================
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de blobs de Azure. Los ejemplos están escritos en Java y utilizan el [SDK de Azure para Java](http://www.windowsazure.com/en-us/develop/java/). Dichas tareas comunes incluyen **cargar**, **enumerar**, **descargar** y **eliminar** blobs. Para obtener más información acerca de los blobs, consulte la sección [Pasos siguientes](#NextSteps).
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de blobs de Azure. Los ejemplos están escritos en Java y utilizan el [SDK de Azure para Java](http://www.windowsazure.com/es-es/develop/java/). Dichas tareas comunes incluyen **cargar**, **enumerar**, **descargar** y **eliminar** blobs. Para obtener más información acerca de los blobs, consulte la sección [Pasos siguientes](#NextSteps).
 
 Tabla de contenido
 ------------------
@@ -32,7 +32,7 @@ Creación de una cuenta de almacenamiento de Azure
 Creación de una aplicación de Java
 ----------------------------------
 
-En esta guía utilizará funciones del almacenamiento que puede ejecutar en una aplicación de Java localmente o bien mediante código a través de un rol web o rol de trabajo de Azure. Suponemos que ha descargado e instalado el Kit de desarrollo de Java (JDK), que ha seguido las instrucciones de la página de [descarga del SDK de Azure para Java](http://www.windowsazure.com/en-us/develop/java/) (en inglés) para instalar las Bibliotecas de Azure para Java y el SDK de Azure y que ha creado una cuenta de almacenamiento de Azure en su suscripción de Azure.
+En esta guía utilizará funciones del almacenamiento que puede ejecutar en una aplicación de Java localmente o bien mediante código a través de un rol web o rol de trabajo de Azure. Suponemos que ha descargado e instalado el Kit de desarrollo de Java (JDK), que ha seguido las instrucciones de la página de [descarga del SDK de Azure para Java](http://www.windowsazure.com/es-es/develop/java/) (en inglés) para instalar las Bibliotecas de Azure para Java y el SDK de Azure y que ha creado una cuenta de almacenamiento de Azure en su suscripción de Azure.
 
 Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas. Todo lo que necesita es la capacidad para compilar un proyecto de Java y crear referencias a las Bibliotecas de Azure para Java.
 

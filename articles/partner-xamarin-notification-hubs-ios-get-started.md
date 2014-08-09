@@ -3,7 +3,7 @@
 Introducción a los Centros de notificaciones
 ============================================
 
-[C\# para Tienda Windows](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet "C# para Tienda Windows")[Windows Phone](/en-us/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone")[iOS](/en-us/documentation/articles/notification-hubs-ios-get-started/ "iOS")[Android](/en-us/documentation/articles/notification-hubs-android-get-started/ "Android")[Kindle](/en-us/documentation/articles/notification-hubs-kindle-get-started/ "Kindle")[Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS")[Xamarin.Android](/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android")
+[C\# para Tienda Windows](/es-es/manage/services/notification-hubs/getting-started-windows-dotnet "C# para Tienda Windows")[Windows Phone](/es-es/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone")[iOS](/es-es/documentation/articles/notification-hubs-ios-get-started/ "iOS")[Android](/es-es/documentation/articles/notification-hubs-android-get-started/ "Android")[Kindle](/es-es/documentation/articles/notification-hubs-kindle-get-started/ "Kindle")[Xamarin.iOS](/es-es/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS")[Xamarin.Android](/es-es/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android")
 
 Este tema muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación iOS. En este tutorial puede crear una aplicación iOS vacía que recibe notificaciones de inserción mediante el servicio de notificaciones de inserción de Apple (APN). Cuando haya finalizado, podrá difundir notificaciones de inserción a todos los dispositivos que ejecutan su aplicación usando su centro de notificaciones. El código acabado está disponible en el ejemplo de la [aplicación NotificationHubs](http://go.microsoft.com/fwlink/p/?LinkId=331329).
 
@@ -32,7 +32,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Cent
 
 **Nota:**
 
-para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-ios%2F).
+para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-ios%2F).
 
 El servicio de notificaciones de inserción de Apple (APNS) usa certificados para autenticar su servicio móvil. Siga estas instrucciones para crear los certificados necesarios y cargarlos en su servicio móvil. Para consultar la documentación oficial de la característica APNS, consulte [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584).
 
@@ -322,7 +322,7 @@ Conexión de su aplicaciónConexión de su aplicación al Centro de notificacion
 Envío de notificacionesEnvío de notificaciones desde su back-end
 ----------------------------------------------------------------
 
-Puede enviar notificaciones mediante los Centros de notificaciones desde cualquier back-end que use la [interfaz REST](http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx). En este tutorial enviará notificaciones con una aplicación de consola .NET y con un servicio móvil mediante un script de Node.
+Puede enviar notificaciones mediante los Centros de notificaciones desde cualquier back-end que use la [interfaz REST](http://msdn.microsoft.com/es-es/library/windowsazure/dn223264.aspx). En este tutorial enviará notificaciones con una aplicación de consola .NET y con un servicio móvil mediante un script de Node.
 
 Para enviar notificaciones mediante una aplicación .NET:
 
@@ -356,7 +356,7 @@ Para enviar notificaciones mediante una aplicación .NET:
 
 Puede buscar todas las cargas posibles en la guía [Local and Push Notification Programming Guide](http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1) de Apple.
 
-Para enviar una notificación usando un servicio móvil, siga la [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started-xamarin-ios) y, a continuación:
+Para enviar una notificación usando un servicio móvil, siga la [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-xamarin-ios) y, a continuación:
 
 1.  Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com/) y seleccione su servicio móvil.
 
@@ -394,7 +394,7 @@ Para enviar una notificación usando un servicio móvil, siga la [Introducción 
 Pasos siguientes
 ----------------
 
-En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iOS. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de Centros de notificaciones para insertar notificaciones en los usuarios](/en-us/manage/services/notification-hubs/notify-users-aspnet), mientras que, si desea segmentar sus usuarios por grupos de interés, puede leer [Uso de los Centros de notificaciones para enviar noticias de última hora](/en-us/manage/services/notification-hubs/breaking-news-dotnet). Para obtener más información sobre el uso de los Centros de notificaciones, consulte la [información general acerca de los centros de notificaciones de Azure](http://msdn.microsoft.com/en-us/library/jj927170.aspx) y los [procedimientos de los Centros de notificaciones para iOS](http://msdn.microsoft.com/en-us/library/jj927168.aspx) (en inglés).
+En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iOS. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de Centros de notificaciones para insertar notificaciones en los usuarios](/es-es/manage/services/notification-hubs/notify-users-aspnet), mientras que, si desea segmentar sus usuarios por grupos de interés, puede leer [Uso de los Centros de notificaciones para enviar noticias de última hora](/es-es/manage/services/notification-hubs/breaking-news-dotnet). Para obtener más información sobre el uso de los Centros de notificaciones, consulte la [información general acerca de los centros de notificaciones de Azure](http://msdn.microsoft.com/es-es/library/jj927170.aspx) y los [procedimientos de los Centros de notificaciones para iOS](http://msdn.microsoft.com/es-es/library/jj927168.aspx) (en inglés).
 
 <!-- Images. -->
 [5]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step5.png

@@ -39,11 +39,11 @@ El flujo de trabajo que se implementará consta de dos acciones:
          [TRACE] 816
          [WARN]  4
     
-    Para obtener más información acerca de Hive, consulte [Uso de Hive con HDInsight](/en-us/documentation/articles/hdinsight-use-hive/).
+    Para obtener más información acerca de Hive, consulte [Uso de Hive con HDInsight](/es-es/documentation/articles/hdinsight-use-hive/).
 
 2.  Una acción de Sqoop exporta el resultado de la acción de HiveQL a una tabla en Base de datos SQL de Azure. Para obtener más información acerca de Sqoop, consulte [Uso de Sqoop con HDInsight](../hdinsight-use-sqoop/).
 
-> [WACOM.NOTE] Para ver las versiones compatibles de Oozie con clústeres de HDInsight, consulte [Novedades en las versiones de clústeres proporcionadas por HDInsight](/en-us/documentation/articles/hdinsight-component-versioning/).
+> [WACOM.NOTE] Para ver las versiones compatibles de Oozie con clústeres de HDInsight, consulte [Novedades en las versiones de clústeres proporcionadas por HDInsight](/es-es/documentation/articles/hdinsight-component-versioning/).
 
 > [WACOM.NOTE] Estos tutoriales funcionan en la versión del clúster de HDInsight 2.1 y 3.0. Este artículo no se ha probado en un emulador de HDInsight.
 
@@ -51,9 +51,9 @@ El flujo de trabajo que se implementará consta de dos acciones:
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
-* Una **estación de trabajo** con Azure PowerShell instalado y configurado. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/en-us/manage/install-and-configure-windows-powershell/).
+* Una **estación de trabajo** con Azure PowerShell instalado y configurado. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/es-es/manage/install-and-configure-windows-powershell/).
   Para ejecutar scripts de PowerShell, debe ejecutar Azure PowerShell como administrador y establecer la directiva de ejecución en *RemoteSigned*. Consulte [Running Windows PowerShell scripts][1].
-* Un **clúster de HDInsight**. Para obtener información acerca de cómo crear un clúster de HDInsight, consulte [Aprovisionamiento de clústeres de HDInsight](/en-us/documentation/articles/hdinsight-provision-clusters/) o [Introducción a HDInsight](/en-us/documentation/articles/hdinsight-get-started/). Para completar el tutorial, necesitará los datos siguientes:
+* Un **clúster de HDInsight**. Para obtener información acerca de cómo crear un clúster de HDInsight, consulte [Aprovisionamiento de clústeres de HDInsight](/es-es/documentation/articles/hdinsight-provision-clusters/) o [Introducción a HDInsight](/es-es/documentation/articles/hdinsight-get-started/). Para completar el tutorial, necesitará los datos siguientes:
   
   <table  border="1">
     <tr><th>Propiedad del clúster</th>
@@ -336,15 +336,15 @@ Ejecutará el script de Azure PowerShell para realizar las siguientes acciones:
 
 **Descripción del almacenamiento de HDInsight**
 
-HDInsight usa el almacenamiento de blobs de Azure para el almacenamiento de datos. Se llama *WASB* o *Almacenamiento de Azure - Blob*. WASB es la implementación del sistema de archivos distribuido de Hadoop (HDFS) de Microsoft en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](/en-us/documentation/articles/hdinsight-use-blob-storage/).
+HDInsight usa el almacenamiento de blobs de Azure para el almacenamiento de datos. Se llama *WASB* o *Almacenamiento de Azure - Blob*. WASB es la implementación del sistema de archivos distribuido de Hadoop (HDFS) de Microsoft en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](/es-es/documentation/articles/hdinsight-use-blob-storage/).
 
-Cuando se aprovisiona un clúster de HDInsight, se designan una cuenta de almacenamiento de Azure y un contenedor de almacenamiento de blobs específico de dicha cuenta como sistema de archivos predeterminado, de la misma forma que en HDFS. Además de esta cuenta de almacenamiento, puede agregar más cuentas de almacenamiento desde la misma suscripción de Azure o desde otras diferentes durante el proceso de aprovisionamiento. Para obtener instrucciones acerca de cómo agregar más cuentas de almacenamiento, consulte [Aprovisionamiento de clústeres de HDInsight](/en-us/documentation/articles/hdinsight-provision-clusters/). Para simplificar el script de PowerShell que se utiliza en este tutorial, todos los archivos se almacenan en el contenedor del sistema de archivos predeterminado, ubicado en */tutorials/useoozie*. De forma predeterminada, este contenedor tiene el mismo nombre que el del clúster de HDInsight. La sintaxis de WASB es la siguiente:
+Cuando se aprovisiona un clúster de HDInsight, se designan una cuenta de almacenamiento de Azure y un contenedor de almacenamiento de blobs específico de dicha cuenta como sistema de archivos predeterminado, de la misma forma que en HDFS. Además de esta cuenta de almacenamiento, puede agregar más cuentas de almacenamiento desde la misma suscripción de Azure o desde otras diferentes durante el proceso de aprovisionamiento. Para obtener instrucciones acerca de cómo agregar más cuentas de almacenamiento, consulte [Aprovisionamiento de clústeres de HDInsight](/es-es/documentation/articles/hdinsight-provision-clusters/). Para simplificar el script de PowerShell que se utiliza en este tutorial, todos los archivos se almacenan en el contenedor del sistema de archivos predeterminado, ubicado en */tutorials/useoozie*. De forma predeterminada, este contenedor tiene el mismo nombre que el del clúster de HDInsight. La sintaxis de WASB es la siguiente:
 
     wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
 > [WACOM.NOTE] La sintaxis *wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La sintaxis *asv://* anterior es compatible con los clústeres de las versiones 2.1 y 1.6 de HDInsight, pero no con los de la versión 3.0, y no será compatible con versiones posteriores.
 
-> [WACOM.NOTE] La ruta WASB es una ruta de acceso virtual. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](/en-us/documentation/articles/hdinsight-use-blob-storage/).
+> [WACOM.NOTE] La ruta WASB es una ruta de acceso virtual. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](/es-es/documentation/articles/hdinsight-use-blob-storage/).
 
 Para tener acceso a un archivo almacenado en el contenedor del sistema de archivos predeterminado desde HDInsight se puede usar cualquiera de los URI siguientes (use workflow.xml como ejemplo):
 
@@ -744,7 +744,7 @@ Azure PowerShell no proporciona actualmente cmdlets para la definición de traba
 
 **Para comprobar el registro de errores del trabajo**
 
-Para solucionar los problemas de un flujo de trabajo, puede encontrar el archivo de registro de Oozie en C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log en el headnode del clúster. Para obtener información acerca de RDP, consulte [Administración de los clústeres de HDInsight mediante el Portal de administración](/en-us/documentation/articles/hdinsight-administer-use-management-portal/).
+Para solucionar los problemas de un flujo de trabajo, puede encontrar el archivo de registro de Oozie en C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log en el headnode del clúster. Para obtener información acerca de RDP, consulte [Administración de los clústeres de HDInsight mediante el Portal de administración](/es-es/documentation/articles/hdinsight-administer-use-management-portal/).
 
 **Para volver a ejecutar el tutorial**
 
@@ -786,24 +786,24 @@ Aquí tiene un script de PowerShell de ejemplo que puede usar:
 En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecutar un trabajo de Oozie mediante Azure PowerShell. Para obtener más información, consulte los artículos siguientes:
 
 * [Introducción a
-  HDInsight](/en-us/documentation/articles/hdinsight-get-started/)
+  HDInsight](/es-es/documentation/articles/hdinsight-get-started/)
 * [Introducción al emulador de
-  HDInsight](/en-us/documentation/articles/hdinsight-get-started-emulator/)
+  HDInsight](/es-es/documentation/articles/hdinsight-get-started-emulator/)
 * [Uso del almacenamiento de blobs de Azure con
-  HDInsight](/en-us/documentation/articles/hdinsight-use-blob-storage/)
+  HDInsight](/es-es/documentation/articles/hdinsight-use-blob-storage/)
 * [Administración de HDInsight con
-  PowerShell](/en-us/documentation/articles/hdinsight-administer-use-powershell/)
+  PowerShell](/es-es/documentation/articles/hdinsight-administer-use-powershell/)
 * [Carga de datos en
-  HDInsight](/en-us/documentation/articles/hdinsight-upload-data/)
+  HDInsight](/es-es/documentation/articles/hdinsight-upload-data/)
 * [Uso de Sqoop con HDInsight](../hdinsight-use-sqoop/)
 * [Uso de Hive con
-  HDInsight](/en-us/documentation/articles/hdinsight-use-hive/)
+  HDInsight](/es-es/documentation/articles/hdinsight-use-hive/)
 * [Uso de Pig con
-  HDInsight](/en-us/documentation/articles/hdinsight-use-pig/)
+  HDInsight](/es-es/documentation/articles/hdinsight-use-pig/)
 * [Desarrollo de trabajos de streaming de Hadoop C# para
-  HDInsight](/en-us/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
+  HDInsight](/es-es/documentation/articles/hdinsight-hadoop-develop-deploy-streaming-jobs/)
 * [Desarrollo de programas MapReduce de Java para
-  HDInsight](/en-us/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
+  HDInsight](/es-es/documentation/articles/hdinsight-develop-deploy-java-mapreduce/)
 
 
 

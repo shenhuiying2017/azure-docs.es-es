@@ -26,7 +26,7 @@ Tabla de contenido
 Creación de una aplicación Node.js
 ----------------------------------
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Servicio en la nube Node.js](/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (usando Windows PowerShell) o [Sitio web con WebMatrix](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/).
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure](/es-es/develop/nodejs/tutorials/create-a-website-(mac)/), [Servicio en la nube Node.js](/es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (usando Windows PowerShell) o [Sitio web con WebMatrix](/es-es/develop/nodejs/tutorials/web-site-with-webmatrix/).
 
 Configuración de la aplicación para usar el bus de servicio
 -----------------------------------------------------------
@@ -63,9 +63,9 @@ Utilizando el Bloc de notas u otro editor de texto, agregue el código siguiente
 
 El módulo azure leerá las variables de entorno AZURE\_SERVICEBUS\_NAMESPACE y AZURE\_SERVICEBUS\_ACCESS\_KEY para obtener la información necesaria para conectarse al bus de servicio de Azure. Si estas variables de entorno no están configuradas, debe especificar la información de la cuenta al llamar a **createServiceBusService**.
 
-Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio de nube de Azure, consulte [Servicio de nube de Node.js con almacenamiento](/en-us/develop/nodejs/tutorials/web-app-with-storage/).
+Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio de nube de Azure, consulte [Servicio de nube de Node.js con almacenamiento](/es-es/develop/nodejs/tutorials/web-app-with-storage/).
 
-Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento](/en-us/develop/nodejs/tutorials/web-site-with-storage/).
+Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento](/es-es/develop/nodejs/tutorials/web-site-with-storage/).
 
 Creación de un tema
 -------------------
@@ -136,7 +136,7 @@ El filtro predeterminado **MatchAll** se usa en caso de que no se haya especific
 
 También puede configurar filtros que le permitan especificar qué mensajes enviados a un tema deben aparecer dentro de una suscripción de tema determinada.
 
-El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, revise la sintaxis de [SqlFilter.SqlExpression](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
+El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, revise la sintaxis de [SqlFilter.SqlExpression](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
 
 Es posible agregar filtros a una suscripción utilizando el método **createRule** del objeto **ServiceBusService**. Este método le permite agregar nuevos filtros a una suscripción existente.
 
@@ -301,7 +301,7 @@ Pasos siguientes
 
 Ahora que conoce los fundamentos de los temas del bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio](http://msdn.microsoft.com/en-us/library/hh367516.aspx).
--   Referencia de API para [Clase SqlFilter](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx).
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio](http://msdn.microsoft.com/es-es/library/hh367516.aspx).
+-   Referencia de API para [Clase SqlFilter](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx).
 -   Visite el repositorio del [SDK de Azure para Node.js](https://github.com/WindowsAzure/azure-sdk-for-node) (en inglés) en GitHub.
 

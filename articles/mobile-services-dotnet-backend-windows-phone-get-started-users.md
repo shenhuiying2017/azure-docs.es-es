@@ -3,9 +3,9 @@
 Introducción a la autenticación en Servicios móviles
 ====================================================
 
-[C\# para Tiendas Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "C# para Tienda Windows")[JavaScript para Tienda Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users "JavaScript para Tienda Windows")[Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users "iOS")
+[C\# para Tiendas Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users "JavaScript para Tienda Windows")[Windows Phone](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users "Windows Phone")[iOS](/es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users "iOS")
 
-[Back-end de .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/ "Back-end de .NET") | [Back-end de JavaScript](/en-us/documentation/articles/mobile-services-windows-phone-get-started-users/ "Back-end de JavaScript")
+[Back-end de .NET](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/ "Back-end de .NET") | [Back-end de JavaScript](/es-es/documentation/articles/mobile-services-windows-phone-get-started-users/ "Back-end de JavaScript")
 
 En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde su aplicación de Windows Phone. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
@@ -15,9 +15,9 @@ En este tutorial se realiza un recorrido por los pasos básicos para habilitar l
 2.  [Restricción de los permisos de tabla a usuarios autenticados](#permissions)
 3.  [Incorporación de autenticación a la aplicación](#add-authentication)
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/).
 
-> [WACOM.NOTE]En este tutorial se muestra el método básico que proporciona Servicios móviles para autenticar usuarios mediante una serie de proveedores de identidades. Este método es fácil de configurar y es compatible con varios proveedores. Sin embargo, el método también requiere que los usuarios inicien sesión cada vez que se inicie la aplicación. Para usar Live Connect para proporcionar una experiencia de inicio de sesión único en la aplicación de Windows Phone, consulte el tema [Inicio de sesión único para aplicaciones de Windows Phone mediante Live Connect](/en-us/documentation/articles/mobile-services-windows-phone-single-sign-on).
+> [WACOM.NOTE]En este tutorial se muestra el método básico que proporciona Servicios móviles para autenticar usuarios mediante una serie de proveedores de identidades. Este método es fácil de configurar y es compatible con varios proveedores. Sin embargo, el método también requiere que los usuarios inicien sesión cada vez que se inicie la aplicación. Para usar Live Connect para proporcionar una experiencia de inicio de sesión único en la aplicación de Windows Phone, consulte el tema [Inicio de sesión único para aplicaciones de Windows Phone mediante Live Connect](/es-es/documentation/articles/mobile-services-windows-phone-single-sign-on).
 
 Registro de la aplicación para la autenticación y configuración de Servicios móviles
 ------------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ Restricción de los permisos para los usuarios autenticados
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-1.  En Visual Studio 2013, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/).
+1.  En Visual Studio 2013, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/).
 
 2.  Presione la tecla F5 para ejecutar esta aplicación basada en el inicio rápido; compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación.
 
@@ -49,5 +49,5 @@ Incorporación de autenticación a la aplicación
 Pasos siguientes
 ----------------
 
-En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios móviles](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts), usará el valor del identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado y lo usará para filtrar los datos devueltos por Servicios móviles. Obtenga más información sobre cómo usar Servicios móviles con .NET en [Referencia conceptual de Servicios móviles con .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library).
+En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts), usará el valor del identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado y lo usará para filtrar los datos devueltos por Servicios móviles. Obtenga más información sobre cómo usar Servicios móviles con .NET en [Referencia conceptual de Servicios móviles con .NET](/es-es/develop/mobile/how-to-guides/work-with-net-client-library).
 

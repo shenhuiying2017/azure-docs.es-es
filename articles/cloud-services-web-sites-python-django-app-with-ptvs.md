@@ -553,9 +553,9 @@ La aplicación web está casi lista para usarse, pero primero tenemos que config
    Azure ofrece las siguientes opciones para hospedar aplicaciones Django:
         
         
-- [Sitio web](http://www.windowsazure.com/en-us/services/web-sites/)
-- [Servicio en la nube](http://www.windowsazure.com/en-us/services/cloud-services/)
-- [Máquina virtual](http://www.windowsazure.com/en-us/services/virtual-machines/)
+- [Sitio web](http://www.windowsazure.com/es-es/services/web-sites/)
+- [Servicio en la nube](http://www.windowsazure.com/es-es/services/cloud-services/)
+- [Máquina virtual](http://www.windowsazure.com/es-es/services/virtual-machines/)
         
         
    Python Tools para Visual Studio incluye funciones de publicación en sitios web y servicios en la nube de Azure.  Dichas funciones se describen en las dos secciones siguientes (puede leer cualquiera de ellas o ambas).

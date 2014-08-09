@@ -318,7 +318,7 @@ Para instalar las herramientas de línea de comandos, use el siguiente comando:
 
     npm install azure-cli -g
 
-Si ya instaló el **SDK de Azure para Node.js** desde [Azure Developer Center](/en-us/develop/nodejs/), entonces las herramientas de línea de comandos ya deberían estar instaladas. Para obtener más información, consulte [Herramienta de línea de comandos de Azure para Mac y Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/).
+Si ya instaló el **SDK de Azure para Node.js** desde [Azure Developer Center](/es-es/develop/nodejs/), entonces las herramientas de línea de comandos ya deberían estar instaladas. Para obtener más información, consulte [Herramienta de línea de comandos de Azure para Mac y Linux](/es-es/develop/nodejs/how-to-guides/command-line-tools/).
 
 A pesar de que las herramientas de línea de comandos de Azure se crearon principalmente para los usuarios de Mac y Linux, están basadas en Node.js y deberían funcionar en cualquier sistema capaz de ejecutar Node.
 

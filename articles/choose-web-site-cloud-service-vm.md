@@ -33,10 +33,10 @@ Sitios web Azure (WAWS) es una excelente solución para este escenario, porque p
 
 Para los desarrolladores web, Sitios web Azure ofrece todo aquello que necesitan para crear sofisticadas aplicaciones web. Sitios web ofrece una estrecha integración con herramientas como Visual Studio y Base de datos SQL. Con **Sitios web**, los desarrolladores pueden:
 
--   Usar herramientas de línea de comandos para [tareas automatizadas](http://www.windowsazure.com/en-us/documentation/scripts/?services=web-sites).
--   Trabajar con lenguajes populares como [.Net](http://www.windowsazure.com/en-us/develop/net/), [PHP](http://www.windowsazure.com/en-us/develop/php/), [Node.js](http://www.windowsazure.com/en-us/develop/nodejs/) y [Python](http://www.windowsazure.com/en-us/develop/python/).
+-   Usar herramientas de línea de comandos para [tareas automatizadas](http://www.windowsazure.com/es-es/documentation/scripts/?services=web-sites).
+-   Trabajar con lenguajes populares como [.Net](http://www.windowsazure.com/es-es/develop/net/), [PHP](http://www.windowsazure.com/es-es/develop/php/), [Node.js](http://www.windowsazure.com/es-es/develop/nodejs/) y [Python](http://www.windowsazure.com/es-es/develop/python/).
 -   Seleccionar tres niveles de escala diferentes para escalar hasta capacidades muy altas.
--   Integrarse con otros servicios de Azure, como [Base de datos SQL](http://www.windowsazure.com/en-us/documentation/services/sql-database/), [Bus de servicio](http://www.windowsazure.com/en-us/documentation/services/service-bus/) y [Almacenamiento](http://www.windowsazure.com/en-us/documentation/services/storage/) u ofertas de asociados de la [Tienda de Azure](http://www.windowsazure.com/en-us/gallery/store/), como MySQL y MongoDB.
+-   Integrarse con otros servicios de Azure, como [Base de datos SQL](http://www.windowsazure.com/es-es/documentation/services/sql-database/), [Bus de servicio](http://www.windowsazure.com/es-es/documentation/services/service-bus/) y [Almacenamiento](http://www.windowsazure.com/es-es/documentation/services/storage/) u ofertas de asociados de la [Tienda de Azure](http://www.windowsazure.com/es-es/gallery/store/), como MySQL y MongoDB.
 -   Integrarse con herramientas como Visual Studio, Git, WebMatrix, WebDeploy, TFS y FTP.
 
 ### Estoy migrando mi aplicación de niveles múltiples con una front-end web a la nube
@@ -65,7 +65,7 @@ Si su aplicación requiere una instalación o configuración compleja del softwa
 
 Las tres opciones le permiten hospedar lenguajes y marcos de código abierto. **Servicios en la nube** requiere que use tareas de inicio para instalar y configurar cualquier software de código abierto necesario que se ejecute Windows. Con **Máquinas virtuales**, puede instalar y configurar el software en una imagen de la máquina, que puede basarse en Windows o Linux. Si su marco de código abierto es compatible con Sitios web, esto ofrece una forma más sencilla de hospedar estos tipos de aplicaciones debido a que Sitios web se puede configurar automáticamente con los lenguajes y los marcos que necesita su aplicación. **Sitios web** le permite:
 
--   Usar muchos lenguajes de código abierto populares, como [.NET](http://www.windowsazure.com/en-us/develop/net/), [PHP](http://www.windowsazure.com/en-us/develop/php/), [Node.js](http://www.windowsazure.com/en-us/develop/nodejs/) y [Python](http://www.windowsazure.com/en-us/develop/python/).
+-   Usar muchos lenguajes de código abierto populares, como [.NET](http://www.windowsazure.com/es-es/develop/net/), [PHP](http://www.windowsazure.com/es-es/develop/php/), [Node.js](http://www.windowsazure.com/es-es/develop/nodejs/) y [Python](http://www.windowsazure.com/es-es/develop/python/).
 -   Instalar WordPress, Drupal, Umbraco, DNN y muchas otras aplicaciones web de terceros.
 -   Migrar una aplicación existente o crear una nueva a partir de la galería de aplicaciones.
 
@@ -409,7 +409,7 @@ La siguiente tabla compara las capacidades de Sitios web, Servicios en la nube y
 
 <sup>2</sup> Aunque Máquinas virtuales puede escalar horizontalmente hacia varias instancias, los servicios que se ejecutan en estas máquinas se deben escribir para controlar este escalado horizontal. Es necesario configurar un equilibrador de carga adicional para enrutar las solicitudes a través de las máquinas. Por último, se debe crear un Grupo de afinidad para todas las máquinas que participan en el mismo rol a fin de protegerlas contra reinicios simultáneos debidos a mantenimiento o errores de hardware.
 
-<sup>3</sup> Para Sitios web, solo se admite SSL para nombres de dominio personalizados para el modo estándar. Para obtener más información sobre el uso de SSL con Sitios web, consulte [Configuración de un certificado SSL para un sitio web de Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/).
+<sup>3</sup> Para Sitios web, solo se admite SSL para nombres de dominio personalizados para el modo estándar. Para obtener más información sobre el uso de SSL con Sitios web, consulte [Configuración de un certificado SSL para un sitio web de Azure](http://www.windowsazure.com/es-es/develop/net/common-tasks/enable-ssl-web-site/).
 
 <sup>4</sup> Web Deploy es compatible para los servicios en la nube cuando se implementa en roles de una sola instancia. No obstante, los roles de producción requieren varias instancias para satisfacer el contrato de nivel de servicio de Azure. Por lo tanto, Web Deploy no es un mecanismo de implementación adecuado para los servicios en la nube en producción.
 
@@ -425,22 +425,22 @@ La siguiente tabla compara las capacidades de Sitios web, Servicios en la nube y
   
   [SDK de WebJobs de Azure (en inglés)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs
  
-  [Configuración de un certificado SSL para un sitio web de Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
+  [Configuración de un certificado SSL para un sitio web de Azure]: http://www.windowsazure.com/es-es/develop/net/common-tasks/enable-ssl-web-site/
 
-  [azurestore]: http://www.windowsazure.com/en-us/gallery/store/
+  [azurestore]: http://www.windowsazure.com/es-es/gallery/store/
 
-  [scripting]: http://www.windowsazure.com/en-us/documentation/scripts/?services=web-sites
+  [scripting]: http://www.windowsazure.com/es-es/documentation/scripts/?services=web-sites
 
-  [dotnet]: http://www.windowsazure.com/en-us/develop/net/
+  [dotnet]: http://www.windowsazure.com/es-es/develop/net/
 
-  [nodejs]: http://www.windowsazure.com/en-us/develop/nodejs/
+  [nodejs]: http://www.windowsazure.com/es-es/develop/nodejs/
 
-  [PHP]: http://www.windowsazure.com/en-us/develop/php/
+  [PHP]: http://www.windowsazure.com/es-es/develop/php/
 
-  [Python]: http://www.windowsazure.com/en-us/develop/python/
+  [Python]: http://www.windowsazure.com/es-es/develop/python/
 
-  [servicebus]: http://www.windowsazure.com/en-us/documentation/services/service-bus/
+  [servicebus]: http://www.windowsazure.com/es-es/documentation/services/service-bus/
 
-  [sqldatabase]: http://www.windowsazure.com/en-us/documentation/services/sql-database/
+  [sqldatabase]: http://www.windowsazure.com/es-es/documentation/services/sql-database/
 
-  [Storage]: http://www.windowsazure.com/en-us/documentation/services/storage/
+  [Storage]: http://www.windowsazure.com/es-es/documentation/services/storage/

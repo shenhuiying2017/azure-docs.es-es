@@ -3,19 +3,19 @@
 Creación de una red virtual en Azure
 ====================================
 
-Este tutorial le guiará paso a paso en la creación de una red virtual de Azure mediante el Portal de administración de Azure. Para obtener más información acerca de las redes virtuales de Azure, consulte [Red virtual](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
+Este tutorial le guiará paso a paso en la creación de una red virtual de Azure mediante el Portal de administración de Azure. Para obtener más información acerca de las redes virtuales de Azure, consulte [Red virtual](http://msdn.microsoft.com/es-es/library/windowsazure/jj156007.aspx).
 
-En este tutorial se asume que no tiene ninguna experiencia previa con Azure. Se ha creado para que se familiarice con los pasos requeridos para crear una red virtual. Si busca escenarios de diseño e información avanzada sobre redes virtuales, consulte [Red virtual](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx).
+En este tutorial se asume que no tiene ninguna experiencia previa con Azure. Se ha creado para que se familiarice con los pasos requeridos para crear una red virtual. Si busca escenarios de diseño e información avanzada sobre redes virtuales, consulte [Red virtual](http://msdn.microsoft.com/es-es/library/windowsazure/jj156007.aspx).
 
 Después de finalizar este tutorial, tendrá una red virtual en la que podrá implementar los servicios de Azure y las máquinas virtuales.
 
 **Nota:**
 
-Este tutorial no le guía en la creación de la configuración entre locales. Si desea consultar un tutorial que le guíe en la creación de una red virtual con conectividad entre entornos de sitio a sitio (por ejemplo, conectividad con Active Directory o con SharePoint ubicados en su compañía), consulte [Creación de una red virtual para conectividad entre locales](/en-us/manage/services/networking/cross-premises-connectivity/).
+Este tutorial no le guía en la creación de la configuración entre locales. Si desea consultar un tutorial que le guíe en la creación de una red virtual con conectividad entre entornos de sitio a sitio (por ejemplo, conectividad con Active Directory o con SharePoint ubicados en su compañía), consulte [Creación de una red virtual para conectividad entre locales](/es-es/manage/services/networking/cross-premises-connectivity/).
 
 Para obtener información acerca de procedimientos y configuración de la red virtual, consulte [Tareas de configuración de Red virtual de Azure](http://go.microsoft.com/fwlink/?LinkId=296652).
 
-Para obtener directrices acerca de la implementación de AD DS en máquinas virtuales de Azure, consulte [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx).
+Para obtener directrices acerca de la implementación de AD DS en máquinas virtuales de Azure, consulte [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/jj156090.aspx).
 
 Objetivos
 ---------
@@ -88,22 +88,22 @@ Creación de una red virtual
 
 4.  Una vez creada la red virtual, puede consultar los siguientes tutoriales:
 
-    -   [Incorporación de una máquina virtual a una red virtual](/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/): Utilice este tutorial básico para instalar una máquina virtual en su red virtual.
+    -   [Incorporación de una máquina virtual a una red virtual](/es-es/manage/services/networking/add-a-vm-to-a-virtual-network/): Utilice este tutorial básico para instalar una máquina virtual en su red virtual.
 
-    -   Para obtener más información acerca de las máquinas virtuales y las opciones de instalación, consulte [Creación de una máquina virtual personalizada](/en-us/manage/windows/how-to-guides/custom-create-a-vm/) y [Máquinas virtuales de Azure](/en-us/manage/windows/).
+    -   Para obtener más información acerca de las máquinas virtuales y las opciones de instalación, consulte [Creación de una máquina virtual personalizada](/es-es/manage/windows/how-to-guides/custom-create-a-vm/) y [Máquinas virtuales de Azure](/es-es/manage/windows/).
 
-    -   [Instalación de un nuevo bosque de Active Directory en Azure](/en-us/manage/services/networking/active-directory-forest/): Utilice este tutorial para instalar un nuevo bosque de Active Directory sin conectividad a cualquier otra red. El tutorial explica los pasos específicos requeridos para crear una máquina virtual (VM) para una nueva instalación de bosque. Si piensa utilizar este tutorial, no cree ninguna máquina virtual mediante el Portal de administración.
+    -   [Instalación de un nuevo bosque de Active Directory en Azure](/es-es/manage/services/networking/active-directory-forest/): Utilice este tutorial para instalar un nuevo bosque de Active Directory sin conectividad a cualquier otra red. El tutorial explica los pasos específicos requeridos para crear una máquina virtual (VM) para una nueva instalación de bosque. Si piensa utilizar este tutorial, no cree ninguna máquina virtual mediante el Portal de administración.
 
 Otras referencias
 -----------------
 
--   [Red virtual](http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx)
+-   [Red virtual](http://msdn.microsoft.com/es-es/library/windowsazure/jj156007.aspx)
 
 -   [P+F de Red virtual](http://go.microsoft.com/fwlink/?LinkId=296650)
 
 -   [Tareas de configuración de Red virtual de Azure](http://go.microsoft.com/fwlink/?LinkId=296652)
 
--   [Configurar una red virtual con archivos de configuración de red](http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx)
+-   [Configurar una red virtual con archivos de configuración de red](http://msdn.microsoft.com/es-es/library/windowsazure/jj156097.aspx)
 
 -   [Resolución de nombres](http://go.microsoft.com/fwlink/?LinkId=248097)
 

@@ -3,7 +3,7 @@
 Transformación y extensión del sitio
 ====================================
 
-Puede transformar el archivo [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) en los sitios web de Azure mediante las declaraciones de [XML Document Transformation](http://msdn.microsoft.com/en-us/library/dd465326.aspx) (XDT). También puede usar las declaraciones XDT para agregar extensiones de sitios privados para habilitar acciones de administración del sitio personalizado. Este artículo incluye un sitio del administrador PHP de ejemplo que habilita la administración de la configuración de PHP a través de una interfaz web.
+Puede transformar el archivo [ApplicationHost.config](http://www.iis.net/learn/get-started/planning-your-iis-architecture/introduction-to-applicationhostconfig) en los sitios web de Azure mediante las declaraciones de [XML Document Transformation](http://msdn.microsoft.com/es-es/library/dd465326.aspx) (XDT). También puede usar las declaraciones XDT para agregar extensiones de sitios privados para habilitar acciones de administración del sitio personalizado. Este artículo incluye un sitio del administrador PHP de ejemplo que habilita la administración de la configuración de PHP a través de una interfaz web.
 
 -   [Transformación de la configuración del sitio en ApplicationHost.config](#transform)
 -   [Extensión del sitio](#extend)

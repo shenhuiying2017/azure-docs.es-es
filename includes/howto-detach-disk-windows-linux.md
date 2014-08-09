@@ -55,7 +55,7 @@ Una vez que encuentre el nombre del disco que desea desacoplar de la máquina vi
     
     El disco permanece en el almacenamiento pero ya no está acoplado a una máquina virtual.
 
-Ahora puede acoplar de nuevo el disco a la misma máquina virtual o a una máquina nueva. Para conocer las instrucciones, consulte [Acoplamiento de un disco de datos a una máquina virtual](/en-us/manage/windows/how-to-guides/attach-a-disk/).
+Ahora puede acoplar de nuevo el disco a la misma máquina virtual o a una máquina nueva. Para conocer las instrucciones, consulte [Acoplamiento de un disco de datos a una máquina virtual](/es-es/manage/windows/how-to-guides/attach-a-disk/).
 
 
 

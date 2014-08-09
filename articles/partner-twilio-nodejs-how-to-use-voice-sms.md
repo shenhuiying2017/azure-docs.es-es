@@ -38,7 +38,7 @@ Antes de usar servicios de Twilio, primero debe [suscribirse para obtener una cu
 
 ## Creación e implementación de un sitio web de Azure para Node.js
 
-A continuación, deberá crear un sitio web de Node.js para que se ejecute en Azure. [La documentación oficial para hacerlo está aquí](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/). En un alto nivel, hará lo siguiente:
+A continuación, deberá crear un sitio web de Node.js para que se ejecute en Azure. [La documentación oficial para hacerlo está aquí](http://www.windowsazure.com/es-es/develop/nodejs/tutorials/create-a-website-(mac)/). En un alto nivel, hará lo siguiente:
 
 -   Suscripción para obtener una cuenta de Azure, si todavía no tiene una
 -   Uso de la consola de administración de Azure para crear un sitio web

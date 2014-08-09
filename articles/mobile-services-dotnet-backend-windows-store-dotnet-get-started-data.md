@@ -3,13 +3,13 @@
 Introducción a los datos en Servicios móviles
 =============================================
 
-[C\# para Tienda Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "C# para Tienda Windows") [JavaScript para Tienda Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "JavaScript para Tienda Windows") [Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone")
+[C\# para Tienda Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "C# para Tienda Windows") [JavaScript para Tienda Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "JavaScript para Tienda Windows") [Windows Phone](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone")
 
-[Back-end de .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Back-end de .NET") | [Back-end de JavaScript](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/ "Back-end de JavaScript")
+[Back-end de .NET](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Back-end de .NET") | [Back-end de JavaScript](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet/ "Back-end de JavaScript")
 
 Este tema muestra cómo utilizar Servicios móviles de Azure como origen de datos de back-end para una aplicación de la Tienda Windows. En este tutorial descargará un proyecto de Visual Studio 2013 para una aplicación que almacena datos en memoria, creará un nuevo servicio móvil, integrará el servicio móvil en la aplicación y verá los cambios que se hicieron en los datos durante la ejecución de la aplicación.
 
-El servicio móvil que cree en este tutorial admitirá el tiempo de ejecución .NET. Esto le permitirá utilizar lenguajes .NET y Visual Studio para la lógica de negocios de servidor en el servicio móvil. Si desea crear un servicio móvil que le permita escribir su lógica de negocios de servidor en JavaScript, consulte la [versión back-end de JavaScript](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet) de este tema.
+El servicio móvil que cree en este tutorial admitirá el tiempo de ejecución .NET. Esto le permitirá utilizar lenguajes .NET y Visual Studio para la lógica de negocios de servidor en el servicio móvil. Si desea crear un servicio móvil que le permita escribir su lógica de negocios de servidor en JavaScript, consulte la [versión back-end de JavaScript](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet) de este tema.
 
 **Nota:**
 
@@ -27,7 +27,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 **Nota:**
 
-Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F).
+Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F).
 
 Descarga del proyectoDescarga del proyecto GetStartedWithData
 -------------------------------------------------------------
@@ -247,21 +247,21 @@ Pasos siguientes
 
 Este tutorial demostró los aspectos básicos de la habilitación de una aplicación de la Tienda Windows para trabajar con datos en Servicios móviles. A continuación, considere la realización de uno de los siguientes tutoriales que se basan en la aplicación GetStartedWithData que creó en este tutorial:
 
--   [Validación y modificación de datos con scripts](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet)
+-   [Validación y modificación de datos con scripts](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet)
     Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
 
--   [Limitación de consultas con paginación](/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet)
+-   [Limitación de consultas con paginación](/es-es/develop/mobile/tutorials/add-paging-to-data-dotnet)
     Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se manejan en una única solicitud.
 
 Una vez que haya completado la serie de datos, intente con uno de estos otros tutoriales:
 
--   [Introducción a la autenticación](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/)
+-   [Introducción a la autenticación](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/)
     Aprenda a autenticar a los usuarios de su aplicación.
 
--   [Introducción a las notificaciones de inserción](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/)
+-   [Introducción a las notificaciones de inserción](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/)
     Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
--   [Referencia conceptual de Servicios móviles con .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
+-   [Referencia conceptual de Servicios móviles con .NET](/es-es/develop/mobile/how-to-guides/work-with-net-client-library)
     Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
 

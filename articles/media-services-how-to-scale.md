@@ -59,7 +59,7 @@ De manera predeterminada las cuentas de Servicios multimedia pueden escalar hast
 Para abrir una incidencia de soporte técnico, haga lo siguiente:
 
 1.  Inicie sesión su cuenta de Azure en [Portal de administración](http://manage.windowsazure.com).
-2.  Vaya a [Soporte técnico](http://www.windowsazure.com/en-us/support/contact/).
+2.  Vaya a [Soporte técnico](http://www.windowsazure.com/es-es/support/contact/).
 3.  Haga clic en "Get Support".
 4.  Seleccione su suscripción.
 5.  En el tipo de soporte, seleccione "Técnico".

@@ -3,9 +3,9 @@
 Uso de los Centros de notificaciones para enviar noticias de última hora localizadas a dispositivos iOS
 =======================================================================================================
 
-[C\# para Tienda Windows](/en-us/manage/services/notification-hubs/breaking-news-localized-dotnet "C# para Tienda Windows")[iOS](/en-us/manage/services/notification-hubs/breaking-news-localized-ios "iOS")
+[C\# para Tienda Windows](/es-es/manage/services/notification-hubs/breaking-news-localized-dotnet "C# para Tienda Windows")[iOS](/es-es/manage/services/notification-hubs/breaking-news-localized-ios "iOS")
 
-Este tema muestra cómo usar la característica de **plantilla** de los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora localizadas por lenguaje y dispositivo. En este tutorial comenzará con la aplicación de la Tienda Windows que se creó en el tutorial [Uso de los Centros de notificaciones para enviar noticias de última hora](/en-us/manage/services/notification-hubs/breaking-news-ios). Una vez que lo haya completado, podrá registrarse en las categorías que le interesan, especificar un idioma para recibir las notificaciones y recibir solo notificaciones de inserción para las categorías seleccionadas en dicho idioma.
+Este tema muestra cómo usar la característica de **plantilla** de los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora localizadas por lenguaje y dispositivo. En este tutorial comenzará con la aplicación de la Tienda Windows que se creó en el tutorial [Uso de los Centros de notificaciones para enviar noticias de última hora](/es-es/manage/services/notification-hubs/breaking-news-ios). Una vez que lo haya completado, podrá registrarse en las categorías que le interesan, especificar un idioma para recibir las notificaciones y recibir solo notificaciones de inserción para las categorías seleccionadas en dicho idioma.
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar este escenario:
 
@@ -23,14 +23,14 @@ Este escenario tiene dos partes:
 Requisitos previos
 ------------------
 
-Debe haber completado el tutorial [Uso de Centros de notificaciones para enviar noticias de última hora](/en-us/manage/services/notification-hubs/breaking-news-ios) y debe tener disponible el código, porque este tutorial se basa directamente en ese código.
+Debe haber completado el tutorial [Uso de Centros de notificaciones para enviar noticias de última hora](/es-es/manage/services/notification-hubs/breaking-news-ios) y debe tener disponible el código, porque este tutorial se basa directamente en ese código.
 
 También necesita Visual Studio 2012.
 
 conceptosConceptos de plantilla
 -------------------------------
 
-En el tutorial [Uso de Centros de notificaciones para enviar noticias de última hora](/en-us/manage/services/notification-hubs/breaking-news-ios) creó una aplicación que utilizó **etiquetas** para suscribirse a notificaciones para distintas categorías de noticias. Sin embargo, muchas aplicaciones están dirigidas a varios mercados y requieren localización. Esto significa que el contenido de las notificaciones mismas se debe localizar y entregar al conjunto de dispositivos correcto. En este tema podremos mostrar cómo usar la característica de **plantilla** de los Centros de notificaciones para entregar fácilmente notificaciones de noticias de última hora localizadas.
+En el tutorial [Uso de Centros de notificaciones para enviar noticias de última hora](/es-es/manage/services/notification-hubs/breaking-news-ios) creó una aplicación que utilizó **etiquetas** para suscribirse a notificaciones para distintas categorías de noticias. Sin embargo, muchas aplicaciones están dirigidas a varios mercados y requieren localización. Esto significa que el contenido de las notificaciones mismas se debe localizar y entregar al conjunto de dispositivos correcto. En este tema podremos mostrar cómo usar la característica de **plantilla** de los Centros de notificaciones para entregar fácilmente notificaciones de noticias de última hora localizadas.
 
 Nota: una forma de enviar notificaciones localizadas es crear varias versiones de cada etiqueta. Por ejemplo, para admitir inglés, francés y chino mandarín, necesitaríamos tres etiquetas distintas para noticias mundiales: "mundo\_in", "mundo\_fr" y "mundo\_ch". Luego tendríamos que enviar una versión localizada de las noticias mundiales a cada una de estas etiquetas. En este tema usamos plantillas para evitar la proliferación de etiquetas y el requisito de enviar varios mensajes.
 
@@ -50,12 +50,12 @@ Esto garantizará que los dispositivos se registren con una plantilla que hace r
         }
     }
 
-Las plantillas son una característica muy potente de la que puede aprender más en nuestro artículo [Información general acerca de los Centros de notificaciones de Azure](http://msdn.microsoft.com/en-us/library/jj927170.aspx). Puede encontrar una referencia sobre el lenguaje de la expresión de plantilla en [Centros de notificaciones de bus de servicio (aplicaciones iOS)](http://msdn.microsoft.com/en-us/library/jj927168.aspx).
+Las plantillas son una característica muy potente de la que puede aprender más en nuestro artículo [Información general acerca de los Centros de notificaciones de Azure](http://msdn.microsoft.com/es-es/library/jj927170.aspx). Puede encontrar una referencia sobre el lenguaje de la expresión de plantilla en [Centros de notificaciones de bus de servicio (aplicaciones iOS)](http://msdn.microsoft.com/es-es/library/jj927168.aspx).
 
 Interfaz de usuario de aplicaciónLa interfaz de usuario de la aplicación
 ------------------------------------------------------------------------
 
-Ahora modificaremos la aplicación de noticias de última hora que creó en el tema [Uso de los Centros de notificaciones para enviar noticias de última hora](/en-us/manage/services/notification-hubs/breaking-news-ios) para enviar noticias de última hora localizadas con plantillas.
+Ahora modificaremos la aplicación de noticias de última hora que creó en el tema [Uso de los Centros de notificaciones para enviar noticias de última hora](/es-es/manage/services/notification-hubs/breaking-news-ios) para enviar noticias de última hora localizadas con plantillas.
 
 En MainStoryboard\_iPhone.storyboard, agregue un control segmentado con los tres idiomas compatibles: inglés, francés y chino mandarín
 
@@ -164,9 +164,9 @@ Pasos siguientes
 
 Para obtener más información sobre el uso de plantillas, consulte:
 
--   [Notificación a los usuarios con los Centros de notificaciones: ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet)
--   [Notificación a los usuarios con los Centros de notificaciones: Servicios móviles](/en-us/manage/services/notification-hubs/notify-users)
--   [Información general acerca de los Centros de notificaciones de Azure](http://msdn.microsoft.com/en-us/library/jj927170.aspx)
+-   [Notificación a los usuarios con los Centros de notificaciones: ASP.NET](/es-es/manage/services/notification-hubs/notify-users-aspnet)
+-   [Notificación a los usuarios con los Centros de notificaciones: Servicios móviles](/es-es/manage/services/notification-hubs/notify-users)
+-   [Información general acerca de los Centros de notificaciones de Azure](http://msdn.microsoft.com/es-es/library/jj927170.aspx)
 
-Puede encontrar una referencia para el lenguaje de la expresión de plantilla en [Procedimientos de los Centros de notificaciones para iOS](http://msdn.microsoft.com/en-us/library/jj927168.aspx).
+Puede encontrar una referencia para el lenguaje de la expresión de plantilla en [Procedimientos de los Centros de notificaciones para iOS](http://msdn.microsoft.com/es-es/library/jj927168.aspx).
 

@@ -3,7 +3,7 @@
 Introducción a la autenticación en Servicios móviles
 ====================================================
 
-[C\# para Tienda Windows](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/en-us/develop/mobile/tutorials/get-started-with-users-js "JavaScript para Tienda Windows")[Windows Phone](/en-us/develop/mobile/tutorials/get-started-with-users-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/get-started-with-users-ios "iOS")[Android](/en-us/develop/mobile/tutorials/get-started-with-users-android "Android")[HTML](/en-us/develop/mobile/tutorials/get-started-with-users-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android "Xamarin.Android")
+[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-users-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-users-js "JavaScript para Tienda Windows")[Windows Phone](/es-es/develop/mobile/tutorials/get-started-with-users-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/get-started-with-users-ios "iOS")[Android](/es-es/develop/mobile/tutorials/get-started-with-users-android "Android")[HTML](/es-es/develop/mobile/tutorials/get-started-with-users-html "HTML")[Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android "Xamarin.Android")
 
 En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde su aplicación Xamarin.Android. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
@@ -13,7 +13,7 @@ En este tutorial se realiza un recorrido por los pasos básicos para habilitar l
 2.  [Restricción de los permisos de tabla a usuarios autenticados](#permissions)
 3.  [Incorporación de autenticación a la aplicación](#add-authentication)
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started-xamarin-android).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-xamarin-android).
 
 Para completar este tutorial necesita [Xamarin.Android] y el SDK de Android 4.2 o una versión posterior.
 
@@ -34,11 +34,11 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
 
 3.  Seleccione un proveedor de identidades compatible en la lista siguiente y siga los pasos para registrar la aplicación con ese proveedor:
 
- -   [Cuenta Microsoft](/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication/)
- -   [Inicio de sesión en Facebook](/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/)
- -   [Inicio de sesión en Twitter](/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/)
- -   [Inicio de sesión en Google](/en-us/develop/mobile/how-to-guides/register-for-google-authentication/)
- -   [Azure Active Directory](/en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
+ -   [Cuenta Microsoft](/es-es/develop/mobile/how-to-guides/register-for-microsoft-authentication/)
+ -   [Inicio de sesión en Facebook](/es-es/develop/mobile/how-to-guides/register-for-facebook-authentication/)
+ -   [Inicio de sesión en Twitter](/es-es/develop/mobile/how-to-guides/register-for-twitter-authentication/)
+ -   [Inicio de sesión en Google](/es-es/develop/mobile/how-to-guides/register-for-google-authentication/)
+ -   [Azure Active Directory](/es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
 
     Recuerde anotar los valores secretos y la identidad del cliente que genera el proveedor.
 
@@ -63,7 +63,7 @@ Restricción de permisosRestricción de permisos a usuarios autenticados
 
   ![][15]
 
-3.  En Eclipse, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started-xamarin-android).
+3.  En Eclipse, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-xamarin-android).
 
 4.  En el menú **Run**, haga clic en **Run** para iniciar la aplicación y, a continuación, compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación.
 
@@ -135,7 +135,7 @@ Descargue el [proyecto de ejemplo completado](http://go.microsoft.com/fwlink/p/?
 Pasos siguientes
 ----------------
 
-En el siguiente tutorial, [Autorización de usuarios con scripts](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android), usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles.
+En el siguiente tutorial, [Autorización de usuarios con scripts](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android), usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles.
 
 <!-- Images. -->
 [4]: ./media/partner-xamarin-mobile-services-android-get-started-users/mobile-services-selection.png

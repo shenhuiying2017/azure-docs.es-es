@@ -5,7 +5,7 @@ Copias de seguridad de Sitios web Azure
 
 La característica Copia de seguridad y restauración de Sitios web Azure le permite crear fácilmente copias de seguridad del sitio web, de forma manual o automática. Puede restaurar su sitio web a un estado anterior o crear un nuevo sitio web basado en una de las copias de seguridad del sitio original.
 
-Para obtener información acerca de la restauración de un sitio web Azure a partir de una copia de seguridad, consulte [Restauración de un sitio web de Microsoft Azure](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
+Para obtener información acerca de la restauración de un sitio web Azure a partir de una copia de seguridad, consulte [Restauración de un sitio web de Microsoft Azure](http://www.windowsazure.com/es-es/documentation/articles/web-sites-restore/).
 
 En este artículo
 ----------------
@@ -32,7 +32,7 @@ Esta información se guarda en una copia de seguridad en la cuenta de almacenami
 
 ## Requisitos y restricciones
 
--   La característica Copia de seguridad y restauración requiere que es sitio esté en el nivel estándar. Para obtener más información acerca del ajuste de escala del sitios web a un nivel estándar, consulte [Escalación de sitios web](http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/).
+-   La característica Copia de seguridad y restauración requiere que es sitio esté en el nivel estándar. Para obtener más información acerca del ajuste de escala del sitios web a un nivel estándar, consulte [Escalación de sitios web](http://www.windowsazure.com/es-es/documentation/articles/web-sites-scale/).
 
 -   La característica Copia de seguridad y restauración requiere una cuenta de almacenamiento de Azure que debe pertenecer a la misma suscripción que el sitio web del que quiere tener una copia de seguridad. Si todavía no tiene una cuenta de almacenamiento, puede crear una haciendo clic en el botón **Almacenamiento** (icono de cuadrícula) del panel izquierdo del portal de Azure y, a continuación, seleccionando **New** en la barra de comandos de la parte inferior. Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte los [vínculos](#moreaboutstorage) al final de este artículo.
 
@@ -114,15 +114,15 @@ Los nombres de los archivos de copia de seguridad .zip y .xml constan del nombre
 -   Durante la vista previa, las operaciones de copia de seguridad y restauración solo están disponibles a través del Portal de administración de Azure.
 
 ## Pasos siguientes 
-Para obtener información acerca de la restauración de un sitio web Azure a partir de una copia de seguridad, consulte [Restauración de un sitio web de Microsoft Azure](http://www.windowsazure.com/en-us/documentation/articles/web-sites-restore/).
+Para obtener información acerca de la restauración de un sitio web Azure a partir de una copia de seguridad, consulte [Restauración de un sitio web de Microsoft Azure](http://www.windowsazure.com/es-es/documentation/articles/web-sites-restore/).
 
 ### Información adicional acerca de las cuentas de almacenamiento
 
-[¿Qué es una cuenta de almacenamiento?](http://www.windowsazure.com/en-us/documentation/articles/storage-whatis-account/)
+[¿Qué es una cuenta de almacenamiento?](http://www.windowsazure.com/es-es/documentation/articles/storage-whatis-account/)
 
-[Creación de una cuenta de almacenamiento](http://www.windowsazure.com/en-us/documentation/articles/storage-create-storage-account/)
+[Creación de una cuenta de almacenamiento](http://www.windowsazure.com/es-es/documentation/articles/storage-create-storage-account/)
 
-[Supervisión de una cuenta de almacenamiento](http://www.windowsazure.com/en-us/documentation/articles/storage-monitor-storage-account/)
+[Supervisión de una cuenta de almacenamiento](http://www.windowsazure.com/es-es/documentation/articles/storage-monitor-storage-account/)
 
 [Understanding Azure Storage Billing](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 

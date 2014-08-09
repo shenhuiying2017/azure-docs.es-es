@@ -117,7 +117,7 @@ El almacenamiento de Azure expone los recursos de almacenamiento a través de un
 
 -   [.NET](http://msdn.microsoft.com/library/dn495001(v=azure.10).aspx)
 -   [Código nativo](http://msdn.microsoft.com/library/dn495438.aspx)
--   [Java](/en-us/develop/java/)
+-   [Java](/es-es/develop/java/)
 -   [Node.js](../storage/#node)
 -   [PHP](../storage/#php)
 -   [Ruby](../storage/#ruby)
@@ -129,7 +129,7 @@ Pasos siguientes
 
 Para comenzar a usar el almacenamiento de Azure, explore estos recursos:
 
--   [Documentación del almacenamiento de Azure](/en-us/documentation/services/storage/)
+-   [Documentación del almacenamiento de Azure](/es-es/documentation/services/storage/)
 -   [Azure Storage Scalability and Performance Targets](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx)
 
 ### Para desarrolladores de .NET

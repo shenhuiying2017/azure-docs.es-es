@@ -31,4 +31,4 @@ Las siguientes direcciones URL desvían una de las colas del diagrama:
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
+[1]: http://msdn.microsoft.com/es-es/library/dn249410.aspx

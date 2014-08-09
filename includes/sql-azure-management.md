@@ -295,4 +295,4 @@ Base de datos SQL admite varias vistas de administración dinámica que puede us
 
 
 
-[1]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-azure/
+[1]: http://www.windowsazure.com/es-es/develop/net/how-to-guides/sql-azure/

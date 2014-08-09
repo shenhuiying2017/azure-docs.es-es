@@ -7,7 +7,7 @@ Puede configurar un dominio personalizado para obtener acceso a los datos Blob e
 
 **Nota:**
 
-Los procedimientos de esta tarea se aplican a las cuentas de almacenamiento de Azure. Para obtener la información relativa a los servicios en la nube, consulte [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](/en-us/develop/net/common-tasks/custom-dns/); para los sitios web, consulte [Configuración de un nombre de dominio personalizado para un Sitio web Azure](/en-us/develop/net/common-tasks/custom-dns-web-site/).
+Los procedimientos de esta tarea se aplican a las cuentas de almacenamiento de Azure. Para obtener la información relativa a los servicios en la nube, consulte [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](/es-es/develop/net/common-tasks/custom-dns/); para los sitios web, consulte [Configuración de un nombre de dominio personalizado para un Sitio web Azure](/es-es/develop/net/common-tasks/custom-dns-web-site/).
 
 Existen dos formas de que el dominio personalizado apunte al extremo del blob para la cuenta de almacenamiento. La forma más simple es crear un registro CNAME asignando el dominio y el subdominio personalizados al extremo del blob. Un registro CNAME es una característica DNS que asigna un dominio de origen a un dominio de destino. En este caso, el dominio de origen es el dominio y el subdominio personalizados. Tenga en cuenta que el subdominio es siempre obligatorio. El dominio de destino es el extremo de servicio del blob.
 
@@ -150,5 +150,5 @@ Por ejemplo, puede usar el siguiente URI para obtener acceso a un formulario web
 Recursos adicionales
 --------------------
 
--   [Asignación del contenido de la red CDN a un dominio personalizado](http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx)
+-   [Asignación del contenido de la red CDN a un dominio personalizado](http://msdn.microsoft.com/es-es/library/windowsazure/gg680307.aspx)
 

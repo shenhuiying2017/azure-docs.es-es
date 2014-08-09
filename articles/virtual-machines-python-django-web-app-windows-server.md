@@ -3,7 +3,7 @@
 Aplicación web Django Hello World
 =================================
 
-[Windows](/en-us/develop/python/tutorials/web-app-with-django/ "Windows")[Mac/Linux](/en-us/develop/python/tutorials/django-hello-world-(maclinux)/ "MacLinux")
+[Windows](/es-es/develop/python/tutorials/web-app-with-django/ "Windows")[Mac/Linux](/es-es/develop/python/tutorials/django-hello-world-(maclinux)/ "MacLinux")
 
 En este tutorial se describe cómo hospedar un sitio web basado en Django en Azure utilizando una máquina virtual de Windows Server. En este tutorial se asume que no tiene ninguna experiencia previa con Azure. Al término de esta guía, tendrá una aplicación basada en Django funcionando en la nube.
 
@@ -23,7 +23,7 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 Creación y configuración de una máquina virtual de Azure para hospedar Django
 -----------------------------------------------------------------------------
 
-1.  Siga las instrucciones que se proporcionan [aquí](/en-us/manage/windows/tutorials/virtual-machine-from-gallery/) para crear una máquina virtual de Azure de la distribución *Windows Server 2012 Datacenter*.
+1.  Siga las instrucciones que se proporcionan [aquí](/es-es/manage/windows/tutorials/virtual-machine-from-gallery/) para crear una máquina virtual de Azure de la distribución *Windows Server 2012 Datacenter*.
 
 2.  Indique a Azure que dirija el tráfico del puerto **80** de la Web al puerto **80** de la máquina virtual:
 

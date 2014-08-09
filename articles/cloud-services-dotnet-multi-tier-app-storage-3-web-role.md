@@ -3,7 +3,7 @@
 Creación del rol web para la aplicación Servicio de correo electrónico de Azure - 3 de 5
 ========================================================================================
 
-Este es el tercer de la serie de cinco que muestra cómo crear e implementar la aplicación de ejemplo de Servicio de correo electrónico de Azure. Para obtener información sobre la serie de tutoriales y la aplicación, consulte el [primer tutorial de la serie](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
+Este es el tercer de la serie de cinco que muestra cómo crear e implementar la aplicación de ejemplo de Servicio de correo electrónico de Azure. Para obtener información sobre la serie de tutoriales y la aplicación, consulte el [primer tutorial de la serie](/es-es/develop/net/tutorials/multi-tier-web-site/1-overview/).
 
 En este tutorial, aprenderá a realizar las siguientes tareas:
 
@@ -124,7 +124,7 @@ Para habilitar el almacenamiento de los datos de seguimiento, abra el archivo *W
         return base.OnStart();
     }
 
-El método `ConfigureDiagnostics` se explica en el [segundo tutorial](/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/).
+El método `ConfigureDiagnostics` se explica en el [segundo tutorial](/es-es/develop/net/tutorials/multi-tier-web-site/2-download-and-run/).
 
 ReiniciosIncorporación de código para gestionar los reinicios con eficacia
 --------------------------------------------------------------------------
@@ -154,7 +154,7 @@ Cuando Azure pone el rol sin conexión, el equilibrador de carga deja de enviar 
 
 En el código que aparece para el método `OnStop`, se crea un contador de rendimiento de ASP.NET para `Requests Current`. El valor de contador `Requests Current` contiene el número actual de solicitudes, incluidas las que están en cola, las que se encuentran en ejecución actualmente o las que están pendientes de escribirse en el cliente. El valor `Requests Current` se comprueba cada segundo y, cuando llega a cero, se devuelve el método `OnStop`. Cuando se devuelve el método `OnStop`, el rol se apaga.
 
-Los datos de seguimiento no se guardan cuando la llamada se realiza desde el método `OnStop` sin [realizar una transferencia a petición](http://msdn.microsoft.com/en-us/library/windowsazure/gg433075.aspx). Puede ver la información de seguimiento de `OnStop` en tiempo real con la utilidad [dbgview](http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx) desde una conexión a Escritorio remoto.
+Los datos de seguimiento no se guardan cuando la llamada se realiza desde el método `OnStop` sin [realizar una transferencia a petición](http://msdn.microsoft.com/es-es/library/windowsazure/gg433075.aspx). Puede ver la información de seguimiento de `OnStop` en tiempo real con la utilidad [dbgview](http://technet.microsoft.com/en-us/sysinternals/bb896647.aspx) desde una conexión a Escritorio remoto.
 
 Actualización de la biblioteca del cliente de almacenamientoActualización del paquete NuGet de la biblioteca del cliente de almacenamiento
 ------------------------------------------------------------------------------------------------------------------------------------------
@@ -181,7 +181,7 @@ El marco API que usa para trabajar con tablas, colas y blobs de almacenamiento d
 
          using Microsoft.WindowsAzure.StorageClient;
 
-La versión 1.7 de SCL comprende un proveedor LINQ que simplifica la codificación de las consultas de tabla. En la fecha en que se escribe este tutorial, Table Service Layer (TSL) 2.0 aún no tiene un proveedor LINQ. Si desea usar LINQ, aún tiene acceso al proveedor LINQ de SCL 1.7 en el espacio de nombres [Microsoft.WindowsAzure.Storage.Table.DataServices](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.storage.table.dataservices.aspx). TSL 2.0 se ha diseñado para mejorar el rendimiento, y el proveedor LINQ 1.7 no se beneficia de todas estas mejoras. La aplicación de ejemplo usa TLS 2.0, por lo que no usa LINQ para las consultas. Para obtener más información acerca de SCL y TSL 2.0, consulte los recursos que se incluyen al final del [último tutorial de esta serie](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/).
+La versión 1.7 de SCL comprende un proveedor LINQ que simplifica la codificación de las consultas de tabla. En la fecha en que se escribe este tutorial, Table Service Layer (TSL) 2.0 aún no tiene un proveedor LINQ. Si desea usar LINQ, aún tiene acceso al proveedor LINQ de SCL 1.7 en el espacio de nombres [Microsoft.WindowsAzure.Storage.Table.DataServices](http://msdn.microsoft.com/es-es/library/microsoft.windowsazure.storage.table.dataservices.aspx). TSL 2.0 se ha diseñado para mejorar el rendimiento, y el proveedor LINQ 1.7 no se beneficia de todas estas mejoras. La aplicación de ejemplo usa TLS 2.0, por lo que no usa LINQ para las consultas. Para obtener más información acerca de SCL y TSL 2.0, consulte los recursos que se incluyen al final del [último tutorial de esta serie](/es-es/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/).
 
 > [WACOM.NOTE] La biblioteca del cliente de almacenamiento 2.1 reincorporó la compatibilidad de LINQ, pero este tutorial no usa LINQ para almacenar las consultas de tabla. La SCL actual también admite la programación asincrónica, pero en este tutorial no se aborda el código asincrónico. Para obtener más información acerca de la programación asincrónica y un ejemplo de código que la use con la SCL de Azure, consulte el siguiente capítulo de libro electrónico y el proyecto descargable que lo acompaña: [Use .NET 4.5™'s async support to avoid blocking calls](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices#async).
 
@@ -310,17 +310,17 @@ La clase de entidad `MailingList` se usa para las filas de la tabla `MailingList
              public string Description { get; set; }
          }
 
-    La API de TSL 2.0 del Almacenamiento de Azure requiere que las clases de entidad que usa para las operaciones de tabla deriven de la clase [TableEntity](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.tableentity.aspx). Esta clase define los campos `PartitionKey`, `RowKey`, `TimeStamp` y `ETag`. El sistema usa las propiedades `TimeStamp` y `ETag`. Verá cómo se usa la propiedad `ETag` para el control de simultaneidad más adelante en el tutorial.
+    La API de TSL 2.0 del Almacenamiento de Azure requiere que las clases de entidad que usa para las operaciones de tabla deriven de la clase [TableEntity](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.storage.table.tableentity.aspx). Esta clase define los campos `PartitionKey`, `RowKey`, `TimeStamp` y `ETag`. El sistema usa las propiedades `TimeStamp` y `ETag`. Verá cómo se usa la propiedad `ETag` para el control de simultaneidad más adelante en el tutorial.
 
-    (También existe la clase [DynamicTableEntity](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) para usarla si desea trabajar con filas de tabla como colecciones de diccionario de pares clave-valor en lugar de usar clases de modelo predefinidas. Para obtener más información, consulte [Azure Storage Client Library 2.0 Tables Deep Dive](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx)).
+    (También existe la clase [DynamicTableEntity](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.storage.table.dynamictableentity.aspx) para usarla si desea trabajar con filas de tabla como colecciones de diccionario de pares clave-valor en lugar de usar clases de modelo predefinidas. Para obtener más información, consulte [Azure Storage Client Library 2.0 Tables Deep Dive](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx)).
 
     La clave de partición de tabla `mailinglist` es el nombre de lista. En esta clase de entidad, se puede obtener acceso al valor de la clave de partición con la propiedad `PartitionKey` (definida en la clase `TableEntity`) o con la propiedad `ListName` (definida en la clase `MailingList`). La propiedad `ListName` usa `PartitionKey` como su variable de respaldo. La definición de la propiedad `ListName` le permite usar un nombre de variable más descriptivo en el código y facilita la programación de la interfaz de usuario web, ya que los atributos DataAnnotations de validación y formato se pueden agregar a la propiedad `ListName`, pero no se pueden agregar directamente a la propiedad `PartitionKey`.
 
     El atributo `RegularExpression` de la propiedad `ListName` da lugar a que MVC valide la entrada de usuario a fin de garantizar que el valor de nombre de lista escrito solo contiene caracteres alfanuméricos o subrayado. Esta restricción se implementó a fin de mantener nombres de lista sencillos que se puedan usar con facilidad en las cadenas de consulta en las URL.
 
-    **Nota:** si desea que el formato del nombre de lista sea menos restrictivo, podría admitir otros caracteres y nombres de lista codificados como URL cuando se usen en las cadenas de consulta. No obstante, no se permiten determinados caracteres en las claves de fila o de partición de tablas de Azure, por lo que tendría que excluir al menos dichos caracteres. Para obtener más información acerca de los caracteres no admitidos o que causan problemas en los campos de clave de fila o de partición, consulte [Introducción al modelo de datos del servicio Tabla](http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx) y el blog [% Character in PartitionKey or RowKey](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/05/28/partitionkey-or-rowkey-containing-the-percent-character-causes-some-windows-azure-tables-apis-to-fail.aspx).
+    **Nota:** si desea que el formato del nombre de lista sea menos restrictivo, podría admitir otros caracteres y nombres de lista codificados como URL cuando se usen en las cadenas de consulta. No obstante, no se permiten determinados caracteres en las claves de fila o de partición de tablas de Azure, por lo que tendría que excluir al menos dichos caracteres. Para obtener más información acerca de los caracteres no admitidos o que causan problemas en los campos de clave de fila o de partición, consulte [Introducción al modelo de datos del servicio Tabla](http://msdn.microsoft.com/es-es/library/windowsazure/dd179338.aspx) y el blog [% Character in PartitionKey or RowKey](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/05/28/partitionkey-or-rowkey-containing-the-percent-character-causes-some-windows-azure-tables-apis-to-fail.aspx).
 
-    La clase `MailingList` define un constructor predeterminado que establece `RowKey` como la cadena codificada de forma rápida "mailinglist", porque todas las filas de la lista de distribución de correo de esta tabla tienen dicho valor como la clave de fila. (Para obtener una explicación de la estructura de la tabla, consulte el [primer tutorial de la serie](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)). Se podría haber elegido cualquier valor constante para este propósito, siempre que no hubiera coincidido con una dirección de correo electrónico, que es la clave de fila para las filas de suscriptor de esta tabla.
+    La clase `MailingList` define un constructor predeterminado que establece `RowKey` como la cadena codificada de forma rápida "mailinglist", porque todas las filas de la lista de distribución de correo de esta tabla tienen dicho valor como la clave de fila. (Para obtener una explicación de la estructura de la tabla, consulte el [primer tutorial de la serie](/es-es/develop/net/tutorials/multi-tier-web-site/1-overview/)). Se podría haber elegido cualquier valor constante para este propósito, siempre que no hubiera coincidido con una dirección de correo electrónico, que es la clave de fila para las filas de suscriptor de esta tabla.
 
     El nombre de lista y la dirección de correo electrónico "De" siempre deben escribirse cuando se crea una nueva entidad `MailingList`, por lo que tienen atributos `Required`.
 
@@ -383,7 +383,7 @@ La clase de entidad `MailingList` se usa para las filas de la tabla `MailingList
              return subscriber;
          }
 
-    La única diferencia entre las dos consultas es el tipo de modelo que transfieren al método [TableOperation.Retrieve](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx). El tipo de modelo especifica el esquema (las propiedades) de la fila o las filas que espera que la consulta devuelva. Una única tabla puede tener diferentes esquemas en distintas filas. Normalmente, se especifica el mismo tipo de modelo al leer una fila usada para crear la fila.
+    La única diferencia entre las dos consultas es el tipo de modelo que transfieren al método [TableOperation.Retrieve](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.storage.table.tableoperation.retrieve.aspx). El tipo de modelo especifica el esquema (las propiedades) de la fila o las filas que espera que la consulta devuelva. Una única tabla puede tener diferentes esquemas en distintas filas. Normalmente, se especifica el mismo tipo de modelo al leer una fila usada para crear la fila.
 
     En la página **Index** se muestran todas las filas de lista de distribución de correo, de forma que la consulta del método `Index` devuelve todas las entidades `MailingList` que tienen "mailinglist" como la clave de fila (las otras filas de la tabla tienen la dirección de correo electrónico como la clave de fila y contienen información acerca del suscriptor).
 
@@ -760,7 +760,7 @@ La clase de entidad `Subscriber` se usa para las filas de la tabla `MailingList`
                  public bool? Verified { get; set; }
              }
 
-    Al igual que la clase de entidad `MailingList`, la clase de entidad `Subscriber` se usa para leer y escribir filas en la tabla `mailinglist`. Las filas `Subscriber` usan las dirección de correo electrónico en lugar del valor "mailinglist" constante para la clave de fila. (Para obtener una explicación de la estructura de la tabla, consulte el [primer tutorial de la serie](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/)). Por tanto, se define una propiedad `EmailAddress` que usa la propiedad `RowKey` como su campo de respaldo de la misma forma que `ListName` usa `PartitionKey` como su campo de respaldo. Como se ha explicado anteriormente, esto le permite colocar los atributos DataAnnotations de formato y validación en las propiedades.
+    Al igual que la clase de entidad `MailingList`, la clase de entidad `Subscriber` se usa para leer y escribir filas en la tabla `mailinglist`. Las filas `Subscriber` usan las dirección de correo electrónico en lugar del valor "mailinglist" constante para la clave de fila. (Para obtener una explicación de la estructura de la tabla, consulte el [primer tutorial de la serie](/es-es/develop/net/tutorials/multi-tier-web-site/1-overview/)). Por tanto, se define una propiedad `EmailAddress` que usa la propiedad `RowKey` como su campo de respaldo de la misma forma que `ListName` usa `PartitionKey` como su campo de respaldo. Como se ha explicado anteriormente, esto le permite colocar los atributos DataAnnotations de formato y validación en las propiedades.
 
     El valor `SubscriberGUID` se genera cuando se crea una entidad `Subscriber`. Se usa en los vínculos de suscripción y cancelación de suscripción a fin de garantizar que solo las personas autorizadas puedan suscribir direcciones de correo electrónico o cancelar su suscripción. Cuando una fila se crea inicialmente para un nuevo suscriptor, el valor `Verified` es `false`. El valor `Verified` cambia a `true` solo después de que el nuevo suscriptor haga clic en el hipervínculo **Confirm** del correo electrónico de bienvenida. Si se envía un mensaje a una lista mientras un suscriptor tiene el valor `Verified` = `false`, no se envía ningún correo electrónico a dicho suscriptor.
 
@@ -1037,7 +1037,7 @@ La clase de entidad `Message` se usa para las filas de la tabla `Message` que co
 
     El constructor predeterminado también establece el estado predeterminado de Pending para las nuevas filas `message`.
 
-    Para obtener más información acerca de la estructura de tabla `Message`, consulte el [primer tutorial de la serie](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
+    Para obtener más información acerca de la estructura de tabla `Message`, consulte el [primer tutorial de la serie](/es-es/develop/net/tutorials/multi-tier-web-site/1-overview/).
 
 ### Incorporación del controlador MVC de Message
 
@@ -1384,7 +1384,7 @@ UnsubscriberCreación y prueba de las vistas y el controlador Unsubscribe
 
 A continuación, implementará la interfaz de usuario para el proceso de cancelación de suscripciones.
 
-**Nota:** en este tutorial solo se desarrolla el controlador para el proceso de anulación de suscripciones, no para el proceso de suscripción. Como se ha explicado en el [primer tutorial](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/), la interfaz de usuario y el método de servicio para el proceso de suscripción se han dejado fuera hasta que implementemos la seguridad apropiada para el método de servicio. Hasta ese momento, puede usar las páginas **Subscriber** para administradores a fin de suscribir las direcciones de correo electrónico a las listas.
+**Nota:** en este tutorial solo se desarrolla el controlador para el proceso de anulación de suscripciones, no para el proceso de suscripción. Como se ha explicado en el [primer tutorial](/es-es/develop/net/tutorials/multi-tier-web-site/1-overview/), la interfaz de usuario y el método de servicio para el proceso de suscripción se han dejado fuera hasta que implementemos la seguridad apropiada para el método de servicio. Hasta ese momento, puede usar las páginas **Subscriber** para administradores a fin de suscribir las direcciones de correo electrónico a las listas.
 
 ### Incorporación del modelo de vista Unsubscribe a la carpeta Modelos
 
@@ -1445,7 +1445,7 @@ El modelo de vista `UnsubscribeVM` se usa para transferir datos entre el control
               return View(unsubscribeVM);
           }
 
-    Nota: el valor SubscriberGUID no está en la clave de partición ni en la clave de fila, por lo que el rendimiento de esta consulta se reducirá a medida que aumente el tamaño de la partición (el número de direcciones de correo electrónico de una lista de distribución de correo). Para obtener más información acerca de las alternativas para hacer que esta consulta sea más escalable, consulte el [primer tutorial de la serie](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
+    Nota: el valor SubscriberGUID no está en la clave de partición ni en la clave de fila, por lo que el rendimiento de esta consulta se reducirá a medida que aumente el tamaño de la partición (el número de direcciones de correo electrónico de una lista de distribución de correo). Para obtener más información acerca de las alternativas para hacer que esta consulta sea más escalable, consulte el [primer tutorial de la serie](/es-es/develop/net/tutorials/multi-tier-web-site/1-overview/).
 
     El método `HttpPost Index` vuelve a usar el GUID y el nombre de lista para obtener la información del suscriptor y rellenar las propiedades del modelo de vista. A continuación, si se ha hecho clic en el botón **Confirm**, elimina la fila de suscriptor de la tabla `MailingList`. Si se presiona el botón **Confirm**, también define la propiedad `Confirm` como `true`; de lo contrario, define la propiedad `Confirm` como `false`. El valor de la propiedad `Confirm` es el que pide a la vista que muestre la versión confirmada o cancelada de la página **Unsubscribe**.
 
@@ -1593,7 +1593,7 @@ Obtenga los valores para la cadena de conexión del [Portal de administración d
 Pasos siguientesPasos siguientes
 --------------------------------
 
-Tal y como se ha explicado en el [primer tutorial de la serie](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/), no vamos a explicar cómo desarrollar el proceso de suscripción de forma detallada en este tutorial hasta que implementemos un secreto compartido para proteger el método de servicio de la API web de ASP.NET. No obstante, la restricción de IP también protege el método de servicio y puede agregar la funcionalidad de suscripción si copia los siguientes archivos del proyecto descargado.
+Tal y como se ha explicado en el [primer tutorial de la serie](/es-es/develop/net/tutorials/multi-tier-web-site/1-overview/), no vamos a explicar cómo desarrollar el proceso de suscripción de forma detallada en este tutorial hasta que implementemos un secreto compartido para proteger el método de servicio de la API web de ASP.NET. No obstante, la restricción de IP también protege el método de servicio y puede agregar la funcionalidad de suscripción si copia los siguientes archivos del proyecto descargado.
 
 Para el método de servicio de la API web de ASP.NET:
 
@@ -1605,8 +1605,8 @@ Para la página web que los suscriptores obtienen cuando hacen clic en el víncu
 -   Controladores\\SubscribeController.cs
 -   Vistas\\Subscribe\\Index.cshtml
 
-En el [próximo tutorial](/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/), configurará y programará el rol de trabajo A, que se corresponde con el rol de trabajo que programa los correos electrónicos.
+En el [próximo tutorial](/es-es/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/), configurará y programará el rol de trabajo A, que se corresponde con el rol de trabajo que programa los correos electrónicos.
 
-Podrá encontrar vínculos a recursos adicionales acerca de cómo utilizar las tablas, colas y blobs de almacenamiento de Azure al final del [último tutorial de la serie](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/).
-[Tutorial 4](/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/)
+Podrá encontrar vínculos a recursos adicionales acerca de cómo utilizar las tablas, colas y blobs de almacenamiento de Azure al final del [último tutorial de la serie](/es-es/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/).
+[Tutorial 4](/es-es/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/)
 

@@ -3,7 +3,7 @@
 Configuración e implementación de la aplicación Servicio de correo electrónico de Azure: tutorial 2 de 5
 ========================================================================================================
 
-Este es el segundo tutorial de la serie de cinco que muestra cómo crear e implementar la aplicación de ejemplo de Servicio de correo electrónico de Azure. Para obtener información sobre la serie de tutoriales y la aplicación, consulte el [primer tutorial de la serie](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
+Este es el segundo tutorial de la serie de cinco que muestra cómo crear e implementar la aplicación de ejemplo de Servicio de correo electrónico de Azure. Para obtener información sobre la serie de tutoriales y la aplicación, consulte el [primer tutorial de la serie](/es-es/develop/net/tutorials/multi-tier-web-site/1-overview/).
 
 En este tutorial se muestra cómo configurar su equipo para la implementación de Azure y cómo implementar la aplicación Servicio de correo electrónico de Azure en el Servicio de nube de Azure mediante uno de los siguientes productos:
 
@@ -72,7 +72,7 @@ Cuando ejecuta la aplicación de ejemplo en Visual Studio, puede obtener acceso 
 
 6.  Establezca el cuadro desplegable **Replication** en **Locally redundant**.
 
-    Cuando se habilita la replicación geográfica para una cuenta de almacenamiento, el contenido almacenado se replica en una ubicación secundaria para habilitar la conmutación por error en caso de un desastre importante en la ubicación principal. La replicación geográfica puede suponer costes adicionales. Lo normal es que no quiera pagar por el servicio de replicación geográfica para las cuentas de prueba y desarrollo. Para obtener más información, consulte [Administración de cuentas de almacenamiento](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+    Cuando se habilita la replicación geográfica para una cuenta de almacenamiento, el contenido almacenado se replica en una ubicación secundaria para habilitar la conmutación por error en caso de un desastre importante en la ubicación principal. La replicación geográfica puede suponer costes adicionales. Lo normal es que no quiera pagar por el servicio de replicación geográfica para las cuentas de prueba y desarrollo. Para obtener más información, consulte [Administración de cuentas de almacenamiento](/es-es/manage/services/storage/how-to-manage-a-storage-account/).
 
 7.  Haga clic en **Create Storage Account**.
 
@@ -134,7 +134,7 @@ Creación de un servicio en la nubeCreación de un servicio en la nube
 
     Debe crear el servicio en la nube en la misma región en la que creó la cuenta de almacenamiento. Cuando la cuenta de almacenamiento y el servicio en la nube se encuentren en centros de datos diferentes (distintas regiones), la latencia aumentará y se le cobrará el ancho de banda no perteneciente al centro de datos. El ancho de banda del centro de datos es gratuito.
 
-    Los grupos de afinidad de Azure proporcionan un mecanismo para minimizar la distancia entre los recursos de un centro de datos, lo que puede reducir la latencia. Este tutorial no usa grupos de afinidad. Para obtener información, consulte [Crear un grupo de afinidad en el Portal de administración](http://msdn.microsoft.com/en-us/library/jj156209.aspx).
+    Los grupos de afinidad de Azure proporcionan un mecanismo para minimizar la distancia entre los recursos de un centro de datos, lo que puede reducir la latencia. Este tutorial no usa grupos de afinidad. Para obtener información, consulte [Crear un grupo de afinidad en el Portal de administración](http://msdn.microsoft.com/es-es/library/jj156209.aspx).
 
 6.  Haga clic en **Create Cloud Service**.
 
@@ -315,7 +315,7 @@ Puede usar el mismo procedimiento para configurar los valores de los roles de tr
 
 2.  Elimine los elementos `Setting` para esas dos cadenas de conexión de los elementos `WorkerRoleA` y `WorkerRoleB` y, a continuación, copie y pegue en su lugar los elementos `Setting` del elemento `MvcWebRole`.
 
-Para obtener más información sobre los archivos de configuración, consulte [Configurar un proyecto de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx).
+Para obtener más información sobre los archivos de configuración, consulte [Configurar un proyecto de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/ee405486.aspx).
 
 ### Prueba de la aplicación configurada para usar la cuenta de almacenamiento
 
@@ -376,7 +376,7 @@ La aplicación de ejemplo usa SendGrid para enviar correos electrónicos. Para e
 
 ### Creación de una cuenta de SendGrid
 
-1.  Siga las instrucciones en [Envío de correos electrónicos con SendGrid y Azure](http://www.windowsazure.com/en-us/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid") para registrarse y conseguir una cuenta gratuita.
+1.  Siga las instrucciones en [Envío de correos electrónicos con SendGrid y Azure](http://www.windowsazure.com/es-es/develop/net/how-to-guides/sendgrid-email-service/ "SendGrid") para registrarse y conseguir una cuenta gratuita.
 
 ### Actualización de las credenciales de SendGrid en las propiedades de rol de trabajo
 
@@ -473,7 +473,7 @@ Puede usar la misma interfaz de usuario para configurar las cadenas de conexión
 
 12. Especifique algún dato en las páginas web de **Mailing List**, **Subscriber** y **Message** para probar la aplicación.
 
-    **Nota**: elimine la aplicación una vez que haya terminado de probarla para evitar pagar por recursos que no está usando. Si usa una [cuenta de evaluación gratuita de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/ "free-trial account"), los tres roles implementados se usarán hasta el límite mensual en un par de semanas. Para eliminar una implementación mediante el Portal de administración de Azure, seleccione el servicio en la nube y haga clic en **DELETE** en la parte inferior de la página y, a continuación, seleccione la implementación de ensayo o producción.
+    **Nota**: elimine la aplicación una vez que haya terminado de probarla para evitar pagar por recursos que no está usando. Si usa una [cuenta de evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/ "free-trial account"), los tres roles implementados se usarán hasta el límite mensual en un par de semanas. Para eliminar una implementación mediante el Portal de administración de Azure, seleccione el servicio en la nube y haga clic en **DELETE** en la parte inferior de la página y, a continuación, seleccione la implementación de ensayo o producción.
 
     ![pub](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-19.png)
 
@@ -534,20 +534,20 @@ El seguimiento es una herramienta inestimable para la depuración de una aplicac
 
     El método `ConfigureDiagnostics` de cada uno de los roles web y de trabajo configura la escucha de seguimiento para registrar datos cuando llame a la API de seguimiento. Para obtener más información, consulte [Using Trace in Windows Azure Cloud Applications](http://blogs.msdn.com/b/windowsazure/archive/2012/10/24/using-trace-in-windows-azure-cloud-applications-1.aspx "Using Trace in Windows Azure").
 
-3.  En **Explorador de servidores**, haga doble clic en **WADLogsTable** (expanda **Almacenamiento**/**yourstorageaccountname**/**Tables**) para la cuenta de almacenamiento que agregó anteriormente. Puede especificar un [filtro para los servicios de datos de WCF](http://msdn.microsoft.com/en-us/library/windowsazure/ff683669.aspx "WCF filter") para limitar las entidades mostradas. En la siguiente imagen, solo se muestran los mensajes de advertencia y error.
+3.  En **Explorador de servidores**, haga doble clic en **WADLogsTable** (expanda **Almacenamiento**/**yourstorageaccountname**/**Tables**) para la cuenta de almacenamiento que agregó anteriormente. Puede especificar un [filtro para los servicios de datos de WCF](http://msdn.microsoft.com/es-es/library/windowsazure/ff683669.aspx "WCF filter") para limitar las entidades mostradas. En la siguiente imagen, solo se muestran los mensajes de advertencia y error.
 
     ![Panel](./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-trc.png)
 
 <a name="addRole"></a>Incorporación de una instancia de rolIncorporación de otra instancia de rol de trabajo para gestionar la carga mejorada
 -----------------------------------------------------------------------------------------------------------------------
 
-Existen dos enfoques para realizar la escalación de recursos informáticos en los roles de Azure: la especificación del [tamaño de la máquina virtual](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "VM sizes") o la especificación del recuento de instancias de las máquinas virtuales en ejecución.
+Existen dos enfoques para realizar la escalación de recursos informáticos en los roles de Azure: la especificación del [tamaño de la máquina virtual](http://msdn.microsoft.com/es-es/library/windowsazure/ee814754.aspx "VM sizes") o la especificación del recuento de instancias de las máquinas virtuales en ejecución.
 
-El tamaño de la máquina virtual (VM) se especifica en el atributo `vmsize` del elemento `WebRole` o `WorkerRole` en el archivo *ServiceDefinition.csdef*. La configuración predeterminada es `Small`, que le ofrece un núcleo y 1,75 GB de RAM. Para aplicaciones multiproceso y que usen una gran cantidad de memoria, disco y ancho de banda, puede aumentar el tamaño de la VM para que el rendimiento sea mayor. Por ejemplo, una VM `ExtraLarge` cuenta con 8 núcleos de CPU y 14 GB de RAM. El aumento de memoria, núcleos de CPU, disco y ancho de banda en una máquina única se conoce como *escalación vertical*. Entre los candidatos a los que mejor se puede aplicar la escalación vertical se encuentran las aplicaciones web ASP.NET que usan [métodos asincrónicos](http://www.asp.net/mvc/tutorials/mvc-4/using-asynchronous-methods-in-aspnet-mvc-4 "Async MVC") (información en inglés). Consulte [Configurar los tamaños de los Servicios en la nube](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx "VM sizes") para obtener una descripción de los recursos proporcionados por cada tamaño de la VM.
+El tamaño de la máquina virtual (VM) se especifica en el atributo `vmsize` del elemento `WebRole` o `WorkerRole` en el archivo *ServiceDefinition.csdef*. La configuración predeterminada es `Small`, que le ofrece un núcleo y 1,75 GB de RAM. Para aplicaciones multiproceso y que usen una gran cantidad de memoria, disco y ancho de banda, puede aumentar el tamaño de la VM para que el rendimiento sea mayor. Por ejemplo, una VM `ExtraLarge` cuenta con 8 núcleos de CPU y 14 GB de RAM. El aumento de memoria, núcleos de CPU, disco y ancho de banda en una máquina única se conoce como *escalación vertical*. Entre los candidatos a los que mejor se puede aplicar la escalación vertical se encuentran las aplicaciones web ASP.NET que usan [métodos asincrónicos](http://www.asp.net/mvc/tutorials/mvc-4/using-asynchronous-methods-in-aspnet-mvc-4 "Async MVC") (información en inglés). Consulte [Configurar los tamaños de los Servicios en la nube](http://msdn.microsoft.com/es-es/library/windowsazure/ee814754.aspx "VM sizes") para obtener una descripción de los recursos proporcionados por cada tamaño de la VM.
 
 El rol de trabajo B en esta aplicación es el componente de limitación en una carga alta, ya que realiza el trabajo del envío de correos electrónicos. El rol de trabajo A solo crea mensajes de cola, lo que no consume una gran cantidad de recursos. Puesto que el rol de trabajo B no es multiproceso y no tiene un gran impacto en la memoria, no es un buen candidato para la escalación vertical. El rol de trabajo B puede escalarse linealmente (es decir, prácticamente duplicar el rendimiento cuando se duplican las instancias) mediante el aumento del recuento de instancias. El aumento del número de instancias de proceso se denomina *escalación horizontal*. Existe un coste para cada instancia, por lo que debe escalar horizontalmente solo cuando la aplicación lo requiera.
 
-Escale horizontalmente un rol de trabajo o web actualizando la configuración en la interfaz de usuario de Visual Studio mediante la edición directa de los archivos *ServiceConfiguration. * .cscfg*. El recuento de instancias se especifica en la pestaña **Configuración** de la ventana **Propiedades** del rol en el elemento `Instances` de los archivos *.cscfg*. Cuando actualice la configuración, tendrá que implementar el archivo de configuración actualizado para que el cambio surta efecto. Para el aumento transitorio de la carga, también puede cambiar el número de instancias de rol en el Portal de administración de Azure. También puede configurar el número de instancias mediante la API de administración de Azure. Para finalizar, puede usar [el bloque de escalado automático de la aplicación](/en-us/develop/net/how-to-guides/autoscaling/) para realizar la escalación horizontal automáticamente a fin de cumplir con la carga aumentada. Para obtener más información acerca del escalado automático, consulte los vínculos que aparecen al final del [último tutorial de esta serie](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/).
+Escale horizontalmente un rol de trabajo o web actualizando la configuración en la interfaz de usuario de Visual Studio mediante la edición directa de los archivos *ServiceConfiguration. * .cscfg*. El recuento de instancias se especifica en la pestaña **Configuración** de la ventana **Propiedades** del rol en el elemento `Instances` de los archivos *.cscfg*. Cuando actualice la configuración, tendrá que implementar el archivo de configuración actualizado para que el cambio surta efecto. Para el aumento transitorio de la carga, también puede cambiar el número de instancias de rol en el Portal de administración de Azure. También puede configurar el número de instancias mediante la API de administración de Azure. Para finalizar, puede usar [el bloque de escalado automático de la aplicación](/es-es/develop/net/how-to-guides/autoscaling/) para realizar la escalación horizontal automáticamente a fin de cumplir con la carga aumentada. Para obtener más información acerca del escalado automático, consulte los vínculos que aparecen al final del [último tutorial de esta serie](/es-es/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/).
 
 En esta sección del tutorial, realizará la escalación horizontal del rol de trabajo B mediante el portal de administración, pero primero verá cómo se realiza en Visual Studio.
 
@@ -578,10 +578,10 @@ En los siguientes pasos se explica cómo escalar horizontalmente mediante el Por
 <a name="nextsteps"></a>Pasos siguientesPasos siguientes
 --------------------------------
 
-Ya ha visto cómo configurar, implementar y escalar la aplicación completa. Los siguientes tutoriales muestran cómo crear la aplicación desde el principio. En el [próximo tutorial](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/), creará un rol web.
+Ya ha visto cómo configurar, implementar y escalar la aplicación completa. Los siguientes tutoriales muestran cómo crear la aplicación desde el principio. En el [próximo tutorial](/es-es/develop/net/tutorials/multi-tier-web-site/3-web-role/), creará un rol web.
 
-Podrá encontrar vínculos a recursos adicionales acerca de cómo utilizar las tablas, colas y blobs de almacenamiento de Azure al final del [último tutorial de la serie](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/).
-[Tutorial 3](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/)
+Podrá encontrar vínculos a recursos adicionales acerca de cómo utilizar las tablas, colas y blobs de almacenamiento de Azure al final del [último tutorial de la serie](/es-es/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/).
+[Tutorial 3](/es-es/develop/net/tutorials/multi-tier-web-site/3-web-role/)
 
 
 [Set up the development environment]: #setupdevenv
@@ -598,13 +598,13 @@ Podrá encontrar vínculos a recursos adicionales acerca de cómo utilizar las t
 [Configure and view trace data]: #trace
 [Add another worker role instance to handle increased load]: #addRole
 
-[firsttutorial]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/
+[firsttutorial]: /es-es/develop/net/tutorials/multi-tier-web-site/1-overview/
 
-[tut3]: /en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/
-[tut5]: /en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
+[tut3]: /es-es/develop/net/tutorials/multi-tier-web-site/3-web-role/
+[tut5]: /es-es/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/
 [NewPortal]: http://manage.windowsazure.com
-[managestorage]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
-[autoscalingappblock]: /en-us/develop/net/how-to-guides/autoscaling/
+[managestorage]: /es-es/manage/services/storage/how-to-manage-a-storage-account/
+[autoscalingappblock]: /es-es/develop/net/how-to-guides/autoscaling/
 
 
 [mtas-portal-new-storage]: ./media/cloud-services-dotnet-multi-tier-app-storage-1-download-run/mtas-portal-new-storage.png

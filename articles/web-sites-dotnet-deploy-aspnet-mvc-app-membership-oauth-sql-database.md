@@ -6,7 +6,7 @@
 
 Este tutorial muestra cómo desarrollar una aplicación web ASP.NET MVC 5 segura que permita a los usuarios iniciar sesión con las credenciales de Facebook o Google. Además, la aplicación se implementará en Azure.
 
-Puede abrir una cuenta de Azure de manera gratuita y, si todavía no tiene Visual Studio 2013, el SDK instala automáticamente Visual Studio 2013 Express para Web. Puede empezar a desarrollar contenido para Azure sin coste alguno. Si quiere utilizar Visual Studio 2012, consulte el [tutorial anterior](/en-us/develop/net/tutorials/web-site-with-sql-database-vs2012/). Esta versión del tutorial es mucho más sencilla que la anterior.
+Puede abrir una cuenta de Azure de manera gratuita y, si todavía no tiene Visual Studio 2013, el SDK instala automáticamente Visual Studio 2013 Express para Web. Puede empezar a desarrollar contenido para Azure sin coste alguno. Si quiere utilizar Visual Studio 2012, consulte el [tutorial anterior](/es-es/develop/net/tutorials/web-site-with-sql-database-vs2012/). Esta versión del tutorial es mucho más sencilla que la anterior.
 
 En este tutorial se asume que no tiene ninguna experiencia previa con Azure. Cuando acabe, tendrá una aplicación web controlada por datos segura que se ejecutará en la nube y utilizará una base de datos en la nube.
 
@@ -728,9 +728,9 @@ Es importante que haga comentarios acerca de lo que le gustó o lo que le gustar
 [7]: http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx
 [8]: http://www.asp.net/mvc/tutorials/mvc-5/create-an-aspnet-mvc-5-app-with-facebook-and-google-oauth2-and-openid-sign-on
 [9]: http://curah.microsoft.com/55636/aspnet-identity
-[10]: http://msdn.microsoft.com/en-us/library/ms228053.aspx
-[11]: http://msdn.microsoft.com/en-us/library/system.web.mvc.authorizeattribute.aspx
-[12]: http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx
+[10]: http://msdn.microsoft.com/es-es/library/ms228053.aspx
+[11]: http://msdn.microsoft.com/es-es/library/system.web.mvc.authorizeattribute.aspx
+[12]: http://msdn.microsoft.com/es-es/library/system.web.mvc.requirehttpsattribute.aspx
 [13]: http://blogs.msdn.com/b/rickandy/archive/2012/03/23/securing-your-asp-net-mvc-4-app-and-the-new-allowanonymous-attribute.aspx
 [14]: http://www.asp.net/web-pages/tutorials/security/16-adding-security-and-membership
 [15]: http://www.beabigrockstar.com/pretty-social-login-buttons-for-asp-net-mvc-5/

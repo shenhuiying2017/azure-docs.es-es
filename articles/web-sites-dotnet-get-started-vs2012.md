@@ -3,11 +3,11 @@
 Introducción a Azure y ASP.NET
 ==============================
 
-[Visual Studio 2013](/en-us/develop/net/tutorials/get-started/ "Visual Studio 2013")[Visual Studio 2012](/en-us/develop/net/tutorials/get-started-vs2012/ "Visual Studio 2012")
+[Visual Studio 2013](/es-es/develop/net/tutorials/get-started/ "Visual Studio 2013")[Visual Studio 2012](/es-es/develop/net/tutorials/get-started-vs2012/ "Visual Studio 2012")
 
 **Nota:**
 
-Hay disponible una [versión más reciente de este tutorial](/en-us/develop/net/tutorials/get-started/). Puede seguir utilizando esta versión si desea emplear Visual Studio 2012, pero aquí no se muestran todas las características del SDK de Azure más reciente.
+Hay disponible una [versión más reciente de este tutorial](/es-es/develop/net/tutorials/get-started/). Puede seguir utilizando esta versión si desea emplear Visual Studio 2012, pero aquí no se muestran todas las características del SDK de Azure más reciente.
 
 Este tutorial muestra cómo implementar una aplicación web ASP.NET en un sitio web de Azure utilizando el Asistente para publicación web de Visual Studio 2012 o Visual Studio 2012 Express para Web. Si lo prefiere, puede seguir los pasos del tutorial con Visual Studio 2010 o Visual Web Developer Express 2010.
 
@@ -185,7 +185,7 @@ Puede utilizar el Portal de administración de Azure para eliminar el sitio web.
 
 ![Pestańa Panel del portal de administración](./media/web-sites-dotnet-get-started-vs2012/MPStopStartDelete.png)
 
-Puede cambiar la configuración del sitio en la pestańa **Configure**. Para obtener más información, consulte [Administración de sitios web](/en-us/manage/services/web-sites/how-to-manage-websites/).
+Puede cambiar la configuración del sitio en la pestańa **Configure**. Para obtener más información, consulte [Administración de sitios web](/es-es/manage/services/web-sites/how-to-manage-websites/).
 
 ### Escalación de un sitio web
 
@@ -193,7 +193,7 @@ Si el sitio es público y empieza a tener más tráfico, es posible que los tiem
 
 ![Pestańa Escalar del Portal de administración](./media/web-sites-dotnet-get-started-vs2012/MPScale.png)
 
-Para obtener más información, consulte [Escalación de un sitio web](/en-us/manage/services/web-sites/how-to-scale-websites/). (Agregar recursos de servidores para escalar un sitio web no es gratuito).
+Para obtener más información, consulte [Escalación de un sitio web](/es-es/manage/services/web-sites/how-to-scale-websites/). (Agregar recursos de servidores para escalar un sitio web no es gratuito).
 
 ### Solucionar problemas de un sitio web
 
@@ -201,13 +201,13 @@ Es posible que desee consultar los resultados de seguimiento o los registros par
 
 ![Registros en Visual Studio](./media/web-sites-dotnet-get-started-vs2012/LogsInVS.png)
 
-Para obtener más información, consulte [Solución de problemas de Sitios web Azure en Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+Para obtener más información, consulte [Solución de problemas de Sitios web Azure en Visual Studio](/es-es/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 ### Incorporación de funcionalidad de base de datos y autorización
 
-La mayoría de los sitios web de producción utilizan una base de datos y restringen algunas funciones del sitio a los usuarios autorizados. En el siguiente vínculo encontrará un tutorial introductorio acerca del acceso a base de datos, la autenticación y la autorización: [Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL en un Sitio web Azure](/en-us/develop/net/tutorials/web-site-with-sql-database/).
+La mayoría de los sitios web de producción utilizan una base de datos y restringen algunas funciones del sitio a los usuarios autorizados. En el siguiente vínculo encontrará un tutorial introductorio acerca del acceso a base de datos, la autenticación y la autorización: [Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL en un Sitio web Azure](/es-es/develop/net/tutorials/web-site-with-sql-database/).
 
 ### Decidir si la aplicación debe ejecutarse en un Servicio en la nube
 
-En algunos escenarios, es posible que desee ejecutar su aplicación en un Servicio en la nube de Azure en lugar de hacerlo en un sitio web de Azure. Para obtener más información, consulte [Modelos de ejecución de Azure](/en-us/develop/net/fundamentals/compute/) y [Sitios web, Servicios en la nube y Máquinas virtuales de Azure: cuándo usar cada uno](http://msdn.microsoft.com/en-us/library/windowsazure/jj218759.aspx). Si desea ver una serie de tutoriales que muestran cómo crear una aplicación web ASP.NET de niveles múltiples e implementarla en un Servicio en la nube, consulte [Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
+En algunos escenarios, es posible que desee ejecutar su aplicación en un Servicio en la nube de Azure en lugar de hacerlo en un sitio web de Azure. Para obtener más información, consulte [Modelos de ejecución de Azure](/es-es/develop/net/fundamentals/compute/) y [Sitios web, Servicios en la nube y Máquinas virtuales de Azure: cuándo usar cada uno](http://msdn.microsoft.com/es-es/library/windowsazure/jj218759.aspx). Si desea ver una serie de tutoriales que muestran cómo crear una aplicación web ASP.NET de niveles múltiples e implementarla en un Servicio en la nube, consulte [Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento](/es-es/develop/net/tutorials/multi-tier-web-site/1-overview/).
 

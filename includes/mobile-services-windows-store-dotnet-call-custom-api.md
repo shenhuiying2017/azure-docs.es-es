@@ -53,7 +53,7 @@ Actualización de la aplicación para llamar a la API personalizada
              await dialog.ShowAsync();
          }
 
-    Este método controla el evento **Click** del nuevo botón. El método [InvokeApiAsync](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx) se llama en el cliente, el cual envía una solicitud POST a la nueva API personalizada. El resultado devuelto por la API personalizada se muestra en un cuadro de diálogo de mensaje, al igual que todos los errores.
+    Este método controla el evento **Click** del nuevo botón. El método [InvokeApiAsync](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.invokeapiasync.aspx) se llama en el cliente, el cual envía una solicitud POST a la nueva API personalizada. El resultado devuelto por la API personalizada se muestra en un cuadro de diálogo de mensaje, al igual que todos los errores.
 
 Prueba de la aplicación
 -----------------------

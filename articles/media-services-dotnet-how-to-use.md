@@ -9,7 +9,7 @@ También puede programar Servicios multimedia con las API de REST basadas en ODa
 
 Para comenzar a programar con la API de REST de Servicios multimedia o el SDK de Servicios multimedia, primero habilite su cuenta de Azure para Servicios multimedia como se describe en la sección [Configuración de una cuenta de Azure para Servicios multimedia](#setup-account).
 
-La documentación del SDK de Servicios multimedia más actualizada se encuentra [aquí](http://msdn.microsoft.com/en-us/library/hh973613.aspx).
+La documentación del SDK de Servicios multimedia más actualizada se encuentra [aquí](http://msdn.microsoft.com/es-es/library/hh973613.aspx).
 
 ¿Qué son los Servicios multimedia?
 ----------------------------------
@@ -28,7 +28,7 @@ La versión actual de Servicios multimedia ofrece el siguiente conjunto de carac
 -   **Codificación**. Las operaciones de codificación incluyen la codificación, transformación y conversión de recursos multimedia. Puede ejecutar tareas de codificación en la nube con el codificador multimedia de Azure. Las opciones de codificación incluyen las siguientes:
     -   Use el codificador multimedia de Azure y trabaje con una amplia variedad de códecs y formatos estándar, incluidos la Transmisión por secuencias suave IIS líder del sector, MP4 y la conversión a Transmisión por secuencias en directo HTTP de Apple.
     -   Convierta bibliotecas enteras o archivos individuales con un control total sobre la entrada y la salida.
-    -   Para consultar una gran cantidad de tipos de archivo compatibles, formatos y códecs, consulte [Códecs y tipos de archivo compatibles con Azure Media Encoder](http://msdn.microsoft.com/en-us/library/hh973634).
+    -   Para consultar una gran cantidad de tipos de archivo compatibles, formatos y códecs, consulte [Códecs y tipos de archivo compatibles con Azure Media Encoder](http://msdn.microsoft.com/es-es/library/hh973634).
     -   Conversiones de formato compatibles. Los Servicios multimedia le permiten convertir ISO MP4 (.mp4) a Formato de archivo de transmisión por secuencias suave (PIFF 1.3) (.ismv; .isma). También puede convertir Formato de archivo de transmisión por secuencias suave (PIFF) a Transmisión por secuencias en directo HTTP de Apple (.msu8, .ts).
 -   **Protección**. La protección de contenido implica el cifrado de la transmisión en directo o contenido bajo demanda de cara a la seguridad en la entrega, el almacenamiento y el transporte. Los Servicios multimedia ofrecen una solución independiente de la tecnología DRM para proteger el contenido. Las tecnologías DRM compatibles actualmente son Microsoft PlayReady y cifrado común de MPEG. También habrá compatibilidad con tecnologías DRM adicionales.
 -   **Transmisión**. La transmisión de contenido implica el envío de este en directo o bajo demanda a los clientes, o puede descargar archivos multimedia específicos desde la nube. Los Servicios multimedia ofrecen una solución independiente del formato para el contenido por secuencias. Los Servicios multimedia proporcionan compatibilidad con el origen de la transmisión en formatos MP4, Transmisión por secuencias en directo HTTP de Apple y Transmisión por secuencias suave. Se ofrecerá compatibilidad con formatos adicionales. También puede entregar directamente contenido por secuencias usando un CDN de terceros, que permite la opción de realizar una escalación a millones de usuarios.
@@ -78,7 +78,7 @@ Para los PC y Mac, puede dirigir una experiencia de transferencia mediante Micro
 
 Para Windows 8, puede generar aplicaciones de la Tienda Windows mediante una de las construcciones y lenguajes de desarrollo compatibles como HTML, Javascript, XAML, C\# y C+.
 
--   [SDK del cliente de transmisión suave para Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). Para obtener más información sobre cómo crear una aplicación de la Tienda Windows con este SDK, consulte [Generación de una aplicación de la Tienda Windows de transmisión suave](http://go.microsoft.com/fwlink/?LinkId=271647). Para obtener información sobre cómo crear un reproductor de transmisión suave en HTML5, consulte [Tutorial: Generación del primer reproductor de transmisión suave de HTML5](http://msdn.microsoft.com/en-us/library/jj573656(v=vs.90).aspx).
+-   [SDK del cliente de transmisión suave para Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). Para obtener más información sobre cómo crear una aplicación de la Tienda Windows con este SDK, consulte [Generación de una aplicación de la Tienda Windows de transmisión suave](http://go.microsoft.com/fwlink/?LinkId=271647). Para obtener información sobre cómo crear un reproductor de transmisión suave en HTML5, consulte [Tutorial: Generación del primer reproductor de transmisión suave de HTML5](http://msdn.microsoft.com/es-es/library/jj573656(v=vs.90).aspx).
 
 -   [Microsoft Media Platform: Player Framework for Windows 8 Windows Store Applications](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
 

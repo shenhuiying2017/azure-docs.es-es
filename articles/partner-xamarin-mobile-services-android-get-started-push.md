@@ -3,7 +3,7 @@
 Introducción a las notificaciones de inserción en Servicios móviles
 ===================================================================
 
-[C\# de Tienda Windows](/en-us/develop/mobile/tutorials/get-started-with-push-dotnet "Windows Store C#")[JavaScript de Tienda Windows](/en-us/develop/mobile/tutorials/get-started-with-push-js "Windows Store JavaScript")[Windows Phone](/en-us/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/get-started-with-push-ios "iOS")[Android](/en-us/develop/mobile/tutorials/get-started-with-push-android "Android")[Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android "Xamarin.Android")
+[C\# de Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-push-dotnet "Windows Store C#")[JavaScript de Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-push-js "Windows Store JavaScript")[Windows Phone](/es-es/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/get-started-with-push-ios "iOS")[Android](/es-es/develop/mobile/tutorials/get-started-with-push-android "Android")[Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-push-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-push-xamarin-android "Xamarin.Android")
 
 Este tema muestra cómo puede usar Servicios móviles de Azure para enviar notificaciones de inserción a una aplicación de Xamarin.Android. En este tutorial aprenderá a agregar notificaciones de inserción al proyecto de inicio rápido con el servicio de mensajería en la nube de Google (GCM). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
 
@@ -19,7 +19,7 @@ Este tutorial requiere lo siguiente:
 
 -   Una cuenta de Google activa
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started-xamarin-android).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-xamarin-android).
 
 Registro de la aplicaciónRegistro de la aplicación para las notificaciones de inserción
 ---------------------------------------------------------------------------------------
@@ -213,5 +213,5 @@ Descargue el [proyecto de ejemplo completo](http://go.microsoft.com/fwlink/p/?Li
 Pasos siguientes
 ----------------
 
-En este ejemplo simple, un usuario recibe una notificación de inserción con los datos que se acaban de insertar. En el siguiente tutorial, [Notificaciones de inserción para usuarios de la aplicación](/en-us/develop/mobile/tutorials/push-notifications-to-users-android), creará una tabla de dispositivos independiente en la que puede almacenar tokens de dispositivos y enviar una notificación de inserción a todos los canales almacenados cuando se produce una inserción.
+En este ejemplo simple, un usuario recibe una notificación de inserción con los datos que se acaban de insertar. En el siguiente tutorial, [Notificaciones de inserción para usuarios de la aplicación](/es-es/develop/mobile/tutorials/push-notifications-to-users-android), creará una tabla de dispositivos independiente en la que puede almacenar tokens de dispositivos y enviar una notificación de inserción a todos los canales almacenados cuando se produce una inserción.
 

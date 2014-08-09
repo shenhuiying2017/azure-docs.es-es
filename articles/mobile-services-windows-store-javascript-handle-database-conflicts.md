@@ -3,7 +3,7 @@
 Control de conflictos de escritura de bases de datos
 ====================================================
 
-[C\# para Tienda Windows](/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "C# para Tienda Windows") [JavaScript para Tienda Windows](/en-us/develop/mobile/tutorials/handle-database-write-conflicts-javascript/ "JavaScript para Tienda Windows") [Windows Phone](/en-us/develop/mobile/tutorials/handle-database-write-conflicts-wp8/ "Windows Phone")
+[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "C# para Tienda Windows") [JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/handle-database-write-conflicts-javascript/ "JavaScript para Tienda Windows") [Windows Phone](/es-es/develop/mobile/tutorials/handle-database-write-conflicts-wp8/ "Windows Phone")
 
 Este tutorial se ha elaborado para ayudarle a comprender mejor cómo controlar los conflictos que se producen cuando dos o más clientes escriben en el mismo registro de la base de datos en una aplicación de la Tienda Windows. En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. Los Servicios móviles de Azure ofrecen soporte para detectar y resolver estos conflictos. Este tema le guiará a través de los pasos que le permitirán controlar los conflictos de escritura de bases de datos tanto en el servidor como en la aplicación.
 
@@ -17,8 +17,8 @@ En este tutorial agregará funcionalidad a la aplicación de inicio rápido para
 Este tutorial requiere lo siguiente:
 
 -   Microsoft Visual Studio 2013 Express para Windows o posterior.
--   Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started) descargando la versión del lenguaje de JavaScript del proyecto inicial.
--   [Cuenta de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/)
+-   Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started) descargando la versión del lenguaje de JavaScript del proyecto inicial.
+-   [Cuenta de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/)
 -   Paquete de NuGet de Servicios móviles de Azure 1.1.5 o posterior. Para obtener la última versión, siga los pasos a continuación:
     1.  En Visual Studio, abra el proyecto y haga clic con el botón secundario en el proyecto en el Explorador de soluciones y, a continuación, haga clic en **Administrar paquetes de NuGet**.
 
@@ -31,7 +31,7 @@ Actualización de la interfaz de usuarioActualización de la aplicación para pe
 
 En esta sección, actualizará la interfaz de usuario para permitir la actualización del texto de cada elemento. La plantilla de enlace contendrá un control de casilla y clase de texto para cada elemento de la tabla de base de datos. Podrá actualizar el campo de texto de TodoItem. Esta aplicación controlará el evento `keydown` para que el elemento se actualice al presionar la tecla **Entrar**.
 
-1.  En Visual Studio, abra la versión de lenguaje de JavaScript del proyecto TodoList que descargó en el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started).
+1.  En Visual Studio, abra la versión de lenguaje de JavaScript del proyecto TodoList que descargó en el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started).
 2.  En el Explorador de soluciones de Visual Studio, abra default.html y sustituya la definición de etiqueta div `TemplateItem` por la etiqueta div que se muestra a continuación y guarde el cambio. Esto agrega el control de cuadro de texto para permitirle editar el texto de un objeto TodoItem.
 
          <div id="TemplateItem" data-win-control="WinJS.Binding.Template">
@@ -256,18 +256,18 @@ Pasos siguientes
 
 Este tutorial le ha mostrado cómo habilitar la aplicación de Tienda Windows para controlar los conflictos de escritura al trabajar con datos en Servicios móviles. A continuación, plantéese completar uno de los siguientes tutoriales en nuestra serie de datos:
 
--   [Validación y modificación de datos con scripts](/en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/)
+-   [Validación y modificación de datos con scripts](/es-es/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/)
     Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
 
--   [Limitación de consultas con paginación](/en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/)
+-   [Limitación de consultas con paginación](/es-es/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/)
     Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se manejan en una única solicitud.
 
 Una vez que haya completado la serie de datos, también puede probar uno de los siguientes tutoriales de la Tienda Windows:
 
--   [Introducción a la autenticación](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
+-   [Introducción a la autenticación](/es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-users/)
     Aprenda a autenticar a los usuarios de su aplicación.
 
--   [Introducción a las notificaciones de inserción](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/)
+-   [Introducción a las notificaciones de inserción](/es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-push/)
     Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
 <!-- Anchors. -->
@@ -302,13 +302,13 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
 
 <!-- URLs. -->
 [Optimistic Concurrency Control]: http://go.microsoft.com/fwlink/?LinkId=330935
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Windows Azure Account]: http://www.windowsazure.com/en-us/pricing/free-trial/
-[Validate and modify data with scripts]: /en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
-[Refine queries with paging]: /en-us/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
+[Get started with Mobile Services]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
+[Windows Azure Account]: http://www.windowsazure.com/es-es/pricing/free-trial/
+[Validate and modify data with scripts]: /es-es/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
+[Refine queries with paging]: /es-es/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
+[Get started with Mobile Services]: /es-es/develop/mobile/tutorials/get-started
+[Get started with authentication]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
+[Get started with push notifications]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
 
 [Windows Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

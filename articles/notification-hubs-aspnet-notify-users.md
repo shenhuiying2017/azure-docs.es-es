@@ -3,7 +3,7 @@
 Notificación a los usuarios con los Centros de notificaciones
 =============================================================
 
-[Servicios móviles](/en-us/manage/services/notification-hubs/notify-users "Servicios móviles")[ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet "ASP.NET")
+[Servicios móviles](/es-es/manage/services/notification-hubs/notify-users "Servicios móviles")[ASP.NET](/es-es/manage/services/notification-hubs/notify-users-aspnet "ASP.NET")
 
 Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivos concreto. Se utiliza un back-end de ASP.NET Web API para autenticar clientes y para generar notificaciones. Este tutorial se basa en el centro de notificaciones que ha creado en el tutorial anterior, **Introducción a los Centros de notificaciones**. El código de registro de notificación se desplaza del cliente al servicio back-end. Esto asegura que el registro solo se completa una vez que el servicio haya autenticado de forma positiva al cliente. También significa que las credenciales del centro de notificaciones no se distribuyen con la aplicación cliente. El servicio también controla las etiquetas solicitadas durante el registro.
 
@@ -17,11 +17,11 @@ Requisitos previos
 ------------------
 
 -   Visual Studio 2012. También puede usar Visual Studio Express 2012 para Web y Visual Studio Express 2012 para Windows 8 para crear la aplicación ASP.NET y la aplicación de la Tienda Windows, respectivamente.
--   Este tutorial se basa en la aplicación y el centro de notificaciones que creó en **Introducción a los Centros de notificaciones**. Antes de comenzar este tutorial, debe completar primero el tutorial **Introducción a los Centros de notificaciones** ([C\# de Tienda Windows](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet)/[iOS](/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios)/[Android](/en-us/manage/services/notification-hubs/get-started-notification-hubs-android)).
+-   Este tutorial se basa en la aplicación y el centro de notificaciones que creó en **Introducción a los Centros de notificaciones**. Antes de comenzar este tutorial, debe completar primero el tutorial **Introducción a los Centros de notificaciones** ([C\# de Tienda Windows](/es-es/manage/services/notification-hubs/getting-started-windows-dotnet)/[iOS](/es-es/manage/services/notification-hubs/get-started-notification-hubs-ios)/[Android](/es-es/manage/services/notification-hubs/get-started-notification-hubs-android)).
 
 **Nota:**
 
-El proyecto ASP.NET Web API que ha creado en este tutorial se ejecuta en el equipo local. También puede publicar un proyecto de ASP.NET Web API en Azure. Para obtener más información, consulte [Creación de un servicio REST para móviles mediante ASP.NET Web API y Base de datos SQL](/en-us/develop/net/tutorials/rest-service-using-web-api/).
+El proyecto ASP.NET Web API que ha creado en este tutorial se ejecuta en el equipo local. También puede publicar un proyecto de ASP.NET Web API en Azure. Para obtener más información, consulte [Creación de un servicio REST para móviles mediante ASP.NET Web API y Base de datos SQL](/es-es/develop/net/tutorials/rest-service-using-web-api/).
 
 Creación de la aplicación ASP.NETCreación de una aplicación ASP.NET con autenticación
 -------------------------------------------------------------------------------------
@@ -290,8 +290,8 @@ La aplicación que ha creado cuando completó el tutorial **Introducción a los 
 
 2.  Siga los pasos de una de las versiones siguientes de **Registro del usuario actual para notificaciones de inserción mediante ASP.NET Web API**, dependiendo de la plataforma de cliente:
 
-    -   [Versión C\# de Tienda Windows](/en-us/manage/services/notification-hubs/register-users-aspnet-dotnet)
-    -   [Versión de iOS](/en-us/manage/services/notification-hubs/howto-register-user-with-aspnet-ios)
+    -   [Versión C\# de Tienda Windows](/es-es/manage/services/notification-hubs/register-users-aspnet-dotnet)
+    -   [Versión de iOS](/es-es/manage/services/notification-hubs/howto-register-user-with-aspnet-ios)
 
 3.  Ejecute la aplicación actualizada, inicie sesión con el servicio utilizando la misma cadena para el nombre de usuario y contraseńa y, a continuación, verifique que se muestra el identificador de registro asignado.
 
@@ -299,7 +299,7 @@ La aplicación que ha creado cuando completó el tutorial **Introducción a los 
 
     **Nota:**
 
-    Se genera un error en el back-end cuando no hay ningún registro de una plataforma para la cual se solicita se envíe una notificación. En este caso, se puede ignorar el error. Para ver cómo utilizar las plantillas con el fin de evitar esta situación, consulte [Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet).
+    Se genera un error en el back-end cuando no hay ningún registro de una plataforma para la cual se solicita se envíe una notificación. En este caso, se puede ignorar el error. Para ver cómo utilizar las plantillas con el fin de evitar esta situación, consulte [Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users-xplat-aspnet).
 
 4.  (Opcional) Implemente la aplicación cliente en un segundo dispositivo y después ejecute la aplicación e inserte el texto.
 
@@ -310,11 +310,11 @@ Pasos siguientes
 
 Ahora que ha completado este tutorial, considere la realización de los tutoriales siguientes:
 
--   **Uso de los Centros de notificaciones para enviar noticias de última hora ([Versión C\# de Tienda Windows](/en-us/manage/services/notification-hubs/breaking-news-dotnet) / [iOS](/en-us/manage/services/notification-hubs/breaking-news-dotnet))**
+-   **Uso de los Centros de notificaciones para enviar noticias de última hora ([Versión C\# de Tienda Windows](/es-es/manage/services/notification-hubs/breaking-news-dotnet) / [iOS](/es-es/manage/services/notification-hubs/breaking-news-dotnet))**
     Este tutorial específico de plataforma muestra cómo utilizar las etiquetas para que los usuarios puedan suscribirse a los tipos de notificaciones en los que están interesados.
 
--   **[Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet)**
+-   **[Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users-xplat-aspnet)**
     Este tutorial amplía el tutorial actual **Notificación a los usuarios con los Centros de notificaciones** para utilizar plantillas específicas de plataforma para registrarse para las notificaciones. Esto le permite enviar notificaciones desde un único método en su código del servidor.
 
-Para obtener más información acerca de los Centros de notificaciones, consulte [Centros de notificaciones de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx).
+Para obtener más información acerca de los Centros de notificaciones, consulte [Centros de notificaciones de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/jj927170.aspx).
 

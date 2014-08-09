@@ -3,17 +3,17 @@
 Definición de una API personalizada que admita notificaciones periódicas
 ========================================================================
 
-[C\# para Tienda Windows](/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/en-us/develop/mobile/tutorials/create-pull-notifications-js "JavaScript para Tienda Windows")
+[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/create-pull-notifications-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/create-pull-notifications-js "JavaScript para Tienda Windows")
 
-En este tema se muestra cómo utilizar una API personalizada para admitir notificaciones periódicas en una aplicación de la Tienda Windows. Con las notificaciones periódicas habilitadas, Windows tendrá acceso de manera periódica a su extremo de API personalizada y usará el XML devuelto, en un formato específico de icono, para actualizar el icono de la aplicación en el menú Inicio. Para obtener más información, consulte [Introducción a las notificaciones periódicas](http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx).
+En este tema se muestra cómo utilizar una API personalizada para admitir notificaciones periódicas en una aplicación de la Tienda Windows. Con las notificaciones periódicas habilitadas, Windows tendrá acceso de manera periódica a su extremo de API personalizada y usará el XML devuelto, en un formato específico de icono, para actualizar el icono de la aplicación en el menú Inicio. Para obtener más información, consulte [Introducción a las notificaciones periódicas](http://msdn.microsoft.com/es-es/library/windows/apps/jj150587.aspx).
 
-Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el tutorial de [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started/#create-new-service) o de [Introducción a los datos](/en-us/develop/mobile/tutorials/started-with-data-js). Para hacer esto, debe completar los siguientes pasos:
+Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el tutorial de [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started/#create-new-service) o de [Introducción a los datos](/es-es/develop/mobile/tutorials/started-with-data-js). Para hacer esto, debe completar los siguientes pasos:
 
 1.  [Definición de la API personalizada](#define-custom-api)
 2.  [Actualización de la aplicación para activar las notificaciones periódicas](#update-app)
 3.  [Prueba de la aplicación](#test-app)
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar los tutoriales [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started/#create-new-service) o [Introducción a los datos](/en-us/develop/mobile/tutorials/started-with-data-js).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar los tutoriales [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started/#create-new-service) o [Introducción a los datos](/es-es/develop/mobile/tutorials/started-with-data-js).
 
 Definición de la API personalizada
 ----------------------------------
@@ -83,7 +83,7 @@ Definición de la API personalizada
   <div class="dev-callout"><b>Nota:</b>
   <p>Este script de API personalizada utiliza el <a href="http://go.microsoft.com/fwlink/p/
   LinkId=306750">módulo wns</a> de Node.js, al que se hace referencia con la función <strong>require</strong>. Este módulo es distinto del <a href="http://go.microsoft.com/fwlink/p/
-  LinkId=260591">objeto wns</a> que devuelve el <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554217.aspx">objeto push</a>, que se utiliza para enviar notificaciones de inserción desde scripts de servidor.</p>
+  LinkId=260591">objeto wns</a> que devuelve el <a href="http://msdn.microsoft.com/es-es/library/windowsazure/jj554217.aspx">objeto push</a>, que se utiliza para enviar notificaciones de inserción desde scripts de servidor.</p>
   </div>
 
 A continuación, deberá modificar la aplicación de inicio rápido para iniciar las notificaciones periódicas que actualizan el icono dinámico solicitando la nueva API personalizada.
@@ -121,7 +121,7 @@ Pasos siguientes
 
 Ahora que ha creado una notificación periódica, podría averiguar más información acerca de los siguientes temas de Servicios móviles:
 
--   [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-js)
+-   [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-js)
 
     Las notificaciones periódicas se administran mediante Windows y solo se producen conforme a una programación predefinida. Las notificaciones de inserción se pueden enviar mediante el servicio móvil previa petición y pueden ser notificaciones del sistema, notificaciones de icono y notificaciones sin procesar.
 
@@ -146,11 +146,11 @@ Ahora que ha creado una notificación periódica, podría averiguar más informa
 [Windows Push Notifications & Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Get started with data]: /en-us/develop/mobile/tutorials/started-with-data-js
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-js
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js
+[Get started with Mobile Services]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
+[Get started with data]: /es-es/develop/mobile/tutorials/started-with-data-js
+[Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-js
+[Get started with push notifications]: /es-es/develop/mobile/tutorials/get-started-with-push-js
 [JavaScript and HTML]: mobile-services-win8-javascript/
 
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Periodic notifications]: http://msdn.microsoft.com/en-us/library/windows/apps/jj150587.aspx
+[Periodic notifications]: http://msdn.microsoft.com/es-es/library/windows/apps/jj150587.aspx

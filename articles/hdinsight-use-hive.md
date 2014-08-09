@@ -6,9 +6,9 @@
 
 **Requisitos previos:**
 
-* Debe aprovisionar un **clúster de HDInsight**. Para saber cómo hacerlo con el Portal de Azure, consulte [Introducción a HDInsight](/en-us/manage/services/hdinsight/get-started-hdinsight/). Para obtener instrucciones acerca de otras formas de creación de dichos clústeres, consulte [Aprovisionamiento de clústeres de HDInsight](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/).
+* Debe aprovisionar un **clúster de HDInsight**. Para saber cómo hacerlo con el Portal de Azure, consulte [Introducción a HDInsight](/es-es/manage/services/hdinsight/get-started-hdinsight/). Para obtener instrucciones acerca de otras formas de creación de dichos clústeres, consulte [Aprovisionamiento de clústeres de HDInsight](/es-es/manage/services/hdinsight/provision-hdinsight-clusters/).
 
-* Debe tener instalado **Azure PowerShell** en su estación de trabajo. Para obtener instrucciones acerca de cómo hacerlo, consulte [Instalación y configuración de Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+* Debe tener instalado **Azure PowerShell** en su estación de trabajo. Para obtener instrucciones acerca de cómo hacerlo, consulte [Instalación y configuración de Azure PowerShell](/es-es/documentation/articles/install-configure-powershell/).
 
 **Duración aproximada:** 30 minutos
 
@@ -39,7 +39,7 @@ Por lo tanto, los archivos de registro son ejemplos de grandes cantidades de dat
 
 ## <a id="uploaddata" ></a>Carga de archivos de datos al almacenamiento de blobs
 
-HDInsight utiliza el contenedor de almacenamiento de blobs de Azure como sistema de archivos predeterminado. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](/en-us/manage/services/hdinsight/howto-blob-store).
+HDInsight utiliza el contenedor de almacenamiento de blobs de Azure como sistema de archivos predeterminado. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](/es-es/manage/services/hdinsight/howto-blob-store).
 
 En este artículo, usará un archivo log4j de muestra distribuido con el clúster de HDInsight que se almacena en *\example\data\sample.log*. Cada registro del archivo consta de una línea de campos que contiene uno llamado `[LOG LEVEL]` que muestra el tipo y la gravedad. Por ejemplo:
 
@@ -196,12 +196,12 @@ Las consultas de Hive se pueden ejecutar en PowerShell usando el cmdlet Start-Az
    Aunque Hive facilita la realización de las consultas de datos usando un lenguaje de consultas de tipo SQL, otros componentes disponibles con HDInsight proporcionan funciones complementarias, como el movimiento y la transformación de los datos. Para obtener más información, consulte los artículos siguientes:
     
     
--       [Introducción a HDInsight de Azure](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+-       [Introducción a HDInsight de Azure](/es-es/manage/services/hdinsight/get-started-hdinsight/)
 -       [Análisis de la información de retraso de vuelos usando HDInsight]
 -       [Uso de Oozie con HDInsight]
 -       [Envío de trabajos de Hadoop mediante programación]
 -       [Carga de datos en HDInsight]
--       [Uso de Pig con HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
+-       [Uso de Pig con HDInsight](/es-es/manage/services/hdinsight/using-pig-with-hdinsight/)
 -       [Documentación de Azure HDInsight SDK]
 
 
@@ -218,19 +218,19 @@ Las consultas de Hive se pueden ejecutar en PowerShell usando el cmdlet Start-Az
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 
 
-[Uso de Oozie con HDInsight]: /en-us/documentation/articles/hdinsight-use-oozie/
-[Análisis de la información de retraso de vuelos usando HDInsight]: /en-us/documentation/articles/hdinsight-analyze-flight-delay-data/
+[Uso de Oozie con HDInsight]: /es-es/documentation/articles/hdinsight-use-oozie/
+[Análisis de la información de retraso de vuelos usando HDInsight]: /es-es/documentation/articles/hdinsight-analyze-flight-delay-data/
 
 
-[hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store
+[hdinsight-storage]: /es-es/manage/services/hdinsight/howto-blob-store
 
-[hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
-[Envío de trabajos de Hadoop mediante programación]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
-[Carga de datos en HDInsight]: /en-us/manage/services/hdinsight/howto-upload-data-to-hdinsight/
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
-[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+[hdinsight-provision]: /es-es/manage/services/hdinsight/provision-hdinsight-clusters/
+[Envío de trabajos de Hadoop mediante programación]: /es-es/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
+[Carga de datos en HDInsight]: /es-es/manage/services/hdinsight/howto-upload-data-to-hdinsight/
+[hdinsight-configure-powershell]: /es-es/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/ 
+[hdinsight-getting-started]: /es-es/manage/services/hdinsight/get-started-hdinsight/
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: /es-es/documentation/articles/install-configure-powershell/
 [powershell-here-strings]: http://technet.microsoft.com/en-us/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png 

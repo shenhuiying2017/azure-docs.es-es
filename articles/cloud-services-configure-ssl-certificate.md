@@ -30,7 +30,7 @@ El certificado debe cumplir los siguientes requisitos de certificados SSL en Azu
 -   El nombre de sujeto del certificado debe coincidir con el dominio usado para tener acceso al servicio en la nube. No puede obtener un certificado SSL de una entidad de certificación (CA) para el dominio cloudapp.net. Debe adquirir un nombre de dominio personalizado para usarlo cuando obtenga acceso a su servicio. Cuando solicite un certificado de una CA, el nombre de sujeto del certificado debe coincidir con el nombre de dominio personalizado que se usó para tener acceso a su aplicación. Por ejemplo, si su nombre de dominio personalizado es **contoso.com** debe solicitar un certificado de su CA para **\*.contoso.com** o **www.contoso.com**.
 -   Este certificado debe usar un cifrado de 2048 bits como mínimo.
 
-Para propósitos de prueba, puede crear y usar un certificado autofirmado. Un certificado autofirmado no está autenticado por una CA y puede usar el dominio cloudapp.net como la dirección URL del sitio web. Por ejemplo, la tarea a continuación usa un certificado autofirmado en el que el nombre común (CN) usado en el certificado es **sslexample.cloudapp.net**. Para obtener detalles sobre la creación de un certificado autofirmado con Administrador de IIS, consulte [Crear un certificado del servicio para Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx).
+Para propósitos de prueba, puede crear y usar un certificado autofirmado. Un certificado autofirmado no está autenticado por una CA y puede usar el dominio cloudapp.net como la dirección URL del sitio web. Por ejemplo, la tarea a continuación usa un certificado autofirmado en el que el nombre común (CN) usado en el certificado es **sslexample.cloudapp.net**. Para obtener detalles sobre la creación de un certificado autofirmado con Administrador de IIS, consulte [Crear un certificado del servicio para Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg432987.aspx).
 
 A continuación, debe incluir información sobre el certificado en su definición de servicio y los archivos de configuración del servicio.
 
@@ -51,7 +51,7 @@ Su aplicación debe estar configurada para usar el certificado y se debe agregar
         ...
         </WebRole>
 
-    La sección **Certificates** define el nombre de nuestro certificado, su ubicación y el nombre de la tienda donde se encuentra. Hemos decidido guardar el certificado en la CA (entidad de certificación), pero puede elegir otras opciones también. Consulte [Associate a Certificate with a Service](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx) para obtener más información.
+    La sección **Certificates** define el nombre de nuestro certificado, su ubicación y el nombre de la tienda donde se encuentra. Hemos decidido guardar el certificado en la CA (entidad de certificación), pero puede elegir otras opciones también. Consulte [Associate a Certificate with a Service](http://msdn.microsoft.com/es-es/library/windowsazure/gg465718.aspx) para obtener más información.
 
 2.  En su archivo de definición de servicio, agregue un elemento **InputEndpoint** en la sección **Endpoints** para habilitar HTTPS:
 
@@ -139,20 +139,20 @@ Si desea usar SSL para una implementación de ensayo en vez de una implementaci�
 <a name="additional_resources"></a>Recursos adicionalesRecursos adicionales
 ----------------------------------------
 
--   [Asociación de un certificado con un servicio](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx)
+-   [Asociación de un certificado con un servicio](http://msdn.microsoft.com/es-es/library/windowsazure/gg465718.aspx)
 
--   [Configurar un certificado SSL en un extremo HTTPS](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx)
+-   [Configurar un certificado SSL en un extremo HTTPS](http://msdn.microsoft.com/es-es/library/windowsazure/ff795779.aspx)
 
   [Paso 1: Obtener un certificado SSL]: #step1
   [Paso 2: Modificar la definición del servicio y los archivos de configuración]: #step2
   [Paso 3: Cargar el paquete de implementación y el certificado]: #step3
   [Paso 4: Conectarse a la instancia de rol con HTTPS]: #step4
-  [Crear un certificado del servicio para Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx
-  [Asociación de un certificado con un servicio]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
+  [Crear un certificado del servicio para Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg432987.aspx
+  [Asociación de un certificado con un servicio]: http://msdn.microsoft.com/es-es/library/windowsazure/gg465718.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-dotnet-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-dotnet-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-dotnet-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificateComplete.png  
-  [Configurar un certificado SSL en un extremo HTTPS]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
+  [Configurar un certificado SSL en un extremo HTTPS]: http://msdn.microsoft.com/es-es/library/windowsazure/ff795779.aspx

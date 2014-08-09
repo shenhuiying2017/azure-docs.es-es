@@ -37,7 +37,7 @@ El primer paso para aprovechar esta característica es registrar su suscripción
 
     Solo las suscripciones Azure activas y pagadas son aptas para la vista previa. Puede registrar varias suscripciones, pero cada suscripción se puede registrar una sola vez.
 
-    Registrar una suscripción para la vista previa no supondrá gastos adicionales, pero una vez activada y otorgada la cuota Premium, la creación o actualización a una base de datos Premium están sujetas a los precios descritos en la [página de precios de Base de datos SQL](http://www.windowsazure.com/en-us/pricing/details/sql-database/).
+    Registrar una suscripción para la vista previa no supondrá gastos adicionales, pero una vez activada y otorgada la cuota Premium, la creación o actualización a una base de datos Premium están sujetas a los precios descritos en la [página de precios de Base de datos SQL](http://www.windowsazure.com/es-es/pricing/details/sql-database/).
 
     El estado actual de la solicitud de registro se refleja en la lista de características de vista previa.
 

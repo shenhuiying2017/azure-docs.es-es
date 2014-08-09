@@ -43,7 +43,7 @@ Haga clic en el icono **Bus de servicio** en la barra de navegación de la izqui
 
 **Nota:** es posible que no pueda ver el espacio de nombres inmediatamente. Lleva algunos segundos crear el espacio de nombres de servicio y actualizar la interfaz del portal.
 
-**Nota:** el uso de **Creación rápida** para un relé no crea un extremo de relé nuevo. Solo crea un espacio de nombres en le que puede crear de manera programática un extremo de relé. Para obtener más detalles, consulte la [documentación sobre el bus de servicio](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-relay/).
+**Nota:** el uso de **Creación rápida** para un relé no crea un extremo de relé nuevo. Solo crea un espacio de nombres en le que puede crear de manera programática un extremo de relé. Para obtener más detalles, consulte la [documentación sobre el bus de servicio](http://www.windowsazure.com/es-es/develop/net/how-to-guides/service-bus-relay/).
 
 ### Creación personalizada
 

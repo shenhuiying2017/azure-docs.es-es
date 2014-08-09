@@ -7,7 +7,7 @@ Este tema indica cómo registrar las aplicaciones para que puedan usar Azure Act
 
 **Nota:**
 
-Si desea proporcionar autenticación centrada en el cliente para inicio de sesión único (SSO) o insertar notificaciones de una aplicación de la Tienda Windows, considere la opción de registrar su aplicación con la Tienda Windows. Para obtener más información, consulte [Registro de sus aplicaciones de la Tienda Windows para la autenticación de Live Connect de Windows](/en-us/develop/mobile/how-to-guides/register-for-single-sign-on).
+Si desea proporcionar autenticación centrada en el cliente para inicio de sesión único (SSO) o insertar notificaciones de una aplicación de la Tienda Windows, considere la opción de registrar su aplicación con la Tienda Windows. Para obtener más información, consulte [Registro de sus aplicaciones de la Tienda Windows para la autenticación de Live Connect de Windows](/es-es/develop/mobile/how-to-guides/register-for-single-sign-on).
 
 1.  Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com/).
 

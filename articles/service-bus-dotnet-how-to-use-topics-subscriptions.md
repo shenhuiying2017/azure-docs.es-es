@@ -323,6 +323,6 @@ Ahora que conoce los fundamentos de los temas y las suscripciones del bus de ser
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/hh367516.aspx
-[2]: http://msdn.microsoft.com/en-us/library/microsoft.servicebus.messaging.sqlfilter.aspx
-[3]: http://msdn.microsoft.com/en-us/library/hh367512.aspx
+[1]: http://msdn.microsoft.com/es-es/library/hh367516.aspx
+[2]: http://msdn.microsoft.com/es-es/library/microsoft.servicebus.messaging.sqlfilter.aspx
+[3]: http://msdn.microsoft.com/es-es/library/hh367512.aspx

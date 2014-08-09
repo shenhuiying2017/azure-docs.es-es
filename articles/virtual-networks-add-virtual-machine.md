@@ -30,20 +30,20 @@ En este tutorial, aprenderá a:
 * Realice uno de los siguientes tutoriales:
   
   * [Creación de una red virtual en
-    Azure](/en-us/manage/services/networking/create-a-virtual-network/)
+    Azure](/es-es/manage/services/networking/create-a-virtual-network/)
     
     O
   
   * [Creación de una red virtual para conectividad entre
-    locales](/en-us/manage/services/networking/cross-premises-connectivity/)
+    locales](/es-es/manage/services/networking/cross-premises-connectivity/)
 
 * Una cuenta de Windows Live con al menos una suscripción válida y
   activa.
 
 * Nombre de los siguientes elementos en [Creación de una red virtual en
-  Azure](/en-us/manage/services/networking/create-a-virtual-network/) o
+  Azure](/es-es/manage/services/networking/create-a-virtual-network/) o
   [Creación de una red virtual para conectividad entre
-  locales](/en-us/manage/services/networking/cross-premises-connectivity/):
+  locales](/es-es/manage/services/networking/cross-premises-connectivity/):
   
   * Grupo de afinidad asignado a la red virtual.
   
@@ -157,7 +157,7 @@ En este tutorial, aprenderá a:
 
 ## Pasos siguientes
 
-Para instalar un controlador de dominio adicional para el dominio de Active Directory local en la máquina virtual que acaba de crear, consulte [Instalación de una réplica de controlador de dominio de Active Directory en Red virtual de Azure](/en-us/manage/services/networking/replica-domain-controller/).
+Para instalar un controlador de dominio adicional para el dominio de Active Directory local en la máquina virtual que acaba de crear, consulte [Instalación de una réplica de controlador de dominio de Active Directory en Red virtual de Azure](/es-es/manage/services/networking/replica-domain-controller/).
 
 ## Otras referencias
 
@@ -169,6 +169,6 @@ Para instalar un controlador de dominio adicional para el dominio de Active Dire
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
+[1]: http://msdn.microsoft.com/es-es/library/windowsazure/jj156007.aspx
 [2]: http://manage.windowsazure.com/
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156097.aspx
+[3]: http://msdn.microsoft.com/es-es/library/windowsazure/jj156097.aspx

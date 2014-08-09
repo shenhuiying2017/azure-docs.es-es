@@ -1,13 +1,13 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to use Windows Azure Mobile Services to send push notifications to your Android JavaScript app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" writer="ricksal" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-js-vs2013" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (Android JavaScript) | Mobile Dev Center" metaKeywords="" description="Learn how to use Windows Azure Mobile Services to send push notifications to your Android JavaScript app." metaCanonical="http://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" writer="ricksal" manager="" editor="" />
 
 Introducción a las notificaciones de inserción en Servicios móviles
 ===================================================================
 
-[C\# para Tienda Windows](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "C# para Tienda Windows") [JavaScript para Tienda Windows](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "JavaScript para Tienda Windows") [Windows Phone](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone") [iOS](/en-us/documentation/articles/mobile-services-ios-get-started-push "iOS") [Android](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android")
+[C\# para Tienda Windows](/es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "C# para Tienda Windows") [JavaScript para Tienda Windows](/es-es/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "JavaScript para Tienda Windows") [Windows Phone](/es-es/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone") [iOS](/es-es/documentation/articles/mobile-services-ios-get-started-push "iOS") [Android](/es-es/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android")
 
 Este tema muestra cómo puede utilizar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación Android. En este tutorial aprenderá a agregar notificaciones de inserción al proyecto de inicio rápido con el servicio de mensajería en la nube de Google (GCM). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
 
-[WACOM.NOTE]Este tutorial muestra la integración de Servicios móviles en Centros de notificaciones, que actualmente está en vista previa. De forma predeterminada, el envío de notificaciones de inserción con Centros de notificaciones no está habilitado en un back-end de JavaScript. Una vez que se haya creado el nuevo centro de notificaciones, el proceso de integración no se puede revertir. Las notificaciones de inserción para iOS solo están disponibles actualmente a través de la compatibilidad predeterminada con inserciones que se describe en [esta versión del tema](/en-us/documentation/articles/mobile-services-android-get-started-push/) (en inglés).
+[WACOM.NOTE]Este tutorial muestra la integración de Servicios móviles en Centros de notificaciones, que actualmente está en vista previa. De forma predeterminada, el envío de notificaciones de inserción con Centros de notificaciones no está habilitado en un back-end de JavaScript. Una vez que se haya creado el nuevo centro de notificaciones, el proceso de integración no se puede revertir. Las notificaciones de inserción para iOS solo están disponibles actualmente a través de la compatibilidad predeterminada con inserciones que se describe en [esta versión del tema](/es-es/documentation/articles/mobile-services-android-get-started-push/) (en inglés).
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 
@@ -17,7 +17,7 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar las no
 4.  [Actualización de scripts para enviar notificaciones de inserción](#update-scripts)
 5.  [Inserción de datos para recibir notificaciones](#test)
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de empezar este tutorial, primero debe completar [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started/) o [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-js/) para conectar su proyecto al servicio móvil.
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de empezar este tutorial, primero debe completar [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started/) o [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-js/) para conectar su proyecto al servicio móvil.
 
 Habilitación del servicio de mensajería en la nube de Google
 ------------------------------------------------------------
@@ -262,30 +262,30 @@ Pasos siguientes
 
 Este tutorial demuestra la funcionalidad de notificación de inserción básica que brinda Servicios móviles. Si su aplicación requiere funcionalidades más avanzadas, como enviar notificaciones entre plataformas, enrutamiento basado en suscripción o volúmenes de tamaño muy grande, considere utilizar los Centros de notificaciones de Azure con su servicio móvil. Para obtener más información, consulte uno de los siguientes temas de Centros de notificaciones:
 
--   [Introducción a los Centros de notificaciones](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet/)
+-   [Introducción a los Centros de notificaciones](/es-es/manage/services/notification-hubs/getting-started-windows-dotnet/)
     Aprenda a aprovechar los Centros de notificaciones en su aplicación Android.
 
--   [Envío de notificaciones a los suscriptores](/en-us/manage/services/notification-hubs/breaking-news-dotnet/)
+-   [Envío de notificaciones a los suscriptores](/es-es/manage/services/notification-hubs/breaking-news-dotnet/)
     Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
 
--   [Envío de notificaciones a los usuarios](/en-us/manage/services/notification-hubs/notify-users/)
+-   [Envío de notificaciones a los usuarios](/es-es/manage/services/notification-hubs/notify-users/)
     Sepa cómo enviar notificaciones de inserción desde un Servicio móvil a usuarios específicos en cualquier dispositivo.
 
--   [Envío de notificaciones entre plataformas a los usuarios](/en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/)
+-   [Envío de notificaciones entre plataformas a los usuarios](/es-es/manage/services/notification-hubs/notify-users-xplat-mobile-services/)
     Sepa cómo utilizar las plantillas para enviar notificaciones de inserción desde un Servicio móvil sin tener que diseñar cargas específicas de plataforma en el back-end.
 
 Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
--   [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-js/)
+-   [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-js/)
     Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-js)
+-   [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-js)
     Aprenda a autenticar a los usuarios de su aplicación con cuenta de Windows.
 
 -   [Referencia del script del servidor de Servicios móviles](http://go.microsoft.com/fwlink/?LinkId=262293)
     Obtenga más información acerca del registro y uso de scripts de servidor.
 
--   [Referencia conceptual de Servicios móviles con HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client/)
+-   [Referencia conceptual de Servicios móviles con HTML/JavaScript](/es-es/develop/mobile/how-to-guides/work-with-html-js-client/)
     Obtenga más información acerca de cómo utilizar los Servicios móviles con HTML y JavaScript.
 
 

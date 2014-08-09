@@ -14,11 +14,11 @@ El programa de MapReduce de Hadoop lee el archivo de texto y cuenta la frecuenci
 
 **Requisitos previos**:
 
--   Debe tener una cuenta de Azure. Para conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/).
+-   Debe tener una cuenta de Azure. Para conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/).
 
--   Debe aprovisionar un clúster de HDInsight. Para obtener instrucciones acerca de las diversas formas de creación de dichos clústeres, consulte [Introducción a HDInsight de Azure](/en-us/manage/services/hdinsight/get-started-hdinsight/) o [Aprovisionamiento de clústeres de HDInsight](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/).
+-   Debe aprovisionar un clúster de HDInsight. Para obtener instrucciones acerca de las diversas formas de creación de dichos clústeres, consulte [Introducción a HDInsight de Azure](/es-es/manage/services/hdinsight/get-started-hdinsight/) o [Aprovisionamiento de clústeres de HDInsight](/es-es/manage/services/hdinsight/provision-hdinsight-clusters/).
 
--   Debe tener instalado Azure PowerShell y haber configurado los clústeres para utilizarlos con su cuenta. Para obtener instrucciones acerca de cómo hacerlo, consulte [Instalación y configuración de Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   Debe tener instalado Azure PowerShell y haber configurado los clústeres para utilizarlos con su cuenta. Para obtener instrucciones acerca de cómo hacerlo, consulte [Instalación y configuración de Azure PowerShell](/es-es/documentation/articles/install-configure-powershell/).
 
 En este artículo
 ----------------
@@ -35,7 +35,7 @@ Ejecución del ejemplo con Azure PowerShell
 
 **Para enviar el trabajo de MapReduce**
 
-1.  Abra **Azure PowerShell**. Para obtener instrucciones acerca de cómo abrir la ventana de la consola de Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+1.  Abra **Azure PowerShell**. Para obtener instrucciones acerca de cómo abrir la ventana de la consola de Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/es-es/documentation/articles/install-configure-powershell/).
 
 2.  Ajuste las dos variables en los comandos siguientes y, a continuación, ejecútelos:
 
@@ -187,11 +187,11 @@ Pasos siguientes
 
 Para ver tutoriales sobre la ejecución de otros ejemplos y que proporcionan instrucciones sobre el uso de Pig, Hive y los trabajos de MapReduce en HDInsight de Azure con Azure PowerShell, consulte los siguientes temas:
 
--   [Introducción a HDInsight de Azure](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [Muestra: GraySort de 10 GB](/en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/)
--   [Muestra: Estimador de Pi](/en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/)
--   [Muestra: C\# Steaming](/en-us/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/)
--   [Uso de Pig con HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [Uso de Hive con HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
+-   [Introducción a HDInsight de Azure](/es-es/manage/services/hdinsight/get-started-hdinsight/)
+-   [Muestra: GraySort de 10 GB](/es-es/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/)
+-   [Muestra: Estimador de Pi](/es-es/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/)
+-   [Muestra: C\# Steaming](/es-es/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/)
+-   [Uso de Pig con HDInsight](/es-es/manage/services/hdinsight/using-pig-with-hdinsight/)
+-   [Uso de Hive con HDInsight](/es-es/manage/services/hdinsight/using-hive-with-hdinsight/)
 -   [Azure HDInsight SDK documentation](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx)
 

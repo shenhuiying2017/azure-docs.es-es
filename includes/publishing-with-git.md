@@ -5,7 +5,7 @@ Los Sitios web Azure admiten el desarrollo continuo desde el control de código 
 
 En este artículo, aprenderá a utilizar Git para publicar directamente desde su equipo local a un Sitio web Azure (en Azure, este método de publicación se denomina **Git local**). También conocerá cómo habilitar la implementación continua desde sitios web de repositorio, como BitBucket, CodePlex, DropBox, GitHub o Mercurial. Para obtener información acerca de la utilización de TFS para la implementación continua, consulte [Continuous delivery to Azure using Visual Studio Online][1].
 
-> [WACOM.NOTE] Muchos de los comandos Git descritos en este artículo se realizan automáticamente al crear un sitio web mediante las herramientas de línea de comandos que se describen en [Herramientas de línea de comandos de Azure para Mac y Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/).
+> [WACOM.NOTE] Muchos de los comandos Git descritos en este artículo se realizan automáticamente al crear un sitio web mediante las herramientas de línea de comandos que se describen en [Herramientas de línea de comandos de Azure para Mac y Linux](/es-es/develop/nodejs/how-to-guides/command-line-tools/).
 
 Esta tarea incluye los siguientes pasos:
 
@@ -277,21 +277,21 @@ A continuación se indican los errores o problemas que se suelen encontrar al ut
 
 * [Uso de PowerShell para Azure][10]
 * [Uso de las herramientas de línea de comandos de Azure para Mac y
-  Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/)
+  Linux](/es-es/develop/nodejs/how-to-guides/command-line-tools/)
 * [Git Documentation][11]
 
 
 
-[1]: http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-tfs/
+[1]: http://www.windowsazure.com/es-es/develop/net/common-tasks/publishing-with-tfs/
 [2]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[3]: http://www.windowsazure.com/en-us/develop/overview/
+[3]: http://www.windowsazure.com/es-es/develop/overview/
 [4]: http://manage.windowsazure.com
 [5]: https://help.github.com/articles/create-a-repo
 [6]: http://codeplex.codeplex.com/wikipage?title=Using%20Git%20with%20CodePlex&referringTitle=Source%20control%20clients&ProjectName=codeplex
 [7]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [8]: https://gist.github.com/trey/2722927
 [9]: http://mercurial.selenic.com/wiki/QuickStart
-[10]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/
+[10]: http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/
 [11]: http://git-scm.com/documentation
 
 [git-ChooseARepositoryToDeploy]: ./media/publishing-with-git/git-ChooseARepositoryToDeploy.png
@@ -306,4 +306,4 @@ A continuación se indican los errores o problemas que se suelen encontrar al ut
 [Create a Repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
 [Quick Start - Mercurial]: http://mercurial.selenic.com/wiki/QuickStart
 [Using Dropbox to Share Git Repositories]: https://gist.github.com/trey/2722927
-[Continuous delivery to Azure using Visual Studio Online]: http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-tfs/
+[Continuous delivery to Azure using Visual Studio Online]: http://www.windowsazure.com/es-es/develop/net/common-tasks/publishing-with-tfs/

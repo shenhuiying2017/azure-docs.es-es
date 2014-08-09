@@ -3,7 +3,7 @@
 Introducción a la autenticación en Servicios móviles
 ====================================================
 
-[C\# para Tienda Windows](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/en-us/develop/mobile/tutorials/get-started-with-users-js "JavaScript para Tienda Windows")[Windows Phone](/en-us/develop/mobile/tutorials/get-started-with-users-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/get-started-with-users-ios "iOS")[Android](/en-us/develop/mobile/tutorials/get-started-with-users-android "Android")[HTML](/en-us/develop/mobile/tutorials/get-started-with-users-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android "Xamarin.Android")
+[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-users-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-users-js "JavaScript para Tienda Windows")[Windows Phone](/es-es/develop/mobile/tutorials/get-started-with-users-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/get-started-with-users-ios "iOS")[Android](/es-es/develop/mobile/tutorials/get-started-with-users-android "Android")[HTML](/es-es/develop/mobile/tutorials/get-started-with-users-html "HTML")[Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android "Xamarin.Android")
 
 En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde su aplicación HTML. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
@@ -13,7 +13,7 @@ En este tutorial se realiza un recorrido por los pasos básicos para habilitar l
 2.  [Restricción de los permisos de tabla a usuarios autenticados](#permissions)
 3.  [Incorporación de autenticación a la aplicación](#add-authentication)
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started-html).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-html).
 
 Registro de la aplicaciónRegistro de la aplicación para la autenticación y configuración de Servicios móviles
 -------------------------------------------------------------------------------------------------------------
@@ -31,11 +31,11 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
     Es posible que tenga que proporcionar ese valor al proveedor de identidades cuando registre la aplicación.
 
 3.  Seleccione un proveedor de identidades compatible en la lista siguiente y siga los pasos para registrar la aplicación con ese proveedor:
-	-   [Cuenta Microsoft](/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication/)
-	-   [Inicio de sesión en Facebook](/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/)
-	-   [Inicio de sesión en Twitter](/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/)
-	-   [Inicio de sesión en Google](/en-us/develop/mobile/how-to-guides/register-for-google-authentication/)
-	-   [Azure Active Directory](/en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
+	-   [Cuenta Microsoft](/es-es/develop/mobile/how-to-guides/register-for-microsoft-authentication/)
+	-   [Inicio de sesión en Facebook](/es-es/develop/mobile/how-to-guides/register-for-facebook-authentication/)
+	-   [Inicio de sesión en Twitter](/es-es/develop/mobile/how-to-guides/register-for-twitter-authentication/)
+	-   [Inicio de sesión en Google](/es-es/develop/mobile/how-to-guides/register-for-google-authentication/)
+	-   [Azure Active Directory](/es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
 
     	Recuerde anotar los valores secretos y la identidad del cliente que genera el proveedor.
 
@@ -149,5 +149,5 @@ Como el inicio de sesión se realiza en una ventana emergente, debería invocar 
 Pasos siguientes
 ----------------
 
-En el siguiente tutorial, [Autorización de usuarios con scripts](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html), usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. Encontrará más información acerca de cómo usar los Servicios móviles con HTML/JavaScript en [Referencia conceptual de Servicios móviles HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client)
+En el siguiente tutorial, [Autorización de usuarios con scripts](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-html), usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. Encontrará más información acerca de cómo usar los Servicios móviles con HTML/JavaScript en [Referencia conceptual de Servicios móviles HTML/JavaScript](/es-es/develop/mobile/how-to-guides/work-with-html-js-client)
 

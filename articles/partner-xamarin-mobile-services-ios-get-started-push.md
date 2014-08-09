@@ -3,7 +3,7 @@
 Introducción a las notificaciones de inserción en Servicios móviles
 ===================================================================
 
-[C\# para Tienda Windows](/en-us/develop/mobile/tutorials/get-started-with-push-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/en-us/develop/mobile/tutorials/get-started-with-push-js "JavaScript para Tienda Windows")[Windows Phone](/en-us/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/get-started-with-push-ios "iOS")[Android](/en-us/develop/mobile/tutorials/get-started-with-push-android "Android")[Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android "Xamarin.Android")
+[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-push-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-push-js "JavaScript para Tienda Windows")[Windows Phone](/es-es/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/get-started-with-push-ios "iOS")[Android](/es-es/develop/mobile/tutorials/get-started-with-push-android "Android")[Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-push-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-push-xamarin-android "Xamarin.Android")
 
 Este tema muestra cómo puede usar Servicios móviles Azure para enviar notificaciones de inserción a una aplicación Xamarin.iOS. En este tutorial aprenderá a agregar notificaciones de inserción al proyecto de inicio rápido con el servicio de notificaciones de inserción de Apple (APNS). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
 
@@ -33,7 +33,7 @@ Este tutorial requiere lo siguiente:
 
     Debido a los requisitos de configuración de las notificaciones de inserción, debe implementar y probar las notificaciones de inserción en un dispositivo compatible con iOS (iPhone o iPad) en lugar de hacerlo en un emulador.
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started-xamarin-ios).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-xamarin-ios).
 
 El servicio de notificaciones de inserción de Apple (APNS) usa certificados para autenticar su servicio móvil. Siga estas instrucciones para crear los certificados necesarios y cargarlos en su servicio móvil. Para consultar la documentación oficial de la característica APNS, consulte [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584).
 
@@ -332,7 +332,7 @@ Descargue el [proyecto de ejemplo completo](http://go.microsoft.com/fwlink/p/?Li
 Pasos siguientes
 ----------------
 
-En este ejemplo simple, un usuario recibe una notificación de inserción con los datos que se acaban de insertar. El cliente en la solicitud suministra al servicio móvil el token de dispositivo que APNS utiliza. En el siguiente tutorial, [Notificaciones de inserción para usuarios de la aplicación](/en-us/develop/mobile/tutorials/push-notifications-to-users-ios), creará una tabla de dispositivos independiente en la que puede almacenar tokens de dispositivos y enviar una notificación de inserción a todos los canales almacenados cuando se produce una inserción.
+En este ejemplo simple, un usuario recibe una notificación de inserción con los datos que se acaban de insertar. El cliente en la solicitud suministra al servicio móvil el token de dispositivo que APNS utiliza. En el siguiente tutorial, [Notificaciones de inserción para usuarios de la aplicación](/es-es/develop/mobile/tutorials/push-notifications-to-users-ios), creará una tabla de dispositivos independiente en la que puede almacenar tokens de dispositivos y enviar una notificación de inserción a todos los canales almacenados cuando se produce una inserción.
 
 <!-- Anchors. -->
 [Generate the certificate signing request]: #certificates
@@ -395,12 +395,12 @@ En este ejemplo simple, un usuario recibe una notificación de inserción con lo
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-xamarin-ios
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios
-[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-ios
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+[Get started with Mobile Services]: /es-es/develop/mobile/tutorials/get-started-xamarin-ios
+[Get started with data]: /es-es/develop/mobile/tutorials/get-started-with-data-xamarin-ios
+[Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-xamarin-ios
+[Get started with push notifications]: /es-es/develop/mobile/tutorials/get-started-with-push-xamarin-ios
+[Push notifications to app users]: /es-es/develop/mobile/tutorials/push-notifications-to-users-ios
+[Authorize users with scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
 
 
 [Azure Management Portal]: https://manage.windowsazure.com/

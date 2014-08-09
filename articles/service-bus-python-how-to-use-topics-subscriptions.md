@@ -148,6 +148,6 @@ Pasos siguientes
 
 Ahora que conoce los fundamentos de los temas del bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio](http://msdn.microsoft.com/en-us/library/hh367516.aspx).
--   Referencia de API para [Clase SqlFilter](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx).
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio](http://msdn.microsoft.com/es-es/library/hh367516.aspx).
+-   Referencia de API para [Clase SqlFilter](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx).
 

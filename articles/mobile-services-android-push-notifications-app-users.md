@@ -3,9 +3,9 @@
 Notificaciones de inserción para usuarios mediante Servicios móviles
 ====================================================================
 
-[Windows Phone](/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/push-notifications-to-users-ios "iOS")[Android](/en-us/develop/mobile/tutorials/push-notifications-to-users-android "Android")
+[Windows Phone](/es-es/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/push-notifications-to-users-ios "iOS")[Android](/es-es/develop/mobile/tutorials/push-notifications-to-users-android "Android")
 
-Este tema amplía el [tutorial de notificaciones de inserción anterior](/en-us/develop/mobile/tutorials/get-started-with-push-android) mediante la incorporación de una nueva tabla a los URI de registro del servicio de mensajería en la nube de Google (GCM), que puede usarse para enviar notificaciones de inserción a varios usuarios de la aplicación de Android. En este tutorial, una actualización única generará notificaciones de inserción para todos los dispositivos registrados cuando las inserciones se realicen en la tabla ToDoList. En el tutorial anterior, se envió una notificación solo al dispositivo realizando la inserción.
+Este tema amplía el [tutorial de notificaciones de inserción anterior](/es-es/develop/mobile/tutorials/get-started-with-push-android) mediante la incorporación de una nueva tabla a los URI de registro del servicio de mensajería en la nube de Google (GCM), que puede usarse para enviar notificaciones de inserción a varios usuarios de la aplicación de Android. En este tutorial, una actualización única generará notificaciones de inserción para todos los dispositivos registrados cuando las inserciones se realicen en la tabla ToDoList. En el tutorial anterior, se envió una notificación solo al dispositivo realizando la inserción.
 
 Este tutorial le guiará a través de estos pasos en la actualización de las notificaciones de inserción en su aplicación:
 
@@ -14,7 +14,7 @@ Este tutorial le guiará a través de estos pasos en la actualización de las no
 3.  [Actualización de los scripts de servidor](#update-scripts)
 4.  [Pruebas de notificaciones de inserción en su aplicación](#test-app)
 
-Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutorial anterior, [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-android). Antes de comenzar este tutorial, primero debe completar [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-android).
+Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutorial anterior, [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-android). Antes de comenzar este tutorial, primero debe completar [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-android).
 
 Creación de una tabla
 ---------------------
@@ -225,16 +225,16 @@ Pasos siguientes
 
 Este es el último tutorial que muestra los aspectos básicos relacionados con el uso de las notificaciones de inserción. Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
--   [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-android)
+-   [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-android)
   <br/>Obtenga más información sobre almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-android)
+-   [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-android)
   <br/>Aprenda a autenticar a los usuarios de su aplicación con cuenta de Windows.
 
 -   [Referencia del script del servidor de Servicios móviles](http://go.microsoft.com/fwlink/?LinkId=262293)
   <br/>Obtenga más información acerca del registro y uso de scripts de servidor.
 
--   [Uso de la biblioteca de cliente Android para Servicios móviles](/en-us/develop/mobile/how-to-guides/work-with-android-client-library)
+-   [Uso de la biblioteca de cliente Android para Servicios móviles](/es-es/develop/mobile/how-to-guides/work-with-android-client-library)
   <br/>Obtenga más información sobre cómo usar Servicios móviles con .NET.
 
 

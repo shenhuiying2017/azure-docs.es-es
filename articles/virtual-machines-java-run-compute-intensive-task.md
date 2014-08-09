@@ -101,7 +101,7 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 Creación de una aplicación Java que realiza una tarea de proceso intensivo
 --------------------------------------------------------------------------
 
-1.  En nuestro equipo de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para Java](http://www.windowsazure.com/en-us/develop/java/).
+1.  En nuestro equipo de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para Java](http://www.windowsazure.com/es-es/develop/java/).
 2.  Cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. Para este tutorial, utilizaremos **TSPSolver.java** como nombre de archivo de Java. Modifique los marcadores de posición **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** y **your\_service\_bus\_key** que utilizan respectivamente los valores **Espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada** del bus de servicio.
 3.  Después de la codificación, exporte la aplicación a un archivo Java (JAR) ejecutable y empaquete las bibliotecas requeridas en el JAR generado. Para este tutorial, utilizaremos **TSPSolver.java** como el nombre JAR generado.
 

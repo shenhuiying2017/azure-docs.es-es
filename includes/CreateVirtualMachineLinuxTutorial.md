@@ -40,7 +40,7 @@ Para crear una máquina virtual con el uso de imágenes tiene disponibles las op
   información sobre la creación y la carga de una imagen personalizada,
   consulte [Creación y carga de un disco duro virtual que contiene el
   sistema operativo
-  Linux](/en-us/manage/linux/common-tasks/upload-a-vhd/).
+  Linux](/es-es/manage/linux/common-tasks/upload-a-vhd/).
 
 Cada máquina virtual reside en un servicio en la nube, ya sea sola o agrupada con otras máquinas virtuales. Puede poner máquinas virtuales en el mismo servicio en la nube para que las máquinas virtuales puedan comunicarse entre sí, equilibrar la carga de tráfico de red entre las máquinas virtuales y mantener la alta disponibilidad de las máquinas. Para obtener más información sobre los servicios de nube y las máquinas virtuales, consulte la sección "Modelos de ejecución" en [Introducción a Azure][2].
 
@@ -249,9 +249,9 @@ Para obtener más información sobre Linux en Azure, consulte los siguientes art
 [2]: http://go.microsoft.com/fwlink/p/?LinkId=311926
 [3]: http://manage.windowsazure.com
 [4]: http://go.microsoft.com/FWLink/p/?LinkID=390493
-[5]: http://www.windowsazure.com/en-us/manage/linux/how-to-guides/setup-endpoints/
+[5]: http://www.windowsazure.com/es-es/manage/linux/how-to-guides/setup-endpoints/
 [6]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 [7]: http://www.openssh.org/
-[8]: http://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/
-[9]: http://www.windowsazure.com/en-us/documentation/articles/introduction-linux/
-[10]: http://www.windowsazure.com/en-us/documentation/articles/xplat-cli/
+[8]: http://www.windowsazure.com/es-es/manage/linux/how-to-guides/linux-agent-guide/
+[9]: http://www.windowsazure.com/es-es/documentation/articles/introduction-linux/
+[10]: http://www.windowsazure.com/es-es/documentation/articles/xplat-cli/

@@ -7,4 +7,4 @@
 
 
 
-[1]: http://www.windowsazure.com/en-us/pricing/free-trial
+[1]: http://www.windowsazure.com/es-es/pricing/free-trial

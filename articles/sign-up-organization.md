@@ -19,7 +19,7 @@ Hasta hace poco, solo era posible registrarse para obtener una suscripción a Az
 
 **Recursos adicionales**
 
--   [¿Qué es Azure AD?](/en-us/manage/services/identity/what-is-windows-azure-active-directory/)
+-   [¿Qué es Azure AD?](/es-es/manage/services/identity/what-is-windows-azure-active-directory/)
 -   [Biblioteca de Azure AD en TechNet](http://technet.microsoft.com/en-us/library/hh967619.aspx)
 -   [Biblioteca de Azure AD en MSDN](http://msdn.microsoft.com/library/windowsazure/jj673460.aspx)
 

@@ -108,7 +108,7 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 
 ### Administración de espacios de nombres de servicio mediante el Explorador de servidores de Visual Studio:
 
-Para administrar un espacio de nombres y obtener la información de conexión utilizando Visual Studio en vez del Portal de administración, siga el procedimiento descrito [aquí](http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx), en la sección titulada **Para conectarse a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Microsoft Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombre que ya haya creado. Haga clic con el botón secundario en cualquier espacio de nombre, a continuación haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio.
+Para administrar un espacio de nombres y obtener la información de conexión utilizando Visual Studio en vez del Portal de administración, siga el procedimiento descrito [aquí](http://http://msdn.microsoft.com/es-es/library/windowsazure/ff687127.aspx), en la sección titulada **Para conectarse a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Microsoft Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombre que ya haya creado. Haga clic con el botón secundario en cualquier espacio de nombre, a continuación haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio.
 
 ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png)
 
@@ -399,7 +399,7 @@ Ejecute la aplicación para comprobar que funciona.
     IMPLEMENTACIÓN EN AZUREPREPARACIÓN DE LA APLICACIÓN PARA QUE SE IMPLEMENTE EN AZURE
     -----------------------------------------------------------------------------------
 
-    Cualquier aplicación se puede implementar en un servicio en la nube de Azure o en un sitio web de Azure. Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure](http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/). Para obtener información sobre cómo implementar la aplicación en un sitio web de Azure, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure](http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/). Esta sección contiene los pasos para implementar la aplicación en un servicio en la nube de Azure.
+    Cualquier aplicación se puede implementar en un servicio en la nube de Azure o en un sitio web de Azure. Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure](http://www.windowsazure.com/es-es/develop/net/fundamentals/compute/). Para obtener información sobre cómo implementar la aplicación en un sitio web de Azure, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure](http://www.windowsazure.com/es-es/develop/net/tutorials/get-started/). Esta sección contiene los pasos para implementar la aplicación en un servicio en la nube de Azure.
 
     Para implementar una aplicación en un servicio en la nube, va a agregar a la solución un proyecto de implementación de un proyecto de servicio en la nube. El proyecto de implementación contiene información de configuración necesaria para ejecutar correctamente la aplicación en la nube.
 
@@ -535,7 +535,7 @@ Ejecute la aplicación para comprobar que funciona.
 
         ![](./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png)
 
-Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure](http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/).
+Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure](http://www.windowsazure.com/es-es/develop/net/fundamentals/compute/).
 
 ELIMINACIÓN DE LA APLICACIÓNDETENCIÓN Y ELIMINACIÓN DE UNA APLICACIÓN
 ---------------------------------------------------------------------
@@ -557,8 +557,8 @@ Pasos siguientesPasos siguientes
 
 Para obtener más información sobre el bus de servicio, consulte los siguientes recursos:
 
--   [Service Bus](http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx)
--   [Procedimientos del bus de servicio](/en-us/manage/services/service-bus/)
--   [Utilización de las colas del bus de servicio](/en-us/develop/net/how-to-guides/service-bus-queues/)
+-   [Service Bus](http://msdn.microsoft.com/es-es/library/windowsazure/ee732537.aspx)
+-   [Procedimientos del bus de servicio](/es-es/manage/services/service-bus/)
+-   [Utilización de las colas del bus de servicio](/es-es/develop/net/how-to-guides/service-bus-queues/)
 
 

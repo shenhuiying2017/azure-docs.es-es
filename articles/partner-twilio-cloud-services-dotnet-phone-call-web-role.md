@@ -159,13 +159,13 @@ Pasos siguientesPasos siguientes
 
 Este código se proporciona para mostrar la funcionalidad básica del uso de Twilio en un rol web de ASP.NET en Azure. Antes de realizar la implementación en el entorno de producción de Azure, es posible que desee agregar un mayor control de errores u otras características. Por ejemplo:
 
--   En lugar de usar un formulario web, puede usar el almacenamiento de blobs de Azure o una instancia de Base de datos SQL de Azure para almacenar los números de teléfono y el texto de llamada. Para obtener información acerca de cómo usar los blobs en Azure, consulte [Uso del servicio de almacenamiento de blobs de Azure en .NET](https://www.windowsazure.com/en-us/develop/net/how-to-guides/blob-storage/). Para obtener información acerca de cómo usar la base de datos SQL, consulte [Uso de Base de datos SQL de Azure en aplicaciones .NET](https://www.windowsazure.com/en-us/develop/net/how-to-guides/sql-database/).
--   Puede usar RoleEnvironment.getConfigurationSettings para recuperar el identificador de la cuenta de Twilio y el token de autenticación desde los ajustes de configuración de su implementación, en vez de codificar de forma rígida los valores en el formulario. Para obtener información acerca de la clase RoleEnvironment, consulte [Microsoft.WindowsAzure.ServiceRuntime (Espacio de nombres)](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx).
+-   En lugar de usar un formulario web, puede usar el almacenamiento de blobs de Azure o una instancia de Base de datos SQL de Azure para almacenar los números de teléfono y el texto de llamada. Para obtener información acerca de cómo usar los blobs en Azure, consulte [Uso del servicio de almacenamiento de blobs de Azure en .NET](https://www.windowsazure.com/es-es/develop/net/how-to-guides/blob-storage/). Para obtener información acerca de cómo usar la base de datos SQL, consulte [Uso de Base de datos SQL de Azure en aplicaciones .NET](https://www.windowsazure.com/es-es/develop/net/how-to-guides/sql-database/).
+-   Puede usar RoleEnvironment.getConfigurationSettings para recuperar el identificador de la cuenta de Twilio y el token de autenticación desde los ajustes de configuración de su implementación, en vez de codificar de forma rígida los valores en el formulario. Para obtener información acerca de la clase RoleEnvironment, consulte [Microsoft.WindowsAzure.ServiceRuntime (Espacio de nombres)](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx).
 -   Lea las directrices de seguridad de Twilio en [https://www.twilio.com/docs/security](http://www.twilio.com/docs/security).
 -   Obtenga más información acerca de Twilio en [https://www.twilio.com/docs](http://www.twilio.com/docs).
 
 Otras referenciasOtras referencias
 ----------------------------------
 
--   [Uso de Twilio para funciones de voz y SMS en un rol web](/en-us/develop/net/how-to-guides/twilio/)
+-   [Uso de Twilio para funciones de voz y SMS en un rol web](/es-es/develop/net/how-to-guides/twilio/)
 

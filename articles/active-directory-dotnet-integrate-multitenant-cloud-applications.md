@@ -6,7 +6,7 @@ Integración de aplicaciones multiempresa en la nube con Azure Active Directory
 Introducción
 ------------
 
-Azure Active Directory (Azure AD) es un servicio moderno basado en REST que ofrece capacidades de administración de identidades y control de acceso para las aplicaciones en la nube. Azure AD se integra fácilmente con los servicio en la nube, así como con Azure, Microsoft Office 365, Dynamics CRM Online y Windows Intune. Las implementaciones locales de Active Directory también pueden aprovechar al máximo Azure AD. Para obtener más información, consulte la [página de identidades](http://www.windowsazure.com/en-us/home/features/identity/) en [windowsazure.com][].
+Azure Active Directory (Azure AD) es un servicio moderno basado en REST que ofrece capacidades de administración de identidades y control de acceso para las aplicaciones en la nube. Azure AD se integra fácilmente con los servicio en la nube, así como con Azure, Microsoft Office 365, Dynamics CRM Online y Windows Intune. Las implementaciones locales de Active Directory también pueden aprovechar al máximo Azure AD. Para obtener más información, consulte la [página de identidades](http://www.windowsazure.com/es-es/home/features/identity/) en [windowsazure.com][].
 
 Este tutorial está destinado a los desarrolladores de .NET que deseen integrar una aplicación multiempresa con Azure AD. Aprenderá a:
 
@@ -14,7 +14,7 @@ Este tutorial está destinado a los desarrolladores de .NET que deseen integrar 
 -   Habilitar el inicio de sesión único (SSO) con Azure AD
 -   Consultar los datos del directorio de un cliente usando la API Graph de Azure AD
 
-La aplicación complementaria de ejemplo de este tutorial se puede [descargar aquí](http://go.microsoft.com/fwlink/?LinkId=271213). El ejemplo se puede ejecutar sin cambios, aunque puede que tenga que modificar la [asignación de puertos en Visual Studio](http://msdn.microsoft.com/en-us/library/ms178109(v=vs.100).aspx) para que use https. Siga las instrucciones del vínculo y configure el protocolo de enlace como "https" en la sección enlaces del archivo ApplicationHost.config. Todos los fragmentos de código de los pasos que aparecen a continuación se han extraído del ejemplo.
+La aplicación complementaria de ejemplo de este tutorial se puede [descargar aquí](http://go.microsoft.com/fwlink/?LinkId=271213). El ejemplo se puede ejecutar sin cambios, aunque puede que tenga que modificar la [asignación de puertos en Visual Studio](http://msdn.microsoft.com/es-es/library/ms178109(v=vs.100).aspx) para que use https. Siga las instrucciones del vínculo y configure el protocolo de enlace como "https" en la sección enlaces del archivo ApplicationHost.config. Todos los fragmentos de código de los pasos que aparecen a continuación se han extraído del ejemplo.
 
 > [WACOM.NOTE] La aplicación de directorio multiempresa de ejemplo tiene fines ilustrativos únicamente. Este ejemplo (incluyendo sus clases de biblioteca auxiliar) no debe usarse en producción.
 
@@ -42,13 +42,13 @@ En esta sección de indica cómo obtener un Id. y un secreto de cliente después
 
 ### Paso 1: Crear una cuenta con el Panel de vendedores de Microsoft
 
-Para desarrollar y publicar aplicaciones que se integren con Azure AD, debe registrarse en una cuenta del [Panel de vendedores de Microsoft](https://sellerdashboard.microsoft.com/). Después se le pedirá que [cree un perfil de cuenta](http://msdn.microsoft.com/en-us/library/jj552460.aspx) como empresa o como particular. Este perfil se usa para publicar aplicaciones en Azure Marketplace, o en otros, y es necesario para generar un Id. y un secreto de cliente.
+Para desarrollar y publicar aplicaciones que se integren con Azure AD, debe registrarse en una cuenta del [Panel de vendedores de Microsoft](https://sellerdashboard.microsoft.com/). Después se le pedirá que [cree un perfil de cuenta](http://msdn.microsoft.com/es-es/library/jj552460.aspx) como empresa o como particular. Este perfil se usa para publicar aplicaciones en Azure Marketplace, o en otros, y es necesario para generar un Id. y un secreto de cliente.
 
 Las nuevas cuentas se ponen en estado "Account Pending Approval". Este estado no impide el inicio del desarrollo, puesto que puede seguir creando un Id. de cliente, así como una lista preliminar de aplicaciones. Sin embargo, la lista de aplicaciones solo se puede enviar para su aprobación cuando la cuenta en sí se haya aprobado. Solo los clientes podrán ver la lista de aplicaciones enviadas en Azure Marketplace una vez que se haya aprobado.
 
 ### Paso 2: Obtener un Id. de cliente para la aplicación
 
-Necesitará un Id. y un secreto de cliente para integrar la aplicación con Azure AD. El Id. de cliente es el identificador único de la aplicación y se usa principalmente para identificar una aplicación para inicio de sesión único o para autenticar las llamadas a Azure AD Graph. Para obtener más información acerca de cómo obtener un id. y un secreto de cliente, consulte [Creación de secretos e identificadores de cliente en el Panel de vendedores de Microsoft](http://msdn.microsoft.com/en-us/library/jj552461.aspx).
+Necesitará un Id. y un secreto de cliente para integrar la aplicación con Azure AD. El Id. de cliente es el identificador único de la aplicación y se usa principalmente para identificar una aplicación para inicio de sesión único o para autenticar las llamadas a Azure AD Graph. Para obtener más información acerca de cómo obtener un id. y un secreto de cliente, consulte [Creación de secretos e identificadores de cliente en el Panel de vendedores de Microsoft](http://msdn.microsoft.com/es-es/library/jj552461.aspx).
 
 > [WACOM.NOTE] Necesitará el Id. y el secreto de cliente más adelante en este tutorial; asegúrese de registrarlos.
 
@@ -235,7 +235,7 @@ Una vez que se ha comprobado el token, el usuario inicia sesión en la aplicaci�
 Parte 4: Obtener acceso a Azure AD Graph
 ----------------------------------------
 
-En esta sección se indica cómo obtener un token de acceso y llamar a la API Graph de Azure AD para el acceso a los datos del directorio del inquilino. Por ejemplo, aunque el token obtenido durante el inicio de sesión contiene información de usuario, como el nombre y la dirección de correo electrónico, puede que la aplicación necesite información como la pertenencia a grupos o el nombre del administrador de usuario. Esta información se puede extraer del directorio del inquilino usando la API Graph. Para obtener más información acerca de la API Graph, consulte [este tema](http://msdn.microsoft.com/en-us/library/windowsazure/hh974476.aspx).
+En esta sección se indica cómo obtener un token de acceso y llamar a la API Graph de Azure AD para el acceso a los datos del directorio del inquilino. Por ejemplo, aunque el token obtenido durante el inicio de sesión contiene información de usuario, como el nombre y la dirección de correo electrónico, puede que la aplicación necesite información como la pertenencia a grupos o el nombre del administrador de usuario. Esta información se puede extraer del directorio del inquilino usando la API Graph. Para obtener más información acerca de la API Graph, consulte [este tema](http://msdn.microsoft.com/es-es/library/windowsazure/hh974476.aspx).
 
 Para que la aplicación pueda llamar a Azure AD Graph, debe autenticarse y obtener un token de acceso. Los tokens de acceso se obtienen autenticando la aplicación con el Id. y el secreto de cliente. Los pasos siguientes le indicarán cómo:
 
@@ -392,7 +392,7 @@ El atributo *Policy* de los ejemplos anteriores describe el tipo de permiso de a
 
 El elemento opcional *Reason* permite especificar (en varias culturas) su justificación para el nivel de permiso necesario. Este texto aparece en la página de consentimiento para ayudar al cliente cuando esté aprobando o rechazando la aplicación.
 
-Al usar el nuevo Id. de cliente y el manifiesto de la aplicación, puede crear una lista de aplicaciones siguiendo las instrucciones que se indican en [Agregar aplicaciones en el Panel de vendedores de Microsoft](http://msdn.microsoft.com/en-us/library/jj552465.aspx). Al crear una lista de aplicaciones, asegúrese de seleccionar el tipo de aplicación de Azure AD. Una vez que haya terminado de crear la lista de aplicaciones, haga clic en "submit" para publicar la aplicación en Azure Marketplace. Tendrá que esperar a que la aplicación se apruebe antes de finalizar la publicación.
+Al usar el nuevo Id. de cliente y el manifiesto de la aplicación, puede crear una lista de aplicaciones siguiendo las instrucciones que se indican en [Agregar aplicaciones en el Panel de vendedores de Microsoft](http://msdn.microsoft.com/es-es/library/jj552465.aspx). Al crear una lista de aplicaciones, asegúrese de seleccionar el tipo de aplicación de Azure AD. Una vez que haya terminado de crear la lista de aplicaciones, haga clic en "submit" para publicar la aplicación en Azure Marketplace. Tendrá que esperar a que la aplicación se apruebe antes de finalizar la publicación.
 
 **Nota:**
 

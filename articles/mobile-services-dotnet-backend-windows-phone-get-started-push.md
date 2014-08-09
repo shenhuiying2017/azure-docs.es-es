@@ -3,9 +3,9 @@
 Introducción a las notificaciones de inserción en Servicios móviles
 ===================================================================
 
-[C\# para Tienda Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push "C# para Tienda Windows") [JavaScript para Tienda Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push "JavaScript para Tienda Windows") [Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push "Windows Phone")
+[C\# para Tienda Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push "C# para Tienda Windows") [JavaScript para Tienda Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push "JavaScript para Tienda Windows") [Windows Phone](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push "Windows Phone")
 
-[Back-end de .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push "Back-end de .NET") | [Back-end de JavaScript](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/ "Back-end de JavaScript")
+[Back-end de .NET](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push "Back-end de .NET") | [Back-end de JavaScript](/es-es/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/ "Back-end de JavaScript")
 
 Este tema muestra cómo puede utilizar Servicios móviles en tiempo de ejecución .NET de Azure para enviar notificaciones de inserción a una aplicación de Windows Phone 8. Este tutorial le permite habilitar notificaciones de inserción con los Centros de notificaciones de Azure para el proyecto de inicio rápido. Cuando haya finalizado, el servicio móvil en tiempo de ejecución .NET le enviará una notificación de inserción con los Centros de notificaciones cada vez que se inserte un registro. El centro de notificaciones que cree es gratuito con el servicio móvil, puede administrarse independientemente del servicio móvil y pueden utilizarlo otras aplicaciones y servicios.
 
@@ -15,7 +15,7 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar las no
 2.  [Actualización del servidor para enviar notificaciones de inserción](#update-server)
 3.  [Inserción de datos para recibir notificaciones de inserción](#test)
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de empezar este tutorial, primero debe completar [Introducción a los Servicios móviles](/en-us/documentation/articles/mobile-services-windows-store-get-started) o [Introducción a los datos](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data) para conectar su proyecto al servicio móvil.
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de empezar este tutorial, primero debe completar [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-windows-store-get-started) o [Introducción a los datos](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data) para conectar su proyecto al servicio móvil.
 
 Actualización de la aplicación para registrarse a fin de recibir notificaciones
 -------------------------------------------------------------------------------
@@ -104,7 +104,7 @@ Actualización del servidor para enviar notificaciones de inserción
 
 ![](./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-push-tab.png)
 
-> [WACOM.NOTE] Este tutorial usa MPNS en modo sin autenticar. En este modo, MPNS limita el número de notificaciones que se pueden enviar a un canal de dispositivo. Para quitar esta restricción, debe generar y cargar un certificado con un clic en **Upload** y seleccionando el certificado. Para obtener más información sobre la generación del certificado, consulte [Setting up an authenticated web service to send push notifications for Windows Phone](http://msdn.microsoft.com/en-us/library/windowsphone/develop/ff941099(v=vs.105).aspx).
+> [WACOM.NOTE] Este tutorial usa MPNS en modo sin autenticar. En este modo, MPNS limita el número de notificaciones que se pueden enviar a un canal de dispositivo. Para quitar esta restricción, debe generar y cargar un certificado con un clic en **Upload** y seleccionando el certificado. Para obtener más información sobre la generación del certificado, consulte [Setting up an authenticated web service to send push notifications for Windows Phone](http://msdn.microsoft.com/es-es/library/windowsphone/develop/ff941099(v=vs.105).aspx).
 
 Con esto se permite que el servicio móvil se conecte a MPNS en modo sin autenticar para enviar notificaciones de inserción.
 
@@ -124,30 +124,30 @@ Pasos siguientes
 
 Este tutorial demostró los aspectos básicos de la habilitación de una aplicación de la Tienda Windows para trabajar con datos en Servicios móviles. A continuación, considere la realización de uno de los siguientes tutoriales que se basan en la aplicación GetStartedWithData que creó en este tutorial:
 
--   [Introducción a los Centros de notificaciones](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet/)
+-   [Introducción a los Centros de notificaciones](/es-es/manage/services/notification-hubs/getting-started-windows-dotnet/)
     Aprenda a aprovechar Centros de notificaciones en su aplicación de la Tienda Windows.
 
--   [Envío de notificaciones a los suscriptores](/en-us/manage/services/notification-hubs/breaking-news-dotnet/)
+-   [Envío de notificaciones a los suscriptores](/es-es/manage/services/notification-hubs/breaking-news-dotnet/)
     Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
 
--   [Envío de notificaciones a los usuarios](/en-us/manage/services/notification-hubs/notify-users/)
+-   [Envío de notificaciones a los usuarios](/es-es/manage/services/notification-hubs/notify-users/)
     Sepa cómo enviar notificaciones de inserción desde un Servicio móvil a usuarios específicos en cualquier dispositivo.
 
--   [Envío de notificaciones entre plataformas a los usuarios](/en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/)
+-   [Envío de notificaciones entre plataformas a los usuarios](/es-es/manage/services/notification-hubs/notify-users-xplat-mobile-services/)
     Sepa cómo utilizar las plantillas para enviar notificaciones de inserción desde un Servicio móvil sin tener que diseñar cargas específicas de plataforma en el back-end.
 
 Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
--   [Introducción a los datos](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)
+-   [Introducción a los datos](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)
     Obtenga más información sobre cómo almacenar y consultar datos con los servicios móviles en tiempo de ejecución .NET.
 
--   [Introducción a la autenticación](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users)
+-   [Introducción a la autenticación](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users)
     Aprenda a autenticar a los usuarios de su aplicación con distintos tipos de cuenta con los servicios móviles en tiempo de ejecución .NET.
 
 -   [Referencia del script del servidor de Servicios móviles](http://go.microsoft.com/fwlink/?LinkId=262293)
     Obtenga más información acerca del registro y uso de scripts de servidor.
 
--   [Referencia conceptual de Servicios móviles con .NET](/en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library)
+-   [Referencia conceptual de Servicios móviles con .NET](/es-es/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library)
     Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
 <!-- Images. -->

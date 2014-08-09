@@ -3,11 +3,11 @@
 Uso de los Centros de notificaciones para enviar noticias de última hora
 ========================================================================
 
-[C\# para Tienda Windows](/en-us/manage/services/notification-hubs/breaking-news-dotnet "C# para Tienda Windows")[Windows Phone](/en-us/manage/services/notification-hubs/breaking-news-wp8 "Windows Phone")[iOS](/en-us/manage/services/notification-hubs/breaking-news-ios "iOS")
+[C\# para Tienda Windows](/es-es/manage/services/notification-hubs/breaking-news-dotnet "C# para Tienda Windows")[Windows Phone](/es-es/manage/services/notification-hubs/breaking-news-wp8 "Windows Phone")[iOS](/es-es/manage/services/notification-hubs/breaking-news-ios "iOS")
 
 Este tema muestra cómo puede usar los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora en una aplicación de la Tienda Windows. Cuando lo complete, podrá registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías. Este escenario es un patrón común para muchas aplicaciones en las que las notificaciones tienen que enviarse a grupos de usuarios que han mostrado previamente interés en ellas, por ejemplo, lectores RSS, aplicaciones para aficionados a la música, etc.
 
-Los escenarios de difusión se habilitan mediante la inclusión de una o más *etiquetas* cuando se crea un registro en el centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para obtener información sobre las etiquetas, consulte [Notification Hubs Guidance](http://msdn.microsoft.com/en-us/library/jj927170.aspx).
+Los escenarios de difusión se habilitan mediante la inclusión de una o más *etiquetas* cuando se crea un registro en el centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para obtener información sobre las etiquetas, consulte [Notification Hubs Guidance](http://msdn.microsoft.com/es-es/library/jj927170.aspx).
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar este escenario:
 
@@ -16,7 +16,7 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar este e
 3.  [Envío de notificaciones desde su back-end](#send)
 4.  [Ejecución de la aplicación y generación de notificaciones](#test-app)
 
-Este tema se basa en la aplicación que creó en [Introducción a los Centros de notificaciones](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet/). Antes de comenzar este tutorial, debe haber completado la [Introducción a los Centros de notificaciones](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet/).
+Este tema se basa en la aplicación que creó en [Introducción a los Centros de notificaciones](/es-es/manage/services/notification-hubs/getting-started-windows-dotnet/). Antes de comenzar este tutorial, debe haber completado la [Introducción a los Centros de notificaciones](/es-es/manage/services/notification-hubs/getting-started-windows-dotnet/).
 
 Incorporación de una selección de categorías a la aplicación
 ------------------------------------------------------------
@@ -193,11 +193,11 @@ Pasos siguientes
 
 En este tutorial hemos aprendido cómo difundir noticias de última hora por categoría. Considere la posibilidad de llevar a cabo uno de los siguientes tutoriales que destacan otros escenarios de centros de notificaciones avanzados:
 
--   [Uso de los Centros de notificaciones para difundir noticias de última hora localizadas](/en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/)
+-   [Uso de los Centros de notificaciones para difundir noticias de última hora localizadas](/es-es/manage/services/notification-hubs/breaking-news-localized-dotnet/)
 
     Conozca cómo expandir la aplicación de noticias de última hora para habilitar el envío de notificaciones localizadas.
 
--   [Notificación a los usuarios con los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users)
+-   [Notificación a los usuarios con los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users)
 
     Conozca cómo insertar notificaciones para usuarios autenticados específicos. Esta es una buena solución para enviar notificaciones solo a usuarios específicos.
 
@@ -218,12 +218,12 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 [19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
-[get-started]: /en-us/manage/services/notification-hubs/getting-started-windows-dotnet/
-[Use Notification Hubs to broadcast localized breaking news]: /en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/ 
-[Notify users with Notification Hubs]: /en-us/manage/services/notification-hubs/notify-users
-[Mobile Service]: /en-us/develop/mobile/tutorials/get-started/
-[Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
-[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/en-us/library/jj927172.aspx
+[get-started]: /es-es/manage/services/notification-hubs/getting-started-windows-dotnet/
+[Use Notification Hubs to broadcast localized breaking news]: /es-es/manage/services/notification-hubs/breaking-news-localized-dotnet/ 
+[Notify users with Notification Hubs]: /es-es/manage/services/notification-hubs/notify-users
+[Mobile Service]: /es-es/develop/mobile/tutorials/get-started/
+[Notification Hubs Guidance]: http://msdn.microsoft.com/es-es/library/jj927170.aspx
+[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/es-es/library/jj927172.aspx
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

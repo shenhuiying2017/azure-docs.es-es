@@ -92,7 +92,7 @@ En los ejemplos descritos aquí, la cadena de conexión se pasará directamente.
 Creación de una tabla
 ---------------------
 
-Puede crear una tabla con un objeto **TableRestProxy** a través del método **createTable**. Al crear una tabla, puede establecer un tiempo de espera para el servicio Tabla. (Para obtener más información acerca del tiempo de espera del servicio Tabla, consulte [Establecer los tiempos de espera para las operaciones del servicio Tabla](http://msdn.microsoft.com/en-us/library/windowsazure/dd894042.aspx)).
+Puede crear una tabla con un objeto **TableRestProxy** a través del método **createTable**. Al crear una tabla, puede establecer un tiempo de espera para el servicio Tabla. (Para obtener más información acerca del tiempo de espera del servicio Tabla, consulte [Establecer los tiempos de espera para las operaciones del servicio Tabla](http://msdn.microsoft.com/es-es/library/windowsazure/dd894042.aspx)).
 
     require_once 'vendor\autoload.php';
 
@@ -111,10 +111,10 @@ Puede crear una tabla con un objeto **TableRestProxy** a través del método **c
         $error_message = $e->getMessage();
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se pueden encontrar aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx
     }
 
-Para obtener más información acerca de las restricciones que se aplican a los nombres de las tablas, consulte [Introducción al modelo de datos del servicio Tabla](http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx).
+Para obtener más información acerca de las restricciones que se aplican a los nombres de las tablas, consulte [Introducción al modelo de datos del servicio Tabla](http://msdn.microsoft.com/es-es/library/windowsazure/dd179338.aspx).
 
 Incorporación de una entidad a una tabla
 ----------------------------------------
@@ -146,12 +146,12 @@ Para agregar una entidad a una tabla, cree un nuevo objeto **Entity** y páselo 
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
     }
 
-Para obtener más información acerca de las propiedades y los tipos de tabla, consulte [Introducción al modelo de datos del servicio Tabla](http://msdn.microsoft.com/en-us/library/windowsazure/dd179338.aspx).
+Para obtener más información acerca de las propiedades y los tipos de tabla, consulte [Introducción al modelo de datos del servicio Tabla](http://msdn.microsoft.com/es-es/library/windowsazure/dd179338.aspx).
 
 La clase **TableRestProxy** ofrece dos métodos alternativos para insertar entidades: **insertOrMergeEntity** e **insertOrReplaceEntity**. Para utilizar estos métodos, cree una nueva entidad **Entity** y pásela a modo de parámetro a cualquiera de los métodos. Ambos métodos insertarán la entidad si todavía no existe. Si ya existe, el método **insertOrMergeEntity** actualizará los valores de las propiedades existentes y agregará las propiedades que no existan, mientras que el método **insertOrReplaceEntity** reemplazará por completo la entidad existente. En el siguiente ejemplo se muestra cómo usar el método **insertOrMergeEntity**. Si todavía no existe ninguna entidad cuyo valor para `PartitionKey` sea “tasksSeattle” y cuyo valor para `RowKey` sea “1”, se insertará dicha entidad. Sin embargo, si ya se insertó previamente (como se muestra en el ejemplo anterior), se actualizará la propiedad `DueDate` y se agregará la propiedad `Status`. También se actualizarán las propiedades `Description` y `Location`, pero con valores que a efectos prácticos no provocarán ningún cambio en ellas. Si estas dos últimas propiedades no se agregaron como se muestra en el ejemplo, sino que existían en la entidad objetivo, sus valores actuales permanecerán invariables.
 
@@ -187,7 +187,7 @@ La clase **TableRestProxy** ofrece dos métodos alternativos para insertar entid
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -212,7 +212,7 @@ El método **TableRestProxy-\>getEntity** permite recuperar una sola entidad con
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -225,7 +225,7 @@ El método **TableRestProxy-\>getEntity** permite recuperar una sola entidad con
 Recuperación de todas las entidades de una partición
 ----------------------------------------------------
 
-Las consultas a entidades se basan en filtros (para obtener más información, consulte [Consultar tablas y entidades](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx)). Para recuperar todas las entidades de una partición, utilice el filtro “PartitionKey eq *partition\_name*”. En el siguiente ejemplo se muestra cómo recuperar todas las entidades de la partición `tasksSeattle` pasando un filtro al método **queryEntities**.
+Las consultas a entidades se basan en filtros (para obtener más información, consulte [Consultar tablas y entidades](http://msdn.microsoft.com/es-es/library/windowsazure/dd894031.aspx)). Para recuperar todas las entidades de una partición, utilice el filtro “PartitionKey eq *partition\_name*”. En el siguiente ejemplo se muestra cómo recuperar todas las entidades de la partición `tasksSeattle` pasando un filtro al método **queryEntities**.
 
     require_once 'vendor\autoload.php';
 
@@ -243,7 +243,7 @@ Las consultas a entidades se basan en filtros (para obtener más información, c
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -258,7 +258,7 @@ Las consultas a entidades se basan en filtros (para obtener más información, c
 Recuperación de un subconjunto de entidades de una partición
 ------------------------------------------------------------
 
-El mismo patrón utilizado en el ejemplo anterior se puede aplicar a la recuperación de cualquier subconjunto de entidades de una partición. El subconjunto de entidades que recupere dependerá del filtro que utilice (para obtener más información, consulte [Consultar tablas y entidades](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx)). En el siguiente ejemplo se muestra cómo utilizar un filtro para recuperar todas las entidades con un valor concreto para `Location` y un valor para `DueDate` anterior a una fecha determinada.
+El mismo patrón utilizado en el ejemplo anterior se puede aplicar a la recuperación de cualquier subconjunto de entidades de una partición. El subconjunto de entidades que recupere dependerá del filtro que utilice (para obtener más información, consulte [Consultar tablas y entidades](http://msdn.microsoft.com/es-es/library/windowsazure/dd894031.aspx)). En el siguiente ejemplo se muestra cómo utilizar un filtro para recuperar todas las entidades con un valor concreto para `Location` y un valor para `DueDate` anterior a una fecha determinada.
 
     require_once 'vendor\autoload.php';
 
@@ -276,7 +276,7 @@ El mismo patrón utilizado en el ejemplo anterior se puede aplicar a la recupera
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -311,7 +311,7 @@ Es posible recuperar un subconjunto de propiedades de las entidades mediante una
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -358,7 +358,7 @@ Es posible actualizar una entidad existente con los métodos **Entity-\>setPrope
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -384,7 +384,7 @@ Para eliminar una entidad, pase el nombre de la tabla y los valores `PartitionKe
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -441,13 +441,13 @@ En el siguiente ejemplo se muestra cómo ejecutar las operaciones **insertEntity
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
 
-Para obtener más información acerca del procesamiento por lotes de las operaciones de tabla, consulte [Realizar transacciones con grupos de entidades](http://msdn.microsoft.com/en-us/library/windowsazure/dd894038.aspx).
+Para obtener más información acerca del procesamiento por lotes de las operaciones de tabla, consulte [Realizar transacciones con grupos de entidades](http://msdn.microsoft.com/es-es/library/windowsazure/dd894038.aspx).
 
 Eliminación de una tabla
 ------------------------
@@ -469,7 +469,7 @@ Finalmente, para eliminar una tabla pase su nombre al método **TableRestProxy-\
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -480,6 +480,6 @@ Pasos siguientes
 
 Ahora que está familiarizado con los aspectos básicos del servicio Tabla de Azure, utilice estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx)
 -   Obtenga acceso al blog del equipo de almacenamiento de Azure: &lt;http://blogs.msdn.com/b/windowsazurestorage/\&gt;
 

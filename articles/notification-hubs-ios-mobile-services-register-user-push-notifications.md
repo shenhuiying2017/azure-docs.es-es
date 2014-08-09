@@ -3,11 +3,11 @@
 Registro del usuario actual para notificaciones de inserción con un servicio móvil
 ==================================================================================
 
-[C\# para Tienda Windows](/en-us/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "C# para Tienda Windows")[iOS](/en-us/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS")
+[C\# para Tienda Windows](/es-es/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "C# para Tienda Windows")[iOS](/es-es/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS")
 
-Este tema muestra cómo solicitar un registro de notificación de inserción con Centros de notificaciones de Azure al realizar el registro mediante Servicios móviles de Azure. Este tema amplía el tutorial [Notificación a los usuarios con los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users). Debe haber completado ya los pasos necesarios de ese tutorial para crear el servicio móvil autenticado. Para obtener más información acerca del escenario de notificación a los usuarios, consulte [Notificación a los usuarios con los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users).
+Este tema muestra cómo solicitar un registro de notificación de inserción con Centros de notificaciones de Azure al realizar el registro mediante Servicios móviles de Azure. Este tema amplía el tutorial [Notificación a los usuarios con los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users). Debe haber completado ya los pasos necesarios de ese tutorial para crear el servicio móvil autenticado. Para obtener más información acerca del escenario de notificación a los usuarios, consulte [Notificación a los usuarios con los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users).
 
-1.  En Xcode, abra el archivo QSTodoService.h en el proyecto que creó cuando completó el tutorial de requisito previo [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-ios/) y agregue la siguiente propiedad **deviceToken**:
+1.  En Xcode, abra el archivo QSTodoService.h en el proyecto que creó cuando completó el tutorial de requisito previo [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-ios/) y agregue la siguiente propiedad **deviceToken**:
 
          @property (nonatomic) NSData* deviceToken;
 
@@ -42,7 +42,7 @@ Este tema muestra cómo solicitar un registro de notificación de inserción con
 
     **Nota:**
 
-    En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial [Introducción a los Centros de notificaciones](/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/), debe convertir la llamada en comentario o borrarla.
+    En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial [Introducción a los Centros de notificaciones](/es-es/manage/services/notification-hubs/get-started-notification-hubs-ios/), debe convertir la llamada en comentario o borrarla.
 
 4.  (Opcional) En el archivo QSAppDelegate.m, agregue el siguiente método de controlador:
 
@@ -74,7 +74,7 @@ Este tema muestra cómo solicitar un registro de notificación de inserción con
              }
 
 
-    Este método construye una carga json que contiene el token de dispositivo. Luego llama a la API personalizada en el Servicio móvil para registrarse para notificación. Este método crea un token de dispositivo para notificaciones de inserción y lo envía, junto con el tipo de dispositivo, al método de API personalizada que crea un registro en los Centros de notificaciones. La API personalizada se definió en [Notificación a los usuarios con los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users).
+    Este método construye una carga json que contiene el token de dispositivo. Luego llama a la API personalizada en el Servicio móvil para registrarse para notificación. Este método crea un token de dispositivo para notificaciones de inserción y lo envía, junto con el tipo de dispositivo, al método de API personalizada que crea un registro en los Centros de notificaciones. La API personalizada se definió en [Notificación a los usuarios con los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users).
 
 2.  Finalmente, en el método **viewDidAppear**, agregue una llamada a este nuevo método **registerForNotificationsWithBackEnd** una vez que el usuario se autentica correctamente, tal como aparece en el siguiente ejemplo:
 
@@ -96,5 +96,5 @@ Este tema muestra cómo solicitar un registro de notificación de inserción con
 
     Esto garantiza que se solicitará registro cada vez que se cargue la página. En la aplicación, es posible que solo desee realizar este registro de manera periódica para asegurarse de que el registro esté actualizado.
 
-Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación a los usuarios con los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users) y actualice el servicio móvil para enviar notificaciones mediante Centros de notificaciones.
+Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación a los usuarios con los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users) y actualice el servicio móvil para enviar notificaciones mediante Centros de notificaciones.
 

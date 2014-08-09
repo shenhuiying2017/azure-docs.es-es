@@ -3,9 +3,9 @@
 Uso del cliente del componente Xamarin para Servicios móviles de Azure
 ======================================================================
 
-[.NET Framework](/en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework") [HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
+[.NET Framework](/es-es/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework") [HTML/JavaScript](/es-es/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/es-es/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/es-es/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/es-es/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
 
-Esta guía le muestra cómo realizar tareas comunes con el cliente del componente Xamarin para Servicios móviles de Azure, en aplicaciones Xamarin para iOS y Android. Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia con Servicios móviles, primero debería considerar realizar los tutoriales "Inicio rápido de Servicios móviles" ([Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-xamarin-ios/)/[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-xamarin-android/)) e "Introducción a los datos en .NET" ([Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios/)/[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android/)). El tutorial de inicio rápido requiere [Xamarin](http://xamarin.com/download/) y el [SDK de Servicios móviles](http://nuget.org/packages/WindowsAzure.MobileServices/), y le ayuda a configurar su cuenta y a crear su primer servicio móvil.
+Esta guía le muestra cómo realizar tareas comunes con el cliente del componente Xamarin para Servicios móviles de Azure, en aplicaciones Xamarin para iOS y Android. Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia con Servicios móviles, primero debería considerar realizar los tutoriales "Inicio rápido de Servicios móviles" ([Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-xamarin-ios/)/[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-xamarin-android/)) e "Introducción a los datos en .NET" ([Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-ios/)/[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android/)). El tutorial de inicio rápido requiere [Xamarin](http://xamarin.com/download/) y el [SDK de Servicios móviles](http://nuget.org/packages/WindowsAzure.MobileServices/), y le ayuda a configurar su cuenta y a crear su primer servicio móvil.
 
 Tabla de contenido
 ------------------
@@ -66,7 +66,7 @@ En el código anterior, reemplace `AppUrl` y `AppKey` por la dirección URL y la
 Creación de una referencia de tablaCreación de una referencia de tabla
 ----------------------------------------------------------------------
 
-Todo el código que obtiene acceso o modifica los datos de la tabla de Servicios móviles llama a las funciones del objeto `MobileServiceTable`. Obtenga una referencia a la tabla llamando a la función [GetTable](http://msdn.microsoft.com/en-us/library/windowsazure/jj554275.aspx) en una instancia de `MobileServiceClient`.
+Todo el código que obtiene acceso o modifica los datos de la tabla de Servicios móviles llama a las funciones del objeto `MobileServiceTable`. Obtenga una referencia a la tabla llamando a la función [GetTable](http://msdn.microsoft.com/es-es/library/windowsazure/jj554275.aspx) en una instancia de `MobileServiceClient`.
 
     IMobileServiceTable<TodoItem> todoTable = 
         client.GetTable<TodoItem>();
@@ -163,7 +163,7 @@ La siguiente consulta revisada omite los tres primeros resultados y devuelve los
                     .Take(3);                              
     List<TodoItem> items = await query.ToListAsync();
 
-También puede usar el método [IncludeTotalCount](http://msdn.microsoft.com/en-us/library/windowsazure/jj730933.aspx) para asegurarse de que la consulta obtendrá el recuento total de *todos* los registros que deberían devolverse, ignorando cualquier cláusula de limitación/paginación especificada.
+También puede usar el método [IncludeTotalCount](http://msdn.microsoft.com/es-es/library/windowsazure/jj730933.aspx) para asegurarse de que la consulta obtendrá el recuento total de *todos* los registros que deberían devolverse, ignorando cualquier cláusula de limitación/paginación especificada.
 
     query = query.IncludeTotalCount();
 
@@ -256,15 +256,15 @@ Si intenta eliminar un elemento sin el campo "Id" ya establecido, no hay forma d
 AutenticaciónAutenticación de usuarios
 --------------------------------------
 
-Servicios móviles es compatible con la autenticación y autorización de los usuarios de aplicaciones mediante una serie de proveedores de identidades externas: Facebook, Google, cuenta Microsoft, Twitter y Azure Active Directory. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Si desea obtener más información, consulte el tutorial "Introducción a la autenticación" ([Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios/)/[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android/)).
+Servicios móviles es compatible con la autenticación y autorización de los usuarios de aplicaciones mediante una serie de proveedores de identidades externas: Facebook, Google, cuenta Microsoft, Twitter y Azure Active Directory. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Si desea obtener más información, consulte el tutorial "Introducción a la autenticación" ([Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-ios/)/[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android/)).
 
 Se admiten dos flujos de autenticación: un *flujo de servidor* y un *flujo de cliente*. El flujo de servidor ofrece la experiencia de autenticación más simple, ya que se basa en la interfaz de autenticación web del proveedor. El flujo de cliente permite una mayor integración con capacidades específicas del dispositivo, ya que se basa en SDK específicos del dispositivo y específicos del proveedor.
 
 ### Flujo de servidor
 
-Para que Servicios móviles administre el proceso de autenticación en la aplicación de la Tienda Windows o Windows Phone, debe registrar la aplicación con el proveedor de identidades. A continuación, en el servicio móvil, tendrá que configurar el identificador y el secreto de la aplicación proporcionados por el proveedor. Si desea obtener más información, consulte el tutorial "Introducción a la autenticación" ([Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios/)/[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android/)).
+Para que Servicios móviles administre el proceso de autenticación en la aplicación de la Tienda Windows o Windows Phone, debe registrar la aplicación con el proveedor de identidades. A continuación, en el servicio móvil, tendrá que configurar el identificador y el secreto de la aplicación proporcionados por el proveedor. Si desea obtener más información, consulte el tutorial "Introducción a la autenticación" ([Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-ios/)/[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android/)).
 
-Una vez que haya registrado el proveedor de identidades, simplemente llame al método [LoginAsync](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) con el valor [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) del proveedor. Por ejemplo, el siguiente código activa un inicio de sesión de flujo de servidor mediante Facebook.
+Una vez que haya registrado el proveedor de identidades, simplemente llame al método [LoginAsync](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) con el valor [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) del proveedor. Por ejemplo, el siguiente código activa un inicio de sesión de flujo de servidor mediante Facebook.
 
     private MobileServiceUser user;
     private async System.Threading.Tasks.Task Authenticate()
@@ -290,9 +290,9 @@ Una vez que haya registrado el proveedor de identidades, simplemente llame al m�
         }
     }
 
-Si está usando un proveedor de identidades diferente al de Facebook, cambie el valor de [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) anterior por el valor de su proveedor.
+Si está usando un proveedor de identidades diferente al de Facebook, cambie el valor de [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) anterior por el valor de su proveedor.
 
-En este caso, Servicios móviles administra el flujo de autenticación de OAuth 2.0 mostrando la página de inicio de sesión del proveedor seleccionado y generando un token de autenticación de Servicios móviles después de que se realice un inicio de sesión correcto con el proveedor de identidades. El método [LoginAsync](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) devuelve [MobileServiceUser](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx), que proporciona [userId](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx) del usuario autenticado y [MobileServiceAuthenticationToken](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx) como un token de web JSON (JWT). El token puede almacenarse en caché y volver a usarse hasta que expire. Para obtener más información, consulte [Almacenamiento en caché del token de autenticación](#caching).
+En este caso, Servicios móviles administra el flujo de autenticación de OAuth 2.0 mostrando la página de inicio de sesión del proveedor seleccionado y generando un token de autenticación de Servicios móviles después de que se realice un inicio de sesión correcto con el proveedor de identidades. El método [LoginAsync](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) devuelve [MobileServiceUser](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx), que proporciona [userId](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx) del usuario autenticado y [MobileServiceAuthenticationToken](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx) como un token de web JSON (JWT). El token puede almacenarse en caché y volver a usarse hasta que expire. Para obtener más información, consulte [Almacenamiento en caché del token de autenticación](#caching).
 
 ### Flujo de cliente
 
@@ -422,22 +422,22 @@ Pasos siguientes
 
 Ahora que ha completado este tema de referencia conceptual, conozca cómo realizar tareas importantes en Servicios móviles de forma detallada:
 
--   Introducción a los Servicios móviles ([Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-xamarin-ios)/[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-xamarin-android))
+-   Introducción a los Servicios móviles ([Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-xamarin-ios)/[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-xamarin-android))
   <br/>Conozca los aspectos básicos de cómo usar Servicios móviles.
 
--   Introducción a los datos ([Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios)/[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android))
+-   Introducción a los datos ([Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-ios)/[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android))
   <br/>Obtenga más información sobre cómo almacenar y consultar datos mediante Servicios móviles.
 
--   Introducción a la autenticación ([Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-ios)/[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android))
+-   Introducción a la autenticación ([Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-ios)/[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android))
   <br/>Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
--   Validación y modificación de datos con scripts ([Xamarin.iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios)/[Xamarin.Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android))
+-   Validación y modificación de datos con scripts ([Xamarin.iOS](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios)/[Xamarin.Android](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android))
   <br/>Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar los datos enviados desde su aplicación.
 
--   Limitación de consultas con paginación ([Xamarin.iOS](/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-ios)/[Xamarin.Android](/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android))
+-   Limitación de consultas con paginación ([Xamarin.iOS](/es-es/develop/mobile/tutorials/add-paging-to-data-xamarin-ios)/[Xamarin.Android](/es-es/develop/mobile/tutorials/add-paging-to-data-xamarin-android))
   <br/>Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se gestionan en una única solicitud.
 
--   Autorización de usuarios con scripts ([Xamarin.iOS](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios)/[Xamarin.Android](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android))
+-   Autorización de usuarios con scripts ([Xamarin.iOS](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios)/[Xamarin.Android](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android))
   <br/>Conozca cómo usar el valor de identificador de usuario proporcionado por Servicios móviles según el usuario autenticado para filtrar los datos que devuelve Servicios móviles.
 
 

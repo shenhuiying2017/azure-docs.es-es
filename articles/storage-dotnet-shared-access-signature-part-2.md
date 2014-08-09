@@ -18,7 +18,7 @@ En este tutorial, nos centraremos en la creación de firmas de acceso compartido
 Parte 1: Creación de una aplicación de consola para generar firmas de acceso compartido
 =======================================================================================
 
-En primer lugar, asegúrese de tener instalada la biblioteca del cliente de almacenamiento de Azure para .NET (versión 2.0). Puede instalar el [paquete de NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "paquete de NuGet") (en inglés) que contenga los ensamblados más recientes para la biblioteca del cliente. Este es el método recomendado para asegurarse de contar con las últimas revisiones. También puede descargar dicha biblioteca como parte de la última versión del [SDK de Azure para .NET](http://www.windowsazure.com/en-us/downloads/).
+En primer lugar, asegúrese de tener instalada la biblioteca del cliente de almacenamiento de Azure para .NET (versión 2.0). Puede instalar el [paquete de NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "paquete de NuGet") (en inglés) que contenga los ensamblados más recientes para la biblioteca del cliente. Este es el método recomendado para asegurarse de contar con las últimas revisiones. También puede descargar dicha biblioteca como parte de la última versión del [SDK de Azure para .NET](http://www.windowsazure.com/es-es/downloads/).
 
 En Visual Studio, cree una aplicación de consola de Windows y denomínela **GenerateSharedAccessSignatures**. Agregue referencias a los archivos **Microsoft.WindowsAzure.Configuration.dll** y **Microsoft.WindowsAzure.Storage.dll** de una de las siguientes formas:
 
@@ -524,9 +524,9 @@ Pasos siguientes
 
 [Firmas de acceso compartido, parte 1: Descripción del modelo de firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1/)
 
-[Administración del acceso a los recursos de almacenamiento de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
+[Administración del acceso a los recursos de almacenamiento de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/ee393343.aspx)
 
-[Delegación de acceso con una firma de acceso compartido (API de REST)](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
+[Delegación de acceso con una firma de acceso compartido (API de REST)](http://msdn.microsoft.com/es-es/library/windowsazure/ee395415.aspx)
 
 [Introducción a las firmas de acceso compartido de tabla y cola](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 

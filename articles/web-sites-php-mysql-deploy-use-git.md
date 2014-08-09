@@ -18,7 +18,7 @@ Mediante este tutorial, se compilará una aplicación web de registro sencilla e
 Azure](./media/web-sites-php-mysql-deploy-use-git/running_app_2.png)
 
  
-<div  class="dev-callout"><strong>Nota:</strong> <p>Para completar este tutorial, necesita una cuenta de Azure que tenga habilitada la característica Sitios web Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a  href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Evaluación gratuita de Azure</a>.</p> </div>
+<div  class="dev-callout"><strong>Nota:</strong> <p>Para completar este tutorial, necesita una cuenta de Azure que tenga habilitada la característica Sitios web Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a  href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Evaluación gratuita de Azure</a>.</p> </div>
 
 ## Configuración del entorno de desarrollo
 

@@ -5,7 +5,7 @@ Captura de una imagen de una máquina virtual que ejecuta Windows Server
 
 Puede utilizar imágenes de la galería de imágenes para crear fácilmente máquinas virtuales, o bien, puede capturar y utilizar sus propias imágenes para crear máquinas virtuales personalizadas. Una imagen es un archivo de disco duro virtual (.vhd) que se utiliza como plantilla para crear una máquina virtual. Es una plantilla porque no tiene la configuración específica de una máquina virtual configurada, tal como el nombre del equipo y la configuración de la cuenta de usuario. Si desea crear varias máquinas virtuales configuradas de la misma manera, puede capturar una imagen de una máquina virtual configurada y utilizar esa imagen como plantilla.
 
-1.  Siga los pasos que aparecen en [Inicio de sesión en una máquina virtual con Windows Server](http://www.windowsazure.com/en-us/manage/windows/how-to-guides/log-on-a-windows-vm/) para conectarse a una máquina virtual.
+1.  Siga los pasos que aparecen en [Inicio de sesión en una máquina virtual con Windows Server](http://www.windowsazure.com/es-es/manage/windows/how-to-guides/log-on-a-windows-vm/) para conectarse a una máquina virtual.
 
 2.  Abra una ventana de símbolo del sistema como administrador.
 

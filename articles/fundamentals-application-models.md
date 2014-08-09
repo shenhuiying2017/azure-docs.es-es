@@ -41,7 +41,7 @@ Los discos duros virtuales de la galería y en VMDepot incluyen imágenes limpia
 -   BizTalk Server
 -   SharePoint Server
 
-Además de un disco duro virtual, debe especificar el tamaño de la máquina virtual nueva. Puede encontrar las estadísticas completas para cada tamaño [en la biblioteca de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx).
+Además de un disco duro virtual, debe especificar el tamaño de la máquina virtual nueva. Puede encontrar las estadísticas completas para cada tamaño [en la biblioteca de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/dn197896.aspx).
 
 -   **Extra pequeño**, con 1 núcleo compartido y 768 GB de memoria.
 -   **Pequeño**, con 1 núcleo y 1,75 GB de memoria.

@@ -8,7 +8,7 @@ Esta guía le muestra cómo comenzar con el desarrollo de una aplicación de la 
 Descarga de las herramientas necesarias
 ---------------------------------------
 
--   [Visual Studio 2012](http://msdn.microsoft.com/en-us/library/windows/apps/br211384) hace que sea fácil compilar, depurar, localizar, empaquetar e implementar aplicaciones de la Tienda Windows.
+-   [Visual Studio 2012](http://msdn.microsoft.com/es-es/library/windows/apps/br211384) hace que sea fácil compilar, depurar, localizar, empaquetar e implementar aplicaciones de la Tienda Windows.
 -   La [Biblioteca del cliente de almacenamiento de Azure para Windows en tiempo de ejecución](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) contiene los tipos usados para la comunicación con almacenamiento de Azure, empaquetada en un componente de Windows en tiempo de ejecución.
 -   El componente [Herramientas de servicios de datos WCF para aplicaciones de la Tienda Windows](http://www.microsoft.com/en-us/download/details.aspx?id=30714) amplía la experiencia de incorporación de referencia de servicios con soporte OData del cliente para aplicaciones de la Tienda Windows en Visual Studio 2012.
 
@@ -32,7 +32,7 @@ En este momento, la aplicación está preparada para comunicarse con los servici
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
 
-A continuación, agregue un botón a la página. Agregue el siguiente código al evento **Click** y modifique el método del controlador de eventos con [async (Referencia de C\#)](http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx):
+A continuación, agregue un botón a la página. Agregue el siguiente código al evento **Click** y modifique el método del controlador de eventos con [async (Referencia de C\#)](http://msdn.microsoft.com/es-es/library/vstudio/hh156513.aspx):
 
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);

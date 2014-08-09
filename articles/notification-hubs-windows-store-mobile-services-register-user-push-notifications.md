@@ -3,11 +3,11 @@
 Registro del usuario actual para notificaciones de inserción con un servicio móvil
 ==================================================================================
 
-[C\# para Tienda Windows](/en-us/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "C# para Tienda Windows")[iOS](/en-us/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS")
+[C\# para Tienda Windows](/es-es/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/ "C# para Tienda Windows")[iOS](/es-es/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/ "iOS")
 
-Este tema muestra cómo solicitar un registro de notificación de inserción con Centros de notificaciones de Azure al realizar el registro mediante Servicios móviles de Azure. Este tema amplía el tutorial [Notificación a los usuarios con los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users). Debe haber completado ya los pasos necesarios de ese tutorial para crear el servicio móvil autenticado. Para obtener más información acerca del escenario de notificación a los usuarios, consulte [Notificación a los usuarios con los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users).
+Este tema muestra cómo solicitar un registro de notificación de inserción con Centros de notificaciones de Azure al realizar el registro mediante Servicios móviles de Azure. Este tema amplía el tutorial [Notificación a los usuarios con los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users). Debe haber completado ya los pasos necesarios de ese tutorial para crear el servicio móvil autenticado. Para obtener más información acerca del escenario de notificación a los usuarios, consulte [Notificación a los usuarios con los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users).
 
-1.  En Visual Studio 2012 Express para Windows 8, abra el proyecto que creó cuando completó el tutorial [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/), completado como requisito previo.
+1.  En Visual Studio 2012 Express para Windows 8, abra el proyecto que creó cuando completó el tutorial [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-dotnet/), completado como requisito previo.
 
 2.  En el Explorador de soluciones, haga clic con el botón secundario en el proyecto, haga clic en **Store** y, a continuación, haga clic en **Associate App with the Store...**.
 
@@ -16,7 +16,7 @@ Se muestra el asistente para **asociar la aplicación con la Tienda Windows**.
 
 1.  En el asistente, haga clic en **Sign in** y, a continuación, inicie sesión con su cuenta de Microsoft.
 
-2.  Seleccione la aplicación que registró en [Notificación a los usuarios en los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users), haga clic en **Siguiente** y, a continuación, en **Associate**.
+2.  Seleccione la aplicación que registró en [Notificación a los usuarios en los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users), haga clic en **Siguiente** y, a continuación, en **Associate**.
 
 	![][2]
 
@@ -91,7 +91,7 @@ Se muestra el asistente para **asociar la aplicación con la Tienda Windows**.
              await dialog.ShowAsync();
          }
 
-    Este método crea un canal para notificaciones de inserción y lo envía, junto con el tipo de dispositivo, al método de API personalizada que crea un registro en los Centros de notificaciones. La API personalizada se definió en [Notificación a los usuarios con los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users).
+    Este método crea un canal para notificaciones de inserción y lo envía, junto con el tipo de dispositivo, al método de API personalizada que crea un registro en los Centros de notificaciones. La API personalizada se definió en [Notificación a los usuarios con los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users).
 
 7.  Agregue la siguiente línea de código al método **OnNavigatedTo**, justo después de que se haya llamado al método **Authenticate**:
 
@@ -101,7 +101,7 @@ Se muestra el asistente para **asociar la aplicación con la Tienda Windows**.
 
     Esto garantiza que se solicitará registro cada vez que se cargue la página. En la aplicación, es posible que solo desee realizar este registro de manera periódica para asegurarse de que el registro esté actualizado.
 
-Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación a los usuarios con los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users) y actualice el servicio móvil para enviar notificaciones mediante Centros de notificaciones.
+Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación a los usuarios con los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users) y actualice el servicio móvil para enviar notificaciones mediante Centros de notificaciones.
 
 <!-- Anchors. -->
 
@@ -111,7 +111,7 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 [3]: ./media/notification-hubs-windows-store-mobile-services-register-user-push-notifications/notification-hub-win8-app-toast.png
 
 <!-- URLs. -->
-[Notify users with Notification Hubs]: /en-us/manage/services/notification-hubs/notify-users
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Notify users with Notification Hubs]: /es-es/manage/services/notification-hubs/notify-users
+[Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-dotnet/
 
 [Azure Management Portal]: https://manage.windowsazure.com/

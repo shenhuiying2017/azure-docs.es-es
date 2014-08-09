@@ -76,8 +76,8 @@ foreach (IAsset asset in _context.Assets)
 
 Para obtener más información acerca de la administración de recursos, consulte:
 
--   [Administración de recursos con el SDK de Media Services para .NET](http://msdn.microsoft.com/en-us/library/jj129589.aspx)
--   [Administración de recursos con la API de REST de Media Services](http://msdn.microsoft.com/en-us/library/jj129583.aspx)
+-   [Administración de recursos con el SDK de Media Services para .NET](http://msdn.microsoft.com/es-es/library/jj129589.aspx)
+-   [Administración de recursos con la API de REST de Media Services](http://msdn.microsoft.com/es-es/library/jj129583.aspx)
 
 Pasos siguientes
 ----------------

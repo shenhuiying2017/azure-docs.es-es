@@ -47,7 +47,7 @@ En Servicios móviles, puede definir la lógica de negocios personalizada como c
 
 La firma de la función principal del script del servidor depende del contexto en el que se use el script. También puede definir el código de script común como módulos nodes.js que se comparten entre scripts. Para obtener más información, consulte [Control de código fuente y código compartido](#shared-code).
 
-Para ver las descripciones de las funciones y los objetos de script del servidor individuales, consulte [Referencia de script de servidor de Servicios móviles](http://msdn.microsoft.com/en-us/library/windowsazure/jj554226.aspx).
+Para ver las descripciones de las funciones y los objetos de script del servidor individuales, consulte [Referencia de script de servidor de Servicios móviles](http://msdn.microsoft.com/es-es/library/windowsazure/jj554226.aspx).
 
 Operaciones de tabla
 --------------------
@@ -71,17 +71,17 @@ Una función de script de tabla siempre cuenta con tres argumentos.
 
     -   Para las inserciones y las actualizaciones, es un objeto **item**, que es una representación JSON de la fila afectada por la operación. Esto le permite obtener acceso a los valores de columna por nombre, por ejemplo, *item.Owner*, donde *Owner* es uno de los nombres en la representación JSON.
     -   Para la eliminación, es el identificador del registro que se va a eliminar.
-    -   Para la lectura, es un objeto [query](http://msdn.microsoft.com/en-us/library/windowsazure/jj613353.aspx) que especifica el conjunto de filas que se van a devolver.
--   El segundo argumento es siempre un objeto [user](http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx) que representa al usuario que envió la solicitud.
+    -   Para la lectura, es un objeto [query](http://msdn.microsoft.com/es-es/library/windowsazure/jj613353.aspx) que especifica el conjunto de filas que se van a devolver.
+-   El segundo argumento es siempre un objeto [user](http://msdn.microsoft.com/es-es/library/windowsazure/jj554220.aspx) que representa al usuario que envió la solicitud.
 
--   El tercer argumento es siempre un objeto [request](http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx) mediante el que puede controlar la ejecución de la operación solicitada y la respuesta enviada al cliente.
+-   El tercer argumento es siempre un objeto [request](http://msdn.microsoft.com/es-es/library/windowsazure/jj554218.aspx) mediante el que puede controlar la ejecución de la operación solicitada y la respuesta enviada al cliente.
 
 A continuación se muestran las firmas canónicas de funciones principales para las operaciones de tabla:
 
--   [Insert (función)](http://msdn.microsoft.com/en-us/library/windowsazure/jj554229.aspx): `function insert (item, user, request) { ... }`
--   [Update, función](http://msdn.microsoft.com/en-us/library/windowsazure/jj554214.aspx): `function update (item, user, request) { ... }`
--   [Delete (función)](http://msdn.microsoft.com/en-us/library/windowsazure/jj554215.aspx): `function del (id, user, request) { ... }`
--   [Read (función)](http://msdn.microsoft.com/en-us/library/windowsazure/jj554224.aspx): `function read (query, user, request) { ... }`
+-   [Insert (función)](http://msdn.microsoft.com/es-es/library/windowsazure/jj554229.aspx): `function insert (item, user, request) { ... }`
+-   [Update, función](http://msdn.microsoft.com/es-es/library/windowsazure/jj554214.aspx): `function update (item, user, request) { ... }`
+-   [Delete (función)](http://msdn.microsoft.com/es-es/library/windowsazure/jj554215.aspx): `function del (id, user, request) { ... }`
+-   [Read (función)](http://msdn.microsoft.com/es-es/library/windowsazure/jj554224.aspx): `function read (query, user, request) { ... }`
 
 > [WACOM.NOTE]Debe usarse el nombre *del* para la función registrada en la operación de eliminación porque "delete" es una palabra clave reservada en JavaScript.
 
@@ -95,13 +95,13 @@ Puede definir los scripts del servidor que están registrados en una operación 
 
     ![1](./media/mobile-services-how-to-use-server-scripts/1-mobile-insert-script-users.png)
 
-    Para obtener información al respecto, consulte [Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/).
+    Para obtener información al respecto, consulte [Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/).
 
 -   Mediante el control de código fuente. Cuando tenga el control de código fuente habilitado, simplemente cree un archivo con el nombre *&lt;table data-morhtml="true"\>*.*&lt;operation data-morhtml="true"\>*.js en la subcarpeta `.\\service\\table` del repositorio git, donde *&lt;table data-morhtml="true"\>* es el nombre de la tabla y *&lt;operation data-morhtml="true"\>* es la operación de tabla que se registra. Para obtener más información, consulte [Control de código fuente y código compartido](#shared-code).
 
 -   Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, consulte [Uso de la herramienta de la línea de comandos](#command-prompt).
 
-Un script de operación de tabla debe llamar a al menos a una de las siguientes funciones del objeto [request](http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx) para asegurarse de que el cliente recibe una respuesta.
+Un script de operación de tabla debe llamar a al menos a una de las siguientes funciones del objeto [request](http://msdn.microsoft.com/es-es/library/windowsazure/jj554218.aspx) para asegurarse de que el cliente recibe una respuesta.
 
 -   Función **execute**: La operación se ha completado como se ha solicitado y se devuelve la respuesta estándar.
 
@@ -119,7 +119,7 @@ El siguiente script llama a la función **execute** para completar la operación
 
 En este ejemplo, el elemento se inserta en la base de datos y se devuelve el código de estado apropiado al usuario.
 
-Cuando se llama a la función **execute**, se utiliza el valor item, [query](http://msdn.microsoft.com/en-us/library/windowsazure/jj613353.aspx) o id que se pasó como el primer argumento en la función de script para realizar la operación. Para una operación de inserción, actualización o consulta, puede modificar el objeto o la consulta antes de llamar a **execute**:
+Cuando se llama a la función **execute**, se utiliza el valor item, [query](http://msdn.microsoft.com/es-es/library/windowsazure/jj613353.aspx) o id que se pasó como el primer argumento en la función de script para realizar la operación. Para una operación de inserción, actualización o consulta, puede modificar el objeto o la consulta antes de llamar a **execute**:
 
     function insert(item, user, request) { 
         item.scriptComment =
@@ -141,7 +141,7 @@ Cuando se llama a la función **execute**, se utiliza el valor item, [query](htt
 
 > [WACOM.NOTE]En un script de eliminación, cambiar el valor de las variables userId proporcionadas no afecta al registro que se elimina.
 
-Para ver más ejemplos, consulte [Leer y escribir datos](http://msdn.microsoft.com/en-us/library/windowsazure/jj631640.aspx), [Modificar la solicitud](http://msdn.microsoft.com/en-us/library/windowsazure/jj631635.aspx) y [Validar datos](http://msdn.microsoft.com/en-us/library/windowsazure/jj631638.aspx).
+Para ver más ejemplos, consulte [Leer y escribir datos](http://msdn.microsoft.com/es-es/library/windowsazure/jj631640.aspx), [Modificar la solicitud](http://msdn.microsoft.com/es-es/library/windowsazure/jj631635.aspx) y [Validar datos](http://msdn.microsoft.com/es-es/library/windowsazure/jj631638.aspx).
 
 ### Reemplazo de la respuesta predeterminada
 
@@ -156,7 +156,7 @@ También puede usar un script para implementar la lógica de validación que pue
         }
     }
 
-En este ejemplo, se rechaza la solicitud cuando el elemento insertado no dispone de una propiedad userId que coincida con el userId del objeto [user](http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx) proporcionado para el cliente autenticado. En este caso, no se produce una operación de base de datos (*insert*) y se devuelve una respuesta con el código de estado 403 HTTP y un mensaje de error personalizado al cliente. Para ver más ejemplos, consulte [Modificar la respuesta](http://msdn.microsoft.com/en-us/library/windowsazure/jj631631.aspx).
+En este ejemplo, se rechaza la solicitud cuando el elemento insertado no dispone de una propiedad userId que coincida con el userId del objeto [user](http://msdn.microsoft.com/es-es/library/windowsazure/jj554220.aspx) proporcionado para el cliente autenticado. En este caso, no se produce una operación de base de datos (*insert*) y se devuelve una respuesta con el código de estado 403 HTTP y un mensaje de error personalizado al cliente. Para ver más ejemplos, consulte [Modificar la respuesta](http://msdn.microsoft.com/es-es/library/windowsazure/jj631631.aspx).
 
 ### Reemplazo de execute success
 
@@ -208,7 +208,7 @@ Por ejemplo, el siguiente URI para una solicitud POST indica al servicio que no 
        https://todolist.azure-mobile.net/tables/TodoItem
         duplicateText=false
 
-Puede obtenerse acceso a los parámetros de consulta predeterminados desde la propiedad **parameters** del objeto [request](http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx). Servicios móviles proporciona el objeto **request** para cualquier función registrada en una operación de tabla. El siguiente script del servidor para la operación de inserción comprueba el valor del parámetro duplicateText antes de que se ejecute la operación de inserción:
+Puede obtenerse acceso a los parámetros de consulta predeterminados desde la propiedad **parameters** del objeto [request](http://msdn.microsoft.com/es-es/library/windowsazure/jj554218.aspx). Servicios móviles proporciona el objeto **request** para cualquier función registrada en una operación de tabla. El siguiente script del servidor para la operación de inserción comprueba el valor del parámetro duplicateText antes de que se ejecute la operación de inserción:
 
        function insert(item, user, request) {
             var todoItemTable = tables.getTable('TodoItem');
@@ -238,7 +238,7 @@ Puede obtenerse acceso a los parámetros de consulta predeterminados desde la pr
             }
         }
 
-Tenga en cuenta que en **insertItemIfNotComplete**, la función **execute** del objeto [request](http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx) se invoca para insertar el elemento cuando no existe texto duplicado; de lo contrario, se invoca la función **respond** para avisar al cliente del duplicado.
+Tenga en cuenta que en **insertItemIfNotComplete**, la función **execute** del objeto [request](http://msdn.microsoft.com/es-es/library/windowsazure/jj554218.aspx) se invoca para insertar el elemento cuando no existe texto duplicado; de lo contrario, se invoca la función **respond** para avisar al cliente del duplicado.
 
 Tenga en cuenta la sintaxis de la llamada a la función **success** en el código anterior:
 
@@ -256,7 +256,7 @@ En JavaScript es una versión compacta del equivalente más largo:
 
 ### Utilización de usuarios
 
-En Servicios móviles de Azure puede usar un proveedor de identidades para autenticar usuarios. Para obtener más información, consulte [Introducción a la autenticación](http://go.microsoft.com/fwlink/p/?LinkId=287177). Cuando un usuario autenticado invoca una operación de tabla, Servicios móviles usa el objeto [user](http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx) para proporcionar información sobre el usuario a la función de script registrada. La propiedad **userId** puede usarse para almacenar y recuperar información específica del usuario. En el siguiente ejemplo se establece la propiedad owner de un elemento basado en el userId de un usuario autenticado:
+En Servicios móviles de Azure puede usar un proveedor de identidades para autenticar usuarios. Para obtener más información, consulte [Introducción a la autenticación](http://go.microsoft.com/fwlink/p/?LinkId=287177). Cuando un usuario autenticado invoca una operación de tabla, Servicios móviles usa el objeto [user](http://msdn.microsoft.com/es-es/library/windowsazure/jj554220.aspx) para proporcionar información sobre el usuario a la función de script registrada. La propiedad **userId** puede usarse para almacenar y recuperar información específica del usuario. En el siguiente ejemplo se establece la propiedad owner de un elemento basado en el userId de un usuario autenticado:
 
     function insert(item, user, request) {
         item.owner = user.userId;
@@ -275,15 +275,15 @@ En el siguiente ejemplo se agrega un filtro adicional a la consulta basado en el
 API personalizada
 -----------------
 
-Una API personalizada es un extremo del servicio móvil al que se obtiene acceso mediante uno o varios métodos HTTP estándar: GET, POST, PUT, PATCH y DELETE. Puede definirse una exportación de función independiente para cada método HTTP proporcionado por la API personalizada, todo en un único archivo de script. El script registrado se invoca cuando se recibe una solicitud a la API personalizada con el método determinado. Para obtener más información, consulte [API personalizada](http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx).
+Una API personalizada es un extremo del servicio móvil al que se obtiene acceso mediante uno o varios métodos HTTP estándar: GET, POST, PUT, PATCH y DELETE. Puede definirse una exportación de función independiente para cada método HTTP proporcionado por la API personalizada, todo en un único archivo de script. El script registrado se invoca cuando se recibe una solicitud a la API personalizada con el método determinado. Para obtener más información, consulte [API personalizada](http://msdn.microsoft.com/es-es/library/windowsazure/dn280974.aspx).
 
-Cuando el tiempo de ejecución de Servicios móviles llama a las funciones de la API personalizada, se proporcionan tanto el objeto [request](http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx) como [response](http://msdn.microsoft.com/en-us/library/windowsazure/dn303373.aspx). Estos objetos ofrecen la funcionalidad de [express.js library](http://go.microsoft.com/fwlink/p/?LinkId=309046), que los scripts pueden aprovechar. La siguiente API personalizada llamada **hello** es un ejemplo muy sencillo que devuelve *Hello, world!* en respuesta a la solicitud POST:
+Cuando el tiempo de ejecución de Servicios móviles llama a las funciones de la API personalizada, se proporcionan tanto el objeto [request](http://msdn.microsoft.com/es-es/library/windowsazure/jj554218.aspx) como [response](http://msdn.microsoft.com/es-es/library/windowsazure/dn303373.aspx). Estos objetos ofrecen la funcionalidad de [express.js library](http://go.microsoft.com/fwlink/p/?LinkId=309046), que los scripts pueden aprovechar. La siguiente API personalizada llamada **hello** es un ejemplo muy sencillo que devuelve *Hello, world!* en respuesta a la solicitud POST:
 
        exports.post = function(request, response) {
             response.send(200, "{ message: 'Hello, world!' }");
         } 
 
-La función **send** en el objeto [request](http://msdn.microsoft.com/en-us/library/windowsazure/dn303373.aspx) devuelve la respuesta deseada al cliente. Este código se invoca mediante el envío de una solicitud POST a la siguiente dirección URL:
+La función **send** en el objeto [request](http://msdn.microsoft.com/es-es/library/windowsazure/dn303373.aspx) devuelve la respuesta deseada al cliente. Este código se invoca mediante el envío de una solicitud POST a la siguiente dirección URL:
 
        https://todolist.azure-mobile.net/api/hello  
 
@@ -297,7 +297,7 @@ Puede definir los scripts del servidor que están registrados en métodos HTTP e
 
     ![2](./media/mobile-services-how-to-use-server-scripts/2-mobile-custom-api-script.png)
 
-    Los métodos de permisos de acceso a la API personalizada se encuentran asignados en la pestaña Permissions. Para ver cómo se creó esta API personalizada, consulte [Llamada a una API personalizada desde el cliente](/en-us/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api).
+    Los métodos de permisos de acceso a la API personalizada se encuentran asignados en la pestaña Permissions. Para ver cómo se creó esta API personalizada, consulte [Llamada a una API personalizada desde el cliente](/es-es/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api).
 
 -   Mediante el control de código fuente. Cuando disponga de un control de código fuente habilitado, simplemente cree un archivo con el nombre *&lt;custom data-morhtml="true"\_api\>*.js en la subcarpeta `.\\service\\api` en el repositorio git, donde *&lt;custom data-morhtml="true"\_api\>* es el nombre de la API personalizada que se registra. El script contienen una función *exported* para cada método HTTP que ofrece la API personalizada. Los permisos se definen en un archivo .json complementario. Para obtener más información, consulte [Control de código fuente y código compartido](#shared-code).
 
@@ -317,7 +317,7 @@ No se puede llamar al extremo de la API personalizada mediante un método HTTP q
 
 ### Envío y recepción de datos como XML
 
-Cuando los clientes almacenan y recuperan datos, Servicios móviles usa la notación de objetos JavaScript (JSON) para representar datos en el cuerpo del mensaje. Sin embargo, existen escenarios en los que es posible que desee usar una carga XML. Por ejemplo, las aplicaciones de Tienda Windows disponen de una funcionalidad de notificaciones periódicas integrada que requiere que el servicio emita XML. Para obtener más información, consulte [Definición de una API personalizada que admita notificaciones periódicas](/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet/).
+Cuando los clientes almacenan y recuperan datos, Servicios móviles usa la notación de objetos JavaScript (JSON) para representar datos en el cuerpo del mensaje. Sin embargo, existen escenarios en los que es posible que desee usar una carga XML. Por ejemplo, las aplicaciones de Tienda Windows disponen de una funcionalidad de notificaciones periódicas integrada que requiere que el servicio emita XML. Para obtener más información, consulte [Definición de una API personalizada que admita notificaciones periódicas](/es-es/develop/mobile/tutorials/create-pull-notifications-dotnet/).
 
 La siguiente función de la API personalizada **OrderPizza** devuelve un documento XML simple como carga de respuesta:
 
@@ -335,7 +335,7 @@ Una solicitud HTTP GET invoca esta función de la API personalizada para el sigu
 
 ### Utilización de usuarios y encabezados en una API personalizada
 
-En Servicios móviles de Azure puede usar un proveedor de identidades para autenticar usuarios. Para obtener más información, consulte [Introducción a la autenticación](http://go.microsoft.com/fwlink/p/?LinkId=287177). Cuando un usuario autenticado solicita una API personalizada, Servicios móviles usa el objeto [user](http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx) para proporcionar información sobre el usuario al código de la API personalizada. Se obtiene acceso al objeto [user](http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx) desde la propiedad del usuario del objeto [request](http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx). La propiedad **userId** puede usarse para almacenar y recuperar información específica del usuario.
+En Servicios móviles de Azure puede usar un proveedor de identidades para autenticar usuarios. Para obtener más información, consulte [Introducción a la autenticación](http://go.microsoft.com/fwlink/p/?LinkId=287177). Cuando un usuario autenticado solicita una API personalizada, Servicios móviles usa el objeto [user](http://msdn.microsoft.com/es-es/library/windowsazure/jj554220.aspx) para proporcionar información sobre el usuario al código de la API personalizada. Se obtiene acceso al objeto [user](http://msdn.microsoft.com/es-es/library/windowsazure/jj554220.aspx) desde la propiedad del usuario del objeto [request](http://msdn.microsoft.com/es-es/library/windowsazure/jj554218.aspx). La propiedad **userId** puede usarse para almacenar y recuperar información específica del usuario.
 
 En la siguiente función de la API personalizada **OrderPizza** se establece la propiedad owner de un elemento basado en el userId de un usuario autenticado:
 
@@ -355,7 +355,7 @@ Una solicitud HTTP POST invoca esta función de la API personalizada para el sig
 
        https://<service>.azure-mobile.net/api/orderpizza
 
-También puede obtener acceso a un encabezado HTTP desde el objeto [request](http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx) como se muestra en el siguiente código:
+También puede obtener acceso a un encabezado HTTP desde el objeto [request](http://msdn.microsoft.com/es-es/library/windowsazure/jj554218.aspx) como se muestra en el siguiente código:
 
        exports.get = function(request, response) {    
             var header = request.header('my-custom-header');
@@ -403,7 +403,7 @@ Las solicitudes HTTP GET pueden invocar las dos rutas del ejemplo anterior de la
 Programador de trabajos
 -----------------------
 
-Servicios móviles le permite definir scripts del servidor que se ejecuten como trabajos en una programación fija o a petición en el Portal de administración. Los trabajos programados son útiles para la realización de tareas periódicas como la limpieza de datos de una tabla y el procesamiento por lotes. Para obtener más información, consulte [Programar trabajos](http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx).
+Servicios móviles le permite definir scripts del servidor que se ejecuten como trabajos en una programación fija o a petición en el Portal de administración. Los trabajos programados son útiles para la realización de tareas periódicas como la limpieza de datos de una tabla y el procesamiento por lotes. Para obtener más información, consulte [Programar trabajos](http://msdn.microsoft.com/es-es/library/windowsazure/jj860528.aspx).
 
 Los scripts que se han registrado en trabajos programados tienen una función principal con el mismo nombre que el trabajo programado. Puesto que una solicitud HTTP no invoca un script programado, no existe ningún contexto que el tiempo de ejecución del servidor pueda pasar y la función no usa ningún parámetro. Como con otros tipos de scripts, puede disponer de funciones de subrutinas y solicitar módulos compartidos. Para obtener más información, consulte [Control de código fuente, código compartido y funciones auxiliares](#shared-code).
 
@@ -417,7 +417,7 @@ Puede definir trabajos programados de una de las siguientes formas:
 
     ![3](./media/mobile-services-how-to-use-server-scripts/3-mobile-schedule-job-script.png)
 
-    Para obtener más información sobre cómo hacer esto, consulte [Programación de trabajos de back-end en Servicios móviles](/en-us/develop/mobile/tutorials/schedule-backend-tasks/).
+    Para obtener más información sobre cómo hacer esto, consulte [Programación de trabajos de back-end en Servicios móviles](/es-es/develop/mobile/tutorials/schedule-backend-tasks/).
 
 -   Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, consulte [Uso de la herramienta de la línea de comandos](#command-prompt).
 
@@ -434,8 +434,8 @@ A continuación se muestran algunos de los módulos más útiles de los que pued
 -   **crypto**: Proporciona la funcionalidad crypto de OpenSSL. Para obtener más información, consulte [Node.js documentation](http://go.microsoft.com/fwlink/p/?LinkId=288802).
 -   **path**: Contiene utilidades para trabajar con rutas de archivos. Para obtener más información, consulte [Node.js documentation](http://go.microsoft.com/fwlink/p/?LinkId=288803).
 -   **querystring**: Contiene utilidades para trabajar con cadenas de consulta. Para obtener más información, consulte [Node.js documentation](http://go.microsoft.com/fwlink/p/?LinkId=288804).
--   **request**: Envía solicitudes HTTP a servicios REST externos, como Twitter y Facebook. Para obtener más información, consulte [Enviar solicitud HTTP](http://msdn.microsoft.com/en-us/library/windowsazure/jj631641.aspx).
--   **sendgrid**: Envía un correo electrónico mediante el servicio de correo electrónico Sendgrid en Azure. Para obtener más información, consulte [Envío de correo electrónico desde Servicios móviles con SendGrid](/en-us/develop/mobile/tutorials/send-email-with-sendgrid/).
+-   **request**: Envía solicitudes HTTP a servicios REST externos, como Twitter y Facebook. Para obtener más información, consulte [Enviar solicitud HTTP](http://msdn.microsoft.com/es-es/library/windowsazure/jj631641.aspx).
+-   **sendgrid**: Envía un correo electrónico mediante el servicio de correo electrónico Sendgrid en Azure. Para obtener más información, consulte [Envío de correo electrónico desde Servicios móviles con SendGrid](/es-es/develop/mobile/tutorials/send-email-with-sendgrid/).
 -   **url**: Contiene utilidades para redistribuir y resolver direcciones URL. Para obtener más información, consulte [Node.js documentation](http://go.microsoft.com/fwlink/p/?LinkId=288805).
 -   **util**: Contiene varias utilidades, como una comprobación del tipo de objeto y un formato de cadena. Para obtener más información, consulte [Node.js documentation](http://go.microsoft.com/fwlink/p/?LinkId=288806).
 -   **zlib**: Ofrece la funcionalidad de compresión, como gzip y deflate. Para obtener más información, consulte [Node.js documentation](http://go.microsoft.com/fwlink/p/?LinkId=288807).
@@ -457,7 +457,7 @@ Puede usar el control de código fuente con el administrador de paquetes Node.js
 
 -   Para los módulos publicados en npm o que npm ha instalado, use el archivo package.json para establecer qué paquete desea que el servicio móvil instale. De esta forma, su servicio siempre dispondrá de acceso a la versión más reciente de los paquetes requeridos. El archivo package.json se encuentra en el directorio `.\\service`. Para obtener más información, consulte [Support for package.json in Azure Mobile Services](http://go.microsoft.com/fwlink/p/?LinkId=391036).
 
--   En los módulos privados o personalizados, puede usar npm para instalar manualmente el módulo en el directorio `.\\service\\node\_modules` del control de código fuente. Para obtener un ejemplo de cómo cargar manualmente un módulo, consulte [Aprovechamiento del código compartido y de módulos Node.js en los scripts del servidor](/en-us/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm).
+-   En los módulos privados o personalizados, puede usar npm para instalar manualmente el módulo en el directorio `.\\service\\node\_modules` del control de código fuente. Para obtener un ejemplo de cómo cargar manualmente un módulo, consulte [Aprovechamiento del código compartido y de módulos Node.js en los scripts del servidor](/es-es/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm).
 
     > [WACOM.NOTE]Si node\_modules ya existe en la jerarquía de directorios, NPM creará el subdirectorio \\node-uuid ahí en lugar de crear un nuevo node\_modules en el repositorio. En este caso, elimine el directorio node\_modules existente.
 
@@ -505,15 +505,15 @@ A continuación, puede usar una función como esta en un script de operaciones d
             }
         }
 
-En este ejemplo debe pasar un objeto [tables](http://msdn.microsoft.com/en-us/library/windowsazure/jj614364.aspx) y un objeto [user](http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx) a la función compartida. Esto se debe a que los scripts compartidos no pueden obtener acceso al objeto [tables](http://msdn.microsoft.com/en-us/library/windowsazure/jj614364.aspx) global y a que el objeto [user](http://msdn.microsoft.com/en-us/library/windowsazure/jj554220.aspx) solo existe en el contexto de una solicitud.
+En este ejemplo debe pasar un objeto [tables](http://msdn.microsoft.com/es-es/library/windowsazure/jj614364.aspx) y un objeto [user](http://msdn.microsoft.com/es-es/library/windowsazure/jj554220.aspx) a la función compartida. Esto se debe a que los scripts compartidos no pueden obtener acceso al objeto [tables](http://msdn.microsoft.com/es-es/library/windowsazure/jj614364.aspx) global y a que el objeto [user](http://msdn.microsoft.com/es-es/library/windowsazure/jj554220.aspx) solo existe en el contexto de una solicitud.
 
 Los archivos de script se cargan en el directorio compartido mediante el [control de código fuente](#shared-code-source-control) o con la [herramienta de la línea de comandos](#command-prompt).
 
 ### Uso de configuración de aplicaciones
 
-Servicios móviles le permite almacenar de forma segura valores como configuraciones de aplicaciones, a los que los scripts del servidor pueden obtener acceso en el tiempo de ejecución. Cuando agrega datos a la configuración de aplicaciones del servicio móvil, los pares nombre/valor se almacenan cifrados y puede obtener acceso a ellos en los scripts del servidor sin integrarlos como parte del código en el archivo de script. Para obtener más información, consulte [Configuración de aplicación](http://msdn.microsoft.com/en-us/library/dn529070.aspx).
+Servicios móviles le permite almacenar de forma segura valores como configuraciones de aplicaciones, a los que los scripts del servidor pueden obtener acceso en el tiempo de ejecución. Cuando agrega datos a la configuración de aplicaciones del servicio móvil, los pares nombre/valor se almacenan cifrados y puede obtener acceso a ellos en los scripts del servidor sin integrarlos como parte del código en el archivo de script. Para obtener más información, consulte [Configuración de aplicación](http://msdn.microsoft.com/es-es/library/dn529070.aspx).
 
-El siguiente ejemplo de API personalizada usa el objeto [service](http://msdn.microsoft.com/en-us/library/windowsazure/dn303371.aspx) proporcionado para recuperar un valor de configuración de aplicaciones.
+El siguiente ejemplo de API personalizada usa el objeto [service](http://msdn.microsoft.com/es-es/library/windowsazure/dn303371.aspx) proporcionado para recuperar un valor de configuración de aplicaciones.
 
        exports.get = function(request, response) {
         
@@ -537,7 +537,7 @@ El siguiente código usa el módulo de configuración para recuperar los valores
         var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
             accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
 
-Tenga en cuenta que este código también recupera los valores clave del usuario de Twitter almacenados en la pestaña **Identity** del portal. Puesto que no hay disponible un objeto **config** en la operación de tabla y en los scripts de trabajos programados, debe solicitar al módulo de configuración que obtenga acceso a la configuración de aplicaciones. Para ver un ejemplo completo, consulte [Programación de trabajos de back-end en Servicios móviles](/en-us/develop/mobile/tutorials/schedule-backend-tasks/).
+Tenga en cuenta que este código también recupera los valores clave del usuario de Twitter almacenados en la pestaña **Identity** del portal. Puesto que no hay disponible un objeto **config** en la operación de tabla y en los scripts de trabajos programados, debe solicitar al módulo de configuración que obtenga acceso a la configuración de aplicaciones. Para ver un ejemplo completo, consulte [Programación de trabajos de back-end en Servicios móviles](/es-es/develop/mobile/tutorials/schedule-backend-tasks/).
 
 Uso de la herramienta de la línea de comandos
 ---------------------------------------------
@@ -581,24 +581,24 @@ El siguiente comando devuelve información sobre cada archivo de script que se m
         data:    register_notifications  application  application  user         application  application
         info:    mobile script list command OK
 
-Para obtener más información, consulte [Comandos para administrar Servicios móviles de Azure](/en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts).
+Para obtener más información, consulte [Comandos para administrar Servicios móviles de Azure](/es-es/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts).
 
 Uso de tablas
 -------------
 
 Muchos escenarios de Servicios móviles requieren que los scripts del servidor obtengan acceso a las tablas en la base de datos. Por ejemplo, puesto que Servicios móviles no conserva el estado entre ejecuciones de scripts, los datos que tengan que mantenerse entre las ejecuciones de scripts deben almacenarse en tablas. Es posible que desee examinar entradas en una tabla de permisos o almacenar datos de auditoría en lugar de escribir simplemente el registro, donde los datos cuentan con una duración limitada y a los que no puede obtenerse acceso mediante programación.
 
-Servicios móviles cuenta con dos formas de obtener acceso a las tablas, usando un proxy de objeto [table](http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx) o componiendo consultas Transact-SQL con el objeto [mssql](http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx). El objeto [table](http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx) facilita el acceso a los datos de tabla desde el código del script del servidor, pero el objeto [mssql](http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx) es compatible con operaciones de datos más complejas y proporciona la mayor flexibilidad.
+Servicios móviles cuenta con dos formas de obtener acceso a las tablas, usando un proxy de objeto [table](http://msdn.microsoft.com/es-es/library/windowsazure/jj554210.aspx) o componiendo consultas Transact-SQL con el objeto [mssql](http://msdn.microsoft.com/es-es/library/windowsazure/jj554212.aspx). El objeto [table](http://msdn.microsoft.com/es-es/library/windowsazure/jj554210.aspx) facilita el acceso a los datos de tabla desde el código del script del servidor, pero el objeto [mssql](http://msdn.microsoft.com/es-es/library/windowsazure/jj554212.aspx) es compatible con operaciones de datos más complejas y proporciona la mayor flexibilidad.
 
 ### Acceso a tablas desde scripts
 
-La forma más sencilla de obtener acceso a las tablas desde el script es usar el objeto [tables](http://msdn.microsoft.com/en-us/library/windowsazure/jj614364.aspx). La función **getTable** devuelve una instancia del objeto [table](http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx) que es un proxy para obtener acceso a la tabla solicitada. A continuación, puede llamar a las funciones en el proxy para obtener acceso y cambiar los datos.
+La forma más sencilla de obtener acceso a las tablas desde el script es usar el objeto [tables](http://msdn.microsoft.com/es-es/library/windowsazure/jj614364.aspx). La función **getTable** devuelve una instancia del objeto [table](http://msdn.microsoft.com/es-es/library/windowsazure/jj554210.aspx) que es un proxy para obtener acceso a la tabla solicitada. A continuación, puede llamar a las funciones en el proxy para obtener acceso y cambiar los datos.
 
-Los scripts registrados en las operaciones de tabla y los trabajos programados pueden obtener acceso al objeto [tables](http://msdn.microsoft.com/en-us/library/windowsazure/jj614364.aspx) como un objeto global. Esta línea de código obtiene un proxy para la tabla *TodoItems* desde el objeto [tables](http://msdn.microsoft.com/en-us/library/windowsazure/jj614364.aspx) global:
+Los scripts registrados en las operaciones de tabla y los trabajos programados pueden obtener acceso al objeto [tables](http://msdn.microsoft.com/es-es/library/windowsazure/jj614364.aspx) como un objeto global. Esta línea de código obtiene un proxy para la tabla *TodoItems* desde el objeto [tables](http://msdn.microsoft.com/es-es/library/windowsazure/jj614364.aspx) global:
 
        var todoItemsTable = tables.getTable('TodoItems');
 
-Los scripts de la API personalizada pueden obtener acceso al objeto [tables](http://msdn.microsoft.com/en-us/library/windowsazure/jj614364.aspx) desde la propiedad **service** del objeto [request](http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx) proporcionado. Esta línea de código obtiene el objeto [tables](http://msdn.microsoft.com/en-us/library/windowsazure/jj614364.aspx) de la solicitud:
+Los scripts de la API personalizada pueden obtener acceso al objeto [tables](http://msdn.microsoft.com/es-es/library/windowsazure/jj614364.aspx) desde la propiedad **service** del objeto [request](http://msdn.microsoft.com/es-es/library/windowsazure/jj554218.aspx) proporcionado. Esta línea de código obtiene el objeto [tables](http://msdn.microsoft.com/es-es/library/windowsazure/jj614364.aspx) de la solicitud:
 
        var todoItemsTable = request.service.tables.getTable('TodoItem');
 
@@ -606,7 +606,7 @@ Los scripts de la API personalizada pueden obtener acceso al objeto [tables](htt
 
 Las funciones compartidas no pueden obtener acceso al objeto **tables** directamente. En una función compartida, debe pasar el objeto tables a la función.
 
-Una vez que disponga de un objeto [table](http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx), puede llamar a una o más funciones de operación de tablas: insertar, actualizar, eliminar o leer. En este ejemplo se leen los permisos de usuario desde una tabla de permisos:
+Una vez que disponga de un objeto [table](http://msdn.microsoft.com/es-es/library/windowsazure/jj554210.aspx), puede llamar a una o más funciones de operación de tablas: insertar, actualizar, eliminar o leer. En este ejemplo se leen los permisos de usuario desde una tabla de permisos:
 
     function insert(item, user, request) {
         var permissionsTable = tables.getTable('permissions');
@@ -705,13 +705,13 @@ Las recopilaciones de tipos de datos en el cliente y en la tabla de base de dato
 
 -   Los tipos específicos del lenguaje del cliente se encuentran serializados en JSON.
 -   La representación JSON se traduce a JavaScript antes de que aparezca en los scripts del servidor.
--   Los tipos de datos de JavaScript se convierten a tipos de base de datos SQL cuando se guardan con el objeto [tables](http://msdn.microsoft.com/en-us/library/windowsazure/jj614364.aspx).
+-   Los tipos de datos de JavaScript se convierten a tipos de base de datos SQL cuando se guardan con el objeto [tables](http://msdn.microsoft.com/es-es/library/windowsazure/jj614364.aspx).
 
 La transformación del esquema de cliente en JSON varía entre plataformas. JSON.NET se usa en los clientes de Windows Phone y Tienda Windows. El cliente Android usa la biblioteca gson. El cliente iOS usa la clase NSJSONSerialization. Se utiliza el comportamiento de serialización predeterminado de cada una de estas bibliotecas, excepto en el caso en el que los objetos date se conviertan en cadenas que contengan la fecha codificada mediante ISO 8601.
 
-Cuando escriba scripts del servidor que usen funciones [insert](http://msdn.microsoft.com/en-us/library/windowsazure/jj554229.aspx), [update](http://msdn.microsoft.com/en-us/library/windowsazure/jj554214.aspx), [read](http://msdn.microsoft.com/en-us/library/windowsazure/jj554224.aspx) o [delete](http://msdn.microsoft.com/en-us/library/windowsazure/jj554215.aspx), puede obtener acceso a la representación de JavaScript de sus datos. Servicios móviles usa la función de deserialización de Node.js ([JSON.parse](http://es5.github.io/#x15.12)) para transformar los elementos JSON del protocolo de cable en objetos JavaScript. Sin embargo, Servicios móviles realiza una transformación para extraer objetos **Date** de las cadenas ISO 8601.
+Cuando escriba scripts del servidor que usen funciones [insert](http://msdn.microsoft.com/es-es/library/windowsazure/jj554229.aspx), [update](http://msdn.microsoft.com/es-es/library/windowsazure/jj554214.aspx), [read](http://msdn.microsoft.com/es-es/library/windowsazure/jj554224.aspx) o [delete](http://msdn.microsoft.com/es-es/library/windowsazure/jj554215.aspx), puede obtener acceso a la representación de JavaScript de sus datos. Servicios móviles usa la función de deserialización de Node.js ([JSON.parse](http://es5.github.io/#x15.12)) para transformar los elementos JSON del protocolo de cable en objetos JavaScript. Sin embargo, Servicios móviles realiza una transformación para extraer objetos **Date** de las cadenas ISO 8601.
 
-Cuando use el objeto [tables](http://msdn.microsoft.com/en-us/library/windowsazure/jj614364.aspx) o el objeto [mssql](http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx), o simplemente deje que los scripts de tablas se ejecuten, los objetos JavaScript deserializados se insertan en la base de datos SQL. En ese proceso, las propiedades del objeto se asignan a tipos T-SQL:
+Cuando use el objeto [tables](http://msdn.microsoft.com/es-es/library/windowsazure/jj614364.aspx) o el objeto [mssql](http://msdn.microsoft.com/es-es/library/windowsazure/jj554212.aspx), o simplemente deje que los scripts de tablas se ejecuten, los objetos JavaScript deserializados se insertan en la base de datos SQL. En ese proceso, las propiedades del objeto se asignan a tipos T-SQL:
 
 <table  border="1">
 <tr>
@@ -775,7 +775,7 @@ Cuando use el objeto [tables](http://msdn.microsoft.com/en-us/library/windowsazu
 
 ### Uso de Transact-SQL para obtener acceso a las tablas
 
-La forma más sencilla de trabajar con datos de tablas de scripts del servidor es mediante un proxy del objeto [table](http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx). Sin embargo, existen escenarios más avanzados que no son compatibles con el objeto [table](http://msdn.microsoft.com/en-us/library/windowsazure/jj554210.aspx), como las consultas de unión y otras consultas complejas y la invocación de procedimientos almacenados. En estos casos, debe ejecutar las instrucciones Transact-SQL directamente en contra de la tabla relacional mediante el objeto [mssql](http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx). Este objeto proporciona las siguientes funciones:
+La forma más sencilla de trabajar con datos de tablas de scripts del servidor es mediante un proxy del objeto [table](http://msdn.microsoft.com/es-es/library/windowsazure/jj554210.aspx). Sin embargo, existen escenarios más avanzados que no son compatibles con el objeto [table](http://msdn.microsoft.com/es-es/library/windowsazure/jj554210.aspx), como las consultas de unión y otras consultas complejas y la invocación de procedimientos almacenados. En estos casos, debe ejecutar las instrucciones Transact-SQL directamente en contra de la tabla relacional mediante el objeto [mssql](http://msdn.microsoft.com/es-es/library/windowsazure/jj554212.aspx). Este objeto proporciona las siguientes funciones:
 
 -   **query**: Ejecuta una consulta, especificada por una cadena TSQL; los resultados se devuelven a la devolución de llamada **success** en el objeto **options**. La consulta puede incluir parámetros si el parámetro *params* está presente.
 -   **queryRaw**: Como *query*, con la excepción de que el conjunto de resultados devuelto de la consulta está en formato sin procesar (consulte el siguiente ejemplo).
@@ -825,7 +825,7 @@ En el siguiente ejemplo se implementa la autorización personalizada mediante la
 
 #### Unión de tablas relacionales
 
-Puede unir dos tablas mediante el método **query** del objeto [mssql](http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx) para pasar el código TSQL que implementa la unión. Supongamos que disponemos de algunos elementos en la tabla **ToDoItem** y que cada elemento de la tabla dispone de una propiedad **priority** que se corresponde con una columna de la tabla. El aspecto del elemento sería el siguiente:
+Puede unir dos tablas mediante el método **query** del objeto [mssql](http://msdn.microsoft.com/es-es/library/windowsazure/jj554212.aspx) para pasar el código TSQL que implementa la unión. Supongamos que disponemos de algunos elementos en la tabla **ToDoItem** y que cada elemento de la tabla dispone de una propiedad **priority** que se corresponde con una columna de la tabla. El aspecto del elemento sería el siguiente:
 
        { text: 'Take out the trash', complete: false, priority: 1}
 
@@ -912,13 +912,13 @@ La forma más sencilla de depurar y solucionar los problemas de los scripts del 
 
 ### Escritura del resultado en los registros de servicios móviles
 
-Para escribir en los registros, use el objeto [console](http://msdn.microsoft.com/en-us/library/windowsazure/jj554209.aspx) global. Use la función **log** o **info** para registrar las advertencias de nivel de información. Las funciones **warning** y **error** registran sus niveles respectivos, a los que se llama en los registros.
+Para escribir en los registros, use el objeto [console](http://msdn.microsoft.com/es-es/library/windowsazure/jj554209.aspx) global. Use la función **log** o **info** para registrar las advertencias de nivel de información. Las funciones **warning** y **error** registran sus niveles respectivos, a los que se llama en los registros.
 
 **Nota:**
 
 Para ver los registros para el servicio móvil, inicie sesión en el [Portal de administración](https://manage.windowsazure.com/), seleccione el servicio móvil y, a continuación, seleccione la pestaña **Logs**.
 
-También puede usar las funciones de registro del objeto [console](http://msdn.microsoft.com/en-us/library/windowsazure/jj554209.aspx) para dar formato a sus mensajes mediante parámetros. En el siguiente ejemplo se proporciona un objeto JSON como parámetro para la cadena de mensaje:
+También puede usar las funciones de registro del objeto [console](http://msdn.microsoft.com/es-es/library/windowsazure/jj554209.aspx) para dar formato a sus mensajes mediante parámetros. En el siguiente ejemplo se proporciona un objeto JSON como parámetro para la cadena de mensaje:
 
     function insert(item, user, request) {
         console.log("Inserting item '%j' for user '%j'.", item, user);  

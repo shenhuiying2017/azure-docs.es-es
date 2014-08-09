@@ -3,7 +3,7 @@
 Uso del servicio de almacenamiento en cola
 ==========================================
 
-[versión 1.7](/en-us/develop/net/how-to-guides/queue-service-v17/ "versión 1.7") [versión 2.0](/en-us/develop/net/how-to-guides/queue-service/ "versión 2.0")
+[versión 1.7](/es-es/develop/net/how-to-guides/queue-service-v17/ "versión 1.7") [versión 2.0](/es-es/develop/net/how-to-guides/queue-service/ "versión 2.0")
 
 Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Azure. Los ejemplos se escriben en código C\# y usan la API .NET. Entre los escenarios descritos se incluyen la **inserción**, **inspección**, **obtención** y **eliminación** de los mensajes en cola, así como la **creación y eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes](#next-steps).
 
@@ -83,7 +83,7 @@ Al usar Sitios web o Máquinas virtuales, es recomendable que utilice el sistema
         </appSettings>
     </configuration>
 
-Consulte [Configurar las cadenas de conexión de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx) para obtener más información acerca de las cadenas de conexión de almacenamiento.
+Consulte [Configurar las cadenas de conexión de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/ee758697.aspx) para obtener más información acerca de las cadenas de conexión de almacenamiento.
 
 Ahora está preparado para realizar los procedimientos de esta guía.
 
@@ -103,7 +103,7 @@ Puede usar el tipo **CloudStorageAccount** y el tipo **CloudConfigurationManager
 Creación de una colaCreación de una cola
 ----------------------------------------
 
-Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. Todo el código que contiene esta guía utiliza una cadena de conexión de almacenamiento almacenada en la configuración de servicios de la aplicación de Azure. Además, existen otros métodos de creación de un objeto **CloudStorageAccount**. Consulte la documentación de [CloudStorageAccount](http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx) para obtener más información.
+Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. Todo el código que contiene esta guía utiliza una cadena de conexión de almacenamiento almacenada en la configuración de servicios de la aplicación de Azure. Además, existen otros métodos de creación de un objeto **CloudStorageAccount**. Consulte la documentación de [CloudStorageAccount](http://msdn.microsoft.com/es-es/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx) para obtener más información.
 
     // Recupere la cuenta de almacenamiento de cadena de conexión.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -268,11 +268,11 @@ Pasos siguientes
 Ahora que está familiarizado con los aspectos básicos del almacenamiento en cola, utilice estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
 -   Consulte la documentación de referencia del servicio de cola para obtener información detallada acerca de las API disponibles:
-    -   [Referencia a la biblioteca de clases de .NET](http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home)
-    -   [Referencia de la API REST](http://msdn.microsoft.com/en-us/library/windowsazure/dd179355)
--   Obtenga información acerca de las tareas más avanzadas que se pueden realizar con el almacenamiento de Azure en [Almacenamiento](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx).
+    -   [Referencia a la biblioteca de clases de .NET](http://msdn.microsoft.com/es-es/library/windowsazure/wl_svchosting_mref_reference_home)
+    -   [Referencia de la API REST](http://msdn.microsoft.com/es-es/library/windowsazure/dd179355)
+-   Obtenga información acerca de las tareas más avanzadas que se pueden realizar con el almacenamiento de Azure en [Almacenamiento](http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx).
 -   Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
-    -   Utilice [Almacenamiento de tablas](/en-us/develop/net/how-to-guides/table-services/) para almacenar datos estructurados.
-    -   Utilice [Almacenamiento de blobs](/en-us/develop/net/how-to-guides/blob-storage/) para almacenar datos no estructurados.
-    -   Utilice [Base de datos SQL](/en-us/develop/net/how-to-guides/sql-database/) para almacenar datos relacionales.
+    -   Utilice [Almacenamiento de tablas](/es-es/develop/net/how-to-guides/table-services/) para almacenar datos estructurados.
+    -   Utilice [Almacenamiento de blobs](/es-es/develop/net/how-to-guides/blob-storage/) para almacenar datos no estructurados.
+    -   Utilice [Base de datos SQL](/es-es/develop/net/how-to-guides/sql-database/) para almacenar datos relacionales.
 

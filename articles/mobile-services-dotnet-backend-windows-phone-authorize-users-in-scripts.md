@@ -3,13 +3,13 @@
 Autorización en el servicio de usuarios de Servicios móviles
 ============================================================
 
-[C\# para Tienda Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts "C# para Tienda Windows")[JavaScript para Tienda Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts "JavaScript para Tienda Windows")[Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts "iOS")
+[C\# para Tienda Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts "JavaScript para Tienda Windows")[Windows Phone](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts "Windows Phone")[iOS](/es-es/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts "iOS")
 
-[Back-end de .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/ "Back-end de .NET") | [Back-end de JavaScript](/en-us/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/ "Back-end de JavaScript")
+[Back-end de .NET](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/ "Back-end de .NET") | [Back-end de JavaScript](/es-es/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/ "Back-end de JavaScript")
 
 Este tema le muestra cómo autorizar a los usuarios autenticados el acceso a los datos en Servicios móviles de Azure desde una aplicación de Windows Phone. En este tutorial, agregará código a los métodos de acceso a datos de su controlador para filtrar las consultas según el identificador de usuario de los usuarios autenticados, lo que garantiza que cada usuario solo pueda ver sus propios datos.
 
-Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutorial anterior, [Introducción a la autenticación](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users). Antes de comenzar este tutorial, primero debe completar [Introducción a la autenticación](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users).
+Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutorial anterior, [Introducción a la autenticación](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users). Antes de comenzar este tutorial, primero debe completar [Introducción a la autenticación](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users).
 
 Modificación de los métodos de acceso a datos
 ---------------------------------------------
@@ -19,7 +19,7 @@ Modificación de los métodos de acceso a datos
 Prueba de la aplicación
 -----------------------
 
-1.  En Visual Studio 2013 para Windows Phone, abra el proyecto que modificó cuando completó el tutorial [Introducción a la autenticación](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users).
+1.  En Visual Studio 2013 para Windows Phone, abra el proyecto que modificó cuando completó el tutorial [Introducción a la autenticación](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users).
 
 2.  Presione la tecla F5 para ejecutar la aplicación y, a continuación, inicie sesión con el proveedor de identidades seleccionado.
 
@@ -38,13 +38,13 @@ Pasos siguientes
 
 Este es el último tutorial que muestra los aspectos básicos relacionados con el uso de la autenticación. Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
--   [Introducción a los datos](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)
+-   [Introducción a los datos](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data)
     Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a las notificaciones de inserción](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push)
+-   [Introducción a las notificaciones de inserción](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push)
     Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
--   [Referencia conceptual de Servicios móviles con .NET](/en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/)
+-   [Referencia conceptual de Servicios móviles con .NET](/es-es/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/)
     Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
 
@@ -57,9 +57,9 @@ Este es el último tutorial que muestra los aspectos básicos relacionados con e
 [3]: ./media/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/mobile-quickstart-startup.png
 
 <!-- URLs. -->
-[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
-[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data
-[Get started with authentication]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users
-[Get started with push notifications]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push
+[Get started with Mobile Services]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
+[Get started with data]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data
+[Get started with authentication]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users
+[Get started with push notifications]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push
 
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+[Mobile Services .NET How-to Conceptual Reference]: /es-es/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/

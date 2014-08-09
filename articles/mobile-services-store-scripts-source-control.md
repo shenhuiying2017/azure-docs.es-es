@@ -12,7 +12,7 @@ El tutorial le guiará a través de los siguientes pasos:
 3.  [Implementación de archivos de script actualizados en el servicio móvil](#deploy-scripts).
 4.  [Aprovechamiento del código compartido y de módulos Node.js en los scripts del servidor](#use-npm).
 
-Para completar este tutorial, ya debe haber creado un servicio móvil tras completar el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started) o [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet).
+Para completar este tutorial, ya debe haber creado un servicio móvil tras completar el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started) o [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet).
 
 Habilitación del control de código fuenteHabilitación del control de código fuente en el servicio móvil
 -------------------------------------------------------------------------------------------------------
@@ -73,7 +73,7 @@ Clonación del repositorioInstalación de Git y creación del repositorio local
 
 7.  Abra la subcarpeta .\\service\\table y observe que contiene un archivo TodoItem.json, que es una representación JSON de los permisos de funcionamiento de la tabla TodoItem.
 
-    Cuando se hayan definido scripts de servidor en esta tabla, también aparecerán uno o varios archivos denominados `TodoItem._<operation>_.js` que contendrán los scripts para la operación de tabla determinada. Los scripts del programador y de la API personalizada se mantienen en carpetas independientes con esos nombres respectivos. Para obtener más información, consulte [Control de código fuente](http://msdn.microsoft.com/en-us/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643).
+    Cuando se hayan definido scripts de servidor en esta tabla, también aparecerán uno o varios archivos denominados `TodoItem._<operation>_.js` que contendrán los scripts para la operación de tabla determinada. Los scripts del programador y de la API personalizada se mantienen en carpetas independientes con esos nombres respectivos. Para obtener más información, consulte [Control de código fuente](http://msdn.microsoft.com/es-es/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643).
 
 Ahora que ha creado su repositorio local, puede realizar cambios en los scripts del servidor e insertarlos en el servicio móvil.
 
@@ -158,10 +158,10 @@ Pasos siguientes
 
 Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el control de código fuente. Considere la posibilidad de obtener más información sobre cómo trabajar con scripts de servidor y con las API personalizadas:
 
--   [Uso de scripts del servidor en Servicios móviles](/en-us/develop/mobile/how-to-guides/work-with-server-scripts)
+-   [Uso de scripts del servidor en Servicios móviles](/es-es/develop/mobile/how-to-guides/work-with-server-scripts)
     Muestra cómo trabajar con scripts del servidor, el programador de trabajos y las API personalizadas.
 
--   [Definición de una API personalizada que admita notificaciones periódicas](/en-us/develop/mobile/tutorials/create-pull-notifications-dotnet)
+-   [Definición de una API personalizada que admita notificaciones periódicas](/es-es/develop/mobile/tutorials/create-pull-notifications-dotnet)
      Muestra cómo usar las API personalizadas para admitir notificaciones periódicas que actualicen los iconos dinámicos en una aplicación de la Tienda Windows.
 
 

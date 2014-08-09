@@ -43,7 +43,7 @@ Para obtener más información, consulte los siguientes recursos:
   centralizado de VSO, por oposición a Git, que es la opción de control
   de código fuente distribuido.
 * [Entrega continua a Azure con Visual Studio
-  Online](/en-us/documentation/articles/cloud-services-continuous-delivery-use-vso/).
+  Online](/es-es/documentation/articles/cloud-services-continuous-delivery-use-vso/).
   Registro en VSO, registro de un proyecto para el control de código
   fuente y su configuración para la entrega continua (implementación
   automática) a Azure. Está escrita para servicios en la nube, pero gran
@@ -57,7 +57,7 @@ Para obtener más información, consulte los siguientes recursos:
 Para obtener más información, consulte los siguientes recursos:
 
 * [Publicación en Sitios web Azure desde el control de código
-  fuente](/en-us/documentation/articles/web-sites-publish-source-control/).
+  fuente](/es-es/documentation/articles/web-sites-publish-source-control/).
   Uso de Git para publicar directamente desde su equipo local en un
   sitio web de Azure (en Azure, este método de publicación se denomina
   Git local). También muestra cómo habilitar la implementación continua
@@ -71,7 +71,7 @@ Si utiliza [Mercurial][9] como sistema de control de código fuente y almacena e
 Para obtener información acerca de la implementación con Mercurial, consulte los siguientes recursos:
 
 * [Publicación en Sitios web Azure desde el control de código
-  fuente](/en-us/documentation/articles/web-sites-publish-source-control/).
+  fuente](/es-es/documentation/articles/web-sites-publish-source-control/).
   A pesar de que este tutorial muestra cómo publicar un repositorio Git,
   el proceso para los repositorios de Mercurial hospedados en CodePlex o
   BitBucket es similar.
@@ -103,12 +103,12 @@ WebMatrix es rápido de instalar y fácil de entender, pero Visual Studio ofrece
 Para obtener información sobre la implementación en Sitios web Azure desde Visual Studio, consulte los siguientes recursos:
 
 * [Introducción a Azure y
-  ASP.NET](/en-us/develop/net/tutorials/get-started/). Creación e
+  ASP.NET](/es-es/develop/net/tutorials/get-started/). Creación e
   implementación de un proyecto web ASP.NET MVC simple mediante Visual
   Studio y Web Deploy.
 * [Implementación de una aplicación ASP.NET MVC 5 segura con
   suscripción, OAuth y Base de datos SQL en un sitio web de
-  Azure](/en-us/develop/net/tutorials/web-site-with-sql-database/).
+  Azure](/es-es/develop/net/tutorials/web-site-with-sql-database/).
   Creación e implementación de un proyecto web ASP.NET MVC con una base
   de datos SQL mediante Visual Studio, Web Deploy y migraciones de
   Entity Framework Code First .
@@ -154,7 +154,7 @@ A pesar de que es fácil copiar los archivos del sitio web en Azure con utilidad
 Para obtener más información, consulte los siguientes recursos:
 
 * [Creación de un sitio web PHP-MySQL de Azure e implementación mediante
-  FTP](/en-us/documentation/articles/web-sites-php-mysql-deploy-use-ftp/).
+  FTP](/es-es/documentation/articles/web-sites-php-mysql-deploy-use-ftp/).
 * [Administración de sitios web][25]. Incluye información adicional que
   no se encuentra en el tutorial de PHP sobre cómo definir credenciales
   de FTP. Consulte los comentarios que aparecen al final de la página
@@ -172,7 +172,7 @@ Team Foundation Server es la solución local de Microsoft para el control de có
 Para obtener más información, consulte el siguiente recurso:
 
 * [Entrega continua para Servicios en la nube de
-  Azure](/en-us/develop/net/common-tasks/continuous-delivery/). Este
+  Azure](/es-es/develop/net/common-tasks/continuous-delivery/). Este
   documento es para un servicio en la nube de Azure, pero parte del
   contenido también es relevante para los sitios web.
 
@@ -183,7 +183,7 @@ En Azure puede escribir la dirección URL de cualquier repositorio que utilice G
 Para obtener más información, consulte los siguientes recursos:
 
 * [Publicación en Sitios web Azure desde el control de código
-  fuente](/en-us/documentation/articles/web-sites-publish-source-control/).
+  fuente](/es-es/documentation/articles/web-sites-publish-source-control/).
   Uso de Git para publicar directamente desde su equipo local en un
   sitio web de Azure (en Azure, este método de publicación se denomina
   Git local). También muestra cómo habilitar la implementación continua
@@ -279,7 +279,7 @@ Para obtener más información, consulte el siguiente recurso:
 
 ## <a name="nextsteps"></a>Pasos siguientes
 
-Para obtener más información, consulte la sección sobre implementación en [Documentación sobre Sitios web Azure](/en-us/documentation/services/web-sites/).
+Para obtener más información, consulte la sección sobre implementación en [Documentación sobre Sitios web Azure](/es-es/documentation/services/web-sites/).
 
 
 
@@ -299,21 +299,21 @@ Para obtener más información, consulte la sección sobre implementación en [D
 [14]: http://www.microsoft.com/web/webmatrix/
 [15]: http://www.iis.net/downloads/microsoft/web-deploy
 [16]: http://en.wikipedia.org/wiki/File_Transfer_Protocol
-[17]: http://msdn.microsoft.com/en-us/library/dd394698.aspx
+[17]: http://msdn.microsoft.com/es-es/library/dd394698.aspx
 [18]: http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction
 [19]: http://www.dotnetcurry.com/ShowArticle.aspx?ID=881
-[20]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-using-webmatrix/
-[21]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
-[22]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-php-mysql-use-webmatrix/
+[20]: http://www.windowsazure.com/es-es/documentation/articles/web-sites-dotnet-using-webmatrix/
+[21]: http://www.windowsazure.com/es-es/documentation/articles/web-sites-nodejs-use-webmatrix/
+[22]: http://www.windowsazure.com/es-es/documentation/articles/web-sites-php-mysql-use-webmatrix/
 [23]: http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD
 [24]: https://filezilla-project.org/
-[25]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-manage/
+[25]: http://www.windowsazure.com/es-es/documentation/articles/web-sites-manage/
 [26]: http://blog.davidebbo.com/2013/04/publishing-to-azure-web-sites-from-any.html
 [27]: http://www.hanselman.com/blog/DeployingTWOWebsitesToWindowsAzureFromOneGitRepository.aspx
 [28]: http://msbuildbook.com/
 [29]: http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment
 [30]: http://support.microsoft.com/kb/96269
-[31]: http://msdn.microsoft.com/en-us/library/dd835506.aspx
+[31]: http://msdn.microsoft.com/es-es/library/dd835506.aspx
 [32]: http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything
 [33]: http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources
 [34]: http://www.hanselman.com/blog/PennyPinchingInTheCloudAutomatingEverythingWithTheWindowsAzureManagementLibrariesAndNET.aspx

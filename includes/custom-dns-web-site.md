@@ -3,7 +3,7 @@
 
 Cuando crea un sitio web, Azure proporciona un subdominio fácil de usar en el dominio azurewebsites.net para que los usuarios puedan obtener acceso a su sitio web mediante una URL como http://&lt;mysite&gt;.azurewebsites.net. Sin embargo, si configura sitios web para el modo estándar o compartido, puede asignar su sitio web a su propio nombre de dominio.
 
-También puede utilizar el Administrador de tráfico de Azure para equilibrar la carga del tráfico entrante en su sitio web. Para obtener más información acerca de cómo trabaja el Administrador de tráfico con Sitios web, consulte [Control del tráfico de Sitios web Azure con el Administrador de tráfico de Azure](/en-us/documentation/articles/web-sites-traffic-manager/).
+También puede utilizar el Administrador de tráfico de Azure para equilibrar la carga del tráfico entrante en su sitio web. Para obtener más información acerca de cómo trabaja el Administrador de tráfico con Sitios web, consulte [Control del tráfico de Sitios web Azure con el Administrador de tráfico de Azure](/es-es/documentation/articles/web-sites-traffic-manager/).
 
 > \[WACOM.NOTE\] Los procedimientos de esta tarea se aplican a los Sitios web Azure; para los Servicios en la nube, consulte [Configuración de un nombre de dominio personalizado en Azure][1]
 
@@ -37,7 +37,7 @@ El registro D asigna un dominio, como **contoso.com** o **www.contoso.com**, *o 
 
 > \[WACOM.NOTE\] Puesto que un registro D se asigna a una dirección IP estática, no puede resolver automáticamente cambios en la dirección IP de su sitio web. Se proporciona una dirección IP para que se use con registros D cuando establezca la configuración del nombre de dominio personalizado para su sitio web; sin embargo, este valor podría cambiar si elimina y vuelve a crear su sitio web o cambia el modo del sitio web para que vuelva a ser gratuito.
 
-> \[WACOM.NOTE\] Los registros D no se pueden utilizar para el equilibrio de carga con el Administrador de tráfico. Para obtener más información, consulte [Control del tráfico de Sitios web Azure con el Administrador de tráfico de Azure](/en-us/documentation/articles/web-sites-traffic-manager/).
+> \[WACOM.NOTE\] Los registros D no se pueden utilizar para el equilibrio de carga con el Administrador de tráfico. Para obtener más información, consulte [Control del tráfico de Sitios web Azure con el Administrador de tráfico de Azure](/es-es/documentation/articles/web-sites-traffic-manager/).
 
 <a name="bkmk_configsharedmode" ></a><h2>Configuración de los sitios web para el modo compartido o estándar</h2>
 
@@ -332,16 +332,16 @@ Una vez completada la configuración, el nombre de dominio personalizado aparece
 
 
 
-[1]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/
-[2]: http://www.windowsazure.com/en-us/pricing/details/web-sites/
+[1]: http://www.windowsazure.com/es-es/develop/net/common-tasks/custom-dns/
+[2]: http://www.windowsazure.com/es-es/pricing/details/web-sites/
 [3]: http://en.wikipedia.org/wiki/CNAME_record
 [4]: http://tools.ietf.org/html/rfc1035
 [5]: https://www.windowsazure.com/en-us/pricing/details/
 [6]: http://manage.windowsazure.com
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/dn339012.aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744839.aspx
-[9]: http://www.windowsazure.com/en-us/manage/install-and-configure-windows-powershell/
-[10]: http://www.windowsazure.com/en-us/manage/install-and-configure-cli/
+[7]: http://msdn.microsoft.com/es-es/library/windowsazure/dn339012.aspx
+[8]: http://msdn.microsoft.com/es-es/library/windowsazure/hh744839.aspx
+[9]: http://www.windowsazure.com/es-es/manage/install-and-configure-windows-powershell/
+[10]: http://www.windowsazure.com/es-es/manage/install-and-configure-cli/
 [11]: http://www.digwebinterface.com/
-[12]: http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-manage-websites/
-[13]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
+[12]: http://www.windowsazure.com/es-es/manage/services/web-sites/how-to-manage-websites/
+[13]: http://www.windowsazure.com/es-es/develop/net/common-tasks/enable-ssl-web-site/

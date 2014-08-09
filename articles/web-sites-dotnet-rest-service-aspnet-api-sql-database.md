@@ -5,7 +5,7 @@
 ***Por [Rick Anderson][1] y Tom Dykstra. Actualización de marzo de
 2014.***
 
-Este tutorial muestra cómo implementar una aplicación web ASP.NET en un sitio web de Azure utilizando el Asistente para publicación web de Visual Studio 2013 o Visual Studio 2013 Express para Web. (Si prefiere utilizar Visual Studio 2012, consulte la [versión anterior de este tutorial](/en-us/develop/net/tutorials/get-started-vs2012/)).
+Este tutorial muestra cómo implementar una aplicación web ASP.NET en un sitio web de Azure utilizando el Asistente para publicación web de Visual Studio 2013 o Visual Studio 2013 Express para Web. (Si prefiere utilizar Visual Studio 2012, consulte la [versión anterior de este tutorial](/es-es/develop/net/tutorials/get-started-vs2012/)).
 
 Puede abrir una cuenta de Azure de manera gratuita y, si todavía no tiene Visual Studio 2013, el SDK instala automáticamente Visual Studio 2013 Express para Web. De este modo, puede empezar a desarrollar contenido para Azure sin coste alguno.
 
@@ -42,7 +42,7 @@ Apartados de este tutorial:
   datos SQL](#bkmk_deploydatabaseupdate)
 
 <a name="bkmk_setupdevenv"></a> 
-<!--the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/-->
+<!--the next line produces the "Set up the development environment" section as see at http://www.windowsazure.com/es-es/documentation/articles/web-sites-dotnet-get-started/-->
 [WACOM.INCLUDE
 [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
@@ -874,10 +874,10 @@ Es importante que haga comentarios acerca de lo que le gustó o lo que le gustar
 [8]: http://www.asp.net/web-api/overview/security/preventing-cross-site-request-forgery-(csrf)-attacks
 [9]: https://www.owasp.org/index.php/Main_Page
 [10]: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)
-[11]: http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/
+[11]: http://www.windowsazure.com/es-es/develop/net/tutorials/web-site-with-sql-database/
 [12]: http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application
 [13]: http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started
 [14]: http://www.asp.net/web-api/overview/getting-started-with-aspnet-web-api/tutorial-your-first-web-api
-[15]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/
+[15]: http://www.windowsazure.com/es-es/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/
 [16]: http://blogs.msdn.com/b/rickandy/
 [17]: https://twitter.com/blowdart

@@ -79,7 +79,7 @@ Cuando ya no necesite conexiones de Escritorio remoto a las instancias de rol en
 Recursos adicionales
 --------------------
 
--   [Acceso remoto a las instancias de rol en Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx)
--   [Uso de Escritorio de remoto con los roles de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx)
+-   [Acceso remoto a las instancias de rol en Azure](http://msdn.microsoft.com/es-es/library/windowsazure/hh124107.aspx)
+-   [Uso de Escritorio de remoto con los roles de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg443832.aspx)
 
 

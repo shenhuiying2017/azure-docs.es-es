@@ -106,7 +106,7 @@ El siguiente ejemplo muestra cómo crear una instancia de un **ServiceBusRestPro
     catch(ServiceException $e){
         // Administre la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -141,7 +141,7 @@ El filtro predeterminado **MatchAll** se usa en caso de que no se haya especific
     catch(ServiceException $e){
         // Administre la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -149,7 +149,7 @@ El filtro predeterminado **MatchAll** se usa en caso de que no se haya especific
 
 ### Creación de suscripciones con filtros
 
-También puede configurar filtros que le permitan especificar qué mensajes enviados a un tema deben aparecer dentro de una suscripción de tema determinada. El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información sobre los SqlFilter, consulte [SqlExpression Propiedad](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
+También puede configurar filtros que le permitan especificar qué mensajes enviados a un tema deben aparecer dentro de una suscripción de tema determinada. El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información sobre los SqlFilter, consulte [SqlExpression Propiedad](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
 
     > [WACOM.NOTE]
     > Cada regla en una suscripción procesa los mensajes entrantes de forma independiente, lo que agrega los mensajes de resultados a la suscripción. Además, cada nueva suscripción dispone de una <b>regla</b> predeterminada con un filtro que agrega todos los mensajes del tema a la suscripción. Para recibir solo mensajes que coincidan con su filtro, debe quitar la regla predeterminada. Puede quitar la regla predeterminada con el método <b>ServiceBusRestProxy->deleteRule</b>.
@@ -204,7 +204,7 @@ Para enviar un mensaje a un tema de bus de servicio, la aplicación va a llamar 
     catch(ServiceException $e){
         // Administre la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+        // http://msdn.microsoft.com/es-es/library/windowsazure/hh780775
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -269,7 +269,7 @@ En el ejemplo que aparece a continuación, se indica cómo se puede procesar y r
     catch(ServiceException $e){
         // Administre la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí:
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+        // http://msdn.microsoft.com/es-es/library/windowsazure/hh780735
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -307,7 +307,7 @@ En el siguiente ejemplo se muestra cómo eliminar un tema (`mytopic`) y las susc
     catch(ServiceException $e){
         // Administre la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -320,5 +320,5 @@ Si usa el método **deleteSubscription**, puede eliminar una suscripción de man
 Pasos siguientes
 ----------------
 
-Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, consulte el tema [Colas, temas y suscripciones](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx) de MSDN para obtener más información.
+Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, consulte el tema [Colas, temas y suscripciones](http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx) de MSDN para obtener más información.
 

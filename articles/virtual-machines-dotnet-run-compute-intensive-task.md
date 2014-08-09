@@ -98,7 +98,7 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 Creación de una aplicación .NET que realiza una tarea de proceso intensivo
 --------------------------------------------------------------------------
 
-1.  En la máquina de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para .NET](http://www.windowsazure.com/en-us/develop/net/).
+1.  En la máquina de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para .NET](http://www.windowsazure.com/es-es/develop/net/).
 2.  Cree una aplicación de la consola .NET con el proyecto con el nombre **TSPSolver**. Asegúrese de que el marco de trabajo de destino esté establecido para **.NET Framework 4** (no para **.NET Framework 4 Client Profile**). El marco de trabajo de destino puede establecerse después de crear un proyecto mediante la siguiente forma: en el menú de Visual Studio, haga clic en **Proyectos**, en **Propiedades** y en la pestaña **Aplicación**. A continuación, establezca el valor para **Marco de trabajo de destino**.
 3.  Agregue en la biblioteca de Microsoft ServiceBus. En el Explorador de soluciones de Visual Studio, haga clic con el botón secundario en **TSPSolver**, en **Agregar referencia** y en la pestaña **Examinar**, y diríjase a **C:\\Program Files\\Microsoft SDKs\\Windows Azure.NET SDK\\2012-06\\ref** y seleccione **Microsoft.ServiceBus.dll** como referencia.
 4.  Agregue la biblioteca System Runtime Serialization. En el Explorador de soluciones de Visual Studio, haga clic con el botón secundario en **TSPSolver**, haga clic en **Agregar referencia**, haga clic en la pestaña **.NET** y seleccione **System.Runtime.Serialization** como referencia.

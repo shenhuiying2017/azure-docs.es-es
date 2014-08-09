@@ -3,7 +3,7 @@
 Uso de temas/suscripciones del bus de servicio
 ==============================================
 
-En esta guía se indica cómo usar los temas y las suscripciones de bus de servicio. Los ejemplos están escritos en Java y utilizan el [SDK de Azure para Java](http://www.windowsazure.com/en-us/develop/java/). Entre los escenarios tratados se incluyen **la creación de temas y suscripciones**, **la creación de filtros de suscripción**, **el envío de mensajes a un tema**, **la recepción de mensajes de una suscripción** y **la eliminación de temas y suscripciones**.
+En esta guía se indica cómo usar los temas y las suscripciones de bus de servicio. Los ejemplos están escritos en Java y utilizan el [SDK de Azure para Java](http://www.windowsazure.com/es-es/develop/java/). Entre los escenarios tratados se incluyen **la creación de temas y suscripciones**, **la creación de filtros de suscripción**, **el envío de mensajes a un tema**, **la recepción de mensajes de una suscripción** y **la eliminación de temas y suscripciones**.
 
 Tabla de contenido
 ------------------

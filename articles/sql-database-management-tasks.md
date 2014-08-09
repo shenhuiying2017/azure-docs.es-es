@@ -18,7 +18,7 @@ Management Studio es una herramienta administrativa que permite administrar vari
 
 Management Studio incluye características que no están actualmente disponibles en el portal de administración, como un comprobador de sintaxis y la posibilidad de guardar scripts y consultas con nombre para volver a usarlos. Base de datos SQL es un extremo de secuencia de datos tubular (TDS). Todas las herramientas que funcionan con TDS, incluido Management Studio, son válidas para las operaciones de Base de datos SQL. Los scripts que desarrolla para el servidor local se ejecutarán en un servidor lógico de Base de datos SQL.
 
-En el siguiente paso, utilizará Management Studio para conectarse a un servidor lógico en Azure. Este paso requiere tener SQL Server Management Studio versión 2008 R2 o 2012. Si necesita ayuda para descargar o conectarse a Management Studio, consulte [Administración de Base de datos SQL con Management Studio](http://www.windowsazure.com/en-us/develop/net/common-tasks/sql-azure-management/) en este sitio.
+En el siguiente paso, utilizará Management Studio para conectarse a un servidor lógico en Azure. Este paso requiere tener SQL Server Management Studio versión 2008 R2 o 2012. Si necesita ayuda para descargar o conectarse a Management Studio, consulte [Administración de Base de datos SQL con Management Studio](http://www.windowsazure.com/es-es/develop/net/common-tasks/sql-azure-management/) en este sitio.
 
 Antes de poder conectarse, a veces es necesario crear una excepción de firewall que permita realizar solicitudes salientes en el puerto 1433 en el sistema local. Los equipos que están asegurados de forma predeterminada suelen tener el puerto 1433 cerrado.
 
@@ -125,5 +125,5 @@ Visualización y prueba de inicios de sesión
 
 6.  Abra una segunda ventana de consulta y cambie el contexto de conexión a *sqlwriter*. La misma consulta debería ejecutarse ahora correctamente.
 
-Ya ha creado y probado varios inicios de sesión. Para obtener más información, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee336235.aspx) y [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica](http://msdn.microsoft.com/en-us/library/windowsazure/ff394114.aspx).
+Ya ha creado y probado varios inicios de sesión. Para obtener más información, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/ee336235.aspx) y [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica](http://msdn.microsoft.com/es-es/library/windowsazure/ff394114.aspx).
 

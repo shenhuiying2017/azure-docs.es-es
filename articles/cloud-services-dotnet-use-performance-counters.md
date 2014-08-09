@@ -5,7 +5,7 @@ Uso de contadores de rendimiento en Azure
 
 Puede utilizar contadores de rendimiento en una aplicación de Azure para recopilar datos que ayuden a determinar cuellos de botella en el sistema y a ajustar el rendimiento de las aplicaciones y los sistemas. Puede recopilar y utilizar los contadores de rendimiento disponibles para Windows Server 2008, Windows Server 2012, IIS y ASP.NET para determinar el estado de la aplicación de Azure.
 
-En este tema se explica cómo habilitar los contadores de rendimiento en su aplicación mediante el uso del archivo de configuración diagnostics.wadcfg. Para obtener información sobre la supervisión del rendimiento de su aplicación en el [Portal de administración de Azure](http://manage.windowsazure.com), consulte [Supervisión de servicios en la nube](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/). Para obtener instrucciones más detalladas acerca de la creación de una estrategia de registro y seguimiento, así como del uso del diagnóstico y otras técnicas para solucionar problemas y optimizar las aplicaciones de Azure, consulte [Procedimientos recomendados de solución de problemas para desarrollar aplicaciones de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx).
+En este tema se explica cómo habilitar los contadores de rendimiento en su aplicación mediante el uso del archivo de configuración diagnostics.wadcfg. Para obtener información sobre la supervisión del rendimiento de su aplicación en el [Portal de administración de Azure](http://manage.windowsazure.com), consulte [Supervisión de servicios en la nube](https://www.windowsazure.com/es-es/manage/services/cloud-services/how-to-monitor-a-cloud-service/). Para obtener instrucciones más detalladas acerca de la creación de una estrategia de registro y seguimiento, así como del uso del diagnóstico y otras técnicas para solucionar problemas y optimizar las aplicaciones de Azure, consulte [Procedimientos recomendados de solución de problemas para desarrollar aplicaciones de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/hh771389.aspx).
 
 Esta tarea incluye los siguientes pasos:
 
@@ -19,7 +19,7 @@ Esta tarea incluye los siguientes pasos:
 Requisitos previos
 ------------------
 
-En este artículo se supone que ha importado el monitor de diagnósticos a su aplicación y que ha agregado el archivo de configuración diagnostics.wadcfg a su solución de Visual Studio. Consulte los pasos 1 y 2 en [Habilitación de Diagnósticos en Azure](https://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/) para obtener más información.
+En este artículo se supone que ha importado el monitor de diagnósticos a su aplicación y que ha agregado el archivo de configuración diagnostics.wadcfg a su solución de Visual Studio. Consulte los pasos 1 y 2 en [Habilitación de Diagnósticos en Azure](https://www.windowsazure.com/es-es/develop/net/common-tasks/diagnostics/) para obtener más información.
 
 Paso 1: Recopilar y almacenar datos de contadores de rendimiento
 ----------------------------------------------------------------
@@ -55,7 +55,7 @@ Abra el archivo diagnostics.wadcfg y agregue lo siguiente al elemento **Diagnost
         <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Jit(_Global_)\% Time in Jit" sampleRate="PT30S" />
         </PerformanceCounters>    
 
-El atributo **bufferQuotaInMB**, que especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para el tipo de recopilación de datos (registros de Azure, registros de IIS, etc.). El valor predeterminado es 0. Cuando se alcanza la cuota, se eliminan los datos más antiguos a medida que se agregan datos nuevos. La suma de todas las propiedades de **bufferQuotaInMB** debe ser mayor que el valor del atributo **OverallQuotaInMB**. Para obtener información más detallada acerca de cómo determinar cuánto almacenamiento será necesario para la recopilación de datos de diagnóstico, consulte la sección Configuración de WAD de [Procedimientos recomendados de solución de problemas para desarrollar aplicaciones de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx).
+El atributo **bufferQuotaInMB**, que especifica la cantidad máxima de almacenamiento del sistema de archivos que está disponible para el tipo de recopilación de datos (registros de Azure, registros de IIS, etc.). El valor predeterminado es 0. Cuando se alcanza la cuota, se eliminan los datos más antiguos a medida que se agregan datos nuevos. La suma de todas las propiedades de **bufferQuotaInMB** debe ser mayor que el valor del atributo **OverallQuotaInMB**. Para obtener información más detallada acerca de cómo determinar cuánto almacenamiento será necesario para la recopilación de datos de diagnóstico, consulte la sección Configuración de WAD de [Procedimientos recomendados de solución de problemas para desarrollar aplicaciones de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/hh771389.aspx).
 
 El atributo **scheduledTransferPeriod**, que especifica el intervalo entre las transferencias programadas de datos, redondeado al minuto más cercano. En los siguientes ejemplos está definido en PT30M (30 minutos). Definir el período de transferencia en un valor pequeño, como un minuto, afectará de manera negativa el rendimiento de la aplicación en producción, pero puede resultar útil para ver los diagnósticos rápidamente cuando está realizando pruebas. El período de transferencia programado debe ser lo suficientemente corto como para tener la seguridad de que los datos de diagnóstico no se sobrescribirán en la instancia, pero lo suficientemente largo como para no afectar el rendimiento de la aplicación.
 
@@ -161,7 +161,7 @@ Una vez que se han completado estos pasos, el monitor de diagnósticos de Azure 
 Paso 3: Consultar datos de contadores de rendimiento
 ----------------------------------------------------
 
-Una vez que la aplicación se ha implementado y está en ejecución, el monitor de diagnóstico comenzará a recopilar contadores de rendimiento y mantendrá esos datos en el almacenamiento de Azure. Utilice herramientas como el **Explorador de servidores de Visual Studio**, [Explorador de almacenamiento de Azure](http://azurestorageexplorer.codeplex.com/) o [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) de Cerebrata para ver los datos de contadores de rendimiento en la tabla **WADPerformanceCountersTable**. También puede consultar el servicio de tablas mediante programación con [C\#][], [Java](http://www.windowsazure.com/en-us/develop/java/how-to-guides/table-service/), [Node.js][], [Python](http://www.windowsazure.com/en-us/develop/python/how-to-guides/table-service/) o [PHP](http://www.windowsazure.com/en-us/develop/php/how-to-guides/table-service/).
+Una vez que la aplicación se ha implementado y está en ejecución, el monitor de diagnóstico comenzará a recopilar contadores de rendimiento y mantendrá esos datos en el almacenamiento de Azure. Utilice herramientas como el **Explorador de servidores de Visual Studio**, [Explorador de almacenamiento de Azure](http://azurestorageexplorer.codeplex.com/) o [Azure Diagnostics Manager](http://www.cerebrata.com/Products/AzureDiagnosticsManager/Default.aspx) de Cerebrata para ver los datos de contadores de rendimiento en la tabla **WADPerformanceCountersTable**. También puede consultar el servicio de tablas mediante programación con [C\#][], [Java](http://www.windowsazure.com/es-es/develop/java/how-to-guides/table-service/), [Node.js][], [Python](http://www.windowsazure.com/es-es/develop/python/how-to-guides/table-service/) o [PHP](http://www.windowsazure.com/es-es/develop/php/how-to-guides/table-service/).
 
 El siguiente ejemplo de C\# muestra una consulta simple contra la tabla **WADPerformanceCountersTable** y guarda los datos de diagnóstico en un archivo CSV. Una vez que los contadores de rendimiento se guardan en un archivo CSV, puede utilizar las capacidades de gráficos de Microsoft Excel o alguna otra herramienta para visualizar los datos. Asegúrese de agregar una referencia a Microsoft.WindowsAzure.Storage.dll, que está incluido en el SDK de Azure para .NET de octubre de 2012 y posterior. El ensamblado se instala en el directorio %Program Files%\\Microsoft SDKs\\Windows Azure.NET SDK\\version-num\\ref\\.
 
@@ -239,16 +239,16 @@ Pasos siguientes
 
 Ahora que ha aprendido los aspectos básicos de la recopilación de contadores de rendimiento, siga estos vínculos para implementar escenarios de solución de problemas más complejos.
 
--   [Procedimientos recomendados de solución de problemas para desarrollar aplicaciones de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx)
--   [Supervisión de servicios en la nube](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/)
--   [Uso del bloque de autoescala de la aplicación](http://www.windowsazure.com/en-us/develop/net/how-to-guides/autoscaling/)
--   [Creación de aplicaciones de nube elásticas y resistentes](http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx)
+-   [Procedimientos recomendados de solución de problemas para desarrollar aplicaciones de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/hh771389.aspx)
+-   [Supervisión de servicios en la nube](https://www.windowsazure.com/es-es/manage/services/cloud-services/how-to-monitor-a-cloud-service/)
+-   [Uso del bloque de autoescala de la aplicación](http://www.windowsazure.com/es-es/develop/net/how-to-guides/autoscaling/)
+-   [Creación de aplicaciones de nube elásticas y resistentes](http://msdn.microsoft.com/es-es/library/hh680949(PandP.50).aspx)
 
 Recursos adicionales
 --------------------
 
--   [Habilitación de Diagnósticos en Azure](https://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/)
--   [Recopilación de datos de registro mediante Diagnósticos de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433048.aspx)
--   [Depurar servicios en la nube](http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx)
+-   [Habilitación de Diagnósticos en Azure](https://www.windowsazure.com/es-es/develop/net/common-tasks/diagnostics/)
+-   [Recopilación de datos de registro mediante Diagnósticos de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg433048.aspx)
+-   [Depurar servicios en la nube](http://msdn.microsoft.com/es-es/library/windowsazure/ee405479.aspx)
 
 

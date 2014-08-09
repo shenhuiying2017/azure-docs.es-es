@@ -40,7 +40,7 @@ Puede crear un sencillo servicio Node.js "hello world" que use Azure PowerShell 
 
     **Nota:**
 
-    Si no ha importado previamente la configuración de publicación para su suscripción de Azure, recibirá un error al tratar de publicar. Para obtener información acerca de la descarga y la importación de la configuración de publicación para su suscripción, consulte [Uso de Azure PowerShell para Node.js](https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings)
+    Si no ha importado previamente la configuración de publicación para su suscripción de Azure, recibirá un error al tratar de publicar. Para obtener información acerca de la descarga y la importación de la configuración de publicación para su suscripción, consulte [Uso de Azure PowerShell para Node.js](https://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings)
 
 El valor **Dirección URL del sitio web creado** devuelto por el cmdlet **Publish-AzureServiceProject** contiene el nombre de dominio completo de la aplicación hospedada. Tendrá que obtener un certificado SSL para este nombre de dominio completo e implementarlo en Azure.
 
@@ -134,9 +134,9 @@ Ahora que su implementación está funcionando en Azure, puede conectarse a ella
 Recursos adicionales
 --------------------
 
-[Asociación de un certificado con un servicio](http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx)
+[Asociación de un certificado con un servicio](http://msdn.microsoft.com/es-es/library/windowsazure/gg465718.aspx)
 
-[Configuración de SSL para una aplicación Node.js en un rol web de Azure](/en-us/develop/nodejs/common-tasks/enable-ssl/)
+[Configuración de SSL para una aplicación Node.js en un rol web de Azure](/es-es/develop/nodejs/common-tasks/enable-ssl/)
 
-[Configurar un certificado SSL en un extremo HTTPS](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx)
+[Configurar un certificado SSL en un extremo HTTPS](http://msdn.microsoft.com/es-es/library/windowsazure/ff795779.aspx)
 

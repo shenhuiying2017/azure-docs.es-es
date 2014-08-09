@@ -70,8 +70,8 @@ private static ILocator GetStreamingOriginLocator( string targetAssetID)
 
 Para obtener más información acerca de la entrega de recursos, consulte:
 
--   [Entrega de recursos con los Servicios multimedia para .NET](http://msdn.microsoft.com/en-us/library/jj129575.aspx)
--   [Entrega de recursos con la API de REST de Media Services](http://msdn.microsoft.com/en-us/library/jj129578.aspx)
+-   [Entrega de recursos con los Servicios multimedia para .NET](http://msdn.microsoft.com/es-es/library/jj129575.aspx)
+-   [Entrega de recursos con la API de REST de Media Services](http://msdn.microsoft.com/es-es/library/jj129578.aspx)
 
 Pasos siguientes
 ----------------

@@ -53,7 +53,7 @@ Se puede tener acceso a los registros de diagnósticos de tres formas; mediante 
 
     npm install azure-cli -g
 
-Una vez instaladas, se puede tener acceso a ellas mediante el comando 'azure'. Las herramientas de línea de comandos se deben configurar primero para usar su suscripción de Azure. Para obtener información sobre cómo llevar a cabo esta tarea, consulte la sección **Descarga e importación de la configuración de publicación** del artículo [Uso de las herramientas de línea de comandos de Azure](https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/).
+Una vez instaladas, se puede tener acceso a ellas mediante el comando 'azure'. Las herramientas de línea de comandos se deben configurar primero para usar su suscripción de Azure. Para obtener información sobre cómo llevar a cabo esta tarea, consulte la sección **Descarga e importación de la configuración de publicación** del artículo [Uso de las herramientas de línea de comandos de Azure](https://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/command-line-tools/).
 
 ### FTP
 
@@ -98,7 +98,7 @@ Pasos siguientes
 
 En este artículo aprendió a habilitar y a tener acceso a información de diagnóstico en Azure. Si bien esta información es útil para comprender los problemas que se producen con su aplicación, puede indicar un problema con un módulo que está usando o que la versión de Node.js que usan los Sitios web Azure es diferente a la usada en su entorno de implementación.
 
-Para obtener información sobre el trabajo con módulos en Azure, consulte [Uso de módulos Node.js con aplicaciones de Azure](https://www.windowsazure.com/en-us/develop/nodejs/common-tasks/working-with-node-modules/).
+Para obtener información sobre el trabajo con módulos en Azure, consulte [Uso de módulos Node.js con aplicaciones de Azure](https://www.windowsazure.com/es-es/develop/nodejs/common-tasks/working-with-node-modules/).
 
-Para obtener información sobre la especificación de una versión de Node.js para su aplicación, consulte [Especificación de una versión de Node.js en una aplicación de Azure](https://www.windowsazure.com/en-us/develop/nodejs/common-tasks/specifying-a-node-version/).
+Para obtener información sobre la especificación de una versión de Node.js para su aplicación, consulte [Especificación de una versión de Node.js en una aplicación de Azure](https://www.windowsazure.com/es-es/develop/nodejs/common-tasks/specifying-a-node-version/).
 

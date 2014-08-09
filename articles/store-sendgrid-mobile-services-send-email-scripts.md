@@ -13,7 +13,7 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar la fun
 2.  [Incorporación de un script para enviar correo electrónico](#add-script)
 3.  [Inserción de datos para recibir correo electrónico](#insert-data)
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started).
 
 Creación de una cuenta nuevaCreación de una cuenta nueva de SendGrid
 --------------------------------------------------------------------

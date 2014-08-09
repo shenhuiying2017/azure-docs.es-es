@@ -52,11 +52,11 @@ Durante la versión de vista previa de Máquinas virtuales, con la finalidad de 
 
 **Paso 1: Generación de par de claves de SSH**
 
-Azure necesita una clave pública X509 con codificación PEM o DER en el momento del aprovisionamiento. Genere un par de claves públicas/privadas con las instrucciones ubicadas en [Utilización de SSH con Linux en Azure](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/ssh-into-linux/). Si planea utilizar putty.exe como un cliente SSH en Windows o en Linux, debe convertir la clave privada RSA con codificación PEM en formato PPK mediante puttygen.exe. Puede encontrar las instrucciones para hacerlo en [Generación de par de claves SSH para implementación de máquinas virtuales de Linux en Azure](http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx) (en inglés).
+Azure necesita una clave pública X509 con codificación PEM o DER en el momento del aprovisionamiento. Genere un par de claves públicas/privadas con las instrucciones ubicadas en [Utilización de SSH con Linux en Azure](http://www.windowsazure.com/es-es/manage/linux/how-to-guides/ssh-into-linux/). Si planea utilizar putty.exe como un cliente SSH en Windows o en Linux, debe convertir la clave privada RSA con codificación PEM en formato PPK mediante puttygen.exe. Puede encontrar las instrucciones para hacerlo en [Generación de par de claves SSH para implementación de máquinas virtuales de Linux en Azure](http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx) (en inglés).
 
 **Paso 2: Creación de una máquina virtual de Ubuntu**
 
-Para crear la primera máquina virtual de Ubuntu, inicie sesión en el portal de vista previa de Azure, haga clic en **New**, **Virtual Machine**, **From Gallery**, **Unbuntu Server 12.xx** y, a continuación, haga clic en la flecha derecha. Si necesita un tutorial en que se describe cómo crear una máquina virtual de Linux, consulte [Creación de una máquina virtual que ejecuta Linux](http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/).
+Para crear la primera máquina virtual de Ubuntu, inicie sesión en el portal de vista previa de Azure, haga clic en **New**, **Virtual Machine**, **From Gallery**, **Unbuntu Server 12.xx** y, a continuación, haga clic en la flecha derecha. Si necesita un tutorial en que se describe cómo crear una máquina virtual de Linux, consulte [Creación de una máquina virtual que ejecuta Linux](http://www.windowsazure.com/es-es/manage/linux/tutorials/virtual-machine-from-gallery/).
 
 Luego, escriba la siguiente información en la pantalla VM Configuration:
 
@@ -183,7 +183,7 @@ Repita el paso "e" para los nodos subsiguientes en el clúster.
 
 Ahora que las máquinas virtuales están listas, es momento de configurar Cassandra en cada una de ellas. Como Cassandra no es parte estándar de muchas de las distribuciones de Linux, recurriremos a un proceso de implementación manual.
 
-[Observe que utilizamos un enfoque manual para la instalación del software en cada máquina virtual. Sin embargo, es posible acelerar el proceso al configurar una máquina virtual de Cassandra completamente funcional, capturarla como la imagen base y crear instancias adicionales a partir de esta imagen base. Las instrucciones para capturar la imagen de Linux se encuentran en [Captura de una imagen de una máquina virtual que ejecuta Linux](https://www.windowsazure.com/en-us/manage/linux/how-to-guides/capture-an-image/).]
+[Observe que utilizamos un enfoque manual para la instalación del software en cada máquina virtual. Sin embargo, es posible acelerar el proceso al configurar una máquina virtual de Cassandra completamente funcional, capturarla como la imagen base y crear instancias adicionales a partir de esta imagen base. Las instrucciones para capturar la imagen de Linux se encuentran en [Captura de una imagen de una máquina virtual que ejecuta Linux](https://www.windowsazure.com/es-es/manage/linux/how-to-guides/capture-an-image/).]
 
 Tarea 2: Configuración de Cassandra en cada máquina virtual
 -----------------------------------------------------------

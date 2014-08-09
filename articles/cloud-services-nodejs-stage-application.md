@@ -61,7 +61,7 @@ Ha realizado correctamente el ensayo de la implementación y la actualización d
 Recursos adicionales
 --------------------
 
--   [Implementar la actualización de un servicio en producción intercambiando las VIP](http://msdn.microsoft.com/en-us/library/windowsazure/ee517253.aspx)
--   [Información general sobre la administración de implementaciones en Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx)
+-   [Implementar la actualización de un servicio en producción intercambiando las VIP](http://msdn.microsoft.com/es-es/library/windowsazure/ee517253.aspx)
+-   [Información general sobre la administración de implementaciones en Azure](http://msdn.microsoft.com/es-es/library/windowsazure/hh386336.aspx)
 
 

@@ -3,7 +3,7 @@
 Uso del servicio de almacenamiento de tablas
 ============================================
 
-[Versión 1.7](/en-us/develop/net/how-to-guides/table-services-v17/ "version 1.7") [Versión 2.0](/en-us/develop/net/how-to-guides/table-services/ "version 2.0")
+[Versión 1.7](/es-es/develop/net/how-to-guides/table-services-v17/ "version 1.7") [Versión 2.0](/es-es/develop/net/how-to-guides/table-services/ "version 2.0")
 
 Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de tablas de Azure. Los ejemplos se escriben en código C\# y usan la API .NET. Entre los escenarios descritos se incluyen la **creación y eliminación de una tabla, la inserción y la consulta de entidades en una tabla**. Para obtener más información acerca de las tablas, consulte la sección [Pasos siguientes](#next-steps).
 
@@ -81,7 +81,7 @@ Al usar Sitios web o Máquinas virtuales, es recomendable que utilice el sistema
         </appSettings>
     </configuration>
 
-Consulte [Configurar las cadenas de conexión de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx) para obtener más información acerca de las cadenas de conexión de almacenamiento.
+Consulte [Configurar las cadenas de conexión de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/ee758697.aspx) para obtener más información acerca de las cadenas de conexión de almacenamiento.
 
 Ahora está preparado para realizar los procedimientos de esta guía.
 
@@ -414,10 +414,10 @@ Pasos siguientesPasos siguientes
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de tablas, siga estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
 -   Consulte la documentación de referencia del servicio de blobs para obtener información detallada acerca de las API disponibles:
-    -   [Referencia a la biblioteca de clases de .NET](http://msdn.microsoft.com/en-us/library/windowsazure/wl_svchosting_mref_reference_home)
-    -   [Referencia de la API REST](http://msdn.microsoft.com/en-us/library/windowsazure/dd179355)
--   Obtenga información acerca de las tareas más avanzadas que se pueden realizar con el almacenamiento de Azure en [Almacenamiento](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx).
+    -   [Referencia a la biblioteca de clases de .NET](http://msdn.microsoft.com/es-es/library/windowsazure/wl_svchosting_mref_reference_home)
+    -   [Referencia de la API REST](http://msdn.microsoft.com/es-es/library/windowsazure/dd179355)
+-   Obtenga información acerca de las tareas más avanzadas que se pueden realizar con el almacenamiento de Azure en [Almacenamiento](http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx).
 -   Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
-    -   Utilice [Almacenamiento de blobs](/en-us/develop/net/how-to-guides/blob-storage/) para almacenar datos no estructurados.
-    -   Utilice [Base de datos SQL](/en-us/develop/net/how-to-guides/sql-database/) para almacenar datos relacionales.
+    -   Utilice [Almacenamiento de blobs](/es-es/develop/net/how-to-guides/blob-storage/) para almacenar datos no estructurados.
+    -   Utilice [Base de datos SQL](/es-es/develop/net/how-to-guides/sql-database/) para almacenar datos relacionales.
 

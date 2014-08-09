@@ -40,8 +40,8 @@ En el mosaico aparece el número de trabajos que se ejecutaron; por ejemplo, la 
 Otras referencias
 -----------------
 
--   [Administración de HDInsight](/en-us/manage/services/hdinsight/howto-administer-hdinsight/)
--   [Implementación de un clúster de HDInsight mediante programación](/en-us/manage/services/hdinsight/howto-deploy-cluster/)
--   [Ejecución de trabajos remotos en el clúster de HDInsight mediante programación](/en-us/manage/services/hdinsight/howto-execute-jobs-programmatically/)
--   [Tutorial: Introducción a HDInsight de Azure](/en-us/manage/services/hdinsight/get-started-hdinsight/)
+-   [Administración de HDInsight](/es-es/manage/services/hdinsight/howto-administer-hdinsight/)
+-   [Implementación de un clúster de HDInsight mediante programación](/es-es/manage/services/hdinsight/howto-deploy-cluster/)
+-   [Ejecución de trabajos remotos en el clúster de HDInsight mediante programación](/es-es/manage/services/hdinsight/howto-execute-jobs-programmatically/)
+-   [Tutorial: Introducción a HDInsight de Azure](/es-es/manage/services/hdinsight/get-started-hdinsight/)
 

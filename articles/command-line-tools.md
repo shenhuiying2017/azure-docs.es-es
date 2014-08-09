@@ -1370,7 +1370,7 @@ Este comando permite quitar todas las filas de datos de la tabla.
 
 ### Comandos para administrar scripts
 
-Los comandos de esta sección se usan para administrar los scripts de servidor que pertenecen a un servicio móvil. Para obtener más información, consulte [Uso de scripts del servidor en Servicios móviles](http://www.windowsazure.com/en-us/develop/mobile/how-to-guides/work-with-server-scripts/).
+Los comandos de esta sección se usan para administrar los scripts de servidor que pertenecen a un servicio móvil. Para obtener más información, consulte [Uso de scripts del servidor en Servicios móviles](http://www.windowsazure.com/es-es/develop/mobile/how-to-guides/work-with-server-scripts/).
 
 **mobile script list [options] [servicename]**
 
@@ -1428,7 +1428,7 @@ Este comando permite eliminar el script de inserción existente de la tabla Todo
 
 ### Comandos para administrar trabajos programados
 
-Los comandos de esta sección se usan para administrar los trabajos programados que pertenecen a un servicio móvil. Para obtener más información, consulte [Programar trabajos](http://msdn.microsoft.com/en-us/library/windowsazure/jj860528.aspx).
+Los comandos de esta sección se usan para administrar los trabajos programados que pertenecen a un servicio móvil. Para obtener más información, consulte [Programar trabajos](http://msdn.microsoft.com/es-es/library/windowsazure/jj860528.aspx).
 
 **mobile job list [options] [servicename]**
 
@@ -1502,7 +1502,7 @@ Si se elimina un trabajo, también se elimina el script cargado.
 
 ### Comandos para escalar un servicio móvil
 
-Los comandos de esta sección se usan para escalar un servicio móvil. Para obtener más información, consulte [Escalar un servicio móvil](http://msdn.microsoft.com/en-us/library/windowsazure/jj193178.aspx).
+Los comandos de esta sección se usan para escalar un servicio móvil. Para obtener más información, consulte [Escalar un servicio móvil](http://msdn.microsoft.com/es-es/library/windowsazure/jj193178.aspx).
 
 **mobile scale show [options] [servicename]**
 

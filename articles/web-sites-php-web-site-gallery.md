@@ -10,6 +10,6 @@ Pasos siguientes
 
 Ha aprendido a crear e implementar un sitio web desde la galería. Para obtener más información acerca de la creación, configuración, implementación y escalado de sitios web de Azure, consulte los recursos siguientes:
 
--   [Creación de un sitio web Azure de PHP-MySQL e implementación mediante Git](/en-us/develop/php/tutorials/website-w-mysql-and-git/): Cree un sitio web de PHP desde cero e impleméntelo en un sitio web de Azure mediante el uso de Git.
--   [Más tutoriales de PHP](/en-us/develop/php/tutorials/): Cree tipos de aplicaciones adicionales mediante PHP y Azure.
+-   [Creación de un sitio web Azure de PHP-MySQL e implementación mediante Git](/es-es/develop/php/tutorials/website-w-mysql-and-git/): Cree un sitio web de PHP desde cero e impleméntelo en un sitio web de Azure mediante el uso de Git.
+-   [Más tutoriales de PHP](/es-es/develop/php/tutorials/): Cree tipos de aplicaciones adicionales mediante PHP y Azure.
 

@@ -157,7 +157,7 @@ En este tutorial, usaremos [Git](http://git-scm.com/) y [GitHub](https://github.
 Creación de una máquina virtual de Azure
 ----------------------------------------
 
-Siga las instrucciones que se proporcionan [aquí](/en-us/manage/linux/tutorials/virtual-machine-from-gallery/) para crear una máquina virtual de Azure que hospeda Linux.
+Siga las instrucciones que se proporcionan [aquí](/es-es/manage/linux/tutorials/virtual-machine-from-gallery/) para crear una máquina virtual de Azure que hospeda Linux.
 
 **Nota:**
 
@@ -385,16 +385,16 @@ Pasos siguientes
 
 En este artículo aprendió a crear y publicar una aplicación básica de Rails basada en formularios en una máquina virtual de Azure con Capistrano. La máquina virtual utilizó Unicorn y Nginx para controlar solicitudes web para la aplicación.
 
-Para ver un ejemplo más básico de creación e implementación de una aplicación de Rails en una máquina virtual de Azure con solo SSH, consulte [Hospedaje de una aplicación web de Ruby o Rails mediante una máquina virtual Linux](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
+Para ver un ejemplo más básico de creación e implementación de una aplicación de Rails en una máquina virtual de Azure con solo SSH, consulte [Hospedaje de una aplicación web de Ruby o Rails mediante una máquina virtual Linux](/es-es/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 Si desea obtener más información sobre Ruby on Rails, visite las [Guías de Ruby on Rails](http://guides.rubyonrails.org/) (en inglés).
 
 Para obtener información sobre cómo usar el SDK de Azure para Ruby y así tener acceso a los servicios de Azure desde su aplicación de Ruby, consulte:
 
--   [Almacenamiento de datos no estructurados con blobs](/en-us/develop/ruby/how-to-guides/blob-storage/)
+-   [Almacenamiento de datos no estructurados con blobs](/es-es/develop/ruby/how-to-guides/blob-storage/)
 
--   [Almacenamiento de pares clave/valor con tablas](/en-us/develop/ruby/how-to-guides/table-service/)
+-   [Almacenamiento de pares clave/valor con tablas](/es-es/develop/ruby/how-to-guides/table-service/)
 
--   [Servicio de contenido con alto ancho de banda con la Red de entrega de contenido](/en-us/develop/ruby/app-services/)
+-   [Servicio de contenido con alto ancho de banda con la Red de entrega de contenido](/es-es/develop/ruby/app-services/)
 
 

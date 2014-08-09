@@ -12,7 +12,7 @@ El tutorial le guiará a través de los siguientes pasos:
 3.  [Habilitación del análisis del desarrollador de New Relic para el servicio móvil](#enable-service)
 4.  [Supervisión del servicio móvil en el panel de New Relic](#monitor)
 
-Para completar este tutorial, ya debe haber creado un servicio móvil tras completar el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started/) o [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet).
+Para completar este tutorial, ya debe haber creado un servicio móvil tras completar el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started/) o [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet).
 
 Suscripción en New Relic mediante el uso de la Tienda de Azure
 --------------------------------------------------------------
@@ -44,7 +44,7 @@ Instalación del módulo New Relic
 
 Una vez que se haya suscrito al servicio New Relic, tiene que instalar el módulo New Relic Node.js en el servicio móvil. Debe tener el control del código fuente habilitado para el servicio móvil a fin de cargar este módulo.
 
-1.  Si aún no lo ha hecho, siga los pasos del tutorial [Almacenamiento de scripts de servidor en control de código fuente](/en-us/develop/mobile/tutorials/store-scripts-in-source-control/) para habilitar el control de código fuente para el servicio móvil, clone el repositorio e instale [Node Package Manager (NPM)](http://nodejs.org/).
+1.  Si aún no lo ha hecho, siga los pasos del tutorial [Almacenamiento de scripts de servidor en control de código fuente](/es-es/develop/mobile/tutorials/store-scripts-in-source-control/) para habilitar el control de código fuente para el servicio móvil, clone el repositorio e instale [Node Package Manager (NPM)](http://nodejs.org/).
 
 2.  Desplácese a la carpeta `.\service` del repositorio Git local y, a continuación, ejecute el siguiente comando desde el símbolo del sistema:
 

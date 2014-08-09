@@ -23,7 +23,7 @@ Este tutorial se compone de los siguientes segmentos:
 Instalación y configuración
 ---------------------------
 
-Este tutorial asume que ha realizado la configuración con Azure y la vista previa de HDinsight y que ha creado un clúster de HDInsight en el que puede ejecutar una muestra. Si no lo ha hecho, consulte el tutorial de [Introducción a HDInsight de Azure](/en-us/manage/services/hdinsight/get-started-hdinsight/) para obtener instrucciones sobre cómo satisfacer estos requisitos previos.
+Este tutorial asume que ha realizado la configuración con Azure y la vista previa de HDinsight y que ha creado un clúster de HDInsight en el que puede ejecutar una muestra. Si no lo ha hecho, consulte el tutorial de [Introducción a HDInsight de Azure](/es-es/manage/services/hdinsight/get-started-hdinsight/) para obtener instrucciones sobre cómo satisfacer estos requisitos previos.
 
 Análisis y formato de los datos
 -------------------------------

@@ -43,7 +43,7 @@
              }
          }
 
-    En el código anterior, reemplace `todolistContext` por el nombre de DbContext del modelo de datos, que debe ser el nombre del servicio móvil agregado con `Context`. Este código usa la [clase Database](http://msdn.microsoft.com/en-us/library/system.data.entity.database(v=vs.113).aspx) para obtener acceso a la tabla **TodoItems** directamente a fin de establecer la marca de completado en todos los elementos. Este método es compatible con una solicitud POST y el número de filas cambiadas se devuelve al cliente como un valor entero.
+    En el código anterior, reemplace `todolistContext` por el nombre de DbContext del modelo de datos, que debe ser el nombre del servicio móvil agregado con `Context`. Este código usa la [clase Database](http://msdn.microsoft.com/es-es/library/system.data.entity.database(v=vs.113).aspx) para obtener acceso a la tabla **TodoItems** directamente a fin de establecer la marca de completado en todos los elementos. Este método es compatible con una solicitud POST y el número de filas cambiadas se devuelve al cliente como un valor entero.
 
     > [WACOM.NOTE] Los permisos predeterminados están establecidos, lo que significa que cualquier usuario de la aplicación puede llamar a la API personalizada. No obstante, la clave de la aplicación no se distribuye ni almacena de forma segura y no se puede considerar una credencial segura. Por ello, debe considerar restringir el acceso solo a los usuarios autenticados en las operaciones que modifican datos o afectan al servicio móvil.
 

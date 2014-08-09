@@ -54,8 +54,8 @@ A continuación, podrá modificar la aplicación de inicio rápido para agregar 
 
 
 [1]: https://manage.windowsazure.com/
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554218.aspx
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/dn303373.aspx
+[2]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554212.aspx
+[3]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554218.aspx
+[4]: http://msdn.microsoft.com/es-es/library/windowsazure/dn303373.aspx
 [5]: http://go.microsoft.com/fwlink/p/?LinkId=309046
-[6]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
+[6]: http://msdn.microsoft.com/es-es/library/windowsazure/dn280974.aspx

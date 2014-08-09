@@ -87,5 +87,5 @@ Pasos siguientes
 
 Ahora que conoce los fundamentos de las colas del bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx)
 

@@ -34,7 +34,7 @@ Escenarios:
 Serialización mediante el uso de reflexión
 ------------------------------------------
 
-En el ejemplo que aparece a continuación, se serializan una clase y un struct, luego se deserializan y, finalmente, se comparan con las instancias iniciales para asegurar la identidad. Microsoft Avro Library crea automáticamente el esquema JSON para los tipos, considerando los atributos del contrato de datos. Microsoft Avro Library utiliza el [serializador de contratos de datos](http://msdn.microsoft.com/en-us/library/ms731072(v=vs.110).aspx) para identificar los campos que se están serializando.
+En el ejemplo que aparece a continuación, se serializan una clase y un struct, luego se deserializan y, finalmente, se comparan con las instancias iniciales para asegurar la identidad. Microsoft Avro Library crea automáticamente el esquema JSON para los tipos, considerando los atributos del contrato de datos. Microsoft Avro Library utiliza el [serializador de contratos de datos](http://msdn.microsoft.com/es-es/library/ms731072(v=vs.110).aspx) para identificar los campos que se están serializando.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -5568,7 +5568,7 @@ Los datos del archivo contenedor de objetos no se comprimen (se usa el códec de
 Serialización mediante el uso de archivos contenedores de objetos con códec de compresión personalizado
 -------------------------------------------------------------------------------------------------------
 
-La [especificación de Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) (en inglés) permite el uso de los códecs opcionales de compresión (además de Null y Deflate). El ejemplo que aparece a continuación muestra cómo usar un códec de compresión personalizado para los archivos contenedores de objetos. No implementa un códec realmente distinto (como Snappy, mencionado como códec opcional compatible en la especificación de Avro), sino que utiliza la implementación de [Deflate](http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.110).aspx) .NET Framework 4.5 (que proporciona un mejor algoritmo de compresión basado en zlib), que muchos desarrolladores podrían encontrar útil.
+La [especificación de Avro](http://avro.apache.org/docs/current/spec.html#Required+Codecs) (en inglés) permite el uso de los códecs opcionales de compresión (además de Null y Deflate). El ejemplo que aparece a continuación muestra cómo usar un códec de compresión personalizado para los archivos contenedores de objetos. No implementa un códec realmente distinto (como Snappy, mencionado como códec opcional compatible en la especificación de Avro), sino que utiliza la implementación de [Deflate](http://msdn.microsoft.com/es-es/library/system.io.compression.deflatestream(v=vs.110).aspx) .NET Framework 4.5 (que proporciona un mejor algoritmo de compresión basado en zlib), que muchos desarrolladores podrían encontrar útil.
 
     // Este código se debe compilar con el parámetro de marco de destino definido como ".NET Framework 4.5"
     // para asegurar que se utiliza la implementación deseada del algoritmo de compresión Deflate

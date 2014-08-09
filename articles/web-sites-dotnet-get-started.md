@@ -3,7 +3,7 @@
 # Introducción a Azure y ASP.NET
 
  
-<div  class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/net/tutorials/get-started/" title="Visual Studio 2013" class="current">Visual Studio 2013</a><a href="/en-us/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
+<div  class="dev-center-tutorial-selector sublanding"><a href="/es-es/develop/net/tutorials/get-started/" title="Visual Studio 2013" class="current">Visual Studio 2013</a><a href="/es-es/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
 
  Este tutorial muestra cómo crear una aplicación web ASP.NET e implementarla en un Sitio web Azure utilizando Visual Studio 2013 o Visual Studio 2013 Express para Web. En este tutorial se asume que no tiene ninguna experiencia previa con Azure o ASP.NET. Cuando acabe, tendrá una aplicación web sencilla ejecutándose en la nube.
 
@@ -247,32 +247,32 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
 
 ### Otros métodos de implementar un proyecto web
 
-En este tutorial hemos visto el método más rápido de crear un sitio e implementarlo en una sola operación. Para obtener información general acerca de otros métodos de implementación, ya sea mediante Visual Studio o mediante una [implementación automatizada (información en inglés)][2] desde el [sistema de control de código fuente (información en inglés)][3], consulte [Implementación de un sitio web Azure](/en-us/documentation/articles/web-sites-deploy/").
+En este tutorial hemos visto el método más rápido de crear un sitio e implementarlo en una sola operación. Para obtener información general acerca de otros métodos de implementación, ya sea mediante Visual Studio o mediante una [implementación automatizada (información en inglés)][2] desde el [sistema de control de código fuente (información en inglés)][3], consulte [Implementación de un sitio web Azure](/es-es/documentation/articles/web-sites-deploy/").
 
 Una forma de automatizar la implementación es utilizar los scripts de Windows PowerShell. Visual Studio y Azure simplifican la tarea generando scripts de PowerShell que puede utilizar para realizar las mismas operaciones de implementación que lleva a cabo en Visual Studio. Para obtener más información, consulte [Automate Everything (Building Real-World Cloud Apps with Azure)][4].
 
 ### Administración de un sitio web
 
-El [Portal de administración de Azure](en-us/services/management-portal/) es una interfaz web que puede utilizar para administrar y supervisar todos los servicios de Azure, como sitios web, servicios en la nube, máquinas virtuales, bases de datos y más. Para ver qué puede hacer en el portal, vaya a [https://manage.windowsazure.com]() e inicie sesión con el nombre de usuario y la contraseña de la cuenta que tiene los derechos administrativos de la suscripción a Azure. Para obtener más información, consulte [Administración de sitios web](/en-us/manage/services/web-sites/how-to-manage-websites/).
+El [Portal de administración de Azure](en-us/services/management-portal/) es una interfaz web que puede utilizar para administrar y supervisar todos los servicios de Azure, como sitios web, servicios en la nube, máquinas virtuales, bases de datos y más. Para ver qué puede hacer en el portal, vaya a [https://manage.windowsazure.com]() e inicie sesión con el nombre de usuario y la contraseña de la cuenta que tiene los derechos administrativos de la suscripción a Azure. Para obtener más información, consulte [Administración de sitios web](/es-es/manage/services/web-sites/how-to-manage-websites/).
 
-También puede realizar algunas tareas de administración de sitios web directamente desde el **Explorador de servidores** en Visual Studio. Para obtener más información acerca de lo que puede hacer en el **Explorador de servidores**, consulte [Solución de problemas de Sitios web Azure en Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+También puede realizar algunas tareas de administración de sitios web directamente desde el **Explorador de servidores** en Visual Studio. Para obtener más información acerca de lo que puede hacer en el **Explorador de servidores**, consulte [Solución de problemas de Sitios web Azure en Visual Studio](/es-es/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 ### Escalación de un sitio web
 
-Si el sitio es público y empieza a tener más tráfico, es posible que los tiempos de respuesta se alarguen. Para solucionarlo, puede agregar fácilmente recursos de servidores en la pestaña **Escalar** del portal de administración. Para obtener más información, consulte [Escalación de un sitio web](/en-us/manage/services/web-sites/how-to-scale-websites/). (Agregar recursos de servidores para escalar un sitio web no es
+Si el sitio es público y empieza a tener más tráfico, es posible que los tiempos de respuesta se alarguen. Para solucionarlo, puede agregar fácilmente recursos de servidores en la pestaña **Escalar** del portal de administración. Para obtener más información, consulte [Escalación de un sitio web](/es-es/manage/services/web-sites/how-to-scale-websites/). (Agregar recursos de servidores para escalar un sitio web no es
 gratuito).
 
 ### Solucionar problemas de un sitio web
 
-Es posible que desee consultar los resultados de seguimiento o los registros para obtener ayuda con la solución de problemas. Visual Studio ofrece herramientas integradas que facilitan la visualización de los registros de Azure cuando se generan, en tiempo real. También puede ejecutar el sitio en modo de depuración de manera remota en Azure. Para obtener más información, consulte [Solución de problemas de Sitios web Azure en Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+Es posible que desee consultar los resultados de seguimiento o los registros para obtener ayuda con la solución de problemas. Visual Studio ofrece herramientas integradas que facilitan la visualización de los registros de Azure cuando se generan, en tiempo real. También puede ejecutar el sitio en modo de depuración de manera remota en Azure. Para obtener más información, consulte [Solución de problemas de Sitios web Azure en Visual Studio](/es-es/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 ### Incorporación de funcionalidad de base de datos y autorización
 
-La mayoría de los sitios web de producción utilizan una base de datos y restringen algunas funciones del sitio a los usuarios autorizados. En el siguiente enlace encontrará un tutorial introductorio acerca del acceso a base de datos, la autenticación y la autorización: [Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL en un Sitio web Azure](/en-us/develop/net/tutorials/web-site-with-sql-database/).
+La mayoría de los sitios web de producción utilizan una base de datos y restringen algunas funciones del sitio a los usuarios autorizados. En el siguiente enlace encontrará un tutorial introductorio acerca del acceso a base de datos, la autenticación y la autorización: [Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL en un Sitio web Azure](/es-es/develop/net/tutorials/web-site-with-sql-database/).
 
 ### Decidir si la aplicación debe ejecutarse en un Servicio en la nube
 
-En Azure puede ejecutar aplicaciones web en Sitios web, como se muestra en este tutorial, o en Servicios en la nube o Máquinas virtuales. Para obtener más información, consulte [Modelos de ejecución de Azure](/en-us/develop/net/fundamentals/compute/) y [Sitios web, Servicios en la nube y Máquinas virtuales de Azure: cuándo usar cada uno](/en-us/manage/services/web-sites/choose-web-app-service/).
+En Azure puede ejecutar aplicaciones web en Sitios web, como se muestra en este tutorial, o en Servicios en la nube o Máquinas virtuales. Para obtener más información, consulte [Modelos de ejecución de Azure](/es-es/develop/net/fundamentals/compute/) y [Sitios web, Servicios en la nube y Máquinas virtuales de Azure: cuándo usar cada uno](/es-es/manage/services/web-sites/choose-web-app-service/).
 
 
 

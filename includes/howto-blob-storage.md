@@ -54,5 +54,5 @@ El servicio de blobs contiene los siguientes componentes:
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx
+[1]: http://msdn.microsoft.com/es-es/library/dn249410.aspx
+[2]: http://msdn.microsoft.com/es-es/library/windowsazure/ee691964.aspx

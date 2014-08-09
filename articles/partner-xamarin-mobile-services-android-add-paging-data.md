@@ -3,7 +3,7 @@
 Limitación de consultas de Servicios móviles con paginación
 ===========================================================
 
-[C\# para Tienda Windows](/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/en-us/develop/mobile/tutorials/add-paging-to-data-js "JavaScript para Tienda Windows")[Windows Phone](/en-us/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/add-paging-to-data-ios "iOS")[Android](/en-us/develop/mobile/tutorials/add-paging-to-data-android "Android")[HTML](/en-us/develop/mobile/tutorials/add-paging-to-data-html "HTML")[iOS C\#](/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS")[C\# para Android](/en-us/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android")
+[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/add-paging-to-data-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/add-paging-to-data-js "JavaScript para Tienda Windows")[Windows Phone](/es-es/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/add-paging-to-data-ios "iOS")[Android](/es-es/develop/mobile/tutorials/add-paging-to-data-android "Android")[HTML](/es-es/develop/mobile/tutorials/add-paging-to-data-html "HTML")[iOS C\#](/es-es/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS")[C\# para Android](/es-es/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android")
 
 En este tema se muestra cómo utilizar la paginación para administrar la cantidad de datos devueltos a la aplicación Xamarin.Android desde Servicios móviles de Azure. En este tutorial se utilizarán los métodos de consulta **Take** y **Skip** en el cliente para solicitar "páginas" específicas de datos.
 
@@ -11,9 +11,9 @@ En este tema se muestra cómo utilizar la paginación para administrar la cantid
 
 Para evitar el desbordamiento de datos en clientes de dispositivos móviles, Servicios móviles implementa un límite automático de páginas, con un valor determinado de 50 elementos en una respuesta. Si especifica el tamaño de la página, puede solicitar explícitamente hasta 1.000 elementos en la respuesta.
 
-Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android). Antes de comenzar este tutorial, debe completar al menos el primer tutorial de la serie de trabajo con datos, [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android).
+Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android). Antes de comenzar este tutorial, debe completar al menos el primer tutorial de la serie de trabajo con datos, [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android).
 
-1.  En Xamarin Studio, abra el proyecto que ha creado cuando realizó el tutorial [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android).
+1.  En Xamarin Studio, abra el proyecto que ha creado cuando realizó el tutorial [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android).
 
 2.  Haga clic en **Run** para iniciar la aplicación y, a continuación, especifique el texto en el cuadro de texto y haga clic en el botón **Add**.
 
@@ -57,10 +57,10 @@ Pasos siguientes
 
 Así concluye el conjunto de tutoriales que demuestra los aspectos básicos del trabajo con datos en Servicios móviles. Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
--   [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android)
+-   [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android)
     <br/>Aprenda a autenticar a los usuarios de su aplicación con cuenta de Windows.
 
--   [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android)
+-   [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-xamarin-android)
     <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
 

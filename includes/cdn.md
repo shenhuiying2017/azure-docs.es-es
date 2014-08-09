@@ -35,7 +35,7 @@ Para crear una cuenta de almacenamiento, debe ser administrador del servicio o c
 <div  class="dev-callout" markdown="1">
 <strong>Nota:</strong>
 <p>Para obtener información acerca de la realización de esta operación
-mediante la API de administración de servicios de Azure, consulte el tema de referencia <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx">Crear cuenta de almacenamiento</a>.</p>
+mediante la API de administración de servicios de Azure, consulte el tema de referencia <a href="http://msdn.microsoft.com/es-es/library/windowsazure/hh264518.aspx">Crear cuenta de almacenamiento</a>.</p>
 </div>
 
 
@@ -179,13 +179,13 @@ Actualmente no existe una herramienta de depuración específica disponible para
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680302.aspx
+[1]: http://msdn.microsoft.com/es-es/library/windowsazure/gg680302.aspx
 [2]: https://manage.windowsazure.com/
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/ee924681.aspx
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531560.aspx
-[6]: http://msdn.microsoft.com/en-us/library/gg680306.aspx
-[7]: http://msdn.microsoft.com/en-us/library/dd179354.aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531567.aspx
-[9]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460807.aspx
-[10]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+[3]: http://msdn.microsoft.com/es-es/library/windowsazure/ee924681.aspx
+[4]: http://msdn.microsoft.com/es-es/library/windowsazure/hh264518.aspx
+[5]: http://msdn.microsoft.com/es-es/library/windowsazure/hh531560.aspx
+[6]: http://msdn.microsoft.com/es-es/library/gg680306.aspx
+[7]: http://msdn.microsoft.com/es-es/library/dd179354.aspx
+[8]: http://msdn.microsoft.com/es-es/library/windowsazure/hh531567.aspx
+[9]: http://msdn.microsoft.com/es-es/library/windowsazure/ee460807.aspx
+[10]: http://msdn.microsoft.com/es-es/library/windowsazure/gg680307.aspx

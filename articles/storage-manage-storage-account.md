@@ -25,7 +25,7 @@ Tiene tres opciones para replicar su cuenta de almacenamiento:
 
 -   **Replicación geográfica redundante de acceso de lectura (solo vista previa).** La replicación geográfica redundante de acceso de lectura replica sus datos en una ubicación geográfica secundaria; además, proporciona acceso de lectura a sus datos en la ubicación secundaria. La replicación con redundancia geográfica de acceso de lectura le permite tener acceso a los datos desde la ubicación principal o la secundaria, ante la eventualidad de que alguna de las ubicaciones deje de estar disponible.
 
-Para obtener información de precios para la replicación de cuentas de almacenamiento, consulte [Detalles de precios de Storage](http://www.windowsazure.com/en-us/pricing/details/storage/).
+Para obtener información de precios para la replicación de cuentas de almacenamiento, consulte [Detalles de precios de Storage](http://www.windowsazure.com/es-es/pricing/details/storage/).
 
 ### Para especificar la configuración de replicación de una cuenta de almacenamiento
 
@@ -46,7 +46,7 @@ En el [Portal de administración](http://manage.windowsazure.com), use **Manage 
 
 ### Copia de una clave de acceso de almacenamiento
 
-Puede usar **Manage Keys** para copiar una clave de acceso de almacenamiento para usarla en una cadena de conexión. La cadena de conexión requiere el uso del nombre de la cuenta de almacenamiento y una clave en la autenticación. Para obtener información sobre la configuración de cadenas de conexión para tener acceso a los servicios de almacenamiento de Azure, consulte [Configurar las cadenas de conexión de Windows Azure](http://msdn.microsoft.com/en-us/library/ee758697.aspx).
+Puede usar **Manage Keys** para copiar una clave de acceso de almacenamiento para usarla en una cadena de conexión. La cadena de conexión requiere el uso del nombre de la cuenta de almacenamiento y una clave en la autenticación. Para obtener información sobre la configuración de cadenas de conexión para tener acceso a los servicios de almacenamiento de Azure, consulte [Configurar las cadenas de conexión de Windows Azure](http://msdn.microsoft.com/es-es/library/ee758697.aspx).
 
 1. En el [Portal de administración](http://manage.windowsazure.com), haga clic en **Almacenamiento** y, a continuación, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
 

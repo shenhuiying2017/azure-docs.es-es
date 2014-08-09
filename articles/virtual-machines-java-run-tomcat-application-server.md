@@ -139,7 +139,7 @@ En este punto, el sitio web de Tomcat se debería ver desde un explorador extern
 
 ## Pasos siguientes
 
-* Para obtener más información acerca de otros servicios, como Almacenamiento de Azure, bus de servicio, Base de datos SQL, etc., que desee incluir con sus aplicaciones Java, vea la información disponible en <http://http://azure.microsoft.com/en-us/develop/java/>.
+* Para obtener más información acerca de otros servicios, como Almacenamiento de Azure, bus de servicio, Base de datos SQL, etc., que desee incluir con sus aplicaciones Java, vea la información disponible en <http://http://azure.microsoft.com/es-es/develop/java/>.
 
 
 

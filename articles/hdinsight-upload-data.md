@@ -2,11 +2,11 @@
 
 # Carga de datos en HDInsight
 
-HDInsight de Azure proporciona un sistema de archivos distribuidos Hadoop (HDFS) completo a través del servicio de almacenamiento de blobs de Azure. Se ha diseńado como extensión HDFS para proporcionar una experiencia sin igual a los clientes al habilitar un conjunto completo de componentes del ecosistema Hadoop para poder operar directamente en los datos que administra. Tanto el almacenamiento de blobs de Azure como HDFS son sistemas de archivos diferentes que se han optimizado para el almacenamiento de datos y el cálculo en ellos. Para conocer las ventajas del uso del almacenamiento de blobs de Azure, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).
+HDInsight de Azure proporciona un sistema de archivos distribuidos Hadoop (HDFS) completo a través del servicio de almacenamiento de blobs de Azure. Se ha diseńado como extensión HDFS para proporcionar una experiencia sin igual a los clientes al habilitar un conjunto completo de componentes del ecosistema Hadoop para poder operar directamente en los datos que administra. Tanto el almacenamiento de blobs de Azure como HDFS son sistemas de archivos diferentes que se han optimizado para el almacenamiento de datos y el cálculo en ellos. Para conocer las ventajas del uso del almacenamiento de blobs de Azure, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](/es-es/manage/services/hdinsight/howto-blob-store/).
 
 Los clústeres de HDInsight de Azure se implementan normalmente para ejecutar trabajos de MapReduce y se anulan una vez terminados. El mantenimiento de datos en los clústeres de HDFS después de haber completado los cálculos supondría un alto coste para el almacenamiento de estos datos. El almacenamiento de blobs de Azure tiene una excelente disponibilidad, es altamente escalable, cuenta con una gran capacidad, un bajo coste y la opción de almacenamiento que se puede compartir para los datos que se van a procesar usando HDInsight. Almacenar los datos en un blob permite que los clústeres de HDInsight que se usan para los cálculos se lancen de forma segura y sin perder los datos.
 
-Se puede tener acceso al almacenamiento de blobs de Azure mediante [AzCopy][1], [Azure PowerShell][2], [Biblioteca de cliente de almacenamiento de Azure para .NET](/en-us/develop/net/how-to-guides/blob-storage/) o a través de las herramientas del explorador. Estas son algunas de las herramientas disponibles:
+Se puede tener acceso al almacenamiento de blobs de Azure mediante [AzCopy][1], [Azure PowerShell][2], [Biblioteca de cliente de almacenamiento de Azure para .NET](/es-es/develop/net/how-to-guides/blob-storage/) o a través de las herramientas del explorador. Estas son algunas de las herramientas disponibles:
 
 * [Explorador de almacenamiento de Azure][3]
 * [Cloud Storage Studio 2][4]
@@ -20,9 +20,9 @@ Tenga en cuenta los siguientes requisitos antes de empezar este artículo:
 
 * Un clúster de HDInsight de Azure. Para obtener instrucciones, consulte
   [Introducción a HDInsight de
-  Azure](/en-us/manage/services/hdinsight/get-started-hdinsight/) o
+  Azure](/es-es/manage/services/hdinsight/get-started-hdinsight/) o
   [Aprovisionamiento de clústeres de
-  HDInsight](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/).
+  HDInsight](/es-es/manage/services/hdinsight/provision-hdinsight-clusters/).
 
 ## En este artículo
 
@@ -211,7 +211,7 @@ Para obtener más información acerca de cómo usar Sqoop, consulte Uso de Sqoop
 
 
 [1]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
+[2]: http://msdn.microsoft.com/es-es/library/windowsazure/jj152841.aspx
 [3]: http://azurestorageexplorer.codeplex.com/
 [4]: http://www.cerebrata.com/Products/CloudStorageStudio/
 [5]: http://clumsyleaf.com/products/cloudxplorer
@@ -220,28 +220,28 @@ Para obtener más información acerca de cómo usar Sqoop, consulte Uso de Sqoop
 [8]: http://aka.ms/WaCopy
 
 [azure-management-portal]: https://manage.windowsazure.com
-[azure-powershell]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
-[azure-storage-client-library]: /en-us/develop/net/how-to-guides/blob-storage/
-[azure-storage-account]: /en-us/manage/services/storage/how-to-manage-a-storage-account/
+[azure-powershell]: http://msdn.microsoft.com/es-es/library/windowsazure/jj152841.aspx
+[azure-storage-client-library]: /es-es/develop/net/how-to-guides/blob-storage/
+[azure-storage-account]: /es-es/manage/services/storage/how-to-manage-a-storage-account/
 [azure-azcopy-download]: http://aka.ms/WaCopy
 [azure-azcopy]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
 
 [hdinsight-sqoop]: ../hdinsight-use-sqoop/
 
-[hdinsight-storage]: /en-us/manage/services/hdinsight/howto-blob-store/
-[hdinsight-submit-jobs]: /en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
-[hdinsight-getting-started]: /en-us/manage/services/hdinsight/get-started-hdinsight/
+[hdinsight-storage]: /es-es/manage/services/hdinsight/howto-blob-store/
+[hdinsight-submit-jobs]: /es-es/manage/services/hdinsight/submit-hadoop-jobs-programmatically/
+[hdinsight-getting-started]: /es-es/manage/services/hdinsight/get-started-hdinsight/
 
-[hdinsight-hive]: /en-us/manage/services/hdinsight/using-hive-with-hdinsight/
-[hdinsight-pig]: /en-us/manage/services/hdinsight/using-pig-with-hdinsight/
-[hdinsight-provision]: /en-us/manage/services/hdinsight/provision-hdinsight-clusters/
-[hdinsight-configure-powershell]: /en-us/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
+[hdinsight-hive]: /es-es/manage/services/hdinsight/using-hive-with-hdinsight/
+[hdinsight-pig]: /es-es/manage/services/hdinsight/using-pig-with-hdinsight/
+[hdinsight-provision]: /es-es/manage/services/hdinsight/provision-hdinsight-clusters/
+[hdinsight-configure-powershell]: /es-es/manage/services/hdinsight/install-and-configure-powershell-for-hdinsight/
 
 [sqldatabase-create-configue]: ../sql-database-create-configure/
 
 [apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
-[Powershell-install-configure]: /en-us/documentation/articles/install-configure-powershell/
+[Powershell-install-configure]: /es-es/documentation/articles/install-configure-powershell/
 
 
 [image-azure-storage-explorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png

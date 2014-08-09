@@ -35,7 +35,7 @@ Para usar la API de administración de servicios, necesita [crear una cuenta de 
 Conceptos
 ---------
 
-El SDK de Azure para PHP ajusta la [API de administración de servicios de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx), que es una API de REST. Todas las operaciones de la API se realizan mediante SSL y se autentican mutuamente con los certificados X.509 v3. Se puede obtener acceso al servicio de administración desde un servicio que se ejecute en Azure, o bien directamente a través de Internet desde cualquier aplicación que envíe una solicitud HTTPS y reciba una respuesta HTTPS.
+El SDK de Azure para PHP ajusta la [API de administración de servicios de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/ee460799.aspx), que es una API de REST. Todas las operaciones de la API se realizan mediante SSL y se autentican mutuamente con los certificados X.509 v3. Se puede obtener acceso al servicio de administración desde un servicio que se ejecute en Azure, o bien directamente a través de Internet desde cualquier aplicación que envíe una solicitud HTTPS y reciba una respuesta HTTPS.
 
 Creación de una aplicación PHP
 ------------------------------
@@ -62,7 +62,7 @@ Para crear el certificado `.cer`, ejecute este comando:
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Para obtener más información acerca de los certificados de Azure, consulte [Información general sobre los certificados de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg981935.aspx). Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación disponible en <http://www.openssl.org/docs/apps/openssl.html>.
+Para obtener más información acerca de los certificados de Azure, consulte [Información general sobre los certificados de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg981935.aspx). Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación disponible en <http://www.openssl.org/docs/apps/openssl.html>.
 
 Si ha descargado e importado el archivo de configuración de publicación con las [Herramientas de línea de comandos de Azure](../command-line-tools/), puede usar el archivo `.pem` que las herramientas crean en lugar de crear su propio archivo. Las herramientas crean un archivo `.cer`, lo cargan en Azure y, a continuación, colocan el archivo `.pem` correspondiente en el directorio `.azure` del equipo (en el directorio de usuarios).
 
@@ -104,7 +104,7 @@ Para enumerar las ubicaciones disponibles para los servicios hospedados, use el 
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/es-es/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -153,7 +153,7 @@ Al crear una aplicación y ejecutarla en Azure, al código y a la configuración
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/es-es/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -198,12 +198,12 @@ Tenga en cuenta que antes de eliminar un servicio, primero es necesario eliminar
 Creación de una implementación
 ------------------------------
 
-El método **createDeployment** carga un nuevo [paquete de servicio](http://msdn.microsoft.com/en-us/library/windowsazure/gg433093) y crea una implementación nueva en el entorno de ensayo o producción. Los parámetros para este método son los siguientes:
+El método **createDeployment** carga un nuevo [paquete de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/gg433093) y crea una implementación nueva en el entorno de ensayo o producción. Los parámetros para este método son los siguientes:
 
 -   **$name**: el nombre del servicio hospedado.
 -   **$deploymentName**: el nombre de la implementación.
 -   **$slot**: una enumeración que indica la ranura staging o production.
--   **$packageUrl**: la URL del paquete de implementación (un archivo .cspgk). El archivo del paquete debe almacenarse en una cuenta de almacenamiento de blobs de Azure con la misma suscripción que el servicio hospedado en el que se carga el paquete. Puede crear un paquete de implementación con los [cmdlets de Azure PowerShell](../install-configure-powershell/) o con la [Herramienta de línea de comandos CSPack](http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx).
+-   **$packageUrl**: la URL del paquete de implementación (un archivo .cspgk). El archivo del paquete debe almacenarse en una cuenta de almacenamiento de blobs de Azure con la misma suscripción que el servicio hospedado en el que se carga el paquete. Puede crear un paquete de implementación con los [cmdlets de Azure PowerShell](../install-configure-powershell/) o con la [Herramienta de línea de comandos CSPack](http://msdn.microsoft.com/es-es/library/windowsazure/gg432988.aspx).
 -   **$configuration**: el archivo de configuración del servicio (archivo .cscfg).
 -   **$label**: el nombre del servicio codificado como base64.
 
@@ -239,7 +239,7 @@ El ejemplo siguiente crea una nueva implementación en la ranura production de u
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/es-es/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -272,7 +272,7 @@ Actualización de una implementación
 
 Una implementación se puede actualizar al usar el método **changeDeploymentConfiguration** o el método **updateDeploymentStatus**.
 
-El método **changeDeploymentConfiguration** le permite cargar un nuevo archivo de configuración (`.cscfg`) del servicio, que cambiará algunas de las opciones de configuración del servicio (incluido el número de instancias de una implementación). Para obtener más información, consulte [Esquema de configuración del servicio de Azure (archivo .cscfg)](http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx). En el siguiente ejemplo se demuestra cómo cargar el nuevo archivo de configuración del servicio:
+El método **changeDeploymentConfiguration** le permite cargar un nuevo archivo de configuración (`.cscfg`) del servicio, que cambiará algunas de las opciones de configuración del servicio (incluido el número de instancias de una implementación). Para obtener más información, consulte [Esquema de configuración del servicio de Azure (archivo .cscfg)](http://msdn.microsoft.com/es-es/library/windowsazure/ee758710.aspx). En el siguiente ejemplo se demuestra cómo cargar el nuevo archivo de configuración del servicio:
 
     require_once 'vendor\autoload.php';
 
@@ -298,7 +298,7 @@ El método **changeDeploymentConfiguration** le permite cargar un nuevo archivo 
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/es-es/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -328,7 +328,7 @@ El método **updateDeploymentStatus** le permite definir el estado de una implem
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/es-es/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -337,7 +337,7 @@ El método **updateDeploymentStatus** le permite definir el estado de una implem
 Transferencia de implementaciones entre ensayo y producción
 -----------------------------------------------------------
 
-Azure ofrece dos entornos de implementación: ensayo y producción. Normalmente un servicio se implementa en el entorno de ensayo para probarlo antes de implementarlo en el entorno de producción. Cuando sea el momento de promover el servicio en ensayo al entorno de producción, puede hacerlo sin tener que volver a implementar el servicio. Esto puede hacerse mediante el intercambio de las implementaciones. (Para obtener más información acerca del intercambio de implementaciones, consulte [Información general sobre la administración de implementaciones en Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx)).
+Azure ofrece dos entornos de implementación: ensayo y producción. Normalmente un servicio se implementa en el entorno de ensayo para probarlo antes de implementarlo en el entorno de producción. Cuando sea el momento de promover el servicio en ensayo al entorno de producción, puede hacerlo sin tener que volver a implementar el servicio. Esto puede hacerse mediante el intercambio de las implementaciones. (Para obtener más información acerca del intercambio de implementaciones, consulte [Información general sobre la administración de implementaciones en Azure](http://msdn.microsoft.com/es-es/library/windowsazure/hh386336.aspx)).
 
 En el ejemplo siguiente se muestra cómo usar el método **swapDeployment** para intercambiar dos implementaciones (con los nombres de implementación `v1` y `v2`). En el ejemplo, antes de llamar a **swapDeployment**, la implementación `v1` está en la ranura de producción y la implementación `v2` está en la ranura de ensayo. Después de llamar a **swapDeployment**, `v2` está en producción y `v1` está en ensayo.
 
@@ -355,7 +355,7 @@ En el ejemplo siguiente se muestra cómo usar el método **swapDeployment** para
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/es-es/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -385,7 +385,7 @@ Para eliminar una implementación, use el método **deleteDeployment**. En el si
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/es-es/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -421,7 +421,7 @@ Un [servicio de almacenamiento](../storage-whatis-account/) le proporciona acces
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/es-es/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -463,7 +463,7 @@ Puede eliminar un servicio de almacenamiento si transfiere el nombre de dicho se
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/es-es/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -498,7 +498,7 @@ Para crear un grupo de afinidad, necesita un nombre, una etiqueta (el nombre de 
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/es-es/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -540,7 +540,7 @@ Puede eliminar un grupo de afinidad si transfiere el nombre del grupo al método
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+        // http://msdn.microsoft.com/es-es/library/windowsazure/ee460801
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";

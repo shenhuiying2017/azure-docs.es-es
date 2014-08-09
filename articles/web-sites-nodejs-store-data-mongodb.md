@@ -1,4 +1,4 @@
-<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="" solutions="" writer="" manager="" editor="" />
+<properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Web site with MongoDB" pageTitle="Node.js web site with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/es-es/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="Node.js" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="" solutions="" writer="" manager="" editor="" />
 
 Creación de una aplicación Node.js en Azure con MongoDB en una máquina virtual
 ==============================================================================
@@ -13,7 +13,7 @@ Aprenderá a:
 
 Al seguir este tutorial, podrá compilar una aplicación de administración de tareas basadas en web sencilla que permite crear, recuperar y completar tareas. Las tareas se almacenan en MongoDB.
 
-> [WACOM.NOTE] Este tutorial usa una instancia de MongoDB instalada en una máquina virtual. Si prefiere usar una instancia de MongoDB hospedada proporcionada por MongoLabs, consulte [Creación de una aplicación Node.js en Azure con MongoDB y el complemento de MongoLab](/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/).
+> [WACOM.NOTE] Este tutorial usa una instancia de MongoDB instalada en una máquina virtual. Si prefiere usar una instancia de MongoDB hospedada proporcionada por MongoLabs, consulte [Creación de una aplicación Node.js en Azure con MongoDB y el complemento de MongoLab](/es-es/develop/nodejs/tutorials/website-with-mongodb-mongolab/).
 
 Los archivos del proyecto para este tutorial se almacenarán en un directorio llamado **tasklist** y la aplicación completada tendrá una apariencia similar a la siguiente:
 
@@ -67,7 +67,7 @@ Si bien es posible crear una máquina virtual nueva y luego instalar MongoDB en 
 
     > [WACOM.NOTE] En este tutorial, no necesitará usar SSH para conectarse de manera remota a su máquina virtual. Seleccione **Use a password** y proporcione una contraseña si no está familiarizado con el uso de un certificado con SSH.
     >
-    > Para obtener más información sobre el uso de SSH con una máquina virtual del Linux en Azure, consulte [Utilización de SSH con Linux en Azure](http://www.windowsazure.com/en-us/documentation/articles/linux-use-ssh-key/).
+    > Para obtener más información sobre el uso de SSH con una máquina virtual del Linux en Azure, consulte [Utilización de SSH con Linux en Azure](http://www.windowsazure.com/es-es/documentation/articles/linux-use-ssh-key/).
 
 7.  Seleccione si va a usar un servicio en la nube nuevo o existente y la región en la que se va a crear la máquina virtual. Haga clic en la flecha para continuar.
 
@@ -374,13 +374,13 @@ Implementación de su aplicación en Azure
 
 Los pasos de esta sección usan las herramientas de la línea de comandos de Azure para crear un sitio web de Azure nuevo y, posteriormente, usan Git para implementar su aplicación. Para realizar estos pasos debe tener una suscripción a Azure.
 
-> [WACOM.NOTE] Estos pasos también pueden llevarse a cabo usando el portal de Azure. Para conocer los pasos para usar el portal de Azure y así implementar una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un Sitio web Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/).
+> [WACOM.NOTE] Estos pasos también pueden llevarse a cabo usando el portal de Azure. Para conocer los pasos para usar el portal de Azure y así implementar una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un Sitio web Azure](/es-es/develop/nodejs/tutorials/create-a-website-(mac)/).
 
 > [WACOM.NOTE] Si este es el primer sitio web de Azure que crea, debe usar el portal de Azure para implementar esta aplicación.
 
 ### Instalar la interfaz de línea de comandos entre plataformas de Azure
 
-La interfaz de línea de comandos entre plataformas de Azure (xplat-cli) le permite realizar operaciones de administración para los servicios de Azure. Si todavía no ha instalado ni configurado la xplat-cli en su entorno de desarrollo, consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure](/en-us/documentation/articles/xplat-cli/) para obtener instrucciones.
+La interfaz de línea de comandos entre plataformas de Azure (xplat-cli) le permite realizar operaciones de administración para los servicios de Azure. Si todavía no ha instalado ni configurado la xplat-cli en su entorno de desarrollo, consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure](/es-es/documentation/articles/xplat-cli/) para obtener instrucciones.
 
 ### Crear un sitio web de Azure
 
@@ -411,7 +411,7 @@ La interfaz de línea de comandos entre plataformas de Azure (xplat-cli) le perm
          info:   Executing `git remote add azure http://username@mongodbtasklist.azurewebsites.net/mongodbtasklist.git`
          info:   site create command OK
 
-    > [WACOM.NOTE\> Si este es el primer sitio web de Azure de su subscripción, se le pedirá que use el portal para crear el sitio web. Para obtener más información, consulte [Creación e implementación de una aplicación Node.js en sitios web de Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/).
+    > [WACOM.NOTE\> Si este es el primer sitio web de Azure de su subscripción, se le pedirá que use el portal para crear el sitio web. Para obtener más información, consulte [Creación e implementación de una aplicación Node.js en sitios web de Azure](/es-es/develop/nodejs/tutorials/create-a-website-(mac)/).
 
 ### Establecer la variable de entorno MONGODB\_URL
 
@@ -457,16 +457,16 @@ Esto crea una nueva configuración de aplicación para el sitio web, que se usar
 Pasos siguientes
 ----------------
 
-Si bien los pasos de este artículo describen el uso de MongoDB para almacenar información, puede también usar el servicio de tablas de Azure. Consulte [Aplicación web Node.js con el servicio de tablas de Azure](/en-us/develop/nodejs/tutorials/web-site-with-storage/) para obtener más información.
+Si bien los pasos de este artículo describen el uso de MongoDB para almacenar información, puede también usar el servicio de tablas de Azure. Consulte [Aplicación web Node.js con el servicio de tablas de Azure](/es-es/develop/nodejs/tutorials/web-site-with-storage/) para obtener más información.
 
-Para obtener información sobre el uso de una instancia hospedada de MongoDB proporcionada por MongoLab, consulte [Creación de una aplicación Node.js en Azure con MongoDB y el complemento de MongoLab](/en-us/develop/nodejs/tutorials/website-with-mongodb-mongolab/).
+Para obtener información sobre el uso de una instancia hospedada de MongoDB proporcionada por MongoLab, consulte [Creación de una aplicación Node.js en Azure con MongoDB y el complemento de MongoLab](/es-es/develop/nodejs/tutorials/website-with-mongodb-mongolab/).
 
 Para obtener información sobre la protección de MongoDB, consulte [MongoDB Security](http://docs.mongodb.org/manual/security/).
 
 Recursos adicionales
 --------------------
 
-[Herramienta de línea de comandos de Azure para Mac y Linux](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/)
+[Herramienta de línea de comandos de Azure para Mac y Linux](/es-es/develop/nodejs/tutorials/create-a-website-(mac)/)
  
-[Publicación en sitios web de Azure con Git](/en-us/develop/nodejs/common-tasks/publishing-with-git/)
+[Publicación en sitios web de Azure con Git](/es-es/develop/nodejs/common-tasks/publishing-with-git/)
 

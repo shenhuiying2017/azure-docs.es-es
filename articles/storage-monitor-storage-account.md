@@ -9,7 +9,7 @@ Hasta que no haya configurado la supervisión para una cuenta de almacenamiento,
 
 **Nota:**
 
-Existen costes adicionales asociados al análisis de los datos de supervisión en el Portal de administración. Para obtener más información, consulte [Facturación del análisis de almacenamiento](http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx).
+Existen costes adicionales asociados al análisis de los datos de supervisión en el Portal de administración. Para obtener más información, consulte [Facturación del análisis de almacenamiento](http://msdn.microsoft.com/es-es/library/windowsazure/hh360997.aspx).
 
 Tabla de contenido
 ------------------
@@ -46,7 +46,7 @@ Configuración de la supervisión para una cuenta de almacenamiento
 
 Debería empezar a ver los datos de supervisión en el panel y en la página **Monitor** en el plazo de una hora aproximadamente.
 
-Las métricas se almacenan en la cuenta de almacenamiento en cuatro tablas denominadas \$MetricsTransactionsBlob, \$MetricsTransactionsTable, \$MetricsTransactionsQueue y \$MetricsCapacityBlob. Para obtener más información, consulte [About Storage Analytics Metrics](http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx).
+Las métricas se almacenan en la cuenta de almacenamiento en cuatro tablas denominadas \$MetricsTransactionsBlob, \$MetricsTransactionsTable, \$MetricsTransactionsQueue y \$MetricsCapacityBlob. Para obtener más información, consulte [About Storage Analytics Metrics](http://msdn.microsoft.com/es-es/library/windowsazure/hh343258.aspx).
 
 Después de configurar los niveles de supervisión y las políticas de retención, puede elegir las métricas disponibles que desea supervisar en el Portal de administración y las métricas que desea mostrar en los gráficos de métricas. En cada nivel de supervisión se muestra un conjunto de métricas predeterminado. Puede utilizar **Add Metrics** para agregar o borrar métricas de la lista de métricas.
 
@@ -93,7 +93,7 @@ Incorporación de métricas en la tabla de métricas
 
     **Nota:**
 
-    Tenga en cuenta los costes al seleccionar las métricas. Existen costes de transacción y de salida asociados a la actualización de las visualizaciones de la supervisión. Para obtener más información, consulte [Facturación del análisis de almacenamiento](http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx).
+    Tenga en cuenta los costes al seleccionar las métricas. Existen costes de transacción y de salida asociados a la actualización de las visualizaciones de la supervisión. Para obtener más información, consulte [Facturación del análisis de almacenamiento](http://msdn.microsoft.com/es-es/library/windowsazure/hh360997.aspx).
 
 
 
@@ -147,5 +147,5 @@ Para cada uno de los servicios de almacenamiento disponibles en su cuenta de alm
 
 4.  Haga clic en **Save**.
 
-Los registros de diagnóstico se guardan en un contenedor de blobs denominado \$logs en su cuenta de almacenamiento. Para obtener más información acerca del acceso al contenedor \$logs, consulte [Acerca del registro del análisis de almacenamiento](http://msdn.microsoft.com/en-us/library/windowsazure/hh343262.aspx).
+Los registros de diagnóstico se guardan en un contenedor de blobs denominado \$logs en su cuenta de almacenamiento. Para obtener más información acerca del acceso al contenedor \$logs, consulte [Acerca del registro del análisis de almacenamiento](http://msdn.microsoft.com/es-es/library/windowsazure/hh343262.aspx).
 

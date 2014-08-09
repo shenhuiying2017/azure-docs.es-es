@@ -7,7 +7,7 @@ En este tema se explica cómo registrar la aplicación con la Tienda Windows par
 
 **Nota:**
 
-No es necesario que registre la aplicación con la Tienda Windows para poder usar la cuenta Microsoft para la autenticación antes de publicar la aplicación. Cuando la aplicación de la Tienda Windows no requiere inicio de sesión único o notificaciones de inserción, puede simplemente registrar la aplicación con Live Connect para usar un inicio de sesión de la cuenta Microsoft. Para obtener más información, consulte [Registro de sus aplicaciones de la Tienda Windows para usar un inicio de sesión de la cuenta Microsoft](/en-us/develop/mobile/how-to-guides/register-for-microsoft-authentication).
+No es necesario que registre la aplicación con la Tienda Windows para poder usar la cuenta Microsoft para la autenticación antes de publicar la aplicación. Cuando la aplicación de la Tienda Windows no requiere inicio de sesión único o notificaciones de inserción, puede simplemente registrar la aplicación con Live Connect para usar un inicio de sesión de la cuenta Microsoft. Para obtener más información, consulte [Registro de sus aplicaciones de la Tienda Windows para usar un inicio de sesión de la cuenta Microsoft](/es-es/develop/mobile/how-to-guides/register-for-microsoft-authentication).
 
 1.  Si aún no ha registrado la aplicación, vaya a la [página Enviar una aplicación](http://go.microsoft.com/fwlink/p/?LinkID=266582) en el Centro de desarrollo de aplicaciones de la Tienda Windows, inicie sesión en su cuenta Microsoft y, a continuación, haga clic en **Nombre de la aplicación**.
 
@@ -19,7 +19,7 @@ No es necesario que registre la aplicación con la Tienda Windows para poder usa
 
    	Se crea un nuevo registro de la Tienda Windows para su aplicación.
 
-3.  En Visual Studio 2012 Express para Windows 8, abra el proyecto que creó cuando completó el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started).
+3.  En Visual Studio 2012 Express para Windows 8, abra el proyecto que creó cuando completó el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started).
 
 4.  En el Explorador de soluciones, haga clic con el botón secundario en el proyecto, haga clic en **Store** y, a continuación, haga clic en **Associate App with the Store...**.
 
@@ -50,9 +50,9 @@ No es necesario que registre la aplicación con la Tienda Windows para poder usa
 
 Ahora está preparado para integrar la autenticación a su aplicación mediante el uso de Live Connect. Servicios móviles proporciona los dos siguientes métodos para autenticar usuarios mediante Live Connect:
 
--   Inicio de sesión único para aplicaciones de la Tienda Windows. En este método, los usuarios solo deben autorizar la autenticación en la aplicación una vez con Live Connect; a continuación, Windows administra las credenciales, según las preferencias del usuario. Para obtener más información, consulte [Inicio de sesión único para aplicaciones de la Tienda Windows mediante Live Connect](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet).
+-   Inicio de sesión único para aplicaciones de la Tienda Windows. En este método, los usuarios solo deben autorizar la autenticación en la aplicación una vez con Live Connect; a continuación, Windows administra las credenciales, según las preferencias del usuario. Para obtener más información, consulte [Inicio de sesión único para aplicaciones de la Tienda Windows mediante Live Connect](/es-es/develop/mobile/tutorials/single-sign-on-windows-8-dotnet).
 
--   Autenticación básica. Este método, que es compatible con diversos proveedores de autenticación, requiere que los usuarios inicien sesión cada vez que se inicia la aplicación. Para obtener más información, consulte [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet).
+-   Autenticación básica. Este método, que es compatible con diversos proveedores de autenticación, requiere que los usuarios inicien sesión cada vez que se inicia la aplicación. Para obtener más información, consulte [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-dotnet).
 
 
 <!-- Images. -->

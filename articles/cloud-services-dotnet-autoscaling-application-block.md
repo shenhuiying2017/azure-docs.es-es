@@ -354,18 +354,18 @@ Ahora que está familiarizado con los aspectos básicos del uso del bloque de au
 [Definición de su modelo de servicio]:#DefineServiceModel
 [Definición de sus reglas de autoescala]:#DefineAutoscalingRules
 [Configuración del bloque de autoescala de la aplicación]:#Configure
-[Uso de contadores de rendimiento en Azure]:http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/ 
+[Uso de contadores de rendimiento en Azure]:http://www.windowsazure.com/es-es/develop/net/common-tasks/performance-profiling/ 
 [NuGet]: http://nuget.org/ 
 [Portal de administración de Azure]:http://manage.windowsazure.com 
-[Almacenamiento de sus datos de información del servicio]:http://msdn.microsoft.com/en-us/library/hh680878(PandP.50).aspx 
-[Hospedaje del bloque de autoescala de la aplicación en un rol de trabajo]:http://msdn.microsoft.com/en-us/library/hh680914(PandP.50).aspx 
-[Implementación del comportamiento de limitación]:http://msdn.microsoft.com/en-us/library/hh680896(PandP.50).aspx 
-[Descripción de los rangos de reglas y la reconciliación]:http://msdn.microsoft.com/en-us/library/hh680923(PandP.50).aspx 
-[Extensión y modificación del bloque de autoescala de la aplicación]:http://msdn.microsoft.com/en-us/library/hh680889(PandP.50).aspx 
-[Uso del estabilizador de optimización para evitar una oscilación de alta frecuencia y optimizar los costes]:http://msdn.microsoft.com/en-us/library/hh680951(PandP.50).aspx 
-[Uso de notificaciones y escalado manual]:http://msdn.microsoft.com/en-us/library/hh680885(PandP.50).aspx
-[Definición de los grupos de escala]:http://msdn.microsoft.com/en-us/library/hh680902(PandP.50).aspx 
-[Uso de WASABiCmdlets para manipular el bloque mediante Windows PowerShell]:http://msdn.microsoft.com/en-us/library/hh680938(PandP.50).aspx 
-[Guía del desarrollador para el paquete de integración de Enterprise Library 5.0 para Azure]:http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx
-[Reducción de los costes de hospedaje de Azure debido a Sage con autoescala]:http://msdn.microsoft.com/en-us/library/jj838716(PandP.50).aspx
-[Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure]:http://msdn.microsoft.com/en-us/library/jj838718(PandP.50).aspx
+[Almacenamiento de sus datos de información del servicio]:http://msdn.microsoft.com/es-es/library/hh680878(PandP.50).aspx 
+[Hospedaje del bloque de autoescala de la aplicación en un rol de trabajo]:http://msdn.microsoft.com/es-es/library/hh680914(PandP.50).aspx 
+[Implementación del comportamiento de limitación]:http://msdn.microsoft.com/es-es/library/hh680896(PandP.50).aspx 
+[Descripción de los rangos de reglas y la reconciliación]:http://msdn.microsoft.com/es-es/library/hh680923(PandP.50).aspx 
+[Extensión y modificación del bloque de autoescala de la aplicación]:http://msdn.microsoft.com/es-es/library/hh680889(PandP.50).aspx 
+[Uso del estabilizador de optimización para evitar una oscilación de alta frecuencia y optimizar los costes]:http://msdn.microsoft.com/es-es/library/hh680951(PandP.50).aspx 
+[Uso de notificaciones y escalado manual]:http://msdn.microsoft.com/es-es/library/hh680885(PandP.50).aspx
+[Definición de los grupos de escala]:http://msdn.microsoft.com/es-es/library/hh680902(PandP.50).aspx 
+[Uso de WASABiCmdlets para manipular el bloque mediante Windows PowerShell]:http://msdn.microsoft.com/es-es/library/hh680938(PandP.50).aspx 
+[Guía del desarrollador para el paquete de integración de Enterprise Library 5.0 para Azure]:http://msdn.microsoft.com/es-es/library/hh680949(PandP.50).aspx
+[Reducción de los costes de hospedaje de Azure debido a Sage con autoescala]:http://msdn.microsoft.com/es-es/library/jj838716(PandP.50).aspx
+[Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure]:http://msdn.microsoft.com/es-es/library/jj838718(PandP.50).aspx

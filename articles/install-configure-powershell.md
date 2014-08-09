@@ -3,7 +3,7 @@
 # Instalación y configuración de Azure PowerShell
 
  
-<div  class="dev-center-tutorial-selector sublanding"><a href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/en-us/manage/install-and-configure-cli/" title="CLI para varias plataformas">CLI para varias plataformas</a></div>
+<div  class="dev-center-tutorial-selector sublanding"><a href="/es-es/manage/install-and-configure-windows-powershell/" title="PowerShell" class="current">PowerShell</a><a href="/es-es/manage/install-and-configure-cli/" title="CLI para varias plataformas">CLI para varias plataformas</a></div>
 
  Puede utilizar Windows PowerShell para realizar diversas tareas en Azure, tanto de manera interactiva en un símbolo del sistema como de manera automática mediante scripts. Azure PowerShell es un módulo que ofrece cmdlets para administrar Azure mediante Windows PowerShell. Puede utilizar los cmdlets para crear, probar, implementar y administrar soluciones y servicios ofrecidos a través de la plataforma de Azure. En la mayoría de los casos, puede utilizar los cmdlets para realizar las mismas tareas que se realizan a través del Portal de administración de Azure. Por ejemplo, puede crear y configurar servicios en la nube, máquinas virtuales, redes virtuales y sitios web.
 
@@ -238,8 +238,8 @@ A continuación, se indican algunos de los recursos que puede utilizar para apre
 [4]: http://go.microsoft.com/fwlink/?LinkId=320796
 [5]: http://go.microsoft.com/fwlink/?LinkId=324796
 [6]: http://manage.windowsazure.com
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/gg456328.aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554330.aspx
+[7]: http://msdn.microsoft.com/es-es/library/windowsazure/gg456328.aspx
+[8]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554330.aspx
 [9]: http://go.microsoft.com/fwlink/p/?LinkId=320212
 [10]: http://go.microsoft.com/fwlink/?LinkId=320213
 [11]: http://go.microsoft.com/fwlink/p/?LinkId=320211

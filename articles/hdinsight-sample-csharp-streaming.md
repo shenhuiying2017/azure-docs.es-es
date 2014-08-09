@@ -5,11 +5,11 @@ Muestra WordCount por streaming de C\# para HDInsight
 
 Hadoop proporciona una API de streaming para MapReduce que le permite escribir mapas y reducir funciones en lenguajes distintos de Java. En este tutorial se muestra cómo escribir programas de MapReduce en C \# que usa la interfaz de streaming de Hadoop y cómo ejecutar los programas en HDInsight de Azure con Azure PowerShell.
 
-En el ejemplo, tanto el asignador como el reductor son ejecutables que leen la entrada desde [stdin](http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx) (línea a línea) y emiten la salida en [stdout](http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx). El programa cuenta todas las palabras del texto.
+En el ejemplo, tanto el asignador como el reductor son ejecutables que leen la entrada desde [stdin](http://msdn.microsoft.com/es-es/library/3x292kth(v=vs.110).aspx) (línea a línea) y emiten la salida en [stdout](http://msdn.microsoft.com/es-es/library/3x292kth(v=vs.110).aspx). El programa cuenta todas las palabras del texto.
 
-Cuando se especifica un archivo ejecutable para los **asignadores**, cada tarea del asignador inicia el ejecutable como un proceso aparte al inicializar el asignador. Mientras se ejecuta la tarea del asignador, convierte sus entradas en líneas y alimenta las líneas a [stdin](http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx) del proceso. Mientras tanto, el asignador recopila las salidas orientadas por las líneas desde el stdout del proceso y convierte cada línea en un par clave-valor, que se recopila como la salida del asignador. De manera predeterminada, el prefijo de una línea hasta el primer carácter de tabulación es la clave y el resto de la línea (sin incluir el carácter de tabulación) es el valor. Si no hay un carácter de tabulación en la línea, entonces se considera toda la línea como una clave y el valor es nulo.
+Cuando se especifica un archivo ejecutable para los **asignadores**, cada tarea del asignador inicia el ejecutable como un proceso aparte al inicializar el asignador. Mientras se ejecuta la tarea del asignador, convierte sus entradas en líneas y alimenta las líneas a [stdin](http://msdn.microsoft.com/es-es/library/3x292kth(v=vs.110).aspx) del proceso. Mientras tanto, el asignador recopila las salidas orientadas por las líneas desde el stdout del proceso y convierte cada línea en un par clave-valor, que se recopila como la salida del asignador. De manera predeterminada, el prefijo de una línea hasta el primer carácter de tabulación es la clave y el resto de la línea (sin incluir el carácter de tabulación) es el valor. Si no hay un carácter de tabulación en la línea, entonces se considera toda la línea como una clave y el valor es nulo.
 
-Cuando se especifica un archivo ejecutable para los **reductores**, cada tarea del reductor inicia el ejecutable como un proceso aparte al inicializar el reductor. Mientras se ejecuta la tarea del reductor, convierte sus pares clave-valor de entrada en líneas y alimenta las líneas a [stdin](http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx) del proceso. Mientras tanto, el reductor recopila las salidas orientadas por las líneas desde el [stdout](http://msdn.microsoft.com/en-us/library/3x292kth(v=vs.110).aspx) del proceso y convierte cada línea en un par clave-valor, que se recopila como la salida del reductor. De manera predeterminada, el prefijo de una línea hasta el primer carácter de tabulación es la clave y el resto de la línea (sin incluir el carácter de tabulación) es el valor.
+Cuando se especifica un archivo ejecutable para los **reductores**, cada tarea del reductor inicia el ejecutable como un proceso aparte al inicializar el reductor. Mientras se ejecuta la tarea del reductor, convierte sus pares clave-valor de entrada en líneas y alimenta las líneas a [stdin](http://msdn.microsoft.com/es-es/library/3x292kth(v=vs.110).aspx) del proceso. Mientras tanto, el reductor recopila las salidas orientadas por las líneas desde el [stdout](http://msdn.microsoft.com/es-es/library/3x292kth(v=vs.110).aspx) del proceso y convierte cada línea en un par clave-valor, que se recopila como la salida del reductor. De manera predeterminada, el prefijo de una línea hasta el primer carácter de tabulación es la clave y el resto de la línea (sin incluir el carácter de tabulación) es el valor.
 
 Para obtener más información acerca de la interfaz de streaming de Hadoop, consulte [Hadoop Streaming](http://wiki.apache.org/hadoop/HadoopStreaming).
 
@@ -20,11 +20,11 @@ Para obtener más información acerca de la interfaz de streaming de Hadoop, con
 
 **Requisitos previos**:
 
--   Debe tener una cuenta de Azure. Para conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/).
+-   Debe tener una cuenta de Azure. Para conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/).
 
--   Debe aprovisionar un clúster de HDInsight. Para obtener instrucciones acerca de varias formas de creación de dichos clústeres, consulte [Aprovisionamiento de clústeres de HDInsight](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/).
+-   Debe aprovisionar un clúster de HDInsight. Para obtener instrucciones acerca de varias formas de creación de dichos clústeres, consulte [Aprovisionamiento de clústeres de HDInsight](/es-es/manage/services/hdinsight/provision-hdinsight-clusters/).
 
--   Debe tener instalado Azure PowerShell y haber configurado los clústeres para utilizarlos con su cuenta. Para obtener instrucciones acerca de cómo hacerlo, consulte [Instalación y configuración de Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   Debe tener instalado Azure PowerShell y haber configurado los clústeres para utilizarlos con su cuenta. Para obtener instrucciones acerca de cómo hacerlo, consulte [Instalación y configuración de Azure PowerShell](/es-es/documentation/articles/install-configure-powershell/).
 
 En este artículo
 ----------------
@@ -41,7 +41,7 @@ Ejecución de la muestra con Azure PowerShell
 
 **Para ejecutar el trabajo de MapReduce**
 
-1.  Abra **Azure PowerShell**. Para obtener instrucciones acerca de cómo abrir la ventana de la consola de Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+1.  Abra **Azure PowerShell**. Para obtener instrucciones acerca de cómo abrir la ventana de la consola de Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/es-es/documentation/articles/install-configure-powershell/).
 
 2.  Ajuste las dos variables en los comandos siguientes y, a continuación, ejecútelos:
 
@@ -144,7 +144,7 @@ El código del asignador en el archivo cat.cs usa un objeto StreamReader para le
         }
     }
 
-El código reductor en el archivo wc.cs usa un objeto [StreamReader](http://msdn.microsoft.com/en-us/library/system.io.streamreader.aspx) para leer caracteres de la secuencia de entrada estándar que han sido de salida por el asignador cat.exe. A medida que lee los caracteres con el método [Console.Writeline](http://msdn.microsoft.com/en-us/library/system.console.writeline), cuenta las palabras contando el espacio y los caracteres de fin de línea al final de cada palabra y, a continuación, escribe el total de la secuencia de salida estándar con el método [Console.Writeline](http://msdn.microsoft.com/en-us/library/system.console.writeline).
+El código reductor en el archivo wc.cs usa un objeto [StreamReader](http://msdn.microsoft.com/es-es/library/system.io.streamreader.aspx) para leer caracteres de la secuencia de entrada estándar que han sido de salida por el asignador cat.exe. A medida que lee los caracteres con el método [Console.Writeline](http://msdn.microsoft.com/es-es/library/system.console.writeline), cuenta las palabras contando el espacio y los caracteres de fin de línea al final de cada palabra y, a continuación, escribe el total de la secuencia de salida estándar con el método [Console.Writeline](http://msdn.microsoft.com/es-es/library/system.console.writeline).
 
 Resumen
 -------
@@ -156,11 +156,11 @@ Pasos siguientes
 
 Para ver tutoriales que ejecutan otras muestras y proporcionan instrucciones sobre el uso de Pig, Hive y los trabajos de MapReduce en HDInsight de Azure con Azure PowerShell, consulte los siguientes temas:
 
--   [Introducción a HDInsight de Azure](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [Muestra: estimador de Pi](/en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/)
--   [Muestra: WordCount](/en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/)
--   [Muestra: GraySort de 10 GB](/en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/)
--   [Uso de Pig con HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [Uso de Hive con HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
+-   [Introducción a HDInsight de Azure](/es-es/manage/services/hdinsight/get-started-hdinsight/)
+-   [Muestra: estimador de Pi](/es-es/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/)
+-   [Muestra: WordCount](/es-es/manage/services/hdinsight/howto-run-samples/sample-wordcount/)
+-   [Muestra: GraySort de 10 GB](/es-es/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/)
+-   [Uso de Pig con HDInsight](/es-es/manage/services/hdinsight/using-pig-with-hdinsight/)
+-   [Uso de Hive con HDInsight](/es-es/manage/services/hdinsight/using-hive-with-hdinsight/)
 -   [Azure HDInsight SDK documentation](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx)
 

@@ -1,9 +1,9 @@
-<properties  linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
+<properties  linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/es-es/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
 # Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure
 
  
-<div  class="dev-center-tutorial-selector sublanding"><a  href="/en-us/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a  href="/en-us/manage/install-and-configure-cli/" title="CLI entre plataformas" class="current">CLI entre plataformas</a></div>
+<div  class="dev-center-tutorial-selector sublanding"><a  href="/es-es/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a  href="/es-es/manage/install-and-configure-cli/" title="CLI entre plataformas" class="current">CLI entre plataformas</a></div>
 
  La interfaz de la línea de comandos entre plataformas de Azure (xplat-cli) proporciona un conjunto de comandos de código abierto de varias plataformas para trabajar con la plataforma Azure. La xplat-cli proporciona muchas de las mismas funciones del Portal de administración de Azure, como la posibilidad de administrar sitios web, máquinas virtuales y servicios móviles, Base de datos SQL y otros servicios ofrecidos por la plataforma Azure.
 
@@ -320,7 +320,7 @@ Para volver al modo Azure Service Management, utilice el siguiente comando:
 > se excluyen mutuamente. Es decir, los recursos creados en un modo no
 > se pueden administrar desde el otro.
 
-Para obtener más información acerca de cómo trabajar con Resource Manager usando la xplat-cli, consulte [Uso de la interfaz de la línea de comandos entre plataformas de Azure con Resource Manager](/en-us/documentation/articles/xplat-cli-azure-resource-manager/).
+Para obtener más información acerca de cómo trabajar con Resource Manager usando la xplat-cli, consulte [Uso de la interfaz de la línea de comandos entre plataformas de Azure con Resource Manager](/es-es/documentation/articles/xplat-cli-azure-resource-manager/).
 
 ### Trabajo con los servicios en el modo de administración de servicios de Azure
 
@@ -479,9 +479,9 @@ Si crea un script basado en el estado de salida, verifique que los comandos de x
 [4]: http://go.microsoft.com/fwlink/?LinkId=252249
 [5]: http://nodejs.org/
 [6]: https://manage.windowsazure.com
-[7]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
-[9]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E
+[7]: http://www.windowsazure.com/es-es/documentation/articles/sign-up-organization/
+[8]: http://msdn.microsoft.com/es-es/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
+[9]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A7171371E
 [10]: http://tldp.org/LDP/abs/html/
 [11]: http://en.wikipedia.org/wiki/Shell_script
 [12]: http://technet.microsoft.com/en-us/library/bb490890.aspx

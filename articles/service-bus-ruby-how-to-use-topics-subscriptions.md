@@ -27,7 +27,7 @@ Tabla de contenido
 Creación de una aplicación de Ruby
 ----------------------------------
 
-Cree una aplicación de Ruby. Para obtener instrucciones, consulte [Creación de una aplicación de Ruby en Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
+Cree una aplicación de Ruby. Para obtener instrucciones, consulte [Creación de una aplicación de Ruby en Azure](/es-es/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 Configuración de la aplicación para usar el bus de servicio
 -----------------------------------------------------------
@@ -92,7 +92,7 @@ El filtro predeterminado **MatchAll** se usa en caso de que no se haya especific
 
 También puede configurar filtros que le permitan especificar qué mensajes enviados a un tema deben aparecer dentro de una suscripción de tema determinada.
 
-El tipo de filtro más flexible compatible con las suscripciones es **Azure::ServiceBus::SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, revise la sintaxis de [SqlFilter.SqlExpression](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
+El tipo de filtro más flexible compatible con las suscripciones es **Azure::ServiceBus::SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, revise la sintaxis de [SqlFilter.SqlExpression](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx).
 
 Es posible agregar filtros a una suscripción utilizando el método **create\_rule()** del objeto **Azure::ServiceBusService**. Este método le permite agregar nuevos filtros a una suscripción existente.
 
@@ -186,7 +186,7 @@ Pasos siguientes
 
 Ahora que conoce los fundamentos de los temas del bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del Service Bus](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
--   Referencia de API para [Clase SqlFilter](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx).
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones del Service Bus](http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx)
+-   Referencia de API para [Clase SqlFilter](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx).
 -   Visite el repositorio del [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) (en inglés) en GitHub.
 

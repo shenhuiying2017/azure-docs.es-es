@@ -37,7 +37,7 @@ Creación de una cuenta de almacenamiento de Azure
 Creación de una aplicación Java
 -------------------------------
 
-En esta guía utilizará funciones del almacenamiento que puede ejecutar en una aplicación Java localmente o bien mediante código a través de un rol web o un rol de trabajo de Azure. Suponemos que ha descargado e instalado el Kit de desarrollo de Java (JDK), que ha seguido las instrucciones de la página del [SDK de Azure para Java](http://www.windowsazure.com/en-us/develop/java/) para instalar las bibliotecas de Azure para Java y el SDK de Azure y que ha creado una cuenta de almacenamiento de Azure en su suscripción de Azure.
+En esta guía utilizará funciones del almacenamiento que puede ejecutar en una aplicación Java localmente o bien mediante código a través de un rol web o un rol de trabajo de Azure. Suponemos que ha descargado e instalado el Kit de desarrollo de Java (JDK), que ha seguido las instrucciones de la página del [SDK de Azure para Java](http://www.windowsazure.com/es-es/develop/java/) para instalar las bibliotecas de Azure para Java y el SDK de Azure y que ha creado una cuenta de almacenamiento de Azure en su suscripción de Azure.
 
 Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas. Todo lo que necesita es la capacidad para compilar un proyecto de Java y crear referencias a las bibliotecas de Azure para Java.
 

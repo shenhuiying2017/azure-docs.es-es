@@ -487,7 +487,7 @@ Los pasos de esta sección usan las herramientas de la línea de comandos de Azu
 
 **Nota:**
 
-Estos pasos también pueden llevarse a cabo usando el portal de Azure. Para conocer los pasos para usar el portal de Azure y así implementar una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un Sitio web Azure](http://content-ppe.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/).
+Estos pasos también pueden llevarse a cabo usando el portal de Azure. Para conocer los pasos para usar el portal de Azure y así implementar una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un Sitio web Azure](http://content-ppe.windowsazure.com/es-es/develop/nodejs/tutorials/create-a-website-(mac)/).
 
 **Nota:**
 
@@ -507,7 +507,7 @@ Para instalar las herramientas de línea de comandos, use el siguiente comando:
 
 **Nota:**
 
-Si ya ha instaló el SDK de **Azure para Node.js** desde [Azure Developer Center](/en-us/develop/nodejs/), entonces las herramientas de línea de comandos ya deberían estar instaladas. Para obtener más información, consulte [Herramienta de línea de comandos de Azure para Mac y Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/).
+Si ya ha instaló el SDK de **Azure para Node.js** desde [Azure Developer Center](/es-es/develop/nodejs/), entonces las herramientas de línea de comandos ya deberían estar instaladas. Para obtener más información, consulte [Herramienta de línea de comandos de Azure para Mac y Linux](/es-es/develop/nodejs/how-to-guides/command-line-tools/).
 
 **Nota:**
 
@@ -582,7 +582,7 @@ Antes de usar las herramientas de línea de comandos de Azure, primero debe desc
 
     **Nota:**
 
-    Si este es el primer sitio web de Azure de su suscripción, se le pedirá que use el portal para crear el sitio web. Para obtener más información, consulte [Creación e implementación de una aplicación Node.js en sitios web de Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/).
+    Si este es el primer sitio web de Azure de su suscripción, se le pedirá que use el portal para crear el sitio web. Para obtener más información, consulte [Creación e implementación de una aplicación Node.js en sitios web de Azure](/es-es/develop/nodejs/tutorials/create-a-website-(mac)/).
 
 ### Publicación de la aplicación
 
@@ -644,11 +644,11 @@ Una vez que se han implementado los cambios en Azure, la aplicación web deberá
 Pasos siguientes
 ----------------
 
-Si bien los pasos de este artículo describen el uso del servicio Tabla para almacenar información, puede también usar MongoDB. Consulte [Aplicación web Node.js con MongoDB](/en-us/develop/nodejs/tutorials/website-with-mongodb-(Mac)/) para obtener más información.
+Si bien los pasos de este artículo describen el uso del servicio Tabla para almacenar información, puede también usar MongoDB. Consulte [Aplicación web Node.js con MongoDB](/es-es/develop/nodejs/tutorials/website-with-mongodb-(Mac)/) para obtener más información.
 
 Recursos adicionales
 --------------------
 
 [Herramienta de línea de comandos de Azure para Mac y Linux]
- [Creación e implementación de una aplicación Node.js en Sitios web Azure]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/ [Publicación en sitios web de Azure con Git](../CommonTasks/publishing-with-git): /en-us/develop/nodejs/common-tasks/publishing-with-git/ [Centro para desarrolladores de Azure]: /en-us/develop/nodejs/
+ [Creación e implementación de una aplicación Node.js en Sitios web Azure]: /es-es/develop/nodejs/tutorials/create-a-website-(mac)/ [Publicación en sitios web de Azure con Git](../CommonTasks/publishing-with-git): /es-es/develop/nodejs/common-tasks/publishing-with-git/ [Centro para desarrolladores de Azure]: /es-es/develop/nodejs/
 

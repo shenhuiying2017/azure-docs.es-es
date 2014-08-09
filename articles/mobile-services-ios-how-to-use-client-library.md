@@ -3,9 +3,9 @@
 Uso de la biblioteca del cliente iOS para Servicios móviles
 ===========================================================
 
-[.NET Framework](/en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework")[HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
+[.NET Framework](/es-es/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework")[HTML/JavaScript](/es-es/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/es-es/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/es-es/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/es-es/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
 
-Esta guía le muestra cómo realizar algunas tareas comunes a través del cliente iOS para Servicios móviles de Azure. Los ejemplos se han escrito en Objective-C y requieren el [SDK de Servicios móviles](https://go.microsoft.com/fwLink/p/?LinkID=266533). Este tutorial también requiere el [SDK de iOS](https://developer.apple.com/xcode). Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia en el uso de Servicios móviles, considere primero la opción de completar la [guía de inicio rápido de Servicios móviles](/en-us/develop/mobile/tutorials/get-started-ios) (en inglés). El tutorial de la guía de inicio rápido le ayuda a configurar la cuenta y crear el primer servicio móvil.
+Esta guía le muestra cómo realizar algunas tareas comunes a través del cliente iOS para Servicios móviles de Azure. Los ejemplos se han escrito en Objective-C y requieren el [SDK de Servicios móviles](https://go.microsoft.com/fwLink/p/?LinkID=266533). Este tutorial también requiere el [SDK de iOS](https://developer.apple.com/xcode). Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia en el uso de Servicios móviles, considere primero la opción de completar la [guía de inicio rápido de Servicios móviles](/es-es/develop/mobile/tutorials/get-started-ios) (en inglés). El tutorial de la guía de inicio rápido le ayuda a configurar la cuenta y crear el primer servicio móvil.
 
 Tabla de contenido
 ------------------
@@ -30,7 +30,7 @@ Tabla de contenido
 Configuración y requisitos previos
 ----------------------------------
 
-En esta guía se asume que ha creado un servicio móvil con una tabla. Para obtener más información, consulte [Crear una tabla](http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx). En los ejemplos de este tema se usa una tabla denominada `ToDoItem` que tiene las siguientes columnas:
+En esta guía se asume que ha creado un servicio móvil con una tabla. Para obtener más información, consulte [Crear una tabla](http://msdn.microsoft.com/es-es/library/windowsazure/jj193162.aspx). En los ejemplos de este tema se usa una tabla denominada `ToDoItem` que tiene las siguientes columnas:
 
 -   `id`
 -   `text`
@@ -184,7 +184,7 @@ La biblioteca de clientes hace posible incluir parámetros adicionales de la cad
         @"myKey2" : @"value2",
     };
 
-Estos parámetros se anexan al URI de la consulta como `myKey1=value1&myKey2=value2`. Para obtener más información, consulte [Acceso a parámetros personalizados](/en-us/develop/mobile/how-to-guides/work-with-server-scripts#access-headers).
+Estos parámetros se anexan al URI de la consulta como `myKey1=value1&myKey2=value2`. Para obtener más información, consulte [Acceso a parámetros personalizados](/es-es/develop/mobile/how-to-guides/work-with-server-scripts#access-headers).
 
 Inserción de datosInserción de datos en un servicio móvil
 ---------------------------------------------------------
@@ -236,7 +236,7 @@ El valor `id` debe ser exclusivo y no debe incluir caracteres de los siguientes 
 -   Caracteres imprimibles: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **\`** (0x0060)
 -   Los identificadores "." y ".."
 
-También puede usar identificadores de números enteros para las tablas. Para usar un identificador de números enteros, debe crear la tabla con el comando `mobile table create` mediante la opción `--integerId`. Este comando se usa con la interfaz de la línea de comandos (CLI) de Azure. Para obtener más información sobre el uso de la CLI, consulte [CLI para administrar tablas de Servicios móviles](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables).
+También puede usar identificadores de números enteros para las tablas. Para usar un identificador de números enteros, debe crear la tabla con el comando `mobile table create` mediante la opción `--integerId`. Este comando se usa con la interfaz de la línea de comandos (CLI) de Azure. Para obtener más información sobre el uso de la CLI, consulte [CLI para administrar tablas de Servicios móviles](http://www.windowsazure.com/es-es/manage/linux/other-resources/command-line-tools/#Mobile_Tables).
 
 Cuando está habilitado el esquema dinámico, Servicios móviles genera automáticamente columnas nuevas basadas en los campos del objeto de la solicitud de inserción o actualización. Para obtener más información, consulte [Esquema dinámico](http://go.microsoft.com/fwlink/p/?LinkId=296271).
 
@@ -282,7 +282,7 @@ Servicios móviles permite usar los siguientes proveedores de identidades para a
 -   Twitter
 -   Azure Active Directory
 
-Para obtener más información acerca de cómo configurar un proveedor de identidades, consulte [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-ios).
+Para obtener más información acerca de cómo configurar un proveedor de identidades, consulte [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-ios).
 
 Servicios móviles admite los dos flujos de trabajo de autenticación siguientes:
 
@@ -290,9 +290,9 @@ Servicios móviles admite los dos flujos de trabajo de autenticación siguientes
 
 -   En un inicio de sesión administrado por el cliente, la aplicación debe solicitar un token al proveedor de identidades y, después, presentar dicho token a Servicios móviles para su autenticación.
 
-Una vez realizada la autenticación, se devuelve un objeto de usuario que contiene el valor de identificador de usuario asignado y el token de autenticación. Este identificador de usuario se puede utilizar en los scripts del servidor para validar o modificar solicitudes. Para obtener más información, consulte [Uso de scripts para autorizar usuarios](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios). El token en sí puede almacenarse en la memoria caché de forma segura para usarlo en inicios de sesión posteriores.
+Una vez realizada la autenticación, se devuelve un objeto de usuario que contiene el valor de identificador de usuario asignado y el token de autenticación. Este identificador de usuario se puede utilizar en los scripts del servidor para validar o modificar solicitudes. Para obtener más información, consulte [Uso de scripts para autorizar usuarios](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-ios). El token en sí puede almacenarse en la memoria caché de forma segura para usarlo en inicios de sesión posteriores.
 
-También puede establecer permisos en las tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. Para obtener más información, consulte [Permisos](http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx).
+También puede establecer permisos en las tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. Para obtener más información, consulte [Permisos](http://msdn.microsoft.com/es-es/library/windowsazure/jj193161.aspx).
 
 ### Inicio de sesión administrado por el servidor
 
@@ -420,5 +420,5 @@ En caso de haberse producido un error, incluya el archivo MSError.h en el códig
 
 Además, se define una constante para cada código de error. En el archivo MSError.h puede encontrarse una explicación de estos códigos.
 
-Para obtener un ejemplo sobre cómo realizar y controlar una validación, consulte [Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios). En este tema, la validación del servidor se implementa mediante scripts del servidor. Al enviar datos no válidos, se devuelve una respuesta de error que administrará el cliente.
+Para obtener un ejemplo sobre cómo realizar y controlar una validación, consulte [Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-ios). En este tema, la validación del servidor se implementa mediante scripts del servidor. Al enviar datos no válidos, se devuelve una respuesta de error que administrará el cliente.
 

@@ -3,9 +3,9 @@
 Uso de un cliente HTML/JavaScript para Servicios móviles de Azure
 =================================================================
 
-[.NET Framework](/en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework")[HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
+[.NET Framework](/es-es/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework")[HTML/JavaScript](/es-es/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/es-es/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/es-es/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/es-es/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
 
-En esta guía se muestra cómo ejecutar escenarios comunes con la utilización de un cliente HTML/JavaScript para Servicios móviles de Azure. Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia en Servicios móviles, considere primero la opción de completar la [Guía de inicio rápido de JavaScript para la Tienda Windows](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started) o la [Guía de inicio rápido de HTML](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-html) de Servicios móviles. El tutorial de la guía de inicio rápido le ayuda a configurar la cuenta y crear el primer servicio móvil.
+En esta guía se muestra cómo ejecutar escenarios comunes con la utilización de un cliente HTML/JavaScript para Servicios móviles de Azure. Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia en Servicios móviles, considere primero la opción de completar la [Guía de inicio rápido de JavaScript para la Tienda Windows](http://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started) o la [Guía de inicio rápido de HTML](http://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started-html) de Servicios móviles. El tutorial de la guía de inicio rápido le ayuda a configurar la cuenta y crear el primer servicio móvil.
 
 Tabla de contenido
 ------------------
@@ -41,7 +41,7 @@ En el editor web, abra el archivo HTML y agregue lo siguiente a las referencias 
 
             
 
-En el editor, abra o cree un archivo JavaScript, agregue el siguiente código que define la variable `MobileServiceClient` y, a continuación, proporcione la URL de la aplicación y la clave de la aplicación desde el servicio móvil en el constructor `MobileServiceClient`, en dicho orden. Debe sustituir el marcador de posición `AppUrl` por la URL de la aplicación del servicio móvil y `AppKey` por la clave de la aplicación. Para obtener información acerca de cómo obtener la URL de la aplicación y la clave de la aplicación del servicio móvil, consulte el tutorial [Introducción a los datos en JavaScript de Tienda Windows](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-js) o [Introducción a los datos en HTML/JavaScript](http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-html/).
+En el editor, abra o cree un archivo JavaScript, agregue el siguiente código que define la variable `MobileServiceClient` y, a continuación, proporcione la URL de la aplicación y la clave de la aplicación desde el servicio móvil en el constructor `MobileServiceClient`, en dicho orden. Debe sustituir el marcador de posición `AppUrl` por la URL de la aplicación del servicio móvil y `AppKey` por la clave de la aplicación. Para obtener información acerca de cómo obtener la URL de la aplicación y la clave de la aplicación del servicio móvil, consulte el tutorial [Introducción a los datos en JavaScript de Tienda Windows](http://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started-with-data-js) o [Introducción a los datos en HTML/JavaScript](http://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started-with-data-html/).
 
          var MobileServiceClient = WindowsAzure.MobileServiceClient;
          var client = new MobileServiceClient('AppUrl', 'AppKey');
@@ -303,7 +303,7 @@ El valor `id` debe ser exclusivo y no debe incluir caracteres de los siguientes 
 -   Caracteres imprimibles: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **\`** (0x0060)
 -   Los identificadores "." y ".."
 
-También puede usar identificadores de números enteros para las tablas. Para usar un identificador de números enteros, debe crear la tabla con el comando `mobile table create` mediante la opción `--integerId`. Este comando se usa con la interfaz de la línea de comandos (CLI) de Azure. Para obtener más información sobre el uso de la CLI, consulte [CLI para administrar tablas de Servicios móviles](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables).
+También puede usar identificadores de números enteros para las tablas. Para usar un identificador de números enteros, debe crear la tabla con el comando `mobile table create` mediante la opción `--integerId`. Este comando se usa con la interfaz de la línea de comandos (CLI) de Azure. Para obtener más información sobre el uso de la CLI, consulte [CLI para administrar tablas de Servicios móviles](http://www.windowsazure.com/es-es/manage/linux/other-resources/command-line-tools/#Mobile_Tables).
 
 Modificación de datosModificación de datos en un servicio móvil
 ---------------------------------------------------------------
@@ -372,18 +372,18 @@ En esta sección se describe cómo mostrar objetos de datos devueltos mediante e
                alert("Error: " + err);
             });
 
-En una aplicación de la Tienda Windows, los resultados de una consulta se pueden usar para crear un objeto [WinJS.Binding.List], que puede enlazarse como el origen de datos de un objeto [ListView](http://msdn.microsoft.com/en-us/library/windows/apps/br211837.aspx). Para obtener más información, consulte [Enlace de datos (aplicaciones de la Tienda Windows con JavaScript y HTML)](http://msdn.microsoft.com/en-us/library/windows/apps/hh758311.aspx).
+En una aplicación de la Tienda Windows, los resultados de una consulta se pueden usar para crear un objeto [WinJS.Binding.List], que puede enlazarse como el origen de datos de un objeto [ListView](http://msdn.microsoft.com/es-es/library/windows/apps/br211837.aspx). Para obtener más información, consulte [Enlace de datos (aplicaciones de la Tienda Windows con JavaScript y HTML)](http://msdn.microsoft.com/es-es/library/windows/apps/hh758311.aspx).
 
 AutenticaciónAutenticación de usuarios
 --------------------------------------
 
-Servicios móviles es compatible con la autenticación y autorización de los usuarios de aplicaciones mediante una serie de proveedores de identidades externas: Facebook, Google, cuenta de Microsoft y Twitter. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-html).
+Servicios móviles es compatible con la autenticación y autorización de los usuarios de aplicaciones mediante una serie de proveedores de identidades externas: Facebook, Google, cuenta de Microsoft y Twitter. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Para obtener más información, consulte el tutorial [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-html).
 
 Se admiten dos flujos de autenticación: un *flujo de servidor* y un *flujo de cliente*. El flujo de servidor ofrece la experiencia de autenticación más simple, ya que se basa en la interfaz de autenticación web del proveedor. El flujo de cliente permite una mayor integración con capacidades específicas del dispositivo, como el inicio de sesión único, ya que se basa en SDK específicos del dispositivo y específicos del proveedor.
 
 ### Flujo de servidor
 
-Para que Servicios móviles administre el proceso de autenticación en la aplicación de la Tienda Windows o HTML5, debe registrar la aplicación con el proveedor de identidades. A continuación, en el servicio móvil, tendrá que configurar el identificador y el secreto de la aplicación proporcionados por el proveedor. Para obtener más información, consulte el tutorial "Introducción a la autenticación" ([Tienda Windows](/en-us/develop/mobile/tutorials/get-started-with-users-js)/[HTML](/en-us/develop/mobile/tutorials/get-started-with-users-html)).
+Para que Servicios móviles administre el proceso de autenticación en la aplicación de la Tienda Windows o HTML5, debe registrar la aplicación con el proveedor de identidades. A continuación, en el servicio móvil, tendrá que configurar el identificador y el secreto de la aplicación proporcionados por el proveedor. Para obtener más información, consulte el tutorial "Introducción a la autenticación" ([Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-users-js)/[HTML](/es-es/develop/mobile/tutorials/get-started-with-users-html)).
 
 Una vez que haya registrado el proveedor de identidades, simplemente llame al [método LoginAsync] con el valor [MobileServiceAuthenticationProvider] del proveedor. Por ejemplo, para iniciar sesión con Facebook, use el siguiente código:
 
@@ -395,11 +395,11 @@ Una vez que haya registrado el proveedor de identidades, simplemente llame al [m
 
 Si usa un proveedor de identidades que no sea Facebook, cambie el valor que ha pasado al método `login` anterior por uno de los siguientes: `microsoftaccount`, `facebook`, `twitter`, `google` o `windowsazureactivedirectory`.
 
-En este caso, Servicios móviles administra el flujo de autenticación de OAuth 2.0 mostrando la página de inicio de sesión del proveedor seleccionado y generando un token de autenticación de Servicios móviles después de que se realice un inicio de sesión correcto con el proveedor de identidades. La función [login](http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx), cuando se completa, devuelve un objeto JSON (**user**) que expone el identificador de usuario y el token de autenticación de Servicios móviles en los campos **userId** y **authenticationToken**, respectivamente. El token puede almacenarse en caché y volver a usarse hasta que expire. Para obtener más información, consulte [Almacenamiento en caché del token de autenticación].
+En este caso, Servicios móviles administra el flujo de autenticación de OAuth 2.0 mostrando la página de inicio de sesión del proveedor seleccionado y generando un token de autenticación de Servicios móviles después de que se realice un inicio de sesión correcto con el proveedor de identidades. La función [login](http://msdn.microsoft.com/es-es/library/windowsazure/jj554236.aspx), cuando se completa, devuelve un objeto JSON (**user**) que expone el identificador de usuario y el token de autenticación de Servicios móviles en los campos **userId** y **authenticationToken**, respectivamente. El token puede almacenarse en caché y volver a usarse hasta que expire. Para obtener más información, consulte [Almacenamiento en caché del token de autenticación].
 
 **Aplicación de la Tienda Windows**
 
-Cuando use el proveedor de inicio de sesión de la cuenta de Microsoft para autenticar a los usuarios de la aplicación de la Tienda Windows, también debe registrar el paquete de la aplicación con Servicios móviles. Cuando registre la información del paquete de la aplicación de la Tienda Windows con Servicios móviles, el cliente podrá volver a usar las credenciales de inicio de sesión de la cuenta de Microsoft para conseguir una experiencia de inicio de sesión único. Si no realiza este procedimiento, los usuarios de inicio de sesión de la cuenta de Microsoft visualizarán una solicitud de inicio de sesión cada vez que se llame al método de inicio de sesión. Para saber cómo registrar el paquete de la aplicación de la Tienda Windows, consulte [Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft](/en-us/develop/mobile/how-to-guides/register-windows-store-app-package/). Una vez que se registre la información del paquete con Servicios móviles, llame al método [login](http://go.microsoft.com/fwlink/p/?LinkId=322050) proporcionando un valor **true** para el parámetro *useSingleSignOn* con el fin de volver a usar las credenciales.
+Cuando use el proveedor de inicio de sesión de la cuenta de Microsoft para autenticar a los usuarios de la aplicación de la Tienda Windows, también debe registrar el paquete de la aplicación con Servicios móviles. Cuando registre la información del paquete de la aplicación de la Tienda Windows con Servicios móviles, el cliente podrá volver a usar las credenciales de inicio de sesión de la cuenta de Microsoft para conseguir una experiencia de inicio de sesión único. Si no realiza este procedimiento, los usuarios de inicio de sesión de la cuenta de Microsoft visualizarán una solicitud de inicio de sesión cada vez que se llame al método de inicio de sesión. Para saber cómo registrar el paquete de la aplicación de la Tienda Windows, consulte [Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft](/es-es/develop/mobile/how-to-guides/register-windows-store-app-package/). Una vez que se registre la información del paquete con Servicios móviles, llame al método [login](http://go.microsoft.com/fwlink/p/?LinkId=322050) proporcionando un valor **true** para el parámetro *useSingleSignOn* con el fin de volver a usar las credenciales.
 
 ### Flujo de cliente
 
@@ -419,7 +419,7 @@ El siguiente ejemplo usa el SDK de Live, que admite el inicio de sesión único 
               });
         });
 
-Este ejemplo simplificado obtiene un token de Live Connect, que se proporciona a los Servicios móviles realizando una llamada a la función [login](http://msdn.microsoft.com/en-us/library/windowsazure/jj554236.aspx). Para obtener un ejemplo más completo de cómo usar una cuenta de Microsoft para proporcionar una experiencia de inicio de sesión único, consulte [Autenticación de la aplicación con el inicio de sesión único](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/).
+Este ejemplo simplificado obtiene un token de Live Connect, que se proporciona a los Servicios móviles realizando una llamada a la función [login](http://msdn.microsoft.com/es-es/library/windowsazure/jj554236.aspx). Para obtener un ejemplo más completo de cómo usar una cuenta de Microsoft para proporcionar una experiencia de inicio de sesión único, consulte [Autenticación de la aplicación con el inicio de sesión único](/es-es/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/).
 
 Al usar las API de Facebook o Google para la autenticación de cliente, el ejemplo varía ligeramente.
 
@@ -436,7 +436,7 @@ En este ejemplo se asume que el token proporcionado por el SDK del proveedor cor
 
 ### Almacenamiento en caché del token de autenticación
 
-En algunos casos, la llamada al método de inicio de sesión puede evitarse después de la primera vez que el usuario se autentique. Puede usar [sessionStorage](http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx) o [localStorage](http://msdn.microsoft.com/en-us/library/cc197062(v=vs.85).aspx) para almacenar en caché la identidad del usuario actual la primera vez que se inicie sesión y para que compruebe las veces posteriores si ya dispone de la identidad de usuario en la memoria caché. Si la caché está vacía o se produce un error en la llamada (lo que significa que el inicio de sesión actual ha caducado), será necesario pasar por el proceso de inicio de sesión.
+En algunos casos, la llamada al método de inicio de sesión puede evitarse después de la primera vez que el usuario se autentique. Puede usar [sessionStorage](http://msdn.microsoft.com/es-es/library/cc197062(v=vs.85).aspx) o [localStorage](http://msdn.microsoft.com/es-es/library/cc197062(v=vs.85).aspx) para almacenar en caché la identidad del usuario actual la primera vez que se inicie sesión y para que compruebe las veces posteriores si ya dispone de la identidad de usuario en la memoria caché. Si la caché está vacía o se produce un error en la llamada (lo que significa que el inicio de sesión actual ha caducado), será necesario pasar por el proceso de inicio de sesión.
 
         // Después de iniciar sesión
         sessionStorage.loggedInUser = JSON.stringify(client.currentUser);
@@ -496,7 +496,7 @@ PromesasUso de promesas
 
 Las promesas ofrecen un mecanismo para programar el trabajo que hay que hacer en un valor que aún no se ha procesado. Se trata de una abstracción para administrar interacciones con API asincrónicas.
 
-La promesa `done` se ejecuta en cuanto la función proporcionada se ha completado satisfactoriamente o ha producido un error. A diferencia de la promesa `then`, se garantiza el lanzamiento de cualquier error no identificado en la función y, después de que los controladores han terminado de ejecutarse, esta función lanza cualquier error que debería haberse devuelto después como una promesa en el estado de error. Para obtener más información, consulte [done](http://msdn.microsoft.com/en-us/library/windows/apps/hh701079.aspx).
+La promesa `done` se ejecuta en cuanto la función proporcionada se ha completado satisfactoriamente o ha producido un error. A diferencia de la promesa `then`, se garantiza el lanzamiento de cualquier error no identificado en la función y, después de que los controladores han terminado de ejecutarse, esta función lanza cualquier error que debería haberse devuelto después como una promesa en el estado de error. Para obtener más información, consulte [done](http://msdn.microsoft.com/es-es/library/windows/apps/hh701079.aspx).
 
          promise.done(onComplete, onError);
 
@@ -509,7 +509,7 @@ Como:
                alert("Error: " + err);
             });
 
-La promesa `then` es igual que `done`, pero a diferencia de `then`, con `done` se garantiza el lanzamiento de cualquier error no identificado en la función. Si no proporciona un controlador de error a `then` y la operación experimenta un error, no se lanza una excepción, sino que, en su lugar, se devuelve una promesa en el estado de error. Para obtener más información, consulte [then](http://msdn.microsoft.com/en-us/library/windows/apps/br229728.aspx).
+La promesa `then` es igual que `done`, pero a diferencia de `then`, con `done` se garantiza el lanzamiento de cualquier error no identificado en la función. Si no proporciona un controlador de error a `then` y la operación experimenta un error, no se lanza una excepción, sino que, en su lugar, se devuelve una promesa en el estado de error. Para obtener más información, consulte [then](http://msdn.microsoft.com/es-es/library/windows/apps/br229728.aspx).
 
          promise.then(onComplete, onError).done( /* Your success and error handlers */ );
 
@@ -522,7 +522,7 @@ Como:
                alert("Error: " + err);
             });
 
-Puede utilizar promesas de diferentes formas. Puede encadenar operaciones de promesas con llamadas a `then` o `done` en la promesa devuelta por la función `then` anterior. Use `then` para una fase intermedia de la operación (por ejemplo `.then().then()`) y `done` para la fase final de la operación (por ejemplo `.then().then().done()`). Puede encadenar varias funciones `then`, porque `then` devuelve una promesa. No puede encadenar más de un método `done`, porque devuelve undefined. [Obtenga más información acerca de las diferencias entre then y done](http://msdn.microsoft.com/en-us/library/windows/apps/hh700334.aspx).
+Puede utilizar promesas de diferentes formas. Puede encadenar operaciones de promesas con llamadas a `then` o `done` en la promesa devuelta por la función `then` anterior. Use `then` para una fase intermedia de la operación (por ejemplo `.then().then()`) y `done` para la fase final de la operación (por ejemplo `.then().then().done()`). Puede encadenar varias funciones `then`, porque `then` devuelve una promesa. No puede encadenar más de un método `done`, porque devuelve undefined. [Obtenga más información acerca de las diferencias entre then y done](http://msdn.microsoft.com/es-es/library/windows/apps/hh700334.aspx).
 
  			todoItemTable.insert({
  			   text: "foo"
@@ -556,27 +556,27 @@ Pasos siguientes
 
 Ahora que ha completado este tema de referencia conceptual, conozca cómo realizar tareas importantes en Servicios móviles de forma detallada:
 
--   [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started-html)
+-   [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-html)
     
     Conozca los aspectos básicos de cómo usar Servicios móviles.
 
--   [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-html)
+-   [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-html)
     
     Obtenga más información sobre almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-html)
+-   [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-html)
     
     Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
--   [Validación y modificación de datos con scripts](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html)
+-   [Validación y modificación de datos con scripts](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-html)
     
     Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
 
--   [Limitación de consultas con paginación](/en-us/develop/mobile/tutorials/add-paging-to-data-html)
+-   [Limitación de consultas con paginación](/es-es/develop/mobile/tutorials/add-paging-to-data-html)
     
     Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se manejan en una única solicitud.
 
--   [Autorización de usuarios con scripts](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html)
+-   [Autorización de usuarios con scripts](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-html)
     
     Conozca cómo usar el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles.
 

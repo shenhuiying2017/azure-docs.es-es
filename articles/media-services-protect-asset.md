@@ -9,7 +9,7 @@ En Servicios multimedia de Azure puede enviar un trabajo que integre la protecci
 
 En el siguiente ejemplo se muestra cómo crear un trabajo sencillo para proporcionar la protección PlayReady.
 
-1.  Recupere los datos de configuración. Puede obtener un archivo de configuración de ejemplo del tema [Valores preestablecidos de tarea para Azure Media Encryptor](http://msdn.microsoft.com/en-us/library/hh973610.aspx).
+1.  Recupere los datos de configuración. Puede obtener un archivo de configuración de ejemplo del tema [Valores preestablecidos de tarea para Azure Media Encryptor](http://msdn.microsoft.com/es-es/library/hh973610.aspx).
 2.  Cargue un archivo de entrada MP4.
 3.  Convierta el archivo MP4 en un recurso de Smooth Streaming.
 4.  Cifre el recurso con PlayReady.
@@ -104,7 +104,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 
 Para obtener más información acerca de la protección PlayReady, consulte:
 
--   [Proteger Smooth Stream y MPEG DASH con PlayReady](http://msdn.microsoft.com/en-us/library/dn189154.aspx)
+-   [Proteger Smooth Stream y MPEG DASH con PlayReady](http://msdn.microsoft.com/es-es/library/dn189154.aspx)
 -   [Microsoft PlayReady](http://www.microsoft.com/PlayReady/)
 
 Pasos siguientes

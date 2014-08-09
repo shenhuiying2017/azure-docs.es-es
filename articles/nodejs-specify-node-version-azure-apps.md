@@ -51,7 +51,7 @@ A pesar de que Azure proporciona varias versiones predeterminadas de Node.js, es
 
     Con esto aparecerá la versión de Node.js que se utiliza cuando navega en el sitio web.
 
-2.  Cree un sitio web y anote el nombre del sitio. Por ejemplo, el ejemplo siguiente utiliza las [herramientas de línea de comandos de Azure](/en-us/develop/nodejs/how-to-guides/command-line-tools/) para crear un sitio web de Azure llamado **mywebsite** y luego se habilita un repositorio Git para el sitio web.
+2.  Cree un sitio web y anote el nombre del sitio. Por ejemplo, el ejemplo siguiente utiliza las [herramientas de línea de comandos de Azure](/es-es/develop/nodejs/how-to-guides/command-line-tools/) para crear un sitio web de Azure llamado **mywebsite** y luego se habilita un repositorio Git para el sitio web.
 
          azure site create mywebsite --git
 
@@ -80,5 +80,5 @@ A pesar de que Azure proporciona varias versiones predeterminadas de Node.js, es
 Pasos siguientes
 ----------------
 
-Ahora que sabe cómo especificar la versión de Node.js que utiliza su aplicación, obtenga más información acerca del [funcionamiento con módulos](/en-us/develop/nodejs/common-tasks/working-with-node-modules/), la [compilación e implementación de un sitio web Node.js](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/) y el [Uso de las herramientas de línea de comandos de Azure para Mac y Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/).
+Ahora que sabe cómo especificar la versión de Node.js que utiliza su aplicación, obtenga más información acerca del [funcionamiento con módulos](/es-es/develop/nodejs/common-tasks/working-with-node-modules/), la [compilación e implementación de un sitio web Node.js](/es-es/develop/nodejs/tutorials/create-a-website-(mac)/) y el [Uso de las herramientas de línea de comandos de Azure para Mac y Linux](/es-es/develop/nodejs/how-to-guides/command-line-tools/).
 

@@ -192,13 +192,13 @@ A continuación se ofrece un ejemplo de una cadena de conexión:
 
     metadata=res://*/SchoolModel.csdl|res://*/SchoolModel.ssdl|res://*/SchoolModel.msl;provider=System.Data.SqlClient;provider connection string="Data Source=xxxxxxxxxx.database.windows.net;Initial Catalog=School;Persist Security Info=True;User ID=MyAdmin;Password=***********"
 
-Para obtener más información, consulte [Proveedor de EntityClient para Entity Framework](http://msdn.microsoft.com/en-us/library/bb738561.aspx).
+Para obtener más información, consulte [Proveedor de EntityClient para Entity Framework](http://msdn.microsoft.com/es-es/library/bb738561.aspx).
 
 Pasos siguientes
 ----------------
 
 Ahora que conoce los aspectos básicos de la conexión a Base de datos SQL, consulte los siguientes recursos para obtener más información sobre Base de datos SQL.
 
--   [Desarrollo de Base de datos SQL de Azure: Temas de procedimientos](http://msdn.microsoft.com/en-us/library/windowsazure/ee621787.aspx)
--   [Base de datos SQL de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee336279.aspx)
+-   [Desarrollo de Base de datos SQL de Azure: Temas de procedimientos](http://msdn.microsoft.com/es-es/library/windowsazure/ee621787.aspx)
+-   [Base de datos SQL de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/ee336279.aspx)
 

@@ -92,16 +92,16 @@ Ejecución de la aplicación
 
 El paso siguiente consiste en implementar la aplicación en Sitios web Azure. Los artículos siguientes contienen la información necesaria para crear un sitio web e implementar el código con Git, FTP o WebMatrix (si bien no toda la información de cada uno de los artículos es relevante):
 
--   [Creación de un sitio web Azure de PHP-MySQL e implementación mediante Git](https://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-git/)
--   [Creación de un sitio web PHP-MySQL de Azure e implementación mediante FTP](https://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-ftp/)
--   [Creación de un sitio web Azure de PHP-MySQL e implementación mediante WebMatrix](https://www.windowsazure.com/en-us/develop/php/tutorials/website-w-mysql-and-webmatrix/)
+-   [Creación de un sitio web Azure de PHP-MySQL e implementación mediante Git](https://www.windowsazure.com/es-es/develop/php/tutorials/website-w-mysql-and-git/)
+-   [Creación de un sitio web PHP-MySQL de Azure e implementación mediante FTP](https://www.windowsazure.com/es-es/develop/php/tutorials/website-w-mysql-and-ftp/)
+-   [Creación de un sitio web Azure de PHP-MySQL e implementación mediante WebMatrix](https://www.windowsazure.com/es-es/develop/php/tutorials/website-w-mysql-and-webmatrix/)
 
 Pasos siguientes
 ----------------
 
 Este código se ha proporcionado para mostrar la funcionalidad básica usando Twilio en PHP en Azure. Antes de realizar la implementación en el entorno de producción de Azure, es posible que desee agregar un mayor control de errores u otras características. Por ejemplo:
 
--   En lugar de usar un formulario web, puede usar blobs de almacenamiento de Azure o una base de datos SQL para almacenar los números de teléfono y el texto de llamada. Para obtener información sobre el uso de blobs de almacenamiento de Azure en PHP, consulte [Using Azure Storage with PHP Applications](http://msdn.microsoft.com/en-us/library/windowsazure/hh674502(v=vs.103).aspx). Para obtener información sobre el uso de bases de datos SQL en PHP, consulte [Usar Base de datos SQL de Azure con aplicaciones PHP](http://msdn.microsoft.com/en-us/library/windowsazure/hh674500(v=vs.103).aspx).
+-   En lugar de usar un formulario web, puede usar blobs de almacenamiento de Azure o una base de datos SQL para almacenar los números de teléfono y el texto de llamada. Para obtener información sobre el uso de blobs de almacenamiento de Azure en PHP, consulte [Using Azure Storage with PHP Applications](http://msdn.microsoft.com/es-es/library/windowsazure/hh674502(v=vs.103).aspx). Para obtener información sobre el uso de bases de datos SQL en PHP, consulte [Usar Base de datos SQL de Azure con aplicaciones PHP](http://msdn.microsoft.com/es-es/library/windowsazure/hh674500(v=vs.103).aspx).
 -   El código de **makecall.php** usa una dirección URL (<http://twimlets.com/message>) de Twilio para proporcionar una respuesta de Lenguaje de marcado de Twilio (TwiML) que indica a Twilio cómo proceder con la llamada. Por ejemplo, la TwiML que se devuelve puede contener un verbo `<Say>` que se traduce en el texto que se está hablando con el destinatario de la llamada. En lugar de usar la dirección URL proporcionada por Twilio, podría construir su propio servicio para responder a la solicitud de Twilio; para obtener más información, consulte [Uso de Twilio para capacidades de voz y SMS en PHP](../partner-twilio-php-how-to-use-voice-sms). Se puede encontrar más información sobre TwiML en <http://www.twilio.com/docs/api/twiml>, y más información sobre `<Say>` y otros verbos de Twilio en <http://www.twilio.com/docs/api/twiml/say>.
 -   Lea las directrices de seguridad de Twilio en [https://www.twilio.com/docs/security](http://www.twilio.com/docs/security).
 

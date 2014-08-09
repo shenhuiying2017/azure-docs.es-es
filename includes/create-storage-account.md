@@ -30,5 +30,5 @@ crear una cuenta de almacenamiento [usando la API de REST][1].)
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx
+[1]: http://msdn.microsoft.com/es-es/library/windowsazure/hh264518.aspx
 [2]: http://manage.windowsazure.com

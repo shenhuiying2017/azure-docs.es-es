@@ -91,7 +91,7 @@ Creación de una aplicación PHP
 
 Una aplicación PHP que usa el servicio Twilio y que se ejecuta en Azure no es distinta a otra aplicación PHP que use el servicio Twilio. Mientras que los servicios Twilio se basan en REST y pueden llamarse desde PHP de varias formas, este artículo se centrará en cómo usar los servicios Twilio con la [biblioteca de Twilio para PHP desde Github](https://github.com/twilio/twilio-php) (en inglés). Para obtener más información sobre el uso de la biblioteca de Twilio para PHP, consulte <http://readthedocs.org/docs/twilio-php/en/latest/index.html>.
 
-Las instrucciones detalladas para la generación e implementación de una aplicación PHP/Twilio en Azure se encuentran disponibles en [Realización de una llamada de teléfono con Twilio en una aplicación PHP en Azure](http://windowsazure.com/en-us/documentation/articles/partner-twilio-php-make-phone-call).
+Las instrucciones detalladas para la generación e implementación de una aplicación PHP/Twilio en Azure se encuentran disponibles en [Realización de una llamada de teléfono con Twilio en una aplicación PHP en Azure](http://windowsazure.com/es-es/documentation/articles/partner-twilio-php-make-phone-call).
 
 Configuración de su aplicación para utilizar bibliotecas de Twilio
 ------------------------------------------------------------------
@@ -251,7 +251,7 @@ Una vez que tenga configurada su página de PHP para proporcionar respuestas de 
         echo 'Error: ' . $e->getMessage();
     }
 
-Si desea obtener más información acerca de cómo usar Twilio en Azure con PHP, consulte [Realización de una llamada de teléfono con Twilio en una aplicación PHP en Azure](http://windowsazure.com/en-us/documentation/articles/partner-twilio-php-make-phone-call).
+Si desea obtener más información acerca de cómo usar Twilio en Azure con PHP, consulte [Realización de una llamada de teléfono con Twilio en una aplicación PHP en Azure](http://windowsazure.com/es-es/documentation/articles/partner-twilio-php-make-phone-call).
 
 Uso de servicios Twilio adicionales
 -----------------------------------

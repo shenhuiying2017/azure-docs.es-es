@@ -25,7 +25,7 @@ Tabla de contenido
 Creación de una aplicación de Ruby
 ----------------------------------
 
-Cree una aplicación de Ruby. Para obtener instrucciones, consulte [Creación de una aplicación de Ruby en Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
+Cree una aplicación de Ruby. Para obtener instrucciones, consulte [Creación de una aplicación de Ruby en Azure](/es-es/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 Configuración de la aplicación para usar el bus de servicio
 -----------------------------------------------------------
@@ -116,8 +116,8 @@ Pasos siguientes
 
 Ahora que conoce los fundamentos de las colas del bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del Service Bus](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones del Service Bus](http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx)
 -   Visite el repositorio del [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) (en inglés) en GitHub.
 
-Para ver la comparación entre Colas del Bus de servicio de Azure de este artículo y Colas de Azure del artículo [Uso del servicio Cola de Azure](/en-us/develop/ruby/how-to-guides/queue-service/), consulte [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx).
+Para ver la comparación entre Colas del Bus de servicio de Azure de este artículo y Colas de Azure del artículo [Uso del servicio Cola de Azure](/es-es/develop/ruby/how-to-guides/queue-service/), consulte [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias](http://msdn.microsoft.com/es-es/library/windowsazure/hh767287.aspx).
 

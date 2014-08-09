@@ -133,7 +133,7 @@ El primer escenario le permite crear aplicaciones web enriquecidas que aprovecha
 
 En el escenario de VM, simplemente inicie la VM de Linux que elija (Ubuntu, CentOS y Suse) y ejecute o administre lo que desee. Por ejemplo, puede ejecutar el bloc de notas o el REPL de [IPython](http://ipython.org) en la máquina de Windows/Mac/Linux y configurar el explorador para que apunte a una VM multiproceso de Linux o Windows que ejecute el motor de IPython en Azure. Para obtener más información sobre la instalación de IPython, consulte el tutorial.
 
-Para obtener información sobre cómo configurar una VM de Linux, consulte la sección de [administración de Linux](/en-us/manage/linux/).
+Para obtener información sobre cómo configurar una VM de Linux, consulte la sección de [administración de Linux](/es-es/manage/linux/).
 
 Recursos y software adicionales:
 --------------------------------
@@ -144,7 +144,7 @@ Recursos y software adicionales:
 -   [NumPy - A numerics library for Python](http://www.numpy.org)
 -   [Django Project - A mature web framework/CMS](http://www.djangoproject.com)
 -   [IPython - an advanced REPL/Notebook for Python](http://ipython.org)
--   [Bloc de notas de IPython en Azure](http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-ipython-notebook)
+-   [Bloc de notas de IPython en Azure](http://windowsazure.com/es-es/documentation/articles/virtual-machines-python-ipython-notebook)
 -   [Python Tools for Visual Studio on CodePlex](http://pytools.codeplex.com)
 -   [Virtualenv](http://pypi.python.org/pypi/virtualenv)
 

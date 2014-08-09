@@ -64,7 +64,7 @@ Actualización de la configuración del servicio en la nube
 
     c. Si su servicio en la nube contiene cualquier rol que tiene una sola instancia, active la casilla **Apply configuration even if one or more roles contain a single instance** para permitir que continúen las actualizaciones de configuración para los roles.
 
-    A menos que defina como mínimo dos instancias de cada rol, Azure no puede garantizar una disponibilidad de su servicio en la nube de al menos un 99,95 % durante las actualizaciones de la configuración del servicio. Para obtener más información, consulte [Contratos de nivel de servicio](http://www.windowsazure.com/en-us/support/legal/sla/).
+    A menos que defina como mínimo dos instancias de cada rol, Azure no puede garantizar una disponibilidad de su servicio en la nube de al menos un 99,95 % durante las actualizaciones de la configuración del servicio. Para obtener más información, consulte [Contratos de nivel de servicio](http://www.windowsazure.com/es-es/support/legal/sla/).
 
     d. Haga clic en OK (marca de verificación).
 
@@ -81,7 +81,7 @@ Si su servicio en la nube consta de dos o más máquinas virtuales conectadas ba
 
 ### Para configurar el Acceso remoto en el archivo de definición del servicio
 
-Agregue elementos de **Import** al archivo de definición de servicio (.csdef) para importar los módulos RemoteAccess y RemoteForwarder al modelo de servicio. Cuando esos módulos están presentes, Azure agrega los ajustes de configuración para Escritorio remoto en el archivo de configuración del servicio. Para completar la configuración de Escritorio remoto, necesitará importar un certificado a Azure y especificar dicho certificado en el archivo de configuración del servicio. Para obtener más información, consulte [Establecer una conexión a Escritorio remoto para un rol de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx).
+Agregue elementos de **Import** al archivo de definición de servicio (.csdef) para importar los módulos RemoteAccess y RemoteForwarder al modelo de servicio. Cuando esos módulos están presentes, Azure agrega los ajustes de configuración para Escritorio remoto en el archivo de configuración del servicio. Para completar la configuración de Escritorio remoto, necesitará importar un certificado a Azure y especificar dicho certificado en el archivo de configuración del servicio. Para obtener más información, consulte [Establecer una conexión a Escritorio remoto para un rol de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/hh124107.aspx).
 
 ### Para habilitar o modificar el Acceso remoto para las instancias de rol en el Portal de administración
 
@@ -136,7 +136,7 @@ Agregue elementos de **Import** al archivo de definición de servicio (.csdef) p
 5.  Haga clic en OK (marca de verificación).
 
 
-[Set Up a Remote Desktop Connection for a Role in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh124107.aspx
+[Set Up a Remote Desktop Connection for a Role in Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/hh124107.aspx
 
-[Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
+[Using Remote Desktop with Azure Roles]: http://msdn.microsoft.com/es-es/library/windowsazure/gg443832.aspx
 			

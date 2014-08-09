@@ -24,7 +24,7 @@ Tabla de contenido
 Creación de una aplicación Node.js
 ----------------------------------
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Servicio en la nube Node.js](/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (usando Windows PowerShell) o [Sitio web con WebMatrix](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/).
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure](/es-es/develop/nodejs/tutorials/create-a-website-(mac)/), [Servicio en la nube Node.js](/es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (usando Windows PowerShell) o [Sitio web con WebMatrix](/es-es/develop/nodejs/tutorials/web-site-with-webmatrix/).
 
 Configuración de la aplicación para usar el bus de servicio
 -----------------------------------------------------------
@@ -61,9 +61,9 @@ Utilizando el Bloc de notas u otro editor de texto, agregue el código siguiente
 
 El módulo azure leerá las variables de entorno AZURE\_SERVICEBUS\_NAMESPACE y AZURE\_SERVICEBUS\_ACCESS\_KEY para obtener la información necesaria para conectarse al bus de servicio de Azure. Si estas variables de entorno no están configuradas, debe especificar la información de la cuenta al llamar a **createServiceBusService**.
 
-Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio de nube de Azure, consulte [Servicio de nube de Node.js con almacenamiento](/en-us/develop/nodejs/tutorials/web-app-with-storage/).
+Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio de nube de Azure, consulte [Servicio de nube de Node.js con almacenamiento](/es-es/develop/nodejs/tutorials/web-app-with-storage/).
 
-Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento](/en-us/develop/nodejs/tutorials/web-site-with-storage/).
+Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento](/es-es/develop/nodejs/tutorials/web-site-with-storage/).
 
 Creación de una cola
 --------------------
@@ -171,6 +171,6 @@ Pasos siguientes
 
 Ahora que conoce los fundamentos de las colas del bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx)
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx)
 -   Visite el repositorio del [SDK de Azure para Node.js](https://github.com/WindowsAzure/azure-sdk-for-node) (en inglés) en GitHub.
 

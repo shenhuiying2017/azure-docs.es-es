@@ -3,7 +3,7 @@
 Utilización de las colas del bus de servicio
 ============================================
 
-Esta guía le mostrará cómo usar las colas del bus de servicio. Los ejemplos están escritos en Java y utilizan el [SDK de Azure para Java](http://msdn.microsoft.com/en-us/library/windowsazure/hh690953(v=vs.103).aspx). Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas**, **envío y recepción de mensajes** y **eliminación de colas**.
+Esta guía le mostrará cómo usar las colas del bus de servicio. Los ejemplos están escritos en Java y utilizan el [SDK de Azure para Java](http://msdn.microsoft.com/es-es/library/windowsazure/hh690953(v=vs.103).aspx). Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas**, **envío y recepción de mensajes** y **eliminación de colas**.
 
 Tabla de contenido
 ------------------
@@ -176,5 +176,5 @@ En caso de que la aplicación se bloquee después de procesar el mensaje y antes
 Pasos siguientes
 ----------------
 
-Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, consulte el tema [Colas, temas y suscripciones](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx) de MSDN para obtener más información.
+Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, consulte el tema [Colas, temas y suscripciones](http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx) de MSDN para obtener más información.
 

@@ -280,7 +280,7 @@ En esta sección se modificará la aplicación para ver las notificaciones envia
 
 ![](./media/active-directory-dotnet-how-to-use-access-control/rzCl.png)
 
-Para obtener más información acerca de cómo usar las notificaciones de su aplicación, consulte la [biblioteca de Windows Identity Foundation](http://msdn.microsoft.com/en-us/library/hh377151.aspx).
+Para obtener más información acerca de cómo usar las notificaciones de su aplicación, consulte la [biblioteca de Windows Identity Foundation](http://msdn.microsoft.com/es-es/library/hh377151.aspx).
 
 Visualización de la aplicación en el portal de administración de ACS
 --------------------------------------------------------------------

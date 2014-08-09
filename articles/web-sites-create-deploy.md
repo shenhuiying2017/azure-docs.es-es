@@ -6,7 +6,7 @@ Este tema muestra cómo puede crear un sitio web desde la galería o con el port
 
 Para obtener información acerca de cómo implementar contenidos en un sitio web Azure que haya creado previamente, consulte la sección
 **Implementar** en [Sitios web
-Azure](/en-us/documentation/services/web-sites/).
+Azure](/es-es/documentation/services/web-sites/).
 
 ## Tabla de contenido
 
@@ -68,7 +68,7 @@ Los sitios web se eliminan mediante el icono **Delete** del Portal de administra
 
 ## <a name="nextsteps"></a>Pasos siguientes
 
-Para obtener más información, consulte [Sitios web Azure](/en-us/documentation/services/web-sites/).
+Para obtener más información, consulte [Sitios web Azure](/es-es/documentation/services/web-sites/).
 
 
 

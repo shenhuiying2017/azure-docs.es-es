@@ -3,7 +3,7 @@
 Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor
 =============================================================================================
 
-[C\# para Tienda Windows](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js "JavaScript para Tienda Windows")[Windows Phone](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS")[Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android")[HTML](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")
+[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-js "JavaScript para Tienda Windows")[Windows Phone](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS")[Android](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android")[HTML](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML")[Xamarin.iOS](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")
 
 En este tema se muestra cómo aprovechar los scripts del servidor en Servicios móviles de Azure. Dichos scripts se registran en un servicio móvil y pueden usarse para realizar una gran variedad de operaciones en los datos que se han insertado y actualizado, incluidas la modificación y validación de los datos. En este tutorial, definirá y registrará scripts de servidor que sirven para validar y modificar datos. Dado que el comportamiento de los scripts del servidor suele afectar al cliente, también actualizará la aplicación HTML para que se beneficie de estos nuevos comportamientos.
 
@@ -14,7 +14,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 3.  [Incorporación de una marca de tiempo al insertar](#add-timestamp)
 4.  [Actualización del cliente para mostrar la marca de tiempo](#update-client-timestamp)
 
-Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-html). Antes de comenzar este tutorial, primero debe completar [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-html).
+Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-html). Antes de comenzar este tutorial, primero debe completar [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-html).
 
 Incorporación de la validación
 ------------------------------
@@ -56,7 +56,7 @@ Actualización del cliente
 
 Ahora que el servicio móvil puede validar los datos y enviar respuestas de error, debe actualizar la aplicación para que pueda identificar los errores de la validación.
 
-1.  Ejecute uno de los siguientes archivos de comando desde la subcarpeta **server** del proyecto que modificó cuando completó el tutorial [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-html).
+1.  Ejecute uno de los siguientes archivos de comando desde la subcarpeta **server** del proyecto que modificó cuando completó el tutorial [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-html).
 
     -   **launch-windows** (equipos con Windows)
     -   **launch-mac.command** (equipos con Mac OS X)
@@ -188,9 +188,9 @@ Ha completado este tutorial de trabajo con datos.
 Pasos siguientes
 ----------------
 
-Ahora que ha completado este tutorial, considere continuar con el tutorial final de la serie de datos: [Limitación de consultas con paginación](/en-us/develop/mobile/tutorials/add-paging-to-data-html).
+Ahora que ha completado este tutorial, considere continuar con el tutorial final de la serie de datos: [Limitación de consultas con paginación](/es-es/develop/mobile/tutorials/add-paging-to-data-html).
 
-Para obtener más información, consulte [Uso de scripts del servidor](/en-us/develop/mobile/how-to-guides/work-with-server-scripts) y [Referencia conceptual de Servicios móviles con HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client).
+Para obtener más información, consulte [Uso de scripts del servidor](/es-es/develop/mobile/how-to-guides/work-with-server-scripts) y [Referencia conceptual de Servicios móviles con HTML/JavaScript](/es-es/develop/mobile/how-to-guides/work-with-html-js-client).
 
 <!-- Images. -->
 [0]: ./media/mobile-services-html-validate-modify-data-server-scripts/mobile-services-selection.png

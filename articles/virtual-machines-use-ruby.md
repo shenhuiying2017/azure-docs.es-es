@@ -375,10 +375,10 @@ Ahora que ya conoce los aspectos básicos de la creación de máquinas virtuales
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
+[1]: http://msdn.microsoft.com/es-es/library/windowsazure/ee460799.aspx
 [2]: https://manage.windowsazure.com
-[3]: http://www.windowsazure.com/en-us/manage/install-and-configure-cli/
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx
-[5]: http://www.windowsazure.com/en-us/documentation/services/virtual-machines/
-[6]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156003.aspx
-[7]: http://www.windowsazure.com/en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+[3]: http://www.windowsazure.com/es-es/manage/install-and-configure-cli/
+[4]: http://msdn.microsoft.com/es-es/library/windowsazure/dn197896.aspx
+[5]: http://www.windowsazure.com/es-es/documentation/services/virtual-machines/
+[6]: http://msdn.microsoft.com/es-es/library/windowsazure/jj156003.aspx
+[7]: http://www.windowsazure.com/es-es/develop/ruby/tutorials/web-app-with-linux-vm/

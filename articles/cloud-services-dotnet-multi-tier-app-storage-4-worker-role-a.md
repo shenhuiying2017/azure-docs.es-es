@@ -3,7 +3,7 @@
 Creación del rol de trabajo A (programador de correo electrónico) para la aplicación Servicio de correo electrónico de Azure: 4 de 5.
 =====================================================================================================================================
 
-Este es el cuarto tutorial de una serie de cinco que muestran cómo crear e implementar la aplicación de ejemplo de Servicio de correo electrónico de Azure. Para obtener información sobre la serie de tutoriales y la aplicación, consulte el [primer tutorial de la serie](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
+Este es el cuarto tutorial de una serie de cinco que muestran cómo crear e implementar la aplicación de ejemplo de Servicio de correo electrónico de Azure. Para obtener información sobre la serie de tutoriales y la aplicación, consulte el [primer tutorial de la serie](/es-es/develop/net/tutorials/multi-tier-web-site/1-overview/).
 
 En este tutorial, aprenderá a realizar las siguientes tareas:
 
@@ -155,7 +155,7 @@ Incorporación de código de rol de trabajoIncorporación de código que se ejec
 
     Es posible que haya visto documentación anterior sobre el trabajo con el almacenamiento de Azure que muestra el código de inicialización en un bucle que revisa la presencia de errores de transporte. Esta acción ya no es necesaria porque la API tiene ahora un mecanismo de reintento integrado que absorbe los errores de red transitorios hasta en 3 intentos adicionales.
 
-    El método `ConfigureDiagnostics` que el método `OnStart` llama configura el seguimiento para que pueda ver el resultado desde los métodos `Trace.Information` y `Trace.Error`. Este método se explica en el [segundo tutorial](/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/).
+    El método `ConfigureDiagnostics` que el método `OnStart` llama configura el seguimiento para que pueda ver el resultado desde los métodos `Trace.Information` y `Trace.Error`. Este método se explica en el [segundo tutorial](/es-es/develop/net/tutorials/multi-tier-web-site/2-download-and-run/).
 
     El método `OnStop` establece la variable global `onStopCalled` como verdadera, posteriormente espera que el método `Run` establezca la variable global `returnedFromRunMethod` como verdadera, lo que la señala como lista para realizar un apagado limpio.
 
@@ -265,7 +265,7 @@ Incorporación de código de rol de trabajoIncorporación de código que se ejec
              }
          }
 
-    Tenga en cuenta que todo el trabajo se realiza en un bucle infinito en un bloque `while` y que todo el código del bloque `while` se encapsula en un bloque `try`-`catch` para evitar una excepción no controlada. Si se produce una excepción no controlada, Azure generará el evento [UnhandledException](http://msdn.microsoft.com/en-us/library/system.appdomain.unhandledexception.aspx), el proceso de trabajo se termina y el rol se deja sin conexión. El rol de trabajo lo reinicia Azure, pero tarda varios minutos. El bloque `try` llama a `TraceError` para registrar el error y, a continuación, se suspende durante 60 segundos de modo que si el error es persistente, el mensaje de error no se repite tantas veces. En una aplicación de producción puede enviar un correo electrónico a un administrador en el bloque `try`.
+    Tenga en cuenta que todo el trabajo se realiza en un bucle infinito en un bloque `while` y que todo el código del bloque `while` se encapsula en un bloque `try`-`catch` para evitar una excepción no controlada. Si se produce una excepción no controlada, Azure generará el evento [UnhandledException](http://msdn.microsoft.com/es-es/library/system.appdomain.unhandledexception.aspx), el proceso de trabajo se termina y el rol se deja sin conexión. El rol de trabajo lo reinicia Azure, pero tarda varios minutos. El bloque `try` llama a `TraceError` para registrar el error y, a continuación, se suspende durante 60 segundos de modo que si el error es persistente, el mensaje de error no se repite tantas veces. En una aplicación de producción puede enviar un correo electrónico a un administrador en el bloque `try`.
 
     El método `Run` procesa una consulta para las filas `message` de la tabla `message` que programaron una fecha antes de mañana:
 
@@ -317,7 +317,7 @@ Incorporación de código de rol de trabajoIncorporación de código que se ejec
                  // Suspender durante un minuto para reducir los costes de consulta.
                  System.Threading.Thread.Sleep(1000*60);
 
-    Existe un cobro mínimo por cada consulta de almacenamiento de Azure, incluso si no devuelve ningún dato, por lo que un nuevo examen continuo se sumaría innecesariamente a sus gastos de Azure. Mientras se escribe este tutorial, el costo es de $0,10 por millón de transacciones (una consulta se considera como una transacción), por lo que el tiempo de suspensión podría ser mucho menos de un minuto y el coste del examen de las tablas en busca de los mensajes que se van a enviar todavía sería mínimo. Para obtener más información sobre el precio, consulte el [primer tutorial](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
+    Existe un cobro mínimo por cada consulta de almacenamiento de Azure, incluso si no devuelve ningún dato, por lo que un nuevo examen continuo se sumaría innecesariamente a sus gastos de Azure. Mientras se escribe este tutorial, el costo es de $0,10 por millón de transacciones (una consulta se considera como una transacción), por lo que el tiempo de suspensión podría ser mucho menos de un minuto y el coste del examen de las tablas en busca de los mensajes que se van a enviar todavía sería mínimo. Para obtener más información sobre el precio, consulte el [primer tutorial](/es-es/develop/net/tutorials/multi-tier-web-site/1-overview/).
 
     **Nota sobre los subprocesos y la utilización óptima de la CPU:** hay dos tareas en el método `Run` (poner correos electrónicos en cola y comprobar los mensajes completados) que se ejecutan de manera secuencial en un solo subproceso. Una máquina virtual (VM) pequeña tiene 1,75 GB de RAM y solo una CPU, por lo que probablemente es bueno ejecutar estas tareas de manera secuencial con solo un subproceso. Supongamos que su aplicación necesita más memoria que la máquina virtual pequeña proporcionada para funcionar eficazmente. Una máquina virtual mediana proporciona 3,5 GB de RAM y 2 CPU, pero esta aplicación solo usaría una CPU porque tiene un solo subproceso. Para aprovechar todas las CPU, necesita crear un subproceso de trabajo para cada CPU. Aun así, un subproceso no utiliza completamente una sola CPU. Cuando un subproceso realiza llamadas de red o de E/S, debe esperar a que la llamada de red o de E/S se complete y, mientras espera, no realiza ninguna tarea de utilidad. Si se implementa el método `Run` con dos subprocesos, cuando un subproceso espera que se complete una operación de red o de E/S, el otro subproceso podría realizar algún trabajo útil.
 
@@ -576,8 +576,8 @@ PruebasPruebas del rol de trabajo A
 Pasos siguientesPasos siguientes
 --------------------------------
 
-Ha creado y verificado un rol de trabajo A que crea los mensajes en cola y las filas de la tabla que el rol de trabajo B necesita para enviar correos electrónicos. En el [siguiente tutorial](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/), podrá crear y probar el rol de trabajo B.
+Ha creado y verificado un rol de trabajo A que crea los mensajes en cola y las filas de la tabla que el rol de trabajo B necesita para enviar correos electrónicos. En el [siguiente tutorial](/es-es/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/), podrá crear y probar el rol de trabajo B.
 
-Podrá encontrar vínculos a recursos adicionales acerca de cómo utilizar las tablas, colas y blobs de almacenamiento de Azure al final del [último tutorial de la serie](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/).
-[Tutorial 5](/en-us/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/)
+Podrá encontrar vínculos a recursos adicionales acerca de cómo utilizar las tablas, colas y blobs de almacenamiento de Azure al final del [último tutorial de la serie](/es-es/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/).
+[Tutorial 5](/es-es/develop/net/tutorials/multi-tier-web-site/5-worker-role-b/)
 

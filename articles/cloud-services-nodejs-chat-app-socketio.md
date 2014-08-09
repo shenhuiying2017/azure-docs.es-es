@@ -126,11 +126,11 @@ Para fines de simplicidad, este ejemplo se limita a un chat entre los usuarios q
 
 ## Pasos siguientes
 
-En este tutorial aprendió a crear una aplicación de chat básica hospedada en un Servicio en la nube de Azure. Para saber cómo hospedar esta aplicación en un sitio web de Azure, consulte [Creación de una aplicación de chat Node.js con Socket.IO en un sitio web de Azure](/en-us/develop/nodejs/tutorials/website-using-socketio/).
+En este tutorial aprendió a crear una aplicación de chat básica hospedada en un Servicio en la nube de Azure. Para saber cómo hospedar esta aplicación en un sitio web de Azure, consulte [Creación de una aplicación de chat Node.js con Socket.IO en un sitio web de Azure](/es-es/develop/nodejs/tutorials/website-using-socketio/).
 
 
 
 [1]: http://socket.io/
 [2]: https://github.com/LearnBoost/socket.io/tree/0.9.14
-[3]: https://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+[3]: https://www.windowsazure.com/es-es/develop/nodejs/tutorials/getting-started/
 [4]: https://github.com/WindowsAzure/azure-sdk-for-node

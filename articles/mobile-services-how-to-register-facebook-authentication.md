@@ -56,5 +56,5 @@ Ahora ya puede habilitar el uso del inicio de sesión de Facebook para autentica
 
 <!-- URLs. -->
 [Facebook Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268286
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Azure Management Portal]: https://manage.windowsazure.com/

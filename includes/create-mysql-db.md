@@ -1,7 +1,7 @@
 
 # Creación una base de datos MySQL en Azure
 
-Esta guía le mostrará cómo usar [ClearDB][1] para la creación de una base de datos MySQL desde la [Tienda de Azure](/en-us/store/overview/) y cómo crear una base de datos MySQL como un recurso vinculado cuando cree un [Sitio web Azure](/en-us/manage/services/web-sites/). [ClearDB][1] es un proveedor de base de datos como servicio tolerante a errores que le permite ejecutar y administrar bases de datos MySQL en centros de datos de Azure y conectarse a ellos desde cualquier aplicación.
+Esta guía le mostrará cómo usar [ClearDB][1] para la creación de una base de datos MySQL desde la [Tienda de Azure](/en-us/store/overview/) y cómo crear una base de datos MySQL como un recurso vinculado cuando cree un [Sitio web Azure](/es-es/manage/services/web-sites/). [ClearDB][1] es un proveedor de base de datos como servicio tolerante a errores que le permite ejecutar y administrar bases de datos MySQL en centros de datos de Azure y conectarse a ellos desde cualquier aplicación.
 
 ## Tabla de contenido
 * [Creación de una base de datos MySQL desde la Tienda de Azure](#CreateFromStore)
@@ -48,7 +48,7 @@ Para crear una base de datos de MySQL desde la [Tienda Azure](/en-us/store/overv
 
 <h2><a id="CreateForWebSite"></a>Creación de una base de datos MySQL como recurso vinculado para un Sitio Web Azure</h2>
 
-Para crear una base de datos MySQL como recurso vinculado cuando cree un [Sitio web Azure](/en-us/manage/services/web-sites/), realice los siguientes pasos:
+Para crear una base de datos MySQL como recurso vinculado cuando cree un [Sitio web Azure](/es-es/manage/services/web-sites/), realice los siguientes pasos:
 
 1.  Inicie sesión en el [Portal de administración de Azure][2]. 
 2.  Haga clic en **+NEW** en la parte inferior de la página y, a continuación, seleccione **COMPUTE**, **WEB SITE** y **CREATE WITH DATABASE**.
@@ -90,7 +90,7 @@ Para crear una base de datos MySQL como recurso vinculado cuando cree un [Sitio 
 <p>La aplicación del sitio web puede obtener acceso a las cadenas de
 conexión mediante el nombre de cadena de conexión. En las aplicaciones
 .NET, las cadenas de conexión están disponibles en el objeto <b>connectionStrings</b>. En otros lenguajes de
-programación, se puede obtener acceso a las cadenas de conexión como variables de entorno. Para obtener más información, consulte <a href="/en-us/manage/services/web-sites/how-to-configure-websites/">Configuración de Sitios web</a>.</p>
+programación, se puede obtener acceso a las cadenas de conexión como variables de entorno. Para obtener más información, consulte <a href="/es-es/manage/services/web-sites/how-to-configure-websites/">Configuración de Sitios web</a>.</p>
 </div>
 
 

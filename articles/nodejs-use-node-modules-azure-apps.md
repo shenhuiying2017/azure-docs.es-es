@@ -64,5 +64,5 @@ Cuando la aplicación esté preparada para la producción, puede bloquear los re
 Pasos siguientes
 ----------------
 
-Ahora que sabe cómo usar los módulos Node.js con Azure, puede aprender a [especificar la versión de Node.js](/en-us/develop/nodejs/common-tasks/specifying-a-node-version/), [generar e implementar un sitio web de Node.js](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/) y [usar las herramientas de la línea de comandos de Azure para Mac y Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/).
+Ahora que sabe cómo usar los módulos Node.js con Azure, puede aprender a [especificar la versión de Node.js](/es-es/develop/nodejs/common-tasks/specifying-a-node-version/), [generar e implementar un sitio web de Node.js](/es-es/develop/nodejs/tutorials/create-a-website-(mac)/) y [usar las herramientas de la línea de comandos de Azure para Mac y Linux](/es-es/develop/nodejs/how-to-guides/command-line-tools/).
 

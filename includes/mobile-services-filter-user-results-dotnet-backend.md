@@ -12,7 +12,7 @@ Ahora que la autenticación es necesaria para obtener acceso a los datos en la t
 
          public string UserId { get; set; }
 
-    > [WACOM.NOTE] Al usar el inicializador de base de datos predeterminado, Entity Framework eliminará la base de datos y la volverá a crear siempre que detecte un cambio del modelo de datos en la definición del modelo de Code First. Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe utilizar Migraciones de Code First. El inicializador predeterminado no se puede usar con una base de datos SQL en Azure. Para obtener más información, consulte [Uso de Migraciones de Code First para actualizar el modelo de datos](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).
+    > [WACOM.NOTE] Al usar el inicializador de base de datos predeterminado, Entity Framework eliminará la base de datos y la volverá a crear siempre que detecte un cambio del modelo de datos en la definición del modelo de Code First. Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe utilizar Migraciones de Code First. El inicializador predeterminado no se puede usar con una base de datos SQL en Azure. Para obtener más información, consulte [Uso de Migraciones de Code First para actualizar el modelo de datos](/es-es/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).
 
 3.  En el Explorador de soluciones, expanda la carpeta Controladores, abra el archivo de proyecto TodoItemController.cs y agregue la siguiente instrucción **using**:
 

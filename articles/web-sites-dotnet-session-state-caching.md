@@ -7,7 +7,7 @@ En este tema se explica cómo utilizar el servicio de caché de Azure (vista pre
 
 Sin un proveedor externo, el estado de sesión se almacena en proceso en el servidor web que hospeda el sitio. En el caso de Sitios web Azure, hay dos problemas con el estado de sesión en proceso. Primero, en el caso de los sitios con múltiples instancias, el estado de sesión almacenado en una instancia no es accesible para otras instancias. Debido a que una solicitud de usuario se puede enrutar a cualquier instancia, no se garantiza que la información de la sesión se encuentre ahí. Segundo, cualquier cambio que se realice en la configuración podría hacer que el sitio web se ejecutara en un servidor completamente distinto.
 
-El servicio de caché (vista previa) proporciona un servicio de almacenamiento en caché distribuido externo al sitio web. Esto soluciona el problema con un estado de sesión en proceso. Para obtener más información acerca de cómo utilizar el estado de sesión, consulte [Información general sobre el estado de sesión de ASP.NET](http://msdn.microsoft.com/en-us/library/ms178581.aspx).
+El servicio de caché (vista previa) proporciona un servicio de almacenamiento en caché distribuido externo al sitio web. Esto soluciona el problema con un estado de sesión en proceso. Para obtener más información acerca de cómo utilizar el estado de sesión, consulte [Información general sobre el estado de sesión de ASP.NET](http://msdn.microsoft.com/es-es/library/ms178581.aspx).
 
 Los pasos básicos para utilizar el servicio de caché (vista previa) para el almacenamiento en caché de estado de sesión incluyen:
 
@@ -38,7 +38,7 @@ Creación de la caché
 Configuración del proyecto ASP.NET
 ----------------------------------
 
-1.  Primero, asegúrese de que ha [instalado el más reciente](http://www.windowsazure.com/en-us/downloads/?sdk=net) **SDK de Azure para .NET**.
+1.  Primero, asegúrese de que ha [instalado el más reciente](http://www.windowsazure.com/es-es/downloads/?sdk=net) **SDK de Azure para .NET**.
 
 2.  En Visual Studio, haga clic con el botón secundario en el proyecto ASP.NET en el **Explorador de soluciones** y, a continuación, seleccione **Manage NuGet Packages**. (Si utiliza WebMatrix, en lugar de realizar la acción anterior, haga clic en el botón **NuGet** en la barra de herramientas).
 
@@ -87,5 +87,5 @@ El siguiente código recupera este valor desde el estado de sesión.
     if (objValue != null)
        strValue = (string)obj;  
 
-Para obtener más detalles acerca de cómo utilizar el estado de sesión de ASP.NET, consulte [Información general sobre el estado de sesión de ASP.NET](http://msdn.microsoft.com/en-us/library/ms178581.aspx).
+Para obtener más detalles acerca de cómo utilizar el estado de sesión de ASP.NET, consulte [Información general sobre el estado de sesión de ASP.NET](http://msdn.microsoft.com/es-es/library/ms178581.aspx).
 

@@ -101,7 +101,7 @@ El SLA se define en términos de "plazo de soporte técnico". Un plazo de soport
 
 **Notas e información adicionales acerca de las versiones**
 
--   El controlador JDBC para SQL Server se utiliza de forma interna mediante HDInsight y no se utiliza para realizar operaciones externas. Si desea conectarse a HDInsight mediante ODBC, utilice el controlador ODBC para Microsoft Hive. Para obtener más información acerca del uso de ODBC para Hive, consulte [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](/en-us/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver).
+-   El controlador JDBC para SQL Server se utiliza de forma interna mediante HDInsight y no se utiliza para realizar operaciones externas. Si desea conectarse a HDInsight mediante ODBC, utilice el controlador ODBC para Microsoft Hive. Para obtener más información acerca del uso de ODBC para Hive, consulte [Connect Excel to HDInsight with the Microsoft Hive ODBC Driver](/es-es/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver).
 
 -   La versión 3.0 del clúster de HDInsight utiliza una distribución de Hadoop basada en la distribución [Hortonworks Data Platform 2.0](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html).
 

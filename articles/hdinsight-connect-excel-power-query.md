@@ -9,7 +9,7 @@ Una de las características clave de la solución para datos de gran tamaño de 
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
--   Un clúster de HDInsight. Para configurarlo, consulte [Introducción a HDInsight de Azure](/en-us/documentation/articles/hdinsight-get-started/).
+-   Un clúster de HDInsight. Para configurarlo, consulte [Introducción a HDInsight de Azure](/es-es/documentation/articles/hdinsight-get-started/).
 -   Un equipo que ejecute Windows 8, Windows 7, Windows Server 2012 o Windows Server 2008 R2.
 -   Office Professional Plus 2013, Office 365 Pro Plus, Excel 2013 Standalone u Office Professional Plus 2010.
 
@@ -63,6 +63,6 @@ Pasos siguientes
 
 En este artículo ha aprendido a usar Power Query para recuperar datos de HDInsight en Excel. Del mismo modo puede recuperar datos de HDInsight en SQL Azure. También se pueden cargar los datos en HDInsight. Para obtener más información, consulte los artículos siguientes:
 
--   [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver](/en-us/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver/)
--   [Carga de datos en HDInsight](/en-us/documentation/articles/hdinsight-upload-data/).
+-   [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver](/es-es/documentation/articles/hdinsight-connect-excel-hive-ODBC-driver/)
+-   [Carga de datos en HDInsight](/es-es/documentation/articles/hdinsight-upload-data/).
 

@@ -3,7 +3,7 @@
 Programación de trabajos periódicos en Servicios móviles
 ========================================================
 
-[Back-end de .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ "Back-end de .NET") | [Back-end de JavaScript](/en-us/documentation/articles/mobile-services-schedule-recurring-tasks/ "Back-end de JavaScript")
+[Back-end de .NET](/es-es/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ "Back-end de .NET") | [Back-end de JavaScript](/es-es/documentation/articles/mobile-services-schedule-recurring-tasks/ "Back-end de JavaScript")
 
 Este tema le muestra cómo usar la funcionalidad del programador de trabajos en el Portal de administración para definir el código de script de servidor que se ejecuta según el programa que establezca. En este caso, se realiza una comprobación periódica del script con un servicio remoto (Twitter) y se almacenan los resultados en una nueva tabla. Entre las demás tareas periódicas que pueden programarse se incluyen las siguientes:
 
@@ -80,7 +80,7 @@ Creación de la nueva tabla de actualizaciones
 
     La tabla de actualizaciones (Updates), que se crea en la base de datos al obtener acceso a DbSet por primera vez, se usa en el servicio para almacenar los datos de tweets.
 
-    > [WACOM.NOTE] Al usar el inicializador de base de datos predeterminado, Entity Framework eliminará la base de datos y la volverá a crear siempre que detecte un cambio del modelo de datos en la definición del modelo de Code First. Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe utilizar Migraciones de Code First. El inicializador predeterminado no se puede usar con una base de datos SQL en Azure. Para obtener más información, consulte [Uso de Migraciones de Code First para actualizar el modelo de datos](/en-us/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).
+    > [WACOM.NOTE] Al usar el inicializador de base de datos predeterminado, Entity Framework eliminará la base de datos y la volverá a crear siempre que detecte un cambio del modelo de datos en la definición del modelo de Code First. Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe utilizar Migraciones de Code First. El inicializador predeterminado no se puede usar con una base de datos SQL en Azure. Para obtener más información, consulte [Uso de Migraciones de Code First para actualizar el modelo de datos](/es-es/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations).
 
 A continuación, cree el trabajo programado que obtiene acceso a Twitter y almacena los datos de tweets en la nueva tabla de actualizaciones.
 
@@ -281,7 +281,7 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 
 <!-- URLs. -->
 [Azure Management Portal]: https://manage.windowsazure.com/
-[Register your apps for Twitter login with Mobile Services]: /en-us/documentation/articles/mobile-services-how-to-register-twitter-authentication
+[Register your apps for Twitter login with Mobile Services]: /es-es/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Twitter Developers]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[App settings]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[App settings]: http://msdn.microsoft.com/es-es/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 [LINQ to Twitter CodePlex project]: http://linqtotwitter.codeplex.com/

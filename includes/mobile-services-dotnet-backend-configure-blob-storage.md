@@ -1,6 +1,6 @@
 El elemento **TodoItemController** existente se actualiza de manera que el método **PostTodoItem** genera una SAS cuando se inserta un nuevo elemento Todo.
 
-1.  Si todavía no ha creado su cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](/en-us/manage/services/storage/how-to-create-a-storage-account).
+1.  Si todavía no ha creado su cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](/es-es/manage/services/storage/how-to-create-a-storage-account).
 
 2.  En el Portal de administración, haga clic en **Almacenamiento**, haga clic en la cuenta de almacenamiento y, a continuación, haga clic en **Manage Keys**.
 
@@ -17,7 +17,7 @@ El elemento **TodoItemController** existente se actualiza de manera que el méto
 
     ![](./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png)
 
-    La clave de acceso de la cuenta de almacenamiento se almacena cifrada en la configuración de aplicaciones. Puede tener acceso a esta clave desde cualquier script de servidor en tiempo de ejecución. Para obtener más información, consulte [Configuración de aplicación](http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7).
+    La clave de acceso de la cuenta de almacenamiento se almacena cifrada en la configuración de aplicaciones. Puede tener acceso a esta clave desde cualquier script de servidor en tiempo de ejecución. Para obtener más información, consulte [Configuración de aplicación](http://msdn.microsoft.com/es-es/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7).
 
 3.  En el Explorador de soluciones de Visual Studio, abra el archivo Web.config para el proyecto de servicios móviles y agregue la siguiente nueva configuración de aplicaciones reemplazando los marcadores de posición por el nombre de la cuenta de almacenamiento y la clave de acceso que estableció como configuración de la aplicación en el portal:
 

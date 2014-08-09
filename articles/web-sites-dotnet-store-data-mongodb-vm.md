@@ -36,8 +36,8 @@ En esta sección aprenderá cómo crear una máquina virtual en Azure e instalar
 
 En este tutorial se presupone que ha creado una máquina virtual en Azure. Después de crear la máquina virtual, tiene que instalar MongoDB en la misma:
 
--   Para crear una máquina virtual de Windows e instalar MongoDB, consulte [Instalación de MongoDB en una máquina virtual con Windows Server en Azure](/en-us/manage/windows/common-tasks/install-mongodb/).
--   También puede crear una máquina virtual de Linux e instalar MongoDB, consulte [Instalación de MongoDB en una máquina virtual con CentOS Linux en Azure](/en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/).
+-   Para crear una máquina virtual de Windows e instalar MongoDB, consulte [Instalación de MongoDB en una máquina virtual con Windows Server en Azure](/es-es/manage/windows/common-tasks/install-mongodb/).
+-   También puede crear una máquina virtual de Linux e instalar MongoDB, consulte [Instalación de MongoDB en una máquina virtual con CentOS Linux en Azure](/es-es/manage/linux/common-tasks/mongodb-on-a-linux-vm/).
 
 Después de haber creado la máquina virtual en Azure e instalado MongoDB, asegúrese de recordar el nombre de DNS de la máquina virtual ("testlinuxvm.cloudapp.net", por ejemplo) y el puerto externo de MongoDB que especificó en el extremo. Necesitará esta información posteriormente en el tutorial.
 

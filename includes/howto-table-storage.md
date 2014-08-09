@@ -37,4 +37,4 @@ El servicio Tabla contiene los siguientes componentes:
 
 
 [1]: http://www.odata.org/
-[2]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
+[2]: http://msdn.microsoft.com/es-es/library/dn249410.aspx

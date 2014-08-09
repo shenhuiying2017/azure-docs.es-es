@@ -35,7 +35,7 @@ Creación de una cuenta de almacenamiento de Azure
 Creación de una aplicación de Ruby
 ----------------------------------
 
-Cree una aplicación de Ruby. Para obtener instrucciones, consulte [Creación de una aplicación de Ruby en Azure](/en-us/develop/ruby/tutorials/web-app-with-linux-vm/).
+Cree una aplicación de Ruby. Para obtener instrucciones, consulte [Creación de una aplicación de Ruby en Azure](/es-es/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 Configuración de su aplicación para obtener acceso al almacenamiento
 --------------------------------------------------------------------
@@ -170,7 +170,7 @@ Pasos siguientes
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de tablas, siga estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx)
 -   Visite el [blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/) (en inglés).
 -   Visite el repositorio del [SDK de Azure para Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) (en inglés) en GitHub.
 

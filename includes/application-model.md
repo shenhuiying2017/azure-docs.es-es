@@ -473,15 +473,15 @@ Escrito por Jeffrey Richter (Wintellect)
 
 
 
-[1]: http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns/
-[2]: http://www.windowsazure.com/en-us/develop/net/fundamentals/cloud-storage/
-[3]: http://www.windowsazure.com/en-us/pricing/calculator/
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx
-[5]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
-[6]: http://msdn.microsoft.com/en-us/library/hh560567.aspx
-[7]: http://msdn.microsoft.com/en-us/library/ee924680.aspx
-[8]: http://www.windowsazure.com/en-us/develop/net/fundamentals/deploying-applications/
-[9]: http://msdn.microsoft.com/en-us/library/gg432967.aspx
-[10]: http://msdn.microsoft.com/en-us/library/gg433038.aspx
-[11]: http://msdn.microsoft.com/en-us/library/gg186051.aspx
-[12]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405486.aspx
+[1]: http://www.windowsazure.com/es-es/develop/net/common-tasks/custom-dns/
+[2]: http://www.windowsazure.com/es-es/develop/net/fundamentals/cloud-storage/
+[3]: http://www.windowsazure.com/es-es/pricing/calculator/
+[4]: http://msdn.microsoft.com/es-es/library/windowsazure/gg981929.aspx
+[5]: http://msdn.microsoft.com/es-es/library/windowsazure/ee758710.aspx
+[6]: http://msdn.microsoft.com/es-es/library/hh560567.aspx
+[7]: http://msdn.microsoft.com/es-es/library/ee924680.aspx
+[8]: http://www.windowsazure.com/es-es/develop/net/fundamentals/deploying-applications/
+[9]: http://msdn.microsoft.com/es-es/library/gg432967.aspx
+[10]: http://msdn.microsoft.com/es-es/library/gg433038.aspx
+[11]: http://msdn.microsoft.com/es-es/library/gg186051.aspx
+[12]: http://msdn.microsoft.com/es-es/library/windowsazure/ee405486.aspx

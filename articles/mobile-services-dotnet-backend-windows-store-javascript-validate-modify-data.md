@@ -3,9 +3,9 @@
 Validación y modificación de datos en los Servicios móviles mediante el back-end de .NET
 ========================================================================================
 
-[C\# para Tienda Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "C# para Tienda Windows") [JavaScript para Tienda Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "JavaScript para Tienda Windows") [Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS") [Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android") [HTML](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS") [Xamarin.Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")
+[C\# para Tienda Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "C# para Tienda Windows") [JavaScript para Tienda Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "JavaScript para Tienda Windows") [Windows Phone](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS") [Android](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android") [HTML](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML")[Xamarin.iOS](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS") [Xamarin.Android](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")
 
-[Back-end de .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Back-end de .NET") | [Back-end de JavaScript](/en-us/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/ "Back-end de JavaScript")
+[Back-end de .NET](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-validate-modify-data/ "Back-end de .NET") | [Back-end de JavaScript](/es-es/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/ "Back-end de JavaScript")
 
 Este tema muestra cómo utilizar el código en los Servicios móviles de Azure del back-end de .NET para validar y modificar los datos. El servicio de back-end de .NET es un servicio HTTP compilado con el marco API Web. Si está familiarizado con la clase `ApiController`, definida con el marco API Web, la clase `TableController` proporcionada por los Servicios móviles le resultará muy intuitiva. `TableController` proviene de la clase `ApiController` y proporciona funcionalidad adicional para la creación de la interfaz de la tabla de base de datos. Se puede utilizar para realizar operaciones en los datos que se van a insertar y actualizar, lo que incluye la validación y modificación de los datos que se presentan en este tutorial.
 
@@ -17,7 +17,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 4.  [Incorporación de un campo de marca de tiempo para CompleteDate](#add-timestamp)
 5.  [Actualización del cliente para mostrar el valor de CompleteDate](#update-client-timestamp)
 
-Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior, [Introducción a los Servicios móviles](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/) o [Introducción a los datos](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/). Antes de comenzar este tutorial, primero debe completar el tutorial [Introducción a los Servicios móviles](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/) o [Introducción a los datos](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/).
+Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior, [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/) o [Introducción a los datos](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/). Antes de comenzar este tutorial, primero debe completar el tutorial [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/) o [Introducción a los datos](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/).
 
 Incorporación de código de validación al servicio móvil
 -------------------------------------------------------
@@ -124,17 +124,17 @@ El paso final consiste en actualizar el cliente para que muestre los nuevos dato
 Pasos siguientes
 ----------------
 
-Ahora que ha completado este tutorial, considere continuar con el tutorial final de la serie de datos: [Limitación de consultas con paginación](/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet).
+Ahora que ha completado este tutorial, considere continuar con el tutorial final de la serie de datos: [Limitación de consultas con paginación](/es-es/develop/mobile/tutorials/add-paging-to-data-dotnet).
 
 Los scripts de servidor también se usan al autorizar usuarios y para enviar notificaciones de inserción. Para obtener más información, consulte los siguientes tutoriales:
 
--   [Autorización de servicios de usuarios](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/)
+-   [Autorización de servicios de usuarios](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-authorize-users-in-scripts/)
     Aprenda a filtrar datos por el identificador de un usuario autenticado.
 
--   [Introducción a las notificaciones de inserción](en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/)
+-   [Introducción a las notificaciones de inserción](es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/)
     Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
--   [Referencia conceptual de Servicios móviles con .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
+-   [Referencia conceptual de Servicios móviles con .NET](/es-es/develop/mobile/how-to-guides/work-with-net-client-library)
     Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
 

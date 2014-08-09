@@ -3,7 +3,7 @@
 Restauración de un sitio web de Microsoft Azure
 ===============================================
 
-En este artículo se muestra cómo restaurar un sitio web del que ha hecho previamente una copia de seguridad con la característica de copias de seguridad de sitios web de Azure. Para obtener más información, consulte [Copias de seguridad de sitios web de Microsoft Azure](http://www.windowsazure.com/en-us/documentation/articles/web-sites-backup/).
+En este artículo se muestra cómo restaurar un sitio web del que ha hecho previamente una copia de seguridad con la característica de copias de seguridad de sitios web de Azure. Para obtener más información, consulte [Copias de seguridad de sitios web de Microsoft Azure](http://www.windowsazure.com/es-es/documentation/articles/web-sites-backup/).
 
 La característica de restauración de sitios web de Azure le permite restaurar, siempre que lo desee, el sitio web a un estado anterior, o bien crear un nuevo sitio en función de una de las copias de seguridad del sitio original. La creación de un nuevo sitio web que se ejecuta en paralelo con la versión más reciente puede resultar útil para la prueba A/B.
 

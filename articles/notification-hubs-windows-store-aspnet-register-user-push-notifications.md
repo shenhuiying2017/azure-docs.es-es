@@ -3,11 +3,11 @@
 Registro del usuario actual para las notificaciones de inserción mediante ASP.NET
 =================================================================================
 
-[C\# para Tienda Windows](/en-us/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/ "C# para Tienda Windows")[iOS](/en-us/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/ "iOS")
+[C\# para Tienda Windows](/es-es/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/ "C# para Tienda Windows")[iOS](/es-es/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/ "iOS")
 
-En este tema se describe cómo solicitar el registro de las notificaciones de inserción con los Centros de notificaciones de Azure al realizar el registro mediante ASP.NET Web API. Este tema amplía el tutorial [Notificación a los usuarios con los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users-aspnet). Debe haber completado ya los pasos necesarios de ese tutorial para crear el servicio móvil autenticado. Para obtener más información acerca del escenario de notificación a los usuarios, consulte [Notificación a los usuarios con los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users-aspnet).
+En este tema se describe cómo solicitar el registro de las notificaciones de inserción con los Centros de notificaciones de Azure al realizar el registro mediante ASP.NET Web API. Este tema amplía el tutorial [Notificación a los usuarios con los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users-aspnet). Debe haber completado ya los pasos necesarios de ese tutorial para crear el servicio móvil autenticado. Para obtener más información acerca del escenario de notificación a los usuarios, consulte [Notificación a los usuarios con los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users-aspnet).
 
-1.  En Visual Studio 2012, abra el archivo app.xaml.cs del proyecto que creó al finalizar el tutorial [Notificación a los usuarios con los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users-aspnet), completado como requisito previo.
+1.  En Visual Studio 2012, abra el archivo app.xaml.cs del proyecto que creó al finalizar el tutorial [Notificación a los usuarios con los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users-aspnet), completado como requisito previo.
 
 2.  Busque el método **InitNotificationsAsync** y añada comentarios al código.
 
@@ -164,7 +164,7 @@ En este tema se describe cómo solicitar el registro de las notificaciones de in
              await dialog.ShowAsync();
          }
 
-    Este método obtiene un ID de instalación y un canal para las notificaciones de inserción y los envía, junto con el tipo de dispositivo, al método de Web API autenticado que crea un registro en los Centros de notificaciones. Esta Web API se definió en [Notificación a los usuarios con los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users-aspnet).
+    Este método obtiene un ID de instalación y un canal para las notificaciones de inserción y los envía, junto con el tipo de dispositivo, al método de Web API autenticado que crea un registro en los Centros de notificaciones. Esta Web API se definió en [Notificación a los usuarios con los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users-aspnet).
 
-Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación a los usuarios con los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users-aspnet) y actualice el servicio móvil para enviar notificaciones mediante Centros de notificaciones.
+Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación a los usuarios con los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users-aspnet) y actualice el servicio móvil para enviar notificaciones mediante Centros de notificaciones.
 

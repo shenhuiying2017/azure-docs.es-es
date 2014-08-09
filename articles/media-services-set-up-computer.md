@@ -77,5 +77,5 @@ Ahora que ha configurado el equipo y creó una solución de Visual Studio para p
 
 
 
-[1]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-create-a-media-services-account/
+[1]: http://www.windowsazure.com/es-es/manage/services/media-services/how-to-create-a-media-services-account/
 [2]: http://nuget.org/packages/windowsazure.mediaservices

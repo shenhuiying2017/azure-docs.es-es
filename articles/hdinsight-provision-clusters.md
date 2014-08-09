@@ -23,11 +23,11 @@ En este artículo
 Uso del Portal de administración de Azure
 -----------------------------------------
 
-Los clústeres de HDInsight utilizan contenedores de almacenamiento de blobs de Azure como sistemas de archivos predeterminados. Es preciso tener una cuenta de almacenamiento de Azure ubicada en el mismo centro de datos antes de crear un clúster de HDInsight. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/). Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure, consulte [Creación de una cuenta de almacenamiento](/en-us/manage/services/storage/how-to-create-a-storage-account/).
+Los clústeres de HDInsight utilizan contenedores de almacenamiento de blobs de Azure como sistemas de archivos predeterminados. Es preciso tener una cuenta de almacenamiento de Azure ubicada en el mismo centro de datos antes de crear un clúster de HDInsight. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](/es-es/manage/services/hdinsight/howto-blob-store/). Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure, consulte [Creación de una cuenta de almacenamiento](/es-es/manage/services/storage/how-to-create-a-storage-account/).
 
 > [WACOM.NOTE] Actualmente, solo se pueden hospedar clústeres de HDInsight en las siguientes regiones: sudeste de Asia, Europa del norte, Europa occidental, Estados Unidos del este y Estados Unidos del oeste.
 
-Esta sesión describe el procedimiento para crear un clúster de HDInsight usando la opción de creación personalizada. Para obtener más información acerca de cómo usar la opción de creación rápida, consulte [Introducción a HDInsight de Azure](/en-us/manage/services/hdinsight/get-started-hdinsight/).
+Esta sesión describe el procedimiento para crear un clúster de HDInsight usando la opción de creación personalizada. Para obtener más información acerca de cómo usar la opción de creación rápida, consulte [Introducción a HDInsight de Azure](/es-es/manage/services/hdinsight/get-started-hdinsight/).
 
 **Para crear un clúster de HDInsight usando la opción de creación personalizada**
 
@@ -60,7 +60,7 @@ Esta sesión describe el procedimiento para crear un clúster de HDInsight usand
     
          <tr><td>HDINSIGHT VERSION</td>
     
-             <td>Seleccione la versión. La versión predeterminada es 2.0 con los clústeres de Hadoop 1.2.  La versión 3.0 usa los clústeres de Hadoop 2.2. Para obtener más información, consulte <a href="http://www.windowsazure.com/en-us/manage/services/hdinsight/versioning-in-hdinsight/">¿Qué versión de Hadoop tiene HDInsight de Azure?</a>
+             <td>Seleccione la versión. La versión predeterminada es 2.0 con los clústeres de Hadoop 1.2.  La versión 3.0 usa los clústeres de Hadoop 2.2. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/manage/services/hdinsight/versioning-in-hdinsight/">¿Qué versión de Hadoop tiene HDInsight de Azure?</a>
     .</td>
     </tr>
     
@@ -167,7 +167,7 @@ El aprovisionamiento del clúster puede durar varios minutos. Una vez completado
 Uso de Azure PowerShell
 -----------------------
 
-Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. Para obtener información acerca de la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight PowerShell, consulte [Instalación y configuración de Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/). Para obtener más información acerca del uso de PowerShell con HDInsight, consulte [Administración de HDInsight con PowerShell](/en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/). Para obtener más información acerca de los cmdlets de HDInsight PowerShell, consulte [Documentación de referencia de los cmdlets de HDInsight](http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx).
+Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. Para obtener información acerca de la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight PowerShell, consulte [Instalación y configuración de Azure PowerShell](/es-es/documentation/articles/install-configure-powershell/). Para obtener más información acerca del uso de PowerShell con HDInsight, consulte [Administración de HDInsight con PowerShell](/es-es/manage/services/hdinsight/administer-hdinsight-using-powershell/). Para obtener más información acerca de los cmdlets de HDInsight PowerShell, consulte [Documentación de referencia de los cmdlets de HDInsight](http://msdn.microsoft.com/es-es/library/windowsazure/dn479228.aspx).
 
 Los siguientes procedimientos son necesarios para aprovisionar un clúster de HDInsight con PowerShell:
 
@@ -285,7 +285,7 @@ También puede aprovisionar un clúster y configurarlo para que se conecte a má
 Uso de la línea de comandos entre plataformas
 ---------------------------------------------
 
-Otra opción para aprovisionar un clúster de HDInsight es la interfaz de línea de comandos entre plataformas. La herramienta de línea de comandos se implementa en Node.js y se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux. La herramienta de línea de comandos es de código abierto. El código fuente se administra en GitHub en <https://github.com/WindowsAzure/azure-sdk-tools-xplat>. Para obtener información general acerca de cómo usar la interfaz de la línea de comandos, consulte [Uso de las herramientas de línea de comandos de Azure para Mac y Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/). Para obtener una documentación de referencia completa, consulte [Herramienta de línea de comandos de Azure para Mac y Linux](/en-us/manage/linux/other-resources/command-line-tools/). Este artículo solo trata el uso de la interfaz de línea de comandos en Windows.
+Otra opción para aprovisionar un clúster de HDInsight es la interfaz de línea de comandos entre plataformas. La herramienta de línea de comandos se implementa en Node.js y se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux. La herramienta de línea de comandos es de código abierto. El código fuente se administra en GitHub en <https://github.com/WindowsAzure/azure-sdk-tools-xplat>. Para obtener información general acerca de cómo usar la interfaz de la línea de comandos, consulte [Uso de las herramientas de línea de comandos de Azure para Mac y Linux](/es-es/develop/nodejs/how-to-guides/command-line-tools/). Para obtener una documentación de referencia completa, consulte [Herramienta de línea de comandos de Azure para Mac y Linux](/es-es/manage/linux/other-resources/command-line-tools/). Este artículo solo trata el uso de la interfaz de línea de comandos en Windows.
 
 Los procedimientos siguientes son necesarios para aprovisionar un clúster de HDInsight con la línea de comandos entre varias plataformas:
 
@@ -320,7 +320,7 @@ La interfaz de línea de comandos se puede instalar usando *Node.js Package Mana
 
 **Para instalar la interfaz de línea de comandos usando windows installer**
 
-1.  Vaya a **http://www.windowsazure.com/en-us/downloads/**.
+1.  Vaya a **http://www.windowsazure.com/es-es/downloads/**.
 2.  Desplácese hasta la sección **Command line tools** y, a continuación, haga clic en **Cross-platform Command Line Interface** y siga el asistente del instalador de plataforma web.
 
 Antes de usar la interfaz de línea de comandos, debe configurar la conectividad entre su estación de trabajo y Azure. La interfaz de línea de comandos usa la información de su suscripción de Azure para conectarse a la cuenta. Esta información se puede obtener de Azure en un archivo de configuración de publicación. El archivo de configuración de publicación puede importarse después como un valor de configuración local permanente que la interfaz de línea de comandos usará para operaciones posteriores. Solo tiene que importar la configuración de publicación una vez.
@@ -354,7 +354,7 @@ HDInsight utiliza contenedores de almacenamiento de blobs de Azure como sistemas
 
           azure account storage create [options] <StorageAccountName>
 
-Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure usando el Portal de administración de Azure, consulte [Creación de una cuenta de almacenamiento](/en-us/manage/services/storage/how-to-create-a-storage-account/).
+Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure usando el Portal de administración de Azure, consulte [Creación de una cuenta de almacenamiento](/es-es/manage/services/storage/how-to-create-a-storage-account/).
 
 Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, puede usar los comandos siguientes para recuperar dicha información:
 
@@ -365,7 +365,7 @@ Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, pue
     -- Enumera las claves de una cuenta de almacenamiento.
     azure account storage keys list <StorageAccountName>
 
-Para obtener información acerca de cómo conseguir la información usando el portal de administración, consulte la sección *Visualización, copia y generación de claves de acceso al almacenamiento* de [Administración de cuentas de almacenamiento](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+Para obtener información acerca de cómo conseguir la información usando el portal de administración, consulte la sección *Visualización, copia y generación de claves de acceso al almacenamiento* de [Administración de cuentas de almacenamiento](/es-es/manage/services/storage/how-to-manage-a-storage-account/).
 
 El comando *azure hdinsight cluster create* crea el contenedor si no existe. Si opta por crear el contenedor antes, puede usar el comando siguiente:
 
@@ -544,8 +544,8 @@ Pasos siguientes
 
 En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varias formas. Para obtener más información, consulte los artículos siguientes:
 
--   [Introducción a HDInsight de Azure](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [Administración de HDInsight con PowerShell](/en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/)
--   [Envío de trabajos de Hadoop mediante programación](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/)
+-   [Introducción a HDInsight de Azure](/es-es/manage/services/hdinsight/get-started-hdinsight/)
+-   [Administración de HDInsight con PowerShell](/es-es/manage/services/hdinsight/administer-hdinsight-using-powershell/)
+-   [Envío de trabajos de Hadoop mediante programación](/es-es/manage/services/hdinsight/submit-hadoop-jobs-programmatically/)
 -   [Azure HDInsight SDK documentation](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx)
 

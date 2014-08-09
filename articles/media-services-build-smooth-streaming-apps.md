@@ -17,7 +17,7 @@ Este tutorial contiene cuatro lecciones:
 Requisitos previos
 ==================
 
--   Windows 8 de 32 o 64 bits. Puede conseguir la [Evaluación de Windows 8 Enterprise](http://msdn.microsoft.com/en-us/evalcenter/jj554510.aspx) en MSDN.
+-   Windows 8 de 32 o 64 bits. Puede conseguir la [Evaluación de Windows 8 Enterprise](http://msdn.microsoft.com/es-es/evalcenter/jj554510.aspx) en MSDN.
 -   Visual Studio 2012 o Visual Studio Express 2012 para Windows 8 instalado en Windows 8. Puede conseguir la versión de prueba [aquí](http://www.microsoft.com/visualstudio/11/en-us/downloads).
 -   [SDK de cliente Smooth Streaming para Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home) (en inglés).
 
@@ -30,7 +30,7 @@ En esta lección, creará una aplicación de Tienda Windows con un control Media
 
 ![Ejemplo de aplicación de Tienda Windows de Smooth Streaming](./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png)
 
-Para obtener más información acerca del desarrollo de la aplicación de Tienda Windows, consulte [Desarrollo de aplicaciones de la Tienda Windows](http://msdn.microsoft.com/en-us/windows/apps/br229512.aspx). Esta lección contiene los procedimientos siguientes:
+Para obtener más información acerca del desarrollo de la aplicación de Tienda Windows, consulte [Desarrollo de aplicaciones de la Tienda Windows](http://msdn.microsoft.com/es-es/windows/apps/br229512.aspx). Esta lección contiene los procedimientos siguientes:
 
 1.  Creación de un proyecto de Tienda Windows
 2.  Diseño de la interfaz de usuario (XAML)

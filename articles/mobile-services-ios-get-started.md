@@ -4,9 +4,9 @@
 Introducción a los Servicios móviles
 ====================================
 
-[Tienda Windows](/en-us/documentation/articles/mobile-services-windows-store-get-started "Tienda Windows") [Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/en-us/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/en-us/documentation/articles/mobile-services-android-get-started "Android") [HTML](/en-us/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/en-us/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/en-us/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
+[Tienda Windows](/es-es/documentation/articles/mobile-services-windows-store-get-started "Tienda Windows") [Windows Phone](/es-es/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone") [iOS](/es-es/documentation/articles/mobile-services-ios-get-started "iOS") [Android](/es-es/documentation/articles/mobile-services-android-get-started "Android") [HTML](/es-es/documentation/articles/mobile-services-html-get-started "HTML") [Xamarin.iOS](/es-es/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS") [Xamarin.Android](/es-es/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android") [Sencha](/es-es/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha") [PhoneGap](/es-es/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap")
 
-[Back-end de .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started/ "Back-end de .NET") | [Back-end de JavaScript](/en-us/documentation/articles/mobile-services-ios-get-started/ "Back-end de JavaScript")
+[Back-end de .NET](/es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started/ "Back-end de .NET") | [Back-end de JavaScript](/es-es/documentation/articles/mobile-services-ios-get-started/ "Back-end de JavaScript")
 
 En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación de iOS con los Servicios móviles de Azure.
 
@@ -24,7 +24,7 @@ Para completar este tutorial necesita XCode 4.5 y iOS 5.0 o versiones posteriore
 
 **Nota:**
 
-Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F).
+Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-ios%2F).
 
 Creación de un servicio móvil
 -----------------------------
@@ -99,11 +99,11 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [12]: ./media/mobile-services-ios-get-started/mobile-data-browse.png 
 
 <!-- URLs. -->
-[Introducción a los datos]: /en-us/develop/mobile/tutorials/get-started-with-data-ios 
-[Introducción a la autenticación]: /en-us/develop/mobile/tutorials/get-started-with-users-ios 
-[Introducción a las notificaciones de inserción]: /en-us/develop/mobile/tutorials/get-started-with-push-ios 
+[Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-ios 
+[Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-ios 
+[Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-ios 
 
 [SDK de iOS para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533 
 [Portal de administración]: https://manage.windowsazure.com/ 
 [XCode]: https://go.microsoft.com/fwLink/p/?LinkID=266532 
-[Versión de back-end de .NET]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started
+[Versión de back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started

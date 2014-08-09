@@ -3,9 +3,9 @@
 Notificaciones de inserción para usuarios mediante Servicios móviles
 ====================================================================
 
-[Windows Phone](/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/push-notifications-to-users-ios "iOS")[Android](/en-us/develop/mobile/tutorials/push-notifications-to-users-android "Android")
+[Windows Phone](/es-es/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/push-notifications-to-users-ios "iOS")[Android](/es-es/develop/mobile/tutorials/push-notifications-to-users-android "Android")
 
-Este tema amplía el [tutorial de notificaciones de inserción anterior](/en-us/develop/mobile/tutorials/get-started-with-push-ios) mediante la incorporación de una nueva tabla para almacenar tokens del servicio de notificaciones de inserción de Apple (APNS). Estos tokens pueden usarse para enviar notificaciones de inserción a los usuarios de la aplicación para iPhone e iPad.
+Este tema amplía el [tutorial de notificaciones de inserción anterior](/es-es/develop/mobile/tutorials/get-started-with-push-ios) mediante la incorporación de una nueva tabla para almacenar tokens del servicio de notificaciones de inserción de Apple (APNS). Estos tokens pueden usarse para enviar notificaciones de inserción a los usuarios de la aplicación para iPhone e iPad.
 
 Este tutorial le guiará a través de estos pasos en la actualización de las notificaciones de inserción en su aplicación:
 
@@ -14,7 +14,7 @@ Este tutorial le guiará a través de estos pasos en la actualización de las no
 3.  [Actualización de los scripts de servidor](#update-scripts)
 4.  [Pruebas de notificaciones de inserción en su aplicación](#test-app)
 
-Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutorial anterior, [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-ios). Antes de comenzar este tutorial, primero debe completar [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-ios).
+Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutorial anterior, [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-ios). Antes de comenzar este tutorial, primero debe completar [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-ios).
 
 ## <a name="create-table"></a><h2><span class="short-header">Creación de la tabla</span>Creación de una tabla Devices</h2>
 
@@ -205,11 +205,11 @@ Pasos siguientes
 
 Este es el último tutorial que muestra los aspectos básicos relacionados con el uso de las notificaciones de inserción. Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
--   [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-ios)
+-   [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-ios)
     
     Obtenga más información sobre almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-ios)
+-   [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-ios)
     
     Aprenda a autenticar a los usuarios de su aplicación con cuenta de Windows.
 

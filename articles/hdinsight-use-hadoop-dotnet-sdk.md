@@ -42,7 +42,7 @@ Estos comandos agregan las bibliotecas y referencias al proyecto de Visual Studi
 Preparación para el tutorial
 ----------------------------
 
-Debe tener una [suscripción de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/) y una [cuenta de almacenamiento de Azure](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/) antes de continuar. También debe conocer el nombre de su cuenta de almacenamiento de Azure y la clave de la cuenta. Para obtener instrucciones sobre cómo obtener esta información, consulte la sección *Vista, copia y regeneración de claves de acceso al almacenamiento* de [Administración de cuentas de almacenamiento](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+Debe tener una [suscripción de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/) y una [cuenta de almacenamiento de Azure](http://www.windowsazure.com/es-es/manage/services/storage/how-to-create-a-storage-account/) antes de continuar. También debe conocer el nombre de su cuenta de almacenamiento de Azure y la clave de la cuenta. Para obtener instrucciones sobre cómo obtener esta información, consulte la sección *Vista, copia y regeneración de claves de acceso al almacenamiento* de [Administración de cuentas de almacenamiento](/es-es/manage/services/storage/how-to-manage-a-storage-account/).
 
 También debe descargar el archivo actors.txt que se utiliza en este tutorial. Realice los siguientes pasos para descargar este archivo en su entorno de desarrollo:
 
@@ -154,7 +154,7 @@ En esta sección aprenderá a cargar archivos en el clúster de Hadoop mediante 
          Console.WriteLine("\nPress any key to continue.");
          Console.ReadKey();
 
-10. Actualice las constantes de la aplicación. El servicio HDInsight de Azure usa el almacenamiento de blobs de Azure como sistema de archivos predeterminado. Durante el proceso de aprovisionamiento de HDInsight, se designa un blob como sistema de archivos predeterminado. Tiene la opción de utilizar el contenedor de sistema de archivos predeterminado o un contenedor en un almacenamiento de blobs distinto. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](/en-us/manage/services/hdinsight/howto-blob-store/).
+10. Actualice las constantes de la aplicación. El servicio HDInsight de Azure usa el almacenamiento de blobs de Azure como sistema de archivos predeterminado. Durante el proceso de aprovisionamiento de HDInsight, se designa un blob como sistema de archivos predeterminado. Tiene la opción de utilizar el contenedor de sistema de archivos predeterminado o un contenedor en un almacenamiento de blobs distinto. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](/es-es/manage/services/hdinsight/howto-blob-store/).
 
     Si elige utilizar el contenedor de sistema de archivos predeterminado, puede encontrar el nombre de la cuenta de almacenamiento, la clave de almacenamiento y el nombre del contenedor en el archivo de configuración *c:\\apps\\dist\\hadoop-1.1.0-SNAPSHOT\\conf\>core-site.xml* si se conecta de manera remota al clúster. Puede encontrar el contenedor que se utiliza como sistema de archivos predeterminado si busca en *fs.default.name*; el nombre de la cuenta de almacenamiento y la clave de cuenta puede encontrarlos si busca en *fs.azure.account.key*.
 
@@ -180,8 +180,8 @@ Pasos siguientes
 
 Ahora sabe crear una aplicación .NET con el SDK .NET de Hadoop. Para obtener más información, consulte los artículos siguientes:
 
--   [Introducción a HDInsight de Azure](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [Uso de Pig con HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [Uso de MapReduce con HDInsight](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
--   [Uso de Hive con HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
+-   [Introducción a HDInsight de Azure](/es-es/manage/services/hdinsight/get-started-hdinsight/)
+-   [Uso de Pig con HDInsight](/es-es/manage/services/hdinsight/using-pig-with-hdinsight/)
+-   [Uso de MapReduce con HDInsight](/es-es/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
+-   [Uso de Hive con HDInsight](/es-es/manage/services/hdinsight/using-hive-with-hdinsight/)
 

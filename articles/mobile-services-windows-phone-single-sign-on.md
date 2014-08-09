@@ -3,13 +3,13 @@
 Autenticación de una aplicación de Windows Phone 8 con el inicio de sesión único de Live Connect
 ================================================================================================
 
-[C\# para Tienda Windows](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet "Windows Store C#")[JavaScript para Tienda Windows](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js "Windows Store JavaScript")[Windows Phone](/en-us/develop/mobile/tutorials/single-sign-on-wp8/ "Windows Phone")
+[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/single-sign-on-windows-8-dotnet "Windows Store C#")[JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/single-sign-on-windows-8-js "Windows Store JavaScript")[Windows Phone](/es-es/develop/mobile/tutorials/single-sign-on-wp8/ "Windows Phone")
 
 En este tema se muestra cómo utilizar el inicio de sesión único de Live Connect para autenticar a los usuarios en Servicios móviles de Azure desde una aplicación de Windows Phone 8. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante Live Connect. Una vez que Live Connect haya realizado la autenticación correctamente, se dará la bienvenida al usuario que ha iniciado sesión por su nombre y se mostrará el valor de identificador de usuario.
 
 **Nota:**
 
-Este tutorial muestra las ventajas de usar la experiencia de inicio de sesión único que ofrece Live Connect para las aplicaciones de Windows Phone. Esto le permite autenticar más fácilmente a un usuario que ya haya iniciado sesión en el servicio móvil. Para ver una experiencia de autenticación más generalizada que admita varios proveedores de autenticación, consulte el tema [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-wp8/).
+Este tutorial muestra las ventajas de usar la experiencia de inicio de sesión único que ofrece Live Connect para las aplicaciones de Windows Phone. Esto le permite autenticar más fácilmente a un usuario que ya haya iniciado sesión en el servicio móvil. Para ver una experiencia de autenticación más generalizada que admita varios proveedores de autenticación, consulte el tema [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-wp8/).
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar la autenticación de Live Connect:
 
@@ -22,7 +22,7 @@ Este tutorial requiere lo siguiente:
 -   [SDK de Live para Windows y Windows Phone](http://go.microsoft.com/fwlink/p/?LinkId=262253)
 -   Microsoft Visual Studio 2012 Express para Windows Phone
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started-wp8).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-wp8).
 
 Registro de la aplicaciónRegistro de la aplicación con Live Connect
 -------------------------------------------------------------------
@@ -74,7 +74,7 @@ Restricción de permisosRestricción de permisos a usuarios autenticados
 
 	![][15]
 
-3.  En Visual Studio 2012 Express para Windows Phone, abra el proyecto que creó cuando completó el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started-wp8).
+3.  En Visual Studio 2012 Express para Windows Phone, abra el proyecto que creó cuando completó el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-wp8).
 
 4.  Presione la tecla F5 para ejecutar esta aplicación basada en el inicio rápido; compruebe que se genera una excepción con el código de estado 401 (No autorizado).
 
@@ -133,7 +133,7 @@ De esta forma se agrega al proyecto una referencia al SDK de Live.
 
     **Nota:**
 
-    En una aplicación de Windows Phone 8, para crear una instancia de la clase **LiveAuthClient** se pasa el valor del identificador de cliente al constructor de clases. En una [aplicación de la Tienda Windows](/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/), para crear instancias de la misma clase se pasa el URI del dominio de redirección.
+    En una aplicación de Windows Phone 8, para crear una instancia de la clase **LiveAuthClient** se pasa el valor del identificador de cliente al constructor de clases. En una [aplicación de la Tienda Windows](/es-es/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/), para crear instancias de la misma clase se pasa el URI del dominio de redirección.
 
 4.  Elimine o convierta en comentario el método **OnNavigatedTo** existente y reemplácelo por el siguiente método que administra el evento **Loaded** para la página.
 
@@ -163,7 +163,7 @@ De esta forma se agrega al proyecto una referencia al SDK de Live.
 Pasos siguientes
 ----------------
 
-En el siguiente tutorial, [Autorización de usuarios con scripts](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8), usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. Para obtener información sobre cómo usar otros proveedores de identidades para la autenticación, consulte [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-wp8).
+En el siguiente tutorial, [Autorización de usuarios con scripts](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-wp8), usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. Para obtener información sobre cómo usar otros proveedores de identidades para la autenticación, consulte [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-wp8).
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
@@ -189,10 +189,10 @@ En el siguiente tutorial, [Autorización de usuarios con scripts](/en-us/develop
 <!-- URLs. -->
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows and Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-wp8
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8
+[Get started with Mobile Services]: /es-es/develop/mobile/tutorials/get-started-wp8
+[Get started with data]: /es-es/develop/mobile/tutorials/get-started-with-data-wp8
+[Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-wp8
+[Get started with push notifications]: /es-es/develop/mobile/tutorials/get-started-with-push-wp8
+[Authorize users with scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-wp8
 
 [Azure Management Portal]: h

@@ -3,7 +3,7 @@
 Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor
 =============================================================================================
 
-[C\# para Tienda Windows](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "C# para Tienda Windows") [JavaScript para Tienda Windows](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js "JavaScript para Tienda Windows") [Windows Phone](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone") [iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS") [Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android")[HTML](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML") [Xamarin.iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")[Back-end de .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "Back-end de .NET") | [Back-end de JavaScript](en-us/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/ "Back-end de JavaScript")
+[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "C# para Tienda Windows") [JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-js "JavaScript para Tienda Windows") [Windows Phone](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone") [iOS](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS") [Android](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android")[HTML](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML") [Xamarin.iOS](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")[Back-end de .NET](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-validate-modify-data/ "Back-end de .NET") | [Back-end de JavaScript](es-es/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/ "Back-end de JavaScript")
 
 En este tema se muestra cómo aprovechar los scripts del servidor en Servicios móviles de Azure. Dichos scripts se registran en un servicio móvil y pueden usarse para realizar una gran variedad de operaciones en los datos que se han insertado y actualizado, incluidas la modificación y validación de los datos. En este tutorial, definirá y registrará scripts de servidor que sirven para validar y modificar datos. Dado que el comportamiento de los scripts del servidor suele afectar al cliente, también actualizará la aplicación de la Tienda Windows para que se beneficie de estos nuevos comportamientos.
 
@@ -16,7 +16,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 3.  [Incorporación de una marca de tiempo al insertar](#add-timestamp)
 4.  [Actualización del cliente para mostrar la marca de tiempo](#update-client-timestamp)
 
-Este tutorial se basa en los pasos y en la aplicación de muestra del tutorial anterior, [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet). Antes de comenzar este tutorial, primero debe completar [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet).
+Este tutorial se basa en los pasos y en la aplicación de muestra del tutorial anterior, [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet). Antes de comenzar este tutorial, primero debe completar [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet).
 
 Incorporación de la validación
 ------------------------------
@@ -56,7 +56,7 @@ Actualización del cliente
 
 Ahora que el servicio móvil puede validar los datos y enviar respuestas de error, debe actualizar la aplicación para que pueda identificar los errores de la validación.
 
-1.  En Visual Studio 2012 Express para Windows 8, abra el proyecto que modificó cuando completó el tutorial [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet).
+1.  En Visual Studio 2012 Express para Windows 8, abra el proyecto que modificó cuando completó el tutorial [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet).
 
 2.  Presione la tecla **F5** para ejecutar la aplicación, escriba un texto que sobrepase los 10 caracteres en **Insert a TodoItem** y haga clic en **Save**.
 
@@ -194,16 +194,16 @@ Ha completado este tutorial de trabajo con datos.
 Pasos siguientes
 ----------------
 
-Ahora que ha completado este tutorial, considere continuar con el tutorial final de la serie de datos: [Limitación de consultas con paginación](/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet).
+Ahora que ha completado este tutorial, considere continuar con el tutorial final de la serie de datos: [Limitación de consultas con paginación](/es-es/develop/mobile/tutorials/add-paging-to-data-dotnet).
 
 Los scripts de servidor también se usan al autorizar usuarios y para enviar notificaciones push. Para obtener más información, consulte los siguientes tutoriales:
 
--   [Autorización de usuarios con scripts](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet)
+-   [Autorización de usuarios con scripts](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-dotnet)
     
 
     Aprenda a filtrar datos basándose en el identificador de un usuario autenticado.
 
--   [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-dotnet)
+-   [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-dotnet)
     
     Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
@@ -211,7 +211,7 @@ Los scripts de servidor también se usan al autorizar usuarios y para enviar not
     
     Obtenga más información acerca del registro y uso de scripts de servidor.
 
--   [Referencia conceptual de Servicios móviles con .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
+-   [Referencia conceptual de Servicios móviles con .NET](/es-es/develop/mobile/how-to-guides/work-with-net-client-library)
     
     Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 

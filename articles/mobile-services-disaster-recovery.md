@@ -11,9 +11,9 @@ PreparaciónPreparación ante posibles desastres
 Para facilitar la recuperación en caso de un problema de disponibilidad, puede prepararse por adelantado:
 
 -   **Haga una copia de seguridad de los datos en la base de datos SQL de Servicios móviles de Azure**
-    Los datos de la aplicación de Servicios móviles se almacenan en una Base de datos SQL de Azure. Le recomendamos que haga una copia de seguridad tal como se indica en [Continuidad de negocio de Base de datos SQL de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx).
+    Los datos de la aplicación de Servicios móviles se almacenan en una Base de datos SQL de Azure. Le recomendamos que haga una copia de seguridad tal como se indica en [Continuidad de negocio de Base de datos SQL de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/hh852669.aspx).
 -   **Haga una copia de seguridad de los scripts de servicios móviles**
-    Recomendamos que almacene los scripts de los servicios móviles en un sistema de control de código fuente como [Team Foundation Service](http://tfs.visualstudio.com/) o [GitHub] y no depender únicamente de las copias del propio servicio móvil. Puede descargar los scripts en el portal de Azure, con la [característica de control de código fuente](http://www.windowsazure.com/en-us/develop/mobile/tutorials/store-scripts-in-source-control/) de Servicios móviles o [mediante la herramienta de línea de comandos de Azure](http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/). Preste atención a las características etiquetadas como "vista previa" en el portal, dado que la recuperación para dichos scripts no está garantizada y es posible que tenga que recuperarlos desde su propio original de control de código fuente.
+    Recomendamos que almacene los scripts de los servicios móviles en un sistema de control de código fuente como [Team Foundation Service](http://tfs.visualstudio.com/) o [GitHub] y no depender únicamente de las copias del propio servicio móvil. Puede descargar los scripts en el portal de Azure, con la [característica de control de código fuente](http://www.windowsazure.com/es-es/develop/mobile/tutorials/store-scripts-in-source-control/) de Servicios móviles o [mediante la herramienta de línea de comandos de Azure](http://www.windowsazure.com/es-es/develop/mobile/tutorials/command-line-administration/). Preste atención a las características etiquetadas como "vista previa" en el portal, dado que la recuperación para dichos scripts no está garantizada y es posible que tenga que recuperarlos desde su propio original de control de código fuente.
 -   **Reserve un servicio móvil secundario**
     En caso de que surja algún problema de disponibilidad con el servicio móvil, es posible que tenga que volver a implementarlo en otra región de Azure. Para garantizar que la capacidad está disponible (por ejemplo, en aquellas circunstancias raras como la pérdida de una región completa), le recomendamos crear un servicio móvil secundario en una región alternativa y establecer el modo en un nivel igual o superior al modo de su servicio principal. (Si el servicio principal se encuentra en modo compartido, puede hacer que el servicio secundario sea compartido o reservado. Pero si el principal es reservado, el secundario también debe ser reservado).
 
@@ -25,7 +25,7 @@ Estas circunstancias indican un problema que podría necesitar una operación de
 -   Las aplicaciones que están conectadas a su servicio móvil no pueden comunicarse con él durante un prolongado período de tiempo.
 -   El estado del servicio móvil se muestra como **Incorrecto** en el [Portal de Azure](http://manage.windowsazure.com/).
 -   Se muestra una pancarta con el nombre **Incorrecto** en la parte superior de cada pestaña del servicio móvil en el portal Azure y las operaciones de administración originan mensajes de error.
--   El [Panel de servicios de Azure](http://www.windowsazure.com/en-us/support/service-dashboard/) indica un problema de disponibilidad.
+-   El [Panel de servicios de Azure](http://www.windowsazure.com/es-es/support/service-dashboard/) indica un problema de disponibilidad.
 
 RecuperaciónRecuperación de un desastre
 ---------------------------------------
@@ -42,7 +42,7 @@ Para recuperar el servicio móvil después de una interrupción del servicio:
 
     Si todavía no ha reservado un servicio móvil secundario, cree uno ahora en otra región de Azure. Establezca su modo en un nivel igual o superior al modo de su servicio principal. (Si el servicio principal se encuentra en modo compartido, puede hacer que el servicio secundario sea compartido o reservado. Pero si el principal es reservado, el secundario también debe ser reservado).
 
-3.  Configure las herramientas de línea de comandos de Azure para que actúen con la suscripción, tal como se describe en [Automatización de servicios móviles con herramientas de línea de comandos](http://www.windowsazure.com/en-us/develop/mobile/tutorials/command-line-administration/).
+3.  Configure las herramientas de línea de comandos de Azure para que actúen con la suscripción, tal como se describe en [Automatización de servicios móviles con herramientas de línea de comandos](http://www.windowsazure.com/es-es/develop/mobile/tutorials/command-line-administration/).
 
 4.  Ahora puede utilizar el servicio secundario para recuperar el principal.
 
@@ -69,7 +69,7 @@ Para recuperar el servicio móvil después de una interrupción del servicio:
 
 6.  Asegúrese de que el servicio recuperado está comunicándose con la Base de datos SQL de Azure. El comando de recuperación recupera el servicio móvil, pero conserva la conexión con la base de datos original. Si el problema de la región principal de Azure también afecta a la base de datos, es posible que el servicio recuperado no se esté ejecutando correctamente. Puede utilizar el Panel de servicios de Azure para examinar el estado de la base de datos de una región específica. Si la base de datos original no está funcionando, puede recuperarla:
 
-    -   Recupere la Base de datos SQL de Azure en la región de Azure donde acaba de recuperar el servicio móvil, tal como se describe en la guía[Continuidad de negocio de Base de datos SQL de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh852669.aspx).
+    -   Recupere la Base de datos SQL de Azure en la región de Azure donde acaba de recuperar el servicio móvil, tal como se describe en la guía[Continuidad de negocio de Base de datos SQL de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/hh852669.aspx).
     -   En el portal de Azure, en la pestaña **"Configurar"** del servicio móvil, elija "Cambiar base de datos" y, a continuación, seleccione la base de datos recientemente recuperada.
 
 Ahora debería encontrarse en un estado donde el servicio móvil se haya recuperado en una nueva región de Azure y esté aceptando tráfico de las aplicaciones de la Tienda usando su URL original.

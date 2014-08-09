@@ -65,4 +65,4 @@ Anote el valor de **SharedAccessKey**, o cópielo en el Portapapeles:
 
 
 [1]: http://manage.windowsazure.com
-[2]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+[2]: http://http://msdn.microsoft.com/es-es/library/windowsazure/ff687127.aspx

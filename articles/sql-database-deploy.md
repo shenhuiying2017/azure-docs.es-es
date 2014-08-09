@@ -19,7 +19,7 @@ Tabla de contenido
 Creación de la base de datos School en un servidor local
 --------------------------------------------------------
 
-Puede encontrar los scripts para la creación de esta base de datos en [Introducción a la administración de Base de datos SQL](/en-us/manage/services/sql-databases/getting-started-w-sql-databases/). En esta guía, ejecutará los scripts en Management Studio para crear una versión local de la base de datos School.
+Puede encontrar los scripts para la creación de esta base de datos en [Introducción a la administración de Base de datos SQL](/es-es/manage/services/sql-databases/getting-started-w-sql-databases/). En esta guía, ejecutará los scripts en Management Studio para crear una versión local de la base de datos School.
 
 1.  En Management Studio, conéctese a un servidor local. Haga clic con el botón secundario en **Databases**, haga clic en **New Database** y especifique *school*.
 

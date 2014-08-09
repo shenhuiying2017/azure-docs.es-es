@@ -4,13 +4,13 @@
 Introducción a las notificaciones de inserción en Servicios móviles
 ===================================================================
 
-[C\# para Tienda Windows](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "C# para Tienda Windows")[JavaScript para Tienda Windows](/en-us/documentation/articles/mobile-services-windows-store-javascript-get-started-push "JavaScript para Tienda Windows")[Windows Phone](/en-us/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-ios-get-started-push "iOS")[Android](/en-us/documentation/articles/mobile-services-android-get-started-push "Android")[Xamarin.iOS](/en-us/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push "Xamarin.iOS")[Xamarin.Android](/en-us/documentation/articles/partner-xamarin-mobile-services-android-get-started-push "Xamarin.Android")
+[C\# para Tienda Windows](/es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-push "JavaScript para Tienda Windows")[Windows Phone](/es-es/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone")[iOS](/es-es/documentation/articles/mobile-services-ios-get-started-push "iOS")[Android](/es-es/documentation/articles/mobile-services-android-get-started-push "Android")[Xamarin.iOS](/es-es/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push "Xamarin.iOS")[Xamarin.Android](/es-es/documentation/articles/partner-xamarin-mobile-services-android-get-started-push "Xamarin.Android")
 
-[Back-end de .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Back-end de .NET") | [Back-end de JavaScript](/en-us/documentation/articles/mobile-services-windows-phone-get-started-push/ "Back-end de JavaScript")
+[Back-end de .NET](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Back-end de .NET") | [Back-end de JavaScript](/es-es/documentation/articles/mobile-services-windows-phone-get-started-push/ "Back-end de JavaScript")
 
 Este tema muestra cómo puede utilizar Servicios móviles de Azure para enviar notificaciones de inserción a una aplicación de Windows Phone 8. En este tutorial aprenderá a agregar notificaciones de inserción al proyecto de inicio rápido con el servicio de notificaciones de inserción de Microsoft (MPNS). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
 
-> [WACOM.NOTE] Servicios móviles ahora se integra con Centros de notificaciones de Azure para ofrecer compatibilidad con la funcionalidad de notificación de inserción adicional, como plantillas, varias plataformas y escala. Esta funcionalidad integrada actualmente está en su versión preliminar. Para obtener más información, consulte esta versión de [Introducción a las notificaciones de inserción](/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/).
+> [WACOM.NOTE] Servicios móviles ahora se integra con Centros de notificaciones de Azure para ofrecer compatibilidad con la funcionalidad de notificación de inserción adicional, como plantillas, varias plataformas y escala. Esta funcionalidad integrada actualmente está en su versión preliminar. Para obtener más información, consulte esta versión de [Introducción a las notificaciones de inserción](/es-es/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/).
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 
@@ -21,9 +21,9 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar las no
 
 Este tutorial requiere [Visual Studio 2012 Express para Windows Phone](https://go.microsoft.com/fwLink/p/?LinkID=268374) o una versión posterior.
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started-wp8).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-wp8).
 
-> [WACOM.NOTE]Cuando envíe más de 500 mensajes por usuario al día, debe utilizar Centros de notificaciones. Para obtener más información, consulte [Introducción a los Centros de notificaciones](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet/).
+> [WACOM.NOTE]Cuando envíe más de 500 mensajes por usuario al día, debe utilizar Centros de notificaciones. Para obtener más información, consulte [Introducción a los Centros de notificaciones](/es-es/manage/services/notification-hubs/getting-started-windows-dotnet/).
 
 Creación de una tabla
 ---------------------
@@ -165,27 +165,27 @@ Pasos siguientes
 
 Este tutorial demuestra la funcionalidad de notificación de inserción básica que brinda Servicios móviles. Si su aplicación requiere funcionalidades más avanzadas, como enviar notificaciones entre plataformas, enrutamiento basado en suscripción o volúmenes de tamaño muy grande, considere utilizar Centros de notificaciones de Azure con su servicio móvil. Para obtener más información, consulte uno de los siguientes temas de Centros de notificaciones:
 
--   [Introducción a los Centros de notificaciones](/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8/)
+-   [Introducción a los Centros de notificaciones](/es-es/manage/services/notification-hubs/get-started-notification-hubs-wp8/)
     Aprenda a aprovechar Centros de notificaciones en su aplicación de la Tienda Windows.
 
--   [¿Qué son los Centros de notificaciones?](/en-us/develop/net/how-to-guides/service-bus-notification-hubs/)
+-   [¿Qué son los Centros de notificaciones?](/es-es/develop/net/how-to-guides/service-bus-notification-hubs/)
     Aprenda a crear e insertar notificaciones para usuarios en varias plataformas.
 
--   [Envío de notificaciones a los suscriptores](/en-us/manage/services/notification-hubs/breaking-news-wp8/)
+-   [Envío de notificaciones a los suscriptores](/es-es/manage/services/notification-hubs/breaking-news-wp8/)
     Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
 
 Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
--   [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-wp8)
+-   [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-wp8)
     Obtenga más información sobre almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-wp8)
+-   [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-wp8)
     Aprenda a autenticar a los usuarios de su aplicación con cuenta de Windows.
 
 -   [Referencia del script del servidor de Servicios móviles](http://go.microsoft.com/fwlink/?LinkId=262293)
     Obtenga más información acerca del registro y uso de scripts de servidor.
 
--   [Referencia conceptual de Servicios móviles con .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library/)
+-   [Referencia conceptual de Servicios móviles con .NET](/es-es/develop/mobile/how-to-guides/work-with-net-client-library/)
     Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
 
@@ -210,19 +210,19 @@ Considere la posibilidad de profundizar más en los siguientes temas de Servicio
 <!-- URLs. -->
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 [Visual Studio 2012 Express for Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-wp8
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
-[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-wp8
-[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8
+[Get started with Mobile Services]: /es-es/develop/mobile/tutorials/get-started-wp8
+[Get started with data]: /es-es/develop/mobile/tutorials/get-started-with-data-wp8
+[Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-wp8
+[Get started with push notifications]: /es-es/develop/mobile/tutorials/get-started-with-push-wp8
+[Push notifications to app users]: /es-es/develop/mobile/tutorials/push-notifications-to-users-wp8
+[Authorize users with scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-wp8
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [mpns object]: http://go.microsoft.com/fwlink/p/?LinkId=271130
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library/
-[Get started with Notification Hubs]: /en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8/
-[What are Notification Hubs?]: /en-us/develop/net/how-to-guides/service-bus-notification-hubs/
-[Send notifications to subscribers]: /en-us/manage/services/notification-hubs/breaking-news-wp8/
-[Send notifications to users]: /en-us/manage/services/notification-hubs/notify-users/
-[Send cross-platform notifications to users]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Mobile Services .NET How-to Conceptual Reference]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library/
+[Get started with Notification Hubs]: /es-es/manage/services/notification-hubs/get-started-notification-hubs-wp8/
+[What are Notification Hubs?]: /es-es/develop/net/how-to-guides/service-bus-notification-hubs/
+[Send notifications to subscribers]: /es-es/manage/services/notification-hubs/breaking-news-wp8/
+[Send notifications to users]: /es-es/manage/services/notification-hubs/notify-users/
+[Send cross-platform notifications to users]: /es-es/manage/services/notification-hubs/notify-users-xplat-mobile-services/

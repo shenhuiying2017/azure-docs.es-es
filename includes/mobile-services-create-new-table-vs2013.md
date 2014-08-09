@@ -18,7 +18,7 @@ Para poder almacenar datos en su nuevo servicio móvil, debe crear antes una tab
 	esta clave no se distribuye de forma segura, no se puede considerar
 	un token de seguridad. Para proteger el acceso a los datos de su
 	servicio móvil, los usuarios se deben autenticar antes del acceso.
-	Para obtener más información, consulte <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx">Permisos</a>.</p>
+	Para obtener más información, consulte <a href="http://msdn.microsoft.com/es-es/library/windowsazure/jj193161.aspx">Permisos</a>.</p>
 </div>
 
 

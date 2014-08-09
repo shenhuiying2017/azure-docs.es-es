@@ -22,11 +22,11 @@ El primer paso es crear una máquina virtual que se ejecute en Azure. Esta máqu
 
 ### Máquina virtual de Linux
 
-Siga las instrucciones indicadas [aquí](/en-us/manage/linux/tutorials/virtual-machine-from-gallery/) para crear una máquina virtual de la distribución *OpenSUSE* o *Ubuntu*. En este tutorial se utilizan OpenSUSE 12.3 y Ubuntu Server 13.04. Asumiremos el nombre de usuario predeterminado *azureuser*.
+Siga las instrucciones indicadas [aquí](/es-es/manage/linux/tutorials/virtual-machine-from-gallery/) para crear una máquina virtual de la distribución *OpenSUSE* o *Ubuntu*. En este tutorial se utilizan OpenSUSE 12.3 y Ubuntu Server 13.04. Asumiremos el nombre de usuario predeterminado *azureuser*.
 
 ### Máquina virtual de Windows
 
-Siga las instrucciones indicadas [aquí](/en-us/manage/windows/tutorials/virtual-machine-from-gallery/) para crear una máquina virtual de la distribución *Windows Server 2012 Datacenter*. En este tutorial, asumiremos que el nombre de usuario es *azureuser*.
+Siga las instrucciones indicadas [aquí](/es-es/manage/windows/tutorials/virtual-machine-from-gallery/) para crear una máquina virtual de la distribución *Windows Server 2012 Datacenter*. En este tutorial, asumiremos que el nombre de usuario es *azureuser*.
 
 Creación de un extremo para el bloc de notas de IPython
 -------------------------------------------------------

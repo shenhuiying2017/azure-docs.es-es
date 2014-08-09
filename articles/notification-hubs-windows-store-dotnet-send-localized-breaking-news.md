@@ -3,9 +3,9 @@
 Uso de los Centros de notificaciones para enviar noticias de última hora localizadas
 ====================================================================================
 
-[C\# para Tienda Windows](/en-us/manage/services/notification-hubs/breaking-news-localized-dotnet "C# para Tienda Windows")[iOS](/en-us/manage/services/notification-hubs/breaking-news-localized-ios "iOS")
+[C\# para Tienda Windows](/es-es/manage/services/notification-hubs/breaking-news-localized-dotnet "C# para Tienda Windows")[iOS](/es-es/manage/services/notification-hubs/breaking-news-localized-ios "iOS")
 
-En este tema se explica cómo usar la característica **template** de los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora localizadas por idioma y dispositivo. Para empezar este tutorial, se usa la aplicación de la Tienda Windows creada en [Uso de los Centros de notificaciones para enviar noticias de última hora](/en-us/manage/services/notification-hubs/breaking-news-dotnet). Una vez completado, podrá registrarse en las categorías de su interés, especificar un idioma para la recepción de notificaciones y recibir solo notificaciones de inserción para las categorías seleccionadas en dicho idioma.
+En este tema se explica cómo usar la característica **template** de los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora localizadas por idioma y dispositivo. Para empezar este tutorial, se usa la aplicación de la Tienda Windows creada en [Uso de los Centros de notificaciones para enviar noticias de última hora](/es-es/manage/services/notification-hubs/breaking-news-dotnet). Una vez completado, podrá registrarse en las categorías de su interés, especificar un idioma para la recepción de notificaciones y recibir solo notificaciones de inserción para las categorías seleccionadas en dicho idioma.
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar este escenario:
 
@@ -23,14 +23,14 @@ Este escenario se divide en dos partes:
 Requisitos previos
 ------------------
 
-Debe haber completado el tutorial [Uso de los Centros de notificaciones para enviar noticias de última hora](/en-us/manage/services/notification-hubs/breaking-news-dotnet) y tener disponible el código correspondiente, ya que este tutorial se basa directamente en dicho código.
+Debe haber completado el tutorial [Uso de los Centros de notificaciones para enviar noticias de última hora](/es-es/manage/services/notification-hubs/breaking-news-dotnet) y tener disponible el código correspondiente, ya que este tutorial se basa directamente en dicho código.
 
 También necesita Visual Studio 2012.
 
 conceptosConceptos de las plantillas
 ------------------------------------
 
-En [Uso de los Centros de notificaciones para enviar noticias de última hora](/en-us/manage/services/notification-hubs/breaking-news-dotnet) se creó una aplicación que usaba las **etiquetas** para suscribirse a las notificaciones en distintas categorías de noticias. Sin embargo, muchas aplicaciones se destinan a diversos mercados, por lo que es necesario localizarlas. Esto significa que el contenido de las notificaciones en sí debe localizarse y entregarse al conjunto de dispositivos correcto. En este tema mostraremos cómo usar la característica **template** de los Centros de notificaciones para una sencilla difusión de las notificaciones de noticias de última hora localizadas.
+En [Uso de los Centros de notificaciones para enviar noticias de última hora](/es-es/manage/services/notification-hubs/breaking-news-dotnet) se creó una aplicación que usaba las **etiquetas** para suscribirse a las notificaciones en distintas categorías de noticias. Sin embargo, muchas aplicaciones se destinan a diversos mercados, por lo que es necesario localizarlas. Esto significa que el contenido de las notificaciones en sí debe localizarse y entregarse al conjunto de dispositivos correcto. En este tema mostraremos cómo usar la característica **template** de los Centros de notificaciones para una sencilla difusión de las notificaciones de noticias de última hora localizadas.
 
 Nota: una forma de enviar notificaciones localizadas es crear varias versiones de cada etiqueta. Por ejemplo, para admitir inglés, francés y mandarín, necesitaríamos tres etiquetas distintas para las noticias del mundo: "world\_en", "world\_fr" y "world\_ch". A continuación, tendríamos que enviar una versión localizada de las noticias del mundo a cada una de estas etiquetas. En este tema usaremos las plantillas para evitar un uso excesivo de las etiquetas y el requisito de enviar varios mensajes.
 
@@ -53,12 +53,12 @@ A continuación, nos aseguraremos de que los dispositivos se registren en una pl
 	</toast>
 
 
-Las plantillas son una característica muy importante; para obtener más información al respecto, consulte el artículo [Información general acerca de los centros de notificaciones de Azure](http://msdn.microsoft.com/en-us/library/jj927170.aspx). Asimismo, podrá consultar información de referencia sobre el lenguaje de expresión de las plantillas en los [procedimientos de los Centros de notificaciones para la Tienda Windows](http://msdn.microsoft.com/en-us/library/jj927172.aspx) (en inglés).
+Las plantillas son una característica muy importante; para obtener más información al respecto, consulte el artículo [Información general acerca de los centros de notificaciones de Azure](http://msdn.microsoft.com/es-es/library/jj927170.aspx). Asimismo, podrá consultar información de referencia sobre el lenguaje de expresión de las plantillas en los [procedimientos de los Centros de notificaciones para la Tienda Windows](http://msdn.microsoft.com/es-es/library/jj927172.aspx) (en inglés).
 
 IU de la aplicaciónInterfaz de usuario de la aplicación
 -------------------------------------------------------
 
-Ahora modificaremos la aplicación de noticias de última hora que creó en el tema [Uso de los Centros de notificaciones para enviar noticias de última hora](/en-us/manage/services/notification-hubs/breaking-news-dotnet) a fin de enviar noticias de este tipo localizadas con la utilización de las plantillas.
+Ahora modificaremos la aplicación de noticias de última hora que creó en el tema [Uso de los Centros de notificaciones para enviar noticias de última hora](/es-es/manage/services/notification-hubs/breaking-news-dotnet) a fin de enviar noticias de este tipo localizadas con la utilización de las plantillas.
 
 Para adaptar las aplicaciones cliente de forma que reciban mensajes localizados, debe reemplazar los registros *nativos* (es decir, aquellos con los que se especifica una plantilla) por registros de plantilla.
 
@@ -157,5 +157,5 @@ Envío de notificaciones localizadasEnvío de notificaciones localizadas desde e
 Pasos siguientes
 ----------------
 
-Para obtener más información acerca del uso de las plantillas, consulte [Notificación a los usuarios con los Centros de notificaciones: ASP.NET](/en-us/manage/services/notification-hubs/notify-users-aspnet), [Notificación a los usuarios con los Centros de notificaciones: Servicios móviles](/en-us/manage/services/notification-hubs/notify-users) e [Información general acerca de los centros de notificaciones de Azure](http://msdn.microsoft.com/en-us/library/jj927170.aspx). Como referencia sobre el lenguaje de expresión de las plantillas, puede consultar los [procedimientos de los Centros de notificaciones para la Tienda Windows](http://msdn.microsoft.com/en-us/library/jj927172.aspx) (en inglés).
+Para obtener más información acerca del uso de las plantillas, consulte [Notificación a los usuarios con los Centros de notificaciones: ASP.NET](/es-es/manage/services/notification-hubs/notify-users-aspnet), [Notificación a los usuarios con los Centros de notificaciones: Servicios móviles](/es-es/manage/services/notification-hubs/notify-users) e [Información general acerca de los centros de notificaciones de Azure](http://msdn.microsoft.com/es-es/library/jj927170.aspx). Como referencia sobre el lenguaje de expresión de las plantillas, puede consultar los [procedimientos de los Centros de notificaciones para la Tienda Windows](http://msdn.microsoft.com/es-es/library/jj927172.aspx) (en inglés).
 

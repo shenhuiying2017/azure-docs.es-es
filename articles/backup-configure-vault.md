@@ -9,7 +9,7 @@ Configuración de una copia de seguridad de Azure para hacer una copia de seguri
 Para completar este tutorial, necesita una cuenta de Azure con la característica Copia de seguridad de Azure habilitada.
 
 -   En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](/en-us/pricing/free-trial/).
--   Si tiene una cuenta existente pero necesita habilitar la vista previa de la Copia de seguridad de Azure, consulte [Habilitación de las características de vista previa de Azure](/en-us/develop/net/tutorials/create-a-windows-azure-account/#enable).
+-   Si tiene una cuenta existente pero necesita habilitar la vista previa de la Copia de seguridad de Azure, consulte [Habilitación de las características de vista previa de Azure](/es-es/develop/net/tutorials/create-a-windows-azure-account/#enable).
 
 Después de solicitar unirse al programa de vista previa de la copia de seguridad, espere la activación de su estado. Estamos aprobando automáticamente a todos los clientes, por lo que esto no tardará en producirse.
 

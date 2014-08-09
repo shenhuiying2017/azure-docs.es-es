@@ -3,11 +3,11 @@
 Uso de scripts para autorizar a los usuarios en Servicios móviles
 =================================================================
 
-[C\# para Tienda Windows](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-js "JavaScript para Tienda Windows")[Windows Phone](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios "iOS")[Android](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-android "Android")[HTML](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-html "HTML")[iOS C\#](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios "Xamarin.iOS")[C\# para Android](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android "Xamarin.Android")
+[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-js "JavaScript para Tienda Windows")[Windows Phone](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-ios "iOS")[Android](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-android "Android")[HTML](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-html "HTML")[iOS C\#](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios "Xamarin.iOS")[C\# para Android](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android "Xamarin.Android")
 
 Este tema le muestra cómo usar scripts de servidor a fin de autorizar a usuarios autenticados para el acceso a los datos en Servicios móviles de Azure desde una aplicación Xamarin.Android. En este tutorial registrará los scripts con Servicios móviles para filtrar las consultas basadas en el userId de un usuario autenticado, asegurándose de que cada usuario puede ver solo sus propios datos.
 
-Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutorial anterior, [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android). Antes de comenzar este tutorial, primero debe completar [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android).
+Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutorial anterior, [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android). Antes de comenzar este tutorial, primero debe completar [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android).
 
 Registro de scripts
 -------------------
@@ -51,7 +51,7 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
 Prueba de la aplicación
 -----------------------
 
-1.  En Xamarin Studio o Visual Studio, abra el proyecto que modificó al realizar el tutorial [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android).
+1.  En Xamarin Studio o Visual Studio, abra el proyecto que modificó al realizar el tutorial [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android).
 
 2.  Haga clic en **Run** para iniciar la aplicación e iniciar sesión con el proveedor de identidades elegido.
 
@@ -70,10 +70,10 @@ Pasos siguientes
 
 Este es el último tutorial que muestra los aspectos básicos relacionados con el uso de la autenticación. Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
--   [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android)
+-   [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android)
     <br/>Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android)
+-   [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-xamarin-android)
     <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
 -   [Referencia del script del servidor de Servicios móviles](http://go.microsoft.com/fwlink/p/?LinkId=262293)
@@ -93,9 +93,9 @@ Este es el último tutorial que muestra los aspectos básicos relacionados con e
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [My Apps dashboard]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-xamarin-android
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-xamarin-android
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android
+[Get started with Mobile Services]: /es-es/develop/mobile/tutorials/get-started-xamarin-android
+[Get started with data]: /es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Get started with push notifications]: /es-es/develop/mobile/tutorials/get-started-with-push-xamarin-android
 
 [Azure Management Portal]: https://manage.windowsazure.com/

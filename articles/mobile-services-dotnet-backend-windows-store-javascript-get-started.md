@@ -3,11 +3,11 @@
 Introducción a los Servicios móviles
 ====================================
 
-[C\# para Tienda Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started "C# para Tienda Windows")[JavaScript para Tienda Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started "JavaScript para Tienda Windows")[Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started "iOS") [Android](/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started "Android")
+[C\# para Tienda Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started "JavaScript para Tienda Windows")[Windows Phone](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started "Windows Phone")[iOS](/es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started "iOS") [Android](/es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started "Android")
 
-[Back-end de .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/ "Back-end de .NET") | [Back-end de JavaScript](/en-us/documentation/articles/mobile-services-windows-store-get-started/ "Back-end de JavaScript")
+[Back-end de .NET](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/ "Back-end de .NET") | [Back-end de JavaScript](/es-es/documentation/articles/mobile-services-windows-store-get-started/ "Back-end de JavaScript")
 
-En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube para una aplicación de la Tienda Windows con Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de *Lista de pendientes* en HTML y JavaScript que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que va a crear utiliza los lenguajes compatibles de .NET con Visual Studio para la lógica de negocios de servidor y para administrar el servicio móvil. Si desea crear un servicio móvil que le permita escribir su lógica de negocios de servidor en JavaScript, consulte la [versión de JavaScript](/en-us/documentation/articles/mobile-services-windows-store-get-started) de este tema.
+En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube para una aplicación de la Tienda Windows con Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de *Lista de pendientes* en HTML y JavaScript que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que va a crear utiliza los lenguajes compatibles de .NET con Visual Studio para la lógica de negocios de servidor y para administrar el servicio móvil. Si desea crear un servicio móvil que le permita escribir su lógica de negocios de servidor en JavaScript, consulte la [versión de JavaScript](/es-es/documentation/articles/mobile-services-windows-store-get-started) de este tema.
 
 La siguiente captura de pantalla muestra la aplicación final:
 
@@ -15,7 +15,7 @@ La siguiente captura de pantalla muestra la aplicación final:
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Servicios móviles para aplicaciones de la Tienda Windows.
 
-> [WACOM.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener detalles, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-javascript-get-started%2F).
+> [WACOM.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener detalles, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-javascript-get-started%2F).
 > Este tutorial requiere [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=257546). Hay disponible una versión de prueba gratuita.
 
 Creación de un servicio móvil
@@ -64,7 +64,7 @@ Publicación del servicio móvil
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
-1.  En el proyecto de la aplicación de la Tienda Windows, abra el archivo App.xaml.cs, ubique el código que crea una instancia [MobileServiceClient](http://msdn.microsoft.com/en-us/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx), convierta en comentario el código que crea a este cliente con *localhost* y quite la marca de comentario del código que crea al cliente con la dirección URL del servicio móvil remoto, que debe presentar la siguiente apariencia:
+1.  En el proyecto de la aplicación de la Tienda Windows, abra el archivo App.xaml.cs, ubique el código que crea una instancia [MobileServiceClient](http://msdn.microsoft.com/es-es/library/Windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx), convierta en comentario el código que crea a este cliente con *localhost* y quite la marca de comentario del código que crea al cliente con la dirección URL del servicio móvil remoto, que debe presentar la siguiente apariencia:
 
     ``` {}
     var client = new WindowsAzure.MobileServiceClient(
@@ -88,13 +88,13 @@ Pasos siguientes
 
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
--   [Introducción a los datos](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data)
+-   [Introducción a los datos](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data)
     Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a la autenticación](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users)
+-   [Introducción a la autenticación](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users)
     Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
--   [Introducción a las notificaciones de inserción](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push)
+-   [Introducción a las notificaciones de inserción](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push)
     Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
 

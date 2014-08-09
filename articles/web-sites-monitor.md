@@ -118,7 +118,7 @@ Puede habilitar o deshabilitar los siguientes diagnósticos de aplicación:
 
     Para especificar el blob y la cuenta de almacenamiento de Azure, elija **On**, seleccione el **Logging Level** y, a continuación, **Manage Blob Storage**. Especifique la cuenta de almacenamiento, el contenedor de blobs y el nombre de blob que se utilizará o cree un contenedor y un blob nuevos.
 
-Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte [Administración de cuentas de almacenamiento](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte [Administración de cuentas de almacenamiento](https://www.windowsazure.com/es-es/manage/services/storage/how-to-manage-a-storage-account/).
 **Nota:**
 
 El registro de aplicaciones en almacenamiento de tablas o blobs solo es compatible con aplicaciones .NET.
@@ -132,14 +132,14 @@ Como el registro de aplicaciones en almacenamiento requiere utilizar un cliente 
 
 Los diagnósticos también se pueden habilitar desde Azure PowerShell con el cmdlet **Set-AzureWebsite**.
 
-Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
+Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 **Nota:**
 
 El registro de aplicaciones se basa en la información de registro que genera su aplicación. El método usado para generar información de registro, así como también el formato de la información, es específico para el lenguaje en que está escrita la aplicación. Si desea información específica para el lenguaje sobre el uso del registro de aplicaciones, consulte los siguientes artículos:
 
--   **.NET**: [Habilitación del registro de diagnóstico para Sitios web Azure](/en-us/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)
--   **Node.js**: [Depuración de una aplicación Node.js en Sitios web Azure](/en-us/develop/nodejs/how-to-guides/Debug-Website/)
+-   **.NET**: [Habilitación del registro de diagnóstico para Sitios web Azure](/es-es/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)
+-   **Node.js**: [Depuración de una aplicación Node.js en Sitios web Azure](/es-es/develop/nodejs/how-to-guides/Debug-Website/)
 
 El registro de aplicaciones en almacenamiento de tablas o blobs solo es compatible con aplicaciones .NET.
 
@@ -149,7 +149,7 @@ La sección de **diagnósticos de sitios** de la página de administración **Co
 
 -   **Web Server Logging**: Active el registro de servidores web para guardar registros de sitios web que utilicen formato de archivo de registro W3C extendido. El registro de servidores web genera un registro de todas las solicitudes entrantes a su sitio web, que contiene información como la dirección IP del cliente, el URI solicitado, el código de estado HTTP de la respuesta y la cadena de agente de usuario del cliente. Puede guardar los registros en una cuenta de almacenamiento de Azure o en el sistema de archivos.
 
- Para guardar los registros de servidores web en una cuenta de almacenamiento de Azure, elija **Almacenamiento** y, a continuación, **manage storage** para especificar un contenedor de blobs de Azure donde se conservarán los registros. Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte [Administración de cuentas de almacenamiento](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+ Para guardar los registros de servidores web en una cuenta de almacenamiento de Azure, elija **Almacenamiento** y, a continuación, **manage storage** para especificar un contenedor de blobs de Azure donde se conservarán los registros. Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte [Administración de cuentas de almacenamiento](https://www.windowsazure.com/es-es/manage/services/storage/how-to-manage-a-storage-account/).
 
  Para guardar registros de servidores web en el sistema de archivos, elija **File System**. Con esto se habilitará la casilla **Quota**, en la que podrá definir la cantidad máxima de espacio en disco para los archivos de registro. El tamaño mínimo es de 25 MB, mientras que el máximo es de 100 MB. El tamaño predeterminado es de 35 MB.
 
@@ -203,7 +203,7 @@ Los archivos de registro se pueden descargar mediante el uso de FTP, Azure Power
 
     **Nota:**
 
-    Si **Azure PowerShell** no está instalado, consulte [Introducción a los cmdlets de Azure PowerShell](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx) para obtener información sobre la instalación y configuración.
+    Si **Azure PowerShell** no está instalado, consulte [Introducción a los cmdlets de Azure PowerShell](http://msdn.microsoft.com/es-es/library/windowsazure/jj554332.aspx) para obtener información sobre la instalación y configuración.
 
 2.  Desde el símbolo del sistema de Azure PowerShell, utilice el siguiente comando para descargar los archivos de registro:
 
@@ -232,7 +232,7 @@ También puede ver una secuencia en vivo de eventos de registro a través del si
 Con esto aparecerá información de registros en la sesión de Terminal, sesión Bash, PowerShell o símbolo del sistema desde donde se ejecuta el comando.
 **Nota:**
 
-Si el comando **azure** no está instalado, consulte [Uso de las herramientas de línea de comandos](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/) para obtener información sobre la instalación y la configuración.
+Si el comando **azure** no está instalado, consulte [Uso de las herramientas de línea de comandos](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/command-line-tools/) para obtener información sobre la instalación y la configuración.
 
 ### Lectura de archivos de registro
 
@@ -296,9 +296,9 @@ Después de configurar la supervisión de extremo, puede obtener detalles sobre 
 
 Vea el siguiente vídeo para obtener más información sobre la supervisión de extremos de sitio web:
 
--   [Scott Guthrie introduces Azure Web Sites and sets up Endpoint Monitoring](http://www.windowsazure.com/en-us/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+-   [Scott Guthrie introduces Azure Web Sites and sets up Endpoint Monitoring](http://www.windowsazure.com/es-es/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
--   [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+-   [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow](http://www.windowsazure.com/es-es/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 
 [fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914

@@ -18,7 +18,7 @@ El resto de este documento proporciona información acerca de la habilitación d
 
 <a href="bkmk_domainname"></a><h2>Nombres de dominio personalizados</h2>
 
-Para habilitar HTTPS en un nombre de dominio personalizado, como **contoso.com**, debe registrar un nombre de dominio personalizado en un registrador de nombres de dominio. Para obtener más información acerca de la configuración del nombre de dominio de un Sitio web Azure, consulte [Configuración de un nombre de dominio personalizado para un Sitio web Azure](/en-us/develop/net/common-tasks/custom-dns-web-site/). Una vez que haya registrado un nombre de dominio personalizado y configurado su sitio web para que se corresponda con el nombre personalizado, debe solicitar un certificado SSL para el dominio.
+Para habilitar HTTPS en un nombre de dominio personalizado, como **contoso.com**, debe registrar un nombre de dominio personalizado en un registrador de nombres de dominio. Para obtener más información acerca de la configuración del nombre de dominio de un Sitio web Azure, consulte [Configuración de un nombre de dominio personalizado para un Sitio web Azure](/es-es/develop/net/common-tasks/custom-dns-web-site/). Una vez que haya registrado un nombre de dominio personalizado y configurado su sitio web para que se corresponda con el nombre personalizado, debe solicitar un certificado SSL para el dominio.
 
 El registro de un nombre de dominio, además, le permite crear subdominios, como **www.contoso.com** o **mail.contoso.com**. Antes de solicitar un certificado SSL, debe determinar los nombres de dominio que contarán con la protección del certificado. De este modo, se determinará el tipo de certificado que debe obtener. Si solo necesita proteger un nombre de dominio, como **contoso.com** o **www.contoso.com**, es probable que un certificado básico sea suficiente. Si necesita proteger varios nombres de dominio, como **contoso.com**, **www.contoso.com** y **mail.contoso.com**, deberá solicitar un certificado comodín o un
 certificado con nombre alternativo del sujeto (subjectAltName, SAN).
@@ -54,7 +54,7 @@ El certificado debe cumplir los siguientes requisitos de certificados SSL en Azu
 
 * El nombre de sujeto del certificado debe coincidir con el dominio usado para tener acceso al sitio web. Si necesita ofrecer servicio a varios dominios con este certificado, deberá usar un valor comodín o especificar los valores subjectAltName tal y como se ha descrito previamente.
   
-  * Para obtener información acerca de la configuración de un nombre de dominio personalizado para un Sitio web Azure, consulte [Configuración de un nombre de dominio personalizado para un Sitio web Azure](/en-us/develop/net/common-tasks/custom-dns-web-site/).
+  * Para obtener información acerca de la configuración de un nombre de dominio personalizado para un Sitio web Azure, consulte [Configuración de un nombre de dominio personalizado para un Sitio web Azure](/es-es/develop/net/common-tasks/custom-dns-web-site/).
   
   > \[WACOM.NOTE\] No intente obtener o generar un certificado para el
   > dominio azurewebsites.net.
@@ -87,7 +87,7 @@ Puede que deba obtener **certificados intermedios** (también denominados certif
 > Para obtener más información acerca de la configuración del nombre de
 > dominio de un Sitio web Azure, consulte [Configuración de un nombre de
 > dominio personalizado para un Sitio web
-> Azure](/en-us/develop/net/common-tasks/custom-dns-web-site/)
+> Azure](/es-es/develop/net/common-tasks/custom-dns-web-site/)
 
 ### Obtención de un certificado con Certreq.exe (solo Windows)
 
@@ -271,7 +271,7 @@ La habilitación de HTTPS para un dominio personalizado solo está disponible pa
 
 <a href="bkmk_configuressl"></a><h2>Configuración de SSL</h2>
 
-Antes de realizar los pasos de esta sección, debe haber asociado un nombre de dominio personalizado a su Sitio web Azure. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado para un Sitio web Azure](/en-us/develop/net/common-tasks/custom-dns-web-site/).
+Antes de realizar los pasos de esta sección, debe haber asociado un nombre de dominio personalizado a su Sitio web Azure. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado para un Sitio web Azure](/es-es/develop/net/common-tasks/custom-dns-web-site/).
 
 1.  En el explorador, abra el [Portal de administración de Azure][5].
 
@@ -545,7 +545,7 @@ Puede crear un certificado de evaluación desde un sistema Windows que tenga ins
 [3]: http://www.openssl.org/
 [4]: http://technet.microsoft.com/library/cc725793.aspx
 [5]: https://manage.windowsazure.com/
-[6]: http://www.windowsazure.com/en-us/support/options/
+[6]: http://www.windowsazure.com/es-es/support/options/
 [7]: http://en.wikipedia.org/wiki/Server_Name_Indication
 [8]: http://en.wikipedia.org/wiki/Transport_Layer_Security
 [9]: http://technet.microsoft.com/en-us/library/cc732906(WS.10).aspx

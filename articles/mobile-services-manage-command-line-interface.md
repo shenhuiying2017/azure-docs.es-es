@@ -17,11 +17,11 @@ Cuando se combinan en un archivo por lotes o un único script, estos comandos in
 
 Para usar las herramientas de línea de comandos de Azure para administrar servicios móviles, necesita una cuenta de Azure que disponga de la característica Servicios móviles de Azure habilitada.
 
--   En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/).
+-   En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/).
 
 -   Si tiene una cuenta existente pero necesita habilitar la vista previa de Servicios móviles de Azure, consulte [Habilitación de las características de vista previa de Azure](../create-a-windows-azure-account/#enable).
 
-Este tema incluye una selección de tareas de administración comunes compatibles con las herramientas de línea de comandos de Azure. Para obtener más información, consulte [Documentación de herramientas de línea de comandos de Azure](/en-us/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services).
+Este tema incluye una selección de tareas de administración comunes compatibles con las herramientas de línea de comandos de Azure. Para obtener más información, consulte [Documentación de herramientas de línea de comandos de Azure](/es-es/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services).
 
 Instalación de herramientasInstalación de las herramientas de línea de comandos de Azure
 ----------------------------------------------------------------------------------------

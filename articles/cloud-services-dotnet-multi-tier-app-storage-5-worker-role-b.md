@@ -3,7 +3,7 @@
 Creación del rol de trabajo B (remitente de correo electrónico) para la aplicación Servicio de correo electrónico de Azure: 5 de 5.
 ===================================================================================================================================
 
-Este es el quinto tutorial de una serie de cinco que muestra cómo crear e implementar la aplicación de ejemplo de Servicio de correo electrónico de Azure. Para obtener información sobre la serie de tutoriales y la aplicación, consulte el [primer tutorial de la serie](/en-us/develop/net/tutorials/multi-tier-web-site/1-overview/).
+Este es el quinto tutorial de una serie de cinco que muestra cómo crear e implementar la aplicación de ejemplo de Servicio de correo electrónico de Azure. Para obtener información sobre la serie de tutoriales y la aplicación, consulte el [primer tutorial de la serie](/es-es/develop/net/tutorials/multi-tier-web-site/1-overview/).
 
 En este tutorial, aprenderá a realizar las siguientes tareas:
 
@@ -107,7 +107,7 @@ Incorporación de la configuración del proyectoIncorporación de la configuraci
 
 Al igual que el rol de trabajo A, el rol de trabajo B necesita las credenciales de la cuenta de almacenamiento para usar tablas, colas y blobs. Además, para enviar correos electrónicos, el rol de trabajo necesita tener credenciales para insertar las llamadas al servicio SendGrid. Por otra parte, para crear un vínculo de cancelación de suscripción a fin de incluirlo en los correos electrónicos enviados, el rol de trabajo necesita saber la URL de la aplicación. Estos valores están almacenados en la configuración del proyecto.
 
-Para las credenciales de la cuenta de almacenamiento, el procedimiento es el mismo que el descrito en el [tercer tutorial](/en-us/develop/net/tutorials/multi-tier-web-site/3-web-role/#configstorage).
+Para las credenciales de la cuenta de almacenamiento, el procedimiento es el mismo que el descrito en el [tercer tutorial](/es-es/develop/net/tutorials/multi-tier-web-site/3-web-role/#configstorage).
 
 1.  En el **Explorador de soluciones**, en **Roles** en el proyecto en la nube, haga clic con el botón secundario en **WorkerRoleB** y seleccione **Propiedades**.
 
@@ -133,7 +133,7 @@ Para las credenciales de la cuenta de almacenamiento, el procedimiento es el mis
 
 11. En la pestaña **Settings** de la ventana **Propiedades**, haga clic en **Agregar configuración** y, a continuación, agregue las tres opciones de configuración nuevas del tipo **Cadena**:
 
-    -   **Name**: SendGridUserName, **Value**: el nombre de usuario de SendGrid establecido en el [segundo tutorial](/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/).
+    -   **Name**: SendGridUserName, **Value**: el nombre de usuario de SendGrid establecido en el [segundo tutorial](/es-es/develop/net/tutorials/multi-tier-web-site/2-download-and-run/).
 
     -   **Name**: SendGridPassword, **Value**: la contraseña de SendGrid.
 
@@ -278,13 +278,13 @@ Para las credenciales de la cuenta de almacenamiento, el procedimiento es el mis
                          System.Threading.Thread.Sleep(1000 * 60);
                      }
 
-    El propósito del tiempo de suspensión es minimizar los costes de las transacciones de almacenamiento de Azure, como se ha explicado en el [tutorial anterior](/en-us/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/).
+    El propósito del tiempo de suspensión es minimizar los costes de las transacciones de almacenamiento de Azure, como se ha explicado en el [tutorial anterior](/es-es/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/).
 
-    Si se obtiene un elemento de la cola con el método [GetMessage](http://msdn.microsoft.com/en-us/library/windowsazure/ee741827.aspx), dicho elemento se hace invisible durante 30 segundos para todos los demás roles de trabajo y web que tienen acceso a la cola. Esto es lo que garantiza que solo una instancia de rol de trabajo se ocupe del procesamiento de un mensaje de cola concreto. Puede definir de forma explícita este tiempo de la *concesión exclusiva* (el tiempo durante el cual el elemento de la cola es invisible) mediante la transmisión de un parámetro de [tiempo de espera de visibilidad](http://msdn.microsoft.com/en-us/library/windowsazure/ee758454.aspx) al método `GetMessage`. Si el rol de trabajo tarda más de 30 segundos en procesar un mensaje de la cola, debe aumentar el tiempo de concesión exclusiva para prevenir que otras instancias de rol procesen el mismo mensaje.
+    Si se obtiene un elemento de la cola con el método [GetMessage](http://msdn.microsoft.com/es-es/library/windowsazure/ee741827.aspx), dicho elemento se hace invisible durante 30 segundos para todos los demás roles de trabajo y web que tienen acceso a la cola. Esto es lo que garantiza que solo una instancia de rol de trabajo se ocupe del procesamiento de un mensaje de cola concreto. Puede definir de forma explícita este tiempo de la *concesión exclusiva* (el tiempo durante el cual el elemento de la cola es invisible) mediante la transmisión de un parámetro de [tiempo de espera de visibilidad](http://msdn.microsoft.com/es-es/library/windowsazure/ee758454.aspx) al método `GetMessage`. Si el rol de trabajo tarda más de 30 segundos en procesar un mensaje de la cola, debe aumentar el tiempo de concesión exclusiva para prevenir que otras instancias de rol procesen el mismo mensaje.
 
     Por otra parte, no deseará definir el tiempo de concesión exclusiva con un valor excesivamente alto. Por ejemplo, si el tiempo de concesión exclusiva se define en 48 horas y el rol de trabajo se apaga inesperadamente después de quitar un mensaje de la cola, los demás roles de trabajo no podrían procesar el mensaje durante 48 horas. El tiempo de concesión exclusiva máximo es de 7 días.
 
-    El método [GetMessages](http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx) (observe la "s" al final del nombre) se puede usar para obtener hasta 32 mensajes de la cola en una llamada. Cada acceso a la cola supone un coste de transacción bajo, que será el mismo independientemente de que se devuelvan 32 mensajes o ninguno. El siguiente código captura hasta 32 mensajes en una llamada y, a continuación, los procesa.
+    El método [GetMessages](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.storageclient.cloudqueue.getmessages.aspx) (observe la "s" al final del nombre) se puede usar para obtener hasta 32 mensajes de la cola en una llamada. Cada acceso a la cola supone un coste de transacción bajo, que será el mismo independientemente de que se devuelvan 32 mensajes o ninguno. El siguiente código captura hasta 32 mensajes en una llamada y, a continuación, los procesa.
 
     foreach (CloudQueueMessage msg in sendEmailQueue.GetMessages(32))
 
@@ -595,7 +595,7 @@ PruebasPruebas del rol de trabajo B
 Pasos siguientesPasos siguientes
 --------------------------------
 
-Ya ha creado la aplicación Servicio de correo electrónico de Azure desde cero y lo que consigue es el mismo resultado que el proyecto completado que ha descargado. Para implementarla y probarla en la nube y pasarla a producción, puede usar los mismos procedimientos descritos en el [segundo tutorial](/en-us/develop/net/tutorials/multi-tier-web-site/2-download-and-run/). Si opta por crear la arquitectura alternativa, consulte [el tutorial de introducción a Sitios web Azure](/en-us/develop/net/tutorials/get-started) para obtener información acerca de cómo implementar el proyecto MVC en un sitio web de Azure.
+Ya ha creado la aplicación Servicio de correo electrónico de Azure desde cero y lo que consigue es el mismo resultado que el proyecto completado que ha descargado. Para implementarla y probarla en la nube y pasarla a producción, puede usar los mismos procedimientos descritos en el [segundo tutorial](/es-es/develop/net/tutorials/multi-tier-web-site/2-download-and-run/). Si opta por crear la arquitectura alternativa, consulte [el tutorial de introducción a Sitios web Azure](/es-es/develop/net/tutorials/get-started) para obtener información acerca de cómo implementar el proyecto MVC en un sitio web de Azure.
 
 Para obtener más información sobre el almacenamiento de Azure, consulte el siguiente recurso:
 
@@ -605,25 +605,25 @@ Para obtener más información acerca del servicio de tablas de Azure, consulte 
 
 -   [Essential Knowledge for Azure Table Storage](http://blogs.msdn.com/b/brunoterkaly/archive/2012/11/08/essential-knowledge-for-azure-table-storage.aspx) (blog de Bruno Terkaly)
 -   [How to get the most out of Windows Azure Tables](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/11/06/how-to-get-most-out-of-windows-azure-tables.aspx) (blog del equipo de almacenamiento de Azure)
--   [Uso del servicio de almacenamiento de tablas en .NET](http://www.windowsazure.com/en-us/develop/net/how-to-guides/table-services/)
+-   [Uso del servicio de almacenamiento de tablas en .NET](http://www.windowsazure.com/es-es/develop/net/how-to-guides/table-services/)
 -   [Windows Azure Storage Client Library 2.0 Tables Deep Dive](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx) (blog del equipo de almacenamiento de Azure)
--   [Casos reales: Diseño de una estrategia de partición escalable para el almacenamiento de tablas de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh508997.aspx)
+-   [Casos reales: Diseño de una estrategia de partición escalable para el almacenamiento de tablas de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/hh508997.aspx)
 
 Para obtener más información acerca del servicio de colas de Azure y las colas del Bus de servicio de Azure, consulte los siguientes recursos:
 
 -   [Queue-Centric Work Pattern (Building Real-World Cloud Apps with Windows Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)
--   [Colas de Windows Azure y Colas de Service Bus de Windows Azure: comparación y diferencias](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)
--   [Uso del almacenamiento en cola en .NET](/en-us/develop/net/how-to-guides/queue-service/)
+-   [Colas de Windows Azure y Colas de Service Bus de Windows Azure: comparación y diferencias](http://msdn.microsoft.com/es-es/library/windowsazure/hh767287.aspx)
+-   [Uso del almacenamiento en cola en .NET](/es-es/develop/net/how-to-guides/queue-service/)
 
 Para obtener más información acerca del servicio BLOB de Azure, consulte los siguientes recursos:
 
 -   [Unstructured Blob Storage (Building Real-World Cloud Apps with Windows Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)
--   [Uso del servicio de almacenamiento de blobs de Azure en .NET](/en-us/develop/net/how-to-guides/blob-storage/)
+-   [Uso del servicio de almacenamiento de blobs de Azure en .NET](/es-es/develop/net/how-to-guides/blob-storage/)
 
 Para obtener más información acerca de la autoescala de roles del Servicio en la nube de Azure, consulte los siguientes recursos:
 
--   [Uso del bloque de autoescala de la aplicación](/en-us/develop/net/how-to-guides/autoscaling/)
--   [Autoscaling and Azure](http://msdn.microsoft.com/en-us/library/hh680945(v=PandP.50).aspx)
+-   [Uso del bloque de autoescala de la aplicación](/es-es/develop/net/how-to-guides/autoscaling/)
+-   [Autoscaling and Azure](http://msdn.microsoft.com/es-es/library/hh680945(v=PandP.50).aspx)
 -   [Building Elastic, Autoscalable Solutions with Azure](http://channel9.msdn.com/Events/WindowsAzureConf/2012/B04) (vídeo del canal 9 de MSDN)
 
 ReconocimientosReconocimientos

@@ -3,9 +3,9 @@
 Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones
 ======================================================================================
 
-[Servicios móviles](/en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/ "Servicios móviles")[ASP.NET](/en-us/manage/services/notification-hubs/notify-users-xplat-aspnet/ "ASP.NET")
+[Servicios móviles](/es-es/manage/services/notification-hubs/notify-users-xplat-mobile-services/ "Servicios móviles")[ASP.NET](/es-es/manage/services/notification-hubs/notify-users-xplat-aspnet/ "ASP.NET")
 
-En el tutorial anterior, [Notificación a los usuarios con Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users-aspnet), aprendió a insertar notificaciones en todos los dispositivos que tiene registrado un usuario autenticado específico. En ese tutorial, se necesitaban varias solicitudes para enviar una notificación a cada plataforma de cliente compatible. Los centros de notificaciones son compatibles con plantillas, que le permiten especificar cómo un dispositivo específico desea recibir notificaciones. Con esto se simplifica el envío de notificaciones entre plataformas. Este tema muestra cómo aprovecha las plantillas para enviar, en una sola solicitud, una notificación independiente de la plataforma que se dirige a todas las plataformas. Si desea obtener información más detallada sobre las plantillas, consulte [Información general acerca de los centros de notificaciones de Azure](http://go.microsoft.com/fwlink/p/?LinkId=317339).
+En el tutorial anterior, [Notificación a los usuarios con Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users-aspnet), aprendió a insertar notificaciones en todos los dispositivos que tiene registrado un usuario autenticado específico. En ese tutorial, se necesitaban varias solicitudes para enviar una notificación a cada plataforma de cliente compatible. Los centros de notificaciones son compatibles con plantillas, que le permiten especificar cómo un dispositivo específico desea recibir notificaciones. Con esto se simplifica el envío de notificaciones entre plataformas. Este tema muestra cómo aprovecha las plantillas para enviar, en una sola solicitud, una notificación independiente de la plataforma que se dirige a todas las plataformas. Si desea obtener información más detallada sobre las plantillas, consulte [Información general acerca de los centros de notificaciones de Azure](http://go.microsoft.com/fwlink/p/?LinkId=317339).
 
 **Nota:**
 
@@ -56,13 +56,13 @@ Pasos siguientes
 
 Ahora que completó este tutorial, obtenga más información acerca de los centros de notificaciones y las plantillas en estos temas:
 
--   **Uso de los Centros de notificaciones para enviar noticias de última hora ([C\# para Tienda Windows](/en-us/manage/services/notification-hubs/breaking-news-dotnet) / [iOS](/en-us/manage/services/notification-hubs/breaking-news-dotnet))**
+-   **Uso de los Centros de notificaciones para enviar noticias de última hora ([C\# para Tienda Windows](/es-es/manage/services/notification-hubs/breaking-news-dotnet) / [iOS](/es-es/manage/services/notification-hubs/breaking-news-dotnet))**
     Muestra otro escenario para el uso de las plantillas
 
 -   **[Información general acerca de los centros de notificaciones de Azure](http://go.microsoft.com/fwlink/p/?LinkId=317339)**
     Este tema de información general contiene información más detallada sobre las plantillas.
 
--   **[Notification Hub How to for Windows Store](http://msdn.microsoft.com/en-us/library/windowsazure/jj927172.aspx)**
+-   **[Notification Hub How to for Windows Store](http://msdn.microsoft.com/es-es/library/windowsazure/jj927172.aspx)**
     Incluye una referencia al lenguaje de la expresión de plantilla.
 
 

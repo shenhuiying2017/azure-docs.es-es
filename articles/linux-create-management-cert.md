@@ -5,7 +5,7 @@ Creación de certificados de administración para Linux en Azure
 
 Es necesario contar con un certificado de administración cuando desea utilizar la API de administración de servicios para interactuar con la plataforma de imágenes de Azure.
 
-Documentación sobre cómo crear y administrar estos certificados ya se encuentra disponible en <http://msdn.microsoft.com/en-us/library/windowsazure/gg551721.aspx>. También pueden usar OpenSSL para crear el certificado de administración. Para obtener más información, consulte [OpenSSL](http://openssl.org/). Sin embargo, esta documentación está orientada principalmente al uso del portal de Silverlight, al que probablemente no todos los usuarios de Linux puedan tener acceso. Describe cómo podrá tener acceso a estos certificados e integrarlos con nuestras distintas herramientas y socios, y usarlos por su propia cuenta hasta que esta funcionalidad se agregue al Portal de administración de Azure.
+Documentación sobre cómo crear y administrar estos certificados ya se encuentra disponible en <http://msdn.microsoft.com/es-es/library/windowsazure/gg551721.aspx>. También pueden usar OpenSSL para crear el certificado de administración. Para obtener más información, consulte [OpenSSL](http://openssl.org/). Sin embargo, esta documentación está orientada principalmente al uso del portal de Silverlight, al que probablemente no todos los usuarios de Linux puedan tener acceso. Describe cómo podrá tener acceso a estos certificados e integrarlos con nuestras distintas herramientas y socios, y usarlos por su propia cuenta hasta que esta funcionalidad se agregue al Portal de administración de Azure.
 
 Tabla de contenido
 ------------------
@@ -76,7 +76,7 @@ Si su clave privada se encuentra en peligro en algún punto, deberá utilizar un
 Instalación de un certificado de administración mediante el Portal de administración de Azure
 ---------------------------------------------------------------------------------------------
 
-Puede crear un certificado de administración de diversas maneras. Para obtener más información acerca de la creación de certificados, consulte [Crear y cargar un certificado de administración para Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx). Una vez creado el certificado, agréguelo a su suscripción en Azure.
+Puede crear un certificado de administración de diversas maneras. Para obtener más información acerca de la creación de certificados, consulte [Crear y cargar un certificado de administración para Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg551722.aspx). Una vez creado el certificado, agréguelo a su suscripción en Azure.
 
 1.  Inicie sesión en el Portal de administración de Azure.
 

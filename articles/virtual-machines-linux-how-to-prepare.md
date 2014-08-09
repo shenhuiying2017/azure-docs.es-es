@@ -3,9 +3,9 @@
 Preparación de una máquina virtual Linux para Azure
 ===================================================
 
-Una máquina virtual en Azure ejecuta el sistema operativo que elige cuando crea la máquina virtual. En Azure, el sistema operativo de una máquina virtual se almacena en un disco duro virtual en formato VHD (un archivo .vhd). Un VHD de un sistema operativo que se ha preparado para la duplicación se conoce como imagen. En este artículo se muestra cómo crear su propia imagen mediante la carga de un archivo .vhd con un sistema operativo que ha instalado y generalizado. Para obtener más información acerca de los discos y las imágenes en Azure, consulte [Administrar discos e imágenes](http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx).
+Una máquina virtual en Azure ejecuta el sistema operativo que elige cuando crea la máquina virtual. En Azure, el sistema operativo de una máquina virtual se almacena en un disco duro virtual en formato VHD (un archivo .vhd). Un VHD de un sistema operativo que se ha preparado para la duplicación se conoce como imagen. En este artículo se muestra cómo crear su propia imagen mediante la carga de un archivo .vhd con un sistema operativo que ha instalado y generalizado. Para obtener más información acerca de los discos y las imágenes en Azure, consulte [Administrar discos e imágenes](http://msdn.microsoft.com/es-es/library/windowsazure/jj672979.aspx).
 
-**Nota**: al crear una máquina virtual, puede personalizar la configuración del sistema operativo para facilitar la ejecución de su aplicación. La configuración que establezca se almacena en el disco de esa máquina virtual. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada](/en-us/manage/windows/how-to-guides/custom-create-a-vm/).
+**Nota**: al crear una máquina virtual, puede personalizar la configuración del sistema operativo para facilitar la ejecución de su aplicación. La configuración que establezca se almacena en el disco de esa máquina virtual. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada](/es-es/manage/windows/how-to-guides/custom-create-a-vm/).
 
 **Importante**: El contrato de nivel de servicio de la plataforma Azure se aplica a las máquinas virtuales que ejecutan el sistema operativo Linux solo cuando una de las distribuciones aprobadas se use con los detalles de la configuración según se indica en [este artículo](http://support.microsoft.com/kb/2805216). Todas las distribuciones de Linux que se ofrezcan en la galería de imágenes de Azure son distribuciones aprobadas con la configuración requerida.
 
@@ -14,7 +14,7 @@ Requisitos previos
 
 En este artículo se supone que tiene los siguientes elementos:
 
--   **Un certificado de administración**: Ha creado un certificado de administración para la suscripción para la que desea cargar un VHD, y ha exportado el certificado a un archivo .cer. Para obtener más información acerca de la creación de certificados, consulte [Crear y cargar un certificado de administración para Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
+-   **Un certificado de administración**: Ha creado un certificado de administración para la suscripción para la que desea cargar un VHD, y ha exportado el certificado a un archivo .cer. Para obtener más información acerca de la creación de certificados, consulte [Crear y cargar un certificado de administración para Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg551722.aspx).
 
 -   **Sistema operativo Linux instalado en un archivo .vhd.** - Ha instalado un sistema operativo Linux compatible en un disco duro virtual. Existen varias herramientas para crear archivos .vhd. Puede utilizar una solución de virtualización como Hyper-V para crear el archivo .vhd e instalar el sistema operativo. Para obtener instrucciones, consulte [Instalar el rol Hyper-V y configurar una máquina virtual](http://technet.microsoft.com/en-us/library/hh846766.aspx).
 
@@ -24,7 +24,7 @@ En este artículo se supone que tiene los siguientes elementos:
 
 -   **Herramienta de línea de comandos de Azure para Linux.** Si usa el sistema operativo Linux para crear su imagen, utilizará esta herramienta para cargar el archivo VHD. Para descargar la herramienta, consulte [Herramientas de línea de comandos de Azure para Linux y Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409).
 
--   El **cmdlet Add-AzureVHD**, que forma parte del módulo PowerShell de Azure. Para descargar el módulo, consulte la página de [descargas de Azure](/en-us/develop/downloads/). Para obtener más información, consulte [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx).
+-   El **cmdlet Add-AzureVHD**, que forma parte del módulo PowerShell de Azure. Para descargar el módulo, consulte la página de [descargas de Azure](/es-es/develop/downloads/). Para obtener más información, consulte [Add-AzureVhd](http://msdn.microsoft.com/es-es/library/windowsazure/dn205185.aspx).
 
 Tenga en cuenta lo siguiente para todas las distribuciones:
 
@@ -534,7 +534,7 @@ Antes de cargar el archivo .vhd, debe establecer una conexión segura entre el e
 
     Donde `<PathToFile>` es la ruta de acceso completa al archivo .publishsettings.
 
-    Para obtener información, consulte [Introducción a los cmdlets de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx).
+    Para obtener información, consulte [Introducción a los cmdlets de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/jj554332.aspx).
 
 Paso 4: Cargar la imagen en Azure
 ---------------------------------
@@ -547,7 +547,7 @@ Realice una de las operaciones siguientes:
 
     `Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
 
-    Para obtener más información, consulte [Add-AzureVhd](http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx).
+    Para obtener más información, consulte [Add-AzureVhd](http://msdn.microsoft.com/es-es/library/windowsazure/dn205185.aspx).
 
 -   Utilice la herramienta de línea de comandos de Linux para cargar la imagen. Puede cargar una imagen mediante el siguiente comando:
 
@@ -560,7 +560,7 @@ En esencia, todas las distribuciones que se ejecutan en Azure tendrán que cumpl
 
 Esta lista no pretende ser exhaustiva ya que cada distribución es diferente; y es bastante posible que aunque cumpla todos los criterios siguientes, todavía tenga que ajustar significativamente la imagen para asegurarse de que se ejecuta correctamente en la plataforma.
 
-Por este motivo, le recomendamos que empiece con una de nuestras [imágenes aprobadas de asociados](https://www.windowsazure.com/en-us/manage/linux/other-resources/endorsed-distributions/).
+Por este motivo, le recomendamos que empiece con una de nuestras [imágenes aprobadas de asociados](https://www.windowsazure.com/es-es/manage/linux/other-resources/endorsed-distributions/).
 
 La lista que aparece a continuación reemplaza el paso 1 del proceso de creación de su propio VHD:
 
@@ -578,7 +578,7 @@ La lista que aparece a continuación reemplaza el paso 1 del proceso de creació
 
 6.  Debería asegurarse de que todos los dispositivos SCSI montados en el kernel incluyen un tiempo de espera de E/S de como mínimo 300 segundos.
 
-7.  Tendrá que instalar el Agente de Linux de Azure siguiendo los pasos de la [Guía del Agente de Linux](https://www.windowsazure.com/en-us/manage/linux/how-to-guides/linux-agent-guide/). El agente se ha publicado bajo la licencia Apache 2 y puede obtener las secciones más recientes en [Ubicación de GitHub del agente](http://go.microsoft.com/fwlink/p/?LinkID=250998&clcid=0x409) (en inglés).
+7.  Tendrá que instalar el Agente de Linux de Azure siguiendo los pasos de la [Guía del Agente de Linux](https://www.windowsazure.com/es-es/manage/linux/how-to-guides/linux-agent-guide/). El agente se ha publicado bajo la licencia Apache 2 y puede obtener las secciones más recientes en [Ubicación de GitHub del agente](http://go.microsoft.com/fwlink/p/?LinkID=250998&clcid=0x409) (en inglés).
 
 8.  En /etc/sudoers, convierta en comentarios la línea siguiente, si existe:
 

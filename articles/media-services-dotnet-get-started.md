@@ -27,7 +27,7 @@ Se requieren los siguientes requisitos previos para el tutorial y el desarrollo 
 
 **Nota:**
 
-Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5).
+Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A8A8397B5).
 
 Configuración de su proyecto
 ----------------------------
@@ -174,7 +174,7 @@ Agregue una llamada al método después de la línea **\_context = new CloudMedi
 Codificación del recurso en el servidor y descarga de un recurso de salida
 --------------------------------------------------------------------------
 
-En los Servicios multimedia, puede crear trabajos que procesan contenidos multimedia de varias formas: codificación, cifrado, realización de conversiones de formato, etc. Un trabajo de Servicios multimedia contiene una o más tareas que especifican los detalles del trabajo de procesamiento. En esta sección puede crear una tarea de codificación básica y luego ejecutar un trabajo que la realiza usando el codificador multimedia de Azure. La tarea usa una cadena predefinida para especificar el tipo de codificación que se debe realizar. Para ver los valores de codificación predefinidos disponibles, consulte [Valores predefinidos del sistema Media Services Encoder](http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx). Los Servicios multimedia admiten los mismos formatos de archivo multimedia de entrada y salida que Microsoft Expression Encoder. Para obtener una lista de formatos admitidos, consulte [Códecs y tipos de archivo compatibles con Azure Media Encoder](http://msdn.microsoft.com/en-us/library/windowsazure/hh973634.aspx).
+En los Servicios multimedia, puede crear trabajos que procesan contenidos multimedia de varias formas: codificación, cifrado, realización de conversiones de formato, etc. Un trabajo de Servicios multimedia contiene una o más tareas que especifican los detalles del trabajo de procesamiento. En esta sección puede crear una tarea de codificación básica y luego ejecutar un trabajo que la realiza usando el codificador multimedia de Azure. La tarea usa una cadena predefinida para especificar el tipo de codificación que se debe realizar. Para ver los valores de codificación predefinidos disponibles, consulte [Valores predefinidos del sistema Media Services Encoder](http://msdn.microsoft.com/es-es/library/windowsazure/jj129582.aspx). Los Servicios multimedia admiten los mismos formatos de archivo multimedia de entrada y salida que Microsoft Expression Encoder. Para obtener una lista de formatos admitidos, consulte [Códecs y tipos de archivo compatibles con Azure Media Encoder](http://msdn.microsoft.com/es-es/library/windowsazure/hh973634.aspx).
 
 1.  Agregue la siguiente definición del método **CreateEncodingJob** a su clase. Este método demuestra cómo llevar a cabo varias tareas necesarias para un trabajo de codificación:
 
@@ -643,6 +643,6 @@ Pasos siguientes
 
 Este tutorial ha demostrado una secuencia de tareas de programación para crear una aplicación sencilla de Servicios multimedia. Aprendió las tareas fundamentales de la programación de Servicios multimedia, incluida la obtención de contenido del servidor, la creación de recursos, la codificación de recursos y la descarga u obtención de acceso a los recursos en el servidor. Para conocer los pasos siguientes y tareas de desarrollo más avanzadas, consulte lo siguiente:
 
--   [Uso de los Servicios multimedia](http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/)
--   [Entrega de contenido](http://msdn.microsoft.com/en-us/library/windowsazure/hh973618.aspx)
+-   [Uso de los Servicios multimedia](http://www.windowsazure.com/es-es/develop/net/how-to-guides/media-services/)
+-   [Entrega de contenido](http://msdn.microsoft.com/es-es/library/windowsazure/hh973618.aspx)
 

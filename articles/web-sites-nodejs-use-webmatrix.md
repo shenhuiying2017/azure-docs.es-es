@@ -22,7 +22,7 @@ Siga estos pasos para crear un sitio web de Azure.
 
 Para completar este tutorial, necesita una cuenta de Azure que tenga habilitada la característica Sitios web Azure.
 
-En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E).
+En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A7171371E).
 
 1.  Inicie WebMatrix
 2.  Si esta es la primera vez que utiliza WebMatrix, se le solicitará que inicie sesión en Azure. De lo contrario, puede hacer clic en el botón **Sign In** y seleccionar **Add Account**. Seleccione **Sign in** utilizando su cuenta de Microsoft.
@@ -91,7 +91,7 @@ Puede modificar y volver a publicar su aplicación fácilmente. En este caso, re
 Pasos siguientes
 ----------------
 
-Para obtener más información acerca de las versiones de Node.js que se proporcionan con Azure y la forma de especificar la versión que se debe utilizar con su aplicación, consulte [Especificación de una versión de Node.js en una aplicación Azure](http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/specifying-a-node-version/).
+Para obtener más información acerca de las versiones de Node.js que se proporcionan con Azure y la forma de especificar la versión que se debe utilizar con su aplicación, consulte [Especificación de una versión de Node.js en una aplicación Azure](http://www.windowsazure.com/es-es/develop/nodejs/common-tasks/specifying-a-node-version/).
 
-Si tiene problemas con su aplicación después de la implementación en Azure, consulte [Cómo depurar una aplicación Node.js en Sitios web Azure](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/Debug-Website/) para obtener información acerca del diagnóstico del problema.
+Si tiene problemas con su aplicación después de la implementación en Azure, consulte [Cómo depurar una aplicación Node.js en Sitios web Azure](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/Debug-Website/) para obtener información acerca del diagnóstico del problema.
 

@@ -30,7 +30,7 @@ Aprenderá a realizar los siguientes procedimientos:
 
 <h2><a name="prerequisites"></a><span class="short-header">Requisitos previos</span></h2>
 
-Este tutorial funciona con el entorno de desarrollo, proyecto web y sitio web de Azure que configuró en [Introducción a Azure y ASP.NET](http://azure.microsoft.com/en-us/develop/net/tutorials/get-started/). Los ejemplos de código que aparecen en este tutorial son para una aplicación web C\# MVC, pero los procedimientos de solución de problemas son los mismos para las aplicaciones de Web Forms y Visual Basic.
+Este tutorial funciona con el entorno de desarrollo, proyecto web y sitio web de Azure que configuró en [Introducción a Azure y ASP.NET](http://azure.microsoft.com/es-es/develop/net/tutorials/get-started/). Los ejemplos de código que aparecen en este tutorial son para una aplicación web C\# MVC, pero los procedimientos de solución de problemas son los mismos para las aplicaciones de Web Forms y Visual Basic.
 
 La depuración remota requiere Visual Studio 2013 o Visual Studio 2012 con actualización 4. Las demás características que aparecen en el tutorial también funcionan con Visual Studio 2013 Express para Web y Visual Studio 2012 Express para Web.
 
@@ -50,7 +50,7 @@ Visual Studio proporciona acceso a un subconjunto de las funciones de administra
 	Para obtener más información acerca de la conexión a recursos de Azure desde Visual Studio, consulte [Administrar cuentas, suscripciones y roles administrativos](http://go.microsoft.com/fwlink/?linkid=324796#bkmk_accountvcert&clcid=0x409).
 
 1.  En el **Explorador de servidores**, expanda **Azure** y, a continuación, **Sitios web**.
-2.  Haga clic con el botón secundario en el nodo del sitio web que creó en [Introducción a Azure y ASP.NET](http://azure.microsoft.com/en-us/develop/net/tutorials/get-started/) y, a continuación, haga clic en **View Settings**.
+2.  Haga clic con el botón secundario en el nodo del sitio web que creó en [Introducción a Azure y ASP.NET](http://azure.microsoft.com/es-es/develop/net/tutorials/get-started/) y, a continuación, haga clic en **View Settings**.
 
 	![Ver configuración en el Explorador de servidores](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-viewsettings.png)
 
@@ -62,7 +62,7 @@ Visual Studio proporciona acceso a un subconjunto de las funciones de administra
 
 	Para obtener información acerca de los cuadros App Settings y Connection Strings de esta ventana, consulte[Azure Web Sites: How Application Strings and Connection Strings Work](http://blogs.msdn.com/b/windowsazure/archive/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work.aspx).
 
-	Si desea realizar una tarea de administración de sitios que no se puede hacer en esta ventana, puede hacer clic en **Full Web Site Settings** para abrir una ventana del explorador con el portal de administración. Para obtener más información, consulte [Configuración de Sitios web](http://azure.microsoft.com/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+	Si desea realizar una tarea de administración de sitios que no se puede hacer en esta ventana, puede hacer clic en **Full Web Site Settings** para abrir una ventana del explorador con el portal de administración. Para obtener más información, consulte [Configuración de Sitios web](http://azure.microsoft.com/es-es/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
 <h2><a name="remoteview"></a>Vista remota</h2>
 
@@ -112,9 +112,9 @@ Si el mensaje de error detallado no proporciona información suficiente y no es 
 
 La depuración remota no funciona en ediciones Express de Visual Studio.
 
-Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Introducción a Azure y ASP.NET](http://azure.microsoft.com/en-us/develop/net/tutorials/get-started/).
+Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Introducción a Azure y ASP.NET](http://azure.microsoft.com/es-es/develop/net/tutorials/get-started/).
 
-1.  Abra el proyecto web que creó en [Introducción a Azure y ASP.NET](http://azure.microsoft.com/en-us/develop/net/tutorials/get-started/).
+1.  Abra el proyecto web que creó en [Introducción a Azure y ASP.NET](http://azure.microsoft.com/es-es/develop/net/tutorials/get-started/).
 
 2.  Abra *Controllers\\HomeController.cs*.
 
@@ -131,7 +131,7 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
 
 5.  En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto y, a continuación, en **Publicar**.
 
-6.  En la lista desplegable **Perfil**, seleccione el mismo perfil que utilizó en [Introducción a Azure y ASP.NET](http://azure.microsoft.com/en-us/develop/net/tutorials/get-started/).
+6.  En la lista desplegable **Perfil**, seleccione el mismo perfil que utilizó en [Introducción a Azure y ASP.NET](http://azure.microsoft.com/es-es/develop/net/tutorials/get-started/).
 
 7.  Haga clic en la pestaña **Configuración**, cambie la **Configuración** a **Depurar** y, a continuación, haga clic en **Publicar**.
 
@@ -199,18 +199,18 @@ Esta sección muestra cómo depurar remotamente con el proyecto que crea en [Int
           <httpRuntime targetFramework="4.5" />
         </system.web>
 
--   Si encuentra que el depurador no entra en el código que desea depurar, es posible que deba cambiar la configuración de Solo mi código. Para obtener más información, consulte [Restringir la ejecución paso a paso a Solo mi código](http://msdn.microsoft.com/en-us/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
+-   Si encuentra que el depurador no entra en el código que desea depurar, es posible que deba cambiar la configuración de Solo mi código. Para obtener más información, consulte [Restringir la ejecución paso a paso a Solo mi código](http://msdn.microsoft.com/es-es/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
 
 -   Cuando habilita la característica de depuración remota, se inicia un temporizador en el servidor y 48 horas después la característica se desactiva automáticamente. Este límite de 48 horas es por motivos de seguridad y rendimiento. Puede activar fácilmente la característica las veces que lo desee. Recomendamos dejarla deshabilitada cuando no esté realizando activamente una depuración.
 
--   Puede asociar manualmente el depurador a cualquier proceso. No solo puede depurar el proceso del sitio web (w3wp.exe), sino que también puede depurar otros procesos, como [WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Para obtener más información acerca de cómo utilizar el modo de depuración en Visual Studio, consulte [Depurar en Visual Studio](http://msdn.microsoft.com/en-us/library/vstudio/sc65sadd.aspx).
+-   Puede asociar manualmente el depurador a cualquier proceso. No solo puede depurar el proceso del sitio web (w3wp.exe), sino que también puede depurar otros procesos, como [WebJobs](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/getting-started-with-windows-azure-webjobs). Para obtener más información acerca de cómo utilizar el modo de depuración en Visual Studio, consulte [Depurar en Visual Studio](http://msdn.microsoft.com/es-es/library/vstudio/sc65sadd.aspx).
 
 <h2><a name="logsoverview"></a><span class="short-header">Logs overview</span>Información general de registros de diagnóstico</h2>
 
 Una aplicación de ASP.NET que se ejecuta en un sitio web de Azure puede crear las siguientes clases de registros:
 
 -   **Registros de seguimiento de la aplicación**
-     La aplicación crea estos registros mediante la llamada a métodos de la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/en-us/library/system.diagnostics.trace.aspx).
+     La aplicación crea estos registros mediante la llamada a métodos de la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/es-es/library/system.diagnostics.trace.aspx).
 -   **Registros de servidor web**
      El servidor web crea una entrada de registro para cada solicitud HTTP al sitio.
 -   **Registros de mensajes de error detallados**
@@ -226,7 +226,7 @@ Los registros se escriben en archivos en una carpeta *LogFiles* en el sistema de
 
 En esta sección realizará las siguientes tareas:
 
--   Agregar instrucciones de seguimiento al proyecto web que creó en[el tutorial anterior](http://azure.microsoft.com/en-us/develop/net/tutorials/get-started/).
+-   Agregar instrucciones de seguimiento al proyecto web que creó en[el tutorial anterior](http://azure.microsoft.com/es-es/develop/net/tutorials/get-started/).
 -   Ver los registros cuando ejecute localmente el proyecto.
 -   Ver los registros a medida que los genera la aplicación que se ejecuta en Azure.
 
@@ -302,7 +302,7 @@ En esta sección realizará las siguientes tareas:
 
 	`WebPageTraceListener` le permite ver el resultado del seguimiento si navega a `/trace.axd`.
 
-1.  Agregue un [elemento de seguimiento](http://msdn.microsoft.com/en-us/library/vstudio/6915t83k(v=vs.100).aspx) bajo `<system.web>` en el archivo Web.config, tal como en el siguiente ejemplo:
+1.  Agregue un [elemento de seguimiento](http://msdn.microsoft.com/es-es/library/vstudio/6915t83k(v=vs.100).aspx) bajo `<system.web>` en el archivo Web.config, tal como en el siguiente ejemplo:
 
 		<trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" /\>
 
@@ -402,7 +402,7 @@ Los registros de servidor web registran toda la actividad HTTP en el sitio. Para
 
 	![Registros de servidor web en la ventana Output](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-wslogs.png)
 
-De manera predeterminada, cuando habilita por primera vez los registros de servidor web mediante el uso de Visual Studio, Azure escribe los registros en el sistema de archivos. De manera alternativa, puede utilizar el portal de administración para especificar que los registros de servidor web se deben escribir en un contenedor de blob en una cuenta de almacenamiento. Para obtener más información, consulte la sección sobre **diagnóstico del sitio** en [Configuración de Sitios web](http://azure.microsoft.com/en-us/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
+De manera predeterminada, cuando habilita por primera vez los registros de servidor web mediante el uso de Visual Studio, Azure escribe los registros en el sistema de archivos. De manera alternativa, puede utilizar el portal de administración para especificar que los registros de servidor web se deben escribir en un contenedor de blob en una cuenta de almacenamiento. Para obtener más información, consulte la sección sobre **diagnóstico del sitio** en [Configuración de Sitios web](http://azure.microsoft.com/es-es/manage/services/web-sites/how-to-configure-websites/#howtochangeconfig).
 
 Si utiliza el portal de administración para habilitar el registro de servidor web para una cuenta de almacenamiento de Azure y luego deshabilitar el registro en Visual Studio, cuando vuelve a habilitar el registro en Visual Studio, se restaurará la configuración de su cuenta de almacenamiento.
 
@@ -525,7 +525,7 @@ Las cuentas de almacenamiento ofrecen más almacenamiento y retención más prol
 
 	![Registros de almacenamiento en vista de tabla](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-	Esta vista muestra campos adicionales que no están disponibles en otras vistas. Esta vista también le permite filtrar registros mediante una interfaz de usuario especial del Generador de consultas para construir una consulta. Para obtener más información, consulte Trabajar con recursos de tabla - Filtrar entidades en [Explorar recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/en-us/library/windowsazure/ff683677.aspx).
+	Esta vista muestra campos adicionales que no están disponibles en otras vistas. Esta vista también le permite filtrar registros mediante una interfaz de usuario especial del Generador de consultas para construir una consulta. Para obtener más información, consulte Trabajar con recursos de tabla - Filtrar entidades en [Explorar recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/es-es/library/windowsazure/ff683677.aspx).
 
 1.  Para ver los detalles de una sola fila, haga clic con el botón secundario en una de las filas y, a continuación, haga clic en **Editar**.
 
@@ -590,14 +590,14 @@ Ha visto cómo Visual Studio facilita la visualización de registros creados por
 
 Para obtener más información acerca de la solución de problemas en Sitios web Azure (WAWS), consulte los siguientes recursos:
 
--   [Solución de problemas en Azure](http://azure.microsoft.com/en-us/develop/net/best-practices/troubleshooting/)
+-   [Solución de problemas en Azure](http://azure.microsoft.com/es-es/develop/net/best-practices/troubleshooting/)
      Una introducción básica que incluye una breve sección sobre WAWS.
--   [Solución de problemas de un sitio web](http://azure.microsoft.com/en-us/develop/net/best-practices/troubleshooting-web-sites/)
+-   [Solución de problemas de un sitio web](http://azure.microsoft.com/es-es/develop/net/best-practices/troubleshooting-web-sites/)
      Una introducción que se centra en WAWS.
--   [Habilitación del registro de diagnóstico para Sitios web Azure](http://azure.microsoft.com/en-us/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)
+-   [Habilitación del registro de diagnóstico para Sitios web Azure](http://azure.microsoft.com/es-es/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)
      Abarca gran parte de la información que se ofrece en este tutorial, pero se centra en cómo obtener registros de diagnóstico sin utilizar Visual Studio.
--   [Supervisión de sitios web](http://azure.microsoft.com/en-us/manage/services/web-sites/how-to-monitor-websites/)
-     La sección de [configuración de diagnóstico y descarga de registros](http://azure.microsoft.com/en-us/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics) contiene información valiosa que no está incluida en los documentos para la solución de problemas.
+-   [Supervisión de sitios web](http://azure.microsoft.com/es-es/manage/services/web-sites/how-to-monitor-websites/)
+     La sección de [configuración de diagnóstico y descarga de registros](http://azure.microsoft.com/es-es/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics) contiene información valiosa que no está incluida en los documentos para la solución de problemas.
 
 Si desea obtener ayuda para una pregunta específica sobre la solución de problemas, comience una conversación en alguno de los siguientes foros:
 
@@ -607,7 +607,7 @@ Si desea obtener ayuda para una pregunta específica sobre la solución de probl
 
 ### Depuración en Visual Studio
 
-Para obtener más información acerca del uso del modo de depuración en Visual Studio, consulte el tema [Depurar en Visual Studio](http://msdn.microsoft.com/en-us/library/vstudio/sc65sadd.aspx) de MSDN y [Debugging Tips with Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
+Para obtener más información acerca del uso del modo de depuración en Visual Studio, consulte el tema [Depurar en Visual Studio](http://msdn.microsoft.com/es-es/library/vstudio/sc65sadd.aspx) de MSDN y [Debugging Tips with Visual Studio 2010](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx).
 
 Si su sitio web utiliza una API web de Azure o el back-end de Servicios móviles y necesita depurarlo, consulte [Debugging .NET Backend in Visual Studio](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx).
 
@@ -617,14 +617,14 @@ No hay introducciones rigurosas ni actualizadas al seguimiento de ASP.NET dispon
 
 -   [Monitoring and Telemetry (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry).
      Capítulo de un libro electrónico con recomendaciones para realizar seguimiento en aplicaciones de la nube de Azure.
--   [ASP.NET Tracing](http://msdn.microsoft.com/en-us/library/ms972204.aspx)
+-   [ASP.NET Tracing](http://msdn.microsoft.com/es-es/library/ms972204.aspx)
      Un recurso antiguo, pero siempre útil, con una introducción básica al tema.
--   [Agentes de escucha de seguimiento](http://msdn.microsoft.com/en-us/library/4y5y10s7.aspx)
-     Información acerca de las escuchas de seguimiento, pero no menciona [WebPageTraceListener](http://msdn.microsoft.com/en-us/library/system.web.webpagetracelistener.aspx).
--   [Tutorial: Integrar el seguimiento en ASP.NET con las técnicas de seguimiento de System.Diagnostics](http://msdn.microsoft.com/en-us/library/b0ectfxd.aspx)
+-   [Agentes de escucha de seguimiento](http://msdn.microsoft.com/es-es/library/4y5y10s7.aspx)
+     Información acerca de las escuchas de seguimiento, pero no menciona [WebPageTraceListener](http://msdn.microsoft.com/es-es/library/system.web.webpagetracelistener.aspx).
+-   [Tutorial: Integrar el seguimiento en ASP.NET con las técnicas de seguimiento de System.Diagnostics](http://msdn.microsoft.com/es-es/library/b0ectfxd.aspx)
      También antiguo, pero incluye cierta información adicional que el artículo de introducción no incluye.
 -   [Tracing in ASP.NET MVC Razor Views](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)
-     Además del seguimiento en vistas de Razor, la publicación también explica cómo crear un filtro de error para registrar todas las excepciones no manejadas en una aplicación MVC. Si desea obtener información sobre cómo registrar todas las excepciones no controladas en una aplicación de Web Forms, consulte el ejemplo Global.asax en [Ejemplo completo de controladores de errores](http://msdn.microsoft.com/en-us/library/bb397417.aspx) en MSDN. Ya sea en MVC o en Web Forms, si desea registrar ciertas excepciones, pero permitir que la gestión del marco predeterminado las afecte, puede volver a intentarlo como en el siguiente ejemplo:
+     Además del seguimiento en vistas de Razor, la publicación también explica cómo crear un filtro de error para registrar todas las excepciones no manejadas en una aplicación MVC. Si desea obtener información sobre cómo registrar todas las excepciones no controladas en una aplicación de Web Forms, consulte el ejemplo Global.asax en [Ejemplo completo de controladores de errores](http://msdn.microsoft.com/es-es/library/bb397417.aspx) en MSDN. Ya sea en MVC o en Web Forms, si desea registrar ciertas excepciones, pero permitir que la gestión del marco predeterminado las afecte, puede volver a intentarlo como en el siguiente ejemplo:
 
         try
         {
@@ -638,7 +638,7 @@ No hay introducciones rigurosas ni actualizadas al seguimiento de ASP.NET dispon
 
 -   [Streaming Diagnostics Trace Logging from the Azure Command Line (plus Glimpse!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)
      Uso de la línea de comandos para hacer lo que muestra este tutorial en Visual Studio. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) es una herramienta de depuración de aplicaciones ASP.NET.
--   [Using Azure Web Site Logging and Diagnostics, con David Ebbo](http://www.windowsazure.com/en-us/documentation/videos/azure-web-site-logging-and-diagnostics/) y [Streaming Logs from Azure Web Sites, con David Ebbo](http://www.windowsazure.com/en-us/documentation/videos/log-streaming-with-azure-web-sites/)
+-   [Using Azure Web Site Logging and Diagnostics, con David Ebbo](http://www.windowsazure.com/es-es/documentation/videos/azure-web-site-logging-and-diagnostics/) y [Streaming Logs from Azure Web Sites, con David Ebbo](http://www.windowsazure.com/es-es/documentation/videos/log-streaming-with-azure-web-sites/)
      Vídeos de Scott Hanselman y David Ebbo.
 
 Para el registro de errores, una alternativa a escribir su propio código de seguimiento es utilizar un marco de registro de código abierto, como [ELMAH](http://nuget.org/packages/elmah/). Para obtener más información, consulte [Scott Hanselman's blog posts about ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).
@@ -665,5 +665,5 @@ El sitio web de Microsoft TechNet incluye una sección llamada [Using Failed Req
 Si desea depurar un servicio en la nube de Azure en lugar de un sitio web, consulte [Depurar servicio en la nube](http://msdnstage.redmond.corp.microsoft.com/en-us/library/windowsazure/ee405479.aspx).
 
  
-[GetStarted]: /en-us/develop/net/tutorials/get-started/
+[GetStarted]: /es-es/develop/net/tutorials/get-started/
 

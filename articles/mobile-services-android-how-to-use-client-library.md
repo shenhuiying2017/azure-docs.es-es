@@ -3,9 +3,9 @@
 Uso de la biblioteca de cliente Android para Servicios móviles
 ==============================================================
 
-[.NET Framework](/en-us/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework")[HTML/JavaScript](/en-us/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/en-us/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
+[.NET Framework](/es-es/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework")[HTML/JavaScript](/es-es/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/es-es/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/es-es/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/es-es/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
 
-Esta guía le indica cómo enfrentarse a determinadas situaciones habituales usando un cliente Android para Servicios móviles de Azure. Entre las situaciones tratadas se encuentran la consulta, la inserción, la actualización y la eliminación de los datos, la autenticación de los usuarios, la administración de los errores y la personalización del cliente. Si no tiene experiencia en Servicios móviles, considere primero la opción de completar la [Guía de inicio rápido de Servicios móviles](/en-us/develop/mobile/tutorials/get-started-android/). El tutorial de la guía de inicio rápido le ayuda a configurar la cuenta y crear el primer servicio móvil.
+Esta guía le indica cómo enfrentarse a determinadas situaciones habituales usando un cliente Android para Servicios móviles de Azure. Entre las situaciones tratadas se encuentran la consulta, la inserción, la actualización y la eliminación de los datos, la autenticación de los usuarios, la administración de los errores y la personalización del cliente. Si no tiene experiencia en Servicios móviles, considere primero la opción de completar la [Guía de inicio rápido de Servicios móviles](/es-es/develop/mobile/tutorials/get-started-android/). El tutorial de la guía de inicio rápido le ayuda a configurar la cuenta y crear el primer servicio móvil.
 
 Los ejemplos están escritos en Java y necesitan el [SDK de Servicios móviles](http://go.microsoft.com/fwlink/p/?linkid=280126). Este tutorial también precisa el [SDK de Android](https://go.microsoft.com/fwLink/p/?LinkID=280125&clcid=0x409), que incluye el entorno de desarrollo integrado de Eclipse (IDE) y el complemento para las herramientas del desarrollador de Android (ADT). El SDK de Servicios móviles admite la versión 2.2 de Android u otra posterior, aunque le recomendamos que se use la versión de compilación 4.2 o posterior de Android.
 
@@ -312,7 +312,7 @@ El valor `id` debe ser exclusivo y no debe incluir caracteres de los siguientes 
 -   Caracteres imprimibles: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **\`** (0x0060)
 -   Los identificadores "." y ".."
 
-También puede usar identificadores de números enteros para las tablas. Para usar un identificador de números enteros, debe crear la tabla con el comando `mobile table create` mediante la opción `--integerId`. Este comando se usa con la interfaz de la línea de comandos (CLI) de Azure. Para obtener más información sobre el uso de la CLI, consulte [CLI para administrar tablas de Servicios móviles](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables).
+También puede usar identificadores de números enteros para las tablas. Para usar un identificador de números enteros, debe crear la tabla con el comando `mobile table create` mediante la opción `--integerId`. Este comando se usa con la interfaz de la línea de comandos (CLI) de Azure. Para obtener más información sobre el uso de la CLI, consulte [CLI para administrar tablas de Servicios móviles](http://www.windowsazure.com/es-es/manage/linux/other-resources/command-line-tools/#Mobile_Tables).
 
 Actualización de datosActualización de datos en un servicio móvil
 -----------------------------------------------------------------
@@ -625,7 +625,7 @@ Entonces, ¿qué pasa si el token expira? En este caso, cuando intente usarlo pa
 Gestión de erroresGestión de errores
 ------------------------------------
 
-Puede ver un ejemplo de la validación y la gestión de los errores [aquí](https://www.windowsazure.com/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/), donde la validación se implementa por medio de scripts de servidor que devuelven excepciones en el error y código de cliente que gestiona las excepciones.
+Puede ver un ejemplo de la validación y la gestión de los errores [aquí](https://www.windowsazure.com/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/), donde la validación se implementa por medio de scripts de servidor que devuelven excepciones en el error y código de cliente que gestiona las excepciones.
 
 Otro enfoque pasa por proporcionar un identificador de error *global*. El código que hemos visto que obtiene acceso a la tabla del servicio móvil ha implicado tres objetos de devolución de llamada diferentes:
 

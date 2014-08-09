@@ -8,7 +8,7 @@ Ambos back-ends envían notificaciones a dispositivos de la Tienda Windows e iOS
 <h3><a name="console"></a>Para enviar notificaciones desde una aplicación de consola en C#</h3>
 
 
-Si creó una aplicación de consola cuando realizó el tutorial [Introducción a los Centros de notificaciones](/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/), omita los pasos del 1 al 3.
+Si creó una aplicación de consola cuando realizó el tutorial [Introducción a los Centros de notificaciones](/es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/), omita los pasos del 1 al 3.
 
 1.  En Visual Studio, cree una aplicación de consola en Visual C#:
 
@@ -96,7 +96,7 @@ Ahora puede continuar con [Ejecución de la aplicación y generación de notific
 
 Para enviar una notificación mediante un servicio móvil, lleve a cabo los siguientes pasos:
 
-1.  Realice el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started/#create-new-service) para crear el servicio móvil.
+1.  Realice el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started/#create-new-service) para crear el servicio móvil.
 
 2.  Inicie sesión en el [Portal de administración de Azure], haga clic en Servicios móviles y, a continuación, haga clic en el servicio móvil.
 
@@ -155,7 +155,7 @@ Para enviar una notificación mediante un servicio móvil, lleve a cabo los sigu
 	cuando no existe un registro para una determinada plataforma. Para
 	evitar esto, tiene la posibilidad de utilizar registros de
 	plantillas para enviar una única notificación a varias plataformas.
-	Por ejemplo, consulte <a href="/en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/">Uso de los Centros de notificaciones para	difundir noticias de última hora localizadas</a>.</p>
+	Por ejemplo, consulte <a href="/es-es/manage/services/notification-hubs/breaking-news-localized-dotnet/">Uso de los Centros de notificaciones para	difundir noticias de última hora localizadas</a>.</p>
 </div>
 
 
@@ -173,11 +173,11 @@ Ahora puede continuar con [Ejecución de la aplicación y generación de notific
 [16]: ./media/notification-hubs-back-end/notification-hub-scheduler2.png
 
 <!-- URLs. -->
-[get-started]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[get-started]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Use Notification Hubs to send notifications to users]: ../notificationhubs/tutorial-notify-users-mobileservices.md
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+[Get started with Mobile Services]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Notification Hubs Guidance]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
-[Uso de los Centros de notificaciones para	difundir noticias de última hora localizadas]: http://msdn.microsoft.com/en-us/library/jj927172.aspx
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+[Notification Hubs Guidance]: http://msdn.microsoft.com/es-es/library/jj927170.aspx
+[Uso de los Centros de notificaciones para	difundir noticias de última hora localizadas]: http://msdn.microsoft.com/es-es/library/jj927172.aspx
+[1]: http://msdn.microsoft.com/es-es/library/windowsazure/dn223264.aspx

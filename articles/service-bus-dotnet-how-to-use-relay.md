@@ -291,6 +291,6 @@ Ahora que conoce los fundamentos del servicio del **relé** del bus de servicio,
 
 
 [1]: http://manage.windowsazure.com
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173564.aspx
-[3]: http://msdn.microsoft.com/en-us/library/windowsazure/ee173543.aspx
+[2]: http://msdn.microsoft.com/es-es/library/windowsazure/ee173564.aspx
+[3]: http://msdn.microsoft.com/es-es/library/windowsazure/ee173543.aspx
 [4]: http://code.msdn.microsoft.com/windowsazure

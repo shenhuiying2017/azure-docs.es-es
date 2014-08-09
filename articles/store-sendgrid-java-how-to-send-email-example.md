@@ -229,8 +229,8 @@ Este código se incluye para mostrar cómo utilizar SendGrid de Java en Azure. A
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690944
-[2]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
-[3]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/using-sql-azure-in-java/
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/hh690948
+[1]: http://msdn.microsoft.com/es-es/library/windowsazure/hh690944
+[2]: http://www.windowsazure.com/es-es/develop/java/how-to-guides/blob-storage/
+[3]: http://www.windowsazure.com/es-es/develop/java/how-to-guides/using-sql-azure-in-java/
+[4]: http://msdn.microsoft.com/es-es/library/windowsazure/hh690948
 

@@ -4,7 +4,7 @@
 
 Una máquina virtual en Azure ejecuta el sistema operativo que elige cuando crea la máquina virtual. En Azure, el sistema operativo de una máquina virtual se almacena en un disco duro virtual en formato VHD (un archivo .vhd). Un VHD de un sistema operativo que se ha preparado para la duplicación se conoce como imagen. En este artículo se muestra cómo crear su propia imagen mediante la carga de un archivo .vhd con un sistema operativo que ha instalado y generalizado. Para obtener más información acerca de los discos y las imágenes en Azure, consulte [Administrar discos e imágenes][1].
 
-**Nota**: al crear una máquina virtual, puede personalizar la configuración del sistema operativo para facilitar la ejecución de su aplicación. La configuración que establezca se almacena en el disco de esa máquina virtual. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada](/en-us/manage/windows/how-to-guides/custom-create-a-vm/).
+**Nota**: al crear una máquina virtual, puede personalizar la configuración del sistema operativo para facilitar la ejecución de su aplicación. La configuración que establezca se almacena en el disco de esa máquina virtual. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada](/es-es/manage/windows/how-to-guides/custom-create-a-vm/).
 
 ## Requisitos previos
 
@@ -58,7 +58,7 @@ En este artículo se supone que tiene los siguientes elementos:
 
 </P>
 
-* El cmdlet [Add-AzureVHD][4], que forma parte del módulo Azure PowerShell. Para descargar el módulo, consulte la página de [descargas de Azure](/en-us/develop/downloads/).
+* El cmdlet [Add-AzureVHD][4], que forma parte del módulo Azure PowerShell. Para descargar el módulo, consulte la página de [descargas de Azure](/es-es/develop/downloads/).
 
 Esta tarea incluye los siguientes pasos:
 
@@ -174,9 +174,9 @@ Cuando la imagen esté disponible en la lista, puede usarla para crear máquinas
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj672979.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx
+[1]: http://msdn.microsoft.com/es-es/library/windowsazure/jj672979.aspx
+[2]: http://msdn.microsoft.com/es-es/library/windowsazure/gg551722.aspx
 [3]: http://technet.microsoft.com/en-us/library/hh846766.aspx
-[4]: http://msdn.microsoft.com/en-us/library/windowsazure/dn205185.aspx
+[4]: http://msdn.microsoft.com/es-es/library/windowsazure/dn205185.aspx
 [5]: http://technet.microsoft.com/en-us/library/bb457073.aspx
-[6]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx
+[6]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554332.aspx

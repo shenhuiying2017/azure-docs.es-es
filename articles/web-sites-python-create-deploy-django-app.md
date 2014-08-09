@@ -9,7 +9,7 @@ En este tutorial se muestra cómo implementar una aplicación compilada con el m
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-En este tutorial se usan Python 2.7 y Django 1.4. Puede obtener estas aplicaciones por su cuenta o bien instalarlas de forma rápida y sencilla a través del vínculo del instalador de Windows en <http://www.windowsazure.com/en-us/develop/python/>.
+En este tutorial se usan Python 2.7 y Django 1.4. Puede obtener estas aplicaciones por su cuenta o bien instalarlas de forma rápida y sencilla a través del vínculo del instalador de Windows en <http://www.windowsazure.com/es-es/develop/python/>.
 
 **Nota**: ahora los sitios web de Azure tienen preinstalados Python 2.7 y el controlador wfastcgi. Sin embargo, los marcos de trabajo web, como Django, no se incluyen. Aún así, si lo prefiere, puede usar otro intérprete de Python. Solo tendrá que incluirlo en el repositorio Git y configurar el sitio web para usar dicho intérprete en lugar del de Python 2.7, ya instalado.
 
@@ -124,7 +124,7 @@ Pasos siguientes
 
 A partir de aquí, puede continuar el desarrollo de la aplicación de Django con las herramientas que ya utiliza. Si usa las [herramientas de Python para Visual Studio](http://pytools.codeplex.com/) (en inglés) para desarrollar, probablemente deseará instalar [VisualGit](http://code.google.com/p/visualgit/) para integrar el control de código fuente desde Visual Studio.
 
-La aplicación puede tener otras dependencias, aparte de Python y Django. Si para Python se usó el instalador incluido en <http://www.windowsazure.com/en-us/develop/python/>, PIP ya estará instalado y podrá utilizarse para agregar nuevas dependencias de forma rápida. Por ejemplo, para instalar el kit de herramientas de lenguaje natural y todas sus dependencias, escriba:
+La aplicación puede tener otras dependencias, aparte de Python y Django. Si para Python se usó el instalador incluido en <http://www.windowsazure.com/es-es/develop/python/>, PIP ya estará instalado y podrá utilizarse para agregar nuevas dependencias de forma rápida. Por ejemplo, para instalar el kit de herramientas de lenguaje natural y todas sus dependencias, escriba:
 
     pip install nltk
 

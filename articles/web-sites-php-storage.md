@@ -111,7 +111,7 @@ Para poder almacenar datos, primero tiene que crear un contenedor para ellos (la
           
           ?>
 
-    Los mensajes y los códigos de error se pueden encontrar aquí: [http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx](http://msdn.microsoft.com/en-us/library/windowsazure/dd179438.aspx)
+    Los mensajes y los códigos de error se pueden encontrar aquí: [http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx](http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx)
 
 Consulta de una tabla
 ---------------------
@@ -276,7 +276,7 @@ La aplicación de lista de tareas tiene la capacidad de marcar un elemento como 
 		$entities = $result->getEntities();		
 		$entity = $entities[0];
 
-    Como puede observar, el filtro de consulta transferido presenta la forma `Key eq 'Value'`. Puede encontrar la descripción completa de la sintaxis de la consulta [aquí](http://msdn.microsoft.com/en-us/library/windowsazure/dd894031.aspx).
+    Como puede observar, el filtro de consulta transferido presenta la forma `Key eq 'Value'`. Puede encontrar la descripción completa de la sintaxis de la consulta [aquí](http://msdn.microsoft.com/es-es/library/windowsazure/dd894031.aspx).
 
 -   A continuación, puede cambiar cualquier propiedad:
 

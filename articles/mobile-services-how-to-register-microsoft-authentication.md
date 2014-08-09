@@ -5,7 +5,7 @@ Registro de sus aplicaciones para usar un inicio de sesión de la cuenta Microso
 
 Este tema indica cómo registrar sus aplicaciones para que puedan usar Live Connect como proveedor de autenticación para los Servicios móviles de Azure.
 
-> [WACOM.NOTE]Si desea proporcionar autenticación centrada en el cliente para inicio de sesión único (SSO) o insertar notificaciones de una aplicación de la Tienda Windows, considere la opción de registrar su aplicación con la Tienda Windows. Para obtener más información, consulte [Registro de sus aplicaciones de la Tienda Windows para la autenticación de Live Connect de Windows](/en-us/develop/mobile/how-to-guides/register-for-single-sign-on).
+> [WACOM.NOTE]Si desea proporcionar autenticación centrada en el cliente para inicio de sesión único (SSO) o insertar notificaciones de una aplicación de la Tienda Windows, considere la opción de registrar su aplicación con la Tienda Windows. Para obtener más información, consulte [Registro de sus aplicaciones de la Tienda Windows para la autenticación de Live Connect de Windows](/es-es/develop/mobile/how-to-guides/register-for-single-sign-on).
 
 1.  Vaya a la página [Mis aplicaciones](http://go.microsoft.com/fwlink/p/?LinkId=262039) del Centro para desarrolladores de Live Connect e inicie sesión con cuenta Microsoft, si procede.
 

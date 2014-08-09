@@ -19,8 +19,8 @@ Los desarrolladores de aplicaciones pueden integrar sus aplicaciones con Azure A
 
 **Recursos adicionales**
 
--   [Inicio de sesión en Azure como una organización](/en-us/manage/services/identity/organizational-account/)
--   [Identidad de Azure](/en-us/manage/windows/fundamentals/identity/)
+-   [Inicio de sesión en Azure como una organización](/es-es/manage/services/identity/organizational-account/)
+-   [Identidad de Azure](/es-es/manage/windows/fundamentals/identity/)
 -   [Biblioteca de Azure AD en TechNet](http://technet.microsoft.com/en-us/library/hh967619.aspx)
 -   [Biblioteca de Azure AD en MSDN](http://go.microsoft.com/fwlink/?LinkId=293425)
 

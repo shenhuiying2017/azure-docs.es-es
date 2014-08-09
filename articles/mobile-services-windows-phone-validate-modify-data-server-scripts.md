@@ -3,9 +3,9 @@
 Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor
 =============================================================================================
 
-[C\# para Tienda Windows](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "C# para Tienda Windows") [JavaScript para Tienda Windows](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js "JavaScript para Tienda Windows") [Windows Phone](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone") [iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS") [Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android") [HTML](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML") [Xamarin.iOS](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS") [Xamarin.Android](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")
+[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "C# para Tienda Windows") [JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-js "JavaScript para Tienda Windows") [Windows Phone](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone") [iOS](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS") [Android](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android") [HTML](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML") [Xamarin.iOS](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS") [Xamarin.Android](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")
 
-[Back-end de .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Back-end de .NET") | [Back-end de JavaScript](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Back-end de JavaScript")
+[Back-end de .NET](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Back-end de .NET") | [Back-end de JavaScript](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Back-end de JavaScript")
 
 En este tema se muestra cómo aprovechar los scripts del servidor en Servicios móviles de Azure. Dichos scripts se registran en un servicio móvil y pueden usarse para realizar una gran variedad de operaciones en los datos que se han insertado y actualizado, incluidas la modificación y validación de los datos. En este tutorial, definirá y registrará scripts de servidor que sirven para validar y modificar datos. Dado que el comportamiento de los scripts del servidor suele afectar al cliente, también actualizará la aplicación de Windows Phone 8 para que se beneficie de estos nuevos comportamientos.
 
@@ -18,7 +18,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 3.  [Incorporación de una marca de tiempo al insertar](#add-timestamp)
 4.  [Actualización del cliente para mostrar la marca de tiempo](#update-client-timestamp)
 
-Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-wp8). Antes de comenzar este tutorial, primero debe completar [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-wp8).
+Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-wp8). Antes de comenzar este tutorial, primero debe completar [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-wp8).
 
 Incorporación de la validación
 ------------------------------
@@ -58,7 +58,7 @@ Actualización del cliente
 
 Ahora que el servicio móvil puede validar los datos y enviar respuestas de error, debe actualizar la aplicación para que pueda identificar los errores de la validación.
 
-1.  En Visual Studio 2012 Express para Windows Phone, abra el proyecto que modificó cuando completó el tutorial [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-wp8).
+1.  En Visual Studio 2012 Express para Windows Phone, abra el proyecto que modificó cuando completó el tutorial [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-wp8).
 
 2.  Presione la tecla **F5** para ejecutar la aplicación, escriba un texto que sobrepase los 10 caracteres en el cuadro de texto y haga clic en **Save**.
 
@@ -193,12 +193,12 @@ Pasos siguientes
 
 Ahora que ha completado este tutorial, considere continuar con el tutorial final de la serie de datos:
 
-Los scripts de servidor también se usan al autorizar usuarios y para enviar notificaciones de inserción. Para obtener más información, consulte los siguientes tutoriales: [Limitación de consultas con paginación](/en-us/develop/mobile/tutorials/add-paging-to-data-wp8).
+Los scripts de servidor también se usan al autorizar usuarios y para enviar notificaciones de inserción. Para obtener más información, consulte los siguientes tutoriales: [Limitación de consultas con paginación](/es-es/develop/mobile/tutorials/add-paging-to-data-wp8).
 
--   [Autorización de usuarios con scripts](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8)
+-   [Autorización de usuarios con scripts](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-wp8)
   <br/>Aprenda a filtrar datos basándose en el identificador de un usuario autenticado.
 
--   [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-wp8)
+-   [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-wp8)
   <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
 -   [Referencia del script del servidor de Servicios móviles](http://go.microsoft.com/fwlink/?LinkId=262293)

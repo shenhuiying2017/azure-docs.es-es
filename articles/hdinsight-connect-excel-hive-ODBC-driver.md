@@ -5,13 +5,13 @@ Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver
 
 Una característica clave de la solución de datos de gran tamaño de Microsoft es la integración de componentes de inteligencia empresarial de Microsoft con clústeres Apache Hadoop implementados por HDInsight de Azure. Un ejemplo de esta integración es la capacidad de conectar Excel al almacén de datos de Hive de un clúster Hadoop de HDInsight mediante la utilización de Microsoft Hive Open Database Connectivity (ODBC) Driver.
 
-También es posible conectar desde Excel los datos asociados con un clúster de HDInsight y otros orígenes de datos, incluidos otros clústeres Hadoop (que no sean de HDInsight), con la utilización del complemento Microsoft Power Query para Excel. Para obtener información acerca de la instalación y el uso de Power Query, consulte [Conexión de Excel a HDInsight con Power Query](/en-us/documentation/articles/hdinsight-connect-excel-power-query/).
+También es posible conectar desde Excel los datos asociados con un clúster de HDInsight y otros orígenes de datos, incluidos otros clústeres Hadoop (que no sean de HDInsight), con la utilización del complemento Microsoft Power Query para Excel. Para obtener información acerca de la instalación y el uso de Power Query, consulte [Conexión de Excel a HDInsight con Power Query](/es-es/documentation/articles/hdinsight-connect-excel-power-query/).
 
 **Requisitos previos**:
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
--   Un clúster de HDInsight. Para configurarlo, consulte [Introducción a HDInsight de Azure](/en-us/documentation/articles/hdinsight-get-started/).
+-   Un clúster de HDInsight. Para configurarlo, consulte [Introducción a HDInsight de Azure](/es-es/documentation/articles/hdinsight-get-started/).
 -   Un equipo que ejecute Windows 8, Windows 7, Windows Server 2012 o Windows Server 2008 R2.
 -   Office Professional Plus 2013, Office 365 Pro Plus, Excel 2013 Standalone u Office Professional Plus 2010.
 
@@ -139,7 +139,7 @@ En los pasos siguientes se describe cómo importar datos desde una tabla de Hive
 5.  Vuelva a escribir la contraseña para el clúster en el asistente y, a continuación, haga clic en **Probar** para comprobar la configuración.
 6.  Haga clic en **Aceptar** para cerrar el cuadro de diálogo de prueba.
 7.  Haga clic en **OK**. Espere a que se abra el cuadro de diálogo **Seleccionar base de datos y tabla**. Esta operación puede tardar unos segundos.
-8.  Seleccione la tabla que desea importar y, a continuación, haga clic en **Siguiente**. *hivesampletable* es una tabla de Hive de muestra integrada en los clústeres de HDInsight. Puede seleccionarla si no ha creado ninguna. Para obtener más información acerca de cómo ejecutar consultas de Hive y crear tablas de Hive, consulte [Uso de Hive con HDInsight](/en-us/documentation/articles/hdinsight-use-hive/).
+8.  Seleccione la tabla que desea importar y, a continuación, haga clic en **Siguiente**. *hivesampletable* es una tabla de Hive de muestra integrada en los clústeres de HDInsight. Puede seleccionarla si no ha creado ninguna. Para obtener más información acerca de cómo ejecutar consultas de Hive y crear tablas de Hive, consulte [Uso de Hive con HDInsight](/es-es/documentation/articles/hdinsight-use-hive/).
 9.  Haga clic en **Finish**.
 10. En el cuadro de diálogo **Importar datos**, puede cambiar o especificar la consulta. Para ello, haga clic en **Propiedades**. Esta operación puede tardar unos segundos.
 11. Haga clic en la pestaña **Definición** y, a continuación, anexe **LIMIT 200** a la instrucción select de Hive en el cuadro de texto **Texto de comando**. La modificación limitará el conjunto de registros devueltos a 200.
@@ -155,7 +155,7 @@ Pasos siguientes
 
 En este artículo se proporciona información acerca de cómo usar Microsoft Hive ODBC Driver para recuperar datos del servicio HDInsight en Excel. De manera similar, puede recuperar datos del servicio HDInsight en la Base de datos SQL. Es posible cargar datos en un servicio HDInsight. Para obtener más información, consulte:
 
--   [Análisis de la información de retraso de vuelos usando HDInsight](/en-us/documentation/articles/hdinsight-analyze-flight-delay-data/)
--   [Carga de datos en HDInsight](/en-us/documentation/articles/hdinsight-upload-data/)
+-   [Análisis de la información de retraso de vuelos usando HDInsight](/es-es/documentation/articles/hdinsight-analyze-flight-delay-data/)
+-   [Carga de datos en HDInsight](/es-es/documentation/articles/hdinsight-upload-data/)
 -   [Uso de Sqoop con HDInsight](../hdinsight-use-sqoop/)
 

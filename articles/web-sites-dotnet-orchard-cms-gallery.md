@@ -67,6 +67,6 @@ Inicio y administración de su sitio Orchard
 Pasos siguientesPaso siguiente
 ------------------------------
 
--   [Desarrollo e implementación de un sitio web con Microsoft WebMatrix](/en-us/develop/net/tutorials/website-with-webmatrix/) - Obtenga información sobre cómo editar un sitio web de Azure en WebMatrix.
--   [Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL en un sitio web de Azure](/en-us/develop/net/tutorials/web-site-with-sql-database/) - Obtenga información acerca de cómo crear un nuevo sitio web desde Visual Studio.
+-   [Desarrollo e implementación de un sitio web con Microsoft WebMatrix](/es-es/develop/net/tutorials/website-with-webmatrix/) - Obtenga información sobre cómo editar un sitio web de Azure en WebMatrix.
+-   [Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL en un sitio web de Azure](/es-es/develop/net/tutorials/web-site-with-sql-database/) - Obtenga información acerca de cómo crear un nuevo sitio web desde Visual Studio.
 

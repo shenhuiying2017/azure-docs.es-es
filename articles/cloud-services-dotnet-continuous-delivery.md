@@ -165,7 +165,7 @@ En esta sección se describen los pasos para construir un script de Windows Powe
 
         Add-AzureCertificate -serviceName 'mytestcloudservice' -certToDeploy (get-item cert:\CurrentUser\MY\C33B6C432C25581601B84C80F86EC2809DC224E8
 
-    De manera alternativa, puede exportar el archivo de certificado PFX con una clave privada y cargar los certificados en cada servicio en la nube objetivo mediante el Portal de administración de Azure. Lea el siguiente artículo para obtener más información: [http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx][].
+    De manera alternativa, puede exportar el archivo de certificado PFX con una clave privada y cargar los certificados en cada servicio en la nube objetivo mediante el Portal de administración de Azure. Lea el siguiente artículo para obtener más información: [http://msdn.microsoft.com/es-es/library/windowsazure/gg443832.aspx][].
 
     **Actualizar implementación frente a Eliminar implementación -\> Nueva implementación**
 
@@ -573,7 +573,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
 [Windows Azure Libraries][]: http://go.microsoft.com/fwlink/?LinkId=257862
   [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [MSBuild Command Line Reference]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
+  [MSBuild Command Line Reference]: http://msdn.microsoft.com/es-es/library/ms164311(v=VS.90).aspx
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Understanding the Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Configure a Build Machine]: http://go.microsoft.com/fwlink/?LinkId=238799
@@ -600,7 +600,7 @@ Write-Output "$(Get-Date -f $timeStampFormat) - Azure Cloud Service deploy scrip
   [Azure Authoring Tools]: http://go.microsoft.com/fwlink/?LinkId=239600
 [Windows Azure Libraries][]: http://go.microsoft.com/fwlink/?LinkId=257862
   [Azure Tools for Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=257862
-  [MSBuild Command Line Reference]: http://msdn.microsoft.com/en-us/library/ms164311(v=VS.90).aspx
+  [MSBuild Command Line Reference]: http://msdn.microsoft.com/es-es/library/ms164311(v=VS.90).aspx
   [1]: http://go.microsoft.com/fwlink/p/?LinkId=239966
   [Understanding the Team Foundation Build System]: http://go.microsoft.com/fwlink/?LinkId=238798
   [Configure a Build Machine]: http://go.microsoft.com/fwlink/?LinkId=238799

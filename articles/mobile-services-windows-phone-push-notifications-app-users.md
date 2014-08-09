@@ -3,9 +3,9 @@
 Notificaciones de inserción para usuarios mediante Servicios móviles
 ====================================================================
 
-[Windows Phone](/en-us/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/push-notifications-to-users-ios "iOS")[Android](/en-us/develop/mobile/tutorials/push-notifications-to-users-android "Android")
+[Windows Phone](/es-es/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/push-notifications-to-users-ios "iOS")[Android](/es-es/develop/mobile/tutorials/push-notifications-to-users-android "Android")
 
-Este tema amplía el [tutorial de notificaciones de inserción anterior](/en-us/develop/mobile/tutorials/get-started-with-push-wp8) mediante la incorporación de una nueva tabla para almacenar los URI de canal del servicio notificaciones de inserción de Microsoft (MPNS). Estos canales pueden usarse para enviar notificaciones de inserción a los usuarios de la aplicación para Windows Phone 8.
+Este tema amplía el [tutorial de notificaciones de inserción anterior](/es-es/develop/mobile/tutorials/get-started-with-push-wp8) mediante la incorporación de una nueva tabla para almacenar los URI de canal del servicio notificaciones de inserción de Microsoft (MPNS). Estos canales pueden usarse para enviar notificaciones de inserción a los usuarios de la aplicación para Windows Phone 8.
 
 Este tutorial le guiará a través de estos pasos en la actualización de las notificaciones de inserción en su aplicación:
 
@@ -14,7 +14,7 @@ Este tutorial le guiará a través de estos pasos en la actualización de las no
 3.  [Actualización de los scripts de servidor](#update-scripts)
 4.  [Pruebas de notificaciones de inserción en su aplicación](#test-app)
 
-Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutorial anterior, [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-wp8). Antes de comenzar este tutorial, primero debe completar [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-wp8).
+Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutorial anterior, [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-wp8). Antes de comenzar este tutorial, primero debe completar [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-wp8).
 
 Creación de una tabla
 ---------------------
@@ -40,7 +40,7 @@ A continuación, modificará la aplicación de notificaciones de inserción para
 Actualización de la aplicación
 ------------------------------
 
-1.  En Visual Studio 2012 Express para Windows Phone, abra el proyecto del tutorial [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-wp8), abra el archivo MainPage.xaml.cs y quite la propiedad **Channel** de la clase **TodoItem**. Tendrá el siguiente aspecto:
+1.  En Visual Studio 2012 Express para Windows Phone, abra el proyecto del tutorial [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-wp8), abra el archivo MainPage.xaml.cs y quite la propiedad **Channel** de la clase **TodoItem**. Tendrá el siguiente aspecto:
 
          public class TodoItem
          {
@@ -186,10 +186,10 @@ Pasos siguientes
 
 Este es el último tutorial que muestra los aspectos básicos relacionados con el uso de las notificaciones de inserción. Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
--   [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-wp8)
+-   [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-wp8)
     Obtenga más información sobre almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-wp8)
+-   [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-wp8)
     Aprenda a autenticar a los usuarios de su aplicación con cuenta de Windows.
 
 -   [Referencia del script del servidor de Servicios móviles](http://go.microsoft.com/fwlink/p/?LinkId=262293)
@@ -218,9 +218,9 @@ Este es el último tutorial que muestra los aspectos básicos relacionados con e
 
 <!-- URLs. -->
 [Mobile Services server script reference]: http://go.microsoft.com/fwlink/p/?LinkId=262293
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-wp8
-[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-wp8
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-wp8
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-wp8
+[Get started with Mobile Services]: /es-es/develop/mobile/tutorials/get-started-wp8
+[Get started with data]: /es-es/develop/mobile/tutorials/get-started-with-data-wp8
+[Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-wp8
+[Get started with push notifications]: /es-es/develop/mobile/tutorials/get-started-with-push-wp8
 
 [Azure Management Portal]: https://manage.windowsazure.com/

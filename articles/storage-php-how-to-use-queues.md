@@ -114,7 +114,7 @@ Un objeto **QueueRestProxy** le permite crear una cola con el método **createQu
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -144,7 +144,7 @@ Para agregar un mensaje a una cola, use **QueueRestProxy-\>createMessage**. El m
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -174,7 +174,7 @@ Puede inspeccionar uno o varios mensajes en la parte delantera de una cola, sin 
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -229,7 +229,7 @@ El código borra un mensaje de una cola en dos pasos. Primero, llama a **QueueRe
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -272,7 +272,7 @@ Puede cambiar el contenido de un mensaje local en la cola llamando a **QueueRest
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -320,7 +320,7 @@ Hay dos formas de personalizar la recuperación de mensajes de una cola. En prim
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -347,7 +347,7 @@ Puede obtener una estimación del número de mensajes existentes en una cola. El
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -375,7 +375,7 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -386,6 +386,6 @@ Pasos siguientes
 
 Ahora que está familiarizado con los aspectos básicos del servicio Cola de Azure, utilice estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure.](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx)
+-   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure.](http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx)
 -   Obtenga acceso al blog del equipo de almacenamiento de Azure: <http://blogs.msdn.com/b/windowsazurestorage/>.
 

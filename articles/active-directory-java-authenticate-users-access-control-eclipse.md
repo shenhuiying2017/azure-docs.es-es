@@ -82,9 +82,9 @@ Necesitará lo siguiente para completar las tareas de esta guía:
 -   Eclipse IDE para Java EE Developers, Indigo o superior. Se puede descargar en &lt;http://www.eclipse.org/downloads/\>.
 -   Una distribución de un servidor de aplicaciones o servidor web basado en Java, como Apache Tomcat, GlassFish, JBoss Application Server o Jetty.
 -   Una suscripción de Azure, que se puede adquirir en &lt;http://www.microsoft.com/windowsazure/offers/\>.
--   El complemento de Azure para Eclipse con Java (de Microsoft Open Technologies), agosto de 2012 CTP. Para obtener más información, consulte [Instalación del complemento de Azure para Eclipse con Java (de Microsoft Open Technologies)](http://msdn.microsoft.com/en-us/library/windowsazure/hh690946.aspx).
+-   El complemento de Azure para Eclipse con Java (de Microsoft Open Technologies), agosto de 2012 CTP. Para obtener más información, consulte [Instalación del complemento de Azure para Eclipse con Java (de Microsoft Open Technologies)](http://msdn.microsoft.com/es-es/library/windowsazure/hh690946.aspx).
 -   Un certificado X.509 para utilizar con la aplicación. Necesitará este certificado en formato de certificado público (.cer) e intercambio de información personal (.PFX). (Las opciones para crear este certificado se describirán más adelante en este tutorial).
--   Estar familiarizado con el emulador de proceso de Azure y las técnicas de implementación analizadas en [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx).
+-   Estar familiarizado con el emulador de proceso de Azure y las técnicas de implementación analizadas en [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/es-es/library/windowsazure/hh690944.aspx).
 
 Creación de un espacio de nombres de ACS
 ----------------------------------------
@@ -221,7 +221,7 @@ Implementación del emulador de proceso
 
 1.  En el explorador de proyectos de Eclipse, haga clic con el botón secundario en **MyACSHelloWorld** y, a continuación, haga clic en **Azure** y luego en **Package for Azure**.
 2.  En **Project name**, escriba **MyAzureACSProject** y haga clic en **Next**.
-3.  Seleccione un JDK y un servidor de aplicaciones. (Estos pasos aparecen detallados en el tutorial [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx)).
+3.  Seleccione un JDK y un servidor de aplicaciones. (Estos pasos aparecen detallados en el tutorial [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/es-es/library/windowsazure/hh690944.aspx)).
 4.  Haga clic en **Finish**.
 5.  Haga clic en el botón **Run in Azure Emulator**.
 6.  Una vez que la aplicación web de Java se inicie en el emulador de proceso, cierre todas las instancias del explorador (para que ninguna sesión actual del explorador interfiera con la prueba de inicio de sesión en ACS).
@@ -256,16 +256,16 @@ Para implementar en Azure, deberá cambiar el dominio de usuario de confianza y 
 
 13. Haga clic en **Finish** para cerrar el cuadro de diálogo **Edit Library**.
 14. Haga clic en **OK** para cerrar el cuadro de diálogo **Properties for MyACSHelloWorld**.
-15. En Eclipse, haga clic en el botón **Publish to Azure Cloud**. Siga las indicaciones, tal como lo hizo en la sección **Implementación de su aplicación en Azure** del tema [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx).
+15. En Eclipse, haga clic en el botón **Publish to Azure Cloud**. Siga las indicaciones, tal como lo hizo en la sección **Implementación de su aplicación en Azure** del tema [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/es-es/library/windowsazure/hh690944.aspx).
 
 Una vez que se ha implementado la aplicación web, cierre las sesiones abiertas del explorador, ejecute la aplicación web y se le solicitará iniciar sesión con credenciales de Windows Live ID y, a continuación, irá a la URL de retorno de su aplicación de usuario de confianza.
 
-Cuando haya terminado de utilizar la aplicación Hello World de ACS, recuerde eliminar la implementación (aprenda a eliminar una implementación en el tema [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/en-us/library/windowsazure/hh690944.aspx)).
+Cuando haya terminado de utilizar la aplicación Hello World de ACS, recuerde eliminar la implementación (aprenda a eliminar una implementación en el tema [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/es-es/library/windowsazure/hh690944.aspx)).
 
 Pasos siguientes
 ----------------
 
-Para analizar el lenguaje de marcado de aserción de seguridad (SAML) que devuelve ACS a su aplicación, consulte [Visualización del SAML que devuelve el servicio de control de acceso de Azure](/en-us/develop/java/how-to-guides/view-saml-returned-by-acs/). Para seguir explorando la funcionalidad de ACS y experimentar con escenarios más sofisticados, consulte [Access Control Service 2.0](http://go.microsoft.com/fwlink/?LinkID=212360).
+Para analizar el lenguaje de marcado de aserción de seguridad (SAML) que devuelve ACS a su aplicación, consulte [Visualización del SAML que devuelve el servicio de control de acceso de Azure](/es-es/develop/java/how-to-guides/view-saml-returned-by-acs/). Para seguir explorando la funcionalidad de ACS y experimentar con escenarios más sofisticados, consulte [Access Control Service 2.0](http://go.microsoft.com/fwlink/?LinkID=212360).
 
 Además, en este ejemplo se utilizó la opción **Embed the certificate in the WAR file**. Esta opción facilita la implementación del certificado. Si, por el contrario, desea mantener el certificado de firma independiente del archivo WAR, puede utilizar la siguiente técnica:
 

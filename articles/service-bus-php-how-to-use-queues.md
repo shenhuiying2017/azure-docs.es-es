@@ -104,7 +104,7 @@ El siguiente ejemplo muestra cómo crear una instancia de un **ServiceBusRestPro
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -137,7 +137,7 @@ Para enviar un mensaje a una cola de bus de servicio, la aplicación va a llamar
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+        // http://msdn.microsoft.com/es-es/library/windowsazure/hh780775
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -188,7 +188,7 @@ En el ejemplo que aparece a continuación, se indica cómo se puede procesar y r
     catch(ServiceException $e){
         // Administrar la excepción a partir de los códigos y mensajes de error.
         // Los códigos y mensajes de error se incluyen aquí:
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+        // http://msdn.microsoft.com/es-es/library/windowsazure/hh780735
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -206,5 +206,5 @@ En caso de que la aplicación se bloquee después de procesar el mensaje y antes
 Pasos siguientes
 ----------------
 
-Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, consulte el tema [Colas, temas y suscripciones](http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx) de MSDN para obtener más información.
+Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, consulte el tema [Colas, temas y suscripciones](http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx) de MSDN para obtener más información.
 

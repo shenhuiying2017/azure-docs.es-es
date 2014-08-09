@@ -36,7 +36,7 @@ Siga estos pasos para crear un sitio web de Azure y una base de datos SQL:
 
     ![Rellenar detalles del sitio web](./media/web-sites-php-sql-database-deploy-use-git/website_details_sqlazure.jpg)
 
-4.  Escriba el valor **NAME** de su base de datos, seleccione el tipo de **Edition** [(WEB o BUSINESS)](http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx), el valor **Max Size** de la base de datos, la clase **Collation** y, a continuación, seleccione **NEW SQL Database server**. Haga clic en la flecha que aparece en la parte inferior del cuadro de diálogo.
+4.  Escriba el valor **NAME** de su base de datos, seleccione el tipo de **Edition** [(WEB o BUSINESS)](http://msdn.microsoft.com/es-es/library/windowsazure/ee621788.aspx), el valor **Max Size** de la base de datos, la clase **Collation** y, a continuación, seleccione **NEW SQL Database server**. Haga clic en la flecha que aparece en la parte inferior del cuadro de diálogo.
 
     ![Rellenar configuración de la base de datos SQL](./media/web-sites-php-sql-database-deploy-use-git/database_settings.jpg)
 

@@ -17,8 +17,8 @@ Requisitos previos
 
 1.  Un kit para desarrolladores de Java (JDK) v1.6 o posterior instalado.
 2.  El SDK de Azure instalado.
-3.  El archivo JAR de las Bibliotecas de Azure para Java (y cualquier JAR de dependencia correspondiente) instalado y en la ruta de acceso de compilación utilizada por el compilador de Java. Para obtener información acerca de la instalación de bibliotecas de Azure para Java, consulte [Descarga del SDK de Azure para Java](http://www.windowsazure.com/en-us/develop/java/).
-4.  Una cuenta de almacenamiento configurada en Azure. El nombre y clave de la cuenta para la cuenta de almacenamiento será utilizada por el código a continuación. Consulte [Creación de una cuenta de almacenamiento](http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/) para obtener información acerca de la creación de una cuenta de almacenamiento, y [Administración de cuentas de almacenamiento](http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/) para obtener información acerca del la recuperación de la clave de la cuenta.
+3.  El archivo JAR de las Bibliotecas de Azure para Java (y cualquier JAR de dependencia correspondiente) instalado y en la ruta de acceso de compilación utilizada por el compilador de Java. Para obtener información acerca de la instalación de bibliotecas de Azure para Java, consulte [Descarga del SDK de Azure para Java](http://www.windowsazure.com/es-es/develop/java/).
+4.  Una cuenta de almacenamiento configurada en Azure. El nombre y clave de la cuenta para la cuenta de almacenamiento será utilizada por el código a continuación. Consulte [Creación de una cuenta de almacenamiento](http://www.windowsazure.com/es-es/manage/services/storage/how-to-create-a-storage-account/) para obtener información acerca de la creación de una cuenta de almacenamiento, y [Administración de cuentas de almacenamiento](http://www.windowsazure.com/es-es/manage/services/storage/how-to-manage-a-storage-account/) para obtener información acerca del la recuperación de la clave de la cuenta.
 5.  Un archivo de imagen local creado con nombre y almacenado en la ruta de acceso c:\\myimages\\image1.jpg. También puede modificar el constructor **FileInputStream** en el ejemplo para utilizar una ruta de acceso de imagen y un nombre de archivo diferentes.
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
@@ -350,5 +350,5 @@ Para llamar al método **CloudBlobContainer.delete**, el proceso de inicializaci
         }
     }
 
-Para ver información general de otras clases y métodos de almacenamiento de blobs, consulte [Uso del servicio de almacenamiento de blobs desde Java](http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/).
+Para ver información general de otras clases y métodos de almacenamiento de blobs, consulte [Uso del servicio de almacenamiento de blobs desde Java](http://www.windowsazure.com/es-es/develop/java/how-to-guides/blob-storage/).
 

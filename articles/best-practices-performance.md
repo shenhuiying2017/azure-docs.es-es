@@ -104,7 +104,7 @@ Un patrón de diseño habitual compatible con el almacenamiento de tablas consta
 
 Para obtener más información acerca del almacenamiento de tablas, consulte:
 
--   [Almacenamiento de Tabla de Azure y Base de datos SQL de Azure: comparación y diferencias](http://msdn.microsoft.com/en-us/library/jj553018.aspx)
+-   [Almacenamiento de Tabla de Azure y Base de datos SQL de Azure: comparación y diferencias](http://msdn.microsoft.com/es-es/library/jj553018.aspx)
 -   [Azure Table Storage Performance Considerations](http://go.microsoft.com/fwlink/?LinkId=252663)
 -   [SQL Azure and Microsoft Azure Table Storage](http://go.microsoft.com/fwlink/?LinkId=252664)
 -   [Improving Performance by Batching Azure Table Storage Inserts](http://go.microsoft.com/fwlink/?LinkID=252665), donde se comentan algunos resultados de rendimiento
@@ -202,8 +202,8 @@ Existen cuatro tipos principales de almacenamiento de datos NoSQL:
 Azure ofrece compatibilidad directa con Hadoop, además de permitir el uso de otras tecnologías. Para obtener información acerca del servicio HDInsight de Azure, consulte:
 
 -   [Datos de gran tamaño](/en-us/solutions/big-data/)
--   [Servicio HDInsight de Azure](/en-us/documentation/services/hdinsight/)
--   [Introducción al servicio HDInsight de Azure](/en-us/documentation/articles/hdinsight-get-started/)
+-   [Servicio HDInsight de Azure](/es-es/documentation/services/hdinsight/)
+-   [Introducción al servicio HDInsight de Azure](/es-es/documentation/articles/hdinsight-get-started/)
 
 En los siguientes documentos podrá encontrar información sobre los problemas relacionados con los diferentes métodos de almacenamiento NoSQL:
 

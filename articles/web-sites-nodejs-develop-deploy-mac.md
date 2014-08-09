@@ -17,7 +17,7 @@ Siga estos pasos para crear un sitio web de Azure y, a continuación, activar la
 
  
 <div  class="dev-callout"><strong>Nota:</strong>
-<p>Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a  href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Evaluación gratuita de Azure</a>.</p>
+<p>Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a  href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Evaluación gratuita de Azure</a>.</p>
 </div>
 
  1.  Inicie sesión en el [Portal de administración de Azure][1].
@@ -166,7 +166,7 @@ En esta sección, creará un archivo **server.js** que contiene el ejemplo 'hell
 
 ## Pasos siguientes
 
-Si bien los pasos de este artículo utilizan el Portal Azure para crear un sitio web, también es posible utilizar las [herramientas de línea de comandos de Azure para Mac y Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/) para realizar las mismas operaciones.
+Si bien los pasos de este artículo utilizan el Portal Azure para crear un sitio web, también es posible utilizar las [herramientas de línea de comandos de Azure para Mac y Linux](/es-es/develop/nodejs/how-to-guides/command-line-tools/) para realizar las mismas operaciones.
 
 Node.js proporciona un abundante ecosistema de módulos que puede utilizar con sus aplicaciones. Para obtener información acerca del funcionamiento de los Sitios web Azure con los módulos, consulte [Uso de módulos Node.js con aplicaciones de Azure][4].
 
@@ -177,15 +177,15 @@ Si tiene problemas con su aplicación después de la implementación en Azure, c
 ## Recursos adicionales
 
 * [Azure
-  PowerShell](/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/)
+  PowerShell](/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/)
 * [Herramientas de línea de comandos de Azure para Mac y
-  Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/)
+  Linux](/es-es/develop/nodejs/how-to-guides/command-line-tools/)
 
 
 
 [1]: http://manage.windowsazure.com
 [2]: http://git-scm.com/
 [3]: http://git-scm.com/download
-[4]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/working-with-node-modules/
-[5]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/specifying-a-node-version/
-[6]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/Debug-Website/
+[4]: http://www.windowsazure.com/es-es/develop/nodejs/common-tasks/working-with-node-modules/
+[5]: http://www.windowsazure.com/es-es/develop/nodejs/common-tasks/specifying-a-node-version/
+[6]: http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/Debug-Website/

@@ -187,7 +187,7 @@ Además, agregará permisos a la entidad de servicio de la aplicación que ha cr
 
 1.  Descargue y extraiga la aplicación de ejemplo en la carpeta que quiera.
 2.  Antes de usar el código de ejemplo, debe conceder permisos adicionales a la entidad de servicio. Estos permisos permiten que la entidad de servicio lea los datos usando la API Graph. En el menú **Inicio**, ejecute la consola **Módulo Microsoft Online Services para Windows PowerShell**.
-3.  Concederá permisos de lectura a la entidad de servicio agregándolos al rol de administrador de soporte técnico de servicios. Para obtener más información acerca de la asignación de roles a la entidad de servicio, consulte [Control de acceso basado en roles para la API Graph](http://msdn.microsoft.com/en-us/library/hh974466.aspx). Escriba el siguiente comando y presione Entrar:
+3.  Concederá permisos de lectura a la entidad de servicio agregándolos al rol de administrador de soporte técnico de servicios. Para obtener más información acerca de la asignación de roles a la entidad de servicio, consulte [Control de acceso basado en roles para la API Graph](http://msdn.microsoft.com/es-es/library/hh974466.aspx). Escriba el siguiente comando y presione Entrar:
 
          Add-MsolRoleMember -RoleMemberType "ServicePrincipal" -RoleName "Service Support Administrator" -RoleMemberObjectId $appPrincipal.ObjectId 
 
@@ -222,5 +222,5 @@ Resumen
 
 Este tutorial le ha mostrado cómo crear y configurar una aplicación de un solo inquilino que utiliza las capacidades de inicio de sesión único de Azure Active Directory. Además, ha obtenido acceso a los datos del directorio del inquilino usando la API Graph. Le recomendamos que explore la aplicación de ejemplo para saber cómo aprovechar la API Graph en su propia aplicación.
 
-Para obtener más información acerca de la API Graph, [obtenga más información en MSDN](http://msdn.microsoft.com/en-us/library/hh974476.aspx). Lea el siguiente tutorial para saber cómo crear aplicaciones multiempresa para Azure Active Directory: [Desarrollo de aplicaciones multiempresa en la nube con Azure Active Directory](http://g.microsoftonline.com/0AX00en/121).
+Para obtener más información acerca de la API Graph, [obtenga más información en MSDN](http://msdn.microsoft.com/es-es/library/hh974476.aspx). Lea el siguiente tutorial para saber cómo crear aplicaciones multiempresa para Azure Active Directory: [Desarrollo de aplicaciones multiempresa en la nube con Azure Active Directory](http://g.microsoftonline.com/0AX00en/121).
 

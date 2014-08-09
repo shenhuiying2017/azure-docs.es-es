@@ -58,7 +58,7 @@ Asegúrese de tener el software siguiente instalado en el equipo donde instalar�
 
 ### Paso 2b: Instalar un nuevo agente cliente
 
-Siga la instrucción de [Instalar un cliente de agente de SQL Data Sync](http://msdn.microsoft.com/en-us/library/jj823137.aspx) para instalar el agente.
+Siga la instrucción de [Instalar un cliente de agente de SQL Data Sync](http://msdn.microsoft.com/es-es/library/jj823137.aspx) para instalar el agente.
 
 ### Paso 2c: Finalizar el Asistente de nuevo agente de SQL Data Sync
 
@@ -71,7 +71,7 @@ Siga la instrucción de [Instalar un cliente de agente de SQL Data Sync](http://
 Paso 3: Registrar una base de datos de SQL Server con el agente cliente
 -----------------------------------------------------------------------
 
-Cuando del agente cliente se haya instalado, registre todas las bases de datos de SQL Server locales que pretenda incluir en un grupo de sincronización con el agente. Para registrar una base de datos con el agente, siga las instrucciones de [Registrar una base de datos de SQL Server con un cliente de agente](http://msdn.microsoft.com/en-us/library/jj823138.aspx).
+Cuando del agente cliente se haya instalado, registre todas las bases de datos de SQL Server locales que pretenda incluir en un grupo de sincronización con el agente. Para registrar una base de datos con el agente, siga las instrucciones de [Registrar una base de datos de SQL Server con un cliente de agente](http://msdn.microsoft.com/es-es/library/jj823138.aspx).
 
 Paso 4: Crear un grupo de sincronización
 ----------------------------------------
@@ -179,7 +179,7 @@ Pasos siguientes
 Para obtener más información acerca de Base de datos SQL y SQL Data Sync, consulte:
 
 -   [Sign up for the Premium Offer for SQL Database] (../sign-up-for-sql-database-premium/)
--   [SQL Data Sync (Portal WA)](http://msdn.microsoft.com/en-us/library/windowsazure/jj856263.aspx)
+-   [SQL Data Sync (Portal WA)](http://msdn.microsoft.com/es-es/library/windowsazure/jj856263.aspx)
 -   [Introducción a Base de datos SQL de Azure](../getting-started-w-sql-databases/)
 -   [Ciclo de vida de base de datos SQL Server](http://go.microsoft.com/fwlink/?LinkId=275193)
 

@@ -234,5 +234,5 @@ eliminar una ranura de implementación que ya no sea necesaria, utilice el coman
 
 
 
-[1]: http://www.windowsazure.com/en-us/documentation/articles/install-configure-powershell
-[2]: http://www.windowsazure.com/en-us/documentation/articles/xplat-cli
+[1]: http://www.windowsazure.com/es-es/documentation/articles/install-configure-powershell
+[2]: http://www.windowsazure.com/es-es/documentation/articles/xplat-cli

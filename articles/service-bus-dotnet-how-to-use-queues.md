@@ -241,5 +241,5 @@ Ahora que conoce los fundamentos de las colas del bus de servicio, siga estos v√
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367512.aspx
+[1]: http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx
+[2]: http://msdn.microsoft.com/es-es/library/windowsazure/hh367512.aspx

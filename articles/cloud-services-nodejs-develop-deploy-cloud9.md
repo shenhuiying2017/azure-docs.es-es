@@ -120,7 +120,7 @@ Creación de una implementación
 
     4.  Después de seleccionar el archivo, haga clic en **Upload**.
 
-4.  Haga clic en **+ Create new** para crear un servicio hospedado nuevo. Un *servicio hospedado* es el contenedor en el que su aplicación se hospeda cuando se implementa en Azure. Para obtener más información, consulte [Overview of Creating a Hosted Service for Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx).
+4.  Haga clic en **+ Create new** para crear un servicio hospedado nuevo. Un *servicio hospedado* es el contenedor en el que su aplicación se hospeda cuando se implementa en Azure. Para obtener más información, consulte [Overview of Creating a Hosted Service for Azure](http://msdn.microsoft.com/es-es/library/windowsazure/jj155995.aspx).
 
     ![Creación de una implementación](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png)
 
@@ -151,9 +151,9 @@ Implementación en el entorno de producción de Azure
 
     ![Mensaje de que no se encontró el archivo web.config](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_no_web_config.png)
 
-5.  Si esta es la primera vez que ha implementado este proyecto en Azure, recibirá un error de **'No 'csdef' file present'**. Seleccione **Yes** para crear el archivo .csdef. Esa acción agregará un archivo 'ServiceDefinition.csdef' a su proyecto. ServiceDefinition.csdef es un archivo específico de Azure necesario para publicar su aplicación. Para obtener más información, consulte [Overview of Creating a Hosted Service for Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj155995.aspx).
+5.  Si esta es la primera vez que ha implementado este proyecto en Azure, recibirá un error de **'No 'csdef' file present'**. Seleccione **Yes** para crear el archivo .csdef. Esa acción agregará un archivo 'ServiceDefinition.csdef' a su proyecto. ServiceDefinition.csdef es un archivo específico de Azure necesario para publicar su aplicación. Para obtener más información, consulte [Overview of Creating a Hosted Service for Azure](http://msdn.microsoft.com/es-es/library/windowsazure/jj155995.aspx).
 
-6.  Se le solicitará que seleccione el tamaño de la instancia para esta aplicación. Seleccione **Small** y, a continuación, haga clic en **Create**. Para obtener más detalles sobre los tamaños de la máquina virtual de Azure, consulte [Configuración de tamaños de la máquina virtual](http://msdn.microsoft.com/en-us/library/windowsazure/ee814754.aspx).
+6.  Se le solicitará que seleccione el tamaño de la instancia para esta aplicación. Seleccione **Small** y, a continuación, haga clic en **Create**. Para obtener más detalles sobre los tamaños de la máquina virtual de Azure, consulte [Configuración de tamaños de la máquina virtual](http://msdn.microsoft.com/es-es/library/windowsazure/ee814754.aspx).
 
     ![Especificación de los valores del archivo csdef](./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createcsdef.png)
 
@@ -201,7 +201,7 @@ Implementación de la actualización en el entorno de ensayo de Azure
 Actualización a producción con el intercambio de VIP
 ----------------------------------------------------
 
-Cuando se implementa un servicio en los entornos de producción o ensayo, se asigna una dirección IP virtual (VIP) al servicio de ese entorno. Cuando desee mover un servicio del entorno de ensayo al entorno de producción, podrá hacerlo sin necesidad de volver a implementar mediante la realización de un intercambio VIP, que intercambia las implementaciones de ensayo y producción. Un intercambio VIP pone su aplicación probada y ensayada en producción sin tiempo de inactividad en el entorno de producción. Para obtener más detalles, consulte [Administrar implementaciones en Azure.](http://msdn.microsoft.com/en-us/library/windowsazure/gg433027.aspx)
+Cuando se implementa un servicio en los entornos de producción o ensayo, se asigna una dirección IP virtual (VIP) al servicio de ese entorno. Cuando desee mover un servicio del entorno de ensayo al entorno de producción, podrá hacerlo sin necesidad de volver a implementar mediante la realización de un intercambio VIP, que intercambia las implementaciones de ensayo y producción. Un intercambio VIP pone su aplicación probada y ensayada en producción sin tiempo de inactividad en el entorno de producción. Para obtener más detalles, consulte [Administrar implementaciones en Azure.](http://msdn.microsoft.com/es-es/library/windowsazure/gg433027.aspx)
 
 1.  En el cuadro de diálogo de implementación, haga clic en el vínculo **Open portal** para abrir el Portal de administración de Azure.
 

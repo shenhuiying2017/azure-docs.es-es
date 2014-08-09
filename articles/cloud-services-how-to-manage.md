@@ -72,7 +72,7 @@ Vínculo de un recurso a un servicio en la nube
 
 Para ver las dependencias de su servicio en la nube en otros recursos, puede vincular una instancia de Base de datos SQL de Azure o una cuenta de almacenamiento con el servicio en la nube. Puede vincular y desvincular los recursos en la página **Linked Resources**. Luego, supervise su uso en el panel de servicio en la nube. Si una cuenta de almacenamiento vinculada tiene la supervisión activada, pues supervisar el total de solicitudes en el panel del servicio en la nube.
 
-Use **Link** para vincular una instancia de Base de datos SQL nueva o existente o una cuenta de almacenamiento con su servicio en la nube. Posteriormente, puede escalar la base de datos junto con el rol del servicio en la nube que la está usando en la página **Scale**. (Una cuenta de almacenamiento escala automáticamente a medida que aumenta el uso). Para obtener más información, consulte [Escalación de un servicio en la nube y recursos vinculados](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-scale-a-cloud-service/).
+Use **Link** para vincular una instancia de Base de datos SQL nueva o existente o una cuenta de almacenamiento con su servicio en la nube. Posteriormente, puede escalar la base de datos junto con el rol del servicio en la nube que la está usando en la página **Scale**. (Una cuenta de almacenamiento escala automáticamente a medida que aumenta el uso). Para obtener más información, consulte [Escalación de un servicio en la nube y recursos vinculados](https://www.windowsazure.com/es-es/manage/services/cloud-services/how-to-scale-a-cloud-service/).
 
 Puede también supervisar, administrar y escalar la base de datos en el nodo **Bases de datos** del Portal de administración.
 
@@ -141,5 +141,5 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 
 5.  Para eliminar el servicio en la nube, haga clic en **Delete cloud service**. Luego, haga clic en **Yes** en la solicitud de confirmación.
 
-> [WACOM.NOTE] Si se configura una supervisión detallada para su servicio en la nube, Azure no elimina los datos de supervisión de la cuenta de almacenamiento al eliminar el servicio en la nube. Tendrá que eliminar los datos manualmente. Para obtener información sobre dónde buscar las tablas métricas, consulte "Acceso a los datos de supervisión detallada fuera del Portal de administración" en [Supervisión de servicios en la nube](https://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
+> [WACOM.NOTE] Si se configura una supervisión detallada para su servicio en la nube, Azure no elimina los datos de supervisión de la cuenta de almacenamiento al eliminar el servicio en la nube. Tendrá que eliminar los datos manualmente. Para obtener información sobre dónde buscar las tablas métricas, consulte "Acceso a los datos de supervisión detallada fuera del Portal de administración" en [Supervisión de servicios en la nube](https://www.windowsazure.com/es-es/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
 

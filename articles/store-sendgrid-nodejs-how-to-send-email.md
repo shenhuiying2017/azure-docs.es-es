@@ -3,7 +3,7 @@
 Envío de correo electrónico con SendGrid desde Node.js
 ======================================================
 
-Esta guía describe cómo realizar tareas de comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos usando la API Node.js. Los escenarios cubiertos incluyen **crear un correo electrónico**, **enviar un correo electrónico**, **agregar archivos adjuntos**, **utilizar filtros** y **actualizar propiedades**. Para obtener más información acerca de SendGrid y el envío de correo electrónico, consulte la sección [Pasos siguientes](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/blob-storage/#next-steps).
+Esta guía describe cómo realizar tareas de comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos usando la API Node.js. Los escenarios cubiertos incluyen **crear un correo electrónico**, **enviar un correo electrónico**, **agregar archivos adjuntos**, **utilizar filtros** y **actualizar propiedades**. Para obtener más información acerca de SendGrid y el envío de correo electrónico, consulte la sección [Pasos siguientes](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/blob-storage/#next-steps).
 
 Tabla de contenido
 ------------------

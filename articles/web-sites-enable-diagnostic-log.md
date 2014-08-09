@@ -5,7 +5,7 @@ Habilitación del registro de diagnóstico para Sitios web Azure
 
 Azure integra diagnósticos para ayudar a depurar una aplicación hospedada en Sitios web Azure. En este artículo se ofrece información acerca de cómo habilitar el registro de diagnósticos, agregar instrumentación a la aplicación y obtener acceso a la información registrada por Azure.
 
-> [WACOM.NOTE] En este artículo se describe el uso del Portal de administración de Azure, Azure PowerShell y la interfaz de la línea de comandos entre plataformas de Azure para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Sitios web Azure en Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+> [WACOM.NOTE] En este artículo se describe el uso del Portal de administración de Azure, Azure PowerShell y la interfaz de la línea de comandos entre plataformas de Azure para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Sitios web Azure en Visual Studio](/es-es/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 Tabla de contenido
 ------------------
@@ -32,13 +32,13 @@ Los diagnósticos del sitio le permiten habilitar o deshabilitar lo siguiente:
 
 ### Diagnósticos de aplicaciones
 
-El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/en-us/library/36hhw2t6.aspx) para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo:
+El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/es-es/library/36hhw2t6.aspx) para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
 El diagnóstico de la aplicación le permite solucionar los problemas de la aplicación en ejecución mediante la emisión de información cuando se usan determinadas piezas de código. Esto resulta especialmente útil al tratar de terminar por qué el código usa una ruta de acceso específica, normalmente si la ruta de acceso genera un error u otro comportamiento no deseado.
 
-Para obtener información acerca de cómo trabajar con diagnósticos de aplicaciones mediante Visual Studio, consulte [Solución de problemas de Sitios web Azure en Visual Studio](http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+Para obtener información acerca de cómo trabajar con diagnósticos de aplicaciones mediante Visual Studio, consulte [Solución de problemas de Sitios web Azure en Visual Studio](http://www.windowsazure.com/es-es/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 > [WACOM.NOTE] Al contrario de lo que ocurre al cambiar el archivo web.config, habilitar el diagnóstico de la aplicación o cambiar los niveles del registro de diagnóstico no recicla el dominio de la aplicación en el que esta se ejecuta.
 
@@ -53,7 +53,7 @@ Si habilita **Diagnóstico de aplicaciones**, también debe seleccionar el nivel
 
 Si habilita **site diagnostics**, debe seleccionar **storage** o **file system** para **web server logging**. Si selecciona **storage**, tiene la opción de seleccionar una cuenta de almacenamiento y, a continuación, un contenedor de blob en el que se escribirán los registros. Todos los demás registros de **site diagnostics** se escriben solo en el sistema de archivos.
 
-> [WACOM.NOTE] Solo se puede obtener acceso a la información almacenada en **table storage** o **blob storage** mediante un cliente de almacenamiento o una aplicación que puedan funcionar directamente con estos sistemas de almacenamiento. Por ejemplo, Visual Studio 2013 contiene un Explorador de almacenamiento que se puede usar para explorar el almacenamiento de tabla o de blobs y HDInsight puede obtener acceso a los datos almacenados en el almacenamiento de blobs. También puede escribir una aplicación que obtiene acceso al servicio Almacenamiento de Azure mediante alguno de los [SDK de Azure](http://www.windowsazure.com/en-us/downloads/#).
+> [WACOM.NOTE] Solo se puede obtener acceso a la información almacenada en **table storage** o **blob storage** mediante un cliente de almacenamiento o una aplicación que puedan funcionar directamente con estos sistemas de almacenamiento. Por ejemplo, Visual Studio 2013 contiene un Explorador de almacenamiento que se puede usar para explorar el almacenamiento de tabla o de blobs y HDInsight puede obtener acceso a los datos almacenados en el almacenamiento de blobs. También puede escribir una aplicación que obtiene acceso al servicio Almacenamiento de Azure mediante alguno de los [SDK de Azure](http://www.windowsazure.com/es-es/downloads/#).
 
 A continuación se indica la configuración disponible al habilitar **Diagnóstico de aplicaciones**:
 
@@ -65,7 +65,7 @@ A continuación se indica la configuración disponible al habilitar **Diagnósti
 
 > [WACOM.NOTE] Al mismo tiempo se puede habilitar cualquier combinación de sistema de archivos, almacenamiento de tabla o almacenamiento de blobs, y estas opciones tiene configuraciones individuales del nivel de registro. Por ejemplo, puede registrar errores y advertencias en el almacenamiento de blobs como una solución de registro a largo plazo, mientras habilita el registro en el sistema de archivos con un nivel detallado.
 
-> [WACOM.NOTE] El diagnóstico también se puede habilitar desde Azure PowerShell mediante el cmdlet **Set-AzureWebsite**. Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [WACOM.NOTE] El diagnóstico también se puede habilitar desde Azure PowerShell mediante el cmdlet **Set-AzureWebsite**. Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 Descarga de registros
 ---------------------
@@ -98,7 +98,7 @@ Para descargar los archivos de registro, inicie una nueva instancia de Azure Pow
 
 Este comando guardará los registros del sitio web especificados mediante el parámetro **-Name** en un archivo con nombre **logs.zip** en el directorio actual.
 
-> [WACOM.NOTE] Si no tiene instalado Azure PowerShell o lo ha configurado para usar la suscripción de Azure, consulte [Uso de Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [WACOM.NOTE] Si no tiene instalado Azure PowerShell o lo ha configurado para usar la suscripción de Azure, consulte [Uso de Azure PowerShell](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ### Descarga con las herramientas de línea de comandos de Azure
 
@@ -108,7 +108,7 @@ Para descargar los archivos de registro mediante las herramientas de línea de c
 
 Este comando guardará los registros en el sitio web denominado "nombre del sitio web" en un archivo con nombre **diagnostics.zip** en el directorio actual.
 
-> [WACOM.NOTE] Si no tiene instaladas las herramientas de línea de comandos de Azure o las ha configurado para que usen la suscripción de Azure, consulte [Uso de las herramientas de línea de comandos de Azure](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/).
+> [WACOM.NOTE] Si no tiene instaladas las herramientas de línea de comandos de Azure o las ha configurado para que usen la suscripción de Azure, consulte [Uso de las herramientas de línea de comandos de Azure](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/command-line-tools/).
 
 Transmisión de registros
 ------------------------
@@ -137,7 +137,7 @@ Para filtrar tipos de registros específicos, como HTTP, use el parámetro **-Pa
 
 Para ver una lista de rutas de acceso disponibles, use el parámetro -ListPath.
 
-> [WACOM.NOTE] Si no tiene instalado Azure PowerShell o lo ha configurado para usar la suscripción de Azure, consulte [Uso de Azure PowerShell](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [WACOM.NOTE] Si no tiene instalado Azure PowerShell o lo ha configurado para usar la suscripción de Azure, consulte [Uso de Azure PowerShell](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ### Transmisión con las herramientas de línea de comandos de Azure
 
@@ -155,7 +155,7 @@ Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--P
 
     azure site log tail websitename --path http
 
-> [WACOM.NOTE] Si no tiene instaladas las herramientas de línea de comandos de Azure o las ha configurado para que usen la suscripción de Azure, consulte [Uso de las herramientas de línea de comandos de Azure](http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/).
+> [WACOM.NOTE] Si no tiene instaladas las herramientas de línea de comandos de Azure o las ha configurado para que usen la suscripción de Azure, consulte [Uso de las herramientas de línea de comandos de Azure](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/command-line-tools/).
 
 Descripción de los registros de diagnóstico
 -------------------------------------------
@@ -377,8 +377,8 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 Pasos siguientes
 ----------------
 
--   [Supervisión de sitios web](/en-us/manage/services/web-sites/how-to-monitor-websites/)
--   [Tutorial - Solución de problemas de sitios web](/en-us/develop/net/best-practices/troubleshooting-web-sites/)
--   [Solución de problemas de Sitios web Azure en Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
+-   [Supervisión de sitios web](/es-es/manage/services/web-sites/how-to-monitor-websites/)
+-   [Tutorial - Solución de problemas de sitios web](/es-es/develop/net/best-practices/troubleshooting-web-sites/)
+-   [Solución de problemas de Sitios web Azure en Visual Studio](/es-es/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/)
 -   [Análisis de registros de sitios web en HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 

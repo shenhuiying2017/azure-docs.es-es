@@ -15,7 +15,7 @@ En esta guía de instrucciones se explica cómo utilizar las funciones de mensaj
 Introducción al bus de servicio
 -------------------------------
 
-En esta guía se asume que ya dispone de un espacio de nombres del bus de servicio con una cola denominada “queue1”. Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de administración de Azure](http://manage.windowsazure.com). Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio.](https://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
+En esta guía se asume que ya dispone de un espacio de nombres del bus de servicio con una cola denominada “queue1”. Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de administración de Azure](http://manage.windowsazure.com). Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio.](https://www.windowsazure.com/es-es/develop/net/how-to-guides/service-bus-queues/)
 
 Descarga de la biblioteca de cliente AMQP 1.0 JMS
 -------------------------------------------------
@@ -134,7 +134,7 @@ Donde [jndi\_name] y [physical\_name] tienen los significados siguientes:
   </tr>
 </table>
 
-**Nota**: al recibir de una suscripción al tema del bus de servicio, el nombre físico especificado en JNDI debe ser el nombre del tema. El nombre de la suscripción se proporciona cuando la suscripción duradera se crea en el código de aplicación JMS. La [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx) proporciona más información acerca de cómo trabajar con las suscripciones a temas del bus de servicio desde JMS.
+**Nota**: al recibir de una suscripción al tema del bus de servicio, el nombre físico especificado en JNDI debe ser el nombre del tema. El nombre de la suscripción se proporciona cuando la suscripción duradera se crea en el código de aplicación JMS. La [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/jj841071.aspx) proporciona más información acerca de cómo trabajar con las suscripciones a temas del bus de servicio desde JMS.
 
 ### Escritura de la aplicación JMS
 
@@ -272,7 +272,7 @@ Esta guía le ha mostrado cómo enviar y recibir mensajes con el bus de servicio
 
 Utilizando la aplicación JMS de ejemplo descrita anteriormente y una aplicación .NET similar tomada de la guía complementaria [Uso de la API de .NET con el bus de servicio .NET y AMQP 1.0](http://aka.ms/lym3vk), es posible intercambiar mensajes entre .NET y Java.
 
-Para obtener más información acerca de la mensajería entre diferentes plataformas utilizando el bus de servicio y AMQP 1.0, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx).
+Para obtener más información acerca de la mensajería entre diferentes plataformas utilizando el bus de servicio y AMQP 1.0, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/jj841071.aspx).
 
 ### De JMS a .NET
 
@@ -344,13 +344,13 @@ Resumen
 
 En esta guía de instrucciones se indica cómo usar las características de mensajería asíncrona del bus de servicio (colas y publicación/suscripción a temas) desde Java utilizando las populares JMS API y AMQP 1.0.
 
-También puede utilizar AMQP 1.0 del bus de servicio desde otros lenguajes, como .NET, C, Python y PHP. Los componentes creados utilizando estos lenguajes pueden intercambiar mensajes con seguridad y fidelidad gracias a la compatibilidad de AMQP 1.0 en el bus de servicio. Para obtener más información, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx).
+También puede utilizar AMQP 1.0 del bus de servicio desde otros lenguajes, como .NET, C, Python y PHP. Los componentes creados utilizando estos lenguajes pueden intercambiar mensajes con seguridad y fidelidad gracias a la compatibilidad de AMQP 1.0 en el bus de servicio. Para obtener más información, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/jj841071.aspx).
 
 Más información
 ---------------
 
 -   [Compatibilidad de AMQP 1.0 en el bus de servicio de Azure](http://aka.ms/pgr3dp)
 -   [Uso de AMQP 1.0 con la API .NET del bus de servicio](http://aka.ms/lym3vk)
--   [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)
--   [Utilización de las colas del bus de servicio](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
+-   [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/jj841071.aspx)
+-   [Utilización de las colas del bus de servicio](http://www.windowsazure.com/es-es/develop/net/how-to-guides/service-bus-queues/)
 

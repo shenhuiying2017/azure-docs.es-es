@@ -7,7 +7,7 @@ Generación de aplicaciones en tiempo real con Servicios móviles y Pusher
 
 En este tema se muestra cómo puede agregar funcionalidad en tiempo real a su aplicación basada en Servicios móviles de Azure. Cuando se complete, los datos de TodoList se sincronizarán en tiempo real en todas las instancias en ejecución de la aplicación.
 
-El tutorial [Notificaciones de inserción para usuarios](/en-us/develop/mobile/tutorials/push-notifications-to-users-ios) muestra cómo usar notificaciones de inserción para informar a los usuarios de nuevos elementos en la lista Todo. Las notificaciones de inserción son una manera fantástica de mostrar cambios ocasionales. Sin embargo, a veces una aplicación necesita notificaciones en tiempo real frecuentes. Las notificaciones en tiempo real se pueden agregar al servicio móvil con la API de Pusher. En este tutorial, usamos Pusher con Servicios móviles para mantener una lista Todo sincronizada cuando se realizan cambios en cualquier instancia en ejecución de la aplicación.
+El tutorial [Notificaciones de inserción para usuarios](/es-es/develop/mobile/tutorials/push-notifications-to-users-ios) muestra cómo usar notificaciones de inserción para informar a los usuarios de nuevos elementos en la lista Todo. Las notificaciones de inserción son una manera fantástica de mostrar cambios ocasionales. Sin embargo, a veces una aplicación necesita notificaciones en tiempo real frecuentes. Las notificaciones en tiempo real se pueden agregar al servicio móvil con la API de Pusher. En este tutorial, usamos Pusher con Servicios móviles para mantener una lista Todo sincronizada cuando se realizan cambios en cualquier instancia en ejecución de la aplicación.
 
 Pusher es un servicio basado en la nube, al igual que Servicios móviles, que facilita enormemente la generación de aplicaciones en tiempo real. Puede usar Pusher para generar rápidamente sondeos en vivo, salas de chat, juegos multijugador, aplicaciones de colaboración, y transmitir contenido y datos activos, entre otras tareas. Para obtener más información, consulte <http://pusher.com>.
 
@@ -18,7 +18,7 @@ En este tutorial se realiza un recorrido por estos pasos básicos para agregar c
 3.  [Instalación de los scripts de servidor](#install-scripts)
 4.  [Prueba de la aplicación](#test-app)
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started).
 
 Creación de una cuenta Pusher
 -----------------------------

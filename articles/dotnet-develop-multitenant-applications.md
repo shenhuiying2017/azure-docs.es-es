@@ -1,21 +1,21 @@
 <properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="" solutions="" manager="" editor="" />
 
--   [Proceso](/en-us/develop/net/compute/)
--   [Servicios de datos](/en-us/develop/net/data/)
--   [Servicios de aplicaciones](/en-us/develop/net/app-services/)
--   [Referencia](/en-us/develop/net/reference/)
--   [Guía](/en-us/develop/net/guidance/)
--   [Arquitectura](/en-us/develop/net/architecture/)
--   [Muestras](/en-us/develop/net/samples/)
--   [Tutoriales basados en escenarios](/en-us/develop/net/end-to-end-Apps/)
+-   [Proceso](/es-es/develop/net/compute/)
+-   [Servicios de datos](/es-es/develop/net/data/)
+-   [Servicios de aplicaciones](/es-es/develop/net/app-services/)
+-   [Referencia](/es-es/develop/net/reference/)
+-   [Guía](/es-es/develop/net/guidance/)
+-   [Arquitectura](/es-es/develop/net/architecture/)
+-   [Muestras](/es-es/develop/net/samples/)
+-   [Tutoriales basados en escenarios](/es-es/develop/net/end-to-end-Apps/)
 
 -   [Foros](/en-us/support/forums/)
 
 -   En esta sección (saltar a):
--   [Información general sobre la arquitectura de la aplicación](/en-us/develop/net/architecture/#overviews)
+-   [Información general sobre la arquitectura de la aplicación](/es-es/develop/net/architecture/#overviews)
 -   **Patrón de aplicación: aplicaciones multiempresa**
--   [Patrón de aplicación: pruebas de carga](/en-us/develop/net/architecture/load-testing-pattern/)
--   [Patrones de diseño](/en-us/develop/net/architecture/#designpatterns)
+-   [Patrón de aplicación: pruebas de carga](/es-es/develop/net/architecture/load-testing-pattern/)
+-   [Patrones de diseño](/es-es/develop/net/architecture/#designpatterns)
 
 Aplicaciones multiempresa en Azure
 ==================================
@@ -40,7 +40,7 @@ Una aplicación multiempresa correctamente implementada ofrece los siguientes be
 
 En resumen, si bien hay muchas consideraciones que debe tener en cuenta para ofrecer un servicio de alta escalabilidad, también hay una serie de objetivos y requisitos comunes a muchas aplicaciones multiempresa. Algunos pueden no resultar pertinentes en escenarios específicos y la importancia de los objetivos y requisitos individuales variará en cada escenario. Como proveedor de la aplicación multiempresa, también tendrá objetivos y requisitos como satisfacer los requisitos y los objetivos de los inquilinos, rentabilidad, facturación, varios niveles de servicio, aprovisionamiento, mantenimiento, supervisión y automatización.
 
-Para obtener más información acerca de consideraciones de diseño adicionales de una aplicación multiempresa, consulte [Hosting a Multi-Tenant Application on Azure](http://msdn.microsoft.com/en-us/library/hh534480.aspx).
+Para obtener más información acerca de consideraciones de diseño adicionales de una aplicación multiempresa, consulte [Hosting a Multi-Tenant Application on Azure](http://msdn.microsoft.com/es-es/library/hh534480.aspx).
 
 Azure ofrece muchas características que le permiten solucionar los principales problemas detectados al diseñar un sistema multiempresa.
 
@@ -87,5 +87,5 @@ Azure ofrece diferentes formas de aprovisionar nuevos inquilinos para la aplicac
     -   Copiar desde una base de datos de referencia maestra
     -   Usar la importación y exportación de base de datos para aprovisionar bases de datos nuevas desde un archivo
 
-Para obtener información detallada acerca de cómo aplicar Azure a aplicaciones multiempresa, consulte [Diseño de aplicaciones multiempresa en Azure](http://msdn.microsoft.com/en-us/library/windowsazure/hh689716).
+Para obtener información detallada acerca de cómo aplicar Azure a aplicaciones multiempresa, consulte [Diseño de aplicaciones multiempresa en Azure](http://msdn.microsoft.com/es-es/library/windowsazure/hh689716).
 

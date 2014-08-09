@@ -34,7 +34,7 @@ Configure el entorno de desarrollo mediante la instalación del SDK de Azure par
 
 También necesitará un emulador de explorador móvil. Funcionará cualquiera de las siguientes opciones:
 
--   [Emulador de Windows Phone 7](http://msdn.microsoft.com/en-us/library/ff402530(VS.92).aspx). (Este es el emulador que se utiliza en la mayoría de las capturas de pantalla de este tutorial).
+-   [Emulador de Windows Phone 7](http://msdn.microsoft.com/es-es/library/ff402530(VS.92).aspx). (Este es el emulador que se utiliza en la mayoría de las capturas de pantalla de este tutorial).
 -   Cambie la cadena de agente de usuario para emular un iPhone. Consulte [esta entrada de blog](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/) en How-To-Geek.
 -   [Emulador de Opera Mobile](http://www.opera.com/developer/tools/mobile/).
 -   [Apple Safari](http://www.apple.com/safari/download/) con el agente de usuario establecido en iPhone. Para obtener instrucciones sobre cómo configurar el agente de usuario en Safari para "iPhone", consulte [How to let Safari pretend it's IE](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html) en el blog de David Alison.

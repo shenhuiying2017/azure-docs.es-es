@@ -557,9 +557,9 @@ de tablas, utilice estos enlaces para obtener más información acerca de cómo 
 *  Consulte más guías de características para obtener información acerca
   de otras opciones del almacenamiento de datos en Azure.
   *  Utilice el [almacenamiento de
-    blobs](/en-us/develop/net/how-to-guides/blob-storage/) para almacenar datos no estructurados.
+    blobs](/es-es/develop/net/how-to-guides/blob-storage/) para almacenar datos no estructurados.
   *  Utilice [Base de datos
-    SQL](/en-us/develop/net/how-to-guides/sql-database/) para almacenar datos relacionales.
+    SQL](/es-es/develop/net/how-to-guides/sql-database/) para almacenar datos relacionales.
   
 
 
@@ -567,12 +567,12 @@ de tablas, utilice estos enlaces para obtener más información acerca de cómo 
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
-[2]: http://www.windowsazure.com/en-us/develop/net/#
+[1]: http://msdn.microsoft.com/es-es/library/windowsazure/ee758697.aspx
+[2]: http://www.windowsazure.com/es-es/develop/net/#
 [3]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
 [4]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
 [5]: http://nuget.org/packages/System.Spatial/5.0.2
 [6]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/dn495001(v=azure.10).aspx
-[8]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-[9]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+[7]: http://msdn.microsoft.com/es-es/library/windowsazure/dn495001(v=azure.10).aspx
+[8]: http://msdn.microsoft.com/es-es/library/windowsazure/dd179355
+[9]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx

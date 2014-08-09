@@ -170,7 +170,7 @@ El paquete de NuGet también incorpora una configuración **ClientDiagnosticLeve
       </ConfigurationSettings>
     </Role>
 
-> La caché en rol ofrece un servidor de caché y un nivel de diagnóstico de cliente de caché. El nivel de diagnóstico es una configuración única que configura el nivel de información de diagnóstico recopilada para el almacenamiento en caché. Para obtener más información, consulte [Diagnóstico y solución de problemas de In-Role Cache](http://msdn.microsoft.com/en-us/library/windowsazure/hh914135.aspx)
+> La caché en rol ofrece un servidor de caché y un nivel de diagnóstico de cliente de caché. El nivel de diagnóstico es una configuración única que configura el nivel de información de diagnóstico recopilada para el almacenamiento en caché. Para obtener más información, consulte [Diagnóstico y solución de problemas de In-Role Cache](http://msdn.microsoft.com/es-es/library/windowsazure/hh914135.aspx)
 
 El paquete de NuGet también agrega referencias a los siguientes ensamblados:
 
@@ -296,7 +296,7 @@ El proveedor del estado de sesión de la caché en rol es un mecanismo de almace
 
 Para habilitar el proveedor del estado de sesión para la caché en rol, quite el comentario de la sección especificada. La caché predeterminada se especifica en el fragmento proporcionado. Para usar una caché diferente, especifique la que desee en el atributo **cacheName**.
 
-Para obtener más información acerca del uso del proveedor del estado de sesión del servicio de almacenamiento en caché, consulte [Proveedor del estado de sesión para la caché en rol](http://msdn.microsoft.com/en-us/library/windowsazure/gg185668.aspx).
+Para obtener más información acerca del uso del proveedor del estado de sesión del servicio de almacenamiento en caché, consulte [Proveedor del estado de sesión para la caché en rol](http://msdn.microsoft.com/es-es/library/windowsazure/gg185668.aspx).
 
 ## Almacenamiento de la caché de resultados de la página ASP.NET en la caché
 
@@ -325,14 +325,14 @@ Incorpore una directiva **OutputCache** a cada página cuyos resultados desea al
 
 En este ejemplo, los datos de la página almacenados en la caché permanecerán ahí durante 60 segundos y se almacenará en la caché una versión diferente de la página para cada combinación de parámetros. Para obtener más información acerca de las opciones disponibles, consulte [directiva OutputCache](http://go.microsoft.com/fwlink/?LinkId=251979).
 
-Para obtener más información acerca del uso del proveedor de la caché de resultados para la caché en rol, consulte [Proveedor de caché de resultados para la caché en rol](http://msdn.microsoft.com/en-us/library/windowsazure/gg185662.aspx).
+Para obtener más información acerca del uso del proveedor de la caché de resultados para la caché en rol, consulte [Proveedor de caché de resultados para la caché en rol](http://msdn.microsoft.com/es-es/library/windowsazure/gg185662.aspx).
 
 ## Pasos siguientes
 
 Ahora que está familiarizado con los aspectos básicos de la caché en rol, utilice estos enlaces para obtener más información acerca de cómo realizar tareas de almacenamiento en caché más complejas.
 
 -   Consulte la referencia de MSDN: [Caché en rol](http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching)
--   Obtenga información acerca de cómo migrar a la caché en rol: [Migrar a In-Role Cache](http://msdn.microsoft.com/en-us/library/hh914163.aspx)
--   Consulte los ejemplos: [Ejemplos de In-Role Cache](http://msdn.microsoft.com/en-us/library/jj189876.aspx)
+-   Obtenga información acerca de cómo migrar a la caché en rol: [Migrar a In-Role Cache](http://msdn.microsoft.com/es-es/library/hh914163.aspx)
+-   Consulte los ejemplos: [Ejemplos de In-Role Cache](http://msdn.microsoft.com/es-es/library/jj189876.aspx)
 -   Vea la sesión [Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching](http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU) de TechEd 2013 sobre la caché en rol
 

@@ -40,7 +40,7 @@ El servicio de caché (vista previa) está disponible en tres niveles:
 -   Estándar: tamaños de caché de 1 GB a 10 GB
 -   Premium: tamaños de caché de 5 GB a 150 GB
 
-Estos niveles difieren en las características y el precio. Las características se tratan más adelante en esta guía; por otro lado, para obtener más información acerca de los precios consulte [Detalles de precios de caché](http://www.windowsazure.com/en-us/pricing/details/cache/).
+Estos niveles difieren en las características y el precio. Las características se tratan más adelante en esta guía; por otro lado, para obtener más información acerca de los precios consulte [Detalles de precios de caché](http://www.windowsazure.com/es-es/pricing/details/cache/).
 
 Esta guía contiene información general para iniciarse en el uso del servicio de caché (vista previa). Para obtener información más detallada acerca de estas características, que se salen del ámbito de esta guía introductoria, consulte [Azure Cache Service (vista previa)](http://go.microsoft.com/fwlink/?LinkId=320830).
 
@@ -421,24 +421,24 @@ Ahora que está familiarizado con los aspectos básicos del servicio de caché (
    
 <!-- LINKS -->
 [Azure Management Portal]: http://windows.azure.com/
-[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/en-us/library/windowsazure/gg618003.aspx
+[How to: Configure a Cache Client Programmatically]: http://msdn.microsoft.com/es-es/library/windowsazure/gg618003.aspx
 [Session State Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Azure AppFabric Cache: Caching Session State]: http://www.microsoft.com/en-us/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Output Cache Provider for Azure Cache]: http://go.microsoft.com/fwlink/?LinkId=320837
-[Azure Shared Caching]: http://msdn.microsoft.com/en-us/library/windowsazure/gg278356.aspx
+[Azure Shared Caching]: http://msdn.microsoft.com/es-es/library/windowsazure/gg278356.aspx
 [Team Blog]: http://blogs.msdn.com/b/windowsazure/
 [Azure Caching]: http://www.microsoft.com/en-us/showcase/Search.aspx?phrase=azure+caching
 [How to Configure Virtual Machine Sizes]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Azure Caching Capacity Planning Considerations]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Azure Caching]: http://go.microsoft.com/fwlink/?LinkId=252658
-[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/en-us/library/zd1ysf1y.aspx
-[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/en-us/library/z852zf6b.aspx
+[How to: Set the Cacheability of an ASP.NET Page Declaratively]: http://msdn.microsoft.com/es-es/library/zd1ysf1y.aspx
+[How to: Set a Page's Cacheability Programmatically]: http://msdn.microsoft.com/es-es/library/z852zf6b.aspx
 [Overview of Azure Cache Service (Preview)]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Cache Service (Preview)]: http://go.microsoft.com/fwlink/?LinkId=320830
 [OutputCache Directive]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Troubleshooting and Diagnostics]: http://go.microsoft.com/fwlink/?LinkId=320839
 [NuGet Package Manager Installation]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Cache Pricing Details]: http://www.windowsazure.com/en-us/pricing/details/cache/
+[Cache Pricing Details]: http://www.windowsazure.com/es-es/pricing/details/cache/
 [Management Portal]: https://manage.windowsazure.com/
 [Cache offerings]: http://go.microsoft.com/fwlink/?LinkId=317277
 [Capacity planning]: http://go.microsoft.com/fwlink/?LinkId=320167

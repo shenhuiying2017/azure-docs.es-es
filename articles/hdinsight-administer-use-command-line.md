@@ -7,7 +7,7 @@ En este artículo, aprenderá a utilizar la interfaz de la línea de comandos en
 
 La herramienta de línea de comandos es de código abierto. El código fuente se administra en GitHub en <https://github.com/WindowsAzure/azure-sdk-tools-xplat>.
 
-Este artículo solo trata el uso de la interfaz de línea de comandos en Windows. Para obtener información general acerca de cómo usar la interfaz de la línea de comandos, consulte [Uso de las herramientas de línea de comandos de Azure para Mac y Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/). Para obtener una documentación de referencia completa, consulte [Herramienta de línea de comandos de Azure para Mac y Linux](/en-us/manage/linux/other-resources/command-line-tools/).
+Este artículo solo trata el uso de la interfaz de línea de comandos en Windows. Para obtener información general acerca de cómo usar la interfaz de la línea de comandos, consulte [Uso de las herramientas de línea de comandos de Azure para Mac y Linux](/es-es/develop/nodejs/how-to-guides/command-line-tools/). Para obtener una documentación de referencia completa, consulte [Herramienta de línea de comandos de Azure para Mac y Linux](/es-es/manage/linux/other-resources/command-line-tools/).
 
 **Requisitos previos:**
 
@@ -55,7 +55,7 @@ La interfaz de línea de comandos se puede instalar usando *Node.js Package Mana
 
 **Para instalar la interfaz de línea de comandos usando Windows Installer**
 
-1.  Vaya a **http://www.windowsazure.com/en-us/downloads/**.
+1.  Vaya a **http://www.windowsazure.com/es-es/downloads/**.
 2.  Desplácese hasta la sección **Command line tools** y, a continuación, haga clic en **Cross-platform Command Line Interface** y siga el asistente del instalador de plataforma web.
 
 Descarga e importación de la configuración de publicación de la cuenta de Azure
@@ -104,7 +104,7 @@ Después de importar el archivo publishsettings, puede usar el siguiente comando
 </ul>
 
 
-Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure usando el Portal de administración de Azure, consulte [Creación de una cuenta de almacenamiento](/en-us/manage/services/storage/how-to-create-a-storage-account/).
+Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure usando el Portal de administración de Azure, consulte [Creación de una cuenta de almacenamiento](/es-es/manage/services/storage/how-to-create-a-storage-account/).
 
 Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, puede usar los comandos siguientes para recuperar dicha información:
 
@@ -115,7 +115,7 @@ Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, pue
     -- Enumera las claves de una cuenta de almacenamiento.
     azure account storage keys list <StorageAccountName>
 
-Para obtener información acerca de cómo conseguir la información usando el portal de administración, consulte la sección *Visualización, copia y regeneración de claves de acceso al almacenamiento* de [Administración de cuentas de almacenamiento](/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+Para obtener información acerca de cómo conseguir la información usando el portal de administración, consulte la sección *Visualización, copia y regeneración de claves de acceso al almacenamiento* de [Administración de cuentas de almacenamiento](/es-es/manage/services/storage/how-to-manage-a-storage-account/).
 
 El comando *azure hdinsight cluster create* crea el contenedor si no existe. Si opta por crear el contenedor antes, puede usar el comando siguiente:
 
@@ -171,9 +171,9 @@ Pasos siguientes
 
 En este artículo, ha aprendido a realizar diferentes tareas administrativas en clústeres de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
--   [Administración de HDInsight con el portal de administración](/en-us/manage/services/hdinsight/howto-administer-hdinsight/)
--   [Administración de HDInsight con PowerShell](/en-us/manage/services/hdinsight/administer-hdinsight-using-powershell/)
--   [Introducción a HDInsight de Azure](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [Uso de las herramientas de línea de comandos de Azure para Mac y Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/)
--   [Herramienta de línea de comandos de Azure para Mac y Linux](/en-us/manage/linux/other-resources/command-line-tools/)
+-   [Administración de HDInsight con el portal de administración](/es-es/manage/services/hdinsight/howto-administer-hdinsight/)
+-   [Administración de HDInsight con PowerShell](/es-es/manage/services/hdinsight/administer-hdinsight-using-powershell/)
+-   [Introducción a HDInsight de Azure](/es-es/manage/services/hdinsight/get-started-hdinsight/)
+-   [Uso de las herramientas de línea de comandos de Azure para Mac y Linux](/es-es/develop/nodejs/how-to-guides/command-line-tools/)
+-   [Herramienta de línea de comandos de Azure para Mac y Linux](/es-es/manage/linux/other-resources/command-line-tools/)
 

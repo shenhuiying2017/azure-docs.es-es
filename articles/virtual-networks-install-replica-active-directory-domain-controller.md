@@ -44,7 +44,7 @@ Este tutorial le guiará a través de los pasos para instalar un controlador de 
  
 <div  class="dev-callout"> 
 <b>Nota:</b>
-<p>Si ya completó los pasos de <a  href="/en-us/manage/services/networking/active-directory-forest/">Instalación de un nuevo bosque de Active Directory en Azure</a>, es posible que sea necesario quitar AD DS del controlador de dominio en la red virtual de Azure antes de comenzar este tutorial. Para ver más información sobre cómo quitar AD DS, consulte <a  href="http://technet.microsoft.com/en-us/library/cc771844(v=WS.10).aspx">Eliminación de un controlador de dominio de un dominio</a>.</p>
+<p>Si ya completó los pasos de <a  href="/es-es/manage/services/networking/active-directory-forest/">Instalación de un nuevo bosque de Active Directory en Azure</a>, es posible que sea necesario quitar AD DS del controlador de dominio en la red virtual de Azure antes de comenzar este tutorial. Para ver más información sobre cómo quitar AD DS, consulte <a  href="http://technet.microsoft.com/en-us/library/cc771844(v=WS.10).aspx">Eliminación de un controlador de dominio de un dominio</a>.</p>
 </div>
 
  <h2><a  id="verifystaticip" ></a>Paso 1: Comprobación de dirección IP estática para YourPrimaryDC</h2>
@@ -294,10 +294,10 @@ Para obtener más información acerca del uso de Windows PowerShell, consulte [A
 
 
 
-[1]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156007.aspx
-[2]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
-[3]: http://www.windowsazure.com/en-us/manage/services/networking/cross-premises-connectivity/
-[4]: http://www.windowsazure.com/en-us/manage/services/networking/add-a-vm-to-a-virtual-network/
+[1]: http://msdn.microsoft.com/es-es/library/windowsazure/jj156007.aspx
+[2]: http://msdn.microsoft.com/es-es/library/windowsazure/jj156090.aspx
+[3]: http://www.windowsazure.com/es-es/manage/services/networking/cross-premises-connectivity/
+[4]: http://www.windowsazure.com/es-es/manage/services/networking/add-a-vm-to-a-virtual-network/
 [5]: http://technet.microsoft.com/en-us/library/cc753500.aspx
-[6]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156055.aspx
-[7]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841
+[6]: http://msdn.microsoft.com/es-es/library/windowsazure/jj156055.aspx
+[7]: http://msdn.microsoft.com/es-es/library/windowsazure/jj152841

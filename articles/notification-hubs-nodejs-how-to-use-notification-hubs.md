@@ -17,12 +17,12 @@ Tabla de contenido
 ¿Qué son los centros de notificaciones del bus de servicio?
 -----------------------------------------------------------
 
-Los centros de notificaciones del bus de servicio de Azure proporcionan una infraestructura multiplataforma escalable de fácil uso para enviar notificaciones de inserción a los dispositivos móviles. Para obtener más información, consulte el tema [Información general acerca de los centros de notificaciones de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx).
+Los centros de notificaciones del bus de servicio de Azure proporcionan una infraestructura multiplataforma escalable de fácil uso para enviar notificaciones de inserción a los dispositivos móviles. Para obtener más información, consulte el tema [Información general acerca de los centros de notificaciones de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/jj927170.aspx).
 
 Creación de una aplicación Node.js
 ----------------------------------
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Servicio en la nube Node.js](/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (usando Windows PowerShell) o [Sitio web con WebMatrix](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/).
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure](/es-es/develop/nodejs/tutorials/create-a-website-(mac)/), [Servicio en la nube Node.js](/es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/) (usando Windows PowerShell) o [Sitio web con WebMatrix](/es-es/develop/nodejs/tutorials/web-site-with-webmatrix/).
 
 Configuración de la aplicación para usar el bus de servicio
 -----------------------------------------------------------
@@ -134,11 +134,11 @@ El objeto **MpnsService** proporciona un método **send** que se puede usar para
 -   Tags: identificador de etiqueta. Si no se proporciona ninguna, la notificación se enviará a todos los clientes.
 -   Payload: carga XML del mensaje.
 -   TargetName: 'toast' para notificaciones del sistema. 'token' para notificaciones de icono.
--   NotificationClass: prioridad de la notificación. Consulte la sección HTTP Header Elements del tema [Pushing notifications from a server](http://msdn.microsoft.com/en-us/library/hh221551.aspx) para obtener los valores válidos.
+-   NotificationClass: prioridad de la notificación. Consulte la sección HTTP Header Elements del tema [Pushing notifications from a server](http://msdn.microsoft.com/es-es/library/hh221551.aspx) para obtener los valores válidos.
 -   Options: encabezados de solicitud opcionales.
 -   Callback: función de devolución de llamada.
 
-Para obtener una lista de valores TargetName, NotificationClass y opciones de encabezado válidos, consulte [Pushing notifications from a server](http://msdn.microsoft.com/en-us/library/hh221551.aspx).
+Para obtener una lista de valores TargetName, NotificationClass y opciones de encabezado válidos, consulte [Pushing notifications from a server](http://msdn.microsoft.com/es-es/library/hh221551.aspx).
 
 El código siguiente usa la instancia **MpnsService** expuesta por **NotificationHubService** para enviar una alerta del sistema:
 
@@ -159,7 +159,7 @@ El objeto **WnsService** proporciona un método **send** que se puede usar para 
 -   Options: encabezados de solicitud opcionales.
 -   Callback: función de devolución de llamada.
 
-Para obtener una lista de valores Type y encabezados de solicitud válidos, consulte [Push notification service request and response headers](http://msdn.microsoft.com/en-us/library/windows/apps/hh465435.aspx).
+Para obtener una lista de valores Type y encabezados de solicitud válidos, consulte [Push notification service request and response headers](http://msdn.microsoft.com/es-es/library/windows/apps/hh465435.aspx).
 
 El código siguiente usa la instancia **WnsService** expuesta por **NotificationHubService** para enviar una alerta del sistema:
 
@@ -175,6 +175,6 @@ Pasos siguientes
 
 Ahora que conoce los fundamentos de los temas del bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Información general acerca de los centros de notificaciones de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/jj927170.aspx).
+-   Consulte la referencia de MSDN: [Información general acerca de los centros de notificaciones de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/jj927170.aspx).
 -   Visite el repositorio del [SDK de Azure para Node.js](https://github.com/WindowsAzure/azure-sdk-for-node) (en inglés) en GitHub.
 

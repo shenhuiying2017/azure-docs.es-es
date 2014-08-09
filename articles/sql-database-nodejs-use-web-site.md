@@ -66,7 +66,7 @@ Siga estos pasos para crear un sitio web de Azure y una base de datos SQL:
 
     ![Rellenar los detalles del sitio web](./media/sql-database-nodejs-use-web-site/website_details_sqlazure.jpg)
 
-4.  Escriba el valor **NAME** de su base de datos, seleccione el tipo de **EDITION** [(WEB o BUSINESS)](http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx), el valor **MAX SIZE** de la base de datos, la clase **COLLATION** y, a continuación, seleccione **NEW SQL Database server**. Haga clic en la flecha que aparece en la parte inferior del cuadro de diálogo.
+4.  Escriba el valor **NAME** de su base de datos, seleccione el tipo de **EDITION** [(WEB o BUSINESS)](http://msdn.microsoft.com/es-es/library/windowsazure/ee621788.aspx), el valor **MAX SIZE** de la base de datos, la clase **COLLATION** y, a continuación, seleccione **NEW SQL Database server**. Haga clic en la flecha que aparece en la parte inferior del cuadro de diálogo.
 
     ![Rellenar configuración de la base de datos SQL](./media/sql-database-nodejs-use-web-site/database_settings.jpg)
 
@@ -458,9 +458,9 @@ Pasos siguientes
 
 -   [Node.js Web Application with MongoDB](../store-mongolab-web-sites-nodejs-store-data-mongodb/)
 
--   [Aplicación web Node.js con almacenamiento de tablas](/en-us/develop/nodejs/tutorials/web-site-with-storage/)
+-   [Aplicación web Node.js con almacenamiento de tablas](/es-es/develop/nodejs/tutorials/web-site-with-storage/)
 
 Recursos adicionales
 --------------------
 
-[ Herramienta de línea de comandos de Azure para Mac y Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/)
+[ Herramienta de línea de comandos de Azure para Mac y Linux](/es-es/develop/nodejs/how-to-guides/command-line-tools/)

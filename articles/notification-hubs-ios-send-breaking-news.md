@@ -3,11 +3,11 @@
 Uso de los Centros de notificaciones para enviar noticias de última hora
 ========================================================================
 
-[C\# para Tienda Windows](/en-us/manage/services/notification-hubs/breaking-news-dotnet "C# para Tienda Windows")[Windows Phone](/en-us/manage/services/notification-hubs/breaking-news-wp8 "Windows Phone")[iOS](/en-us/manage/services/notification-hubs/breaking-news-ios "iOS")
+[C\# para Tienda Windows](/es-es/manage/services/notification-hubs/breaking-news-dotnet "C# para Tienda Windows")[Windows Phone](/es-es/manage/services/notification-hubs/breaking-news-wp8 "Windows Phone")[iOS](/es-es/manage/services/notification-hubs/breaking-news-ios "iOS")
 
 Este tema muestra cómo puede usar los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora en una aplicación iOS. Cuando lo complete, podrá registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías. Este escenario es un patrón común para muchas aplicaciones en las que las notificaciones tienen que enviarse a grupos de usuarios que han mostrado previamente interés en ellas, por ejemplo, lectores RSS, aplicaciones para aficionados a la música, etc.
 
-Los escenarios de difusión se habilitan mediante la inclusión de una o más *etiquetas* cuando se crea un registro en el centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para obtener información sobre las etiquetas, consulte [Notification Hubs Guidance](http://msdn.microsoft.com/en-us/library/jj927170.aspx).
+Los escenarios de difusión se habilitan mediante la inclusión de una o más *etiquetas* cuando se crea un registro en el centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para obtener información sobre las etiquetas, consulte [Notification Hubs Guidance](http://msdn.microsoft.com/es-es/library/jj927170.aspx).
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar este escenario:
 
@@ -16,7 +16,7 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar este e
 3.  [Envío de notificaciones desde su back-end](#send)
 4.  [Ejecución de la aplicación y generación de notificaciones](#test-app)
 
-Este tema se basa en la aplicación que creó en [Introducción a los Centros de notificaciones](/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/). Antes de comenzar este tutorial, debe haber completado la [Introducción a los Centros de notificaciones](/en-us/manage/services/notification-hubs/get-started-notification-hubs-ios/).
+Este tema se basa en la aplicación que creó en [Introducción a los Centros de notificaciones](/es-es/manage/services/notification-hubs/get-started-notification-hubs-ios/). Antes de comenzar este tutorial, debe haber completado la [Introducción a los Centros de notificaciones](/es-es/manage/services/notification-hubs/get-started-notification-hubs-ios/).
 
 Incorporación de una selección de categorías a la aplicación
 ------------------------------------------------------------
@@ -225,11 +225,11 @@ Pasos siguientes
 
 En este tutorial hemos aprendido cómo difundir noticias de última hora por categoría. Considere la posibilidad de llevar a cabo uno de los siguientes tutoriales que destacan otros escenarios de centros de notificaciones avanzados:
 
--   **[Uso de los Centros de notificaciones para difundir noticias de última hora localizadas](/en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/)**
+-   **[Uso de los Centros de notificaciones para difundir noticias de última hora localizadas](/es-es/manage/services/notification-hubs/breaking-news-localized-dotnet/)**
 
     Conozca cómo expandir la aplicación de noticias de última hora para habilitar el envío de notificaciones localizadas.
 
--   **[Notificación a los usuarios con los Centros de notificaciones](/en-us/manage/services/notification-hubs/notify-users/)**
+-   **[Notificación a los usuarios con los Centros de notificaciones](/es-es/manage/services/notification-hubs/notify-users/)**
 
     Conozca cómo insertar notificaciones para usuarios autenticados específicos. Esta es una buena solución para enviar notificaciones solo a usuarios específicos.
 

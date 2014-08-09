@@ -26,7 +26,7 @@ Uso de federaciones
 
 Las federaciones en Base de datos SQL se usan para conseguir un rendimiento y una escalabilidad superiores. Una o más tablas en una base de datos se dividen por fila y se fragmentan entre varias bases de datos (miembros de la federación). A este tipo de partición horizontal se le conoce a veces como "particionamiento". Los escenarios principales en los que es útil son aquellos en los que es necesario conseguir una escalación o un rendimiento determinados, o para administrar la capacidad.
 
-Las federaciones se admiten en la Business Edition. Para obtener más información, consulte [Federaciones en Base de datos SQL de Azure (anteriormente SQL Azure)](http://msdn.microsoft.com/en-us/library/windowsazure/hh597452.aspx) y [Tutorial de Federaciones de bases de datos SQL: DBA](http://msdn.microsoft.com/en-us/library/windowsazure/hh778416.aspx).
+Las federaciones se admiten en la Business Edition. Para obtener más información, consulte [Federaciones en Base de datos SQL de Azure (anteriormente SQL Azure)](http://msdn.microsoft.com/es-es/library/windowsazure/hh597452.aspx) y [Tutorial de Federaciones de bases de datos SQL: DBA](http://msdn.microsoft.com/es-es/library/windowsazure/hh778416.aspx).
 
 Consideración de otras formas de almacenamiento
 -----------------------------------------------

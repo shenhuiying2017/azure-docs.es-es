@@ -3,7 +3,7 @@
 Configuración de PHP en Sitios web Azure
 ========================================
 
-En esta guía se explica cómo configurar el tiempo de ejecución de PHP integrado en Sitios web Azure, ofrecer un tiempo de ejecución de PHP personalizado y habilitar extensiones en Sitios web Azure. Para usar Sitios web Azure, regístrese para obtener acceso a la [prueba gratuita](https://www.windowsazure.com/en-us/pricing/free-trial/). Para sacar el máximo provecho a esta guía, primero debe crear un sitio PHP en Sitios web Azure (consulte los [Tutoriales del Centro para desarrolladores de PHP](https://www.windowsazure.com/en-us/develop/php/tutorials/)). Si desea obtener información general acerca de la configuración de los sitios en Sitios web Azure, consulte [Configuración de Sitios web](https://www.windowsazure.com/en-us/manage/services/web-sites/how-to-configure-websites/).
+En esta guía se explica cómo configurar el tiempo de ejecución de PHP integrado en Sitios web Azure, ofrecer un tiempo de ejecución de PHP personalizado y habilitar extensiones en Sitios web Azure. Para usar Sitios web Azure, regístrese para obtener acceso a la [prueba gratuita](https://www.windowsazure.com/en-us/pricing/free-trial/). Para sacar el máximo provecho a esta guía, primero debe crear un sitio PHP en Sitios web Azure (consulte los [Tutoriales del Centro para desarrolladores de PHP](https://www.windowsazure.com/es-es/develop/php/tutorials/)). Si desea obtener información general acerca de la configuración de los sitios en Sitios web Azure, consulte [Configuración de Sitios web](https://www.windowsazure.com/es-es/manage/services/web-sites/how-to-configure-websites/).
 
 Tabla de contenido
 ------------------
@@ -99,6 +99,6 @@ Pasos siguientes
 
 Ahora que ya sabe cómo configurar PHP en Sitios web Azure, siga los vínculos que se proporcionan a continuación para obtener más información.
 
--   [Configuración, supervisión y escalado de los sitios web en Azure](http://www.windowsazure.com/en-us/manage/services/web-sites/)
--   [Descarga del SDK de Azure para PHP](http://www.windowsazure.com/en-us/develop/php/common-tasks/download-php-sdk/)
+-   [Configuración, supervisión y escalado de los sitios web en Azure](http://www.windowsazure.com/es-es/manage/services/web-sites/)
+-   [Descarga del SDK de Azure para PHP](http://www.windowsazure.com/es-es/develop/php/common-tasks/download-php-sdk/)
 

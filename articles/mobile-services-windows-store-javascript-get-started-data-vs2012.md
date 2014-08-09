@@ -1,15 +1,15 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-data-js" urlDisplayName="Get Started with Data" pageTitle="Get started with data (JavaScript) - Mobile Services" metaKeywords="" description="Learn how to get started using data with Azure Mobile Services." metaCanonical="https://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-data-js" urlDisplayName="Get Started with Data" pageTitle="Get started with data (JavaScript) - Mobile Services" metaKeywords="" description="Learn how to get started using data with Azure Mobile Services." metaCanonical="https://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started-with-data-dotnet/" disqusComments="1" umbracoNaviHide="1" title="Get started with data in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="" />
 
 Introducción a los datos en Servicios móviles con Visual Studio 2012
 ====================================================================
 
-[C\# para Tienda Windows](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012 "C# para Tienda Windows")[JavaScript para Tienda Windows](/en-us/develop/mobile/tutorials/get-started-with-data-js-vs2012 "JavaScript para Tienda Windows")[Windows Phone](/en-us/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone")[iOS](/en-us/develop/mobile/tutorials/get-started-with-data-ios "iOS")[Android](/en-us/develop/mobile/tutorials/get-started-with-data-android "Android")[HTML](/en-us/develop/mobile/tutorials/get-started-with-data-html "HTML")[Xamarin.iOS](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android")
+[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012 "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-data-js-vs2012 "JavaScript para Tienda Windows")[Windows Phone](/es-es/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/get-started-with-data-ios "iOS")[Android](/es-es/develop/mobile/tutorials/get-started-with-data-android "Android")[HTML](/es-es/develop/mobile/tutorials/get-started-with-data-html "HTML")[Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android")
 
 Este tema muestra cómo utilizar Servicios móviles de Azure para aprovechar los datos en una aplicación de la Tienda Microsoft. En este tutorial descargará una aplicación que almacena datos en memoria, creará un nuevo servicio móvil, integrará el servicio móvil en la aplicación y luego iniciará sesión en el Portal de administración de Azure para ver los cambios que se hicieron en los datos durante la ejecución de la aplicación.
 
 **Nota:**
 
-Este tutorial agrega la funcionalidad de Servicios móviles a una aplicación de la Tienda Windows creada en Visual Studio 2012. Visual Studio 2013 incluye nuevas características que facilitan la conexión de su aplicación de la Tienda Windows a Servicios móviles. Para obtener más información, consulte [Introducción a los datos en Servicios móviles](/en-us/develop/mobile/tutorials/get-started-with-data-js/).
+Este tutorial agrega la funcionalidad de Servicios móviles a una aplicación de la Tienda Windows creada en Visual Studio 2012. Visual Studio 2013 incluye nuevas características que facilitan la conexión de su aplicación de la Tienda Windows a Servicios móviles. Para obtener más información, consulte [Introducción a los datos en Servicios móviles](/es-es/develop/mobile/tutorials/get-started-with-data-js/).
 
 Este tutorial le guiará a través de estos pasos básicos:
 
@@ -21,7 +21,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 **Nota:**
 
-para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-js%2F).
+para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-js%2F).
 
 Descarga del proyectoDescarga del proyecto GetStartedWithData
 -------------------------------------------------------------
@@ -173,18 +173,18 @@ Pasos siguientes
 
 Este tutorial demostró los aspectos básicos de la habilitación de una aplicación de la Tienda Windows para trabajar con datos en Servicios móviles. A continuación, considere la realización de uno de los siguientes tutoriales que se basan en la aplicación GetStartedWithData que creó en este tutorial:
 
--   [Validación y modificación de datos con scripts](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js)
+-   [Validación y modificación de datos con scripts](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-js)
     Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
 
--   [Limitación de consultas con paginación](/en-us/develop/mobile/tutorials/add-paging-to-data-js)
+-   [Limitación de consultas con paginación](/es-es/develop/mobile/tutorials/add-paging-to-data-js)
     Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se manejan en una única solicitud.
 
 Una vez que haya completado la serie de datos, intente con uno de estos otros tutoriales:
 
--   [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-js)
+-   [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-js)
     Aprenda a autenticar a los usuarios de su aplicación.
 
--   [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-js-vs2012)
+-   [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-js-vs2012)
     Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
 
@@ -212,12 +212,12 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js
-[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-js
-[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
-[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-js
-[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-js-vs2012
-[C# and XAML]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012
+[Validate and modify data with scripts]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-js
+[Refine queries with paging]: /es-es/develop/mobile/tutorials/add-paging-to-data-js
+[Get started with Mobile Services]: /es-es/develop/mobile/tutorials/get-started
+[Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-js
+[Get started with push notifications]: /es-es/develop/mobile/tutorials/get-started-with-push-js-vs2012
+[C# and XAML]: /es-es/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/

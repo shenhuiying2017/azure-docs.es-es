@@ -76,5 +76,5 @@ Especifique la contraseña de nuevo. Espere a que las actualizaciones se instale
 
 
 [1]: http://go.microsoft.com/fwlink/p/?LinkID=294063
-[2]: http://msdn.microsoft.com/en-us/library/ms161962.aspx
+[2]: http://msdn.microsoft.com/es-es/library/ms161962.aspx
 [3]: http://www.puttyssh.org/download.html

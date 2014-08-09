@@ -3,7 +3,7 @@
 Aplicación web Django Hello World (mac-linux)
 =============================================
 
-[Windows](/en-us/develop/python/tutorials/web-app-with-django/ "Windows")[Mac/Linux](/en-us/develop/python/tutorials/django-hello-world-(maclinux)/ "Mac/Linux")
+[Windows](/es-es/develop/python/tutorials/web-app-with-django/ "Windows")[Mac/Linux](/es-es/develop/python/tutorials/django-hello-world-(maclinux)/ "Mac/Linux")
 
 En este tutorial se describe cómo hospedar un sitio web basado en Django en Microsoft Azure usando una máquina virtual con Linux. En este tutorial se asume que no tiene ninguna experiencia previa con Azure. Al término de esta guía, tendrá una aplicación basada en Django funcionando en la nube.
 
@@ -23,7 +23,7 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 Creación y configuración de una máquina virtual de Azure para hospedar Django
 -----------------------------------------------------------------------------
 
-1.  Siga las instrucciones que se proporcionan [aquí](/en-us/manage/linux/tutorials/virtual-machine-from-gallery/) para crear una máquina virtual de Azure de la distribución *Ubuntu Server 12.04*.
+1.  Siga las instrucciones que se proporcionan [aquí](/es-es/manage/linux/tutorials/virtual-machine-from-gallery/) para crear una máquina virtual de Azure de la distribución *Ubuntu Server 12.04*.
 
 	**Nota:** *solo* necesita crear la máquina virtual. Deténgase en la sección titulada *Inicio de sesión en una máquina virtual después de su creación*.
 

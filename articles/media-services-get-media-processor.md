@@ -21,17 +21,17 @@ La siguiente tabla proporciona el nombre y la descripción de cada procesador mu
     <tr data-morhtml="true">
        <td data-morhtml="true">Codificador multimedia de Azure</td>
        <td data-morhtml="true">Le permite ejecutar tareas de codificaci&oacute;n con el Codificador multimedia.</td>
-       <td data-morhtml="true"><a data-morhtml="true" href="http://msdn.microsoft.com/en-us/library/jj129582.aspx"> Valores predefinidos del sistema Media Services Encoder</a></td>
+       <td data-morhtml="true"><a data-morhtml="true" href="http://msdn.microsoft.com/es-es/library/jj129582.aspx"> Valores predefinidos del sistema Media Services Encoder</a></td>
     </tr>
     <tr data-morhtml="true">
         <td data-morhtml="true">Azure Media Packager</td>
         <td data-morhtml="true">Le permite convertir recursos multimedia de .mp4 a un formato de Smooth Streaming. Adem&aacute;s, le permite convertir recursos multimedia de Smooth Streaming al formato Apple HTTP Live Streaming (HLS).</td>
-		<td data-morhtml="true"><a data-morhtml="true" href="http://msdn.microsoft.com/en-us/library/hh973635.aspx">Valores predefinidos del sistema Azure Media Packager</a></td>
+		<td data-morhtml="true"><a data-morhtml="true" href="http://msdn.microsoft.com/es-es/library/hh973635.aspx">Valores predefinidos del sistema Azure Media Packager</a></td>
     </tr>
     <tr data-morhtml="true">
         <td data-morhtml="true">Azure Media Encryptor</td>
         <td data-morhtml="true">Le permite cifrar recursos multimedia con la protecci&oacute;n PlayReady.</td>
-        <td data-morhtml="true"><a data-morhtml="true" href="http://msdn.microsoft.com/en-us/library/hh973610.aspx">Valores predefinidos del sistema Azure Media Packager</a></td>
+        <td data-morhtml="true"><a data-morhtml="true" href="http://msdn.microsoft.com/es-es/library/hh973610.aspx">Valores predefinidos del sistema Azure Media Packager</a></td>
     </tr>
     <tr data-morhtml="true">
         <td data-morhtml="true">Storage Decryption</td>
@@ -41,7 +41,7 @@ La siguiente tabla proporciona el nombre y la descripción de cada procesador mu
   </tbody>
 </table>
 
-El siguiente método muestra cómo obtener una instancia del procesador multimedia. El ejemplo de código supone el uso de una variable de nivel de módulo llamado **\_context** para hacer referencia al contexto de servidor tal como se describe en la sección [Conexión con los Servicios multimedia mediante programación](http://www.windowsazure.com/en-us/develop/media-services/how-to-guides/set-up-computer-for-media-services).
+El siguiente método muestra cómo obtener una instancia del procesador multimedia. El ejemplo de código supone el uso de una variable de nivel de módulo llamado **\_context** para hacer referencia al contexto de servidor tal como se describe en la sección [Conexión con los Servicios multimedia mediante programación](http://www.windowsazure.com/es-es/develop/media-services/how-to-guides/set-up-computer-for-media-services).
 
 ``` {}
 private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)

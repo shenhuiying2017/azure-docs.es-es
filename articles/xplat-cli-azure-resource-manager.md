@@ -1,4 +1,4 @@
-<properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/en-us/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
+<properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/es-es/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
 Uso de la interfaz de la línea de comandos entre plataformas de Azure con Resource Manager
 ==========================================================================================
@@ -7,7 +7,7 @@ Recientemente presentamos una vista previa de Resource Manager, que es una nueva
 
 > [WACOM.NOTE] Resource Manager está actualmente en vista previa y no proporciona el mismo nivel de capacidades de administración que Azure Service Management.
 
-> [WACOM.NOTE] Si todavía no ha instalado ni configurado xplat-cli, consulte [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](/en-us/documentation/articles/xplat-cli/) para conocer más pasos sobre instalación, configuración y uso de la xplat-cli.
+> [WACOM.NOTE] Si todavía no ha instalado ni configurado xplat-cli, consulte [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](/es-es/documentation/articles/xplat-cli/) para conocer más pasos sobre instalación, configuración y uso de la xplat-cli.
 
 Resource Manager
 ----------------
@@ -27,7 +27,7 @@ Autenticación
 
 Actualmente, trabajar con Resource Manager a través de la xplat-cli requiere que se autentique en Microsoft Azure con una cuenta de la organización. No servirá autenticarse con una cuenta Microsoft o con un certificado instalado a través de un archivo .publishsettings.
 
-Para obtener más información sobre la autenticación con una cuenta de organización, consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure](/en-us/documentation/articles/xplat-cli/).
+Para obtener más información sobre la autenticación con una cuenta de organización, consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure](/es-es/documentation/articles/xplat-cli/).
 
 Trabajo con grupos y plantillas
 -------------------------------
@@ -162,11 +162,11 @@ Para ver información registrada sobre operaciones realizadas en un grupo, utili
 Pasos siguientes
 ----------------
 
--   Para obtener más información sobre el uso de la interfaz de la línea de comandos entre plataformas de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](/en-us/documentation/articles/xplat-cli/).
+-   Para obtener más información sobre el uso de la interfaz de la línea de comandos entre plataformas de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](/es-es/documentation/articles/xplat-cli/).
 -   Para obtener información sobre el trabajo con Resource Manager con Azure PowerShell, consulte [Introducción al uso de Windows PowerShell con Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394760)
 
-[signuporg]: http://www.windowsazure.com/en-us/documentation/articles/sign-up-organization/
+[signuporg]: http://www.windowsazure.com/es-es/documentation/articles/sign-up-organization/
 [adtenant]: http://technet.microsoft.com/en-us/library/jj573650#createAzureTenant
 [portal]: https://manage.windowsazure.com/
-[xplatsetup]: /en-us/documentation/articles/xplat-cli/
+[xplatsetup]: /es-es/documentation/articles/xplat-cli/
 [psrm]: http://go.microsoft.com/fwlink/?LinkId=394760

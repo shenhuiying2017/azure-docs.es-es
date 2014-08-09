@@ -124,7 +124,7 @@ Realice los siguientes pasos para iniciar el servidor de Rails en su entorno de 
 Creación de una máquina virtual de Azure
 ----------------------------------------
 
-Siga las instrucciones que se proporcionan [aquí](http://windowsazure.com/en-us/documentation/articles/virtual-machines-linux-tutorial) para crear una máquina virtual de Azure que hospeda Linux.
+Siga las instrucciones que se proporcionan [aquí](http://windowsazure.com/es-es/documentation/articles/virtual-machines-linux-tutorial) para crear una máquina virtual de Azure que hospeda Linux.
 
 **Nota:**
 
@@ -262,16 +262,16 @@ Pasos siguientes
 
 En este artículo aprendió a crear y publicar una aplicación básica de Rails basada en formularios en una máquina virtual de Azure. La mayoría de las acciones que realizamos fueron manuales y, en un entorno de producción, sería deseable automatizar. Además, la mayoría de los entornos de producción hospedan la aplicación de Rails conjuntamente con otro proceso de servidor, como Apache o NginX, que controla el enrutamiento de solicitudes a varias instancias de la aplicación de Rails y el servicio a recursos estáticos.
 
-Para obtener información sobre la implementación de automatización de su aplicación de Rails, y sobre el uso del servidor web Unicorn y NginX, consulte [Unicorn+NginX+Capistrano con una Máquina virtual de Azure](http://windowsazure.com/en-us/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/).
+Para obtener información sobre la implementación de automatización de su aplicación de Rails, y sobre el uso del servidor web Unicorn y NginX, consulte [Unicorn+NginX+Capistrano con una Máquina virtual de Azure](http://windowsazure.com/es-es/documentation/articles/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/).
 
 Si desea obtener más información sobre Ruby on Rails, visite las [Guías de Ruby on Rails](http://guides.rubyonrails.org/) (en inglés).
 
 Para obtener información sobre cómo usar el SDK de Azure para Ruby y así tener acceso a los servicios de Azure desde su aplicación de Ruby, consulte:
 
--   [Almacenamiento de datos no estructurados con blobs](http://windowsazure.com/en-us/documentation/articles/storage-ruby-how-to-use-blob-storage)
+-   [Almacenamiento de datos no estructurados con blobs](http://windowsazure.com/es-es/documentation/articles/storage-ruby-how-to-use-blob-storage)
 
--   [Almacenamiento de pares clave/valor con tablas](http://www.windowsazure.com/en-us/develop/ruby/how-to-guides/table-service/)
+-   [Almacenamiento de pares clave/valor con tablas](http://www.windowsazure.com/es-es/develop/ruby/how-to-guides/table-service/)
 
--   [Servicio de contenido con alto ancho de banda con la Red de entrega de contenido](http://www.windowsazure.com/en-us/develop/ruby/app-services/)
+-   [Servicio de contenido con alto ancho de banda con la Red de entrega de contenido](http://www.windowsazure.com/es-es/develop/ruby/app-services/)
 
 

@@ -3,11 +3,11 @@
 Uso de los Centros de notificaciones para enviar noticias de última hora
 ========================================================================
 
-[C\# para Tienda Windows](/en-us/manage/services/notification-hubs/breaking-news-dotnet "C# para Tienda Windows")[Windows Phone](/en-us/manage/services/notification-hubs/breaking-news-wp8 "Windows Phone")[iOS](/en-us/manage/services/notification-hubs/breaking-news-ios "iOS")
+[C\# para Tienda Windows](/es-es/manage/services/notification-hubs/breaking-news-dotnet "C# para Tienda Windows")[Windows Phone](/es-es/manage/services/notification-hubs/breaking-news-wp8 "Windows Phone")[iOS](/es-es/manage/services/notification-hubs/breaking-news-ios "iOS")
 
 Este tema muestra cómo puede usar los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora en una aplicación de Windows Phone. Cuando lo complete, podrá registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías. Este escenario es un patrón común para muchas aplicaciones en las que las notificaciones tienen que enviarse a grupos de usuarios que han mostrado previamente interés en ellas, por ejemplo, lectores RSS, aplicaciones para aficionados a la música, etc.
 
-Los escenarios de difusión se habilitan mediante la inclusión de una o más *etiquetas* cuando se crea un registro en el centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para obtener información sobre las etiquetas, consulte [Notification Hubs Guidance](http://msdn.microsoft.com/en-us/library/jj927170.aspx).
+Los escenarios de difusión se habilitan mediante la inclusión de una o más *etiquetas* cuando se crea un registro en el centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para obtener información sobre las etiquetas, consulte [Notification Hubs Guidance](http://msdn.microsoft.com/es-es/library/jj927170.aspx).
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar este escenario:
 
@@ -16,7 +16,7 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar este e
 3.  [Envío de notificaciones desde su back-end](#send)
 4.  [Ejecución de la aplicación y generación de notificaciones](#test-app)
 
-Este tema se basa en la aplicación que creó en [Introducción a los Centros de notificaciones](/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8/). Antes de comenzar este tutorial, debe haber completado la [Introducción a los Centros de notificaciones](/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8/).
+Este tema se basa en la aplicación que creó en [Introducción a los Centros de notificaciones](/es-es/manage/services/notification-hubs/get-started-notification-hubs-wp8/). Antes de comenzar este tutorial, debe haber completado la [Introducción a los Centros de notificaciones](/es-es/manage/services/notification-hubs/get-started-notification-hubs-wp8/).
 
 Incorporación de una selección de categorías a la aplicación
 ------------------------------------------------------------
@@ -157,7 +157,7 @@ Puesto que el URI de canal asignado por el servicio de notificaciones de inserci
 
 2.  Abra el archivo App.xaml.cs y agregue el modificador **async** al método **Application\_Launching**.
 
-3.  En el método **Application\_Launching**, busque y reemplace el código de registro de los Centros de notificaciones que agregó en [Introducción a los Centros de notificaciones](/en-us/manage/services/notification-hubs/get-started-notification-hubs-wp8/) con la siguiente línea de código:
+3.  En el método **Application\_Launching**, busque y reemplace el código de registro de los Centros de notificaciones que agregó en [Introducción a los Centros de notificaciones](/es-es/manage/services/notification-hubs/get-started-notification-hubs-wp8/) con la siguiente línea de código:
 
          await notifications.SubscribeToCategories(notifications.RetrieveCategories());
 

@@ -91,7 +91,7 @@ Como alternativa al uso de un número existente para sus aplicaciones, puede adq
 Creación de una aplicación de Azure
 -----------------------------------
 
-Una aplicación de Azure que hospeda una aplicación habilitada para Twilio no es diferente de ninguna otra aplicación de Azure. Simplemente agregue la biblioteca .NET de Twilio y configure el rol que para usar las bibliotecas .NET de Twilio. Para obtener información sobre la creación de un proyecto inicial de Azure, consulte [Crear un proyecto de Azure con Visual Studio](http://msdn.microsoft.com/en-us/library/windowsazure/ee405487.aspx).
+Una aplicación de Azure que hospeda una aplicación habilitada para Twilio no es diferente de ninguna otra aplicación de Azure. Simplemente agregue la biblioteca .NET de Twilio y configure el rol que para usar las bibliotecas .NET de Twilio. Para obtener información sobre la creación de un proyecto inicial de Azure, consulte [Crear un proyecto de Azure con Visual Studio](http://msdn.microsoft.com/es-es/library/windowsazure/ee405487.aspx).
 
 Configuración de su aplicación para el uso de bibliotecas de Twilio
 -------------------------------------------------------------------

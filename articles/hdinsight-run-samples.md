@@ -5,9 +5,9 @@ Ejecución de muestras de HDInsight
 
 Se proporciona un conjunto de muestras para ayudarle a comenzar a usar HDInsight de Azure. Estas muestras se habilitan en cada uno de los clústeres de HDInsight que se crean. La ejecución de estas muestras le permitirá familiarizarse con los cmdlets de HDInsight de Azure PowerShell.
 
-Los programas de MapReduce también se pueden ejecutar mediante programación desde una aplicación que usa la API .NET de Microsoft para HDInsight. Para obtener más información acerca de cómo usar las API de HDInsight para el envío de trabajos, consulte [Envío de trabajos de Hadoop mediante programación](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/).
+Los programas de MapReduce también se pueden ejecutar mediante programación desde una aplicación que usa la API .NET de Microsoft para HDInsight. Para obtener más información acerca de cómo usar las API de HDInsight para el envío de trabajos, consulte [Envío de trabajos de Hadoop mediante programación](/es-es/manage/services/hdinsight/submit-hadoop-jobs-programmatically/).
 
-En la Web se encuentra disponible mucha documentación adicional sobre las tecnologías relacionadas con Hadoop, como la transmisión y programación de MapReduce basada en Java, así como la documentación sobre los cmdlets usados en el scripting de PowerShell. Para obtener más información acerca de estos recursos, consulte la sección final **Recursos para HDInsight** del tema [Introducción a Azure HDInsight](/en-us/manage/services/hdinsight/introduction-hdinsight/).
+En la Web se encuentra disponible mucha documentación adicional sobre las tecnologías relacionadas con Hadoop, como la transmisión y programación de MapReduce basada en Java, así como la documentación sobre los cmdlets usados en el scripting de PowerShell. Para obtener más información acerca de estos recursos, consulte la sección final **Recursos para HDInsight** del tema [Introducción a Azure HDInsight](/es-es/manage/services/hdinsight/introduction-hdinsight/).
 
 **Qué son estas muestras**
 
@@ -15,21 +15,21 @@ Estás muestras están diseñadas para ponerle al día rápido acerca de cómo i
 
 **Requisitos previos**:
 
--   Debe tener una cuenta de Azure. Para conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/).
+-   Debe tener una cuenta de Azure. Para conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/).
 
--   Debe aprovisionar un clúster de HDInsight. Para obtener instrucciones acerca de varias formas de creación de dichos clústeres, consulte [Aprovisionamiento de clústeres de HDInsight](/en-us/manage/services/hdinsight/provision-hdinsight-clusters/).
+-   Debe aprovisionar un clúster de HDInsight. Para obtener instrucciones acerca de varias formas de creación de dichos clústeres, consulte [Aprovisionamiento de clústeres de HDInsight](/es-es/manage/services/hdinsight/provision-hdinsight-clusters/).
 
--   Debe tener instalado Azure PowerShell y haber configurado los clústeres para utilizarlos con su cuenta. Para obtener instrucciones acerca de cómo hacerlo, consulte [Instalación y configuración de Azure PowerShell](/en-us/documentation/articles/install-configure-powershell/).
+-   Debe tener instalado Azure PowerShell y haber configurado los clústeres para utilizarlos con su cuenta. Para obtener instrucciones acerca de cómo hacerlo, consulte [Instalación y configuración de Azure PowerShell](/es-es/documentation/articles/install-configure-powershell/).
 
 Las muestras
 ------------
 
 HDInsight incluye las siguientes muestras.
 
--   [**La muestra del estimador de Pi**](/en-us/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/) En este tutorial se explica cómo ejecutar un programa de MapReduce con HDInsight que usa un método estadístico (quasi-Monte Carlo) para estimar el valor de Pi.
--   [**La muestra de WordCount**](/en-us/manage/services/hdinsight/howto-run-samples/sample-wordcount/) En este tutorial se explica cómo usar un clúster de HDInsight para ejecutar un programa de MapReduce que cuenta las ocurrencias de palabras en un archivo de texto.
--   [**La muestra de Graysort de 10 GB**](/en-us/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/) En este tutorial se explica cómo ejecutar una muestra de GraySort de uso general en un archivo de 10 GB con la utilización de HDInsight. Hay tres trabajos para ejecutar: Teragen para genera los datos, Terasort para ordenar los datos y Teravalidate para confirmar que los datos se han ordenado correctamente.
--   [**La muestra de transmisión de C\#**](/en-us/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/) En este tutorial se explica cómo usar C\# para escribir un programa de MapReduce que usa la interfaz de transmisión de Hadoop.
+-   [**La muestra del estimador de Pi**](/es-es/manage/services/hdinsight/howto-run-samples/sample-pi-estimator/) En este tutorial se explica cómo ejecutar un programa de MapReduce con HDInsight que usa un método estadístico (quasi-Monte Carlo) para estimar el valor de Pi.
+-   [**La muestra de WordCount**](/es-es/manage/services/hdinsight/howto-run-samples/sample-wordcount/) En este tutorial se explica cómo usar un clúster de HDInsight para ejecutar un programa de MapReduce que cuenta las ocurrencias de palabras en un archivo de texto.
+-   [**La muestra de Graysort de 10 GB**](/es-es/manage/services/hdinsight/howto-run-samples/sample-10gb-graysort/) En este tutorial se explica cómo ejecutar una muestra de GraySort de uso general en un archivo de 10 GB con la utilización de HDInsight. Hay tres trabajos para ejecutar: Teragen para genera los datos, Terasort para ordenar los datos y Teravalidate para confirmar que los datos se han ordenado correctamente.
+-   [**La muestra de transmisión de C\#**](/es-es/manage/services/hdinsight/howto-run-samples/sample-csharp-streaming/) En este tutorial se explica cómo usar C\# para escribir un programa de MapReduce que usa la interfaz de transmisión de Hadoop.
 
 Ejecución de las muestras
 -------------------------
@@ -41,10 +41,10 @@ Pasos siguientes
 
 En este artículo y en los artículos sobre cada muestra ha obtenido información acerca de cómo ejecutar las muestras incluidas en los clústeres de HDInsight con la utilización de Azure PowerShell. Para obtener acceso a tutoriales acerca de cómo usar Pig, Hive y MapReduce con HDInsight, consulte los siguientes temas:
 
--   [Introducción al servicio HDInsight de Azure](/en-us/manage/services/hdinsight/get-started-hdinsight/)
--   [Uso de Pig con HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [Uso de Hive con HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
--   [Envío de trabajos de Hadoop mediante programación](/en-us/manage/services/hdinsight/submit-hadoop-jobs-programmatically/)
+-   [Introducción al servicio HDInsight de Azure](/es-es/manage/services/hdinsight/get-started-hdinsight/)
+-   [Uso de Pig con HDInsight](/es-es/manage/services/hdinsight/using-pig-with-hdinsight/)
+-   [Uso de Hive con HDInsight](/es-es/manage/services/hdinsight/using-hive-with-hdinsight/)
+-   [Envío de trabajos de Hadoop mediante programación](/es-es/manage/services/hdinsight/submit-hadoop-jobs-programmatically/)
 -   [Azure HDInsight SDK documentation](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx)
--   [Depuración de HDInsight: mensajes de error](/en-us/manage/services/hdinsight/debug-error-messages/)
+-   [Depuración de HDInsight: mensajes de error](/es-es/manage/services/hdinsight/debug-error-messages/)
 

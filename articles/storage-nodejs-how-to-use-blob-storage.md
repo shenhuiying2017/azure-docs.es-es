@@ -58,7 +58,7 @@ El servicio BLOB contiene los componentes siguientes:
 Creación de una cuenta de almacenamiento de Azure
 -------------------------------------------------
 
-Necesita una cuenta de almacenamiento de Azure para usar operaciones de almacenamiento. Siga estos pasos para crear una cuenta de almacenamiento. También puede crear una cuenta de almacenamiento [usando la API de REST](http://msdn.microsoft.com/en-us/library/windowsazure/hh264518.aspx).
+Necesita una cuenta de almacenamiento de Azure para usar operaciones de almacenamiento. Siga estos pasos para crear una cuenta de almacenamiento. También puede crear una cuenta de almacenamiento [usando la API de REST](http://msdn.microsoft.com/es-es/library/windowsazure/hh264518.aspx).
 
 1.  Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com).
 
@@ -79,7 +79,7 @@ Necesita una cuenta de almacenamiento de Azure para usar operaciones de almacena
 Creación de una aplicación Node.js
 ----------------------------------
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure](/en-us/develop/nodejs/tutorials/create-a-website-(mac)/), [Servicio en la nube Node.js]({localLink:2221} "Aplicación web Node.js") (usando Windows PowerShell) o [Sitio web con WebMatrix](/en-us/develop/nodejs/tutorials/web-site-with-webmatrix/).
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure](/es-es/develop/nodejs/tutorials/create-a-website-(mac)/), [Servicio en la nube Node.js]({localLink:2221} "Aplicación web Node.js") (usando Windows PowerShell) o [Sitio web con WebMatrix](/es-es/develop/nodejs/tutorials/web-site-with-webmatrix/).
 
 Configuración de su aplicación para obtener acceso al almacenamiento
 --------------------------------------------------------------------
@@ -117,9 +117,9 @@ Configuración de una conexión de almacenamiento de Azure
 
 El módulo azure leerá las variables de entorno AZURE\_STORAGE\_ACCOUNT y AZURE\_STORAGE\_ACCESS\_KEY para obtener la información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta llamando a **createBlobService**.
 
-Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio de nube de Azure, consulte [Servicio de nube de Node.js con almacenamiento](/en-us/develop/nodejs/tutorials/web-app-with-storage/).
+Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio de nube de Azure, consulte [Servicio de nube de Node.js con almacenamiento](/es-es/develop/nodejs/tutorials/web-app-with-storage/).
 
-Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento](/en-us/develop/nodejs/tutorials/web-site-with-storage/).
+Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento](/es-es/develop/nodejs/tutorials/web-site-with-storage/).
 
 Creación de un contenedor
 -------------------------
@@ -235,7 +235,7 @@ Pasos siguientes
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de blobs, siga estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx).
+-   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx).
 -   Visite el [blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/) (en inglés).
 -   Visite el repositorio del [SDK de Azure para Node.js](https://github.com/WindowsAzure/azure-sdk-for-node) (en inglés) en GitHub.
 

@@ -37,24 +37,24 @@ Preparación de la aplicación
 
 Antes de implementar un servicio en la nube, debe crear el paquete de servicio en la nube (.cspkg) desde su código de aplicación y un archivo de configuración de servicio en la nube (.cscfg). Cada paquete de servicio en la nube contiene archivos de aplicación y configuraciones. El archivo de configuración de servicio proporciona las opciones de configuración.
 
-El SDK de Azure proporciona herramientas para preparar estos archivos de implementación necesarios. Puede instalar el SDK desde la página [Descargas de Azure](http://www.windowsazure.com/en-us/develop/downloads/), en el idioma en que prefiera implementar su código de aplicación.
+El SDK de Azure proporciona herramientas para preparar estos archivos de implementación necesarios. Puede instalar el SDK desde la página [Descargas de Azure](http://www.windowsazure.com/es-es/develop/downloads/), en el idioma en que prefiera implementar su código de aplicación.
 
 Si no está familiarizado con los servicios en la nube, puede descargar un paquete de servicio en la nube (.cspkg) y un archivo de configuración de servicio (.cscfg) de muestra con el que trabajar desde [Ejemplos de código de Azure](http://code.msdn.microsoft.com/windowsazure/).
 
 Hay tres características del servicio en la nube que requieren configuraciones especiales antes de exportar un paquete de servicio:
 
--   Si desea implementar un servicio en la nube que utilice Capa de sockets seguros (SSL) para el cifrado de datos, configure su aplicación para SSL. Para obtener más información, consulte [Configurar un certificado SSL en un extremo HTTPS](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx).
+-   Si desea implementar un servicio en la nube que utilice Capa de sockets seguros (SSL) para el cifrado de datos, configure su aplicación para SSL. Para obtener más información, consulte [Configurar un certificado SSL en un extremo HTTPS](http://msdn.microsoft.com/es-es/library/windowsazure/ff795779.aspx).
 
--   Si desea configurar una conexión a Escritorio remoto en instancias de rol, configure los roles para Escritorio remoto. Para obtener más información acerca de cómo preparar el archivo de definición de servicio para el acceso remoto, consulte [Overview of Setting Up a Remote Desktop Connection for a Role](http://msdn.microsoft.com/en-us/library/windowsazure/gg433010.aspx).
+-   Si desea configurar una conexión a Escritorio remoto en instancias de rol, configure los roles para Escritorio remoto. Para obtener más información acerca de cómo preparar el archivo de definición de servicio para el acceso remoto, consulte [Overview of Setting Up a Remote Desktop Connection for a Role](http://msdn.microsoft.com/es-es/library/windowsazure/gg433010.aspx).
 
--   Si desea configurar una supervisión exhaustiva para su servicio en la nube, habilite Diagnósticos de Azure para el servicio en la nube. *Supervisión mínima* (nivel predeterminado de supervisión) usa contadores de rendimiento recopilados de los sistemas operativos host para las instancias de rol (máquinas virtuales). "La supervisión exhaustiva\* recopila métricas adicionales basadas en los datos del rendimiento dentro de las instancias de rol para permitir un análisis más profundo de los problemas que se producen durante el procesamiento de la aplicación. Para obtener información acerca de cómo habilitar Diagnósticos de Azure, consulte [Habilitación de los diagnósticos en Azure](http://www.windowsazure.com/en-us/develop/net/common-tasks/diagnostics/).
+-   Si desea configurar una supervisión exhaustiva para su servicio en la nube, habilite Diagnósticos de Azure para el servicio en la nube. *Supervisión mínima* (nivel predeterminado de supervisión) usa contadores de rendimiento recopilados de los sistemas operativos host para las instancias de rol (máquinas virtuales). "La supervisión exhaustiva\* recopila métricas adicionales basadas en los datos del rendimiento dentro de las instancias de rol para permitir un análisis más profundo de los problemas que se producen durante el procesamiento de la aplicación. Para obtener información acerca de cómo habilitar Diagnósticos de Azure, consulte [Habilitación de los diagnósticos en Azure](http://www.windowsazure.com/es-es/develop/net/common-tasks/diagnostics/).
 
 Antes de empezar
 ----------------
 
--   Si no ha instalado el SDK de Azure, haga clic en **Install Azure SDK** para abrir la [Pagina de descargas de Azure](http://www.windowsazure.com/en-us/develop/downloads/) y, a continuación, descargue el SDK en el idioma en que prefiera desarrollar su código. (Tendrá la oportunidad de hacer esto más tarde).
+-   Si no ha instalado el SDK de Azure, haga clic en **Install Azure SDK** para abrir la [Pagina de descargas de Azure](http://www.windowsazure.com/es-es/develop/downloads/) y, a continuación, descargue el SDK en el idioma en que prefiera desarrollar su código. (Tendrá la oportunidad de hacer esto más tarde).
 
--   Si hay instancias de rol que necesitan certificados, créelos. Los servicios en la nube requieren un archivo .pfx con una clave privada. Puede cargar los certificados en Azure mientras crea e implementa el servicio en la nube. Para obtener información acerca de cómo crear certificados, consulte [Configurar un certificado SSL en un extremo HTTPS](http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx).
+-   Si hay instancias de rol que necesitan certificados, créelos. Los servicios en la nube requieren un archivo .pfx con una clave privada. Puede cargar los certificados en Azure mientras crea e implementa el servicio en la nube. Para obtener información acerca de cómo crear certificados, consulte [Configurar un certificado SSL en un extremo HTTPS](http://msdn.microsoft.com/es-es/library/windowsazure/ff795779.aspx).
 
 -   Si tiene pensado implementar el servicio en la nube en un grupo de afinidad, créelo. Puede usar un grupo de afinidad para implementar su servicio en la nube y otros servicios de Azure en la misma ubicación de una región. Puede crear el grupo de afinidad en el área **Networks** del Portal de administración, en la página **Grupos de afinidad**. Para obtener más información, consulte la ayuda de la página **Grupos de afinidad**.
 
@@ -69,7 +69,7 @@ Creación de un servicio en la nube usando Quick Create
 
 3.  En **Region/Grupo de afinidad**, seleccione la zona geográfica o el grupo de afinidad en el que desea implementar el servicio en la nube. Seleccione un grupo de afinidad si desea implementar un servicio en la nube en la misma ubicación que los otros servicios de Azure de una región.
 
-    > [WACOM.NOTE] Para crear un grupo de afinidad, abra el área **Networks** del Portal de administración, haga clic en **Grupos de afinidad** y, a continuación, en **Crear un nuevo grupo de afinidad** o **Create**. Puede usar grupos de afinidad que haya creado en el anterior Portal de administración de Azure. Y además, puede crear y administrar los grupos de afinidad usando la API de administración de servicios de Azure. Para obtener más información, consulte [Operaciones en grupos de afinidad](http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx).
+    > [WACOM.NOTE] Para crear un grupo de afinidad, abra el área **Networks** del Portal de administración, haga clic en **Grupos de afinidad** y, a continuación, en **Crear un nuevo grupo de afinidad** o **Create**. Puede usar grupos de afinidad que haya creado en el anterior Portal de administración de Azure. Y además, puede crear y administrar los grupos de afinidad usando la API de administración de servicios de Azure. Para obtener más información, consulte [Operaciones en grupos de afinidad](http://msdn.microsoft.com/es-es/library/windowsazure/ee460798.aspx).
 
 4.  Haga clic en **Create Cloud Service**.
 
@@ -117,11 +117,11 @@ Implementación de un servicio en la nube
 
     ![CloudServices\_QuickStartPage](./media/cloud-services-how-to-create-deploy/CloudServices_QuickStartPage.png)
 
-3.  Si no ha instalado el SDK de Azure, haga clic en **Install Azure SDK** para abrir la [Pagina de descargas de Azure](http://www.windowsazure.com/en-us/develop/downloads/) y, a continuación, descargue el SDK en el idioma en que prefiera desarrollar su código.
+3.  Si no ha instalado el SDK de Azure, haga clic en **Install Azure SDK** para abrir la [Pagina de descargas de Azure](http://www.windowsazure.com/es-es/develop/downloads/) y, a continuación, descargue el SDK en el idioma en que prefiera desarrollar su código.
 
     En la página de descargas, también puede instalar las bibliotecas de cliente y el código fuente para las aplicaciones web en desarrollo de Node.js, Java, PHP y otros lenguajes, que puede implementar como servicios en la nube de Azure escalables.
 
-    > [WACOM.NOTE] Para los servicios en la nube creados previamente (anteriormente conocidos como *servicios hospedados*), tendrá que asegurarse de que los sistemas operativos invitados de las máquinas virtuales (instancias de rol) sean compatibles con la versión del SDK de Azure que instale. Para obtener más información, consulte [Notas de la versión de Windows Azure SDK para .NET](http://msdn.microsoft.com/en-us/library/windowsazure/hh552718.aspx).
+    > [WACOM.NOTE] Para los servicios en la nube creados previamente (anteriormente conocidos como *servicios hospedados*), tendrá que asegurarse de que los sistemas operativos invitados de las máquinas virtuales (instancias de rol) sean compatibles con la versión del SDK de Azure que instale. Para obtener más información, consulte [Notas de la versión de Windows Azure SDK para .NET](http://msdn.microsoft.com/es-es/library/windowsazure/hh552718.aspx).
 
 4.  Haga clic en **Implementación producción** o **Implementación ensayo**.
 
@@ -139,7 +139,7 @@ Implementación de un servicio en la nube
 
 8.  Si el servicio en la nube incluye roles con una sola instancia, active la casilla **Deploy even if one or more roles contain a single instance** para habilitar la implementación y continuar.
 
-Azure solo puede garantizar el 99,95 % de acceso al servicio en la nube durante el mantenimiento y las actualizaciones de servicio si cada rol tiene dos instancias como mínimo. Si procede, puede agregar instancias de rol adicionales en la página **Escala** después de implementar el servicio en la nube. Para obtener más información, consulte [Contratos de nivel de servicio](http://www.windowsazure.com/en-us/support/legal/sla/).
+Azure solo puede garantizar el 99,95 % de acceso al servicio en la nube durante el mantenimiento y las actualizaciones de servicio si cada rol tiene dos instancias como mínimo. Si procede, puede agregar instancias de rol adicionales en la página **Escala** después de implementar el servicio en la nube. Para obtener más información, consulte [Contratos de nivel de servicio](http://www.windowsazure.com/es-es/support/legal/sla/).
 
 1.  Haga clic en OK (marca de verificación) para iniciar la implementación del servicio en la nube.
 

@@ -199,9 +199,9 @@ Pasos siguientes
 
 Ha visto cómo ejecutar un trabajo de Hadoop desde la consola JavaScript interactiva y cómo inspeccionar los resultados desde un trabajo con esta consola. También ha visto cómo se puede utilizar la consola interactiva Hive para inspeccionar y procesar los resultados de un trabajo de Hadoop mediante la creación y consulta de una tabla que contiene la salida desde un programa de MapReduce. Ha visto ejemplos de instrucciones de Pig Latin y de Hive QL que se utilizan en las consolas. Finalmente, ha visto cómo la naturaleza interactiva de REPL de las consolas JavaScript y Hive simplifica el uso de un clúster de Hadoop. Para obtener más información, consulte los artículos siguientes:
 
--   [Uso de Pig con HDInsight](/en-us/manage/services/hdinsight/using-pig-with-hdinsight/)
--   [Uso de Hive con HDInsight](/en-us/manage/services/hdinsight/using-hive-with-hdinsight/)
--   [Uso de MapReduce con HDInsight](/en-us/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
+-   [Uso de Pig con HDInsight](/es-es/manage/services/hdinsight/using-pig-with-hdinsight/)
+-   [Uso de Hive con HDInsight](/es-es/manage/services/hdinsight/using-hive-with-hdinsight/)
+-   [Uso de MapReduce con HDInsight](/es-es/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
 
 [hdi-hive-showdescribetable]: ./media/hdinsight-interactive-console/HDI.Hive.ShowDescribeTable.PNG "Hive Table Confirmation")
 

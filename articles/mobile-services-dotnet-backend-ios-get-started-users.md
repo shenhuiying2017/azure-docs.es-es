@@ -3,9 +3,9 @@
 Introducción a la autenticación en Servicios móviles
 ====================================================
 
-[C\# para Tienda Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "C# para Tienda Windows")[JavaScript para Tienda Windows](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users "JavaScript para Tienda Windows")[Windows Phone](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users "Windows Phone")[iOS](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users "iOS")
+[C\# para Tienda Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users "JavaScript para Tienda Windows")[Windows Phone](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users "Windows Phone")[iOS](/es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users "iOS")
 
-[Back-end de .NET](/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/ "Back-end de .NET") | [Back-end de JavaScript](/en-us/documentation/articles/mobile-services-ios-get-started-users/ "Back-end de JavaScript")
+[Back-end de .NET](/es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/ "Back-end de .NET") | [Back-end de JavaScript](/es-es/documentation/articles/mobile-services-ios-get-started-users/ "Back-end de JavaScript")
 
 En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde su aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
@@ -31,7 +31,7 @@ Restricción de los permisos para los usuarios autenticados
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
-1.  En Xcode, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles](/en-us/documentation/articles/mobile-services-ios-get-started).
+1.  En Xcode, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-ios-get-started).
 
 2.  Presione el botón **Run** para crear el proyecto e iniciar la aplicación en el emulador de iPhone; compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación.
 
@@ -53,12 +53,12 @@ En el siguiente tutorial, [Autorización en el servicio de los usuarios de Servi
 
 
 <!-- URLs. -->
-[Introducción a los Servicios móviles]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started/ 
-[Introducción a los datos]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ 
-[Introducción a la autenticación]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/ 
-[Introducción a las notificaciones de inserción]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ 
-[Autorización de usuarios con scripts]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts 
+[Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started/ 
+[Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ 
+[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/ 
+[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ 
+[Autorización de usuarios con scripts]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts 
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/ 
-[Referencia conceptual e instrucciones sobre .NET en los Servicios móviles]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library 
-[Registro del paquete de aplicaciones de la Tienda Windows para la autenticación de Microsoft]: /en-us/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+[Referencia conceptual e instrucciones sobre .NET en los Servicios móviles]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library 
+[Registro del paquete de aplicaciones de la Tienda Windows para la autenticación de Microsoft]: /es-es/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication

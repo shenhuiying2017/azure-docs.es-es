@@ -25,9 +25,9 @@ Este tutorial requiere lo siguiente:
 -   Microsoft Visual Studio 2012 Express para Windows 8 o una versión posterior
 -   [SDK de Windows Phone 8.0](http://www.microsoft.com/en-us/download/details.aspx?id=35471) o una versión posterior.
 -   El Administrador de paquetes NuGet instalado para Microsoft Visual Studio.
--   [Cuenta de almacenamiento de Azure](/en-us/manage/services/storage/how-to-create-a-storage-account)
+-   [Cuenta de almacenamiento de Azure](/es-es/manage/services/storage/how-to-create-a-storage-account)
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/en-us/documentation/articles/mobile-services-windows-phone-get-started).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-windows-phone-get-started).
 
 Instalación del cliente de almacenamiento para aplicaciones de la Tienda Windows
 --------------------------------------------------------------------------------
@@ -55,15 +55,15 @@ Pasos siguientes
 
 Ahora que ha podido cargar de manera segura imágenes al integrar su servicio móvil con el servicio BLOB, revise algunos de los otros temas relacionados con la integración y el servicio back-end:
 
--   [Envío de correo electrónico desde Servicios móviles con SendGrid](/en-us/develop/mobile/tutorials/send-email-with-sendgrid/)
+-   [Envío de correo electrónico desde Servicios móviles con SendGrid](/es-es/develop/mobile/tutorials/send-email-with-sendgrid/)
 
     Aprenda a agregar la funcionalidad de correo electrónico a su Servicio móvil con el servicio de correo electrónico SendGrid. Este tema demuestra cómo agregar scripts del lado servidor para enviar correo electrónico mediante SendGrid.
 
--   [Programación de trabajos de back-end en Servicios móviles](/en-us/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks)
+-   [Programación de trabajos de back-end en Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks)
 
     Aprenda a utilizar la funcionalidad del programador de trabajos de Servicios móviles para definir el código de script de servidor que se ejecuta según una programación que define usted.
 
--   [Referencia conceptual de Servicios móviles con .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
+-   [Referencia conceptual de Servicios móviles con .NET](/es-es/develop/mobile/how-to-guides/work-with-net-client-library)
 
     Obtenga más información sobre el uso de Servicios móviles con .NET.
 
