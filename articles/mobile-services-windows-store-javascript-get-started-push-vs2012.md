@@ -75,42 +75,37 @@ Actualización del script de inserciónActualización del script de inserción r
 
 [WACOM.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
 
-1.  Haga clic en **TodoItem**, en **Script** y seleccione **Insert**.
+4.  Haga clic en **TodoItem**, en **Script** y seleccione **Insert**.
 
-        ![][5]
+   	![][5]
 
-2.  Reemplace la función de inserción por el siguiente código y, a continuación, haga clic en **Save**:
+5. Reemplace la función de inserción por el siguiente código y, a continuación, haga clic en **Save**:
 
-         function insert(item, user, request) {
+	    function insert(item, user, request) {
+    	    request.execute({
+        	    success: function() {
+            	    request.respond();
+            	    sendNotifications();
+        	    }
+    	    });
 
-    request.execute({
-
-                 success: function() {
-                    request.respond();
-                    sendNotifications();
-                }
-
-    });
-
-             function sendNotifications() {
-                var registrationsTable = tables.getTable('Registrations');
-                registrationsTable.read({
-                    success: function(registrations) {
-                        registrations.forEach(function(registration) {
-                            push.wns.sendToastText04(registration.handle, {
-                                text1: item.text
-                            }, {
-                                success: function(pushResponse) {
-                                    console.log("Sent push:", pushResponse);
-                                }
-                            });
-                        });
-                    }
-                });
-
-    }
-
-         }
+	        function sendNotifications() {
+        	    var registrationsTable = tables.getTable('Registrations');
+        	    registrationsTable.read({
+            	    success: function(registrations) {
+                	    registrations.forEach(function(registration) {
+                    	    push.wns.sendToastText04(registration.handle, {
+                        	    text1: item.text
+                    	    }, {
+                        	    success: function(pushResponse) {
+                            	    console.log("Sent push:", pushResponse);
+                        	    }
+                    	    });
+                	    });
+            	    }
+        	    });
+    	    }
+	    }
 
     Este script de inserción envía una notificación de inserción (con el texto del elemento insertado) a todos los canales almacenados en la tabla **Registros**.
 
@@ -121,11 +116,11 @@ Prueba de la aplicaciónPruebas de notificaciones de inserción en su aplicació
 
 2.  En la aplicación, escriba un texto en **Insert a TodoItem** y, a continuación, haga clic en **Save**.
 
-        ![][13]
+   	![][13]
 
         Tenga en cuenta que una vez finalizada la inserción, la aplicación recibe una notificación de inserción de WNS.
 
-        ![][14]
+   	![][14]
 
 Pasos siguientes
 ----------------

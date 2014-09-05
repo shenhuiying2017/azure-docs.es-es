@@ -4,13 +4,15 @@
 Introducción a los datos sin conexión en Servicios móviles
 ==========================================================
 
-[C\# para Tienda Windows](/es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "C# para Tienda Windows")
+<div class="dev-center-tutorial-selector sublanding">
+<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="Windows Store C#" class="current">Windows Store C#</a>
+</div>
 
 En este tema se muestra cómo usar las capacidades sin conexión de Servicios móviles de Azure. Las características sin conexión de Servicios móviles de Azure permiten interactuar con una base de datos local cuando el usuario se encuentra en un escenario sin conexión con su servicio móvil. Las características sin conexión le permiten sincronizar los cambios locales con el servicio móvil cuando vuelva a estar en línea.
 
-En este tutorial, actualizará la aplicación desde el tutorial [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-windows-store-get-started/) o [Introducción a los datos](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/) para que admita las características sin conexión de Servicios móviles de Azure. A continuación, agregará datos en un escenario sin conexión desconectado, sincronizará dichos elementos con la base de datos en línea e iniciará sesión en el Portal de administración de Azure para ver los cambios efectuados en los datos al ejecutar la aplicación.
+En este tutorial, actualizará la aplicación desde el tutorial [Introducción a los Servicios móviles](/en-us/documentation/articles/mobile-services-windows-store-get-started/) o [Introducción a los datos](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/) para que admita las características sin conexión de Servicios móviles de Azure. A continuación, agregará datos en un escenario sin conexión desconectado, sincronizará dichos elementos con la base de datos en línea e iniciará sesión en el Portal de administración de Azure para ver los cambios efectuados en los datos al ejecutar la aplicación.
 
-> [WACOM.NOTE] Este tutorial está destinado a profundizar en el uso de Azure con los Servicios móviles para almacenar y recuperar datos en una aplicación de la Tienda Windows. Para ello, en este tema se recorren muchos de los pasos que se completan automáticamente en el inicio rápido de Servicios móviles. Si esta es la primera vez que usa los Servicios móviles, considere la posibilidad de completar antes el tutorial [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-windows-store-get-started/).
+> [WACOM.NOTE] Este tutorial está destinado a profundizar en el uso de Azure con los Servicios móviles para almacenar y recuperar datos en una aplicación de la Tienda Windows. Para ello, en este tema se recorren muchos de los pasos que se completan automáticamente en el inicio rápido de Servicios móviles. Si esta es la primera vez que usa los Servicios móviles, considere la posibilidad de completar antes el tutorial [Introducción a los Servicios móviles](/en-us/documentation/articles/mobile-services-windows-store-get-started/).
 
 Este tutorial le guiará a través de estos pasos básicos:
 
@@ -22,13 +24,14 @@ Este tutorial le guiará a través de estos pasos básicos:
 Este tutorial requiere lo siguiente:
 
 -   Visual Studio 2013 en Windows 8.1.
--   Finalización del tutorial [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-windows-store-get-started/) o [Introducción a los datos](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
+-   Finalización del tutorial [Introducción a los Servicios móviles](/en-us/documentation/articles/mobile-services-windows-store-get-started/) o [Introducción a los datos](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/).
 -   Paquete NuGet del SDK de Servicios móviles de Azure versión 1.3.0-alpha
 -   Paquete NuGet del almacén SQLite de Servicios móviles de Azure 0.1.0-alpha
 -   SQLite para Windows 8.1
 
 > [WACOM.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28).
 
+<a name="enable-offline-app"></a>
 Actualización de la aplicación para que admita características sin conexión
 ---------------------------------------------------------------------------
 
@@ -42,7 +45,7 @@ En esta sección se utiliza SQLite como almacén local de las características s
 
     > [WACOM.NOTE] Si utiliza Internet Explorer, es posible que al hacer clic en el vínculo para instalar SQLite se le solicite que descargue .vsix como archivo .zip. Guarde el archivo en una ubicación del disco duro con la extensión .vsix en lugar de .zip. A continuación, haga doble clic en el archivo .vsix en el Explorador de Windows para ejecutar la instalación.
 
-2.  En Visual Studio, abra el proyecto que finalizó en el tutorial [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-windows-store-get-started/) o [Introducción a los datos](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/). Agregue una referencia de **extensión de Windows** a **SQLite para Windows en tiempo de ejecución (Windows 8.1)**.
+2.  En Visual Studio, abra el proyecto que finalizó en el tutorial [Introducción a los Servicios móviles](/en-us/documentation/articles/mobile-services-windows-store-get-started/) o [Introducción a los datos](/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/). Agregue una referencia de **extensión de Windows** a **SQLite para Windows en tiempo de ejecución (Windows 8.1)**.
 
     ![](./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png)
 
@@ -160,6 +163,7 @@ En esta sección se utiliza SQLite como almacén local de las características s
 
 10. No ejecute todavía la aplicación. Presione la tecla **F7** para volver a compilar el proyecto. Compruebe que no se hayan producido errores de compilación.
 
+<a name="test-offline-app"></a>
 Prueba de la aplicación en un escenario sin conexión
 ----------------------------------------------------
 
@@ -176,10 +180,11 @@ Observe que en esta sección la aplicación no debe estar conectada a ningún se
 
 2.  En Visual Studio, presione **F5** para compilar y ejecutar la aplicación. Escriba un nuevo elemento todo y haga clic en **Save**. Los nuevos elementos todo solo están en el almacén local hasta que se puedan insertar en el servicio móvil. La aplicación cliente se comporta como si estuviera conectada al servicio móvil y admite todas las operaciones de creación, lectura, actualización y eliminación (CRUD).
 
-    ![](./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-offline-app-run1.png)
+	![](./media/mobile-services-windows-store-dotnet-get-started-offline-data/mobile-services-offline-app-run1.png)
 
 3.  Cierre la aplicación y reiníciela para comprobar que los nuevos elementos que creó se mantienen en el almacén local.
 
+<a name="update-online-app"></a>
 Actualización de la aplicación para volver a conectar el servicio móvil
 -----------------------------------------------------------------------
 
@@ -192,6 +197,7 @@ En esta sección se vuelve a conectar la aplicación al servicio móvil. De este
              "Your AppKey"
          );
 
+<a name="test-online-app"></a>
 Prueba de la aplicación conectada al servicio móvil
 ---------------------------------------------------
 
@@ -245,7 +251,7 @@ Cuando queramos sincronizar el almacén local con el servidor, usaremos los mét
 Pasos siguientes
 ----------------
 
--   [Control de conflictos con compatibilidad sin conexión para Servicios móviles](/es-es/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/)
+-   [Control de conflictos con compatibilidad sin conexión para Servicios móviles](/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/)
 
 <!-- Anchors. -->
 [Update the app to support offline features]: #enable-offline-app
@@ -269,12 +275,12 @@ Pasos siguientes
 
 
 <!-- URLs. -->
-[Handling conflicts with offline support for Mobile Services]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
+[Handling conflicts with offline support for Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data/ 
 [Getting Started Offline Sample]: http://go.microsoft.com/fwlink/?LinkId=394777
-[Get started with Mobile Services]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
-[Getting Started]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Get started with data]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
-[Get started with Mobile Services]: /es-es/documentation/articles/mobile-services-windows-store-get-started/
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+[Getting Started]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
+[Get started with data]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/
+[Get started with Mobile Services]: /en-us/documentation/articles/mobile-services-windows-store-get-started/
 [SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkId=394776
 
 

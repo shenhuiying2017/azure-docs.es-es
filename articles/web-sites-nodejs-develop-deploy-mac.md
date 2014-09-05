@@ -20,7 +20,7 @@ Siga estos pasos para crear un sitio web de Azure y, a continuación, activar la
 <p>Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a  href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Evaluación gratuita de Azure</a>.</p>
 </div>
 
- 1.  Inicie sesión en el [Portal de administración de Azure][1].
+1.  Inicie sesión en el [Portal de administración de Azure][1].
 
 2.  Haga clic en el icono **+ NEW**, situado en la parte inferior izquierda del portal.
     
