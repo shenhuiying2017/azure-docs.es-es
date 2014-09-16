@@ -3,13 +3,30 @@
 Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor
 =============================================================================================
 
-[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "C# para Tienda Windows") [JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-js "JavaScript para Tienda Windows") [Windows Phone](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone") [iOS](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS") [Android](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android") [HTML](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML") [Xamarin.iOS](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS") [Xamarin.Android](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android")
+<div class="dev-center-tutorial-selector sublanding"> 
+<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="Windows Store C#">Windows Store C#</a>
+<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a>
+<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a>
+<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a>
+<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+</div>
 
-[Back-end de .NET](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/ "Back-end de .NET") | [Back-end de JavaScript](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Back-end de JavaScript")
+<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-validate-modify-data/" title=".NET backend">.NET backend</a> | 
+	<a href="/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8"  title="JavaScript backend" class="current">JavaScript backend</a>
+</div>
 
-En este tema se muestra cómo aprovechar los scripts del servidor en Servicios móviles de Azure. Dichos scripts se registran en un servicio móvil y pueden usarse para realizar una gran variedad de operaciones en los datos que se han insertado y actualizado, incluidas la modificación y validación de los datos. En este tutorial, definirá y registrará scripts de servidor que sirven para validar y modificar datos. Dado que el comportamiento de los scripts del servidor suele afectar al cliente, también actualizará la aplicación de Windows Phone 8 para que se beneficie de estos nuevos comportamientos.
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
 
-[Ver el tutorial (en inglés)](http://go.microsoft.com/fwlink/?LinkId=298629) [Reproducir vídeo (en inglés)](http://go.microsoft.com/fwlink/?LinkId=298629) 11:36
+<p>En este tema se muestra cómo aprovechar los scripts del servidor en Servicios móviles de Azure. Dichos scripts se registran en un servicio móvil y pueden usarse para realizar una gran variedad de operaciones en los datos que se han insertado y actualizado, incluidas la modificación y validación de los datos. En este tutorial, definirá y registrará scripts de servidor que sirven para validar y modificar datos. Dado que el comportamiento de los scripts del servidor suele afectar al cliente, también actualizará la aplicación de Windows Phone 8 para que se beneficie de estos nuevos comportamientos.</p>
+</div>
+
+<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=298629" target="_blank" class="label">Ver el tutorial (en inglés)</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-wp8-validate-modify-data-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=298629" target="_blank" class="dev-onpage-video"><span class="icon">Reproducir vídeo (en inglés)</span></a> <span class="time">11:36</span></div>
+</div>
 
 Este tutorial le guiará a través de estos pasos básicos:
 
@@ -18,8 +35,9 @@ Este tutorial le guiará a través de estos pasos básicos:
 3.  [Incorporación de una marca de tiempo al insertar](#add-timestamp)
 4.  [Actualización del cliente para mostrar la marca de tiempo](#update-client-timestamp)
 
-Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-wp8). Antes de comenzar este tutorial, primero debe completar [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-wp8).
+Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-wp8). Antes de comenzar este tutorial, primero debe completar [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-wp8).
 
+<a name="string-length-validation"></a>
 Incorporación de la validación
 ------------------------------
 
@@ -49,16 +67,18 @@ Siempre es conveniente validar la longitud de los datos enviados por los usuario
 
     Este script comprueba la longitud de la propiedad **TodoItem.text** y envía una respuesta de error cuando esta sobrepasa los 10 caracteres. En caso de no sobrepasarlos, se llama al método **execute** para completar la inserción.
 
-    **Nota:**
+    <div class="dev-callout"><b>Nota:</b>
 
-    Puede quitar un script registrado en la pestaña **Script** haciendo clic en **Clear** y, a continuación, en **Save**.
+    <p>Puede quitar un script registrado en la pestaña <b>Script</b> haciendo clic en <b>Clear</b> y, a continuación, en <b>Save</b>.</p>
+	</div>
 
+<a name="update-client-validation"></a>
 Actualización del cliente
 -------------------------
 
 Ahora que el servicio móvil puede validar los datos y enviar respuestas de error, debe actualizar la aplicación para que pueda identificar los errores de la validación.
 
-1.  En Visual Studio 2012 Express para Windows Phone, abra el proyecto que modificó cuando completó el tutorial [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-wp8).
+1.  En Visual Studio 2012 Express para Windows Phone, abra el proyecto que modificó cuando completó el tutorial [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-wp8).
 
 2.  Presione la tecla **F5** para ejecutar la aplicación, escriba un texto que sobrepase los 10 caracteres en el cuadro de texto y haga clic en **Save**.
 
@@ -88,14 +108,16 @@ Ahora que el servicio móvil puede validar los datos y enviar respuestas de erro
 
   Esta versión del método incluye control de errores para la excepción **MobileServiceInvalidOperationException** que muestra la respuesta de error en un cuadro de mensaje.
 
+<a name="add-timestamp"></a>
 Incorporación de una marca de tiempo
 ------------------------------------
 
 Hemos aplicado las tareas anteriores para validar e insertar y, en consecuencia, aceptar o rechazar. Ahora, actualizará los datos insertados mediante un script de servidor que agrega una propiedad de marca de tiempo al objeto antes de insertarse.
 
-**Nota:**
+<div class="dev-callout"><b>Nota:</b>
 
-La propiedad de marca de tiempo **createdAt** que se muestra en este ejemplo es redundante en este caso. Servicios móviles crea automáticamente una propiedad del sistema **\_\_createdAt** para cada tabla. Dicha propiedad del sistema podría usarse en su aplicación con solo agregar el siguiente miembro a la clase TodoItem:
+<p>La propiedad de marca de tiempo <b>createdAt</b> que se muestra en este ejemplo es redundante en este caso. Servicios móviles crea automáticamente una propiedad del sistema <b>__createdAt</b> para cada tabla. Dicha propiedad del sistema podría usarse en su aplicación con solo agregar el siguiente miembro a la clase TodoItem:</p>
+</div>
 
 ``` {}
 [JsonProperty(PropertyName = "__createdAt")]
@@ -115,9 +137,10 @@ public DateTime createdAt { set; get; }
 
     Esta función aumenta el script de inserción anterior mediante la incorporación de una nueva propiedad de marca de tiempo **createdAt** al objeto antes de que la llamada a **request**.**execute** lo inserte.
 
-    **Nota:**
+    <div class="dev-callout"><b>Nota:</b>
 
-    El esquema dinámico debe habilitarse la primera vez que se ejecute este script de inserción. Al tener habilitado dicho esquema, Servicios móviles agrega automáticamente la columna **createdAt** a la tabla **TodoItem** en la primera ejecución. El esquema dinámico está habilitado de forma predeterminada para un nuevo servicio móvil y debe deshabilitarse antes de publicar la aplicación en la Tienda de Windows Phone.
+    <p>El esquema dinámico debe habilitarse la primera vez que se ejecute este script de inserción. Al tener habilitado dicho esquema, Servicios móviles agrega automáticamente la columna <b>createdAt</b> a la tabla <b>TodoItem</b> en la primera ejecución. El esquema dinámico está habilitado de forma predeterminada para un nuevo servicio móvil y debe deshabilitarse antes de publicar la aplicación en la Tienda de Windows Phone.</p>
+	</div>
 
 2.  En Visual Studio, presione la tecla **F5** para ejecutar la aplicación, escriba un texto (con menos de 10 caracteres) en el cuadro de texto y haga clic en **Save**.
 
@@ -129,6 +152,7 @@ public DateTime createdAt { set; get; }
 
 A continuación, debe actualizar la aplicación de Windows Phone para que muestre esta nueva columna.
 
+<a name="update-client-timestamp"></a>
 Nueva actualización del cliente
 -------------------------------
 
@@ -152,9 +176,10 @@ El cliente Servicios móviles omitirá los datos de cualquier respuesta que no p
 
     Esta nueva definición de clase incluye la nueva propiedad de marca de tiempo como tipo DateTime que acepta valores NULL.
 
-    **Nota:**
+    <div class="dev-callout"><b>Nota:</b>
 
-    El atributo **DataMemberAttribute** indica al cliente que asigne la nueva propiedad **CreatedAt** de la aplicación a la columna **createdAt** definida en la tabla TodoItem, que tiene un uso distinto de mayúsculas y minúsculas. Al usar este atributo, la aplicación puede tener nombres de propiedad en objetos distintos a los nombres de columna de la base de datos SQL. Sin el atributo en cuestión, puede producirse un error debido a las diferencias en el uso de mayúsculas y minúsculas.
+    <p>El atributo <b>DataMemberAttribute</b> indica al cliente que asigne la nueva propiedad <b>CreatedAt</b> de la aplicación a la columna <b>createdAt</b> definida en la tabla TodoItem, que tiene un uso distinto de mayúsculas y minúsculas. Al usar este atributo, la aplicación puede tener nombres de propiedad en objetos distintos a los nombres de columna de la base de datos SQL. Sin el atributo en cuestión, puede producirse un error debido a las diferencias en el uso de mayúsculas y minúsculas.</p>
+	</div>
 
 2.  Agregue el siguiente elemento XAML justo debajo del elemento **CheckBoxComplete** en el archivo MainPage.xaml:
 
@@ -188,17 +213,18 @@ El cliente Servicios móviles omitirá los datos de cualquier respuesta que no p
 
 Ha completado este tutorial de trabajo con datos.
 
+<a name="next-steps"> </a>
 Pasos siguientes
 ----------------
 
 Ahora que ha completado este tutorial, considere continuar con el tutorial final de la serie de datos:
 
-Los scripts de servidor también se usan al autorizar usuarios y para enviar notificaciones de inserción. Para obtener más información, consulte los siguientes tutoriales: [Limitación de consultas con paginación](/es-es/develop/mobile/tutorials/add-paging-to-data-wp8).
+Los scripts de servidor también se usan al autorizar usuarios y para enviar notificaciones de inserción. Para obtener más información, consulte los siguientes tutoriales: [Limitación de consultas con paginación](/en-us/develop/mobile/tutorials/add-paging-to-data-wp8).
 
--   [Autorización de usuarios con scripts](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-wp8)
+-   [Autorización de usuarios con scripts](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-wp8)
   <br/>Aprenda a filtrar datos basándose en el identificador de un usuario autenticado.
 
--   [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-wp8)
+-   [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-wp8)
   <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
 -   [Referencia del script del servidor de Servicios móviles](http://go.microsoft.com/fwlink/?LinkId=262293)

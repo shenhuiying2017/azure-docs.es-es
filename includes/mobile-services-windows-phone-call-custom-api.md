@@ -1,8 +1,5 @@
 <h2><a name="update-app"></a>Actualizaci&oacute;n de la aplicaci&oacute;n para llamar a la API personalizada</h2>
 
-Actualización de la aplicación para llamar a la API personalizada
------------------------------------------------------------------
-
 1.  En Visual Studio 2012 Express para Windows Phone, abra el archivo MainPage.xaml en el proyecto de inicio rápido, busque el elemento **Button** con el nombre `ButtonRefresh` y reemplácelo por el siguiente código XAML:
 
          <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">

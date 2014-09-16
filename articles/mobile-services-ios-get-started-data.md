@@ -3,13 +3,16 @@
 Introducción a los datos en Servicios móviles
 =============================================
 
-[C# para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-data-js "JavaScript para Tienda Windows")[Windows Phone](/es-es/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/get-started-with-data-ios "iOS")[Android](/es-es/develop/mobile/tutorials/get-started-with-data-android "Android")[HTML](/es-es/develop/mobile/tutorials/get-started-with-data-html "HTML")[Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android")
+<div class="dev-center-tutorial-selector sublanding"> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#">Windows Store C#</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">Windows Store JavaScript</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>  
+</div>
 
 Este tema muestra cómo utilizar Servicios móviles de Azure para aprovechar los datos en una aplicación de iOS. En este tutorial descargará una aplicación que almacena datos en memoria, creará un nuevo servicio móvil, integrará el servicio móvil en la aplicación y luego iniciará sesión en el Portal de administración de Azure para ver los cambios que se hicieron en los datos durante la ejecución de la aplicación.
 
-**Nota:**
+<div class="dev-callout"><b>Nota:</b>
 
-Este tutorial está destinado a profundizar en el uso de Azure con los Servicios móviles para almacenar y recuperar datos en una aplicación de iOS. Para ello, en este tema se recorren muchos de los pasos que se completan automáticamente en el inicio rápido de Servicios móviles. Si esta es la primera vez que usa los Servicios móviles, considere la posibilidad de completar antes el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-ios).
+<p>Este tutorial está destinado a profundizar en el uso de Azure con los Servicios móviles para almacenar y recuperar datos en una aplicación de iOS. Para ello, en este tema se recorren muchos de los pasos que se completan automáticamente en el inicio rápido de Servicios móviles. Si esta es la primera vez que usa los Servicios móviles, considere la posibilidad de completar antes el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started-ios).</p>
+</div>
 
 Este tutorial le guiará a través de estos pasos básicos:
 
@@ -21,10 +24,12 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 Este tutorial requiere el [SDK de iOS para Servicios móviles](https://go.microsoft.com/fwLink/p/?LinkID=266533), [XCode 4.5](https://go.microsoft.com/fwLink/p/?LinkID=266532) y iOS 5.0 o versiones posteriores.
 
-**Nota:**
+<div class="dev-callout">Nota:</b>
 
-Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F).
+<p>Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Evaluación gratuita de Azure</a>.</p>
+</div>
 
+<a name="download-app"></a>
 Descarga del proyectoDescarga del proyecto GetStartedWithData
 -------------------------------------------------------------
 
@@ -44,16 +49,19 @@ Este tutorial se basa en la [aplicación GetStartedWithData](http://go.microsoft
 
    	Observe que el texto guardado se muestra en la lista a continuación.
 
+<a name="create-service"></a>
 Creación de un servicio móvilCreación de un servicio móvil en el Portal de administración
 -----------------------------------------------------------------------------------------
 
 [WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
+<a name="add-table"></a>
 Incorporación de una tabla nuevaIncorporación de una tabla nueva al servicio móvil
 ----------------------------------------------------------------------------------
 
 [WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
+<a name="update-app"></a>
 Actualización de la aplicaciónActualización de la aplicación para usar el servicio móvil para el acceso a datos
 ---------------------------------------------------------------------------------------------------------------
 
@@ -170,6 +178,7 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 
 Ahora que se ha actualizado la aplicación para utilizar Servicios móviles para almacenamiento back-end, es momento de probar la aplicación con Servicios móviles.
 
+<a name="test-app"></a>
 Prueba de la aplicaciónPrueba de la aplicación con su servicio móvil nuevo
 --------------------------------------------------------------------------
 
@@ -191,6 +200,7 @@ Prueba de la aplicaciónPrueba de la aplicación con su servicio móvil nuevo
 
 Con esto concluye el tutorial **Introducción a los datos** para iOS.
 
+<a name="next-steps"> </a>
 Pasos siguientes
 ----------------
 
@@ -198,18 +208,18 @@ Este tutorial demostró los aspectos básicos de la habilitación de una aplicac
 
 A continuación, considere la realización de uno de los siguientes tutoriales que se basan en la aplicación GetStartedWithData que creó en este tutorial:
 
--   [Validación y modificación de datos con scripts](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet)
+-   [Validación y modificación de datos con scripts](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet)
     Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
 
--   [Limitación de consultas con paginación](/es-es/develop/mobile/tutorials/add-paging-to-data-ios)
+-   [Limitación de consultas con paginación](/en-us/develop/mobile/tutorials/add-paging-to-data-ios)
     Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se manejan en una única solicitud.
 
 Una vez que haya completado la serie de datos, pruebe con uno de estos otros tutoriales para iOS:
 
--   [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-ios)
+-   [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-ios)
     Aprenda a autenticar a los usuarios de su aplicación.
 
--   [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-ios)
+-   [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-ios)
     Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
 

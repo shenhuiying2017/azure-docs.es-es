@@ -4,15 +4,19 @@
 Introducción a los datos en Servicios móviles
 =============================================
 
-[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-data-js "JavaScript para Tienda Windows")[Windows Phone](/es-es/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/get-started-with-data-ios "iOS")[Android](/es-es/develop/mobile/tutorials/get-started-with-data-android "Android")[HTML](/es-es/develop/mobile/tutorials/get-started-with-data-html "HTML")[Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android")
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet" title="Windows Store C#" class="current">C\# para Tienda Windows</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-js" title="Windows Store JavaScript">JavaScript para Tienda Windows</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-wp8" title="Windows Phone">Windows Phone</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-ios" title="iOS">iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-android" title="Android">Android</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-html" title="HTML">HTML</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/develop/mobile/tutorials/get-started-with-data-xamarin-android" title="Xamarin.Android">Xamarin.Android</a></div>
 
-[Back-end de .NET](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "Back-end de .NET") | [Back-end de JavaScript](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet/ "Back-end de JavaScript")
+<div class="dev-center-tutorial-subselector">
+	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title=".NET backend">.NET backend</a> | 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/"  title="JavaScript backend" class="current">JavaScript backend</a>
+</div>
 
-Este tema muestra cómo utilizar Servicios móviles de Azure para aprovechar los datos en una aplicación de la Tienda Microsoft. En este tutorial descargará un proyecto de Visual Studio 2013 para una aplicación que almacena datos en memoria, creará un nuevo servicio móvil, integrará el servicio móvil a la aplicación y luego iniciará sesión en el Portal de administración de Azure para ver los cambios que se hicieron en los datos durante la ejecución de la aplicación.
+<p>Este tema muestra cómo utilizar Servicios móviles de Azure para aprovechar los datos en una aplicación de la Tienda Microsoft. En este tutorial descargará un proyecto de Visual Studio 2013 para una aplicación que almacena datos en memoria, creará un nuevo servicio móvil, integrará el servicio móvil a la aplicación y luego iniciará sesión en el Portal de administración de Azure para ver los cambios que se hicieron en los datos durante la ejecución de la aplicación.</p>
 
-**Nota:**
+<div class="dev-callout"><b>Nota:</b>
 
-Este tutorial requiere Visual Studio 2013, con lo que es más fácil conectar su aplicación de la Tienda de Windows con Servicios móviles. Para completar el mismo procedimiento básico con Visual Studio 2012, siga los pasos en el tema [Introducción a los datos en Servicios móviles con Visual Studio 2012](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/).
+<p>Este tutorial requiere Visual Studio 2013, con lo que es más fácil conectar su aplicación de la Tienda de Windows con Servicios móviles. Para completar el mismo procedimiento básico con Visual Studio 2012, siga los pasos en el tema <a href="/en-us/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/">Introducción a los datos en Servicios móviles con Visual Studio 2012</a>.</p>
+</div>
 
 Este tutorial le guiará a través de estos pasos básicos:
 
@@ -21,10 +25,12 @@ Este tutorial le guiará a través de estos pasos básicos:
 3.  [Incorporación de una tabla de datos para almacenamiento y actualización de la aplicación](#add-table)
 4.  [Prueba de la aplicación en Servicios móviles](#test-app)
 
-**Nota:**
+<div class="dev-callout"><b>Nota:</b>
 
-Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28).
+<p>Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>.</p>
+</div>
 
+<a name="download-app"></a>
 Descarga del proyectoDescarga del proyecto GetStartedWithData
 -------------------------------------------------------------
 
@@ -46,23 +52,25 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices (en inglé
 
 	Observe que el texto guardado aparece en la segunda columna bajo **Query and update data**.
 
+<a name="create-service"></a>
 Creación del servicio móvilCreación de un servicio móvil desde Visual Studio
 ----------------------------------------------------------------------------
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
-1.  En el Explorador de soluciones, abra el archivo de código App.xaml.cs y observe el nuevo campo estático que se agregó a la clase \*\*App\*\*, que se ve como el siguiente ejemplo:
+<ol start="7"><li><p>En el Explorador de soluciones, abra el archivo de código App.xaml.cs y observe el nuevo campo estático que se agregó a la clase **App**, que se ve como el siguiente ejemplo:</p>
 
-    ``` {data-morhtml="true"}
-    public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
-                todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
-                    "https://todolist.azure-mobile.net/",
-                    "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-            
-    ```
+		<pre><code>public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient 
+		    todolistClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+		        "https://todolist.azure-mobile.net/",
+		        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+		</code></pre>
 
-    Este código proporciona acceso al nuevo servicio móvil en su aplicación mediante el uso de una instancia de la [clase MobileServiceClient](http://go.microsoft.com/fwlink/p/?LinkId=302030). El cliente se crea al suministrar el URI y la clave de aplicación del nuevo servicio móvil. Este campo estático está disponible para todas las páginas en la aplicación.
+    <p>Este código proporciona acceso al nuevo servicio móvil en su aplicación mediante el uso de una instancia de la [clase MobileServiceClient](http://go.microsoft.com/fwlink/p/?LinkId=302030). El cliente se crea al suministrar el URI y la clave de aplicación del nuevo servicio móvil. Este campo estático está disponible para todas las páginas en la aplicación.</p>
+</li>
+</ol>
 
+<a name="add-table"></a>
 Incorporación de una tabla nuevaIncorporación de una tabla nueva al servicio móvil y actualización de la aplicación
 -------------------------------------------------------------------------------------------------------------------
 
@@ -102,9 +110,10 @@ Incorporación de una tabla nuevaIncorporación de una tabla nueva al servicio m
 
     Este código inserta un elemento nuevo en la tabla.
 
-    **Nota:**
+	<div class="dev-callout"><b>Nota:</b>
 
-    Las tablas nuevas se crean con las columnas Id, \_\_createdAt, \_\_updatedAt y \_\_version. Cuando está habilitado el esquema dinámico, Servicios móviles genera automáticamente columnas nuevas basadas en el objeto JSON en la solicitud de inserción o actualización. Para obtener más información, consulte [Esquema dinámico](http://msdn.microsoft.com/es-es/library/windowsazure/jj193175.aspx).
+    <p>Las tablas nuevas se crean con las columnas Id, \_\_createdAt, \_\_updatedAt y \_\_version. Cuando está habilitado el esquema dinámico, Servicios móviles genera automáticamente columnas nuevas basadas en el objeto JSON en la solicitud de inserción o actualización. Para obtener más información, consulte <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj193175.aspx">Esquema dinámico</a>.</p>
+	</div>
 
 5.  En el método **RefreshTodoItems**, agregue el modificador **async** al método y quite la marca de comentario en la siguiente línea de código:
 
@@ -120,6 +129,7 @@ Incorporación de una tabla nuevaIncorporación de una tabla nueva al servicio m
 
 Ahora que se ha actualizado la aplicación para utilizar Servicios móviles para almacenamiento back-end, es momento de probar la aplicación con Servicios móviles.
 
+<a name="test-app"></a>
 Prueba de la aplicaciónPrueba de la aplicación con su servicio móvil nuevo
 --------------------------------------------------------------------------
 
@@ -159,26 +169,27 @@ Prueba de la aplicaciónPrueba de la aplicación con su servicio móvil nuevo
 
 Con esto concluye el tutorial **Introducción a los datos**.
 
+<a name="next-steps"> </a>
 Pasos siguientes
 ----------------
 
 Este tutorial demostró los aspectos básicos de la habilitación de una aplicación de la Tienda Windows para trabajar con datos en Servicios móviles. A continuación, considere la realización de uno de los siguientes tutoriales que se basan en la aplicación GetStartedWithData que creó en este tutorial:
 
--   [Validación y modificación de datos con scripts](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet)
+-   [Validación y modificación de datos con scripts](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet)
     Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
 
--   [Limitación de consultas con paginación](/es-es/develop/mobile/tutorials/add-paging-to-data-dotnet)
+-   [Limitación de consultas con paginación](/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet)
     Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se manejan en una única solicitud.
 
 Una vez que haya completado la serie de datos, intente con uno de estos otros tutoriales:
 
--   [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-dotnet)
+-   [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet)
     Aprenda a autenticar a los usuarios de su aplicación.
 
 -   [Introducción a las notificaciones de inserción](../mobile-services-windows-store-dotnet-get-started-push/)
     Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
--   [Referencia conceptual de Servicios móviles con .NET](/es-es/develop/mobile/how-to-guides/work-with-net-client-library)
+-   [Referencia conceptual de Servicios móviles con .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library)
     Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
 
@@ -207,18 +218,18 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
 
 
 <!-- URLs. -->
-[Validate and modify data with scripts]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Refine queries with paging]: /es-es/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Get started with Mobile Services]: /es-es/develop/mobile/tutorials/get-started
-[Get started with data]: /es-es/develop/mobile/tutorials/get-started-with-data-dotnet
-[Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-dotnet
+[Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-dotnet
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
 [Get started with push notifications]: ../mobile-services-windows-store-dotnet-get-started-push/
-[JavaScript and HTML]: /es-es/develop/mobile/tutorials/get-started-with-data-js
+[JavaScript and HTML]: /en-us/develop/mobile/tutorials/get-started-with-data-js
 
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Management Portal]: https://manage.windowsazure.com/
 [Mobile Services SDK]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Developer Code Samples site]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Mobile Services .NET How-to Conceptual Reference]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library
+[Mobile Services .NET How-to Conceptual Reference]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
 [MobileServiceClient class]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 

@@ -8,7 +8,7 @@ En esta guía se demuestra cómo llevar a cabo supuestos comunes usando el bloqu
 Tabla de contenido
 ------------------
 
-[¿Qué es el bloque de autoescala de la aplicación?][]
+ [¿Qué es el bloque de autoescala de la aplicación?][]
  [Conceptos][]
  [Recopilación de datos del contador de rendimiento desde su aplicación de Azure de destino][]
  [Instalación de una aplicación host para el bloque de autoescala de la aplicación][]
@@ -17,6 +17,7 @@ Tabla de contenido
  [Configuración del bloque de autoescala de la aplicación][]
  [Pasos siguientes][]
 
+<a id="WhatIs"> </a>
 ¿Qué es el bloque de autoescala de la aplicación?
 -------------------------------------------------
 
@@ -26,6 +27,7 @@ Puede optar por hospedar el bloque en un rol de Azure o en una aplicación local
 
 El bloque de autoescala de la aplicación es parte del [Paquete de integración de Microsoft Enterprise Library 5.0 para Azure][].
 
+<a id="Concepts"> </a>
 Conceptos
 ---------
 
@@ -45,6 +47,7 @@ El bloque almacena su configuración en dos almacenes:
 
 -   **Almacén de información de servicio:** El almacén de información de servicio almacena su configuración funcional, que es el modelo de servicio de su aplicación de Azure. Este modelo de servicio incluye toda la información acerca de su aplicación de Azure (como los nombres de rol y los detalles de la cuenta de almacenamiento) que el bloque necesita para poder recopilar puntos de datos desde la aplicación de Azure de destino y realizar operaciones de escalado.
 
+<a id="PerfCounter"> </a>
 Recopilación de datos del contador de rendimiento desde su aplicación de Azure de destino
 -----------------------------------------------------------------------------------------
 
@@ -52,6 +55,7 @@ Las reglas reactivas pueden usar los datos del contador de rendimiento de los ro
 
 De manera predeterminada, Azure no escribe datos del contador de rendimiento en la tabla de Diagnósticos de Azure en el almacenamiento de Azure. Por lo tanto, debe modificar los roles a partir de los cuales necesita recopilar datos del contador de rendimiento para guardar estos datos. Para obtener detalles sobre la habilitación de los contadores de rendimiento en su aplicación, consulte [Uso de contadores de rendimiento en Azure][].
 
+<a id="CreateHost"> </a>
 Instalación de una aplicación host para el bloque de autoescala de la aplicación
 --------------------------------------------------------------------------------
 
@@ -90,6 +94,7 @@ Agregue las siguientes declaraciones de espacio de nombres de código en la part
     using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
     using Microsoft.Practices.EnterpriseLibrary.WindowsAzure.Autoscaling;
 
+<a id="Instantiate"> </a>
 Creación de una instancia y ejecución de la autoescala
 ------------------------------------------------------
 
@@ -99,6 +104,7 @@ Use el método **IServiceLocator.GetInstance** para crear una instancia de autoe
         EnterpriseLibraryContainer.Current.GetInstance<Autoscaler>();
     scaler.Start();
 
+<a id="DefineServiceModel"> </a>
 Definición de su modelo de servicio
 -----------------------------------
 
@@ -166,6 +172,7 @@ Inicie sesión en el Portal de administración.
 
 Para obtener más información sobre el contenido del archivo de modelo de servicio, consulte [Almacenamiento de sus datos de información del servicio][].
 
+<a id="DefineAutoscalingRules"> </a>
 Definición de sus reglas de autoescala
 --------------------------------------
 
@@ -232,6 +239,7 @@ En este ejemplo hay tres reglas de autoescala (una **regla de restricción** y d
 
 -   La regla reactiva llamada **ScaleDownOnLowUtilization** disminuye el recuento de instancias del rol de destino en uno si el uso promedio de CPU en los últimos cinco minutos ha sido inferior al 60 %.
 
+<a id="Configure"> </a>
 Configuración del bloque de autoescala de la aplicación
 -------------------------------------------------------
 
@@ -321,6 +329,7 @@ Ahora puede ejecutar su aplicación de consola de host del bloque de autoescala 
     "InstanceChanges":{"AutoscalingApplicationRole":{"CurrentValue":1,"DesiredValue":2}},
     "SettingChanges":{},"RequestID":"f8ca3ada07c24559b1cb075534f02d44"}
 
+<a id="NextSteps"> </a>
 Pasos siguientes
 ----------------
 
@@ -354,18 +363,18 @@ Ahora que está familiarizado con los aspectos básicos del uso del bloque de au
 [Definición de su modelo de servicio]:#DefineServiceModel
 [Definición de sus reglas de autoescala]:#DefineAutoscalingRules
 [Configuración del bloque de autoescala de la aplicación]:#Configure
-[Uso de contadores de rendimiento en Azure]:http://www.windowsazure.com/es-es/develop/net/common-tasks/performance-profiling/ 
+[Uso de contadores de rendimiento en Azure]:http://www.windowsazure.com/en-us/develop/net/common-tasks/performance-profiling/ 
 [NuGet]: http://nuget.org/ 
 [Portal de administración de Azure]:http://manage.windowsazure.com 
-[Almacenamiento de sus datos de información del servicio]:http://msdn.microsoft.com/es-es/library/hh680878(PandP.50).aspx 
-[Hospedaje del bloque de autoescala de la aplicación en un rol de trabajo]:http://msdn.microsoft.com/es-es/library/hh680914(PandP.50).aspx 
-[Implementación del comportamiento de limitación]:http://msdn.microsoft.com/es-es/library/hh680896(PandP.50).aspx 
-[Descripción de los rangos de reglas y la reconciliación]:http://msdn.microsoft.com/es-es/library/hh680923(PandP.50).aspx 
-[Extensión y modificación del bloque de autoescala de la aplicación]:http://msdn.microsoft.com/es-es/library/hh680889(PandP.50).aspx 
-[Uso del estabilizador de optimización para evitar una oscilación de alta frecuencia y optimizar los costes]:http://msdn.microsoft.com/es-es/library/hh680951(PandP.50).aspx 
-[Uso de notificaciones y escalado manual]:http://msdn.microsoft.com/es-es/library/hh680885(PandP.50).aspx
-[Definición de los grupos de escala]:http://msdn.microsoft.com/es-es/library/hh680902(PandP.50).aspx 
-[Uso de WASABiCmdlets para manipular el bloque mediante Windows PowerShell]:http://msdn.microsoft.com/es-es/library/hh680938(PandP.50).aspx 
-[Guía del desarrollador para el paquete de integración de Enterprise Library 5.0 para Azure]:http://msdn.microsoft.com/es-es/library/hh680949(PandP.50).aspx
-[Reducción de los costes de hospedaje de Azure debido a Sage con autoescala]:http://msdn.microsoft.com/es-es/library/jj838716(PandP.50).aspx
-[Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure]:http://msdn.microsoft.com/es-es/library/jj838718(PandP.50).aspx
+[Almacenamiento de sus datos de información del servicio]:http://msdn.microsoft.com/en-us/library/hh680878(PandP.50).aspx 
+[Hospedaje del bloque de autoescala de la aplicación en un rol de trabajo]:http://msdn.microsoft.com/en-us/library/hh680914(PandP.50).aspx 
+[Implementación del comportamiento de limitación]:http://msdn.microsoft.com/en-us/library/hh680896(PandP.50).aspx 
+[Descripción de los rangos de reglas y la reconciliación]:http://msdn.microsoft.com/en-us/library/hh680923(PandP.50).aspx 
+[Extensión y modificación del bloque de autoescala de la aplicación]:http://msdn.microsoft.com/en-us/library/hh680889(PandP.50).aspx 
+[Uso del estabilizador de optimización para evitar una oscilación de alta frecuencia y optimizar los costes]:http://msdn.microsoft.com/en-us/library/hh680951(PandP.50).aspx 
+[Uso de notificaciones y escalado manual]:http://msdn.microsoft.com/en-us/library/hh680885(PandP.50).aspx
+[Definición de los grupos de escala]:http://msdn.microsoft.com/en-us/library/hh680902(PandP.50).aspx 
+[Uso de WASABiCmdlets para manipular el bloque mediante Windows PowerShell]:http://msdn.microsoft.com/en-us/library/hh680938(PandP.50).aspx 
+[Guía del desarrollador para el paquete de integración de Enterprise Library 5.0 para Azure]:http://msdn.microsoft.com/en-us/library/hh680949(PandP.50).aspx
+[Reducción de los costes de hospedaje de Azure debido a Sage con autoescala]:http://msdn.microsoft.com/en-us/library/jj838716(PandP.50).aspx
+[Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure]:http://msdn.microsoft.com/en-us/library/jj838718(PandP.50).aspx

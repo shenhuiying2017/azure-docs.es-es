@@ -3,9 +3,11 @@
 Uso de la biblioteca del cliente iOS para Servicios móviles
 ===========================================================
 
-[.NET Framework](/es-es/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework")[HTML/JavaScript](/es-es/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/es-es/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/es-es/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/es-es/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
+<div class="dev-center-tutorial-selector sublanding"> 
+  <a href="/en-us/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a><a href="/en-us/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/en-us/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS" class="current">iOS</a><a href="/en-us/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/en-us/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin">Xamarin</a>
+</div>
 
-Esta guía le muestra cómo realizar algunas tareas comunes a través del cliente iOS para Servicios móviles de Azure. Los ejemplos se han escrito en Objective-C y requieren el [SDK de Servicios móviles](https://go.microsoft.com/fwLink/p/?LinkID=266533). Este tutorial también requiere el [SDK de iOS](https://developer.apple.com/xcode). Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia en el uso de Servicios móviles, considere primero la opción de completar la [guía de inicio rápido de Servicios móviles](/es-es/develop/mobile/tutorials/get-started-ios) (en inglés). El tutorial de la guía de inicio rápido le ayuda a configurar la cuenta y crear el primer servicio móvil.
+Esta guía le muestra cómo realizar algunas tareas comunes a través del cliente iOS para Servicios móviles de Azure. Los ejemplos se han escrito en Objective-C y requieren el [SDK de Servicios móviles](https://go.microsoft.com/fwLink/p/?LinkID=266533). Este tutorial también requiere el [SDK de iOS](https://developer.apple.com/xcode). Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia en el uso de Servicios móviles, considere primero la opción de completar la [guía de inicio rápido de Servicios móviles](/en-us/develop/mobile/tutorials/get-started-ios) (en inglés). El tutorial de la guía de inicio rápido le ayuda a configurar la cuenta y crear el primer servicio móvil.
 
 Tabla de contenido
 ------------------
@@ -27,10 +29,11 @@ Tabla de contenido
 
 [WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
+<a name="Setup"></a>
 Configuración y requisitos previos
 ----------------------------------
 
-En esta guía se asume que ha creado un servicio móvil con una tabla. Para obtener más información, consulte [Crear una tabla](http://msdn.microsoft.com/es-es/library/windowsazure/jj193162.aspx). En los ejemplos de este tema se usa una tabla denominada `ToDoItem` que tiene las siguientes columnas:
+En esta guía se asume que ha creado un servicio móvil con una tabla. Para obtener más información, consulte [Crear una tabla](http://msdn.microsoft.com/en-us/library/windowsazure/jj193162.aspx). En los ejemplos de este tema se usa una tabla denominada `ToDoItem` que tiene las siguientes columnas:
 
 -   `id`
 -   `text`
@@ -43,6 +46,7 @@ Asimismo, debe agregar la siguiente referencia a los archivos adecuados o al arc
 
     #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
 
+<a name="create-client"></a>
 Creación del clienteCreación del cliente de Servicios móviles
 -------------------------------------------------------------
 
@@ -57,6 +61,7 @@ También puede crear el cliente a partir de un objeto **NSURL** que sea la direc
     MSClient *client = [MSClient clientWithApplicationURL:(NSURL *)url
                                  applicationKey:(NSString *)string];
 
+<a name="table-reference"></a>
 Creación de una referencia de tablaCreación de una referencia de tabla
 ----------------------------------------------------------------------
 
@@ -64,6 +69,7 @@ Para tener acceso a los datos del servicio móvil, debe obtener una referencia a
 
     MSTable *table = [client tableWithName:@"ToDoItem"]; 
 
+<a name="querying"></a>
 Consulta de datosConsulta de datos desde un servicio móvil
 ----------------------------------------------------------
 
@@ -87,6 +93,7 @@ Los parámetros siguientes se proporcionan en la devolución de llamada:
 -   *totalCount*: Recuento total de los elementos de todas las páginas de la consulta, no solo aquellos que se devuelven en la página actual. Este valor está establecido en -1, a menos que se solicite explícitamente el recuento total en la solicitud. Para obtener más información, consulte [Devolución de datos en páginas](#paging).
 -   *error*: Cualquier error que se haya producido; de lo contrario, `nil`.
 
+<a name="filtering"></a>
 ### Filtrado de datos devueltos
 
 Si desea filtrar los resultados, tiene a su disposición diversas opciones.
@@ -110,6 +117,7 @@ Un único registro puede recuperarse usando su identificador.
 
 Tenga en cuenta que, en este caso, los parámetros de devolución de llamada son algo distintos. En lugar de obtener una matriz de resultados y un recuento opcional, solamente se obtiene el registro en cuestión.
 
+<a name="query-object"></a>
 ### Uso del objeto MSQuery
 
 Use el objeto **MSQuery** en caso de requerir una consulta más compleja que no se limite al filtrado de filas, como cambiar el criterio de ordenación de los resultados o limitar el número de registros de datos que se obtiene. En los dos ejemplos siguientes se muestra cómo crear una instancia del objeto MSQuery:
@@ -127,6 +135,7 @@ El objeto MSQuery permite controlar los siguientes comportamientos de la consult
 
 Para definir aún más una consulta, pueden aplicarse una o varias funciones. Una vez definida la consulta, esta se ejecuta mediante la llamada a la función **readWithCompletion**.
 
+<a name="sorting"></a>
 #### Ordenación de datos devueltos
 
 Las siguientes funciones se usan para especificar los campos que se utilizan para la ordenación:
@@ -142,6 +151,7 @@ Esta consulta ordena los resultados en primer lugar por su duración y, después
         //Aquí se incluye el código para analizar los resultados
     }]; 
 
+<a name="paging"></a>
 #### Devolución de datos en páginas
 
 Servicios móviles limita la cantidad de registros que se devuelven en una sola respuesta. Para controlar el número de registros que se muestra a los usuarios, debe implementar un sistema de paginación. La paginación se obtiene mediante el uso de las tres propiedades siguientes del objeto **MSQuery**:
@@ -169,12 +179,14 @@ En el ejemplo siguiente, una sola función solicita 20 registros del servidor y,
         }];
     }
 
+<a name="selecting"></a>
 #### Limitación de los campos devueltos
 
 Para limitar los campos que devuelve la consulta, solo tiene que especificar los nombres de los campos deseados en la propiedad **selectFields**. En el ejemplo siguiente solamente se devuelven los campos de texto y aquellos que se hayan rellenado:
 
     query.selectFields = @[@"text", @"completed"];
 
+<a name="parameters"></a>
 #### Especificación de parámetros adicionales de la cadena de consulta
 
 La biblioteca de clientes hace posible incluir parámetros adicionales de la cadena de consulta en la solicitud al servidor. Es posible que los scripts del servidor requieran estos parámetros. En el ejemplo siguiente se agregan dos parámetros de la cadena de consulta a la solicitud:
@@ -184,8 +196,9 @@ La biblioteca de clientes hace posible incluir parámetros adicionales de la cad
         @"myKey2" : @"value2",
     };
 
-Estos parámetros se anexan al URI de la consulta como `myKey1=value1&myKey2=value2`. Para obtener más información, consulte [Acceso a parámetros personalizados](/es-es/develop/mobile/how-to-guides/work-with-server-scripts#access-headers).
+Estos parámetros se anexan al URI de la consulta como `myKey1=value1&myKey2=value2`. Para obtener más información, consulte [Acceso a parámetros personalizados](/en-us/develop/mobile/how-to-guides/work-with-server-scripts#access-headers).
 
+<a name="inserting"></a>
 Inserción de datosInserción de datos en un servicio móvil
 ---------------------------------------------------------
 
@@ -236,10 +249,11 @@ El valor `id` debe ser exclusivo y no debe incluir caracteres de los siguientes 
 -   Caracteres imprimibles: **"**(0x0022), **+** (0x002B), **/** (0x002F), **?** (0x003F), **\\** (0x005C), **\`** (0x0060)
 -   Los identificadores "." y ".."
 
-También puede usar identificadores de números enteros para las tablas. Para usar un identificador de números enteros, debe crear la tabla con el comando `mobile table create` mediante la opción `--integerId`. Este comando se usa con la interfaz de la línea de comandos (CLI) de Azure. Para obtener más información sobre el uso de la CLI, consulte [CLI para administrar tablas de Servicios móviles](http://www.windowsazure.com/es-es/manage/linux/other-resources/command-line-tools/#Mobile_Tables).
+También puede usar identificadores de números enteros para las tablas. Para usar un identificador de números enteros, debe crear la tabla con el comando `mobile table create` mediante la opción `--integerId`. Este comando se usa con la interfaz de la línea de comandos (CLI) de Azure. Para obtener más información sobre el uso de la CLI, consulte [CLI para administrar tablas de Servicios móviles](http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables).
 
 Cuando está habilitado el esquema dinámico, Servicios móviles genera automáticamente columnas nuevas basadas en los campos del objeto de la solicitud de inserción o actualización. Para obtener más información, consulte [Esquema dinámico](http://go.microsoft.com/fwlink/p/?LinkId=296271).
 
+<a name="modifying"></a>
 Modificación de datosModificación de datos en un servicio móvil
 ---------------------------------------------------------------
 
@@ -271,6 +285,7 @@ También puede eliminar un registro usando su identificador directamente, como e
 
 Tenga en cuenta que, en caso de actualizar y eliminar, debe establecerse como mínimo el atributo `id`.
 
+<a name="authentication"></a>
 AutenticaciónAutenticación de usuarios
 --------------------------------------
 
@@ -282,7 +297,7 @@ Servicios móviles permite usar los siguientes proveedores de identidades para a
 -   Twitter
 -   Azure Active Directory
 
-Para obtener más información acerca de cómo configurar un proveedor de identidades, consulte [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-ios).
+Para obtener más información acerca de cómo configurar un proveedor de identidades, consulte [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-ios).
 
 Servicios móviles admite los dos flujos de trabajo de autenticación siguientes:
 
@@ -290,9 +305,9 @@ Servicios móviles admite los dos flujos de trabajo de autenticación siguientes
 
 -   En un inicio de sesión administrado por el cliente, la aplicación debe solicitar un token al proveedor de identidades y, después, presentar dicho token a Servicios móviles para su autenticación.
 
-Una vez realizada la autenticación, se devuelve un objeto de usuario que contiene el valor de identificador de usuario asignado y el token de autenticación. Este identificador de usuario se puede utilizar en los scripts del servidor para validar o modificar solicitudes. Para obtener más información, consulte [Uso de scripts para autorizar usuarios](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-ios). El token en sí puede almacenarse en la memoria caché de forma segura para usarlo en inicios de sesión posteriores.
+Una vez realizada la autenticación, se devuelve un objeto de usuario que contiene el valor de identificador de usuario asignado y el token de autenticación. Este identificador de usuario se puede utilizar en los scripts del servidor para validar o modificar solicitudes. Para obtener más información, consulte [Uso de scripts para autorizar usuarios](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios). El token en sí puede almacenarse en la memoria caché de forma segura para usarlo en inicios de sesión posteriores.
 
-También puede establecer permisos en las tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. Para obtener más información, consulte [Permisos](http://msdn.microsoft.com/es-es/library/windowsazure/jj193161.aspx).
+También puede establecer permisos en las tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. Para obtener más información, consulte [Permisos](http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx).
 
 ### Inicio de sesión administrado por el servidor
 
@@ -342,6 +357,7 @@ En el ejemplo siguiente se usa el [SDK de Live Connect](http://go.microsoft.com/
 
 En este código se asume que ya se ha creado previamente una instancia de **LiveConnectClient** denominada `liveClient` en el controlador y que el usuario ha iniciado sesión.
 
+<a name="caching-tokens"></a>
 ### Almacenamiento de tokens de autenticación en la caché
 
 Para evitar que los usuarios tengan que autenticarse cada vez que ejecuten la aplicación, puede almacenar la identidad del usuario actual en caché una vez que haya iniciado sesión. Esa información podrá utilizarse posteriormente para crear el usuario directamente y omitir el proceso de inicio de sesión. Para ello, debe almacenar el identificador de usuario y el token de autenticación localmente. En el ejemplo siguiente, el token se almacena en caché de forma segura en [KeyChain]:
@@ -402,12 +418,14 @@ Para evitar que los usuarios tengan que autenticarse cada vez que ejecuten la ap
             }];
         }   
 
-**Nota:**
+<div class="dev-callout"><b>Nota:</b>
 
-Los tokens son datos confidenciales y deben almacenarse cifrados por si el dispositivo se pierde o se roba.
+<p>Los tokens son datos confidenciales y deben almacenarse cifrados por si el dispositivo se pierde o se roba.</p>
+</div>
 
 Cuando se usa un token almacenado en caché, el usuario no deberá iniciar sesión de nuevo hasta que el token expire. Si un usuario intenta iniciar sesión con un token que haya expirado, se devuelve una respuesta 401 de uso no autorizado. En este punto, el usuario deberá volver a iniciar sesión para obtener un nuevo token, que podrá almacenarse de nuevo en la memoria caché. Puede usar los filtros a fin de evitar tener que escribir código para administrar los tokens expirados siempre que la aplicación llame al servicio móvil. Los filtros permiten interceptar las llamadas al servicio móvil, así como las respuestas del mismo. El código del filtro comprueba la respuesta para detectar un posible error 401, desencadena el proceso de inicio de sesión en caso de que el token haya expirado y, a continuación, prueba de nuevo la solicitud que generó dicho error. Para obtener los detalles, consulte [Administración de tokens expirados](http://go.microsoft.com/fwlink/p/?LinkId=301955).
 
+<a name="errors"></a>
 Gestión de erroresGestión de errores
 ------------------------------------
 
@@ -420,5 +438,5 @@ En caso de haberse producido un error, incluya el archivo MSError.h en el códig
 
 Además, se define una constante para cada código de error. En el archivo MSError.h puede encontrarse una explicación de estos códigos.
 
-Para obtener un ejemplo sobre cómo realizar y controlar una validación, consulte [Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-ios). En este tema, la validación del servidor se implementa mediante scripts del servidor. Al enviar datos no válidos, se devuelve una respuesta de error que administrará el cliente.
+Para obtener un ejemplo sobre cómo realizar y controlar una validación, consulte [Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-ios). En este tema, la validación del servidor se implementa mediante scripts del servidor. Al enviar datos no válidos, se devuelve una respuesta de error que administrará el cliente.
 

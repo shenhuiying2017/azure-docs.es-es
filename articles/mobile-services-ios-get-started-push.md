@@ -1,17 +1,25 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="" solutions="" manager="" editor="" />
 
 Introducción a las notificaciones de inserción en Servicios móviles
 ===================================================================
+<div class="dev-center-tutorial-selector sublanding">
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet" title="Windows Store C#">Windows Store C#</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-js" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android">Android</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+</div>
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
+<p>Este tema muestra cómo puede usar Servicios móviles de Azure para enviar notificaciones de inserción a una aplicación de iOS. En este tutorial aprenderá a agregar notificaciones de inserción al proyecto de inicio rápido con el servicio de notificaciones de inserción de Apple (APNS). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.</p>
+<p>Puede ver la versión en vídeo de este tutorial haciendo clic en el clip de la derecha.</p>
+</div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">Ver el tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-push-ios-180x120.png') !important;" href="http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Reproducir vídeo</span></a> <span class="time">10:37</span></div>
+</div>
 
-[C\# de Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-push-dotnet "Windows Store C#")[JavaScript de Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-push-js "Windows Store JavaScript")[Windows Phone](/es-es/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/get-started-with-push-ios "iOS")[Android](/es-es/develop/mobile/tutorials/get-started-with-push-android "Android")[Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-push-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-push-xamarin-android "Xamarin.Android")
-
-Este tema muestra cómo puede usar Servicios móviles de Azure para enviar notificaciones de inserción a una aplicación de iOS. En este tutorial aprenderá a agregar notificaciones de inserción al proyecto de inicio rápido con el servicio de notificaciones de inserción de Apple (APNS). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
-
-Puede ver la versión en vídeo de este tutorial haciendo clic en el clip de la derecha.
-
-[Ver el tutorial](http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services) [Reproducir vídeo](http://channel9.msdn.com/posts/iOS-Support-in-Windows-Azure-Mobile-Services) 10:37
-
-> [WACOM.NOTE] Este tema muestra cómo habilitar las notificaciones de inserción mediante la compatibilidad heredada que brinda Servicios móviles. Centros de notificaciones de Azure se integra con Servicios móviles para permitirle enviar notificaciones de inserción basadas en plantillas entre plataformas a millones de dispositivos. Las notificaciones de inserción mediante Centros de notificaciones no están habilitadas de forma predeterminada y actualmente no se ofrece compatibilidad con Centro de notificaciones para iOS en las bibliotecas de Servicios móviles. Sin embargo, puede enviar notificaciones de inserción desde su servicio móvil si usa las bibliotecas del Centro de notificaciones. Para obtener más información, consulte [Introducción a los Centros de notificaciones](/es-es/documentation/articles/notification-hubs-ios-get-started/).
+> [WACOM.NOTE] Este tema muestra cómo habilitar las notificaciones de inserción mediante la compatibilidad heredada que brinda Servicios móviles. Centros de notificaciones de Azure se integra con Servicios móviles para permitirle enviar notificaciones de inserción basadas en plantillas entre plataformas a millones de dispositivos. Las notificaciones de inserción mediante Centros de notificaciones no están habilitadas de forma predeterminada y actualmente no se ofrece compatibilidad con Centro de notificaciones para iOS en las bibliotecas de Servicios móviles. Sin embargo, puede enviar notificaciones de inserción desde su servicio móvil si usa las bibliotecas del Centro de notificaciones. Para obtener más información, consulte [Introducción a los Centros de notificaciones](/en-us/documentation/articles/notification-hubs-ios-get-started/).
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 
@@ -32,7 +40,7 @@ Este tutorial requiere lo siguiente:
 
     > [WACOM.NOTE] Debido a los requisitos de la configuración de las notificaciones de inserción, debe implementar y realizar una prueba de las notificaciones de inserción en un dispositivo compatible con iOS (iPhone o iPad) en lugar de hacerlo en un emulador.
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-ios).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started-ios).
 
 El servicio de notificaciones de inserción de Apple (APNS) usa certificados para autenticar su servicio móvil. Siga estas instrucciones para crear los certificados necesarios y cargarlos en su servicio móvil. Para consultar la documentación oficial de la característica APNS, consulte [Apple Push Notification Service](http://go.microsoft.com/fwlink/p/?LinkId=272584).
 
@@ -333,7 +341,7 @@ Ha completado correctamente este tutorial.
 Pasos siguientes
 ----------------
 
-En este ejemplo simple, un usuario recibe una notificación de inserción con los datos que se acaban de insertar. El cliente en la solicitud suministra al servicio móvil el token de dispositivo que APNS utiliza. En el siguiente tutorial, [Notificaciones de inserción para usuarios de la aplicación](/es-es/develop/mobile/tutorials/push-notifications-to-users-ios), creará una tabla de dispositivos independiente en la que puede almacenar tokens de dispositivos y enviar una notificación de inserción a todos los canales almacenados cuando se produce una inserción.
+En este ejemplo simple, un usuario recibe una notificación de inserción con los datos que se acaban de insertar. El cliente en la solicitud suministra al servicio móvil el token de dispositivo que APNS utiliza. En el siguiente tutorial, [Notificaciones de inserción para usuarios de la aplicación](/en-us/develop/mobile/tutorials/push-notifications-to-users-ios), creará una tabla de dispositivos independiente en la que puede almacenar tokens de dispositivos y enviar una notificación de inserción a todos los canales almacenados cuando se produce una inserción.
 
 <!-- Images. -->
 [5]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-step5.png
@@ -379,11 +387,11 @@ En este ejemplo simple, un usuario recibe una notificación de inserción con lo
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Get started with Mobile Services]: /es-es/develop/mobile/tutorials/get-started-ios
-[Get started with data]: /es-es/develop/mobile/tutorials/get-started-with-data-ios
-[Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-ios
-[Get started with push notifications]: /es-es/develop/mobile/tutorials/get-started-with-push-ios
-[Push notifications to app users]: /es-es/develop/mobile/tutorials/push-notifications-to-users-ios
-[Authorize users with scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-ios
+[Get started with data]: /en-us/develop/mobile/tutorials/get-started-with-data-ios
+[Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-ios
+[Get started with push notifications]: /en-us/develop/mobile/tutorials/get-started-with-push-ios
+[Push notifications to app users]: /en-us/develop/mobile/tutorials/push-notifications-to-users-ios
+[Authorize users with scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [Azure Management Portal]: https://manage.windowsazure.com/
 [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333

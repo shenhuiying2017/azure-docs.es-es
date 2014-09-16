@@ -1,15 +1,24 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-push-dotnet" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications - Mobile Services" metaKeywords="push notifications c#" description="Learn how to use push notifications with Azure Mobile Services." metaCanonical="http://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started-with-push-dotnet/" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services using Visual Studio 2012" authors="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-push-dotnet" urlDisplayName="Get Started with Push Notifications" pageTitle="Get started with push notifications - Mobile Services" metaKeywords="push notifications c#" description="Learn how to use push notifications with Azure Mobile Services." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services using Visual Studio 2012" authors="" />
 
 Introducción a las notificaciones de inserción en Servicios móviles con Visual Studio 2012
 ==========================================================================================
 
-[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012 "C# para Tienda Windows") [JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-push-js-vs2012 "JavaScript para Tienda Windows") [Windows Phone](/es-es/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone") [iOS](/es-es/develop/mobile/tutorials/get-started-with-push-ios "iOS") [Android](/es-es/develop/mobile/tutorials/get-started-with-push-android "Android") [Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-push-xamarin-ios "Xamarin.iOS") [Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-push-xamarin-android "Xamarin.Android")
+<div class="dev-center-tutorial-selector sublanding"> 
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012" title="Windows Store C#" class="current">C\# para Tienda Windows</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-js-vs2012" title="Windows Store JavaScript">JavaScript para Tienda Windows</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-wp8" title="Windows Phone">Windows Phone</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-ios" title="iOS">iOS</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-android" title="Android">Android</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a>
+	<a href="/en-us/develop/mobile/tutorials/get-started-with-push-xamarin-android" title="Xamarin.Android">Xamarin.Android</a>
+</div>	
 
 Este tema muestra cómo puede usar Servicios móviles de Azure para enviar notificaciones de inserción a una aplicación de la Tienda Windows. En este tutorial aprenderá a agregar notificaciones de inserción al proyecto de inicio rápido con el servicio de notificaciones de inserción de Windows (WNS). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
 
-**Nota:**
+<div class="dev-callout"><b>Nota:</b>
 
-Este tutorial agrega notificaciones de inserción a una aplicación de la Tienda Windows creadas en Visual Studio 2012. Visual Studio 2013 incluye nuevas características que facilitan la configuración de notificaciones de inserción en su aplicación de la Tienda Windows con Servicios móviles. Para obtener la versión de Visual Studio 2013, consulte [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-dotnet).
+<p>Este tutorial agrega notificaciones de inserción a una aplicación de la Tienda Windows creadas en Visual Studio 2012. Visual Studio 2013 incluye nuevas características que facilitan la configuración de notificaciones de inserción en su aplicación de la Tienda Windows con Servicios móviles. Para obtener la versión de Visual Studio 2013, consulte <a href="/en-us/develop/mobile/tutorials/get-started-with-push-dotnet">Introducción a las notificaciones de inserción</a>.</p>
+</div>
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 
@@ -24,8 +33,9 @@ Este tutorial requiere lo siguiente:
 -   Microsoft Visual Studio 2012 Express para Windows 8
 -   Activación de la cuenta de la Tienda Windows
 
-Este tutorial se basa en el tutorial [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet). Antes de empezar este tutorial, primero debe completar [este tutorial](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet).
+Este tutorial se basa en el tutorial [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet). Antes de empezar este tutorial, primero debe completar [este tutorial](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet).
 
+<a name="register"></a>
 Registro de la aplicaciónRegistro de la aplicación para la Tienda Windows
 -------------------------------------------------------------------------
 
@@ -35,11 +45,13 @@ Para poder enviar notificaciones de inserción a las aplicaciones de la Tienda W
 
 El servicio móvil y la aplicación están ahora configurados para funcionar con WNS. A continuación, creará una tabla para almacenar los registros.
 
+<a name="create-table"></a>
 Creación de una tabla
 ---------------------
 
 [WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
+<a name="add-push"></a>
 Incorporación de notificaciones de inserciónIncorporación de notificaciones de inserción a la aplicación
 --------------------------------------------------------------------------------------------------------
 
@@ -85,6 +97,7 @@ Incorporación de notificaciones de inserciónIncorporación de notificaciones d
 
   Esto asegura que la aplicación puede generar notificaciones del sistema. 
 
+<a name="update-scripts"></a>
 Actualización del script de inserciónActualización de scripts de inserción registrados en el Portal de administración
 ---------------------------------------------------------------------------------------------------------------------
 
@@ -124,6 +137,7 @@ Actualización del script de inserciónActualización de scripts de inserción r
 
     Este script de inserción envía una notificación de inserción (con el texto del elemento insertado) a todos los canales almacenados en la tabla **Registros**.
 
+<a name="test"></a>
 Prueba de la aplicaciónPruebas de notificaciones de inserción en su aplicación
 ------------------------------------------------------------------------------
 
@@ -137,38 +151,39 @@ Prueba de la aplicaciónPruebas de notificaciones de inserción en su aplicació
 
   ![][14]
 
+<a name="next-steps"> </a>
 Pasos siguientes
 ----------------
 
 Este tutorial demuestra la funcionalidad de notificación de inserción básica que brinda Servicios móviles. Si su aplicación requiere funcionalidades más avanzadas, como enviar notificaciones entre plataformas, enrutamiento basado en suscripción o volúmenes de tamaño muy grande, considere utilizar Centros de notificaciones de Azure con su servicio móvil. Para obtener más información, consulte uno de los siguientes temas de Centros de notificaciones:
 
--   [Introducción a los Centros de notificaciones](/es-es/manage/services/notification-hubs/getting-started-windows-dotnet/)
+-   [Introducción a los Centros de notificaciones](/en-us/manage/services/notification-hubs/getting-started-windows-dotnet/)
 	<br/>Aprenda a aprovechar Centros de notificaciones en su aplicación de la Tienda Windows.
 
--   [¿Qué son los Centros de notificaciones?](/es-es/develop/net/how-to-guides/service-bus-notification-hubs/)
+-   [¿Qué son los Centros de notificaciones?](/en-us/develop/net/how-to-guides/service-bus-notification-hubs/)
 	<br/>Aprenda a crear e insertar notificaciones para usuarios en varias plataformas.
 
--   [Envío de notificaciones a los suscriptores](/es-es/manage/services/notification-hubs/breaking-news-dotnet/)
+-   [Envío de notificaciones a los suscriptores](/en-us/manage/services/notification-hubs/breaking-news-dotnet/)
 	<br/>Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
 
--   [Envío de notificaciones a los usuarios](/es-es/manage/services/notification-hubs/notify-users/)
+-   [Envío de notificaciones a los usuarios](/en-us/manage/services/notification-hubs/notify-users/)
 	<br/>Sepa cómo enviar notificaciones de inserción desde un Servicio móvil a usuarios específicos en cualquier dispositivo.
 
--   [Envío de notificaciones entre plataformas a los usuarios](/es-es/manage/services/notification-hubs/notify-users-xplat-mobile-services/)
+-   [Envío de notificaciones entre plataformas a los usuarios](/en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/)
 	<br/>Sepa cómo utilizar las plantillas para enviar notificaciones de inserción desde un Servicio móvil sin tener que diseñar cargas específicas de plataforma en el back-end.
 
 Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
--   [Introducción a los datos](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet)
+-   [Introducción a los datos](/en-us/develop/mobile/tutorials/get-started-with-data-dotnet)
 	<br/>Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-dotnet)
+-   [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet)
 	<br/>Aprenda a autenticar a los usuarios de su aplicación con cuenta de Windows.
 
 -   [Referencia del script del servidor de Servicios móviles](http://go.microsoft.com/fwlink/?LinkId=262293)
 	<br/>Obtenga más información acerca del registro y uso de scripts de servidor.
 
--   [Referencia conceptual de Servicios móviles con .NET](/es-es/develop/mobile/how-to-guides/work-with-net-client-library/)
+-   [Referencia conceptual de Servicios móviles con .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library/)
 	<br/>Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
 

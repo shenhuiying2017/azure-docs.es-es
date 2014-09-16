@@ -21,7 +21,7 @@ Este tutorial requiere lo siguiente:
 
 -   Microsoft Visual Studio 2012 Express para Windows Phone 8 o posterior.
 -   [SDK de Windows Phone 8](http://go.microsoft.com/fwlink/p/?LinkID=268374) que se ejecute en Windows 8.
--   [Cuenta de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/)
+-   [Cuenta de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/)
 -   Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started-wp8).
 -   Paquete de NuGet de Servicios móviles de Azure 1.1.0 o posterior. Para obtener la última versión, siga los pasos a continuación:
     1.  En Visual Studio, abra el proyecto y haga clic con el botón secundario en el proyecto en el Explorador de soluciones y, a continuación, haga clic en **Administrar paquetes de NuGet**.
@@ -323,7 +323,7 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
 <!-- URLs. -->
 [Optimistic Concurrency Control]: http://go.microsoft.com/fwlink/?LinkId=330935
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
-[Azure Account]: http://www.windowsazure.com/es-es/pricing/free-trial/
+[Azure Account]: http://www.windowsazure.com/en-us/pricing/free-trial/
 [Validate and modify data with scripts]: /en-us/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
 [Refine queries with paging]: /en-us/develop/mobile/tutorials/add-paging-to-data-wp8
 [Get started with Mobile Services]: /en-us/develop/mobile/tutorials/get-started-wp8

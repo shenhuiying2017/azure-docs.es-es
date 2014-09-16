@@ -3,7 +3,10 @@
 Control de conflictos de escritura de bases de datos
 ====================================================
 
-[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "C# para Tienda Windows") [JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/handle-database-write-conflicts-javascript/ "JavaScript para Tienda Windows") [Windows Phone](/es-es/develop/mobile/tutorials/handle-database-write-conflicts-wp8/ "Windows Phone")
+<div class="dev-center-tutorial-selector sublanding">
+<a href="/en-us/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/" title="Windows Store C#" class="current">C\# para Tienda Windows</a>
+<a href="/en-us/develop/mobile/tutorials/handle-database-write-conflicts-javascript/" title="Windows Store JavaScript">JavaScript para Tienda Windows</a>
+<a href="/en-us/develop/mobile/tutorials/handle-database-write-conflicts-wp8/" title="Windows Phone">Windows Phone</a></div>	
 
 Este tutorial se ha elaborado para ayudarle a comprender mejor cómo controlar los conflictos que se producen cuando dos o más clientes escriben en el mismo registro de la base de datos en una aplicación de la Tienda Windows. En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. Los Servicios móviles de Azure ofrecen soporte para detectar y resolver estos conflictos. Este tema le guiará a través de los pasos que le permitirán controlar los conflictos de escritura de bases de datos tanto en el servidor como en la aplicación.
 
@@ -17,8 +20,8 @@ En este tutorial agregará funcionalidad a la aplicación de inicio rápido para
 Este tutorial requiere lo siguiente:
 
 -   Microsoft Visual Studio 2012 Express para Windows o posterior.
--   Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started).
--   [Cuenta de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/)
+-   Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started).
+-   [Cuenta de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/)
 -   Paquete de NuGet de Servicios móviles de Azure 1.1.0 o posterior. Para obtener la última versión, siga los pasos a continuación:
     1.  En Visual Studio, abra el proyecto y haga clic con el botón secundario en el proyecto en el Explorador de soluciones y, a continuación, haga clic en **Administrar paquetes de NuGet**.
 
@@ -28,12 +31,13 @@ Este tutorial requiere lo siguiente:
 
         ![](./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png)
 
+<a name="uiupdate"></a>
 Actualización de la interfaz de usuarioActualización de la aplicación para permitir actualizaciones
 ---------------------------------------------------------------------------------------------------
 
 En esta sección, actualizará la interfaz de usuario TodoList para permitir la actualización del texto de cada elemento en un control ListBox. ListBox contendrá un control TextBox y CheckBox para cada elemento de la tabla de base de datos. Podrá actualizar el campo de texto de TodoItem. La aplicación controlará el evento `LostFocus` desde TextBox para actualizar el elemento en la base de datos.
 
-1.  En Visual Studio, abra el proyecto TodoList que descargó en el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started).
+1.  En Visual Studio, abra el proyecto TodoList que descargó en el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started).
 2.  En el Explorador de soluciones de Visual Studio, abra MainPage.xaml y sustituya la definición `ListView` por la `ListView` que se muestra a continuación y guarde el cambio.
 
          <ListView Name="ListItems" Margin="62,10,0,0" Grid.Row="1">
@@ -87,6 +91,7 @@ En esta sección, actualizará la interfaz de usuario TodoList para permitir la 
 
 Ahora la aplicación escribe los cambios del texto en cada elemento devuelto a la base de datos cuando TextBox pierde el enfoque.
 
+<a name="enableOC"></a>
 Activación de la simultaneidad optimistaActivación de la detección de conflictos en la aplicación
 -------------------------------------------------------------------------------------------------
 
@@ -105,9 +110,10 @@ En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemen
              public string Version { set; get; }
          }
 
-    **Nota:**
+	<div class="dev-callout"><b>Nota:</b>
 
-    Al utilizar tablas no escritas, active la simultaneidad optimista; para ello, agregue la marca Version a las propiedades del sistema SystemProperties de la tabla.
+    <p>Al utilizar tablas no escritas, active la simultaneidad optimista; para ello, agregue la marca Version a las propiedades del sistema SystemProperties de la tabla.</p>
+	</div>
 
     ``` {}
     //Habilitar la simultaneidad optimista mediante retrieving __version
@@ -176,6 +182,7 @@ En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemen
 			await msgDialog.ShowAsync();
 		}
 
+<a name="test-app"></a>
 Prueba de la aplicaciónPueba de conflictos de escritura de bases de datos en la aplicación
 ------------------------------------------------------------------------------------------
 
@@ -241,6 +248,7 @@ En esta sección, compilará un paquete de aplicación de la Tienda Windows para
 
 	![](./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write2-conflict.png)
 
+<a name="scriptsexample"></a>
 Control de conflictos con scriptsControl automático de la resolución de conflictos en los scripts del servidor
 --------------------------------------------------------------------------------------------------------------
 
@@ -331,23 +339,24 @@ Los siguientes pasos describen la incorporación del script de actualización de
 
   ![](./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-already-complete.png)
 
+<a name="next-steps"> </a>
 Pasos siguientes
 ----------------
 
 Este tutorial le ha mostrado cómo habilitar la aplicación de Tienda Windows para controlar los conflictos de escritura al trabajar con datos en Servicios móviles. A continuación, plantéese completar uno de los siguientes tutoriales en nuestra serie de datos:
 
--   [Validación y modificación de datos con scripts](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet)
+-   [Validación y modificación de datos con scripts](/en-us/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet)
   <br/>Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
 
--   [Limitación de consultas con paginación](/es-es/develop/mobile/tutorials/add-paging-to-data-dotnet)
+-   [Limitación de consultas con paginación](/en-us/develop/mobile/tutorials/add-paging-to-data-dotnet)
   <br/>Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se manejan en una única solicitud.
 
 Una vez que haya completado la serie de datos, también puede probar uno de los siguientes tutoriales de la Tienda Windows:
 
--   [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-dotnet)
+-   [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet)
   <br/>Aprenda a autenticar a los usuarios de su aplicación.
 
--   [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-dotnet)
+-   [Introducción a las notificaciones de inserción](/en-us/develop/mobile/tutorials/get-started-with-push-dotnet)
   <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
 

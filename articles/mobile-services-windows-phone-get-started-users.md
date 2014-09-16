@@ -30,11 +30,11 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
 
 1.  Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com/), haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
 
-	![][1]
+	![1](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/mobile-services-windows-phone-get-started-users/20140811091037/includes/mobile-services-register-authentication/mobile-services-selection.png)
 
 2.  Haga clic en la pestaña **Panel** y anote el valor de **Mobile Service URL**.
 
-	![][2]
+	![2](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/mobile-services-windows-phone-get-started-users/20140811091037/includes/mobile-services-register-authentication/mobile-service-uri.png)
 
 	Es posible que tenga que proporcionar ese valor al proveedor de identidades cuando registre la aplicación.
 
@@ -55,7 +55,7 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
 
 1.  Vuelva al Portal de administración, haga clic en la pestaña **Identity**, especifique el identificador de la aplicación y los valores secretos compartidos que le proporcionó el proveedor de identidades y haga clic en **Save**.
 
-	![][3]
+	![3](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/mobile-services-windows-phone-get-started-users/20140811091037/includes/mobile-services-register-authentication/mobile-identity-tab.png)
 
 El servicio móvil y la aplicación están ahora configurados para que funcionen con el proveedor de autenticación seleccionado.
 
@@ -64,11 +64,11 @@ Restricción de los permisos para los usuarios autenticados
 
 1.  En el Portal de administración, haga clic en la pestaña **Data** y, a continuación, en la tabla **TodoItem**.
 
-	![][4]
+	![4](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/mobile-services-windows-phone-get-started-users/20140811091037/includes/mobile-services-restrict-permissions-javascript-backend/mobile-portal-data-tables.png)
 
 2.  Haga clic en la pestaña **Permissions**, establezca todos los permisos en **Only authenticated users** y, a continuación, haga clic en **Save**. De esta forma, se garantiza que todas las operaciones en la tabla **TodoItem** requieren un usuario autenticado. Esto también simplifica los scripts del próximo tutorial, ya que no existirá la posibilidad de permitir usuarios anónimos.
 
-	![][5]
+	![5](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/mobile-services-windows-phone-get-started-users/20140811091037/includes/mobile-services-restrict-permissions-javascript-backend/mobile-portal-change-table-perms.png)
 
 3.  En Visual Studio 2012 Express para Windows Phone, abra el proyecto que creó cuando completó el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started-wp8).
 

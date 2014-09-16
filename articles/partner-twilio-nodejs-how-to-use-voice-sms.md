@@ -38,7 +38,7 @@ Antes de usar servicios de Twilio, primero debe [suscribirse para obtener una cu
 
 ## Creación e implementación de un sitio web de Azure para Node.js
 
-A continuación, deberá crear un sitio web de Node.js para que se ejecute en Azure. [La documentación oficial para hacerlo está aquí](http://www.windowsazure.com/es-es/develop/nodejs/tutorials/create-a-website-(mac)/). En un alto nivel, hará lo siguiente:
+A continuación, deberá crear un sitio web de Node.js para que se ejecute en Azure. [La documentación oficial para hacerlo está aquí](http://www.windowsazure.com/en-us/develop/nodejs/tutorials/create-a-website-(mac)/). En un alto nivel, hará lo siguiente:
 
 -   Suscripción para obtener una cuenta de Azure, si todavía no tiene una
 -   Uso de la consola de administración de Azure para crear un sitio web
@@ -154,23 +154,23 @@ http.createServer(app).listen(app.get('port'), function(){
 
 A continuación, crear un directorio llamado "views"; dentro de este directorio, crear un archivo llamado "index.ejs" con el siguiente contenido:
 
-  &lt;!DOCTYPE html&gt;
-  &lt;html&gt;
-  &lt;head&gt;
-      &lt;title&gt;Twilio Test&lt;/title&gt;
-      &lt;style&gt;
-      input { height:20px; width:300px; font-size:18px; margin:5px; padding:5px; }
-      &lt;/style&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-      &lt;h1&gt;Twilio Test&lt;/h1&gt;
-      &lt;form action="/call" method="POST"&gt;
-          &lt;input placeholder="Enter a phone number" name="number"/&gt;
-          &lt;br/&gt;
-          &lt;input type="submit" value="Call the number above"/&gt;
-      &lt;/form&gt;
-  &lt;/body&gt;
-  &lt;/html&gt;
+  	<!DOCTYPE html>
+	  <html>
+	 	 <head>
+	      <title>Twilio Test</title>
+	      <style>
+	      input { height:20px; width:300px; font-size:18px; margin:5px; padding:5px; }
+	      </style>
+	  </head>
+	  <body>
+	      <h1>Twilio Test</h1>
+	      <form action="/call" method="POST">
+	          <input placeholder="Enter a phone number" name="number"/>
+	          <br/>
+	          <input type="submit" value="Call the number above"/>
+	      </form>
+	  </body>
+	  </html>
 
 Ahora, implemente el sitio web en Azure y abra su página principal. Debe poder escribir el número de teléfono en el campo de texto y recibir una llamada desde el número de Twilio.
 
@@ -178,35 +178,34 @@ Ahora, implemente el sitio web en Azure y abra su página principal. Debe poder 
 
 Ahora, configuremos una lógica de control de formulario e interfaz de usuario para enviar un mensaje de texto. Abra "server.js" y agregue el siguiente código después de la última llamada a "app.post":
 
-  app.post('/sms', function(request, response) {
-      var client = twilio();
-      client.sendSms({
-// enviar un texto a este número
- to:request.body.number,
+  	  app.post('/sms', function(request, response) {
+      	  var client = twilio();
+     	  client.sendSms({
+		  	  // enviar un texto a este número
+ 			  to:request.body.number,
 
-          // Un número de Twilio que haya comprado; ver:
-          // https://www.twilio.com/user/account/phone-numbers/incoming
-          from:'+15558675309',
+             // Un número de Twilio que haya comprado; ver:
+             // https://www.twilio.com/user/account/phone-numbers/incoming
+             from:'+15558675309',
 
-          // El cuerpo del mensaje de texto
-          body: request.body.message
+            // El cuerpo del mensaje de texto
+            body: request.body.message
           
-      }, function(error, data) {
-          // Volver a la página principal
-          response.redirect('/');
-      });
-
-});
+        }, function(error, data) {
+            // Volver a la página principal
+            response.redirect('/');
+        });
+	 });
 
 En "views/index.ejs", agregue otro formulario debajo del primero para enviar un número y un mensaje de texto:
 
-  &lt;form action="/sms" method="POST"&gt;
-      &lt;input placeholder="Enter a phone number" name="number"/&gt;
-      &lt;br/&gt;
-      &lt;input placeholder="Enter a message to send" name="message"/&gt;
-      &lt;br/&gt;
-      &lt;input type="submit" value="Send text to the number above"/&gt;
-  &lt;/form&gt;
+  	 <form action="/sms" method="POST">
+	      <input placeholder="Enter a phone number" name="number"/>
+	      <br/>
+	      <input placeholder="Enter a message to send" name="message"/>
+	      <br/>
+	      <input type="submit" value="Send text to the number above"/>
+	  </form>
 
 Vuelva a implementar la aplicación en Azure y ahora debiera poder enviar ese formulario y enviarse usted mismo (o a cualquiera de sus amigos más cercanos) un mensaje de texto.
 

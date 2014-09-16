@@ -29,7 +29,7 @@ Este tutorial requiere lo siguiente:
 -   Paquete NuGet del almacén SQLite de Servicios móviles de Azure 0.1.0-alpha
 -   SQLite para Windows 8.1
 
-> [WACOM.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28).
+> [WACOM.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28).
 
 <a name="enable-offline-app"></a>
 Actualización de la aplicación para que admita características sin conexión

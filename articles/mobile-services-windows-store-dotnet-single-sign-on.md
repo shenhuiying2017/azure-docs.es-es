@@ -3,13 +3,16 @@
 Autenticación de una aplicación de la Tienda Windows con el inicio de sesión único de Live Connect
 ==================================================================================================
 
-[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/single-sign-on-windows-8-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/single-sign-on-windows-8-js "JavaScript para Tienda Windows")[Windows Phone](/es-es/develop/mobile/tutorials/single-sign-on-wp8 "Windows Phone")
+<div class="dev-center-tutorial-selector sublanding"> 
+	<a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet" title="Windows Store C#" class="current">C\# para Tienda Windows</a><a href="/en-us/develop/mobile/tutorials/single-sign-on-windows-8-js" title="Windows Store JavaScript">JavaScript para Tienda Windows</a><a href="/en-us/develop/mobile/tutorials/single-sign-on-wp8" title="Windows Phone">Windows Phone</a>
+</div>
 
 En este tema se muestra cómo utilizar el inicio de sesión único de Live Connect para autenticar a los usuarios en Servicios móviles de Azure desde una aplicación de la Tienda Windows. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante Live Connect. Una vez que Live Connect haya realizado la autenticación correctamente, se dará la bienvenida al usuario que ha iniciado sesión por su nombre y se mostrará el valor de identificador de usuario.
 
-**Nota:**
+<div class="dev-callout"><b>Nota:</b>
 
-Este tutorial muestra las ventajas de usar la experiencia de inicio de sesión único que ofrece Live Connect para las aplicaciones de la Tienda Windows. Esto le permite autenticar más fácilmente a un usuario que ya haya iniciado sesión en el servicio móvil. Para ver una experiencia de autenticación más generalizada que admita varios proveedores de autenticación, consulte el tema [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-dotnet/).
+<p>Este tutorial muestra las ventajas de usar la experiencia de inicio de sesión único que ofrece Live Connect para las aplicaciones de la Tienda Windows. Esto le permite autenticar más fácilmente a un usuario que ya haya iniciado sesión en el servicio móvil. Para ver una experiencia de autenticación más generalizada que admita varios proveedores de autenticación, consulte el tema <a href="/en-us/develop/mobile/tutorials/get-started-with-users-dotnet/">Introducción a la autenticación</a>.</p>
+</div>
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar la autenticación de Live Connect:
 
@@ -22,8 +25,9 @@ Este tutorial requiere lo siguiente:
 -   [SDK de Live para Windows](http://go.microsoft.com/fwlink/p/?LinkId=262253)
 -   Microsoft Visual Studio 2012 Express para Windows 8 RC o una versión posterior.
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started).
 
+<a name="register"></a>
 Registro de la aplicaciónRegistro de la aplicación para la Tienda Windows
 -------------------------------------------------------------------------
 
@@ -39,7 +43,7 @@ Para poder autenticar a los usuarios, debe enviar la aplicación a la Tienda Win
 
     Se crea un nuevo registro de la Tienda Windows para su aplicación.
 
-3.  En Visual Studio 2012 Express para Windows 8, abra el proyecto que creó cuando completó el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started).
+3.  En Visual Studio 2012 Express para Windows 8, abra el proyecto que creó cuando completó el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started).
 
 4.  En el Explorador de soluciones, haga clic con el botón secundario en el proyecto, haga clic en **Store** y, a continuación, haga clic en **Associate App with the Store...**.
 
@@ -85,6 +89,7 @@ Para poder autenticar a los usuarios, debe enviar la aplicación a la Tienda Win
 
 El servicio móvil y la aplicación están ahora configurados para funcionar con Live Connect.
 
+<a name="permissions"></a>
 Restricción de permisosRestricción de permisos a usuarios autenticados
 ----------------------------------------------------------------------
 
@@ -96,7 +101,7 @@ Restricción de permisosRestricción de permisos a usuarios autenticados
 
     ![](./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-portal-change-table-perms.png)
 
-3.  En Visual Studio 2012 Express para Windows 8, abra el proyecto que creó cuando completó el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started).
+3.  En Visual Studio 2012 Express para Windows 8, abra el proyecto que creó cuando completó el tutorial [Introducción a los Servicios móviles](/en-us/develop/mobile/tutorials/get-started).
 
 4.  Presione la tecla F5 para ejecutar esta aplicación basada en el inicio rápido; compruebe que se genera una excepción con el código de estado 401 (No autorizado).
 
@@ -104,6 +109,7 @@ Restricción de permisosRestricción de permisos a usuarios autenticados
 
 A continuación, actualizará la aplicación para autenticar a los usuarios con Live Connect antes de solicitar recursos del servicio móvil.
 
+<a name="add-authentication"></a>
 Incorporación de autenticaciónIncorporación de autenticación a la aplicación
 ----------------------------------------------------------------------------
 
@@ -159,15 +165,17 @@ Incorporación de autenticaciónIncorporación de autenticación a la aplicació
 
     De esta forma se crea una variable de miembro para el almacenamiento de la sesión de Live Connect actual y un método para gestionar el proceso de autenticación.
 
-    **Nota:**
+    <div class="dev-callout"><b>Nota:</b>
 
-    Este código fuerza un cierre de sesión, cuando sea posible, para asegurarse de que se solicitan las credenciales al usuario cada vez que se ejecute la aplicación. Esto hace más fácil probar la aplicación con diversas cuentas Microsoft a fin de asegurarse de que la autenticación funciona correctamente. Este mecanismo solo funcionará si el usuario que ha iniciado sesión no tiene una cuenta Microsoft conectada.
+    <p>Este código fuerza un cierre de sesión, cuando sea posible, para asegurarse de que se solicitan las credenciales al usuario cada vez que se ejecute la aplicación. Esto hace más fácil probar la aplicación con diversas cuentas Microsoft a fin de asegurarse de que la autenticación funciona correctamente. Este mecanismo solo funcionará si el usuario que ha iniciado sesión no tiene una cuenta Microsoft conectada.</p>
+	</div>
 
 3.  Actualice la cadena *&lt;&lt; INSERTAR AQUÍ DOMINIO DE REDIRECCIÓN \>\>* del paso anterior con el dominio de redirección que se especificó al configurar la aplicación en Live Connect, con el formato **https://*nombre-servicio*.azure-mobile.net/**.
 
-    **Nota:**
+    <div class="dev-callout"><b>Nota:</b>
 
-    En una aplicación de la Tienda Windows, para crear una instancia de la clase **LiveAuthClient** se pasa el valor del URI del dominio de redirección al constructor de clases. En una [aplicación de Windows Phone 8](/es-es/develop/mobile/tutorials/single-sign-on-wp8/), para crear instancias de la misma clase se pasa el identificador de cliente.
+    <p>En una aplicación de la Tienda Windows, para crear una instancia de la clase **LiveAuthClient** se pasa el valor del URI del dominio de redirección al constructor de clases. En una <a href="/en-us/develop/mobile/tutorials/single-sign-on-wp8/">aplicación de Windows Phone 8</a>, para crear instancias de la misma clase se pasa el identificador de cliente.</p>
+	</div>
 
 4.  Reemplace el controlador de eventos **OnNavigatedTo** existente por el controlador que llama al nuevo método **Authenticate**:
 
@@ -181,8 +189,9 @@ Incorporación de autenticaciónIncorporación de autenticación a la aplicació
 
     Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
 
+<a name="next-steps"> </a>
 Pasos siguientes
 ----------------
 
-En el siguiente tutorial, [Autorización de usuarios con scripts](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-dotnet), usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. Para obtener información sobre cómo usar otros proveedores de identidades para la autenticación, consulte [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-dotnet). Obtenga más información sobre cómo usar Servicios móviles con .NET en [Referencia conceptual de Servicios móviles con .NET](/es-es/develop/mobile/how-to-guides/work-with-net-client-library).
+En el siguiente tutorial, [Autorización de usuarios con scripts](/en-us/develop/mobile/tutorials/authorize-users-in-scripts-dotnet), usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. Para obtener información sobre cómo usar otros proveedores de identidades para la autenticación, consulte [Introducción a la autenticación](/en-us/develop/mobile/tutorials/get-started-with-users-dotnet). Obtenga más información sobre cómo usar Servicios móviles con .NET en [Referencia conceptual de Servicios móviles con .NET](/en-us/develop/mobile/how-to-guides/work-with-net-client-library).
 

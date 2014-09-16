@@ -34,7 +34,7 @@ Configure el entorno de desarrollo mediante la instalación del SDK de Azure par
 
 También necesitará un emulador de explorador móvil. Funcionará cualquiera de las siguientes opciones:
 
--   [Emulador de Windows Phone 7](http://msdn.microsoft.com/es-es/library/ff402530(VS.92).aspx). (Este es el emulador que se utiliza en la mayoría de las capturas de pantalla de este tutorial).
+-   [Emulador de Windows Phone 7](http://msdn.microsoft.com/en-us/library/ff402530(VS.92).aspx). (Este es el emulador que se utiliza en la mayoría de las capturas de pantalla de este tutorial).
 -   Cambie la cadena de agente de usuario para emular un iPhone. Consulte [esta entrada de blog](http://www.howtogeek.com/113439/how-to-change-your-browsers-user-agent-without-installing-any-extensions/) en How-To-Geek.
 -   [Emulador de Opera Mobile](http://www.opera.com/developer/tools/mobile/).
 -   [Apple Safari](http://www.apple.com/safari/download/) con el agente de usuario establecido en iPhone. Para obtener instrucciones sobre cómo configurar el agente de usuario en Safari para "iPhone", consulte [How to let Safari pretend it's IE](http://www.davidalison.com/2008/05/how-to-let-safari-pretend-its-ie.html) en el blog de David Alison.
@@ -60,6 +60,7 @@ Pasos en este tutorial
 -   [Mejora de la vista SessionByCode](#bkmk_improvesessionbycode)
 -   [Implementación de la aplicación en el sitio web de Azure](#bkmk_deployapplciation)
 
+<a name="bkmk_CreateWebSite"></a>
 ### Creación de un sitio web en Azure
 
 El sitio web de Azure se ejecutará en un entorno de hospedaje compartido, es decir, en máquinas virtuales compartidas con otros clientes de Azure. Los entornos de hospedaje compartidos ofrecen un coste reducido a los nuevos usuarios de servicios en la nube. Más adelante, si el tráfico web aumenta, es posible escalar la aplicación para atender la demanda ejecutándola en máquinas virtuales dedicadas. Si necesita una arquitectura más compleja, puede migrar la aplicación a un Servicio en la nube de Azure. Los servicios en la nube se ejecutan en MV dedicadas que se pueden configurar según sus necesidades.
@@ -84,6 +85,7 @@ El Portal de administración vuelve a la página de Sitios web y la columna Stat
 
 ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/depoly_mobile_new_website_4.png)
 
+<a name="bkmk_setupstarterproject"></a>
 ### Configuración del proyecto inicial
 
 1.  Descargue el [proyecto inicial de la aplicación de lista de conferencias](http://go.microsoft.com/fwlink/?LinkId=228307).
@@ -98,6 +100,7 @@ El Portal de administración vuelve a la página de Sitios web y la columna Stat
 
 5.  En Visual Studio, abra el archivo MvcMobile.sln.
 
+<a name="bkmk_overrideviews"></a>
 ### Para ejecutar el proyecto inicial
 
 1.  Presione CTRL+F5 para ejecutar la aplicación, que se mostrará en el explorador de escritorio.
@@ -160,6 +163,7 @@ Por el contrario, la pantalla de escritorio no ha cambiado.
 
 ![Mostrar vista de etiquetas de escritorio](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/Windows-Live-Writer_ASP_NET-MVC-4-Mobile-Features_D2FF_p2_layoutTagsDesktop_thumb.png)
 
+<a name="bkmk_usejquerymobile"></a>
 Uso de jQuery Mobile para definir la interfaz del explorador móvil
 ------------------------------------------------------------------
 
@@ -261,9 +265,10 @@ Compile la aplicación y, en su emulador de explorador móvil, diríjase a la vi
 
 ![Después de la instalación de jquery mediante nuget.](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_afternuget_thumb.png)
 
-**Nota:**
+<div class="dev-callout"><b>Nota:</b>
 
-Puede depurar el código específico para móviles estableciendo la cadena de agente de usuario para IE o Chrome para iPhone y luego usando las herramientas para desarrolladores F-12. Si su explorador móvil no muestra los vínculos **Home**, **Speaker**, **Tag** y **Date** como botones, las referencias a los scripts de jQuery Mobile y los archivos de CSS probablemente no son correctas.
+<p>Puede depurar el código específico para móviles estableciendo la cadena de agente de usuario para IE o Chrome para iPhone y luego usando las herramientas para desarrolladores F-12. Si su explorador móvil no muestra los vínculos <b>Home</b>, <b>Speaker</b>, <b>Tag</b> y <b>Date</b> como botones, las referencias a los scripts de jQuery Mobile y los archivos de CSS probablemente no son correctas.</p>
+</div>
 
 Además de los cambios de estilo, podrá ver **Displaying mobile view** y un vínculo que le permite cambiar de la vista móvil a la vista de escritorio. Seleccione el **vínculo de vista de escritorio** y, a continuación, se muestra la vista de escritorio.
 
@@ -287,27 +292,30 @@ Actualice la vista **Alltags** en el explorador móvil. Ahora puede navegar entr
 
 ![Navegación a las vistas móviles.](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_desktopviewwithmobilelink_thumb.png)
 
-**Nota:**
+<div class="dev-callout"><b>Nota:</b>
 
-Puede agregar el siguiente código al final de Views\\Shared\\\_ViewSwitcher.cshtml para ayudar a depurar las vistas al usar un explorador de la cadena de agente de usuario configurado en un dispositivo móvil.
+<p>Puede agregar el siguiente código al final de Views\\Shared\\\_ViewSwitcher.cshtml para ayudar a depurar las vistas al usar un explorador de la cadena de agente de usuario configurado en un dispositivo móvil.</p>
 
-``` {}
-    else 
-    { 
-         @:Not Mobile/Get 
-    } 
-```
 
-y se agrega el siguiente título al archivo Views\\Shared\\\_Layout.cshtml.
+<pre>
+	else 
+	{ 
+	     @:Not Mobile/Get 
+	} 
+</pre>
 
-``` {}
-    <h1>Non Mobile Layout MVC4 Conference</h1>
-```
+<p>y se agrega el siguiente título al archivo Views\\Shared\\\_Layout.cshtml.</p>
+
+<pre>
+	&lt;h1>Non Mobile Layout MVC4 Conference&lt;/h1>
+</pre>
+</div>
 
 Vaya a la página Alltags en un explorador de escritorio. El widget de modificador de vista no se muestra en un explorador de escritorio, ya que se agrega solo a la página de diseño móvil. Más adelante en el tutorial verá cómo puede agregar el widget de modificador de vista a la vista de escritorio.
 
 ![Vista de la experiencia de escritorio.](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/Windows-Live-Writer_ASP_NET-MVC-4-Mobile-Features_D2FF_p3_desktopBrowser_thumb.png)
 
+<a name="bkmk_Improvespeakerslist"></a>
 Mejora de la lista de oradores
 ------------------------------
 
@@ -336,6 +344,7 @@ Puede deshabilitar el modo de visualización consistente en una vista mediante e
         DisplayModes.RequireConsistentDisplayMode = false;
     }
 
+<a name="bkmk_mobilespeakersview"></a>
 Creación de una vista de oradores móviles
 -----------------------------------------
 
@@ -370,6 +379,7 @@ A medida que escribe cada letra en el cuadro de búsqueda, jQuery Mobile filtra 
 
 ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_data_filter_sc_thumb.png)
 
+<a name="bkmk_improvetags"></a>
 Mejora de la lista de etiquetas
 -------------------------------
 
@@ -385,6 +395,7 @@ Al igual que la vista Speakers predeterminada, la vista Tags es legible, pero lo
 
 ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_tags_j_thumb.png)
 
+<a name="bkmk_improvedates"></a>
 Mejora la lista de fechas
 -------------------------
 
@@ -421,6 +432,7 @@ Este código agrupa todas las sesiones por día. Crea un divisor de lista para c
 
 ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_dates2_thumb.png)
 
+<a name="bkmk_improvesessionstable"></a>
 Mejora de la vista SessionsTable
 --------------------------------
 
@@ -455,6 +467,7 @@ El código elimina el espacio y la columnas de etiquetas, da formato al título,
 
 ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_ps_sessionsbyscottha_thumb.png)
 
+<a name="bkmk_improvesessionbycode"></a>
 Mejora de la vista SessionByCode
 --------------------------------
 
@@ -507,6 +520,7 @@ Actualice el explorador móvil. La siguiente imagen refleja los cambios en el c�
 
 ![](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/windows-live-writer_asp_net-mvc-4-mobile-features_d2ff_p3_love2_thumb.png)
 
+<a name="bkmk_deployapplciation"></a>
 Implementación de la aplicación en el sitio web de Azure
 --------------------------------------------------------
 
@@ -536,7 +550,7 @@ Implementación de la aplicación en el sitio web de Azure
 
     ![Descarga de archivo pub](./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/rzDown2.png)
 
-    [WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)] &lt;/br\>
+    [WACOM.INCLUDE [publishsettingsfilewarningchunk](../includes/publishsettingsfilewarningchunk.md)]
 
     1.  En el cuadro de diálogo **Import Azure Subscriptions**, haga clic en **Browse** y vaya al archivo *.publishsettings*.
 

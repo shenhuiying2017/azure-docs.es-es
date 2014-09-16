@@ -9,7 +9,7 @@ Si prefiere ver un vídeo, el clip que aparece a la derecha muestra los mismos p
 A continuación se muestra una captura de pantalla de la aplicación completada:
 
 ![Un explorador muestra el mensaje "Hello
-World".](./media/web-sites-nodejs-develop-deploy-mac/helloazure.png)
+World".](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/helloazure.png)
 
 ## Creación de un Sitio web Azure y activación de la publicación Git
 
@@ -17,45 +17,45 @@ Siga estos pasos para crear un sitio web de Azure y, a continuación, activar la
 
  
 <div  class="dev-callout"><strong>Nota:</strong>
-<p>Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a  href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Evaluación gratuita de Azure</a>.</p>
+<p>Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a  href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Evaluación gratuita de Azure</a>.</p>
 </div>
 
-1.  Inicie sesión en el [Portal de administración de Azure][1].
+ 1.  Inicie sesión en el [Portal de administración de Azure][1].
 
 2.  Haga clic en el icono **+ NEW**, situado en la parte inferior izquierda del portal.
     
     ![Portal Azure con el vínculo + NEW
-    resaltado.](./media/web-sites-nodejs-develop-deploy-mac/plus-new.png)
+    resaltado.](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/plus-new.png)
 
 3.  Haga clic en **WEB SITE** y, a continuación, en **QUICK CREATE**. Escriba un valor de **URL** y seleccione el centro de datos de su sitio web en la lista desplegable **REGIÓN**. Haga clic en la marca de verificación de la parte inferior del cuadro de diálogo.
     
     ![Cuadro de diálogo Quick
-    Create](./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png)
+    Create](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/create-quick-website.png)
 
 4.  Cuando el estado del sitio web cambie a **Running**, haga clic en el nombre del sitio web para obtener acceso al **Panel**.
     
     ![Apertura del panel del sitio
-    web](./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png)
+    web](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/go_to_dashboard.png)
 
 5.  En la parte inferior derecha de la página de inicio rápido, seleccione **Set up a deployment from source control**.
     
     ![Configuración de la publicación
-    Git](./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png)
+    Git](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/setup_git_publishing.png)
 
 6.  Cuando se le pregunte "Where is your source code?" (&iquest;Dónde está su código fuente?), seleccione **Local Git repository** y, a continuación, haga clic en la flecha.
     
     ![Dónde está su código
-    fuente](./media/web-sites-nodejs-develop-deploy-mac/where_is_code.png)
+    fuente](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/where_is_code.png)
 
 7.  Para habilitar la publicación Git, debe proporcionar un nombre de usuario y una contraseña. Si ya ha activado la publicación para un sitio web de Azure, no se le solicitará el nombre de usuario o la contraseña. En su lugar, se creará un repositorio Git con el nombre de usuario y la contraseña que ha especificado anteriormente. Anote el nombre de usuario y la contraseña, puesto que se usarán para la publicación Git en todos los sitios web de Azure que cree.
     
     ![Cuadro de diálogo que solicita el nombre de usuario y la
-    contraseña.](./media/web-sites-nodejs-develop-deploy-mac/git-deployment-credentials.png)
+    contraseña.](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/git-deployment-credentials.png)
 
 8.  Una vez esté listo el repositorio Git, se le mostrarán las instrucciones sobre los comandos Git que debe utilizar para configurar un repositorio local y, a continuación, se insertarán los archivos en Azure.
     
     ![Instrucciones de implementación Git devueltas después de crear un repositorio para el sitio
-    web.](./media/web-sites-nodejs-develop-deploy-mac/git-instructions.png)
+    web.](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/git-instructions.png)
 
 ## Compilación y comprobación de la aplicación localmente
 
@@ -81,7 +81,7 @@ En esta sección, creará un archivo **server.js** que contiene el ejemplo 'hell
 4.  Abra su explorador web y navegue hasta http://localhost:1337. Aparecerá una página web con el mensaje "Hello World", tal y como se muestra en la siguiente captura de pantalla:
     
     ![Un explorador muestra el mensaje "Hello
-    World".](./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png)
+    World".](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/helloworldlocal.png)
 
 ## Publicación de la aplicación
 
@@ -113,7 +113,7 @@ En esta sección, creará un archivo **server.js** que contiene el ejemplo 'hell
     
     ![Instrucciones de implementación Git devueltas
     después de crear un repositorio para el sitio
-    web.](./media/web-sites-nodejs-develop-deploy-mac/git-instructions.png)
+    web.](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/git-instructions.png)
 
 4.  Envíe los cambios a Azure con el siguiente comando:
     
@@ -139,7 +139,7 @@ En esta sección, creará un archivo **server.js** que contiene el ejemplo 'hell
     Si navega hasta la pestaña de implementaciones de su sitio web de Azure dentro del Portal de administración, visualizará su primera implementación en el historial de implementaciones:
     
     ![Estado de implementación Git en el
-    portal](./media/web-sites-nodejs-develop-deploy-mac/git_deployments_first.png)
+    portal](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/git_deployments_first.png)
 
 5.  Examine su sitio mediante el botón **Browse**, situado en su página del sitio web de Azure, dentro del Portal de administración.
 
@@ -155,18 +155,18 @@ En esta sección, creará un archivo **server.js** que contiene el ejemplo 'hell
     Se le solicitará la contraseña que ha creado anteriormente. Si navega hasta la pestaña de implementaciones de su sitio web de Azure dentro del portal de administración, visualizará su historial de implementaciones actualizado:
     
     ![Estado de implementación Git actualizada en el
-    Portal](./media/web-sites-nodejs-develop-deploy-mac/git_deployments_second.png)
+    Portal](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/git_deployments_second.png)
 
 3.  Examine su sitio mediante el botón **Browse** y asegúrese de que las actualizaciones se hayan aplicado.
     
     ![Página web que muestra "Hello
-    Azure"](./media/web-sites-nodejs-develop-deploy-mac/helloazure.png)
+    Azure"](https://acomdpsstorage.blob.core.windows.net/dpsmedia-int/acom-int.azurewebsites.net/en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/20140818090955/helloazure.png)
 
 4.  Puede deshacer la implementación anterior seleccionándola en la pestaña "Deployments" de su sitio web de Azure, dentro del Portal de administración, y mediante el botón **Redeploy**.
 
 ## Pasos siguientes
 
-Si bien los pasos de este artículo utilizan el Portal Azure para crear un sitio web, también es posible utilizar las [herramientas de línea de comandos de Azure para Mac y Linux](/es-es/develop/nodejs/how-to-guides/command-line-tools/) para realizar las mismas operaciones.
+Si bien los pasos de este artículo utilizan el Portal Azure para crear un sitio web, también es posible utilizar las [herramientas de línea de comandos de Azure para Mac y Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/) para realizar las mismas operaciones.
 
 Node.js proporciona un abundante ecosistema de módulos que puede utilizar con sus aplicaciones. Para obtener información acerca del funcionamiento de los Sitios web Azure con los módulos, consulte [Uso de módulos Node.js con aplicaciones de Azure][4].
 
@@ -177,15 +177,15 @@ Si tiene problemas con su aplicación después de la implementación en Azure, c
 ## Recursos adicionales
 
 * [Azure
-  PowerShell](/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/)
+  PowerShell](/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/)
 * [Herramientas de línea de comandos de Azure para Mac y
-  Linux](/es-es/develop/nodejs/how-to-guides/command-line-tools/)
+  Linux](/en-us/develop/nodejs/how-to-guides/command-line-tools/)
 
 
 
 [1]: http://manage.windowsazure.com
 [2]: http://git-scm.com/
 [3]: http://git-scm.com/download
-[4]: http://www.windowsazure.com/es-es/develop/nodejs/common-tasks/working-with-node-modules/
-[5]: http://www.windowsazure.com/es-es/develop/nodejs/common-tasks/specifying-a-node-version/
-[6]: http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/Debug-Website/
+[4]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/working-with-node-modules/
+[5]: http://www.windowsazure.com/en-us/develop/nodejs/common-tasks/specifying-a-node-version/
+[6]: http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/Debug-Website/
