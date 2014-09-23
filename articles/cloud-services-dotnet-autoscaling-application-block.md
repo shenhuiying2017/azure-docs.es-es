@@ -8,13 +8,13 @@ En esta guía se demuestra cómo llevar a cabo supuestos comunes usando el bloqu
 Tabla de contenido
 ------------------
 
- [¿Qué es el bloque de autoescala de la aplicación?][]
- [Conceptos][]
- [Recopilación de datos del contador de rendimiento desde su aplicación de Azure de destino][]
- [Instalación de una aplicación host para el bloque de autoescala de la aplicación][]
- [Creación de una instancia y ejecución de la autoescala][] [Definición de su modelo de servicio][]
- [Definición de sus reglas de autoescala][]
- [Configuración del bloque de autoescala de la aplicación][]
+ [¿Qué es el bloque de autoescala de la aplicación?][]   
+ [Conceptos][]   
+ [Recopilación de datos del contador de rendimiento desde su aplicación de Azure de destino][]   
+ [Instalación de una aplicación host para el bloque de autoescala de la aplicación][]   
+ [Creación de una instancia y ejecución de la autoescala][] [Definición de su modelo de servicio][]   
+ [Definición de sus reglas de autoescala][]   
+ [Configuración del bloque de autoescala de la aplicación][]   
  [Pasos siguientes][]
 
 <a id="WhatIs"> </a>
