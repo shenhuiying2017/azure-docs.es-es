@@ -73,14 +73,14 @@ El clúster de HDInsight incluye algunos datos de ejemplo. Usará los dos siguie
 
     <table data-morhtml="true" border="1">
   <tr data-morhtml="true"><th data-morhtml="true">Campo</th><th data-morhtml="true">Tipo de datos</th></tr>
-  <tr data-morhtml="true"><td data-morhtml="true">clientid</td><td data-morhtml="true">cadena</td></tr>
-  <tr data-morhtml="true"><td data-morhtml="true">querytime</td><td data-morhtml="true">cadena</td></tr>
-  <tr data-morhtml="true"><td data-morhtml="true">market</td><td data-morhtml="true">cadena</td></tr>
-  <tr data-morhtml="true"><td data-morhtml="true">deviceplatform</td><td data-morhtml="true">cadena</td></tr>
-  <tr data-morhtml="true"><td data-morhtml="true">devicemake</td><td data-morhtml="true">cadena</td></tr>
-  <tr data-morhtml="true"><td data-morhtml="true">devicemodel</td><td data-morhtml="true">cadena</td></tr>
-  <tr data-morhtml="true"><td data-morhtml="true">state</td><td data-morhtml="true">cadena</td></tr>
-  <tr data-morhtml="true"><td data-morhtml="true">country</td><td data-morhtml="true">cadena</td></tr>
+  <tr data-morhtml="true"><td data-morhtml="true">clientid</td><td data-morhtml="true">string</td></tr>
+  <tr data-morhtml="true"><td data-morhtml="true">querytime</td><td data-morhtml="true">string</td></tr>
+  <tr data-morhtml="true"><td data-morhtml="true">market</td><td data-morhtml="true">string</td></tr>
+  <tr data-morhtml="true"><td data-morhtml="true">deviceplatform</td><td data-morhtml="true">string</td></tr>
+  <tr data-morhtml="true"><td data-morhtml="true">devicemake</td><td data-morhtml="true">string</td></tr>
+  <tr data-morhtml="true"><td data-morhtml="true">devicemodel</td><td data-morhtml="true">string</td></tr>
+  <tr data-morhtml="true"><td data-morhtml="true">state</td><td data-morhtml="true">string</td></tr>
+  <tr data-morhtml="true"><td data-morhtml="true">country</td><td data-morhtml="true">string</td></tr>
   <tr data-morhtml="true"><td data-morhtml="true">querydwelltime</td><td data-morhtml="true">double</td></tr>
   <tr data-morhtml="true"><td data-morhtml="true">sessionid</td><td data-morhtml="true">bigint</td></tr>
   <tr data-morhtml="true"><td data-morhtml="true">sessionpagevieworder</td><td data-morhtml="true">bigint</td></tr>
