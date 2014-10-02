@@ -2,7 +2,7 @@ El Sistema de nombres de dominio (DNS) se utiliza para realizar búsquedas en In
 
 El sistema DNS se basa en *registros*. Los registros asocian un *nombre* específico, como **contoso.com**, a una dirección IP u otro nombre DNS. Cuando una aplicación, como un explorador web, busca un nombre en DNS, encuentra el registro y utiliza aquello a lo que apunte como dirección. Si el valor al que apunta es una dirección IP, el explorador utilizará ese valor. Si apunta a otro nombre DNS, la aplicación tiene que volver a realizar una resolución. En última instancia, todas las resoluciones de nombre terminarán en una dirección IP.
 
-Cuando se crea un sitio web de Azure, se asigna un nombre DNS automáticamente al sitio. Este nombre adquiere la forma de **&lt;nombredelsitio\>.azurewebsites.net**. Cuando se agrega el sitio web como un extremo del Administrador de tráfico de Azure, se puede tener acceso al sitio web a través del dominio **&lt;superfildeadministradordetráfico\>.trafficmanager.net**.
+Cuando se crea un sitio web de Azure, se asigna un nombre DNS automáticamente al sitio. Este nombre adquiere la forma de **\<nombredelsitio\>.azurewebsites.net**. Cuando se agrega el sitio web como un extremo del Administrador de tráfico de Azure, se puede tener acceso al sitio web a través del dominio **\<superfildeadministradordetráfico\>.trafficmanager.net**.
 
 > [WACOM.NOTE] Cuando el sitio web está configurado como un extremo del Administrador de tráfico, utilizará la dirección **.trafficmanager.net** cuando cree los registros DNS.
 
@@ -12,9 +12,11 @@ También hay varios tipos de registros, cada uno con sus propias funciones y lim
 
 ### Registro de CNAME o Alias
 
-Un registro CNAME asigna un nombre DNS *específico*, como **mail.contoso.com** o **www.contoso.com**, a otro nombre de dominio (canónico). En el caso de los sitios web de Azure que utilizan el Administrador de tráfico, el nombre de dominio canónico es el nombre de dominio **&lt;myapp\>.trafficmanager.net** de su perfil del Administrador de tráfico. Una vez creado, el CNAME crea un alias para el nombre de dominio **&lt;myapp\>.trafficmanager.net**. La entrada de CNAME se resolverá en la dirección IP del servicio del nombre de dominio **&lt;myapp\>.trafficmanager.net** de manera automática, por lo que si la dirección IP del sitio web cambia, no tiene que realizar ninguna acción.
+Un registro CNAME asigna un nombre DNS *específico*, como **mail.contoso.com** o **www.contoso.com**, a otro nombre de dominio (canónico). En el caso de los sitios web de Azure que utilizan el Administrador de tráfico, el nombre de dominio canónico es el nombre de dominio **\<mi aplicación\>.trafficmanager.net** de su perfil del Administrador de tráfico. Una vez creado, el CNAME crea un alias para el nombre de dominio **\<myapp\>.trafficmanager.net**. La entrada de CNAME se resolverá en la dirección IP del servicio del nombre de dominio **\<mi aplicación\>.trafficmanager.net** de manera automática, por lo que si la dirección IP del sitio web cambia, no tiene que realizar ninguna acción.
 
 Una vez que el tráfico llega al Administrador de tráfico, este enruta el tráfico al sitio web, utilizando el método de equilibrio de carga para el cual está configurado. Esto es completamente transparente para los visitantes del sitio web. Ellos solo verán el nombre de dominio personalizado en el explorador.
 
-> [WACOM.NOTE] Algunos registradores de dominio solo permiten asignar subdominios cuando se utiliza un registro CNAME, como **www.contoso.com** y no los nombres raíz, como **contoso.com**. Para obtener más información acerca de los registros CNAME, consulte la documentación que proporciona el registrador, [la entrada de Wikipedia sobre el registro CNAME](http://en.wikipedia.org/wiki/CNAME_record) o el documento [IETF Domain Names - Implementation and Specification](http://tools.ietf.org/html/rfc1035).
+> [WACOM.NOTE] Algunos registradores de dominio solo permiten asignar subdominios cuando se utiliza un registro CNAME, como **www.contoso.com** y no los nombres raíz, como **contoso.com**. Para obtener más información acerca de los registros CNAME, consulte la documentación que proporciona el registrador, [la entrada de Wikipedia sobre el registro CNAME][] o el documento [IETF Domain Names - Implementation and Specification][].
 
+  [la entrada de Wikipedia sobre el registro CNAME]: http://en.wikipedia.org/wiki/CNAME_record
+  [IETF Domain Names - Implementation and Specification]: http://tools.ietf.org/html/rfc1035

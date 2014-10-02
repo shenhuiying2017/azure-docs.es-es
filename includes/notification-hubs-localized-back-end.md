@@ -3,15 +3,15 @@ En su aplicación back-end, ahora tiene que cambiar para enviar notificaciones d
 Cuando envía notificaciones de plantilla, solo es necesario proporcionar un conjunto de propiedades; en nuestro caso, enviaremos, por ejemplo, el conjunto de propiedades que contiene la versión localizada de las noticias de actualidad:
 
     {
-    	"Noticias_Inglés": "Noticias del mundo en inglés",
-    	"Noticias_Francés": "Noticias del mundo en francés",
-    	"Noticias_Mandarín": "Noticias del mundo en mandarín",
+        "News_English": "World News in English!",
+        "News_French": "World News in French!",
+        "News_Mandarin": "World News in Mandarin!"
     }
 
 En esta sección se muestra cómo enviar notificaciones de dos formas diferentes:
 
-* mediante una aplicación de consola
-* mediante un script de Servicios móviles
+-   mediante una aplicación de consola
+-   mediante un script de Servicios móviles
 
 El código incluido se difunde tanto a los dispositivos de la Tienda Windows como a los iOS, dado que el back-end puede difundir a cualquiera de los dispositivos compatibles.
 
@@ -19,12 +19,12 @@ El código incluido se difunde tanto a los dispositivos de la Tienda Windows com
 
 Simplemente modificaremos nuestro método *SendNotificationAsync* enviando una única notificación de plantilla.
 
-    var hub = NotificationHubClient.CreateClientFromConnectionString("<connection  string>", "<hub  name>");
-    var notification = new Dictionary<string , string>() {
-    						{"Noticias_Inglés", "Noticias del mundo en inglés"},
-                            {"Noticias_Francés", "Noticias del mundo en francés"},
-                            {"Noticias_Mandarín", "Noticias del mundo en mandarín"},
-    await hub.SendTemplateNotificationAsync(notification, "Mundo");
+    var hub = NotificationHubClient.CreateClientFromConnectionString("<connection string>", "<hub name>");
+    var notification = new Dictionary<string, string>() {
+                            {"News_English", "World News in English!"},
+                            {"News_French", "World News in French!"},
+                            {"News_Mandarin", "World News in Mandarin!"}};
+    await hub.SendTemplateNotificationAsync(notification, "World");
 
 Tenga en cuenta que esta simple llamada proporcionará la noticia localizada correcta a **todos** los dispositivos, con independencia de la plataforma, puesto que el Centro de notificaciones crea y entrega la carga nativa correcta a todos los dispositivos suscritos a una etiqueta específica.
 
@@ -33,16 +33,17 @@ Tenga en cuenta que esta simple llamada proporcionará la noticia localizada cor
 En su programador de Servicios móviles, sobrescriba el script con:
 
     var azure = require('azure');
-    var notificationHubService = azure.createNotificationHubService('<hub  name>', <connection  string with full access>');
+    var notificationHubService = azure.createNotificationHubService('<hub name>', <connection string with full access>');
     var notification = {
-    		"Noticias_Inglés": "Noticias del mundo en inglés",
-    		"Noticias_Francés": "Noticias del mundo en francés",
-    		"Noticias_Mandarín", "Noticias del mundo en mandarín"
+            "News_English": "World News in English!",
+            "News_French": "World News in French!",
+            "News_Mandarin", "World News in Mandarin!"
     }
-    notificationHubService.send('Mundo', notification, function(error) {
-    	if (!error) {
-    		console.warn("Notificación correcta");
-    	}
+    notificationHubService.send('World', notification, function(error) {
+        if (!error) {
+            console.warn("Notification successful");
+        }
     });
 
 Vea cómo en este caso no hay necesidad de enviar varias notificaciones para diferentes configuraciones regionales y plataformas.
+
