@@ -1,48 +1,58 @@
-El Sistema de nombres de dominio (DNS) se utiliza para realizar búsquedas en Internet. Por ejemplo, cuando escribe una dirección en el explorador o hace clic en un vínculo de una página web, utiliza DNS para traducir el dominio en una dirección IP. La dirección IP es algo parecido a la dirección de una calle, pero su sistema es algo complejo. Por ejemplo, es mucho más fácil recordar un nombre DNS como **contoso.com** que recordar una dirección IP como 192.168.1.88 o 2001:0:4137:1f67:24a2:3888:9cce:fea3.
+El Sistema de nombres de dominio (DNS) se utiliza para buscar recursos en Internet. Por ejemplo, cuando escribe la dirección de un sitio web en el explorador o hace clic en un vínculo de una página web, utiliza DNS para convertir el dominio en una dirección IP. La dirección IP es algo parecido a la dirección de una calle, pero su sistema es algo complejo. Por ejemplo, es mucho más fácil recordar un nombre DNS como **contoso.com** que recordar una dirección IP como 192.168.1.88 o 2001:0:4137:1f67:24a2:3888:9cce:fea3.
 
 El sistema DNS se basa en *registros*. Los registros asocian un *nombre* específico, como **contoso.com**, a una dirección IP u otro nombre DNS. Cuando una aplicación, como un explorador web, busca un nombre en DNS, encuentra el registro y utiliza aquello a lo que apunte como dirección. Si el valor al que apunta es una dirección IP, el explorador utilizará ese valor. Si apunta a otro nombre DNS, la aplicación tiene que volver a realizar una resolución. En última instancia, todas las resoluciones de nombre terminarán en una dirección IP.
 
-Cuando se crea un sitio web de Azure, se asigna un nombre DNS automáticamente al sitio. Este nombre adquiere la forma de **&lt;nombredelsitio\>.azurewebsites.net**. También hay una dirección IP virtual disponible para el uso al crear registros DNS, por lo que puede crear registros que apunten a **.azurewebsites.net**, o puede apuntar a la dirección IP.
+Cuando se crea un sitio web de Azure, se asigna un nombre DNS automáticamente al sitio. Este nombre adquiere la forma de **\<nombredelsitio\>.azurewebsites.net**. También hay una dirección IP virtual disponible para el uso al crear registros DNS, por lo que puede crear registros que apunten a **.azurewebsites.net** o bien apuntar a la dirección IP.
 
-> [WACOM.NOTE] La dirección IP del sitio web cambiará si elimina y vuelve a crear el sitio web, o si cambia el modo de sitio web a gratuito después de que se haya establecido en básico, compartido o estándar.
+> [WACOM.NOTE] La dirección IP del sitio web cambiará si elimina y vuelve a crear el sitio web, o si cambia el modo de sitio web a Gratis después de que se haya establecido en Básico, Compartido o Estándar.
 
 También hay varios tipos de registros, cada uno con sus propias funciones y limitaciones, pero para los sitios web, solo nos interesan dos, los registros *CNAME* y *D*.
 
-### Registro de CNAME o Alias
+### Registro de dirección (registro D)
 
-Un registro CNAME asigna un nombre DNS *específico*, como **mail.contoso.com** o **www.contoso.com**, a otro nombre de dominio (canónico). En el caso de Sitios web Azure, el nombre de dominio canónico es el nombre de dominio **&lt;myapp\>.azurewebsites.net** de su sitio web. Una vez creado, el CNAME crea un alias para el nombre de dominio **&lt;myapp\>.azurewebsites.net**. La entrada de CNAME se resolverá en la dirección IP del servicio del nombre de dominio **&lt;myapp\>.azurewebsites.net** de manera automática, por lo que si la dirección IP del sitio web cambia, no tiene que realizar ninguna acción.
-
-> [WACOM.NOTE] Algunos registradores de dominio solo permiten asignar subdominios cuando se utiliza un registro CNAME, como **www.contoso.com** y no los nombres raíz, como **contoso.com**. Para obtener más información acerca de los registros CNAME, consulte la documentación que proporciona el registrador, [la entrada de Wikipedia sobre el registro CNAME](http://en.wikipedia.org/wiki/CNAME_record) o el documento [IETF Domain Names - Implementation and Specification](http://tools.ietf.org/html/rfc1035).
-
-### Registro D
-
-El registro D asigna un dominio, como **contoso.com** o **www.contoso.com**, *o un dominio con comodín* como **\*.contoso.com**, a una dirección IP. En el caso de un Sitio web Azure, la IP virtual del servicio o una dirección IP específica que haya adquirido para el sitio web.
+El registro D asigna un dominio, como **contoso.com** o **www.contoso.com**, *o un dominio con comodín* como **\*.contoso.com**, a una dirección IP. En el caso de un sitio web de Azure, la IP virtual del servicio o una dirección IP específica que haya adquirido para el sitio web.
 
 Las principales ventajas de un registro D sobre un registro CNAME son:
 
 -   Puede asignar un dominio raíz, como **contoso.com** a una dirección IP; muchos registradores solo lo permiten con los registros D.
 
--   Puede disponer de una entrada que utilice un carácter comodín, como **\*.contoso.com**, que administraría las solicitudes de varios subdominios como **mail.contoso.com**, **login.contoso.com** o **www.contoso.com**.
+-   Puede disponer de una entrada que utilice un carácter comodín, como **\*.contoso.com**, que administraría las solicitudes de varios subdominios como **mail.contoso.com**, **blogs.contoso.com** o **www.contoso.com**.
 
 > [WACOM.NOTE] Puesto que un registro D se asigna a una dirección IP estática, no puede resolver automáticamente cambios en la dirección IP de su sitio web. Se proporciona una dirección IP para que se use con registros D cuando establezca la configuración del nombre de dominio personalizado para su sitio web; sin embargo, este valor podría cambiar si elimina y vuelve a crear su sitio web o cambia el modo del sitio web para que vuelva a ser gratuito.
 
+### Registro de alias (registro CNAME)
+
+Un registro CNAME asigna un nombre DNS *específico*, como **mail.contoso.com** o **www.contoso.com**, a otro nombre de dominio (canónico). En el caso de Sitios web Azure, el nombre de dominio canónico es el nombre de dominio **\<nombredesusitio\>.azurewebsites.net** de su sitio web. Una vez creado, el CNAME crea un alias para el nombre de dominio **\<nombredesusitio\>.azurewebsites.net**. La entrada de CNAME se resolverá en la dirección IP del servicio del nombre de dominio **\<nombredesusitio\>.azurewebsites.net** de manera automática, por lo que si la dirección IP del sitio web cambia, no tiene que realizar ninguna acción.
+
+> [WACOM.NOTE] Algunos registradores de dominio solo permiten asignar subdominios cuando se utiliza un registro CNAME, como **www.contoso.com** y no los nombres raíz, como **contoso.com**. Para obtener más información acerca de los registros CNAME, consulte la documentación que proporciona el registrador, [la entrada de Wikipedia sobre el registro CNAME][] o el documento [IETF Domain Names - Implementation and Specification][].
+
 ### Aspectos específicos de DNS de un sitio web Azure
 
-El uso de un registro D con Sitios web Azure requiere crear primero un registro CNAME que asigna:
+El uso de un registro D con Sitios web Azure requiere crear primero uno de los siguientes registros CNAME:
 
--   Un nombre DNS de **www** a su **&lt;nombredelsitioweb\>.azurewebsites.net**. O bien
--   Un nombre DNS de **awverify.www** a **awverify.&lt;nombredelsitioweb\>.azurewebsites.net**.
+-   **Para el dominio raíz o subdominios comodín** - Un nombre DNS de **awverify** a **awverify.\<nombredesusitioweb\>.azurewebsites.net**.
+
+-   **Para un subdominio específico** - Un nombre DNS de **awverify.\<subdominio\>** a **awverify.\<nombredesusitioweb\>.azurewebsites.net**. Por ejemplo, **awverify.blogs** si el registro D es para **blogs.contoso.com**.
 
 Este registro CNAME se utiliza para verificar que se posee el dominio que está intentando utilizar. Esto se suma a la creación de un registro D que apunta a la dirección IP virtual del sitio web.
 
-Puede encontrar la dirección IP, así como el nombre **awverify.www** y los nombres **.azurewebsites.net** para el sitio web al realizar los siguientes pasos:
+Puede encontrar la dirección IP, así como el nombre **awverify** y los nombres **.azurewebsites.net** para el sitio web, siguiendo estos pasos:
 
-1.  En el explorador, abra el [Portal de administración de Azure](https://manage.windowsazure.com).
+1.  En el explorador, abra el [Portal de administración de Azure][].
 
 2.  En la pestaña **Sitios web**, haga clic en el nombre del sitio, seleccione **Panel** y, a continuación, seleccione **Administrar dominios** en la parte inferior de la página.
 
-    ![](./media/custom-dns-web-site/dncmntask-cname-6.png)
+    ![][]
 
-3.  En el cuadro de diálogo **ADMINISTRAR DOMINIOS PERSONALIZADOS**, verá la información de **awverify**, el nombre de dominio **.azurewebsites.net** actualmente asignado y la dirección IP virtual.
+    > [WACOM.NOTE] Si **Administrar dominios** no está habilitado, está utilizando un sitio web gratuito. No puede utilizar nombres de dominio personalizados con un sitio web gratuito; por tanto, debe actualizar al modo Compartido, Básico o Estándar. Para obtener más información acerca de los modos de los sitios web, incluido cómo cambiar el modo de su sitio, consulte [Escalación de sitios web][].
 
+3.  En el cuadro de diálogo **ADMINISTRAR DOMINIOS PERSONALIZADOS**, verá la información de **awverify**, el nombre de dominio **.azurewebsites.net** actualmente asignado y la dirección IP virtual. Guarde esta información, puesto que se utilizará al crear registros DNS.
 
+    ![][1]
+
+  [la entrada de Wikipedia sobre el registro CNAME]: http://en.wikipedia.org/wiki/CNAME_record
+  [IETF Domain Names - Implementation and Specification]: http://tools.ietf.org/html/rfc1035
+  [Portal de administración de Azure]: https://manage.windowsazure.com
+  []: ./media/custom-dns-web-site/dncmntask-cname-6.png
+  [Escalación de sitios web]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/
+  [1]: ./media/custom-dns-web-site/managecustomdomains.png

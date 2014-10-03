@@ -1,34 +1,36 @@
 <properties linkid="manage-linux-howto-linux-agent" urlDisplayName="Linux Agent guide" pageTitle="Linux Agent User Guide for Azure" metaKeywords="" description="Learn how to install and configure Linux Agent (waagent) to manage your virtual machine's interaction with Azure Fabric Controller." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="" solutions="" manager="" editor="" />
 
-Guía de usuario del Agente de Linux de Azure
-============================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
 
-Introducción
-------------
+# Guía de usuario del Agente de Linux de Azure
+
+## Introducción
 
 El Agente de Linux de Azure (waagent) administra la interacción de la máquina virtual con el controlador de tejido de Azure. Proporciona la siguiente funcionalidad para las implementaciones de laaS de Linux:
 
 -   **Aprovisionamiento de imágenes**
-    -   Creación de una cuenta de usuario
-    -   Configuración de los tipos de autenticación de SSH
-    -   Implementación de claves públicas y pares de claves de SSH
-    -   Configuración del nombre de host
-    -   Publicación del nombre de host para DNS de plataforma
-    -   Informe de huella digital de clave de host de SSH para la plataforma
-    -   Administración del disco de recursos
-    -   Formato y montaje del discos de recursos
-    -   Configuración del espacio de intercambio
+-   Creación de una cuenta de usuario
+-   Configuración de los tipos de autenticación de SSH
+-   Implementación de claves públicas y pares de claves de SSH
+-   Configuración del nombre de host
+-   Publicación del nombre de host para DNS de plataforma
+-   Informe de huella digital de clave de host de SSH para la plataforma
+-   Administración del disco de recursos
+-   Formato y montaje del discos de recursos
+-   Configuración del espacio de intercambio
 -   **Redes**
-    -   Administra las rutas para mejorar la compatibilidad con los servidores DHCP de la plataforma
-    -   Asegura la estabilidad del nombre de interfaz de red
+-   Administra las rutas para mejorar la compatibilidad con los servidores DHCP de la plataforma
+-   Asegura la estabilidad del nombre de interfaz de red
 -   **Kernel**
-    -   Configuración de NUMA virtual
-    -   Consumo de entropía de Hyper-V para /dev/random
-    -   Configuración de tiempos de espera SCSI para el dispositivo raíz (el cual podría ser remoto)
+-   Configuración de NUMA virtual
+-   Consumo de entropía de Hyper-V para /dev/random
+-   Configuración de tiempos de espera SCSI para el dispositivo raíz (el cual podría ser remoto)
 -   **Diagnóstico**
-    -   Redirección de la consola al puerto serie
+-   Redirección de la consola al puerto serie
 -   **Implementaciones de SCVMM**
-    -   Detección y arranque del agente VMM para Linux cuando se ejecuta en un entorno de System Center Virtual Machine Manager 2012 R2
+
+    -   Detección y arranque del agente VMM para Linux cuando se ejecuta en
+         un entorno de System Center Virtual Machine Manager 2012 R2
 
 El flujo de información desde la plataforma hasta el agente se produce a través de dos canales:
 
@@ -40,8 +42,8 @@ El flujo de información desde la plataforma hasta el agente se produce a travé
 
 Puede obtener el Agente de Linux más reciente directamente de:
 
--   [The different Distribution providers endorsing Linux on Azure](http://support.microsoft.com/kb/2805216)
--   o del [repositorio de código abierto de Github para el Agente de Linux de Azure](https://github.com/WindowsAzure/WALinuxAgent) (en inglés)
+-   [The different Distribution providers endorsing Linux on Azure][]
+-   o del [repositorio de código abierto de Github para el Agente de Linux de Azure][] (en inglés)
 
 ### Distribuciones de Linux compatibles
 
@@ -68,8 +70,7 @@ Waagent depende de algunos paquetes de sistema para funcionar correctamente:
 -   Herramientas de procesamiento de texto: sed, grep
 -   Herramientas de red: ip-route
 
-Instalación
------------
+## Instalación
 
 La instalación con RPM o un paquete de DEB del repositorio de paquetes de su distribución es el método preferido para instalar y actualizar el Agente de Linux de Azure.
 
@@ -80,8 +81,7 @@ Si se va a realizar una instalación manual, se debe copiar waagent a /usr/sbin/
 
 El archivo de registro del agente se guarda en /var/log/waagent.log.
 
-Opciones de la línea de comandos
---------------------------------
+## Opciones de la línea de comandos
 
 ### Marcas
 
@@ -131,14 +131,17 @@ Opciones de la línea de comandos
 
 -   version: Muestra la versión de waagent
 
--   serialconsole: Configura GRUB para marcar ttyS0 (el primer puerto serie) como la consola de arranque. Esto asegura que los registros de arranque del kernel se envíen al puerto serie y queden disponibles para su depuración.
+-   serialconsole: Configura GRUB para marcar ttyS0 (el primer puerto serie)
+     como la consola de arranque. Esto asegura que los registros de arranque del kernel se envíen
+     al puerto serie y queden disponibles para depurarlos.
 
--   daemon: Ejecuta waagent como demonio para administrar la interacción con la plataforma. Este argumento se especifica en waagent en el script init de waagent.
+-   daemon: Ejecuta waagent como demonio para administrar la interacción con la plataforma.
+     Este argumento se especifica en waagent en el script init de waagent.
 
-Configuración
--------------
+## Configuración
 
-Un archivo de configuración (/etc/waagent.conf) controla las acciones de waagent. Abajo se muestra un archivo de configuración de ejemplo:
+Un archivo de configuración (/etc/waagent.conf) controla las acciones de waagent.
+A continuación se muestra un archivo de configuración de ejemplo:
 
     #
     # Azure Linux Agent Configuration   
@@ -161,7 +164,10 @@ Un archivo de configuración (/etc/waagent.conf) controla las acciones de waagen
     OS.RootDeviceScsiTimeout=300
     OS.OpensslPath=None
 
-A continuación se describen en detalle las diferentes opciones de configuración. Las opciones de configuración son de tres tipos: booleana, cadena o entero. Las opciones de configuración booleana se pueden especificar como "y" o "n". La palabra clave especial "None" se puede usar para algunas entradas de la configuración tipo cadena como se detalla a continuación.
+A continuación se describen en detalle las diferentes opciones de configuración.
+Las opciones de configuración son de tres tipos: Booleanas, cadenas o enteros.
+Las opciones de configuración booleanas se pueden especificar como "y" (sí) o "n" (no).
+La palabra clave especial "None" se puede usar para algunas entradas de configuración de tipo cadena como se detalla a continuación.
 
 **Role.StateConsumer:**
 
@@ -240,7 +246,7 @@ De esta manera se especifica el tipo de sistema de archivos para el disco de rec
 Tipo: cadena
  Valor predeterminado: /mnt/resource
 
-Esta opción especifica la ruta en la cual se monta el disco de recursos.
+Esta opción especifica la ruta en la cual se monta el disco de recursos. Tenga en cuenta que el disco de recursos es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona.
 
 **ResourceDisk.EnableSwap:**
 
@@ -284,114 +290,116 @@ Tipo: cadena
 
 Esta opción se puede usar para especificar una ruta alternativa para que el binario openssl la use para las operaciones criptográficas.
 
-Anexo
------
+## Anexo
 
 ### Archivo de configuración de rol de muestra
 
-	<?xml version="1.0" encoding="utf-8"?>
-	<HostingEnvironmentConfig version="1.0.0.0" goalStateIncarnation="1">
-	  <StoredCertificates>
-	    <StoredCertificate name="Stored0Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" certificateId="sha1:C093FA5CD3AAE057CB7C4E04532B2E16E07C26CA" storeName="My" configurationLevel="System" />
-	  </StoredCertificates>
-	  <Deployment name="a99549a92e38498f98cf2989330cd2f1" guid="{374ef9a2-de81-4412-ac87-e586fc869923}" incarnation="14">
-	    <Service name="LinuxDemo1" guid="{00000000-0000-0000-0000-000000000000}" />
-	    <ServiceInstance name="a99549a92e38498f98cf2989330cd2f1.4" guid="{250ac9df-e14c-4c5b-9cbc-f8a826ced0e7}" />
-	  </Deployment>
-	  <Incarnation number="1" instance="LinuxVM_IN_2" guid="{5c87ab8b-2f6a-4758-9f74-37e68c3e957b}" />
-	  <Role guid="{47a04da2-d0b7-26e2-f039-b1f1ab11337a}" name="LinuxVM" hostingEnvironmentVersion="1" software="" softwareType="ApplicationPackage" entryPoint="" parameters="" settleTimeSeconds="10" />
-	  <HostingEnvironmentSettings name="full" Runtime="rd_fabric_stable.111026-1712.RuntimePackage_1.0.0.9.zip">
-	    <CAS mode="full" />
-	    <PrivilegeLevel mode="max" />
-	    <AdditionalProperties><CgiHandlers></CgiHandlers></AdditionalProperties></HostingEnvironmentSettings>
-	    <ApplicationSettings>
-	      <Setting name="__ModelData" value="&lt;m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;>&lt;r name=&quot;LinuxVM&quot;>&lt;e name=&quot;HTTP&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; />&lt;e name=&quot;SSH&quot; />&lt;/r>&lt;/m>" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="..." />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2015-11-06T23:59:59.0000000-08:00" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="rdos" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
-	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
-	      <Setting name="startpage" value="Hello World!" />
-	      <Setting name="Certificate|Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" value="sha1:C093FA5CD3AAE057CB7C4E04532B2E16E07C26CA" />
-	    </ApplicationSettings>
-	    <ResourceReferences>
-	      <Resource name="DiagnosticStore" type="directory" request="Microsoft.Cis.Fabric.Controller.Descriptions.ServiceDescription.Data.Policy" sticky="true" size="1" path="a99549a92e38498f98cf2989330cd2f1.LinuxVM.DiagnosticStore\" disableQuota="false" />
-	    </ResourceReferences>
-	  </HostingEnvironmentConfig>
+    <?xml version="1.0" encoding="utf-8"?>
+    <HostingEnvironmentConfig version="1.0.0.0" goalStateIncarnation="1">
+      <StoredCertificates>
+        <StoredCertificate name="Stored0Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" certificateId="sha1:C093FA5CD3AAE057CB7C4E04532B2E16E07C26CA" storeName="My" configurationLevel="System" />
+      </StoredCertificates>
+      <Deployment name="a99549a92e38498f98cf2989330cd2f1" guid="{374ef9a2-de81-4412-ac87-e586fc869923}" incarnation="14">
+        <Service name="LinuxDemo1" guid="{00000000-0000-0000-0000-000000000000}" />
+        <ServiceInstance name="a99549a92e38498f98cf2989330cd2f1.4" guid="{250ac9df-e14c-4c5b-9cbc-f8a826ced0e7}" />
+      </Deployment>
+      <Incarnation number="1" instance="LinuxVM_IN_2" guid="{5c87ab8b-2f6a-4758-9f74-37e68c3e957b}" />
+      <Role guid="{47a04da2-d0b7-26e2-f039-b1f1ab11337a}" name="LinuxVM" hostingEnvironmentVersion="1" software="" softwareType="ApplicationPackage" entryPoint="" parameters="" settleTimeSeconds="10" />
+      <HostingEnvironmentSettings name="full" Runtime="rd_fabric_stable.111026-1712.RuntimePackage_1.0.0.9.zip">
+        <CAS mode="full" />
+        <PrivilegeLevel mode="max" />
+        <AdditionalProperties><CgiHandlers></CgiHandlers></AdditionalProperties></HostingEnvironmentSettings>
+        <ApplicationSettings>
+          <Setting name="__ModelData" value="&lt;m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;>&lt;r name=&quot;LinuxVM&quot;>&lt;e name=&quot;HTTP&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; />&lt;e name=&quot;SSH&quot; />&lt;/r>&lt;/m>" />
+          <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="..." />
+          <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2015-11-06T23:59:59.0000000-08:00" />
+          <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="rdos" />
+          <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+          <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+          <Setting name="startpage" value="Hello World!" />
+          <Setting name="Certificate|Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" value="sha1:C093FA5CD3AAE057CB7C4E04532B2E16E07C26CA" />
+        </ApplicationSettings>
+        <ResourceReferences>
+          <Resource name="DiagnosticStore" type="directory" request="Microsoft.Cis.Fabric.Controller.Descriptions.ServiceDescription.Data.Policy" sticky="true" size="1" path="a99549a92e38498f98cf2989330cd2f1.LinuxVM.DiagnosticStore\" disableQuota="false" />
+        </ResourceReferences>
+      </HostingEnvironmentConfig>
 
 ### Archivo de topología de rol de muestra
 
-	<?xml version="1.0" encoding="utf-8"?>
-	<SharedConfig version="1.0.0.0" goalStateIncarnation="2">
-	  <Deployment name="a99549a92e38498f98cf2989330cd2f1" guid="{374ef9a2-de81-4412-ac87-e586fc869923}" incarnation="14">
-	    <Service name="LinuxDemo1" guid="{00000000-0000-0000-0000-000000000000}" />
-	    <ServiceInstance name="a99549a92e38498f98cf2989330cd2f1.4" guid="{250ac9df-e14c-4c5b-9cbc-f8a826ced0e7}" />
-	  </Deployment>
-	  <Incarnation number="1" instance="LinuxVM_IN_1" guid="{a7b94774-db5c-4007-8707-0b9e91fd808d}" />
-	  <Role guid="{47a04da2-d0b7-26e2-f039-b1f1ab11337a}" name="LinuxVM" settleTimeSeconds="10" />
-	  <LoadBalancerSettings timeoutSeconds="32" waitLoadBalancerProbeCount="8">
-	    <Probes>
-	      <Probe name="LinuxVM" />
-	      <Probe name="03F7F19398C4358108B7ED059966EEBD" />
-	      <Probe name="47194D0E3AB3FCAD621CAAF698EC82D8" />
-	    </Probes>
-	  </LoadBalancerSettings>
-	  <OutputEndpoints>
-	    <Endpoint name="LinuxVM:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" type="SFS">
-	      <Target instance="LinuxVM_IN_0" endpoint="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-	      <Target instance="LinuxVM_IN_1" endpoint="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-	      <Target instance="LinuxVM_IN_2" endpoint="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
-	    </Endpoint>
-	  </OutputEndpoints>
-	  <Instances>
-	    <Instance id="LinuxVM_IN_1" address="10.115.38.202">
-	      <FaultDomains randomId="1" updateId="1" updateCount="2" />
-	      <InputEndpoints>
-	        <Endpoint name="HTTP" address="10.115.38.202:80" protocol="tcp" isPublic="true" loadBalancedPublicAddress="70.37.56.176:80" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="80" to="80" />
-	          </LocalPorts>
-	        </Endpoint>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" address="10.115.38.202:3389" protocol="tcp" isPublic="false" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="3389" to="3389" />
-	          </LocalPorts>
-	          <RemoteInstances>
-	            <RemoteInstance instance="LinuxVM_IN_0" />
-	            <RemoteInstance instance="LinuxVM_IN_2" />
-	          </RemoteInstances>
-	        </Endpoint>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" address="10.115.38.202:20000" protocol="tcp" isPublic="true" loadBalancedPublicAddress="70.37.56.176:3389" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="20000" to="20000" />
-	          </LocalPorts>
-	        </Endpoint>
-	        <Endpoint name="SSH" address="10.115.38.202:22" protocol="tcp" isPublic="true" loadBalancedPublicAddress="70.37.56.176:22" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="22" to="22" />
-	          </LocalPorts>
-	        </Endpoint>
-	      </InputEndpoints>
-	    </Instance>
-	    <Instance id="LinuxVM_IN_0" address="10.115.58.82">
-	      <FaultDomains randomId="0" updateId="0" updateCount="2" />
-	      <InputEndpoints>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" address="10.115.58.82:3389" protocol="tcp" isPublic="false" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="3389" to="3389" />
-	          </LocalPorts>
-	        </Endpoint>
-	      </InputEndpoints>
-	    </Instance>
-	    <Instance id="LinuxVM_IN_2" address="10.115.58.148">
-	      <FaultDomains randomId="0" updateId="2" updateCount="2" />
-	      <InputEndpoints>
-	        <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" address="10.115.58.148:3389" protocol="tcp" isPublic="false" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
-	          <LocalPorts>
-	            <LocalPortRange from="3389" to="3389" />
-	          </LocalPorts>
-	        </Endpoint>
-	      </InputEndpoints>
-	    </Instance>
-	  </Instances>
-	</SharedConfig>
+    <?xml version="1.0" encoding="utf-8"?>
+    <SharedConfig version="1.0.0.0" goalStateIncarnation="2">
+      <Deployment name="a99549a92e38498f98cf2989330cd2f1" guid="{374ef9a2-de81-4412-ac87-e586fc869923}" incarnation="14">
+        <Service name="LinuxDemo1" guid="{00000000-0000-0000-0000-000000000000}" />
+        <ServiceInstance name="a99549a92e38498f98cf2989330cd2f1.4" guid="{250ac9df-e14c-4c5b-9cbc-f8a826ced0e7}" />
+      </Deployment>
+      <Incarnation number="1" instance="LinuxVM_IN_1" guid="{a7b94774-db5c-4007-8707-0b9e91fd808d}" />
+      <Role guid="{47a04da2-d0b7-26e2-f039-b1f1ab11337a}" name="LinuxVM" settleTimeSeconds="10" />
+      <LoadBalancerSettings timeoutSeconds="32" waitLoadBalancerProbeCount="8">
+        <Probes>
+          <Probe name="LinuxVM" />
+          <Probe name="03F7F19398C4358108B7ED059966EEBD" />
+          <Probe name="47194D0E3AB3FCAD621CAAF698EC82D8" />
+        </Probes>
+      </LoadBalancerSettings>
+      <OutputEndpoints>
+        <Endpoint name="LinuxVM:Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" type="SFS">
+          <Target instance="LinuxVM_IN_0" endpoint="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
+          <Target instance="LinuxVM_IN_1" endpoint="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
+          <Target instance="LinuxVM_IN_2" endpoint="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" />
+        </Endpoint>
+      </OutputEndpoints>
+      <Instances>
+        <Instance id="LinuxVM_IN_1" address="10.115.38.202">
+          <FaultDomains randomId="1" updateId="1" updateCount="2" />
+          <InputEndpoints>
+            <Endpoint name="HTTP" address="10.115.38.202:80" protocol="tcp" isPublic="true" loadBalancedPublicAddress="70.37.56.176:80" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
+              <LocalPorts>
+                <LocalPortRange from="80" to="80" />
+              </LocalPorts>
+            </Endpoint>
+            <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" address="10.115.38.202:3389" protocol="tcp" isPublic="false" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
+              <LocalPorts>
+                <LocalPortRange from="3389" to="3389" />
+              </LocalPorts>
+              <RemoteInstances>
+                <RemoteInstance instance="LinuxVM_IN_0" />
+                <RemoteInstance instance="LinuxVM_IN_2" />
+              </RemoteInstances>
+            </Endpoint>
+            <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput" address="10.115.38.202:20000" protocol="tcp" isPublic="true" loadBalancedPublicAddress="70.37.56.176:3389" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
+              <LocalPorts>
+                <LocalPortRange from="20000" to="20000" />
+              </LocalPorts>
+            </Endpoint>
+            <Endpoint name="SSH" address="10.115.38.202:22" protocol="tcp" isPublic="true" loadBalancedPublicAddress="70.37.56.176:22" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
+              <LocalPorts>
+                <LocalPortRange from="22" to="22" />
+              </LocalPorts>
+            </Endpoint>
+          </InputEndpoints>
+        </Instance>
+        <Instance id="LinuxVM_IN_0" address="10.115.58.82">
+          <FaultDomains randomId="0" updateId="0" updateCount="2" />
+          <InputEndpoints>
+            <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" address="10.115.58.82:3389" protocol="tcp" isPublic="false" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
+              <LocalPorts>
+                <LocalPortRange from="3389" to="3389" />
+              </LocalPorts>
+            </Endpoint>
+          </InputEndpoints>
+        </Instance>
+        <Instance id="LinuxVM_IN_2" address="10.115.58.148">
+          <FaultDomains randomId="0" updateId="2" updateCount="2" />
+          <InputEndpoints>
+            <Endpoint name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp" address="10.115.58.148:3389" protocol="tcp" isPublic="false" enableDirectServerReturn="false" isDirectAddress="false" disableStealthMode="false">
+              <LocalPorts>
+                <LocalPortRange from="3389" to="3389" />
+              </LocalPorts>
+            </Endpoint>
+          </InputEndpoints>
+        </Instance>
+      </Instances>
+    </SharedConfig>
+
+  [The different Distribution providers endorsing Linux on Azure]: http://support.microsoft.com/kb/2805216
+  [repositorio de código abierto de Github para el Agente de Linux de Azure]: https://github.com/WindowsAzure/WALinuxAgent
