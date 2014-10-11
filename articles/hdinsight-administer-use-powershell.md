@@ -1,32 +1,31 @@
-<properties linkid="manage-services-hdinsight-administer-hdinsight-using-powershell" urlDisplayName="HDInsight Administration" pageTitle="Administer HDInsight using PowerShell | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure" description="Learn how to perform administrative tasks for the HDInsight clusters using PowerShell." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer HDInsight using PowerShell" authors="bradsev" />
+<properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-powershell" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters in HDInsight with Azure PowerShell | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Manage Hadoop clusters in HDInsight using Azure PowerShell" authors="jgao" />
 
-Administración de HDInsight con PowerShell
-==========================================
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
 
-Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. En este artículo, aprenderá a administrar clústeres de HDInsight con una consola local de Azure PowerShell mediante el uso de Windows PowerShell. Para obtener más información acerca de los cmdlets de HDInsight PowerShell, consulte [Documentación de referencia de los cmdlets de HDInsight](http://msdn.microsoft.com/es-es/library/windowsazure/dn479228.aspx).
+# Administración de clústeres de HDInsight con Azure PowerShell
+
+Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. En este artículo, aprenderá a administrar clústeres de Hadoop en HDInsight con una consola local de Azure PowerShell mediante el uso de Windows PowerShell. Para obtener más información acerca de los cmdlets de HDInsight PowerShell, consulte [Documentación de referencia de los cmdlets de HDInsight][].
 
 **Requisitos previos:**
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
--   Una suscripción de Azure. Azure es una plataforma basada en suscripción. Los cmdlets de HDInsight PowerShell realizan las tareas con su suscripción. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra](https://www.windowsazure.com/en-us/pricing/purchase-options/), [Ofertas para miembros](https://www.windowsazure.com/en-us/pricing/member-offers/) o [Evaluación gratuita](https://www.windowsazure.com/en-us/pricing/free-trial/).
+-   Una suscripción de Azure. Azure es una plataforma basada en suscripción. Los cmdlets de HDInsight PowerShell realizan las tareas con su suscripción. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][], [Ofertas para miembros][] o [Evaluación gratuita][].
 
--   Una estación de trabajo con Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](/es-es/documentation/articles/install-configure-powershell/).
+-   Una estación de trabajo con Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][].
 
-En este artículo
-----------------
+## En este artículo
 
--   [Aprovisionamiento de un clúster](#provision)
--   [Enumeración y visualización de clústeres](#listshow)
--   [Eliminación de un clúster](#delete)
--   [Concesión/Revocación del acceso a los servicios de HTTP](#httpservices)
--   [Envío de trabajos de MapReduce](#mapreduce)
--   [Envío de trabajos de Hive](#hive)
--   [Carga de datos en el almacenamiento de blobs](#upload)
--   [Descarga de datos de salida de MapReduce del almacenamiento de blobs](#download)
+-   [Aprovisionamiento de un clúster][]
+-   [Enumeración y visualización de clústeres][]
+-   [Eliminación de un clúster][]
+-   [Concesión/Revocación del acceso a los servicios de HTTP][]
+-   [Envío de trabajos de MapReduce][]
+-   [Envío de trabajos de Hive][]
+-   [Carga de datos en el almacenamiento de blobs][]
+-   [Descarga de datos de salida de MapReduce del almacenamiento de blobs][]
 
-Aprovisionamiento de un clúster de HDInsight
---------------------------------------------
+## <span id="provision"></span></a>Aprovisionamiento de un clúster de HDInsight
 
 HDInsight utiliza contenedores de almacenamiento de blobs de Azure como sistemas de archivos predeterminados. Es preciso tener una cuenta de almacenamiento de Azure y un contenedor de almacenamiento antes de crear un clúster de HDInsight.
 
@@ -34,32 +33,30 @@ HDInsight utiliza contenedores de almacenamiento de blobs de Azure como sistemas
 
 Después de importar el archivo publishsettings, puede usar el siguiente comando para crear una cuenta de almacenamiento:
 
-    # Cree una cuenta de almacenamiento de Azure.
+    # Create an Azure storage account
     $storageAccountName = "<StorageAcccountName>"
-    $location = "<Microsoft data center>"           # Por ejemplo, "West US"
+    $location = "<Microsoft data center>"           # For example, "West US"
 
     New-AzureStorageAccount -StorageAccountName $storageAccountName -Location $location
 
 > [WACOM.NOTE] La cuenta de almacenamiento debe ubicarse en el mismo centro de datos que el clúster de HDInsight. En la actualidad, solo pueden aprovisionarse clústeres de HDInsight en los siguientes centros de datos:
 
-><ul>
-<li>Sudeste asiático</li>
-<li>Europa del Norte</li>
-<li>Europa occidental</li>
-<li>Este de EE. UU.</li>
-<li>Oeste de EE. UU.</li>
-</ul>
+> -   Sudeste asiático
+> -   Europa del Norte
+> -   Europa occidental
+> -   Este de EE. UU.
+> -   Oeste de EE. UU.
 
-Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure a través del portal de administración, consulte [Creación de una cuenta de almacenamiento](/es-es/manage/services/storage/how-to-create-a-storage-account/).
+Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure a través del portal de administración, consulte [Creación de una cuenta de almacenamiento][].
 
 Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, puede usar los comandos siguientes para recuperar dicha información:
 
-    # Incluya las cuentas de almacenamiento de la suscripción actual.
+    # List storage accounts for the current subscription
     Get-AzureStorageAccount
-    # Enumere las claves de una cuenta de almacenamiento.
+    # List the keys for a storage account
     Get-AzureStorageKey <StorageAccountName>
 
-Para obtener información acerca de cómo conseguir la información usando el portal de administración, consulte la sección *Visualización, copia y generación de claves de acceso al almacenamiento* de [Administración de cuentas de almacenamiento](/es-es/manage/services/storage/how-to-manage-a-storage-account/).
+Para obtener información acerca de cómo conseguir la información usando el portal de administración, consulte la sección *Visualización, copia y regeneración de claves de acceso al almacenamiento* de [Administración de cuentas de almacenamiento][].
 
 **Para crear un contendor de almacenamiento de Azure**
 
@@ -69,11 +66,11 @@ PowerShell no puede crear un contenedor de blobs durante el proceso de aprovisio
     $storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
     $containerName="<ContainerName>"
 
-    # Cree un objeto de contexto de almacenamiento.
+    # Create a storage context object
     $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName 
                                            -StorageAccountKey $storageAccountKey  
 
-    # Cree un contenedor de almacenamiento de blobs.
+    # Create a Blob storage container
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
 **Para aprovisionar un clúster**
@@ -87,18 +84,17 @@ Una vez que tenga preparados la cuenta de almacenamiento y el contenedor de blob
     $location = "<MicrosoftDataCenter>"
     $clusterNodes = <ClusterSizeInNodes>
 
-    # Obtener la clave de la cuenta de almacenamiento
+    # Get the storage account key
     $storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
 
-    # Cree un nuevo clúster de HDInsight.
+    # Create a new HDInsight cluster
     New-AzureHDInsightCluster -Name $clusterName -Location $location -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
 
 En la siguiente captura de pantalla se muestra la ejecución del script:
 
-![HDI.PS.Provision](./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png)
+![HDI.PS.Provision][]
 
-Enumeración y visualización de clústeres
-----------------------------------------
+## <span id="listshow"></span></a> Enumeración y visualización de los detalles del clúster
 
 Use los comandos siguientes para enumerar y mostrar los detalles del clúster:
 
@@ -110,15 +106,13 @@ Use los comandos siguientes para enumerar y mostrar los detalles del clúster:
 
     Get-AzureHDInsightCluster -Name <ClusterName> 
 
-Eliminación de un clúster
--------------------------
+## <span id="delete"></span></a> Eliminación de un clúster
 
 Use el comando siguiente para eliminar un clúster:
 
     Remove-AzureHDInsightCluster -Name <ClusterName> 
 
-Concesión/Revocación del acceso a los servicios de HTTP
--------------------------------------------------------
+## <span id="httpservice"></span></a> Concesión/Revocación del acceso a los servicios de HTTP
 
 Los clústeres de HDInsight tienen los siguientes servicios web HTTP (todos estos servicios tienen extremos RESTful):
 
@@ -136,10 +130,9 @@ En la muestra *hdiv2* es el nombre de un clúster de HDInsight.
 
 > [WACOM.NOTE] Al conceder/revocar el acceso, restablecerá el nombre de usuario y la contraseña del usuario del clúster.
 
-Esto también se puede hacer a través del Portal de administración de Azure. Consulte [Administración de HDInsight con el portal de administración](/es-es/documentation/articles/hdinsight-administer-use-management-portal/).
+Esto también se puede hacer a través del Portal de administración de Azure. Consulte [Administración de HDInsight con el portal de administración][].
 
-Envío de trabajos de MapReduce
-------------------------------
+## <span id="mapreduce"></span></a> Envío de trabajos de MapReduce
 
 La distribución de clústeres de HDInsight se incluye con algunas muestras de MapReduce. Una de las muestras ilustra el recuento de la frecuencia de las palabras en los archivos de código fuente.
 
@@ -149,15 +142,16 @@ El siguiente script de PowerShell envía el trabajo de muestra de recuento de pa
 
     $clusterName = "<HDInsightClusterName>"            
 
-    # Defina el trabajo de MapReduce
+    # Define the MapReduce job
     $wordCountJobDefinition = New-AzureHDInsightMapReduceJobDefinition -JarFile "wasb:///example/jars/hadoop-examples.jar" -ClassName "wordcount" -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
-    # Ejecute el trabajo y muestre el error estándar 
+    # Run the job and show the standard error 
     $wordCountJobDefinition | Start-AzureHDInsightJob -Cluster $clusterName | Wait-AzureHDInsightJob -WaitTimeoutInSeconds 3600 | %{ Get-AzureHDInsightJobOutput -Cluster $clusterName -JobId $_.JobId -StandardError}
 
 > [WACOM.NOTE] *hadoop-examples.jar* viene con la versión 2.1 de clústeres de HDInsight. Se cambió el nombre del archivo a *hadoop-mapreduce.jar* en la versión 3.0 de clústeres de HDInsight.
 
-Para obtener información acerca del prefijo WASB, consulte [Uso del almacenamiento de blobs de Azure para HDInsight][hdinsight-storage].
+Para obtener información acerca del prefijo WASB, consulte [Uso del almacenamiento de blobs de Azure para HDInsight][hdinsight-
+storage].
 
 **Para descargar la salida del trabajo de MapReduce**
 
@@ -166,20 +160,19 @@ La siguiente script de PowerShell recupera la salida del trabajo de MapReduce de
     $storageAccountName = "<StorageAccountName>"   
     $containerName = "<ContainerName>"             
         
-    # Crear el objeto de contexto de la cuenta de almacenamiento
+    # Create the storage account context object
     $storageAccountKey = Get-AzureStorageKey $storageAccountName | %{ $_.Primary }
     $storageContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey  
 
-    # Descargar la salida en el equipo local
+    # Download the output to local computer
     Get-AzureStorageBlobContent -Container $ContainerName -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
-    # Mostrar la salida
+    # Display the output
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
-Para obtener más información acerca del desarrollo y la ejecución de trabajos de MapReduce, consulte [Uso de MapReduce con HDInsight](/es-es/documentation/articles/hdinsight-use-mapreduce/).
+Para obtener más información acerca del desarrollo y la ejecución de trabajos de MapReduce, consulte [Uso de MapReduce con HDInsight][].
 
-Envío de trabajos de Hive
--------------------------
+## <span id="hive"></span></a> Envío de trabajos de Hive
 
 La distribución de clústeres de HDInsight se incluye con una tabla de muestra de Hive llamada *hivesampletable*. Puede usar una consulta "show tables;" de HiveQL para enumerar las tablas de Hive en un clúster.
 
@@ -189,7 +182,7 @@ El siguiente script envía un trabajo de Hive para enumerar las tablas de Hive:
 
     $clusterName = "<HDInsightClusterName>"               
 
-    # Consulta de HiveQL
+    # HiveQL query
     $querystring = @"
         SHOW TABLES;
         SELECT * FROM hivesampletable 
@@ -202,26 +195,47 @@ El siguiente script envía un trabajo de Hive para enumerar las tablas de Hive:
 
 El trabajo de Hive mostrará primero las tablas de Hive creadas en el clúster y los datos devueltos por hivesampletable.
 
-Para obtener más información acerca del uso de Hive, consulte [Uso de Hive con HDInsight](/es-es/documentation/articles/hdinsight-use-hive/).
+Para obtener más información acerca del uso de Hive, consulte [Uso de Hive con HDInsight][].
 
-Carga de datos en el almacenamiento de blobs
---------------------------------------------
+## <span id="upload"></span></a>Carga de datos en el almacenamiento de blobs
 
-Consulte [Carga de datos en HDInsight](/es-es/documentation/articles/hdinsight-upload-data/).
+Consulte [Carga de datos en HDInsight][].
 
-Descarga de datos de salida de MapReduce del almacenamiento de blobs
---------------------------------------------------------------------
+## <span id="download"></span></a>Descarga de datos de salida de MapReduce del almacenamiento de blobs
 
-Consulte la sección [Envío de trabajos MapReduce](#mapreduce) en este artículo.
+Consulte la sección [Envío de trabajos MapReduce][Envío de trabajos de MapReduce] en este artículo.
 
-Consulte también
-----------------
+## Otras referencias
 
--   [Documentación de referencia de los cmdlets de HDInsight](http://msdn.microsoft.com/es-es/library/windowsazure/dn479228.aspx)
--   [Administración de HDInsight con el portal de administración](/es-es/documentation/articles/hdinsight-administer-use-management-portal/)
--   [Administración de HDInsight con la interfaz de línea de comandos](/es-es/documentation/articles/hdinsight-administer-use-command-line/)
--   [Aprovisionamiento de clústeres de HDInsight](/es-es/documentation/articles/hdinsight-provision-clusters/)
--   [Carga de datos en HDInsight](/es-es/documentation/articles/hdinsight-upload-data/)
--   [Envío de trabajos de Hadoop mediante programación](/es-es/documentation/articles/hdinsight-submit-hadoop-jobs-programmatically/)
--   [Introducción a HDInsight de Azure](/es-es/documentation/articles/hdinsight-get-started/)
+-   [Documentación de referencia de los cmdlets de HDInsight][]
+-   [Administración de HDInsight con el portal de administración][]
+-   [Administración de HDInsight con la interfaz de línea de comandos][]
+-   [Aprovisionamiento de clústeres de HDInsight][]
+-   [Carga de datos en HDInsight][]
+-   [Envío de trabajos de Hadoop mediante programación][]
+-   [Introducción a HDInsight de Azure][]
 
+  [Documentación de referencia de los cmdlets de HDInsight]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
+  [Opciones de compra]: http://azure.microsoft.com/en-us/pricing/purchase-options/
+  [Ofertas para miembros]: http://azure.microsoft.com/en-us/pricing/member-offers/
+  [Evaluación gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Instalación y configuración de Azure PowerShell]: ../install-configure-powershell/
+  [Aprovisionamiento de un clúster]: #provision
+  [Enumeración y visualización de clústeres]: #listshow
+  [Eliminación de un clúster]: #delete
+  [Concesión/Revocación del acceso a los servicios de HTTP]: #httpservices
+  [Envío de trabajos de MapReduce]: #mapreduce
+  [Envío de trabajos de Hive]: #hive
+  [Carga de datos en el almacenamiento de blobs]: #upload
+  [Descarga de datos de salida de MapReduce del almacenamiento de blobs]: #download
+  [Creación de una cuenta de almacenamiento]: ../storage-create-storage-account/
+  [Administración de cuentas de almacenamiento]: ../storage-manage-storage-account/
+  [HDI.PS.Provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
+  [Administración de HDInsight con el portal de administración]: ../hdinsight-administer-use-management-portal/
+  [Uso de MapReduce con HDInsight]: ../hdinsight-use-mapreduce/
+  [Uso de Hive con HDInsight]: ../hdinsight-use-hive/
+  [Carga de datos en HDInsight]: ../hdinsight-upload-data/
+  [Administración de HDInsight con la interfaz de línea de comandos]: ../hdinsight-administer-use-command-line/
+  [Aprovisionamiento de clústeres de HDInsight]: ../hdinsight-provision-clusters/
+  [Envío de trabajos de Hadoop mediante programación]: ../hdinsight-submit-hadoop-jobs-programmatically/
+  [Introducción a HDInsight de Azure]: ../hdinsight-get-started/

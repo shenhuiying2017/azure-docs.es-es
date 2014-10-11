@@ -1,13 +1,13 @@
-<properties linkid="hdinsight-emulator-release-notes" urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Azure" authors="cgronlun" />
+<properties linkid="hdinsight-emulator-release-notes" urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Azure" authors="cgronlun" />
 
-Notas de la versión Emulador de Microsoft HDInsight para Azure
-==============================================================
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cgronlun"></tags>
 
-> [WACOM.NOTE] 
-> La forma más sencilla de comprobar el número de versión es ver en Agregar/Quitar programas en la entrada de "Emulador de Microsoft HDInsight para Azure" (para la versión 1.0.0.0 o superior) o "Microsoft HDInsight Developer Preview" (para versiones inferiores a 1.0.0.0).
+# Notas de la versión Emulador de Microsoft HDInsight para Azure
 
-v1.0.0.0, publicada el 28/10/2013
----------------------------------
+> [WACOM.NOTE]
+> La forma más sencilla de comprobar el número de versión es mirar en Agregar o quitar programas, en la entrada "Emulador de Microsoft HDInsight para Azure" (para la versión 1.0.0.0 o posterior) o "Microsoft HDInsight Developer Preview" (para versiones anteriores a 1.0.0.0).
+
+## v1.0.0.0, publicada el 28/10/2013
 
 -   Esta es la versión disponible con carácter general del emulador de Microsoft HDInsight para Azure, anteriormente conocido como Microsoft HDInsight Developer Preview.
 
@@ -23,8 +23,7 @@ v1.0.0.0, publicada el 28/10/2013
 
 -   Esta versión contiene una actualización para la versión 1.1 de Hortonworks Data Platform que coincide con los servicios de Hortonworks Data Platform disponibles con la versión 1.6 del clúster de HDInsight de Azure.
 
-v0.11.0.0, publicada el 30/09/2013
-----------------------------------
+## v0.11.0.0, publicada el 30/09/2013
 
 ### Novedades
 
@@ -32,22 +31,19 @@ v0.11.0.0, publicada el 30/09/2013
 
 -   Esta versión contiene una actualización para Hortonworks Data Platform Developer Preview que coincide con Hortonworks Data Platform Preview en HDInsight de Azure.
 
-v0.10.0.0, publicada el 9/8/2013
---------------------------------
+## v0.10.0.0, publicada el 9/8/2013
 
 ### Novedades
 
 -   Esta versión contiene una actualización para Hortonworks Data Platform Developer Preview que coincide con Hortonworks Data Platform Preview en HDInsight de Azure.
 
-v0.8.0.0, publicada el 7/6/2013
--------------------------------
+## v0.8.0.0, publicada el 7/6/2013
 
 ### Novedades
 
 -   Esta versión contiene una actualización para Hortonworks Data Platform Developer Preview que coincide con Hortonworks Data Platform Preview en HDInsight de Azure.
 
-v0.6.0.0, publicada el 13/5/2013
---------------------------------
+## v0.6.0.0, publicada el 13/5/2013
 
 ### Novedades
 
@@ -55,8 +51,7 @@ v0.6.0.0, publicada el 13/5/2013
 
 -   Todos los se han configurado para iniciarse automáticamente, por lo que no es necesario iniciarlo todo de nuevo después de reiniciar la máquina.
 
-v0.4.0.0, publicada el 25/3/2013
---------------------------------
+## v0.4.0.0, publicada el 25/3/2013
 
 ### Novedades
 
@@ -68,9 +63,9 @@ v0.4.0.0, publicada el 25/3/2013
 
 -   Conexión a varios clústeres, incluida la instalación local y aquellos que se ejecutan remotamente con el servicio HDInsight de Azure.
 
--   Para obtener más información sobre el servicio HDInsight, consulte http://www.windowsazure.com/es-es/manage/services/hdinsight.
+-   Para obtener más información sobre el servicio HDInsight, consulte [][]<http://azure.microsoft.com/en-us/documentation/services/hdinsight/></a>.
 
--   Configuración de ASV en el clúster local.
+-   Configuración de WASB en el clúster local.
 
 -   Consulte las instrucciones detalladas a continuación.
 
@@ -84,9 +79,15 @@ Números de puerto
 
 -   Se obtiene acceso a los extremos de la API de REST en una instalación local de HDInsight y al servicio HDInsight de Azure a través de distintos números de puerto para los mismos servicios:
 
-    Local: Oozie: http://localhost:11000/oozie/v1/admin/status Templeton: http://localhost:50111/templeton/v1/status ODBC: usan el puerto 10000 en la cadena de conexión o configuración DSN.
+    Local:
+    Oozie: <http://localhost:11000/oozie/v1/admin/status>
+    Templeton: <http://localhost:50111/templeton/v1/status>
+    ODBC: usan el puerto 10000 en la cadena de conexión o configuración DSN.
 
-    Servicio HDInsight: Oozie: http://ServerFQDN:563/oozie/v1/admin/status Templeton: http://ServerFQDN:563/templeton/v1/status ODBC: usan el puerto 563 en la cadena de conexión o configuración DSN.
+    Servicio HDInsight:
+    Oozie: <http://ServerFQDN:563/oozie/v1/admin/status>
+    Templeton: <http://ServerFQDN:563/templeton/v1/status>
+    ODBC: usan el puerto 563 en la cadena de conexión o configuración DSN.
 
 -   Configuración de ASV en el clúster local:
 
@@ -94,53 +95,52 @@ Números de puerto
 
     1.  Agregue la etiqueta de cuenta en core-site.xml que se encuentra en C:\\Hadoop\\hadoop-1.1.0-SNAPSHOT\\conf:
 
-			<property>
-        		<name>fs.azure.account.key.{AccountName}</name>
-        		<value>{Key}</value>
-     		</property>
+            <property>
+                <name>fs.azure.account.key.{AccountName}</name>
+                <value>{Key}</value>
+            </property>
 
-			<property>
-        		<name>fs.default.name</name>
-       			<!-- cluster variant -->
-       	 		<value>asv://ASVContainerName@ASVAccountName</value>
-        		<description>The name of the default file system.  Either the literal string "local" or a host:port for NDFS.</description>
-        		<final>true</final>
-      		</property>
+            <property>
+                <name>fs.default.name</name>
+                <!-- cluster variant -->
+                <value>asv://ASVContainerName@ASVAccountName</value>
+                <description>The name of the default file system.  Either the literal string "local" or a host:port for NDFS.</description>
+                <final>true</final>
+            </property>
 
-     		<property>
-        		<name>dfs.namenode.rpc-address</name>
-        		<value>hdfs://localhost:8020</value>
-        		<description>A base for other temporary directories.</description>
-      		</property>
-          
-          Ejemplo:       
+            <property>
+                <name>dfs.namenode.rpc-address</name>
+                <value>hdfs://localhost:8020</value>
+                <description>A base for other temporary directories.</description>
+            </property>
 
-			<property>
-    			<name>fs.azure.account.key.MyHadoopOnAzureAccountName</name>
-				<value>8T45df897/a5fSox1yMjYkX66CriiGgA5zptSXpPdG4o1Qw2mnbbWQN1E9i/i7kihk6FWNhvLlqe02NXEVw6rP==</value>
-    		</property>
+        Ejemplo:
 
-			<property>
-				<name>fs.default.name</name>
-				<!-- cluster variant -->
-				<value>asv://MyASVContainer@MyASVAccount</value>
-				<description>The name of the default file system.  Either the literal string "local" or a host:port for NDFS.</description>
-				<final>true</final>
-			</property>
+            <property>
+                <name>fs.azure.account.key.MyHadoopOnAzureAccountName</name>
+                <value>8T45df897/a5fSox1yMjYkX66CriiGgA5zptSXpPdG4o1Qw2mnbbWQN1E9i/i7kihk6FWNhvLlqe02NXEVw6rP==</value>
+            </property>
 
-    1.  Abra el shell de comandos de Hadoop en el escritorio en el modo elevado y ejecute el siguiente comando:
+            <property>
+                <name>fs.default.name</name>
+                <!-- cluster variant -->
+                <value>asv://MyASVContainer@MyASVAccount</value>
+                <description>The name of the default file system.  Either the literal string "local" or a host:port for NDFS.</description>
+                <final>true</final>
+            </property>
 
-            %HADOOP\_NODE%\\stop-onebox.cmd && %HADOOP\_NODE%\\start-onebox.cmd
+    2.  Abra el shell de comandos de Hadoop en el escritorio en el modo elevado y ejecute el siguiente comando:
 
-    1.  Obtenga acceso a cualquier archivo en la cuenta con el URI completo: asv://{container}@{account}/{path} (o asvs:// si desea usar HTTPS para obtener acceso a los datos). Ejemplo:
+            %HADOOP_NODE%\stop-onebox.cmd && %HADOOP_NODE%\start-onebox.cmd
 
-	 		hadoop fs -lsr 
-			asvs://MyHadoopOnAzureContainerName@MyHadoopOnAzureAccountName/example/data/
+    3.  Obtenga acceso a cualquier archivo en la cuenta con el URI completo: asv:[//{container}@{account}/{path][]} (o asvs:// si desea utilizar HTTPS para acceder a los datos). Ejemplo:
 
-    1.  Elimine el clúster local registrado actualmente y vuelva a registrarlo con las nuevas credenciales de ASV.
+            hadoop fs -lsr 
+            asvs://MyHadoopOnAzureContainerName@MyHadoopOnAzureAccountName/example/data/
 
-v0.3.0.0, publicada el 13/12/2012
----------------------------------
+    4.  Elimine el clúster local registrado actualmente y vuelva a registrarlo con las nuevas credenciales de ASV.
+
+## v0.3.0.0, publicada el 13/12/2012
 
 -   El sitio del panel ha cambiado a la autenticación anónima en lugar de usar las credenciales de Windows. De esta forma, se elimina el problema con la solicitud de inicio de sesión que se mencionó en las notas de la versión anterior.
 
@@ -151,19 +151,18 @@ v0.3.0.0, publicada el 13/12/2012
 -   Se produce un error al cargar la consola JavaScript. Consulte las notas de la versión para la versión 0.2.0.0 para obtener más información.
 -   La línea de comandos de Sqoop mostrará advertencias de la forma que se muestran a continuación. Esto se solucionará en una actualización futura y puede ignorarse con seguridad.
 
-          c:\Hadoop\sqoop-1.4.2\bin>sqoop version 
-          Configuración de HBASE_HOME 
-          Advertencia: HBASE_HOME [c:\hadoop\hadoop-1.1.0-SNAPSHOT\hbase-0.94.2] no existe, se producirán errores las importaciones de HBase. 
-          Establezca HBASE_HOME en la raíz de la instalación de HBase. 
-          Configuración de ZOOKEEPER_HOME 
-          Advertencia: ZOOKEEPER_HOME [c:\hadoop\hadoop-1.1.0-SNAPSHOT\zookeeper-3.4.3] no existe. 
-          Establezca $ZOOKEEPER_HOME en la raíz de la instalación de Zookeeper. 
-          Sqoop 1.4.2 
-          git commit id 3befda0a456124684768348bd652b0542b002895 
-          Compilado por  el jue 29/11/2012- 3:26:26.10
+        c:\Hadoop\sqoop-1.4.2\bin>sqoop version 
+        Setting HBASE_HOME to 
+        Warning: HBASE_HOME [c:\hadoop\hadoop-1.1.0-SNAPSHOT\hbase-0.94.2] does not exist HBase imports will fail. 
+        Please set HBASE_HOME to the root of your HBase installation. 
+        Setting ZOOKEEPER_HOME to 
+        Warning: ZOOKEEPER_HOME [c:\hadoop\hadoop-1.1.0-SNAPSHOT\zookeeper-3.4.3] does not exist 
+        Please set $ZOOKEEPER_HOME to the root of your Zookeeper installation. 
+        Sqoop 1.4.2 
+        git commit id 3befda0a456124684768348bd652b0542b002895 
+        Compiled by  on Thu 11/29/2012- 3:26:26.10
 
-v0.2.0.0, publicada el 3/12/2012
---------------------------------
+## v0.2.0.0, publicada el 3/12/2012
 
 -   Introducción a la versión semántica para MSI.
 
@@ -179,13 +178,12 @@ v0.2.0.0, publicada el 3/12/2012
 
 -   Se produce un error al cargar la consola JavaScript.
 
-    -   En algunas instalaciones, se producirá un error en la consola JavaScript y se mostrará un error HTTP 404 en la página. Para solucionar esto, diríjase directamente a http://localhost:8080 para usar la consola.
+    -   En algunas instalaciones, se producirá un error en la consola JavaScript y se mostrará un error HTTP 404 en la página. Para solucionar esto, navegue directamente a <http://localhost:8080> para usar la consola.
 -   Si se desplaza al panel de HDInsight, se realizará una solicitud de inicio de sesión.
 
     -   Disponemos de varios informes que indican que se muestra un cuadro de diálogo de inicio de sesión al desplazarse al panel de HDInsight. En ese caso, puede proporcionar la información de inicio de sesión para el usuario actual y debe poder desplazarse al panel.
 
-v1.0.0.0, publicada el 23/10/12
--------------------------------
+## v1.0.0.0, publicada el 23/10/12
 
 -   Versión inicial.
 
@@ -195,35 +193,33 @@ v1.0.0.0, publicada el 23/10/12
 
     -   Si se ha incluido una nueva línea en el comando de Hive enviado, obtendrá un "error de sintaxis". Quite las nuevas líneas y la consulta debe ejecutarse según lo previsto.
 
-Problemas conocidos generales
------------------------------
+## Problemas conocidos generales
 
 -   Expiración de la contraseña de usuario de Hadoop.
 
     Las contraseñas del usuario de Hadoop pueden expirar, según las directivas AD insertadas en la máquina. El siguiente script de PowerShell establecerá que la contraseña no expire y puede ejecutarse desde el símbolo del sistema administrativo.
 
-          $username = "hadoop"
-          $ADS_UF_DONT_EXPIRE_PASSWD = 0x10000 # (65536, from ADS_USER_FLAG_ENUM enumeration)
+        $username = "hadoop"
+        $ADS_UF_DONT_EXPIRE_PASSWD = 0x10000 # (65536, from ADS_USER_FLAG_ENUM enumeration)
 
-          $computer = [ADSI]("WinNT://$ENV:COMPUTERNAME,computer")
-          $users = $computer.psbase.children | where { $_.psbase.schemaclassname -eq "User" }
+        $computer = [ADSI]("WinNT://$ENV:COMPUTERNAME,computer")
+        $users = $computer.psbase.children | where { $_.psbase.schemaclassname -eq "User" }
 
-          foreach($user in $users)
-          {
-              if($user.Name -eq $username)
-              {
-                  $user.UserFlags = $ADS_UF_DONT_EXPIRE_PASSWD
+        foreach($user in $users)
+        {
+            if($user.Name -eq $username)
+            {
+                $user.UserFlags = $ADS_UF_DONT_EXPIRE_PASSWD
                 $user.SetInfo()
-         
+
                 $user.PasswordExpired = 0
                 $user.SetInfo()
-         
-                Mantenimiento de usuario Write-Host "$username completado. "
-              }
 
-          }
+                Write-Host "$username user maintenance completed. "
+            }
+        }
 
--   Directorio temporal\>.
+-   Directorio temporal\>
 
     Puntos hadoop.tmp.dir en la ubicación errónea: en lugar de apuntar a C:\\hadoop\\hdfs, apunta a c:\\hdfs. Este error se corregirá en la siguiente actualización de bits de HDP.
 
@@ -241,12 +237,14 @@ Problemas conocidos generales
 
     -   Para crear fácilmente un shell que se ejecute como ese usuario, abra el símbolo del sistema de Hadoop y ejecute lo siguiente:
 
-    start-hadoopadminshell
+            start-hadoopadminshell
 
     -   De esta forma, se abrirá un nuevo shell de comandos con privilegios de administrador de Hadoop.
 
-Pasos siguientes
-----------------
+## <a name="nextsteps"></a>Pasos siguientes
 
--   [Introducción al emulador de HDInsight](/es-es/documentation/articles/hdinsight-get-started-emulator/)
+-   [Introducción al emulador de HDInsight][]
 
+  []: http://azure.microsoft.com/en-us/documentation/services/hdinsight/
+  [//{container}@{account}/{path]: mailto://{container}@{account}/{path
+  [Introducción al emulador de HDInsight]: ../hdinsight-get-started-emulator/

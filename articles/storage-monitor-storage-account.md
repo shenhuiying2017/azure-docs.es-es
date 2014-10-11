@@ -1,34 +1,34 @@
 <properties linkid="manage-services-how-to-monitor-a-storage-account" urlDisplayName="How to monitor" pageTitle="How to monitor a storage account | Microsoft Azure" metaKeywords="Azure monitor storage accounts, storage account management portal, storage account dashboard, storage metrics table, storage metrics chart" description="Learn how to monitor a storage account in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Monitor a Storage Account" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
 
-Supervisión de una cuenta de almacenamiento
-===========================================
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"/>
+
+# <span id="createstorageaccount"></span></a>Supervisión de una cuenta de almacenamiento
 
 Puede supervisar sus cuentas de almacenamiento en el Portal de administración de vista previa de Azure. Para cada servicio de almacenamiento asociado a una cuenta de almacenamiento (Blob, Cola y Tabla), puede elegir el nivel de supervisión (mínima o detallada) y especificar la directiva de retención de datos apropiada.
 
 Hasta que no haya configurado la supervisión para una cuenta de almacenamiento, no se recopilarán datos de supervisión y los gráficos de métricas del panel y la página **Monitor** permanecerán vacíos.
 
-**Nota:**
+<div class="dev-callout"> 
+<b>Nota:</b> 
+<p>Existen costes adicionales asociados al an&aacute;lisis de los datos de supervisi&oacute;n en el Portal de administraci&oacute;n. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">Facturaci&oacute;n del an&aacute;lisis de almacenamiento</a>.</p> 
+</div>
 
-Existen costes adicionales asociados al análisis de los datos de supervisión en el Portal de administración. Para obtener más información, consulte [Facturación del análisis de almacenamiento](http://msdn.microsoft.com/es-es/library/windowsazure/hh360997.aspx).
+## Tabla de contenido
 
-Tabla de contenido
-------------------
+-   [Configuración de la supervisión para una cuenta de almacenamiento][]
+-   [Personalización del panel para la supervisión][]
+-   [Personalización de la página Monitor][]
+-   [Incorporación de métricas en la tabla de métricas][]
+-   [Personalización del gráfico de métricas en la página Monitor][]
+-   [Configuración del inicio de sesión][]
 
--   [Configuración de la supervisión para una cuenta de almacenamiento](#configurestoragemonitoring)
--   [Personalización del panel para la supervisión](#customizestoragemonitoring)
--   [Personalización de la página Monitor](#customizemonitorpage)
--   [Incorporación de métricas en la tabla de métricas](#addmonitoringmetrics)
--   [Personalización del gráfico de métricas en la página Monitor](#customizemetricschart)
--   [Configuración del inicio de sesión](#configurelogging)
+## <span id="configurestoragemonitoring"></span></a>Configuración de la supervisión para una cuenta de almacenamiento
 
-Configuración de la supervisión para una cuenta de almacenamiento
------------------------------------------------------------------
-
-1.  En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Almacenamiento** y, a continuación, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
+1.  En el [Portal de administración][], haga clic en **Almacenamiento** y, a continuación, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
 
 2.  Haga clic en **Configure** y desplácese hacia abajo hasta la configuración de **supervisión** para los servicios Blob, Tabla y Cola, mostrados a continuación.
 
-    ![OpcionesSupervisión](./media/storage-monitor-storage-account/Storage_MonitoringOptions.png)
+    ![OpcionesSupervisión][]
 
 3.  En **supervisión**, configure el nivel de supervisión y la directiva de retención de datos para cada servicio:
 
@@ -46,16 +46,15 @@ Configuración de la supervisión para una cuenta de almacenamiento
 
 Debería empezar a ver los datos de supervisión en el panel y en la página **Monitor** en el plazo de una hora aproximadamente.
 
-Las métricas se almacenan en la cuenta de almacenamiento en cuatro tablas denominadas \$MetricsTransactionsBlob, \$MetricsTransactionsTable, \$MetricsTransactionsQueue y \$MetricsCapacityBlob. Para obtener más información, consulte [About Storage Analytics Metrics](http://msdn.microsoft.com/es-es/library/windowsazure/hh343258.aspx).
+Las métricas se almacenan en la cuenta de almacenamiento en cuatro tablas denominadas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue y $MetricsCapacityBlob. Para obtener más información, consulte [About Storage Analytics Metrics][].
 
 Después de configurar los niveles de supervisión y las políticas de retención, puede elegir las métricas disponibles que desea supervisar en el Portal de administración y las métricas que desea mostrar en los gráficos de métricas. En cada nivel de supervisión se muestra un conjunto de métricas predeterminado. Puede utilizar **Add Metrics** para agregar o borrar métricas de la lista de métricas.
 
-Personalización del panel para la supervisión
----------------------------------------------
+## <span id="customizestoragemonitoring"></span></a>Personalización del panel para la supervisión
 
 En el panel, puede elegir hasta seis métricas para mostrar en el gráfico de métricas de las nueve métricas disponibles. Para cada servicio (Blob, Tabla y Cola), están disponibles las métricas de disponibilidad, porcentajes de éxito y total de solicitudes. Las métricas disponibles en el panel son las mismas para la supervisión mínima y detallada.
 
-1.  En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Almacenamiento** y, a continuación, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
+1.  En el [Portal de administración][], haga clic en **Almacenamiento** y, a continuación, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
 
 2.  Para cambiar las métricas que se muestran en el gráfico, realice una de las siguientes acciones:
 
@@ -63,14 +62,13 @@ En el panel, puede elegir hasta seis métricas para mostrar en el gráfico de m�
 
 -   Para ocultar una métrica que se muestra en el gráfico, desmarque la casilla de verificación situada su encabezado.
 
-    ![Opción n more de supervisión](./media/storage-monitor-storage-account/storage_Monitoring_nmore.png)
+    ![Opción n more de supervisión][]
 
 1.  De forma predeterminada, el gráfico muestra tendencias, donde aparece solo el valor actual de cada métrica (la opción **Relative** situada en la parte superior del gráfico). Para mostrar un eje Y con el fin de visualizar los valores absolutos, seleccione **Absolute**.
 
 2.  Para cambiar el intervalo de tiempo que se muestra en el gráfico de métricas, seleccione 6 horas, 24 horas o 7 días en la parte superior del gráfico.
 
-Personalización de la página Monitor
-------------------------------------
+## <span id="customizemonitorpage"></span></a>Personalización de la página Monitor
 
 En la página **Monitor**, puede visualizar el conjunto de métricas completo para su cuenta de almacenamiento.
 
@@ -80,47 +78,44 @@ En la página **Monitor**, puede visualizar el conjunto de métricas completo pa
 
 Utilice los siguientes procedimientos para elegir las métricas de almacenamiento que desea visualizar en los gráficos y la tabla de métricas que se muestran en la página **Monitor**. Estas configuraciones no afectan a la recopilación, la incorporación y el almacenamiento de los datos de supervisión en la cuenta de almacenamiento.
 
-Incorporación de métricas en la tabla de métricas
--------------------------------------------------
+## <span id="addmonitoringmetrics"></span></a>Incorporación de métricas en la tabla de métricas
 
-1.  En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Almacenamiento** y, a continuación, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
+1.  En el [Portal de administración][], haga clic en **Almacenamiento** y, a continuación, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
 
 2.  Haga clic en **Monitor**.
 
     Se abre la página **Monitor**. La tabla de métricas muestra de forma predeterminada un subconjunto de las métricas que están disponibles para su supervisión. La ilustración muestra la visualización predeterminada de la página Monitor para una cuenta de almacenamiento que tenga configurada una supervisión detallada para los tres servicios. Utilice **Add Metrics** para seleccionar las métricas que desea supervisar de entre todas las métricas disponibles.
 
-    ![Visualización de supervisión detallada](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
+    ![Visualización de supervisión detallada][]
 
-    **Nota:**
+    <div class="dev-callout"> 
+<b>Nota:</b> 
+	<p>Tenga en cuenta los costes al seleccionar las m&eacute;tricas. Existen costes de transacci&oacute;n y de salida asociados a la actualizaci&oacute;n de las visualizaciones de la supervisi&oacute;n. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx">Facturaci&oacute;n del an&aacute;lisis de almacenamiento</a>.</p> 
+</div>
 
-    Tenga en cuenta los costes al seleccionar las métricas. Existen costes de transacción y de salida asociados a la actualización de las visualizaciones de la supervisión. Para obtener más información, consulte [Facturación del análisis de almacenamiento](http://msdn.microsoft.com/es-es/library/windowsazure/hh360997.aspx).
-
-
-
-1.  Haga clic en **Add Metrics**.
+3.  Haga clic en **Add Metrics**.
 
     Las métricas agregadas que están disponibles en el modo de supervisión mínimo están situadas en la parte superior de la lista. Si la casilla de verificación está seleccionada, la métrica se muestra en la lista de métricas.
 
-    ![Visualización inicial de la opción para agregar métricas](./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png)
+    ![Visualización inicial de la opción para agregar métricas][]
 
-2.  Desplace el ratón sobre el lado derecho del cuadro de diálogo para mostrar una barra de desplazamiento que podrá arrastrar para visualizar métricas adicionales.
+4.  Desplace el ratón sobre el lado derecho del cuadro de diálogo para mostrar una barra de desplazamiento que podrá arrastrar para visualizar métricas adicionales.
 
-    ![Barra de desplazamiento de la opción para agregar métricas](./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png)
+    ![Barra de desplazamiento de la opción para agregar métricas][]
 
-3.  Haga clic en la flecha abajo junto a una métrica para expandir una lista de operaciones que la métrica puede incluir. Seleccione todas las operaciones que desee visualizar en la tabla de métricas en el Portal de administración.
+5.  Haga clic en la flecha abajo junto a una métrica para expandir una lista de operaciones que la métrica puede incluir. Seleccione todas las operaciones que desee visualizar en la tabla de métricas en el Portal de administración.
 
     En la siguiente ilustración, la métrica AUTHORIZATION ERROR PERCENTAGE se ha expandido.
 
-    ![Expandir y contraer](./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png)
+    ![Expandir y contraer][]
 
-4.  Después de seleccionar métricas para todos los servicios, haga clic en la marca de verificación para actualizar la configuración de la supervisión. Las métricas seleccionadas se agregan a la tabla de métricas.
+6.  Después de seleccionar métricas para todos los servicios, haga clic en la marca de verificación para actualizar la configuración de la supervisión. Las métricas seleccionadas se agregan a la tabla de métricas.
 
-5.  Para eliminar una métrica de la tabla, haga clic en la métrica para seleccionarla y, a continuación, haga clic en **Delete Metric** como se muestra a continuación.
+7.  Para eliminar una métrica de la tabla, haga clic en la métrica para seleccionarla y, a continuación, haga clic en **Delete Metric** como se muestra a continuación.
 
-    ![Eliminar métrica](./media/storage-monitor-storage-account/Storage_DeleteMetric.png)
+    ![Eliminar métrica][]
 
-Personalización del gráfico de métricas en la página Monitor
-------------------------------------------------------------
+## <span id="customizemetricschart"></span></a>Personalización del gráfico de métricas en la página Monitor
 
 1.  En la página **Monitor** de la cuenta de almacenamiento, en la tabla de métricas, seleccione hasta seis métricas para ser mostradas en el gráfico de métricas. Para seleccionar una métrica, haga clic en la casilla de verificación del lado izquierdo. Para borrar una métrica del gráfico, desactive la casilla de verificación.
 
@@ -128,16 +123,15 @@ Personalización del gráfico de métricas en la página Monitor
 
 3.  Para cambiar el intervalo de tiempo que se muestra en el gráfico de métricas, seleccione **6 hours**, **24 hours** o **7 days** en la parte superior del gráfico.
 
-Configuración del inicio de sesión
-----------------------------------
+## <span id="configurelogging"></span></a>Configuración del inicio de sesión
 
 Para cada uno de los servicios de almacenamiento disponibles en su cuenta de almacenamiento (Blob, Tabla y Cola), puede guardar registros de diagnóstico para la lectura de solicitudes, escritura de solicitudes y eliminación de solicitudes, así como configurar la directiva de retención de datos para cada uno de los servicios.
 
-1.  En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Almacenamiento** y, a continuación, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
+1.  En el [Portal de administración][], haga clic en **Almacenamiento** y, a continuación, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
 
 2.  Haga clic en **Configure** y utilice la flecha abajo del teclado para desplazarse hacia abajo hasta **logging** (se muestra a continuación).
 
-    ![Registro en Almacenamiento](./media/storage-monitor-storage-account/Storage_LoggingOptions.png)
+    ![Registro en Almacenamiento][]
 
 3.  Para cada servicio (Blob, Tabla y Cola), configure lo siguiente:
 
@@ -147,5 +141,23 @@ Para cada uno de los servicios de almacenamiento disponibles en su cuenta de alm
 
 4.  Haga clic en **Save**.
 
-Los registros de diagnóstico se guardan en un contenedor de blobs denominado \$logs en su cuenta de almacenamiento. Para obtener más información acerca del acceso al contenedor \$logs, consulte [Acerca del registro del análisis de almacenamiento](http://msdn.microsoft.com/es-es/library/windowsazure/hh343262.aspx).
+Los registros de diagnóstico se guardan en un contenedor de blobs denominado $logs en su cuenta de almacenamiento. Para obtener más información acerca del acceso al contenedor $logs, consulte [Acerca del registro del análisis de almacenamiento][].
 
+  [Facturación del análisis de almacenamiento]: http://msdn.microsoft.com/en-us/library/windowsazure/hh360997.aspx
+  [Configuración de la supervisión para una cuenta de almacenamiento]: #configurestoragemonitoring
+  [Personalización del panel para la supervisión]: #customizestoragemonitoring
+  [Personalización de la página Monitor]: #customizemonitorpage
+  [Incorporación de métricas en la tabla de métricas]: #addmonitoringmetrics
+  [Personalización del gráfico de métricas en la página Monitor]: #customizemetricschart
+  [Configuración del inicio de sesión]: #configurelogging
+  [Portal de administración]: https://manage.windowsazure.com/
+  [OpcionesSupervisión]: ./media/storage-monitor-storage-account/Storage_MonitoringOptions.png
+  [About Storage Analytics Metrics]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx
+  [Opción n more de supervisión]: ./media/storage-monitor-storage-account/storage_Monitoring_nmore.png
+  [Visualización de supervisión detallada]: ./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png
+  [Visualización inicial de la opción para agregar métricas]: ./media/storage-monitor-storage-account/Storage_AddMetrics_InitialDisplay.png
+  [Barra de desplazamiento de la opción para agregar métricas]: ./media/storage-monitor-storage-account/Storage_AddMetrics_Scrollbar.png
+  [Expandir y contraer]: ./media/storage-monitor-storage-account/Storage_AddMetrics_ExpandCollapse.png
+  [Eliminar métrica]: ./media/storage-monitor-storage-account/Storage_DeleteMetric.png
+  [Registro en Almacenamiento]: ./media/storage-monitor-storage-account/Storage_LoggingOptions.png
+  [Acerca del registro del análisis de almacenamiento]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343262.aspx

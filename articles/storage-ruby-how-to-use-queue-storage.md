@@ -1,43 +1,45 @@
 <properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Ruby) | Microsoft Azure" metaKeywords="Azure Queue Service get messages Ruby" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Queue Storage Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
 
-Uso del servicio de almacenamiento en cola desde Ruby
-=====================================================
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"/>
 
-Esta guía le indicará cómo actuar en situaciones habituales usando el servicio de almacenamiento en cola de Azure. Los ejemplos están escritos usando la API Ruby de Azure. Entre los escenarios descritos se incluyen la **inserción**, **inspección**, **obtención** y **eliminación** de los mensajes en cola, así como la **creación y eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes](#next-steps).
+# Uso del servicio de almacenamiento en cola desde Ruby
 
-Tabla de contenido
-------------------
+Esta guía le indicará cómo actuar en situaciones habituales usando el servicio de almacenamiento en cola de Windows
+Azure. Los ejemplos están escritos usando la API Ruby de Azure.
+Entre los escenarios descritos se incluyen la **inserción**, **inspección**, **obtención**
+y **eliminación** de los mensajes en cola, así como la **creación y eliminación
+de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos Siguientes](#next-steps)
 
--   [¿Qué es el almacenamiento en cola?](#what-is)
--   [Conceptos](#concepts)
--   [Creación de una cuenta de almacenamiento de Azure](#CreateAccount)
--   [Creación de una aplicación de Ruby](#create-a-ruby-application)
--   [Configuración de su aplicación para obtener acceso al almacenamiento](#configure-your-application-to-access-storage)
--   [Configuración de una conexión de almacenamiento de Azure](#setup-a-windows-azure-storage-connection)
--   [Creación de una cola](#how-to-create-a-queue)
--   [Inserción de un mensaje en una cola](#how-to-insert-a-message-into-a-queue)
--   [Inspección del siguiente mensaje](#how-to-peek-at-the-next-message)
--   [Extracción del siguiente mensaje de la cola](#how-to-dequeue-the-next-message)
--   [Cambio del contenido de un mensaje en cola](#how-to-change-the-contents-of-a-queued-message)
--   [Opciones adicionales para quitar mensajes de la cola](#how-to-additional-options-for-dequeuing-messages)
--   [Obtención de la longitud de la cola](#how-to-get-the-queue-length)
--   [Eliminación de una cola](#how-to-delete-a-queue)
--   [Pasos siguientes](#next-steps)
+## Tabla de contenido
 
-[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
+-   [¿Qué es el almacenamiento en cola?][]
+-   [Conceptos][]
+-   [Creación de una cuenta de almacenamiento de Azure][]
+-   [Creación de una aplicación de Ruby][]
+-   [Configuración de su aplicación para obtener acceso al almacenamiento][]
+-   [Configuración de una conexión de almacenamiento de Azure][]
+-   [Creación de una cola][]
+-   [Inserción de un mensaje en una cola][]
+-   [Inspección del siguiente mensaje][]
+-   [Extracción del siguiente mensaje de la cola][]
+-   [Cambio del contenido de un mensaje en cola][]
+-   [Opciones adicionales para quitar mensajes de la cola][]
+-   [Obtención de la longitud de la cola][]
+-   [Eliminación de una cola][]
+-   [Pasos Siguientes](#next-steps)
 
-Creación de una cuenta de almacenamiento de Azure
--------------------------------------------------
+[WACOM.INCLUDE [howto-queue-storage][]]
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+## <span id="CreateAccount"></span></a>Creación de una cuenta de almacenamiento de Azure
 
-Creación de una aplicación de Ruby
-----------------------------------
+[WACOM.INCLUDE [create-storage-account][]]
 
-Cree una aplicación de Ruby. Para obtener instrucciones, consulte [Creación de una aplicación de Ruby en Azure](/es-es/develop/ruby/tutorials/web-app-with-linux-vm/).
+## <span id="create-a-ruby-application"></span></a>Creación de una aplicación de Ruby
 
-Configuración de su aplicación para obtener acceso al almacenamiento
---------------------------------------------------------------------
+Cree una aplicación de Ruby. Para obtener instrucciones,
+consulte [Creación de una aplicación de Ruby en Azure][].
+
+## <span id="configure-your-application-to-access-storage"></span></a>Configuración de su aplicación para obtener acceso al almacenamiento
 
 Para usar el almacenamiento de Azure tendrá que descargar y usar el paquete Ruby azure, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
 
@@ -53,23 +55,23 @@ Con el editor de texto que prefiera, agregue lo siguiente al principio del archi
 
     require "azure"
 
-Configuración de una conexión de almacenamiento de Azure
---------------------------------------------------------
+## <span id="setup-a-windows-azure-storage-connection"></span></a>Configuración de una conexión de almacenamiento de Azure
 
-El módulo azure leerá las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS\_KEY** para obtener la información necesaria para conectarse a la cuenta de almacenamiento de Azure. Si no se establecen estas variables de entorno, debe especificar la información de la cuenta antes de usar **Azure::QueueService** con el siguiente código:
+El módulo azure leerá las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS\_KEY**
+ para obtener la información necesaria para conectarse a la cuenta de almacenamiento de Azure. Si no se establecen estas variables de entorno,
+debe especificar la información de la cuenta antes de usar **Azure::QueueService** con el siguiente código:
 
-    Azure.config.account_name = "<your azure storage account>"
-    Azure.config.access_key = "<your Azure storage access key>"
+    Azure.config.storage_account_name = "<your azure storage account>"
+    Azure.config.storage_access_key = "<your Azure storage access key>"
 
 Para obtener estos valores:
 
-1.  Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com/).
+1.  Inicie sesión en el [Portal de administración de Azure][].
 2.  Vaya a la cuenta de almacenamiento que desea utilizar.
 3.  Haga clic en **MANAGE KEYS** en la parte inferior del panel de navegación.
 4.  En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede elegir la principal o la secundaria.
 
-Creación de una cola
---------------------
+## <span id="how-to-create-a-queue"></span></a>Creación de una cola
 
 El siguiente código crea un objeto **Azure::QueueService**, que le permite trabajar con colas.
 
@@ -83,23 +85,20 @@ Utilice el método **create\_queue()** para crear una cola con el nombre indicad
       puts $!
     end
 
-Inserción de un mensaje en una cola
------------------------------------
+## <span id="how-to-insert-a-message-into-a-queue"></span></a>Inserción de un mensaje en una cola
 
 Para insertar un mensaje en una cola, utilice el método **create\_message()** para crear un nuevo mensaje y agregarlo a la cola.
 
     azure_queue_service.create_message("test-queue", "test message")
 
-Inspección del siguiente mensaje
---------------------------------
+## <span id="how-to-peek-at-the-next-message"></span></a>Inspección del siguiente mensaje
 
 Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método **peek\_messages()**. De forma predeterminada, **peek\_messages()** inspecciona un único mensaje. También puede indicar cuántos mensajes desea inspeccionar.
 
     result = azure_queue_service.peek_messages("test-queue",
       {:number_of_messages => 10})
 
-Extracción del siguiente mensaje de la cola
--------------------------------------------
+## <span id="how-to-dequeue-the-next-message"></span></a>Extracción del siguiente mensaje de la cola
 
 Puede borrar un mensaje de una cola en dos pasos.
 
@@ -113,8 +112,7 @@ Este proceso de extracción de un mensaje que consta de dos pasos garantiza que 
     azure_queue_service.delete_message("test-queue", 
       messages[0].id, messages[0].pop_receipt)
 
-Cambio del contenido de un mensaje en cola
-------------------------------------------
+## <span id="how-to-change-the-contents-of-a-queued-message"></span></a>Cambio del contenido de un mensaje en cola
 
 Puede cambiar el contenido de un mensaje local en la cola. El código siguiente utiliza el método **update\_message()** para actualizar un mensaje. Este método devolverá una tupla que contiene la recepción de confirmación del mensaje en cola y un valor de fecha y hora UTC que representa el momento en que el mensaje estará visible en la cola.
 
@@ -123,8 +121,7 @@ Puede cambiar el contenido de un mensaje local en la cola. El código siguiente 
       "test-queue", message.id, message.pop_receipt, "updated test message", 
       30)
 
-Opciones adicionales para quitar mensajes de la cola
-----------------------------------------------------
+## <span id="how-to-additional-options-for-dequeuing-messages"></span></a>Opciones adicionales para quitar mensajes de la cola
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola.
 
@@ -140,29 +137,50 @@ El siguiente ejemplo de código utiliza el método **list\_messages()** para obt
       azure_queue_service.delete_message("test-queue", m.id, m.pop_receipt)
     end
 
-Obtención de la longitud de la cola
------------------------------------
+## <span id="how-to-get-the-queue-length"></span></a>Obtención de la longitud de la cola
 
 Puede obtener una estimación del número de mensajes existentes en la cola. El método **get\_queue\_metadata()** solicita al servicio de colas que devuelva el recuento aproximado de mensajes y metadatos sobre la cola.
 
     message_count, metadata = azure_queue_service.get_queue_metadata(
       "test-queue")
 
-Eliminación de una cola
------------------------
+## <span id="how-to-delete-a-queue"></span></a>Eliminación de una cola
 
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **delete\_queue()** en el objeto de cola.
 
     azure_queue_service.delete_queue("test-queue")
 
-Pasos siguientes
-----------------
+## <span id="next-steps"></span></a>Pasos siguientes
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento en cola, utilice estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx)
--   Visite el [blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/) (en inglés).
--   Visite el repositorio del [SDK de Azure para Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) (en inglés) en GitHub.
+-   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][]
+-   Visite el [blog del equipo de almacenamiento de Azure][] (en inglés).
+-   Visite el repositorio del [SDK de Azure para Ruby][] (en inglés) en GitHub.
 
-Podrá encontrar una comparación entre el servicio Cola de Azure, que se explica en este artículo, y las Colas del Bus de servicio de Azure, que se explican en el artículo [Utilización de las colas del bus de servicio](/es-es/develop/ruby/how-to-guides/service-bus-queues/), en el documento [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias](http://msdn.microsoft.com/es-es/library/windowsazure/hh767287.aspx).
+Podrá encontrar una comparación entre el servicio Cola de Azure, que se explica en este artículo, y las Colas del Bus de servicio de Azure, que se explican en el artículo [Utilización de las colas del bus de servicio][], en el documento [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias][].
 
+  
+  [¿Qué es el almacenamiento en cola?]: #what-is
+  [Conceptos]: #concepts
+  [Creación de una cuenta de almacenamiento de Azure]: #CreateAccount
+  [Creación de una aplicación de Ruby]: #create-a-ruby-application
+  [Configuración de su aplicación para obtener acceso al almacenamiento]: #configure-your-application-to-access-storage
+  [Configuración de una conexión de almacenamiento de Azure]: #setup-a-windows-azure-storage-connection
+  [Creación de una cola]: #how-to-create-a-queue
+  [Inserción de un mensaje en una cola]: #how-to-insert-a-message-into-a-queue
+  [Inspección del siguiente mensaje]: #how-to-peek-at-the-next-message
+  [Extracción del siguiente mensaje de la cola]: #how-to-dequeue-the-next-message
+  [Cambio del contenido de un mensaje en cola]: #how-to-change-the-contents-of-a-queued-message
+  [Opciones adicionales para quitar mensajes de la cola]: #how-to-additional-options-for-dequeuing-messages
+  [Obtención de la longitud de la cola]: #how-to-get-the-queue-length
+  [Eliminación de una cola]: #how-to-delete-a-queue
+  [howto-queue-storage]: ../includes/howto-queue-storage.md
+  [create-storage-account]: ../includes/create-storage-account.md
+  [Creación de una aplicación de Ruby en Azure]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [Portal de administración de Azure]: https://manage.windowsazure.com/
+  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+  [SDK de Azure para Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby
+  [Utilización de las colas del bus de servicio]: /en-us/develop/ruby/how-to-guides/service-bus-queues/
+  [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx

@@ -1,11 +1,12 @@
-<properties linkid="develop-media-services-how-to-guides-ios-media-player-framework" urlDisplayName="iOS Media Player Framework" pageTitle="Use the iOS Media Player Framework with Azure Media Services" metaKeywords="" description="Learn how to use the Media Services iOS Media Player Framework library to create rich, dynamic apps.," metaCanonical="" services="media-services" documentationCenter="" title="How to use the Azure Media Services iOS Media Player Framework" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-media-services-how-to-guides-ios-media-player-framework" urlDisplayName="iOS Media Player Framework" pageTitle="Use the iOS Media Player Framework with Azure Media Services" metaKeywords="" description="Learn how to use the Media Services iOS Media Player Framework library to create rich, dynamic apps.," metaCanonical="" services="media-services" documentationCenter="" title="How to use the Azure Media Services iOS Media Player Framework" authors="migree" solutions="" manager="" editor="" />
 
-Uso de iOS Media Player Framework de Servicios Multimedia de Azure
-==================================================================
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+
+# Uso de iOS Media Player Framework de Servicios Multimedia de Azure
 
 La biblioteca iOS Media Player Framework de Servicios Multimedia de Azure facilita a los desarrolladores de iPod, iPhone y iPad la creación de aplicaciones de cliente enriquecidas y dinámicas que crean y combinan transmisiones de vídeo y audio de manera instantánea. Por ejemplo, las aplicaciones que muestran contenido deportivo pueden insertar fácilmente anuncios en el lugar que elijan y controlar la frecuencia con que aparecen esos anuncios incluso cuando el contenido principal se rebobine. Las aplicaciones educativas pueden usar la misma funcionalidad, por ejemplo, para crear contenido en donde las conferencias principales tengan puntos aparte o barras laterales antes de volver al contenido principal.
 
-Suele ser relativamente complicado trabajar para generar una aplicación que pueda crear transmisiones de contenido que provoquen la interacción entre la aplicación y el usuario. Normalmente, debe crear la transmisión completa desde el principio y almacenarla, por adelantado, en el servidor. Use iOS Media Player Framework para generar aplicaciones de cliente que puedan hacer todo esto sin tener control de la transmisión de contenido principal ni modificarla. Puede:
+Suele ser relativamente complicado trabajar para generar una aplicación que pueda crear transmisiones de contenido que provoquen la interacción entre la aplicación y el usuario. Normalmente, debe crear la transmisión completa desde el principio y almacenarla, por adelantado, en el servidor. Use iOS Media Player Framework para generar aplicaciones de cliente que puedan hacer todo esto sin tener control de la transmisión de contenido principal ni modificarla. puede:
 
 -   Programar transmisiones de contenido por adelantado en el dispositivo cliente.
 -   Programar inserciones o anuncios de procesamiento previo.
@@ -18,8 +19,7 @@ La combinación de estas características con características de reproducción 
 
 El SDK contiene una aplicación SamplePlayer que muestra cómo generar una aplicación iOS que usa la mayor parte de estas características para crear una transmisión de contenido de manera instantánea y permitir al usuario activar e insertar contenido de forma dinámica con solo pulsar un botón. Este tutorial muestra los componentes principales de la aplicación SamplePlayer y cómo puede usarlos como punto de partida para la aplicación.
 
-Introducción a la aplicación SamplePlayer
------------------------------------------
+## Introducción a la aplicación SamplePlayer
 
 Los siguientes pasos muestran cómo obtener la aplicación y proporcionan un recorrido por las áreas de la aplicación que usan el marco.
 
@@ -31,28 +31,30 @@ Los siguientes pasos muestran cómo obtener la aplicación y proporcionan un rec
 
 3.  Aquí tiene la estructura del reproductor de ejemplo:
 
-![Estructura del código de ejemplo HLS](http://mingfeiy.com/wp-content/uploads/2013/01/HLS-Structure.png)
+![Estructura del código de ejemplo HLS][]
 
 1.  En la carpeta iPad, hay dos archivos .xib: **SeekbarViewController** y **SamplePlayerViewController**. Se ocupan de crear el diseño de la interfaz de usuario de la aplicación para iPad. De la misma forma, existen dos archivos .xib en la carpeta iPhone que definen el controlador y la barra de búsqueda.
 
 2.  La lógica de la aplicación principal se encuentra en **SamplePlayerViewController.m** debajo de la carpeta `Shared`. La mayoría de los fragmentos de código descritos a continuación se encuentran ubicados en ese archivo.
 
-Descripción del diseño de la interfaz de usuario
-------------------------------------------------
+## Descripción del diseño de la interfaz de usuario
 
-Existen dos archivos .xib que definen la interfaz del reproductor. En el ejemplo se usa el diseño de iPad como ejemplo, pero el diseño de iPhone es muy parecido y los principios son los mismos. 
+Existen dos archivos .xib que definen la interfaz del reproductor. En el ejemplo se usa el diseño de iPad como ejemplo, pero el diseño de iPhone es muy parecido y los principios son los mismos.
+
 ### SamplePlayerViewController\_iPad.xib
-   ![Barra de direcciones del reproductor de muestra](http://mingfeiy.com/wp-content/uploads/2013/01/addressbar.png)
+
+![Sample Player Address Bar][]
 
 -   **Media URL** es la dirección URL usada para cargar una transmisión de medios. La aplicación cuenta con una lista previamente completada de direcciones URL multimedia que puede usar mediante los botones de selección de la dirección URL. También puede especificar su propia dirección URL de contenido de HTTP Live Streaming (HLS). Este contenido multimedia se usará como el primer contenido principal.
-   **Nota: no deje esta dirección URL vacía.**
+    **Nota: no deje esta dirección URL vacía.**
 
 -   Los botones **URL Selection** le permiten seleccionar direcciones URL alternativas de la lista de direcciones URL multimedia.
 
 ### SeekbarViewController\_iPad.xib
 
-![Controlador de la barra de búsqueda](http://mingfeiy.com/wp-content/uploads/2013/01/controller.png) 
--  Use el botón de **reproducción** para reproducir y pausar la reproducción multimedia.
+![Seek Bar Controller][]
+
+-   Use el botón **Reproducir** para ejecutar y pausar la reproducción multimedia.
 
 -   La barra de **búsqueda** muestra toda la escala de tiempo de reproducción. Cuando realice la búsqueda, mantenga presionado, arrastre a la posición que desee y libere el botón de búsqueda en la barra de búsqueda.
 
@@ -68,7 +70,7 @@ Existen dos archivos .xib que definen la interfaz del reproductor. En el ejemplo
 
 Clip de contenido programado de 0 a 80 segundos:
 
-    //Programe el contenido principal.
+    //Schedule the main content
     MediaTime *mediaTime = [[[MediaTime alloc] init] autorelease];
     mediaTime.currentPlaybackPosition = 0;
     mediaTime.clipBeginMediaTime = 0;
@@ -84,13 +86,15 @@ En el código de ejemplo anterior:
 
 -   El objeto **MediaTime** controla el clip de vídeo que desea programar como contenido principal. En el ejemplo anterior, el clip de vídeo se programará para que tenga una duración de 80 segundos (de 0 segundos a 80 segundos);
 -   **clipBeginMediaTime** representa el tiempo de inicio para que un vídeo comience a reproducirse. Por ejemplo, si **clipBeginMediaTime** = 5, este clip de vídeo se inicia durante 5 segundos en el clip de vídeo.
--   **clipEndMediaTime** representa el tiempo final para que se reproduzca un vídeo. Si **clipEndMediaTime**=100, el reproductor de vídeo finaliza en el segundo 100 del clip de vídeo. *A continuación se programa **MediaTime** solicitando al marco que realice la operación de **appendContentClip**. En el ejemplo anterior, la dirección URL del contenido principal se proporciona en `[NSURL URLWithString:url]` y la programación para ese recurso multimedia se establece mediante **withMedia**: `[framework appendContentClip:[NSURL URLWithString:url] withMediaTime:mediaTime andGetClipId:&clipId])` .
+-   **clipEndMediaTime** representa el tiempo final para que se reproduzca un vídeo. Si **clipEndMediaTime**=100, el reproductor de vídeo finaliza en el segundo 100 del clip de vídeo.
+    \*A continuación se programa **MediaTime** solicitando al marco que realice la operación de **appendContentClip**. En el ejemplo anterior, la dirección URL del contenido principal se proporciona en `[NSURL URLWithString:url]` y la programación para ese recurso multimedia se establece mediante **withMedia**:
+     `[framework appendContentClip:[NSURL URLWithString:url] withMediaTime:mediaTime andGetClipId:&clipId])` .
 
 **Nota:** programe siempre el contenido principal antes de programar cualquier anuncio (incluido el anuncio de procesamiento previo).
 
 ### Variación: si dispone de dos clips de contenido principal en reproducción, también puede programar el segundo clip después del primero con el siguiente código:
 
-    //Programe el segundo contenido.
+    //Schedule second content
     NSString *secondContent=@"http://wamsblureg001orig-hs.cloudapp.net/6651424c-a9d1-419b-895c-6993f0f48a26/The%20making%20of%20Microsoft%20Surface-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
     mediaTime.currentPlaybackPosition = 0;
     mediaTime.clipBeginMediaTime = 30;
@@ -100,21 +104,21 @@ En el código de ejemplo anterior:
         [self logFrameworkError];
     }
 
-Si hace esto después del código anterior, se programan dos transmisiones de contenido en la escala de tiempo de contenido principal. El primero se programa según `URLWithString:url` y el segundo según `URLWithString:secondContent`. Para el segundo contenido, el contenido comienza desde un punto de 30 segundos de la transmisión del recurso multimedia y finaliza en los 80 segundos.
+Si hace esto después del código anterior, se programan dos transmisiones de contenido en la escala de tiempo de contenido principal. La primera se programa basándose en `URLWithString:url` y el segundo contenido se programa basándose en `URLWithString:secondContent`. Para el segundo contenido, el contenido comienza desde un punto de 30 segundos de la transmisión del recurso multimedia y finaliza en los 80 segundos.
 
-Programación de anuncios
-------------------------
+## Programación de anuncios
 
 En la versión actual, solo es compatible un anuncio **pauseTimeline=false**, lo que significa que después de que finalice el anuncio, el reproductor comenzará desde donde se quedó el contenido principal.
 
 He aquí algunos puntos clave:
 
-* **LinearTime.duration** debe estar en 0 cuando se programe un anuncio.
-* Cuando **clipEndMediaTime** sea superior a la duración del anuncio, este finaliza después que haya acabado y no se muestra ninguna excepción. Se recomienda que compruebe si la duración natural del anuncio se encuentra dentro del tiempo de representación (**clipEndMediaTime**). De esa forma, no perderá una oportunidad de anuncio. 
-* Los anuncios de procesamiento previo, intermedio y posterior son compatibles. El procesamiento previo solo puede programarse al principio de todo el contenido. Por ejemplo, no puede programar un procesamiento previo para el segundo contenido en un escenario de edición tentativa (RCE). 
-* Los anuncios persistentes y los que se reproducen una vez son compatibles y pueden usarse junto a los anuncios de procesamiento previo, intermedio y posterior. 
-* El formato del anuncio puede ser .Mp4 o HLS.
+-   **LinearTime.duration** debe estar en 0 cuando se programe un anuncio.
+-   Cuando **clipEndMediaTime** sea superior a la duración del anuncio, este finaliza después que haya acabado y no se muestra ninguna excepción. Se recomienda que compruebe si la duración natural del anuncio se encuentra dentro del tiempo de representación (**clipEndMediaTime**). De esa forma, no perderá una oportunidad de anuncio.
+-   Los anuncios de procesamiento previo, intermedio y posterior son compatibles. El procesamiento previo solo puede programarse al principio de todo el contenido. Por ejemplo, no puede programar un procesamiento previo para el segundo contenido en un escenario de edición tentativa (RCE).
+-   Los anuncios persistentes y los que se reproducen una vez son compatibles y pueden usarse junto a los anuncios de procesamiento previo, intermedio y posterior.
+-   El formato del anuncio puede ser .Mp4 o HLS.
 
+</p>
 ### Programación de sucesiones de anuncios y anuncios de procesamiento previo, intermedio y posterior
 
 #### Programación de anuncios de procesamiento previo
@@ -135,12 +139,13 @@ He aquí algunos puntos clave:
         [self logFrameworkError];
     }
 
-El objeto **AdInfo** representa toda la información sobre el clip del anuncio: 
-* **ClipURL** es la dirección URL para el origen del clip. 
-* La propiedad **mediaTime** indica la duración que tarda el anuncio en reproducirse. **clipBeginMediaTime** es la hora de inicio de un anuncio y **clipEndMediaTime** define el final del anuncio. En el código de ejemplo anterior, programamos un anuncio durante 5 segundos, comenzando por 0 hasta el segundo 5 de la duración del anuncio. 
-* El marco no usa actualmente el objeto **Policy**. 
-* Debe establecer el valor **appendTo** en -1 si no es una sucesión de anuncios.
-* El valor **type** puede ser una sucesión de anuncios o un procesamiento previo, intermedio o posterior. Especifique el tipo para el procesamiento previo o el posterior, ya que no existen intervalos asociados.
+El objeto **AdInfo** representa toda la información sobre el clip del anuncio:
+
+-   **ClipURL** es la dirección URL para el origen del clip.
+-   La propiedad **mediaTime** indica la duración que tarda el anuncio en reproducirse. (**clipBeginMediaTime** es la hora de inicio de un anuncio y **clipEndMediaTime** define el final del anuncio. En el código de ejemplo anterior, programamos un anuncio durante 5 segundos, comenzando por 0 hasta el segundo 5 de la duración del anuncio.
+-   El marco no usa actualmente el objeto **Policy**.
+-   Debe establecer el valor **appendTo** en -1 si no es una sucesión de anuncios.
+-   El valor **type** puede ser una sucesión de anuncios o un procesamiento previo, intermedio o posterior. Especifique el tipo para el procesamiento previo o el posterior, ya que no existen intervalos asociados.
 
 #### Programación de anuncios de procesamiento intermedio
 
@@ -148,7 +153,7 @@ Si agrega `adLinearTime.startTime = 23;` al ejemplo de código anterior, el anun
 
 #### Programación de anuncios de procesamiento posterior
 
-    //Programe el anuncio de procesamiento posterior.
+    //Schedule Post Roll Ad
     NSString *postAdURLString=@"http://wamsblureg001orig-hs.cloudapp.net/aa152d7f-3c54-487b-ba07-a58e0e33280b/wp-m3u8-aapl.ism/Manifest(format=m3u8-aapl)";
     AdInfo *postAdInfo = [[[AdInfo alloc] init] autorelease];
     postAdInfo.clipURL = [NSURL URLWithString:postAdURLString];
@@ -199,14 +204,20 @@ Las sucesiones de anuncios representan una interrupción de anuncios con varios 
     }
 
 Existen algunos aspectos que debe tener en cuenta aquí:
-* Para el primer clip, **appendTo** es -1. Cuando llamamos a `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]`, `adIndex`, se recibe un valor exclusivo que indica el final del primer clip en la sucesión de anuncios. A continuación, para el segundo clip de la sucesión, alinee el principio del segundo anuncio con el final del primero estableciendo **appendTo** as `adpodInfo2.appendTo = adIndex;`, que especifica la posición final del primero como la ubicación en la que iniciar el segundo clip. 
-* A continuación, debe establecer el tipo como `AdType_Pod` para indicar que se trata de una sucesión de anuncios.
+
+-   Para el primer clip, **appendTo** es -1. Cuando llamamos a `[framework scheduleClip:adpodInfo1 atTime:adLinearTime forType:PlaylistEntryType_Media andGetClipId:&adIndex]`, `adIndex` recibe un valor único que indica el final del primer clip en la sucesión de anuncios. A continuación, para el segundo clip de la sucesión, alinee el principio del segundo anuncio con el final del primero estableciendo **appendTo** como `adpodInfo2.appendTo = adIndex;`, que especifica la posición final del primero como la ubicación en la que iniciar el segundo clip.
+-   A continuación, debe establecer el tipo como `AdType_Pod` para indicar que se trata de una sucesión de anuncios.
 
 ### Programación de un anuncio persistente o que se reproduce una vez
 
     AdInfo *oneTimeInfo = [[[AdInfo alloc] init] autorelease];
     oneTimeInfo.deleteAfterPlay = YES;
 
-Como se muestra en el ejemplo del código anterior, si establece **deleteAfterPlay** en **YES**, este anuncio se reproduce solo una vez. Si estableció **deleteAfterPlay** en **NO**, este anuncio sigue reproduciéndose. Es lo que llamamos "anuncio persistente". 
-### Consulte la página wiki [Azure Media Player Framework](https://github.com/WindowsAzure/azure-media-player-framework/wiki) para obtener más información.
+Como se muestra en el ejemplo del código anterior, si establece **deleteAfterPlay** en **YES**, este anuncio se reproduce solo una vez. Si estableció **deleteAfterPlay** en **NO**, este anuncio sigue reproduciéndose. Es lo que llamamos "anuncio persistente".
 
+### Consulte la página wiki [Azure Media Player Framework][] para obtener más información.
+
+  [Estructura del código de ejemplo HLS]: http://mingfeiy.com/wp-content/uploads/2013/01/HLS-Structure.png
+  [Sample Player Address Bar]: http://mingfeiy.com/wp-content/uploads/2013/01/addressbar.png
+  [Seek Bar Controller]: http://mingfeiy.com/wp-content/uploads/2013/01/controller.png
+  [Azure Media Player Framework]: https://github.com/WindowsAzure/azure-media-player-framework/wiki
