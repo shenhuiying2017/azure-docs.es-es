@@ -85,9 +85,9 @@ Si creó una aplicación de consola cuando realizó el tutorial [Introducción a
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Introducción a la inserción]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
-  [Uso de Centro de notificaciones desde Java/PHP]: /en-us/documentation/articles/notification-hubs-java-backend-how-to/
+  [Introducción a la inserción]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
+  [Uso de Centro de notificaciones desde Java/PHP]: /es-es/documentation/articles/notification-hubs-java-backend-how-to/
   [API REST de notificaciones de inserción]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
-  [Introducción a los Centros de notificaciones]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+  [Introducción a los Centros de notificaciones]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   []: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
   [WindowsAzure.ServiceBus NuGet package]: http://nuget.org/packages/WindowsAzure.ServiceBus/

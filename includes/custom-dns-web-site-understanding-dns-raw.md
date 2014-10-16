@@ -54,5 +54,5 @@ Puede encontrar la dirección IP, así como el nombre **awverify** y los nombres
   [IETF Domain Names - Implementation and Specification]: http://tools.ietf.org/html/rfc1035
   [Portal de administración de Azure]: https://manage.windowsazure.com
   []: ./media/custom-dns-web-site/dncmntask-cname-6.png
-  [Escalación de sitios web]: http://www.windowsazure.com/en-us/documentation/articles/web-sites-scale/
+  [Escalación de sitios web]: http://www.windowsazure.com/es-es/documentation/articles/web-sites-scale/
   [1]: ./media/custom-dns-web-site/managecustomdomains.png

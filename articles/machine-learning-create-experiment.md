@@ -192,4 +192,4 @@ Para obtener un tutorial más amplio y detallado para crear, entrenar, puntuar y
   [Score Model module]: ./media/machine-learning-create-experiment/screen8a.png
   [Evaluation results]: ./media/machine-learning-create-experiment/screen9.png
   [Complete experiment]: ./media/machine-learning-create-experiment/screen10.png
-  [Tutorial: Desarrollar una solución predictiva con Aprendizaje automático de Azure]: http://azure.microsoft.com/en-us/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/
+  [Tutorial: Desarrollar una solución predictiva con Aprendizaje automático de Azure]: http://azure.microsoft.com/es-es/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/

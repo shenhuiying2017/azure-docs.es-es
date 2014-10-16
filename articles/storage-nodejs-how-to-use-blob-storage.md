@@ -389,9 +389,9 @@ vínculos para obtener más información acerca de cómo realizar tareas de alma
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: /en-us/develop/nodejs/tutorials/create-a-website-(mac)/
-  [Servicio en la nube Node.js]: /en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Sitio web con WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
-  [Aplicación web de Node.js con almacenamiento]: /en-us/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Servicio en la nube Node.js]: /es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Sitio web con WebMatrix]: /es-es/documentation/articles/web-sites-nodejs-use-webmatrix/
+  [Aplicación web de Node.js con almacenamiento]: /es-es/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [ETag]: http://en.wikipedia.org/wiki/HTTP_ETag
   [Introducción a los blobs en bloques y a los blobs en páginas]: http://msdn.microsoft.com/en-us/library/azure/ee691964.aspx
   [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx

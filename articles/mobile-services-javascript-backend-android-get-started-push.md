@@ -5,16 +5,16 @@ Introducción a las notificaciones de inserción en Servicios móviles
 ===================================================================
 
 <div class="dev-center-tutorial-selector sublanding">
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone" class="current">Windows Phone</a>
-	<a href="/en-us/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
-	<a href="/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push" title="Android" class="current">Android</a>
+	<a href="/es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push" title="Windows Store C#">Windows Store C#</a>
+	<a href="/es-es/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push" title="Windows Store JavaScript">Windows Store JavaScript</a>
+	<a href="/es-es/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push" title="Windows Phone" class="current">Windows Phone</a>
+	<a href="/es-es/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
+	<a href="/es-es/documentation/articles/mobile-services-javascript-backend-android-get-started-push" title="Android" class="current">Android</a>
 </div>
 
 Este tema muestra cómo puede utilizar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación Android. En este tutorial aprenderá a agregar notificaciones de inserción al proyecto de inicio rápido con el servicio de mensajería en la nube de Google (GCM). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
 
-[WACOM.NOTE]Este tutorial muestra la integración de Servicios móviles en Centros de notificaciones, que actualmente está en vista previa. De forma predeterminada, el envío de notificaciones de inserción con Centros de notificaciones no está habilitado en un back-end de JavaScript. Una vez que se haya creado el nuevo centro de notificaciones, el proceso de integración no se puede revertir. Las notificaciones de inserción para iOS solo están disponibles actualmente a través de la compatibilidad predeterminada con inserciones que se describe en [esta versión del tema](/en-us/documentation/articles/mobile-services-android-get-started-push/) (en inglés).
+[WACOM.NOTE]Este tutorial muestra la integración de Servicios móviles en Centros de notificaciones, que actualmente está en vista previa. De forma predeterminada, el envío de notificaciones de inserción con Centros de notificaciones no está habilitado en un back-end de JavaScript. Una vez que se haya creado el nuevo centro de notificaciones, el proceso de integración no se puede revertir. Las notificaciones de inserción para iOS solo están disponibles actualmente a través de la compatibilidad predeterminada con inserciones que se describe en [esta versión del tema](/es-es/documentation/articles/mobile-services-android-get-started-push/) (en inglés).
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 

@@ -5,15 +5,15 @@
 # Introducción a los datos en Servicios móviles
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="C# para Tienda Windows">C# para Tienda Windows</a>
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="JavaScript para Tienda Windows">JavaScript para Tienda Windows</a>
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS">iOS</a>
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android" class="current">Android</a>
+    <a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/" title="C# para Tienda Windows">C# para Tienda Windows</a>
+    <a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/" title="JavaScript para Tienda Windows">JavaScript para Tienda Windows</a>
+    <a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Windows Phone">Windows Phone</a>
+    <a href="/es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/" title="iOS">iOS</a>
+    <a href="/es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Android" class="current">Android</a>
 </div>
 
 <div class="dev-center-tutorial-subselector">
-    <a href="/en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Back-end de .NET" class="current">Back-end de .NET</a> | 
+    <a href="/es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/" title="Back-end de .NET" class="current">Back-end de .NET</a> | 
     <a href="/en-us/develop/mobile/tutorials/get-started-with-data-android/"  title="Back-end de JavaScript">Back-end de JavaScript</a>
 </div>
 
@@ -118,12 +118,12 @@ Pruebe uno de estos otros tutoriales:
 <!-- Images. -->
 <!-- URLs. -->
 
-  [C# para Tienda Windows]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "JavaScript para Tienda Windows"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"
-  [Android]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Android"
-  [Back-end de .NET]: /en-us/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Back-end de .NET"
+  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "C# para Tienda Windows"
+  [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "JavaScript para Tienda Windows"
+  [Windows Phone]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
+  [iOS]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"
+  [Android]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Android"
+  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Back-end de .NET"
   [Back-end de JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-data-android/ "Back-end de JavaScript"
   [versión back-end de JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-data-android
   [Creación de un servicio móvil]: #create-service
@@ -146,4 +146,4 @@ Pruebe uno de estos otros tutoriales:
   [2]: ./media/mobile-services-dotnet-backend-android-get-started-data/sql-azure-query.png
   [Introducción a la autenticación]: /en-us/develop/mobile/tutorials/get-started-with-users-android
   [Introducción a las notificaciones de inserción]: /en-us/develop/mobile/tutorials/get-started-with-push-android
-  [Referencia conceptual de Servicios móviles con .NET]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+  [Referencia conceptual de Servicios móviles con .NET]: /es-es/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library

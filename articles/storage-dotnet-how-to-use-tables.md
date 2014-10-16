@@ -536,7 +536,7 @@ para obtener más información acerca de cómo realizar tareas de almacenamiento
   [Referencia acerca de la biblioteca de clientes de almacenamiento para .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
   [Referencia de la API REST]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
   [Almacenamiento]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Introducción al SDK de WebJobs de Azure]: /en-us/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
-  [Almacenamiento de blobs]: /en-us/documentation/articles/storage-dotnet-how-to-use-blobs/
-  [Almacenamiento de cola]: /en-us/documentation/articles/storage-dotnet-how-to-use-queues/
-  [Base de datos SQL]: /en-us/documentation/articles/sql-database-dotnet-how-to-use/
+  [Introducción al SDK de WebJobs de Azure]: /es-es/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
+  [Almacenamiento de blobs]: /es-es/documentation/articles/storage-dotnet-how-to-use-blobs/
+  [Almacenamiento de cola]: /es-es/documentation/articles/storage-dotnet-how-to-use-queues/
+  [Base de datos SQL]: /es-es/documentation/articles/sql-database-dotnet-how-to-use/

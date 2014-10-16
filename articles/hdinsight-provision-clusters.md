@@ -527,7 +527,7 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 -   [Envío de trabajos de Hadoop mediante programación][]
 -   [Azure HDInsight SDK documentation][]
 
-  [Aprovisionamiento de un clúster de HBase en HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-get-started/
+  [Aprovisionamiento de un clúster de HBase en HDInsight]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-hbase-get-started/
   [¿Cuál es la diferencia entre Hadoop y HBase?]: http://go.microsoft.com/fwlink/?LinkId=510237
   [Apache Hadoop]: http://go.microsoft.com/fwlink/?LinkId=510084
   [Introducción a Hadoop en HDInsight]: ../hdinsight-introduction/

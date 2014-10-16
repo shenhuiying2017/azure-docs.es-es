@@ -628,5 +628,5 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
   [33]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
   [34]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
   [Service Bus]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
-  [Procedimientos del bus de servicio]: /en-us/documentation/services/service-bus/
+  [Procedimientos del bus de servicio]: /es-es/documentation/services/service-bus/
   [Utilización de las colas del bus de servicio]: /en-us/develop/net/how-to-guides/service-bus-queues/

@@ -4,7 +4,7 @@ Carga de imágenes en el almacenamiento de Azure mediante Servicios móviles
 ==========================================================================
 
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage" title="Windows Store C#">Windows Store C#</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage" title="Windows Phone" class="current">Windows Phone</a>
+	<a href="/es-es/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage" title="Windows Store C#">Windows Store C#</a><a href="/es-es/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
 Este tema muestra cómo utilizar Servicios móviles de Azure para permitir que su aplicación cargue y almacene imágenes generadas por el usuario en el almacenamiento de Azure. Servicios móviles utiliza una Base de datos SQL para almacenar datos. Sin embargo, los datos de objetos binarios grandes (BLOB) se almacenan de manera eficiente en el servicio de almacenamiento de blobs de Azure.
@@ -25,7 +25,7 @@ Este tutorial requiere lo siguiente:
 -   El Administrador de paquetes NuGet instalado para Microsoft Visual Studio.
 -   [Cuenta de almacenamiento de Azure](/en-us/manage/services/storage/how-to-create-a-storage-account)
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/en-us/documentation/articles/mobile-services-windows-phone-get-started).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-windows-phone-get-started).
 
 <a name="install-storage-client"></a>
 Instalación del cliente de almacenamiento para aplicaciones de la Tienda Windows

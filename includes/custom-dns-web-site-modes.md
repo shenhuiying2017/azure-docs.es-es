@@ -2,4 +2,4 @@ La configuración de un nombre de dominio personalizado en un sitio web solo est
 
 Para obtener más información acerca de los modos de sitio web, incluido cómo cambiar el modo de su sitio, consulte [Escalación de sitios web][].
 
-  [Escalación de sitios web]: /en-us/documentation/articles/web-sites-scale/
+  [Escalación de sitios web]: /es-es/documentation/articles/web-sites-scale/

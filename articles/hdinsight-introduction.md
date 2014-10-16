@@ -169,7 +169,7 @@ Las tecnologías HDInsight (y las tecnologías Hadoop en general) son principalm
   [SQL Server 2012 Analysis Services]: http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx
   [SQL Server 2012 Reporting]: http://www.microsoft.com/en-us/sqlserver/solutions-technologies/business-intelligence/reporting.aspx
   [HDInsight Documentation]: http://go.microsoft.com/fwlink/?LinkID=285601
-  [Notas de la versión de HDInsight]: http://azure.microsoft.com/en-us/documentation/articles/hdinsight-release-notes/
+  [Notas de la versión de HDInsight]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-release-notes/
   [Get started with Azure HDInsight]: ../hdinsight-get-started/
   [Run the HDInsight samples]: ../hdinsight-run-samples/
   [Big data and Azure]: http://azure.microsoft.com/en-us/solutions/big-data/

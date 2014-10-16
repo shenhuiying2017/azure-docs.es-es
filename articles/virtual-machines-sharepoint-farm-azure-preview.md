@@ -73,4 +73,4 @@ Granja de servidores SharePoint utiliza el Administrador de recursos de Azure y 
   
   [Configuración de SharePoint 2013]: http://technet.microsoft.com/library/ee836142.aspx
   [portal de Microsoft Azure en vista previa]: https://portal.azure.com/
-  [Uso de Windows PowerShell con el Administrador de recursos]: http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/
+  [Uso de Windows PowerShell con el Administrador de recursos]: http://azure.microsoft.com/es-es/documentation/articles/powershell-azure-resource-manager/

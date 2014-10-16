@@ -121,7 +121,7 @@ Servicios en la nube es una opción ideal para el escalado horizontal masivo cua
 
 #### Selección de un modelo de proceso
 
-La comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales (<http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/>) proporciona información más detallada acerca de cómo seleccionar un modelo de proceso.
+La comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales (<http://azure.microsoft.com/es-es/documentation/articles/choose-web-site-cloud-service-vm/>) proporciona información más detallada acerca de cómo seleccionar un modelo de proceso.
 
 ## <span id="data"></span></a>Administración de datos
 
@@ -563,7 +563,7 @@ Ahora que ha captado la idea general, el siguiente paso es programar su primera 
   [Multimedia]: #media
   [Comercio]: #commerce
   [Tareas iniciales]: #start
-  [Infografía Qué es Windows Azure]: http://azure.microsoft.com/en-us/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"
+  [Infografía Qué es Windows Azure]: http://azure.microsoft.com/es-es/documentation/infographics/azure/ "What Is Microsoft Azure Poster Infographic"
   [Azure components]: ./media/intro-to-azure/AzureComponentsIntroNew800.png
   [Azure Virtual Machines]: ./media/intro-to-azure/VirtualMachinesIntroNew.png
   [Azure Websites]: ./media/intro-to-azure/AzureWebsitesIntroNew.png
@@ -592,7 +592,7 @@ Ahora que ha captado la idea general, el siguiente paso es programar su primera 
   [Azure CDN]: ./media/intro-to-azure/CDNIntroNew.png
   [HDInsight]: ./media/intro-to-azure/HDInsightIntroNew.png
   [Azure Media Services]: ./media/intro-to-azure/MediaServicesIntroNew.png
-  [Azure Media Services Poster (en inglés)]: http://azure.microsoft.com/en-us/documentation/infographics/media-services/
+  [Azure Media Services Poster (en inglés)]: http://azure.microsoft.com/es-es/documentation/infographics/media-services/
   [Azure Marketplace]: http://datamarket.azure.com/
   [Tienda Azure]: /en-us/store/overview/
   [Azure Commerce]: ./media/intro-to-azure/CommerceIntroNew.png

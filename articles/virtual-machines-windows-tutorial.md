@@ -4,7 +4,7 @@
 
 # Creación de una máquina virtual que ejecuta Windows Server
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial/" title="Portal de Azure" class="current">Portal de Azure</a><a href="/en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Portal de Azure en vista previa">Portal de Azure en vista previa</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/documentation/articles/virtual-machines-windows-tutorial/" title="Portal de Azure" class="current">Portal de Azure</a><a href="/es-es/documentation/articles/virtual-machines-windows-tutorial-azure-preview/" title="Portal de Azure en vista previa">Portal de Azure en vista previa</a></div>
 
 En este tutorial se muestra lo fácil que es crear una máquina virtual (VM) de Azure que ejecute Windows Server, usando la Galería de imágenes del Portal de administración de Azure. La Galería de imágenes ofrece una gran variedad de imágenes, incluidos los sistemas operativos Windows, sistemas operativos basados en Linux e imágenes de aplicaciones.
 
@@ -102,8 +102,8 @@ Para obtener más información sobre la configuración de máquinas virtuales co
 
 [Administración de la disponibilidad de las máquinas virtuales][]
 
-  [Portal de Azure]: /en-us/documentation/articles/virtual-machines-windows-tutorial/ "Portal de Azure"
-  [Portal de Azure en vista previa]: /en-us/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Portal de Azure en vista previa"
+  [Portal de Azure]: /es-es/documentation/articles/virtual-machines-windows-tutorial/ "Portal de Azure"
+  [Portal de Azure en vista previa]: /es-es/documentation/articles/virtual-machines-windows-tutorial-azure-preview/ "Portal de Azure en vista previa"
   [Creación de una cuenta de Azure]: http://www.windowsazure.com/en-us/develop/php/tutorials/create-a-windows-azure-account/
   [Creación de una máquina virtual]: #createvirtualmachine
   [Inicio de sesión en una máquina virtual después de su creación]: #logon
@@ -112,7 +112,7 @@ Para obtener más información sobre la configuración de máquinas virtuales co
   [portal de Azure en vista previa]: https://portal.azure.com
   [virtual-machines-create-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md
   [virtual-machines-log-on-win-server]: ../includes/virtual-machines-log-on-win-server.md
-  [tutorial sobre cómo asociar un disco de datos]: http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/
+  [tutorial sobre cómo asociar un disco de datos]: http://www.windowsazure.com/es-es/documentation/articles/storage-windows-attach-disk/
   [Portal de administración]: http://manage.windowsazure.com
   [Seleccione MyTestVM]: ./media/virtual-machines-windows-tutorial/selectvm.png
   [Seleccione Panel]: ./media/virtual-machines-windows-tutorial/dashboard.png
@@ -125,6 +125,6 @@ Para obtener más información sobre la configuración de máquinas virtuales co
   [Continúe la inicialización]: ./media/virtual-machines-windows-tutorial/yesinitialize.png
   [Crear el volumen]: ./media/virtual-machines-windows-tutorial/initializediskvolume.png
   [2]: ./media/virtual-machines-windows-tutorial/newvolumecreated.png
-  [Conexión de máquinas virtuales en un Servicio en la nube]: http://www.windowsazure.com/en-us/documentation/articles/cloud-services-connect-virtual-machine/
-  [Creación y carga de su propio disco duro virtual con el sistema operativo Windows Server]: http://www.windowsazure.com/en-us/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
-  [Administración de la disponibilidad de las máquinas virtuales]: http://www.windowsazure.com/en-us/documentation/articles/manage-availability-virtual-machines/
+  [Conexión de máquinas virtuales en un Servicio en la nube]: http://www.windowsazure.com/es-es/documentation/articles/cloud-services-connect-virtual-machine/
+  [Creación y carga de su propio disco duro virtual con el sistema operativo Windows Server]: http://www.windowsazure.com/es-es/documentation/articles/virtual-machines-create-upload-vhd-windows-server/
+  [Administración de la disponibilidad de las máquinas virtuales]: http://www.windowsazure.com/es-es/documentation/articles/manage-availability-virtual-machines/

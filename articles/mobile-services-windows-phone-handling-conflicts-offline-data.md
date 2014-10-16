@@ -5,8 +5,8 @@
 # Control de conflictos con la sincronización de datos sin conexión en Servicios móviles
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="C# para Tienda Windows">C# para Tienda Windows</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/es-es/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data" title="C# para Tienda Windows">C# para Tienda Windows</a>
+<a href="/es-es/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
 En este tema se explica cómo sincronizar los datos y controlar conflictos cuando se usan las capacidades sin conexión de Servicios móviles de Azure. En este tutorial, descargará una aplicación que admite datos sin conexión y con conexión, integrará el servicio móvil con la aplicación y, a continuación, iniciará sesión en el Portal de administración de Azure para ver y actualizar la base de datos cuando ejecute la aplicación.
@@ -194,9 +194,9 @@ Cuando se cancele una inserción, `PushAsync` producirá una excepción `MobileS
 <!-- Images -->
 <!-- URLs -->
 
-  [C# para Tienda Windows]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "C# para Tienda Windows"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
-  [Introducción a los datos sin conexión]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data
+  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "C# para Tienda Windows"
+  [Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
+  [Introducción a los datos sin conexión]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-offline-data
   [Descarga del proyecto de Windows Phone]: #download-app
   [Incorporación de una columna de fecha de vencimiento para la base de datos]: #add-column
   [Actualización de la base de datos para servicios móviles back-end de .NET]: #dotnet-backend
@@ -207,7 +207,7 @@ Cuando se cancele una inserción, `PushAsync` producirá una excepción `MobileS
   [código de ejemplo de control de conflictos]: http://go.microsoft.com/fwlink/?LinkId=398257
   []: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
   [SQLite para Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
-  [Uso de Migraciones de Code First para actualizar el modelo de datos]: /en-us/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
+  [Uso de Migraciones de Code First para actualizar el modelo de datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-todowithdate-push1.png
   [2]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/vs-emulator-wvga.png

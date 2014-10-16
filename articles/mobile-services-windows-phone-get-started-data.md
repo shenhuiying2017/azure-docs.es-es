@@ -8,8 +8,8 @@ Introducción a los datos en Servicios móviles
 </div>	
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/en-us/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Back-end de .NET">Back-end de .NET</a> | 
-	<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-data/"  title="Back-end de JavaScript" class="current">Back-end de JavaScript</a>
+	<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/" title="Back-end de .NET">Back-end de .NET</a> | 
+	<a href="/es-es/documentation/articles/mobile-services-windows-phone-get-started-data/"  title="Back-end de JavaScript" class="current">Back-end de JavaScript</a>
 </div>
 
 <div class="dev-onpage-video-clear clearfix">

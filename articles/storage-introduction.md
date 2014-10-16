@@ -178,7 +178,7 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
   [evaluación gratuita]: /en-us/pricing/free-trial/
   [opciones de compra]: /en-us/pricing/purchase-options/
   [suscriptor de MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/
-  [servicio de importación y exportación de Azure]: http://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/
+  [servicio de importación y exportación de Azure]: http://azure.microsoft.com/es-es/documentation/articles/storage-import-export-service/
   [firma de acceso compartido]: ../storage-dotnet-shared-access-signature-part-1/
   [storage-replication-options]: ../includes/storage-replication-options.md
   [Detalles de precios de Storage]: /en-us/pricing/details/storage/
@@ -193,7 +193,7 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
   [Ruby]: /en-us/develop/ruby/
   [Python]: /en-us/develop/python/
   [PowerShell]: http://msdn.microsoft.com/library/dn495240.aspx
-  [Documentación del almacenamiento de Azure]: /en-us/documentation/services/storage/
+  [Documentación del almacenamiento de Azure]: /es-es/documentation/services/storage/
   [Uso del almacenamiento de blobs en .NET]: ../storage-dotnet-how-to-use-blobs/
   [Uso del almacenamiento de tablas en .NET]: ../storage-dotnet-how-to-use-tables/
   [Uso del almacenamiento en cola en .NET]: ../storage-dotnet-how-to-use-queues/

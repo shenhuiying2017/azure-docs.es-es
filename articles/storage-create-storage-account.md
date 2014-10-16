@@ -55,6 +55,6 @@ Para obtener más información acerca de la capacidad y el rendimiento de la cue
   [Operaciones en grupos de afinidad]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460798.aspx
   [storage-replication-options]: ../includes/storage-replication-options.md
   [Página de almacenamiento]: ./media/storage-create-storage-account/Storage_StoragePage.png
-  [azure.com]: http://azure.microsoft.com/en-us/documentation/services/storage/
+  [azure.com]: http://azure.microsoft.com/es-es/documentation/services/storage/
   [MSDN]: http://msdn.microsoft.com/en-us/library/gg433040.aspx
   [blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/

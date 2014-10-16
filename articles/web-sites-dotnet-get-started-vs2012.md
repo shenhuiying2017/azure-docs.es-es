@@ -254,5 +254,5 @@ En algunos escenarios, es posible que desee ejecutar su aplicación en un servic
   [Solución de problemas de Sitios web Azure en Visual Studio]: /en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL en un Sitio web Azure]: /en-us/develop/net/tutorials/web-site-with-sql-database/
   [Modelos de ejecución de Azure]: /en-us/develop/net/fundamentals/compute/
-  [Comparación entre Sitios web, Servicios en la nube y Máquinas virtuales de Azure]: http://azure.microsoft.com/en-us/documentation/articles/choose-web-site-cloud-service-vm/
+  [Comparación entre Sitios web, Servicios en la nube y Máquinas virtuales de Azure]: http://azure.microsoft.com/es-es/documentation/articles/choose-web-site-cloud-service-vm/
   [Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento]: /en-us/develop/net/tutorials/multi-tier-web-site/1-overview/

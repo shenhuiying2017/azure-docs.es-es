@@ -4,7 +4,7 @@
 
 # Llamada a una API personalizada desde una aplicación HTML
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="C# para Tienda Windows">C# para Tienda Windows</a><a href="/en-us/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="JavaScript para Tienda Windows">JavaScript para Tienda Windows</a><a href="/en-us/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/mobile-services-ios-call-custom-api" title="iOS" >iOS</a><a href="/en-us/documentation/articles/mobile-services-android-call-custom-api" title="Android">Android</a><a href="/en-us/documentation/articles/mobile-services-html-call-custom-api" title="HTML" class="current">HTML</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="C# para Tienda Windows">C# para Tienda Windows</a><a href="/es-es/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="JavaScript para Tienda Windows">JavaScript para Tienda Windows</a><a href="/es-es/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/es-es/documentation/articles/mobile-services-ios-call-custom-api" title="iOS" >iOS</a><a href="/es-es/documentation/articles/mobile-services-android-call-custom-api" title="Android">Android</a><a href="/es-es/documentation/articles/mobile-services-html-call-custom-api" title="HTML" class="current">HTML</a></div>
 
 En este tema se muestra cómo realizar una llamada a una API personalizada desde una aplicación HTML. Una API personalizada le permite definir extremos personalizados que exponen la funcionalidad del servidor que no se asigna a una inserción, actualización, eliminación u operación de lectura. Al usar una API personalizada, puede tener más control sobre la mensajería, incluida la lectura y el establecimiento de encabezados de mensajes HTTP y la definición del formato del cuerpo de un mensaje diferente de JSON.
 
@@ -72,14 +72,14 @@ Ahora que ha creado una API personalizada y la llamó desde su aplicación HTML,
 <!-- Anchors. -->
 <!-- URLs. -->
 
-  [C# para Tienda Windows]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /en-us/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "JavaScript para Tienda Windows"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-ios-call-custom-api "iOS"
-  [Android]: /en-us/documentation/articles/mobile-services-android-call-custom-api "Android"
-  [HTML]: /en-us/documentation/articles/mobile-services-html-call-custom-api "HTML"
-  [Introducción a los Servicios móviles]: /en-us/documentation/articles/mobile-services-html-get-started
-  [Introducción a los datos]: /en-us/documentation/articles/mobile-services-html-get-started-data
+  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "C# para Tienda Windows"
+  [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "JavaScript para Tienda Windows"
+  [Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
+  [iOS]: /es-es/documentation/articles/mobile-services-ios-call-custom-api "iOS"
+  [Android]: /es-es/documentation/articles/mobile-services-android-call-custom-api "Android"
+  [HTML]: /es-es/documentation/articles/mobile-services-html-call-custom-api "HTML"
+  [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-html-get-started
+  [Introducción a los datos]: /es-es/documentation/articles/mobile-services-html-get-started-data
   [Definición de la API personalizada]: #define-custom-api
   [Actualización de la aplicación para llamar a la API personalizada]: #update-app
   [Prueba de la aplicación]: #test-app

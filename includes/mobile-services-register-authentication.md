@@ -18,7 +18,7 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
  - <a href="/en-us/develop/mobile/how-to-guides/register-for-facebook-authentication/" target="_blank">Inicio de sesión en Facebook</a>
  - <a href="/en-us/develop/mobile/how-to-guides/register-for-twitter-authentication/" target="_blank">Inicio de sesión en Twitter</a>
  - <a href="/en-us/develop/mobile/how-to-guides/register-for-google-authentication/" target="_blank">Inicio de sesión en Google</a>
- - <a href="/en-us/documentation/articles/mobile-services-how-to-register-active-directory-authentication/" target="_blank">Azure Active Directory</a>
+ - <a href="/es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/" target="_blank">Azure Active Directory</a>
 
 
  	Recuerde anotar los valores secretos y la identidad del cliente que genera el proveedor.

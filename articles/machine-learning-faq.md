@@ -113,7 +113,7 @@ El Aprendizaje automático de Azure forma parte de la oferta de soporte técnico
 El Aprendizaje automático de Azure cuenta también con un foro de la comunidad en MSDN, donde puede plantear preguntas sobre el tema. El equipo de Aprendizaje automático de Azure es el encargado de supervisar el foro. Visite el [foro de Azure][].
 
   [página de inicio]: http://go.microsoft.com/fwlink/?LinkId=404226
-  [Centro de Aprendizaje automático de Azure]: http://azure.microsoft.com/en-us/documentation/services/machine-learning/
+  [Centro de Aprendizaje automático de Azure]: http://azure.microsoft.com/es-es/documentation/services/machine-learning/
   [http://azure.microsoft.com/es-es/pricing/details/machine-learning/]: http://azure.microsoft.com/en-us/pricing/details/machine-learning/
   [http://azure.microsoft.com/es-es/pricing/free-trial-faq/]: http://azure.microsoft.com/en-us/pricing/free-trial-faq/
   [foro de comentarios de los usuarios]: http://go.microsoft.com/fwlink/?LinkId=404231

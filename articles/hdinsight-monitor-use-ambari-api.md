@@ -144,4 +144,4 @@ Ahora sabe cómo usar las llamadas de API de supervisión de Ambari. Para obtene
   [Administración de clústeres de HDInsight con el portal de administración]: ../hdinsight-administer-use-management-portal/
   [Administración de clústeres de HDInsight con Azure PowerShell]: ../hdinsight-administer-use-powershell/
   [Administración de clústeres de HDInsight con la interfaz de línea de comandos]: ../hdinsight-administer-use-command-line/
-  [Documentación de HDInsight]: /en-us/documentation/services/hdinsight/
+  [Documentación de HDInsight]: /es-es/documentation/services/hdinsight/

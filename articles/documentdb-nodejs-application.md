@@ -507,7 +507,7 @@ El código origen para la aplicación de referencia completa se puede descargar 
   [Git]: http://git-scm.com/
   [Visual Studio 2013]: http://msdn.microsoft.com/en-us/vstudio/cc136611.aspx
   [Herramientas de Node.js para Visual Studio]: https://nodejstools.codeplex.com/
-  [CLI de Azure]: http://azure.microsoft.com/en-us/documentation/articles/xplat-cli/
+  [CLI de Azure]: http://azure.microsoft.com/es-es/documentation/articles/xplat-cli/
   [Portal de administración de Azure]: http://portal.azure.com
   [1]: ./media/documentdb-nodejs-application/image2.png
   [2]: ./media/documentdb-nodejs-application/image3.png

@@ -299,7 +299,7 @@ Ahora que está familiarizado con los aspectos básicos de Caché en Redis de Az
   [Configuración de la caché]: #enable-caching
   [New cache]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-new-cache-menu.png
   [Create cache]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-create.png
-  [Uso de grupos de recursos para administrar su recursos de Azure]: http://azure.microsoft.com/en-us/documentation/articles/azure-preview-portal-using-resource-groups/
+  [Uso de grupos de recursos para administrar su recursos de Azure]: http://azure.microsoft.com/es-es/documentation/articles/azure-preview-portal-using-resource-groups/
   [Cache created]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-cache-created.png
   [Browse blade]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-browse-caches.png
   [Caches]: ./media/cache-dotnet-how-to-use-azure-redis-cache/redis-cache-caches.png

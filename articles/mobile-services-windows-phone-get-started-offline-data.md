@@ -5,11 +5,11 @@
 # Introducción a la sincronización de datos sin conexión en Servicios móviles
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="C# para Tienda Windows">C# para Tienda Windows</a>
-<a href="/en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone" class="current">Windows Phone</a>
-<a href="/en-us/documentation/articles/mobile-services-ios-get-started-offline-data" title="iOS">iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android">Xamarin.Android</a>
+<a href="/es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data" title="C# para Tienda Windows">C# para Tienda Windows</a>
+<a href="/es-es/documentation/articles/mobile-services-windows-phone-get-started-offline-data" title="Windows Phone" class="current">Windows Phone</a>
+<a href="/es-es/documentation/articles/mobile-services-ios-get-started-offline-data" title="iOS">iOS</a>
+<a href="/es-es/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data" title="Xamarin.iOS">Xamarin.iOS</a>
+<a href="/es-es/documentation/articles/mobile-services-xamarin-android-get-started-offline-data" title="Xamarin.Android">Xamarin.Android</a>
 </div>
 
 En este tema se muestra cómo usar las capacidades sin conexión de Servicios móviles de Azure. Las características sin conexión de Servicios móviles de Azure permiten interactuar con una base de datos local cuando el usuario se encuentra en un escenario sin conexión con su servicio móvil. Las características sin conexión le permiten sincronizar los cambios locales con el servicio móvil cuando vuelva a estar en línea.
@@ -245,13 +245,13 @@ Cuando queramos sincronizar el almacén local con el servidor, usaremos los mét
 <!-- Images -->
 <!-- URLs. -->
 
-  [C# para Tienda Windows]: /en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "C# para Tienda Windows"
-  [Windows Phone]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /en-us/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /en-us/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /en-us/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
-  [Introducción a los Servicios móviles]: /en-us/documentation/articles/mobile-services-windows-phone-get-started/
-  [Introducción a los datos]: /en-us/documentation/articles/mobile-services-windows-phone-get-started-data/
+  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "C# para Tienda Windows"
+  [Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
+  [iOS]: /es-es/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
+  [Xamarin.iOS]: /es-es/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
+  [Xamarin.Android]: /es-es/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
+  [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-phone-get-started/
+  [Introducción a los datos]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-data/
   [Actualización de la aplicación para que admita características sin conexión]: #enable-offline-app
   [Prueba de la aplicación en un escenario sin conexión]: #test-offline-app
   [Actualización de la aplicación para volver a conectar el servicio móvil]: #update-online-app
@@ -272,4 +272,4 @@ Cuando queramos sincronizar el almacén local con el servidor, usaremos los mét
   [7]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-online-app-run2.png
   [8]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-online-app-run3.png
   [9]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-data-browse3.png
-  [Control de conflictos con compatibilidad sin conexión para Servicios móviles]: /en-us/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/
+  [Control de conflictos con compatibilidad sin conexión para Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data/

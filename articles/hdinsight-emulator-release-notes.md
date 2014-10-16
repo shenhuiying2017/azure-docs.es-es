@@ -63,7 +63,7 @@
 
 -   Conexión a varios clústeres, incluida la instalación local y aquellos que se ejecutan remotamente con el servicio HDInsight de Azure.
 
--   Para obtener más información sobre el servicio HDInsight, consulte [][]<http://azure.microsoft.com/en-us/documentation/services/hdinsight/></a>.
+-   Para obtener más información sobre el servicio HDInsight, consulte [][]<http://azure.microsoft.com/es-es/documentation/services/hdinsight/></a>.
 
 -   Configuración de WASB en el clúster local.
 
@@ -245,6 +245,6 @@ Números de puerto
 
 -   [Introducción al emulador de HDInsight][]
 
-  []: http://azure.microsoft.com/en-us/documentation/services/hdinsight/
+  []: http://azure.microsoft.com/es-es/documentation/services/hdinsight/
   [//{container}@{account}/{path]: mailto://{container}@{account}/{path
   [Introducción al emulador de HDInsight]: ../hdinsight-get-started-emulator/

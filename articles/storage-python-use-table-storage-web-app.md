@@ -175,9 +175,9 @@ Ahora que está familiarizado con los aspectos básicos del servicio de almacena
 -   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][]
 -   Obtenga acceso al blog del equipo de almacenamiento de Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
 
-  [Aplicación web Django Hello World]: http://windowsazure.com/en-us/documentation/articles/virtual-machines-python-django-web-app-windows-server
+  [Aplicación web Django Hello World]: http://windowsazure.com/es-es/documentation/articles/virtual-machines-python-django-web-app-windows-server
   [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
   
   [create-account-note]: ../includes/create-account-note.md
-  [guía de instalación de Python]: http://windowsazure.com/en-us/documentation/articles/python-how-to-install
+  [guía de instalación de Python]: http://windowsazure.com/es-es/documentation/articles/python-how-to-install
   [create-storage-account]: ../includes/create-storage-account.md

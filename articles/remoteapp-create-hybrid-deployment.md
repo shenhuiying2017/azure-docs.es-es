@@ -189,7 +189,7 @@ Esto es todo; ha creado he implementado correctamente su implementación híbrid
 
   [actualizaciones necesarias]: http://support.microsoft.com/kb/2977219
   [versión de vista previa de RemoteApp]: http://azure.microsoft.com/en-us/services/remoteapp/
-  [Azure PowerShell]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
+  [Azure PowerShell]: http://azure.microsoft.com/es-es/documentation/articles/install-configure-powershell/
   [Portal de administración de Azure]: http://manage.windowsazure.com
   [Configurar una VPN de sitio a sitio en el Portal de administración]: http://msdn.microsoft.com/library/azure/dn133795.aspx
   [Guía de sincronización de directorios]: http://msdn.microsoft.com//library/azure/hh967642.aspx
