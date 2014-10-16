@@ -1,0 +1,55 @@
+###### Creación de una cola
+
+Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. Todo el código que contiene este tema utiliza una cadena de conexión de almacenamiento almacenada en la configuración de servicios de la aplicación de Azure. Además, existen otros métodos de creación de un objeto **CloudStorageAccount**. Consulte la documentación de [CloudStorageAccount][CloudStorageAccount] para obtener más información.
+
+    // Get the storage account from its connection string.
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+      CloudConfigurationManager.GetSetting("StorageConnectionString"));
+
+    // Create the queue client.
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+
+Utilice el objeto **queueClient** para obtener una referencia a la cola que desea utilizar. En caso de que la cola no exista todavía, es posible crearla:
+
+    // Get a reference to a queue named “myqueue”.
+    CloudQueue queue = queueClient.GetQueueReference("myqueue");
+
+    // If the queue isn’t already there, then create it.
+    queue.CreateIfNotExist();
+
+**NOTA:** utilice este bloque de código delante del código en las secciones siguientes.
+
+###### Un mensaje en una cola
+
+Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo objeto **CloudQueueMessage**. A continuación, llame al método AddMessage(). Se puede crear un objeto **CloudQueueMessage** a partir de una cadena (en formato UTF-8) o de una matriz de bytes. A continuación se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje "Hola, mundo".
+
+    // Create a message and add it to the queue.
+    CloudQueueMessage message = new CloudQueueMessage("Hello, World");
+    queue.AddMessage(message);
+
+###### Siguiente mensaje
+
+Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método PeekMessage().
+
+    // Peek at the next message in the queue.
+    CloudQueueMessage peekedMessage = queue.PeekMessage();
+
+    // Display the message.
+    Console.WriteLine(peekedMessage.AsString);
+
+###### Eliminación del siguiente mensaje
+
+Su código puede quitar un mensaje de una cola en dos pasos.
+
+1.  Llame a GetMessage() para obtener el siguiente mensaje en una cola. Un mensaje devuelto por GetMessage() se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos.
+2.  Para terminar de quitar el mensaje de la cola, llame a DeleteMessage().
+
+Este proceso extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código siguiente llama a DeleteMessage() justo después de haber procesado el mensaje.
+
+    // Get the next message in the queue.
+    CloudQueueMessage retrievedMessage = queue.GetMessage();
+
+    // Process the message in less than 30 seconds, and then delete the message.
+    queue.DeleteMessage(retrievedMessage);
+
+  [CloudStorageAccount]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount"
