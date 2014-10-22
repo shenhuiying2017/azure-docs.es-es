@@ -8,32 +8,32 @@ En esta guía se muestra cómo empezar a usar rápidamente la Administración de
 
 ## En este tema
 
--   [Creación de una instancia de Administración de API][]
--   [Creación de una API][]
--   [Agregar una operación][]
--   [Agregar la nueva API al producto][]
--   [Suscripción al producto que contiene la API][]
--   [Llamada a una operación desde el portal para desarrolladores][]
--   [Ver análisis][]
--   [Pasos siguientes][]
+-   [Creación de una instancia de Administración de API][Creación de una instancia de Administración de API]
+-   [Creación de una API][Creación de una API]
+-   [Agregar una operación][Agregar una operación]
+-   [Agregar la nueva API al producto][Agregar la nueva API al producto]
+-   [Suscripción al producto que contiene la API][Suscripción al producto que contiene la API]
+-   [Llamada a una operación desde el portal para desarrolladores][Llamada a una operación desde el portal para desarrolladores]
+-   [Ver análisis][Ver análisis]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="create-service-instance"> </a>Creación de una instancia de Administración de API
 
-> para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
+> para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][Evaluación gratuita de Azure].
 
-El primer paso para trabajar con Administración de API es crear una instancia de servicio. Inicie sesión en el [Portal de administración][] y haga clic en **Nuevo**, **Servicios de aplicaciones**, **Administración de API**, **Crear**.
+El primer paso para trabajar con Administración de API es crear una instancia de servicio. Inicie sesión en el [Portal de administración][Portal de administración] y haga clic en **Nuevo**, **Servicios de aplicaciones**, **Administración de API**, **Crear**.
 
-![API Management new instance][]
+![API Management new instance][API Management new instance]
 
 En **URL**, especifique un nombre de subdominio único que desee usar para la dirección URL de servicio.
 
 Elija la información que desee en **Nivel de previos**, **Suscripción** y **Región** para la instancia de servicio. Para este tutorial se pueden utilizar todos los niveles de precios. Después de realizar las selecciones pertinentes, haga clic en el botón Siguiente.
 
-![New API Management service][]
+![New API Management service][New API Management service]
 
 Escriba **Contoso Ltd.** en **Nombre de organización** y escriba su dirección de correo electrónico en el campo de correo electrónico del administrador.
 
-> Esta dirección de correo electrónico se utiliza para notificaciones por parte del sistema Administración de API. Para obtener más información, consulte [Configuración de notificaciones][]
+> Esta dirección de correo electrónico se utiliza para notificaciones por parte del sistema Administración de API. Para obtener más información, consulte [Configuración de notificaciones][Configuración de notificaciones]
 
 Haga clic en la casilla para crear su instancia de servicio.
 
@@ -53,13 +53,13 @@ Este tutorial usa el servicio web <http://echoapi.cloudapp.net/api> para crear u
 
 Las API se crean y configuran desde la consola de Administración de API, a la que se tiene acceso a través del Portal de administración de Azure. Para llegar a la consola de administración de API, haga clic en **Consola de administración** en el Portal de Azure de su servicio Administración de API.
 
-![New API Management console][]
+![New API Management console][New API Management console]
 
 Para crear **Mi API Eco**, haga clic en **API** en el menú **Administración de API** situado a la izquierda y, a continuación, haga clic en **Agregar API**.
 
-![Create API][]
+![Create API][Create API]
 
-![Add new API][]
+![Add new API][Add new API]
 
 Para configurar la nueva API se usan los tres campos siguientes.
 
@@ -69,11 +69,11 @@ Para configurar la nueva API se usan los tres campos siguientes.
 
 Haga clic en **Guardar** para crear la API. Una vez creada la nueva API, su página de resumen se mostrará en el Portal de administración.
 
-![API summary][]
+![API summary][API summary]
 
 La sección API tiene cuatro pestañas. La pestaña **Resumen** muestra métricas e información básicas acerca de la API. La pestaña **Configuración** se usa para ver y editar la configuración para una API, incluidas las credenciales de autenticación para el servicio back-end. La pestaña **Operaciones** se usa para administrar las operaciones de la API (vea el siguiente paso del tutorial) y la pestaña **Problemas** se puede usar para ver problemas de los que informan los desarrolladores que usan sus API.
 
-> La API Eco de ejemplo no usa autenticación. Si desea obtener más información acerca de la configuración de autenticación, consulte [Definición de la configuración de la API][].
+> La API Eco de ejemplo no usa autenticación. Si desea obtener más información acerca de la configuración de autenticación, consulte [Definición de la configuración de la API][Definición de la configuración de la API].
 
 Una vez creada la API y definida su configuración, el paso siguiente es agregar las operaciones a dicha API. Las definiciones de operación se usan para validar las solicitudes entrantes y para generar documentación automáticamente.
 
@@ -81,11 +81,11 @@ Una vez creada la API y definida su configuración, el paso siguiente es agregar
 
 Haga clic en **Operaciones** para mostrar el panel de operaciones de la API. Dado que todavía no hemos agregado ninguna operación, no se muestra nada.
 
-![Operaciones][]
+![Operaciones][Operaciones]
 
 Haga clic en **Agregar operación** para agregar una nueva operación. Se mostrará la ventana **Nueva operación** y la pestaña **Firma** se seleccionará de forma predeterminada.
 
-![Operation signature][]
+![Operation signature][Operation signature]
 
 En este ejemplo, especificaremos una operación GET en el servicio de eco. Escriba los siguientes valores en los campos en la pestaña **Firma**.
 
@@ -114,13 +114,13 @@ Es recomendable proporcionar ejemplos de respuestas para todos los códigos de e
 
 Haga clic en **Agregar** en la sección Respuestas, comience a escribir **200** en el cuadro de texto y después seleccione **200 OK** en la lista desplegable.
 
-![Add response][]
+![Add response][Add response]
 
 Una vez seleccionado **200 OK**, se agrega un nuevo código de respuesta a la operación y se muestra la ventana de respuestas. Escriba **Devuelto en todos los casos.** en el cuadro de texto **Descripción**.
 
 ![Add response][3]
 
-> **Agregar representación** se usa para configurar respuestas en varias representaciones. Para obtener más información, consulte [Respuestas][].
+> **Agregar representación** se usa para configurar respuestas en varias representaciones. Para obtener más información, consulte [Respuestas][Respuestas].
 
 Haga clic en **Guardar** para agregar la operación recientemente configurada a la API.
 
@@ -130,7 +130,7 @@ Para poder crear llamadas de API, previamente los desarrolladores deben suscribi
 
 Haga clic en **Productos** en el menú **Administración de API** a la izquierda de la vista y configure los productos disponibles en esta instancia de API.
 
-![Productos][]
+![Productos][Productos]
 
 De forma predeterminada, cada instancia de Administración de API incluye dos productos de ejemplo:
 
@@ -139,7 +139,7 @@ De forma predeterminada, cada instancia de Administración de API incluye dos pr
 
 En este tutorial usaremos el producto **Inicio**. Haga clic en **Inicio** para ver la configuración, incluidas las API asociadas con ese producto.
 
-![Add API][]
+![Add API][Add API]
 
 Haga clic en **Agregar API al producto**.
 
@@ -147,11 +147,11 @@ Haga clic en **Agregar API al producto**.
 
 Active la casilla correspondiente a **Mi API Eco** y haga clic en **Guardar**.
 
-![API added][]
+![API added][API added]
 
 Ahora que **Mi API Eco** está asociada a un producto, los desarrolladores pueden suscribirse a él y comenzar a usar dicha API.
 
-> En este paso del tutorial se usa el producto Inicio, que ya viene previamente configurado y listo para usarse. Para obtener instrucciones paso a paso sobre la creación y publicación de un nuevo producto, consulte [Creación y publicación de un producto][].
+> En este paso del tutorial se usa el producto Inicio, que ya viene previamente configurado y listo para usarse. Para obtener instrucciones paso a paso sobre la creación y publicación de un nuevo producto, consulte [Creación y publicación de un producto][Creación y publicación de un producto].
 
 ## <a name="subscribe"> </a>Suscripción al producto que contiene la API
 
@@ -159,13 +159,13 @@ Para realizar llamadas a una API, los desarrolladores deben suscribirse primero 
 
 Haga clic en **Desarrolladores** en el menú **Administración de API** a la izquierda de la vista y configure los desarrolladores en esta instancia de API.
 
-![Desarrolladores][]
+![Desarrolladores][Desarrolladores]
 
 Haga clic en el nombre del desarrollador para definir la configuración para el usuario, incluidas las suscripciones.
 
-> En este ejemplo, estamos suscribiendo un desarrollador llamado Clayton Gragg. Si no tiene ninguna cuenta de desarrollador creada, puede suscribirse a la cuenta de administrador. Para obtener información acerca de la creación de cuentas de desarrollador, consulte [Administración de cuentas de desarrollador en Administración de API de Azure][].
+> En este ejemplo, estamos suscribiendo un desarrollador llamado Clayton Gragg. Si no tiene ninguna cuenta de desarrollador creada, puede suscribirse a la cuenta de administrador. Para obtener información acerca de la creación de cuentas de desarrollador, consulte [Administración de cuentas de desarrollador en Administración de API de Azure][Administración de cuentas de desarrollador en Administración de API de Azure].
 
-![Add subscription][]
+![Add subscription][Add subscription]
 
 Haga clic en **Agregar suscripción**.
 
@@ -173,7 +173,7 @@ Haga clic en **Agregar suscripción**.
 
 Active la casilla correspondiente a **Inicio** y haga clic en **Suscribirse**.
 
-![Subscription added][]
+![Subscription added][Subscription added]
 
 Una vez suscrita la cuenta de desarrollador, puede llamar a las API de ese producto.
 
@@ -181,7 +181,7 @@ Una vez suscrita la cuenta de desarrollador, puede llamar a las API de ese produ
 
 Se puede llamar a las operaciones directamente desde el portal para desarrolladores, lo que proporciona una forma cómoda de ver y probar las operaciones de una API. En este paso del tutorial llamará al método Get que se agregó a **Mi API Eco**. Haga clic en **Portal para desarrolladores** en el menú que se encuentra en la parte superior derecha del Portal de administración.
 
-![Portal para desarrolladores][]
+![Portal para desarrolladores][Portal para desarrolladores]
 
 Haga clic en **API** en el menú superior y, a continuación, haga clic en **Mi API Eco** para ver las operaciones disponibles.
 
@@ -191,39 +191,39 @@ Tenga en cuenta que se muestran la descripción y los parámetros que se agregar
 
 Haga clic en **Recurso GET** y, a continuación, en **Abrir consola**.
 
-![Operation console][]
+![Operation console][Operation console]
 
 Escriba algunos valores para los parámetros, especifique su clave de desarrollador y haga clic en **Get HTTP**.
 
-![HTTP Get][]
+![HTTP Get][HTTP Get]
 
 Después de invocar una operación, el portal para desarrolladores mostrará el campo **Dirección URL solicitada** en el servicio, así como los campos **Estado de respuesta**, **Encabezados de respuesta** y los **contenidos de respuesta**.
 
-![Response][]
+![Response][Response]
 
 ## <a name="view-analytics"> </a>Ver análisis
 
 Para ver un análisis de **Mi API Eco**, vuelva al Portal de administración seleccionando **Administrar** en el menú de usuario situado en la parte superior del portal para desarrolladores.
 
-![Manage][]
+![Manage][Manage]
 
 La vista predeterminada del Portal de administración es el Panel, que proporciona información general de su instancia de Administración de API.
 
-![Panel][]
+![Panel][Panel]
 
 Pase el mouse por encima del gráfico de Mi API Eco para ver las métricas específicas de uso de la API durante un período de tiempo determinado.
 
 > Si no ve ninguna línea en el gráfico, vuelva al portal para desarrolladores y haga algunas llamadas a la API, espere unos instantes y vuelva al Panel
 
-![Analytics][]
+![Analytics][Analytics]
 
 Haga clic en **Ver detalles** para ver la página de resumen de la API, incluida una versión superior de las métricas mostradas.
 
-![Resumen][]
+![Resumen][Resumen]
 
 Para obtener información detallada sobre métricas e informes, haga clic en **Análisis** en el menú **Administración de API** a la izquierda.
 
-![Información general][]
+![Información general][Información general]
 
 La sección **Análisis** consta de las cuatro pestañas siguientes.
 
@@ -234,7 +234,7 @@ La sección **Análisis** consta de las cuatro pestañas siguientes.
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
--   Consulte el resto de temas en el tutorial [Introducción a la configuración de API avanzada][].
+-   Consulte el resto de temas en el tutorial [Introducción a la configuración de API avanzada][Introducción a la configuración de API avanzada].
 
   [Creación de una instancia de Administración de API]: #create-service-instance
   [Creación de una API]: #create-api
