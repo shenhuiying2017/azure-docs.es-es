@@ -20,7 +20,7 @@ RemoteApp de Azure usa una imagen de plantilla de Windows Server 2012 R2 para ho
 
 Necesita llevar a cabo los pasos siguientes antes de crear el servicio:
 
--   Suscríbase a la vista previa de RemoteApp. Puede hacerlo en la dirección [][]<http://azure.microsoft.com/en-us/services/remoteapp/></a>.
+-   Suscríbase a la vista previa de RemoteApp. Puede hacerlo en la dirección [][]<http://azure.microsoft.com/es-es/services/remoteapp/></a>.
 -   Cree una cuenta de usuario en Active Directory para usar la cuenta de servicio RemoteApp. Restrinja los permisos para esta cuenta de forma que solamente pueda unir máquinas al dominio.
 -   Recopile información sobre la red local: información de direcciones IP y detalles de dispositivos VPN.
 -   Instale el módulo [Azure PowerShell][Azure PowerShell].
@@ -112,7 +112,7 @@ Ahora que ya tiene su imagen de plantilla personalizada, cárguela en su impleme
 -   [Creación de una implementación híbrida de RemoteApp][Creación de una implementación híbrida de RemoteApp]
 -   [Creación de una implementación de RemoteApp en la nube][Creación de una implementación de RemoteApp en la nube]
 
-  []: http://azure.microsoft.com/en-us/services/remoteapp/
+  []: http://azure.microsoft.com/es-es/services/remoteapp/
   [Azure PowerShell]: http://azure.microsoft.com/es-es/documentation/articles/install-configure-powershell/
   [Creación de una implementación híbrida de RemoteApp]: http://azure.microsoft.com/es-es/documentation/articles/remoteapp-create-hybrid-deployment/
   [Creación de una implementación de RemoteApp en la nube]: http://azure.microsoft.com/es-es/documentation/articles/remoteapp-create-cloud-deployment/

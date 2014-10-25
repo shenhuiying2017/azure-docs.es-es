@@ -61,6 +61,6 @@ HDInsight permite trabajar con grandes volúmenes de datos en Azure, para lo cua
 
 [hadoop-hdinsight-intro]: ../hdinsight-introduction/
 
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
+[azure-purchase-options]: http://azure.microsoft.com/es-es/pricing/purchase-options/
 
 [img-hdi-dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png

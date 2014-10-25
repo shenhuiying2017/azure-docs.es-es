@@ -6,11 +6,11 @@
 
 ## Tabla de contenido
 
--   [Direccionamiento del Ver, copiar y regenerar las claves de acceso de la Base de datos de documentos][Direccionamiento del Ver, copiar y regenerar las claves de acceso de la Base de datos de documentos]
--   [Direccionamiento del Administrar la configuración de coherencia de la Base de datos de documentos][Direccionamiento del Administrar la configuración de coherencia de la Base de datos de documentos]
--   [Direccionamiento del Administrar la configuración de capacidad de la Base de datos de documentos][Direccionamiento del Administrar la configuración de capacidad de la Base de datos de documentos]
--   [Direccionamiento del Eliminar una cuenta de la Base de datos de documentos][Direccionamiento del Eliminar una cuenta de la Base de datos de documentos]
--   [Pasos siguientes][Pasos siguientes]
+-   [Direccionamiento del Ver, copiar y regenerar las claves de acceso de la Base de datos de documentos](#keys)
+-   [Direccionamiento del Administrar la configuración de coherencia de la Base de datos de documentos](#consistency)
+-   [Direccionamiento del Administrar la configuración de capacidad de la Base de datos de documentos](#capacity)
+-   [Direccionamiento del Eliminar una cuenta de la Base de datos de documentos](#delete)
+-   [Pasos siguientes](#next)
 
 ## <span id="keys"></span></a>Direccionamiento del Ver, copiar y regenerar las claves de acceso
 
@@ -18,7 +18,7 @@ Cuando se crea una cuenta de la Base de datos de documentos, se generan dos clav
 
 En el [Portal de vista previa de administración de Azure](https://portal.azure.com/)[](http://manage.windowsazure.com), acceda al elemento **Claves** de la hoja de cuenta de la Base de datos de documentos para ver, copiar y regenerar las claves de acceso que se usan para acceder a la cuenta de esta base de datos.
 
-![][0]
+![](./media/documentdb-manage-account/image002.jpg)
 
 ### Ver y copiar una clave de acceso
 
@@ -30,7 +30,7 @@ En el [Portal de vista previa de administración de Azure](https://portal.azure.
 
 4.      Presione Ctrl+C para copiar la clave.
 
-  ![][1]
+  ![](./media/documentdb-manage-account/image004.jpg)
 
 ### Regenerar las claves de acceso
 
@@ -83,9 +83,9 @@ La Base de datos de documentos admite cuatro niveles diferenciados de coherencia
 
 5.      Puede supervisar el progreso de la operación a través del Centro de notificaciones del Portal de vista previa de administración de Azure.
 
-![][2]
+ ![](./media/documentdb-manage-account/image005.png)
 
-![][3]
+ ![](./media/documentdb-manage-account/image006.png)
 
 *Tenga en cuenta que pueden pasar varios minutos antes de que los cambios en la
 configuración de coherencia predeterminada se hagan efectivos en la cuenta de la Base de datos de documentos.*
@@ -108,7 +108,7 @@ Cuando se crea una cuenta de base de datos, esta dispone de rendimiento reservad
 
 *Tenga en cuenta que la vista previa de la Base de datos de documentos admite un máximo de 5 unidades de capacidad por cada cuenta de esta base de datos.*
 
-![][4]
+![](./media/documentdb-manage-account/image007.png)
 
  
 
@@ -121,7 +121,7 @@ Para quitar una cuenta de la Base de datos de documentos que ya no usa, ejecute 
 
 *En la vista previa no se puede restaurar el contenido de una cuenta de la Base de datos de documentos que se eliminó. Al eliminar esta cuenta, se eliminan también todos los recursos correspondientes, incluidos documentos, bases de datos, colecciones y datos adjuntos.*
 
-![][5]
+![](./media/documentdb-manage-account/image009.png)
 
 1.      En el [Portal de vista previa de administración de Azure](https://portal.azure.com/), acceda a la cuenta de la Base de datos de documentos que quiere eliminar. 
 
@@ -147,7 +147,7 @@ Para quitar una cuenta de la Base de datos de documentos que ya no usa, ejecute 
   [Direccionamiento del Eliminar una cuenta de la Base de datos de documentos]: #delete
   [Pasos siguientes]: #next
   []: http://manage.windowsazure.com
-  [0]: ./media/documentdb-manage-account/image002.jpg
+  []: ./media/documentdb-manage-account/image002.jpg
   [1]: ./media/documentdb-manage-account/image004.jpg
   [2]: ./media/documentdb-manage-account/image005.png
   [3]: ./media/documentdb-manage-account/image006.png

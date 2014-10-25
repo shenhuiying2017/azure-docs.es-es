@@ -1,58 +1,88 @@
-<properties title="Learn how to configure an Azure web site that uses Traffic Manager to use a domain name registered with Register.com" pageTitle="Configure a Register.com domain name for an Azure web site that uses Traffic Manager" metaKeywords="Windows Azure, Windows Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
+<properties title="Learn how to configure an Azure website that uses Traffic Manager to use a domain name registered with Register.com" pageTitle="Configure a Register.com domain name for an Azure website that uses Traffic Manager" metaKeywords="Windows Azure, Windows Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-Configuración de un nombre de dominio personalizado para un sitio web de Azure con el Administrador de tráfico (Register.com)
-=============================================================================================================================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth"></tags>
 
-[Dominio personalizado](/es-es/documentation/articles/web-sites-custom-domain-name "Dominio personalizado")[GoDaddy](/es-es/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy")[Network Solutions](/es-es/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions")[Register.com](/es-es/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com")[Enom](/es-es/documentation/articles/web-sites-enom-custom-domain-name "Enom")[Moniker](/es-es/documentation/articles/web-sites-moniker-custom-domain-name "Moniker")[Dotster](/es-es/documentation/articles/web-sites-dotster-custom-domain-name "Dotster")[DomainDiscover](/es-es/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover")[Directnic](/es-es/documentation/articles/web-sites-directnic-custom-domain-name "Directnic")
-[Sitios web](/es-es/documentation/articles/web-sites-registerdotcom-custom-domain-name/ "Sitios web") | [Sitio web utilizando el Administrador de tráfico](/es-es/documentation/articles/web-sites-registerdotcom-traffic-manager-custom-domain-name/ "Sitio web utilizando el Administrador de tráfico")
+# Configuración de un nombre de dominio personalizado para un sitio web de Azure con el Administrador de tráfico (Register.com)
 
-[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro-traffic-manager.md)]
+<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/documentation/articles/web-sites-custom-domain-name" title="Dominio personalizado">Dominio personalizado</a><a href="/es-es/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/es-es/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a><a href="/es-es/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com" class="current">Register.com</a><a href="/es-es/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/es-es/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker" class="current">Moniker</a><a href="/es-es/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster" class="current">Dotster</a><a href="/es-es/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover" class="current">DomainDiscover</a><a href="/es-es/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic" class="current">Directnic</a></div>
 
-Este artículo ofrece instrucciones acerca del uso de un nombre de dominio personalizado adquirido en [Register.com](https://register.com) con Sitios web Azure.
+<div class="dev-center-tutorial-subselector"><a href="/es-es/documentation/articles/web-sites-registerdotcom-custom-domain-name/" title="Sitios web">Sitio web</a> | <a href="/es-es/documentation/articles/web-sites-registerdotcom-traffic-manager-custom-domain-name/" title="Sitio web mediante el Administrador de tr&aacute;fico" class="current">Sitio web mediante el Administrador de tr&aacute;fico</a></div>
 
-[WACOM.INCLUDE [tmwebsitefooter](../includes/custom-dns-web-site-traffic-manager-notes.md)]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
 
-[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
+[WACOM.INCLUDE [intro][]]
+
+Este artículo ofrece instrucciones acerca del uso de un nombre de dominio personalizado adquirido en [Register.com][1] con Sitios web Azure.
+
+[WACOM.INCLUDE [tmwebsitefooter][]]
+
+[WACOM.INCLUDE [introfooter][]]
 
 En este artículo:
 
--   [Descripción de los registros DNS](#understanding-records)
--   [Configuración de los sitios web para el modo estándar](#bkmk_configsharedmode)
--   [Incorporación de un registro DNS para el dominio personalizado](#bkmk_configurecname)
--   [Habilitación del Administrador de tráfico para el sitio web](#enabledomain)
+-   [Descripción de los registros DNS][]
+-   [Configuración de los sitios web para el modo estándar][]
+-   [Incorporación de un registro DNS para el dominio personalizado][]
+-   [Habilitación del Administrador de tráfico para el sitio web][]
 
-Descripción de los registros DNS
---------------------------------
+## <a name="understanding-records"></a>Descripción de los registros DNS
 
-[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-traffic-manager.md)]
+[WACOM.INCLUDE [understandingdns][]]
 
-Configuración de los sitios web para el modo estándar
------------------------------------------------------
+## <a name="bkmk_configsharedmode"></a>Configuración de los sitios web para el modo estándar
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
+[WACOM.INCLUDE [modes][]]
 
-<h2>Incorporación de un registro DNS para el dominio personalizado</h2>
+<a name="bkmk_configurecname"></a>
 
+## Incorporación de un registro DNS para el dominio personalizado
+
+</p>
 Para asociar su dominio personalizado con un sitio web de Azure, debe agregar una nueva entrada en la tabla DNS para el dominio personalizado mediante las herramientas proporcionadas por Register.com. Siga estos pasos para ubicar y usar las herramientas DNS.
 
 1.  Inicie sesión en la cuenta en Register.com y seleccione **Your Account** en la esquina superior derecha para ver los dominios. A continuación, seleccione el nombre de dominio personalizado.
 
-    ![Página Mi cuenta](./media/web-sites-custom-domain-name/rdotcom-myaccount.png)
+    ![Página Mi cuenta][]
 
 2.  Desplácese por la página hasta que vea **Advanced Technical Settings**. Los vínculos de esta sección le permiten administrar los registros para su dominio. Para los registros CNAME, use el vínculo **Edit Domain Aliases Records**.
 
-    ![Configuración técnica avanzada](./media/web-sites-custom-domain-name/rdotcom-advancedsettingstm.png)
+    ![Configuración técnica avanzada][]
 
 3.  Cuando haga clic en el botón **Edit**, se mostrará un formulario que puede usar para modificar los registros existentes o agregar nuevos. El formulario es similar a los registros D y CNAME.
 
     -   Cuando agregue un registro CNAME, debe establecer el campo **.mydomainname.com** en el subdominio que desee usar. Por ejemplo, **www**. Debe establecer el valor **points to** con el nombre de dominio **.trafficmanager.net** del perfil del Administrador de tráfico que use con el sitio web de Azure. Por ejemplo, **contoso.trafficmanager.net**. Deje **Refers to Host Name** como **Select**, ya que este campo no es obligatorio cuando se crea un registro CNAME para usarlo con Sitios web Azure.
 
-        ![Formulario CNAME](./media/web-sites-custom-domain-name/rdotcom-editcnamerecordtm.png)
+        ![Formulario CNAME][]
 
 4.  Cuando haya acabado de agregar o modificar registros, haga clic en **Continue** para revisar los cambios. Seleccione **Continue** de nuevo para guardar los cambios.
 
-Habilitación del Administrador de tráfico para el sitio web
------------------------------------------------------------
+## <a name="enabledomain"></a>Habilitación del Administrador de tráfico para el sitio web
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-traffic-manager.md)]
+[WACOM.INCLUDE [modes][2]]
 
+  [Dominio personalizado]: /es-es/documentation/articles/web-sites-custom-domain-name "Dominio personalizado"
+  [GoDaddy]: /es-es/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
+  [Network Solutions]: /es-es/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
+  [Register.com]: /es-es/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
+  [Enom]: /es-es/documentation/articles/web-sites-enom-custom-domain-name "Enom"
+  [Moniker]: /es-es/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
+  [Dotster]: /es-es/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
+  [DomainDiscover]: /es-es/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
+  [Directnic]: /es-es/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
+  [Sitio web]: /es-es/documentation/articles/web-sites-registerdotcom-custom-domain-name/ "Sitios web"
+  [Sitio web mediante el Administrador de tráfico]: /es-es/documentation/articles/web-sites-registerdotcom-traffic-manager-custom-domain-name/ "Sitio web mediante el Administrador de tráfico"
+  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
+  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
+  [1]: https://www.register.com
+  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
+  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
+  [Descripción de los registros DNS]: #understanding-records
+  [Configuración de los sitios web para el modo estándar]: #bkmk_configsharedmode
+  [Incorporación de un registro DNS para el dominio personalizado]: #bkmk_configurecname
+  [Habilitación del Administrador de tráfico para el sitio web]: #enabledomain
+  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
+  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
+  [Página Mi cuenta]: ./media/web-sites-custom-domain-name/rdotcom-myaccount.png
+  [Configuración técnica avanzada]: ./media/web-sites-custom-domain-name/rdotcom-advancedsettingstm.png
+  [Formulario CNAME]: ./media/web-sites-custom-domain-name/rdotcom-editcnamerecordtm.png
+  [2]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

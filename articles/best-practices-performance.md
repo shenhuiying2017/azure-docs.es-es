@@ -1,16 +1,16 @@
-<properties linkid="develop-dotnet-performance" urlDisplayName="Performance" pageTitle="Performance best practices - Azure" metaKeywords="Azure optimization, Azure best practice performance" description="Learn about best practices for performance in Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-dotnet-performance" urlDisplayName="Performance" pageTitle="Performance best practices - Azure" metaKeywords="Azure optimization, Azure best practice performance" description="Learn about best practices for performance in Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
 
-Procedimientos recomendados para optimizar el rendimiento de las aplicaciones de Azure
-======================================================================================
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb"></tags>
+
+# Procedimientos recomendados para optimizar el rendimiento de las aplicaciones de Azure
 
 En esta guía se incluyen recomendaciones acerca de qué procedimientos y técnicas se deben seguir para optimizar el rendimiento de las aplicaciones de Azure.
 
 Tenga en cuenta que el uso de Azure aporta muchas ventajas, el rendimiento es solo una de ellas. Las recomendaciones de este documento se centran básicamente en el rendimiento. Sin embargo, existen otras situaciones en las que el rendimiento no es tan importante: por ejemplo, puede que desee relegar en Azure la administración del hardware físico, o bien que le resulte interesante la función de “pago por uso”. Este documento no pretende evaluar aquellas situaciones en las que el rendimiento no es prioritario.
 
-Información general
--------------------
+## Información general
 
-El rendimiento se puede definir como [“the amount of useful work accomplished compared to the time and resources used (la cantidad de trabajo útil realizado comparada con el tiempo y los recursos empleados)”.](http://go.microsoft.com/fwlink/?LinkId=252650)
+El rendimiento se puede definir como [“the amount of useful work accomplished compared to the time and resources used (la cantidad de trabajo útil realizado comparada con el tiempo y los recursos empleados)”.][]
 
 Esta definición tiene dos vertientes: las métricas y los recursos. Las métricas de rendimiento son cifras que se deben alcanzar para satisfacer los requisitos empresariales. Incluyen aspectos como el tiempo de respuesta, la capacidad, la disponibilidad, etc. El rendimiento también hace referencia al nivel de uso de los recursos necesario para alcanzar un determinado nivel de métricas de rendimiento. Dado que el coste suele ser un requisito empresarial y los recursos cuestan dinero, el rendimiento implica usar los recursos con la mayor eficiencia posible.
 
@@ -31,7 +31,7 @@ Es importante crear un modelo de las situaciones de cliente más importantes de 
 
 Es esencial llevar a cabo una comprobación exhaustiva del rendimiento durante el diseño y la implementación de la aplicación. Las aplicaciones de Azure constan de muchos componentes, algunos diseñados a medida y otros suministrados por Microsoft. Microsoft no puede probar el rendimiento de todas las combinaciones posibles de componentes. Por lo tanto, es fundamental que realice una comprobación exhaustiva y apropiada del rendimiento de su aplicación durante la implementación.
 
-A continuación, teniendo en cuenta el modelo de la aplicación, debe realizar una prueba de concepto de la misma lo antes posible, así como una prueba de carga para validar la arquitectura, a fin de garantizar que la aplicación cumpla los requisitos de rendimiento en términos de escalabilidad y latencia. Es muy importante validar la arquitectura y suposiciones iniciales, dado que no es agradable implementar la aplicación y luego descubrir que esta no puede soportar la carga prevista. Visual Studio ofrece mecanismos para realizar pruebas de carga, descritos en el [documento de información general de Visual Studio sobre las pruebas de carga en Azure](http://www.visualstudio.com/get-started/load-test-your-app-vs).
+A continuación, teniendo en cuenta el modelo de la aplicación, debe realizar una prueba de concepto de la misma lo antes posible, así como una prueba de carga para validar la arquitectura, a fin de garantizar que la aplicación cumpla los requisitos de rendimiento en términos de escalabilidad y latencia. Es muy importante validar la arquitectura y suposiciones iniciales, dado que no es agradable implementar la aplicación y luego descubrir que esta no puede soportar la carga prevista. Visual Studio ofrece mecanismos para realizar pruebas de carga, descritos en el [documento de información general de Visual Studio sobre las pruebas de carga en Azure][].
 
 ### Diferencias del rendimiento en Azure
 
@@ -45,8 +45,7 @@ Algunos factores de rendimiento cambian en función de la situación de la aplic
 
 El capítulo a continuación de ese versa sobre los factores de rendimiento relativos a cualquier aplicación de Azure: latencia de red, conexiones transitorias, etc.
 
-Diseño para mejorar el rendimiento en un entorno en la nube
------------------------------------------------------------
+## Diseño para mejorar el rendimiento en un entorno en la nube
 
 Debe tener en cuenta los siguientes aspectos dependientes de la situación a la hora de diseñar una aplicación de Azure o de migrar una aplicación local a Azure:
 
@@ -79,9 +78,9 @@ Ya que la información específica varía, veremos cómo se utilizan estos tipos
 
 La mayoría de los principios que rigen el correcto diseño de una base de datos también se aplican a las Bases de datos SQL de Azure. Existe una cantidad ingente de documentos que describen cómo diseñar de manera efectiva una Base de datos de SQL Server o de SQL Azure. Algunos de ellos son:
 
--   [Database Design and Modeling Fundamentals](http://go.microsoft.com/fwlink/?LinkId=252675)
--   [Stairway to Database Design](http://go.microsoft.com/fwlink/?LinkId=252676)
--   [Database Design](http://go.microsoft.com/fwlink/?LinkId=252677)
+-   [Database Design and Modeling Fundamentals][]
+-   [Stairway to Database Design][]
+-   [Database Design][]
 
 Hay dos actividades de diseño fundamentales que son diferentes en Azure:
 
@@ -104,17 +103,17 @@ Un patrón de diseño habitual compatible con el almacenamiento de tablas consta
 
 Para obtener más información acerca del almacenamiento de tablas, consulte:
 
--   [Almacenamiento de Tabla de Azure y Base de datos SQL de Azure: comparación y diferencias](http://msdn.microsoft.com/es-es/library/jj553018.aspx)
--   [Azure Table Storage Performance Considerations](http://go.microsoft.com/fwlink/?LinkId=252663)
--   [SQL Azure and Microsoft Azure Table Storage](http://go.microsoft.com/fwlink/?LinkId=252664)
--   [Improving Performance by Batching Azure Table Storage Inserts](http://go.microsoft.com/fwlink/?LinkID=252665), donde se comentan algunos resultados de rendimiento
--   [Guía sobre rendimiento y elasticidad de las bases de datos SQL](http://go.microsoft.com/fwlink/?LinkId=221876)
+-   [Almacenamiento de Tabla de Azure y Base de datos SQL de Azure: comparación y diferencias][]
+-   [Azure Table Storage Performance Considerations][]
+-   [SQL Azure and Microsoft Azure Table Storage][]
+-   [Improving Performance by Batching Azure Table Storage Inserts][], donde se comentan algunos resultados de rendimiento
+-   [Guía sobre rendimiento y elasticidad de las bases de datos SQL][]
 
 #### División de los datos en particiones
 
 Uno de los recursos que con mayor frecuencia se dividen en particiones son los datos. Si va a crear un servicio en la nube de Azure, debe considerar la posibilidad de utilizar el particionamiento integrado de las bases de datos SQL, disponible a través de federaciones.
 
-Para obtener información general acerca de las federaciones de las bases de datos SQL, consulte [Federaciones en Base de datos SQL de Azure (anteriormente SQL Azure)](http://go.microsoft.com/fwlink/?LinkId=252668).
+Para obtener información general acerca de las federaciones de las bases de datos SQL, consulte [Federaciones en Base de datos SQL de Azure (anteriormente SQL Azure)][].
 
 ##### Tareas de diseño de las federaciones SQL
 
@@ -130,18 +129,18 @@ Por ejemplo, en la conocida base de datos de ejemplo AdventureWorks, una posible
 
 Cada agregación es un candidato para la federación. Debe evaluar dónde prevé un aumento de tamaño y también examinar la carga de trabajo de la aplicación: las consultas que se ajusten bien al esquema de las federaciones, es decir, que no requieran datos de más de un miembro de la federación, se ejecutarán sin problemas. Por el contrario, aquellas que no se ajusten bien a dicho esquema necesitarán lógica en el nivel de aplicación, ya que las bases de datos SQL actualmente no admiten las uniones entre bases de datos.
 
-Para consultar un análisis de diseño de ejemplo en el que se examina la base de datos AdventureWorks para su posible federación y se muestran paso a paso las consideraciones implicadas en el diseño, consulte [Scale-First Approach to Database Design with Federations: Part 1 - Picking Federations and Picking the Federation Key](http://go.microsoft.com/fwlink/?LinkId=252671).
+Para consultar un análisis de diseño de ejemplo en el que se examina la base de datos AdventureWorks para su posible federación y se muestran paso a paso las consideraciones implicadas en el diseño, consulte [Scale-First Approach to Database Design with Federations: Part 1 - Picking Federations and Picking the Federation Key][].
 
 Una vez que decida qué tablas federar, debe agregar la clave principal de la tabla raíz de la agregación en forma de columna a cada una de las tablas relacionadas.
 
-Asimismo, una vez decidido en qué tablas basar la federación, surge el problema de dónde colocar las tablas de referencia y otros objetos de base de datos. En el siguiente documento podrá encontrar información exhaustiva sobre este tema: [Scale-First Approach to Database Design with Federations: Part 2 - Annotating and Deploying Schema for Federations](http://go.microsoft.com/fwlink/?LinkId=252672). El modo de realizar consultas más avanzadas se describe en la [parte 2](http://go.microsoft.com/fwlink/?LinkId=252673) (en inglés).
+Asimismo, una vez decidido en qué tablas basar la federación, surge el problema de dónde colocar las tablas de referencia y otros objetos de base de datos. En el siguiente documento podrá encontrar información exhaustiva sobre este tema: [Scale-First Approach to Database Design with Federations: Part 2 - Annotating and Deploying Schema for Federations][]. El modo de realizar consultas más avanzadas se describe en la [parte 2][] (en inglés).
 
 ##### División en particiones por parte del usuario
 
 Hay varios ejemplos que muestran maneras de dividir los datos en particiones. Si decide no utilizar las federaciones para dividir la instancia de Base de datos SQL en particiones, debe elegir un método de división en particiones apropiado para la aplicación. A continuación se muestran algunos ejemplos:
 
--   Encontrará información exhaustiva en [How to Shard with Azure SQL Database](http://go.microsoft.com/fwlink/?LinkId=252678), cuyo contenido se escribió antes del lanzamiento de las federaciones.
--   [SQL Server and SQL Azure Shard Library](http://go.microsoft.com/fwlink/?LinkId=252679)
+-   Encontrará información exhaustiva en [How to Shard with Azure SQL Database][], cuyo contenido se escribió antes del lanzamiento de las federaciones.
+-   [SQL Server and SQL Azure Shard Library][]
 
 ##### División de otros recursos en particiones
 
@@ -153,7 +152,7 @@ Dependiendo de la aplicación, es posible que pueda aplicar un razonamiento simi
 
 El servicio de almacenamiento en caché de Azure ofrece memoria elástica distribuida para almacenar en caché información como el estado de la sesión de ASP.net o valores a los que se hace referencia habitualmente en las tablas de referencia de Base de datos SQL. Debido a que los objetos se almacenan en memoria distribuida, el rendimiento puede aumentar considerablemente. Dado que Azure administra la infraestructura de almacenamiento en caché, el coste de desarrollo que hay que asumir para implementarla es mínimo.
 
-Planifique el aprovisionamiento de una capacidad de almacenamiento en caché suficiente para poder almacenar los objetos de acceso frecuente. En Base de datos SQL existen tablas de referencia frecuente que se utilizan para convertir los códigos numéricos en cadenas de caracteres descriptivas más largas. Estas tablas suelen incluir datos como nombres de países y ciudades, códigos postales válidos, nombres de departamentos de la empresa, etc. En el caso de las tablas más pequeñas, puede tener sentido almacenar la tabla completa en caché, pero en otros casos es conveniente almacenar solo los valores que se utilizan con mayor frecuencia. El aumento del rendimiento procede de las consultas multiunión relativas a estos datos: por cada valor que se encuentra en la memoria caché se guardan varios accesos a disco. El siguiente documento contiene información general y datos más detallados sobre el rendimiento y el almacenamiento en caché en Azure: [Introducing the Microsoft Azure Caching Service](http://go.microsoft.com/fwlink/?LinkId=252680). Una entrada de blog más reciente sobre este tema es [Windows \#Azure Caching – Performance considerations](http://go.microsoft.com/fwlink/?LinkId=252681).
+Planifique el aprovisionamiento de una capacidad de almacenamiento en caché suficiente para poder almacenar los objetos de acceso frecuente. En Base de datos SQL existen tablas de referencia frecuente que se utilizan para convertir los códigos numéricos en cadenas de caracteres descriptivas más largas. Estas tablas suelen incluir datos como nombres de países y ciudades, códigos postales válidos, nombres de departamentos de la empresa, etc. En el caso de las tablas más pequeñas, puede tener sentido almacenar la tabla completa en caché, pero en otros casos es conveniente almacenar solo los valores que se utilizan con mayor frecuencia. El aumento del rendimiento procede de las consultas multiunión relativas a estos datos: por cada valor que se encuentra en la memoria caché se guardan varios accesos a disco. El siguiente documento contiene información general y datos más detallados sobre el rendimiento y el almacenamiento en caché en Azure: [Introducing the Microsoft Azure Caching Service][]. Una entrada de blog más reciente sobre este tema es [Windows#Azure Caching – Performance considerations][].
 
 #### Situación: Uso de colas en las aplicaciones de Azure
 
@@ -165,9 +164,9 @@ Azure dispone de dos tecnologías de colas alternativas: las colas de almacenami
 
 Las colas de almacenamiento de Azure ofrecen un gran tamaño de cola, seguimiento del progreso y otras muchas características. Bus de servicio ofrece una función de publicación/suscripción, total integración con Windows Communication Foundation (WCF), detección automática de duplicados, garantía de entrega por orden de entrada, etc.
 
-En el siguiente documento podrá encontrar una comparación completa y detallada de ambas tecnologías: [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias](http://go.microsoft.com/fwlink/?LinkId=252682).
+En el siguiente documento podrá encontrar una comparación completa y detallada de ambas tecnologías: [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias][].
 
-En el documento [Prácticas recomendadas para las mejoras de rendimiento mediante la mensajería con confianza establecida del Service Bus](http://go.microsoft.com/fwlink/?LinkID=252683) encontrará información acerca del rendimiento de Bus de servicio.
+En el documento [Prácticas recomendadas para las mejoras de rendimiento mediante la mensajería con confianza establecida del Service Bus][] encontrará información acerca del rendimiento de Bus de servicio.
 
 #### Situación: Aplicaciones de datos de gran tamaño
 
@@ -201,15 +200,15 @@ Existen cuatro tipos principales de almacenamiento de datos NoSQL:
 
 Azure ofrece compatibilidad directa con Hadoop, además de permitir el uso de otras tecnologías. Para obtener información acerca del servicio HDInsight de Azure, consulte:
 
--   [Datos de gran tamaño](/en-us/solutions/big-data/)
--   [Servicio HDInsight de Azure](/es-es/documentation/services/hdinsight/)
--   [Introducción al servicio HDInsight de Azure](/es-es/documentation/articles/hdinsight-get-started/)
+-   [Datos de gran tamaño][]
+-   [Servicio HDInsight de Azure][]
+-   [Introducción al servicio HDInsight de Azure][]
 
 En los siguientes documentos podrá encontrar información sobre los problemas relacionados con los diferentes métodos de almacenamiento NoSQL:
 
--   [Getting Acquainted with NoSQL on Azure](http://go.microsoft.com/fwlink/?LinkId=252729)
--   [AggregateOrientedDatabase](http://go.microsoft.com/fwlink/?LinkID=252731)
--   [PolyglotPersistence](http://go.microsoft.com/fwlink/?LinkId=252732)
+-   [Getting Acquainted with NoSQL on Azure][]
+-   [AggregateOrientedDatabase][]
+-   [PolyglotPersistence][]
 
 #### Otras optimizaciones del rendimiento de servicios de Azure concretos
 
@@ -225,23 +224,22 @@ Aunque no persiste en caso de error de la máquina, puede utilizarse para almace
 
 ##### Servicio de control de acceso de Azure (ACS)
 
-Los dos factores principales que afectan al uso de los recursos por parte del ACS, y en consecuencia al rendimiento, son el tamaño de token y el cifrado. Encontrará más información en el documento [Directrices de rendimiento de ACS](http://go.microsoft.com/fwlink/?LinkId=252747).
+Los dos factores principales que afectan al uso de los recursos por parte del ACS, y en consecuencia al rendimiento, son el tamaño de token y el cifrado. Encontrará más información en el documento [Directrices de rendimiento de ACS][].
 
 ##### Serialización
 
-La serialización no es un componente obvio de la optimización del rendimiento, pero reducir el tráfico de red puede resultar significativo en algunos casos. En el documento [Aplicaciones web y serialización de Azure](http://go.microsoft.com/fwlink/?LinkId=252749) podrá encontrar demostraciones de reducciones que ejemplifican cómo el tamaño de la serialización puede variar dependiendo del protocolo.
+La serialización no es un componente obvio de la optimización del rendimiento, pero reducir el tráfico de red puede resultar significativo en algunos casos. En el documento [Aplicaciones web y serialización de Azure][] podrá encontrar demostraciones de reducciones que ejemplifican cómo el tamaño de la serialización puede variar dependiendo del protocolo.
 
 Si la cantidad de datos que se van a mover supone un problema para el rendimiento, utilice la serialización más pequeña disponible. En caso de que el rendimiento de la serialización sea insuficiente, puede utilizar formatos de serialización personalizados o ajenos a Microsoft. Como siempre, es esencial realizar una prueba de concepto.
 
-### Sitios web de Azure que utilizan MySQL
+### Sitios web de Azure que utiliza MySQL
 
 En los siguientes vínculos encontrará consejos sobre rendimiento para MySQL:
 
--   Si busca *rendimiento* en [http://mysql.com](http://go.microsoft.com/fwlink/?LinkId=252775), aparecerán muchos recursos.
--   Los foros situados en el vínculo [http://forums.mysql.com/list.php?24](http://go.microsoft.com/fwlink/?LinkId=252776) son otro recurso interesante.
+-   Si busca *rendimiento* en [http://mysql.com]( http://go.microsoft.com/fwlink/?LinkId=252775), aparecerán muchos recursos.
+-   Los foros situados en el vínculo [][1]<http://forums.mysql.com/list.php?24></a> son otro recurso interesante.
 
-Diseño para sistemas compartidos
---------------------------------
+## Diseño para sistemas compartidos
 
 Azure está diseñado para ejecutar simultáneamente varias aplicaciones, que se replican en múltiples máquinas en caso de conmutación por error. Esto afecta al rendimiento de las aplicaciones de varias maneras:
 
@@ -253,7 +251,7 @@ Azure está diseñado para ejecutar simultáneamente varias aplicaciones, que se
 
 -   Ubicación física de los servicios
 
-Estas consideraciones se aplican a todas las arquitecturas de aplicación, que están determinadas por la infraestructura física de los centros de datos de Azure. Si desea obtener información detallada, consulte la [guía sobre rendimiento y elasticidad de las bases de datos SQL](http://go.microsoft.com/fwlink/?LinkID=252666) (en inglés).
+Estas consideraciones se aplican a todas las arquitecturas de aplicación, que están determinadas por la infraestructura física de los centros de datos de Azure. Si desea obtener información detallada, consulte la [guía sobre rendimiento y elasticidad de las bases de datos SQL][] (en inglés).
 
 ### Latencia de red
 
@@ -269,7 +267,7 @@ Por ejemplo, coloque la aplicación web en el mismo centro de datos que la insta
 
 ### Conexiones transitorias
 
-La aplicación DEBE ser capaz de soportar que se descarten conexiones. Esto es algo inevitable e intrínseco a la arquitectura en la nube (p. ej., operaciones como reemplazar un nodo inactivo, dividir un miembro de una federación en una Base de datos SQL, etc.). Ahora mismo, el mejor marco para hacerlo es el bloque de aplicación que soporta errores transitorios ([The Transient Fault Handling Application Block](http://go.microsoft.com/fwlink/?LinkID=236901)).
+La aplicación DEBE ser capaz de soportar que se descarten conexiones. Esto es algo inevitable e intrínseco a la arquitectura en la nube (p. ej., operaciones como reemplazar un nodo inactivo, dividir un miembro de una federación en una Base de datos SQL, etc.). Ahora mismo, el mejor marco para hacerlo es el bloque de aplicación que soporta errores transitorios ([The Transient Fault Handling Application Block][]).
 
 ### Limitaciones
 
@@ -283,54 +281,99 @@ Azure reduce drásticamente el esfuerzo que conlleva la planificación de la cap
 
 -   Nodos informáticos
 -   Almacenamiento de blobs
--   Almacenamiento de tablas
+-   Almacenamiento de tabla
 -   Colas, etc.
 
 Además, dada la escalabilidad de Azure, las decisiones iniciales sobre la capacidad no tienen por qué ser definitivas: resulta relativamente sencillo escalar o reducir verticalmente los recursos de Azure. A pesar de ello, es importante planificar con precisión la capacidad, a fin de evitar que cuando se publique la aplicación se produzca un período de prueba y error en lo referente a la capacidad.
 
-En el caso de aplicaciones cuyas necesidades de recursos varían drásticamente con el tiempo, se puede utilizar el bloque de aplicación autoescalable ([The Autoscaling Application Block](http://go.microsoft.com/fwlink/?LinkId=252873)). Este bloque permite establecer reglas para escalar y reducir verticalmente las instancias de rol. Hay dos tipos de reglas definidas:
+En el caso de aplicaciones cuyas necesidades de recursos varían drásticamente con el tiempo, se puede utilizar el bloque de aplicación autoescalable ([The Autoscaling Application Block][]). Este bloque permite establecer reglas para escalar y reducir verticalmente las instancias de rol. Hay dos tipos de reglas definidas:
 
 -   Reglas de restricción, que establecen la cantidad máxima/mínima de instancias según la hora del día
 
 -   Reglas reactivas, que surten efecto cuando se produce alguna condición como el porcentaje de uso de la CPU
 
-También es posible definir reglas personalizadas. Para obtener más información, consulte [The Autoscaling Application Block](http://go.microsoft.com/fwlink/?LinkId=252873).
+También es posible definir reglas personalizadas. Para obtener más información, consulte [The Autoscaling Application Block][].
 
-La planificación de la capacidad es una especialidad completa en sí misma, y en este documento se asume que tiene experiencia en la materia. Para obtener información detallada acerca de la planificación de la capacidad en Azure, consulte [Planeación de la capacidad para Colas y Temas de Service Bus](http://go.microsoft.com/fwlink/?LinkId=252875).
+La planificación de la capacidad es una especialidad completa en sí misma, y en este documento se asume que tiene experiencia en la materia. Para obtener información detallada acerca de la planificación de la capacidad en Azure, consulte [Planeación de la capacidad para Colas y Temas de Service Bus][].
 
-Supervisión y ajuste del rendimiento durante la ejecución
----------------------------------------------------------
+## Supervisión y ajuste del rendimiento durante la ejecución
 
 Incluso el diseño más cuidadoso no puede garantizar que no se produzca ningún problema de rendimiento durante la ejecución, por lo que es necesario supervisar el rendimiento de la aplicación de manera regular para comprobar que se alcancen las métricas de rendimiento requeridas y realizar correcciones en aquellos casos en que no se alcancen dichas métricas. Las aplicaciones bien diseñadas también están sujetas a imprevistos, como un aumento exponencial del uso o posibles cambios en el entorno de tiempo de ejecución, que pueden provocar problemas de rendimiento y requerir ajustes del diseño. A menudo, la identificación y solución de los cuellos de botella constituye una parte esencial de este proceso.
 
-Para poder solucionar los problemas de rendimiento durante la ejecución es necesario un trabajo previo consistente en integrar funciones de registro y administración apropiada de las excepciones, de tal manera que siempre que surja una dificultad se pueda aplicar el proceso de solución de problemas. Para obtener información exhaustiva acerca de este tema, consulte [Procedimientos recomendados de solución de problemas para desarrollar aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkID=252876).
+Para poder solucionar los problemas de rendimiento durante la ejecución es necesario un trabajo previo consistente en integrar funciones de registro y administración apropiada de las excepciones, de tal manera que siempre que surja una dificultad se pueda aplicar el proceso de solución de problemas. Para obtener información exhaustiva acerca de este tema, consulte [Procedimientos recomendados de solución de problemas para desarrollar aplicaciones de Azure][].
 
 Existen herramientas disponibles para supervisar el rendimiento continuo de cada servicio de Azure. Además, las aplicaciones deben integrar funciones de registro que ofrezcan información detallada con la que poder solucionar los problemas generales y los relacionados con el rendimiento.
 
-### Base de datos SQL
+### Base de datos SQL de Azure
 
 Tenga en cuenta que el Analizador SQL actualmente no se encuentra disponible en Azure. Existen otras maneras de obtener la información necesaria sobre el rendimiento, por ejemplo, una alternativa durante el desarrollo es realizar una prueba inicial en una versión local de la base de datos, donde el Analizador SQL está disponible.
 
-También puede utilizar el comando de Transact-SQL SET STATISTICS y recurrir a SQL Server Management Studio para ver el plan de ejecución generado por una consulta, dado que las consultas eficientes sobre codificación son esenciales para el rendimiento. Si desea obtener información detallada e instrucciones paso a paso para realizar este proceso, consulte [Gaining Performance Insight into SQL Database](http://go.microsoft.com/fwlink/?LinkId=252877). Otro documento de interés es [SQL Database and SQL Server on premise](http://go.microsoft.com/fwlink/?LinkId=252878).
+También puede utilizar el comando de Transact-SQL SET STATISTICS y recurrir a SQL Server Management Studio para ver el plan de ejecución generado por una consulta, dado que las consultas eficientes sobre codificación son esenciales para el rendimiento. Si desea obtener información detallada e instrucciones paso a paso para realizar este proceso, consulte [Gaining Performance Insight into SQL Database][]. Otro documento de interés es [SQL Database and SQL Server on premise][].
 
 Estos dos documentos tratan sobre las vistas de administración dinámica:
 
--   [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica](http://go.microsoft.com/fwlink/?LinkId=236195)
--   [Useful DMV's for SQL Azure to analyze if you miss SQL Profiler](http://go.microsoft.com/fwlink/?LinkId=252879)
+-   [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica][]
+-   [Useful DMV's for SQL Azure to analyze if you miss SQL Profiler][]
 
 ### Recursos y herramientas de análisis
 
 Existen diversas herramientas ajenas a Microsoft que se pueden utilizar para analizar el rendimiento de Azure:
 
--   [Cerebrata](http://go.microsoft.com/fwlink/?LinkId=252880)
--   [SQL Server and SQL Azure Performance Testing: Enzo SQL Baseline](http://enzosqlbaseline.codeplex.com/)
+-   [Cerebrata][]
+-   [SQL Server and SQL Azure Performance Testing: Enzo SQL Baseline][]
 
 Otros recursos
 
--   [Guía sobre rendimiento y elasticidad de las bases de datos SQL](http://go.microsoft.com/fwlink/?LinkID=252666)
--   [Base de datos SQL](http://go.microsoft.com/fwlink/?LinkId=246930)
--   [Almacenamiento](http://go.microsoft.com/fwlink/?LinkId=246933)
--   [Redes](http://go.microsoft.com/fwlink/?LinkId=252882)
--   [Bus de servicio](http://go.microsoft.com/fwlink/?LinkId=246934)
--   [Azure Planning – A Post-decision Guide to Integrate Azure in Your Environment](http://go.microsoft.com/fwlink/?LinkId=252884)
+-   [Guía sobre rendimiento y elasticidad de las bases de datos SQL][guía sobre rendimiento y elasticidad de las bases de datos SQL]
+-   [Base de datos SQL de Azure][]
+-   [Almacenamiento][]
+-   [Redes][]
+-   [Bus de servicio][]
+-   [Azure Planning – A Post-decision Guide to Integrate Azure in Your Environment][]
 
+  [“the amount of useful work accomplished compared to the time and resources used (la cantidad de trabajo útil realizado comparada con el tiempo y los recursos empleados)”.]: http://go.microsoft.com/fwlink/?LinkId=252650
+  [documento de información general de Visual Studio sobre las pruebas de carga en Azure]: http://www.visualstudio.com/get-started/load-test-your-app-vs
+  [Database Design and Modeling Fundamentals]: http://go.microsoft.com/fwlink/?LinkId=252675
+  [Stairway to Database Design]: http://go.microsoft.com/fwlink/?LinkId=252676
+  [Database Design]: http://go.microsoft.com/fwlink/?LinkId=252677
+  [Almacenamiento de Tabla de Azure y Base de datos SQL de Azure: comparación y diferencias]: http://msdn.microsoft.com/es-es/library/jj553018.aspx
+  [Azure Table Storage Performance Considerations]: http://go.microsoft.com/fwlink/?LinkId=252663
+  [SQL Azure and Microsoft Azure Table Storage]: http://go.microsoft.com/fwlink/?LinkId=252664
+  [Improving Performance by Batching Azure Table Storage Inserts]: http://go.microsoft.com/fwlink/?LinkID=252665
+  [Guía sobre rendimiento y elasticidad de las bases de datos SQL]: http://go.microsoft.com/fwlink/?LinkId=221876
+  [Federaciones en Base de datos SQL de Azure (anteriormente SQL Azure)]: http://go.microsoft.com/fwlink/?LinkId=252668
+  [Scale-First Approach to Database Design with Federations: Part 1 - Picking Federations and Picking the Federation Key]: http://go.microsoft.com/fwlink/?LinkId=252671
+  [Scale-First Approach to Database Design with Federations: Part 2 - Annotating and Deploying Schema for Federations]: http://go.microsoft.com/fwlink/?LinkId=252672
+  [parte 2]: http://go.microsoft.com/fwlink/?LinkId=252673
+  [How to Shard with Azure SQL Database]: http://go.microsoft.com/fwlink/?LinkId=252678
+  [SQL Server and SQL Azure Shard Library]: http://go.microsoft.com/fwlink/?LinkId=252679
+  [Introducing the Microsoft Azure Caching Service]: http://go.microsoft.com/fwlink/?LinkId=252680
+  [Windows \#Azure Caching – Performance considerations]: http://go.microsoft.com/fwlink/?LinkId=252681
+  [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias]: http://go.microsoft.com/fwlink/?LinkId=252682
+  [Prácticas recomendadas para las mejoras de rendimiento mediante la mensajería con confianza establecida del Service Bus]: http://go.microsoft.com/fwlink/?LinkID=252683
+  [Datos de gran tamaño]: /es-es/solutions/big-data/
+  [Servicio HDInsight de Azure]: /es-es/documentation/services/hdinsight/
+  [Introducción al servicio HDInsight de Azure]: /es-es/documentation/articles/hdinsight-get-started/
+  [Getting Acquainted with NoSQL on Azure]: http://go.microsoft.com/fwlink/?LinkId=252729
+  [AggregateOrientedDatabase]: http://go.microsoft.com/fwlink/?LinkID=252731
+  [PolyglotPersistence]: http://go.microsoft.com/fwlink/?LinkId=252732
+  [Directrices de rendimiento de ACS]: http://go.microsoft.com/fwlink/?LinkId=252747
+  [Aplicaciones web y serialización de Azure]: http://go.microsoft.com/fwlink/?LinkId=252749
+
+  [1]: http://go.microsoft.com/fwlink/?LinkId=252776
+  [guía sobre rendimiento y elasticidad de las bases de datos SQL]: http://go.microsoft.com/fwlink/?LinkID=252666
+  [The Transient Fault Handling Application Block]: http://go.microsoft.com/fwlink/?LinkID=236901
+  [The Autoscaling Application Block]: http://go.microsoft.com/fwlink/?LinkId=252873
+  [Planeación de la capacidad para Colas y Temas de Service Bus]: http://go.microsoft.com/fwlink/?LinkId=252875
+  [Procedimientos recomendados de solución de problemas para desarrollar aplicaciones de Azure]: http://go.microsoft.com/fwlink/?LinkID=252876
+  [Gaining Performance Insight into SQL Database]: http://go.microsoft.com/fwlink/?LinkId=252877
+  [SQL Database and SQL Server on premise]: http://go.microsoft.com/fwlink/?LinkId=252878
+  [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica]: http://go.microsoft.com/fwlink/?LinkId=236195
+  [Useful DMV's for SQL Azure to analyze if you miss SQL Profiler]: http://go.microsoft.com/fwlink/?LinkId=252879
+  [Cerebrata]: http://go.microsoft.com/fwlink/?LinkId=252880
+  [SQL Server and SQL Azure Performance Testing: Enzo SQL Baseline]: http://enzosqlbaseline.codeplex.com/
+  [Base de datos SQL de Azure]: http://go.microsoft.com/fwlink/?LinkId=246930
+  [Almacenamiento]: http://go.microsoft.com/fwlink/?LinkId=246933
+  [Redes]: http://go.microsoft.com/fwlink/?LinkId=252882
+  [Bus de servicio]: http://go.microsoft.com/fwlink/?LinkId=246934
+  [Azure Planning – A Post-decision Guide to Integrate Azure in Your Environment]: http://go.microsoft.com/fwlink/?LinkId=252884

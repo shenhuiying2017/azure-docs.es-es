@@ -1,102 +1,123 @@
-<properties linkid="web-sites-backup" urlDisplayName="Azure Web Sites Backups" pageTitle="Azure Web Sites Backups" metaKeywords="Azure Web Sites, Backups" description="Learn how to create backups of your Azure web sites." metaCanonical="" services="web-sites" documentationCenter="" title="Azure Web Sites Backups" authors="timamm" solutions="" manager="paulettm" editor="mollybos" />
+<properties linkid="web-sites-backup" urlDisplayName="Azure Websites Backups" pageTitle="Azure Websites Backups" metaKeywords="Azure Web Sites, Backups" description="Learn how to create backups of your Azure websites." metaCanonical="" services="web-sites" documentationCenter="" title="Azure Websites Backups" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
-Copias de seguridad de Sitios web Azure
-=======================================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+
+# Copia de seguridad de Sitios web Azure
 
 La característica Copia de seguridad y restauración de Sitios web Azure le permite crear fácilmente copias de seguridad del sitio web, de forma manual o automática. Puede restaurar su sitio web a un estado anterior o crear un nuevo sitio web basado en una de las copias de seguridad del sitio original.
 
-Para obtener información acerca de la restauración de un sitio web Azure a partir de una copia de seguridad, consulte [Restauración de un sitio web de Microsoft Azure](http://www.windowsazure.com/es-es/documentation/articles/web-sites-restore/).
+Para obtener información acerca de la restauración de un sitio web Azure a partir de una copia de seguridad, consulte [Restauración de un sitio web de Microsoft Azure][].
 
-En este artículo
-----------------
+## En este artículo
 
--   [¿Qué se incluye en la copia de seguridad?](#whatsbackedup)
--   [Requisitos y restricciones](#requirements)
--   [Creación de una copia de seguridad manual](#manualbackup)
--   [Configuración de las copias de seguridad automatizadas](#automatedbackups)
--   [Almacenamiento de las copias de seguridad](#aboutbackups)
--   [Notas](#notes)
--   [Pasos siguientes](#nextsteps)
-    -   [Información adicional acerca de las cuentas de almacenamiento](#moreaboutstorage)
+-   [Copia de seguridad sencilla y automática (Vídeo)][]
+-   [¿Qué se incluye en la copia de seguridad?][]
+-   [Requisitos y restricciones][]
+-   [Creación de una copia de seguridad manual][]
+-   [Configuración de las copias de seguridad automatizadas][]
+-   [Almacenamiento de las copias de seguridad][]
+-   [Notas][]
+-   [Pasos siguientes][]
 
-## ¿Qué se incluye en la copia de seguridad? 
+    -   [Información adicional acerca de las cuentas de almacenamiento][]
+
+<a name="video"></a>
+
+## Copia de seguridad sencilla y automática (Vídeo)
+
+En este vídeo, Eduardo Laureano y Scott Hanselman nos presentan las copias de seguridad de los sitios web Azure. (Duración: 11:43)
+
+> [AZURE.VIDEO azure-websites-automatic-and-easy-backup]
+
+<a name="whatsbackedup"></a>
+
+## ¿Qué se incluye en la copia de seguridad?
+
 Sitios web Azure guarda la siguiente información en la copia de seguridad:
 
 -   Configuración del sitio web
--   Contenido del archivo del sitio web
+-   Contenido de archivos del sitio web
 -   Todas las bases de datos SQL Server o MySQL que estén conectadas con su sitio (puede elegir las que desee incluir en la copia de seguridad)
 
 Esta información se guarda en una copia de seguridad en la cuenta de almacenamiento de Azure que especifique.
 
 > [WACOM.NOTE] Cada copia de seguridad es una copia completa sin conexión de su sitio web, no una actualización incremental.
 
+<a name="requirements"></a>
+
 ## Requisitos y restricciones
 
--   La característica Copia de seguridad y restauración requiere que es sitio esté en el nivel estándar. Para obtener más información acerca del ajuste de escala del sitios web a un nivel estándar, consulte [Escalación de sitios web](http://www.windowsazure.com/es-es/documentation/articles/web-sites-scale/).
+-   La característica Copia de seguridad y restauración requiere que es sitio esté en el nivel estándar. Para obtener más información acerca del ajuste de escala del sitios web a un nivel estándar, consulte [Escalación de sitios web][].
 
--   La característica Copia de seguridad y restauración requiere una cuenta de almacenamiento de Azure que debe pertenecer a la misma suscripción que el sitio web del que quiere tener una copia de seguridad. Si todavía no tiene una cuenta de almacenamiento, puede crear una haciendo clic en el botón **Almacenamiento** (icono de cuadrícula) del panel izquierdo del portal de Azure y, a continuación, seleccionando **New** en la barra de comandos de la parte inferior. Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte los [vínculos](#moreaboutstorage) al final de este artículo.
+-   La característica Copia de seguridad y restauración requiere una cuenta de almacenamiento de Azure que debe pertenecer a la misma suscripción que el sitio web del que quiere tener una copia de seguridad. Si todavía no tiene una cuenta de almacenamiento, puede crear una haciendo clic en el botón **Almacenamiento** (icono de cuadrícula) del panel izquierdo del portal de Azure y, a continuación, seleccionando **New** en la barra de comandos de la parte inferior. Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte los [vínculos][Información adicional acerca de las cuentas de almacenamiento] al final de este artículo.
+
+<a name="manualbackup"></a>
 
 ## Creación de una copia de seguridad manual
 
 1.  En el Portal de Azure del sitio web, vaya a la pestaña **Copias de seguridad**.
 
-    ![Página Copias de seguridad](./media/web-sites-backup/01ChooseBackupsPage.png)
+    ![Página Copias de seguridad][]
 
 2.  Seleccione la cuenta de almacenamiento en la que desea guardar la copia de seguridad del sitio web. La cuenta de almacenamiento debe pertenecer a la misma suscripción que el sitio web del que quiere tener una copia de seguridad.
 
-    ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/02ChooseStorageAccount.png)
+    ![Selección de la cuenta de almacenamiento][]
 
 3.  En la opción **Bases de datos incluidas**, seleccione las bases de datos que están conectadas con su sitio web (SQL Server o MySQL) y de las que desee guardar una copia de seguridad.
 
-    ![Selección de las bases de datos que desea incluir](./media/web-sites-backup/03IncludedDatabases.png)
+    ![Selección de las bases de datos que desea incluir][]
 
     > [WACOM.NOTE] Para que una base de datos aparezca en esta lista, su cadena de conexión debe existir en la sección **Cadenas de conexión** de la pestaña Configure en el portal.
 
 4.  En la barra de comandos, haga clic en **Backup Now**.
 
-    ![Botón Backup Now](./media/web-sites-backup/04BackUpNow.png)
+    ![Botón Backup Now][]
 
     Verá un mensaje de progreso durante el proceso de realización de la copia de seguridad:
 
-    ![Mensaje de progreso de la copia de seguridad](./media/web-sites-backup/05BackupProgress.png)
+    ![Mensaje de progreso de la copia de seguridad][]
 
 Puede realizar una copia de seguridad manual en cualquier momento. Durante la vista previa, no es posible realizar más de 2 copias de seguridad en un período de 24 horas (sujeto a cambios).
+
+<a name="automatedbackups"></a>
 
 ## Configuración de las copias de seguridad automatizadas
 
 1.  En la página Copias de seguridad, establezca **Copia de seguridad automatizada** en ON.
 
-    ![Activación de las copias de seguridad automatizadas](./media/web-sites-backup/06SetAutomatedBackupOn.png)
+    ![Activación de las copias de seguridad automatizadas][]
 
 2.  Seleccione la cuenta de almacenamiento en la que desea guardar la copia de seguridad del sitio web. La cuenta de almacenamiento debe pertenecer a la misma suscripción que el sitio web del que quiere tener una copia de seguridad.
 
-    ![Selección de la cuenta de almacenamiento](./media/web-sites-backup/02ChooseStorageAccount.png)
+    ![Selección de la cuenta de almacenamiento][]
 
 3.  En el cuadro **Frequency**, especifique la frecuencia con la que desea realizar las copias de seguridad automatizadas. (Durante la vista previa, la única unidad de tiempo disponible es el número de días).
 
-    ![Selección de la frecuencia de la copia de seguridad](./media/web-sites-backup/07Frequency.png)
+    ![Selección de la frecuencia de la copia de seguridad][]
 
     El número de días debe estar comprendido entre 1 y 90, ambos incluidos (desde una vez al día hasta cada 90 días).
 
 4.  Utilice la opción **Start Date** para especificar la fecha y la hora a las que desea que comience la copia de seguridad automatizada.
 
-    ![Selección de la fecha de inicio](./media/web-sites-backup/08StartDate.png)
+    ![Selección de la fecha de inicio][]
 
     La hora está disponible en incrementos de media hora.
 
-    ![Selección de la hora de inicio](./media/web-sites-backup/09StartTime.png)
+    ![Selección de la hora de inicio][]
 
     > [WACOM.NOTE] Azure almacena las horas de las copias de seguridad en formato UTC, pero las muestra de acuerdo con la hora del sistema del equipo que esté utilizando para visualizar el portal.
 
 5.  En la sección **Bases de datos incluidas**, seleccione las bases de datos que están conectadas con su sitio web (SQL Server o MySQL) y de las que desee guardar una copia de seguridad. Para que una base de datos aparezca en la lista, su cadena de conexión debe existir en la sección **Cadenas de conexión** de la pestaña Configure en el portal.
 
-    ![Selección de las bases de datos que desea incluir](./media/web-sites-backup/03IncludedDatabases.png)
+    ![Selección de las bases de datos que desea incluir][]
 
     > [WACOM.NOTE] Si desea incluir una o varias bases de datos en la copia de seguridad y ha especificado una frecuencia inferior a 7 días, se le advertirá que la realización de copias de seguridad de forma frecuente puede aumentar los costes de su base de datos.
 
 6.  En la barra de comandos, haga clic en el botón **Save** para guardar los cambios de configuración (o seleccione **Discard** si ha decidido no guardarlos).
 
-    ![Botón Save](./media/web-sites-backup/10SaveIcon.png)
+    ![Botón Save][]
+
+<a name="aboutbackups"></a>
 
 ## Almacenamiento de las copias de seguridad
 
@@ -104,7 +125,15 @@ Después de realizar una o varias copias de seguridad, estas serán visibles en 
 
 Los nombres de los archivos de copia de seguridad .zip y .xml constan del nombre de su sitio web, seguido de un carácter de subrayado y una marca de tiempo correspondiente al momento en el que se realizó la copia de seguridad. La marca de tiempo contiene la fecha en el formato AAAAMMDD (en dígitos sin espacios) y la hora en modo de 24 horas con formato UTC (por ejemplo, fabrikam\_201402152300.zip). El contenido de estos archivos se puede descomprimir y examinar en caso de que desee obtener acceso a sus bases de datos sin tener que realizar una restauración del sitio web.
 
+El archivo XML almacenado con el archivo zip indica el nombre de la bases de datos en *backupdescription* \> *databases* \> *databasebackupdescription* \> *filename*.
+
+El archivo de copia de seguridad de la base de datos se guarda en la raíz del archivo .zip. En bases de datos de SQL, este es un archivo BACPAC (sin extensión de archivo) y se puede importar. Para crear una base de datos de SQL nueva a partir de la exportación de BACPAC, puede seguir los pasos indicados en el artículo [Importar un archivo de BACPAC para crear una nueva base de datos de usuario][].
+
+Para obtener información acerca de la restauración de un sitio web Azure (incluidas las bases de datos)con el portal de administración de Azure, consulte [Restauración de un sitio web de Microsoft Azure][1].
+
 > [WACOM.NOTE] La modificación de los archivos del contenedor **websitebackups** puede ocasionar que la base de datos deje de ser válida y, por lo tanto, no se pueda restaurar.
+
+<a name="notes"></a>
 
 ## Notas
 
@@ -113,16 +142,53 @@ Los nombres de los archivos de copia de seguridad .zip y .xml constan del nombre
 -   Aunque puede realizar una copia de seguridad que incluya más de un sitio web en la misma cuenta de almacenamiento, se recomienda crear una cuenta de almacenamiento independiente para cada sitio web a fin de facilitar el mantenimiento.
 -   Durante la vista previa, las operaciones de copia de seguridad y restauración solo están disponibles a través del Portal de administración de Azure.
 
-## Pasos siguientes 
-Para obtener información acerca de la restauración de un sitio web Azure a partir de una copia de seguridad, consulte [Restauración de un sitio web de Microsoft Azure](http://www.windowsazure.com/es-es/documentation/articles/web-sites-restore/).
+<a name="nextsteps"></a>
+
+## Pasos siguientes
+
+Para obtener información acerca de la restauración de un sitio web Azure a partir de una copia de seguridad, consulte [Restauración de un sitio web de Microsoft Azure][].
+
+Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure][].
+
+<a name="moreaboutstorage"></a>
 
 ### Información adicional acerca de las cuentas de almacenamiento
 
-[¿Qué es una cuenta de almacenamiento?](http://www.windowsazure.com/es-es/documentation/articles/storage-whatis-account/)
+[¿Qué es una cuenta de almacenamiento?][]
 
-[Creación de una cuenta de almacenamiento](http://www.windowsazure.com/es-es/documentation/articles/storage-create-storage-account/)
+[Direccionamiento del una cuenta de almacenamiento][]
 
-[Supervisión de una cuenta de almacenamiento](http://www.windowsazure.com/es-es/documentation/articles/storage-monitor-storage-account/)
+[Supervisión de una cuenta de almacenamiento][]
 
-[Understanding Azure Storage Billing](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
+[Understanding Azure Storage Billing][]
 
+<!-- IMAGES -->
+
+  [Restauración de un sitio web de Microsoft Azure]: http://www.windowsazure.com/es-es/documentation/articles/web-sites-restore/
+  [Copia de seguridad sencilla y automática (Vídeo)]: #video
+  [¿Qué se incluye en la copia de seguridad?]: #whatsbackedup
+  [Requisitos y restricciones]: #requirements
+  [Creación de una copia de seguridad manual]: #manualbackup
+  [Configuración de las copias de seguridad automatizadas]: #automatedbackups
+  [Almacenamiento de las copias de seguridad]: #aboutbackups
+  [Notas]: #notes
+  [Pasos siguientes]: #nextsteps
+  [Información adicional acerca de las cuentas de almacenamiento]: #moreaboutstorage
+  [Escalación de sitios web]: http://www.windowsazure.com/es-es/documentation/articles/web-sites-scale/
+  [Página Copias de seguridad]: ./media/web-sites-backup/01ChooseBackupsPage.png
+  [Selección de la cuenta de almacenamiento]: ./media/web-sites-backup/02ChooseStorageAccount.png
+  [Selección de las bases de datos que desea incluir]: ./media/web-sites-backup/03IncludedDatabases.png
+  [Botón Backup Now]: ./media/web-sites-backup/04BackUpNow.png
+  [Mensaje de progreso de la copia de seguridad]: ./media/web-sites-backup/05BackupProgress.png
+  [Activación de las copias de seguridad automatizadas]: ./media/web-sites-backup/06SetAutomatedBackupOn.png
+  [Selección de la frecuencia de la copia de seguridad]: ./media/web-sites-backup/07Frequency.png
+  [Selección de la fecha de inicio]: ./media/web-sites-backup/08StartDate.png
+  [Selección de la hora de inicio]: ./media/web-sites-backup/09StartTime.png
+  [Botón Save]: ./media/web-sites-backup/10SaveIcon.png
+  [Importar un archivo de BACPAC para crear una nueva base de datos de usuario]: http://technet.microsoft.com/es-es/library/hh710052.aspx
+  [1]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-restore/
+  [evaluación gratuita de Microsoft Azure]: http://azure.microsoft.com/es-es/pricing/free-trial/
+  [¿Qué es una cuenta de almacenamiento?]: http://www.windowsazure.com/es-es/documentation/articles/storage-whatis-account/
+  [Direccionamiento del una cuenta de almacenamiento]: http://www.windowsazure.com/es-es/documentation/articles/storage-create-storage-account/
+  [Supervisión de una cuenta de almacenamiento]: http://www.windowsazure.com/es-es/documentation/articles/storage-monitor-storage-account/
+  [Understanding Azure Storage Billing]: http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx

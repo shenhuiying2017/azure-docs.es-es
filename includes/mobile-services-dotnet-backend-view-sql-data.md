@@ -14,4 +14,4 @@ El último paso opcional de este tutorial es comprobar en la Base de datos SQL a
 
   [iniciar sesión para administrar la Base de datos SQL]: ./media/mobile-services-dotnet-backend-view-sql-data/manage-sql-azure-database.png
   [consultar en la Base de datos SQL los elementos almacenados]: ./media/mobile-services-dotnet-backend-view-sql-data/sql-azure-query.png
-  [EntityData]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.mobile.service.entitydata.aspx
+  [EntityData]: http://msdn.microsoft.com/es-es/library/microsoft.windowsazure.mobile.service.entitydata.aspx

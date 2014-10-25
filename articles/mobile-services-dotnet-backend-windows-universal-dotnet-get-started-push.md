@@ -4,7 +4,7 @@
 
 # Introducción a las notificaciones de inserción en Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push][mobile-services-selector-get-started-push]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 Este tema muestra cómo usar Servicios móviles de Azure con un back-end .NET para enviar notificaciones de inserción a una aplicación universal para Windows. Aprenderá a habilitar las notificaciones de inserción con los Centros de notificaciones de Azure en un proyecto de aplicación universal para Windows. Cuando termine, el servicio móvil enviará una notificación de inserción desde el back-end .NET a todas las aplicaciones de la Tienda Windows y de la Tienda de Windows Phone, siempre que se inserte un registro en la tabla TodoList. El centro de notificaciones que cree es gratuito con el servicio móvil, puede administrarse independientemente del servicio móvil y pueden utilizarlo otras aplicaciones y servicios.
 
@@ -27,7 +27,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## <span id="register"></span></a>Registrar la aplicación para las notificaciones de inserción
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013][mobile-services-create-new-push-vs2013]]
+[WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 1.  Vaya a la carpeta de proyecto `\Services\MobileServices\your_service_name`, abra el archivo de código push.register.cs generado e inspeccione el método **UploadChannel** que registra la URL de canal del dispositivo con el Centro de notificaciones.
 
@@ -39,7 +39,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
     Ahora los dos proyectos pueden compartir una misma llamada a **UploadChannel**.
 
-    <div class="dev-callout"><strong>Nota:</strong> <p>Si quiere simplificar el c&oacute;digo generado, unifique las definiciones <a href="http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> del contenedor <code data-inline="1">#if...#endif</code> en una &uacute;nica definici&oacute;n sin contenedor, que deben usar las dos versiones de la aplicaci&oacute;n.</p></div>
+    <div class="dev-callout"><strong>Nota:</strong> <p>Si quiere simplificar el c&oacute;digo generado, unifique las definiciones <a href="http://msdn.microsoft.com/es-es/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> del contenedor <code data-inline="1">#if...#endif</code> en una &uacute;nica definici&oacute;n sin contenedor, que deben usar las dos versiones de la aplicaci&oacute;n.</p></div>
 
 Tras habilitar las notificaciones de inserción en la aplicación, actualice el servicio móvil para enviarlas.
 
@@ -47,11 +47,11 @@ Tras habilitar las notificaciones de inserción en la aplicación, actualice el 
 
 Los pasos siguientes actualizan la clase TodoItemController existente para enviar una notificación de inserción a todos los dispositivos registrados cuando se inserta un elemento nuevo. Puede implementar código similar en cualquier elemento [ApiController] o [TableController] personalizado, o en cualquier otra ubicación de los servicios back-end.
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push][mobile-services-dotnet-backend-update-server-push]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push](../includes/mobile-services-dotnet-backend-update-server-push.md)]
 
 ## <span id="local-testing"></span></a>Habilitar notificaciones de inserción para pruebas locales
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push-vs2013][mobile-services-dotnet-backend-configure-local-push-vs2013]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push-vs2013](../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md)]
 
 Los pasos pendientes de esta sección son opcionales. Permiten probar la aplicación con un servicio móvil que se ejecuta en el equipo local. Si quiere probar las notificaciones de inserción con el servicio móvil que se ejecuta en Azure, vaya directamente a la última sección. Esto se debe a que el Asistente para agregar notificaciones de inserción ya ha configurado la aplicación para conectar con el servicio que se ejecuta en Azure.
 
@@ -71,7 +71,7 @@ Los pasos pendientes de esta sección son opcionales. Permiten probar la aplicac
 
 ## <span id="test"></span></a>Probar las notificaciones de inserción en su aplicación
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-windows-universal-test-push][mobile-services-dotnet-backend-windows-universal-test-push]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-windows-universal-test-push](../includes/mobile-services-dotnet-backend-windows-universal-test-push.md)]
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
@@ -103,7 +103,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
   [cuenta de Microsoft Store]: http://go.microsoft.com/fwlink/p/?LinkId=280045
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=391934
   [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [MobileServiceClient]: http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
+  [MobileServiceClient]: http://msdn.microsoft.com/es-es/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
   [mobile-services-dotnet-backend-update-server-push]: ../includes/mobile-services-dotnet-backend-update-server-push.md
   [mobile-services-dotnet-backend-configure-local-push-vs2013]: ../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md
   [mobile-services-dotnet-backend-windows-universal-test-push]: ../includes/mobile-services-dotnet-backend-windows-universal-test-push.md

@@ -1,14 +1,14 @@
-<properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" title="What is a web hosting plan?" authors="adamab" />
+<properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" title="What is a web hosting plan?" services="web-sites" authors="adamab" />
 
-¿Qué es un plan de hospedaje web?
-=================================
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab"></tags>
+
+# ¿Qué es un plan de hospedaje web?
 
 Los planes de hospedaje web representan un conjunto de características y capacidades que puede compartir entre los sitios web. Los planes de hospedaje web son compatibles con algunos niveles de precios (por ejemplo, gratis, compartido, básico y estándar), donde cada uno de ellos tiene sus propias funcionalidades. Los sitios en la misma suscripción, el mismo grupo de recursos y la misma ubicación geográfica pueden compartir un plan de hospedaje web.
 
-Características en los planes de hospedaje web
-----------------------------------------------
+## Características en los planes de hospedaje web
 
-Cada nivel de precio (por ejemplo, gratis, compartido, básico y estándar) tiene su propio conjunto de características. [Vaya a este sitio](http://go.microsoft.com/fwlink/?LinkID=394421) para conocer la información más reciente sobre características y precios.
+Cada nivel de precio (por ejemplo, gratis, compartido, básico y estándar) tiene su propio conjunto de características. [Vaya a este sitio][] para conocer la información más reciente sobre características y precios.
 
 Estas son algunas sugerencias útiles respecto de los planes de hospedaje web y sus características:
 
@@ -16,8 +16,9 @@ Estas son algunas sugerencias útiles respecto de los planes de hospedaje web y 
 -   Los sitios en la misma suscripción, ubicación y grupo de recursos pueden compartir un plan de hospedaje web.
 -   Características como la escala automática funcionan dirigidas a un plan de hospedaje web. Si desea escalar de manera automática sitios individuales, debe dedicar un plan de hospedaje web a ese sitio.
 
-Planes de hospedaje web y capacidad
------------------------------------
+[Obtenga más información acerca de la administración de planes de hospedaje web][].
+
+## Planes de hospedaje web y capacidad
 
 Los planes de hospedaje web en los niveles gratis y compartido proporcionan sitios con una infraestructura compartida, lo que significa que los sitios comparten recursos con los sitios de otros clientes.
 
@@ -33,18 +34,27 @@ Cuando se crea un sitio nuevo, el portal le preguntará con qué plan de hospeda
 
 Puede ver todos los planes de hospedaje web en todas sus suscripciones si utiliza el botón **Browse** en la barra de menú de la izquierda y, a continuación, hace clic en **Everything** en la esquina superior derecha del panel de actividades que aparece en pantalla.
 
-![](./media/web-sites-web-hosting-plan-overview/browse-everything.png) ![](./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png)
+![][]
+![][1]
 
 También puede ver con qué plan de hospedaje web está asociado cada sitio web si mira la representación gráfica del grupo de recursos que aparece en la parte superior del cuadro del sitio web.
 
-![](./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png)
+![][2]
 
-Si hace clic en el plan, aparece un cuadro que le permite administrar el plan de hospedaje web. [Obtenga más información acerca de la administración de planes de hospedaje web](http://go.microsoft.com/fwlink/?LinkID=394411).
+Si hace clic en el plan, aparece un cuadro que le permite administrar el plan de hospedaje web. [Obtenga más información acerca de la administración de planes de hospedaje web][].
 
-![](./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png)
+![][3]
+
+### Pasos siguientes
+
+Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure][].
 
 <!-- Images. -->
-[BrowseEverythingScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
-[WebHostingPlanResourceMapScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
-[WebHostingPlanBladeScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png
-[BrowseWebHostingPlansScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
+
+  [Vaya a este sitio]: http://go.microsoft.com/fwlink/?LinkID=394421
+  [Obtenga más información acerca de la administración de planes de hospedaje web]: http://go.microsoft.com/fwlink/?LinkID=394411
+  []: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
+  [1]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
+  [2]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
+  [3]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png
+  [evaluación gratuita de Microsoft Azure]: http://azure.microsoft.com/es-es/pricing/free-trial/

@@ -150,10 +150,10 @@ Si quiere más información sobre cómo administrar el control de acceso basado 
 
   [Windows PowerShell]: /es-es/documentation/articles/powershell-rbac.md "Windows PowerShell"
   [CLI entre plataformas]: /es-es/documentation/articles/xplat-cli-rbac.md "CLI entre plataformas"
-  [Windows Management Framework 3.0]: http://www.microsoft.com/en-us/download/details.aspx?id=34595
-  [Windows Management Framework 4.0]: http://www.microsoft.com/en-us/download/details.aspx?id=40855
+  [Windows Management Framework 3.0]: http://www.microsoft.com/es-es/download/details.aspx?id=34595
+  [Windows Management Framework 4.0]: http://www.microsoft.com/es-es/download/details.aspx?id=40855
   [Instalación y configuración de Azure PowerShell]: http://www.windowsazure.com/es-es/documentation/articles/install-configure-powershell/
-  [Getting Started with Windows PowerShell]: http://technet.microsoft.com/en-us/library/hh857337.aspx
+  [Getting Started with Windows PowerShell]: http://technet.microsoft.com/es-es/library/hh857337.aspx
   [1]: http://azure.microsoft.com/es-es/documentation/articles/install-configure-powershell/
   [Uso de Windows PowerShell con el Administrador de recursos]: http://azure.microsoft.com/es-es/documentation/articles/powershell-azure-resource-manager/
   [Conectarse a sus suscripciones]: #connect

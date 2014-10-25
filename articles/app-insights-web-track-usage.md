@@ -6,13 +6,13 @@
 
 ## <a name="webclient"></a>Configurar el análisis de uso de web
 
-Si todavía no lo ha hecho, [agregue Application Insights al proyecto web][agregue Application Insights al proyecto web].
+Si todavía no lo ha hecho, [agregue Application Insights al proyecto web][start].
 
 ## <a name="usage"></a>Análisis de uso
 
 En la hoja de información general de la aplicación, aparecen estos mosaicos de uso:
 
-![][]
+![](./media/appinsights/appinsights-47usage.png)
 
 ### Sesiones por explorador
 
@@ -26,13 +26,13 @@ Muestra los recuentos totales de las últimas 24 horas.
 
 Haga clic en el mosaico de vistas de página para obtener un historial más detallado.
 
-![][1]
+![](./media/appinsights/appinsights-49usage.png)
 
 Haga clic en Intervalo de tiempo para ver un historial más extenso de hasta siete días.
 
 Haga clic en un gráfico para ver otras métricas que puede mostrar.
 
-![][2]
+![](./media/appinsights/appinsights-63usermetrics.png)
 
 ## Recuentos de página personalizados
 
@@ -50,13 +50,13 @@ Por lo general, Application Insights analiza la telemetría de vista de página 
 
 En la hoja Búsqueda de diagnóstico, establezca Filtros en Vista de página.
 
-![][3]
+![](./media/appinsights/appinsights-51searchpageviews.png)
 
 Seleccione el evento que desea ver con mayor detalle.
 
-> [WACOM.NOTE] Si desea usar [Buscar][Buscar], tenga en cuenta que deben coincidir las palabras completas. "Acerc" y "cerca" no coinciden con "Acerca", aunque "Acerc\* " sí. Tampoco puede iniciar un término de búsqueda con un carácter comodín. Por ejemplo, "\*cerc" no coincide con "Acerca".
+> [WACOM.NOTE] Si desea usar [Buscar][diagnostic], tenga en cuenta que deben coincidir las palabras completas. "Acerc" y "cerca" no coinciden con "Acerca", aunque "Acerc\* " sí. Tampoco puede iniciar un término de búsqueda con un carácter comodín. Por ejemplo, "\*cerc" no coincide con "Acerca".
 
-> [Más información sobre la búsqueda de diagnóstico][Buscar]
+> [Más información sobre la búsqueda de diagnóstico][diagnostic]]
 
 ## Seguir el uso
 
@@ -64,24 +64,24 @@ Seleccione el evento que desea ver con mayor detalle.
 
 ## Más información
 
--   [Application Insights: primeros pasos][agregue Application Insights al proyecto web]
--   [Supervisar un servidor web activo en este momento][Supervisar un servidor web activo en este momento]
--   [Supervisar el rendimiento de aplicaciones web][Supervisar el rendimiento de aplicaciones web]
--   [Buscar registros de diagnóstico][Buscar]
--   [Seguimiento de disponibilidad con pruebas web][Seguimiento de disponibilidad con pruebas web]
--   [Seguir el uso][Seguir el uso]
--   [Preguntas y respuestas y solución de problemas][Preguntas y respuestas y solución de problemas]
+-   [Application Insights: primeros pasos][start]
+-   [Supervisar un servidor web activo en este momento][redfield]
+-   [Supervisar el rendimiento de aplicaciones web][perf]
+-   [Buscar registros de diagnóstico][diagnostic]
+-   [Seguimiento de disponibilidad con pruebas web][availability]
+-   [Seguir el uso][usage]
+-   [Preguntas y respuestas y solución de problemas][qna]
 
 <!--Link references-->
 
-  [agregue Application Insights al proyecto web]: ../app-insights-start-monitoring-app-health-usage/
+  [start]: ../app-insights-start-monitoring-app-health-usage/
   []: ./media/appinsights/appinsights-47usage.png
   [1]: ./media/appinsights/appinsights-49usage.png
   [2]: ./media/appinsights/appinsights-63usermetrics.png
   [3]: ./media/appinsights/appinsights-51searchpageviews.png
-  [Buscar]: ../app-insights-search-diagnostic-logs/
-  [Supervisar un servidor web activo en este momento]: ../app-insights-monitor-performance-live-website-now/
-  [Supervisar el rendimiento de aplicaciones web]: ../app-insights-web-monitor-performance/
-  [Seguimiento de disponibilidad con pruebas web]: ../app-insights-monitor-web-app-availability/
-  [Seguir el uso]: ../app-insights-web-track-usage/
-  [Preguntas y respuestas y solución de problemas]: ../app-insights-troubleshoot-faq/
+  [diagnostic]: ../app-insights-search-diagnostic-logs/
+  [redfield]: ../app-insights-monitor-performance-live-website-now/
+  [perf]: ../app-insights-web-monitor-performance/
+  [availability]: ../app-insights-monitor-web-app-availability/
+  [usage]: ../app-insights-web-track-usage/
+  [qna]: ../app-insights-troubleshoot-faq/

@@ -1,32 +1,31 @@
-<properties linkid="develop-java-how-to-guides-view-saml-returned-by-acs" urlDisplayName="View ACS SAML" pageTitle="View SAML Returned by the Access Control Service (Java)" metaKeywords="" description="Learn how to view SAML returned by the Access Control Service in Java applications hosted on Azure." metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Azure Access Control Service" authors="waltpo" videoId="" scriptId="" solutions="" manager="" editor="mollybos" />
+<properties linkid="develop-java-how-to-guides-view-saml-returned-by-acs" urlDisplayName="View ACS SAML" pageTitle="View SAML Returned by the Access Control Service (Java)" metaKeywords="" description="Learn how to view SAML returned by the Access Control Service in Java applications hosted on Azure." metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Azure Access Control Service" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
-Visualización del SAML que devuelve el servicio de control de acceso de Azure
-=============================================================================
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
 
-En esta guía se explica cómo ver el lenguaje de marcado de aserción de seguridad (SAML) subyacente devuelto a la aplicación mediante el servicio de control de acceso de Azure (ACS). La guía se elabora a partir del tema [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse](../active-directory-java-authenticate-users-access-control-eclipse), proporcionando código que muestra la información de SAML. La aplicación completa tendrá un aspecto similar al siguiente.
+# Visualización del SAML que devuelve el servicio de control de acceso de Azure
 
-![Salida de SAML de ejemplo](./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png)
+En esta guía se explica cómo ver el lenguaje de marcado de aserción de seguridad (SAML) subyacente devuelto a la aplicación mediante el servicio de control de acceso de Azure (ACS). La guía se elabora a partir del tema [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse][], proporcionando código que muestra la información de SAML. La aplicación completa tendrá un aspecto similar al siguiente.
 
-Para obtener más información sobre ACS, consulte la sección [Pasos siguientes](#next_steps).
+![Salida de SAML de ejemplo][]
 
-> [WACOM.NOTE] El filtro de control de los servicios de acceso de Azure (de Microsoft Open Technologies) es una Community Technology Preview. Como versión preliminar de software, no cuenta formalmente con el respaldo de Microsoft Open Technologies, Inc. ni de Microsoft.
+Para obtener más información sobre ACS, consulte la sección [Pasos siguientes][].
 
-Tabla de contenido
-------------------
+> [WACOM.NOTE]
+> El filtro de control de los servicios de acceso de Azure (de Microsoft Open Technologies) es una Community Technology Preview. Como versión preliminar de software, no cuenta formalmente con el respaldo de Microsoft Open Technologies, Inc. ni de Microsoft.
 
--   [Requisitos previos](#pre)
--   [Incorporación de la biblioteca JspWriter a la ruta de acceso de compilación y el ensamblado de implementación](#add_library)
--   [Modificación del archivo JSP para que muestre el SAML](#modify_jsp)
--   [Ejecución de la aplicación](#run_application)
--   [Pasos siguientes](#next_steps)
+## Tabla de contenido
 
-Requisitos previos
-------------------
+-   [Requisitos previos][]
+-   [Incorporación de la biblioteca JspWriter a la ruta de acceso de compilación y el ensamblado de implementación][]
+-   [Modificación del archivo JSP para que muestre el SAML][]
+-   [Ejecución de la aplicación][]
+-   [Pasos siguientes][]
 
-A fin de llevar a cabo las tareas de esta guía, complete el ejemplo de [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse](../active-directory-java-authenticate-users-access-control-eclipse) y úselo como punto de partida de este tutorial.
+## <a name="pre"></a>Requisitos previos
 
-Incorporación de la biblioteca JspWriter a la ruta de acceso de compilación y el ensamblado de implementación
--------------------------------------------------------------------------------------------------------------
+A fin de llevar a cabo las tareas de esta guía, complete el ejemplo de [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse][] y úselo como punto de partida de este tutorial.
+
+## <a name="add_library"></a>Incorporación de la biblioteca JspWriter a la ruta de acceso de compilación y el ensamblado de implementación
 
 Agregue la biblioteca que contiene la clase **javax.servlet.jsp.JspWriter** a la ruta de acceso de la compilación y el ensamblado de implementación. Si usa Tomcat, la biblioteca es **jsp-api.jar** y se ubica en la carpeta **lib** de Apache.
 
@@ -38,8 +37,7 @@ Agregue la biblioteca que contiene la clase **javax.servlet.jsp.JspWriter** a la
 6.  Seleccione la biblioteca pertinente y haga clic en **Finish**.
 7.  Haga clic en **OK** para cerrar el cuadro de diálogo **Properties for MyACSHelloWorld**.
 
-Modificación del archivo JSP para que muestre el SAML
------------------------------------------------------
+## <a name="modify_jsp"></a>Modificación del archivo JSP para que muestre el SAML
 
 Modifique **index.jsp** para que use el código siguiente.
 
@@ -74,7 +72,7 @@ Modifique **index.jsp** para que use el código siguiente.
                 out.println("<br>");
                 out.println("<u>Examining <b>" + parent + nodeName + "</b></u><br>");
                    
-                   // Atributos.
+                   // Attributes.
                    NamedNodeMap attribsMap = node.getAttributes();
                    if (null != attribsMap)
                    {
@@ -85,7 +83,7 @@ Modifique **index.jsp** para que use el código siguiente.
                          }
                    }
                    
-                   // Nodos secundarios.
+                   // Child nodes.
                    NodeList list = node.getChildNodes();
                    if (null != list)
                    {
@@ -93,14 +91,14 @@ Modifique **index.jsp** para que use el código siguiente.
                           if (nChild > 0)
                           {                    
 
-                                 // Si se trata de un nodo de texto, imprimirlo.
+                                 // If it is a text node, just print the text.
                                  if (list.item(0).getNodeName() == "#text")
                                  {
                                      out.println("Text value: <b>" + list.item(0).getTextContent() + "</b><br>");
                                  }
                                  else
                                  {
-                                     // Imprimir los nombres del nodo secundario.
+                                     // Print out the child node names.
                                      out.print("Contains " + nChild + " child node(s): ");   
                                      for (i=0; i < nChild; i++)
                                      {
@@ -109,23 +107,23 @@ Modifique **index.jsp** para que use el código siguiente.
                                         out.print("<b>" + temp.getNodeName() + "</b>");
                                         if (i < nChild - 1)
                                         {
-                                            // Separar los nombres.
+                                            // Separate the names.
                                             out.print(", ");
                                         }
                                         else
                                         {
-                                            // Finalizar la oración.
+                                            // Finish the sentence.
                                             out.print(".");
                                         }
                                             
                                      }
                                      out.println("<br>");
                                      
-                                     // Procesar los nodos secundarios.
+                                     // Process the child nodes.
                                      for (i=0; i < nChild; i++)
                                      {
                                         Node temp = list.item(i);
-                                        displaySAMLInfo(temp, parent + nodeName + "\", out);
+                                        displaySAMLInfo(temp, parent + nodeName + "\\", out);
                                      }
                                }
                           }
@@ -155,7 +153,7 @@ Modifique **index.jsp** para que use el código siguiente.
             doc = docBuilder.parse(in);
             doc.getDocumentElement().normalize();
             
-            // Iterar los nodos secundarios del documento.
+            // Iterate the child nodes of the doc.
             NodeList list = doc.getChildNodes();
 
             for (int i=0; i < list.getLength(); i++)
@@ -173,14 +171,20 @@ Modifique **index.jsp** para que use el código siguiente.
     </body>
     </html>
 
-Ejecución de la aplicación
---------------------------
+## <a name="run_application"></a>Ejecución de la aplicación
 
-1.  Ejecute la aplicación en el emulador del equipo o realice la implementación en Azure; para ello, siga los pasos descritos en [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse](../active-directory-java-authenticate-users-access-control-eclipse).
+1.  Ejecute la aplicación en el emulador del equipo o realice la implementación en Azure; para ello, siga los pasos descritos en [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse][].
 2.  Inicie un explorador y abra la aplicación web. Después de iniciar sesión en la aplicación, verá la información de SAML, incluida la aserción de seguridad proporcionada por el proveedor de identidades.
 
-Pasos siguientes
-----------------
+## <a name="next_steps"></a>Pasos siguientes
 
-Para seguir explorando la funcionalidad de ACS y experimentar con escenarios más sofisticados, consulte [Access Control Service 2.0](http://go.microsoft.com/fwlink/?LinkID=212360).
+Para seguir explorando la funcionalidad de ACS y experimentar con escenarios más sofisticados, consulte [Access Control Service 2.0][].
 
+  [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
+  [Salida de SAML de ejemplo]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
+  [Pasos siguientes]: #next_steps
+  [Requisitos previos]: #pre
+  [Incorporación de la biblioteca JspWriter a la ruta de acceso de compilación y el ensamblado de implementación]: #add_library
+  [Modificación del archivo JSP para que muestre el SAML]: #modify_jsp
+  [Ejecución de la aplicación]: #run_application
+  [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360

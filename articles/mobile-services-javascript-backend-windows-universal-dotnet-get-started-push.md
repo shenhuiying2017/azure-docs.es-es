@@ -4,7 +4,7 @@
 
 # Introducción a las notificaciones de inserción en Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push][mobile-services-selector-get-started-push]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
 En este tema se muestra cómo usar Servicios móviles de Azure con un back-end de JavaScript para enviar notificaciones de inserción a una aplicación universal de Windows. Aprenderá a habilitar las notificaciones de inserción con los Centros de notificaciones de Azure en un proyecto de aplicación universal para Windows. Cuando termine, cada vez que se inserte un registro en la tabla TodoList, el servicio móvil enviará una notificación de inserción desde el back-end de JavaScript a todas las aplicaciones registradas en la Tienda Windows y la Tienda de Windows Phone. El centro de notificaciones que cree es gratuito con el servicio móvil, puede administrarse independientemente del servicio móvil y pueden utilizarlo otras aplicaciones y servicios.
 
@@ -25,7 +25,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## <span id="register"></span></a>Registrar la aplicación para las notificaciones de inserción
 
-[WACOM.INCLUDE [mobile-services-create-new-push-vs2013][mobile-services-create-new-push-vs2013]]
+[WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 1.  Vaya a la carpeta de proyecto `\Services\MobileServices\your_service_name`, abra el archivo de código push.register.cs generado e inspeccione el método **UploadChannel** que registra la URL de canal del dispositivo con el Centro de notificaciones.
 
@@ -37,7 +37,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
     Ahora los dos proyectos pueden compartir una misma llamada a **UploadChannel**.
 
-    <div class="dev-callout"><strong>Nota:</strong> <p>Si quiere simplificar el c&oacute;digo generado, unifique las definiciones <a href="http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> del contenedor <code data-inline="1">#if...#endif</code> en una &uacute;nica definici&oacute;n sin contenedor, que deben usar las dos versiones de la aplicaci&oacute;n.</p></div>
+    <div class="dev-callout"><strong>Nota:</strong> <p>Si quiere simplificar el c&oacute;digo generado, unifique las definiciones <a href="http://msdn.microsoft.com/es-es/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> del contenedor <code data-inline="1">#if...#endif</code> en una &uacute;nica definici&oacute;n sin contenedor, que deben usar las dos versiones de la aplicaci&oacute;n.</p></div>
 
 Tras habilitar las notificaciones de inserción en la aplicación, actualice el servicio móvil para enviarlas.
 
@@ -45,11 +45,11 @@ Tras habilitar las notificaciones de inserción en la aplicación, actualice el 
 
 Los pasos siguientes sirven para actualizar el script de inserción registrado para la tabla TodoItem. Puede implementar código similar en cualquier script del servidor o ubicación de los servicios back-end.
 
-[WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs][mobile-services-javascript-update-script-notification-hubs]]
+[WACOM.INCLUDE [mobile-services-javascript-update-script-notification-hubs](../includes/mobile-services-javascript-update-script-notification-hubs.md)]
 
 ## <span id="test"></span></a>Probar las notificaciones de inserción en su aplicación
 
-[WACOM.INCLUDE [mobile-services-javascript-backend-windows-universal-test-push][mobile-services-javascript-backend-windows-universal-test-push]]
+[WACOM.INCLUDE [mobile-services-javascript-backend-windows-universal-test-push](../includes/mobile-services-javascript-backend-windows-universal-test-push.md)]
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
@@ -69,9 +69,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 -   [Uso de un cliente .NET para Servicios móviles de Azure][Uso de un cliente .NET para Servicios móviles de Azure]
     Obtenga más información sobre cómo usar Servicios móviles desde aplicaciones de C# Windows.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
   [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
   [Introducción a las notificaciones de inserción en Servicios móviles]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push
@@ -82,7 +80,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
   [cuenta de Microsoft Store]: http://go.microsoft.com/fwlink/p/?LinkId=280045
   [Visual Studio 2013 Express para Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
   [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [MobileServiceClient]: http://msdn.microsoft.com/en-us/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
+  [MobileServiceClient]: http://msdn.microsoft.com/es-es/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
   [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
   [mobile-services-javascript-backend-windows-universal-test-push]: ../includes/mobile-services-javascript-backend-windows-universal-test-push.md
   [enviar notificaciones de inserción a usuarios autenticados]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/

@@ -1,60 +1,59 @@
-<properties linkid="develop-python-service-management" urlDisplayName="Service Management" pageTitle="How to use the service management API (Python) - feature guide" metaKeywords="" description="Learn how to programmatically perform common service management tasks from Python." metaCanonical="" services="cloud-services" documentationCenter="Python" title="How to use Service Management from Python" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-python-service-management" urlDisplayName="Service Management" pageTitle="How to use the service management API (Python) - feature guide" metaKeywords="" description="Learn how to programmatically perform common service management tasks from Python." metaCanonical="" services="cloud-services" documentationCenter="Python" title="How to use Service Management from Python" authors="huvalo" solutions="" manager="" editor="" />
 
-Uso de la administración de servicios con Python
-================================================
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
 
-En esta guía se describe cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** del [SDK de Azure para Python](https://www.windowsazure.com/es-es/develop/python/common-tasks/install-python/) admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en el [portal de administración](https://manage.windowsazure.com/) (como **crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos, máquinas virtuales y grupos de afinidad**). Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
+# Uso de la administración de servicios con Python
 
-Tabla de contenido
-------------------
+En esta guía se describe cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** del [SDK de Azure para Python][] admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en el [portal de administración][] (como **crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos, máquinas virtuales y grupos de afinidad**). Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
 
--   [Qué es la administración de servicios](#WhatIs)
--   [Conceptos](#Concepts)
--   [Conexión a la administración de servicios](#Connect)
--   [Enumeración de las ubicaciones disponibles](#ListAvailableLocations)
--   [Creación de un servicio en la nube](#CreateCloudService)
--   [Eliminación de un servicio en la nube](#DeleteCloudService)
--   [Creación de una implementación](#CreateDeployment)
--   [Actualización de una implementación](#UpdateDeployment)
--   [Transferencia de implementaciones entre ensayo y producción](#MoveDeployments)
--   [Eliminación de una implementación](#DeleteDeployment)
--   [Creación de un servicio de almacenamiento](#CreateStorageService)
--   [Eliminación de un servicio de almacenamiento](#DeleteStorageService)
--   [Creación de un grupo de afinidad](#CreateAffinityGroup)
--   [Eliminación de un grupo de afinidad](#DeleteAffinityGroup)
--   [Enumeración de los sistemas operativos disponibles](#ListOperatingSystems)
--   [Creación de una imagen de sistema operativo](#CreateVMImage)
--   [Eliminación de una imagen de sistema operativo](#DeleteVMImage)
--   [Creación de una máquina virtual](#CreateVM)
--   [Eliminación de una máquina virtual](#DeleteVM)
--   [Pasos siguientes](#NextSteps)
+## Tabla de contenido
 
-Qué es la administración de servicios
--------------------------------------
+-   [Qué es la administración de servicios][]
+-   [Conceptos][]
+-   [Direccionamiento del administración de servicios][]
+-   [Direccionamiento del ubicaciones disponibles][]
+-   [Direccionamiento del servicio en la nube][]
+-   [Direccionamiento del servicio en la nube][1]
+-   [Direccionamiento del implementación][]
+-   [Direccionamiento del implementación][2]
+-   [Direccionamiento del implementaciones entre ensayo y producción][]
+-   [Direccionamiento del implementación][3]
+-   [Direccionamiento del servicio de almacenamiento][]
+-   [Direccionamiento del servicio de almacenamiento][4]
+-   [Direccionamiento del grupo de afinidad][]
+-   [Direccionamiento del grupo de afinidad][5]
+-   [Direccionamiento del de los sistemas operativos disponibles][]
+-   [Direccionamiento del de una imagen de sistema operativo][]
+-   [Direccionamiento del de una imagen de sistema operativo][6]
+-   [Direccionamiento del de una máquina virtual][]
+-   [Direccionamiento del de una máquina virtual][7]
+-   [Pasos siguientes][]
 
-La API de administración de servicios ofrece acceso mediante programación a gran parte de la funcionalidad de administración de servicios disponible a través del [portal de administración](https://manage.windowsazure.com/). El SDK de Azure para Python le permite administrar los servicios en la nube, las cuentas de almacenamiento y los grupos de afinidad.
+## <a name="WhatIs"> </a>Qué es la administración de servicios
 
-Para usar la API de administración de servicios, necesita [crear una cuenta de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/).
+La API de administración de servicios ofrece acceso mediante programación a gran parte de la funcionalidad de administración de servicios disponible a través del [portal de administración][]. El SDK de Azure para Python le permite administrar los servicios en la nube, las cuentas de almacenamiento y los grupos de afinidad.
 
-Conceptos
----------
+Para usar la API de administración de servicios, necesita [crear una cuenta de Azure][].
 
-El SDK de Azure para Python ajusta la [API de administración de servicios de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/ee460799.aspx), que es una API de REST. Todas las operaciones de la API se realizan mediante SSL y se autentican mutuamente con los certificados X.509 v3. Se puede obtener acceso al servicio de administración desde un servicio que se ejecute en Azure, o bien directamente a través de Internet desde cualquier aplicación que envíe una solicitud HTTPS y reciba una respuesta HTTPS.
+## <a name="Concepts"> </a>Conceptos
 
-Conexión a la administración de servicios
------------------------------------------
+El SDK de Azure para Python ajusta la [API de administración de servicios de Azure][], que es una API de REST. Todas las operaciones de la API se realizan mediante SSL y se autentican mutuamente con los certificados X.509 v3. Se puede obtener acceso al servicio de administración desde un servicio que se ejecute en Azure, o bien directamente a través de Internet desde cualquier aplicación que envíe una solicitud HTTPS y reciba una respuesta HTTPS.
 
-Para conectarse al extremo de la administración de servicios, necesita el identificador de la suscripción a Azure y un certificado de administración válido. Puede obtener el identificador de la suscripción a través del [portal de administración](https://manage.windowsazure.com/).
+## <a name="Connect"> </a>Direccionamiento del a la administración de servicios
 
-### Certificados de administración en Windows
+Para conectarse al extremo de la administración de servicios, necesita el identificador de la suscripción a Azure y un certificado de administración válido. Puede obtener el identificador de la suscripción a través del [portal de administración][].
+
+> [WACOM.NOTE] A partir del SDK de Azure para Python v0.8.0, es posible usar certificados creados con OpenSSL al ejecutar en Windows. Esto requiere Python 2.7.4 o posterior.
+
+### Certificados de administración en Windows (MakeCert)
 
 Puede crear un certificado de administración autofirmado en la máquina con `makecert.exe`. Abra un **símbolo del sistema de Visual Studio** como **administrador** y use el siguiente comando, donde debe sustituir *AzureCertificate* por el nombre del certificado que desea usar.
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-El comando creará el archivo `.cer` y lo instalará en el almacén de certificados **Personal**. Para obtener información más detallada, consulte [Crear y cargar un certificado de administración para Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg551722.aspx).
+El comando creará el archivo `.cer` y lo instalará en el almacén de certificados **Personal**. Para obtener información más detallada, consulte [Crear y cargar un certificado de administración para Azure][].
 
-Después de haber creado el certificado, necesitará cargar el archivo `.cer` en Azure mediante la acción "Upload" de la pestaña "Settings" del [portal de administración](https://manage.windowsazure.com/).
+Después de haber creado el certificado, necesitará cargar el archivo `.cer` en Azure mediante la acción "Upload" de la pestaña "Settings" del [portal de administración][].
 
 Tras haber obtenido el identificador de la suscripción, haber creado un certificado y haber cargado el archivo `.cer` en Azure, puede conectarse al extremo de administración de Azure; para ello, transfiera el identificador de la suscripción y la ubicación del certificado del almacén de certificados **Personal** a **ServiceManagementService** (sustituya *AzureCertificate* por el nombre de su certificado):
 
@@ -62,15 +61,15 @@ Tras haber obtenido el identificador de la suscripción, haber creado un certifi
     from azure.servicemanagement import *
 
     subscription_id = '<your_subscription_id>'
-    certificate_path = 'CURRENT_USER\my\AzureCertificate'
+    certificate_path = 'CURRENT_USER\\my\\AzureCertificate'
 
     sms = ServiceManagementService(subscription_id, certificate_path)
 
 En el ejemplo anterior, `sms` es un objeto **ServiceManagementService**. La clase **ServiceManagementService** es la clase principal usada para administrar los servicios de Azure.
 
-### Certificados de administración en Mac/Linux
+### Certificados de administración en Windows/Mac/Linux (OpenSSL)
 
-Puede usar [OpenSSL](http://www.openssl.org/) para crear el certificado de administración. Realmente necesita crear dos certificados, uno para el servidor (un archivo `.cer`) y otro para el cliente (un archivo `.pem`). Para crear el archivo `.pem`, ejecute este comando:
+Puede usar [OpenSSL][] para crear el certificado de administración. Realmente necesita crear dos certificados, uno para el servidor (un archivo `.cer`.cer) y otro para el cliente (un archivo `.pem`). Para crear el archivo `.pem`, ejecute este comando:
 
     `openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
 
@@ -78,9 +77,9 @@ Para crear el certificado `.cer`, ejecute este comando:
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Para obtener más información acerca de los certificados de Azure, consulte [Administrar certificados en Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg981929.aspx). Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación disponible en <http://www.openssl.org/docs/apps/openssl.html>.
+Para obtener más información acerca de los certificados de Azure, consulte [Administrar certificados en Azure][]. Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación disponible en [][]<http://www.openssl.org/docs/apps/openssl.html></a>.
 
-Después de haber creado estos archivos, necesitará actualizar el archivo `.cer` en Azure a través de la acción "Upload" de la pestaña "Settings" del [portal de administración](https://manage.windowsazure.com/); además, deberá anotar dónde ha guardado el archivo `.pem`.
+Después de haber creado estos archivos, necesitará actualizar el archivo `.cer` en Azure a través de la acción "Upload" de la pestaña "Settings" del [portal de administración][]; además, deberá anotar dónde ha guardado el archivo `.pem`.
 
 Tras haber obtenido el identificador de la suscripción, creado un certificado y cargado el archivo `.cer` en Azure, puede conectarse al extremo de administración de Azure; para ello, transfiera el identificador de la suscripción y la ruta de acceso al archivo `.pem` a **ServiceManagementService**:
 
@@ -94,8 +93,7 @@ Tras haber obtenido el identificador de la suscripción, creado un certificado y
 
 En el ejemplo anterior, `sms` es un objeto **ServiceManagementService**. La clase **ServiceManagementService** es la clase principal usada para administrar los servicios de Azure.
 
-Enumeración de las ubicaciones disponibles
-------------------------------------------
+## <a name="ListAvailableLocations"> </a>Direccionamiento del de las ubicaciones disponibles
 
 Para enumerar las ubicaciones disponibles para los servicios hospedados, use el método **list\_locations**:
 
@@ -119,10 +117,9 @@ Al crear un servicio en la nube, servicio de almacenamiento o grupo de afinidad,
 -   Oeste de EE. UU.
 -   Este de EE. UU.
 
-Creación de un servicio en la nube
-----------------------------------
+## <a name="CreateCloudService"> </a>Direccionamiento del un servicio en la nube
 
-Al crear una aplicación y ejecutarla en Azure, al código y a la configuración se les denomina de forma conjunta un [servicio en la nube](http://windowsazure.com/es-es/documentation/articles/cloud-services-what-is) de Azure (conocido como un *servicio hospedado* en las versiones anteriores de Azure). El método **create\_hosted\_service** le permite crear un nuevo servicio hospedado, para lo que debe proporcionar un nombre de servicio hospedado (que debe ser exclusivo en Azure), una etiqueta (codificada automáticamente como base64), una descripción y una ubicación. Puede especificar un grupo de afinidad en lugar de una ubicación para el servicio.
+Al crear una aplicación y ejecutarla en Azure, al código y a la configuración se les denomina de forma conjunta un [servicio en la nube][] de Azure (conocido como un *servicio hospedado* en las versiones anteriores de Azure). El método **create\_hosted\_service** le permite crear un nuevo servicio hospedado, para lo que debe proporcionar un nombre de servicio hospedado (que debe ser exclusivo en Azure), una etiqueta (codificada automáticamente como base64), una descripción y una ubicación. Puede especificar un grupo de afinidad en lugar de una ubicación para el servicio.
 
     from azure import *
     from azure.servicemanagement import *
@@ -134,7 +131,7 @@ Al crear una aplicación y ejecutarla en Azure, al código y a la configuración
     desc = 'my hosted service'
     location = 'West US'
 
-    # Puede definir la ubicación o un grupo_de_afinidad
+    # You can either set the location or an affinity_group
     sms.create_hosted_service(name, label, desc, location)
 
 Puede enumerar todos los servicios hospedados para la suscripción con el método **list\_hosted\_services**:
@@ -156,27 +153,26 @@ Si desea obtener información acerca de un servicio hospedado en particular, pue
     print('Management URL: ' + hosted_service.url)
     print('Affinity group: ' + hosted_service.hosted_service_properties.affinity_group)
     print('Location: ' + hosted_service.hosted_service_properties.location)
+            
 
 Tras haber creado un servicio en la nube, puede implementar el código en el servicio con el método **create\_deployment**.
 
-Eliminación de un servicio en la nube
--------------------------------------
+## <a name="DeleteCloudService"> </a>Direccionamiento del un servicio en la nube
 
 Puede eliminar un servicio en la nube si transfiere el nombre del servicio al método **delete\_hosted\_service**:
 
     sms.delete_hosted_service('myhostedservice')
 
-Tenga en cuenta que antes de eliminar un servicio, primero es necesario eliminar todas las implementaciones de dicho servicio. (Consulte [Eliminación de una implementación](#DeleteDeployment) para obtener información detallada).
+Tenga en cuenta que antes de eliminar un servicio, primero es necesario eliminar todas las implementaciones de dicho servicio. (Consulte [Eliminación de una implementación][3] para obtener información detallada).
 
-Creación de una implementación
-------------------------------
+## <a name="CreateDeployment"> </a>Direccionamiento del de una implementación
 
-El método **create\_deployment** carga un nuevo [paquete de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/jj155995.aspx) y crea una implementación nueva en el entorno de ensayo o producción. Los parámetros para este método son los siguientes:
+El método **create\_deployment** carga un nuevo [paquete de servicio][] y crea una implementación nueva en el entorno de ensayo o producción. Los parámetros para este método son los siguientes:
 
--   **name**: El nombre del servicio hospedado.
--   **deployment\_name**: El nombre de la implementación.
--   **slot**: Una cadena que indica la ranura `staging` o `production`.
--   **package\_url**: La URL del paquete de implementación (un archivo .cspgk). El archivo del paquete debe almacenarse en una cuenta de almacenamiento de blobs de Azure con la misma suscripción que el servicio hospedado en el que se carga el paquete. Puede crear un paquete de implementación con los [cmdlets de Azure PowerShell](https://www.windowsazure.com/es-es/develop/php/how-to-guides/powershell-cmdlets/) o con la [Herramienta de línea de comandos CSPack](http://msdn.microsoft.com/es-es/library/windowsazure/gg432988.aspx).
+-   **name**: el nombre del servicio hospedado.
+-   **deployment\_name**: el nombre de la implementación.
+-   **slot**: Una cadena que indica el espacio `staging` o `production`.
+-   **package\_url**: la URL del paquete de implementación (un archivo .cspgk). El archivo del paquete debe almacenarse en una cuenta de almacenamiento de blobs de Azure con la misma suscripción que el servicio hospedado en el que se carga el paquete. Puede crear un paquete de implementación con los [cmdlets de Azure PowerShell][] o con la [Herramienta de línea de comandos CSPack][].
 -   **configuration**: El archivo de configuración del servicio (archivo .cscfg) codificado como base64.
 -   **label**: La etiqueta para el nombre del servicio hospedado (codificada automáticamente como base64).
 
@@ -216,12 +212,11 @@ Puede obtener acceso a las propiedades de implementación con los métodos **get
         print('Instance status: ' + instance.instance_status)
         print('Instance size: ' + instance.instance_size)
 
-Actualización de una implementación
------------------------------------
+## <a name="UpdateDeployment"> </a>Direccionamiento del de una implementación
 
 Una implementación se puede actualizar mediante los métodos **change\_deployment\_configuration** o **update\_deployment\_status**.
 
-El método **change\_deployment\_configuration** le permite cargar un nuevo archivo de configuración (`.cscfg`) del servicio, que cambiará algunas de las opciones de configuración del servicio (incluido el número de instancias de una implementación). Para obtener más información, consulte [Esquema de configuración del servicio de Azure (archivo .cscfg)](http://msdn.microsoft.com/es-es/library/windowsazure/ee758710.aspx). En el siguiente ejemplo se demuestra cómo cargar el nuevo archivo de configuración del servicio:
+El método **change\_deployment\_configuration** le permite cargar un nuevo archivo de configuración (`.cscfg`) del servicio, que cambiará algunas de las opciones de configuración del servicio (incluido el número de instancias de una implementación). Para obtener más información, consulte [Esquema de configuración del servicio de Azure (archivo .cscfg)][]. En el siguiente ejemplo se demuestra cómo cargar el nuevo archivo de configuración del servicio:
 
     from azure import *
     from azure.servicemanagement import *
@@ -252,10 +247,9 @@ El método **update\_deployment\_status** le permite definir el estado de una im
 
     result = update_deployment_status(name, deployment_name, 'Running')
 
-Transferencia de implementaciones entre ensayo y producción
------------------------------------------------------------
+## <a name="MoveDeployments"> </a>Direccionamiento del de implementaciones entre ensayo y producción
 
-Azure ofrece dos entornos de implementación: ensayo y producción. Normalmente un servicio se implementa en el entorno de ensayo para probarlo antes de implementarlo en el entorno de producción. Cuando sea el momento de promover el servicio en ensayo al entorno de producción, puede hacerlo sin tener que volver a implementar el servicio. Esto puede hacerse mediante el intercambio de las implementaciones. (Para obtener más información acerca del intercambio de implementaciones, consulte [Administrar implementaciones en Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg433027.aspx)).
+Azure ofrece dos entornos de implementación: ensayo y producción. Normalmente un servicio se implementa en el entorno de ensayo para probarlo antes de implementarlo en el entorno de producción. Cuando sea el momento de promover el servicio en ensayo al entorno de producción, puede hacerlo sin tener que volver a implementar el servicio. Esto puede hacerse mediante el intercambio de las implementaciones. (Para obtener más información acerca del intercambio de implementaciones, consulte [Administrar implementaciones en Azure][]).
 
 En el ejemplo siguiente se muestra cómo usar el método **swap\_deployment** para intercambiar dos implementaciones (con los nombres de implementación `v1` y `v2`). En el ejemplo, antes de llamar a **swap\_deployment**, la implementación `v1` está en la ranura de producción y la implementación `v2` está en la ranura de ensayo. Después de llamar a **swap\_deployment**, `v2` está en producción y `v1` está en ensayo.
 
@@ -266,8 +260,7 @@ En el ejemplo siguiente se muestra cómo usar el método **swap\_deployment** pa
 
     result = sms.swap_deployment('myhostedservice', 'v1', 'v2')
 
-Eliminación de una implementación
----------------------------------
+## <a name="DeleteDeployment"> </a>Direccionamiento del una implementación
 
 Para eliminar una implementación, use el método **delete\_deployment**. En el ejemplo siguiente se muestra cómo eliminar una implementación llamada `v1`.
 
@@ -278,10 +271,9 @@ Para eliminar una implementación, use el método **delete\_deployment**. En el 
 
     sms.delete_deployment('myhostedservice', 'v1')
 
-Creación de un servicio de almacenamiento
------------------------------------------
+## <a name="CreateStorageService"> </a>Direccionamiento del de un servicio de almacenamiento
 
-Un [servicio de almacenamiento](https://www.windowsazure.com/es-es/manage/services/storage/what-is-a-storage-account/) le proporciona acceso a [blobs](https://www.windowsazure.com/es-es/develop/python/how-to-guides/blob-service/), [tablas](https://www.windowsazure.com/es-es/develop/python/how-to-guides/table-service/) y [colas](https://www.windowsazure.com/es-es/develop/python/how-to-guides/queue-service/) de Azure. Para crear un servicio de almacenamiento, necesita un nombre para el servicio (entre 3 y 24 caracteres en minúscula y exclusivos en Azure), una descripción, una etiqueta (hasta 100 caracteres, codificados automáticamente como base64) y una ubicación o un grupo de afinidad. En el ejemplo siguiente se muestra cómo crear un servicio de almacenamiento mediante la definición de una ubicación. Si desea usar un grupo de afinidad, primero tiene que crearlo (consulte [Creación de un grupo de afinidad](#CreateAffinityGroup)) y definirlo con el parámetro **affinity\_group**.
+Un [servicio de almacenamiento][] le proporciona acceso a [blobs][], [tablas][] y [colas][] de Azure. Para crear un servicio de almacenamiento, necesita un nombre para el servicio (entre 3 y 24 caracteres en minúscula y exclusivos en Azure), una descripción, una etiqueta (hasta 100 caracteres, codificados automáticamente como base64) y una ubicación o un grupo de afinidad. En el ejemplo siguiente se muestra cómo crear un servicio de almacenamiento mediante la definición de una ubicación. Si desea usar un grupo de afinidad, primero tiene que crearlo (consulte [Creación de un grupo de afinidad][Direccionamiento del grupo de afinidad]) y definirlo con el parámetro **affinity\_group**.
 
     from azure import *
     from azure.servicemanagement import *
@@ -314,8 +306,7 @@ Puede enumerar las cuentas de almacenamiento y sus propiedades con el método **
         print('Location: ' + account.storage_service_properties.location)
         print('')
 
-Eliminación de un servicio de almacenamiento
---------------------------------------------
+## <a name="DeleteStorageService"> </a>Direccionamiento del de un servicio de almacenamiento
 
 Puede eliminar un servicio de almacenamiento si transfiere el nombre de dicho servicio al método **delete\_storage\_account**. Con la eliminación del servicio de almacenamiento también se eliminarán todos los datos almacenados en el servicio (blobs, tablas y colas).
 
@@ -326,10 +317,9 @@ Puede eliminar un servicio de almacenamiento si transfiere el nombre de dicho se
 
     sms.delete_storage_account('mystorageaccount')
 
-Creación de un grupo de afinidad
---------------------------------
+## <a name="CreateAffinityGroup"> </a>Direccionamiento del de un grupo de afinidad
 
-Un grupo de afinidad es una agrupación lógica de los servicios de Azure que pide a Azure que localice los servicios para obtener un rendimiento optimizado. Por ejemplo, puede crear un grupo de afinidad en la ubicación "Oeste de EE. UU." y, a continuación, crear un [servicio en la nube](#CreateCloudService) en dicho grupo de afinidad. Si posteriormente crea un servicio de almacenamiento en el mismo grupo de afinidad, Azure sabe colocarlo en la ubicación "Oeste de EE. UU." y optimizarlo dentro del centro de datos para obtener el máximo rendimiento con los servicios en la nube en el mismo grupo de afinidad.
+Un grupo de afinidad es una agrupación lógica de los servicios de Azure que pide a Azure que localice los servicios para obtener un rendimiento optimizado. Por ejemplo, puede crear un grupo de afinidad en la ubicación "Oeste de EE. UU." y, a continuación, crear un [servicio en la nube][Direccionamiento del servicio en la nube] en dicho grupo de afinidad. Si posteriormente crea un servicio de almacenamiento en el mismo grupo de afinidad, Azure sabe colocarlo en la ubicación "Oeste de EE. UU." y optimizarlo dentro del centro de datos para obtener el máximo rendimiento con los servicios en la nube en el mismo grupo de afinidad.
 
 Para crear un grupo de afinidad, necesita un nombre, una etiqueta (codificada automáticamente como base64) y una ubicación. Si lo desea, también puede proporcionar una descripción:
 
@@ -345,7 +335,7 @@ Para crear un grupo de afinidad, necesita un nombre, una etiqueta (codificada au
 
     sms.create_affinity_group(name, label, location, desc)
 
-Tras haber creado un grupo de afinidad, puede especificar el grupo (en lugar de una ubicación) al [crear un servicio de almacenamiento](#CreateStorageService).
+Tras haber creado un grupo de afinidad, puede especificar el grupo (en lugar de una ubicación) al [crear un servicio de almacenamiento][Direccionamiento del servicio de almacenamiento].
 
 Puede enumerar los grupos de afinidad e inspeccionar sus propiedades mediante la llamada al método **list\_affinity\_groups**:
 
@@ -357,8 +347,7 @@ Puede enumerar los grupos de afinidad e inspeccionar sus propiedades mediante la
         print('Location: ' + group.location)
         print('')
 
-Eliminación de un grupo de afinidad
------------------------------------
+## <a name="DeleteAffinityGroup"> </a>Direccionamiento del de un grupo de afinidad
 
 Puede eliminar un grupo de afinidad si transfiere el nombre del grupo al método **delete\_affinity\_group**. Tenga en cuenta que para eliminar un grupo de afinidad, es necesario desasociar el grupo de afinidad de cualquier servicio (o deben eliminarse los servicios que usan el grupo de afinidad).
 
@@ -369,8 +358,7 @@ Puede eliminar un grupo de afinidad si transfiere el nombre del grupo al método
 
     sms.delete_affinity_group('myAffinityGroup')
 
-Enumeración de los sistemas operativos disponibles
---------------------------------------------------
+## <a name="ListOperatingSystems"> </a>Direccionamiento del de los sistemas operativos disponibles
 
 Para enumerar los sistemas operativos disponibles para los servicios hospedados, use el método **list\_operating\_systems**:
 
@@ -398,8 +386,7 @@ También puede usar el método **list\_operating\_system\_families**, que agrupa
                 print('Version: ' + os.version)
         print('')
 
-Creación de una imagen de sistema operativo
--------------------------------------------
+## <a name="CreateVMImage"> </a>Direccionamiento del de una imagen de sistema operativo
 
 Para agregar una imagen del sistema operativo al repositorio de imágenes, use el método **add\_os\_image**:
 
@@ -433,8 +420,7 @@ Para enumerar las imágenes del sistema operativo disponibles, use el método **
         print('Media link: ' + image.media_link)
         print('')
 
-Eliminación de una imagen de sistema operativo
-----------------------------------------------
+## <a name="DeleteVMImage"> </a>Direccionamiento del de una imagen de sistema operativo
 
 Para eliminar una imagen de usuario, use el método **delete\_os\_image**.
 
@@ -448,10 +434,9 @@ Para eliminar una imagen de usuario, use el método **delete\_os\_image**.
     operation_result = sms.get_operation_status(result.request_id)
     print('Operation status: ' + operation_result.status)
 
-Creación de una máquina virtual
--------------------------------
+## <a name="CreateVM"> </a>Direccionamiento del de una máquina virtual
 
-Para crear una máquina virtual, primero necesita crear un [servicio en la nube](#CreateCloudService). A continuación, cree la implementación de la máquina virtual con el método **create\_virtual\_machine\_deployment**:
+Para crear una máquina virtual, primero necesita crear un [servicio en la nube][Direccionamiento del servicio en la nube]. A continuación, cree la implementación de la máquina virtual con el método **create\_virtual\_machine\_deployment**:
 
     from azure import *
     from azure.servicemanagement import *
@@ -461,20 +446,20 @@ Para crear una máquina virtual, primero necesita crear un [servicio en la nube]
     name = 'myvm'
     location = 'West US'
 
-    # Puede definir la ubicación o un grupo_de_afinidad
+    # You can either set the location or an affinity_group
     sms.create_hosted_service(service_name=name,
         label=name,
         location=location)
 
-    # Nombre de una imagen de so devuelta por la lista_de_imágenes_de_so
-    image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-en-us-30GB.vhd'
+    # Name of an os image as returned by list_os_images
+    image_name = 'OpenLogic__OpenLogic-CentOS-62-20120531-es-es-30GB.vhd'
 
-    # Contenedor/blob de la cuenta de almacenamiento de destino donde se creará
-    # el disco de máquina virtual
+    # Destination storage account container/blob where the VM disk
+    # will be created
     media_link = 'url_to_target_storage_blob_for_vm_hd'
 
-    # Configuración de máquina virtual de Linux, puede usar WindowsConfigurationSet
-    # para una máquina virtual de Windows en lugar de
+    # Linux VM configuration, you can use WindowsConfigurationSet
+    # for a Windows VM instead
     linux_config = LinuxConfigurationSet('myhostname', 'myuser', 'mypassword', True)
 
     os_hd = OSVirtualHardDisk(image_name, media_link)
@@ -488,8 +473,7 @@ Para crear una máquina virtual, primero necesita crear un [servicio en la nube]
         os_virtual_hard_disk=os_hd,
         role_size='Small')
 
-Eliminación de una máquina virtual
-----------------------------------
+## <a name="DeleteVM"> </a>Direccionamiento del una máquina virtual
 
 Para eliminar una máquina virtual, primero debe eliminar la implementación con el método **delete\_deployment**:
 
@@ -505,11 +489,49 @@ El servicio en la nube puede eliminarse entonces con el método **delete\_hosted
 
     sms.delete_hosted_service(service_name='myvm')
 
-Pasos siguientes
-----------------
+## <a name="NextSteps"> </a>Pasos siguientes
 
 Ahora que está familiarizado con los aspectos básicos de la administración de servicios, siga estos vínculos para realizar tareas más complejas.
 
--   Consulte la referencia de MSDN: [Servicios en la nube](http://msdn.microsoft.com/es-es/library/windowsazure/jj155995.aspx)
--   Consulte la referencia de MSDN: [Máquinas virtuales](http://msdn.microsoft.com/es-es/library/windowsazure/jj156003.aspx)
+-   Consulte la referencia de MSDN: [Servicios en la nube][paquete de servicio]
+-   Consulte la referencia de MSDN: [Máquinas virtuales][]
 
+  [SDK de Azure para Python]: https://www.windowsazure.com/es-es/develop/python/common-tasks/install-python/
+  [portal de administración]: https://manage.windowsazure.com/
+  [Qué es la administración de servicios]: #WhatIs
+  [Conceptos]: #Concepts
+  [Direccionamiento del administración de servicios]: #Connect
+  [Direccionamiento del ubicaciones disponibles]: #ListAvailableLocations
+  [Direccionamiento del servicio en la nube]: #CreateCloudService
+  [1]: #DeleteCloudService
+  [Direccionamiento del implementación]: #CreateDeployment
+  [2]: #UpdateDeployment
+  [Direccionamiento del implementaciones entre ensayo y producción]: #MoveDeployments
+  [3]: #DeleteDeployment
+  [Direccionamiento del servicio de almacenamiento]: #CreateStorageService
+  [4]: #DeleteStorageService
+  [Direccionamiento del grupo de afinidad]: #CreateAffinityGroup
+  [5]: #DeleteAffinityGroup
+  [Direccionamiento del de los sistemas operativos disponibles]: #ListOperatingSystems
+  [Direccionamiento del de una imagen de sistema operativo]: #CreateVMImage
+  [6]: #DeleteVMImage
+  [Direccionamiento del de una máquina virtual]: #CreateVM
+  [7]: #DeleteVM
+  [Pasos siguientes]: #NextSteps
+  [crear una cuenta de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/
+  [API de administración de servicios de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/ee460799.aspx
+  [Crear y cargar un certificado de administración para Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg551722.aspx
+  [OpenSSL]: http://www.openssl.org/
+  [Administrar certificados en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg981929.aspx
+  []: http://www.openssl.org/docs/apps/openssl.html
+  [servicio en la nube]: http://windowsazure.com/es-es/documentation/articles/cloud-services-what-is
+  [paquete de servicio]: http://msdn.microsoft.com/es-es/library/windowsazure/jj155995.aspx
+  [cmdlets de Azure PowerShell]: https://www.windowsazure.com/es-es/develop/php/how-to-guides/powershell-cmdlets/
+  [Herramienta de línea de comandos CSPack]: http://msdn.microsoft.com/es-es/library/windowsazure/gg432988.aspx
+  [Esquema de configuración del servicio de Azure (archivo .cscfg)]: http://msdn.microsoft.com/es-es/library/windowsazure/ee758710.aspx
+  [Administrar implementaciones en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433027.aspx
+  [servicio de almacenamiento]: https://www.windowsazure.com/es-es/manage/services/storage/what-is-a-storage-account/
+  [blobs]: https://www.windowsazure.com/es-es/develop/python/how-to-guides/blob-service/
+  [tablas]: https://www.windowsazure.com/es-es/develop/python/how-to-guides/table-service/
+  [colas]: https://www.windowsazure.com/es-es/develop/python/how-to-guides/queue-service/
+  [Máquinas virtuales]: http://msdn.microsoft.com/es-es/library/windowsazure/jj156003.aspx

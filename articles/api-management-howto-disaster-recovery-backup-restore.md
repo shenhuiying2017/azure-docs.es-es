@@ -81,7 +81,7 @@ La restauración es una operación de larga duración que puede tardar 30 minuto
 -   **El nivel** en el que desea restaurar el servicio **debe coincidir** con el nivel del servicio del que ha creado una copia de seguridad que desea restaurar.
 -   Los **cambios** que se realicen en la configuración del servicio (como en API, directivas o apariencia del portal para desarrolladores), con el proceso de restauración en curso, **pueden sobrescribirse**.
 
-  [autenticación de las solicitudes del Administrador de recursos de Azure]: http://msdn.microsoft.com/en-us/library/dn790557.aspx
+  [autenticación de las solicitudes del Administrador de recursos de Azure]: http://msdn.microsoft.com/es-es/library/dn790557.aspx
   [Crear una copia de seguridad del servicio Administración de API]: #step1
   [Restaurar el servicio Administración de API]: #step2
-  [API de REST de Administración de API de Azure]: http://msdn.microsoft.com/en-us/library/azure/dn781421.aspx
+  [API de REST de Administración de API de Azure]: http://msdn.microsoft.com/es-es/library/azure/dn781421.aspx

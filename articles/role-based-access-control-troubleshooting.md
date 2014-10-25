@@ -6,7 +6,7 @@
 
 ## Introducción
 
-El [control de acceso basado en roles][control de acceso basado en roles] es una característica muy útil que le permite delegar accesos específicos a recursos en Azure. Esto significa que puede tener la seguridad de que concede a una determinada persona el acceso exclusivamente a lo que necesita. No obstante, algunas veces el modelo de recursos para los recursos de Azure puede ser complicado y puede costar entender a qué se están concediendo permisos exactamente.
+El [control de acceso basado en roles](http://azure.microsoft.com/es-es/documentation/articles/role-based-access-control-configure/) es una característica muy útil que le permite delegar accesos específicos a recursos en Azure. Esto significa que puede tener la seguridad de que concede a una determinada persona el acceso exclusivamente a lo que necesita. No obstante, algunas veces el modelo de recursos para los recursos de Azure puede ser complicado y puede costar entender a qué se están concediendo permisos exactamente.
 
 En este documento explicamos qué puede esperar al usar algunos de los roles del portal de vista previa. En esta versión se incluyen tres roles predefinidos:
 
@@ -14,7 +14,7 @@ En este documento explicamos qué puede esperar al usar algunos de los roles del
 -   Colaborador
 -   Lector
 
-Los propietarios y los colaboradores tienen acceso total a la experiencia de administración, pero un colaborador no puede dar acceso a otros usuarios o grupos. Nos centraremos en el rol del lector, ya que tiene más cosas que comentar. [Vea este artículo][control de acceso basado en roles] si quiere detalles sobre cómo conceder acceso exactamente.
+Los propietarios y los colaboradores tienen acceso total a la experiencia de administración, pero un colaborador no puede dar acceso a otros usuarios o grupos. Nos centraremos en el rol del lector, ya que tiene más cosas que comentar. [Vea este artículo](http://azure.microsoft.com/es-es/documentation/articles/role-based-access-control-configure/) si quiere detalles sobre cómo conceder acceso exactamente.
 
 ## Cargas de trabajo de sitio web
 
@@ -39,7 +39,7 @@ Si no puede obtener acceso a ninguno de estos elementos, necesitará acceso de c
 
 Los sitios web pueden resultar complicados si entran en juego distintos recursos. Este es un grupo de recursos típico con un par de sitios web:
 
-![Grupo de recursos de sitio web][Grupo de recursos de sitio web]
+![Grupo de recursos de sitio web](./media/role-based-access-control-troubleshooting/Website-resource-model.png)
 
 Como consecuencia, si le concede a alguien acceso solo al sitio web, muchas de las funciones de la hoja del sitio web estarán totalmente deshabilitadas.
 
@@ -77,5 +77,3 @@ Las máquinas virtuales tienen estos recursos relacionados:
 
 Si no puede acceder a ninguno de estos elementos, deberá pedirle al administrador el acceso de colaborador al grupo de recursos.
 
-  [control de acceso basado en roles]: http://azure.microsoft.com/es-es/documentation/articles/role-based-access-control-configure/
-  [Grupo de recursos de sitio web]: ./media/role-based-access-control-troubleshooting/Website-resource-model.png

@@ -1,7 +1,8 @@
-<properties linkid="" urlDisplayName="" pageTitle="Using Resource groups to manage your Azure resources" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala" solutions="" writer="" manager="" editor="" />
+<properties urlDisplayName="" pageTitle="Using Resource groups to manage your Azure resources" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="" editor=""  />
 
-Uso del grupo de recursos para administrar los recursos de Azure
-================================================================
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa Bhojawala"></tags>
+
+# Uso del grupo de recursos para administrar los recursos de Azure
 
 ### Introducción
 
@@ -15,31 +16,34 @@ Aquí tiene una introducción concisa de cómo usar grupos de recursos en el por
 
 Cuando se crea un recurso en el portal de vista previa, siempre se crea dentro de un grupo de recursos. Puede elegir crear un nuevo grupo de recursos o usar un grupo de recursos existente en el flujo de creación.
 
+
 ![](http://i.imgur.com/USKkQdW.png)
+
 
  Cuando se crea una aplicación que consta de algunos recursos que funcionan juntos (por ejemplo, sitio web + base de datos), siempre se crea en su propio grupo de recursos, por lo que puede administrar el ciclo de vida de todos los recursos relacionados utilizando dicho grupo de recursos. Puede agregar o quitar recursos adicionales del grupo de recursos a medida que evoluciona la aplicación.
 
-![](http://i.imgur.com/Me0jbio.png)
+![][1]
 
 ### Exploración de grupos de recursos
 
 Puede explorar todos los grupos de recursos haciendo clic en la barra de salto a la izquierda de la pantalla. Un grupo de recursos cuenta con un cuadro que proporciona toda la información sobre un grupo de recursos determinado. El cuadro del grupo de recursos también proporcionará una vista unificada de la información de supervisión y facturación para todos los recursos del grupo.
 
-La sección de resumen muestra una asignación visual de todos los recursos del grupo en cuestión. También muestra los recursos de otros grupos que están vinculados a este grupo de recursos. La asignación de recursos también muestra el estado de cada uno de ellos. ![](http://i.imgur.com/PhJeLZQ.png)
+La sección de resumen muestra una asignación visual de todos los recursos del grupo en cuestión. También muestra los recursos de otros grupos que están vinculados a este grupo de recursos. La asignación de recursos también muestra el estado de cada uno de ellos.
+![][2]
 
 La parte de asignación de recursos puede personalizarse para mostrar un tamaño mayor en el que aparecerán todos los recursos contenidos en el grupo y los recursos de otros grupos que se encuentran vinculados. Esta parte puede anclarse al panel de inicio, que copiará la parte del panel de inicio.
 
-![](http://i.imgur.com/5Wqv2XR.png)
+![][3]
 
 Si hace clic en la asignación de recursos, se inicia la vista de lista de todos los recursos en la asignación de recursos. Esta vista mostrará todos los recursos dentro de un grupo de recursos o que se encuentren vinculados a él. Si hace clic en estos recursos, se iniciarán los cuadros.
 
-![](http://i.imgur.com/COPjNng.png)
+![][4]
 
 ### Incorporación de recursos a grupos de recursos
 
-Puede agregar recursos a un grupo de recursos con el comando Add en el cuadro de grupo de recursos. Siga los pasos del flujo para agregar otros recursos al grupo.
+Puede agregar recursos a un grupo de recursos con el comando "Add" en el cuadro de grupo de recursos. Siga los pasos del flujo para agregar otros recursos al grupo.
 
-![](http://i.imgur.com/G79kayH.png)
+![][5]
 
 Nota: no es recomendable poner el proyecto de equipo en el mismo grupo de recursos que otros recursos de Azure. Si crea un proyecto de equipo en una nueva cuenta y grupo, cree un sitio web. El grupo de sitio se establecerá de forma predeterminada en el último grupo usado (grupo VSO) y finalizará los recursos de desarrollador/tiempo de ejecución en el mismo grupo.
 
@@ -47,5 +51,12 @@ Nota: no es recomendable poner el proyecto de equipo en el mismo grupo de recurs
 
 Puesto que los grupos de recursos le permiten administrar el ciclo de vida de todos los recursos contenidos, la eliminación de un grupo de recursos provocará que se eliminen todos los recursos que alberga. También puede eliminar recursos individuales de un grupo de recursos. Debe prestar atención cuando elimine un grupo de recursos, ya que puede haber otros recursos vinculados a él. Puede ver los recursos vinculados en la asignación de recursos y seguir los pasos necesarios para evitar consecuencias no deseadas cuando elimine los grupos de recursos.
 
-![](http://i.imgur.com/ZTXoISb.png)
+![][6]
 
+  
+  [1]: http://i.imgur.com/Me0jbio.png
+  [2]: http://i.imgur.com/PhJeLZQ.png
+  [3]: http://i.imgur.com/5Wqv2XR.png
+  [4]: http://i.imgur.com/COPjNng.png
+  [5]: http://i.imgur.com/G79kayH.png
+  [6]: http://i.imgur.com/ZTXoISb.png

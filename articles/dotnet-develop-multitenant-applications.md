@@ -1,24 +1,40 @@
 <properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="" solutions="" manager="" editor="" />
 
--   [Proceso](/es-es/develop/net/compute/)
--   [Servicios de datos](/es-es/develop/net/data/)
--   [Servicios de aplicaciones](/es-es/develop/net/app-services/)
--   [Referencia](/es-es/develop/net/reference/)
--   [Guía](/es-es/develop/net/guidance/)
--   [Arquitectura](/es-es/develop/net/architecture/)
--   [Muestras](/es-es/develop/net/samples/)
--   [Tutoriales basados en escenarios](/es-es/develop/net/end-to-end-Apps/)
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
 
--   [Foros](/en-us/support/forums/)
+<div>
+<div class="left-nav">
+<div class="static-nav">
+<ul>
+<li class="menu-nodejs-compute"><a href="/es-es/develop/net/compute/">Proceso</a></li>
+<li class="menu-nodejs-data"><a href="/es-es/develop/net/data/">Servicios de datos</a></li>
+<li class="menu-nodejs-appservices"><a href="/es-es/develop/net/app-services/">Servicios de aplicaciones</a></li>
+<li><a href="/es-es/develop/net/reference/">Referencia</a></li>
+<li><a href="/es-es/develop/net/guidance/">Gu&iacute;a</a></li>
+<li><a href="/es-es/develop/net/architecture/">Arquitectura</a></li>
+<li><a href="/es-es/develop/net/samples/">Muestras</a></li>
+<li><a href="/es-es/develop/net/end-to-end-Apps/">Tutoriales basados en escenarios</a></li>
+</ul>
+<ul class="links">
+<li class="forum"><a href="/es-es/support/forums/">Foros</a></li>
+</ul>
+</div>
 
--   En esta sección (saltar a):
--   [Información general sobre la arquitectura de la aplicación](/es-es/develop/net/architecture/#overviews)
--   **Patrón de aplicación: aplicaciones multiempresa**
--   [Patrón de aplicación: pruebas de carga](/es-es/develop/net/architecture/load-testing-pattern/)
--   [Patrones de diseño](/es-es/develop/net/architecture/#designpatterns)
+<div class="floating-nav jump-to"><br />
+<ul>
+<li>En esta secci&oacute;n (saltar a):</li>
+<li><a href="/es-es/develop/net/architecture/#overviews">Informaci&oacute;n general sobre la arquitectura de la aplicaci&oacute;n</a></li>
+<li><strong>Patr&oacute;n de aplicaci&oacute;n: aplicaciones multiempresa</strong></li>
+<li><a href="/es-es/develop/net/architecture/load-testing-pattern/">Patr&oacute;n de aplicaci&oacute;n: pruebas de carga</a></li>
+<li><a href="/es-es/develop/net/architecture/#designpatterns">Patrones de dise&ntilde;o</a></li>
+</ul>
+</div>
 
-Aplicaciones multiempresa en Azure
-==================================
+</div>
+
+</div>
+
+# Aplicaciones multiempresa en Azure
 
 Una aplicación multiempresa es un recurso compartido que permite a usuarios independientes, o "inquilinos", ver la aplicación como si fuera propia. Un escenario típico de una aplicación multiempresa es aquel en que todos los usuarios de la aplicación pueden querer personalizar la experiencia de usuario pero, por otra parte, tienen los mismos requisitos empresariales básicos. Office 365, Outlook.com y visualstudio.com son ejemplos de grandes aplicaciones multiempresa.
 
@@ -40,15 +56,16 @@ Una aplicación multiempresa correctamente implementada ofrece los siguientes be
 
 En resumen, si bien hay muchas consideraciones que debe tener en cuenta para ofrecer un servicio de alta escalabilidad, también hay una serie de objetivos y requisitos comunes a muchas aplicaciones multiempresa. Algunos pueden no resultar pertinentes en escenarios específicos y la importancia de los objetivos y requisitos individuales variará en cada escenario. Como proveedor de la aplicación multiempresa, también tendrá objetivos y requisitos como satisfacer los requisitos y los objetivos de los inquilinos, rentabilidad, facturación, varios niveles de servicio, aprovisionamiento, mantenimiento, supervisión y automatización.
 
-Para obtener más información acerca de consideraciones de diseño adicionales de una aplicación multiempresa, consulte [Hosting a Multi-Tenant Application on Azure](http://msdn.microsoft.com/es-es/library/hh534480.aspx).
+Para obtener más información acerca de consideraciones de diseño adicionales de una aplicación multiempresa, consulte [Hosting a Multi-Tenant Application on Azure][].
 
 Azure ofrece muchas características que le permiten solucionar los principales problemas detectados al diseñar un sistema multiempresa.
 
 **Aislamiento**
 
 -   Segmentación de inquilinos de sitios web mediante encabezados host con o sin comunicación de SSL
--   Segmentación de inquilinos de sitios web mediante parámetros de consulta
+-   Segmentar inquilinos de sitio web según parámetros de consulta
 -   Servicios web en roles de trabajo
+
     -   Roles de trabajo que suelen procesar datos en el back-end de una aplicación
     -   Roles web que suelen actuar como el front-end de las aplicaciones
 
@@ -87,5 +104,20 @@ Azure ofrece diferentes formas de aprovisionar nuevos inquilinos para la aplicac
     -   Copiar desde una base de datos de referencia maestra
     -   Usar la importación y exportación de base de datos para aprovisionar bases de datos nuevas desde un archivo
 
-Para obtener información detallada acerca de cómo aplicar Azure a aplicaciones multiempresa, consulte [Diseño de aplicaciones multiempresa en Azure](http://msdn.microsoft.com/es-es/library/windowsazure/hh689716).
 
+
+<!--links-->
+
+  [Proceso]: /es-es/develop/net/compute/
+  [Servicios de datos]: /es-es/develop/net/data/
+  [Servicios de aplicaciones]: /es-es/develop/net/app-services/
+  [Referencia]: /es-es/develop/net/reference/
+  [Guía]: /es-es/develop/net/guidance/
+  [Arquitectura]: /es-es/develop/net/architecture/
+  [Muestras]: /es-es/develop/net/samples/
+  [Tutoriales basados en escenarios]: /es-es/develop/net/end-to-end-Apps/
+  [Foros]: /es-es/support/forums/
+  [Información general sobre la arquitectura de la aplicación]: /es-es/develop/net/architecture/#overviews
+  [Patrón de aplicación: pruebas de carga]: /es-es/develop/net/architecture/load-testing-pattern/
+  [Patrones de diseño]: /es-es/develop/net/architecture/#designpatterns
+  [Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/es-es/library/hh534480.aspx

@@ -1,16 +1,18 @@
 <properties linkid="script-xplat-intro" urlDisplayName="Microsoft Azure Cross-Platform Command-Line Interface" pageTitle="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" title="Using Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaKeywords="windows azure cross-platform command-line interface Resource Manager, windows azure command-line resource manager, azure command-line resource manager, azure cli resource manager" description="Use the Microsoft Azure Cross-Platform Command-Line Interface with the Resource Manager" metaCanonical="http://www.windowsazure.com/es-es/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="larryfr" services="" />
 
-Uso de la interfaz de la línea de comandos entre plataformas de Azure con Resource Manager
-==========================================================================================
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+
+# Uso de la interfaz de la línea de comandos entre plataformas de Azure con Resource Manager
+
+<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/documentation/articles/powershell-azure-resource-manager.md" title="Windows PowerShell">Windows PowerShell</a><a href="/es-es/documentation/articles/xplat-cli-azure-resource-manager.md" title="Cross-Platform CLI" class="current">Cross-Platform CLI</a></div>
 
 Recientemente presentamos una vista previa de Resource Manager, que es una nueva manera de administrar Azure. En este artículo, aprenderá a usar la interfaz de la línea de comandos entre plataformas (xplat-cli) de Azure para trabajar con Resource Manager.
 
 > [WACOM.NOTE] Resource Manager está actualmente en vista previa y no proporciona el mismo nivel de capacidades de administración que Azure Service Management.
 
-> [WACOM.NOTE] Si todavía no ha instalado ni configurado xplat-cli, consulte [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](/es-es/documentation/articles/xplat-cli/) para conocer más pasos sobre instalación, configuración y uso de la xplat-cli.
+> [WACOM.NOTE] Si todavía no ha instalado ni configurado el xplat-cli, consulte [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure][] para conocer más pasos sobre instalación, configuración y uso de la xplat-cli.
 
-Resource Manager
-----------------
+## Resource Manager
 
 Resource Manager le permite administrar un grupo de *recursos* (entidades administradas por el usuario, como un servidor de base de datos, una base de datos o un sitio web) como una sola unidad lógica, o *grupo de recursos*. Por ejemplo, un grupo de recursos podría contener recursos de una Base de datos SQL y de un sitio web.
 
@@ -18,49 +20,47 @@ Para admitir una forma más declarativa de describir los cambios en los recursos
 
 > [WACOM.NOTE] En este momento no están documentados los detalles específicos del lenguaje de la plantilla. Una vez que dicha documentación esté disponible, se actualizará este tema para brindar un vínculo a la documentación de referencia.
 >
-> Sin embargo, puede utilizar el comando `azure group template download` para descargar y modificar plantillas proporcionadas por Microsoft y asociados desde la galería de plantillas.
+> Sin embargo, puede utilizar el comando `azure group template download` group template download para descargar y modificar plantillas proporcionadas por Microsoft y asociados desde la galería de plantillas.
 
 Cuando se usa una plantilla para modificar o crear un grupo, se crea una *implementación*, que luego se aplica al grupo.
 
-Autenticación
--------------
+## Autenticación
 
 Actualmente, trabajar con Resource Manager a través de la xplat-cli requiere que se autentique en Microsoft Azure con una cuenta de la organización. No servirá autenticarse con una cuenta Microsoft o con un certificado instalado a través de un archivo .publishsettings.
 
-Para obtener más información sobre la autenticación con una cuenta de organización, consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure](/es-es/documentation/articles/xplat-cli/).
+Para obtener más información sobre la autenticación con una cuenta de organización, consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure][Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure].
 
-Trabajo con grupos y plantillas
--------------------------------
+## Trabajo con grupos y plantillas
 
 1.  Resource Manager actualmente está en vista previa, por lo que los comandos de la xplat-cl para trabajar con él no están habilitados de manera predeterminada. Utilice el comando siguiente para habilitar los comandos.
 
-         azure config mode arm
+        azure config mode arm
 
     > [WACOM.NOTE] Los modos Resource Manager y Azure Service Management se excluyen mutuamente. Es decir, los recursos creados en un modo no se pueden administrar desde el otro.
 
 2.  Cuando trabaje con plantillas, puede crear una propia o usar una de la galería de plantillas. Para ver las plantillas disponibles en la galería, utilice el comando siguiente.
 
-         azure group template list
+        azure group template list
 
     La respuesta mostrará el nombre del publicador y de la plantilla y presentará un formato similar al siguiente.
 
-         datos:    Publicador               Nombre
-         data:    ----------------------------------------------------------------------------
-         data:    Microsoft               Microsoft.WebSite.0.1.0-preview1
-         data:    Microsoft               Microsoft.PHPStarterKit.0.1.0-preview1
-         data:    Microsoft               Microsoft.HTML5EmptySite.0.1.0-preview1
-         data:    Microsoft               Microsoft.ASPNETEmptySite.0.1.0-preview1
-         data:    Microsoft               Microsoft.WebSiteMySQLDatabase.0.1.0-preview1
+        data:    Publisher               Name
+        data:    ----------------------------------------------------------------------------
+        data:    Microsoft               Microsoft.WebSite.0.1.0-preview1
+        data:    Microsoft               Microsoft.PHPStarterKit.0.1.0-preview1
+        data:    Microsoft               Microsoft.HTML5EmptySite.0.1.0-preview1
+        data:    Microsoft               Microsoft.ASPNETEmptySite.0.1.0-preview1
+        data:    Microsoft               Microsoft.WebSiteMySQLDatabase.0.1.0-preview1
 
 3.  Para ver detalles de una plantilla que creará un sitio web de Azure, use el comando siguiente.
 
-         azure group template show Microsoft.WebSiteSQLDatabase.0.1.0-preview1
+        azure group template show Microsoft.WebSiteSQLDatabase.0.1.0-preview1
 
     Esto devolverá información descriptiva acerca de la plantilla.
 
 4.  Una vez que haya seleccionado una plantilla, puede descargarla con el siguiente comando.
 
-         azure group template download Microsoft.WebSiteSQLDatabase.0.1.0-preview1
+        azure group template download Microsoft.WebSiteSQLDatabase.0.1.0-preview1
 
     Descargar una plantilla le permite personalizarla para adecuarse mejor a sus requisitos. Por ejemplo, agregar otro recurso a la plantilla.
 
@@ -70,36 +70,36 @@ Trabajo con grupos y plantillas
 
     Para crear un archivo que contiene parámetros para la plantilla Microsoft.WebSiteSQLDatabase.0.1.0-preview1, utilice los siguientes datos y cree un archivo llamado **params.json**. Reemplace los valores que comienzan con **My**, como **MyWebSite**, por sus propios valores. El valor **siteLocation** debe especificar una región de Azure cercana, como **Europa del Norte** o **Centro-Sur de EE. UU.**.
 
-         {
-           "siteName": {
-             "value": "MyWebSite"
-           },
-           "hostingPlanName": {
-             "value": "MyHostingPlan"
-           },
-           "siteLocation": {
-             "value": "Europa del Norte"
-           },
-           "serverName": {
-             "value": "MySQLServer"
-           },
-           "serverLocation": {
-             "value": "Europa del Norte"
-           },
-           "administratorLogin": {
-             "value": "MySQLAdmin"
-           },
-           "administratorLoginPassword": {
-             "value": "MySQLAdminPassword"
-           },
-           "databaseName": {
-             "value": "MySQLDB"
-           }
-         }
+        {
+          "siteName": {
+            "value": "MyWebSite"
+          },
+          "hostingPlanName": {
+            "value": "MyHostingPlan"
+          },
+          "siteLocation": {
+            "value": "North Europe"
+          },
+          "serverName": {
+            "value": "MySQLServer"
+          },
+          "serverLocation": {
+            "value": "North Europe"
+          },
+          "administratorLogin": {
+            "value": "MySQLAdmin"
+          },
+          "administratorLoginPassword": {
+            "value": "MySQLAdminPassword"
+          },
+          "databaseName": {
+            "value": "MySQLDB"
+          }
+        }
 
 6.  Después de guardar el archivo **params.json**, utilice el siguiente comando para crear un grupo de recursos nuevo basado en la plantilla. El parámetro `-e` especifica el archivo **params.json** que se creó en el paso anterior.
 
-         azure group create MyGroupName "MyDataCenter" -y Microsoft.WebSiteSQLDatabase.0.1.0-preview1 -d MyDeployment -e params.json
+        azure group create MyGroupName "MyDataCenter" -y Microsoft.WebSiteSQLDatabase.0.1.0-preview1 -d MyDeployment -e params.json
 
     Reemplace el valor **MyGroupName** por el nombre de grupo que desee utilizar y **MyDataCenter** por el valor de **siteLocation** especificado en la plantilla.
 
@@ -117,24 +117,23 @@ Trabajo con grupos y plantillas
 
 7.  Para ver el grupo, use el siguiente comando.
 
-         azure group show MyGroupName
+        azure group show MyGroupName
 
-    Este comando devuelve información acerca de los recursos del grupo. Si tiene varios grupos, puede utilizar el comando `azure group list` para recuperar una lista de nombres de grupos y, a continuación, `azure group show` para ver detalles de un grupo específico.
+    Este comando devuelve información acerca de los recursos del grupo. Si tiene varios grupos, puede utilizar el comando `azure group list` group list para recuperar una lista de nombres de grupos y, a continuación, azure group `azure group show` para ver detalles de un grupo específico.
 
-Trabajo con recursos
---------------------
+## Trabajo con recursos
 
 A pesar de que las plantillas le permiten declarar cambios de configuración en todo el grupo, a veces es necesario trabajar solo con un recurso específico. Puede hacerlo si utiliza los comandos `azure resource`.
 
-> [WACOM.NOTE] Cuando utilice los comandos `azure resource` distintos del comando `list`, debe especificar la versión de API del recurso con que está trabajando mediante el parámetro `-o`. Si no está seguro sobre la versión de API que debe utilizar, consulte el archivo de plantilla y busque el campo **apiVersion** correspondiente al recurso.
+> [WACOM.NOTE] Cuando utilice los comandos `azure resource` resource distintos del comando `list`, debe especificar la versión de API del recurso con que está trabajando mediante el parámetro `-o`. Si no está seguro sobre la versión de API que debe utilizar, consulte el archivo de plantilla y busque el campo **apiVersion** correspondiente al recurso.
 
 1.  Utilice el comando siguiente para ver todos los recursos de un grupo.
 
-         azure resource list MyGroupName
+        azure resource list MyGroupName
 
 2.  Para ver recursos individuales, como el sitio web, dentro del grupo, utilice el siguiente comando.
 
-         azure resource show MyGroupName MyWebSiteName Microsoft.Web/sites -o "2014-04-01"
+        azure resource show MyGroupName MyWebSiteName Microsoft.Web/sites -o "2014-04-01"
 
     Observe el parámetro **Microsoft.Web/sites**. Indica el tipo del recurso sobre el que solicita información. Si observa el archivo de plantilla que se descargó anteriormente, observará que este mismo valor se utiliza para definir el tipo de recurso de sitio web descrito en la plantilla.
 
@@ -142,7 +141,7 @@ A pesar de que las plantillas le permiten declarar cambios de configuración en 
 
 3.  Cuando se consultan los detalles de un recurso, a menudo resulta útil usar el parámetro `--json` porque permite que la salida se pueda leer mejor, dado que algunos valores son estructuras anidadas o recopilaciones. La siguiente línea demuestra los resultados obtenidos con el comando show como un documento JSON.
 
-         azure resource show MyGroupName MyWebSite Microsoft.Web/sites -o "2014-04-01" --json
+        azure resource show MyGroupName MyWebSite Microsoft.Web/sites -o "2014-04-01" --json
 
     > [WACOM.NOTE] Puede guardar los datos JSON en archivo si utiliza el carácter \> para canalizar la salida al archivo. Por ejemplo:
     >
@@ -150,23 +149,20 @@ A pesar de que las plantillas le permiten declarar cambios de configuración en 
 
 4.  Para eliminar un recurso existente, utilice el comando siguiente.
 
-         azure resource delete MyGroupName MyWebSite Microsoft.Web/sites -o "2014-04-01"
+        azure resource delete MyGroupName MyWebSite Microsoft.Web/sites -o "2014-04-01"
 
-Registro
---------
+## Registro
 
 Para ver información registrada sobre operaciones realizadas en un grupo, utilice el comando `azure group log show`. De manera predeterminada, indicará la última operación realizada en el grupo. Para ver todas las operaciones, utilice el parámetro opcional `--all`. Para ver la última implementación, utilice `--last-deployment`. Para ver una implementación específica, utilice `--deployment` y especifique el nombre de la implementación. El ejemplo siguiente devuelve un registro de todas las operaciones realizadas en relación al grupo "MyGroup".
 
     azure group log show mygroup --all
 
-Pasos siguientes
-----------------
+## Pasos siguientes
 
--   Para obtener más información sobre el uso de la interfaz de la línea de comandos entre plataformas de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure](/es-es/documentation/articles/xplat-cli/).
--   Para obtener información sobre el trabajo con Resource Manager con Azure PowerShell, consulte [Introducción al uso de Windows PowerShell con Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394760)
+-   Para obtener más información sobre el uso de la interfaz de la línea de comandos entre plataformas de Azure, consulte [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure][].
+-   Para obtener información sobre el trabajo con Resource Manager con Azure PowerShell, consulte [Introducción al uso de Windows PowerShell con Resource Manager][]
 
-[signuporg]: http://www.windowsazure.com/es-es/documentation/articles/sign-up-organization/
-[adtenant]: http://technet.microsoft.com/en-us/library/jj573650#createAzureTenant
-[portal]: https://manage.windowsazure.com/
-[xplatsetup]: /es-es/documentation/articles/xplat-cli/
-[psrm]: http://go.microsoft.com/fwlink/?LinkId=394760
+  [Windows PowerShell]: /es-es/documentation/articles/powershell-azure-resource-manager.md "Windows PowerShell"
+  [Cross-Platform CLI]: /es-es/documentation/articles/xplat-cli-azure-resource-manager.md "Cross-Platform CLI"
+  [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure]: /es-es/documentation/articles/xplat-cli/
+  [Introducción al uso de Windows PowerShell con Resource Manager]: http://go.microsoft.com/fwlink/?LinkId=394760

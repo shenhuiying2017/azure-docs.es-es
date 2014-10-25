@@ -84,7 +84,7 @@ Si usa Visual Studio Online, puede configurar una implementación continua desde
   [Cuando el sitio está en funcionamiento]: #while-your-website-is-running
   [Cuando actualiza el sitio web]: #when-you-update-your-website
   [Administrar sitios web a través del portal de administración de Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-manage/
-  [Detalles de precios]: http://azure.microsoft.com/en-us/pricing/details/websites/
+  [Detalles de precios]: http://azure.microsoft.com/es-es/pricing/details/websites/
   [planes de hospedaje web]: http://azure.microsoft.com/es-es/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview
   [cambiar los niveles]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-scale/
   [portal de administración de Azure]: https://manage.windowsazure.com/
@@ -99,7 +99,7 @@ Si usa Visual Studio Online, puede configurar una implementación continua desde
   [Administración del rendimiento de la aplicación New Relic en Sitios web Azure]: http://azure.microsoft.com/es-es/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/
   [copias de seguridad automáticas]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-backup/
   [este vídeo]: http://azure.microsoft.com/es-es/documentation/videos/azure-websites-automatic-and-easy-backup/
-  [recuperación de bases de datos]: http://msdn.microsoft.com/en-us/library/azure/hh852669.aspx
+  [recuperación de bases de datos]: http://msdn.microsoft.com/es-es/library/azure/hh852669.aspx
   [solucionar los problemas en Visual Studio]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio/#remotedebug
   [Habilitación del registro de diagnóstico para Sitios web Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-enable-diagnostic-log/
   [Depuración de una aplicación Node.js en Sitios web Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-nodejs-debug/
