@@ -2,7 +2,7 @@
 
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb"></tags>
 
-[WACOM.INCLUDE [vs-storage-aspnet-getting-started-intro][vs-storage-aspnet-getting-started-intro]]
+[WACOM.INCLUDE [vs-storage-aspnet-getting-started-intro](../includes/vs-storage-aspnet-getting-started-intro.md)]
 
 ### Introducción a Almacenamiento de Azure
 
@@ -26,7 +26,7 @@ Antes de realizar cualquier acción con una cola, tendrá que obtener la cadena 
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       ConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
-[WACOM.INCLUDE [vs-storage-getting-started-queues-include][vs-storage-getting-started-queues-include]]
+[WACOM.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
   [vs-storage-aspnet-getting-started-intro]: ../includes/vs-storage-aspnet-getting-started-intro.md
   [Blobs]: /es-es/documentation/articles/vs-storage-aspnet-getting-started-blobs "Blobs"

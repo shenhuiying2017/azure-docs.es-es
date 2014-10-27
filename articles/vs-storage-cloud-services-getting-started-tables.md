@@ -2,7 +2,7 @@
 
 <tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="ghogen, kempb"></tags>
 
-[WACOM.INCLUDE [vs-storage-cloud-services-getting-started-intro][vs-storage-cloud-services-getting-started-intro]]
+[WACOM.INCLUDE [vs-storage-cloud-services-getting-started-intro](../includes/vs-storage-cloud-services-getting-started-intro.md)]
 
 ### Introducción a Almacenamiento de Azure
 
@@ -26,11 +26,9 @@ Antes de realizar cualquier acción con una tabla, tendrá que obtener la cadena
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
       CloudConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
-[WACOM.INCLUDE [vs-storage-getting-started-tables-include][vs-storage-getting-started-tables-include]]
+[WACOM.INCLUDE [vs-storage-getting-started-tables-include](../includes/vs-storage-getting-started-tables-include.md)]
 
-  [vs-storage-cloud-services-getting-started-intro]: ../includes/vs-storage-cloud-services-getting-started-intro.md
   [Blobs]: /es-es/documentation/articles/vs-storage-cloud-services-getting-started-blobs "Blobs"
   [Colas]: /es-es/documentation/articles/vs-storage-cloud-services-getting-started-queues "Colas"
   [Tablas]: /es-es/documentation/articles/vs-storage-cloud-services-getting-started-tables "Tablas"
   [Uso del almacenamiento de tablas en .NET]: http://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "Uso del almacenamiento de tablas en .NET"
-  [vs-storage-getting-started-tables-include]: ../includes/vs-storage-getting-started-tables-include.md

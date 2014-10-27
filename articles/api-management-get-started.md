@@ -37,9 +37,9 @@ Escriba **Contoso Ltd.** en **Nombre de organización** y escriba su dirección 
 
 Haga clic en la casilla para crear su instancia de servicio.
 
-![New API Management service][1]
+![New API Management service][New API Management service]
 
-![New API Management service][2]
+![New API Management service][New API Management service]
 
 Una vez creada la instancia de servicio, el paso siguiente es crear una API.
 
@@ -118,7 +118,7 @@ Haga clic en **Agregar** en la sección Respuestas, comience a escribir **200** 
 
 Una vez seleccionado **200 OK**, se agrega un nuevo código de respuesta a la operación y se muestra la ventana de respuestas. Escriba **Devuelto en todos los casos.** en el cuadro de texto **Descripción**.
 
-![Add response][3]
+![Add response][Add response]
 
 > **Agregar representación** se usa para configurar respuestas en varias representaciones. Para obtener más información, consulte [Respuestas][Respuestas].
 
@@ -143,7 +143,7 @@ En este tutorial usaremos el producto **Inicio**. Haga clic en **Inicio** para v
 
 Haga clic en **Agregar API al producto**.
 
-![Add API][4]
+![Add API][Add API]
 
 Active la casilla correspondiente a **Mi API Eco** y haga clic en **Guardar**.
 
@@ -169,7 +169,7 @@ Haga clic en el nombre del desarrollador para definir la configuración para el 
 
 Haga clic en **Agregar suscripción**.
 
-![Add subscription][5]
+![Add subscription][Add subscription]
 
 Active la casilla correspondiente a **Inicio** y haga clic en **Suscribirse**.
 
@@ -185,7 +185,7 @@ Se puede llamar a las operaciones directamente desde el portal para desarrollado
 
 Haga clic en **API** en el menú superior y, a continuación, haga clic en **Mi API Eco** para ver las operaciones disponibles.
 
-![Portal para desarrolladores][6]
+![Portal para desarrolladores][Portal para desarrolladores]
 
 Tenga en cuenta que se muestran la descripción y los parámetros que se agregaron cuando creó la operación, lo que proporciona documentación para los desarrolladores que usarán esta operación.
 
