@@ -15,21 +15,21 @@ Este tutorial mostrará a los desarrolladores de Java cómo utilizar Azure Activ
 
 Este tutorial utiliza un servidor de aplicaciones específico, pero si tiene experiencia como desarrollador de Java, el proceso que se describe a continuación también se puede aplicar a otros entornos. En este tutorial se necesitan los siguientes requisitos previos para el entorno de desarrollo:
 
--   [Código de ejemplo de Java para Azure Active Directory][]
--   [Java Runtime Environment 1.6][]
--   [JBoss Application Server versión 7.1.1.Final][]
--   [IDE de JBoss Developer Studio][]
+-   [Código de ejemplo de Java para Azure Active Directory][Código de ejemplo de Java para Azure Active Directory]
+-   [Java Runtime Environment 1.6][Java Runtime Environment 1.6]
+-   [JBoss Application Server versión 7.1.1.Final][JBoss Application Server versión 7.1.1.Final]
+-   [IDE de JBoss Developer Studio][IDE de JBoss Developer Studio]
 -   Internet Information Services (IIS) 7.5 con SSL habilitado
 -   Windows PowerShell
--   [Instalar y configurar Windows PowerShell para el inicio de sesión único][]
+-   [Instalar y configurar Windows PowerShell para el inicio de sesión único][Instalar y configurar Windows PowerShell para el inicio de sesión único]
 
 ### Tabla de contenido
 
--   [Introducción][]
--   [Paso 1: Crear una aplicación de Java][]
--   [Paso 2: Aprovisionar la aplicación en el inquilino de Active Directory de la empresa][]
--   [Paso 3: Proteger la aplicación con WS-Federation para el inicio de sesión de empleado][]
--   [Resumen][]
+-   [Introducción][Introducción]
+-   [Paso 1: Crear una aplicación de Java][Paso 1: Crear una aplicación de Java]
+-   [Paso 2: Aprovisionar la aplicación en el inquilino de Active Directory de la empresa][Paso 2: Aprovisionar la aplicación en el inquilino de Active Directory de la empresa]
+-   [Paso 3: Proteger la aplicación con WS-Federation para el inicio de sesión de empleado][Paso 3: Proteger la aplicación con WS-Federation para el inicio de sesión de empleado]
+-   [Resumen][Resumen]
 
 ## <a name="createapp"></a>Paso 1: Creación de una aplicación Java
 

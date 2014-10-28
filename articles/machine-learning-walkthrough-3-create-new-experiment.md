@@ -2,14 +2,14 @@
 
 <tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
 
-Este es el tercer paso del tutorial [Desarrollo de una solución predictiva con el Aprendizaje automático de Azure][]:
+Este es el tercer paso del tutorial [Desarrollo de una solución predictiva con el Aprendizaje automático de Azure][Desarrollo de una solución predictiva con el Aprendizaje automático de Azure]:
 
-1.  [Creación de un área de trabajo de Aprendizaje automático][]
-2.  [Carga de los datos existentes][]
+1.  [Creación de un área de trabajo de Aprendizaje automático][Creación de un área de trabajo de Aprendizaje automático]
+2.  [Carga de los datos existentes][Carga de los datos existentes]
 3.  **Creación de un nuevo experimento**
-4.  [Entrenamiento y evaluación de los modelos][]
-5.  [Publicación del servicio web][]
-6.  [Acceso al servicio web][]
+4.  [Entrenamiento y evaluación de los modelos][Entrenamiento y evaluación de los modelos]
+5.  [Publicación del servicio web][Publicación del servicio web]
+6.  [Acceso al servicio web][Acceso al servicio web]
 
 ------------------------------------------------------------------------
 
@@ -41,13 +41,13 @@ Podemos agregar encabezados de columna mediante el módulo **Editor de metadatos
 
 El panel Propiedades tendrá un aspecto similar al siguiente:
 
-![Properties for Metadata Editor][]
+![Properties for Metadata Editor][Properties for Metadata Editor]
 
 > Sugerencia: si desea comprobar los encabezados de columna, ejecute el experimento (haga clic en **EJECUTAR** bajo el lienzo de experimentos), haga clic en el puerto de salida del módulo **Editor de metadatos** y seleccione **Visualizar**. Puede ver el resultado de cualquier módulo igual que visualiza el progreso de los datos a través del experimento.
 
 El experimento debería tener ahora un aspecto similar al siguiente:
 
-![Adding Metadata Editor][]
+![Adding Metadata Editor][Adding Metadata Editor]
 
 ## Creación de conjuntos de datos de entrenamiento y prueba
 
@@ -83,7 +83,7 @@ Tenemos que hacer esta misma operación de replicación para cada salida del mó
 >
 > Nuestro experimento tiene ahora un aspecto similar al siguiente:
 
-![Adding Split module and R scripts][]
+![Adding Split module and R scripts][Adding Split module and R scripts]
 
   [Desarrollo de una solución predictiva con el Aprendizaje automático de Azure]: ../machine-learning-walkthrough-develop-predictive-solution/
   [Creación de un área de trabajo de Aprendizaje automático]: ../machine-learning-walkthrough-1-create-ml-workspace/

@@ -16,7 +16,7 @@ Un proyecto de Aprendizaje automático de Microsoft Azure suele incluir los sigu
 
 Los pasos de 1 a 3 suelen realizarse por un científico de datos a través de varias iteraciones al final de las cuales se entrega un modelo de aprendizaje automático a los equipos de ingeniería y operaciones para su integración en sistemas de producción (con el fin de que el modelo de aprendizaje automático se pueda utilizar en producción).
 
-Los procesos tradicionales de integración e implementación del modelo de aprendizaje automático en un sistema de producción puede tomar semanas, e incluso meses, en función del código utilizado para crear los modelos (como R, Python, C\# o Java), las consideraciones sobre infraestructura e integración de plataforma y la planificación de la implementación.
+Los procesos tradicionales de integración e implementación del modelo de aprendizaje automático en un sistema de producción puede tomar semanas, e incluso meses, en función del código utilizado para crear los modelos (como R, Python, C# o Java), las consideraciones sobre infraestructura e integración de plataforma y la planificación de la implementación.
 
 El aprendizaje automático de Azure simplifica este proceso convirtiendo en primer lugar la creación y la evaluación del modelo en una experiencia intuitiva y proporcionando a continuación un proceso sencillo para implementar el experimento como Servicio web en Azure, reduciendo así significativamente el tiempo total desde la experimentación del modelo hasta su ejecución en producción como Servicio web.
 
@@ -153,7 +153,7 @@ Ilustración 10: notificación de implementación y opción para implementar en 
 
 #### RRS
 
-El Servicio web RRS es un extremo REST al que se puede llamar desde las aplicaciones cliente utilizando diversos lenguajes de programación. La página de ayuda de API incluye un vínculo al código de ejemplo para llamar al nuevo Servicio web con ejemplos en C\#, R y Python.
+El Servicio web RRS es un extremo REST al que se puede llamar desde las aplicaciones cliente utilizando diversos lenguajes de programación. La página de ayuda de API incluye un vínculo al código de ejemplo para llamar al nuevo Servicio web con ejemplos en C#, R y Python.
 
 ![][10]
 

@@ -18,15 +18,15 @@ En este tema se muestra cómo usar Servicios móviles de Windows Azure para envi
 
 > [WACOM.NOTE] Servicios móviles ahora se integra con Centros de notificaciones de Azure para ofrecer compatibilidad con la funcionalidad de notificación de inserción adicional, como plantillas, varias plataformas y escala mejorada. Este tema admite servicios móviles existentes que todavía no se han actualizado para usar la integración de Centros de notificaciones. Cuando crea un nuevo servicio móvil, esta funcionalidad integrada se habilita automáticamente. Debe actualizar el servicio para usar Centros de notificaciones cuando sea posible. **Trabajaremos para tener un tutorial disponible cuanto antes para inserción de Centros de notificaciones con Appcelerator.**
 
-1.  [Generación del archivo de solicitud de firma de certificado][]
-2.  [Registro de la aplicación y habilitación para las notificaciones de inserción][]
-3.  [Creación de un perfil de aprovisionamiento para la aplicación][]
-4.  [Habilitación del servicio de mensajería en la nube de Google][]
-5.  [Creación del módulo GCM para Titanium][]
-6.  [Configuración de Servicios móviles][]
-7.  [Incorporación de notificaciones de inserción a la aplicación][]
-8.  [Actualización de scripts para enviar notificaciones de inserción][]
-9.  [Inserción de datos para recibir notificaciones][]
+1.  [Generación del archivo de solicitud de firma de certificado][Generación del archivo de solicitud de firma de certificado]
+2.  [Registro de la aplicación y habilitación para las notificaciones de inserción][Registro de la aplicación y habilitación para las notificaciones de inserción]
+3.  [Creación de un perfil de aprovisionamiento para la aplicación][Creación de un perfil de aprovisionamiento para la aplicación]
+4.  [Habilitación del servicio de mensajería en la nube de Google][Habilitación del servicio de mensajería en la nube de Google]
+5.  [Creación del módulo GCM para Titanium][Creación del módulo GCM para Titanium]
+6.  [Configuración de Servicios móviles][Configuración de Servicios móviles]
+7.  [Incorporación de notificaciones de inserción a la aplicación][Incorporación de notificaciones de inserción a la aplicación]
+8.  [Actualización de scripts para enviar notificaciones de inserción][Actualización de scripts para enviar notificaciones de inserción]
+9.  [Inserción de datos para recibir notificaciones][Inserción de datos para recibir notificaciones]
 
 Este tutorial requiere lo siguiente:
 
@@ -38,21 +38,21 @@ Este tutorial requiere lo siguiente:
 
 > [WACOM.NOTE] Debido a los requisitos de la configuración de las notificaciones de inserción, debe implementar y realizar una prueba de las notificaciones de inserción en un dispositivo compatible con iOS (iPhone o iPad) en lugar de hacerlo en un emulador.
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][].
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
-[WACOM.INCLUDE [Habilitación de notificaciones de inserción para Apple][]]
+[WACOM.INCLUDE [Habilitación de notificaciones de inserción para Apple](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="register-gcm"></a>Habilitación del servicio de mensajería en la nube de Google
 
-> [WACOM.NOTE]Para llevar a cabo este procedimiento, debe tener una cuenta de Google asociada a una dirección de correo electrónico verificada. Para crear una cuenta de Google, vaya a [accounts.google.com][].
+> [WACOM.NOTE]Para llevar a cabo este procedimiento, debe tener una cuenta de Google asociada a una dirección de correo electrónico verificada. Para crear una cuenta de Google, vaya a [accounts.google.com][accounts.google.com].
 
-[WACOM.INCLUDE [Habilitación de GCM][]]
+[WACOM.INCLUDE [Habilitación de GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 ## <a name="gcm-module"></a>Creación del módulo GCM para Titanium
 
 ### Preparación de Appcelerator Titanium Studio para la creación del módulo
 
-Si va a crear módulos Android, necesitará instalar la compatibilidad con Java dentro de Appcelerator Titanium Studio. Consulte la [instalación de las herramientas de desarrollo de Java][] de Appcelerator para obtener unos pasos breves si todavía no lo ha hecho.
+Si va a crear módulos Android, necesitará instalar la compatibilidad con Java dentro de Appcelerator Titanium Studio. Consulte la [instalación de las herramientas de desarrollo de Java][instalación de las herramientas de desarrollo de Java] de Appcelerator para obtener unos pasos breves si todavía no lo ha hecho.
 
 Necesitará instalar el NDK de Android. Descargue el archivo .zip apropiado desde [][]<http://developer.android.com/sdk/ndk/index.html></a> y extráigalo en la misma ubicación del disco. Recuerde esta ubicación.
 
@@ -205,7 +205,7 @@ Elija **Deploy \> Package - Android Module**. No puede crear un módulo BlackBer
 
 ![][3]
 
-Después, puede optar por implementar el módulo para todos los proyectos o para un proyecto específico. Esto sigue las reglas de instalación descritas en el [uso de módulos de Titanium][], para resumir:
+Después, puede optar por implementar el módulo para todos los proyectos o para un proyecto específico. Esto sigue las reglas de instalación descritas en el [uso de módulos de Titanium][uso de módulos de Titanium], para resumir:
 
 -   Para todos los proyectos: el archivo .zip del módulo se coloca en la raíz de la ubicación de instalación del SDK de Titanium.
 
@@ -213,7 +213,7 @@ Después, puede optar por implementar el módulo para todos los proyectos o para
 
 ## <a name="configure"></a>Configuración de Servicios móviles para enviar solicitudes de inserción
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push][]]
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 1.  Escriba el valor Clave de API obtenido del GCM en el procedimiento anterior y después haga clic en Guardar.
 
@@ -440,11 +440,11 @@ Ahora, la aplicación se habrá actualizado para admitir notificaciones de inser
           });  
         }
 
-Esto registra un nuevo script de inserción, que usa el [objeto push de Servicios móviles][] para enviar una notificación de inserción (el texto insertado) al dispositivo indicado en la solicitud de inserción.
+Esto registra un nuevo script de inserción, que usa el [objeto push de Servicios móviles][objeto push de Servicios móviles] para enviar una notificación de inserción (el texto insertado) al dispositivo indicado en la solicitud de inserción.
 
 <!-- Images. --> <!-- Anchors. --> <!-- URLs. -->
 
-  [C\# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "C# para Tienda Windows"
+  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "C# para Tienda Windows"
   [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-push "JavaScript para Tienda Windows"
   [Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
   [iOS]: /es-es/documentation/articles/mobile-services-ios-get-started-push "iOS"

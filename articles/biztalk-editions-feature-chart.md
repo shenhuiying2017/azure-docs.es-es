@@ -214,25 +214,25 @@ No podrá implementar ningún otro puente ni crear otro contrato. Si desea imple
 
 #### ¿Cómo realizo la migración de un nivel de Servicios de BizTalk a otro?
 
-Utilice el flujo de copia de seguridad y restauración para migrar de un nivel a otro. Solo se admiten algunas rutas de acceso de migración. Consulte [Servicios de BizTalk: Copia de seguridad y restauración][] para obtener más detalles sobre las rutas de acceso de migración compatibles.
+Utilice el flujo de copia de seguridad y restauración para migrar de un nivel a otro. Solo se admiten algunas rutas de acceso de migración. Consulte [Servicios de BizTalk: Copia de seguridad y restauración][Servicios de BizTalk: Copia de seguridad y restauración] para obtener más detalles sobre las rutas de acceso de migración compatibles.
 
 #### ¿El servicio de adaptador BizTalk está incluido en el servicio? ¿Cómo puedo recibir el software?
 
-Sí, el servicio de adaptador BizTalk con BizTalk Adapter Pack está incluido en la [descarga][] del SDK de Servicios de BizTalk de Azure.
+Sí, el servicio de adaptador BizTalk con BizTalk Adapter Pack está incluido en la [descarga][descarga] del SDK de Servicios de BizTalk de Azure.
 
 ## Pasos siguientes
 
-Para aprovisionar los Servicios de BizTalk de Azure en el Portal de administración de Azure, vaya a [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][]. Para comenzar a crear aplicaciones, vaya a [Servicios de BizTalk de Azure][].
+Para aprovisionar los Servicios de BizTalk de Azure en el Portal de administración de Azure, vaya a [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure]. Para comenzar a crear aplicaciones, vaya a [Servicios de BizTalk de Azure][Servicios de BizTalk de Azure].
 
 ## Otras referencias
 
--   [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][]
--   [Servicios de BizTalk: Gráfico del estado de aprovisionamiento][]
--   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala][]
--   [Servicios de BizTalk: Copia de seguridad y restauración][]
--   [Servicios de BizTalk: Limitaciones][]
--   [Servicios de BizTalk: Nombre de emisor y clave de emisor][]
--   [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?][]
+-   [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure]
+-   [Servicios de BizTalk: Gráfico del estado de aprovisionamiento][Servicios de BizTalk: Gráfico del estado de aprovisionamiento]
+-   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala][Servicios de BizTalk: Pestañas Panel, Monitor y Escala]
+-   [Servicios de BizTalk: Copia de seguridad y restauración][Servicios de BizTalk: Copia de seguridad y restauración]
+-   [Servicios de BizTalk: Limitaciones][Servicios de BizTalk: Limitaciones]
+-   [Servicios de BizTalk: Nombre de emisor y clave de emisor][Servicios de BizTalk: Nombre de emisor y clave de emisor]
+-   [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?][¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?]
 
   [Detalles de precios de Servicios de BizTalk de Azure]: http://go.microsoft.com/fwlink/p/?LinkID=304011
   [Servicios de BizTalk: Copia de seguridad y restauración]: http://go.microsoft.com/fwlink/p/?LinkID=329873

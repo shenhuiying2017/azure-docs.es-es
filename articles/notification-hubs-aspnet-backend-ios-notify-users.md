@@ -9,21 +9,21 @@
         <a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
-La compatibilidad con las notificaciones de inserción en Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Un back-end de ASP.NET WebAPI se usa para autenticar clientes y generar notificaciones, tal y como se muestra en el tema de referencia [Registro desde el backend de la aplicación][]. Este tutorial se basa en el centro de notificaciones que creó en el tutorial **Introducción a los Centros de notificaciones**.
+La compatibilidad con las notificaciones de inserción en Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Un back-end de ASP.NET WebAPI se usa para autenticar clientes y generar notificaciones, tal y como se muestra en el tema de referencia [Registro desde el backend de la aplicación][Registro desde el backend de la aplicación]. Este tutorial se basa en el centro de notificaciones que creó en el tutorial **Introducción a los Centros de notificaciones**.
 
 Este tutorial también es el requisito previo para el tutorial **Inserción segura**. Una vez completados los pasos del tutorial **Notificar a los usuarios**, puede continuar con el tutorial **Inserción segura**, en el que se muestra cómo modificar el código de **Notificar a los usuarios** para enviar una notificación de inserción de forma segura.
 
-> [AZURE.NOTE] Este tutorial asume que ha creado y configurado el centro de notificaciones tal y como se describe en [Introducción a los Centros de notificaciones (iOS)][].
+> [AZURE.NOTE] Este tutorial asume que ha creado y configurado el centro de notificaciones tal y como se describe en [Introducción a los Centros de notificaciones (iOS)][Introducción a los Centros de notificaciones (iOS)].
 
 ## Creación y configuración del centro de notificaciones
 
-Antes de empezar este tutorial, debe crear un perfil de aprovisionamiento iOS y un certificado de inserción de desarrollo y, después, crear un Centro de notificaciones de Azure y conectarlo a esa aplicación. Siga los pasos de [Introducción a los Centros de notificaciones (iOS)][], especialmente las secciones 1 a 5.
+Antes de empezar este tutorial, debe crear un perfil de aprovisionamiento iOS y un certificado de inserción de desarrollo y, después, crear un Centro de notificaciones de Azure y conectarlo a esa aplicación. Siga los pasos de [Introducción a los Centros de notificaciones (iOS)][Introducción a los Centros de notificaciones (iOS)], especialmente las secciones 1 a 5.
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers][]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Modificación de la aplicación iOS
 
-1.  Siga los pasos de [Introducción a los Centros de notificaciones (iOS)][], secciones 1 a 5, para crear una aplicación de vista de una sola página capaz de recibir notificaciones de inserción desde un centro de notificaciones.
+1.  Siga los pasos de [Introducción a los Centros de notificaciones (iOS)][Introducción a los Centros de notificaciones (iOS)], secciones 1 a 5, para crear una aplicación de vista de una sola página capaz de recibir notificaciones de inserción desde un centro de notificaciones.
 
 > [AZURE.NOTE] En esta sección asumimos que configuró el proyecto con un nombre de organización vacío. Si no es el caso, tiene que anteponer el nombre de organización a todos los nombres de clase en el código siguiente.
 
@@ -194,7 +194,7 @@ Antes de empezar este tutorial, debe crear un perfil de aprovisionamiento iOS y 
             [dataTask resume];
         }
 
-    El código anterior implementa la lógica explicada en el artículo de referencia [Registro desde el backend de la aplicación][] usando NSURLSession para realizar llamadas REST al back-end de la aplicación y NSUserDefaults para almacenar localmente del identificador de registro devuelto por el centro de notificaciones.
+    El código anterior implementa la lógica explicada en el artículo de referencia [Registro desde el backend de la aplicación][Registro desde el backend de la aplicación] usando NSURLSession para realizar llamadas REST al back-end de la aplicación y NSUserDefaults para almacenar localmente del identificador de registro devuelto por el centro de notificaciones.
 
     Tenga en cuenta que esta clase requiere que su propiedad **authorizationHeader** esté establecida para que funcione correctamente. Esta propiedad la establece la clase **ViewController** después del inicio de sesión.
 
@@ -331,7 +331,7 @@ Para ejecutar la aplicación, realice las siguientes tareas:
   [Windows Universal]: /es-es/documentation/articles/notification-hubs-windows-dotnet-notify-users/ "Windows Universal"
   [iOS]: /es-es/documentation/articles/notification-hubs-/ "iOS"
   [Android]: /es-es/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/ "Android"
-  [Registro desde el backend de la aplicación]: http://msdn.microsoft.com/en-us/library/dn743807.aspx
+  [Registro desde el backend de la aplicación]: http://msdn.microsoft.com/es-es/library/dn743807.aspx
   [Introducción a los Centros de notificaciones (iOS)]: http://azure.microsoft.com/es-es/documentation/articles/notification-hubs-ios-get-started/
   [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
   

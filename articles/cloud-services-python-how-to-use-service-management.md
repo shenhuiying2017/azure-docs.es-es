@@ -4,44 +4,44 @@
 
 # Uso de la administración de servicios con Python
 
-En esta guía se describe cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** del [SDK de Azure para Python][] admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en el [portal de administración][] (como **crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos, máquinas virtuales y grupos de afinidad**). Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
+En esta guía se describe cómo ejecutar tareas comunes de administración de servicios mediante programación con Python. La clase **ServiceManagementService** del [SDK de Azure para Python][SDK de Azure para Python] admite el acceso mediante programación a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en el [portal de administración][portal de administración] (como **crear, actualizar y eliminar servicios en la nube, implementaciones, servicios de administración de datos, máquinas virtuales y grupos de afinidad**). Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios.
 
 ## Tabla de contenido
 
--   [Qué es la administración de servicios][]
--   [Conceptos][]
--   [Direccionamiento del administración de servicios][]
--   [Direccionamiento del ubicaciones disponibles][]
--   [Direccionamiento del servicio en la nube][]
+-   [Qué es la administración de servicios][Qué es la administración de servicios]
+-   [Conceptos][Conceptos]
+-   [Direccionamiento del administración de servicios][Direccionamiento del administración de servicios]
+-   [Direccionamiento del ubicaciones disponibles][Direccionamiento del ubicaciones disponibles]
+-   [Direccionamiento del servicio en la nube][Direccionamiento del servicio en la nube]
 -   [Direccionamiento del servicio en la nube][1]
--   [Direccionamiento del implementación][]
+-   [Direccionamiento del implementación][Direccionamiento del implementación]
 -   [Direccionamiento del implementación][2]
--   [Direccionamiento del implementaciones entre ensayo y producción][]
+-   [Direccionamiento del implementaciones entre ensayo y producción][Direccionamiento del implementaciones entre ensayo y producción]
 -   [Direccionamiento del implementación][3]
--   [Direccionamiento del servicio de almacenamiento][]
+-   [Direccionamiento del servicio de almacenamiento][Direccionamiento del servicio de almacenamiento]
 -   [Direccionamiento del servicio de almacenamiento][4]
--   [Direccionamiento del grupo de afinidad][]
+-   [Direccionamiento del grupo de afinidad][Direccionamiento del grupo de afinidad]
 -   [Direccionamiento del grupo de afinidad][5]
--   [Direccionamiento del de los sistemas operativos disponibles][]
--   [Direccionamiento del de una imagen de sistema operativo][]
+-   [Direccionamiento del de los sistemas operativos disponibles][Direccionamiento del de los sistemas operativos disponibles]
+-   [Direccionamiento del de una imagen de sistema operativo][Direccionamiento del de una imagen de sistema operativo]
 -   [Direccionamiento del de una imagen de sistema operativo][6]
--   [Direccionamiento del de una máquina virtual][]
+-   [Direccionamiento del de una máquina virtual][Direccionamiento del de una máquina virtual]
 -   [Direccionamiento del de una máquina virtual][7]
--   [Pasos siguientes][]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="WhatIs"> </a>Qué es la administración de servicios
 
-La API de administración de servicios ofrece acceso mediante programación a gran parte de la funcionalidad de administración de servicios disponible a través del [portal de administración][]. El SDK de Azure para Python le permite administrar los servicios en la nube, las cuentas de almacenamiento y los grupos de afinidad.
+La API de administración de servicios ofrece acceso mediante programación a gran parte de la funcionalidad de administración de servicios disponible a través del [portal de administración][portal de administración]. El SDK de Azure para Python le permite administrar los servicios en la nube, las cuentas de almacenamiento y los grupos de afinidad.
 
-Para usar la API de administración de servicios, necesita [crear una cuenta de Azure][].
+Para usar la API de administración de servicios, necesita [crear una cuenta de Azure][crear una cuenta de Azure].
 
 ## <a name="Concepts"> </a>Conceptos
 
-El SDK de Azure para Python ajusta la [API de administración de servicios de Azure][], que es una API de REST. Todas las operaciones de la API se realizan mediante SSL y se autentican mutuamente con los certificados X.509 v3. Se puede obtener acceso al servicio de administración desde un servicio que se ejecute en Azure, o bien directamente a través de Internet desde cualquier aplicación que envíe una solicitud HTTPS y reciba una respuesta HTTPS.
+El SDK de Azure para Python ajusta la [API de administración de servicios de Azure][API de administración de servicios de Azure], que es una API de REST. Todas las operaciones de la API se realizan mediante SSL y se autentican mutuamente con los certificados X.509 v3. Se puede obtener acceso al servicio de administración desde un servicio que se ejecute en Azure, o bien directamente a través de Internet desde cualquier aplicación que envíe una solicitud HTTPS y reciba una respuesta HTTPS.
 
 ## <a name="Connect"> </a>Direccionamiento del a la administración de servicios
 
-Para conectarse al extremo de la administración de servicios, necesita el identificador de la suscripción a Azure y un certificado de administración válido. Puede obtener el identificador de la suscripción a través del [portal de administración][].
+Para conectarse al extremo de la administración de servicios, necesita el identificador de la suscripción a Azure y un certificado de administración válido. Puede obtener el identificador de la suscripción a través del [portal de administración][portal de administración].
 
 > [WACOM.NOTE] A partir del SDK de Azure para Python v0.8.0, es posible usar certificados creados con OpenSSL al ejecutar en Windows. Esto requiere Python 2.7.4 o posterior.
 
@@ -51,9 +51,9 @@ Puede crear un certificado de administración autofirmado en la máquina con `ma
 
     makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-El comando creará el archivo `.cer` y lo instalará en el almacén de certificados **Personal**. Para obtener información más detallada, consulte [Crear y cargar un certificado de administración para Azure][].
+El comando creará el archivo `.cer` y lo instalará en el almacén de certificados **Personal**. Para obtener información más detallada, consulte [Crear y cargar un certificado de administración para Azure][Crear y cargar un certificado de administración para Azure].
 
-Después de haber creado el certificado, necesitará cargar el archivo `.cer` en Azure mediante la acción "Upload" de la pestaña "Settings" del [portal de administración][].
+Después de haber creado el certificado, necesitará cargar el archivo `.cer` en Azure mediante la acción "Upload" de la pestaña "Settings" del [portal de administración][portal de administración].
 
 Tras haber obtenido el identificador de la suscripción, haber creado un certificado y haber cargado el archivo `.cer` en Azure, puede conectarse al extremo de administración de Azure; para ello, transfiera el identificador de la suscripción y la ubicación del certificado del almacén de certificados **Personal** a **ServiceManagementService** (sustituya *AzureCertificate* por el nombre de su certificado):
 
@@ -69,7 +69,7 @@ En el ejemplo anterior, `sms` es un objeto **ServiceManagementService**. La clas
 
 ### Certificados de administración en Windows/Mac/Linux (OpenSSL)
 
-Puede usar [OpenSSL][] para crear el certificado de administración. Realmente necesita crear dos certificados, uno para el servidor (un archivo `.cer`.cer) y otro para el cliente (un archivo `.pem`). Para crear el archivo `.pem`, ejecute este comando:
+Puede usar [OpenSSL][OpenSSL] para crear el certificado de administración. Realmente necesita crear dos certificados, uno para el servidor (un archivo `.cer`.cer) y otro para el cliente (un archivo `.pem`). Para crear el archivo `.pem`, ejecute este comando:
 
     `openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
 
@@ -77,9 +77,9 @@ Para crear el certificado `.cer`, ejecute este comando:
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Para obtener más información acerca de los certificados de Azure, consulte [Administrar certificados en Azure][]. Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación disponible en [][]<http://www.openssl.org/docs/apps/openssl.html></a>.
+Para obtener más información acerca de los certificados de Azure, consulte [Administrar certificados en Azure][Administrar certificados en Azure]. Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación disponible en [][]<http://www.openssl.org/docs/apps/openssl.html></a>.
 
-Después de haber creado estos archivos, necesitará actualizar el archivo `.cer` en Azure a través de la acción "Upload" de la pestaña "Settings" del [portal de administración][]; además, deberá anotar dónde ha guardado el archivo `.pem`.
+Después de haber creado estos archivos, necesitará actualizar el archivo `.cer` en Azure a través de la acción "Upload" de la pestaña "Settings" del [portal de administración][portal de administración]; además, deberá anotar dónde ha guardado el archivo `.pem`.
 
 Tras haber obtenido el identificador de la suscripción, creado un certificado y cargado el archivo `.cer` en Azure, puede conectarse al extremo de administración de Azure; para ello, transfiera el identificador de la suscripción y la ruta de acceso al archivo `.pem` a **ServiceManagementService**:
 
@@ -119,7 +119,7 @@ Al crear un servicio en la nube, servicio de almacenamiento o grupo de afinidad,
 
 ## <a name="CreateCloudService"> </a>Direccionamiento del un servicio en la nube
 
-Al crear una aplicación y ejecutarla en Azure, al código y a la configuración se les denomina de forma conjunta un [servicio en la nube][] de Azure (conocido como un *servicio hospedado* en las versiones anteriores de Azure). El método **create\_hosted\_service** le permite crear un nuevo servicio hospedado, para lo que debe proporcionar un nombre de servicio hospedado (que debe ser exclusivo en Azure), una etiqueta (codificada automáticamente como base64), una descripción y una ubicación. Puede especificar un grupo de afinidad en lugar de una ubicación para el servicio.
+Al crear una aplicación y ejecutarla en Azure, al código y a la configuración se les denomina de forma conjunta un [servicio en la nube][servicio en la nube] de Azure (conocido como un *servicio hospedado* en las versiones anteriores de Azure). El método **create\_hosted\_service** le permite crear un nuevo servicio hospedado, para lo que debe proporcionar un nombre de servicio hospedado (que debe ser exclusivo en Azure), una etiqueta (codificada automáticamente como base64), una descripción y una ubicación. Puede especificar un grupo de afinidad en lugar de una ubicación para el servicio.
 
     from azure import *
     from azure.servicemanagement import *
@@ -167,12 +167,12 @@ Tenga en cuenta que antes de eliminar un servicio, primero es necesario eliminar
 
 ## <a name="CreateDeployment"> </a>Direccionamiento del de una implementación
 
-El método **create\_deployment** carga un nuevo [paquete de servicio][] y crea una implementación nueva en el entorno de ensayo o producción. Los parámetros para este método son los siguientes:
+El método **create\_deployment** carga un nuevo [paquete de servicio][paquete de servicio] y crea una implementación nueva en el entorno de ensayo o producción. Los parámetros para este método son los siguientes:
 
 -   **name**: el nombre del servicio hospedado.
 -   **deployment\_name**: el nombre de la implementación.
 -   **slot**: Una cadena que indica el espacio `staging` o `production`.
--   **package\_url**: la URL del paquete de implementación (un archivo .cspgk). El archivo del paquete debe almacenarse en una cuenta de almacenamiento de blobs de Azure con la misma suscripción que el servicio hospedado en el que se carga el paquete. Puede crear un paquete de implementación con los [cmdlets de Azure PowerShell][] o con la [Herramienta de línea de comandos CSPack][].
+-   **package\_url**: la URL del paquete de implementación (un archivo .cspgk). El archivo del paquete debe almacenarse en una cuenta de almacenamiento de blobs de Azure con la misma suscripción que el servicio hospedado en el que se carga el paquete. Puede crear un paquete de implementación con los [cmdlets de Azure PowerShell][cmdlets de Azure PowerShell] o con la [Herramienta de línea de comandos CSPack][Herramienta de línea de comandos CSPack].
 -   **configuration**: El archivo de configuración del servicio (archivo .cscfg) codificado como base64.
 -   **label**: La etiqueta para el nombre del servicio hospedado (codificada automáticamente como base64).
 
@@ -216,7 +216,7 @@ Puede obtener acceso a las propiedades de implementación con los métodos **get
 
 Una implementación se puede actualizar mediante los métodos **change\_deployment\_configuration** o **update\_deployment\_status**.
 
-El método **change\_deployment\_configuration** le permite cargar un nuevo archivo de configuración (`.cscfg`) del servicio, que cambiará algunas de las opciones de configuración del servicio (incluido el número de instancias de una implementación). Para obtener más información, consulte [Esquema de configuración del servicio de Azure (archivo .cscfg)][]. En el siguiente ejemplo se demuestra cómo cargar el nuevo archivo de configuración del servicio:
+El método **change\_deployment\_configuration** le permite cargar un nuevo archivo de configuración (`.cscfg`) del servicio, que cambiará algunas de las opciones de configuración del servicio (incluido el número de instancias de una implementación). Para obtener más información, consulte [Esquema de configuración del servicio de Azure (archivo .cscfg)][Esquema de configuración del servicio de Azure (archivo .cscfg)]. En el siguiente ejemplo se demuestra cómo cargar el nuevo archivo de configuración del servicio:
 
     from azure import *
     from azure.servicemanagement import *
@@ -249,7 +249,7 @@ El método **update\_deployment\_status** le permite definir el estado de una im
 
 ## <a name="MoveDeployments"> </a>Direccionamiento del de implementaciones entre ensayo y producción
 
-Azure ofrece dos entornos de implementación: ensayo y producción. Normalmente un servicio se implementa en el entorno de ensayo para probarlo antes de implementarlo en el entorno de producción. Cuando sea el momento de promover el servicio en ensayo al entorno de producción, puede hacerlo sin tener que volver a implementar el servicio. Esto puede hacerse mediante el intercambio de las implementaciones. (Para obtener más información acerca del intercambio de implementaciones, consulte [Administrar implementaciones en Azure][]).
+Azure ofrece dos entornos de implementación: ensayo y producción. Normalmente un servicio se implementa en el entorno de ensayo para probarlo antes de implementarlo en el entorno de producción. Cuando sea el momento de promover el servicio en ensayo al entorno de producción, puede hacerlo sin tener que volver a implementar el servicio. Esto puede hacerse mediante el intercambio de las implementaciones. (Para obtener más información acerca del intercambio de implementaciones, consulte [Administrar implementaciones en Azure][Administrar implementaciones en Azure]).
 
 En el ejemplo siguiente se muestra cómo usar el método **swap\_deployment** para intercambiar dos implementaciones (con los nombres de implementación `v1` y `v2`). En el ejemplo, antes de llamar a **swap\_deployment**, la implementación `v1` está en la ranura de producción y la implementación `v2` está en la ranura de ensayo. Después de llamar a **swap\_deployment**, `v2` está en producción y `v1` está en ensayo.
 
@@ -273,7 +273,7 @@ Para eliminar una implementación, use el método **delete\_deployment**. En el 
 
 ## <a name="CreateStorageService"> </a>Direccionamiento del de un servicio de almacenamiento
 
-Un [servicio de almacenamiento][] le proporciona acceso a [blobs][], [tablas][] y [colas][] de Azure. Para crear un servicio de almacenamiento, necesita un nombre para el servicio (entre 3 y 24 caracteres en minúscula y exclusivos en Azure), una descripción, una etiqueta (hasta 100 caracteres, codificados automáticamente como base64) y una ubicación o un grupo de afinidad. En el ejemplo siguiente se muestra cómo crear un servicio de almacenamiento mediante la definición de una ubicación. Si desea usar un grupo de afinidad, primero tiene que crearlo (consulte [Creación de un grupo de afinidad][Direccionamiento del grupo de afinidad]) y definirlo con el parámetro **affinity\_group**.
+Un [servicio de almacenamiento][servicio de almacenamiento] le proporciona acceso a [blobs][blobs], [tablas][tablas] y [colas][colas] de Azure. Para crear un servicio de almacenamiento, necesita un nombre para el servicio (entre 3 y 24 caracteres en minúscula y exclusivos en Azure), una descripción, una etiqueta (hasta 100 caracteres, codificados automáticamente como base64) y una ubicación o un grupo de afinidad. En el ejemplo siguiente se muestra cómo crear un servicio de almacenamiento mediante la definición de una ubicación. Si desea usar un grupo de afinidad, primero tiene que crearlo (consulte [Creación de un grupo de afinidad][Direccionamiento del grupo de afinidad]) y definirlo con el parámetro **affinity\_group**.
 
     from azure import *
     from azure.servicemanagement import *
@@ -494,7 +494,7 @@ El servicio en la nube puede eliminarse entonces con el método **delete\_hosted
 Ahora que está familiarizado con los aspectos básicos de la administración de servicios, siga estos vínculos para realizar tareas más complejas.
 
 -   Consulte la referencia de MSDN: [Servicios en la nube][paquete de servicio]
--   Consulte la referencia de MSDN: [Máquinas virtuales][]
+-   Consulte la referencia de MSDN: [Máquinas virtuales][Máquinas virtuales]
 
   [SDK de Azure para Python]: https://www.windowsazure.com/es-es/develop/python/common-tasks/install-python/
   [portal de administración]: https://manage.windowsazure.com/

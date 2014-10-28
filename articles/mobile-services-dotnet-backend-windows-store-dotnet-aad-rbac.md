@@ -278,7 +278,7 @@ En esta sección, va a crear un nuevo atributo de autorización personalizado qu
 <!-- Images --> 
 <!-- URLs. -->
 
-  [C\# para Tienda Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "C# para Tienda Windows"
+  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "C# para Tienda Windows"
   [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "Back-end de .NET"
   [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "Back-end de JavaScript"
   [Graph Client Library]: http://go.microsoft.com/fwlink/?LinkId=510536

@@ -2,14 +2,14 @@
 
 <tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
 
-Dies ist der fünfte Teil der exemplarischen Vorgehensweise [Entwickeln einer Vorhersagelösung mit Azure ML][]:
+Dies ist der fünfte Teil der exemplarischen Vorgehensweise [Entwickeln einer Vorhersagelösung mit Azure ML][Entwickeln einer Vorhersagelösung mit Azure ML]:
 
-1.  [Erstellen eines ML-Arbeitsbereichs][]
-2.  [Hochladen vorhandener Daten][]
-3.  [Erstellen eines neuen Experiments][]
-4.  [Trainieren und Bewerten der Modelle][]
+1.  [Erstellen eines ML-Arbeitsbereichs][Erstellen eines ML-Arbeitsbereichs]
+2.  [Hochladen vorhandener Daten][Hochladen vorhandener Daten]
+3.  [Erstellen eines neuen Experiments][Erstellen eines neuen Experiments]
+4.  [Trainieren und Bewerten der Modelle][Trainieren und Bewerten der Modelle]
 5.  **Veröffentlichen des Webdiensts**
-6.  [Zugreifen auf den Webdienst][]
+6.  [Zugreifen auf den Webdienst][Zugreifen auf den Webdienst]
 
 ------------------------------------------------------------------------
 
@@ -31,7 +31,7 @@ Bevor Sie fortfahren, sollten Sie eine Kopie dieses Experiments erstellen, um si
 
 Sie können jetzt sowohl das Originalexperiment als auch die Kopie in der Liste EXPERIMENTE von ML Studio anzeigen.
 
-![Liste der Experimente][]
+![Liste der Experimente][Liste der Experimente]
 
 ## Vorbereiten des Bewertungsexperiments
 
@@ -84,7 +84,7 @@ Noch etwas: Dies betrifft die Originalkreditkartendaten in der Spalte „Kreditr
 
 Unser Experiment sollte nun wie folgt aussehen:
 
-![Bewerten des trainierten Modells][]
+![Bewerten des trainierten Modells][Bewerten des trainierten Modells]
 
 ### Auswählen der Eingabe und Ausgabe des Diensts
 
@@ -128,11 +128,11 @@ Bis jetzt wurde der Dienst auf dem ML-Staging-Server ausgeführt. Wenn er live g
 
 Klicken Sie auf der Registerkarte **KONFIGURATION** auf „JA“ neben **BEREIT FÜR DIE PRODUKTION?** Damit wird eine Benachrichtigung an den IT-Administrator gesendet, dass dieser Webdienst für den Live-Server bereit ist. Der Administrator kann ihn dann auf den Live-Server hochstufen.
 
-![Hochstufen des Diensts in die Live-Umgebung][]
+![Hochstufen des Diensts in die Live-Umgebung][Hochstufen des Diensts in die Live-Umgebung]
 
 ------------------------------------------------------------------------
 
-**Nächster Schritt: [Zugreifen auf den Webdienst][]**
+**Nächster Schritt: [Zugreifen auf den Webdienst][Zugreifen auf den Webdienst]**
 
   [Entwickeln einer Vorhersagelösung mit Azure ML]: ../machine-learning-walkthrough-develop-predictive-solution/
   [Erstellen eines ML-Arbeitsbereichs]: ../machine-learning-walkthrough-1-create-ml-workspace/

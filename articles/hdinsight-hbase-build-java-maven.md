@@ -4,17 +4,17 @@
 
 ## Uso de Maven para crear aplicaciones Java que utilicen HBase con HDInsight (Hadoop)
 
-Aprenda a crear y a compilar una aplicación [Apache HBase][] en Java mediante Apache Maven. Luego use la aplicación con Azure HDInsight (Hadoop).
+Aprenda a crear y a compilar una aplicación [Apache HBase][Apache HBase] en Java mediante Apache Maven. Luego use la aplicación con Azure HDInsight (Hadoop).
 
-[Maven][] es una herramienta de administración y comprensión de proyectos de software que le permite compilar software, documentación e informes para proyectos Java. En este artículo, aprenderá a usarla para crear una aplicación Java básica que crea, consulta y elimina una tabla de HBase en un clúster de HDInsight de Azure.
+[Maven][Maven] es una herramienta de administración y comprensión de proyectos de software que le permite compilar software, documentación e informes para proyectos Java. En este artículo, aprenderá a usarla para crear una aplicación Java básica que crea, consulta y elimina una tabla de HBase en un clúster de HDInsight de Azure.
 
 ## Requisitos
 
--   [Java platform JDK][] 7 o superior
+-   [Java platform JDK][Java platform JDK] 7 o superior
 
--   [Maven][]
+-   [Maven][Maven]
 
--   [Un clúster de HDInsight de Azure con HBase][]
+-   [Un clúster de HDInsight de Azure con HBase][Un clúster de HDInsight de Azure con HBase]
 
 ## Creación del proyecto
 
@@ -26,7 +26,7 @@ Aprenda a crear y a compilar una aplicación [Apache HBase][] en Java mediante A
 
     Esta acción creará un nuevo directorio en el directorio actual, con el nombre especificado por el parámetro **artifactID** (**hbaseapp** en este ejemplo). Este directorio contendrá los siguientes elementos.
 
-    -   **pom.xml**: El modelo de objetos de proyectos ([POM][]) contiene la información y los detalles de configuración para compilar el proyecto.
+    -   **pom.xml**: El modelo de objetos de proyectos ([POM][POM]) contiene la información y los detalles de configuración para compilar el proyecto.
 
     -   **src**: El directorio que contiene el directorio **main\\java\\com\\microsoft\\examples**, donde creará la aplicación.
 
@@ -42,7 +42,7 @@ Aprenda a crear y a compilar una aplicación [Apache HBase][] en Java mediante A
           <version>0.98.4-hadoop2</version>
         </dependency>
 
-    Esta acción le indica a Maven que el proyecto requiere **hbase-client**, versión **0.98.4-hadoop2**. En el momento de compilación, esto se descargará desde el repositorio de Maven predeterminado. Puede usar la [búsqueda del repositorio de Maven][] para ver más información sobre esta dependencia.
+    Esta acción le indica a Maven que el proyecto requiere **hbase-client**, versión **0.98.4-hadoop2**. En el momento de compilación, esto se descargará desde el repositorio de Maven predeterminado. Puede usar la [búsqueda del repositorio de Maven][búsqueda del repositorio de Maven] para ver más información sobre esta dependencia.
 
 2.  Agregue lo siguiente al archivo **pom.xml**. Este contenido se debe incluir entre las etiquetas `<project>...</project>` en el archivo; por ejemplo, entre `</dependencies>` y `</project>`.
 
@@ -84,7 +84,7 @@ Aprenda a crear y a compilar una aplicación [Apache HBase][] en Java mediante A
 
     > [WACOM.NOTE] También puede establecer los valores de configuración mediante código. Vea los comentarios del ejemplo **CreateTable** a continuación para saber cómo hacer esto.
 
-    Esta acción también configura el complemento [maven-shade-plugin][], que se usa para impedir la duplicación de licencias en el archivo JAR que se compila en Maven. La razón de usar este complemento es que los archivos de licencia duplicados pueden provocar un error en tiempo de ejecución en el clúster de HDInsight. Usando el complemento maven-shade-plugin con la implementación de `ApacheLicenseResourceTransformer` se evita este error.
+    Esta acción también configura el complemento [maven-shade-plugin][maven-shade-plugin], que se usa para impedir la duplicación de licencias en el archivo JAR que se compila en Maven. La razón de usar este complemento es que los archivos de licencia duplicados pueden provocar un error en tiempo de ejecución en el clúster de HDInsight. Usando el complemento maven-shade-plugin con la implementación de `ApacheLicenseResourceTransformer` se evita este error.
 
     El complemento maven-shade-plugin también producirá un uberjar (o fatjar), que contiene todas las dependencias que necesita la aplicación.
 
@@ -128,7 +128,7 @@ Aprenda a crear y a compilar una aplicación [Apache HBase][] en Java mediante A
 
     Este archivo se usará para cargar la configuración de HBase de un clúster de HDInsight.
 
-    > [WACOM.NOTE] Este es un archivo hbase-site.xml mínimo, que contiene la configuración básica elemental del clúster de HDInsight. Para obtener una versión completa del archivo de configuración hbase-site.xml que usa HDInsight, [inicie una sesión de Escritorio remoto en el clúster de HDInsight][]. El archivo está ubicado en el directorio C:\\apps\\dist\\hbase-\<número de versión\>-hadoop2\\conf. La parte del número de versión de la ruta de acceso al archivo cambiará cuando HBase se actualice en el clúster.
+    > [WACOM.NOTE] Este es un archivo hbase-site.xml mínimo, que contiene la configuración básica elemental del clúster de HDInsight. Para obtener una versión completa del archivo de configuración hbase-site.xml que usa HDInsight, [inicie una sesión de Escritorio remoto en el clúster de HDInsight][inicie una sesión de Escritorio remoto en el clúster de HDInsight]. El archivo está ubicado en el directorio C:\\apps\\dist\\hbase-\<número de versión\>-hadoop2\\conf. La parte del número de versión de la ruta de acceso al archivo cambiará cuando HBase se actualice en el clúster.
 
 5.  Guarde el archivo **hbase-site.xml**.
 
@@ -323,9 +323,9 @@ Aprenda a crear y a compilar una aplicación [Apache HBase][] en Java mediante A
 
 ## Carga del archivo JAR e inicio de un trabajo
 
-> [WACOM.NOTE] Existen muchas maneras de cargar un archivo en el clúster de HDInsight, tal y como se describe en [Carga de datos para trabajos de Hadoop en HDInsight][]. En los pasos que se indican a continuación se usa [Azure PowerShell][].
+> [WACOM.NOTE] Existen muchas maneras de cargar un archivo en el clúster de HDInsight, tal y como se describe en [Carga de datos para trabajos de Hadoop en HDInsight][Carga de datos para trabajos de Hadoop en HDInsight]. En los pasos que se indican a continuación se usa [Azure PowerShell][Azure PowerShell].
 
-1.  Tras instalar y configurar [Azure PowerShell][], cree un nuevo archivo llamado **hbase-runner.psm1**. Use el siguiente contenido para este archivo.
+1.  Tras instalar y configurar [Azure PowerShell][Azure PowerShell], cree un nuevo archivo llamado **hbase-runner.psm1**. Use el siguiente contenido para este archivo.
 
         <#
         .SYNOPSIS

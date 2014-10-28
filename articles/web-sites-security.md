@@ -140,7 +140,7 @@ Para obtener información sobre información de registro para Sitios web Azure, 
   [Pasos siguientes]: #next
   [nombre de dominio personalizado]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-custom-domain-name/
   [Habilitación de HTTPS para un sitio web de Azure]: /es-es/documentation/articles/web-sites-configure-ssl-certificate/
-  [RequireHttps]: http://msdn.microsoft.com/en-us/library/system.web.mvc.requirehttpsattribute.aspx
+  [RequireHttps]: http://msdn.microsoft.com/es-es/library/system.web.mvc.requirehttpsattribute.aspx
   [Implementación de una aplicación ASP.NET MVC 5 segura en un Sitio web Azure]: /es-es/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
   [ejemplo]: #example
   [Carga/descarga de archivos a través de FTP y recopilación de registros de diagnóstico]: http://blogs.msdn.com/b/avkashchauhan/archive/2012/06/19/windows-azure-website-uploading-downloading-files-over-ftp-and-collecting-diagnostics-logs.aspx
@@ -148,6 +148,6 @@ Para obtener información sobre información de registro para Sitios web Azure, 
   [Configuración de Sitios web]: /es-es/documentation/articles/web-sites-configure/
   [Portal de administración de Azure]: https://manage.windowsazure.com
   [File Transfer Protocol]: http://en.wikipedia.org/wiki/File_Transfer_Protocol
-  [Centro de confianza de Microsoft Azure]: /en-us/support/trust-center/security/
+  [Centro de confianza de Microsoft Azure]: /es-es/support/trust-center/security/
   [Opciones de configuración desbloqueadas en Sitios web Azure]: http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/
   [Habilitación del registro de diagnóstico]: /es-es/documentation/articles/web-sites-enable-diagnostic-log/

@@ -10,12 +10,12 @@ Hive y Pig resultan excelentes para trabajar con datos en HDInsight, pero en oca
 
 ## Tabla de contenido
 
--   [Python en HDInsight][]
--   [Hive y Python][]
--   [Pig y Python][]
--   [Ejecución de los ejemplos][]
--   [Solución de problemas][]
--   [Pasos siguientes][]
+-   [Python en HDInsight][Python en HDInsight]
+-   [Hive y Python][Hive y Python]
+-   [Pig y Python][Pig y Python]
+-   [Ejecución de los ejemplos][Ejecución de los ejemplos]
+-   [Solución de problemas][Solución de problemas]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="python"></a>Python en HDInsight
 
@@ -76,7 +76,7 @@ Dado que usamos la transmisión por secuencias, este script debe hacer lo siguie
 
 Aparte de eso, el script simplemente concatena los valores de entrada de `devicemake` y `devicemodel`, y calcula un hash del valor concatenado. Aunque simple, describe los aspectos básicos de cómo se invoca cualquier script de Python desde la función should de Hive: repetir, leer entradas hasta que no haya más, separar cada línea de entrada en las tabulaciones, procesar, escribir una sola línea de salida delimitada por tabuladores.
 
-Consulte [Ejecución de los ejemplos][] para obtener información sobre cómo ejecutar este ejemplo en su clúster de HDInsight.
+Consulte [Ejecución de los ejemplos][Ejecución de los ejemplos] para obtener información sobre cómo ejecutar este ejemplo en su clúster de HDInsight.
 
 ### <a name="pigpython"></a>Pig y Python
 
@@ -130,13 +130,13 @@ Recuerde que anteriormente hemos definido la entrada **LINE** como una chararray
 
 Es entonces cuando tendremos un esquema coherente tal y como se define en la instrucción <**@outputSchema*>\*.
 
-Consulte [Ejecución de los ejemplos][] para obtener información sobre cómo ejecutar este ejemplo en su clúster de HDInsight.
+Consulte [Ejecución de los ejemplos][Ejecución de los ejemplos] para obtener información sobre cómo ejecutar este ejemplo en su clúster de HDInsight.
 
 ## <a name="running"></a>Ejecución de los ejemplos
 
-En los pasos que se indican a continuación se usa Windows Azure PowerShell. Si aún no está instalado y configurado en su máquina de desarrollo, consulte [Instalación y configuración de Azure PowerShell][] antes de usar los siguientes pasos.
+En los pasos que se indican a continuación se usa Windows Azure PowerShell. Si aún no está instalado y configurado en su máquina de desarrollo, consulte [Instalación y configuración de Azure PowerShell][Instalación y configuración de Azure PowerShell] antes de usar los siguientes pasos.
 
-1.  Mediante los ejemplos de Python [streaming.py][] y [jython.py][], cree copias locales de los archivos en su máquina de desarrollo.
+1.  Mediante los ejemplos de Python [streaming.py][streaming.py] y [jython.py][jython.py], cree copias locales de los archivos en su máquina de desarrollo.
 
 2.  Utilice el siguiente script de PowerShell para cargar los archivos **streaming.py** y **jython.py** en el servidor. Sustituya el nombre de su clúster de HDInsight de Azure y la ruta por los archivos **streaming.py** y **jython.py** en las tres primeras líneas del script.
 
@@ -155,7 +155,7 @@ En los pasos que se indican a continuación se usa Windows Azure PowerShell. Si 
 
     Este script recupera información del clúster de HDInsight, luego extrae la cuenta y la clave de la cuenta de almacenamiento predeterminada y seguidamente carga los archivos en la raíz del contenedor.
 
-    > [WACOM.NOTE] Otros métodos para cargar los scripts se pueden encontrar en el documento [Carga de datos para trabajos de Hadoop en HDInsight][].
+    > [WACOM.NOTE] Otros métodos para cargar los scripts se pueden encontrar en el documento [Carga de datos para trabajos de Hadoop en HDInsight][Carga de datos para trabajos de Hadoop en HDInsight].
 
 ### Uso del panel de Hive (solo ejemplo de Hive)
 
@@ -279,9 +279,9 @@ Pig
 </table>
 ## <a name="next"></a>Pasos siguientes
 
-Si necesita cargar módulos de Python que no se han proporcionado de forma predeterminada, consulte [Implementación de un módulo en HDInsight de Azure][] para ver un ejemplo de cómo hacer esto.
+Si necesita cargar módulos de Python que no se han proporcionado de forma predeterminada, consulte [Implementación de un módulo en HDInsight de Azure][Implementación de un módulo en HDInsight de Azure] para ver un ejemplo de cómo hacer esto.
 
-Si desea ejecutar trabajos en HDInsight de manera remota mediante PowerShell, consulte [Uso de HDInsight de Azure desde Linux][] para ver un ejemplo del uso de Python para ejecutar trabajos a través de la API REST de WebHCat.
+Si desea ejecutar trabajos en HDInsight de manera remota mediante PowerShell, consulte [Uso de HDInsight de Azure desde Linux][Uso de HDInsight de Azure desde Linux] para ver un ejemplo del uso de Python para ejecutar trabajos a través de la API REST de WebHCat.
 
   [Python en HDInsight]: #python
   [Hive y Python]: #hivepython

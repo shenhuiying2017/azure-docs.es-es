@@ -8,8 +8,8 @@ La delegación le permite usar su sitio web actual para controlar el inicio de s
 
 ## En este tema
 
--   [Delegación de inicios de sesión y suscripciones de desarrolladores][]
--   [Delegación de suscripciones a productos][]
+-   [Delegación de inicios de sesión y suscripciones de desarrolladores][Delegación de inicios de sesión y suscripciones de desarrolladores]
+-   [Delegación de suscripciones a productos][Delegación de suscripciones a productos]
 
 ## <a name="delegate-signin-up"> </a>Delegación de inicios de sesión y suscripciones de desarrolladores
 
@@ -24,7 +24,7 @@ El flujo de trabajo final será el siguiente:
 
 Para empezar, configuremos primero Administración de API para que enrute las solicitudes a través del extremo de delegación. En el portal de publicadores de Administración de API, en el título **Portal para desarrolladores** del menú de la izquierda, haga clic en **Delegación** y luego en **Delegar inicio y cierre de sesión**.
 
-![Delegation page][]
+![Delegation page][Delegation page]
 
 -   Determine cuál será la URL del extremo especial de delegación e introdúzcala en el campo **URL de extremo de delegación**.
 
@@ -55,11 +55,11 @@ Ahora debe crear el **extremo de delegación**. Este tiene que realizar varias a
 
 4.  Presente al usuario la interfaz de usuario para que inicie sesión o se suscriba.
 
-5.  Si el usuario se suscribe, hay que crear la cuenta correspondiente en Administración de API. [Cree un usuario][] con la API REST de Administración de API. Al hacerlo, asegúrese de que el identificador de usuario se establece en el mismo que existe en su almacén de usuario o en un identificador al que pueda realizar el seguimiento.
+5.  Si el usuario se suscribe, hay que crear la cuenta correspondiente en Administración de API. [Cree un usuario][Cree un usuario] con la API REST de Administración de API. Al hacerlo, asegúrese de que el identificador de usuario se establece en el mismo que existe en su almacén de usuario o en un identificador al que pueda realizar el seguimiento.
 
 6.  Cuando el usuario se autentique correctamente:
 
-    -   [solicite un token de inicio de sesión único (SSO)][] a través de la API de REST de Administración de API
+    -   [solicite un token de inicio de sesión único (SSO)][solicite un token de inicio de sesión único (SSO)] a través de la API de REST de Administración de API
 
     -   anexe un parámetro de consulta returnUrl a la URL de SSO que se recibió de la llamada de API anterior:
 
@@ -106,7 +106,7 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
 
 3.  Realice cualquier procesamiento de la suscripción a producto en función del tipo de operación solicitada en **operation**; por ejemplo, facturación, preguntas adicionales, etc.
 
-4.  Tras la correcta suscripción del usuario al producto por su parte, suscriba el usuario al producto de Administración de API [llamando a la API de REST para la suscripción del producto][].
+4.  Tras la correcta suscripción del usuario al producto por su parte, suscriba el usuario al producto de Administración de API [llamando a la API de REST para la suscripción del producto][llamando a la API de REST para la suscripción del producto].
 
 5.  Redirija de nuevo al usuario a la **redirectUrl** especificada al recibir la solicitud.
 

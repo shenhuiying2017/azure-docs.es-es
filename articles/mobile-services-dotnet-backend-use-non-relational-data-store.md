@@ -95,6 +95,6 @@ Para realizar este tutorial, es necesario realizar antes el tutorial [Introducci
   [Introducción a Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  [Página del complemento MongoLab]: /en-us/gallery/store/mongolab/mongolab
+  [Página del complemento MongoLab]: /es-es/gallery/store/mongolab/mongolab
   []: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/create-mongo-lab.png
   [1]: ./media/mobile-services-dotnet-backend-use-non-relational-data-store/mongo-connection-string.png

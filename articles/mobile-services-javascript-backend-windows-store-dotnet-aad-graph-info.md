@@ -145,7 +145,7 @@ En el próximo tutorial, [Control de acceso basado en roles en Servicios móvile
 <!-- Images --> 
 <!-- URLs. -->
 
-  [C\# para Tienda Windows]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-aad-graph-info/ "C# para Tienda Windows"
+  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-aad-graph-info/ "C# para Tienda Windows"
   [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ "Back-end de .NET"
   [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "Back-end de JavaScript"
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
@@ -157,10 +157,10 @@ En el próximo tutorial, [Control de acceso basado en roles en Servicios móvile
   [Tutorial sobre API personalizadas]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
   [Registro para usar un inicio de sesión de Azure Active Directory]: /es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
-  [API REST Graph]: http://msdn.microsoft.com/en-us/library/azure/hh974478.aspx
+  [API REST Graph]: http://msdn.microsoft.com/es-es/library/azure/hh974478.aspx
   [Portal de administración de Aure]: https://manage.windowsazure.com/
   []: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png
-  [obtención de usuarios]: http://msdn.microsoft.com/en-us/library/azure/dn151678.aspx
+  [obtención de usuarios]: http://msdn.microsoft.com/es-es/library/azure/dn151678.aspx
   [mobile-services-aad-graph-info-update-app]: ../includes/mobile-services-aad-graph-info-update-app.md
   [mobile-services-aad-graph-info-test-app]: ../includes/mobile-services-aad-graph-info-test-app.md
   [Control de acceso basado en roles en Servicios móviles y Azure Active Directory]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/

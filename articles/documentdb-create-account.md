@@ -8,12 +8,12 @@ Para usar Base de datos de documentos, debe crear una cuenta en una región geog
 
 ## Tabla de contenido
 
--   [Creación de una cuenta de Base de datos de documentos][]
--   [Pasos siguientes][]
+-   [Creación de una cuenta de Base de datos de documentos][Creación de una cuenta de Base de datos de documentos]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <span id="HowTo"></span></a>Creación de una cuenta de Base de datos de documentos
 
-1.  Inicie sesión en el [Portal de vista previa de administración de Azure][].
+1.  Inicie sesión en el [Portal de vista previa de administración de Azure][Portal de vista previa de administración de Azure].
 2.  Haga clic en Nuevo -\> Cuenta de Base de datos de documentos.
     ![][]
 
@@ -31,15 +31,15 @@ Para usar Base de datos de documentos, debe crear una cuenta en una región geog
 
     El modo **Nivel de precios** está bloqueado, puesto que la vista previa de Base de datos de documentos admite un único nivel de precios estándar.
 
-    *Para obtener más información, consulte los [Detalles de precios de Base de datos de documentos][]*
+    *Para obtener más información, consulte los [Detalles de precios de Base de datos de documentos][Detalles de precios de Base de datos de documentos]*
 
-    El modo **Configuración opcional** se usa para especificar la capacidad inicial asignada a la cuenta. Base de datos de documentos aprovecha las unidades de capacidad para permitirle escalar su cuenta de Base de datos de documentos, donde cada unidad de capacidad incluye almacenamiento y rendimiento de base de datos reservados. De manera predeterminada, se aprovisiona una unidad de capacidad. Pero puede ajustar el número de unidades de capacidad disponibles para su cuenta en cualquier momento a través del [Portal de vista previa de administración de Azure][].
+    El modo **Configuración opcional** se usa para especificar la capacidad inicial asignada a la cuenta. Base de datos de documentos aprovecha las unidades de capacidad para permitirle escalar su cuenta de Base de datos de documentos, donde cada unidad de capacidad incluye almacenamiento y rendimiento de base de datos reservados. De manera predeterminada, se aprovisiona una unidad de capacidad. Pero puede ajustar el número de unidades de capacidad disponibles para su cuenta en cualquier momento a través del [Portal de vista previa de administración de Azure][Portal de vista previa de administración de Azure].
 
-    *Para obtener detalles acerca de la capacidad y el rendimiento de la cuenta de Base de datos de documentos, consulte el artículo [Administración de capacidad y rendimiento de Base de datos de documentos][].*
+    *Para obtener detalles acerca de la capacidad y el rendimiento de la cuenta de Base de datos de documentos, consulte el artículo [Administración de capacidad y rendimiento de Base de datos de documentos][Administración de capacidad y rendimiento de Base de datos de documentos].*
 
     En **Grupo de recursos**, seleccione o cree un grupo de recursos para su cuenta de Base de datos de documentos. De forma predeterminada, se creará un nuevo grupo de recursos. Puede, sin embargo, optar por seleccionar un grupo de recursos existente al que agregar su cuenta de Base de datos de documentos.
 
-    *Para obtener más información, consulte [Uso del grupo de recursos para administrar los recursos de Azure][].*
+    *Para obtener más información, consulte [Uso del grupo de recursos para administrar los recursos de Azure][Uso del grupo de recursos para administrar los recursos de Azure].*
 
     En **Suscripción**, seleccione la suscripción a Azure que quiere usar para la cuenta de Base de datos de documentos.
 
@@ -59,7 +59,7 @@ Para usar Base de datos de documentos, debe crear una cuenta en una región geog
 
 4.  Después de crear la cuenta de Base de datos de documentos, ya se puede usar con la configuración predeterminada.
 
-    *Tenga en cuenta que la coherencia predeterminada de la cuenta se establecerá en Sesión. Pero puede cambiar la configuración predeterminada a través del [Portal de vista previa de administración de Azure][].*
+    *Tenga en cuenta que la coherencia predeterminada de la cuenta se establecerá en Sesión. Pero puede cambiar la configuración predeterminada a través del [Portal de vista previa de administración de Azure][Portal de vista previa de administración de Azure].*
 
     ![][6]
 
@@ -69,7 +69,7 @@ Para usar Base de datos de documentos, debe crear una cuenta en una región geog
 
 ## <span id="NextSteps"></span></a>Pasos siguientes
 
--   Para obtener más información sobre Base de datos de documentos, consulte la documentación correspondiente en [azure.com][]
+-   Para obtener más información sobre Base de datos de documentos, consulte la documentación correspondiente en [azure.com][azure.com]
 
 <!--Image references-->
 

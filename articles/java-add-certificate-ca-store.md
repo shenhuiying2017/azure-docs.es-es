@@ -16,7 +16,7 @@ Puede utilizar keytool (herramienta de claves) para agregar el certificado CA an
 
     Se le solicitará la contraseña del almacén. La contraseña predeterminada es **changeit**. (Si desea cambiar la contraseña, consulte la documentación de keytool en <http://docs.oracle.com/javase/7/docs/technotes/tools/windows/keytool.html>). En este ejemplo se asume que el certificado con huella digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 no está en la lista y que se desea importarlo (en particular, este certificado es necesario para el servicio de API Twilio).
 
-2.  Obtenga el certificado de la lista de certificados que se muestra en [GeoTrust Root Certificates][]. Haga clic con el botón secundario en el vínculo al certificado con número de serie 35:DE:F4:CF y guárdelo en la carpeta **jdk\\jre\\lib\\security**. A los efectos de este ejemplo, se ha guardado un archivo con nombre **Equifax\_Secure\_Certificate\_Authority.cer**.
+2.  Obtenga el certificado de la lista de certificados que se muestra en [GeoTrust Root Certificates][GeoTrust Root Certificates]. Haga clic con el botón secundario en el vínculo al certificado con número de serie 35:DE:F4:CF y guárdelo en la carpeta **jdk\\jre\\lib\\security**. A los efectos de este ejemplo, se ha guardado un archivo con nombre **Equifax\_Secure\_Certificate\_Authority.cer**.
 3.  Importe el certificado a través del siguiente comando:
 
     `keytool -keystore cacerts -importcert -alias equifaxsecureca -file Equifax_Secure_Certificate_Authority.cer`
@@ -39,7 +39,7 @@ El certificado Baltimore podría estar ya instalado en su almacén de certificad
 
 Si necesita agregar el Baltimore CyberTrust Root, el número de serie es 02:00:00:b9 y la huella digital SHA1 es d4:de:20:d0:5e:66:fc:53:fe:1a:50:88:2c:78:db:28:52:ca:e4:74. Es posible descargarlo de <https://cacert.omniroot.com/bc2025.crt>, guardarlo en un archivo local con extensión **.cer** e importarlo con **keytool** como se ha mostrado anteriormente.
 
-Para obtener más información acerca de los certificados raíz que utiliza Azure, consulte [Azure Root Certificate Migration][].
+Para obtener más información acerca de los certificados raíz que utiliza Azure, consulte [Azure Root Certificate Migration][Azure Root Certificate Migration].
 
   [GeoTrust Root Certificates]: http://www.geotrust.com/resources/root-certificates/
   [Azure Root Certificate Migration]: http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx

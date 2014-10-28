@@ -11,33 +11,33 @@ Este tutorial le mostrará cómo sacar el máximo partido de la red CDN de Azure
 -   Tiene varios vínculos a contenido estático o semiestático en las páginas.
 -   La aplicación la utilizan los clientes globalmente.
 -   Desea descargar tráfico desde el servicio web.
--   Desea reducir el número de conexiones de cliente simultáneas al servidor web (en [Unión y minificación][] se habla de ello).
+-   Desea reducir el número de conexiones de cliente simultáneas al servidor web (en [Unión y minificación][Unión y minificación] se habla de ello).
 -   Si desea aumentar el tiempo de actualización/carga percibido en las páginas.
 
 ## Qué aprenderá
 
 En este tutorial, aprenderá los siguientes procedimientos:
 
--   [Entrega de contenido estático desde un extremo de la red CDN de Azure][]
--   [Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN][]
--   [Configuración del caché de la red CDN para reflejar la actualización deseada del contenido][]
--   [Entrega inmediata de contenido nuevo mediante cadenas de consulta][]
+-   [Entrega de contenido estático desde un extremo de la red CDN de Azure][Entrega de contenido estático desde un extremo de la red CDN de Azure]
+-   [Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN][Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN]
+-   [Configuración del caché de la red CDN para reflejar la actualización deseada del contenido][Configuración del caché de la red CDN para reflejar la actualización deseada del contenido]
+-   [Entrega inmediata de contenido nuevo mediante cadenas de consulta][Entrega inmediata de contenido nuevo mediante cadenas de consulta]
 
 ## Qué necesita
 
 Este tutorial cuenta con los siguientes requisitos previos:
 
--   Una [cuenta de Microsoft Azure][] activa. Puede registrarse para una cuenta de prueba.
--   Visual Studio 2013 con [Azure SDK][]
--   Una aplicación sencilla de ASP.NET MVC para probar varias URL de la red CDN. [Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN][] utiliza una aplicación MVC de ASP.NET como ejemplo.
--   [Azure PowerShell][] (utilizado por [Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN][])
+-   Una [cuenta de Microsoft Azure][cuenta de Microsoft Azure] activa. Puede registrarse para una cuenta de prueba.
+-   Visual Studio 2013 con [Azure SDK][Azure SDK]
+-   Una aplicación sencilla de ASP.NET MVC para probar varias URL de la red CDN. [Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN][Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN] utiliza una aplicación MVC de ASP.NET como ejemplo.
+-   [Azure PowerShell][Azure PowerShell] (utilizado por [Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN][Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN])
 
 <div class="wa-note">
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>Para completar este tutorial, deber&aacute; tener una cuenta de Azure:</h5>
   <ul>
-    <li>Puede <a href="http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F">abrir una cuenta de Azure de manera gratuita</a> - Obtiene cr&eacute;dito que puede utilizar para probar los servicios de Azure de pago, e incluso una vez agotado este podr&aacute; mantener la cuenta y utilizar servicios gratuitos de Azure, como Sitios web.</li>
-    <li>Puede <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activar las ventajas de suscriptor de MSDN</a> - Su suscripci&oacute;n a MSDN le proporciona cr&eacute;dito todos los meses que puede utilizar para servicios de Azure de pago.</li>
+    <li>Puede <a href="http://azure.microsoft.com/es-es/pricing/free-trial/?WT.mc_id=A261C142F">abrir una cuenta de Azure de manera gratuita</a> - Obtiene cr&eacute;dito que puede utilizar para probar los servicios de Azure de pago, e incluso una vez agotado este podr&aacute; mantener la cuenta y utilizar servicios gratuitos de Azure, como Sitios web.</li>
+    <li>Puede <a href="http://azure.microsoft.com/es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activar las ventajas de suscriptor de MSDN</a> - Su suscripci&oacute;n a MSDN le proporciona cr&eacute;dito todos los meses que puede utilizar para servicios de Azure de pago.</li>
   <ul>
 </div>
 
@@ -55,7 +55,7 @@ En esta sección del tutorial, aprenderá a crear una red CDN y a utilizarla par
 
 Vamos a verlo. Siga los pasos siguientes para comenzar a utilizar la red CDN de Azure:
 
-1.  Para crear un extremo de la red CDN, inicie sesión en el [Portal de administración de Azure][].
+1.  Para crear un extremo de la red CDN, inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  Cree una cuenta de almacenamiento haciendo clic en **Nuevo \> Servicios de datos \> Almacenamiento \> Creación rápida**. Especifique una URL, una ubicación y haga clic en **Crear cuenta de almacenamiento**.
 
     ![][]
@@ -76,11 +76,11 @@ Vamos a verlo. Siga los pasos siguientes para comenzar a utilizar la red CDN de 
 
     ![][3]
 
-5.  En este punto, ya puede ver dónde el extremo de red CDN determina cuál es el nodo de red CDN más cercano. Desde mi equipo de sobremesa, la dirección IP de respuesta es **93.184.215.201**. Conéctese a un sitio como [www.ip-address.org][] y compruebe que el servidor está ubicado en Washington D.C.
+5.  En este punto, ya puede ver dónde el extremo de red CDN determina cuál es el nodo de red CDN más cercano. Desde mi equipo de sobremesa, la dirección IP de respuesta es **93.184.215.201**. Conéctese a un sitio como [www.ip-address.org][www.ip-address.org] y compruebe que el servidor está ubicado en Washington D.C.
 
     ![][4]
 
-    Para obtener una lista actualizada de todas las ubicaciones de nodos de la red CDN, consulte [Ubicaciones del nodo de la red de entrega de contenido (CDN) de Azure][].
+    Para obtener una lista actualizada de todas las ubicaciones de nodos de la red CDN, consulte [Ubicaciones del nodo de la red de entrega de contenido (CDN) de Azure][Ubicaciones del nodo de la red de entrega de contenido (CDN) de Azure].
 
 6.  De vuelta en el portal de Azure, en la pestaña **CDN**, haga clic en el nombre del extremo de red CDN que acaba de crear.
 
@@ -90,7 +90,7 @@ Vamos a verlo. Siga los pasos siguientes para comenzar a utilizar la red CDN de 
 
     ![][6]
 
-    > [WACOM.NOTE] Aunque no es necesario habilitar la cadena de consulta para esta parte del tutorial, le conviene hacerlo lo antes posible para mayor comodidad ya que cualquier cambio va a tardar tiempo en propagarse al resto de lo nodos y no deseará que cualquier contenido no habilitado para cadenas de consulta atasque el caché de la red CDN (la actualización del contenido de la red CDN se tratará después). Averiguará cómo sacar partido de esto en [Entrega inmediata de contenido nuevo mediante cadenas de consulta][].
+    > [WACOM.NOTE] Aunque no es necesario habilitar la cadena de consulta para esta parte del tutorial, le conviene hacerlo lo antes posible para mayor comodidad ya que cualquier cambio va a tardar tiempo en propagarse al resto de lo nodos y no deseará que cualquier contenido no habilitado para cadenas de consulta atasque el caché de la red CDN (la actualización del contenido de la red CDN se tratará después). Averiguará cómo sacar partido de esto en [Entrega inmediata de contenido nuevo mediante cadenas de consulta][Entrega inmediata de contenido nuevo mediante cadenas de consulta].
 
 8.  En Visual Studio 2013, en el Explorador de soluciones, haga clic en el botón **Conectar a Windows Azure**.
 
@@ -145,7 +145,7 @@ En esta sección, ha aprendido a crear un extremo de red CDN, cargar contenido e
 
 ## Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN
 
-Si desea cargar fácilmente todo el contenido estático a su aplicación web de ASP .NET a su extremo de red CDN, o si implementa su aplicación web usando la entrega continua (para ver un ejemplo, consulte [Entrega continua para Servicios en la nube de Azure][]), puede usar Azure PowerShell para automatizar la sincronización de los últimos archivos de contenido en los blobs de Azure cada vez que implemente la aplicación web. Por ejemplo, puede ejecutar el script en [Carga de archivos de contenido desde la aplicación ASP .NET a los blobs de Azure][] para cargar todos los archivos de contenido en una aplicación de ASP .NET. Para utilizar este script:
+Si desea cargar fácilmente todo el contenido estático a su aplicación web de ASP .NET a su extremo de red CDN, o si implementa su aplicación web usando la entrega continua (para ver un ejemplo, consulte [Entrega continua para Servicios en la nube de Azure][Entrega continua para Servicios en la nube de Azure]), puede usar Azure PowerShell para automatizar la sincronización de los últimos archivos de contenido en los blobs de Azure cada vez que implemente la aplicación web. Por ejemplo, puede ejecutar el script en [Carga de archivos de contenido desde la aplicación ASP .NET a los blobs de Azure][Carga de archivos de contenido desde la aplicación ASP .NET a los blobs de Azure] para cargar todos los archivos de contenido en una aplicación de ASP .NET. Para utilizar este script:
 
 1.  En el menú **Inicio**, ejecute **Windows Azure PowerShell**.
 2.  En la ventana de Azure PowerShell, ejecute `Get-AzurePublishSettingsFile` para descargar un archivo de configuración de publicación para la cuenta de Azure.
@@ -168,7 +168,7 @@ Este script carga todos los archivos desde las carpetas *\\Content* y *\\Scripts
 -   Replicar automáticamente la estructura del archivo de su proyecto de Visual Studio
 -   Crear automáticamente contenedores de blobs cuando se necesite
 -   Reutilizar la misma cuenta de almacenamiento de Azure y el extremo de red CDN para varias aplicaciones web, cada una en un contenedor de blobs separado
--   Actualizar fácilmente la red CDN de Azure con nuevo contenido Para obtener más información sobre la actualización del contenido, consulte [Configuración del caché de la red CDN para reflejar la actualización deseada del contenido][].
+-   Actualizar fácilmente la red CDN de Azure con nuevo contenido Para obtener más información sobre la actualización del contenido, consulte [Configuración del caché de la red CDN para reflejar la actualización deseada del contenido][Configuración del caché de la red CDN para reflejar la actualización deseada del contenido].
 
 Para el parámetro `-StorageContainer`, tiene sentido utilizar el nombre de la aplicación web, o el nombre del proyecto de Visual Studio. Aunque he utilizado el "cdn" genérico como el nombre anterior del contenedor, si se utiliza el nombre de la aplicación web, se permite que el contenido relacionado se organice en el mismo contenedor fácilmente identificable.
 
@@ -190,7 +190,7 @@ Las buenas noticias es que puede personalizar la expiración del caché. De igua
 
 ![][15]
 
-También puede hacer en el script de PowerShell para establecer todos los encabezados de Cache-Control de los blobs. Para el script de la [Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN][], encuentre el siguiente fragmento de código:
+También puede hacer en el script de PowerShell para establecer todos los encabezados de Cache-Control de los blobs. Para el script de la [Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN][Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN], encuentre el siguiente fragmento de código:
 
     Set-AzureStorageBlobContent `
         -Container $StorageContainer `
@@ -210,7 +210,7 @@ y modifíquelo de la forma siguiente:
         -Properties @{ContentType=$contentType, CacheControl="public, max-age=3600"} `
         -Force
 
-Todavía puede esperar al contenido en caché completo de 7 días en la red CDN de Azure para expirar antes de que extraiga el nuevo contenido, con el nuevo encabezado Cache-Control. Esto ilustra el hecho de que los valores de almacenamiento en caché personalizados no ayudan si desea que la actualización del contenido se active de inmediato, como actualizaciones de JavaScript o CSS. Sin embargo, puede resolver este problema cambiando el nombre de los archivos o controlando las versiones a través de cadenas de consulta. Para obtener más información, consulte [Entrega inmediata de contenido nuevo mediante cadenas de consulta][].
+Todavía puede esperar al contenido en caché completo de 7 días en la red CDN de Azure para expirar antes de que extraiga el nuevo contenido, con el nuevo encabezado Cache-Control. Esto ilustra el hecho de que los valores de almacenamiento en caché personalizados no ayudan si desea que la actualización del contenido se active de inmediato, como actualizaciones de JavaScript o CSS. Sin embargo, puede resolver este problema cambiando el nombre de los archivos o controlando las versiones a través de cadenas de consulta. Para obtener más información, consulte [Entrega inmediata de contenido nuevo mediante cadenas de consulta][Entrega inmediata de contenido nuevo mediante cadenas de consulta].
 
 Por supuesto, hay un tiempo y un lugar para el almacenamiento en caché. Por ejemplo, puede tener contenido que no requiera la actualización frecuente, como los próximos juegos mundiales de fútbol que pueden actualizarse cada tres horas, pero obtener el suficiente tráfico global que desea descargar desde su propio servidor web. Esto puede ser un buen candidato a utilizar el almacenamiento en caché de la red CDN de Azure.
 
@@ -249,31 +249,31 @@ Si cambia el número de ensamblado como parte de cada ciclo de publicación, pue
 
 ## ¿Qué ocurre con los scripts unidos y el CSS?
 
-Actualmente el único lugar que encuentra una integración adecuada entre la unión de ASP.NET y la red CDN de Azure es en los [Servicios en la nube de Azure][]. Con los Servicios en la nube de Azure, es posible utilizar la red CDN de Azure para sus uniones de scripts, con las siguientes reservas:
+Actualmente el único lugar que encuentra una integración adecuada entre la unión de ASP.NET y la red CDN de Azure es en los [Servicios en la nube de Azure][Servicios en la nube de Azure]. Con los Servicios en la nube de Azure, es posible utilizar la red CDN de Azure para sus uniones de scripts, con las siguientes reservas:
 
--   Debe cargar manualmente los scripts agrupados al almacenamiento de blobs. Una solución programática se propone en [stackoverflow][].
+-   Debe cargar manualmente los scripts agrupados al almacenamiento de blobs. Una solución programática se propone en [stackoverflow][stackoverflow].
 -   En los archivos .cshtml, transforme las etiquetas de CSS/scripts representadas para utilizar la red CDN de Azure. Por ejemplo:
 
         @Html.Raw(Styles.Render("~/Content/css").ToString().Insert(0, "http://<yourCDNName>.vo.msecnd.net"))
 
-Para obtener más información sobre la integración de la red CDN de Azure con los Servicios en nube de Azure, consulte [Integración de una aplicación en nube con la red CDN de Azure][].
+Para obtener más información sobre la integración de la red CDN de Azure con los Servicios en nube de Azure, consulte [Integración de una aplicación en nube con la red CDN de Azure][Integración de una aplicación en nube con la red CDN de Azure].
 
 # Más información
 
--   [Información general de la red de entrega de contenido (CDN) de Azure][]
+-   [Información general de la red de entrega de contenido (CDN) de Azure][Información general de la red de entrega de contenido (CDN) de Azure]
 -   [Integración de una aplicación en nube con la red CDN de Azure][16]
--   [Uso de la red CDN en Azure][]
+-   [Uso de la red CDN en Azure][Uso de la red CDN en Azure]
 
   [Unión y minificación]: http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification
   [Entrega de contenido estático desde un extremo de la red CDN de Azure]: #deploy
   [Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN]: #upload
   [Configuración del caché de la red CDN para reflejar la actualización deseada del contenido]: #update
   [Entrega inmediata de contenido nuevo mediante cadenas de consulta]: #query
-  [cuenta de Microsoft Azure]: http://azure.microsoft.com/en-us/account/
+  [cuenta de Microsoft Azure]: http://azure.microsoft.com/es-es/account/
   [Azure SDK]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
-  [abrir una cuenta de Azure de manera gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=A261C142F
-  [activar las ventajas de suscriptor de MSDN]: http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+  [abrir una cuenta de Azure de manera gratuita]: http://azure.microsoft.com/es-es/pricing/free-trial/?WT.mc_id=A261C142F
+  [activar las ventajas de suscriptor de MSDN]: http://azure.microsoft.com/es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [Portal de administración de Azure]: http://manage.windowsazure.com/
   []: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
   [1]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG
@@ -281,7 +281,7 @@ Para obtener más información sobre la integración de la red CDN de Azure con 
   [3]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-succeed.PNG
   [www.ip-address.org]: http://www.ip-address.org
   [4]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-4.PNG
-  [Ubicaciones del nodo de la red de entrega de contenido (CDN) de Azure]: http://msdn.microsoft.com/en-us/library/azure/gg680302.aspx
+  [Ubicaciones del nodo de la red de entrega de contenido (CDN) de Azure]: http://msdn.microsoft.com/es-es/library/azure/gg680302.aspx
   [5]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequerya.PNG
   [6]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2-enablequeryb.PNG
   [7]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-5.PNG
@@ -295,9 +295,9 @@ Para obtener más información sobre la integración de la red CDN de Azure con 
   [Entrega continua para Servicios en la nube de Azure]: http://azure.microsoft.com/es-es/documentation/articles/cloud-services-dotnet-continuous-delivery/
   [Carga de archivos de contenido desde la aplicación ASP .NET a los blobs de Azure]: http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a
   [15]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-updates-1.PNG
-  [Servicios en la nube de Azure]: http://azure.microsoft.com/en-us/services/cloud-services/
+  [Servicios en la nube de Azure]: http://azure.microsoft.com/es-es/services/cloud-services/
   [stackoverflow]: http://stackoverflow.com/a/13736433
   [Integración de una aplicación en nube con la red CDN de Azure]: http://azure.microsoft.com/es-es/documentation/articles/cloud-services-how-to-create-deploy/
   [Información general de la red de entrega de contenido (CDN) de Azure]: http://msdn.microsoft.com/library/azure/ff919703.aspx
-  [16]: http://azure.microsoft.com/es-es/documentation/Articles/cdn-cloud-service-with-cdn/
+  [16]: http://azure.microsoft.com/es-es/Documentation/Articles/cdn-cloud-service-with-cdn/
   [Uso de la red CDN en Azure]: http://azure.microsoft.com/es-es/documentation/articles/cdn-how-to-use/

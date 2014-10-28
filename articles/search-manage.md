@@ -2,7 +2,7 @@
 
 # Administración del servicio de búsqueda en Microsoft Azure
 
-[WACOM.INCLUDE [Este artículo usa el portal de Azure en vista previa][]]
+[WACOM.INCLUDE [Este artículo usa el portal de Azure en vista previa](../includes/preview-portal-note.md)]
 
 Búsqueda de Azure es un servicio basado en la nube y una API basada en HTTP que puede usarse en aplicaciones de búsqueda personalizadas. Nuestro servicio de búsqueda proporciona el motor para análisis de texto de búsqueda de texto completo, características de búsqueda avanzadas, almacenamiento y una sintaxis de comando de consulta.
 
@@ -12,17 +12,17 @@ Como se ha indicado, el nuevo portal de vista previa es necesario para las tarea
 
 <!--TOC-->
 
--   [Adición del servicio de búsqueda a su suscripción][]
--   [Tareas administrativas][]
--   [URL de servicio][]
--   [Administración de las claves de API][]
--   [Supervisar el uso de recursos][]
--   [Escalado o reducción vertical][]
--   [Inicio o interrupción del servicio][]
+-   [Adición del servicio de búsqueda a su suscripción][Adición del servicio de búsqueda a su suscripción]
+-   [Tareas administrativas][Tareas administrativas]
+-   [URL de servicio][URL de servicio]
+-   [Administración de las claves de API][Administración de las claves de API]
+-   [Supervisar el uso de recursos][Supervisar el uso de recursos]
+-   [Escalado o reducción vertical][Escalado o reducción vertical]
+-   [Inicio o interrupción del servicio][Inicio o interrupción del servicio]
 
 ## Adición del servicio de búsqueda a su suscripción
 
-Como administrador, puede agregar Búsqueda a su suscripción de Azure existente usando el nuevo [portal de Azure en vista previa][]. Solo los administradores pueden agregar características a una suscripción. Al configurar su servicio, hay dos niveles de precio entre los que se puede elegir.
+Como administrador, puede agregar Búsqueda a su suscripción de Azure existente usando el nuevo [portal de Azure en vista previa][portal de Azure en vista previa]. Solo los administradores pueden agregar características a una suscripción. Al configurar su servicio, hay dos niveles de precio entre los que se puede elegir.
 
 Sin cargo alguno para los suscriptores existentes, puede usar un servicio compartido, recomendado con fines didácticos, evaluación de prueba de concepto y pequeños proyectos de desarrollo. El servicio compartido incluye un espacio de almacenamiento de 50 MB, tres índices y recuento de documentos (un límite máximo de 10.000 documentos, incluso si el consumo de almacenamiento es inferior a los 50 MB totales permitidos). No hay garantías de rendimiento con el servicio compartido, de modo que si crea una aplicación de búsqueda de producción, considere la búsqueda estándar en su lugar.
 
@@ -30,10 +30,10 @@ La búsqueda estándar se puede facturar al registrarse para obtener recursos de
 
 Para planificar la capacidad y entender el impacto de facturación, recomendamos estos vínculos:
 
--   [Límites y restricciones][]
--   [Detalles de precios][]
+-   [Límites y restricciones][Límites y restricciones]
+-   [Detalles de precios][Detalles de precios]
 
-Cuando esté listo para registrarse, consulte [Configuración de Búsqueda en el portal de vista previa de Azure][].
+Cuando esté listo para registrarse, consulte [Configuración de Búsqueda en el portal de vista previa de Azure][Configuración de Búsqueda en el portal de vista previa de Azure].
 
 ## Tareas administrativas
 
@@ -59,11 +59,11 @@ Para obtener la URL de servicio del panel de servicios:
 3.  Haga clic en el nombre de su servicio de búsqueda para abrir el panel.
 4.  Haga clic en **PROPIEDADES** para deslizar una página de propiedades al abrirla. La URL de servicio se encuentra en la parte superior de la página. Puede anclar esta página para obtener acceso rápidamente más adelante.
 
-    ![][]
+    ![][0]
 
 Asimismo, es posible que los desarrolladores le pregunten sobre la versión de la API. Un requisito de codificación de la API de Búsqueda de Azure siempre es especificar la versión de la API en la solicitud. El fin de este requisito es que los desarrolladores puedan seguir usando una versión anterior y, a continuación, cambien a una versión posterior en el momento adecuado.
 
-La versión de la API no se muestra en las páginas del portal, por lo que no se trata de información que puedas proporcionar. Para obtener información sobre versiones de la API actuales y anteriores, consulte la [API de REST de Búsqueda de Azure][].
+La versión de la API no se muestra en las páginas del portal, por lo que no se trata de información que puedas proporcionar. Para obtener información sobre versiones de la API actuales y anteriores, consulte la [API de REST de Búsqueda de Azure][API de REST de Búsqueda de Azure].
 
 <!---->
 
@@ -92,15 +92,15 @@ En esta vista previa pública, la supervisión de recursos se limita a la inform
 
 En el panel de servicios, en la sección Uso, podrá determinar rápidamente si los niveles de recursos de partición son adecuados para su aplicación.
 
-Al usar la API del servicio de búsqueda, podrá obtener una recuento de los documentos e índices. Existen límites máximos asociados a estos recuentos basados en el nivel de precio. Consulte [Límites y restricciones][] para obtener detalles.
+Al usar la API del servicio de búsqueda, podrá obtener una recuento de los documentos e índices. Existen límites máximos asociados a estos recuentos basados en el nivel de precio. Consulte [Límites y restricciones][Límites y restricciones] para obtener detalles.
 
--   [Obtención de estadísticas de índice][]
--   [Documentos de recuento][]
+-   [Obtención de estadísticas de índice][Obtención de estadísticas de índice]
+-   [Documentos de recuento][Documentos de recuento]
 
 > [WACOM.NOTE] Los comportamientos de Almacenamiento en caché pueden sobrevalorar un límite temporalmente. Por ejemplo, al usarse el servicio compartido, es posible que vea un recuento de documentos sobre el límite máximo de 10.000 documentos. La sobrevaloración es temporal y se detectará en la próxima comprobación de aplicación de límite.
 
-<!---->
 
+<!---->
 ## Escalado o reducción vertical
 
 Cada uno de los servicios de búsqueda se inicia con una cantidad mínima de una réplica y una partición. Si se registró para obtener recursos dedicados usando el nivel de precio estándar, puede hacer clic en el icono de **escalación** del panel de servicios para reajustar el número de particiones y réplicas usadas por su servicio.
@@ -135,10 +135,10 @@ A diferencia de la eliminación de réplicas, que no requiere que haga nada más
 
 No existe un método de detección que indique qué particiones de índice se almacenan en particiones concretas. Cada partición proporciona un espacio de almacenamiento de aproximadamente 25 MB, de modo que será necesario reducirlo a un tamaño al que pueda ajustarse su número de particiones. Si quiere volver a una partición, las 12 particiones deberán ajustarse.
 
-Para ayudar en una futura planificación, es posible que quiera comprobar el espacio de almacenamiento (usando [Obtención de estadísticas de índice][]) para ver cuánto usó en realidad.
+Para ayudar en una futura planificación, es posible que quiera comprobar el espacio de almacenamiento (usando [Obtención de estadísticas de índice][Obtención de estadísticas de índice]) para ver cuánto usó en realidad.
+
 
 <!---->
-
 ## Inicio o interrupción del servicio
 
 Puede iniciar, interrumpir o incluso eliminar el servicio usando comandos en el panel de servicios.
@@ -147,8 +147,8 @@ Puede iniciar, interrumpir o incluso eliminar el servicio usando comandos en el 
 
 Con la interrupción o inicio del servicio no se desactiva la facturación. Debe eliminar el servicio para evitar que se le cobren todas las cargas. Cualquier dato asociado a su servicio se eliminará cuando su servicio no esté disponible.
 
-<!--Anchors-->  
 
+<!--Anchors-->  
   [Este artículo usa el portal de Azure en vista previa]: ../includes/preview-portal-note.md
   [Adición del servicio de búsqueda a su suscripción]: #sub-1
   [Tareas administrativas]: #sub-2
@@ -158,15 +158,17 @@ Con la interrupción o inicio del servicio no se desactiva la facturación. Debe
   [Escalado o reducción vertical]: #sub-6
   [Inicio o interrupción del servicio]: #sub-7
   [portal de Azure en vista previa]: https://portal.azure.com
-  [Límites y restricciones]: http://msdn.microsoft.com/en-us/library/dn798934.aspx
+  [Límites y restricciones]: http://msdn.microsoft.com/es-es/library/dn798934.aspx
   [Detalles de precios]: http://go.microsoft.com/fwlink/p/?LinkdID=509792
   [Configuración de Búsqueda en el portal de vista previa de Azure]: ../search-configure/
 <!--Image references-->
-  []: ./media/search-manage/Azure-Search-Manage-1-URL.png
+  [0]: ./media/search-manage/Azure-Search-Manage-1-URL.png
   [API de REST de Búsqueda de Azure]: http://go.microsoft.com/fwlink/p/?LinkdID=509922
   [1]: ./media/search-manage/Azure-Search-Manage-2-Keys.png
+
+
 <!--Link references-->
-  [Obtención de estadísticas de índice]: http://msdn.microsoft.com/en-us/library/dn798942.aspx
-  [Documentos de recuento]: http://msdn.microsoft.com/en-us/library/dn798924.aspx
+  [Obtención de estadísticas de índice]: http://msdn.microsoft.com/es-es/library/dn798942.aspx
+  [Documentos de recuento]: http://msdn.microsoft.com/es-es/library/dn798924.aspx
   [2]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
   [3]: ./media/search-manage/Azure-Search-Manage-4-StartStop.png

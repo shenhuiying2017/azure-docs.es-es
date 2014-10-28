@@ -6,23 +6,23 @@
 
 Puede usar proyectos de equipo de Visual Studio Online para hospedar en un repositorio Git el código fuente, y compilarlo e implementarlo automáticamente en sitios web o servicios en la nube de Azure cada vez que se inserta una confirmación en el repositorio.
 
-Necesitará Visual Studio 2013 y tener instalado el SDK de Azure. Si todavía no tiene Visual Studio 2013, descárguelo; para ello, haga clic en el vínculo **Empiece de manera gratuita** en [www.visualstudio.com][]. Instale el SDK de Azure desde [aquí][].
+Necesitará Visual Studio 2013 y tener instalado el SDK de Azure. Si todavía no tiene Visual Studio 2013, descárguelo; para ello, haga clic en el vínculo **Empiece de manera gratuita** en [www.visualstudio.com][www.visualstudio.com]. Instale el SDK de Azure desde [aquí][aquí].
 
 Para configurar un servicio en la nube que se compile e implemente automáticamente en Azure con Visual Studio Online, siga los pasos que aparecen a continuación:
 
--   [Paso 1: Inicie sesión en Visual Studio Online y cree un repositorio Git.][]
+-   [Paso 1: Inicie sesión en Visual Studio Online y cree un repositorio Git.][Paso 1: Inicie sesión en Visual Studio Online y cree un repositorio Git.]
 
--   [Paso 2: Cree un proyecto e insértelo en el repositorio Git.][]
+-   [Paso 2: Cree un proyecto e insértelo en el repositorio Git.][Paso 2: Cree un proyecto e insértelo en el repositorio Git.]
 
--   [Paso 3: Conecte el proyecto a Azure][]
+-   [Paso 3: Conecte el proyecto a Azure][Paso 3: Conecte el proyecto a Azure]
 
--   [Paso 4: Realice cambios, desencadene una recompilación y vuelva a implementar][]
+-   [Paso 4: Realice cambios, desencadene una recompilación y vuelva a implementar][Paso 4: Realice cambios, desencadene una recompilación y vuelva a implementar]
 
--   [Paso 5: Vuelva a implementar una compilación anterior (opcional)][]
+-   [Paso 5: Vuelva a implementar una compilación anterior (opcional)][Paso 5: Vuelva a implementar una compilación anterior (opcional)]
 
--   [Paso 6: Cambie la implementación de producción][]
+-   [Paso 6: Cambie la implementación de producción][Paso 6: Cambie la implementación de producción]
 
--   [Paso 7: Implemente desde una bifurcación de trabajo][]
+-   [Paso 7: Implemente desde una bifurcación de trabajo][Paso 7: Implemente desde una bifurcación de trabajo]
 
 ## <a name="step1"></a><span class="short-header">Paso 1: Inicie sesión en Visual Studio Online y cree un repositorio Git.</span>Paso 1: Inicie sesión en Visual Studio Online y cree un repositorio Git
 
@@ -42,7 +42,7 @@ Para configurar un servicio en la nube que se compile e implemente automáticame
 2.  Mediante los pasos de este tutorial, puede implementar un sitio web o un servicio en la nube (aplicación de Azure).
     Cree un nuevo proyecto de servicio en la nube de Windows Azure
     o un nuevo proyecto de ASP.NET MVC. Asegúrese de que este proyecto esté dirigido a .NET Framework 4 o 4.5, y si va a crear un proyecto de servicio en la nube, agregue un rol web y un rol de trabajo de ASP.NET MVC.
-    Si desea crear un sitio web, elija la plantilla de proyecto Aplicación web ASP.NET y luego elija MVC. Consulte [Introducción a Azure y ASP.NET][].
+    Si desea crear un sitio web, elija la plantilla de proyecto Aplicación web ASP.NET y luego elija MVC. Consulte [Introducción a Azure y ASP.NET][Introducción a Azure y ASP.NET].
 
 3.  Abra el menú de acceso directo de la solución y seleccione **Confirmar**.
 
@@ -58,7 +58,7 @@ Para configurar un servicio en la nube que se compile e implemente automáticame
 
 ## <a name="step3"> </a><span class="short-header">Conexión del proyecto a Azure</span>Paso 3: Conecte el proyecto a Azure
 
-1.  Ahora que tiene un repositorio Git en Visual Studio Online con código fuente, esta en disposición de conectarlo a Azure. En el [Portal de Azure][], seleccione el servicio en la nube o el sitio web, o cree unos nuevos; para ello, seleccione el icono + en la parte inferior izquierda y elija **Servicio en la nube** o **Sitio web** y luego **Creación rápida**.<br.>
+1.  Ahora que tiene un repositorio Git en Visual Studio Online con código fuente, esta en disposición de conectarlo a Azure. En el [Portal de Azure][Portal de Azure], seleccione el servicio en la nube o el sitio web, o cree unos nuevos; para ello, seleccione el icono + en la parte inferior izquierda y elija **Servicio en la nube** o **Sitio web** y luego **Creación rápida**.<br.>
 
     ![][5]
 
@@ -210,7 +210,7 @@ La próxima vez que inserte una confirmación en el repositorio, Visual Studio O
 
     ![][21]
 
-13. En el [Portal de Azure][], puede ver la implementación asociada en la pestaña Implementaciones cuando se selecciona el entorno de ensayo.
+13. En el [Portal de Azure][Portal de Azure], puede ver la implementación asociada en la pestaña Implementaciones cuando se selecciona el entorno de ensayo.
 
     ![][22]
 
@@ -276,7 +276,7 @@ Cuando usa Git, realiza cambios habitualmente en una bifurcación de trabajo y l
 
 10. Vaya a la vista **Compilaciones** y busque la compilación que se acaba de activar para la bifurcación de trabajo.
 
-Para obtener más información, consulte [Visual Studio Online][]. Para obtener sugerencias adicionales sobre el uso de Git con Visual Studio Online, consulte [Comparta su código en Git][] y, para obtener información sobre el uso de un repositorio Git que no está administrado por Visual Studio Online para publicar en Azure, consulte [Publicación del control de código fuente a Sitios web Azure][].
+Para obtener más información, consulte [Visual Studio Online][Visual Studio Online]. Para obtener sugerencias adicionales sobre el uso de Git con Visual Studio Online, consulte [Comparta su código en Git][Comparta su código en Git] y, para obtener información sobre el uso de un repositorio Git que no está administrado por Visual Studio Online para publicar en Azure, consulte [Publicación del control de código fuente a Sitios web Azure][Publicación del control de código fuente a Sitios web Azure].
 
   [www.visualstudio.com]: http://www.visualstudio.com
   [aquí]: http://go.microsoft.com/fwlink/?LinkId=239540

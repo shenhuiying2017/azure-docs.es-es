@@ -5,38 +5,38 @@
 # Utilización de las colas del bus de servicio
 
 En esta guía se explica cómo usar las colas del bus de servicio con PHP. Los ejemplos están escritos en
-PHP y utilizan el [SDK de Azure para PHP][]. Entre
+PHP y utilizan el [SDK de Azure para PHP][SDK de Azure para PHP]. Entre
 los escenarios proporcionados se incluyen los siguientes: **creación de colas**, **envío y recepción
 de mensajes** y **eliminación de colas**.
 
 ## Tabla de contenido
 
--   [¿Qué son las colas del bus de servicio?][]
--   [Creación de un espacio de nombres de servicio][]
--   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][]
--   [Creación de una aplicación PHP][]
--   [Obtención de las bibliotecas de clientes de Azure][]
--   [Configuración de la aplicación para usar el bus de servicio][]
--   [Creación de una cola][]
--   [Envío de mensajes a una cola][]
--   [Recepción de mensajes de una cola][]
--   [Actuación ante errores de la aplicación y mensajes que no se pueden leer][]
--   [Pasos siguientes][]
+-   [¿Qué son las colas del bus de servicio?][¿Qué son las colas del bus de servicio?]
+-   [Creación de un espacio de nombres de servicio][Creación de un espacio de nombres de servicio]
+-   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][Obtención de credenciales de administración predeterminadas para el espacio de nombres]
+-   [Creación de una aplicación PHP][Creación de una aplicación PHP]
+-   [Obtención de las bibliotecas de clientes de Azure][Obtención de las bibliotecas de clientes de Azure]
+-   [Configuración de la aplicación para usar el bus de servicio][Configuración de la aplicación para usar el bus de servicio]
+-   [Creación de una cola][Creación de una cola]
+-   [Envío de mensajes a una cola][Envío de mensajes a una cola]
+-   [Recepción de mensajes de una cola][Recepción de mensajes de una cola]
+-   [Actuación ante errores de la aplicación y mensajes que no se pueden leer][Actuación ante errores de la aplicación y mensajes que no se pueden leer]
+-   [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span id="CreateApplication"></span></a>Creación de una aplicación PHP
 
-El único requisito a la hora de crear una aplicación PHP para obtener acceso al servicio BLOB de Azure es que el código haga referencia a clases del [SDK de Azure para PHP][]. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas.
+El único requisito a la hora de crear una aplicación PHP para obtener acceso al servicio BLOB de Azure es que el código haga referencia a clases del [SDK de Azure para PHP][SDK de Azure para PHP]. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas.
 
 > [WACOM.NOTE]
-> La instalación de PHP debe tener también la [extensión OpenSSL][] instalada y habilitada.
+> La instalación de PHP debe tener también la [extensión OpenSSL][extensión OpenSSL] instalada y habilitada.
 
 En esta guía, utilizará funciones del servicio a las que se puede llamar desde una aplicación PHP localmente o bien mediante código a través de un rol web, rol de trabajo o sitio web de Azure.
 
 ## <span id="GetClientLibrary"></span></a>Obtención de las bibliotecas de clientes de Azure
 
-[WACOM.INCLUDE [get-client-libraries][]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureApp"></span></a>Configuración de la aplicación para usar el bus de servicio
 
@@ -107,7 +107,7 @@ El siguiente ejemplo muestra cómo crear una instancia de un **ServiceBusRestPro
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179357
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179357
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -141,7 +141,7 @@ Para enviar un mensaje a una cola de bus de servicio, la aplicación va a llamar
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780775
+        // http://msdn.microsoft.com/es-es/library/windowsazure/hh780775
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -201,7 +201,7 @@ En el ejemplo que aparece a continuación, se indica cómo se puede procesar y r
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here:
-        // http://msdn.microsoft.com/en-us/library/windowsazure/hh780735
+        // http://msdn.microsoft.com/es-es/library/windowsazure/hh780735
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -237,7 +237,7 @@ constante en todos los intentos de entrega
 ## <span id="NextSteps"></span></a>Pasos siguientes
 
 Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, consulte
-el tema [Colas, temas y suscripciones][] de MSDN para obtener más información.
+el tema [Colas, temas y suscripciones][Colas, temas y suscripciones] de MSDN para obtener más información.
 
   [SDK de Azure para PHP]: http://go.microsoft.com/fwlink/?LinkId=252473
   [¿Qué son las colas del bus de servicio?]: #what-are-service-bus-queues
@@ -255,4 +255,4 @@ el tema [Colas, temas y suscripciones][] de MSDN para obtener más información.
   [extensión OpenSSL]: http://php.net/openssl
   [get-client-libraries]: ../includes/get-client-libraries.md
   
-  [Colas, temas y suscripciones]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
+  [Colas, temas y suscripciones]: http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx

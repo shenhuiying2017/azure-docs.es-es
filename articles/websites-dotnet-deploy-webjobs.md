@@ -214,7 +214,7 @@ Para obtener más información acerca de WebJobs de Azure y del SDK de WebJobs, 
   [New Azure WebJob Project menu entry]: ./media/websites-dotnet-deploy-webjobs/nawj.png
   [New Project dialog showing WebJob template]: ./media/websites-dotnet-deploy-webjobs/np.png
   [Add Azure WebJob dialog]: ./media/websites-dotnet-deploy-webjobs/aaw2.png
-  [Programador de Azure]: /en-us/services/scheduler/
+  [Programador de Azure]: /es-es/services/scheduler/
   []: http://schemastore.org/schemas/json/webjob-publish-settings.json
   [1]: http://schemastore.org/schemas/json/webjobs-list.json
   [Implementación de un sitio web de Azure]: /es-es/documentation/articles/websites-dotnet-deploy/

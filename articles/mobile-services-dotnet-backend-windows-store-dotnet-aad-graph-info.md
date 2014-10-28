@@ -161,7 +161,7 @@ En el próximo tutorial, [Control de acceso basado en roles en Servicios móvile
 <!-- Images --> 
 <!-- URLs. -->
 
-  [C\# para Tienda Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/ "C# para Tienda Windows"
+  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-aad-graph-info/ "C# para Tienda Windows"
   [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ "Back-end de .NET"
   [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "Back-end de JavaScript"
   [Graph Client Library]: http://go.microsoft.com/fwlink/?LinkId=510536

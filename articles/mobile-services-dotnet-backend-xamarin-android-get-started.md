@@ -80,7 +80,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
     Esta acción envía una solicitud POST al nuevo servicio móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
 
     > [WACOM.NOTE]
-    >  Puede revisar el código que tiene acceso a su servicio móvil para consultar e insertar datos, el que se encuentra en el archivo ToDoActivity.cs C\#.
+    >  Puede revisar el código que tiene acceso a su servicio móvil para consultar e insertar datos, el que se encuentra en el archivo ToDoActivity.cs C#.
 
 ## Pasos siguientes
 
@@ -100,9 +100,9 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [versión back-end de JavaScript]: /es-es/documentation/articles/partner-xamarin-mobile-services-android-get-started
-  [Quickstart: Add a mobile service (.NET backend)]: http://msdn.microsoft.com/en-us/library/windows/apps/dn629482.aspx
+  [Quickstart: Add a mobile service (.NET backend)]: http://msdn.microsoft.com/es-es/library/windows/apps/dn629482.aspx
   []: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-quickstart-completed-android.png
-  [Evaluación gratuita de Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started
+  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-android-get-started
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
   [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
   [1]: ./media/mobile-services-dotnet-backend-xamarin-android-get-started/mobile-portal-quickstart-xamarin.png

@@ -10,15 +10,15 @@ Para instalar Azure SDK 2.4 para .NET con CTP de Visual Studio "14", siga estos 
 
 Para instalar Azure SDK 2.4 para .NET, siga estos pasos:
 
-1.  Instale el último [CTP de Visual Studio "14"][].
+1.  Instale el último [CTP de Visual Studio "14"][CTP de Visual Studio "14"].
 
 2.  Instale cada uno de los componentes del SDK de Azure mediante los vínculos de la siguiente lista, en este orden. Elija la versión x86 o x64 de cada uno de los siguientes componentes.
 
-    -   Herramientas de creación de Azure: [WindowsAzureAuthoringTools-x86.msi][] o [WindowsAzureAuthoringTools-x64.msi][].
-    -   Emulador de equipos de Azure: [WindowsAzureEmulator-x86.exe][] o [WindowsAzureEmulator-x64.exe][].
-    -   Las bibliotecas de cliente de Azure: [WindowsAzureLibsForNet-x86.msi][] o [WindowsAzureLibsForNet-x64.msi][].
-    -   El emulador de almacenamiento: [WindowsAzureStorageEmulator.msi][]. Si recibe una advertencia sobre las bases de datos locales SQL, instale SQL Server LocalDB 11.0 desde [esta ubicación][] para x86 o desde [esta ubicación][1] para x64.
-    -   Herramientas de Azure para Visual Studio: [WindowsAzureTools.vs140.exe][].
+    -   Herramientas de creación de Azure: [WindowsAzureAuthoringTools-x86.msi][WindowsAzureAuthoringTools-x86.msi] o [WindowsAzureAuthoringTools-x64.msi][WindowsAzureAuthoringTools-x64.msi].
+    -   Emulador de equipos de Azure: [WindowsAzureEmulator-x86.exe][WindowsAzureEmulator-x86.exe] o [WindowsAzureEmulator-x64.exe][WindowsAzureEmulator-x64.exe].
+    -   Las bibliotecas de cliente de Azure: [WindowsAzureLibsForNet-x86.msi][WindowsAzureLibsForNet-x86.msi] o [WindowsAzureLibsForNet-x64.msi][WindowsAzureLibsForNet-x64.msi].
+    -   El emulador de almacenamiento: [WindowsAzureStorageEmulator.msi][WindowsAzureStorageEmulator.msi]. Si recibe una advertencia sobre las bases de datos locales SQL, instale SQL Server LocalDB 11.0 desde [esta ubicación][esta ubicación] para x86 o desde [esta ubicación][1] para x64.
+    -   Herramientas de Azure para Visual Studio: [WindowsAzureTools.vs140.exe][WindowsAzureTools.vs140.exe].
 
     </p>
 
@@ -33,7 +33,7 @@ Para instalar Azure SDK 2.4 para .NET, siga estos pasos:
 
 ## Notas de la versión
 
-Lea las [notas de la versión][] para Azure SDK 2.4.
+Lea las [notas de la versión][notas de la versión] para Azure SDK 2.4.
 
   [CTP de Visual Studio "14"]: http://go.microsoft.com/fwlink/p/?LinkId=400776
   [WindowsAzureAuthoringTools-x86.msi]: http://go.microsoft.com/fwlink/p/?LinkId=400892

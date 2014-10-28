@@ -8,14 +8,14 @@
         <a href="/es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="C# para Tienda Windows" class="current">C# para Tienda Windows</a><a href="/es-es/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS">iOS</a>
 </div>
 
-Este tema muestra cómo usar la característica de **plantilla** de los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora localizadas por lenguaje y dispositivo. En este tutorial comenzará con la aplicación de la Tienda Windows que se creó en el tutorial [Uso de los Centros de notificaciones para enviar noticias de última hora][]. Una vez que lo haya completado, podrá registrarse en las categorías que le interesan, especificar un idioma para recibir las notificaciones y recibir solo notificaciones de inserción para las categorías seleccionadas en dicho idioma.
+Este tema muestra cómo usar la característica de **plantilla** de los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora localizadas por lenguaje y dispositivo. En este tutorial comenzará con la aplicación de la Tienda Windows que se creó en el tutorial [Uso de los Centros de notificaciones para enviar noticias de última hora][Uso de los Centros de notificaciones para enviar noticias de última hora]. Una vez que lo haya completado, podrá registrarse en las categorías que le interesan, especificar un idioma para recibir las notificaciones y recibir solo notificaciones de inserción para las categorías seleccionadas en dicho idioma.
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar este escenario:
 
-1.  [Conceptos de plantilla][]
-2.  [La interfaz de usuario de la aplicación][]
-3.  [Creación de la aplicación cliente de la Tienda Windows][]
-4.  [Envío de notificaciones desde su back-end][]
+1.  [Conceptos de plantilla][Conceptos de plantilla]
+2.  [La interfaz de usuario de la aplicación][La interfaz de usuario de la aplicación]
+3.  [Creación de la aplicación cliente de la Tienda Windows][Creación de la aplicación cliente de la Tienda Windows]
+4.  [Envío de notificaciones desde su back-end][Envío de notificaciones desde su back-end]
 
 Este escenario tiene dos partes:
 
@@ -55,11 +55,11 @@ Esto garantizará que los dispositivos se registren con una plantilla que hace r
       </visual>
     </toast>
 
-Las plantillas son una característica muy potente de la que puede aprender más en nuestro artículo [Información general acerca de los Centros de notificaciones de Azure][]. Asimismo, podrá consultar información de referencia sobre el lenguaje de expresión de las plantillas en los [procedimientos de los Centros de notificaciones para la Tienda Windows][] (en inglés).
+Las plantillas son una característica muy potente de la que puede aprender más en nuestro artículo [Información general acerca de los Centros de notificaciones de Azure][Información general acerca de los Centros de notificaciones de Azure]. Asimismo, podrá consultar información de referencia sobre el lenguaje de expresión de las plantillas en los [procedimientos de los Centros de notificaciones para la Tienda Windows][procedimientos de los Centros de notificaciones para la Tienda Windows] (en inglés).
 
 ## <a name="ui"></a><span class="short-header">Interfaz de usuario de aplicación</span>La interfaz de usuario de la aplicación
 
-Ahora modificaremos la aplicación de noticias de última hora que creó en el tema [Uso de los Centros de notificaciones para enviar noticias de última hora][] para enviar noticias de última hora localizadas con plantillas.
+Ahora modificaremos la aplicación de noticias de última hora que creó en el tema [Uso de los Centros de notificaciones para enviar noticias de última hora][Uso de los Centros de notificaciones para enviar noticias de última hora] para enviar noticias de última hora localizadas con plantillas.
 
 Con la finalidad de adaptar sus aplicaciones clientes para que reciban mensajes localizados, debe reemplazar sus registros *nativos* (es decir, registros que especifica en una plantilla) por registros de plantilla.
 
@@ -152,11 +152,11 @@ Modifique el archivo MainPage.xaml para que incluya un cuadro combinado de confi
 
 ## <a name="send"></a><span class="short-header">Envío de notificaciones localizadas</span>Envío de notificaciones localizadas desde el back-end
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end][]]
+[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 ## Pasos siguientes
 
-Para obtener más información acerca del uso de las plantillas, consulte [Notificación a los usuarios con los Centros de notificaciones: ASP.NET][], [Notificación a los usuarios con los Centros de notificaciones: Servicios móviles][] e [Información general acerca de los centros de notificaciones de Azure][Información general acerca de los Centros de notificaciones de Azure]. Como referencia sobre el lenguaje de expresión de las plantillas, puede consultar los [procedimientos de los Centros de notificaciones para la Tienda Windows][] (en inglés).
+Para obtener más información acerca del uso de las plantillas, consulte [Notificación a los usuarios con los Centros de notificaciones: ASP.NET][Notificación a los usuarios con los Centros de notificaciones: ASP.NET], [Notificación a los usuarios con los Centros de notificaciones: Servicios móviles][Notificación a los usuarios con los Centros de notificaciones: Servicios móviles] e [Información general acerca de los centros de notificaciones de Azure][Información general acerca de los Centros de notificaciones de Azure]. Como referencia sobre el lenguaje de expresión de las plantillas, puede consultar los [procedimientos de los Centros de notificaciones para la Tienda Windows][procedimientos de los Centros de notificaciones para la Tienda Windows] (en inglés).
 
 
   [C# para Tienda Windows]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/ "C# para Tienda Windows"

@@ -16,7 +16,7 @@ Application Insights le permite supervisar la disponibilidad, rendimiento y uso 
 
 Existen dos formas de comenzar:
 
--   [Incorporación de Application Insights al proyecto de Visual Studio][]
+-   [Incorporación de Application Insights al proyecto de Visual Studio][Incorporación de Application Insights al proyecto de Visual Studio]
 
     Agregue Application Insights a los proyectos para realizar el seguimiento del uso, rendimiento y disponibilidad, y para analizar los registros de diagnóstico. Puede ver datos en cuestión de minutos en el modo de depuración y después implementar el proyecto para obtener datos activos.
 
@@ -24,7 +24,7 @@ Existen dos formas de comenzar:
 
     [Introducción a la incorporación de Application Insights al proyecto.][Incorporación de Application Insights al proyecto de Visual Studio]
 
--   [Problemas de diagnóstico inmediato en un servicio web activo][]
+-   [Problemas de diagnóstico inmediato en un servicio web activo][Problemas de diagnóstico inmediato en un servicio web activo]
 
     Instale el agente Application Insights en el servidor de IIS y consulte los datos de rendimiento en cuestión de minutos. Inspeccione el recuento de solicitudes, los tiempos de respuesta, la carga de recursos y obtenga el seguimiento de las excepciones.
 
@@ -36,26 +36,26 @@ Existen dos formas de comenzar:
 
     [Introducción a la instalación de Application Insights en el servidor web.][Problemas de diagnóstico inmediato en un servicio web activo]
 
-> [WACOM.NOTE] Hay una [versión anterior de Application Insights][] en Visual Studio Online. La estamos volviendo a crear desde el principio como parte de Microsoft Azure y es la nueva versión sobre la que está leyendo aquí.
+> [WACOM.NOTE] Hay una [versión anterior de Application Insights][versión anterior de Application Insights] en Visual Studio Online. La estamos volviendo a crear desde el principio como parte de Microsoft Azure y es la nueva versión sobre la que está leyendo aquí.
 
-![Supervisión de la aplicación de ejemplo en Application Insights][]
+![Supervisión de la aplicación de ejemplo en Application Insights][Supervisión de la aplicación de ejemplo en Application Insights]
 
 ## Más información
 
--   [Application Insights][]
+-   [Application Insights][Application Insights]
 -   [Incorporación de Application Insights al proyecto][Incorporación de Application Insights al proyecto de Visual Studio]
 -   [Supervisión inmediata de un servidor web activo][Problemas de diagnóstico inmediato en un servicio web activo]
--   [Exploración de métricas en Application Insights][]
--   [Búsqueda del registro de diagnóstico][]
--   [Seguimiento de disponibilidad con pruebas web][]
--   [Seguimiento de uso con eventos y métricas][]
--   [Preguntas y repuestas y solución de problemas][]
+-   [Exploración de métricas en Application Insights][Exploración de métricas en Application Insights]
+-   [Búsqueda del registro de diagnóstico][Búsqueda del registro de diagnóstico]
+-   [Seguimiento de disponibilidad con pruebas web][Seguimiento de disponibilidad con pruebas web]
+-   [Seguimiento de uso con eventos y métricas][Seguimiento de uso con eventos y métricas]
+-   [Preguntas y repuestas y solución de problemas][Preguntas y repuestas y solución de problemas]
 
 <!--Link references-->
 
   [Incorporación de Application Insights al proyecto de Visual Studio]: ../app-insights-monitor-application-health-usage/
   [Problemas de diagnóstico inmediato en un servicio web activo]: ../app-insights-monitor-performance-live-website-now/
-  [versión anterior de Application Insights]: http://msdn.microsoft.com/en-us/library/dn481095.aspx
+  [versión anterior de Application Insights]: http://msdn.microsoft.com/es-es/library/dn481095.aspx
   [Supervisión de la aplicación de ejemplo en Application Insights]: ./media/appinsights/appinsights-00-appblade.png
   [Application Insights]: ../app-insights-get-started/
   [Exploración de métricas en Application Insights]: ../app-insights-explore-metrics/

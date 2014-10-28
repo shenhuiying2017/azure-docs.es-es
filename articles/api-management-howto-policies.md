@@ -6,41 +6,41 @@
 
 En Administración de API de Azure (vista previa), las directivas constituyen una eficaz funcionalidad del sistema que permite al publicador cambiar el comportamiento de la API a través de la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Entre las declaraciones más usadas se encuentran la conversión de formato de XML a JSON y la limitación de tasa de llamadas para restringir la cantidad de llamadas entrantes de un desarrollador. Hay muchas más directivas disponibles y listas para usar.
 
-Consulte la [Referencia de directivas][] para obtener una lista de declaraciones de directiva con su configuración.
+Consulte la [Referencia de directivas][Referencia de directivas] para obtener una lista de declaraciones de directiva con su configuración.
 
 Las directivas se aplican en el proxy que se encuentra entre el consumidor de la API y la API administrada. El proxy recibe todas las solicitudes y normalmente las reenvía sin modificar a la API subyacente. Sin embargo, una directiva puede aplicar cambios a la solicitud de entrada y a la respuesta de salida.
 
 ## Configuración de directivas
 
-Las directivas se pueden configurar globalmente o en el ámbito de un [producto][], una [API][] o una [operación][]. Para configurar una directiva, vaya al editor de directivas del portal de publicadores.
+Las directivas se pueden configurar globalmente o en el ámbito de un [producto][producto], una [API][API] o una [operación][operación]. Para configurar una directiva, vaya al editor de directivas del portal de publicadores.
 
-![Policies menu][]
+![Policies menu][Policies menu]
 
 El editor de directivas consta de tres secciones principales: el ámbito de la directiva (parte superior), la definición de la directiva en donde se editan las directivas (izquierda) y la lista de declaraciones (derecha):
 
-![Policies editor][]
+![Policies editor][Policies editor]
 
 Para comenzar a configurar una directiva, se debe seleccionar en primer lugar el ámbito en el que se debe aplicar. En la captura de pantalla siguiente está seleccionado el producto Versión de evaluación gratuita de 15 días. Tenga en cuenta que el símbolo de recuadro junto al nombre de la directiva indica que ya se aplica una directiva en este nivel.
 
-![Scope][]
+![Scope][Scope]
 
 Puesto que ya se ha aplicado una directiva, la configuración se muestra en la vista de definición.
 
-![Configure][]
+![Configure][Configure]
 
 La directiva aparece como de solo lectura al principio. Para editar la definición, haga clic en la acción Configurar directiva.
 
-![Edit][]
+![Edit][Edit]
 
 La definición de la directiva es un documento XML simple que describe una secuencia de declaraciones de entrada y de salida. El XML se puede editar directamente en la ventana de definición. Se ofrece una lista de declaraciones a la derecha y las declaraciones aplicables al ámbito actual están habilitadas y resaltadas; como demuestra la declaración Límite de tasa de llamadas de la captura de pantalla anterior.
 
 Al hacer clic en una declaración habilitada se agregará el XML correspondiente en la ubicación del cursor en la vista de definición.
 
-Hay una lista de declaraciones de directiva con su configuración disponible en la [Referencia de directivas][].
+Hay una lista de declaraciones de directiva con su configuración disponible en la [Referencia de directivas][Referencia de directivas].
 
 Por ejemplo, para agregar una nueva declaración con objeto de restringir las solicitudes de entrada a las direcciones IP especificadas, sitúe el cursor exactamente dentro del contenido del elemento XLM "inbound" y haga clic en la declaración Restringir IP del autor de llamada.
 
-![Restriction policies][]
+![Restriction policies][Restriction policies]
 
 Así, se agregará un fragmento de código XML en el elemento "inbound" que proporciona orientación sobre cómo configurar la declaración.
 
@@ -55,7 +55,7 @@ Para limitar las solicitudes de entrada y aceptar solo las procedentes de una di
         <address>1.2.3.4</address>
     </ip-filter>
 
-![Save][]
+![Save][Save]
 
 Cuando complete la configuración de las declaraciones de la directiva, haga clic en Guardar; los cambios se propagarán inmediatamente al proxy de Administración de API.
 

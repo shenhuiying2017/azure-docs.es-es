@@ -130,13 +130,13 @@ Un conjunto de conexiones completo incluye una conexión desde cada nodo de la c
 
 #### Conjuntos filtrados
 
-Una especificación de conjunto de conexiones filtrado incluye un predicado, expresado sintácticamente de manera muy similar a una expresión lambda de C\#. El ejemplo siguiente define dos conjuntos filtrados:
+Una especificación de conjunto de conexiones filtrado incluye un predicado, expresado sintácticamente de manera muy similar a una expresión lambda de C#. El ejemplo siguiente define dos conjuntos filtrados:
 
     input Pixels [10, 20];
     hidden ByRow[10, 12] from Pixels where (s,d) => s[0] == d[0];
     hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;  
 
--   En el predicado de ByRow, **s** es un parámetro que representa un índice en la matriz rectangular de nodos de la capa de entrada Pixels, mientras que **d** es un parámetro que representa un índice en la matriz de nodos de la capa oculta ByRow. El tipo tanto de **s** como de **d** es una tupla de enteros de longitud dos. Conceptualmente, **s** oscila entre todos los pares de enteros con 0 \<= s[0] \< 10 y 0 \<= s[1][] \< 20, mientras que **d** oscila entre todos los pares de enteros con 0 \<= d[0] \< 10 y 0 \<= d[1][] \< 12.
+-   En el predicado de ByRow, **s** es un parámetro que representa un índice en la matriz rectangular de nodos de la capa de entrada Pixels, mientras que **d** es un parámetro que representa un índice en la matriz de nodos de la capa oculta ByRow. El tipo tanto de **s** como de **d** es una tupla de enteros de longitud dos. Conceptualmente, **s** oscila entre todos los pares de enteros con 0 \<= s[0] \< 10 y 0 \<= s[1][1] \< 20, mientras que **d** oscila entre todos los pares de enteros con 0 \<= d[0] \< 10 y 0 \<= d[1][1] \< 12.
 -   En la parte derecha de la expresión del predicado hay una condición. En este ejemplo, para cada valor de **s** y **d** en los que esa condición sea verdadera, existe un borde que va desde el nodo de la capa de origen al nodo de la capa de destino. Por tanto, esta expresión de filtro indica que el conjunto incluye una conexión desde el nodo definido por **s** hasta el nodo definido por **d** en todos aquellos casos en que s[0] sea igual a d[0].
 
 También tiene la posibilidad de especificar un conjunto de ponderaciones para un conjunto filtrado. El valor del atributo **Weights** debe ser una tupla de valores de puntos flotantes cuya longitud coincida con el número de conexiones definidas por el conjunto. De manera predeterminada, las ponderaciones se generan de manera aleatoria.
@@ -377,13 +377,13 @@ La definición de la siguiente red, diseñada para reconocer números, ilustra a
 -   La red tiene una tercera capa oculta (Hid3) que está totalmente conectada a la segunda capa oculta (Conv2).
 -   La capa de salida (Digit) está conectada solo a la tercera capa oculta (Hid3). La palabra clave **all** indica que la capa de salida está conectada por completo a Hid3.
 -   La aridad de la convolución es tres (la longitud de las tuplas **InputShape**, **KernelShape**, **Stride** y **Sharing**).
--   El número de ponderaciones por kernel es 1 + **KernelShape**[0] \* **KernelShape**[1][] \* **KernelShape**[2] = 1 + 1 \* 5 \* 5 = 26. O 26 \* 50 = 1300.
+-   El número de ponderaciones por kernel es 1 + **KernelShape**[0] \* **KernelShape**[1][1] \* **KernelShape**[2] = 1 + 1 \* 5 \* 5 = 26. O 26 \* 50 = 1300.
 -   Puede calcular los nodos en cada capa oculta del modo siguiente:
 
     -   **NodeCount**[0] = (5 - 1) / 1 + 1 = 5.
-    -   **NodeCount**[1][] = (13 - 5) / 2 + 1 = 5.
+    -   **NodeCount**[1][1] = (13 - 5) / 2 + 1 = 5.
     -   **NodeCount**[2] = (13 - 5) / 2 + 1 = 5.
--   El número total de nodos puede calcularse utilizando la dimensionalidad declarada de la capa ([50, 5, 5]) del modo siguiente: **MapCount** \* **NodeCount**[0] \* **NodeCount**[1][] \* **NodeCount**[1][] = 10 \* 5 \* 5 \* 5
+-   El número total de nodos puede calcularse utilizando la dimensionalidad declarada de la capa ([50, 5, 5]) del modo siguiente: **MapCount** \* **NodeCount**[0] \* **NodeCount**[1][1] \* **NodeCount**[1][1] = 10 \* 5 \* 5 \* 5
 -   Dado que **Sharing**[d] es falso solo para d == 0, el número de los kernel es **MapCount** \* **NodeCount**[0] = 10 \* 5 = 50.
 
   [1]: ./media/machine-learning-azure-ml-netsharp-reference-guide/formula_med.PNG

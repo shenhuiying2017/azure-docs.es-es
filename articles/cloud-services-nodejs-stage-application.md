@@ -20,8 +20,8 @@ entorno de producción mediante un intercambio de IP virtual (VIP).
 
 Esta tarea incluye los siguientes pasos:
 
--   [Paso 1: Ensayo de una aplicación][]
--   [Paso 2: Implementación de una aplicación en producción mediante el intercambio de VIP][]
+-   [Paso 1: Ensayo de una aplicación][Paso 1: Ensayo de una aplicación]
+-   [Paso 2: Implementación de una aplicación en producción mediante el intercambio de VIP][Paso 2: Implementación de una aplicación en producción mediante el intercambio de VIP]
 
 ## <span id="step1"></span></a>Paso 1: Ensayo de una aplicación
 
@@ -33,17 +33,17 @@ Azure PowerShell**.
 
     **Publish-AzureServiceProject -Slot staging**
 
-2.  Inicie sesión en el [Portal de administración de Azure][] y seleccione **Servicios en la nube**. Una vez que el servicio en la nube se ha creado y que el estado de la columna **Staging** se ha actualizado a **Running**, haga clic en el nombre del servicio.
+2.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure] y seleccione **Servicios en la nube**. Una vez que el servicio en la nube se ha creado y que el estado de la columna **Staging** se ha actualizado a **Running**, haga clic en el nombre del servicio.
 
-    ![portal que muestra un servicio en ejecución][]
+    ![portal que muestra un servicio en ejecución][portal que muestra un servicio en ejecución]
 
 3.  Seleccione el **Panel** y, a continuación, **Staging**.
 
-    ![panel de servicio en la nube][]
+    ![panel de servicio en la nube][panel de servicio en la nube]
 
 4.  Anote el valor de la entrada **Site URL** a la derecha. El nombre DNS es un identificador interno confuso que ha generado Azure.
 
-    ![URL del sitio][]
+    ![URL del sitio][URL del sitio]
 
 Ahora puede comprobar que la aplicación funciona correctamente en el entorno de ensayo mediante la utilización de la URL del sitio de ensayo.
 
@@ -66,13 +66,13 @@ aplicaci&oacute;n en producci&oacute;n y que ha almacenado provisionalmente la v
 aplicaci&oacute;n.</p>
 </div>
 
-1.  Inicie sesión en el [Portal de administración de Azure][],
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure],
     haga clic en **Servicios en la nube** y seleccione el nombre del servicio.
 
 2.  En el **Panel**, seleccione **Staging** y, a continuación, haga clic en **Swap** en la parte inferior de la página. De este modo se abre el cuadro de diálogo
     Intercambio de VIP.
 
-    ![cuadro de diálogo Intercambio de VIP][]
+    ![cuadro de diálogo Intercambio de VIP][cuadro de diálogo Intercambio de VIP]
 
 3.  Repase la información y, a continuación, haga clic en **OK**. Ambas implementaciones empiezan a
     actualizarse cuando la implementación de ensayo pasa a
@@ -83,8 +83,8 @@ implementación de producción mediante el intercambio de las VIP con la impleme
 
 ## Recursos adicionales
 
--   [Implementar la actualización de un servicio en producción intercambiando las VIP][]
--   [Información general sobre la administración de implementaciones en Azure][]
+-   [Implementar la actualización de un servicio en producción intercambiando las VIP][Implementar la actualización de un servicio en producción intercambiando las VIP]
+-   [Información general sobre la administración de implementaciones en Azure][Información general sobre la administración de implementaciones en Azure]
 
   [Paso 1: Ensayo de una aplicación]: #step1
   [Paso 2: Implementación de una aplicación en producción mediante el intercambio de VIP]: #step2

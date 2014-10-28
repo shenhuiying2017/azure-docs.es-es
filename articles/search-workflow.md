@@ -2,23 +2,23 @@
 
 # Búsqueda de Azure: flujo de trabajo de desarrollo
 
-[WACOM.INCLUDE [Este artículo usa el portal de Azure en vista previa][]]
+[WACOM.INCLUDE [Este artículo usa el portal de Azure en vista previa](../includes/preview-portal-note.md)]
 
 En este artículo se proporcionan un mapa de ruta y algunos procedimientos recomendados para crear y mantener el servicio de búsqueda y sus índices.
 
-Se asume que ya ha aprovisionado el servicio. Si no lo ha hecho aún, consulte [Configuración de Búsqueda en el portal de vista previa de Azure][] para comenzar.
+Se asume que ya ha aprovisionado el servicio. Si no lo ha hecho aún, consulte [Configuración de Búsqueda en el portal de vista previa de Azure][Configuración de Búsqueda en el portal de vista previa de Azure] para comenzar.
 
--   [Paso 1: creación del índice][]
--   [Paso 2: adición de documentos][]
--   [Paso 3: consulta de un índice][]
--   [Paso 4: actualización o eliminación de índices y documentos][]
--   [Consideraciones de diseño de almacenamiento][]
+-   [Paso 1: creación del índice][Paso 1: creación del índice]
+-   [Paso 2: adición de documentos][Paso 2: adición de documentos]
+-   [Paso 3: consulta de un índice][Paso 3: consulta de un índice]
+-   [Paso 4: actualización o eliminación de índices y documentos][Paso 4: actualización o eliminación de índices y documentos]
+-   [Consideraciones de diseño de almacenamiento][Consideraciones de diseño de almacenamiento]
 
 ## Paso 1: creación del índice
 
 Las consultas (al menos las ajenas al sistema) se dirigen a un índice de búsqueda donde se incluyen datos de búsqueda y atributos. En este paso, define el esquema de índices en formato JSON y ejecuta una solicitud PUT de HTTPS para la creación de este índice en el servicio.
 
-Los índices se suelen codificar en su entorno de desarrollo local. No existen herramientas ni editores integrados para la definición de los índices. Para obtener más información sobre la creación del índice, consulte [Creación de índices (API de Búsqueda de Azure)][] en MSDN.
+Los índices se suelen codificar en su entorno de desarrollo local. No existen herramientas ni editores integrados para la definición de los índices. Para obtener más información sobre la creación del índice, consulte [Creación de índices (API de Búsqueda de Azure)][Creación de índices (API de Búsqueda de Azure)] en MSDN.
 
 ## Paso 2: adición de documentos
 
@@ -36,8 +36,8 @@ Bajo una carga elevada, no es extraño que se produzcan algunos errores. En este
 
 Una vez indexados los documentos, podrá ejecutar consultas de búsqueda. Puede consultar un índice cada vez, usando OData o una sintaxis de la consulta simple:
 
--   [Sintaxis de la expresión OData para Búsqueda de Azure][]
--   [Sintaxis de la consulta simple en Búsqueda de Azure][]
+-   [Sintaxis de la expresión OData para Búsqueda de Azure][Sintaxis de la expresión OData para Búsqueda de Azure]
+-   [Sintaxis de la consulta simple en Búsqueda de Azure][Sintaxis de la consulta simple en Búsqueda de Azure]
 
 ## Paso 4: actualización o eliminación de índices y documentos
 
@@ -51,7 +51,7 @@ Muchas aplicaciones de búsqueda usan varios formatos de almacenamiento para div
 
 No todos los campos de un documento se podrán localizar. Por ejemplo, si su aplicación es un catálogo en línea de música o vídeos, recomendamos almacenar archivos binarios en BLOB o de otra forma. Los propios archivos binarios no se pueden localizar, de modo que no hay necesidad de guardarlos en el almacenamiento de Búsqueda de Azure. Debe almacenar imágenes, vídeos, archivos de audio en otros servicios o ubicaciones, con un campo en el documento donde se almacena la URL en la ubicación de archivo.
 
-Para obtener más información sobre la creación de índices o documentos, consulte la [API de Rest de Búsqueda de Azure][].
+Para obtener más información sobre la creación de índices o documentos, consulte la [API de Rest de Búsqueda de Azure][API de Rest de Búsqueda de Azure].
 
 <!--Anchors-->  
 
@@ -63,7 +63,7 @@ Para obtener más información sobre la creación de índices o documentos, cons
   [Paso 4: actualización o eliminación de índices y documentos]: #sub-4
   [Consideraciones de diseño de almacenamiento]: #sub-5
 <!--Link references-->
-  [Creación de índices (API de Búsqueda de Azure)]: http://msdn.microsoft.com/en-us/library/dn798941.aspx
-  [Sintaxis de la expresión OData para Búsqueda de Azure]: http://msdn.microsoft.com/en-us/library/dn798921.aspx
-  [Sintaxis de la consulta simple en Búsqueda de Azure]: http://msdn.microsoft.com/en-us/library/dn798920.aspx
-  [API de Rest de Búsqueda de Azure]: http://msdn.microsoft.com/en-us/library/dn798935.aspx
+  [Creación de índices (API de Búsqueda de Azure)]: http://msdn.microsoft.com/es-es/library/dn798941.aspx
+  [Sintaxis de la expresión OData para Búsqueda de Azure]: http://msdn.microsoft.com/es-es/library/dn798921.aspx
+  [Sintaxis de la consulta simple en Búsqueda de Azure]: http://msdn.microsoft.com/es-es/library/dn798920.aspx
+  [API de Rest de Búsqueda de Azure]: http://msdn.microsoft.com/es-es/library/dn798935.aspx

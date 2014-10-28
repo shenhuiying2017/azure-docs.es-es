@@ -4,20 +4,20 @@
 
 # Supervisión de una cuenta de Base de datos de documentos
 
-Puede supervisar sus cuentas de Base de datos de documentos en el [Portal de vista previa de Azure][]. Para cada cuenta de Base de datos de documentos, existen métricas de rendimiento (como solicitudes y errores de servidor) y métricas de uso (como consumo de almacenamiento).
+Puede supervisar sus cuentas de Base de datos de documentos en el [Portal de vista previa de Azure][Portal de vista previa de Azure]. Para cada cuenta de Base de datos de documentos, existen métricas de rendimiento (como solicitudes y errores de servidor) y métricas de uso (como consumo de almacenamiento).
 
 ## En este artículo
 
--   [Visualización de métricas de rendimiento para una cuenta de Base de datos de documentos][]
--   [Personalización de las vistas de métricas de rendimiento para una cuenta de Base de datos de documentos][]
--   [Creación de gráficos de métricas de rendimiento paralelos][]
--   [Visualización de métricas de uso para una cuenta de Base de datos de documentos][]
--   [Configuración de alertas de métricas de rendimiento para una cuenta de Base de datos de documentos][]
--   [Pasos siguientes][]
+-   [Visualización de métricas de rendimiento para una cuenta de Base de datos de documentos][Visualización de métricas de rendimiento para una cuenta de Base de datos de documentos]
+-   [Personalización de las vistas de métricas de rendimiento para una cuenta de Base de datos de documentos][Personalización de las vistas de métricas de rendimiento para una cuenta de Base de datos de documentos]
+-   [Creación de gráficos de métricas de rendimiento paralelos][Creación de gráficos de métricas de rendimiento paralelos]
+-   [Visualización de métricas de uso para una cuenta de Base de datos de documentos][Visualización de métricas de uso para una cuenta de Base de datos de documentos]
+-   [Configuración de alertas de métricas de rendimiento para una cuenta de Base de datos de documentos][Configuración de alertas de métricas de rendimiento para una cuenta de Base de datos de documentos]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <span id="metrics"></span></a>Visualización de métricas de rendimiento para una cuenta de Base de datos de documentos
 
-1.  En el [Portal de vista previa de Azure][], haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta cuyas métricas de rendimiento desea ver.
+1.  En el [Portal de vista previa de Azure][Portal de vista previa de Azure], haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta cuyas métricas de rendimiento desea ver.
 2.  En el modo **Supervisión** puede ver de forma predeterminada:
 
     -   El total de solicitudes del día actual.
@@ -66,7 +66,7 @@ El Portal de vista previa de Azure le permite crear gráficos de métricas paral
 
 ## <span id="view"></span></a>Visualización de las métricas de uso para una cuenta de Base de datos de documentos
 
-1.  En el [Portal de vista previa de Azure][], haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta cuyas métricas de uso desea ver.
+1.  En el [Portal de vista previa de Azure][Portal de vista previa de Azure], haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta cuyas métricas de uso desea ver.
 2.  En el modo **Uso** puede ver de forma predeterminada:
 
     -   El almacenamiento consumido en la cuenta
@@ -79,7 +79,7 @@ El Portal de vista previa de Azure le permite crear gráficos de métricas paral
 
 ## <span id="setup"></span></a>Configuración de alertas de métricas de rendimiento para una cuenta de Base de datos de documentos
 
-1.  En el [Portal de vista previa de Azure][], haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta cuyas alertas de métricas de rendimiento desea configurar.
+1.  En el [Portal de vista previa de Azure][Portal de vista previa de Azure], haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta cuyas alertas de métricas de rendimiento desea configurar.
 2.  En el modo **Operaciones**, haga clic en la parte **Reglas de alerta**.
 
     ![][9]
@@ -100,7 +100,7 @@ El Portal de vista previa de Azure le permite crear gráficos de métricas paral
 
 ## <span id="next"></span></a>Pasos siguientes
 
--   Para obtener más información sobre Base de datos de documentos, consulte la documentación correspondiente en [azure.com][]
+-   Para obtener más información sobre Base de datos de documentos, consulte la documentación correspondiente en [azure.com][azure.com]
 
 <!--Anchors-->
 

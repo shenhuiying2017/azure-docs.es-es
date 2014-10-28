@@ -6,10 +6,10 @@
 
 In diesem Dokument werden folgende Themen behandelt:
 
--   [Einführung][]
--   [Der Veröffentlichungsprozess im Überblick][]
--   [Leitfaden für die Veröffentlichung im Azure Marketplace][]
--   [Spezielle Machine Learning-Optionen][]
+-   [Einführung][Einführung]
+-   [Der Veröffentlichungsprozess im Überblick][Der Veröffentlichungsprozess im Überblick]
+-   [Leitfaden für die Veröffentlichung im Azure Marketplace][Leitfaden für die Veröffentlichung im Azure Marketplace]
+-   [Spezielle Machine Learning-Optionen][Spezielle Machine Learning-Optionen]
 
 <!--Anchors-->
 
@@ -24,20 +24,20 @@ Die Veröffentlichung eines Azure ML-Webdiensts im Azure Marketplace umfasst die
 1.  Erstellen und Veröffentlichen eines Azure ML-Webdiensts im RRS- (Request-Response Service, Antwort-/Anfrage-Dienst) oder BES-Format (Batch-Execution Service, Stapelausführungsdienst).
 2.  Stellen Sie den Dienst über das Azure-Verwaltungsportal in Ihrer Produktionsumgebung bereit.
 3.  Verwenden Sie die URL des veröffentlichten Webdiensts für die Veröffentlichung im Azure Marketplace.
-4.  Überblick über den Veröffentlichungsprozess: <http://msdn.microsoft.com/en-us/library/azure/hh580725.aspx>
+4.  Überblick über den Veröffentlichungsprozess: <http://msdn.microsoft.com/es-es/library/azure/hh580725.aspx>
 5.  Nach der Übermittlung wird Ihr Angebot geprüft und muss genehmigt werden, bevor Ihre Kunden das Angebot abonnieren können. Der Veröffentlichungsprozess kann einige Geschäftstage in Anspruch nehmen. Wir versuchen, diesen Prozess möglichst kurz zu halten und werden in den kommenden Ankündigungen ein Update hierzu veröffentlichen.
 
 ## Leitfaden für die Veröffentlichung im Azure Marketplace
 
-1.  Sie müssen sich als Herausgeber registrieren. Weitere Informationen finden Sie unter: <http://msdn.microsoft.com/en-us/library/azure/hh563872.aspx>
-2.  Sie müssen Daten zu Ihrem Angebot liefern, inklusive einer Preisgestaltung. Legen Sie fest, ob Sie Ihren Dienst kostenlos oder zahlungspflichtig anbieten möchten. Weitere Informationen finden Sie unter: <http://msdn.microsoft.com/en-us/library/azure/hh563873.aspx>
-3.  Für zahlungspflichtige Dienste müssen Sie Bezahlungsinformationen wie z. B. Ihre Bank- und Steuerdaten angeben. Weitere Informationen finden Sie unter: <http://msdn.microsoft.com/en-us/library/azure/hh563873.aspx>
+1.  Sie müssen sich als Herausgeber registrieren. Weitere Informationen finden Sie unter: <http://msdn.microsoft.com/es-es/library/azure/hh563872.aspx>
+2.  Sie müssen Daten zu Ihrem Angebot liefern, inklusive einer Preisgestaltung. Legen Sie fest, ob Sie Ihren Dienst kostenlos oder zahlungspflichtig anbieten möchten. Weitere Informationen finden Sie unter: <http://msdn.microsoft.com/es-es/library/azure/hh563873.aspx>
+3.  Für zahlungspflichtige Dienste müssen Sie Bezahlungsinformationen wie z. B. Ihre Bank- und Steuerdaten angeben. Weitere Informationen finden Sie unter: <http://msdn.microsoft.com/es-es/library/azure/hh563873.aspx>
 
 ## Spezielle Machine Learning-Optionen
 
 1.  Wählen Sie zur Erstellung eines neuen Angebots die Option **Datendienst** aus und klicken Sie auf **Neuen Datendienst erstellen**.
 
-    ![Azure Marketplace][]
+    ![Azure Marketplace][Azure Marketplace]
 
 2.  Wählen Sie in der Registerkarte **Datendienst** die Option **Webdienst** als Datenquelle aus.
 

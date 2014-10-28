@@ -6,15 +6,15 @@
 
 En este tema se presentan las conexiones híbridas, se muestran las configuraciones admitidas y se indican los puertos TCP requeridos. Concretamente:
 
--   [¿Qué es una conexión híbrida?][]
--   [Configuraciones admitidas][]
--   [Seguridad][]
+-   [¿Qué es una conexión híbrida?][¿Qué es una conexión híbrida?]
+-   [Configuraciones admitidas][Configuraciones admitidas]
+-   [Seguridad][Seguridad]
 
 ## <a name="HCOverview"></a>¿Qué es una conexión híbrida?
 
 Las conexiones híbridas ofrecen un modo sencillo y práctico de conectar sitios web y servicios móviles de Azure a recursos locales. Las conexiones híbridas son una característica de los servicios de BizTalk de Azure:
 
-![Hybrid Connections][]
+![Hybrid Connections][Hybrid Connections]
 
 Las ventajas de las conexiones híbridas incluyen:
 
@@ -58,7 +58,7 @@ Las conexiones híbridas emplean la autorización de firma de acceso compartido 
 
 Las conexiones híbridas proporcionan una distribución adecuada y segura de las claves a las aplicaciones y el Administrador de conexiones híbridas local.
 
-Consulte [Creación y administración de conexiones híbridas][].
+Consulte [Creación y administración de conexiones híbridas][Creación y administración de conexiones híbridas].
 
 **La autorización de la aplicación es independiente de la conexión híbrida**. Se puede usar cualquier método de autorización adecuado. El método de autorización depende de los métodos de autorización completos que se admitan en la nube de Azure y de los componentes locales. Por ejemplo, su aplicación de Azure accede a un servidor SQL local. En este escenario, la autorización de SQL puede ser el método de autorización que se admita completamente.
 
@@ -73,17 +73,17 @@ Consulte [Creación y administración de conexiones híbridas][].
 
 ## Pasos siguientes
 
--   [Creación y administración de conexiones híbridas][]
--   [Conexión de un sitio web de Azure a un recurso local][]
--   [Conexiones híbridas paso a paso: Conexión a SQL Server local desde un sitio web de Azure][]
--   [Servicios móviles de Azure y conexiones híbridas][]
+-   [Creación y administración de conexiones híbridas][Creación y administración de conexiones híbridas]
+-   [Conexión de un sitio web de Azure a un recurso local][Conexión de un sitio web de Azure a un recurso local]
+-   [Conexiones híbridas paso a paso: Conexión a SQL Server local desde un sitio web de Azure][Conexiones híbridas paso a paso: Conexión a SQL Server local desde un sitio web de Azure]
+-   [Servicios móviles de Azure y conexiones híbridas][Servicios móviles de Azure y conexiones híbridas]
 
 ## Otras referencias
 
--   [API REST para administrar los servicios de BizTalk en Windows Azure][]
--   [Servicios de BizTalk: Gráfico de ediciones][]
--   [Creación un servicio de BizTalk mediante el Portal de administración de Azure][]
--   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala][]
+-   [API REST para administrar los servicios de BizTalk en Windows Azure][API REST para administrar los servicios de BizTalk en Windows Azure]
+-   [Servicios de BizTalk: Gráfico de ediciones][Servicios de BizTalk: Gráfico de ediciones]
+-   [Creación un servicio de BizTalk mediante el Portal de administración de Azure][Creación un servicio de BizTalk mediante el Portal de administración de Azure]
+-   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala][Servicios de BizTalk: Pestañas Panel, Monitor y Escala]
 
   [¿Qué es una conexión híbrida?]: #HCOverview
   [Configuraciones admitidas]: #KnownIssues

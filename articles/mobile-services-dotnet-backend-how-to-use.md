@@ -8,18 +8,18 @@
 
 Este artículo proporciona información detallada y ejemplos sobre cómo usar el backend .NET de Servicios móviles de Azure. Este tema está dividido en las siguientes secciones:
 
--   [Introducción][]
--   [Operaciones de tabla][]
+-   [Introducción][Introducción]
+-   [Operaciones de tabla][Operaciones de tabla]
 
 ## <a name="intro"></a>Introducción
 
-El backend .NET de Servicios móviles permite escribir lógica empresarial de backend completa usando [ASP.NET Web API][] y su lenguaje .NET favorito. Servicios móviles expone una pequeña superficie de modelo de programación como [paquetes NuGet][], que permite el acceso sin problemas al servicio desde los SDK de cliente de Servicios móviles multiplataforma para Windows, Android, iOS, etc. Estas API garantizan también que la incorporación de autenticación y notificaciones de inserción sea lo más sencilla posible. Sin embargo, en su mayor parte, el modelo de programación se basa en Web API y los desarrolladores que ya la conocen se sentirán como en casa.
+El backend .NET de Servicios móviles permite escribir lógica empresarial de backend completa usando [ASP.NET Web API][ASP.NET Web API] y su lenguaje .NET favorito. Servicios móviles expone una pequeña superficie de modelo de programación como [paquetes NuGet][paquetes NuGet], que permite el acceso sin problemas al servicio desde los SDK de cliente de Servicios móviles multiplataforma para Windows, Android, iOS, etc. Estas API garantizan también que la incorporación de autenticación y notificaciones de inserción sea lo más sencilla posible. Sin embargo, en su mayor parte, el modelo de programación se basa en Web API y los desarrolladores que ya la conocen se sentirán como en casa.
 
 ## <a name="table-scripts"></a>Operaciones de tabla
 
 El backend .NET de Servicios móviles proporciona una abstracción de "tabla" universal, que representa una API HTTP basada en CRUD para el almacenamiento en bases de datos. Esta abstracción aleja la preocupación del almacenamiento de datos de su lógica empresarial y permite que el servicio móvil exponga diferentes almacenes de datos con un formato de envío coherente basado en JSON que comprenden fácilmente los SDK de cliente de Servicios móviles multiplataforma.
 
-En la raíz de este modelo de programación se encuentra la clase [**TableController<t>**][], que es simplemente un [**ApiController**][] normal de Web API que está personalizado para un modelo de acceso a datos basado en CRUD. El **TableController** puede usar una gran variedad de almacenes de datos, incluidos SQL (a través de [Entity Framework][]), [Almacenamiento de tablas de Azure][], [MongoDB][] o su propio almacén de datos.
+En la raíz de este modelo de programación se encuentra la clase [**TableController<t>**][**TableController<t>**], que es simplemente un [**ApiController**][**ApiController**] normal de Web API que está personalizado para un modelo de acceso a datos basado en CRUD. El **TableController** puede usar una gran variedad de almacenes de datos, incluidos SQL (a través de [Entity Framework][Entity Framework]), [Almacenamiento de tablas de Azure][Almacenamiento de tablas de Azure], [MongoDB][MongoDB] o su propio almacén de datos.
 
   [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-how-to-use/ "Back-end de .NET"
   [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-how-to-use-server-scripts/ "Back-end de JavaScript"

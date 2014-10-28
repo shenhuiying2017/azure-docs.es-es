@@ -8,20 +8,20 @@ Administración de API (vista previa) ofrece la posibilidad de configurar notifi
 
 ## En este tema
 
--   [Configuración de notificaciones del publicador][]
--   [Configuración de plantillas de correo electrónico][]
+-   [Configuración de notificaciones del publicador][Configuración de notificaciones del publicador]
+-   [Configuración de plantillas de correo electrónico][Configuración de plantillas de correo electrónico]
 
 ## <a name="publisher-notifications"> </a>Configuración de notificaciones del publicador
 
 Para configurar las notificaciones, haga clic en **Consola de administración** en el Portal de Azure para su servicio Administración de API. Esta operación le llevará al portal administrativo Administración de API.
 
-> Si todavía no ha creado una instancia de servicio Administración de API, consulte [Creación de una instancia de Administración de API][] en el tutorial [Introducción a la Administración de API de Azure][].
+> Si todavía no ha creado una instancia de servicio Administración de API, consulte [Creación de una instancia de Administración de API][Creación de una instancia de Administración de API] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
 
-![API Management console][]
+![API Management console][API Management console]
 
 Haga clic en **Notificaciones** en el menú **Administración de API** de la izquierda para ver y configurar las notificaciones disponibles.
 
-![Publisher notifications][]
+![Publisher notifications][Publisher notifications]
 
 Se puede configurar la siguiente lista de eventos para notificaciones.
 
@@ -37,7 +37,7 @@ En cada evento, se pueden especificar destinatarios con el cuadro de texto de di
 
 Para especificar las direcciones de correo electrónico a las que se van a enviar notificaciones, especifíquelas en el cuadro de texto de dirección de correo electrónico. Si tiene varias direcciones de correo electrónico, sepárelas con comas.
 
-![Notification recipients+-][]
+![Notification recipients+-][Notification recipients+-]
 
 Para especificar los usuarios a los que se va a notificar, haga clic en **Agregar destinatario**, active la casilla situada junto a los usuarios a los que se va a notificar y haga clic en **Aceptar**.
 
@@ -66,15 +66,15 @@ Estas plantillas se pueden modificar tal como se desee.
 
 Para ver y configurar las plantillas de correo electrónico de la instancia de Administración de API, haga clic en **Notificaciones** en el menú **Administración de API** de la izquierda y seleccione la pestaña **Plantillas de correo electrónico**.
 
-![Email templates][]
+![Email templates][Email templates]
 
 Para ver o modificar una plantilla específica, selecciónela de la lista desplegable **Plantillas**.
 
-![Email templates list][]
+![Email templates list][Email templates list]
 
 Cada plantilla de correo electrónico tiene un asunto en texto sin formato y una definición del cuerpo en formato HTML. Cada elemento se puede personalizar según se desee.
 
-![Email template editor][]
+![Email template editor][Email template editor]
 
 La lista **Parámetros** contiene una lista de parámetros que, al insertarlos en el asunto o el cuerpo, sustituirán el valor designado cuando se envíe el correo electrónico. Para insertar un parámetro, sitúe el cursor en donde desee que vaya el parámetro y haga clic en la flecha a la izquierda del nombre del parámetro.
 

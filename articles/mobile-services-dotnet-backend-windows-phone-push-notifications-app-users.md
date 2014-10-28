@@ -53,7 +53,7 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 <!-- Anchors. --> 
 <!-- URLs. -->
 
-  [C\# para Tienda Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users "C# para Tienda Windows"
+  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users "C# para Tienda Windows"
   [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users "JavaScript para Tienda Windows"
   [Windows Phone]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-push-notifications-app-users "Windows Phone"
   [iOS]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users "iOS"

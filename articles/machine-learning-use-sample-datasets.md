@@ -22,7 +22,7 @@ La tabla siguiente proporciona información adicional acerca de los conjuntos de
 -   Una descripción de los posibles usos del conjunto de datos y citas a la investigación de aprendizaje automático que utilizó dicho conjunto de datos.
 -   Un resumen de las columnas importantes incluidas en el conjunto de datos y otros atributos útiles.
 
-Algunas descripciones están adaptadas a partir de la documentación suministrada por la fuente (normalmente, el [Repositorio de aprendizaje automático de UC Irvine][]), mientras que otras descripciones se basan en investigaciones adicionales o reflejan los cambios realizados en estos ejemplos.
+Algunas descripciones están adaptadas a partir de la documentación suministrada por la fuente (normalmente, el [Repositorio de aprendizaje automático de UC Irvine][Repositorio de aprendizaje automático de UC Irvine]), mientras que otras descripciones se basan en investigaciones adicionales o reflejan los cambios realizados en estos ejemplos.
 
 <table>
 <colgroup>

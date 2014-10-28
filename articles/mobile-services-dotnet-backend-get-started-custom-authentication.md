@@ -6,18 +6,18 @@
 
 En este tema se muestra cómo autenticar usuarios en el backend .NET de Servicios móviles de Azure emitiendo su propio token de autenticación para Servicios móviles. En este tutorial, agregará autenticación al proyecto de inicio rápido mediante un nombre de usuario y una contraseña personalizados para la aplicación.
 
-> [WACOM.NOTE] En este tutorial se muestra un método avanzado para autenticar sus servicios móviles con credenciales personalizadas. En muchas aplicaciones, sin embargo, será más adecuado usar los proveedores de identidades sociales integrados para permitir a los usuarios que inicien sesión a través de Facebook, Twitter, Google, una cuenta de Microsoft y Azure Active Directory. Si esta es la primera vez que usa autenticación en Servicios móviles, consulte el tutorial[Introducción a los usuarios][].
+> [WACOM.NOTE] En este tutorial se muestra un método avanzado para autenticar sus servicios móviles con credenciales personalizadas. En muchas aplicaciones, sin embargo, será más adecuado usar los proveedores de identidades sociales integrados para permitir a los usuarios que inicien sesión a través de Facebook, Twitter, Google, una cuenta de Microsoft y Azure Active Directory. Si esta es la primera vez que usa autenticación en Servicios móviles, consulte el tutorial[Introducción a los usuarios][Introducción a los usuarios].
 
 En este tutorial se realiza un recorrido por los pasos básicos para habilitar la autenticación en su aplicación:
 
-1.  [Configuración de la tabla de cuentas][]
-2.  [Creación del extremo de registro][]
-3.  [Creación del proveedor de inicio de sesión][]
-4.  [Creación del extremo de inicio de sesión][]
-5.  [Configuración del servicio móvil para exigir autenticación][]
-6.  [Prueba del flujo de inicio de sesión con un cliente de prueba][]
+1.  [Configuración de la tabla de cuentas][Configuración de la tabla de cuentas]
+2.  [Creación del extremo de registro][Creación del extremo de registro]
+3.  [Creación del proveedor de inicio de sesión][Creación del proveedor de inicio de sesión]
+4.  [Creación del extremo de inicio de sesión][Creación del extremo de inicio de sesión]
+5.  [Configuración del servicio móvil para exigir autenticación][Configuración del servicio móvil para exigir autenticación]
+6.  [Prueba del flujo de inicio de sesión con un cliente de prueba][Prueba del flujo de inicio de sesión con un cliente de prueba]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles][].
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
 > [WACOM.NOTE] El objetivo de este tutorial es mostrar cómo se emite un token de autenticación para Servicios móviles. Esto no debe interpretarse como una guía de seguridad. A la hora de desarrollar una aplicación, debe ser consciente de las implicaciones de seguridad que conlleva el almacenamiento de contraseñas y debe disponer de una estrategia para controlar ataques por fuerza bruta.
 
@@ -252,7 +252,7 @@ A continuación, creará un extremo para que los usuarios inicien sesión. El no
 
 ## <a name="require-authentication"></a>Configuración del servicio móvil para exigir autenticación
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend][]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="test-login"></a>Prueba del flujo de inicio de sesión con un cliente de prueba
 

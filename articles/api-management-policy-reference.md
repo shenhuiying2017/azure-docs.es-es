@@ -4,36 +4,36 @@
 
 # Referencia de la directiva de Administración de API de Azure
 
-En este tema se indica una referencia para las siguientes directivas de Administración de API (vista previa). Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API][].
+En este tema se indica una referencia para las siguientes directivas de Administración de API (vista previa). Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API][Directivas en Administración de API].
 
--   [Directivas de restricción de acceso][]
+-   [Directivas de restricción de acceso][Directivas de restricción de acceso]
 
-    -   [Cuota de uso][]: le permite exigir un volumen de llamadas renovables o permanentes o una cuota de ancho de banda.
-    -   [Límite de tasa][]: evita los picos de uso de la API al limitar las llamadas o la tasa de consumo de ancho de banda.
-    -   [Restricción de IP de autor de llamada][]: filtra (permite/deniega) las llamadas de direcciones IP específicas o de intervalos de direcciones.
--   [Directivas de transformación de contenido][]
+    -   [Cuota de uso][Cuota de uso]: le permite exigir un volumen de llamadas renovables o permanentes o una cuota de ancho de banda.
+    -   [Límite de tasa][Límite de tasa]: evita los picos de uso de la API al limitar las llamadas o la tasa de consumo de ancho de banda.
+    -   [Restricción de IP de autor de llamada][Restricción de IP de autor de llamada]: filtra (permite/deniega) las llamadas de direcciones IP específicas o de intervalos de direcciones.
+-   [Directivas de transformación de contenido][Directivas de transformación de contenido]
 
-    -   [Establecer encabezado HTTP][]: asigna un valor a un encabezado de respuesta o de solicitud existente o agrega un nuevo encabezado de este tipo.
-    -   [Convertir XML a JSON][]: convierte el cuerpo de la solicitud o respuesta de XML a una forma "JSON" o "fiel a XML" de JSON.
-    -   [Reemplazar la cadena en el cuerpo][]: encuentra una subcadena de solicitud o de respuesta y la reemplaza con una subcadena diferente.
-    -   [Establecer el parámetro de cadena de consulta][]: agrega, reemplaza el valor o elimina el parámetro de la cadena de consulta de la solicitud.
--   [Directivas de almacenamiento en caché][]
+    -   [Establecer encabezado HTTP][Establecer encabezado HTTP]: asigna un valor a un encabezado de respuesta o de solicitud existente o agrega un nuevo encabezado de este tipo.
+    -   [Convertir XML a JSON][Convertir XML a JSON]: convierte el cuerpo de la solicitud o respuesta de XML a una forma "JSON" o "fiel a XML" de JSON.
+    -   [Reemplazar la cadena en el cuerpo][Reemplazar la cadena en el cuerpo]: encuentra una subcadena de solicitud o de respuesta y la reemplaza con una subcadena diferente.
+    -   [Establecer el parámetro de cadena de consulta][Establecer el parámetro de cadena de consulta]: agrega, reemplaza el valor o elimina el parámetro de la cadena de consulta de la solicitud.
+-   [Directivas de almacenamiento en caché][Directivas de almacenamiento en caché]
 
-    -   [Almacenar en caché][]: almacena en caché la respuesta de acuerdo con la configuración del caché especificada.
-    -   [Obtener de caché][]: realiza una búsqueda en caché y devuelve una respuesta en caché válida cuando esté disponible.
--   [Otras directivas][]
+    -   [Almacenar en caché][Almacenar en caché]: almacena en caché la respuesta de acuerdo con la configuración del caché especificada.
+    -   [Obtener de caché][Obtener de caché]: realiza una búsqueda en caché y devuelve una respuesta en caché válida cuando esté disponible.
+-   [Otras directivas][Otras directivas]
 
-    -   [URI de reescritura][]: convierte una URL de solicitud de su forma pública al la forma esperada por el servicio web.
-    -   [Enmascarar URL en el contenido][]: reescribe (enmascara) vínculos en el cuerpo de respuesta y en el encabezado de la ubicación para que apunten al vínculo equivalente a través del proxy.
-    -   [Permitir llamadas entre dominios][]: permite que la API sea accesible desde los clientes basados en explorador de Adobe Flash y Microsoft Silverlight.
-    -   [JSONP][]: agrega JSON con soporte (JSONP) de relleno a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador de JavaScript.
-    -   [CORS][]: agrega soporte (CORS) de uso compartido de recursos entre orígenes a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador.
+    -   [URI de reescritura][URI de reescritura]: convierte una URL de solicitud de su forma pública al la forma esperada por el servicio web.
+    -   [Enmascarar URL en el contenido][Enmascarar URL en el contenido]: reescribe (enmascara) vínculos en el cuerpo de respuesta y en el encabezado de la ubicación para que apunten al vínculo equivalente a través del proxy.
+    -   [Permitir llamadas entre dominios][Permitir llamadas entre dominios]: permite que la API sea accesible desde los clientes basados en explorador de Adobe Flash y Microsoft Silverlight.
+    -   [JSONP][JSONP]: agrega JSON con soporte (JSONP) de relleno a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador de JavaScript.
+    -   [CORS][CORS]: agrega soporte (CORS) de uso compartido de recursos entre orígenes a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador.
 
 ## <a name="access-restriction-policies"> </a> Directivas de restricción de acceso
 
--   [Cuota de uso][]: le permite exigir un volumen de llamadas renovables o permanentes o una cuota de ancho de banda.
--   [Límite de tasa][]: evita los picos de uso de la API al limitar las llamadas o la tasa de consumo de ancho de banda.
--   [Restricción de IP de autor de llamada][]: filtra (permite/deniega) las llamadas de direcciones IP específicas o de intervalos de direcciones.
+-   [Cuota de uso][Cuota de uso]: le permite exigir un volumen de llamadas renovables o permanentes o una cuota de ancho de banda.
+-   [Límite de tasa][Límite de tasa]: evita los picos de uso de la API al limitar las llamadas o la tasa de consumo de ancho de banda.
+-   [Restricción de IP de autor de llamada][Restricción de IP de autor de llamada]: filtra (permite/deniega) las llamadas de direcciones IP específicas o de intervalos de direcciones.
 
 ### <a name="usage-quota"> </a> Cuota de uso
 
@@ -149,10 +149,10 @@ esta directiva solo se requiere cuando se precisa un estricto control sobre el a
 
 ## <a name="content-transformation-policies"> </a> Directivas de transformación de contenido
 
--   [Establecer encabezado HTTP][]: asigna un valor a un encabezado de respuesta o de solicitud existente o agrega un nuevo encabezado de este tipo.
--   [Convertir XML a JSON][]: convierte el cuerpo de la solicitud o respuesta de XML a una forma "JSON" o "fiel a XML" de JSON.
--   [Reemplazar la cadena en el cuerpo][]: encuentra una subcadena de solicitud o de respuesta y la reemplaza con una subcadena diferente.
--   [Establecer el parámetro de cadena de consulta][]: agrega, reemplaza el valor o elimina el parámetro de la cadena de consulta de la solicitud.
+-   [Establecer encabezado HTTP][Establecer encabezado HTTP]: asigna un valor a un encabezado de respuesta o de solicitud existente o agrega un nuevo encabezado de este tipo.
+-   [Convertir XML a JSON][Convertir XML a JSON]: convierte el cuerpo de la solicitud o respuesta de XML a una forma "JSON" o "fiel a XML" de JSON.
+-   [Reemplazar la cadena en el cuerpo][Reemplazar la cadena en el cuerpo]: encuentra una subcadena de solicitud o de respuesta y la reemplaza con una subcadena diferente.
+-   [Establecer el parámetro de cadena de consulta][Establecer el parámetro de cadena de consulta]: agrega, reemplaza el valor o elimina el parámetro de la cadena de consulta de la solicitud.
 
 ### <a name="set-http-header"> </a> Establecer encabezado HTTP
 
@@ -310,13 +310,13 @@ se utiliza para pasar parámetros de consulta previstos por el servicio de back-
 
 ## <a name="caching-policies"> </a> Directivas de almacenamiento en caché
 
--   [Almacenar en caché][]: almacena en caché la respuesta de acuerdo con la configuración del caché especificada.
--   [Obtener de caché][]: realiza una búsqueda en caché y devuelve una respuesta en caché válida cuando esté disponible.
+-   [Almacenar en caché][Almacenar en caché]: almacena en caché la respuesta de acuerdo con la configuración del caché especificada.
+-   [Obtener de caché][Obtener de caché]: realiza una búsqueda en caché y devuelve una respuesta en caché válida cuando esté disponible.
 
 ### <a name="store-to-cache"> </a> Almacenar en caché
 
 **Descripción:**
-almacena en caché las respuestas de acuerdo con la configuración del caché especificada. Debe tener una directiva [Obtener de caché][] correspondiente.
+almacena en caché las respuestas de acuerdo con la configuración del caché especificada. Debe tener una directiva [Obtener de caché][Obtener de caché] correspondiente.
 
 **Instrucción de la directiva:**
 
@@ -357,7 +357,7 @@ el almacenamiento en caché de las respuestas reduce el ancho de banda y los req
 ### <a name="get-from-cache"> </a> Obtener de caché
 
 **Descripción:**
-realiza una búsqueda de caché y devuelve una respuesta válida en caché, si está disponible. Responde de manera apropiada a las solicitudes de validación de caché desde los consumidores de la API. Debe tener una directiva [Almacenar en caché][] correspondiente.
+realiza una búsqueda de caché y devuelve una respuesta válida en caché, si está disponible. Responde de manera apropiada a las solicitudes de validación de caché desde los consumidores de la API. Debe tener una directiva [Almacenar en caché][Almacenar en caché] correspondiente.
 
 **Instrucción de la directiva:**
 
@@ -406,11 +406,11 @@ el almacenamiento en caché de las respuestas reduce el ancho de banda y los req
 
 ## <a name="other-policies"> </a> Otras directivas
 
--   [URI de reescritura][]: convierte una URL de solicitud de su forma pública al la forma esperada por el servicio web.
--   [Enmascarar URL en el contenido][]: reescribe (enmascara) vínculos en el cuerpo de respuesta y en el encabezado de la ubicación para que apunten al vínculo equivalente a través del proxy.
--   [Permitir llamadas entre dominios][]: permite que la API sea accesible desde los clientes basados en explorador de Adobe Flash y Microsoft Silverlight.
--   [JSONP][]: agrega JSON con soporte (JSONP) de relleno a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador de JavaScript.
--   [CORS][]: agrega soporte (CORS) de uso compartido de recursos entre orígenes a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador.
+-   [URI de reescritura][URI de reescritura]: convierte una URL de solicitud de su forma pública al la forma esperada por el servicio web.
+-   [Enmascarar URL en el contenido][Enmascarar URL en el contenido]: reescribe (enmascara) vínculos en el cuerpo de respuesta y en el encabezado de la ubicación para que apunten al vínculo equivalente a través del proxy.
+-   [Permitir llamadas entre dominios][Permitir llamadas entre dominios]: permite que la API sea accesible desde los clientes basados en explorador de Adobe Flash y Microsoft Silverlight.
+-   [JSONP][JSONP]: agrega JSON con soporte (JSONP) de relleno a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador de JavaScript.
+-   [CORS][CORS]: agrega soporte (CORS) de uso compartido de recursos entre orígenes a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador.
 
 ### <a name="rewrite-uri"> </a> URI de reescritura
 

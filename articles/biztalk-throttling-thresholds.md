@@ -90,19 +90,19 @@ Cuando los servicios de BizTalk de Azure entran en un estado de limitación, ocu
 
 ## Otros temas acerca de los servicios de BizTalk de Azure
 
--   [Instalación del SDK de los servicios de BizTalk de Azure][]
--   [Tutoriales: Servicios de BizTalk de Azure][]
--   [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?][]
--   [Servicios de BizTalk de Azure][]
+-   [Instalación del SDK de los servicios de BizTalk de Azure][Instalación del SDK de los servicios de BizTalk de Azure]
+-   [Tutoriales: Servicios de BizTalk de Azure][Tutoriales: Servicios de BizTalk de Azure]
+-   [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?][¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?]
+-   [Servicios de BizTalk de Azure][Servicios de BizTalk de Azure]
 
 ## Otras referencias
 
--   [Servicios de BizTalk: Gráfico de las ediciones Developer, Basic, Standard y Premium][]
--   [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][]
--   [Servicios de BizTalk: Gráfico del estado de aprovisionamiento][]
--   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala][]
--   [Servicios de BizTalk: Copia de seguridad y restauración][]
--   [Servicios de BizTalk: Nombre de emisor y clave de emisor][]
+-   [Servicios de BizTalk: Gráfico de las ediciones Developer, Basic, Standard y Premium][Servicios de BizTalk: Gráfico de las ediciones Developer, Basic, Standard y Premium]
+-   [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure]
+-   [Servicios de BizTalk: Gráfico del estado de aprovisionamiento][Servicios de BizTalk: Gráfico del estado de aprovisionamiento]
+-   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala][Servicios de BizTalk: Pestañas Panel, Monitor y Escala]
+-   [Servicios de BizTalk: Copia de seguridad y restauración][Servicios de BizTalk: Copia de seguridad y restauración]
+-   [Servicios de BizTalk: Nombre de emisor y clave de emisor][Servicios de BizTalk: Nombre de emisor y clave de emisor]
 
   [Instalación del SDK de los servicios de BizTalk de Azure]: http://go.microsoft.com/fwlink/p/?LinkID=241589
   [Tutoriales: Servicios de BizTalk de Azure]: http://go.microsoft.com/fwlink/p/?LinkID=236944

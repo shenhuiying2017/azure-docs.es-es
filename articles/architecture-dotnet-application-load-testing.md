@@ -4,7 +4,7 @@
 
 # Prueba de carga en Azure
 
-El servicio de prueba de carga basado en la nube puede probar la carga de sus aplicaciones web. Use Visual Studio para crear una prueba de carga a fin de determinar la capacidad y el rendimiento de su aplicación web; no es necesario usar sus máquinas virtuales de Azure. En vez de eso, puede dejar que el [servicio de prueba de carga basado en la nube][] las cree por usted.
+El servicio de prueba de carga basado en la nube puede probar la carga de sus aplicaciones web. Use Visual Studio para crear una prueba de carga a fin de determinar la capacidad y el rendimiento de su aplicación web; no es necesario usar sus máquinas virtuales de Azure. En vez de eso, puede dejar que el [servicio de prueba de carga basado en la nube][servicio de prueba de carga basado en la nube] las cree por usted.
 
 <!--links--> <!--images-->
 

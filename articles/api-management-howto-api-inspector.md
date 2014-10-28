@@ -8,9 +8,9 @@ Administración de API (vista previa) ofrece una herramienta API Inspector para 
 
 ## En este tema
 
--   [Uso de API Inspector para realizar el seguimiento de una llamada][]
--   [Inspección del seguimiento][]
--   [Pasos siguientes][]
+-   [Uso de API Inspector para realizar el seguimiento de una llamada][Uso de API Inspector para realizar el seguimiento de una llamada]
+-   [Inspección del seguimiento][Inspección del seguimiento]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="trace-call"> </a> Uso de API Inspector para realizar el seguimiento de una llamada
 
@@ -22,27 +22,27 @@ En este tutorial se muestra cómo usar el API Inspector para realizar el seguimi
 
 Para comenzar, haga clic en **Portal para desarrolladores** en el Portal de Azure para su servicio Administración de API. Esta operación le llevará al portal administrativo Administración de API.
 
-> Si todavía no ha creado una instancia de servicio Administración de API, consulte [Creación de una instancia de Administración de API][] en el tutorial [Introducción a la Administración de API de Azure][].
+> Si todavía no ha creado una instancia de servicio Administración de API, consulte [Creación de una instancia de Administración de API][Creación de una instancia de Administración de API] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
 
-![API Management developer portal][]
+![API Management developer portal][API Management developer portal]
 
 Se puede llamar a las operaciones directamente desde el portal para desarrolladores, lo que proporciona una forma cómoda de ver y probar las operaciones de una API. En este paso del tutorial, se llamará al método **Recurso Get** de **API eco**.
 
 Haga clic en **API** en el menú superior y seleccione **API eco**.
 
-![Echo API][]
+![Echo API][Echo API]
 
 > Si solamente tiene una API configurada o visible en su cuenta, al hacer clic en API irá directamente a las operaciones de dicha API.
 
 Seleccione la operación **Recurso GET** y haga clic en **Abrir consola**.
 
-![Open console][]
+![Open console][Open console]
 
 Mantenga los valores predeterminados de los parámetros y seleccione la clave de suscripción en la lista desplegable **subscription-key**.
 
 Escriba **ocp-apim-trace: true** en el cuadro de texto **Encabezados de solicitud** y haga clic en **HTTP Get**.
 
-![HTTP Get][]
+![HTTP Get][HTTP Get]
 
 En los encabezados de respuesta habrá una **ocp-apim-trace-location** con un valor similar al que aparece en el ejemplo siguiente.
 
@@ -184,7 +184,7 @@ Para revisar los valores del seguimiento, descargue el archivo de seguimiento de
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
--   Consulte el resto de temas en el tutorial [Introducción a la configuración de API avanzada][].
+-   Consulte el resto de temas en el tutorial [Introducción a la configuración de API avanzada][Introducción a la configuración de API avanzada].
 
   [Uso de API Inspector para realizar el seguimiento de una llamada]: #trace-call
   [Inspección del seguimiento]: #inspect-trace

@@ -4,20 +4,20 @@
 
 # Uso de la extensión de máquina virtual Docker para Linux en Azure
 
-[Docker][] es uno de los enfoques de virtualización más populares que utilizan los [contenedores de Linux][] en lugar de máquinas virtuales como una forma de aislar datos y calcular recursos compartidos. Puede usar la extensión de VM Docker para que el [agente Linux de Azure][] cree una VM Docker que hospede cualquier número de contenedores para sus aplicaciones de Azure.
+[Docker][Docker] es uno de los enfoques de virtualización más populares que utilizan los [contenedores de Linux][contenedores de Linux] en lugar de máquinas virtuales como una forma de aislar datos y calcular recursos compartidos. Puede usar la extensión de VM Docker para que el [agente Linux de Azure][agente Linux de Azure] cree una VM Docker que hospede cualquier número de contenedores para sus aplicaciones de Azure.
 
-Este tema sigue este [anuncio de blog de MS Open Tech][] y describe:
+Este tema sigue este [anuncio de blog de MS Open Tech][anuncio de blog de MS Open Tech] y describe:
 
--   [Contenedores Docker y Linux][]
--   [Uso de la extensión de VM Docker con Azure][]
--   [Extensiones de máquina virtual para Linux y Windows][]
--   [Recursos de contenedor y de gestión de contenedores para Azure][]
+-   [Contenedores Docker y Linux][Contenedores Docker y Linux]
+-   [Uso de la extensión de VM Docker con Azure][Uso de la extensión de VM Docker con Azure]
+-   [Extensiones de máquina virtual para Linux y Windows][Extensiones de máquina virtual para Linux y Windows]
+-   [Recursos de contenedor y de gestión de contenedores para Azure][Recursos de contenedor y de gestión de contenedores para Azure]
 
 ## Contenedores Docker y Linux
 
-[Docker][] es uno de los enfoques de virtualización más populares que utilizan los [contenedores de Linux][] en lugar de máquinas virtuales como una forma de aislar datos y calcular recursos compartidos y proporciona otros servicios que le permiten generar o ensamblar aplicaciones rápidamente y distribuirlas entre otros contenedores Docker.
+[Docker][Docker] es uno de los enfoques de virtualización más populares que utilizan los [contenedores de Linux][contenedores de Linux] en lugar de máquinas virtuales como una forma de aislar datos y calcular recursos compartidos y proporciona otros servicios que le permiten generar o ensamblar aplicaciones rápidamente y distribuirlas entre otros contenedores Docker.
 
-Los contenedores Docker y Linux no son [Hipervisores][] como Windows Hyper-V y [KVM][] en Linux (existen muchos otros ejemplos). Los hipervisores virtualizan el sistema operativo subyacente para permitir a los sistemas operativos completos ejecutarse dentro del hipervisor como si fuesen una aplicación.
+Los contenedores Docker y Linux no son [Hipervisores][Hipervisores] como Windows Hyper-V y [KVM][KVM] en Linux (existen muchos otros ejemplos). Los hipervisores virtualizan el sistema operativo subyacente para permitir a los sistemas operativos completos ejecutarse dentro del hipervisor como si fuesen una aplicación.
 
 El enfoque del hipervisor proporciona ventajas de seguridad importantes porque la máquina virtual "invitada" no tiene acceso al sistema operativo "host"; en su lugar, es posible que solo utilice los recursos del hipervisor. Sin embargo, entre las desventajas se incluye un mayor procesamiento y sobrecarga de almacenamiento, así como un inicio relativamente más lento para las nuevas máquinas virtuales ya que, entre otras cosas, replican por completo los sistemas operativos invitados.
 
@@ -25,15 +25,15 @@ El enfoque del hipervisor proporciona ventajas de seguridad importantes porque l
 
 Los enfoques de Docker y otros *contenedores* han reducido radicalmente tanto el tiempo y el procesamiento de inicio consumido como la sobrecarga necesaria al utilizar características de aislamiento de procesos y archivos del kernel de Linux para exponer únicamente características de kernel en un contenedor aislado de otro modo. Desde dentro del contenedor, las características del sistema de archivos y de kernel aparecen en la aplicación como si fuese la única aplicación que se está ejecutando.
 
-Además, Docker proporciona varias características de gestión de contenedores que le permiten cargar varias imágenes del contenedor desde la comunidad así como generar y cargar por su cuenta muy, muy rápido. Para obtener información completa sobre qué es Docker y cómo funciona en realidad, consulte [¿Qué es Docker?][].
+Además, Docker proporciona varias características de gestión de contenedores que le permiten cargar varias imágenes del contenedor desde la comunidad así como generar y cargar por su cuenta muy, muy rápido. Para obtener información completa sobre qué es Docker y cómo funciona en realidad, consulte [¿Qué es Docker?][¿Qué es Docker?].
 
-Como con la mayoría de las tecnologías, existen importantes ventajas y desventajas. Debido a que los contenedores comparten acceso al kernel del equipo host, si hay código malintencionado capaz de obtener la raíz es posible que también pueda obtener acceso no solo al equipo host si no también a los otros contenedores. Para asegurar aún más su sistema de contenedores, [Docker recomienda][] el uso de directivas de grupo o de [seguridad basada en roles][] adicionales, como [SELinux][] o [AppArmor][], por ejemplo; así como reducir todo lo posible las capacidades de kernel que se otorgan al contenedor. Además, hay muchos otros documentos en Internet que describen enfoques de seguridad mediante el uso de contenedores como Docker.
+Como con la mayoría de las tecnologías, existen importantes ventajas y desventajas. Debido a que los contenedores comparten acceso al kernel del equipo host, si hay código malintencionado capaz de obtener la raíz es posible que también pueda obtener acceso no solo al equipo host si no también a los otros contenedores. Para asegurar aún más su sistema de contenedores, [Docker recomienda][Docker recomienda] el uso de directivas de grupo o de [seguridad basada en roles][seguridad basada en roles] adicionales, como [SELinux][SELinux] o [AppArmor][AppArmor], por ejemplo; así como reducir todo lo posible las capacidades de kernel que se otorgan al contenedor. Además, hay muchos otros documentos en Internet que describen enfoques de seguridad mediante el uso de contenedores como Docker.
 
 ## Uso de la extensión de VM Docker con Azure
 
-Para utilizar la extensión de VM Docker con Azure, debe instalar una versión de [azure-cli][] superior a la 0.8.6 (en el momento de redactar este documento la versión actual es la 0.8.7). Puede instalar azure-cli tanto en Mac como en Linux.
+Para utilizar la extensión de VM Docker con Azure, debe instalar una versión de [azure-cli][azure-cli] superior a la 0.8.6 (en el momento de redactar este documento la versión actual es la 0.8.7). Puede instalar azure-cli tanto en Mac como en Linux.
 
-> [WACOM.NOTE] También puede instalar azure-cli en Microsoft Windows. Sin embargo, dado que Docker se generó con las dependencias del kernel de Linux, para utilizar Windows como un cliente de Docker es necesario que hospede una distribución completa de Linux como una máquina virtual dentro de Hyper-V o de otro hipervisor. Una vez que haya hecho esto, puede usar los comandos de azure-cli y de Docker de este documento y los de Docker. Docker tiene un programa de instalación propio, [Boot2Docker][] que puede utilizar para automatizar esta misma instalación.
+> [WACOM.NOTE] También puede instalar azure-cli en Microsoft Windows. Sin embargo, dado que Docker se generó con las dependencias del kernel de Linux, para utilizar Windows como un cliente de Docker es necesario que hospede una distribución completa de Linux como una máquina virtual dentro de Hyper-V o de otro hipervisor. Una vez que haya hecho esto, puede usar los comandos de azure-cli y de Docker de este documento y los de Docker. Docker tiene un programa de instalación propio, [Boot2Docker][Boot2Docker] que puede utilizar para automatizar esta misma instalación.
 
 El proceso completo para usar Docker en Azure es simple:
 
@@ -41,11 +41,11 @@ El proceso completo para usar Docker en Azure es simple:
 -   Utilice los comandos azure-cli de Docker para crear un host de Docker de VM en Azure
 -   Utilice los comandos Docker locales para gestionar sus contenedores de Docker en su VM Docker en Azure.
 
-> [WACOM.NOTE] La azure-cli (interfaz de la línea de comandos) actualmente es la única forma de crear una VM controlada por Docker en Azure para hospedar contenedores de Docker. El documento de instalación general está [aquí][]; las siguientes secciones ofrecen algunas sugerencias más para instalar sin problemas en diferentes sistemas operativos.
+> [WACOM.NOTE] La azure-cli (interfaz de la línea de comandos) actualmente es la única forma de crear una VM controlada por Docker en Azure para hospedar contenedores de Docker. El documento de instalación general está [aquí][aquí]; las siguientes secciones ofrecen algunas sugerencias más para instalar sin problemas en diferentes sistemas operativos.
 
 ### Instalación de azure-cli en Linux
 
-En Linux, la instalación de azure-cli necesita el [administrador de paquetes de node (npm)][], que requiere nodejs, por lo que va a utilizar su administrador de paquetes favorito para instalar nodejs, dependiendo de la plataforma que elija. Si tiene npm instalado, para obtener el paquete de azure-cli escriba:
+En Linux, la instalación de azure-cli necesita el [administrador de paquetes de node (npm)][administrador de paquetes de node (npm)], que requiere nodejs, por lo que va a utilizar su administrador de paquetes favorito para instalar nodejs, dependiendo de la plataforma que elija. Si tiene npm instalado, para obtener el paquete de azure-cli escriba:
 
     npm install -g azure-cli
 
@@ -57,17 +57,17 @@ También, como la mayoría de los componentes Linux, puede clonar el origen, com
 
 ### Instalación de azure-cli en Mac
 
-En un Mac, la forma más sencilla de instalar azure-cli también es mediante npm con el mismo comando: `npm install -g azure-cli`. Sin embargo, también puede utilizar el [instalador de Mac][]. Como con Linux y Windows, entonces puede escribir `azure` en el símbolo del sistema asociado y confirmar que azure-cli está instalado.
+En un Mac, la forma más sencilla de instalar azure-cli también es mediante npm con el mismo comando: `npm install -g azure-cli`. Sin embargo, también puede utilizar el [instalador de Mac][instalador de Mac]. Como con Linux y Windows, entonces puede escribir `azure` en el símbolo del sistema asociado y confirmar que azure-cli está instalado.
 
 ### Conexión de azure-cli con su cuenta de Azure
 
-Antes de poder utilizar azure-cli debe asociar las credenciales de su cuenta de Azure con azure-cli en su plataforma. La sección [Conexión a su suscripción Azure][] explica cómo descargar e importar su archivo **.publishsettings** o asociar la línea de comandos de azure-cli con un identificador de la organización. Los pasos para ambos métodos de autenticación y autorización se describen en el documento anterior.
+Antes de poder utilizar azure-cli debe asociar las credenciales de su cuenta de Azure con azure-cli en su plataforma. La sección [Conexión a su suscripción Azure][Conexión a su suscripción Azure] explica cómo descargar e importar su archivo **.publishsettings** o asociar la línea de comandos de azure-cli con un identificador de la organización. Los pasos para ambos métodos de autenticación y autorización se describen en el documento anterior.
 
 > [WACOM.NOTE] Existen algunas diferencias de comportamiento al utilizar uno u otro método de autorización, por eso debe asegurarse de leer el documento anterior para comprender las diferentes funcionalidades.
 
 ### Instalación de Docker y uso de la extensión de VM Docker para Azure
 
-Ahora tiene un equipo (o una máquina virtual en ese equipo) con azure-cli instalado y conectado a su cuenta Azure. Siga las [instrucciones de instalación de Docker][] para instalar Docker de forma local en su equipo. Para la mayoría de los sistemas operativos y distribuciones, esto significa escribir `apt-get install docker.io`. Confirme que la versión de Docker es la 1.0 o superior.
+Ahora tiene un equipo (o una máquina virtual en ese equipo) con azure-cli instalado y conectado a su cuenta Azure. Siga las [instrucciones de instalación de Docker][instrucciones de instalación de Docker] para instalar Docker de forma local en su equipo. Para la mayoría de los sistemas operativos y distribuciones, esto significa escribir `apt-get install docker.io`. Confirme que la versión de Docker es la 1.0 o superior.
 
 Ha instalado el símbolo de azure-cli en su equipo, lo ha conectado a su cuenta de Azure y ha instalado Docker. Para crear una nueva VM host de Docker en Azure se necesita una imagen de VM de Linux que tenga instalado el [Agente de VM Linux de Azure][agente Linux de Azure]. Actualmente, las únicas imágenes que ya tienen esto instalado son
 
@@ -81,7 +81,7 @@ Con el símbolo del sistema azure-cli, busque la imagen Ubuntu más reciente en 
 
 y prepárese para copiar el nombre de una de las imágenes más recientes que aparecen en la lista. En el símbolo del sistema, escriba
 
-    azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20140729-alpha2-en-us-30GB" <username> <password>
+    azure vm docker create -e 22 -l "West US" <vm-cloudservice name> "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20140729-alpha2-es-es-30GB" <username> <password>
 
 donde:
 
@@ -91,11 +91,11 @@ donde:
 
 -   *<password>* es la contraseña de la cuenta de *nombre de usuario* que cumple con los estándares de complejidad de Azure.
 
-> [WACOM.NOTE] Actualmente, una contraseña debe tener al menos 8 caracteres, contener un carácter en minúscula y otro en mayúscula, un número y un carácter especial como [!@\#$%^&+=][]. No, el punto al final de la frase anterior NO es un carácter especial.
+> [WACOM.NOTE] Actualmente, una contraseña debe tener al menos 8 caracteres, contener un carácter en minúscula y otro en mayúscula, un número y un carácter especial como [!@\#$%^&+=][!@\#$%^&+=]. No, el punto al final de la frase anterior NO es un carácter especial.
 
 Si el comando es correcto, debería ver algo como lo siguiente, dependiendo de los argumentos y opciones precisas que haya utilizado:
 
-![][]
+![][0]
 
 > [WACOM.NOTE] Como se ha mencionado anteriormente, crear una máquina virtual puede llevar unos minutos, pero después de que se haya aprovisionado, el demonio de Docker se inicia y puede conectarse al host del contenedor de Docker.
 
@@ -122,13 +122,13 @@ El demonio de Docker del host está configurado para que realice escuchas y aute
 
 ## Pasos siguientes
 
-Ahora está listo para emitir los comandos de Docker en la [guía de usuario de Docker][] en su VM host de Docker en Azure.
+Ahora está listo para emitir los comandos de Docker en la [guía de usuario de Docker][guía de usuario de Docker] en su VM host de Docker en Azure.
 
 ## Extensiones de máquina virtual para Linux y Windows
 
 La extensión de VM Docker para Azure es solo una de las varias extensiones de VM que ofrecen un comportamiento especial, hay aún más en desarrollo. Por ejemplo, varias de las características de la [extensión del agente VM de Linux][agente Linux de Azure] le permiten modificar y gestionar la imagen, incluyendo características de seguridad, características de kernel y red, etc. La extensión VMAccess para las imágenes de Windows le permite restablecer o modificar la configuración de Acceso a Escritorio remoto y restablecer la contraseña del administrador.
 
-Para obtener una lista completa, consulte [Extensiones de VM de Azure][].
+Para obtener una lista completa, consulte [Extensiones de VM de Azure][Extensiones de VM de Azure].
 
 <!--Anchors-->
 
@@ -156,7 +156,7 @@ Para obtener una lista completa, consulte [Extensiones de VM de Azure][].
   [Conexión a su suscripción Azure]: http://azure.microsoft.com/es-es/documentation/articles/xplat-cli/#configure
   [instrucciones de instalación de Docker]: https://docs.docker.com/installation/#installation
   [!@\#$%^&+=]: mailto:!@#$%^&+=
-  []: ./media/virtual-machines-docker/dockercreateresults.png
+  [0]: ./media/virtual-machines-docker/dockercreateresults.png
   [2]: ./media/virtual-machines-docker/connectingtodockerhost.png
   [guía de usuario de Docker]: https://docs.docker.com/userguide/
-  [Extensiones de VM de Azure]: http://msdn.microsoft.com/en-us/library/azure/dn606311.aspx
+  [Extensiones de VM de Azure]: http://msdn.microsoft.com/es-es/library/azure/dn606311.aspx

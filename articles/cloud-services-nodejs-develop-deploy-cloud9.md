@@ -14,7 +14,7 @@ En este tutorial, aprenderá a:
 -   Actualizar una implementación existente de Azure
 -   Mover proyectos entre las implementaciones de ensayo y producción
 
-[Cloud9 IDE][] proporciona un entorno de desarrollo entre plataformas basado en
+[Cloud9 IDE][Cloud9 IDE] proporciona un entorno de desarrollo entre plataformas basado en
 el explorador. Una de las características que Cloud9 admite para los proyectos Node.js es la
 posibilidad de implementar directamente en Azure desde el IDE.
 Cloud9 se integra también con los servicios de repositorio de
@@ -31,19 +31,19 @@ Para usar Cloud9, primero necesita visitar su página web y [registrarse para ob
 suscripción][Cloud9 IDE]. Puede iniciar sesión con una cuenta
 de GitHub o BitBucket existente o crear una cuenta de Cloud9. Hay disponible una
 oferta de suscripción gratuita, además de otra de pago que
-proporciona más características. Para obtener más información, consulte [Cloud9 IDE][].
+proporciona más características. Para obtener más información, consulte [Cloud9 IDE][Cloud9 IDE].
 
 ## Creación de un proyecto Node.js
 
 1.  Inicie sesión en Cloud9, haga clic en el símbolo **+** al lado de **My Proyectos**
      y seleccione **Crear un nuevo proyecto**.
 
-    ![Creación de un proyecto nuevo en Cloud9][]
+    ![Creación de un proyecto nuevo en Cloud9][Creación de un proyecto nuevo en Cloud9]
 
 2.  En el cuadro de diálogo **Crear un nuevo proyecto**, especifique un nombre de proyecto,
     acceso y tipo de proyecto. Haga clic en **Create** para crear el proyecto.
 
-    ![Cuadro de diálogo de creación de proyecto nuevo en Cloud9][]
+    ![Cuadro de diálogo de creación de proyecto nuevo en Cloud9][Cuadro de diálogo de creación de proyecto nuevo en Cloud9]
 
     <div class="dev-callout">
 <strong>Nota:</strong>
@@ -56,12 +56,12 @@ proporciona más características. Para obtener más información, consulte [Clo
 
 3.  Después de que se haya creado el proyecto, haga clic en **Start Editing**. Si esta es la primera vez que utiliza Cloud9 IDE, se le ofrecerá la opción de realizar un recorrido por el servicio. Si desea omitir el recorrido y verlo después, seleccione **Just the editor,please**.
 
-    ![Comienzo de edición del proyecto de Cloud9][]
+    ![Comienzo de edición del proyecto de Cloud9][Comienzo de edición del proyecto de Cloud9]
 
 4.  Para crear una nueva aplicación Node, seleccione **Archivo** y luego **Nuevo
     Archivo**.
 
-    ![Creación de un archivo nuevo en el proyecto de Cloud9][]
+    ![Creación de un archivo nuevo en el proyecto de Cloud9][Creación de un archivo nuevo en el proyecto de Cloud9]
 
 5.  Aparecerá una pestaña nueva con el título **Untitled1**. Escriba el siguiente
     código en la pestaña **Untitled1** para crear la aplicación
@@ -88,7 +88,7 @@ proporciona más características. Para obtener más información, consulte [Clo
 <p>Es posible que vea un s&iacute;mbolo de advertencia que indica que la variable req no se ha usado. Puede ignorar esta advertencia de forma segura.</p>
 </div>
 
-    ![Guardar el archivo server.js][]
+    ![Guardar el archivo server.js][Guardar el archivo server.js]
 
 ## Ejecución de la aplicación
 
@@ -99,16 +99,16 @@ proporciona más características. Para obtener más información, consulte [Clo
 
 1.  Haga clic en **Debug** para ejecutar la aplicación en el depurador de Cloud9.
 
-    ![Ejecución en el depurador][]
+    ![Ejecución en el depurador][Ejecución en el depurador]
 
 2.  Aparece una ventana de salida. Haga clic en la URL que se menciona
     para tener acceso a su aplicación a través de la ventana del explorador.
 
-    ![Ventana de salida][]
+    ![Ventana de salida][Ventana de salida]
 
     La aplicación resultante tendrá el aspecto que se muestra a continuación:
 
-    ![Aplicación que se ejecuta en el explorador][]
+    ![Aplicación que se ejecuta en el explorador][Aplicación que se ejecuta en el explorador]
 
 3.  Para detener la depuración de la aplicación, haga clic en **stop**.
 
@@ -118,7 +118,7 @@ Necesita una cuenta para implementar la aplicación en Azure. Si no tiene una
 cuenta de Azure, puede suscribirse para una evaluación gratuita
 mediante los siguientes pasos:
 
-[WACOM.INCLUDE [create-azure-account][]]
+[WACOM.INCLUDE [create-azure-account](../includes/create-azure-account.md)]
 
 ## Creación de una implementación
 
@@ -132,7 +132,7 @@ mediante los siguientes pasos:
 
     1.  Haga clic en **Download Azure Settings**.
 
-        ![Descarga de configuración de publicación][]
+        ![Descarga de configuración de publicación][Descarga de configuración de publicación]
 
         Esta acción abre el Portal de administración de Azure y le solicita descargar la configuración de publicación de Azure. Se le pedirá que inicie sesión en su cuenta de Azure para comenzar.
 
@@ -143,13 +143,13 @@ mediante los siguientes pasos:
 
     4.  Después de seleccionar el archivo, haga clic en **Upload**.
 
-4.  Haga clic en **+ Create new** para crear un servicio hospedado nuevo. Un *servicio hospedado* es el contenedor en el que su aplicación se hospeda cuando se implementa en Azure. Para obtener más información, consulte [Overview of Creating a Hosted Service for Azure][].
+4.  Haga clic en **+ Create new** para crear un servicio hospedado nuevo. Un *servicio hospedado* es el contenedor en el que su aplicación se hospeda cuando se implementa en Azure. Para obtener más información, consulte [Overview of Creating a Hosted Service for Azure][Overview of Creating a Hosted Service for Azure].
 
-    ![Creación de una implementación][]
+    ![Creación de una implementación][Creación de una implementación]
 
 5.  Se le solicitará el nombre del nuevo servicio hospedado y las opciones de configuración, como la cantidad de instancias, el sistema operativo del host y el centro de datos. El nombre de la implementación especificado se usará como el nombre del servicio hospedado en Azure. Este nombre debe ser único dentro del sistema Azure.
 
-    ![Creación de un servicio hospedado][]
+    ![Creación de un servicio hospedado][Creación de un servicio hospedado]
 
     <div class="dev-callout">
 <strong>Nota:</strong>
@@ -168,7 +168,7 @@ mediante los siguientes pasos:
     además de la URL de producción que se usará después de la implementación en Windows
     Azure.
 
-    ![Selección de una implementación][]
+    ![Selección de una implementación][Selección de una implementación]
 
 2.  Seleccione **Deploy to Production environment**.
 
@@ -176,17 +176,17 @@ mediante los siguientes pasos:
 
 4.  Si esta es la primera vez que ha implementado este proyecto en Azure, recibirá un error de **'No web.config found'**. Seleccione **Yes** para crear el archivo. De esta manera se agregará un archivo 'Web.cloud.config' a su proyecto.
 
-    ![Mensaje de que no se encontró el archivo web.config][]
+    ![Mensaje de que no se encontró el archivo web.config][Mensaje de que no se encontró el archivo web.config]
 
-5.  Si esta es la primera vez que ha implementado este proyecto en Azure, recibirá un error de **'No 'csdef' file present'**. Seleccione **Yes** para crear el archivo .csdef. Esa acción agregará un archivo 'ServiceDefinition.csdef' a su proyecto. ServiceDefinition.csdef es un archivo específico de Azure necesario para publicar su aplicación. Para obtener más información, consulte [Overview of Creating a Hosted Service for Azure][].
+5.  Si esta es la primera vez que ha implementado este proyecto en Azure, recibirá un error de **'No 'csdef' file present'**. Seleccione **Yes** para crear el archivo .csdef. Esa acción agregará un archivo 'ServiceDefinition.csdef' a su proyecto. ServiceDefinition.csdef es un archivo específico de Azure necesario para publicar su aplicación. Para obtener más información, consulte [Overview of Creating a Hosted Service for Azure][Overview of Creating a Hosted Service for Azure].
 
-6.  Se le solicitará que seleccione el tamaño de la instancia para esta aplicación. Seleccione **Small** y, a continuación, haga clic en **Create**. Para obtener más detalles sobre los tamaños de la máquina virtual de Azure, consulte [Configuración de tamaños de la máquina virtual][].
+6.  Se le solicitará que seleccione el tamaño de la instancia para esta aplicación. Seleccione **Small** y, a continuación, haga clic en **Create**. Para obtener más detalles sobre los tamaños de la máquina virtual de Azure, consulte [Configuración de tamaños de la máquina virtual][Configuración de tamaños de la máquina virtual].
 
-    ![Especificación de los valores del archivo csdef][]
+    ![Especificación de los valores del archivo csdef][Especificación de los valores del archivo csdef]
 
 7.  La entrada de implementación mostrará el estado del proceso de implementación. Una vez completa, la implementación aparecerá como **Active**.
 
-    ![Estado de la implementación][]
+    ![Estado de la implementación][Estado de la implementación]
 
     <div class="dev-callout">
 <strong>Nota:</strong>
@@ -195,7 +195,7 @@ mediante los siguientes pasos:
 
 8.  El cuadro de diálogo de la implementación incluye un vínculo a la URL de producción. Cuando se complete la implementación, haga clic en la URL para dirigirse a su aplicación que se ejecuta en Azure.
 
-    ![Vínculo URL de producción de Azure][]
+    ![Vínculo URL de producción de Azure][Vínculo URL de producción de Azure]
 
 ## Actualización de la aplicación
 
@@ -222,7 +222,7 @@ Cuando realiza cambios en su aplicación, puede usar Cloud9 para implementar la 
 
 3.  Cuando su aplicación se implementa en ensayo, la URL de ensayo basada en GUID aparecerá en la salida de la consola, como se muestra en la captura de pantalla continuación. Haga clic en la URL para abrir su aplicación de ensayo en un explorador.
 
-    ![Salida de la consola que muestra la URL de ensayo][]
+    ![Salida de la consola que muestra la URL de ensayo][Salida de la consola que muestra la URL de ensayo]
 
 ## Actualización a producción con el intercambio de VIP
 
@@ -233,7 +233,7 @@ ensayo al entorno de producción, podrá hacerlo sin necesidad de volver a imple
 realización de un intercambio VIP, que intercambia las implementaciones de
 ensayo y producción. Un intercambio VIP pone su aplicación probada y ensayada en
 producción sin tiempo de inactividad en el entorno de producción. Para obtener más
-detalles, consulte [Información general sobre la administración de implementaciones en Azure][].
+detalles, consulte [Información general sobre la administración de implementaciones en Azure][Información general sobre la administración de implementaciones en Azure].
 
 1.  En el cuadro de diálogo de implementación, haga clic en el vínculo**Abrir portal** para abrir el
     Portal de administración de Azure.
@@ -251,20 +251,20 @@ detalles, consulte [Información general sobre la administración de implementac
 
 4.  Para realizar el intercambio VIP, seleccione el servicio hospedado y, a continuación, haga clic en **Intercambiar VIP** en la cinta.
 
-    ![INTERCAMBIO DE VIP][]
+    ![INTERCAMBIO DE VIP][INTERCAMBIO DE VIP]
 
 5.  Haga clic en **OK** en el cuadro de diálogo de intercambio de VIP que aparece.
 
 6.  Diríjase a su aplicación de producción. Podrá ver que la versión de la aplicación que se implementó anteriormente para ensayo se encuentra ahora en producción.
 
-    ![Aplicación de producción que se ejecuta en Azure][]
+    ![Aplicación de producción que se ejecuta en Azure][Aplicación de producción que se ejecuta en Azure]
 
 ## Uso del escritorio remoto
 
 Si habilitó RDP y especificó un nombre usuario y contraseña al crear su implementación, puede usar Escritorio remoto para conectarse a su servicio hospedado al seleccionar una instancia específica y, a continuación, seleccionar Connect en
 la cinta.
 
-![Conexión a una instancia][]
+![Conexión a una instancia][Conexión a una instancia]
 
 Cuando haga clic en Connect, se le solicitará abrir o descargar un archivo .RDP. Este archivo contiene la información necesaria para conectarse a su sesión de escritorio remoto. La ejecución de este archivo en un sistema Windows le solicitará el nombre usuario y la contraseña que escribió al crear su implementación y, posteriormente, lo conectará al escritorio de la
 instancia seleccionada.
@@ -284,7 +284,7 @@ Cloud9 se centra en proporcionar un IDE y no proporciona un método directo para
 
 1.  En el cuadro de diálogo de implementación, haga clic en el vínculo **Open portal** para abrir el Portal de administración de Azure.
 
-    ![Vínculo desde el cuadro de diálogo de implementación al Portal de administración de Azure][]
+    ![Vínculo desde el cuadro de diálogo de implementación al Portal de administración de Azure][Vínculo desde el cuadro de diálogo de implementación al Portal de administración de Azure]
 
 2.  Inicie sesión en el portal con sus credenciales.
 
@@ -292,13 +292,13 @@ Cloud9 se centra en proporcionar un IDE y no proporciona un método directo para
 
 4.  Seleccione la implementación de ensayo (indicada por el valor **Environment**). Haga clic en **Delete** en la cinta para eliminar la aplicación.
 
-    ![Eliminación de la implementación][]
+    ![Eliminación de la implementación][Eliminación de la implementación]
 
 5.  Seleccione la implementación de producción y haga clic en **Delete** para eliminar también esa aplicación.
 
 ## Recursos adicionales
 
--   [Cloud9 documentation][]
+-   [Cloud9 documentation][Cloud9 documentation]
 
   [Cloud9 IDE]: http://cloud9ide.com/
   [Creación de un proyecto nuevo en Cloud9]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_create_project.png

@@ -8,7 +8,7 @@ El portal de desarrolladores consta de páginas generadas automáticamente como 
 
 Para ver una lista de todas las páginas de contenido existentes, haga clic en **Contenido** en el menú **Portal de desarrolladores** de la consola de administración.
 
-![Manage content][]
+![Manage content][Manage content]
 
 Haga clic en la página "Bienvenido" para editar lo que se muestra en la página principal del portal de desarrolladores. Haga los cambios que desee, obtenga una vista previa de ellos si lo considera necesario y, a continuación, haga clic en **Publicar ahora** para que sean visibles para todos los usuarios.
 

@@ -5,26 +5,26 @@
 # Uso de temas/suscripciones del bus de servicio
 
 En esta guía se indica cómo usar los temas y las suscripciones de
-Bus de servicio. Los ejemplos están escritos en Java y utilizan el [SDK de Azure para Java][]. Entre los escenarios tratados se incluyen **la creación
+Bus de servicio. Los ejemplos están escritos en Java y utilizan el [SDK de Azure para Java][SDK de Azure para Java]. Entre los escenarios tratados se incluyen **la creación
 de temas y suscripciones**, **la creación de filtros de suscripción**, **el envío
 de mensajes a un tema**, **la recepción de mensajes de una suscripción** y
 **la eliminación de temas y suscripciones**.
 
 ## Tabla de contenido
 
--   [Qué son los temas y las suscripciones del bus de servicio][]
--   [Creación de un espacio de nombres de servicio][]
--   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][]
--   [Configuración de la aplicación para usar el bus de servicio][]
--   [Direccionamiento del de un tema][]
--   [Direccionamiento del suscripciones][]
--   [Direccionamiento del mensajes a un tema][]
--   [Direccionamiento del mensajes de una suscripción][]
--   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer][]
--   [Direccionamiento del de temas y suscripciones][]
--   [Pasos siguientes][]
+-   [Qué son los temas y las suscripciones del bus de servicio][Qué son los temas y las suscripciones del bus de servicio]
+-   [Creación de un espacio de nombres de servicio][Creación de un espacio de nombres de servicio]
+-   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][Obtención de credenciales de administración predeterminadas para el espacio de nombres]
+-   [Configuración de la aplicación para usar el bus de servicio][Configuración de la aplicación para usar el bus de servicio]
+-   [Direccionamiento del de un tema][Direccionamiento del de un tema]
+-   [Direccionamiento del suscripciones][Direccionamiento del suscripciones]
+-   [Direccionamiento del mensajes a un tema][Direccionamiento del mensajes a un tema]
+-   [Direccionamiento del mensajes de una suscripción][Direccionamiento del mensajes de una suscripción]
+-   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer][Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer]
+-   [Direccionamiento del de temas y suscripciones][Direccionamiento del de temas y suscripciones]
+-   [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <a name="bkmk_ConfigYourApp"> </a>Configuración de la aplicación para usar el bus de servicio
 
@@ -323,9 +323,9 @@ registradas con él. También se pueden eliminar las suscripciones de forma inde
 # <a name="bkmk_NextSteps"> </a>Pasos siguientes
 
 Ahora que ha aprendido los conceptos básicos de las colas de bus de servicio, consulte el tema de
-MSDN [Colas, temas y suscripciones del Service Bus][] para obtener más información.
+MSDN [Colas, temas y suscripciones del Service Bus][Colas, temas y suscripciones del Service Bus] para obtener más información.
 
-  [SDK de Azure para Java]: http://www.windowsazure.com/en-us/develop/java/
+  [SDK de Azure para Java]: http://www.windowsazure.com/es-es/develop/java/
   [Qué son los temas y las suscripciones del bus de servicio]: #what-are-service-bus-topics
   [Creación de un espacio de nombres de servicio]: #create-a-service-namespace
   [Obtención de credenciales de administración predeterminadas para el espacio de nombres]: #obtain-default-credentials

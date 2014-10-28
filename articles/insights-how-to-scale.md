@@ -10,16 +10,16 @@ La escalación afecta al plan de hospedaje web completo. Al crear un sitio web, 
 
 ## Escalado de un plan de hospedaje web
 
-1.  En la [vista previa del Portal de Azure][], haga clic en **Examinar**, luego en **Sitios web** y, por último, en el nombre del sitio web para abrir la hoja.
+1.  En la [vista previa del Portal de Azure][vista previa del Portal de Azure], haga clic en **Examinar**, luego en **Sitios web** y, por último, en el nombre del sitio web para abrir la hoja.
 2.  El elemento **Escala** del modo **Operaciones** de la hoja Sitio web le indicará el estado del plan de hospedaje web: **Desactivado** para cuando se está escalando manualmente, **Rendimiento** para cuando está escalando mediante una o varias métricas de rendimiento y **Programa** para cuando están habilitados varios perfiles de escalado automático.
-    ![Elemento Escala][]
+    ![Elemento Escala][Elemento Escala]
 3.  Si hace clic en el elemento, pasará a la hoja **Escala**. En la parte superior del cuadro de escala, puede ver un historial de acciones de escalado automático para su plan de hospedaje web.
 
-    ![Hoja Escala][]
+    ![Hoja Escala][Hoja Escala]
 
 4.  Puede ajustar manualmente el número de máquinas virtuales que ejecutan su plan de hospedaje web con el control deslizante **Instancia**.
 5.  Si desea que el número de instancias se ajuste automáticamente en función de la carga, seleccione **Rendimiento** en **Modo de escalado automático**. En este momento no puede seleccionar **Programa** en la vista previa del Portal de Azure.
-    ![Hoja Escala con porcentaje de la CPU][]
+    ![Hoja Escala con porcentaje de la CPU][Hoja Escala con porcentaje de la CPU]
 6.  Una vez que selecciona Performance, hay dos cambios:
 
     -   **Rango de instancias** ahora le permite elegir un número de instancias máximo y mínimo. El escalado automático le mantendrá siempre en este rango, con independencia de la carga.
@@ -29,7 +29,7 @@ La escalación afecta al plan de hospedaje web completo. Al crear un sitio web, 
 
 Con la opción de escala automática habilitada, verá el elemento **Rendimiento** de la hoja del sitio web, así como el historial de escala en el gráfico:
 
-![Hoja Escala con Porcentaje de la CPU][]
+![Hoja Escala con Porcentaje de la CPU][Hoja Escala con Porcentaje de la CPU]
 
 Tenga en cuenta que en la vista previa del Portal de Azure, no puede cambiar el número de instancias de un plan de hospedaje web compartido.
 
@@ -46,11 +46,11 @@ Además de la CPU, puede escalar también basándose en:
 
 Hay dos forma distintas de escalar mediante otra métrica. Si desea escalar únicamente mediante una métrica, seleccione la comilla angular junto al control deslizante **Porcentaje de la CPU**. Se abrirá el cuadro Detalles de métrica:
 
-![Punto de entrada a las métricas de escala][]
+![Punto de entrada a las métricas de escala][Punto de entrada a las métricas de escala]
 
 Para escalar por más de una métrica a la vez, haga clic en **Agregar métricas** de la barra de comandos:
 
-![Agregar métricas][]
+![Agregar métricas][Agregar métricas]
 
 El cuadro Detalles de métrica contiene todos los controles que necesita para configurar el perfil óptimo de escalado. En la parte superior, elija la nueva métrica por la que desea escalar.
 
@@ -66,7 +66,7 @@ Para cada regla que elija, existen las siguientes opciones:
 -   Aumento o reducción de escala: el tamaño de la acción de escala.
 -   Espera: el tiempo que tiene que esperar esta regla tras una acción de escalado anterior para volver a escalar.
 
-![Varias reglas de escalado][]
+![Varias reglas de escalado][Varias reglas de escalado]
 
 Con varias reglas de escalado, puede ser más agresivo acerca del escalado horizontal (o reducción vertical) a medida que cambia el rendimiento. Por ejemplo, puede definir dos reglas de escalado:
 

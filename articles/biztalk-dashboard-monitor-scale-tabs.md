@@ -8,19 +8,19 @@ La primera vez que abra el Portal de administración de Azure, entrará automát
 
 De este modo se abre una nueva ventana con las pestañas siguientes. El tema describe estas pestañas.
 
--   ![Inicio rápido][] [Inicio rápido][1]
+-   ![Inicio rápido][QuickStart] [Inicio rápido](#QuickStart)
 
--   [Panel][]
+-   [Panel](#Dashboard)
 
--   [Monitor][]
+-   [Monitor](#Monitor)
 
--   [Escala][]
+-   [Escala](#Scale)
 
--   [Configurar][]
+-   [Configurar](#Configure)
 
--   [Conexiones híbridas][]
+-   [Conexiones híbridas](#HybridConnections)
 
-## <a name="QuickStart"></a>Inicio rápido (![Inicio rápido][])
+## <a name="QuickStart"></a>Inicio rápido (![Inicio rápido][QuickStart])
 
 En función de la edición de Servicios de BizTalk, puede que no estén disponibles todas las opciones mostradas.
 
@@ -107,7 +107,7 @@ También muestra el uso de datos en GB.
 
 Estas métricas proporcionan valores en tiempo real relacionados con el estado de su servicio de BizTalk. También puede especificar los valores **Relativo** o **Absoluto** y el intervalo de tiempo **Intervalo** de las métricas que se muestran en el gráfico.
 
-Para ver una descripción de estas métricas de rendimiento, vaya a la sección [Métricas disponibles][] de este tema.
+Para ver una descripción de estas métricas de rendimiento, vaya a la sección [Métricas disponibles](#Metrics) de este tema.
 
 ##### Vista rápida: Mostrar las propiedades del Servicio de BizTalk
 
@@ -119,7 +119,7 @@ Para ver una descripción de estas métricas de rendimiento, vaya a la sección 
 </tr>
 <tr>
 <td><strong>Actualizar certificado SSL</strong></td>
-<td>Puede modificar el servicio de BizTalk para que use un certificado SSL diferente. Al [crear el servicio de BizTalk][], se crea automáticamente un certificado SSL autofirmado.                                                                                                                                             </td>
+<td>Puede modificar el servicio de BizTalk para que use un certificado SSL diferente. Al <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">crear el servicio de BizTalk</a>, se crea automáticamente un certificado SSL autofirmado.                                                                                                                                             </td>
 </tr>
 <tr>
 <td><strong>Download Certificate</strong></td>
@@ -127,7 +127,7 @@ Para ver una descripción de estas métricas de rendimiento, vaya a la sección 
 </tr>
 <tr>
 <td><strong>Status</strong></td>
-<td>Muestra el estado actual del Servicio de BizTalk. Consulte [Servicios de BizTalk: Gráfico del estado de servicio][]. </td>
+<td>Muestra el estado actual del Servicio de BizTalk. Consulte <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=329870">Servicios de BizTalk: Gráfico del estado de servicio</a>. </td>
 </tr>
 <tr>
 <td><strong>URL de servicio</strong></td>
@@ -156,12 +156,12 @@ Para ver una descripción de estas métricas de rendimiento, vaya a la sección 
 <tr>
 <td><strong>Base de datos de seguimiento</strong></td>
 <td>El nombre de la base de datos SQL de Azure que almacena las tablas de seguimiento usadas por su servicio de BizTalk.                                                                                                                                                                                                       
-                                                                   [Requisitos explicados][crear el servicio de BizTalk] proporciona detalles en la base de datos de seguimiento.</td>
+                                                                   <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Requisitos explicados</a> proporciona detalles en la base de datos de seguimiento.</td>
 </tr>
 <tr>
 <td><strong>Monitoring/Archiving Storage</strong></td>
 <td>La cuenta de almacenamiento de Azure que almacena el resultado de supervisión del servicio de BizTalk.                                                                                                                                                                                                                     
-                                                                   [Requisitos explicados][crear el servicio de BizTalk] proporciona detalles en la cuenta de almacenamiento.</td>
+                                                                   <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302280">Requisitos explicados</a> proporciona detalles en la cuenta de almacenamiento.</td>
 </tr>
 <tr>
 <td><strong>Subscription Name</strong></td>
@@ -173,7 +173,7 @@ Para ver una descripción de estas métricas de rendimiento, vaya a la sección 
 </tr>
 </table>
 
-[Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][crear el servicio de BizTalk] incluye los pasos para crear un servicio de BizTalk.
+[Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280) incluye los pasos para crear un servicio de BizTalk.
 
 ##### Administrar, Información de conexión, Sincronizar claves y Eliminar en la barra de tareas:
 
@@ -225,14 +225,14 @@ También puede especificar los valores **Relativo** o **Absoluto** y el interval
 
 1.  Seleccione la pestaña **Supervisar**.
 2.  Seleccione **Agregar métricas** en la barra de tareas:
-    ![Seleccionar métricas adicionales][]
+    ![Seleccionar métricas adicionales][AddMetrics]
 3.  Compruebe las métricas de rendimiento que quiera mostrar.
 4.  Seleccione la marca de verificación para volver a la pestaña **Supervisar**.
 5.  Seleccione el círculo que se encuentra junto a la métrica para visualizar el valor de la métrica en el gráfico.
     Por ejemplo, la métrica **Uso de CPU** aparecerá atenuada; su resultado no se mostrará en el gráfico:
-    ![La métrica Uso de CPU está en gris][]
+    ![La métrica Uso de CPU está en gris][GrayedMetric]
     Seleccione el círculo gris para habilitar la métrica **Uso de CPU** para que muestre su resultado en el gráfico:
-    ![La métrica Uso de CPU está habilitada][]
+    ![La métrica Uso de CPU está habilitada][EnabledMetric]
 
 6.  Para eliminar una métrica del gráfico mostrado y de la lista, seleccione **Eliminar métrica** en la barra de tareas. Para agregar la métrica a lista otra vez, seleccione **Agregar métricas** en la barra de tareas, compruebe la métrica y seleccione la marca de verificación para volver a la pestaña **Supervisar**. Seleccione el círculo gris para habilitar la métrica.
 
@@ -303,11 +303,11 @@ Están disponibles las siguientes métricas y contadores de rendimiento:
 
 En la pestaña Escala puede sumar o restar el número de unidades usadas por su servicio de BizTalk. De forma predeterminada, hay una unidad configurada. Se pueden agregar unidades adicionales para escalar su servicio de BizTalk. Cuando se incrementa la escala, se aumenta el rendimiento. La cantidad de recursos también aumenta, incluyendo los puentes implementados, los acuerdos, las conexiones de LOB y la eficacia de procesamiento. Por ejemplo, si aumenta la escala de 1 unidad a 2. En esta situación, puede implementar el doble de puentes, acuerdos, conexiones de LOB y eficacia de procesamiento.
 
-Algunas ediciones de BizTalk no ofrecen la opción de escala. En esta situación, se admite una unidad. A fin de determinar cuántas unidades puede escalar su edición, consulte [Servicios de BizTalk: Tabla de ediciones][].
+Algunas ediciones de BizTalk no ofrecen la opción de escala. En esta situación, se admite una unidad. A fin de determinar cuántas unidades puede escalar su edición, consulte [Servicios de BizTalk: Tabla de ediciones](http://go.microsoft.com/fwlink/p/?LinkID=302279).
 
 El aumento del número de unidades podría afectar al precio. Si aumenta las unidades, al seleccionar **Guardar** aparece un mensaje que le indica si la facturación se ve afectada. A continuación, seleccione Continue. Cuando aumente el número de unidades, el estado del servicio de BizTalk cambia de Activo a Actualizando. En el estado Actualizando, su servicio de BizTalk continúa ejecutándose.
 
-[Servicios de BizTalk: Tabla de ediciones][] define una "Unidad".
+[Servicios de BizTalk: Tabla de ediciones](http://go.microsoft.com/fwlink/p/?LinkID=302279) define una "Unidad".
 
 ## <a name="Configure"></a>Configurar
 
@@ -315,45 +315,43 @@ No se aplica a conexiones híbridas.
 
 Establezca el Estado de copia de seguridad en Ninguno o Automático. Cuando se estableza en Ninguno, no se creará ninguna copia de seguridad automáticamente. Cuando se establece en Automática, configure la ubicación de la copia de seguridad, la frecuencia de la misma y cuánto tiempo quiere conservar los archivos de copia de seguridad.
 
-[Servicios de BizTalk: Copia de seguridad y restauración][] proporciona los detalles.
+[Servicios de BizTalk: Copia de seguridad y restauración](http://go.microsoft.com/fwlink/p/?LinkID=329873) proporciona los detalles.
 
 ## <a name="HybridConnections"></a>Conexiones híbridas
 
 Las conexiones híbridas conectan una aplicación de Azure, como sitios web o Servicios móviles, a un recurso local que usa un puerto TCP estático, como SQL Server, MySQL, API web HTTP, Servicio móviles y la mayoría de los servicios web personalizados. Las conexiones híbridas se administran en los Servicios de BizTalk en el Portal de administración de Azure.
 
-Para crear conexiones híbridas en sitios web de Azure, vea [Conexión híbrida: Conexión de un stio web de Azure a un recurso local][].
+Para crear conexiones híbridas en sitios web de Azure, vea [Conexión híbrida: Conexión de un stio web de Azure a un recurso local](http://go.microsoft.com/fwlink/p/?LinkId=397538).
 
-Para usar conexiones híbridas en Servicios móviles de Azure, vea [Servicios móviles de Azure y conexiones híbridas][].
+Para usar conexiones híbridas en Servicios móviles de Azure, vea [Servicios móviles de Azure y conexiones híbridas](http://azure.microsoft.com/es-es/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started).
 
-Para crear o administrar conexiones híbridas en Servicios de BizTalk de Azure, vea [Conexiones híbridas][2].
+Para crear o administrar conexiones híbridas en Servicios de BizTalk de Azure, vea [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).
 
 ## Pasos siguientes
 
 Ahora que ya se ha familiarizado con las diferentes pestañas, puede obtener más información acerca de las características de los servicios de BizTalk de Azure:
 
--   [Servicios de BizTalk: Limitaciones][]
--   [Servicios de BizTalk: Nombre de emisor y clave de emisor][]
--   [Servicios de BizTalk: Copia de seguridad y restauración][]
+-   [Servicios de BizTalk: Limitaciones](http://go.microsoft.com/fwlink/p/?LinkID=302282)
+-   [Servicios de BizTalk: Nombre de emisor y clave de emisor](http://go.microsoft.com/fwlink/p/?LinkID=303941)
+-   [Servicios de BizTalk: Copia de seguridad y restauración](http://go.microsoft.com/fwlink/p/?LinkID=329873)
 
 ## Otras referencias
 
--   [Conexiones híbridas][2]
--   [Servicios de BizTalk: Gráfico de las ediciones Developer, Basic, Standard y Premium][Servicios de BizTalk: Tabla de ediciones]
--   [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][crear el servicio de BizTalk]
--   [Servicios de BizTalk: Gráfico del estado de servicio de BizTalk][Servicios de BizTalk: Gráfico del estado de servicio]
--   [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?][]
+-   [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274)
+-   [Servicios de BizTalk: Gráfico de las ediciones Developer, Basic, Standard y Premium](http://go.microsoft.com/fwlink/p/?LinkID=302279)
+-   [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280)
+-   [Servicios de BizTalk: Gráfico del estado de servicio de BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=329870)
+-   [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
-  [Inicio rápido]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
-  [1]: #QuickStart
-  [Panel]: #Dashboard
-  [Monitor]: #Monitor
-  [Escala]: #Scale
-  [Configurar]: #Configure
-  [Conexiones híbridas]: #HybridConnections
+  [QuickStart]: ./media/biztalk-dashboard-monitor-scale-tabs/QuickStartIcon.png
+  [AddMetrics]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
+  [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
+  [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
+
   [centro de aprendizaje]: http://azure.microsoft.com/es-es/documentation/services/biztalk-services/
   [Configuración de los componentes para la mensajería EDI en el portal de los servicios de BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=303653
   [Administración del espacio de nombres del ACS]: http://go.microsoft.com/fwlink/p/?LinkID=285670
-  [Métricas disponibles]: #Metrics
+
   [crear el servicio de BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=302280
   [Servicios de BizTalk: Gráfico del estado de servicio]: http://go.microsoft.com/fwlink/p/?LinkID=329870
   [Seleccionar métricas adicionales]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png

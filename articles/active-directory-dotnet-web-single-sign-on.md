@@ -17,20 +17,20 @@ Para este tutorial se necesitan los siguientes requisitos previos para el entorn
 
 -   Visual Studio 2010 SP1
 -   Microsoft .NET Framework 4.0
--   [ASP.NET MVC 3][]
--   [Tiempo de ejecución de Windows Identity Foundation 1.0][]
--   [SDK de Windows Identity Foundation 3.5][]
+-   [ASP.NET MVC 3][ASP.NET MVC 3]
+-   [Tiempo de ejecución de Windows Identity Foundation 1.0][Tiempo de ejecución de Windows Identity Foundation 1.0]
+-   [SDK de Windows Identity Foundation 3.5][SDK de Windows Identity Foundation 3.5]
 -   Internet Information Services (IIS) 7.5 con SSL habilitado
 -   Windows PowerShell
--   [Instalar y configurar Windows PowerShell para el inicio de sesión único][]
+-   [Instalar y configurar Windows PowerShell para el inicio de sesión único][Instalar y configurar Windows PowerShell para el inicio de sesión único]
 
 ### Tabla de contenido
 
--   [Introducción][]
--   [Paso 1: Crear una aplicación ASP.NET MVC][]
--   [Paso 2: Aprovisionar la aplicación en el inquilino de Active Directory de la empresa][]
--   [Paso 3: Proteger la aplicación con WS-Federation para el inicio de sesión de empleado][]
--   [Resumen][]
+-   [Introducción][Introducción]
+-   [Paso 1: Crear una aplicación ASP.NET MVC][Paso 1: Crear una aplicación ASP.NET MVC]
+-   [Paso 2: Aprovisionar la aplicación en el inquilino de Active Directory de la empresa][Paso 2: Aprovisionar la aplicación en el inquilino de Active Directory de la empresa]
+-   [Paso 3: Proteger la aplicación con WS-Federation para el inicio de sesión de empleado][Paso 3: Proteger la aplicación con WS-Federation para el inicio de sesión de empleado]
+-   [Resumen][Resumen]
 
 ## <a name="createapp"></a>Paso 1: Crear una aplicación ASP.NET MVC
 
@@ -172,7 +172,7 @@ Este paso le muestra cómo agregar compatibilidad con el inicio de sesión feder
 
 ## <a name="summary"></a>Resumen
 
-Este tutorial le ha mostrado cómo crear y configurar una aplicación de un solo inquilino que utiliza las capacidades de inicio de sesión único de Azure Active Directory. Lea el siguiente tutorial para saber cómo crear aplicaciones multiempresa para Azure Active Directory: [Desarrollo de aplicaciones multiempresa en la nube con Azure Active Directory][].
+Este tutorial le ha mostrado cómo crear y configurar una aplicación de un solo inquilino que utiliza las capacidades de inicio de sesión único de Azure Active Directory. Lea el siguiente tutorial para saber cómo crear aplicaciones multiempresa para Azure Active Directory: [Desarrollo de aplicaciones multiempresa en la nube con Azure Active Directory][Desarrollo de aplicaciones multiempresa en la nube con Azure Active Directory].
 
   [ASP.NET MVC 3]: http://www.microsoft.com/es-es/download/details.aspx?id=4211
   [Tiempo de ejecución de Windows Identity Foundation 1.0]: http://www.microsoft.com/es-es/download/details.aspx?id=17331

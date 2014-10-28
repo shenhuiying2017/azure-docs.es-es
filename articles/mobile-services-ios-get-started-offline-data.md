@@ -33,13 +33,13 @@ En este tutorial se muestra cómo actualizar la aplicación del tutorial [Introd
 
 <!-- URLs. -->
 
-  [C\# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "C# para Tienda Windows"
+  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "C# para Tienda Windows"
   [Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
   [iOS]: /es-es/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
   [Xamarin.iOS]: /es-es/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
   [Xamarin.Android]: /es-es/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
   [Introducción a Servicios móviles]: /es-es/documentation/articles/mobile-services-ios-get-started/
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-ios-get-started-data/
-  [Evaluación gratuita de Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28
+  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28
   [lista de tareas pendientes sin conexión en iOS]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
   [entrada de blog que lo acompaña]: http://aka.ms/iosoffline

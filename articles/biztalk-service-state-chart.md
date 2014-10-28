@@ -10,7 +10,7 @@ Por ejemplo, supongamos que aprovisiona un servicio de BizTalk nuevo en el Porta
 
 **Operation not allowed**
 
-Para aprovisionar un servicio de BizTalk, consulte [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][].
+Para aprovisionar un servicio de BizTalk, consulte [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure].
 
 Las tablas siguientes incluyen las operaciones que se pueden realizar cuando el servicio de BizTalk se encuentra en un estado concreto. La marca de verificación indica que la operación se puede realizar mientras se encuentre en el estado en cuestión; y la entrada vacía indica que la operación no se puede realizar en ese estado.
 
@@ -590,13 +590,13 @@ x
 </table>
 ## Otras referencias
 
--   [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][]
--   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala][]
--   [Servicios de BizTalk: Gráfico de las ediciones Developer, Basic, Standard y Premium][]
--   [Servicios de BizTalk: Copia de seguridad y restauración][]
--   [Servicios de BizTalk: Limitaciones][]
--   [Servicios de BizTalk: Nombre de emisor y clave de emisor][]
--   [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?][]
+-   [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure]
+-   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala][Servicios de BizTalk: Pestañas Panel, Monitor y Escala]
+-   [Servicios de BizTalk: Gráfico de las ediciones Developer, Basic, Standard y Premium][Servicios de BizTalk: Gráfico de las ediciones Developer, Basic, Standard y Premium]
+-   [Servicios de BizTalk: Copia de seguridad y restauración][Servicios de BizTalk: Copia de seguridad y restauración]
+-   [Servicios de BizTalk: Limitaciones][Servicios de BizTalk: Limitaciones]
+-   [Servicios de BizTalk: Nombre de emisor y clave de emisor][Servicios de BizTalk: Nombre de emisor y clave de emisor]
+-   [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?][¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?]
 
   [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure]: http://go.microsoft.com/fwlink/p/?LinkID=302280
   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala]: http://go.microsoft.com/fwlink/p/?LinkID=302281

@@ -72,7 +72,7 @@ De forma predeterminada, el almacenamiento de blobs se distribuye geográficamen
 </tr>
 <tr class="even">
 <td align="left"><strong>Enviar correo electrónico</strong></td>
-<td align="left"><a href="http://azure.microsoft.com/en-us/gallery/store/sendgrid/sendgrid-azure/">SendGrid</a> y el <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">complemento de WordPress para usar SendGrid</a></td>
+<td align="left"><a href="http://azure.microsoft.com/es-es/gallery/store/sendgrid/sendgrid-azure/">SendGrid</a> y el <a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">complemento de WordPress para usar SendGrid</a></td>
 </tr>
 <tr class="odd">
 <td align="left"><strong>Nombres de dominio personalizados</strong></td>
@@ -243,7 +243,7 @@ Después de crear o migrar el sitio de WordPress, use la siguiente información 
 <td align="left"><strong>Mejorar el rendimiento</strong></td>
 <td align="left"><ul>
 <li><p><a href="http://blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx">Desactivación de la cookie ARR</a>: puede mejorar el rendimiento cuando ejecute WordPress en varias instancias del sitio web.</p></li>
-<li><p>Activación del almacenamiento en caché. <a href="http://msdn.microsoft.com/en-us/library/azure/dn690470.aspx">Caché en Redis</a> (vista previa) se puede usar con el <a href="https://wordpress.org/plugins/redis-object-cache/">complemento de WordPress para caché de objetos en Redis</a> o usar una de las otras ofertas de caché de la <a href="http://azure.microsoft.com/en-us/gallery/store/">Tienda de Azure</a>.</p></li>
+<li><p>Activación del almacenamiento en caché. <a href="http://msdn.microsoft.com/es-es/library/azure/dn690470.aspx">Caché en Redis</a> (vista previa) se puede usar con el <a href="https://wordpress.org/plugins/redis-object-cache/">complemento de WordPress para caché de objetos en Redis</a> o usar una de las otras ofertas de caché de la <a href="http://azure.microsoft.com/es-es/gallery/store/">Tienda de Azure</a>.</p></li>
 <li><p><a href="http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/">Hacer que WordPress sea más rápido con Wincache</a>: Wincache está habilitado de forma predeterminada para sitios web.</p></li>
 <li><p><a href="http://azure.microsoft.com/es-es/documentation/articles/web-sites-scale/">Escalamiento de un sitio web de Azure</a> y uso del <a href="http://www.cleardb.com/developers/cdbr/introduction">enrutamiento de alta disponibilidad de ClearDB</a> o <a href="http://www.mysql.com/products/cluster/">CGE de MySQL Cluster</a>.</p></li>
 </ul></td>
@@ -260,7 +260,7 @@ Después de crear o migrar el sitio de WordPress, use la siguiente información 
 <tr class="odd">
 <td align="left"><strong>Habilitar el correo electrónico</strong></td>
 <td align="left"><ol>
-<li><p><a href="http://azure.microsoft.com/en-us/gallery/store/sendgrid/sendgrid-azure/">Activación de SendGrid usando la Tienda de Azure</a></p></li>
+<li><p><a href="http://azure.microsoft.com/es-es/gallery/store/sendgrid/sendgrid-azure/">Activación de SendGrid usando la Tienda de Azure</a></p></li>
 <li><p><a href="http://wordpress.org/plugins/sendgrid-email-delivery-simplified/">Instalación del complemento SendGrid para WordPress</a></p></li>
 </ol></td>
 </tr>
@@ -341,14 +341,14 @@ Después de crear o migrar el sitio de WordPress, use la siguiente información 
   [an Azure Website, hosted in multiple regions, using CDBR High Availability router to route to MySQL across regions]: ./media/web-sites-enterprise-wordpress/multi-region-diagram.png
   [enrutador de alta disponibilidad CDBR]: http://www.cleardb.com/developers/cdbr/introduction
   [CGE de MySQL Cluster]: http://www.mysql.com/products/cluster/
-  [Caché en Redis]: http://msdn.microsoft.com/en-us/library/azure/dn690470.aspx
-  [Memcache Cloud]: http://azure.microsoft.com/en-us/gallery/store/garantiadata/memcached/
-  [MemCachier]: http://azure.microsoft.com/en-us/gallery/store/memcachier/memcachier/
-  [Tienda de Azure]: http://azure.microsoft.com/en-us/gallery/store/
+  [Caché en Redis]: http://msdn.microsoft.com/es-es/library/azure/dn690470.aspx
+  [Memcache Cloud]: http://azure.microsoft.com/es-es/gallery/store/garantiadata/memcached/
+  [MemCachier]: http://azure.microsoft.com/es-es/gallery/store/memcachier/memcachier/
+  [Tienda de Azure]: http://azure.microsoft.com/es-es/gallery/store/
   [an Azure Website, hosted in multiple regions, using CDBR High Availability router for MySQL, with Managed Cache, Blob storage, and CDN]: ./media/web-sites-enterprise-wordpress/performance-diagram.png
   [Red de entrega de contenido (CDN)]: http://azure.microsoft.com/es-es/documentation/articles/cdn-how-to-use/
   [Complemento de WordPress para usar almacenamiento de blobs]: https://wordpress.org/plugins/windows-azure-storage/
-  [SendGrid]: http://azure.microsoft.com/en-us/gallery/store/sendgrid/sendgrid-azure/
+  [SendGrid]: http://azure.microsoft.com/es-es/gallery/store/sendgrid/sendgrid-azure/
   [complemento de WordPress para usar SendGrid]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
   [Nombres de dominio personalizados con Sitios web Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-custom-domain-name/
   [Compatibilidad con HTTPS en Sitios web Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-configure-ssl-certificate/
@@ -358,7 +358,7 @@ Después de crear o migrar el sitio de WordPress, use la siguiente información 
   [Implementación de un sitio web de Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-deploy/
   [Copias de seguridad de Sitios web Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-backup/
   [Restauración de un sitio web de Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-restore/
-  [Detalles de precios, incluidas las capacidades de tamaños y modos de los sitios web]: https://azure.microsoft.com/en-us/pricing/details/web-sites/
+  [Detalles de precios, incluidas las capacidades de tamaños y modos de los sitios web]: https://azure.microsoft.com/es-es/pricing/details/web-sites/
   [Escalamiento de un sitio web de Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-scale/
   [Exportación de WordPress]: http://en.support.wordpress.com/export/
   [complemento Importador de WordPress]: http://wordpress.org/plugins/wordpress-importer/

@@ -18,22 +18,22 @@ En esta guía se muestra cómo los administradores de una instancia de Administr
 
 ## En este tema
 
--   [Creación de un grupo][]
--   [Asociación de un grupo a un producto][]
--   [Asociación de grupos a desarrolladores][]
--   [Pasos siguientes][]
+-   [Creación de un grupo][Creación de un grupo]
+-   [Asociación de un grupo a un producto][Asociación de un grupo a un producto]
+-   [Asociación de grupos a desarrolladores][Asociación de grupos a desarrolladores]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="create-group"> </a>Creación de un grupo
 
 Para crear un grupo, haga clic en la **consola de administración** en el Portal de Azure para su servicio Administración de API. Esta operación le llevará al portal administrativo Administración de API.
 
-> Si todavía no ha creado una instancia de servicio Administración de API, consulte [Creación de una instancia de Administración de API][] en el tutorial [Introducción a la Administración de API de Azure][].
+> Si todavía no ha creado una instancia de servicio Administración de API, consulte [Creación de una instancia de Administración de API][Creación de una instancia de Administración de API] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
 
-![API Management console][]
+![API Management console][API Management console]
 
 Haga clic en **Grupos** en el menú **Administración de API** de la izquierda y haga clic en **Agregar grupo**.
 
-![Add new group][]
+![Add new group][Add new group]
 
 Especifique un nombre único para el grupo y una descripción opcional, y haga clic en **Guardar**.
 
@@ -41,7 +41,7 @@ Especifique un nombre único para el grupo y una descripción opcional, y haga c
 
 El nuevo grupo se muestra en la pestaña Grupos. Para editar el **nombre** o la **descripción** del grupo, haga clic en el nombre del grupo en la lista. Para eliminar el grupo, haga clic en **Eliminar**.
 
-![Group added][]
+![Group added][Group added]
 
 Ahora que se ha creado el grupo, se puede asociar a productos y desarrolladores.
 
@@ -49,7 +49,7 @@ Ahora que se ha creado el grupo, se puede asociar a productos y desarrolladores.
 
 Para asociar un grupo a un producto, haga clic en **Productos** en el menú **Administración de API** de la izquierda y haga clic en el nombre del producto que desee.
 
-![Set visibility][]
+![Set visibility][Set visibility]
 
 Seleccione la pestaña **Visibilidad** para agregar y quitar grupos, así como para ver los grupos actuales para el producto. Para agregar o quitar grupos, active o desactive las casillas correspondientes a los grupos que desee y haga clic en **Guardar**.
 
@@ -63,17 +63,17 @@ Una vez asociado un producto a un grupo, los desarrolladores del grupo pueden ve
 
 Para asociar grupos a desarrolladores, haga clic en **Desarrolladores** en el menú **Administración de API** de la izquierda y active la casilla situada junto a los desarrolladores que desee asociar a un grupo.
 
-![Add developer to group][]
+![Add developer to group][Add developer to group]
 
 Una vez seleccionados los desarrolladores que desee, haga clic en el grupo que desee en la lista desplegable **Agregar a grupo**. Los desarrolladores se pueden quitar de los grupos con la lista desplegable **Quitar de grupo**.
 
-![Desarrolladores][]
+![Desarrolladores][Desarrolladores]
 
 Una vez agregada, la asociación entre el desarrollador y el grupo se puede ver en la pestaña **Desarrolladores**.
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
-Una vez agregado a un grupo, un desarrollador puede ver los productos asociados al grupo y suscribirse a ellos. Para obtener más información, consulte [Creación y publicación de un producto en Administración de API de Azure][],
+Una vez agregado a un grupo, un desarrollador puede ver los productos asociados al grupo y suscribirse a ellos. Para obtener más información, consulte [Creación y publicación de un producto en Administración de API de Azure][Creación y publicación de un producto en Administración de API de Azure],
 
   [Creación de un grupo]: #create-group
   [Asociación de un grupo a un producto]: #associate-group-product

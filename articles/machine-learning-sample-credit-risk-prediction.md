@@ -8,7 +8,7 @@
 
     Sample Experiment - German Credit - Development
 
-*Para ver un tutorial detallado acerca de cómo crear y utilizar una versión simplificada de este experimento, consulte [Desarrollo de una solución predictiva con Aprendizaje automático de Azure][].*
+*Para ver un tutorial detallado acerca de cómo crear y utilizar una versión simplificada de este experimento, consulte [Desarrollo de una solución predictiva con Aprendizaje automático de Azure][Desarrollo de una solución predictiva con Aprendizaje automático de Azure].*
 
 El objetivo de este experimento es predecir el riesgo de crédito de acuerdo con la información proporcionada en una aplicación de crédito. La predicción es un valor binario: bajo riesgo o alto riesgo.
 
@@ -48,7 +48,7 @@ Esta replicación se realiza mediante el siguiente código R, que se ejecuta uti
 
 En nuestro experimento comparamos dos enfoques para la generación de modelos: entrenamiento sobre el conjunto de datos original y entrenamiento sobre el conjunto de datos replicado. En ambos enfoques, para adaptarnos a la función de coste del problema, probamos en el conjunto de prueba con replicación. El flujo de trabajo final para la división y la replicación se describe a continuación. En este flujo de trabajo, el resultado de la izquierda del módulo **Dividir** es un conjunto de entrenamiento y el de la derecha es un conjunto de prueba. Tenga en cuenta que el conjunto de entrenamiento se utiliza posteriormente con y sin **Ejecutar script R**; esto es, con y sin replicación.
 
-![Splitting training and test data][]
+![Splitting training and test data][Splitting training and test data]
 
 Además de comprobar el efecto de la replicación de los ejemplos en el conjunto de entrenamiento, también comparamos el rendimiento de dos algoritmos: Máquina de vectores de soporte (SVM) y árbol de decisión ampliado. De este modo generamos de manera efectiva 4 modelos:
 
@@ -61,11 +61,11 @@ Los árboles de decisión ampliados funcionan bien con características de todo 
 
 Inicializamos el algoritmo de aprendizaje utilizando el módulo **Máquina de vectores de soporte de dos clases** o el módulo **Árbol de decisión ampliado de dos clases** y, a continuación, utilizamos el módulo **Entrenar modelo** para crear el módulo real. Estos módulos se utilizan por parte de los módulos **Puntuar modelo** para producir puntuaciones de ejemplos de prueba. A continuación se describe un ejemplo de flujo de trabajo que combina estos módulos y utiliza SVM y el conjunto de entrenamiento replicado. Tenga en cuenta que **Entrenar modelo** está conectado al conjunto de entrenamiento, mientras que **Puntuar modelo** está conectado al conjunto de prueba.
 
-![Training and scoring a model][]
+![Training and scoring a model][Training and scoring a model]
 
 En la etapa de evaluación del experimento se calcula la precisión de cada uno de los 4 modelos enumerados anteriormente. Para ello, utilizamos el módulo **Evaluar modelo**. Tenga en cuenta que este módulo solo calcula la precisión cuando todos los ejemplos tienen el mismo coste derivado de una clasificación errónea. Pero dado que anteriormente hemos replicado los ejemplos positivos, la precisión calculada por **Evaluar modelo** tiene en cuenta los costes y es
 
-![Accuracy computation][]
+![Accuracy computation][Accuracy computation]
 
 donde *n+* y *n-* son los números de los ejemplos positivo y negativo del conjunto de datos original, y *e+* y *e-* son los números de los ejemplos positivo y negativo mal clasificados del conjunto de datos original.
 
@@ -73,7 +73,7 @@ El módulo **Evaluar modelo** compara 2 modelos de puntuación; por tanto, utili
 
 Los resultados finales del experimento, obtenidos haciendo clic con el botón secundario en el resultado **Conjunto de datos de resultados** de **Columnas de proyecto** son:
 
-![Results][]
+![Results][Results]
 
 donde la primera columna es el nombre del algoritmo de aprendizaje automático utilizado para generar un modelo, la segunda columna indica el tipo de conjunto de entrenamiento y la tercera columna es la precisión teniendo en cuenta los costes. En este experimento, el modelo SVM, utilizado con el conjunto de datos de entrenamiento replicado, proporciona el resultado más preciso.
 

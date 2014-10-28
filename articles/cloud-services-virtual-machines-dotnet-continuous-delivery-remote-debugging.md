@@ -4,19 +4,19 @@
 
 # Habilitación de la depuración remota al usar la entrega continua para publicar en Azure
 
-Puede habilitar la depuración remota en Azure cuando usa la [entrega continua][] para publicar en Azure; para ello, siga estos pasos.
+Puede habilitar la depuración remota en Azure cuando usa la [entrega continua][entrega continua] para publicar en Azure; para ello, siga estos pasos.
 
 En este tema, se tratarán los siguientes aspectos:
 
-[Habilitación de la depuración remota para los servicios en la nube][]
+[Habilitación de la depuración remota para los servicios en la nube][Habilitación de la depuración remota para los servicios en la nube]
 
-[Habilitación de la depuración remota para las máquinas virtuales][]
+[Habilitación de la depuración remota para las máquinas virtuales][Habilitación de la depuración remota para las máquinas virtuales]
 
 ## <a name="cloudservice"></a>Habilitación de la depuración remota para los servicios en la nube
 
-1.  En el agente de compilación, configure el entorno inicial para Azure como se describe en [Compilación de línea de comandos para Azure][].
-2.  Como se requiere el tiempo de ejecución de depuración remota (msvsmon.exe) para el paquete, instale las [Herramientas remotas para Visual Studio 2013][] (o las [Herramientas remotas para Visual Studio 2012 Update 4][] si usa Visual Studio 2012). También puede copiar los binarios de depuración remota desde un sistema que tenga instalado Visual Studio.
-3.  Cree un certificado como se describe en [Crear un certificado del servicio para Azure][]. Mantenga la huella digital del certificado de .pfx y RDP y cargue el certificado en el servicio en la nube de destino.
+1.  En el agente de compilación, configure el entorno inicial para Azure como se describe en [Compilación de línea de comandos para Azure][Compilación de línea de comandos para Azure].
+2.  Como se requiere el tiempo de ejecución de depuración remota (msvsmon.exe) para el paquete, instale las [Herramientas remotas para Visual Studio 2013][Herramientas remotas para Visual Studio 2013] (o las [Herramientas remotas para Visual Studio 2012 Update 4][Herramientas remotas para Visual Studio 2012 Update 4] si usa Visual Studio 2012). También puede copiar los binarios de depuración remota desde un sistema que tenga instalado Visual Studio.
+3.  Cree un certificado como se describe en [Crear un certificado del servicio para Azure][Crear un certificado del servicio para Azure]. Mantenga la huella digital del certificado de .pfx y RDP y cargue el certificado en el servicio en la nube de destino.
 4.  Use las siguientes opciones de la línea de comandos MSBuild para compilarlo y empaquetarlo con la depuración remota habilitada. (Actualice las rutas de acceso de sus archivos de sistema y de proyecto.)
 
     /TARGET:PUBLISH /PROPERTY:Configuration=Debug;EnableRemoteDebugger=true;VSX64RemoteDebuggerPath="C:\\Remote Debugger\\x64\\";RemoteDebuggerConnectorCertificateThumbprint="56D7D1B25B472268E332F7FC0C87286458BFB6B2";RemoteDebuggerConnectorVersion="2.4" "C:\\Users\\yourusername\\Documents\\visual studio 2013\\Projects\\WindowsAzure1\\WindowsAzure1.sln"
@@ -26,10 +26,10 @@ En este tema, se tratarán los siguientes aspectos:
 
 ## <a name="virtualmachine"></a>Habilitación de la depuración remota para las máquinas virtuales
 
-1.  Cree una máquina virtual de Azure. Consulte [Creación de una máquina virtual que ejecuta Windows Server][] o [Crear y administrar máquinas virtuales de Azure en Visual Studio][].
-2.  En la [página del portal de Azure][], examine el panel de máquinas virtuales para ver la "Huella digital del certificado RDP" de la máquina virtual. Esta se usa como valor de ServerThumbprint en la configuración de extensiones.
-3.  Cree un certificado de cliente como se describe en [Crear un certificado del servicio para Azure][] (mantenga la huella digital del certificado de .pfx y RDP).
-4.  Instale [Azure Powershell][] (versión 0.7.4 o posterior) desde el Centro de descarga de Microsoft.
+1.  Cree una máquina virtual de Azure. Consulte [Creación de una máquina virtual que ejecuta Windows Server][Creación de una máquina virtual que ejecuta Windows Server] o [Crear y administrar máquinas virtuales de Azure en Visual Studio][Crear y administrar máquinas virtuales de Azure en Visual Studio].
+2.  En la [página del portal de Azure][página del portal de Azure], examine el panel de máquinas virtuales para ver la "Huella digital del certificado RDP" de la máquina virtual. Esta se usa como valor de ServerThumbprint en la configuración de extensiones.
+3.  Cree un certificado de cliente como se describe en [Crear un certificado del servicio para Azure][Crear un certificado del servicio para Azure] (mantenga la huella digital del certificado de .pfx y RDP).
+4.  Instale [Azure Powershell][Azure Powershell] (versión 0.7.4 o posterior) desde el Centro de descarga de Microsoft.
 5.  Ejecute el siguiente script para habilitar la extensión RemoteDebug. Sustituya los datos personales por los suyos propios, como el nombre de la suscripción, el nombre de servicio y la huella digital. (NOTA: este script está configurado para Visual Studio 2013. Si utiliza Visual Studio 2012, use "RemoteDebugVS2013" para ReferenceName y ExtensionName.)
 
         Add-AzureAccount
@@ -80,11 +80,11 @@ En este tema, se tratarán los siguientes aspectos:
   [entrega continua]: http://azure.microsoft.com/es-es/documentation/articles/cloud-services-dotnet-continuous-delivery/
   [Habilitación de la depuración remota para los servicios en la nube]: #cloudservice
   [Habilitación de la depuración remota para las máquinas virtuales]: #virtualmachine
-  [Compilación de línea de comandos para Azure]: http://msdn.microsoft.com/en-us/library/hh535755.aspx
-  [Herramientas remotas para Visual Studio 2013]: http://www.microsoft.com/en-us/download/details.aspx?id=40781
-  [Herramientas remotas para Visual Studio 2012 Update 4]: http://www.microsoft.com/en-us/download/details.aspx?id=38184
+  [Compilación de línea de comandos para Azure]: http://msdn.microsoft.com/es-es/library/hh535755.aspx
+  [Herramientas remotas para Visual Studio 2013]: http://www.microsoft.com/es-es/download/details.aspx?id=40781
+  [Herramientas remotas para Visual Studio 2012 Update 4]: http://www.microsoft.com/es-es/download/details.aspx?id=38184
   [Crear un certificado del servicio para Azure]: http://msdn.microsoft.com/library/azure/gg432987.aspx
   [Creación de una máquina virtual que ejecuta Windows Server]: http://azure.microsoft.com/es-es/documentation/articles/virtual-machines-windows-tutorial/
-  [Crear y administrar máquinas virtuales de Azure en Visual Studio]: http://msdn.microsoft.com/en-us/library/azure/dn569263.aspx
+  [Crear y administrar máquinas virtuales de Azure en Visual Studio]: http://msdn.microsoft.com/es-es/library/azure/dn569263.aspx
   [página del portal de Azure]: http://go.microsoft.com/fwlink/p/?LinkID=269851
   [Azure Powershell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409

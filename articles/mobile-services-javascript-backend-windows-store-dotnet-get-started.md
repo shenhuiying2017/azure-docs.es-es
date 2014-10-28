@@ -4,26 +4,26 @@
 
 # <a name="getting-started"> </a>Introducción a los Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube para una aplicación universal de Windows con Servicios móviles de Azure. Las soluciones de aplicaciones universales de Windows incluyen aplicaciones y un proyecto compartido común tanto para la Tienda Windows 8.1 como para la Tienda de Windows Phone 8.1. Para obtener más información, consulte [Generación de aplicaciones universales dirigidas a Windows y a Windows Phone][].
+En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube para una aplicación universal de Windows con Servicios móviles de Azure. Las soluciones de aplicaciones universales de Windows incluyen aplicaciones y un proyecto compartido común tanto para la Tienda Windows 8.1 como para la Tienda de Windows Phone 8.1. Para obtener más información, consulte [Generación de aplicaciones universales dirigidas a Windows y a Windows Phone][Generación de aplicaciones universales dirigidas a Windows y a Windows Phone].
 
 Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de *Lista de pendientes* que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que se creará utiliza JavaScript para la lógica de negocios de servidor. Si desea crear un servicio móvil que le permita escribir su lógica de negocios de servidor en los lenguajes compatibles de .NET con Visual Studio, consulte la versión de back-end de .NET de este tema.
 
-> [WACOM.NOTE]En este tema se muestra cómo crear un proyecto de servicio móvil nuevo y la aplicación universal de Windows mediante el Portal de administración de Azure. Si usa Visual Studio 2013, también puede agregar un proyecto de servicio móvil nuevo a una solución existente de Visual Studio. Para obtener más información, consulte [Quickstart: Adición de un servicio móvil (back-end de JavaScript)][].
+> [WACOM.NOTE]En este tema se muestra cómo crear un proyecto de servicio móvil nuevo y la aplicación universal de Windows mediante el Portal de administración de Azure. Si usa Visual Studio 2013, también puede agregar un proyecto de servicio móvil nuevo a una solución existente de Visual Studio. Para obtener más información, consulte [Quickstart: Adición de un servicio móvil (back-end de JavaScript)][Quickstart: Adición de un servicio móvil (back-end de JavaScript)].
 
-> Para agregar un servicio móvil a un proyecto de aplicación de Windows Phone 8.0 o la Tienda de Windows Phone 8.1, consulte [Introducción a los datos para Windows Phone][].
+> Para agregar un servicio móvil a un proyecto de aplicación de Windows Phone 8.0 o la Tienda de Windows Phone 8.1, consulte [Introducción a los datos para Windows Phone][Introducción a los datos para Windows Phone].
 
-[WACOM.INCLUDE [mobile-services-windows-universal-get-started][]]
+[WACOM.INCLUDE [mobile-services-windows-universal-get-started](../includes/mobile-services-windows-universal-get-started.md)]
 
 Para completar este tutorial, necesitará lo siguiente:
 
--   Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
--   [Visual Studio 2013 Express para Windows][]
+-   Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][Evaluación gratuita de Azure].
+-   [Visual Studio 2013 Express para Windows][Visual Studio 2013 Express para Windows]
 
 ## Creación de un servicio móvil
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## Creación de una nueva aplicación universal de Windows
 
@@ -35,13 +35,13 @@ En esta sección, creará una nueva aplicación universal de Windows que se cone
 
 2.  En la pestaña de inicio rápido, haga clic en **Windows** en **Choose platform** y, a continuación, expanda **Crear una nueva aplicación de la Tienda Windows**.
 
-    ![][]
+    ![][0]
 
     Con esto se muestran los tres sencillos pasos requeridos para crear una aplicación de la Tienda Windows conectada al servicio móvil.
 
     ![][1]
 
-3.  Si todavía no lo ha hecho, descargue e instale [Visual Studio 2013 Express para Windows][] en el equipo local o máquina virtual.
+3.  Si todavía no lo ha hecho, descargue e instale [Visual Studio 2013 Express para Windows][Visual Studio 2013 Express para Windows] en el equipo local o máquina virtual.
 
 4.  Haga clic en **Create TodoItem table** para crear una tabla donde almacenar datos de la aplicación.
 
@@ -51,7 +51,7 @@ En esta sección, creará una nueva aplicación universal de Windows que se cone
 
 ## Ejecución de la aplicación de Windows
 
-[WACOM.INCLUDE [mobile-services-javascript-backend-run-app][]]
+[WACOM.INCLUDE [mobile-services-javascript-backend-run-app](../includes/mobile-services-javascript-backend-run-app.md)]
 
 > [WACOM.NOTE]Puede revisar el código que tiene acceso a su servicio móvil para consultar e insertar datos, el que se encuentra en el archivo MainPage.xaml.cs.
 
@@ -59,29 +59,29 @@ En esta sección, creará una nueva aplicación universal de Windows que se cone
 
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
--   [Introducción a los datos][]
+-   [Introducción a los datos][Introducción a los datos]
     Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a la autenticación][]
+-   [Introducción a la autenticación][Introducción a la autenticación]
     Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
--   [Introducción a las notificaciones de inserción][]
+-   [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción]
     Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
-Para obtener más información acerca de las aplicaciones universales de Windows, consulte [Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil][].
+Para obtener más información acerca de las aplicaciones universales de Windows, consulte [Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil][Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil].
 
 <!-- Anchors. -->  
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [Generación de aplicaciones universales dirigidas a Windows y a Windows Phone]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn609832.aspx
-  [Quickstart: Adición de un servicio móvil (back-end de JavaScript)]: http://msdn.microsoft.com/en-us/library/windows/apps/xaml/dn263180.aspx
+  [Generación de aplicaciones universales dirigidas a Windows y a Windows Phone]: http://msdn.microsoft.com/es-es/library/windows/apps/xaml/dn609832.aspx
+  [Quickstart: Adición de un servicio móvil (back-end de JavaScript)]: http://msdn.microsoft.com/es-es/library/windows/apps/xaml/dn263180.aspx
   [Introducción a los datos para Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-data
   [mobile-services-windows-universal-get-started]: ../includes/mobile-services-windows-universal-get-started.md
-  [Evaluación gratuita de Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F
+  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F
   [Visual Studio 2013 Express para Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
 <!-- Images. -->
-  []: ./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-portal-quickstart.png
+  [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-portal-quickstart.png
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-get-started/mobile-quickstart-steps.png
 <!-- URLs. -->
   [mobile-services-javascript-backend-run-app]: ../includes/mobile-services-javascript-backend-run-app.md

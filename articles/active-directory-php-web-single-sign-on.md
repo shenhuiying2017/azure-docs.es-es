@@ -15,20 +15,20 @@ Este tutorial mostrará a los desarrolladores de PHP cómo utilizar Azure Active
 
 Para este tutorial se necesitan los siguientes requisitos previos para el entorno de desarrollo:
 
--   [Código de ejemplo PHP para Azure Active Directory][]
--   [Eclipse PDT 3.0.x All In Ones][]
+-   [Código de ejemplo PHP para Azure Active Directory][Código de ejemplo PHP para Azure Active Directory]
+-   [Eclipse PDT 3.0.x All In Ones][Eclipse PDT 3.0.x All In Ones]
 -   PHP 5.3.1 (a través del instalador de plataforma web)
 -   Internet Information Services (IIS) 7.5 con SSL habilitado
 -   Windows PowerShell
--   [Instalar y configurar Windows PowerShell para el inicio de sesión único][]
+-   [Instalar y configurar Windows PowerShell para el inicio de sesión único][Instalar y configurar Windows PowerShell para el inicio de sesión único]
 
 ### Tabla de contenido
 
--   [Introducción][]
--   [Paso 1: Crear una aplicación PHP][]
--   [Paso 2: Aprovisionar la aplicación en el inquilino de Active Directory de la empresa][]
--   [Paso 3: Proteger la aplicación con WS-Federation para el inicio de sesión de empleado][]
--   [Resumen][]
+-   [Introducción][Introducción]
+-   [Paso 1: Crear una aplicación PHP][Paso 1: Crear una aplicación PHP]
+-   [Paso 2: Aprovisionar la aplicación en el inquilino de Active Directory de la empresa][Paso 2: Aprovisionar la aplicación en el inquilino de Active Directory de la empresa]
+-   [Paso 3: Proteger la aplicación con WS-Federation para el inicio de sesión de empleado][Paso 3: Proteger la aplicación con WS-Federation para el inicio de sesión de empleado]
+-   [Resumen][Resumen]
 
 ## <a name="createapp"></a>Paso 1: Creación de una aplicación PHP
 

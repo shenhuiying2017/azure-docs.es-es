@@ -6,7 +6,7 @@
 
 ## Opciones de replicación de la cuenta de almacenamiento
 
-[WACOM.INCLUDE [storage-replication-options][]]
+[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ## Extremos de la cuenta de almacenamiento
 
@@ -28,13 +28,13 @@ Al crear una cuenta de almacenamiento, Azure genera dos claves de acceso de alma
 
 Se recomienda no compartir con nadie las claves de acceso de la cuenta de almacenamiento. Si piensa que su cuenta se ha puesto en peligro, puede volver a generar las claves de acceso desde dentro del portal. Seleccione su cuenta de almacenamiento y elija **Administrar claves de acceso**.
 
-Para permitir el acceso a los recursos de almacenamiento sin proporcionar sus claves de acceso, puede usar una *firma de acceso compartido*. Una firma de acceso compartido proporciona acceso a un recurso de su cuenta durante un intervalo que defina y con los permisos que especifique. Para obtener más información, consulte el [tutorial sobre firmas de acceso compartido][].
+Para permitir el acceso a los recursos de almacenamiento sin proporcionar sus claves de acceso, puede usar una *firma de acceso compartido*. Una firma de acceso compartido proporciona acceso a un recurso de su cuenta durante un intervalo que defina y con los permisos que especifique. Para obtener más información, consulte el [tutorial sobre firmas de acceso compartido][tutorial sobre firmas de acceso compartido].
 
 ## Métrica y registro de la cuenta de almacenamiento
 
--   **métricas mínimas frente a métricas detalladas** Puede configurar métricas mínimas o detalladas en la configuración de supervisión de la cuenta de almacenamiento. Las *métricas mínimas* recopilan métricas en datos como entrada/salida, disponibilidad, latencia y porcentajes de éxito, que se agregan a los servicios Blob, Tabla y Cola. Las *métricas detalladas* recopilan detalles en el nivel de las operaciones, además de detalles en el nivel de servicio para las mismas métricas. Las métricas detalladas facilitan el análisis preciso de los problemas que se producen durante las operaciones de las aplicaciones. Si desea obtener la lista completa de métricas disponibles, consulte [Storage Analytics Metrics Table Schema][]. Para obtener más información acerca de la supervisión del almacenamiento, consulte [About Storage Analytics Metrics][].
+-   **métricas mínimas frente a métricas detalladas** Puede configurar métricas mínimas o detalladas en la configuración de supervisión de la cuenta de almacenamiento. Las *métricas mínimas* recopilan métricas en datos como entrada/salida, disponibilidad, latencia y porcentajes de éxito, que se agregan a los servicios Blob, Tabla y Cola. Las *métricas detalladas* recopilan detalles en el nivel de las operaciones, además de detalles en el nivel de servicio para las mismas métricas. Las métricas detalladas facilitan el análisis preciso de los problemas que se producen durante las operaciones de las aplicaciones. Si desea obtener la lista completa de métricas disponibles, consulte [Storage Analytics Metrics Table Schema][Storage Analytics Metrics Table Schema]. Para obtener más información acerca de la supervisión del almacenamiento, consulte [About Storage Analytics Metrics][About Storage Analytics Metrics].
 
--   **registro** El registro es una característica configurable de las cuentas de almacenamiento que permite registrar solicitudes de lectura y de escritura y eliminar blobs, tablas y colas. Puede configurar el registro en el Portal de administración de Azure, pero no puede ver los registros en el Portal de administración. Los registros están almacenados en la cuenta de almacenamiento, en el contenedor $logs, y se puede tener acceso a ellos desde ahí. Para obtener más información, consulte [Storage Analytics Overview][].
+-   **registro** El registro es una característica configurable de las cuentas de almacenamiento que permite registrar solicitudes de lectura y de escritura y eliminar blobs, tablas y colas. Puede configurar el registro en el Portal de administración de Azure, pero no puede ver los registros en el Portal de administración. Los registros están almacenados en la cuenta de almacenamiento, en el contenedor $logs, y se puede tener acceso a ellos desde ahí. Para obtener más información, consulte [Storage Analytics Overview][Storage Analytics Overview].
 
 ## Grupos de afinidad para colocalizar el almacenamiento de Azure y otros servicios
 
@@ -42,6 +42,6 @@ Un *grupo de afinidad* es un grupo geográfico de los servicios de Azure y máqu
 
   [storage-replication-options]: ../includes/storage-replication-options.md
   [tutorial sobre firmas de acceso compartido]: ../storage-dotnet-shared-access-signature-part-1/
-  [Storage Analytics Metrics Table Schema]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343264.aspx
-  [About Storage Analytics Metrics]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343258.aspx
-  [Storage Analytics Overview]: http://msdn.microsoft.com/en-us/library/windowsazure/hh343268.aspx
+  [Storage Analytics Metrics Table Schema]: http://msdn.microsoft.com/es-es/library/windowsazure/hh343264.aspx
+  [About Storage Analytics Metrics]: http://msdn.microsoft.com/es-es/library/windowsazure/hh343258.aspx
+  [Storage Analytics Overview]: http://msdn.microsoft.com/es-es/library/windowsazure/hh343268.aspx

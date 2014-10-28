@@ -8,10 +8,10 @@ En esta guía se muestra cómo modificar la apariencia del portal de desarrollad
 
 ## En este tema
 
--   [Cambio del texto/logotipo en los encabezados de las páginas][]
--   [Cambio del estilo de los encabezados][]
--   [Edición de los contenidos de una página][]
--   [Pasos siguientes][]
+-   [Cambio del texto/logotipo en los encabezados de las páginas][Cambio del texto/logotipo en los encabezados de las páginas]
+-   [Cambio del estilo de los encabezados][Cambio del estilo de los encabezados]
+-   [Edición de los contenidos de una página][Edición de los contenidos de una página]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="change-page-headers"> </a>Cambio del texto/logotipo en los encabezados de las páginas
 
@@ -19,11 +19,11 @@ Uno de los aspectos más importantes de la personalización del portal es la sus
 
 El contenido del portal de desarrolladores se modifica al través del portal de publicadores, al que se obtiene acceso desde el portal de administración de Azure. Para llegar a la consola de administración de API, haga clic en **Consola de administración** en el Portal de Azure de su servicio Administración de API.
 
-![Management console][]
+![Management console][Management console]
 
 El portal de desarrolladores se basa en el sistema de administración de contenido (CMS). El encabezado que aparece en todas las páginas es un tipo especial de contenido conocido como widget. Para editar el contenido de ese widget, haga clic en **Widgets** en el menú **Portal de desarrolladores** que aparece a la izquierda y, a continuación, seleccione el widget **Encabezado** de esa lista.
 
-![Widgets header][]
+![Widgets header][Widgets header]
 
 El contenido del encabezado se puede editar desde el campo **Cuerpo**. Cambie el texto a "Portal de desarrolladores Fabrikam" y haga clic en **Guardar** en la parte inferior de la página.
 
@@ -37,7 +37,7 @@ Los colores, las fuentes, los tamaños, los espacios y otros elementos relaciona
 
 El explorador cambiará entonces para mostrar una página oculta dentro del portal de desarrolladores que contiene muestras de contenido, con ejemplos de todas las reglas de estilo que se utilizan en cada una de las partes del sitio. Para abrir el editor de estilo, mueva el cursor sobre la fina línea vertical de color gris que aparece en el extremo izquierdo de la página. En ese momento debería aparecer la barra de herramientas del editor.
 
-![Customization toolbar][]
+![Customization toolbar][Customization toolbar]
 
 Existen dos modos principales de edición de reglas de estilo: **Editar todas las reglas**, que muestra una lista de todas las reglas de estilo que se utilizan en cada una de las partes del sitio, y **Seleccionar elemento**, que le permite seleccionar un elemento de la página en la que se encuentra y muestra estilos únicamente para ese elemento.
 
@@ -45,15 +45,15 @@ En esta sección cambiaremos solo el estilo de los encabezados. Haga clic en la 
 
 Cada una de las reglas representa un propiedad de estilo del elemento seleccionado. Por ejemplo, en el caso del texto del encabezado seleccionado anteriormente, el tamaño del texto está en @font-size-h1 mientras que el nombre de la fuente con alternativas está en @headings-font-family.
 
-> Si está familiarizado con [bootstrap][], estas reglas son en realidad [variables LESS][] del tema de bootstrap utilizado por el portal de desarrolladores.
+> Si está familiarizado con [bootstrap][bootstrap], estas reglas son en realidad [variables LESS][variables LESS] del tema de bootstrap utilizado por el portal de desarrolladores.
 
 Ahora cambiaremos el color del texto del encabezado. Seleccione la entrada en el campo <**@headings-color*>\* y escriba \#000000. Este es el código hexadecimal para el color negro. Cuando esté haciendo esto verá que aparece un cuadrado indicador de color al final del cuadro de texto. Si hace clic en este indicador, un selector de colores le permitirá elegir un color.
 
-![Color picker][]
+![Color picker][Color picker]
 
 Cuando haya terminado de hacer cambios en los estilos del elemento seleccionado, haga clic en **Obtener vista previa de cambios** para ver los resultados en pantalla. En este momento, solo serán visibles para los administradores. Si desea hacer estos cambios visibles para todos los usuarios, haga clic en el botón **Publicar** en el editor de estilo y confirme los cambios.
 
-![Publish menu][]
+![Publish menu][Publish menu]
 
 > Para cambiar las reglas de estilo aplicables a cualquier otro elemento de la página, utilice el mismo proceso que ha seguido para el encabezado: haga clic en **Seleccionar un elemento** en el editor de estilo, seleccione el elemento en que esté interesado y empiece a modificar los valores de las reglas de estilo que aparecen en pantalla.
 
@@ -63,7 +63,7 @@ El portal de desarrolladores consta de páginas generadas automáticamente como 
 
 Para ver una lista de todas las páginas de contenido existentes, haga clic en **Contenido** en el menú **Portal de desarrolladores** de la consola de administración.
 
-![Manage content][]
+![Manage content][Manage content]
 
 Haga clic en la página "Bienvenido" para editar lo que se muestra en la página principal del portal de desarrolladores. Haga los cambios que desee, obtenga una vista previa de ellos si lo considera necesario y, a continuación, haga clic en **Publicar ahora** para que sean visibles para todos los usuarios.
 
@@ -71,7 +71,7 @@ Haga clic en la página "Bienvenido" para editar lo que se muestra en la página
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
--   Consulte el resto de temas en el tutorial [Introducción a la configuración de API avanzada][].
+-   Consulte el resto de temas en el tutorial [Introducción a la configuración de API avanzada][Introducción a la configuración de API avanzada].
 
   [Cambio del texto/logotipo en los encabezados de las páginas]: #change-page-headers
   [Cambio del estilo de los encabezados]: #change-headers-styling

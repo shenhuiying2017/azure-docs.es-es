@@ -15,11 +15,11 @@ un extremo HTTPS para una aplicación Node.js hospedada como servicio de nube de
 
 Esta tarea incluye los siguientes pasos:
 
--   [Paso 1: Cree un servicio Node.js y publíquelo en la nube][]
--   [Paso 2: Obtenga un certificado SSL][]
--   [Paso 3: Modifique la aplicación para que use el certificado SSL][]
--   [Paso 4: Modifique el archivo de definición de servicio][]
--   [Paso 5: Conéctese a la instancia de rol con HTTPS][]
+-   [Paso 1: Cree un servicio Node.js y publíquelo en la nube][Paso 1: Cree un servicio Node.js y publíquelo en la nube]
+-   [Paso 2: Obtenga un certificado SSL][Paso 2: Obtenga un certificado SSL]
+-   [Paso 3: Modifique la aplicación para que use el certificado SSL][Paso 3: Modifique la aplicación para que use el certificado SSL]
+-   [Paso 4: Modifique el archivo de definición de servicio][Paso 4: Modifique el archivo de definición de servicio]
+-   [Paso 5: Conéctese a la instancia de rol con HTTPS][Paso 5: Conéctese a la instancia de rol con HTTPS]
 
 ## <a name="step1"> </a>Paso 1: Crear un servicio de Node.js y publicar el servicio en la nube
 
@@ -28,7 +28,7 @@ world" que use Azure PowerShell siguiendo estos pasos:
 
 1.  Desde el **menú Inicio** o la **pantalla Inicio**, busque **Azure PowerShell**. Finalmente, haga clic en el botón secundario en **Azure PowerShell** y seleccione **Ejecutar como administrador**.
 
-    ![Icono de Azure PowerShell][]
+    ![Icono de Azure PowerShell][Icono de Azure PowerShell]
 
 2.  Cree un nuevo servicio; para ello, use el cmdlet **New-AzureServiceProject**.
 
@@ -131,7 +131,7 @@ conectarse a ella con HTTPS.
 
 2.  Desplácese hacia abajo y haga clic en el vínculo mostrado como la **dirección URL del sitio**:
 
-    ![La dirección URL del sitio][]
+    ![La dirección URL del sitio][La dirección URL del sitio]
 
     <div class="dev-callout">
 <strong>Nota:</strong>
@@ -148,11 +148,11 @@ conectarse a ella con HTTPS.
 
 ## Recursos adicionales
 
-[Asociación de un certificado con un servicio][]
+[Asociación de un certificado con un servicio][Asociación de un certificado con un servicio]
 
-[Configuración de SSL para una aplicación Node.js en un rol web de Azure][]
+[Configuración de SSL para una aplicación Node.js en un rol web de Azure][Configuración de SSL para una aplicación Node.js en un rol web de Azure]
 
-[Configurar un certificado SSL en un extremo HTTPS][]
+[Configurar un certificado SSL en un extremo HTTPS][Configurar un certificado SSL en un extremo HTTPS]
 
   [Paso 1: Cree un servicio Node.js y publíquelo en la nube]: #step1
   [Paso 2: Obtenga un certificado SSL]: #step2

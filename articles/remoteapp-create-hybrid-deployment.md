@@ -23,11 +23,11 @@ En este tutorial se realizará un recorrido por el proceso de creación de una i
 
 Necesita llevar a cabo los pasos siguientes antes de crear el servicio:
 
--   Instale las [actualizaciones necesarias][] para mejorar el rendimiento de RemoteApp de Azure.
--   Suscribirse a la [versión de vista previa de RemoteApp][].
+-   Instale las [actualizaciones necesarias][actualizaciones necesarias] para mejorar el rendimiento de RemoteApp de Azure.
+-   Suscribirse a la [versión de vista previa de RemoteApp][versión de vista previa de RemoteApp].
 -   Cree una cuenta de usuario en Active Directory para usar la cuenta de servicio RemoteApp. Restrinja los permisos para esta cuenta de forma que solamente pueda unir máquinas al dominio.
 -   Recopile información sobre la red local: información de direcciones IP y detalles de dispositivos VPN.
--   Instale el módulo [Azure PowerShell][].
+-   Instale el módulo [Azure PowerShell][Azure PowerShell].
 -   Recopile información sobre los usuarios y grupos a los que desee conceder acceso. Esta información puede ser información de cuenta de Microsoft o información de cuenta de organización de Active Directory de usuarios o grupos.
 
 ## **Paso 1: Crear una imagen de plantilla**
@@ -118,7 +118,7 @@ A continuación se indican los pasos detallados para crear una nueva imagen:
 
 ## **Paso 2: Creación de un servicio RemoteApp**
 
-1.  En el [Portal de administración de Azure][], vaya a la página RemoteApp.
+1.  En el [Portal de administración de Azure][Portal de administración de Azure], vaya a la página RemoteApp.
 2.  Haga clic en **Nuevo \> Crear con VPN**.
 3.  Escriba un nombre para el servicio y haga clic en **Crear servicio de RemoteApp**.
 
@@ -138,7 +138,7 @@ Una red virtual permite a los usuarios acceder a los datos de la red local a tra
     -   Dirección IP del servidor DNS
     -   Dirección IP VPN
 
-    Consulte [Configurar una VPN de sitio a sitio en el Portal de administración][] para obtener más información.
+    Consulte [Configurar una VPN de sitio a sitio en el Portal de administración][Configurar una VPN de sitio a sitio en el Portal de administración] para obtener más información.
 
 4.  A continuación, vuelva a la página Inicio rápido, haga clic en **obtener script** para descargar un script para configurar el dispositivo VPN para conectarse a la red virtual que acaba de crear. Necesitará la siguiente información acerca del dispositivo VPN:
 
@@ -162,7 +162,7 @@ Si vincula una imagen de plantilla existente, simplemente especifique el nombre,
 
 ## **Paso 5: Configurar la sincronización de directorios de Active Directory**
 
-RemoteApp requiere la sincronización de directorios entre Azure Active Directory y su Active Directory local para sincronizar usuarios, grupos, contactos y contraseñas con su inquilino de Azure Active Directory. Consulte [Guía de sincronización de directorios][] para obtener información sobre planeación y pasos detallados.
+RemoteApp requiere la sincronización de directorios entre Azure Active Directory y su Active Directory local para sincronizar usuarios, grupos, contactos y contraseñas con su inquilino de Azure Active Directory. Consulte [Guía de sincronización de directorios][Guía de sincronización de directorios] para obtener información sobre planeación y pasos detallados.
 
 ## **Paso 6: Publicación de programas RemoteApp**
 
@@ -179,7 +179,7 @@ Ahora que ha creado el servicio RemoteApp, necesita agregar los usuarios y grupo
 1.  Desde la página Inicio rápido, haga clic en **Configurar acceso de usuario**.
 2.  Escriba la cuenta organizativa o nombre de grupo (desde Active Directory) o la cuenta de Microsoft para la que desea conceder acceso.
 
-    Para los usuarios, asegúrese de que usa el formato “[usuario@dominio.com][]”. Para los grupos, escriba el nombre de grupo.
+    Para los usuarios, asegúrese de que usa el formato “[usuario@dominio.com][usuario@dominio.com]”. Para los grupos, escriba el nombre de grupo.
 
 3.  Una vez que los usuarios o grupos se validen, haga clic en **Guardar**.
 
@@ -188,7 +188,7 @@ Ahora que ha creado el servicio RemoteApp, necesita agregar los usuarios y grupo
 Esto es todo; ha creado he implementado correctamente su implementación híbrida de RemoteApp. El paso siguiente es que los usuarios descarguen e instalen el cliente Escritorio remoto. Puede encontrar la dirección URL del cliente en la página Inicio rápido de RemoteApp. Después, indique a los usuarios que inicien sesión en Azure y accedan a los programas de RemoteApp publicados.
 
   [actualizaciones necesarias]: http://support.microsoft.com/kb/2977219
-  [versión de vista previa de RemoteApp]: http://azure.microsoft.com/en-us/services/remoteapp/
+  [versión de vista previa de RemoteApp]: http://azure.microsoft.com/es-es/services/remoteapp/
   [Azure PowerShell]: http://azure.microsoft.com/es-es/documentation/articles/install-configure-powershell/
   [Portal de administración de Azure]: http://manage.windowsazure.com
   [Configurar una VPN de sitio a sitio en el Portal de administración]: http://msdn.microsoft.com/library/azure/dn133795.aspx

@@ -17,7 +17,7 @@ in einen interaktiven ***Arbeitsbereich*** ein, verbinden sie, sodass sie ein **
 
 Es ist keine Programmierung erforderlich, sondern einfach nur das visuelle Verbinden von Datasets und Modulen zum Erstellen eines prädiktiven Analysemodells.
 
-![ML Studio-Übersicht][]
+![ML Studio-Übersicht][ML Studio-Übersicht]
 
 ## Erste Schritte mit ML Studio
 

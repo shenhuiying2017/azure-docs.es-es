@@ -2,13 +2,13 @@
 
 <tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
 
-Dies ist der letzte Teil der exemplarischen Vorgehensweise [Entwickeln einer Vorhersagelösung mit Azure ML][]:
+Dies ist der letzte Teil der exemplarischen Vorgehensweise [Entwickeln einer Vorhersagelösung mit Azure ML][Entwickeln einer Vorhersagelösung mit Azure ML]:
 
-1.  [Erstellen eines ML-Arbeitsbereichs][]
-2.  [Hochladen vorhandener Daten][]
-3.  [Erstellen eines neuen Experiments][]
-4.  [Trainieren und Bewerten der Modelle][]
-5.  [Veröffentlichen des Webdiensts][]
+1.  [Erstellen eines ML-Arbeitsbereichs][Erstellen eines ML-Arbeitsbereichs]
+2.  [Hochladen vorhandener Daten][Hochladen vorhandener Daten]
+3.  [Erstellen eines neuen Experiments][Erstellen eines neuen Experiments]
+4.  [Trainieren und Bewerten der Modelle][Trainieren und Bewerten der Modelle]
+5.  [Veröffentlichen des Webdiensts][Veröffentlichen des Webdiensts]
 6.  **Zugreifen auf den Webdienst**
 
 ------------------------------------------------------------------------
@@ -22,7 +22,7 @@ Damit der Webdienst nützlich ist, müssen Benutzer in der Lage sein, Daten an d
 
 Auf der Registerkarte **DASHBOARD** dieses Webdiensts gibt es zwei Links zu Informationen, mit deren Hilfe Entwickler Code für den Zugriff auf diesen Dienst schreiben können. Klicken Sie den Link **API-Hilfeseite** in der Zeile **ANFRAGE/ANTWORT**, und es wird eine Seite geöffnet, die einen Beispielcode für das Verwenden des Anfrage/Antwort-Protokoll des Diensts enthält. In gleicher Weise liefert der Link **BATCHAUSFÜHRUNG** Beispielcode für das Durchführen einer Batchanforderung an den Dienst.
 
-Die API-Hilfeseite enthält Beispiele für die Programmiersprachen R, C\# und Python. Hier ist beispielsweise der von uns veröffentlichte R-Code, den Sie für den Zugriff auf den Webdienst verwenden sollten (die tatsächliche URL wird in Ihrem Beispielcode angezeigt):
+Die API-Hilfeseite enthält Beispiele für die Programmiersprachen R, C# und Python. Hier ist beispielsweise der von uns veröffentlichte R-Code, den Sie für den Zugriff auf den Webdienst verwenden sollten (die tatsächliche URL wird in Ihrem Beispielcode angezeigt):
 
     library("RCurl")
     library("RJSONIO")

@@ -72,7 +72,7 @@ También puede poner código similar en un script de servidor *read*, *insert*, 
 
 Modifique el código del cliente para que llame al método **invokeApi** en el objeto **MobileServiceClient**. La sintaxis exacta del código es específica del dispositivo cliente y se explica en los temas siguientes:
 
--   [C\# para Tienda Windows][C\# para Tienda Windows]
+-   [C# para Tienda Windows][C# para Tienda Windows]
 -   [JavaScript para Tienda Windows][JavaScript para Tienda Windows]
 -   [Windows Phone][Windows Phone]
 -   [iOS][iOS]
@@ -152,9 +152,9 @@ También puede usar el Portal de administración de Azure para administrar y cre
   [Llamada a un procedimiento almacenado con parámetros]: #parameters
   [Más información]: #more
   [Funcionamiento del backend .NET de Servicios móviles de Azure]: http://curah.microsoft.com/64518/how-the-azure-mobile-services-net-backend-works
-  [objeto mssql]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
-  [API personalizada]: http://msdn.microsoft.com/en-us/library/windowsazure/dn280974.aspx
-  [C\# para Tienda Windows]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
+  [objeto mssql]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554212.aspx
+  [API personalizada]: http://msdn.microsoft.com/es-es/library/windowsazure/dn280974.aspx
+  [C# para Tienda Windows]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
   [JavaScript para Tienda Windows]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-windows-store-javascript-call-custom-api/
   [Windows Phone]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-windows-phone-call-custom-api/
   [iOS]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-ios-call-custom-api/
@@ -163,4 +163,4 @@ También puede usar el Portal de administración de Azure para administrar y cre
   [Cómo puedo hacer más de una operación de lectura con scripting]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/fccf4ae7-f43c-4c2d-8518-32e2df84a824/how-do-i-do-more-than-1-read-operation-by-scripting?forum=azuremobile
   [Acceso a un procedimiento almacenado desde un esquema diferente]: http://blogs.msdn.com/b/jpsanders/archive/2013/05/02/windows-azure-mobile-services-accessing-a-stored-procedure-from-a-different-schema.aspx
   [Trabajo con un servicio móvil back-end de JavaScript]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-how-to-use-server-scripts/
-  [mssql object]: http://msdn.microsoft.com/en-us/library/windowsazure/jj554212.aspx
+  [mssql object]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554212.aspx

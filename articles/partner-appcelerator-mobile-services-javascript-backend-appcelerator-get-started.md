@@ -4,13 +4,13 @@
 
 # <a name="getting-started"> </a>Introducción a los Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 Este tutorial le mostrará cómo aprovechar los Servicios móviles de Azure en las aplicaciones con Appcelerator integrado.
 
 Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de *Lista de tareas pendientes* que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que se creará usa JavaScript para la lógica de negocios de servidor.
 
-Para completar este tutorial se necesita [Appcelerator Titanium][].
+Para completar este tutorial se necesita [Appcelerator Titanium][Appcelerator Titanium].
 
 Si compila para iOS, también necesitará Xcode 5.1 y el SDK de iOS 7.1, o versiones posteriores.
 
@@ -18,7 +18,7 @@ Si compila para Android, también necesitará Android 4.3 o un SDK superior.
 
 ## <a name="create-new-service"> </a>Creación de un servicio móvil
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## Creación de una aplicación Appcelerator
 
@@ -26,7 +26,7 @@ Si compila para Android, también necesitará Android 4.3 o un SDK superior.
 
 2.  Haga clic en **Agregar una tabla** y cree una nueva tabla llamada **TodoItem**.
 
-3.  Descargue una nueva [aplicación Lista de tareas pendientes][] Appcelerator y descomprima el proyecto.
+3.  Descargue una nueva [aplicación Lista de tareas pendientes][aplicación Lista de tareas pendientes] Appcelerator y descomprima el proyecto.
 
 4.  Si todavía no lo tiene, descargue e instale [Appcelerator Titanium Studio][Appcelerator Titanium] y el SDK v3.2.1 o superior. También necesita Xcode (v 5.0 +) y/o el SDK de Android (v 4.3+) para ejecutar el proyecto.
 
@@ -88,10 +88,10 @@ Esta acción envía una solicitud POST al nuevo servicio móvil hospedado en Win
 
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
--   [Introducción a la autenticación][]
+-   [Introducción a la autenticación][Introducción a la autenticación]
     Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
--   [Introducción a las notificaciones de inserción][]
+-   [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción]
     Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
 <!-- Images. --> <!-- URLs. -->

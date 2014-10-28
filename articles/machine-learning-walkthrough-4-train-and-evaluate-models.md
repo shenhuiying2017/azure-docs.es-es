@@ -2,14 +2,14 @@
 
 <tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
 
-Este es el cuarto paso del tutorial [Desarrollo de una solución predictiva con el Aprendizaje automático de Azure][]:
+Este es el cuarto paso del tutorial [Desarrollo de una solución predictiva con el Aprendizaje automático de Azure][Desarrollo de una solución predictiva con el Aprendizaje automático de Azure]:
 
-1.  [Creación de un área de trabajo de Aprendizaje automático][]
-2.  [Carga de los datos existentes][]
-3.  [Creación de un nuevo experimento][]
+1.  [Creación de un área de trabajo de Aprendizaje automático][Creación de un área de trabajo de Aprendizaje automático]
+2.  [Carga de los datos existentes][Carga de los datos existentes]
+3.  [Creación de un nuevo experimento][Creación de un nuevo experimento]
 4.  **Entrenamiento y evaluación de los modelos**
-5.  [Publicación del servicio web][]
-6.  [Acceso al servicio web][]
+5.  [Publicación del servicio web][Publicación del servicio web]
+6.  [Acceso al servicio web][Acceso al servicio web]
 
 ------------------------------------------------------------------------
 
@@ -33,7 +33,7 @@ En primer lugar, vamos a configurar el modelo del árbol de decisión ampliado:
 
 Esta parte del experimento tiene ahora un aspecto similar al siguiente:
 
-![Training a model][]
+![Training a model][Training a model]
 
 A continuación, vamos a configurar el modelo SVM.
 
@@ -54,7 +54,7 @@ El módulo **Transformar datos mediante escalado** está configurado ahora para 
 
 Esta parte de nuestro experimento debería tener ahora un aspecto similar al siguiente:
 
-![Training the second model][]
+![Training the second model][Training the second model]
 
 ## Puntuación y evaluación de modelos
 
@@ -76,7 +76,7 @@ Para evaluar los dos resultados de puntuación, utilizaremos el módulo **Evalua
 
 El experimento debería tener ahora un aspecto similar al siguiente:
 
-![Evaluating both models][]
+![Evaluating both models][Evaluating both models]
 
 Haga clic en el botón **EJECUTAR** bajo el lienzo para ejecutar el experimento. Esto puede tardar unos minutos. Verá un indicador giratorio en cada módulo que indica que está en ejecución; cuando haya acabado, aparecerá una marca de verificación de color verde.
 
@@ -86,7 +86,7 @@ El módulo **Evaluar modelo** produce un par de curvas y métricas que le permit
 
 Haga clic en "Conjunto de datos puntuados" o "Conjunto de datos puntuados para comparar" a fin de resaltar la curva asociada y mostrar debajo las métricas asociadas. En la leyenda de las curvas, "Conjunto de datos puntuados" corresponde al puerto de entrada izquierdo del módulo **Evaluar modelo** (en nuestro caso, se trata del modelo del árbol de decisión ampliado). "Conjunto de datos puntuados para comparar" corresponde al puerto de entrada derecho (el modelo SVM en nuestro caso). Al hacer clic en una de estas etiquetas, se destaca la curva de ese modelo y aparecen debajo las métricas correspondientes.
 
-![ROC curves for models][]
+![ROC curves for models][ROC curves for models]
 
 Al examinar estos valores, puede decidir cuál modelo se acerca más a los resultados que busca. Puede volver y repetir su experimento cambiando valores en los diferentes nodos.
 
@@ -98,7 +98,7 @@ Como ayuda adicional para realizar un seguimiento de los cambios realizados en l
 
 ------------------------------------------------------------------------
 
-**A continuación: [Publicación del servicio web][]**
+**A continuación: [Publicación del servicio web][Publicación del servicio web]**
 
   [Desarrollo de una solución predictiva con el Aprendizaje automático de Azure]: ../machine-learning-walkthrough-develop-predictive-solution/
   [Creación de un área de trabajo de Aprendizaje automático]: ../machine-learning-walkthrough-1-create-ml-workspace/

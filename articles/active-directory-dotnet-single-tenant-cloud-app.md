@@ -18,22 +18,22 @@ Para este tutorial se necesitan los siguientes requisitos previos para el entorn
 
 -   Visual Studio 2010 SP1
 -   Microsoft .NET Framework 4.0
--   [ASP.NET MVC 3][]
--   [Tiempo de ejecución de Windows Identity Foundation 1.0][]
--   [SDK de Windows Identity Foundation 3.5][]
--   [WCF Data Services para OData V3][]
+-   [ASP.NET MVC 3][ASP.NET MVC 3]
+-   [Tiempo de ejecución de Windows Identity Foundation 1.0][Tiempo de ejecución de Windows Identity Foundation 1.0]
+-   [SDK de Windows Identity Foundation 3.5][SDK de Windows Identity Foundation 3.5]
+-   [WCF Data Services para OData V3][WCF Data Services para OData V3]
 -   Internet Information Services (IIS) 7.5 con SSL habilitado
 -   Windows PowerShell
--   [Instalar y configurar Windows PowerShell para el inicio de sesión único][]
+-   [Instalar y configurar Windows PowerShell para el inicio de sesión único][Instalar y configurar Windows PowerShell para el inicio de sesión único]
 
 ### Tabla de contenido
 
--   [Introducción][]
--   [Paso 1: Crear una aplicación ASP.NET MVC][]
--   [Paso 2: Aprovisionar la aplicación en el inquilino de Active Directory de la empresa][]
--   [Paso 3: Proteger la aplicación con WS-Federation para el inicio de sesión de empleado][]
--   [Paso 4: Leer los datos del directorio usando la API Graph][]
--   [Resumen][]
+-   [Introducción][Introducción]
+-   [Paso 1: Crear una aplicación ASP.NET MVC][Paso 1: Crear una aplicación ASP.NET MVC]
+-   [Paso 2: Aprovisionar la aplicación en el inquilino de Active Directory de la empresa][Paso 2: Aprovisionar la aplicación en el inquilino de Active Directory de la empresa]
+-   [Paso 3: Proteger la aplicación con WS-Federation para el inicio de sesión de empleado][Paso 3: Proteger la aplicación con WS-Federation para el inicio de sesión de empleado]
+-   [Paso 4: Leer los datos del directorio usando la API Graph][Paso 4: Leer los datos del directorio usando la API Graph]
+-   [Resumen][Resumen]
 
 ## <a name="createapp"></a>Paso 1: Crear una aplicación ASP.NET MVC
 
@@ -175,13 +175,13 @@ Este paso le muestra cómo agregar compatibilidad con el inicio de sesión feder
 
 ## <a name="readdata"></a>Paso 4: Leer los datos del directorio usando la API Graph
 
-Este paso indica cómo usar la API Graph para conectarse al inquilino de Azure Active Directory y leer los datos. Para ayudarle a empezar a usar la API Graph, descargue la aplicación ASP.NET siguiente: [Sample Application with Write Support for Graph API][]. Esta aplicación contiene métodos auxiliares que facilitan la autenticación y la realización de solicitudes en la API Graph.
+Este paso indica cómo usar la API Graph para conectarse al inquilino de Azure Active Directory y leer los datos. Para ayudarle a empezar a usar la API Graph, descargue la aplicación ASP.NET siguiente: [Sample Application with Write Support for Graph API][Sample Application with Write Support for Graph API]. Esta aplicación contiene métodos auxiliares que facilitan la autenticación y la realización de solicitudes en la API Graph.
 
 Además, agregará permisos a la entidad de servicio de la aplicación que ha creado en el paso 2. Para agregar estos permisos, necesitará el valor AppPrincipalId.
 
 1.  Descargue y extraiga la aplicación de ejemplo en la carpeta que quiera.
 2.  Antes de usar el código de ejemplo, debe conceder permisos adicionales a la entidad de servicio. Estos permisos permiten que la entidad de servicio lea los datos usando la API Graph. En el menú **Inicio**, ejecute la consola **Módulo Microsoft Online Services para Windows PowerShell**.
-3.  Concederá permisos de lectura a la entidad de servicio agregándolos al rol de administrador de soporte técnico de servicios. Para obtener más información acerca de la asignación de roles a la entidad de servicio, consulte [Control de acceso basado en roles para la API Graph][]. Escriba el siguiente comando y presione Entrar:
+3.  Concederá permisos de lectura a la entidad de servicio agregándolos al rol de administrador de soporte técnico de servicios. Para obtener más información acerca de la asignación de roles a la entidad de servicio, consulte [Control de acceso basado en roles para la API Graph][Control de acceso basado en roles para la API Graph]. Escriba el siguiente comando y presione Entrar:
 
         Add-MsolRoleMember -RoleMemberType "ServicePrincipal" -RoleName "Service Support Administrator" -RoleMemberObjectId $appPrincipal.ObjectId 
 
@@ -213,7 +213,7 @@ Además, agregará permisos a la entidad de servicio de la aplicación que ha cr
 
 Este tutorial le ha mostrado cómo crear y configurar una aplicación de un solo inquilino que utiliza las capacidades de inicio de sesión único de Azure Active Directory. Además, ha obtenido acceso a los datos del directorio del inquilino usando la API Graph. Le recomendamos que explore la aplicación de ejemplo para saber cómo aprovechar la API Graph en su propia aplicación.
 
-Para obtener más información acerca de la API Graph, [obtenga más información en MSDN][]. Lea el siguiente tutorial para saber cómo crear aplicaciones multiempresa para Azure Active Directory: [Desarrollo de aplicaciones multiempresa en la nube con Azure Active Directory][].
+Para obtener más información acerca de la API Graph, [obtenga más información en MSDN][obtenga más información en MSDN]. Lea el siguiente tutorial para saber cómo crear aplicaciones multiempresa para Azure Active Directory: [Desarrollo de aplicaciones multiempresa en la nube con Azure Active Directory][Desarrollo de aplicaciones multiempresa en la nube con Azure Active Directory].
 
   [ASP.NET MVC 3]: http://www.microsoft.com/es-es/download/details.aspx?id=4211
   [Tiempo de ejecución de Windows Identity Foundation 1.0]: http://www.microsoft.com/es-es/download/details.aspx?id=17331

@@ -8,20 +8,20 @@
 
 El SDK de Application Insights le permite insertar líneas de código en la aplicación para supervisar las actividades del usuario, para que pueda ajustar la aplicación a sus necesidades.
 
-Actualmente todavía estamos migrando esta función al nuevo portal de Application Insights en Microsoft Azure. (Si lo desea, puede [consultar cómo funciona en el portal antiguo][]).
+Actualmente todavía estamos migrando esta función al nuevo portal de Application Insights en Microsoft Azure. (Si lo desea, puede [consultar cómo funciona en el portal antiguo][consultar cómo funciona en el portal antiguo]).
 
-Sin embargo, algo que puede hacer ahora es [capturar y buscar los registros de eventos de diagnósticos generados con Trace, NLog o Log4Net][].
+Sin embargo, algo que puede hacer ahora es [capturar y buscar los registros de eventos de diagnósticos generados con Trace, NLog o Log4Net][capturar y buscar los registros de eventos de diagnósticos generados con Trace, NLog o Log4Net].
 
 ## Application Insights
 
--   [Application Insights][]
--   [Incorporación de Application Insights al proyecto][]
--   [Supervisión inmediata de un servidor web activo][]
--   [Exploración de métricas en Application Insights][]
+-   [Application Insights][Application Insights]
+-   [Incorporación de Application Insights al proyecto][Incorporación de Application Insights al proyecto]
+-   [Supervisión inmediata de un servidor web activo][Supervisión inmediata de un servidor web activo]
+-   [Exploración de métricas en Application Insights][Exploración de métricas en Application Insights]
 -   [Búsqueda del registro de diagnóstico][capturar y buscar los registros de eventos de diagnósticos generados con Trace, NLog o Log4Net]
--   [Seguimiento de disponibilidad con pruebas web][]
--   [Seguimiento de uso con eventos y métricas][]
--   [Preguntas y repuestas y solución de problemas][]
+-   [Seguimiento de disponibilidad con pruebas web][Seguimiento de disponibilidad con pruebas web]
+-   [Seguimiento de uso con eventos y métricas][Seguimiento de uso con eventos y métricas]
+-   [Preguntas y repuestas y solución de problemas][Preguntas y repuestas y solución de problemas]
 
 <!--Link references-->
 

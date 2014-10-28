@@ -11,7 +11,7 @@ Un área de trabajo de Aprendizaje automático de Microsoft Azure (área de trab
 1.  Inicie sesión en su cuenta de Microsoft Azure.
 2.  En el panel de servicios de Microsoft Azure, haga clic en **APRENDIZAJE AUTOMÁTICO**.
 
-![][]
+![][0]
 
 1.  Haga clic en **CREAR UN ÁREA DE TRABAJO DE ML**.
 2.  En la página **CREACIÓN RÁPÌDA**, haga lo siguiente:
@@ -26,5 +26,5 @@ Un área de trabajo de Aprendizaje automático de Microsoft Azure (área de trab
 
 <!--Anchors--> <!--Image references--> <!--Link references-->
 
-  []: ./media/machine-learning-create-workspace/cw1.png
+  [0]: ./media/machine-learning-create-workspace/cw1.png
   [1]: ./media/machine-learning-create-workspace/cw2.png

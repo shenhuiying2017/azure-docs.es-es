@@ -18,23 +18,23 @@ In diesem Lernprogramm ändern Sie die App vom Lernprogramm Active Directory „
 
 Dieses Lernprogramm zeigt Ihnen die grundlegenden Schritte zur Aktivierung des SharePoint-Zugriff Im-Namen-von:
 
-1.  [Registrieren Ihrer Anwendung für den delegierten Zugriff auf SharePoint][]
-2.  [Hinzufügen von SharePoint-Informationen zu Ihrem mobilen Dienst][]
-3.  [Beziehen eines Zugriffstokens und Aufrufen der SharePoint-API][]
-4.  [Erstellen und Hochladen eines Word-Dokuments][]
-5.  [Testen der Anwendung][]
+1.  [Registrieren Ihrer Anwendung für den delegierten Zugriff auf SharePoint][Registrieren Ihrer Anwendung für den delegierten Zugriff auf SharePoint]
+2.  [Hinzufügen von SharePoint-Informationen zu Ihrem mobilen Dienst][Hinzufügen von SharePoint-Informationen zu Ihrem mobilen Dienst]
+3.  [Beziehen eines Zugriffstokens und Aufrufen der SharePoint-API][Beziehen eines Zugriffstokens und Aufrufen der SharePoint-API]
+4.  [Erstellen und Hochladen eines Word-Dokuments][Erstellen und Hochladen eines Word-Dokuments]
+5.  [Testen der Anwendung][Testen der Anwendung]
 
 Für dieses Lernprogramm ist Folgendes erforderlich:
 
 -   Visual Studio 2013 unter Windows 8.1
--   Ein aktives Abonnement von [SharePoint Online][]
--   Sie haben das Lernprogramm [Authentifizieren Ihrer App mit der Active Directory-Bibliothek für einmaliges Anmelden][] durchlaufen. Sie sollten das Mandat verwenden, das von Ihrem SharePoint-Abonnement bereitgestellt wird.
+-   Ein aktives Abonnement von [SharePoint Online][SharePoint Online]
+-   Sie haben das Lernprogramm [Authentifizieren Ihrer App mit der Active Directory-Bibliothek für einmaliges Anmelden][Authentifizieren Ihrer App mit der Active Directory-Bibliothek für einmaliges Anmelden] durchlaufen. Sie sollten das Mandat verwenden, das von Ihrem SharePoint-Abonnement bereitgestellt wird.
 
 ## <a name="configure-permissions"></a>Konfigurieren Ihrer Anwendung für den delegierten Zugriff auf SharePoint
 
 Standardmäßig hat der Token, den Sie von AAD erhalten, eingeschränkte Berechtigungen. Um auf eine Ressource von Dritten oder eine SaaS-Anwendung wie etwa SharePoint Online zugreifen zu können, müssen Sie dies explizit erlauben.
 
-1.  Wählen Sie im Abschnitt **Active Directory** des [Azure-Verwaltungsportals][] Ihr Mandat. Navigieren Sie zur Webanwendung, die Sie für den mobilen Dienst erstellt haben.
+1.  Wählen Sie im Abschnitt **Active Directory** des [Azure-Verwaltungsportals][Azure-Verwaltungsportals] Ihr Mandat. Navigieren Sie zur Webanwendung, die Sie für den mobilen Dienst erstellt haben.
 
     ![][]
 
@@ -72,7 +72,7 @@ Um auf SharePoint zugreifen zu können, benötigen Sie einen speziellen Zugriffs
 
 1.  Öffnen Sie Ihr Mobile Services Back-End-Projekt in Visual Studio.
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget][]]
+[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
 1.  Erstellen Sie im Mobile Services Back-End-Projekt eine neue Klasse namens SharePointUploadContext. Fügen Sie dort Folgendes hinzu:
 
@@ -193,7 +193,7 @@ Um ein Word-Dokument erstellen zu können, verwenden Sie das OpenXML NuGet-Paket
   [Beziehen eines Zugriffstokens und Aufrufen der SharePoint-API]: #obtain-token
   [Erstellen und Hochladen eines Word-Dokuments]: #create-document
   [Testen der Anwendung]: #test-application
-  [SharePoint Online]: http://office.microsoft.com/en-us/sharepoint/
+  [SharePoint Online]: http://office.microsoft.com/es-es/sharepoint/
   [Authentifizieren Ihrer App mit der Active Directory-Bibliothek für einmaliges Anmelden]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
   [Azure-Verwaltungsportals]: https://manage.windowsazure.com/
   []: ./media/mobile-services-dotnet-backend-calling-sharepoint-on-behalf-of-user/aad-web-application.png

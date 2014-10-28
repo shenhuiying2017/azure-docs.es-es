@@ -193,12 +193,12 @@ Konnte Ihnen dieses Dokument helfen? Bitte senden Sie uns Ihr Feedback. Teilen S
 
 Dieses Feedback hilft uns dabei, die Qualität der von uns veröffentlichten Whitepaper zu verbessern.
 
-[Feedback senden][].
+[Feedback senden][Feedback senden].
  
 
 # Referenzen
 
-[1][] Predictive analytics: beyond the predictions, W. McKnight, Information Management, Juli/August 2011, S.18-20.
+[1][1] Predictive analytics: beyond the predictions, W. McKnight, Information Management, Juli/August 2011, S.18-20.
 
 [2][1] <http://en.wikipedia.org/wiki/Accuracy_and_precision>
 

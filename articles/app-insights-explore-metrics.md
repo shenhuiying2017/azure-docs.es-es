@@ -4,13 +4,13 @@
 
 # Exploración de las métricas
 
-Si todavía no [ha configurado su proyecto web para Application Insights][], puede hacerlo ahora.
+Si todavía no [ha configurado su proyecto web para Application Insights][ha configurado su proyecto web para Application Insights], puede hacerlo ahora.
 
 A continuación se muestran los informes que puede esperar consultar en el cuadro de aplicaciones en Application Insights. Para llegar a la página desde Visual Studio, haga clic con el botón secundario en el proyecto web y elija Open Application Insights. Para llegar a él desde el panel de inicio en vista previa de Microsoft Azure, elija Examinar, Application Insights y, a continuación, seleccione el proyecto.
 
--   [Estado de la aplicación][]
--   [Análisis de uso][]
--   [Pasos siguientes][]
+-   [Estado de la aplicación][Estado de la aplicación]
+-   [Análisis de uso][Análisis de uso]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="health"></a>Estado de la aplicación
 
@@ -34,7 +34,7 @@ El número de solicitudes recibidas en un período especificado. Compárelo con 
 
 ![][1]
 
-Las [pruebas web][] muestran los resultados de las solicitudes web enviadas al servidor a intervalos regulares desde los servidores de Application Insights de todo el mundo.
+Las [pruebas web][pruebas web] muestran los resultados de las solicitudes web enviadas al servidor a intervalos regulares desde los servidores de Application Insights de todo el mundo.
 
 Compruebe si los resultados varían junto con el recuento de solicitudes.
 
@@ -50,7 +50,7 @@ Muestra qué solicitudes pueden necesitar una optimización del rendimiento.
 
 ![][3]
 
-Si ha [configurado el registro de diagnóstico][], haga clic para ver los últimos eventos.
+Si ha [configurado el registro de diagnóstico][configurado el registro de diagnóstico], haga clic para ver los últimos eventos.
 
 ### Solicitudes con error
 
@@ -78,7 +78,7 @@ Haga clic para ver los gráficos de las vistas de página en la semana anterior.
 
 ### Reorganización de los mosaicos
 
-![Elección de ajustes, personalizar][]
+![Elección de ajustes, personalizar][Elección de ajustes, personalizar]
 
 ## <a name="next"></a>Pasos siguientes
 
@@ -86,17 +86,17 @@ Haga clic para ver los gráficos de las vistas de página en la semana anterior.
 
 [Captura y búsqueda de registros de diagnóstico][configurado el registro de diagnóstico]
 
-[Solución de problemas][]
+[Solución de problemas][Solución de problemas]
 
 ## Más información
 
--   [Application Insights][]
+-   [Application Insights][Application Insights]
 -   [Incorporación de Application Insights al proyecto][ha configurado su proyecto web para Application Insights]
--   [Supervisión inmediata de un servidor web activo][]
--   [Exploración de métricas en Application Insights][]
+-   [Supervisión inmediata de un servidor web activo][Supervisión inmediata de un servidor web activo]
+-   [Exploración de métricas en Application Insights][Exploración de métricas en Application Insights]
 -   [Búsqueda del registro de diagnóstico][configurado el registro de diagnóstico]
 -   [Seguimiento de disponibilidad con pruebas web][pruebas web]
--   [Seguimiento de uso con eventos y métricas][]
+-   [Seguimiento de uso con eventos y métricas][Seguimiento de uso con eventos y métricas]
 -   [Preguntas y repuestas y solución de problemas][Solución de problemas]
 
 <!--Link references-->

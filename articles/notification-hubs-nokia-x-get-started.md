@@ -10,24 +10,24 @@ Este tema muestra cómo puede usar **Centros de notificaciones de Azure** para e
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 
--   [Configuración del servicio de notificaciones de Nokia][]
--   [Configuración de su Centro de notificaciones][]
--   [Conexión de su aplicación al Centro de notificaciones][]
--   [Envío de una notificación a la aplicación][]
--   [Prueba de la aplicación][]
+-   [Configuración del servicio de notificaciones de Nokia][Configuración del servicio de notificaciones de Nokia]
+-   [Configuración de su Centro de notificaciones][Configuración de su Centro de notificaciones]
+-   [Conexión de su aplicación al Centro de notificaciones][Conexión de su aplicación al Centro de notificaciones]
+-   [Envío de una notificación a la aplicación][Envío de una notificación a la aplicación]
+-   [Prueba de la aplicación][Prueba de la aplicación]
 
-<div class="dev-callout"><strong>Nota:</strong> <p>para completar este tutorial, deber&aacute; tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluaci&oacute;n gratuita en tan solo unos minutos. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluaci&oacute;n gratuita de Azure</a>.</p></div>
+<div class="dev-callout"><strong>Nota:</strong> <p>para completar este tutorial, deber&aacute; tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluaci&oacute;n gratuita en tan solo unos minutos. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluaci&oacute;n gratuita de Azure</a>.</p></div>
 
 Este tutorial requiere lo siguiente:
 
-1.  El entorno de desarrollo de Nokia X, que puede configurar siguiendo [estas][] instrucciones. Asegúrese de instalar los paquetes específicos de Nokia X y configurar el emulador de Nokia X siguiendo las instrucciones.
+1.  El entorno de desarrollo de Nokia X, que puede configurar siguiendo [estas][estas] instrucciones. Asegúrese de instalar los paquetes específicos de Nokia X y configurar el emulador de Nokia X siguiendo las instrucciones.
 2.  La configuración del dispositivo de Nokia X, que puede llevar a cabo siguiendo [estas][1] instrucciones.
-3.  El SDK de Android (se presupone que usará Eclipse), que puede descargarse desde [aquí][]
+3.  El SDK de Android (se presupone que usará Eclipse), que puede descargarse desde [aquí][aquí]
 4.  El SDK de Android para Servicios móviles, que puede descargar desde [aquí][2]<a>.
 
 ## <span id="register"></span></a>Configuración del servicio de notificaciones de Nokia
 
-1.  Inicie sesión en la [consola para desarrolladores de API de notificaciones de Nokia][]
+1.  Inicie sesión en la [consola para desarrolladores de API de notificaciones de Nokia][consola para desarrolladores de API de notificaciones de Nokia]
 
 2.  Vaya a la pestaña **Create services** y cree un nuevo servicio proporcionando la información correspondiente en los campos **Sender ID** y **Service description**
 
@@ -39,11 +39,11 @@ Este tutorial requiere lo siguiente:
 
     ![][3]
 
-5.  Para obtener detalles, consulte este [vínculo][].
+5.  Para obtener detalles, consulte este [vínculo][vínculo].
 
 ## <span id="configure-hub"></span></a>Configuración de su Centro de notificaciones
 
-1.  Inicie sesión en el [Portal de administración de Azure][] y, a continuación, haga clic en **+NEW** en la parte inferior de la pantalla.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure] y, a continuación, haga clic en **+NEW** en la parte inferior de la pantalla.
 
 2.  Haga clic sucesivamente en **Servicios de aplicaciones**, **Bus de servicio**, **Centro de notificaciones** y finalmente en **Creación rápida**.
 
@@ -296,13 +296,13 @@ Este tutorial requiere lo siguiente:
 
 ## <a name="send"></a>Envío de una notificación a la aplicación
 
-Puede enviar notificaciones mediante los centros de notificaciones desde cualquier back-end que use la [interfaz de REST][]. En este tutorial se lo mostraremos usando una aplicación de consola .NET.
+Puede enviar notificaciones mediante los centros de notificaciones desde cualquier back-end que use la [interfaz de REST][interfaz de REST]. En este tutorial se lo mostraremos usando una aplicación de consola .NET.
 
-1.  Cree una aplicación de consola nueva de Visual C\#:
+1.  Cree una aplicación de consola nueva de Visual C#:
 
     ![][13]
 
-2.  Agregue una referencia al SDK de Bus de servicio de Azure con el [paquete WindowsAzure.ServiceBus NuGet][]. En el menú principal de Visual Studio, haga clic en **Herramientas**, luego en **Administrador de paquetes de biblioteca** y finalmente en **Consola del Administrador de paquetes**. Posteriormente, en la ventana de la consola, escriba lo siguiente y presione Entrar:
+2.  Agregue una referencia al SDK de Bus de servicio de Azure con el [paquete WindowsAzure.ServiceBus NuGet][paquete WindowsAzure.ServiceBus NuGet]. En el menú principal de Visual Studio, haga clic en **Herramientas**, luego en **Administrador de paquetes de biblioteca** y finalmente en **Consola del Administrador de paquetes**. Posteriormente, en la ventana de la consola, escriba lo siguiente y presione Entrar:
 
         Install-Package WindowsAzure.ServiceBus
 
@@ -358,7 +358,7 @@ Si la aplicaci&oacute;n Android es capaz de registrarse correctamente con el cen
   [Conexión de su aplicación al Centro de notificaciones]: #connect-hub
   [Envío de una notificación a la aplicación]: #send
   [Prueba de la aplicación]: #test-app
-  [Evaluación gratuita de Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
+  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [estas]: http://developer.nokia.com/resources/library/nokia-x/getting-started/environment-setup.html
   [1]: http://developer.nokia.com/resources/library/nokia-x/getting-started/device-setup.html
   [aquí]: http://go.microsoft.com/fwlink/?linkid=389797&clcid=0x409
@@ -377,6 +377,6 @@ Si la aplicaci&oacute;n Android es capaz de registrarse correctamente con el cen
   [10]: ./media/notification-hubs-nokia-x-get-started/NewAndroidApp.png
   [11]: ./media/notification-hubs-nokia-x-get-started/AndroidBuildTarget.png
   [12]: ./media/notification-hubs-nokia-x-get-started/NewJavaClass.png
-  [interfaz de REST]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+  [interfaz de REST]: http://msdn.microsoft.com/es-es/library/windowsazure/dn223264.aspx
   [13]: ./media/notification-hubs-nokia-x-get-started/ConsoleProject.png
   [paquete WindowsAzure.ServiceBus NuGet]: http://nuget.org/packages/WindowsAzure.ServiceBus/

@@ -6,16 +6,16 @@
 
 Los servicios de BizTalk de Azure incluyen las capacidades de copia de seguridad y restauración. En este tema se describe cómo realizar la copia de seguridad y la restauración de los servicios de BizTalk con el Portal de administración de Azure, que incluye:
 
--   [Introducción][]
--   [Creación de una copia de seguridad][]
--   [Restauración de una copia de seguridad][]
--   [¿Qué se incluye en la copia de seguridad?][]
+-   [Introducción][Introducción]
+-   [Creación de una copia de seguridad][Creación de una copia de seguridad]
+-   [Restauración de una copia de seguridad][Restauración de una copia de seguridad]
+-   [¿Qué se incluye en la copia de seguridad?][¿Qué se incluye en la copia de seguridad?]
 
-También puede realizar la copia de seguridad de los Servicios de BizTalk mediante la [API de REST de los Servicios de BizTalk][].
+También puede realizar la copia de seguridad de los Servicios de BizTalk mediante la [API de REST de los Servicios de BizTalk][API de REST de los Servicios de BizTalk].
 
 ## <a name="beforebackup"></a>Introducción
 
--   Puede que Copias de seguridad y restauración no esté disponible para todas las ediciones. Consulte [Servicios de BizTalk: Tabla de ediciones][].
+-   Puede que Copias de seguridad y restauración no esté disponible para todas las ediciones. Consulte [Servicios de BizTalk: Tabla de ediciones][Servicios de BizTalk: Tabla de ediciones].
 
     **Nota** NO se realiza ninguna copia de seguridad de las conexiones híbridas, independientemente de la edición.
 
@@ -39,9 +39,9 @@ También puede realizar la copia de seguridad de los Servicios de BizTalk median
 
 Puede realizar una copia de seguridad en cualquier momento y controlarla por completo. Esta sección muestra los pasos para crear copias de seguridad mediante el Portal de administración de Azure, entre los que se incluyen:
 
-[Copia de seguridad bajo demanda][]
+[Copia de seguridad bajo demanda][Copia de seguridad bajo demanda]
 
-[Programación de una copia de seguridad][]
+[Programación de una copia de seguridad][Programación de una copia de seguridad]
 
 #### <a name="backupnow"></a>Copia de seguridad bajo demanda
 
@@ -71,13 +71,13 @@ Cuando se ejecute un trabajo de copia de seguridad programada, se crea un conten
 
 Si el panel del Servicios de BizTalk muestra un estado **Con error**:
 
-![Estado de la última copia de seguridad programada][]
+![Estado de la última copia de seguridad programada][Estado de la última copia de seguridad programada]
 
-El vínculo abre los Registros de operaciones de Servicios de administración para ayudar a solucionar problemas. Consulte [Servicios de BizTalk: Solución de problemas con la utilización de los registros de operaciones][].
+El vínculo abre los Registros de operaciones de Servicios de administración para ayudar a solucionar problemas. Consulte [Servicios de BizTalk: Solución de problemas con la utilización de los registros de operaciones][Servicios de BizTalk: Solución de problemas con la utilización de los registros de operaciones].
 
 ## <a name="restore"></a>Restauración
 
-Puede restaurar las copias de seguridad desde el Portal de administración de Azure o desde la [API de REST para la restauración del Servicio de BizTalk][]. En esta sección se muestran los pasos para realizar la restauración mediante el Portal de administración.
+Puede restaurar las copias de seguridad desde el Portal de administración de Azure o desde la [API de REST para la restauración del Servicio de BizTalk][API de REST para la restauración del Servicio de BizTalk]. En esta sección se muestran los pasos para realizar la restauración mediante el Portal de administración.
 
 #### Antes de restaurar una copia de seguridad
 
@@ -225,19 +225,19 @@ Cuando se crea el Servicio de BizTalk, se definen los detalles de la base de dat
 </table>
 ## Pasos siguientes
 
-Para crear los Servicios de BizTalk de Azure en el Portal de administración de Azure, vaya a [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][]. Para comenzar a crear aplicaciones, vaya a [Servicios de BizTalk de Azure][].
+Para crear los Servicios de BizTalk de Azure en el Portal de administración de Azure, vaya a [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure]. Para comenzar a crear aplicaciones, vaya a [Servicios de BizTalk de Azure][Servicios de BizTalk de Azure].
 
 ## Otras referencias
 
 -   [Copia de seguridad del servicio de BizTalk][API de REST de los Servicios de BizTalk]
 -   [Restauración del servicio de BizTalk a partir de una copia de seguridad][API de REST para la restauración del Servicio de BizTalk]
--   [Servicios de BizTalk: Gráfico de las ediciones Developer, Basic, Standard y Premium][]
--   [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][]
--   [Servicios de BizTalk: Gráfico del estado de aprovisionamiento][]
--   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala][]
--   [Servicios de BizTalk: Limitaciones][]
--   [Servicios de BizTalk: Nombre de emisor y clave de emisor][]
--   [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?][]
+-   [Servicios de BizTalk: Gráfico de las ediciones Developer, Basic, Standard y Premium][Servicios de BizTalk: Gráfico de las ediciones Developer, Basic, Standard y Premium]
+-   [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure]
+-   [Servicios de BizTalk: Gráfico del estado de aprovisionamiento][Servicios de BizTalk: Gráfico del estado de aprovisionamiento]
+-   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala][Servicios de BizTalk: Pestañas Panel, Monitor y Escala]
+-   [Servicios de BizTalk: Limitaciones][Servicios de BizTalk: Limitaciones]
+-   [Servicios de BizTalk: Nombre de emisor y clave de emisor][Servicios de BizTalk: Nombre de emisor y clave de emisor]
+-   [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?][¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?]
 
   [Introducción]: #beforebackup
   [Creación de una copia de seguridad]: #createbu

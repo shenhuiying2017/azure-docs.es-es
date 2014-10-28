@@ -15,44 +15,44 @@
 
 El control de acceso basado en roles (RBAC) es la práctica de asignar permisos a roles que los usuarios pueden mantener, definiendo límites con precisión en lo que ciertas clases de usuarios pueden y no pueden hacer. Este tutorial le enseñará cómo agregar RBAC básico a Servicios móviles de Azure.
 
-En este tutorial se mostrará el control de acceso basado en roles, comprobando la suscripción de cada usuario a un grupo Sales definido en Azure Active Directory (AAD). La comprobación del acceso se realizará con JavaScript en el back-end del servicio móvil mediante la [API Graph][] para Azure Active Directory. Solamente a los usuarios que pertenezcan al rol Sales se les permitirá consultar los datos.
+En este tutorial se mostrará el control de acceso basado en roles, comprobando la suscripción de cada usuario a un grupo Sales definido en Azure Active Directory (AAD). La comprobación del acceso se realizará con JavaScript en el back-end del servicio móvil mediante la [API Graph][API Graph] para Azure Active Directory. Solamente a los usuarios que pertenezcan al rol Sales se les permitirá consultar los datos.
 
-> [WACOM.NOTE] El objetivo de este tutorial es ampliar su conocimiento sobre la autenticación para incluir prácticas de autorización. Se espera que primero complete el tutorial [Introducción a la autenticación][] usando el proveedor de autenticación de Azure Active Directory. Este tutorial continua para actualizar la aplicación TodoItem usada en el tutorial [Introducción a la autenticación][].
+> [WACOM.NOTE] El objetivo de este tutorial es ampliar su conocimiento sobre la autenticación para incluir prácticas de autorización. Se espera que primero complete el tutorial [Introducción a la autenticación][Introducción a la autenticación] usando el proveedor de autenticación de Azure Active Directory. Este tutorial continua para actualizar la aplicación TodoItem usada en el tutorial [Introducción a la autenticación][Introducción a la autenticación].
 
 Este tutorial le guiará a través de los siguientes pasos:
 
-1.  [Creación de un grupo Sales con suscripción][]
-2.  [Generación de una clave para la aplicación integrada][]
-3.  [Adición de un script compartido que comprueba la suscripción][]
-4.  [Adición de comprobación del acceso basado en rol a las operaciones de base de datos][]
-5.  [Prueba del acceso del cliente][]
+1.  [Creación de un grupo Sales con suscripción][Creación de un grupo Sales con suscripción]
+2.  [Generación de una clave para la aplicación integrada][Generación de una clave para la aplicación integrada]
+3.  [Adición de un script compartido que comprueba la suscripción][Adición de un script compartido que comprueba la suscripción]
+4.  [Adición de comprobación del acceso basado en rol a las operaciones de base de datos][Adición de comprobación del acceso basado en rol a las operaciones de base de datos]
+5.  [Prueba del acceso del cliente][Prueba del acceso del cliente]
 
 Este tutorial requiere lo siguiente:
 
 -   Visual Studio 2013 en Windows 8.1.
--   Finalización del tutorial [Introducción a la autenticación][] usando el proveedor de autenticación de Azure Active Directory.
--   Finalización del tutorial [Almacenamiento de scripts de servidor][] para familiarizarse con el uso de un repositorio Git para almacenar scripts de servidor.
+-   Finalización del tutorial [Introducción a la autenticación][Introducción a la autenticación] usando el proveedor de autenticación de Azure Active Directory.
+-   Finalización del tutorial [Almacenamiento de scripts de servidor][Almacenamiento de scripts de servidor] para familiarizarse con el uso de un repositorio Git para almacenar scripts de servidor.
 
 ## <a name="create-group"></a>Creación de un grupo Sales con suscripción
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group][]]
+[WACOM.INCLUDE [mobile-services-aad-rbac-create-sales-group](../includes/mobile-services-aad-rbac-create-sales-group.md)]
 
 ## <a name="generate-key"></a>Generación de una clave para la aplicación integrada
 
-Durante el tutorial [Introducción a la autenticación][], creó un registro para la aplicación integrada cuando completó el paso [Registro para usar un inicio de sesión de Azure Active Directory][]. En esta sección generará una clave para utilizar cuando lea información de directorio con el identificador de cliente de la aplicación integrada.
+Durante el tutorial [Introducción a la autenticación][Introducción a la autenticación], creó un registro para la aplicación integrada cuando completó el paso [Registro para usar un inicio de sesión de Azure Active Directory][Registro para usar un inicio de sesión de Azure Active Directory]. En esta sección generará una clave para utilizar cuando lea información de directorio con el identificador de cliente de la aplicación integrada.
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key][]]
+[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 ## <a name="add-shared-script"></a>Adición de un script compartido al servicio móvil que comprueba la suscripción
 
-En esta sección utilizará Git para implementar un archivo de script compartido llamado *rbac.js* en el servicio móvil. Este archivo de script compartido continuará las funciones que usan la [API Graph][] para comprobar la suscripción al grupo del usuario.
+En esta sección utilizará Git para implementar un archivo de script compartido llamado *rbac.js* en el servicio móvil. Este archivo de script compartido continuará las funciones que usan la [API Graph][API Graph] para comprobar la suscripción al grupo del usuario.
 
-Si no está familiarizado con la implementación de scripts en el servicio móvil con Git, revise el tutorial [Almacenamiento de scripts de servidor][] antes de completar esta sección.
+Si no está familiarizado con la implementación de scripts en el servicio móvil con Git, revise el tutorial [Almacenamiento de scripts de servidor][Almacenamiento de scripts de servidor] antes de completar esta sección.
 
 1.  Cree un nuevo archivo de script llamado *rbac.js* en el directorio *./service/shared/* del repositorio local para el servicio móvil.
 2.  Agregue el siguiente script a la parte superior del archivo que define la función `getAADToken`. Dado el *tenant\_domain*, el *identificador de cliente* de la aplicación integrada y la *clave* de la aplicación, esta función proporciona un token de acceso Graph usado para leer información de directorio.
 
-    > [WACOM.NOTE] Debe almacenar en caché el token en lugar de crear uno nuevo con cada comprobación de acceso. A continuación, actualice la memoria caché cuando los intentos de uso del token arrojen una respuesta 401 Authentication\_ExpiredToken como se indica en la [referencia de errores de la API Graph][]. Por simplificar, esto no se muestra en el código que aparece a continuación, pero aliviará el tráfico de red adicional que sufre su Active Directory.
+    > [WACOM.NOTE] Debe almacenar en caché el token en lugar de crear uno nuevo con cada comprobación de acceso. A continuación, actualice la memoria caché cuando los intentos de uso del token arrojen una respuesta 401 Authentication\_ExpiredToken como se indica en la [referencia de errores de la API Graph][referencia de errores de la API Graph]. Por simplificar, esto no se muestra en el código que aparece a continuación, pero aliviará el tráfico de red adicional que sufre su Active Directory.
 
         var appSettings = require('mobileservice-config').appSettings;
         var tenant_domain = appSettings.AAD_TENANT_DOMAIN;
@@ -100,9 +100,9 @@ Si no está familiarizado con la implementación de scripts en el servicio móvi
             });
         }
 
-4.  Agregue el siguiente código a *rbac.js* para definir la función `isMemberOf` que llama al extremo [IsMemberOf][] de la API Graph REST.
+4.  Agregue el siguiente código a *rbac.js* para definir la función `isMemberOf` que llama al extremo [IsMemberOf][IsMemberOf] de la API Graph REST.
 
-    Esta función es un contenedor delgado alrededor del extremo [IsMemberOf][] de la API Graph REST. Usa el token de acceso Graph para comprobar si el identificador de objeto de directorio del usuario tiene suscripción en el grupo basándose en dicho identificador.
+    Esta función es un contenedor delgado alrededor del extremo [IsMemberOf][IsMemberOf] de la API Graph REST. Usa el token de acceso Graph para comprobar si el identificador de objeto de directorio del usuario tiene suscripción en el grupo basándose en dicho identificador.
 
         function isMemberOf(access_token, userObjectId, groupObjectId, callback) {
             var req = require("request");
@@ -151,7 +151,7 @@ Si no está familiarizado con la implementación de scripts en el servicio móvi
 
 ## <a name="add-access-checking"></a>Adición de comprobación del acceso basado en rol a las operaciones de base de datos
 
-Cuando completó el tutorial [Introducción a la autenticación][], debió haber establecido las operaciones de tabla para solicitar autenticación tal y como se muestra a continuación.
+Cuando completó el tutorial [Introducción a la autenticación][Introducción a la autenticación], debió haber establecido las operaciones de tabla para solicitar autenticación tal y como se muestra a continuación.
 
 ![][]
 
@@ -231,17 +231,17 @@ En los pasos siguientes se muestra cómo implementar el control de acceso basado
 
         git push origin master
 
-8.  En el [Portal de administración de Azure][] debe poder navegar a las operaciones de tabla del servicio móvil y ver las actualizaciones en su lugar tal y como se muestra a continuación.
+8.  En el [Portal de administración de Azure][Portal de administración de Azure] debe poder navegar a las operaciones de tabla del servicio móvil y ver las actualizaciones en su lugar tal y como se muestra a continuación.
 
     ![][1]
 
 ## <a name="test-client"></a>Prueba del acceso del cliente
 
-[WACOM.INCLUDE [mobile-services-aad-rbac-test-app][]]
+[WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
 <!-- Anchors. --> <!-- Images --> <!-- URLs. -->
 
-  [C\# para Tienda Windows]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "C# para Tienda Windows"
+  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "C# para Tienda Windows"
   [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "Back-end de .NET"
   [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "Back-end de JavaScript"
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
@@ -255,8 +255,8 @@ En los pasos siguientes se muestra cómo implementar el control de acceso basado
   [mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
   [Registro para usar un inicio de sesión de Azure Active Directory]: /es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
-  [referencia de errores de la API Graph]: http://msdn.microsoft.com/en-us/library/azure/hh974480.aspx
-  [IsMemberOf]: http://msdn.microsoft.com/en-us/library/azure/dn151601.aspx
+  [referencia de errores de la API Graph]: http://msdn.microsoft.com/es-es/library/azure/hh974480.aspx
+  [IsMemberOf]: http://msdn.microsoft.com/es-es/library/azure/dn151601.aspx
   []: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png

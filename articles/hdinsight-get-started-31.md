@@ -10,11 +10,11 @@
 <a href="../hdinsight-get-started-21" title="Introducci&oacute;n al uso de Hadoop 1.2 en HDInsight">Hadoop 1.2</a>
 </div>
 
-HDInsight pone [Apache Hadoop][] a disposición de los usuarios como servicio en la nube. De esta forma, el marco de software de MapReduce está disponible en un entorno de Azure más sencillo, escalable y rentable. HDInsight también ofrece una solución rentable para la administración y el almacenamiento de datos mediante el almacenamiento de blobs de Azure.
+HDInsight pone [Apache Hadoop][Apache Hadoop] a disposición de los usuarios como servicio en la nube. De esta forma, el marco de software de MapReduce está disponible en un entorno de Azure más sencillo, escalable y rentable. HDInsight también ofrece una solución rentable para la administración y el almacenamiento de datos mediante el almacenamiento de blobs de Azure.
 
 En este tutorial, aprovisionará un clúster de Hadoop en HDInsight mediante el uso del Portal de administración de Azure, enviará un trabajo de Hive para consultar en una tabla de Hive de ejemplo con el panel de clúster de HDInsight y luego importará los datos de salida del trabajo de Hive en Excel a fin de examinarlos.
 
-> [WACOM.NOTE] En este tutorial se trata el uso de los clústeres de Hadoop 2.4 en HDInsight (vista previa). Para otras versiones admitidas, haga clic en el selector en la parte superior de la página. Para obtener información de la versión, consulte [Novedades en las versiones de clústeres proporcionadas por HDInsight][]
+> [WACOM.NOTE] En este tutorial se trata el uso de los clústeres de Hadoop 2.4 en HDInsight (vista previa). Para otras versiones admitidas, haga clic en el selector en la parte superior de la página. Para obtener información de la versión, consulte [Novedades en las versiones de clústeres proporcionadas por HDInsight][Novedades en las versiones de clústeres proporcionadas por HDInsight]
 
 La demostración en vivo de este artículo:
 
@@ -22,28 +22,28 @@ La demostración en vivo de este artículo:
 
 ![HDI.getstarted.video] (https://www.youtube.com/watch?v=Y4aNjnoeaHA&list=PLDrz-Fkcb9WWdY-Yp6D4fTC1ll_3lU-QS)
 
-Además de poner HDInsight de Azure a disposición de los usuarios, Microsoft también ha lanzado el emulador de HDInsight para Azure, anteriormente conocido como *Microsoft HDInsight Developer Preview*. Este producto está destinado a los desarrolladores y, como tal, solo admite implementaciones de un solo nodo. Para usar el emulador de HDInsight, consulte [Introducción al emulador de HDInsight][].
+Además de poner HDInsight de Azure a disposición de los usuarios, Microsoft también ha lanzado el emulador de HDInsight para Azure, anteriormente conocido como *Microsoft HDInsight Developer Preview*. Este producto está destinado a los desarrolladores y, como tal, solo admite implementaciones de un solo nodo. Para usar el emulador de HDInsight, consulte [Introducción al emulador de HDInsight][Introducción al emulador de HDInsight].
 
 **Requisitos previos:**
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
--   Una suscripción de Azure. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][], [Ofertas para miembros][] o [Evaluación gratuita][].
+-   Una suscripción de Azure. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][Opciones de compra], [Ofertas para miembros][Ofertas para miembros] o [Evaluación gratuita][Evaluación gratuita].
 -   Un equipo con Office Professional Plus 2013, Office 365 Pro Plus, Excel 2013 Standalone u Office Professional Plus 2010.
--   Para ver las notas sobre las últimas versiones de HDInsight, consulte las [notas de la versión de DInsight][].
+-   Para ver las notas sobre las últimas versiones de HDInsight, consulte las [notas de la versión de DInsight][notas de la versión de DInsight].
 
 **Duración aproximada:** 30 minutos
 
 ## Apartados de este tutorial
 
--   [Aprovisionamiento de un clúster de HDInsight][]
--   [Ejecución de un trabajo de Hive][]
--   [Conexión a las herramientas de inteligencia empresarial de Microsoft][]
--   [Pasos siguientes][]
+-   [Aprovisionamiento de un clúster de HDInsight][Aprovisionamiento de un clúster de HDInsight]
+-   [Ejecución de un trabajo de Hive][Ejecución de un trabajo de Hive]
+-   [Conexión a las herramientas de inteligencia empresarial de Microsoft][Conexión a las herramientas de inteligencia empresarial de Microsoft]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="provision"></a>Aprovisionamiento de un clúster de HDInsight
 
-HDInsight usa el almacenamiento de blobs de Azure para almacenar datos. Se llama *WASB* o *Almacenamiento de Azure - Blob*. WASB es la implementación del sistema de archivos distribuido de Hadoop (HDFS) de Microsoft en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][].
+HDInsight usa el almacenamiento de blobs de Azure para almacenar datos. Se llama *WASB* o *Almacenamiento de Azure - Blob*. WASB es la implementación del sistema de archivos distribuido de Hadoop (HDFS) de Microsoft en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][Uso del almacenamiento de blobs de Azure con HDInsight].
 
 Cuando se aprovisiona un clúster de HDInsight, se designan una cuenta de almacenamiento de Azure y un contenedor de almacenamiento de blobs específico de dicha cuenta como sistema de archivos predeterminado, de la misma forma que en HDFS. Dicha cuenta debe estar ubicada en el mismo centro de datos que los recursos de proceso de HDInsight. En la actualidad, solo pueden aprovisionarse clústeres de HDInsight en los siguientes centros de datos:
 
@@ -53,16 +53,16 @@ Cuando se aprovisiona un clúster de HDInsight, se designan una cuenta de almace
 -   Este de EE. UU.
 -   Oeste de EE. UU.
 
-Además de esta cuenta de almacenamiento, puede agregar más cuentas de almacenamiento desde la misma suscripción de Azure o desde otras diferentes. Para obtener instrucciones acerca de cómo agregar más cuentas de almacenamiento, consulte [Aprovisionamiento de clústeres de HDInsight][].
+Además de esta cuenta de almacenamiento, puede agregar más cuentas de almacenamiento desde la misma suscripción de Azure o desde otras diferentes. Para obtener instrucciones acerca de cómo agregar más cuentas de almacenamiento, consulte [Aprovisionamiento de clústeres de HDInsight][Aprovisionamiento de clústeres de HDInsight].
 
 Para simplificar este tutorial, solo se van a usar el contenedor de blobs predeterminado y la cuenta de almacenamiento predeterminada, y todos los archivos se almacenarán en el contenedor del sistema de archivos predeterminado ubicado en */tutorials/getstarted/*. En la práctica, los archivos de datos normalmente se almacenan en una cuenta de almacenamiento designada.
 
 **Para crear una cuenta de Almacenamiento de Azure**
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  Haga clic en **NEW** en la esquina inferior izquierda, seleccione **SERVICIOS DE DATOS**, **ALMACENAMIENTO** y, a continuación, haga clic en **CREACIÓN RÁPIDA**.
 
-    ![HDI.StorageAccount.QuickCreate][]
+    ![HDI.StorageAccount.QuickCreate][HDI.StorageAccount.QuickCreate]
 
 3.  Escriba los detalles de **URL**, **UBICACIÓN** y **REPLICACIÓN** y, a continuación, haga clic en **CREAR CUENTA DE ALMACENAMIENTO**. No se admiten grupos de afinidad. La nueva cuenta de almacenamiento aparecerá en la lista de almacenamiento.
 4.  Espere hasta que la característica **STATUS** de la nueva cuenta de almacenamiento cambie a **Online**.
@@ -71,19 +71,19 @@ Para simplificar este tutorial, solo se van a usar el contenedor de blobs predet
 7.  Tome nota de los valores de los campos **NOMBRE DE CUENTA DE ALMACENAMIENTO** y **CLAVE DE ACCESO PRIMARIA** (o **CLAVE DE ACCESO SECUNDARIA**. Cualquiera de las claves funciona). Los necesitará más adelante en el tutorial.
 
 Para obtener más información, consulte
-[Creación de una cuenta de almacenamiento][] y [Uso del almacenamiento de blobs de Azure con HDInsight][].
+[Creación de una cuenta de almacenamiento][Creación de una cuenta de almacenamiento] y [Uso del almacenamiento de blobs de Azure con HDInsight][Uso del almacenamiento de blobs de Azure con HDInsight].
 
 **Para aprovisionar un clúster de HDInsight**
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  Haga clic en **HDINSIGHT** en la izquierda para ver los clústeres de HDInsight en la cuenta. En la captura de pantalla siguiente no hay ningún clúster de HDInsight.
 
-    ![HDI.ClusterStatus][]
+    ![HDI.ClusterStatus][HDI.ClusterStatus]
 
 3.  Haga clic en **New** en la esquina inferior izquierda y, después, en **Servicios de datos**, **HDInsight** y en **Creación personalizada**.
 
-    ![ClústerCreaciónPersonalizada.HDI][]
+    ![ClústerCreaciónPersonalizada.HDI][ClústerCreaciónPersonalizada.HDI]
 
 4.  En la pestaña de detalles del clúster, escriba o seleccione los valores siguientes:
 
@@ -116,13 +116,13 @@ Ahora ya se ha aprovisionado un clúster de HDInsight. El siguiente paso es ejec
 
 **Para abrir el panel de clúster de HDInsight, siga estos pasos:**
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  Haga clic en **HDINSIGHT** en el panel izquierdo. Verá una lista de los clústeres creados, junto con el que acaba de crear en la última sección.
 3.  Haga clic en el nombre del clúster donde desea ejecutar el trabajo de Hive.
 4.  Haga clic en **ADMINISTRAR CLÚSTER** en la parte inferior de la página para abrir el panel de clúster de HDInsight. Se abre una página web en una pestaña de explorador diferente.
 5.  Escriba el nombre de usuario y la contraseña de la cuenta de usuario de Hadoop. El nombre de usuario predeterminado es **admin** y la contraseña es la que ha escrito durante el proceso de aprovisionamiento. El panel tiene este aspecto:
 
-    ![hdi.dashboard][]
+    ![hdi.dashboard][hdi.dashboard]
 
     Hay varias pestañas en la parte superior. La pestaña predeterminada es *Editor de Hive*, otras pestañas incluyen Trabajos y Archivos. Mediante el panel, puede enviar consultas de Hive, comprobar registros de trabajo de Hive y examinar archivos WASB.
 
@@ -138,13 +138,13 @@ Ahora ya se ha aprovisionado un clúster de HDInsight. El siguiente paso es ejec
             WHERE devicemake LIKE "HTC%"
             LIMIT 20;
 
-    ![hdi.dashboard.query.select][]
+    ![hdi.dashboard.query.select][hdi.dashboard.query.select]
 
 4.  Haga clic en **Enviar**. Los resultados tardan unos segundos en aparecer. La pantalla se actualiza cada 30 segundos. También puede hacer clic en **Actualizar** para renovar la pantalla.
 
     Una vez completado el proceso, la pantalla tendrá el siguiente aspecto:
 
-    ![hdi.dashboard.query.select.result][]
+    ![hdi.dashboard.query.select.result][hdi.dashboard.query.select.result]
 
     Anote el valor de **Hora de inicio del trabajo (UTC)**. Lo necesitará más adelante.
 
@@ -167,14 +167,14 @@ Para completar esta parte del tutorial, debe tener instalado Excel 2010 o 2013.
 
 **Para descargar Microsoft Power Query para Excel**
 
--   Descargue Microsoft Power Query para Excel en el [Centro de descarga de Microsoft][] e instálelo.
+-   Descargue Microsoft Power Query para Excel en el [Centro de descarga de Microsoft][Centro de descarga de Microsoft] e instálelo.
 
 **Para importar datos de HDInsight**
 
 1.  Abra Excel y cree un libro en blanco.
 2.  Haga clic en el menú **Power Query**, en **Desde otros orígenes** y, a continuación, en **De HDInsight de Azure**.
 
-    ![HDI.GettingStarted.PowerQuery.ImportData][]
+    ![HDI.GettingStarted.PowerQuery.ImportData][HDI.GettingStarted.PowerQuery.ImportData]
 
 3.  En **Nombre de cuenta**, escriba el nombre de la cuenta de almacenamiento de blobs de Azure asociada con su clúster y, a continuación, haga clic en **Aceptar**. Esta es la cuenta de almacenamiento creada previamente en el tutorial.
 4.  En **Clave de cuenta**, escriba la clave de la cuenta de almacenamiento de blobs de Azure y, a continuación, haga clic en **Guardar**.
@@ -182,7 +182,7 @@ Para completar esta parte del tutorial, debe tener instalado Excel 2010 o 2013.
 
 6.  Busque **stdout** en la columna **Name** (la ruta de la carpeta es *.../Templeton-Job-Status/<guid>*) y, a continuación, haga clic en **Binary** a la izquierda de **stdout**. El <guid> debe coincidir con el que escribiera en la última sección.
 
-    ![HDI.GettingStarted.PowerQuery.ImportData2][]
+    ![HDI.GettingStarted.PowerQuery.ImportData2][HDI.GettingStarted.PowerQuery.ImportData2]
 
 7.  Haga clic en **Apply & Close** en la esquina superior izquierda. La consulta importa luego la salida del trabajo de Hive en Excel.
 
@@ -190,16 +190,16 @@ Para completar esta parte del tutorial, debe tener instalado Excel 2010 o 2013.
 
 En este tutorial ha aprendido cómo aprovisionar un clúster con HDInsight, cómo ejecutar un trabajo de MapReduce en este y cómo importar los resultados en Excel para procesarlos mejor y representarlos gráficamente mediante las herramientas de BI. Para obtener más información, consulte los artículos siguientes:
 
--   [Introducción al emulador de HDInsight][]
--   [Uso del almacenamiento de blobs de Azure con HDInsight][]
--   [Administración de HDInsight con PowerShell][]
--   [Carga de datos en HDInsight][]
--   [Uso de MapReduce con HDInsight][]
--   [Uso de Hive con HDInsight][]
--   [Uso de Pig con HDInsight][]
--   [Uso de Oozie con HDInsight][]
--   [Desarrollo de programas de streaming de Hadoop C\# para HDInsight][]
--   [Desarrollo de programas MapReduce de Java para HDInsight][]
+-   [Introducción al emulador de HDInsight][Introducción al emulador de HDInsight]
+-   [Uso del almacenamiento de blobs de Azure con HDInsight][Uso del almacenamiento de blobs de Azure con HDInsight]
+-   [Administración de HDInsight con PowerShell][Administración de HDInsight con PowerShell]
+-   [Carga de datos en HDInsight][Carga de datos en HDInsight]
+-   [Uso de MapReduce con HDInsight][Uso de MapReduce con HDInsight]
+-   [Uso de Hive con HDInsight][Uso de Hive con HDInsight]
+-   [Uso de Pig con HDInsight][Uso de Pig con HDInsight]
+-   [Uso de Oozie con HDInsight][Uso de Oozie con HDInsight]
+-   [Desarrollo de programas de streaming de Hadoop C# para HDInsight][Desarrollo de programas de streaming de Hadoop C# para HDInsight]
+-   [Desarrollo de programas MapReduce de Java para HDInsight][Desarrollo de programas MapReduce de Java para HDInsight]
 
   [Hadoop 2.2]: ../hdinsight-get-started "Introducción al uso de Hadoop 2.2 en HDInsight"
   [Hadoop 2.4]: ../hdinsight-get-started-31 "Introducción al uso de Hadoop 2.4 en HDInsight"
@@ -208,9 +208,9 @@ En este tutorial ha aprendido cómo aprovisionar un clúster con HDInsight, cóm
   [Novedades en las versiones de clústeres proporcionadas por HDInsight]: ../hdinsight-component-versioning/
   
   [Introducción al emulador de HDInsight]: ../hdinsight-get-started-emulator/
-  [Opciones de compra]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Ofertas para miembros]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Evaluación gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Opciones de compra]: http://azure.microsoft.com/es-es/pricing/purchase-options/
+  [Ofertas para miembros]: http://azure.microsoft.com/es-es/pricing/member-offers/
+  [Evaluación gratuita]: http://azure.microsoft.com/es-es/pricing/free-trial/
   [notas de la versión de DInsight]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-release-notes/
   [Aprovisionamiento de un clúster de HDInsight]: #provision
   [Ejecución de un trabajo de Hive]: #sample
@@ -226,7 +226,7 @@ En este tutorial ha aprendido cómo aprovisionar un clúster con HDInsight, cóm
   [hdi.dashboard]: ./media/hdinsight-get-started/HDI.dashboard.png
   [hdi.dashboard.query.select]: ./media/hdinsight-get-started/HDI.dashboard.query.select.png
   [hdi.dashboard.query.select.result]: ./media/hdinsight-get-started/HDI.dashboard.query.select.result.png
-  [Centro de descarga de Microsoft]: http://www.microsoft.com/en-us/download/details.aspx?id=39379
+  [Centro de descarga de Microsoft]: http://www.microsoft.com/es-es/download/details.aspx?id=39379
   [HDI.GettingStarted.PowerQuery.ImportData]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
   [HDI.GettingStarted.PowerQuery.ImportData2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
   [Administración de HDInsight con PowerShell]: ../hdinsight-administer-use-powershell/
@@ -235,5 +235,5 @@ En este tutorial ha aprendido cómo aprovisionar un clúster con HDInsight, cóm
   [Uso de Hive con HDInsight]: ../hdinsight-use-hive/
   [Uso de Pig con HDInsight]: ../hdinsight-use-pig/
   [Uso de Oozie con HDInsight]: ../hdinsight-use-oozie/
-  [Desarrollo de programas de streaming de Hadoop C\# para HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
+  [Desarrollo de programas de streaming de Hadoop C# para HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
   [Desarrollo de programas MapReduce de Java para HDInsight]: ../hdinsight-develop-deploy-java-mapreduce/

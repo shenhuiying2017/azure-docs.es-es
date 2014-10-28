@@ -45,40 +45,40 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 4.  En la lista de aplicaciones, seleccione **Google Apps** para abrir el diálogo de configuración de Google Apps.
 5.  Para abrir el diálogo **CONFIGURE SINGLE SIGN-ON**, haga clic en **Configure single sign-on**.
 
-    ![Google\_Tutorial\_01][]
+    ![Google\_Tutorial\_01][Google\_Tutorial\_01]
 
 6.  En la página de diálogo Select the single sign-on mode for this app, seleccione Users authenticate with their account en Azure AD como MODE y, a continuación, haga clic en el botón Next.
 
-    ![Google\_Tutorial\_02][]
+    ![Google\_Tutorial\_02][Google\_Tutorial\_02]
 
 7.  En la página de diálogo **Configure App URL**, en el cuadro de texto **GOOGLE APPS TENANT URL**, escriba la URL del inquilino de Google Apps y, a continuación, haga clic en el botón **Next**.
 
-    ![Google\_Tutorial\_03][]
+    ![Google\_Tutorial\_03][Google\_Tutorial\_03]
 
 8.  En la página de diálogo **Configure single sign-on at Google Apps**, siga estos pasos y, a continuación, haga clic en el botón **Complete**.
 
     -   Haga clic en **Download certificate** y, a continuación, guarde el certificado como **c:\\googleapps.cer**.
     -   Abra la página de inicio de sesión de Google Apps e inicie sesión.
 
-    ![Google\_Tutorial\_04][]
+    ![Google\_Tutorial\_04][Google\_Tutorial\_04]
 
     -   En la **Consola de administración**, haga clic en Security.
 
-    ![Google\_Tutorial\_05][]
+    ![Google\_Tutorial\_05][Google\_Tutorial\_05]
 
     Si el icono Security no aparece, debe hacer clic en More controls, al final de la página.
 
 9.  En la página **Security**, haga clic en la configuración **Advanced**.
 
-    ![Google\_Tutorial\_06][]
+    ![Google\_Tutorial\_06][Google\_Tutorial\_06]
 
 10. En la sección de configuración **Advanced** de la página, seleccione **Set up single sign-on**.
 
-    ![Google\_Tutorial\_07][]
+    ![Google\_Tutorial\_07][Google\_Tutorial\_07]
 
 11. Siga estos pasos en la página de configuración del inicio de sesión único:
 
-    ![Google\_Tutorial\_08][]
+    ![Google\_Tutorial\_08][Google\_Tutorial\_08]
 
         + Select <strong>Enable Single Sign-on</strong>.
         + On the <strong>Configure single sign-on at Google Apps</strong> page in the Azure AD Portal, copy the <strong>SINGLE SIGN-ON URL</strong>, and then paste it into the related textbox on the <strong>Security page</strong> in the Google Apps <strong>Admin console</strong>.
@@ -89,7 +89,7 @@ El objetivo de esta sección es describir cómo se habilita la autenticación de
 
 12. En la página **Configure single sign-on at Google Apps** del Portal de Azure AD, haga clic en el botón Complete.
 
-Ahora ya puede ir al [Panel de acceso][] y probar el inicio de sesión único en Google Apps.
+Ahora ya puede ir al [Panel de acceso][Panel de acceso] y probar el inicio de sesión único en Google Apps.
 
 # Habilitación del acceso API de Google Apps
 
@@ -100,7 +100,7 @@ Cuando integre Azure Active Directory con Google Apps para el aprovisionamiento 
 1.  Inicie sesión en su inquilino de Google Apps.
 2.  En la **Consola de administración**, haga clic en **Seguridad**
     
-    ![Google\_Tutorial\_05][]
+    ![Google\_Tutorial\_05][Google\_Tutorial\_05]
     </p>
     Si el icono Security no aparece, haga clic en More controls, en la parte final de la Consola de administración.
 
@@ -108,7 +108,7 @@ Cuando integre Azure Active Directory con Google Apps para el aprovisionamiento 
 4.  Seleccione **Habilitar acceso a API**
     .
 
-    ![Google\_Tutorial\_09][]
+    ![Google\_Tutorial\_09][Google\_Tutorial\_09]
 
     </p>
 
@@ -117,7 +117,7 @@ Cuando integre Azure Active Directory con Google Apps para el aprovisionamiento 
 La configuración del aprovisionamiento de usuario con Google Apps exige que el dominio de Azure AD y el dominio de Google Apps tengan el mismo nombre de dominio completo (FQDN). Sin embargo, cuando se usan inquilinos de prueba para verificar la situación que explica este tutorial, los FQDN de su inquilino no coinciden normalmente. Para solucionar este problema, puede configurar dominios personalizados en Azure AD y en Google Apps.
 Configurar un dominio personalizado requiere acceso a su archivo de zona DNS del dominio público.
 
-![Google\_Tutorial\_10][]
+![Google\_Tutorial\_10][Google\_Tutorial\_10]
 
 ## Siga estos pasos para agregar un dominio personalizado en Azure AD:
 
@@ -127,34 +127,34 @@ Configurar un dominio personalizado requiere acceso a su archivo de zona DNS del
 4.  Para abrir el cuadro de texto **ADD DOMAIN NAME**, escriba el nombre de dominio y, a continuación, haga clic en **add**.
 5.  Haga clic en **Next** para abrir la página de diálogo **Verify your domain name**.
 
-    ![Google\_Tutorial\_11][]
+    ![Google\_Tutorial\_11][Google\_Tutorial\_11]
 
 6.  Seleccione un valor en **RECORD TYPE** y, a continuación, registre el registro seleccionado en su archivo de zona DNS.
 
-    ![Google\_Tutorial\_12][]
+    ![Google\_Tutorial\_12][Google\_Tutorial\_12]
 
 7.  Al usar el comando **nslookup**, debe comprobar si el registro DNS se ha registrado correctamente.
 
-    ![Google\_Tutorial\_13][]
+    ![Google\_Tutorial\_13][Google\_Tutorial\_13]
 
 ## Siga estos pasos para agregar un dominio personalizado en Google Apps:
 
 1.  Inicie sesión en su inquilino de Google Apps.
 2.  En la **Consola de administración**, haga clic en **Domains**.
 
-    ![Google\_Tutorial\_14][]
+    ![Google\_Tutorial\_14][Google\_Tutorial\_14]
 
 3.  Haga clic en **Agregar un dominio personalizado**.
 
-    ![Google\_Tutorial\_15][]
+    ![Google\_Tutorial\_15][Google\_Tutorial\_15]
 
 4.  Haga clic en **Use a domain you already own** y, a continuación, en **Continue**.
 
-    ![Google\_Tutorial\_16][]
+    ![Google\_Tutorial\_16][Google\_Tutorial\_16]
 
 5.  Escriba el nombre de dominio personalizado y, a continuación, haga clic en **Continue**.
 
-    ![Google\_Tutorial\_17][]
+    ![Google\_Tutorial\_17][Google\_Tutorial\_17]
 
 6.  Complete los pasos para comprobar a quién pertenece el dominio.
 
@@ -173,7 +173,7 @@ El objetivo de esta sección es describir cómo habilitar el aprovisionamiento d
 4.  Para abrir el diálogo **CONFIGURE ACCOUNT SYNC**, haga clic en **Configure account sync**.
 5.  En la página de diálogo **CONFIGURE ACCOUNT SYNC**, proporcione el nombre de dominio, el nombre de usuario y la contraseña de Google Apps y, a continuación, haga clic en el botón **Next**.
 
-    ![Google\_Tutorial\_18][]
+    ![Google\_Tutorial\_18][Google\_Tutorial\_18]
 
 6.  En la página de diálogo **Confirmation**, haga clic en el botón **Complete** para cerrar el diálogo **CONFIGURE ACCOUNT SYNC**.
 

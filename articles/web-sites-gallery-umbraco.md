@@ -115,7 +115,7 @@ Una vez completada la implementación, el panel de inicio del portal muestra que
   [Published web site page]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
   [Documentación de Umbraco]: http://our.umbraco.org/documentation
   [Tutoriales de vídeo de Umbraco]: https://umbraco.com/help-and-support/video-tutorials.aspx
-  [Introducción al Portal de vista previa de Microsoft Azure]: http://azure.microsoft.com/en-us/overview/preview-portal/
+  [Introducción al Portal de vista previa de Microsoft Azure]: http://azure.microsoft.com/es-es/overview/preview-portal/
   [Documentación del Portal de vista previa de Microsoft Azure]: http://azure.microsoft.com/es-es/documentation/preview-portal/
   [Portal de vista previa de Azure (Channel 9)]: http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal
   [Documentación de Sitios web Microsoft Azure]: http://azure.microsoft.com/es-es/documentation/services/web-sites/

@@ -10,16 +10,16 @@ Asegúrese de que la aplicación se está ejecutando correctamente y que satisfa
 
 Application Insights puede supervisar aplicaciones de Windows Phone, de Windows Store y aplicaciones web hospedadas en local o en máquinas virtuales, así como en sitios web de Windows Azure.
 
-Necesitará [Visual Studio Update 3][] y una cuenta de [Microsoft Azure][] (hay un período de prueba gratuito).
+Necesitará [Visual Studio Update 3][Visual Studio Update 3] y una cuenta de [Microsoft Azure][Microsoft Azure] (hay un período de prueba gratuito).
 
-1.  [Incorporación de Application Insights][]
+1.  [Incorporación de Application Insights][Incorporación de Application Insights]
 
--   [Ejecución del proyecto][]
--   [Consulta de los datos del monitor][]
--   [Implementación de la aplicación][]
--   [Pasos siguientes][]
+-   [Ejecución del proyecto][Ejecución del proyecto]
+-   [Consulta de los datos del monitor][Consulta de los datos del monitor]
+-   [Implementación de la aplicación][Implementación de la aplicación]
+-   [Pasos siguientes][Pasos siguientes]
 
-*Además, si desea supervisar un servicio web existente sin volver a implementarlo o utilizando Visual Studio, puede [instalar un agente en el servidor][].*
+*Además, si desea supervisar un servicio web existente sin volver a implementarlo o utilizando Visual Studio, puede [instalar un agente en el servidor][instalar un agente en el servidor].*
 
 ## <a name="add"></a>1. Incorporación de Application Insights
 
@@ -27,7 +27,7 @@ Necesitará [Visual Studio Update 3][] y una cuenta de [Microsoft Azure][] (hay 
 
 Cuando crea un nuevo proyecto en Visual Studio 2013, asegúrese de que Application Insights está seleccionado.
 
-![Create an ASP.NET project][]
+![Create an ASP.NET project][Create an ASP.NET project]
 
 Si es la primera vez, se le solicitará que proporcione su nombre de usuario para Microsoft Azure en vista previa, o que se registre. (Es diferente de la cuenta de Visual Studio Online).
 
@@ -37,7 +37,7 @@ Si es la primera vez, se le solicitará que proporcione su nombre de usuario par
 
 Para agregar Application Insights a un nuevo proyecto, haga clic con el botón secundario en el proyecto en Explorador de soluciones y elija Add Application Insights.
 
-![Choose Add Application Insights][]
+![Choose Add Application Insights][Choose Add Application Insights]
 
 ## <a name="run"></a>2. Ejecución del proyecto
 
@@ -51,13 +51,13 @@ En Visual Studio, verá un recuento de los eventos que se han recibido.
 
 Abra Application Insights desde su proyecto.
 
-![Right-click your project and open the Azure portal][]
+![Right-click your project and open the Azure portal][Right-click your project and open the Azure portal]
 
 Busque datos en los mosaicos de análisis de uso y del estado de la aplicación. Por ejemplo:
 
-![Click through to more data][]
+![Click through to more data][Click through to more data]
 
-Haga clic en cualquier mosaico para ver más detalles. [Más información sobre los mosaicos e informes.][]
+Haga clic en cualquier mosaico para ver más detalles. [Más información sobre los mosaicos e informes.][Más información sobre los mosaicos e informes.]
 
 > [WACOM.NOTE] Muchos de los mosaicos muestran detalles limitados en esta versión en vista previa.
 
@@ -69,21 +69,21 @@ Implemente la aplicación y observe los datos acumulados.
 
 [Más información sobre los mosaicos e informes][Más información sobre los mosaicos e informes.]
 
-[Pruebas web][]
+[Pruebas web][Pruebas web]
 
-[Captura y búsqueda de registros de diagnóstico][]
+[Captura y búsqueda de registros de diagnóstico][Captura y búsqueda de registros de diagnóstico]
 
-[Solución de problemas][]
+[Solución de problemas][Solución de problemas]
 
 ## Más información
 
--   [Application Insights][]
--   [Incorporación de Application Insights al proyecto][]
+-   [Application Insights][Application Insights]
+-   [Incorporación de Application Insights al proyecto][Incorporación de Application Insights al proyecto]
 -   [Supervisión inmediata de un servidor web activo][instalar un agente en el servidor]
 -   [Exploración de métricas en Application Insights][Más información sobre los mosaicos e informes.]
 -   [Búsqueda del registro de diagnóstico][Captura y búsqueda de registros de diagnóstico]
 -   [Seguimiento de disponibilidad con pruebas web][Pruebas web]
--   [Seguimiento de uso con eventos y métricas][]
+-   [Seguimiento de uso con eventos y métricas][Seguimiento de uso con eventos y métricas]
 -   [Preguntas y repuestas y solución de problemas][Solución de problemas]
 
 <!--Link references-->

@@ -28,7 +28,7 @@
     -   Asia oriental
     -   Centro-Norte de EE. UU
     -   Centro-Sur de EE. UU
--   Con esta versión, HDInsight v1.6 (HDP1.1, Hadoop 1.0.3) y HDInsight v2.1 (HDP1.3, Hadoop 1.2) se van a eliminar del Portal de administración de Azure. Sin embargo, puede seguir creando clústeres de Hadoop para estas versiones mediante cmdlets de HDInsight PowerShell ([New-AzureHDInsightCluster][]) o por medio del [SDK de HDInsight][]. Consulte la página de [versiones de componentes de HDInsight][] para obtener más información.
+-   Con esta versión, HDInsight v1.6 (HDP1.1, Hadoop 1.0.3) y HDInsight v2.1 (HDP1.3, Hadoop 1.2) se van a eliminar del Portal de administración de Azure. Sin embargo, puede seguir creando clústeres de Hadoop para estas versiones mediante cmdlets de HDInsight PowerShell ([New-AzureHDInsightCluster][New-AzureHDInsightCluster]) o por medio del [SDK de HDInsight][SDK de HDInsight]. Consulte la página de [versiones de componentes de HDInsight][versiones de componentes de HDInsight] para obtener más información.
 -   Hortonworks Data Platform (HDP) cambia en esta versión:
 
 | HDP               | Cambios                                                      |
@@ -50,13 +50,13 @@ Con HBase, puede compilar diversas cargas de trabajo en tiempo real en HDInsight
 
 ### Apache Mahout ahora preinstalado en HDInsight 3.1
 
-[Mahout][] se encuentra preinstalado en los clústeres de Hadoop de HDInsight 3.1. Por tanto, puede ejecutar trabajos de Mahout sin necesidad de configuración adicional del clúster. Por ejemplo, puede iniciar una sesión remota en un clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP) y ejecutar el comando Hello world de Mahout sin pasos adicionales:
+[Mahout][Mahout] se encuentra preinstalado en los clústeres de Hadoop de HDInsight 3.1. Por tanto, puede ejecutar trabajos de Mahout sin necesidad de configuración adicional del clúster. Por ejemplo, puede iniciar una sesión remota en un clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP) y ejecutar el comando Hello world de Mahout sin pasos adicionales:
 
         mahout org.apache.mahout.classifier.df.tools.Describe -p /user/hdp/glass.data -f /user/hdp/glass.info -d I 9 N L  
 
         mahout org.apache.mahout.classifier.df.BreimanExample -d /user/hdp/glass.data -ds /user/hdp/glass.info -i 10 -t 100
 
-Para obtener una descripción completa de este procedimiento, vea la documentación del [ejemplo de Breiman][] en el sitio web de Apache Mahout.
+Para obtener una descripción completa de este procedimiento, vea la documentación del [ejemplo de Breiman][ejemplo de Breiman] en el sitio web de Apache Mahout.
 
 ### Las consultas de Hive pueden usar Tez en HDinsight 3.1
 
@@ -66,9 +66,9 @@ Tez no está habilitado de forma predeterminada para consultas de Hive. Para usa
         set hive.execution.engine=tez;
         select sc_status, count(*), histogram_numeric(sc_bytes,5) from website_logs_orc_local group by sc_status;
 
-Hortonworks ha publicado un desglose detallado de las mejoras en el rendimiento de las consultas de Hive con Tez proporcionadas en comparativas estándar. Para obtener detalles, consulte [Comparativa de Apache Hive 13 para Enterprise Hadoop][].
+Hortonworks ha publicado un desglose detallado de las mejoras en el rendimiento de las consultas de Hive con Tez proporcionadas en comparativas estándar. Para obtener detalles, consulte [Comparativa de Apache Hive 13 para Enterprise Hadoop][Comparativa de Apache Hive 13 para Enterprise Hadoop].
 
-Para obtener más información sobre el uso de Hive con Tez, consulte la [página de wiki Hive en Tez][].
+Para obtener más información sobre el uso de Hive con Tez, consulte la [página de wiki Hive en Tez][página de wiki Hive en Tez].
 
 ### Disponibilidad global
 
@@ -417,16 +417,16 @@ Con esta versión, hemos actualizado las siguientes versiones de HDInsight (Hort
 
 Las notas de la versión de los HDP que se usan en las versiones del clúster de HDInsight están disponibles en las siguientes ubicaciones.
 
--   El clúster de HDInsight versión 3.1 utiliza una distribución de Hadoop basada en [HortonWorks Data Platform 2.1][]. Este es el clúster de Hadoop predeterminado que se crea cuando se usa el portal de HDInsight de Azure.
+-   El clúster de HDInsight versión 3.1 utiliza una distribución de Hadoop basada en [HortonWorks Data Platform 2.1][HortonWorks Data Platform 2.1]. Este es el clúster de Hadoop predeterminado que se crea cuando se usa el portal de HDInsight de Azure.
 
--   La versión 3,0 del clúster de HDInsight utiliza una distribución de Hadoop basada en la distribución [Hortonworks Data Platform 2,0][].
+-   La versión 3,0 del clúster de HDInsight utiliza una distribución de Hadoop basada en la distribución [Hortonworks Data Platform 2,0][Hortonworks Data Platform 2,0].
 
--   La versión 2,1 del clúster de HDInsight utiliza una distribución de Hadoop basada en la distribución [Hortonworks Data Platform 1,3][].
+-   La versión 2,1 del clúster de HDInsight utiliza una distribución de Hadoop basada en la distribución [Hortonworks Data Platform 1,3][Hortonworks Data Platform 1,3].
 
--   La versión 1.6 del clúster de HDInsight utiliza una distribución de Hadoop basada en la distribución [Hortonworks Data Platform 1.1][].
+-   La versión 1.6 del clúster de HDInsight utiliza una distribución de Hadoop basada en la distribución [Hortonworks Data Platform 1.1][Hortonworks Data Platform 1.1].
 
-  [New-AzureHDInsightCluster]: http://msdn.microsoft.com/en-us/library/dn593744.aspx
-  [SDK de HDInsight]: http://msdn.microsoft.com/en-us/library/azure/dn469975.aspx
+  [New-AzureHDInsightCluster]: http://msdn.microsoft.com/es-es/library/dn593744.aspx
+  [SDK de HDInsight]: http://msdn.microsoft.com/es-es/library/azure/dn469975.aspx
   [versiones de componentes de HDInsight]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-component-versioning/
   []: http://i.imgur.com/cmOl5fM.png
   [Mahout]: http://hortonworks.com/hadoop/mahout/

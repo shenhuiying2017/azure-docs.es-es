@@ -737,11 +737,11 @@ Ahora, cuando ejecuta la aplicación, se comunica con el servicio real.
   [4]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/05leaderboard.png
   [EF Code First]: http://msdn.microsoft.com/en-US/data/ee712907#codefirst
   [controlar los conflictos de escritura en la base de datos]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
-  [propiedad navigation]: http://msdn.microsoft.com/en-us/data/jj713564.aspx
+  [propiedad navigation]: http://msdn.microsoft.com/es-es/data/jj713564.aspx
   [5]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/06leaderboard.png
   [6]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/07leaderboard.png
   [7]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/08leaderboard.png
-  [API REST]: http://msdn.microsoft.com/en-us/library/azure/jj710104.aspx
+  [API REST]: http://msdn.microsoft.com/es-es/library/azure/jj710104.aspx
   [Asignación entre tipos de base de datos y tipos de cliente en el backend .NET usando AutoMapper]: http://blogs.msdn.com/b/azuremobile/archive/2014/05/19/mapping-between-database-types-and-client-type-in-the-net-backend-using-automapper.aspx
   [Enrutamiento de atributos en Web API]: http://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
   [8]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/10leaderboard.png
@@ -752,7 +752,7 @@ Ahora, cuando ejecuta la aplicación, se comunica con el servicio real.
   [13]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/15leaderboard.png
   [14]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/16leaderboard.png
   [15]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/17leaderboard.png
-  [Más información acerca de Servicios móviles de Azure]: /en-us/develop/mobile/resources/
+  [Más información acerca de Servicios móviles de Azure]: /es-es/develop/mobile/resources/
   [Control de conflictos de escritura de bases de datos]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
   [Adición de notificaciones de inserción]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-  [Introducción a la autenticación]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet
+  [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-dotnet

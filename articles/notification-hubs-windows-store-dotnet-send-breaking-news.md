@@ -13,16 +13,16 @@
 
 Este tema muestra cómo puede usar los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora en una aplicación (no Silverlight) de la Tienda Windows o de Windows Phone 8.1. Si su objetivo es Silverlight para Windows 8.1, consulte la versión de [Windows Phone][1]. Cuando lo complete, podrá registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías. Este escenario es un patrón común para muchas aplicaciones en las que las notificaciones tienen que enviarse a grupos de usuarios que han mostrado previamente interés en ellas, por ejemplo, lectores RSS, aplicaciones para aficionados a la música, etc.
 
-Los escenarios de difusión se habilitan mediante la inclusión de una o más *etiquetas* cuando se crea un registro en el centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para obtener información sobre las etiquetas, consulte [Notification Hubs Guidance][].
+Los escenarios de difusión se habilitan mediante la inclusión de una o más *etiquetas* cuando se crea un registro en el centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para obtener información sobre las etiquetas, consulte [Notification Hubs Guidance][Notification Hubs Guidance].
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar este escenario:
 
-1.  [Incorporación de una selección de categorías a la aplicación][]
-2.  [Registro de notificaciones][]
-3.  [Envío de notificaciones desde su back-end][]
-4.  [Ejecución de la aplicación y generación de notificaciones][]
+1.  [Incorporación de una selección de categorías a la aplicación][Incorporación de una selección de categorías a la aplicación]
+2.  [Registro de notificaciones][Registro de notificaciones]
+3.  [Envío de notificaciones desde su back-end][Envío de notificaciones desde su back-end]
+4.  [Ejecución de la aplicación y generación de notificaciones][Ejecución de la aplicación y generación de notificaciones]
 
-Este tema se basa en la aplicación que creó en [Introducción a los Centros de notificaciones][]. Antes de comenzar este tutorial, debe haber completado la [Introducción a los Centros de notificaciones][].
+Este tema se basa en la aplicación que creó en [Introducción a los Centros de notificaciones][Introducción a los Centros de notificaciones]. Antes de comenzar este tutorial, debe haber completado la [Introducción a los Centros de notificaciones][Introducción a los Centros de notificaciones].
 
 ## <a name="adding-categories"></a>Incorporación de una selección de categorías a la aplicación
 
@@ -163,7 +163,7 @@ La aplicación está ahora completa y puede almacenar un conjunto de categorías
 
 ## <a name="send"></a><span class="short-header">Envío de notificaciones</span>Envío de notificaciones desde el back-end
 
-[WACOM.INCLUDE [notification-hubs-back-end][]]
+[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
 ## <a name="test-app"></a>Ejecución de la aplicación y generación de notificaciones
 
@@ -193,11 +193,11 @@ La aplicación está ahora completa y puede almacenar un conjunto de categorías
 
 En este tutorial hemos aprendido cómo difundir noticias de última hora por categoría. Considere la posibilidad de llevar a cabo uno de los siguientes tutoriales que destacan otros escenarios de centros de notificaciones avanzados:
 
--   [Uso de los Centros de notificaciones para difundir noticias de última hora localizadas][]
+-   [Uso de los Centros de notificaciones para difundir noticias de última hora localizadas][Uso de los Centros de notificaciones para difundir noticias de última hora localizadas]
 
     Conozca cómo expandir la aplicación de noticias de última hora para habilitar el envío de notificaciones localizadas.
 
--   [Notificación a los usuarios con los Centros de notificaciones][]
+-   [Notificación a los usuarios con los Centros de notificaciones][Notificación a los usuarios con los Centros de notificaciones]
 
     Conozca cómo insertar notificaciones para usuarios autenticados específicos. Esta es una buena solución para enviar notificaciones solo a usuarios específicos.
 

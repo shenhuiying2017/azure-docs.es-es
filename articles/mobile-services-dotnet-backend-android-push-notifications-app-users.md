@@ -17,13 +17,13 @@
 <a href="/es-es/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/"  title="JavaScript-Back-End">JavaScript-Back-End</a>
 </div>
 
-In diesem Thema wird erläutert, wie Sie Pushbenachrichtigungen an einen authentifizierten Benutzer auf einem beliebigen registrierten Gerät senden. Anders als beim vorherigen Lernprogramm zur [Pushbenachrichtigung][] ändern Sie hier Ihren mobilen Dienst dahingehend, dass sich ein Benutzer authentifizieren muss, ehe der Client sich am Benachrichtigungs-Hub für Pushbenachrichtungen registrieren kann. Die Registrierung wird ebenfalls geändert; es wird ein Tag auf Grundlage der zugewiesenen Benutzer-ID hinzugefügt. Schließlich wird der Servercode so geändert, dass die Benachrichtigung nur an den authentifizierten Benutzer statt an alle Registrierungen gesendet wird.
+In diesem Thema wird erläutert, wie Sie Pushbenachrichtigungen an einen authentifizierten Benutzer auf einem beliebigen registrierten Gerät senden. Anders als beim vorherigen Lernprogramm zur [Pushbenachrichtigung][Pushbenachrichtigung] ändern Sie hier Ihren mobilen Dienst dahingehend, dass sich ein Benutzer authentifizieren muss, ehe der Client sich am Benachrichtigungs-Hub für Pushbenachrichtungen registrieren kann. Die Registrierung wird ebenfalls geändert; es wird ein Tag auf Grundlage der zugewiesenen Benutzer-ID hinzugefügt. Schließlich wird der Servercode so geändert, dass die Benachrichtigung nur an den authentifizierten Benutzer statt an alle Registrierungen gesendet wird.
 
 In diesem Lernprogramm werden folgende Prozesse behandelt:
 
--   [Aktualisieren des Diensts, sodass für die Registrierung eine Authentifizierung benötigt wird][]
--   [Aktualisieren der App zum Anmelden vor der Registrierung][]
--   [Testen der App][]
+-   [Aktualisieren des Diensts, sodass für die Registrierung eine Authentifizierung benötigt wird][Aktualisieren des Diensts, sodass für die Registrierung eine Authentifizierung benötigt wird]
+-   [Aktualisieren der App zum Anmelden vor der Registrierung][Aktualisieren der App zum Anmelden vor der Registrierung]
+-   [Testen der App][Testen der App]
 
 Dieses Lernprogramm unterstützt Android-Apps.
 
@@ -31,7 +31,7 @@ Dieses Lernprogramm unterstützt Android-Apps.
 
 Bevor Sie mit diesem Lernprogramm beginnen, müssen Sie zunächst die folgenden Mobile Services-Lernprogramme abschließen:
 
--   [Erste Schritte mit der Authentifizierung][]
+-   [Erste Schritte mit der Authentifizierung][Erste Schritte mit der Authentifizierung]
     Fügt der To-Do-Listen-Beispielapp das Erfordernis einer Anmeldung hinzu.
 
 -   [Erste Schritte mit Pushbenachrichtigungen][Pushbenachrichtigung]
@@ -41,19 +41,19 @@ Nachdem Sie beide Lernprogramm abgeschlossen haben, können Sie verhindern, dass
 
 ## <a name="register"></a>Aktualisieren des Diensts, sodass für die Registrierung eine Authentifizierung benötigt wird
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)]
 
 ## <a name="update-app"></a>Aktualisieren der App zum Anmelden vor der Registrierung
 
-[WACOM.INCLUDE [mobile-services-android-push-notifications-app-users][]]
+[WACOM.INCLUDE [mobile-services-android-push-notifications-app-users](../includes/mobile-services-android-push-notifications-app-users.md)]
 
 ## <a name="test"></a>Testen der App
 
-[WACOM.INCLUDE [mobile-services-android-test-push-users][]]
+[WACOM.INCLUDE [mobile-services-android-test-push-users](../includes/mobile-services-android-test-push-users.md)]
 
 <!---## <a name="next-steps"> </a>Next steps  In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]--> <!-- Anchors. --> <!-- URLs. -->
 
-  [Windows Store C\#]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users "Windows Store C#"
+  [Windows Store C#]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users "Windows Store C#"
   [Windows Store JavaScript]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users "Windows Store JavaScript"
   [Windows Phone]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-push-notifications-app-users "Windows Phone"
   [iOS]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users "iOS"

@@ -8,33 +8,33 @@ Las "cosas" inteligentes y conectadas cada vez proliferan más en los ecosistema
 
 ## Exploración
 
--   [Centros de eventos][]
--   [Patrón de partición][]
--   [Bus de servicio y AMQP 1.0][]
--   [Introducción a Bus de servicio][]
+-   [Centros de eventos][Centros de eventos]
+-   [Patrón de partición][Patrón de partición]
+-   [Bus de servicio y AMQP 1.0][Bus de servicio y AMQP 1.0]
+-   [Introducción a Bus de servicio][Introducción a Bus de servicio]
 
 ## Creación
 
--   [Particionado de entidades de mensajería][]
--   [Temas de Bus de servicio][]
--   [Uso de Apache Qpid Proton C con Bus de servicio de Azure en Linux y Windows][]
+-   [Particionado de entidades de mensajería][Particionado de entidades de mensajería]
+-   [Temas de Bus de servicio][Temas de Bus de servicio]
+-   [Uso de Apache Qpid Proton C con Bus de servicio de Azure en Linux y Windows][Uso de Apache Qpid Proton C con Bus de servicio de Azure en Linux y Windows]
 
 ## Popular
 
--   [Comunicación asistida de servicio para dispositivos conectados][]
+-   [Comunicación asistida de servicio para dispositivos conectados][Comunicación asistida de servicio para dispositivos conectados]
 
 ## Servicios relacionados
 
--   [Azure Active Directory][]
--   [Servicios en la nube][]
+-   [Azure Active Directory][Azure Active Directory]
+-   [Servicios en la nube][Servicios en la nube]
 
-  [Centros de eventos]: http://msdn.microsoft.com/en-us/library/dn789973.aspx
-  [Patrón de partición]: http://msdn.microsoft.com/en-us/library/dn589797.aspx
-  [Bus de servicio y AMQP 1.0]: http://msdn.microsoft.com/en-us/library/azure/jj841071.aspx
+  [Centros de eventos]: http://msdn.microsoft.com/es-es/library/dn789973.aspx
+  [Patrón de partición]: http://msdn.microsoft.com/es-es/library/dn589797.aspx
+  [Bus de servicio y AMQP 1.0]: http://msdn.microsoft.com/es-es/library/azure/jj841071.aspx
   [Introducción a Bus de servicio]: http://azure.microsoft.com/es-es/documentation/services/service-bus/
-  [Particionado de entidades de mensajería]: http://msdn.microsoft.com/en-us/library/azure/dn520246.aspx
+  [Particionado de entidades de mensajería]: http://msdn.microsoft.com/es-es/library/azure/dn520246.aspx
   [Temas de Bus de servicio]: http://azure.microsoft.com/es-es/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-  [Uso de Apache Qpid Proton C con Bus de servicio de Azure en Linux y Windows]: http://msdn.microsoft.com/en-us/library/azure/dn235560.aspx
+  [Uso de Apache Qpid Proton C con Bus de servicio de Azure en Linux y Windows]: http://msdn.microsoft.com/es-es/library/azure/dn235560.aspx
   [Comunicación asistida de servicio para dispositivos conectados]: http://blogs.msdn.com/b/clemensv/archive/2014/02/10/service-assisted-communication-for-connected-devices.aspx
   [Azure Active Directory]: http://azure.microsoft.com/es-es/documentation/services/active-directory/
   [Servicios en la nube]: http://azure.microsoft.com/es-es/documentation/services/cloud-services/

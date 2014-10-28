@@ -10,7 +10,7 @@
 
 ## Problembeschreibung
 
-[Farbquantifizierung][] bezeichnet die Reduzierung der Anzahl unterschiedlicher Farben in einem Bild und somit eine Komprimierung. Normalerweise wird versucht, die Farbzusammensetzung des Bilds so gut wie möglich zu erhalten und gleichzeitig die Anzahl der Farben zu reduzieren, entweder um Speicher zu sparen oder um das Bild zu komprimieren.
+[Farbquantifizierung][Farbquantifizierung] bezeichnet die Reduzierung der Anzahl unterschiedlicher Farben in einem Bild und somit eine Komprimierung. Normalerweise wird versucht, die Farbzusammensetzung des Bilds so gut wie möglich zu erhalten und gleichzeitig die Anzahl der Farben zu reduzieren, entweder um Speicher zu sparen oder um das Bild zu komprimieren.
 
 ## Daten
 
@@ -20,7 +20,7 @@ In diesem Beispielexperiment nehmen wir an, dass jedes beliebige 24 Bit RGB-Bild
 
 Das Modell wird wie in der folgenden Abbildung gezeigt erstellt:
 
-![Modell][]
+![Modell][Modell]
 
 Wir führen K-Means-Clustering mit K=10 bis 500 in 5 unterschiedlichen Verzweigungen aus. Zunächst berechnen wir die Cluster und aggregieren das Clustering auf den Mittelwert der Pixelfarben (mithilfe eines R-Skripts).
 Zuletzt ordnen wir jedes Pixel zur aggregierten Clusterfarbe zu und geben das neue Bild im CSV-Format aus. Außerdem berechnen wir die Abweichung des quadratischen Mittelwerts der neuen Pixelfarben zum Originalbild und zeigen diese Abweichung in einem R-Diagramm (wieder mit einem R-Skript).
@@ -36,7 +36,7 @@ Original
 
 </th>
 <td>
-![Original][]
+![Original][Original]
 
 </td>
 </tr>
@@ -46,7 +46,7 @@ K=10
 
 </th>
 <td>
-![K=10][]
+![K=10][K=10]
 
 </td>
 </tr>
@@ -56,7 +56,7 @@ K=20
 
 </th>
 <td>
-![K=20][]
+![K=20][K=20]
 
 </td>
 </tr>
@@ -66,7 +66,7 @@ K=50
 
 </th>
 <td>
-![K=50][]
+![K=50][K=50]
 
 </td>
 </tr>
@@ -76,7 +76,7 @@ K=100
 
 </th>
 <td>
-![K=100][]
+![K=100][K=100]
 
 </td>
 </tr>
@@ -86,14 +86,14 @@ K=500
 
 </th>
 <td>
-![K=500][]
+![K=500][K=500]
 
 </td>
 </tr>
 </table>
 Außerdem haben wir die Genauigkeit über die Abweichung des quadratischen Mittelwerts zu den Farben des Originalbilds berechnet, wie Sie im zweiten Ausgabeport des Moduls "R-Skript ausführen" sehen können:
 
-![Ausgabe des Moduls "R-Skript ausführen"][]
+![Ausgabe des Moduls "R-Skript ausführen"][Ausgabe des Moduls "R-Skript ausführen"]
 
 Das Ergebnis: Je mehr Farbcluster, desto besser stimmen die Farben mit dem Originalbild überein (bessere Qualität).
 

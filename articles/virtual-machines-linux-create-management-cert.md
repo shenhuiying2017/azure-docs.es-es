@@ -6,7 +6,7 @@
 
 Es necesario contar con un certificado de administración cuando desea utilizar la API de administración de servicios para interactuar con la plataforma de imágenes de Azure.
 
-Documentación sobre cómo crear y administrar estos certificados ya se encuentra disponible en [][]<http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx></a>. También pueden usar OpenSSL para crear el certificado de administración. Para obtener más información, consulte [OpenSSL][OpenSSL]. Sin embargo, esta documentación está orientada principalmente al uso del portal de Silverlight, al que probablemente no todos los usuarios de Linux puedan tener acceso. Describe cómo podrá tener acceso a estos certificados e integrarlos con nuestras distintas herramientas y socios, y usarlos por su propia cuenta hasta que esta funcionalidad se agregue al Portal de administración de Azure.
+Documentación sobre cómo crear y administrar estos certificados ya se encuentra disponible en [][]<http://msdn.microsoft.com/es-es/library/azure/gg981929.aspx></a>. También pueden usar OpenSSL para crear el certificado de administración. Para obtener más información, consulte [OpenSSL][OpenSSL]. Sin embargo, esta documentación está orientada principalmente al uso del portal de Silverlight, al que probablemente no todos los usuarios de Linux puedan tener acceso. Describe cómo podrá tener acceso a estos certificados e integrarlos con nuestras distintas herramientas y socios, y usarlos por su propia cuenta hasta que esta funcionalidad se agregue al Portal de administración de Azure.
 
 ## Tabla de contenido
 
@@ -133,7 +133,7 @@ Luego deberá combinar su identificador de suscripción y el archivo PFX codific
 Donde xxxxx es el contenido del [archivo codificado] que utilizará para brindar los detalles a las herramientas de la línea de comandos de Azure para Linux con los siguientes comandos:
 Azure account import (archivo)
 
-  []: http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx
+  []: http://msdn.microsoft.com/es-es/library/azure/gg981929.aspx
   [OpenSSL]: http://openssl.org/
   [Obtención de un certificado de administración desde el archivo publishsettings]: #createcert
   [Instalación de un certificado de administración mediante el Portal de administración de Azure]: #management

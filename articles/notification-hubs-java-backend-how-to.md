@@ -8,18 +8,18 @@
         <a href="/es-es/documentation/articles/notification-hubs-java-backend-how-to/" title="Java" class="current">Java</a><a href="/es-es/documentation/articles/notification-hubs-php-backend-how-to/" title="PHP">PHP</a>
 </div>
 
-Puede acceder a todas las características de los Centros de notificaciones desde un back-end de Java, PHP o Ruby usando la interfaz REST de Centros de notificaciones tal y como se describe en el tema de MSDN [API de REST de Centros de notificaciones][].
+Puede acceder a todas las características de los Centros de notificaciones desde un back-end de Java, PHP o Ruby usando la interfaz REST de Centros de notificaciones tal y como se describe en el tema de MSDN [API de REST de Centros de notificaciones][API de REST de Centros de notificaciones].
 
 En este tema le mostraremos cómo:
 
 -   Crear un cliente REST para las características de Centros de notificaciones en Java;
--   Siga el [tutorial introductorio][] para la plataforma móvil que elija, implementando la parte del back-end en Java.
+-   Siga el [tutorial introductorio][tutorial introductorio] para la plataforma móvil que elija, implementando la parte del back-end en Java.
 
 ## <a name="client-interface"></a>Interfaz del cliente
 
-La interfaz del cliente principal puede proporcionar los mismos métodos disponibles en el [SDK de Centros de notificaciones .NET][], que le permitirá trasladar todos los tutoriales y ejemplos actualmente disponibles en este sitio directamente y con el que contribuye la comunidad en Internet.
+La interfaz del cliente principal puede proporcionar los mismos métodos disponibles en el [SDK de Centros de notificaciones .NET][SDK de Centros de notificaciones .NET], que le permitirá trasladar todos los tutoriales y ejemplos actualmente disponibles en este sitio directamente y con el que contribuye la comunidad en Internet.
 
-Puede encontrar todo el código disponible en el [ejemplo de contenedor REST para Java][].
+Puede encontrar todo el código disponible en el [ejemplo de contenedor REST para Java][ejemplo de contenedor REST para Java].
 
 Por ejemplo, para crear un cliente:
 
@@ -40,10 +40,10 @@ Para enviar una notificación nativa de iOS:
 
 ## <a name="implementation"></a>Implementación
 
-Si todavía no lo ha hecho, siga nuestro [tutorial introductorio][] hasta la última sección en la que tiene que implementar el back-end.
-Asimismo, si lo desea, puede usar el código del [ejemplo de contenedor REST para Java][] e ir directamente a la sección [Finalización del tutorial][].
+Si todavía no lo ha hecho, siga nuestro [tutorial introductorio][tutorial introductorio] hasta la última sección en la que tiene que implementar el back-end.
+Asimismo, si lo desea, puede usar el código del [ejemplo de contenedor REST para Java][ejemplo de contenedor REST para Java] e ir directamente a la sección [Finalización del tutorial][Finalización del tutorial].
 
-En [MSDN][] puede encontrar todos los detalles para implementar un contenedor REST completo. En esta sección describiremos la implementación para Java de los principales pasos requeridos para acceder a extremos REST de Centros de notificaciones:
+En [MSDN][MSDN] puede encontrar todos los detalles para implementar un contenedor REST completo. En esta sección describiremos la implementación para Java de los principales pasos requeridos para acceder a extremos REST de Centros de notificaciones:
 
 1.  Análisis de la cadena de conexión
 2.  Generación del token de autenticación
@@ -51,9 +51,9 @@ En [MSDN][] puede encontrar todos los detalles para implementar un contenedor RE
 
 En los siguientes fragmentos de código hacemos uso de los siguientes componentes:
 
--   [Apache HttpComponents][]
--   [Apache Commons-Codec][]
--   [Apache Commons-Io][]
+-   [Apache HttpComponents][Apache HttpComponents]
+-   [Apache Commons-Codec][Apache Commons-Codec]
+-   [Apache Commons-Io][Apache Commons-Io]
 
 ### Análisis de la cadena de conexión
 
@@ -93,7 +93,7 @@ Esta es la clase principal que implementa el cliente, cuyo constructor analiza l
 
 ### Creación del token de seguridad
 
-Los detalles de la creación del token de seguridad están disponibles [aquí][].
+Los detalles de la creación del token de seguridad están disponibles [aquí][aquí].
 El siguiente método tiene que agregarse a la clase **NotificationHub** para crear el token basándose en el URI de la solicitud actual y en las credenciales extraídas de la cadena de conexión.
 
     private String generateSasToken(URI uri) {
@@ -241,7 +241,7 @@ En primer lugar, definamos una clase que representa una notificación.
 
 Esta clase es un contenedor para un cuerpo de notificación nativa, o un conjunto de propiedades en el caso de una notificación de plantilla, y un conjunto de encabezados que contienen formato (plataforma o plantilla nativa) y propiedades específicas de la plataforma (como la propiedad de expiración de Apple y los encabezados WNS). También definimos algunos constructores prácticos para generar tipos de notificación comúnmente usados.
 
-Consulte la [documentación de las API de REST de Centros de notificaciones][] y los formatos de las plataformas de notificación específicas para todas las opciones disponibles.
+Consulte la [documentación de las API de REST de Centros de notificaciones][documentación de las API de REST de Centros de notificaciones] y los formatos de las plataformas de notificación específicas para todas las opciones disponibles.
 
 Con esta clase, ahora podemos escribir los métodos de envío de notificaciones dentro de la clase **NotificationHub**.
 
@@ -306,7 +306,7 @@ Los métodos anteriores envían una solicitud POST HTTP al extremo /messages del
 
 Ahora puede completar el tutorial introductorio enviando la notificación desde un back-end de Java.
 
-Inicialice el cliente de Centros de notificaciones (sustituya la cadena de conexión y el nombre del centro tal y como se indica en el [tutorial introductorio][]):
+Inicialice el cliente de Centros de notificaciones (sustituya la cadena de conexión y el nombre del centro tal y como se indica en el [tutorial introductorio][tutorial introductorio]):
  NotificationHub hub = new NotificationHub("{connection string}", "{hubname}");
 
 Después, agregue el código de envío dependiendo de la plataforma móvil de destino.
@@ -352,20 +352,20 @@ La ejecución del código de Java debe generar ahora una notificación que apare
 
 En este tema hemos mostrado cómo crear un simple cliente REST en Java para Centros de notificaciones. Desde aquí puede:
 
--   Descargar el [ejemplo de contenedor REST para Java][] completo, que contiene todo el código anterior más la administración de registro.
+-   Descargar el [ejemplo de contenedor REST para Java][ejemplo de contenedor REST para Java] completo, que contiene todo el código anterior más la administración de registro.
 -   Continuar aprendiendo sobre la característica de etiquetado de Centros de notificaciones en el [tutorial Noticias de última hora]
 -   Obtener más información sobre notificaciones de inserción para usuarios individuales en el [tutorial Notificar a los usuarios]
 
   [Java]: /es-es/documentation/articles/notification-hubs-java-backend-how-to/ "Java"
   [PHP]: /es-es/documentation/articles/notification-hubs-php-backend-how-to/ "PHP"
-  [API de REST de Centros de notificaciones]: http://msdn.microsoft.com/en-us/library/dn223264.aspx
+  [API de REST de Centros de notificaciones]: http://msdn.microsoft.com/es-es/library/dn223264.aspx
   [tutorial introductorio]: http://azure.microsoft.com/es-es/documentation/articles/notification-hubs-ios-get-started/
-  [SDK de Centros de notificaciones .NET]: http://msdn.microsoft.com/en-us/library/jj933431.aspx
+  [SDK de Centros de notificaciones .NET]: http://msdn.microsoft.com/es-es/library/jj933431.aspx
   [ejemplo de contenedor REST para Java]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-java
   [Finalización del tutorial]: #complete-tutorial
-  [MSDN]: http://msdn.microsoft.com/en-us/library/dn530746.aspx
+  [MSDN]: http://msdn.microsoft.com/es-es/library/dn530746.aspx
   [Apache HttpComponents]: http://hc.apache.org/httpcomponents-client-ga/
   [Apache Commons-Codec]: http://commons.apache.org/proper/commons-codec/
   [Apache Commons-Io]: http://commons.apache.org/proper/commons-io/
-  [aquí]: http://msdn.microsoft.com/en-us/library/dn495627.aspx
-  [documentación de las API de REST de Centros de notificaciones]: http://msdn.microsoft.com/en-us/library/dn495827.aspx
+  [aquí]: http://msdn.microsoft.com/es-es/library/dn495627.aspx
+  [documentación de las API de REST de Centros de notificaciones]: http://msdn.microsoft.com/es-es/library/dn495827.aspx

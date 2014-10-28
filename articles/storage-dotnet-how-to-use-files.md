@@ -8,17 +8,17 @@ En esta guía introductoria mostraremos los conceptos básicos del uso de Almace
 
 Para usuarios que deseen acceder a archivos que se encuentran en un recurso compartido desde una aplicación local así como desde una maquina virtual o un servicio en la nube de Azure, mostraremos cómo usar la biblioteca del cliente de Almacenamiento de Azure para .NET para trabajar con el mismo recurso compartido de archivos desde una aplicación de escritorio.
 
-> [WACOM.NOTE] La ejecución de ejemplos de código .NET en esta guía requiere la biblioteca del cliente de almacenamiento de Azure para .NET 4.x o posterior. La biblioteca del cliente de almacenamiento está disponible a través de [NuGet][].
+> [WACOM.NOTE] La ejecución de ejemplos de código .NET en esta guía requiere la biblioteca del cliente de almacenamiento de Azure para .NET 4.x o posterior. La biblioteca del cliente de almacenamiento está disponible a través de [NuGet][NuGet].
 
 ## Tabla de contenido
 
--   [¿Qué es Almacenamiento de archivos?][]
--   [Conceptos de Almacenamiento de archivos][]
--   [Crear una cuenta de almacenamiento de Azure][]
--   [Uso de PowerShell para crear un recurso compartido de archivos][]
--   [Montaje del recurso compartido desde una máquina virtual de Azure][]
--   [Creación de una aplicación local para acceder a Almacenamiento de archivos][]
--   [Pasos siguientes][]
+-   [¿Qué es Almacenamiento de archivos?][¿Qué es Almacenamiento de archivos?]
+-   [Conceptos de Almacenamiento de archivos][Conceptos de Almacenamiento de archivos]
+-   [Crear una cuenta de almacenamiento de Azure][Crear una cuenta de almacenamiento de Azure]
+-   [Uso de PowerShell para crear un recurso compartido de archivos][Uso de PowerShell para crear un recurso compartido de archivos]
+-   [Montaje del recurso compartido desde una máquina virtual de Azure][Montaje del recurso compartido desde una máquina virtual de Azure]
+-   [Creación de una aplicación local para acceder a Almacenamiento de archivos][Creación de una aplicación local para acceder a Almacenamiento de archivos]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="what-is-file-storage"></a><span class="short-header">¿Qué es Almacenamiento de archivos?</span>¿Qué es Almacenamiento de archivos?
 
@@ -39,10 +39,10 @@ Almacenamiento de archivos suele usarse para realizar las siguientes tareas:
 
 Almacenamiento de archivos contiene los siguientes componentes:
 
-![files-concepts][]
+![files-concepts][files-concepts]
 
 -   **Cuenta de almacenamiento:** Todo el acceso a Almacenamiento de Azure se realiza
-    a través de una cuenta de almacenamiento. Consulte [Azure Storage Scalability and Performance Targets][] para obtener información sobre la capacidad de la cuenta de almacenamiento.
+    a través de una cuenta de almacenamiento. Consulte [Azure Storage Scalability and Performance Targets][Azure Storage Scalability and Performance Targets] para obtener información sobre la capacidad de la cuenta de almacenamiento.
 
 -   **Recurso compartido:** un recurso compartido de Almacenamiento de archivos es un recurso compartido de archivos de SMB 2.1 en Azure.
     Todos los directorios y archivos se deben crear en un recurso compartido principal. Una cuenta puede contener
@@ -61,21 +61,21 @@ Almacenamiento de archivos contiene los siguientes componentes:
     para dirigir uno de los archivos:
     `http://acmecorp.file.core.windows.net/cloudfiles/diagnostics/log.txt`
 
-Para obtener detalles sobre cómo asignar nombre a recursos compartidos, directorios y archivos, consulte [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos][].
+Para obtener detalles sobre cómo asignar nombre a recursos compartidos, directorios y archivos, consulte [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos][Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos].
 
 ## <a name="create-account"></a><span class="short-header">Creación de una cuenta de Almacenamiento de Azure</span>Creación de una cuenta de Almacenamiento de Azure
 
-Almacenamiento de archivos de Azure se encuentra actualmente en vista previa. Para solicitar acceso a la vista previa, navegue a la [página de vista previa de Microsoft Azure][] y solicite acceso a **Archivos de Azure**. Cuando la solicitud esté aprobada, recibirá una notificación de que puede acceder a la vista previa de Almacenamiento de archivos. Después, puede crear una cuenta de almacenamiento para acceder a Almacenamiento de archivos.
+Almacenamiento de archivos de Azure se encuentra actualmente en vista previa. Para solicitar acceso a la vista previa, navegue a la [página de vista previa de Microsoft Azure][página de vista previa de Microsoft Azure] y solicite acceso a **Archivos de Azure**. Cuando la solicitud esté aprobada, recibirá una notificación de que puede acceder a la vista previa de Almacenamiento de archivos. Después, puede crear una cuenta de almacenamiento para acceder a Almacenamiento de archivos.
 
 > [WACOM.NOTE] Actualmente, Almacenamiento de archivos solamente está disponible para nuevas cuentas de almacenamiento. Después de que se haya concedido acceso a su suscripción a Almacenamiento de archivos, cree una nueva cuenta de almacenamiento para utilizar con esta guía.
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="use-cmdlets"></a><span class="short-header">Uso de PowerShell para crear un recurso compartido de archivos</span>Uso de PowerShell para crear un recurso compartido de archivos
 
 ### Instalación de cmdlets de PowerShell para Almacenamiento de Azure
 
-Para prepararse para usar PowerShell, descargue e instale los cmdlets de Azure PowerShell. Consulte [Instalación y configuración de Azure PowerShell][] para obtener instrucciones sobre el punto de instalación y la instalación.
+Para prepararse para usar PowerShell, descargue e instale los cmdlets de Azure PowerShell. Consulte [Instalación y configuración de Azure PowerShell][Instalación y configuración de Azure PowerShell] para obtener instrucciones sobre el punto de instalación y la instalación.
 
 > [WACOM.NOTE] Los cmdlets de PowerShell para el servicio de archivos está disponible solamente en el módulo más reciente de Azure PowerShell, versión 0.8.5 y posterior. Es recomendable descargar e instalar el módulo más reciente de Azure PowerShell o actualizar a dicho módulo.
 
@@ -122,8 +122,8 @@ Para ver el archivo en el directorio, puede mostrar los archivos de este en una 
 
 Para mostrar cómo montar un recurso compartido de archivos de Azure, ahora crearemos una máquina virtual de Azure y accederemos a ella de forma remota para montar el recurso compartido.
 
-1.  En primer lugar, crearemos una nueva máquina virtual de Azure siguiendo las instrucciones existentes en [Creación de una máquina virtual que ejecuta Windows Server][].
-2.  Después, acceda a la máquina virtual de forma remota siguiendo las instrucciones existentes en [Inicio de sesión en una máquina virtual con Windows Server][].
+1.  En primer lugar, crearemos una nueva máquina virtual de Azure siguiendo las instrucciones existentes en [Creación de una máquina virtual que ejecuta Windows Server][Creación de una máquina virtual que ejecuta Windows Server].
+2.  Después, acceda a la máquina virtual de forma remota siguiendo las instrucciones existentes en [Inicio de sesión en una máquina virtual con Windows Server][Inicio de sesión en una máquina virtual con Windows Server].
 3.  Abra una ventana de PowerShell en la máquina virtual.
 
 ### Persistencia de las credenciales de la cuenta de almacenamiento para la máquina virtual
@@ -144,13 +144,13 @@ Una vez tenga una conexión remota con la máquina virtual, puede ejecutar el co
 
     net use z: \<storage-account>.file.core.windows.netnet use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>lt;share-name> /u:<storage-account> <account-key>
 
-Ahora puede trabajar con el recurso compartido de Almacenamiento de archivos desde dentro de la máquina virtual como lo haría con cualquier otra unidad. Puede emitir comandos de archivo estándar desde el símbolo del sistema o ver el recurso compartido montado y su contenido desde el explorador de archivos. También puede ejecutar código desde la máquina virtual que accede al recurso compartido de archivos usando las API de E/S de archivos Windows estándar, como por ejemplo las proporcionadas por los [espacios de nombres System.IO][] en .NET Framework.
+Ahora puede trabajar con el recurso compartido de Almacenamiento de archivos desde dentro de la máquina virtual como lo haría con cualquier otra unidad. Puede emitir comandos de archivo estándar desde el símbolo del sistema o ver el recurso compartido montado y su contenido desde el explorador de archivos. También puede ejecutar código desde la máquina virtual que accede al recurso compartido de archivos usando las API de E/S de archivos Windows estándar, como por ejemplo las proporcionadas por los [espacios de nombres System.IO][espacios de nombres System.IO] en .NET Framework.
 
 También puede montar el recurso compartido de archivos desde un rol que se ejecute en un servicio en la nube de Azure mediante una conexión remota con el rol.
 
 ## <a name="create-console-app"></a><span class="short-header">Creación de una aplicación local para trabajar con Almacenamiento de archivos</span>Creación de una aplicación local para trabajar con Almacenamiento de archivos
 
-Puede montar un recurso compartido de Almacenamiento de archivos desde dentro de una máquina virtual o un servicio en la nube que se ejecute en Azure, tal y como se describió anteriormente. Sin embargo, no puede montar un recurso compartido de Almacenamiento de archivos desde una aplicación local. Para acceder a los datos del recurso compartido desde una aplicación local, debe usar la API de Almacenamiento de archivos. En este ejemplo se muestra cómo trabajar con un recurso de archivos compartido a través de la [biblioteca del cliente de Almacenamiento de Azure para .NET][].
+Puede montar un recurso compartido de Almacenamiento de archivos desde dentro de una máquina virtual o un servicio en la nube que se ejecute en Azure, tal y como se describió anteriormente. Sin embargo, no puede montar un recurso compartido de Almacenamiento de archivos desde una aplicación local. Para acceder a los datos del recurso compartido desde una aplicación local, debe usar la API de Almacenamiento de archivos. En este ejemplo se muestra cómo trabajar con un recurso de archivos compartido a través de la [biblioteca del cliente de Almacenamiento de Azure para .NET][biblioteca del cliente de Almacenamiento de Azure para .NET].
 
 Para mostrar cómo usar la API desde una aplicación local, crearemos una aplicación de consola sencilla que se ejecute en el escritorio.
 
@@ -158,7 +158,7 @@ Para mostrar cómo usar la API desde una aplicación local, crearemos una aplica
 
 Para crear una nueva aplicación de consola en Visual Studio e instalar el paquete NuGet de Almacenamiento de Azure:
 
-1.  En Visual Studio, elija **Archivo** -\> **Nuevo proyecto** y elija **Windows** -\> **Aplicación de consola** en la lista de plantillas de Visual C\#.
+1.  En Visual Studio, elija **Archivo** -\> **Nuevo proyecto** y elija **Windows** -\> **Aplicación de consola** en la lista de plantillas de Visual C#.
 2.  Proporcione un nombre para la aplicación de consola y haga clic en **Aceptar**.
 3.  Una vez creado el proyecto, haga clic con el botón secundario en el mismo en el Explorador de soluciones y elija **Administrar paquetes NuGet**. Busque "Azure.Storage" en línea y haga clic en **Install** para instalar el paquete y las dependencias de almacenamiento de Azure.
 
@@ -236,17 +236,17 @@ archivos, siga estos vínculos para obtener información más detallada.
 
 -   Consulte la documentación de referencia del servicio de archivos para obtener información detallada acerca de las API disponibles:
     -   [Referencia acerca de la biblioteca de clientes de almacenamiento para .NET][biblioteca del cliente de Almacenamiento de Azure para .NET]
-    -   [Referencia de la API REST del servicio de archivos][]
+    -   [Referencia de la API REST del servicio de archivos][Referencia de la API REST del servicio de archivos]
 
 -   Consulte las publicaciones en blogs del equipo de almacenamiento de Azure relacionadas con el servicio de archivos:
-    -   [Introducción al servicio de archivos de Microsoft Azure][]
-    -   [Persistencia de conexiones en archivos de Microsoft Azure][]
+    -   [Introducción al servicio de archivos de Microsoft Azure][Introducción al servicio de archivos de Microsoft Azure]
+    -   [Persistencia de conexiones en archivos de Microsoft Azure][Persistencia de conexiones en archivos de Microsoft Azure]
 
 -   Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
-    -   Utilice [Almacenamiento de blobs][] para almacenar datos no estructurados.
-    -   Utilice [Almacenamiento de tablas][] para almacenar datos estructurados.
-    -   Utilice [Almacenamiento de colas][] para almacenar mensajes de forma fiable.
-    -   Utilice [Base de datos SQL][] para almacenar datos relacionales.
+    -   Utilice [Almacenamiento de blobs][Almacenamiento de blobs] para almacenar datos no estructurados.
+    -   Utilice [Almacenamiento de tablas][Almacenamiento de tablas] para almacenar datos estructurados.
+    -   Utilice [Almacenamiento de colas][Almacenamiento de colas] para almacenar mensajes de forma fiable.
+    -   Utilice [Base de datos SQL][Base de datos SQL] para almacenar datos relacionales.
 
 </p>
 
@@ -259,16 +259,16 @@ archivos, siga estos vínculos para obtener información más detallada.
   [Creación de una aplicación local para acceder a Almacenamiento de archivos]: #create-console-app
   [Pasos siguientes]: #next-steps
   [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
-  [Azure Storage Scalability and Performance Targets]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
-  [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos]: http://msdn.microsoft.com/en-us/library/azure/dn167011.aspx
-  [página de vista previa de Microsoft Azure]: /en-us/services/preview/
+  [Azure Storage Scalability and Performance Targets]: http://msdn.microsoft.com/es-es/library/dn249410.aspx
+  [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos]: http://msdn.microsoft.com/es-es/library/azure/dn167011.aspx
+  [página de vista previa de Microsoft Azure]: /es-es/services/preview/
   [create-storage-account]: ../includes/create-storage-account.md
   [Instalación y configuración de Azure PowerShell]: /es-es/documentation/articles/install-configure-powershell/
   [Creación de una máquina virtual que ejecuta Windows Server]: /es-es/documentation/articles/virtual-machines-windows-tutorial/
   [Inicio de sesión en una máquina virtual con Windows Server]: /es-es/documentation/articles/virtual-machines-log-on-windows-server/
-  [espacios de nombres System.IO]: http://msdn.microsoft.com/en-us/library/gg145019(v=vs.110).aspx
+  [espacios de nombres System.IO]: http://msdn.microsoft.com/es-es/library/gg145019(v=vs.110).aspx
   [biblioteca del cliente de Almacenamiento de Azure para .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Referencia de la API REST del servicio de archivos]: http://msdn.microsoft.com/en-us/library/azure/dn167006.aspx
+  [Referencia de la API REST del servicio de archivos]: http://msdn.microsoft.com/es-es/library/azure/dn167006.aspx
   [Introducción al servicio de archivos de Microsoft Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx
   [Persistencia de conexiones en archivos de Microsoft Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx
   [Almacenamiento de blobs]: /es-es/documentation/articles/storage-dotnet-how-to-use-blobs/

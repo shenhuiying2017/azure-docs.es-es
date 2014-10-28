@@ -1,12 +1,13 @@
-<properties linkId="mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" pageTitle="Use Mobile Services to upload images to blob storage (Windows Phone) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" writer="glenga" services="mobile-services, storage" />
+<properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Phone) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" writer="glenga" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+Carga de imágenes en el almacenamiento de Azure mediante Servicios móviles
+==========================================================================
 
-# Carga de imágenes en el almacenamiento de Azure mediante Servicios móviles
-
-<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage" title="C# para Tienda Windows">C# para Tienda Windows</a><a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" title="Windows Phone" class="current">Windows Phone</a></div>
-
-<div class="dev-center-tutorial-subselector"><a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage" title="Back-end de .NET" class="current">Back-end de .NET</a> | <a href="/es-es/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage"  title="Back-end de JavaScript">Back-end de JavaScript</a></div>
+> [AZURE.SELECTOR-LIST (Plataforma | Back-end )] 
+> - [(C\# de Tienda Windows | .NET)](mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage.md) 
+> - [(C\# de Tienda Windows| JavaScript)](mobile-services-windows-store-dotnet-upload-data-blob-storage.md) 
+> - [(Windows Phone | .NET)](mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage.md) 
+> - [(Windows Phone | JavaScript)](mobile-services-windows-phone-upload-data-blob-storage.md)
 
 Este tema muestra cómo utilizar Servicios móviles de Azure para permitir que su aplicación cargue y almacene imágenes generadas por el usuario en el almacenamiento de Azure. Servicios móviles utiliza una Base de datos SQL para almacenar datos. Sin embargo, los datos de objetos binarios grandes (BLOB) se almacenan de manera eficiente en el servicio de almacenamiento de blobs de Azure.
 
@@ -14,55 +15,56 @@ No puede distribuir de manera segura con la aplicación cliente las credenciales
 
 En este tutorial agregará funcionalidad a la aplicación de inicio rápido de Servicios móviles para tomar fotografías y cargar las imágenes a Azure a través de una SAS generada por Servicios móviles. Este tutorial le guiará a través de los siguientes pasos básicos para actualizar el inicio rápido de Servicios móviles para cargar imágenes al servicio de almacenamiento de blobs:
 
-1.  [Instalación de la biblioteca de clientes de almacenamiento][]
-2.  [Actualización de la aplicación cliente para capturar imágenes][]
-3.  [Instalación del cliente de almacenamiento en el proyecto de servicio móvil][]
-4.  [Actualización de la definición de TodoItem en el modelo de datos][]
-5.  [Actualización del controlador de tablas para generar una SAS][]
-6.  [Carga de imágenes para probar la aplicación][]
+1.  [Instalación de la biblioteca de clientes de almacenamiento](#install-storage-client)
+2.  [Actualización del controlador de tablas para generar una SAS](#update-scripts)
+3.  [Actualización de la aplicación cliente para capturar imágenes](#add-select-images)
+4.  [Carga de imágenes para probar la aplicación](#test)
 
 Este tutorial requiere lo siguiente:
 
--   Microsoft Visual Studio 2013 o una versión posterior
--   [SDK de Windows Phone 8.0][] o una versión posterior.
+-   Microsoft Visual Studio 2012 Express para Windows 8 o una versión posterior
+-   [SDK de Windows Phone 8.0](http://www.microsoft.com/es-es/download/details.aspx?id=35471) o una versión posterior.
 -   El Administrador de paquetes NuGet instalado para Microsoft Visual Studio.
--   [Cuenta de almacenamiento de Azure][]
+-   [Cuenta de almacenamiento de Azure](/es-es/manage/services/storage/how-to-create-a-storage-account)
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][].
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-windows-phone-get-started).
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage][]]
+Instalación del cliente de almacenamiento para aplicaciones de la Tienda Windows
+--------------------------------------------------------------------------------
 
-## <a name="install-storage-client"></a>Instalación del cliente de almacenamiento para aplicaciones de la Tienda Windows
+Para poder utilizar una SAS para cargar imágenes al almacenamiento de blobs, primero debe agregar el paquete NuGet que instala la biblioteca de clientes de almacenamiento para aplicaciones de la Tienda Windows.
 
-Para poder utilizar una SAS para cargar imágenes de su aplicación en el almacenamiento de blobs, primero debe agregar el paquete NuGet que instala la biblioteca de clientes de almacenamiento para aplicaciones de la Tienda Windows.
-
-1.  En el **Explorador de soluciones** de Visual Studio, haga clic con el botón secundario en el proyecto de la aplicación cliente y luego seleccione **Administrar paquetes de NuGet**.
+1.  En el **Explorador de soluciones** de Visual Studio, haga clic con el botón secundario en el nombre del proyecto y, a continuación, seleccione **Administrar paquetes de NuGet**.
 
 2.  En el panel izquierdo, seleccione la categoría **En línea** y después **Include Prerelease**, busque **WindowsAzure.Storage-Preview**, haga clic en **Instalar** en el paquete **Almacenamiento de Azure** y, a continuación, acepte el contrato de licencia.
 
-    ![][]
+	![](./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png) 
+	Con esto se agrega la biblioteca de clientes para servicios de almacenamiento de Azure al proyecto.
 
-    Con esto se agrega la biblioteca de clientes para servicios de almacenamiento de Azure al proyecto.
+A continuación, actualizará la aplicación de inicio rápido para capturar y cargar imágenes.
 
-[WACOM.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage][]]
+Actualización del controlador TodoItem para generar una firma de acceso compartido
+----------------------------------------------------------------------------------
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
 
-  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "C# para Tienda Windows"
-  [Windows Phone]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage "Windows Phone"
-  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage "Back-end de .NET"
-  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-windows-phone-upload-data-blob-storage "Back-end de JavaScript"
-  [Instalación de la biblioteca de clientes de almacenamiento]: #install-storage-client
-  [Actualización de la aplicación cliente para capturar imágenes]: #add-select-images
-  [Instalación del cliente de almacenamiento en el proyecto de servicio móvil]: #storage-client-server
-  [Actualización de la definición de TodoItem en el modelo de datos]: #update-data-model
-  [Actualización del controlador de tablas para generar una SAS]: #update-scripts
-  [Carga de imágenes para probar la aplicación]: #test
-  [SDK de Windows Phone 8.0]: http://www.microsoft.com/es-es/download/details.aspx?id=35471
-  [Cuenta de almacenamiento de Azure]: /es-es/documentation/articles/storage-create-storage-account/
-  [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-phone-get-started
-  [mobile-services-dotnet-backend-configure-blob-storage]: ../includes/mobile-services-dotnet-backend-configure-blob-storage.md
-  []: ./media/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [mobile-services-windows-phone-upload-to-blob-storage]: ../includes/mobile-services-windows-phone-upload-to-blob-storage.md
+[WACOM.INCLUDE [mobile-services-windows-phone-upload-to-blob-storage](../includes/mobile-services-windows-phone-upload-to-blob-storage.md)]
+
+Pasos siguientes
+----------------
+
+Ahora que ha podido cargar de manera segura imágenes al integrar su servicio móvil con el servicio BLOB, revise algunos de los otros temas relacionados con la integración y el servicio back-end:
+
+-   [Envío de correo electrónico desde Servicios móviles con SendGrid](/es-es/develop/mobile/tutorials/send-email-with-sendgrid/)
+
+    Aprenda a agregar la funcionalidad de correo electrónico a su Servicio móvil con el servicio de correo electrónico SendGrid. Este tema demuestra cómo agregar scripts del lado servidor para enviar correo electrónico mediante SendGrid.
+
+-   [Programación de trabajos de back-end en Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks)
+
+    Aprenda a utilizar la funcionalidad del programador de trabajos de Servicios móviles para definir el código de script de servidor que se ejecuta según una programación que define usted.
+
+-   [Referencia conceptual de Servicios móviles con .NET](/es-es/develop/mobile/how-to-guides/work-with-net-client-library)
+
+    Obtenga más información sobre el uso de Servicios móviles con .NET.
+
+

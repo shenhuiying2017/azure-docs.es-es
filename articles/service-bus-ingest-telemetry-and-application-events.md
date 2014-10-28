@@ -8,23 +8,23 @@ Las aplicaciones modernas crean una cantidad ingente de información mientras se
 
 ## Exploración
 
--   [Centros de eventos][]
--   [Detalles de precios de centros de eventos][]
--   [Patrón de orígenes de eventos][]
+-   [Centros de eventos][Centros de eventos]
+-   [Detalles de precios de centros de eventos][Detalles de precios de centros de eventos]
+-   [Patrón de orígenes de eventos][Patrón de orígenes de eventos]
 
 ## Creación
 
--   [Referencia de la API de REST de centros de eventos][]
--   [Ejemplos de código de centros de eventos][]
+-   [Referencia de la API de REST de centros de eventos][Referencia de la API de REST de centros de eventos]
+-   [Ejemplos de código de centros de eventos][Ejemplos de código de centros de eventos]
 
 ## Servicios relacionados
 
--   [Almacenamiento][]
--   [HDInsight][]
+-   [Almacenamiento][Almacenamiento]
+-   [HDInsight][HDInsight]
 
-  [Centros de eventos]: http://msdn.microsoft.com/en-us/library/dn789973.aspx
-  [Detalles de precios de centros de eventos]: http://azure.microsoft.com/en-us/pricing/details/event-hubs/
-  [Patrón de orígenes de eventos]: http://msdn.microsoft.com/en-us/library/dn589792.aspx
+  [Centros de eventos]: http://msdn.microsoft.com/es-es/library/dn789973.aspx
+  [Detalles de precios de centros de eventos]: http://azure.microsoft.com/es-es/pricing/details/event-hubs/
+  [Patrón de orígenes de eventos]: http://msdn.microsoft.com/es-es/library/dn589792.aspx
   [Referencia de la API de REST de centros de eventos]: http://go.microsoft.com/fwlink/?LinkId=403977
   [Ejemplos de código de centros de eventos]: http://go.microsoft.com/fwlink/?LinkID=402449
   [Almacenamiento]: http://azure.microsoft.com/es-es/documentation/services/storage/

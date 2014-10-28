@@ -4,26 +4,26 @@
 
 # Visualización del SAML que devuelve el servicio de control de acceso de Azure
 
-En esta guía se explica cómo ver el lenguaje de marcado de aserción de seguridad (SAML) subyacente devuelto a la aplicación mediante el servicio de control de acceso de Azure (ACS). La guía se elabora a partir del tema [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse][], proporcionando código que muestra la información de SAML. La aplicación completa tendrá un aspecto similar al siguiente.
+En esta guía se explica cómo ver el lenguaje de marcado de aserción de seguridad (SAML) subyacente devuelto a la aplicación mediante el servicio de control de acceso de Azure (ACS). La guía se elabora a partir del tema [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse][Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse], proporcionando código que muestra la información de SAML. La aplicación completa tendrá un aspecto similar al siguiente.
 
-![Salida de SAML de ejemplo][]
+![Salida de SAML de ejemplo][Salida de SAML de ejemplo]
 
-Para obtener más información sobre ACS, consulte la sección [Pasos siguientes][].
+Para obtener más información sobre ACS, consulte la sección [Pasos siguientes][Pasos siguientes].
 
 > [WACOM.NOTE]
 > El filtro de control de los servicios de acceso de Azure (de Microsoft Open Technologies) es una Community Technology Preview. Como versión preliminar de software, no cuenta formalmente con el respaldo de Microsoft Open Technologies, Inc. ni de Microsoft.
 
 ## Tabla de contenido
 
--   [Requisitos previos][]
--   [Incorporación de la biblioteca JspWriter a la ruta de acceso de compilación y el ensamblado de implementación][]
--   [Modificación del archivo JSP para que muestre el SAML][]
--   [Ejecución de la aplicación][]
--   [Pasos siguientes][]
+-   [Requisitos previos][Requisitos previos]
+-   [Incorporación de la biblioteca JspWriter a la ruta de acceso de compilación y el ensamblado de implementación][Incorporación de la biblioteca JspWriter a la ruta de acceso de compilación y el ensamblado de implementación]
+-   [Modificación del archivo JSP para que muestre el SAML][Modificación del archivo JSP para que muestre el SAML]
+-   [Ejecución de la aplicación][Ejecución de la aplicación]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="pre"></a>Requisitos previos
 
-A fin de llevar a cabo las tareas de esta guía, complete el ejemplo de [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse][] y úselo como punto de partida de este tutorial.
+A fin de llevar a cabo las tareas de esta guía, complete el ejemplo de [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse][Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse] y úselo como punto de partida de este tutorial.
 
 ## <a name="add_library"></a>Incorporación de la biblioteca JspWriter a la ruta de acceso de compilación y el ensamblado de implementación
 
@@ -173,12 +173,12 @@ Modifique **index.jsp** para que use el código siguiente.
 
 ## <a name="run_application"></a>Ejecución de la aplicación
 
-1.  Ejecute la aplicación en el emulador del equipo o realice la implementación en Azure; para ello, siga los pasos descritos en [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse][].
+1.  Ejecute la aplicación en el emulador del equipo o realice la implementación en Azure; para ello, siga los pasos descritos en [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse][Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse].
 2.  Inicie un explorador y abra la aplicación web. Después de iniciar sesión en la aplicación, verá la información de SAML, incluida la aserción de seguridad proporcionada por el proveedor de identidades.
 
 ## <a name="next_steps"></a>Pasos siguientes
 
-Para seguir explorando la funcionalidad de ACS y experimentar con escenarios más sofisticados, consulte [Access Control Service 2.0][].
+Para seguir explorando la funcionalidad de ACS y experimentar con escenarios más sofisticados, consulte [Access Control Service 2.0][Access Control Service 2.0].
 
   [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
   [Salida de SAML de ejemplo]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png

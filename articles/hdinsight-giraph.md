@@ -4,7 +4,7 @@
 
 ## Aprendizaje del uso de Apache Giraph con Azure HDInsight (Hadoop)
 
-[Apache Giraph][] permite realizar procesamiento gráfico mediante Hadoop, y se puede usar con Azure HDInsight.
+[Apache Giraph][Apache Giraph] permite realizar procesamiento gráfico mediante Hadoop, y se puede usar con Azure HDInsight.
 
 Los gráficos modelan las relaciones entre los objetos, como las conexiones entre los enrutadores en una red de gran tamaño como Internet, o las relaciones entre personas de las redes sociales (conocidas en ocasiones como gráficos sociales). El procesamiento gráfico le permite razonar sobre las relaciones entre los objetos de un gráfico. En este sentido, le ayuda por ejemplo a:
 
@@ -16,29 +16,29 @@ Los gráficos modelan las relaciones entre los objetos, como las conexiones entr
 
 ## Aprenderá a:
 
--   [Compilar e implementar Apache Giraph en un clúster de HDInsight][]
+-   [Compilar e implementar Apache Giraph en un clúster de HDInsight][Compilar e implementar Apache Giraph en un clúster de HDInsight]
 
--   [Ejecutar el ejemplo SimpleShortestPathsComputation][]
+-   [Ejecutar el ejemplo SimpleShortestPathsComputation][Ejecutar el ejemplo SimpleShortestPathsComputation]
 
-    Para obtener una lista de otros ejemplos que se proporcionan con Giraph, consulte [Paquete org.apache.giraph.examples][].
+    Para obtener una lista de otros ejemplos que se proporcionan con Giraph, consulte [Paquete org.apache.giraph.examples][Paquete org.apache.giraph.examples].
 
--   [Solucionar los problemas con los que pueda encontrarse][]
+-   [Solucionar los problemas con los que pueda encontrarse][Solucionar los problemas con los que pueda encontrarse]
 
 ## Requisitos
 
 -   Un clúster de Azure HDInsight, versión 3.0 o 3.1
 
--   [Git][]
+-   [Git][Git]
 
 -   Java 1.6
 
--   [Maven][] 3 o superior
+-   [Maven][Maven] 3 o superior
 
 ## <span id="build"></span></a>Compilación e implementación de Giraph
 
-Giraph no se proporciona como parte del clúster de HDInsight, así que se debe compilar desde el origen. Puede encontrar más información sobre la compilación de Giraph en el [repositorio de Giraph][].
+Giraph no se proporciona como parte del clúster de HDInsight, así que se debe compilar desde el origen. Puede encontrar más información sobre la compilación de Giraph en el [repositorio de Giraph][repositorio de Giraph].
 
-1.  Actualmente (14-07-2014,) Giraph requiere una revisión para funcionar con el almacenamiento de archivos WASB que usa HDInsight. La revisión se ha enviado al proyecto Apache Giraph, pero aún no se ha aceptado. Descargue la revisión desde la sección de **datos adjuntos** de [GIRAPH-930][] y guárdela en la unidad local como **giraph-930.diff**.
+1.  Actualmente (14-07-2014,) Giraph requiere una revisión para funcionar con el almacenamiento de archivos WASB que usa HDInsight. La revisión se ha enviado al proyecto Apache Giraph, pero aún no se ha aceptado. Descargue la revisión desde la sección de **datos adjuntos** de [GIRAPH-930][GIRAPH-930] y guárdela en la unidad local como **giraph-930.diff**.
 
 2.  Desde una línea de comandos, use el siguiente comando Git para crear un clon del repositorio de Giraph.
 
@@ -66,7 +66,7 @@ Giraph no se proporciona como parte del clúster de HDInsight, así que se debe 
 
     Una vez finalizada la compilación, encontrará el archivo JAR de ejemplos en **\\giraph\\giraph-examples\\target**.
 
-6.  Cargue dicho archivo en el almacenamiento principal del clúster de HDInsight mediante [Azure PowerShell][] y las [Herramientas de HDInsight][].
+6.  Cargue dicho archivo en el almacenamiento principal del clúster de HDInsight mediante [Azure PowerShell][Azure PowerShell] y las [Herramientas de HDInsight][Herramientas de HDInsight].
 
         Add-HDInsightFile giraph-examples-1.1.0-SNAPSHOT-for-hadoop-0.23.1-jar-with-dependencies.jar example/jars/giraph.jar clustername
 
@@ -74,13 +74,13 @@ Giraph no se proporciona como parte del clúster de HDInsight, así que se debe 
 
     Cuando finalice el comando, el archivo JAR se habrá cargado en wasb:///example/jars/giraph.jar.
 
-    > [WACOM.NOTE] Para ver una lista de utilidades que se pueden usar para cargar archivos en HDInsight, consulte [Carga de datos en HDInsight][].
+    > [WACOM.NOTE] Para ver una lista de utilidades que se pueden usar para cargar archivos en HDInsight, consulte [Carga de datos en HDInsight][Carga de datos en HDInsight].
 
 ## <span id="run"></span></a>Ejecución del ejemplo
 
-El ejemplo SimpleShortestPathsComputation demuestra la implementación básica de [Pregel][] para hallar la ruta más corta posible entre los objetos de un gráfico. Use los siguientes pasos para cargar los datos de ejemplo, ejecutar un trabajo mediante el ejemplo SimpleShortestPathsComputation y luego ver los resultados.
+El ejemplo SimpleShortestPathsComputation demuestra la implementación básica de [Pregel][Pregel] para hallar la ruta más corta posible entre los objetos de un gráfico. Use los siguientes pasos para cargar los datos de ejemplo, ejecutar un trabajo mediante el ejemplo SimpleShortestPathsComputation y luego ver los resultados.
 
-> [WACOM.NOTE] El origen de este y otros ejemplos está disponible en [release-1.1 branch][] del [repositorio de GitHub][repositorio de Giraph].
+> [WACOM.NOTE] El origen de este y otros ejemplos está disponible en [release-1.1 branch][release-1.1 branch] del [repositorio de GitHub][repositorio de Giraph].
 
 1.  Cree un nuevo archivo llamado **tiny\_graph.txt**. Debe contener las siguientes líneas.
 
@@ -90,19 +90,19 @@ El ejemplo SimpleShortestPathsComputation demuestra la implementación básica d
         [3,0,[[0,3],[1,1],[4,4]]]
         [4,0,[[3,4],[2,4]]]
 
-    Estos datos describen una relación entre los objetos de un [gráfico dirigido][], mediante el formato `[source_id,source_value,[[dest_id], [edge_value],...]]`. Cada línea representa una relación entre un **source\_id** y uno o varios objetos **dest\_id**. El **edge\_value** (o peso) se puede considerar como la fuerza o la distancia de la conexión entre el **source\_id** y el **dest\_id**.
+    Estos datos describen una relación entre los objetos de un [gráfico dirigido][gráfico dirigido], mediante el formato `[source_id,source_value,[[dest_id], [edge_value],...]]`. Cada línea representa una relación entre un **source\_id** y uno o varios objetos **dest\_id**. El **edge\_value** (o peso) se puede considerar como la fuerza o la distancia de la conexión entre el **source\_id** y el **dest\_id**.
 
     Extrapolados, y usando el valor (o peso) como la distancia entre los objetos, los datos anteriores podrían parecerse a estos.
 
-    ![tiny\_graph.txt drawn as circles with lines of varying distance between][]
+    ![tiny\_graph.txt drawn as circles with lines of varying distance between][tiny\_graph.txt drawn as circles with lines of varying distance between]
 
-2.  Cargue el archivo **tiny\_graph.txt** en el almacenamiento principal del clúster de HDInsight mediante[Azure PowerShell][] y las [Herramientas de HDInsight][].
+2.  Cargue el archivo **tiny\_graph.txt** en el almacenamiento principal del clúster de HDInsight mediante[Azure PowerShell][Azure PowerShell] y las [Herramientas de HDInsight][Herramientas de HDInsight].
 
         Add-HDInsightFile tiny_graph.txt example/data/tiny_graph.txt clustername
 
     Sustituya el nombre del clúster por el nombre del clúster de HDInsight.
 
-3.  Use el siguiente PowerShell para ejecutar el ejemplo **SimpleShortstPathsComputation**, mediante el uso del archivo **tiny\_graph.txt** como entrada. Para ello, será necesario que haya instalado y configurado [Azure PowerShell][].
+3.  Use el siguiente PowerShell para ejecutar el ejemplo **SimpleShortstPathsComputation**, mediante el uso del archivo **tiny\_graph.txt** como entrada. Para ello, será necesario que haya instalado y configurado [Azure PowerShell][Azure PowerShell].
 
         $clusterName = "clustername"
         # Giraph examples JAR
@@ -134,7 +134,7 @@ El ejemplo SimpleShortestPathsComputation demuestra la implementación básica d
 
 ### Ver los resultados
 
-Cuando el trabajo se haya completado, los resultados se almacenarán en la carpeta **wasb:///example/out/shotestpaths** como archivos **part-m-\#\#\#\#\#**. Use [Azure PowerShell][] y las [Herramientas de HDInsight][] para descargar los archivos de salida.
+Cuando el trabajo se haya completado, los resultados se almacenarán en la carpeta **wasb:///example/out/shotestpaths** como archivos **part-m-\#\#\#\#\#**. Use [Azure PowerShell][Azure PowerShell] y las [Herramientas de HDInsight][Herramientas de HDInsight] para descargar los archivos de salida.
 
     Find-HDInsightFile example/output/shortestpaths/part* clustername | foreach-object { Get-HDInsightFile $_.name .  itsfullofstorage }
     Cat example/output/shortestpaths/part*
@@ -151,7 +151,7 @@ El ejemplo SimpleShortestPathComputation se ha codificado de forma rígida para 
 
 Visualizando esto, puede verificar los resultados recorriendo las rutas más cortas entre el Id. 1 y todos los demás objetos. Observe que la ruta más corta entre el Id. 1 y el Id. 4 es 5. Esta es la distancia total entre <span style="color:orange">Id. 1 y 3</span>, y luego <span style="color:red">Id. 3 y 4</span>.
 
-![Drawing of objects as circles with shortest paths drawn between][]
+![Drawing of objects as circles with shortest paths drawn between][Drawing of objects as circles with shortest paths drawn between]
 
 ## <span id="tshoot"></span></a> Solución de problemas
 
@@ -171,7 +171,7 @@ Aunque en este artículo se demuestra cómo ejecutar un trabajo de Giraph a trav
 
 Para conectarse al clúster de HDInsight, lleve a cabo los siguientes pasos:
 
-1.  Mediante el [Portal de administración de Azure][], seleccione el clúster de HDInsight y luego seleccione **Configuración**.
+1.  Mediante el [Portal de administración de Azure][Portal de administración de Azure], seleccione el clúster de HDInsight y luego seleccione **Configuración**.
 
 2.  En la parte inferior de la página, seleccione **Habilitar de forma remota** y proporcione el nombre de usuario, la contraseña y la fecha de caducidad de la conexión a Escritorio remoto.
 
@@ -188,13 +188,13 @@ Para conectarse al clúster de HDInsight, lleve a cabo los siguientes pasos:
 
 ### Versiones antiguas de HDInsight
 
-Si desea usar Giraph con versiones antiguas de HDInsight, debe compilarlo en la versión específica de Hadoop que admita esa versión. Consulte [¿Cuáles son las novedades en las versiones de clústeres proporcionadas por HDInsight?][] para determinar la versión de Hadoop que corresponde a su versión de HDInsight.
+Si desea usar Giraph con versiones antiguas de HDInsight, debe compilarlo en la versión específica de Hadoop que admita esa versión. Consulte [¿Cuáles son las novedades en las versiones de clústeres proporcionadas por HDInsight?][¿Cuáles son las novedades en las versiones de clústeres proporcionadas por HDInsight?] para determinar la versión de Hadoop que corresponde a su versión de HDInsight.
 
-Además, las versiones más antiguas de HDInsight pueden necesitar que ejecute el trabajo de Giraph desde la línea de comandos de Hadoop. Si recibe errores al ejecutar el trabajo desde PowerShell, intente ejecutar el trabajo desde la [línea de comandos de Hadoop][].
+Además, las versiones más antiguas de HDInsight pueden necesitar que ejecute el trabajo de Giraph desde la línea de comandos de Hadoop. Si recibe errores al ejecutar el trabajo desde PowerShell, intente ejecutar el trabajo desde la [línea de comandos de Hadoop][línea de comandos de Hadoop].
 
 ## Pasos siguientes
 
-Ahora que ha aprendido a usar Giraph con HDInsight, pruebe [Pig][] y [Hive][] con HDInsight.
+Ahora que ha aprendido a usar Giraph con HDInsight, pruebe [Pig][Pig] y [Hive][Hive] con HDInsight.
 
   [Apache Giraph]: http://giraph.apache.org
   [Compilar e implementar Apache Giraph en un clúster de HDInsight]: #build

@@ -6,9 +6,9 @@
 
 ## En este artículo
 
--   [Fundamentos de Base de datos de documentos de Azure][]
--   [Configuración de Base de datos de documentos de Azure][]
--   [Desarrollo con Base de datos de documentos de Azure][]
+-   [Fundamentos de Base de datos de documentos de Azure][Fundamentos de Base de datos de documentos de Azure]
+-   [Configuración de Base de datos de documentos de Azure][Configuración de Base de datos de documentos de Azure]
+-   [Desarrollo con Base de datos de documentos de Azure][Desarrollo con Base de datos de documentos de Azure]
 
 ## <span id="fundamentals"></span></a>Fundamentos de Base de datos de documentos de Azure
 
@@ -16,7 +16,7 @@
 
 Base de datos de documentos de Microsoft Azure es un servicio de base de datos de documentos NoSQL muy escalable que ofrece consultas enriquecidas a través de datos sin esquemas, ayuda a proporcionar un rendimiento configurable y confiable y favorece el desarrollo rápido, y todo gracias a una plataforma administrada respaldada por la potencia y el alcance de Microsoft Azure. Base de datos de documentos es la solución adecuada para aplicaciones web y móviles cuando lo que se busca es un rendimiento predecible, una baja latencia y un modelo de datos sin esquemas. Ofrece flexibilidad de esquemas e indexación enriquecida a través de un modelo de datos JSON nativo, e incluye compatibilidad transaccional de varios documentos con JavaScript integrado.
 
-Para obtener instrucciones sobre la implementación y uso de este servicio, consulte la [página de documentación de Base de datos de documentos][].
+Para obtener instrucciones sobre la implementación y uso de este servicio, consulte la [página de documentación de Base de datos de documentos][página de documentación de Base de datos de documentos].
 
 ### ¿Qué clase de base de datos es Base de datos de documentos?
 
@@ -44,7 +44,7 @@ Cada cuenta de Base de datos de documentos de Azure admite un número máximo de
 
 ### ¿Cuánto cuesta Base de datos de documentos de Microsoft Azure?
 
-Consulte el artículo de [detalles de precios de Base de datos de documentos][] para obtener más información.
+Consulte el artículo de [detalles de precios de Base de datos de documentos][detalles de precios de Base de datos de documentos] para obtener más información.
 
 ## <span id="setup"></span></a>Configuración de Base de datos de documentos de Microsoft Azure
 
@@ -58,7 +58,7 @@ Una clave maestra es un token de seguridad para acceder a todos los recursos de 
 
 ### ¿Cómo se crea una base de datos?
 
-Puede crear una base de datos mediante uno de los SDK de Base de datos de documentos o a través de las API REST. Consulte la sección Desarrollar de la [página de documentación de Base de datos de documentos][] para obtener información sobre cómo desarrollar aplicaciones.
+Puede crear una base de datos mediante uno de los SDK de Base de datos de documentos o a través de las API REST. Consulte la sección Desarrollar de la [página de documentación de Base de datos de documentos][página de documentación de Base de datos de documentos] para obtener información sobre cómo desarrollar aplicaciones.
 
 ### ¿Qué es una colección?
 
@@ -70,17 +70,17 @@ Cada unidad de capacidad adquirida viene con una asignación de almacenamiento d
 
 ### ¿Cómo se configuran los usuarios y los permisos?
 
-Puede crear usuarios y permisos mediante uno de los SDK de Base de datos de documentos o a través de las API REST. Consulte la sección Desarrollar de la [página de documentación de Base de datos de documentos][] para obtener información sobre cómo desarrollar aplicaciones. .
+Puede crear usuarios y permisos mediante uno de los SDK de Base de datos de documentos o a través de las API REST. Consulte la sección Desarrollar de la [página de documentación de Base de datos de documentos][página de documentación de Base de datos de documentos] para obtener información sobre cómo desarrollar aplicaciones. .
 
 ## <span id="develop"></span></a>Desarrollo con Base de datos de documentos de Microsoft Azure
 
 ### ¿Cómo se empieza a desarrollar con Base de datos de documentos?
 
-En vista previa, dispone de SDK para .NET, Python, Node.js y JavaScript. Los desarrolladores pueden aprovechar también las API RESTful HTTP para interactuar con recursos de Base de datos de documentos desde una variedad de plataformas y lenguajes. Para obtener detalles acerca de cómo usar estos SDK, consulte la sección Desarrollar en la [página de documentación de Base de datos de documentos][].
+En vista previa, dispone de SDK para .NET, Python, Node.js y JavaScript. Los desarrolladores pueden aprovechar también las API RESTful HTTP para interactuar con recursos de Base de datos de documentos desde una variedad de plataformas y lenguajes. Para obtener detalles acerca de cómo usar estos SDK, consulte la sección Desarrollar en la [página de documentación de Base de datos de documentos][página de documentación de Base de datos de documentos].
 
 ### ¿Admite Base de datos de documentos SQL?
 
-El lenguaje de consultas SQL de Base de datos de documentos ofrece operadores relacionales y jerárquicos enriquecidos, junto con extensibilidad a través de funciones definidas por el usuario (UDF) basadas en JavaScript. La gramática JSON permite el modelado de documentos JSON como árboles con etiquetas a modo de nodos de árbol, hecho que aprovechan también las técnicas de indexación automática de Base de datos de documentos, que es su dialecto de consulta SQL. Para obtener información detallada sobre el uso de nuestra gramática SQL, consulte el artículo sobre la [realización de consultas mediante SQL de Base de datos de documentos][].
+El lenguaje de consultas SQL de Base de datos de documentos ofrece operadores relacionales y jerárquicos enriquecidos, junto con extensibilidad a través de funciones definidas por el usuario (UDF) basadas en JavaScript. La gramática JSON permite el modelado de documentos JSON como árboles con etiquetas a modo de nodos de árbol, hecho que aprovechan también las técnicas de indexación automática de Base de datos de documentos, que es su dialecto de consulta SQL. Para obtener información detallada sobre el uso de nuestra gramática SQL, consulte el artículo sobre la [realización de consultas mediante SQL de Base de datos de documentos][realización de consultas mediante SQL de Base de datos de documentos].
 
 ### ¿Qué tipos de datos admite Base de datos de documentos?
 
@@ -96,7 +96,7 @@ Base de datos de documentos admite transacciones integradas en el lenguaje a tra
 
 ### ¿Cómo se pueden insertar documentos en masa en Base de datos de documentos?
 
-La compatibilidad de Base de datos de documentos con procedimientos almacenados ofrece un medio eficiente de realizar inserciones por lotes. Mediante el desarrollo de un procedimiento almacenado JavaScript sencillo que acepte e inserte documentos, puede realizar inserciones en masa. Esto tiene el beneficio añadido de que la inserción en masa se realizará como una transacción, lo que dejará a la colección en un estado coherente. Para obtener detalles sobre el modelo de programación, consulte la sección Desarrollar en la [página de documentación de Base de datos de documentos][].
+La compatibilidad de Base de datos de documentos con procedimientos almacenados ofrece un medio eficiente de realizar inserciones por lotes. Mediante el desarrollo de un procedimiento almacenado JavaScript sencillo que acepte e inserte documentos, puede realizar inserciones en masa. Esto tiene el beneficio añadido de que la inserción en masa se realizará como una transacción, lo que dejará a la colección en un estado coherente. Para obtener detalles sobre el modelo de programación, consulte la sección Desarrollar en la [página de documentación de Base de datos de documentos][página de documentación de Base de datos de documentos].
 
 ### ¿Admite Base de datos de documentos el almacenamiento en caché de vínculos de recursos?
 

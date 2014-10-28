@@ -8,7 +8,7 @@ Puede configurar un dominio personalizado para obtener acceso a los datos Blob e
 
 <div class="dev-callout"> 
 <b>Nota:</b> 
-    <p>Los procedimientos de esta tarea se aplican a las cuentas de almacenamiento de Azure. Para obtener la informaci&oacute;n relativa a los Servicios en la nube, consulte <a href = "/en-us/develop/net/common-tasks/custom-dns/">Configuraci&oacute;n de un nombre de dominio personalizado para un servicio en la nube de Azure</a>; para Sitios web, consulte <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuraci&oacute;n de un nombre de dominio personalizado para un Sitio web Azure</a>.</p> 
+    <p>Los procedimientos de esta tarea se aplican a las cuentas de almacenamiento de Azure. Para obtener la informaci&oacute;n relativa a los Servicios en la nube, consulte <a href = "/es-es/develop/net/common-tasks/custom-dns/">Configuraci&oacute;n de un nombre de dominio personalizado para un servicio en la nube de Azure</a>; para Sitios web, consulte <a href="/es-es/develop/net/common-tasks/custom-dns-web-site/">Configuraci&oacute;n de un nombre de dominio personalizado para un Sitio web Azure</a>.</p> 
 </div>
 
 Existen dos formas de que el dominio personalizado apunte al extremo del blob para la cuenta de almacenamiento. La forma más simple es crear un registro CNAME asignando el dominio y el subdominio personalizados al extremo del blob. Un registro CNAME es una característica DNS que asigna un dominio de origen a un dominio de destino. En este caso, el dominio de origen es el dominio y el subdominio personalizados. Tenga en cuenta que el subdominio es siempre obligatorio. El dominio de destino es el extremo de servicio del blob.
@@ -47,15 +47,15 @@ La siguiente tabla muestra las direcciones URL de ejemplo para obtener acceso a 
 
 Esta tarea le mostrará cómo realizar los siguientes procedimientos:
 
--   [Registro de un dominio personalizado para la cuenta de almacenamiento][]
--   [Registro de un dominio personalizado para la cuenta de almacenamiento con el subdominio asverify del intermediario][]
+-   [Registro de un dominio personalizado para la cuenta de almacenamiento][Registro de un dominio personalizado para la cuenta de almacenamiento]
+-   [Registro de un dominio personalizado para la cuenta de almacenamiento con el subdominio asverify del intermediario][Registro de un dominio personalizado para la cuenta de almacenamiento con el subdominio asverify del intermediario]
 -   <a name="#verify-subdomain">Comprobación de que el dominio personalizado hace referencia al extremo del servicio BLOB</a>
 
 ## <a name="register-domain"></a>Registro de un dominio personalizado para la cuenta de almacenamiento
 
 Use este procedimiento para registrar el dominio personalizado si no le preocupa que el dominio deje de estar disponible brevemente para los usuarios o si el dominio personalizado no hospeda actualmente una aplicación.
 
-Si el dominio personalizado es compatible actualmente con una aplicación que no puede tener ningún tiempo de inactividad, use el procedimiento descrito en [Registro de un dominio personalizado para la cuenta de almacenamiento con el subdominio asverify del intermediario][].
+Si el dominio personalizado es compatible actualmente con una aplicación que no puede tener ningún tiempo de inactividad, use el procedimiento descrito en [Registro de un dominio personalizado para la cuenta de almacenamiento con el subdominio asverify del intermediario][Registro de un dominio personalizado para la cuenta de almacenamiento con el subdominio asverify del intermediario].
 
 Para configurar un nombre de dominio personalizado, debe crear un nuevo registro CNAME con el registrador de dominios. El registro CNAME especifica un alias para el nombre de dominio; en este caso asigna la dirección del dominio personalizado al extremo del servicio BLOB para la cuenta de almacenamiento.
 
@@ -142,10 +142,10 @@ Por ejemplo, puede usar el siguiente URI para obtener acceso a un formulario web
 
 ## Recursos adicionales
 
--   [Asignación del contenido de la red CDN a un dominio personalizado][]
+-   [Asignación del contenido de la red CDN a un dominio personalizado][Asignación del contenido de la red CDN a un dominio personalizado]
 
-  [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure]: /en-us/develop/net/common-tasks/custom-dns/
-  [Configuración de un nombre de dominio personalizado para un Sitio web Azure]: /en-us/develop/net/common-tasks/custom-dns-web-site/
+  [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure]: /es-es/develop/net/common-tasks/custom-dns/
+  [Configuración de un nombre de dominio personalizado para un Sitio web Azure]: /es-es/develop/net/common-tasks/custom-dns-web-site/
   [Registro de un dominio personalizado para la cuenta de almacenamiento]: #register-domain
   [Registro de un dominio personalizado para la cuenta de almacenamiento con el subdominio asverify del intermediario]: #register-asverify
-  [Asignación del contenido de la red CDN a un dominio personalizado]: http://msdn.microsoft.com/en-us/library/windowsazure/gg680307.aspx
+  [Asignación del contenido de la red CDN a un dominio personalizado]: http://msdn.microsoft.com/es-es/library/windowsazure/gg680307.aspx

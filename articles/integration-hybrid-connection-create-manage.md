@@ -8,27 +8,27 @@ En este tema se muestran los pasos para crear y administrar conexiones híbridas
 
 Para conectar con un recurso local, siga estos pasos:
 
-1.  [Cree una conexión híbrida][] especificando el nombre de host o la dirección IP del recurso local de la red privada.
+1.  [Cree una conexión híbrida][Cree una conexión híbrida] especificando el nombre de host o la dirección IP del recurso local de la red privada.
 
-2.  [Vincule el sitio web o el servicio móvil de Azure][] a la conexión híbrida.
+2.  [Vincule el sitio web o el servicio móvil de Azure][Vincule el sitio web o el servicio móvil de Azure] a la conexión híbrida.
 
-3.  [Instale el Administrador de conexiones híbridas][] en el recurso local y conéctese a la conexión híbrida específica. El portal de Azure ofrece una experiencia con un solo clic para la instalación y la conexión.
+3.  [Instale el Administrador de conexiones híbridas][Instale el Administrador de conexiones híbridas] en el recurso local y conéctese a la conexión híbrida específica. El portal de Azure ofrece una experiencia con un solo clic para la instalación y la conexión.
 
-4.  [Administre las conexiones híbridas][] y sus claves de conexión.
+4.  [Administre las conexiones híbridas][Administre las conexiones híbridas] y sus claves de conexión.
 
 ## <a name="CreateHybridConnection"></a>Creación de una conexión híbrida
 
 Una conexión híbrida se puede crear en el Portal de administración de Azure mediante Sitios web **o** mediante los servicios de BizTalk.
 
-**Para crear conexiones híbridas mediante Sitios web**, consulte [Conexión de un sitio web de Azure a un recurso local][].
+**Para crear conexiones híbridas mediante Sitios web**, consulte [Conexión de un sitio web de Azure a un recurso local][Conexión de un sitio web de Azure a un recurso local].
 
 **Para crear conexiones híbridas en los servicios de BizTalk, siga estos pasos**:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  En el panel de navegación izquierdo, seleccione **Servicios de BizTalk** y luego seleccione el servicio de BizTalk.
-    Si no tiene un servicio de BizTalk existente, puede [crear uno][].
+    Si no tiene un servicio de BizTalk existente, puede [crear uno][crear uno].
 3.  Seleccione la pestaña Conexiones híbridas:
-    ![Hybrid Connections Tab][]
+    ![Hybrid Connections Tab][Hybrid Connections Tab]
 
 4.  Seleccione **Crear una conexión híbrida** o seleccione el botón **AGREGAR** de la barra de tareas. Escriba lo siguiente:
 
@@ -66,25 +66,25 @@ Una conexión híbrida se puede crear en el Portal de administración de Azure m
 
 #### Información adicional
 
--   Se pueden crear varias conexiones híbridas. Consulte [Servicios de BizTalk: Gráfico de las ediciones][] para ver el número de conexiones permitidas.
+-   Se pueden crear varias conexiones híbridas. Consulte [Servicios de BizTalk: Gráfico de las ediciones][Servicios de BizTalk: Gráfico de las ediciones] para ver el número de conexiones permitidas.
 -   Cada conexión híbrida se crea con un par de cadenas de conexión: las claves de aplicación que ENVÍAN y las claves locales que ESCUCHAN. Cada par tiene una clave principal y una secundaria.
 
 ## <a name="LinkWebSite"></a>Vinculación de un sitio web o un servicio móvil de Azure
 
-Para vincular el sitio web de Azure a una conexión híbrida existente, seleccione **usar una conexión híbrida existente** en el cuadro Conexiones híbridas. Consulte [Conexión de un sitio web de Azure a un recurso local][].
+Para vincular el sitio web de Azure a una conexión híbrida existente, seleccione **usar una conexión híbrida existente** en el cuadro Conexiones híbridas. Consulte [Conexión de un sitio web de Azure a un recurso local][Conexión de un sitio web de Azure a un recurso local].
 
-Para vincular el servicio móvil de Azure a una conexión híbrida existente, seleccione **agregar una conexión híbrida** al cambiar o crear un servicio móvil. Consulte [Servicios móviles de Azure y conexiones híbridas][].
+Para vincular el servicio móvil de Azure a una conexión híbrida existente, seleccione **agregar una conexión híbrida** al cambiar o crear un servicio móvil. Consulte [Servicios móviles de Azure y conexiones híbridas][Servicios móviles de Azure y conexiones híbridas].
 
 ## <a name="InstallHCM"></a>Instalación del Administrador de conexiones híbridas en el entorno local
 
 Después de que se crea una conexión híbrida, instale el Administrador de conexiones híbridas en el recurso local. Este se puede descargar desde el sitio web de Azure o desde el servicio de BizTalk. Pasos para los servicios de BizTalk:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  En el panel de navegación izquierdo, seleccione **Servicios de BizTalk** y luego seleccione el servicio de BizTalk.
 3.  Seleccione la pestaña **Conexiones híbridas**:
-    ![Hybrid Connections Tab][]
+    ![Hybrid Connections Tab][Hybrid Connections Tab]
 4.  En la barra de tareas, seleccione **Configuración local**:
-    ![On-Premises Setup][]
+    ![On-Premises Setup][On-Premises Setup]
 5.  Seleccione **Instalar y configurar** para ejecutar o descargar el Administrador de conexiones híbridas en el sistema local.
 6.  Seleccione la marca de verificación para iniciar la instalación.
 
@@ -108,17 +108,17 @@ Después de que se crea una conexión híbrida, instale el Administrador de cone
 Para administrar las conexiones híbridas, puede:
 
 -   Usar el portal de Azure para ir al servicio de BizTalk.
--   Use [API REST][].
+-   Use [API REST][API REST].
     <!-- - Use Windows PowerShell cmdlets  **INSERT LINK**. -->
 
 #### Copia y regeneración de las cadenas de conexión híbridas
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  En el panel de navegación izquierdo, seleccione **Servicios de BizTalk** y luego seleccione el servicio de BizTalk.
 3.  Seleccione la pestaña **Conexiones híbridas**:
-    ![Hybrid Connections Tab][]
+    ![Hybrid Connections Tab][Hybrid Connections Tab]
 4.  Seleccione la conexión híbrida. En la barra de tareas, seleccione **Administrar conexión**:
-    ![Manage Options][]
+    ![Manage Options][Manage Options]
     **Administrar conexión** muestra las cadenas de conexión de aplicación y locales. Puede copiar las cadenas de conexión o regenerar la clave de acceso usada en la cadena de conexión.
     **Si selecciona Regenerar**, la clave de acceso compartido usada en la cadena de conexión cambia. Haga lo siguiente:
 
@@ -132,23 +132,23 @@ Para administrar las conexiones híbridas, puede:
 3.  En el equipo que modifica la directiva de grupo, haga lo siguiente:
 
 -   Copie los archivos .ADMX en la carpeta *%WINROOT%\\PolicyDefinitions*.
--   Copie los archivos .ADML en la carpeta *%WINROOT%\\PolicyDefinitions\\en-us*.
+-   Copie los archivos .ADML en la carpeta *%WINROOT%\\PolicyDefinitions\\es-es*.
 
 Una vez copiados, puede usar el Editor de directivas de grupo para cambiar la directiva.
 
 ## Pasos siguientes
 
--   [Conexión de un sitio web de Azure a un recurso local][]
--   [Conexiones híbridas paso a paso: Conexión a SQL Server local desde un sitio web de Azure][]
--   [Servicios móviles de Azure y conexiones híbridas][]
--   [Introducción a las conexiones híbridas][]
+-   [Conexión de un sitio web de Azure a un recurso local][Conexión de un sitio web de Azure a un recurso local]
+-   [Conexiones híbridas paso a paso: Conexión a SQL Server local desde un sitio web de Azure][Conexiones híbridas paso a paso: Conexión a SQL Server local desde un sitio web de Azure]
+-   [Servicios móviles de Azure y conexiones híbridas][Servicios móviles de Azure y conexiones híbridas]
+-   [Introducción a las conexiones híbridas][Introducción a las conexiones híbridas]
 
 ## Otras referencias
 
 -   [API REST para administrar los servicios de BizTalk en Windows Azure][API REST]
 -   [Servicios de BizTalk: Gráfico de ediciones][Servicios de BizTalk: Gráfico de las ediciones]
--   [Creación un servicio de BizTalk mediante el Portal de administración de Azure][]
--   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala][]
+-   [Creación un servicio de BizTalk mediante el Portal de administración de Azure][Creación un servicio de BizTalk mediante el Portal de administración de Azure]
+-   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala][Servicios de BizTalk: Pestañas Panel, Monitor y Escala]
 
   [Cree una conexión híbrida]: #CreateHybridConnection
   [Vincule el sitio web o el servicio móvil de Azure]: #LinkWebSite

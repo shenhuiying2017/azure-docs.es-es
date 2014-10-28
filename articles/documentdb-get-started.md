@@ -4,26 +4,26 @@
 
 # Primeros pasos con una cuenta de Base de datos de documentos
 
-En esta guía se explica cómo comenzar a usar **Base de datos de documentos de Azure (vista previa)**. Los ejemplos están escritos en código C\# y usan el SDK para .NET de Base de datos de documentos. Los escenarios que aquí se describen incluyen la creación y configuración de una cuenta de Base de datos de documentos, la creación de bases de datos, la creación de colecciones y el almacenamiento de documentos JSON dentro de la cuenta. Para obtener más información acerca del uso de Base de documentos de Azure, consulte la sección Pasos siguientes.
+En esta guía se explica cómo comenzar a usar **Base de datos de documentos de Azure (vista previa)**. Los ejemplos están escritos en código C# y usan el SDK para .NET de Base de datos de documentos. Los escenarios que aquí se describen incluyen la creación y configuración de una cuenta de Base de datos de documentos, la creación de bases de datos, la creación de colecciones y el almacenamiento de documentos JSON dentro de la cuenta. Para obtener más información acerca del uso de Base de documentos de Azure, consulte la sección Pasos siguientes.
 
 Para usar esta guía de inicio, debe tener una cuenta de Base de datos de documentos y la clave de acceso (primaria o secundaria) de la cuenta. Para obtener más información, consulte:
 
--   [Creación de una cuenta de Base de datos de documentos][]
+-   [Creación de una cuenta de Base de datos de documentos][Creación de una cuenta de Base de datos de documentos]
 
 ## Tabla de contenido
 
--   [Conexión a una cuenta de Base de datos de documentos][]
--   [Creación de una base de datos][]
--   [Creación de una colección][]
--   [Creación de documentos][]
--   [Consulta de recursos de Base de datos de documentos][]
--   [Pasos siguientes][]
+-   [Conexión a una cuenta de Base de datos de documentos][Conexión a una cuenta de Base de datos de documentos]
+-   [Creación de una base de datos][Creación de una base de datos]
+-   [Creación de una colección][Creación de una colección]
+-   [Creación de documentos][Creación de documentos]
+-   [Consulta de recursos de Base de datos de documentos][Consulta de recursos de Base de datos de documentos]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <span id="Connect"></span></a>Conexión a una cuenta de Base de datos de documentos
 
-Existen varios SDK y API para programar con Base de datos de documentos. Los siguientes ejemplos están escritos en código C\# y usan el SDK para .NET de Base de datos de documentos.
+Existen varios SDK y API para programar con Base de datos de documentos. Los siguientes ejemplos están escritos en código C# y usan el SDK para .NET de Base de datos de documentos.
 
-Lo primero que haremos será crear un DocumentClient con la finalidad de establecer una conexión a nuestra cuenta de Base de datos de documentos. Necesitaremos las siguientes referencias en nuestra aplicación de C\#:
+Lo primero que haremos será crear un DocumentClient con la finalidad de establecer una conexión a nuestra cuenta de Base de datos de documentos. Necesitaremos las siguientes referencias en nuestra aplicación de C#:
 
     using Microsoft.Azure.Documents.Client;
     using Microsoft.Azure.Documents.Linq;
@@ -45,7 +45,7 @@ Para crear el cliente, use código similar al del ejemplo siguiente.
     //Create a new instance of the DocumentClient
     var client = new DocumentClient(new Uri(endpointUrl), authorizationKey);  
 
-**Advertencia:** nunca almacene credenciales en código fuente. Para que este ejemplo resulte sencillo, se muestra en código fuente. Consulte [Sitios web de Windows Azure: como funcionan las cadenas de aplicación y las cadenas de conexión][] para obtener información sobre cómo almacenar credenciales.
+**Advertencia:** nunca almacene credenciales en código fuente. Para que este ejemplo resulte sencillo, se muestra en código fuente. Consulte [Sitios web de Windows Azure: como funcionan las cadenas de aplicación y las cadenas de conexión][Sitios web de Windows Azure: como funcionan las cadenas de aplicación y las cadenas de conexión] para obtener información sobre cómo almacenar credenciales.
 
 Ahora que sabe cómo conectarse a una cuenta de Base de datos de documentos y crear una instancia de DocumentClient, vamos a echar un vistazo a cómo trabajar con recursos de Base de datos de documentos.
 
@@ -186,8 +186,8 @@ Base de datos de documentos admite consultas enriquecidas contra los documentos 
 
 ## <span id="NextSteps"></span></a>Pasos siguientes
 
--   Aprenda a [supervisar una cuenta de Base de datos de documentos][].
--   Para obtener detalles sobre el modelo de programación, consulte la sección Desarrollar en la [página de documentación de Base de datos de documentos][].
+-   Aprenda a [supervisar una cuenta de Base de datos de documentos][supervisar una cuenta de Base de datos de documentos].
+-   Para obtener detalles sobre el modelo de programación, consulte la sección Desarrollar en la [página de documentación de Base de datos de documentos][página de documentación de Base de datos de documentos].
 
   [Creación de una cuenta de Base de datos de documentos]: ../documentdb-create-account/
   [Conexión a una cuenta de Base de datos de documentos]: #Connect

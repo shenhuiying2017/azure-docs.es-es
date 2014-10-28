@@ -20,13 +20,13 @@ Este tutorial le guía en el proceso de creación de una implementación en la n
 
 Necesita llevar a cabo los pasos siguientes antes de crear el servicio:
 
--   Suscríbase a la vista previa de RemoteApp. Puede hacerlo en la dirección [][]<http://azure.microsoft.com/en-us/services/remoteapp/></a>.
+-   Suscríbase a la vista previa de RemoteApp. Puede hacerlo en la dirección [][]<http://azure.microsoft.com/es-es/services/remoteapp/></a>.
 -   Recopile información sobre los usuarios y grupos a los que desee conceder acceso. Esta información puede ser información de cuenta de Microsoft o información de cuenta de organización de Active Directory de usuarios o grupos.
 -   En este procedimiento se supone que va a usar la imagen de plantilla que se proporciona con la suscripción o que ya ha cargado la imagen de plantilla que desea usar. Si tiene que cargar una imagen de plantilla diferente, puede hacerlo desde la página Imágenes de plantilla. Haga clic en **Cargar imagen de plantilla** y siga los pasos del asistente.
 
 ## **Paso 1: Creación de un servicio RemoteApp**
 
-1.  En el [Portal de administración de Windows Azure][], vaya a la página RemoteApp.
+1.  En el [Portal de administración de Windows Azure][Portal de administración de Windows Azure], vaya a la página RemoteApp.
 2.  Haga clic en **Nuevo \> Creación rápida**.
 
 3.  Escriba un nombre para el servicio y seleccione su región.
@@ -43,7 +43,7 @@ Después de crear el servicio RemoteApp, vaya a la página **Inicio rápido** de
 
 ## **Paso 2: Configuración de sincronización de directorios de Active Directory (opcional)**
 
-Si desea utilizar Active Directory, RemoteApp requiere sincronización de directorios entre Azure Active Directory y su implementación local de Active Directory para sincronizar usuarios, grupos, contactos y contraseñas con su inquilino de Azure Active Directory. Consulte [Guía de sincronización de directorios][] para obtener información sobre planeación y pasos detallados.
+Si desea utilizar Active Directory, RemoteApp requiere sincronización de directorios entre Azure Active Directory y su implementación local de Active Directory para sincronizar usuarios, grupos, contactos y contraseñas con su inquilino de Azure Active Directory. Consulte [Guía de sincronización de directorios][Guía de sincronización de directorios] para obtener información sobre planeación y pasos detallados.
 
 ## **Paso 3: Publicación de programas RemoteApp**
 
@@ -60,7 +60,7 @@ Ahora que ha creado el servicio RemoteApp, necesita agregar los usuarios y grupo
 1.  Desde la página Inicio rápido, haga clic en **Configurar acceso de usuario**.
 2.  Escriba la cuenta organizativa o nombre de grupo (desde Active Directory) o la cuenta de Microsoft para la que desea conceder acceso.
 
-    Para los usuarios, asegúrese de que usa el formato “[usuario@dominio.com][]”. Para los grupos, escriba el nombre de grupo.
+    Para los usuarios, asegúrese de que usa el formato “[usuario@dominio.com][usuario@dominio.com]”. Para los grupos, escriba el nombre de grupo.
 
 3.  Una vez que los usuarios o grupos se validen, haga clic en **Guardar**.
 
@@ -68,7 +68,7 @@ Ahora que ha creado el servicio RemoteApp, necesita agregar los usuarios y grupo
 
 Eso es todo, ha creado e implementado correctamente su implementación en la nube de RemoteApp. El paso siguiente es que los usuarios descarguen e instalen el cliente Escritorio remoto. Puede encontrar la dirección URL del cliente en la página Inicio rápido de RemoteApp. Después, indique a los usuarios que inicien sesión en Azure y accedan a los programas de RemoteApp publicados.
 
-  []: http://azure.microsoft.com/en-us/services/remoteapp/
+  []: http://azure.microsoft.com/es-es/services/remoteapp/
   [Portal de administración de Windows Azure]: http://manage.windowsazure.com
-  [Guía de sincronización de directorios]: http://msdn.microsoft.com/en-us/library/azure/hh967642.aspx
+  [Guía de sincronización de directorios]: http://msdn.microsoft.com/es-es/library/azure/hh967642.aspx
   [usuario@dominio.com]: mailto:user@domain.com

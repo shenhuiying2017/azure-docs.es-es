@@ -7,7 +7,7 @@
 Este tutorial muestra cómo compilar una aplicación de ASP.NET Web Forms 4.5 segura que incorpora una base de datos SQL e implementar la aplicación en Azure.
 
 > [WACOM.NOTE]
-> Para obtener una versión para MVC de este tutorial, consulte [Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y Base de datos de SQL en un sitio web de Azure][].
+> Para obtener una versión para MVC de este tutorial, consulte [Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y Base de datos de SQL en un sitio web de Azure][Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y Base de datos de SQL en un sitio web de Azure].
 
 Puede abrir una cuenta de Azure de manera gratuita y, si todavía no tiene Visual Studio 2013, el SDK instala automáticamente Visual Studio 2013 Express para Web. Puede empezar a desarrollar contenido para Azure sin coste alguno.
 
@@ -24,42 +24,42 @@ Aprenderá a realizar los siguientes procedimientos:
 
 Va a desarrollar una aplicación web de lista de contactos sencilla basada en ASP.NET 4.5 Web Forms que utiliza Entity Framework para el acceso a la base de datos. La imagen siguiente muestra la página de formularios Web Forms que permiten acceso de lectura y escritura a la base de datos:
 
-![Página Contactos - Editar][]
+![Página Contactos - Editar][Página Contactos - Editar]
 
 > [WACOM.NOTE]
-> Necesita una cuenta de Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN][], o bien [regístrese para obtener una evaluación gratuita][].
+> Necesita una cuenta de Azure para completar este tutorial. Si aún no la tiene, puede [activar los beneficios de suscripción a MSDN][activar los beneficios de suscripción a MSDN], o bien [regístrese para obtener una evaluación gratuita][regístrese para obtener una evaluación gratuita].
 
 Este tutorial contiene las siguientes secciones:
 
--   [Configuración del entorno de desarrollo][]
--   [Configuración del entorno de Azure][]
--   [Creación de una aplicación de ASP.NET Web Forms][]
--   [Incorporación de una base de datos a la aplicación][]
--   [Habilitación de SSL para el proyecto][]
--   [Incorporación de un proveedor de OAuth 2.0][]
--   [Uso de la API de suscripción para restringir el acceso][]
--   [Implementación de la aplicación con la base de datos de Azure][]
--   [Revisión de la base de datos][]
--   [Pasos siguientes][]
+-   [Configuración del entorno de desarrollo][Configuración del entorno de desarrollo]
+-   [Configuración del entorno de Azure][Configuración del entorno de Azure]
+-   [Creación de una aplicación de ASP.NET Web Forms][Creación de una aplicación de ASP.NET Web Forms]
+-   [Incorporación de una base de datos a la aplicación][Incorporación de una base de datos a la aplicación]
+-   [Habilitación de SSL para el proyecto][Habilitación de SSL para el proyecto]
+-   [Incorporación de un proveedor de OAuth 2.0][Incorporación de un proveedor de OAuth 2.0]
+-   [Uso de la API de suscripción para restringir el acceso][Uso de la API de suscripción para restringir el acceso]
+-   [Implementación de la aplicación con la base de datos de Azure][Implementación de la aplicación con la base de datos de Azure]
+-   [Revisión de la base de datos][Revisión de la base de datos]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## Configuración del entorno de desarrollo
 
 Para comenzar, configure el entorno de desarrollo con la instalación de Visual Studio 2013 y el SDK de Azure para .NET.
 
-1.  Instale [Visual Studio 2013][], si aún no lo tiene instalado.
-2.  Instale el [SDK de Azure para Visual Studio 2013][]. Este tutorial requiere Visual Studio 2013 antes de instalar el SDK de Azure para Visual Studio 2013.
+1.  Instale [Visual Studio 2013][Visual Studio 2013], si aún no lo tiene instalado.
+2.  Instale el [SDK de Azure para Visual Studio 2013][SDK de Azure para Visual Studio 2013]. Este tutorial requiere Visual Studio 2013 antes de instalar el SDK de Azure para Visual Studio 2013.
 
     > [WACOM.NOTE]
     >  Según la cantidad de dependencias de SDK que tenga ya en la máquina, la instalación del SDK puede tardar bastante tiempo, desde unos minutos a media hora o más.
 
 3.  Si el sistema le pregunta si desea ejecutar o guardar el archivo ejecutable de instalación, haga clic en **Ejecutar**.
 4.  En la ventana **Instalador de plataforma web**, haga clic en **Instalar** y proceda con la instalación.
-    ![Web Platform Installer][]
+    ![Web Platform Installer][Web Platform Installer]
 
     > [WACOM.NOTE]
     > Si ya tiene el SDK instalado, no habrá ningún elemento para instalar. El número de elementos para instalar se puede ver en la zona inferior izquierda de la ventana **Instalador de plataforma web**.
 
-5.  Si aún no tiene **Visual Studio Update 2**, descargue e instale **[Visual Studio 2013 Update 2][]** o posterior.
+5.  Si aún no tiene **Visual Studio Update 2**, descargue e instale **[Visual Studio 2013 Update 2][Visual Studio 2013 Update 2]** o posterior.
 
     > [WACOM.NOTE]
     > Debe instalar Visual Studio 2013 Update 2 o posterior para usar Goggle OAuth 2.0 y SSL en modo local sin advertencias. Asimismo, necesita la versión Update 2 para usar Web Forms Scaffolding.
@@ -76,21 +76,21 @@ En este tutorial, su sitio web de Azure se ejecutará en un entorno de hospedaje
 
 La Base de datos SQL de Azure es un servicio de base de datos relacional en la nube que se basa en la tecnología de SQL Server. Las herramientas y aplicaciones que funcionan con SQL Server también funcionan con la Base de datos SQL.
 
-1.  En el [Portal de administración de Azure][], haga clic en **Sitios web** en el panel izquierdo y elija **Nuevo**.  
-    ![Instalador de plataforma web][]
+1.  En el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Sitios web** en el panel izquierdo y elija **Nuevo**.  
+    ![Instalador de plataforma web][Instalador de plataforma web]
 2.  Haga clic en **Sitio web** y elija **Creación personalizada**.  
-    ![Creación personalizada][]  
+    ![Creación personalizada][Creación personalizada]  
     Se abre el asistente **Nuevo sitio web - Creación personalizada**.
 
 3.  En el paso **Crear sitio web** del asistente, escriba una cadena en el cuadro **URL** para usarla como dirección URL única de la aplicación. La URL completa consistirá en el valor que escriba más el sufijo que aparece junto al cuadro de texto. La ilustración muestra una dirección URL que probablemente ya está en uso, por lo que **debe elegir otra dirección URL**.  
-    ![Contactos - Crear nuevo sitio web][]
+    ![Contactos - Crear nuevo sitio web][Contactos - Crear nuevo sitio web]
 4.  En la lista desplegable Plan de hospedaje web, elija la región más cercana a su ubicación. Este valor especifica el centro de datos en el que se ejecutará la máquina virtual.
 5.  En la lista desplegable **Base de datos**, elija **Crear una base de datos SQL de 20 MB gratuita**.
 6.  En el cuadro **Nombre de la cadena de conexión de BD**, no modifique el valor predeterminado *DefaultConnection*.
 7.  Haga clic en la flecha de la parte inferior del cuadro.
     El asistente avanza hasta el paso **Especificar configuración de base de datos**.
 8.  En el cuadro **Nombre**, escriba *`ContactDB`*.  
-    ![Database Settings][]
+    ![Database Settings][Database Settings]
 9.  En el cuadro **Servidor**, seleccione **Nuevo servidor de bases de datos SQL**.
     Si ya había creado una base de datos SQL, puede seleccionar también ese servidor SQL en el control desplegable.
 10. Establezca la opción **Región** en la misma área en la que creó el sitio web.
@@ -107,17 +107,17 @@ Ya ha creado un sitio web de Azure, pero todavía no hay contenido en él. El si
 ### Creación del proyecto
 
 1.  Seleccione **Nuevo proyecto** en el menú **Archivo** en Visual Studio.  
-    ![File Menu - New Project][]  
-2.  A la izquierda, seleccione el grupo **Plantillas** -\> **Visual C\#** -\> **Web**.
+    ![File Menu - New Project][File Menu - New Project]  
+2.  A la izquierda, seleccione el grupo **Plantillas** -\> **Visual C#** -\> **Web**.
 3.  Elija la plantilla **Aplicación web ASP.NET** en la columna central.
 4.  Dele al proyecto el nombre *ContactManager* y haga clic en **Aceptar**.  
-    ![Cuadro de diálogo Nuevo proyecto][]
+    ![Cuadro de diálogo Nuevo proyecto][Cuadro de diálogo Nuevo proyecto]
 
     > [WACOM.NOTE]
     > El nombre del proyecto en esta serie de tutoriales es **ContactManager**. Se recomienda utilizar este nombre de proyecto tal cual para que el código proporcionado en el tutorial funcione correctamente.
 
 5.  En el cuadro de diálogo **Nuevo proyecto de ASP.NET**, seleccione la plantilla **Aplicación de Internet**. Desactive la casilla **Host en la nube** si está seleccionada y haga clic en **Aceptar**.  
-    ![Cuadro de diálogo Nuevo proyecto de ASP.NET][]  
+    ![Cuadro de diálogo Nuevo proyecto de ASP.NET][Cuadro de diálogo Nuevo proyecto de ASP.NET]  
     Se crea la aplicación de formularios Web Forms.
 
 ### Actualización de la página maestra
@@ -234,21 +234,21 @@ Esto es todo lo que necesita hacer por ahora para crear la aplicación que va a 
 Ahora que ya ha creado y ejecutado la aplicación de forma local, es el momento de implementarla en Azure.
 
 1.  En Visual Studio, haga clic con el botón secundario en el proyecto en el **Explorador de soluciones** y seleccione **Publicar** en el menú contextual.  
-    ![Seleccione Publicar][]  
+    ![Seleccione Publicar][Seleccione Publicar]  
     Se muestra el cuadro de diálogo **Publicación web**.
 
 2.  En la pestaña **Perfil** del cuadro de diálogo **Publicación web**, haga clic en **Sitios web Azure**.  
-    ![Cuadro de diálogo Publicación web][]  
+    ![Cuadro de diálogo Publicación web][Cuadro de diálogo Publicación web]  
 3.  Si aún no ha iniciado sesión, haga clic en el botón **Iniciar sesión** en el cuadro de diálogo **Seleccionar sitio web existente**. Cuando haya iniciado sesión, seleccione el sitio web que creó en la primera parte de este tutorial. Haga clic en **Aceptar** para continuar.
-    ![Cuadro de diálogo Seleccionar el sitio web existente][]  
+    ![Cuadro de diálogo Seleccionar el sitio web existente][Cuadro de diálogo Seleccionar el sitio web existente]  
     Visual Studio descargará su configuración de publicación.
 4.  En el cuadro de diálogo **Publicación Web**, haga clic en **Publicar**.  
     ![Cuadro de diálogo Publicación web][2]  
     Verá el estado global de la publicación en la ventana **Actividad de publicación web** en Visual Studio:  
-    ![Actividad de publicación web][]
+    ![Actividad de publicación web][Actividad de publicación web]
 
 La aplicación creada ahora se ejecuta en la nube. La próxima vez que implemente la aplicación desde Visual Studio, solo se implementarán los archivos modificados o nuevos.  
- ![Aplicación en el explorador][]
+ ![Aplicación en el explorador][Aplicación en el explorador]
 
 > [WACOM.NOTE]
 > Si se produce un error durante la publicación en un sitio web ya establecido, puede borrar la ubicación antes de agregar los archivos nuevos.
@@ -265,11 +265,11 @@ Ahora va a actualizar la aplicación de formularios Web Forms para agregarle fun
 Comience por crear un modelo de datos sencillo con código. Este modelo de datos se incluirá en una clase llamada `Contacts`. El nombre de clase `Contacts` se eligió para evitar un conflicto de nombres de clase con la clase `Contact` contenida en el archivo class Contact.aspx.cs creado por la plantilla de formularios Web Forms.
 
 1.  En el **Explorador de soluciones**, haga clic con el botón secundario en la carpeta *Models* y seleccione **Agregar** -\> **Clase**.  
-    ![Seleccione Clase][]  
+    ![Seleccione Clase][Seleccione Clase]  
     Se muestra el cuadro de diálogo **Agregar nuevo elemento**.
 
 2.  Dele el nombre *Contacts.cs* a la clase nueva.  
-    ![Cuadro de diálogo Agregar nuevo elemento][]  
+    ![Cuadro de diálogo Agregar nuevo elemento][Cuadro de diálogo Agregar nuevo elemento]  
 3.  Reemplace el código predeterminado por el siguiente:
 	<pre class="prettyprint">
 	using System.ComponentModel.DataAnnotations;
@@ -306,17 +306,17 @@ Los pasos siguientes permiten usar el generador de IU (scaffolder) de formulario
 2.  En el panel izquierdo del cuadro de diálogo, seleccione **En línea** -\> **Galería de Visual Studio** -\> **Herramientas** -\> **Scaffolding**.
 3.  Si no ve 'Web Forms Scaffolding' en la lista, escriba 'Web Forms Scaffolding' en el cuadro de búsqueda de la derecha en el cuadro de diálogo.
 4.  Si el generador de IU (scaffolder) de formularios Web Forms no está instalado, seleccione **Descargar** para descargar e instalar 'Web Forms Scaffolding'. Reinicie Visual Studio si es necesario. Asegúrese de guardar los cambios del proyecto cuando el sistema le pregunte.
-    ![Cuadro de diálogo Extensiones y actualizaciones][]
+    ![Cuadro de diálogo Extensiones y actualizaciones][Cuadro de diálogo Extensiones y actualizaciones]
 5.  Compile el proyecto (**Ctrl + Mayús + B**).
     Debe compilar el proyecto antes de usar el mecanismo de scaffolding.
 6.  En el **Explorador de soluciones**, haga clic con el botón secundario en *proyecto* y seleccione **Agregar** -\> **New Scaffolded Item**.
     Se muestra el cuadro de diálogo **Add Scaffold**.
 7.  Seleccione **Web Forms** en el panel izquierdo y elija **Web Forms Pages using Entity Framework** en el panel central. Haga clic en **Add**.  
-    ![Cuadro de diálogo Add Scaffold][]  
+    ![Cuadro de diálogo Add Scaffold][Cuadro de diálogo Add Scaffold]  
     Se muestra el cuadro de diálogo **Add Web Forms Pages**.
 
 8.  En el cuadro de diálogo **Add Web Forms Pages**, establezca **Clase de modelo** en `Contact (ContactManager.Models)`. Establezca **Clase de contexto de datos** en `ApplicationDbContext (ContactManager.Models)`. Haga clic en **Agregar**.
-    ![Cuadro de diálogo Add Web Forms Pages][]
+    ![Cuadro de diálogo Add Web Forms Pages][Cuadro de diálogo Add Web Forms Pages]
 
 El generador de IU (scaffolder) de formularios Web Forms agrega una nueva carpeta que contiene las páginas *Default.aspx*, *Delete.aspx*, *Edit.aspx* e *Insert.aspx*. El generador de IU (scaffolder) de formularios Web Forms crea también una carpeta *DynamicData* que contiene una carpeta *EntityTemplates* y una carpeta *FieldTemplates*. `ApplicationDbContext` se usará tanto para la base de datos de suscripciones como para los datos de contactos.
 
@@ -408,7 +408,7 @@ La siguiente tarea consiste en habilitar la función Migraciones de Code First p
 	}
 	</pre>
 
-    Este código inicializa la base de datos con la información de contacto. Para obtener más información acerca de la inicialización de la base de datos, consulte [Inicialización y depuración de bases de datos de Entity Framework (EF)][].
+    Este código inicializa la base de datos con la información de contacto. Para obtener más información acerca de la inicialización de la base de datos, consulte [Inicialización y depuración de bases de datos de Entity Framework (EF)][Inicialización y depuración de bases de datos de Entity Framework (EF)].
 
 7.  En la consola **Package Manager Console** escriba el comando:
 
@@ -417,7 +417,7 @@ La siguiente tarea consiste en habilitar la función Migraciones de Code First p
     ```
 
     `update-database` ejecuta la primera migración, que crea la base de datos. De forma predeterminada, la base de datos se crea como base de datos LocalDB de SQL Server Express.
-    ![Package Manager Console.][]
+    ![Package Manager Console.][Package Manager Console.]
 
 ### Ejecución de la aplicación en modo local y visualización de los datos
 
@@ -427,7 +427,7 @@ Ejecute ahora la aplicación para ver cómo puede visualizar los contactos.
 2.  Presione **Ctrl + F5** para ejecutar la aplicación.
     El explorador se abre y muestra la página *Default.aspx*.
 3.  Seleccione el vínculo **Contact Demo** en la parte superior de la página para mostrar la página *Lista de contactos*.  
-    ![Página Lista de contactos][]
+    ![Página Lista de contactos][Página Lista de contactos]
 
 ## Habilitación de SSL para el proyecto
 
@@ -437,20 +437,20 @@ Capa de sockets seguros (SSL) es un protocolo definido para permitir a los servi
 2.  Cambie **SSL habilitado** a `true`.
 3.  Copie la **Dirección URL de SSL** para usarla más adelante.
     Esta dirección será `https://localhost:44300/` a menos que haya creado antes sitios web con SSL (como se muestra a continuación).
-    ![Project Properties][]
+    ![Project Properties][Project Properties]
 4.  En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto **Contact Manager** y elija **Propiedades**.
 5.  En el panel izquierdo, haga clic en **Web**.
 6.  Cambie la dirección **URL del proyecto** por la **URL de SSL** que guardó antes.  
-    ![Propiedades web del proyecto][]
+    ![Propiedades web del proyecto][Propiedades web del proyecto]
 7.  Presione **CTRL + S** para guardar la página.
 8.  Presione **Ctrl + F5** para ejecutar la aplicación.
     Visual Studio muestra una opción que permite evitar las advertencias sobre SSL.
 9.  Haga clic en **Sí** para confiar en el certificado SSL de IIS Express y continuar.  
-    ![Detalles de certificado SSL de IIS Express][]  
+    ![Detalles de certificado SSL de IIS Express][Detalles de certificado SSL de IIS Express]  
     Se muestra una advertencia de seguridad.
 
 10. Haga clic en **Sí** para instalar el certificado en el localhost.  
-    ![Cuadro de diálogo Advertencia de seguridad][]  
+    ![Cuadro de diálogo Advertencia de seguridad][Cuadro de diálogo Advertencia de seguridad]  
     Se muestra la ventana del explorador.
 
 Puede probar fácilmente la aplicación web de forma local usando SSL.
@@ -474,18 +474,18 @@ Los pasos siguientes permiten agregar un proveedor de autenticación de Google.
 	            });
 	</pre>
 
-3.  Navegue a la [consola de Google Developers][]. Debe iniciar sesión también con su cuenta de correo electrónico de desarrollador de Google (gmail.com). Si no tiene una cuenta de Google, seleccione el vínculo **Crear una cuenta**.
+3.  Navegue a la [consola de Google Developers][consola de Google Developers]. Debe iniciar sesión también con su cuenta de correo electrónico de desarrollador de Google (gmail.com). Si no tiene una cuenta de Google, seleccione el vínculo **Crear una cuenta**.
 
     A continuación, verá la **consola de Google Developers**.
-    ![Consola de Google Developers][]
+    ![Consola de Google Developers][Consola de Google Developers]
 
 4.  Haga clic en el botón **Crear proyecto** y escriba un nombre de proyecto y un identificador (puede usar los valores predeterminados). Después haga clic en la **casilla del acuerdo** y en el botón **Crear**.  
-    ![Google - Nuevo proyecto][]  
+    ![Google - Nuevo proyecto][Google - Nuevo proyecto]  
     En unos segundos se creará el nuevo proyecto y el explorador mostrará la página del nuevo proyecto.
 5.  En el panel izquierdo, haga clic en **APIs y autenticación** y después en **Credenciales**.
 6.  Haga clic en **Crear ID de cliente nuevo** en **OAuth**.
     Se muestra el cuadro de diálogo **Crear ID de cliente**.
-    ![Google - Crear ID de cliente][]
+    ![Google - Crear ID de cliente][Google - Crear ID de cliente]
 7.  En el cuadro de diálogo **Crear ID de cliente**, no modifique el valor predeterminado **Aplicación web** para el tipo de aplicación.
 8.  Establezca los **Orígenes de JavaScript autorizados** en la dirección URL de SSL que usó antes en este tutorial (**https://localhost:44300/** a menos que haya creado otros proyectos SSL).
 
@@ -565,13 +565,13 @@ Los pasos siguientes permiten agregar un proveedor de autenticación de Google.
 	</pre>  
 12. Presione **CTRL + F5** para compilar y ejecutar la aplicación. Haga clic en el vínculo **Iniciar sesión**.
 13. Debajo de **Usar otro servicio para iniciar sesión**, haga clic en **Google**.  
-    ![Iniciar sesión][]
+    ![Iniciar sesión][Iniciar sesión]
 14. Si tiene que proporcionar credenciales, se le redirigirá al sitio de Google donde podrá especificarlas.  
-    ![Google - Iniciar sesión][]
+    ![Google - Iniciar sesión][Google - Iniciar sesión]
 15. Una vez que haya proporcionado sus credenciales, el sistema le pedirá que le dé permisos a la aplicación web que acaba de crear:  
-    ![Cuenta de servicio predeterminada del proyecto][]
+    ![Cuenta de servicio predeterminada del proyecto][Cuenta de servicio predeterminada del proyecto]
 16. Haga clic en **Accept**. Ahora se le redirigirá de nuevo a la página **Registro** de la aplicación **ContactManager** donde puede registrar su cuenta de Google.
-    ![Registro con su cuenta de Google][]
+    ![Registro con su cuenta de Google][Registro con su cuenta de Google]
 17. Tiene la opción de cambiar el nombre de registro de correo electrónico local que usa para su cuenta de Gmail, pero suele ser más práctico mantener el mismo alias de correo electrónico predeterminado (es decir, el que usó para la autenticación). Haga clic en **Iniciar sesión**.
 
 ## Uso de la API de suscripción para restringir el acceso
@@ -636,7 +636,7 @@ Con ASP.NET Identity, puede agregar un rol de administrador y asignar un usuario
     Update-Database
     ```
 
-    Este código crea un nuevo rol denominado `canEdit` y crea un nuevo usuario local con el correo electrónico <canEditUser@wideworldimporters.com>. A continuación, el código agrega <canEditUser@wideworldimporters.com> al rol `canEdit`. Para obtener más información, consulte la página de recursos de [ASP.NET Identity][].
+    Este código crea un nuevo rol denominado `canEdit` y crea un nuevo usuario local con el correo electrónico <canEditUser@wideworldimporters.com>. A continuación, el código agrega <canEditUser@wideworldimporters.com> al rol `canEdit`. Para obtener más información, consulte la página de recursos de [ASP.NET Identity][ASP.NET Identity].
 
     </p>
 
@@ -727,7 +727,7 @@ Creará una carpeta denominada *Admin* a la que solo tienen acceso los usuarios 
     Ahora los vínculos funcionarán todos correctamente cuando muestre y actualice los datos de contactos.
 
 5.  Para restringir el acceso a la carpeta *Admin*, en el **Explorador de soluciones**, haga clic con el botón secundario en la carpeta *Admin* y seleccione **Agregar nuevo elemento**.
-6.  En la lista de plantillas web de Visual C\#, seleccione **Archivo de configuración web** en la lista central, acepte el nombre predeterminado *Web.config* y seleccione **Agregar**.
+6.  En la lista de plantillas web de Visual C#, seleccione **Archivo de configuración web** en la lista central, acepte el nombre predeterminado *Web.config* y seleccione **Agregar**.
 7.  Reemplace el contenido XML del archivo *Web.config* por el siguiente:
 
     ``` prettyprint
@@ -748,7 +748,7 @@ Ahora que la aplicación web está completa, puede publicarla en Azure.
 1.  En Visual Studio, compile el proyecto (**Ctrl + Mayús + B**).
 2.  Haga clic con el botón secundario en el proyecto en el **Explorador de soluciones** y elija **Publicar**.
 
-    ![Opción de menú Publicar][]  
+    ![Opción de menú Publicar][Opción de menú Publicar]  
 
     Se muestra el cuadro de diálogo **Publicación web**.  
     ![Cuadro de diálogo Publicación web][5]  
@@ -759,7 +759,7 @@ Ahora que la aplicación web está completa, puede publicarla en Azure.
 4.  Haga clic en **Iniciar sesión** si no ha iniciado sesión aún.
 5.  Seleccione el sitio web que creó anteriormente en este tutorial en el cuadro de lista desplegable **Sitios web existentes** y haga clic en el botón **Aceptar**.  
 
-    ![Cuadro de diálogo Seleccionar sitio web existente][]  
+    ![Cuadro de diálogo Seleccionar sitio web existente][Cuadro de diálogo Seleccionar sitio web existente]  
 
     Si el sistema le pregunta si desea guardar los cambios del perfil, seleccione **Sí**.
 6.  Haga clic en la pestaña **Configuración**.  
@@ -785,7 +785,7 @@ Ahora que la aplicación web está completa, puede publicarla en Azure.
 
 1.  En el explorador, haga clic en el vínculo **Contact Demo**.  
     Se muestra la lista de contactos.
-    ![Lista de contactos en el explorador][]
+    ![Lista de contactos en el explorador][Lista de contactos en el explorador]
 
 2.  Seleccione **Crear nuevo** en la página **Lista de contactos**.
     ![Lista de contactos en el explorador][8]
@@ -793,10 +793,10 @@ Ahora que la aplicación web está completa, puede publicarla en Azure.
 3.  Cuando haya proporcionado la dirección de correo electrónico y la contraseña que se indican a continuación, haga clic en el botón **Iniciar sesión**.  
     **Correo electrónico**: `canEditUser@wideworldimporters.com`  
     **Contraseña**: `Pa$$word1`  
-    ![Página Iniciar sesión][]
+    ![Página Iniciar sesión][Página Iniciar sesión]
 
 4.  Escriba datos nuevos para cada campo y presione el botón **Insertar**.  
-    ![Add New Contact Page][]  
+    ![Add New Contact Page][Add New Contact Page]  
     The *EditContactList.aspx* page is displayed with the new record.  
     ![Add New Contact Page][9]
 
@@ -809,10 +809,10 @@ Con el fin de impedir que otras personas se registren y usen su aplicación de e
 1.  En Visual Studio, en el menú **Ver**, seleccione **Explorador de servidores**.
 2.  En el **Explorador de servidores**, navegue a **Sitios web**.
 3.  Haga clic con el botón secundario en cada instancia del sitio web y seleccione **Detener sitio web**.  
-    ![Elemento de menú Detener sitio web][]
+    ![Elemento de menú Detener sitio web][Elemento de menú Detener sitio web]
 
     También tiene la opción de seleccionar el sitio web en el Portal de administración de Microsoft Azure y hacer clic en el icono **Detener** situado en la parte inferior de la página.  
-    ![Página Agregar nuevo contacto][]
+    ![Página Agregar nuevo contacto][Página Agregar nuevo contacto]
 
 ## Revisión de la base de datos
 
@@ -823,7 +823,7 @@ Es importante saber cómo ver y modificar la base de datos directamente. Saber c
 1.  En Visual Studio, abra el **Explorador de servidores** y navegue a **ContactDB**.
 2.  Haga clic con el botón secundario en **ContactDB** y seleccione **Abrir en Explorador de objetos de SQL Server**.
 
-    ![Elemento de menú Abrir en Explorador de objetos de SQL Server][]
+    ![Elemento de menú Abrir en Explorador de objetos de SQL Server][Elemento de menú Abrir en Explorador de objetos de SQL Server]
 
 3.  Si se muestra el cuadro de diálogo **Agregar regla de firewall** seleccione **Agregar regla de firewall**.
 
@@ -839,16 +839,16 @@ Es importante saber cómo ver y modificar la base de datos directamente. Saber c
 
 5.  Expanda la base de datos **contactDB** y después **Tablas**.
 6.  Haga clic con el botón secundario en la tabla **dbo.AspNetUsers** y seleccione **Ver datos**.  
-    ![Elemento de menú Ver datos][]  
+    ![Elemento de menú Ver datos][Elemento de menú Ver datos]  
     Puede ver los datos asociados con el usuario <canEditUser@contoso.com>.  
-    ![Ventana ContactManager][]
+    ![Ventana ContactManager][Ventana ContactManager]
 
 ### Incorporación de un usuario al rol Admin editando la base de datos
 
 Anteriormente en este tutorial, utilizamos código para agregar usuarios al rol canEdit. Existe un método alternativo que consiste en manipular directamente los datos de las tablas de suscripciones. Los pasos siguientes muestran cómo utilizar este método alternativo para agregar un usuario a un rol.
 
 1.  En el **Explorador de objetos de SQL Server**, haga clic con el botón secundario en **dbo.AspNetUserRoles** y seleccione **Ver datos**.
-    ![Datos de AspNetUserRoles][]
+    ![Datos de AspNetUserRoles][Datos de AspNetUserRoles]
 2.  Copie el *RoleId* y péguelo en la fila vacía (nueva).  
     ![Datos de AspNetUserRoles][10]
 3.  En la tabla **dbo.AspNetUsers**, busque el usuario que desea agregar al rol y copie su *Id*.
@@ -860,16 +860,16 @@ Anteriormente en este tutorial, utilizamos código para agregar usuarios al rol 
 
 ## Pasos siguientes
 
-Para obtener más información acerca de ASP.NET Web Forms, vea [ASP.NET Web Forms][] en el sitio web de ASP.NET y en [Tutoriales y guías de Microsoft Azure][].
+Para obtener más información acerca de ASP.NET Web Forms, vea [ASP.NET Web Forms][ASP.NET Web Forms] en el sitio web de ASP.NET y en [Tutoriales y guías de Microsoft Azure][Tutoriales y guías de Microsoft Azure].
 
-Este tutorial está basado en el tutorial para MVC[Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y Base de datos SQL en un Sitio web Azure][Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y Base de datos de SQL en un sitio web de Azure] escrito por Rick Anderson (Twitter [@RickAndMSFT][]) con ayuda de Tom Dykstra y Barry Dorrans (Twitter [@blowdart][]).
+Este tutorial está basado en el tutorial para MVC[Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y Base de datos SQL en un Sitio web Azure][Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y Base de datos de SQL en un sitio web de Azure] escrito por Rick Anderson (Twitter [@RickAndMSFT][@RickAndMSFT]) con ayuda de Tom Dykstra y Barry Dorrans (Twitter [@blowdart][@blowdart]).
 
-Es importante que haga comentarios acerca de lo que le gustó o lo que le gustaría que mejorásemos, no solo en relación al tutorial en sí sino a los productos sobre los que trata. Sus comentarios nos ayudarán a clasificar las mejoras por orden de prioridad. También puede solicitar y votar nuevos temas en [Show Me How With Code][].
+Es importante que haga comentarios acerca de lo que le gustó o lo que le gustaría que mejorásemos, no solo en relación al tutorial en sí sino a los productos sobre los que trata. Sus comentarios nos ayudarán a clasificar las mejoras por orden de prioridad. También puede solicitar y votar nuevos temas en [Show Me How With Code][Show Me How With Code].
 
   [Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y Base de datos de SQL en un sitio web de Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
   [Página Contactos - Editar]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms00.png
-  [activar los beneficios de suscripción a MSDN]: /en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-  [regístrese para obtener una evaluación gratuita]: /en-us/pricing/free-trial/?WT.mc_id=A261C142F
+  [activar los beneficios de suscripción a MSDN]: /es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
+  [regístrese para obtener una evaluación gratuita]: /es-es/pricing/free-trial/?WT.mc_id=A261C142F
   [Configuración del entorno de desarrollo]: #set-up-the-development-environment
   [Configuración del entorno de Azure]: #Set-up-the-Azure-environment
   [Creación de una aplicación de ASP.NET Web Forms]: #Create-an-ASP.NET-Web-Forms-Application

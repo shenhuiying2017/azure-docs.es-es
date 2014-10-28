@@ -5,22 +5,22 @@
 # Uso del servicio de correo electrónico SendGrid desde PHP
 
 Esta guía describe cómo realizar tareas comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos en PHP.
-Los escenarios cubiertos incluyen **creación de correo electrónico**, **envío de correo electrónico** e **incorporación de datos adjuntos**. Para obtener más información acerca de SendGrid y el envío de correo electrónico, consulte la sección [Pasos siguientes][].
+Los escenarios cubiertos incluyen **creación de correo electrónico**, **envío de correo electrónico** e **incorporación de datos adjuntos**. Para obtener más información acerca de SendGrid y el envío de correo electrónico, consulte la sección [Pasos siguientes][Pasos siguientes].
 
 ## Tabla de contenido
 
--   [Qué es el servicio de correo electrónico SendGrid][]
--   [Creación de una cuenta de SendGrid][]
--   [Uso de SendGrid desde una aplicación PHP][]
--   [Envío de un correo electrónico][]
--   [Adición de un correo electrónico][]
--   [Uso de filtros para habilitar pies de página, seguimiento y análisis][]
--   [Pasos siguientes][]
+-   [Qué es el servicio de correo electrónico SendGrid][Qué es el servicio de correo electrónico SendGrid]
+-   [Creación de una cuenta de SendGrid][Creación de una cuenta de SendGrid]
+-   [Uso de SendGrid desde una aplicación PHP][Uso de SendGrid desde una aplicación PHP]
+-   [Envío de un correo electrónico][Envío de un correo electrónico]
+-   [Adición de un correo electrónico][Adición de un correo electrónico]
+-   [Uso de filtros para habilitar pies de página, seguimiento y análisis][Uso de filtros para habilitar pies de página, seguimiento y análisis]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="bkmk_WhatIsSendGrid"> </a>¿Qué es el servicio de correo electrónico SendGrid?
 
-SendGrid es un [servicio de correo electrónico basado en la nube][]
-que proporciona un sistema fiable de [entrega de correo electrónico transaccional][],
+SendGrid es un [servicio de correo electrónico basado en la nube][servicio de correo electrónico basado en la nube]
+que proporciona un sistema fiable de [entrega de correo electrónico transaccional][entrega de correo electrónico transaccional],
 escalabilidad y análisis en tiempo real, además de API flexibles que facilitan la integración personalizada. Entre los escenarios de uso de SendGrid
 más comunes se incluyen:
 
@@ -33,11 +33,11 @@ más comunes se incluyen:
 -   Reenvío de consultas de los clientes
 -   Envío de notificaciones de correo electrónico desde su aplicación
 
-Para obtener más información, consulte [][]<http://sendgrid.com></a> (en inglés).
+Para obtener más información, consulte <http://sendgrid.com></a> (en inglés).
 
 ## <a name="bkmk_CreateSendGrid"> </a>Creación de una cuenta de SendGrid
 
-[WACOM.INCLUDE [sendgrid-sign-up][]]
+[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="bkmk_UsingSendGridfromPHP"> </a>Uso de SendGrid desde una aplicación PHP
 
@@ -56,7 +56,7 @@ SendGrid.
 Para enviar correo electrónico usando la API SMTP de SendGrid, use *Swift Mailer*, una
 biblioteca basada en componentes para el envío de correo electrónico desde aplicaciones PHP. Puede
 descargar la biblioteca *Swift Mailer* de
-[][1]<http://swiftmailer.org/download></a>. El envío de correo electrónico con la biblioteca
+<http://swiftmailer.org/download></a>. El envío de correo electrónico con la biblioteca
 implica crear instancias de las clases
 <span class="auto-style2">Swift\_SmtpTransport</span>,
 <span class="auto-style2">Swift\_Mailer</span> y
@@ -128,7 +128,7 @@ propiedades correspondientes y llamar al método
 
 ### API Web
 
-Use la [función curl][] de PHP para enviar correo electrónico usando la API web de SendGrid.
+Use la [función curl][función curl] de PHP para enviar correo electrónico usando la API web de SendGrid.
 
     <?php
 
@@ -452,7 +452,7 @@ siga estos vínculos para obtener más información:
   [Uso de filtros para habilitar pies de página, seguimiento y análisis]: #bkmk_HowToUseFilters
   [servicio de correo electrónico basado en la nube]: http://sendgrid.com/solutions
   [entrega de correo electrónico transaccional]: http://sendgrid.com/transactional-email
-  []: http://sendgrid.com
+  http://sendgrid.com
   [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
-  [1]: http://swiftmailer.org/download
+  http://swiftmailer.org/download
   [función curl]: http://php.net/curl

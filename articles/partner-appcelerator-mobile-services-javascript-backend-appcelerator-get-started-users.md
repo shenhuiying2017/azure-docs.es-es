@@ -20,23 +20,23 @@ En este tema se muestra cómo autenticar usuarios en Servicios móviles de Windo
 
 En este tutorial se realiza un recorrido por los pasos básicos para habilitar la autenticación en su aplicación:
 
-1.  [Registro de la aplicación para la autenticación y configuración de Servicios móviles][]
-2.  [Restricción de los permisos de tabla a usuarios autenticados][]
-3.  [Incorporación de autenticación a la aplicación][]
+1.  [Registro de la aplicación para la autenticación y configuración de Servicios móviles][Registro de la aplicación para la autenticación y configuración de Servicios móviles]
+2.  [Restricción de los permisos de tabla a usuarios autenticados][Restricción de los permisos de tabla a usuarios autenticados]
+3.  [Incorporación de autenticación a la aplicación][Incorporación de autenticación a la aplicación]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles][].
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
 Para finalizar este tutorial se necesita Appcelerator Titanium Studio 3.2.1 o posterior, iOS 7.0 y/o posterior y Android 4.3 o posterior.
 
 ## <a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-register-authentication][]]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
 
 ## <a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend][]]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-1.  En Appcelerator Titanium Studio, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles][].
+1.  En Appcelerator Titanium Studio, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
 2.  Presione el botón Run para compilar el proyecto e iniciar la aplicación en el emulador de iPhone. Compruebe que se ha producido una excepción no controlada con un código de estado de 401 (No autorizado) después de iniciarse la aplicación.
 
@@ -98,7 +98,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
 <!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [C\# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "C# para Tienda Windows"
+  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-users "C# para Tienda Windows"
   [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-users "JavaScript para Tienda Windows"
   [Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-users "Windows Phone"
   [iOS]: /es-es/documentation/articles/mobile-services-ios-get-started-users "iOS"

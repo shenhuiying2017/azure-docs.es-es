@@ -10,34 +10,34 @@ En este tutorial revisará la configuración y las directivas de almacenamiento 
 
 ## En este tema
 
--   [Configuración de una operación para almacenamiento en caché][]
--   [Revisión de las directivas de almacenamiento en caché][]
--   [Llamada a una operación y prueba del almacenamiento en caché][]
--   [Pasos siguientes][]
+-   [Configuración de una operación para almacenamiento en caché][Configuración de una operación para almacenamiento en caché]
+-   [Revisión de las directivas de almacenamiento en caché][Revisión de las directivas de almacenamiento en caché]
+-   [Llamada a una operación y prueba del almacenamiento en caché][Llamada a una operación y prueba del almacenamiento en caché]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="configure-caching"> </a>Configuración de una operación para almacenamiento en caché
 
 En este paso, revisará la configuración de almacenamiento en caché de la operación **Recurso GET (en caché)** de la API Echo de ejemplo.
 
-> Cada instancia del servicio Administración de API viene previamente configurada con una API Eco que se puede usar para experimentar con Administración de API y aprender de esta. Para obtener información, consulte [Introducción a Administración de API de Azure][].
+> Cada instancia del servicio Administración de API viene previamente configurada con una API Eco que se puede usar para experimentar con Administración de API y aprender de esta. Para obtener información, consulte [Introducción a Administración de API de Azure][Introducción a Administración de API de Azure].
 
 Para comenzar, haga clic en **Consola de administración** en el Portal de Azure para su servicio Administración de API. Esta operación le llevará al portal administrativo Administración de API.
 
-![API Management console][]
+![API Management console][API Management console]
 
-> Si todavía no ha creado una instancia de servicio Administración de API, consulte [Creación de una instancia de Administración de API][] en el tutorial [Introducción a la Administración de API de Azure][Introducción a Administración de API de Azure].
+> Si todavía no ha creado una instancia de servicio Administración de API, consulte [Creación de una instancia de Administración de API][Creación de una instancia de Administración de API] en el tutorial [Introducción a la Administración de API de Azure][Introducción a Administración de API de Azure].
 
 Haga clic en **API** en el menú **Administración de API** de la izquierda y haga clic en **Echo API**.
 
-![Echo API][]
+![Echo API][Echo API]
 
 Seleccione la pestaña **Operaciones** y haga clic en la operación **Recurso GET (en caché)** en la lista **Operaciones**.
 
-![Echo API operations][]
+![Echo API operations][Echo API operations]
 
 Seleccione la pestaña **Caching** para ver la configuración de almacenamiento en caché para esta operación.
 
-![Caching tab][]
+![Caching tab][Caching tab]
 
 Para habilitar el almacenamiento en caché para una operación, active la casilla **Habilitar**. En este ejemplo el almacenamiento en caché está habilitado.
 
@@ -53,11 +53,11 @@ Cuando se haya definido la configuración de almacenamiento en caché para una o
 
 Haga clic en **Directivas** en el menú **Administración de API** de la izquierda y seleccione **API eco /Recurso GET (en caché)** en la lista desplegable **Operación**.
 
-![Policy scope operation][]
+![Policy scope operation][Policy scope operation]
 
 Se muestran las directivas para esta operación en el editor de directivas.
 
-![API Management policy editor][]
+![API Management policy editor][API Management policy editor]
 
 La definición de directiva para esta operación incluye las directivas que definen la configuración de almacenamiento en caché que se revisó con la pestaña **Caching** en el paso anterior.
 
@@ -82,7 +82,7 @@ La definición de directiva para esta operación incluye las directivas que defi
 
 Para ver cómo funciona el almacenamiento en caché, podemos llamar a la operación desde el portal para desarrolladores. Haga clic en **Portal para desarrolladores** en el menú situado en la parte superior derecha.
 
-![Portal para desarrolladores][]
+![Portal para desarrolladores][Portal para desarrolladores]
 
 Haga clic en **API** en el menú superior y seleccione **API Eco**.
 
@@ -92,11 +92,11 @@ Haga clic en **API** en el menú superior y seleccione **API Eco**.
 
 Seleccione la operación **Recurso GET (en caché)** y haga clic en **Abrir consola**.
 
-![Open console][]
+![Open console][Open console]
 
 La consola permite invocar operaciones directamente desde el portal para desarrolladores.
 
-![Consola][]
+![Consola][Consola]
 
 Mantenga los valores predeterminados de **param1** y **param2**.
 
@@ -116,8 +116,8 @@ Observe que el valor de **sampleheader** de la respuesta es ahora **value2**. De
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
--   Consulte el resto de temas en el tutorial [Introducción a la configuración de API avanzada][].
--   Para obtener información sobre las directivas de almacenamiento en caché, consulte [Directivas de almacenamiento en caché][] en la [Referencia de directivas de Administración de API][].
+-   Consulte el resto de temas en el tutorial [Introducción a la configuración de API avanzada][Introducción a la configuración de API avanzada].
+-   Para obtener información sobre las directivas de almacenamiento en caché, consulte [Directivas de almacenamiento en caché][Directivas de almacenamiento en caché] en la [Referencia de directivas de Administración de API][Referencia de directivas de Administración de API].
 
   [Configuración de una operación para almacenamiento en caché]: #configure-caching
   [Revisión de las directivas de almacenamiento en caché]: #caching-policies

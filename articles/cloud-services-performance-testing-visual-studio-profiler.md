@@ -6,9 +6,9 @@
 
 Hay disponible una variedad de aplicaciones y técnicas para realizar pruebas del rendimiento de los servicios en la nube.
 Al publicar un servicio en la nube en Azure, puede usar Visual Studio para recopilar datos para la generación de
-perfiles y luego analizarlos localmente, como se describe en [Probar el rendimiento de un servicio en la nube][].
+perfiles y luego analizarlos localmente, como se describe en [Probar el rendimiento de un servicio en la nube][Probar el rendimiento de un servicio en la nube].
 También puede usar los diagnósticos para hacer un seguimiento de una variedad de
-, tal como se describe en [Uso de contadores de rendimiento en Azure][].
+, tal como se describe en [Uso de contadores de rendimiento en Azure][Uso de contadores de rendimiento en Azure].
 También es posible que desee generar un perfil de la aplicación localmente en el emulador de proceso antes de implementarlo en la nube.
 
 Este artículo abarca el método de muestreo de CPU de la generación de perfiles, que se puede realizar localmente en el emulador. El muestreo de CPU es un método para generar perfiles que no es muy intrusivo. A un intervalo de muestreo designado, el generador de perfiles realiza una instantánea de la pila de llamadas. Los datos se recopilan por un lapso de tiempo y se muestran en un informe. Este método de generación de perfiles tiende a indicar dónde se está realizando la mayoría del trabajo de la CPU en una aplicación informáticamente intensiva. Esto le da la oportunidad de centrarse en la "ruta de acceso activa" donde su aplicación pasa la mayor parte del tiempo.
@@ -19,17 +19,17 @@ Puede ejecutar el generador de perfiles de manera local solo si tiene Visual Stu
 
 ## En este artículo:
 
--   [Paso 1: Configuración de Visual Studio para la generación de perfiles][]
+-   [Paso 1: Configuración de Visual Studio para la generación de perfiles][Paso 1: Configuración de Visual Studio para la generación de perfiles]
 
--   [Paso 2: Asociación a un proceso][]
+-   [Paso 2: Asociación a un proceso][Paso 2: Asociación a un proceso]
 
--   [Paso 3: Vista de informes de generación de perfiles][]
+-   [Paso 3: Vista de informes de generación de perfiles][Paso 3: Vista de informes de generación de perfiles]
 
--   [Paso 4: Realización de cambios y comparación del rendimiento][]
+-   [Paso 4: Realización de cambios y comparación del rendimiento][Paso 4: Realización de cambios y comparación del rendimiento]
 
--   [Solución de problemas][]
+-   [Solución de problemas][Solución de problemas]
 
--   [Pasos siguientes][]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="step1"> </a>Paso 1: Configuración de Visual Studio para la generación de perfiles
 
@@ -173,7 +173,7 @@ Los informes resaltan las diferencias entre las dos ejecuciones.
 
 ## <a name="nextSteps"> </a>Pasos siguientes
 
-La instrumentación de binarios de Azure en el emulador no es compatible en el generador de perfiles de Visual Studio 2010; sin embargo, si desea probar la asignación de memoria, puede seleccionar esta opción al generar perfiles. También puede seleccionar una generación de perfiles de concurrencia, la cual le ayuda a determinar si los subprocesos están desperdiciando tiempo al competir por bloqueos, o la generación de perfiles de interacción de capa, que le ayuda a hacer un seguimiento de los problemas de rendimiento cuando se interactúa entre las capas de una aplicación, con mayor frecuencia entre la capa de datos y un rol de trabajo. Puede ver las consultas de la base de datos que genera la aplicación y usar los datos de generación de perfiles para mejorar el uso que hace de la base de datos. Para obtener información acerca de la generación de perfiles de interacción de capa, consulte [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][].
+La instrumentación de binarios de Azure en el emulador no es compatible en el generador de perfiles de Visual Studio 2010; sin embargo, si desea probar la asignación de memoria, puede seleccionar esta opción al generar perfiles. También puede seleccionar una generación de perfiles de concurrencia, la cual le ayuda a determinar si los subprocesos están desperdiciando tiempo al competir por bloqueos, o la generación de perfiles de interacción de capa, que le ayuda a hacer un seguimiento de los problemas de rendimiento cuando se interactúa entre las capas de una aplicación, con mayor frecuencia entre la capa de datos y un rol de trabajo. Puede ver las consultas de la base de datos que genera la aplicación y usar los datos de generación de perfiles para mejorar el uso que hace de la base de datos. Para obtener información acerca de la generación de perfiles de interacción de capa, consulte [Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010][Walkthrough: Using the Tier Interaction Profiler in Visual Studio Team System 2010].
 
   [Probar el rendimiento de un servicio en la nube]: http://msdn.microsoft.com/es-es/library/windowsazure/hh369930.aspx
   [Uso de contadores de rendimiento en Azure]: http://www.windowsazure.com/es-es/develop/net/common-tasks/performance-profiling

@@ -9,17 +9,17 @@
         <a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android" class="current">Android</a>
 </div>
 
-La compatibilidad con las notificaciones de inserción en Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Un back-end de ASP.NET WebAPI se usa para autenticar clientes y generar notificaciones, tal y como se muestra en el tema de referencia [Registro desde el backend de la aplicación][]. Este tutorial se basa en el centro de notificaciones que creó en el tutorial **Introducción a los Centros de notificaciones**.
+La compatibilidad con las notificaciones de inserción en Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Un back-end de ASP.NET WebAPI se usa para autenticar clientes y generar notificaciones, tal y como se muestra en el tema de referencia [Registro desde el backend de la aplicación][Registro desde el backend de la aplicación]. Este tutorial se basa en el centro de notificaciones que creó en el tutorial **Introducción a los Centros de notificaciones**.
 
-> [AZURE.NOTE] Este tutorial asume que ha creado y configurado el centro de notificaciones tal y como se describe en [Introducción a los Centros de notificaciones (Android)][].
+> [AZURE.NOTE] Este tutorial asume que ha creado y configurado el centro de notificaciones tal y como se describe en [Introducción a los Centros de notificaciones (Android)][Introducción a los Centros de notificaciones (Android)].
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers][]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Creación del proyecto Android
 
 El paso siguiente es crear la aplicación Android.
 
-1.  Siga el tutorial [Introducción a los Centros de notificaciones (Android)][] para crear y configurar la aplicación para recibir notificaciones de inserción desde GCM.
+1.  Siga el tutorial [Introducción a los Centros de notificaciones (Android)][Introducción a los Centros de notificaciones (Android)] para crear y configurar la aplicación para recibir notificaciones de inserción desde GCM.
 
 2.  Abra el archivo res/layout/activity\_main.xml y sustituya el contenido por lo siguiente:
 
@@ -176,7 +176,7 @@ El paso siguiente es crear la aplicación Android.
             }
         }
 
-    Este componente implementa las llamadas REST requeridas para ponerse en contacto con el back-end de la aplicación con la finalidad de registrar notificaciones de inserción. También almacena localmente los *registrationId* creados por el Centro de notificaciones tal y como se detalla en [Registro desde el backend de la aplicación][]. Tenga en cuenta que usa un token de autorización almacenado localmente cuando hace clic en el botón **Iniciar sesión y registrar**.
+    Este componente implementa las llamadas REST requeridas para ponerse en contacto con el back-end de la aplicación con la finalidad de registrar notificaciones de inserción. También almacena localmente los *registrationId* creados por el Centro de notificaciones tal y como se detalla en [Registro desde el backend de la aplicación][Registro desde el backend de la aplicación]. Tenga en cuenta que usa un token de autorización almacenado localmente cuando hace clic en el botón **Iniciar sesión y registrar**.
 
 5.  En la clase **MainActivity** quite los campos privados para **NotificationHub** y agregue un campo para **RegisterClient**:
 
@@ -279,7 +279,7 @@ Para ejecutar la aplicación, realice las siguientes tareas:
   [Windows Universal]: /es-es/documentation/articles/notification-hubs-windows-dotnet-notify-users/ "Windows Universal"
   [iOS]: /es-es/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/ "iOS"
   [Android]: /es-es/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/ "Android"
-  [Registro desde el backend de la aplicación]: http://msdn.microsoft.com/en-us/library/dn743807.aspx
+  [Registro desde el backend de la aplicación]: http://msdn.microsoft.com/es-es/library/dn743807.aspx
   [Introducción a los Centros de notificaciones (Android)]: /es-es/documentation/articles/notification-hubs-android-get-started/
   [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md
    

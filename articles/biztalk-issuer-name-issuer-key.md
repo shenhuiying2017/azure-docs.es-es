@@ -37,7 +37,7 @@ Los siguientes elementos usan el nombre y la clave de emisor del servicio de con
 
 ### Recuperación del nombre y la clave de emisor del servicio de control de acceso
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  En el panel de navegación izquierdo, seleccione **Servicios de BizTalk**.
 3.  Seleccione su servicio de BizTalk.
 4.  Seleccione **Connection Information** en la barra de tareas. El espacio de nombres del servicio de control de acceso, el emisor predeterminado (nombre de emisario) y la clave predeterminada (clave de emisor) se incluyen y se pueden copiar y pegar.<br/><br/>
@@ -47,7 +47,7 @@ Los siguientes elementos usan el nombre y la clave de emisor del servicio de con
 
 También puede hacer clic en **Abrir Portal de administración de ACS** para recuperar los valores del servicio de control de acceso:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  En el panel de navegación izquierdo, seleccione **Servicios de BizTalk**.
 3.  Seleccione su servicio de BizTalk.
 4.  Seleccione el botón Connection Information y **Abrir Portal de administración de ACS**.
@@ -71,7 +71,7 @@ Los servicios de adaptador de BizTalk usan el nombre y la clave de emisor del bu
 
 ### Recuperación del nombre y la clave de emisor del bus de servicio
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  En el panel de navegación izquierdo, haga clic en **Bus de servicio**.
 3.  Haga clic en su espacio de nombres. En la barra de tareas, haga clic en **Connection Information**. De este modo se muestra el **Emisor predeterminado** (Nombre de emisor) y la **Clave predeterminada** (Clave de emisor). Sus valores se pueden copiar.<br/><br/>
     Resumiento:
@@ -82,20 +82,20 @@ Los servicios de adaptador de BizTalk usan el nombre y la clave de emisor del bu
 
 Otros temas acerca de los servicios de BizTalk de Azure:
 
--   [Instalación del SDK de los servicios de BizTalk de Azure][]
--   [Tutoriales: Servicios de BizTalk de Azure][]
--   [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?][]
--   [Servicios de BizTalk de Azure][]
+-   [Instalación del SDK de los servicios de BizTalk de Azure][Instalación del SDK de los servicios de BizTalk de Azure]
+-   [Tutoriales: Servicios de BizTalk de Azure][Tutoriales: Servicios de BizTalk de Azure]
+-   [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?][¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?]
+-   [Servicios de BizTalk de Azure][Servicios de BizTalk de Azure]
 
 ## Otras referencias
 
--   [Direccionamiento del servicio de administración de ACS para configurar las identidades de servicio][]
--   [Servicios de BizTalk: Gráfico de las ediciones Developer, Basic, Standard y Premium][]
--   [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][]
--   [Servicios de BizTalk: Gráfico del estado de aprovisionamiento][]
--   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala][]
--   [Servicios de BizTalk: Copia de seguridad y restauración][]
--   [Servicios de BizTalk: Limitaciones][]
+-   [Direccionamiento del servicio de administración de ACS para configurar las identidades de servicio][Direccionamiento del servicio de administración de ACS para configurar las identidades de servicio]
+-   [Servicios de BizTalk: Gráfico de las ediciones Developer, Basic, Standard y Premium][Servicios de BizTalk: Gráfico de las ediciones Developer, Basic, Standard y Premium]
+-   [Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure][Servicios de BizTalk: Aprovisionamiento con el Portal de administración de Azure]
+-   [Servicios de BizTalk: Gráfico del estado de aprovisionamiento][Servicios de BizTalk: Gráfico del estado de aprovisionamiento]
+-   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala][Servicios de BizTalk: Pestañas Panel, Monitor y Escala]
+-   [Servicios de BizTalk: Copia de seguridad y restauración][Servicios de BizTalk: Copia de seguridad y restauración]
+-   [Servicios de BizTalk: Limitaciones][Servicios de BizTalk: Limitaciones]
 
   [Portal de administración de Azure]: http://go.microsoft.com/fwlink/p/?LinkID=213885
   [Direccionamiento del servicio de administración de ACS para configurar las identidades de servicio]: http://go.microsoft.com/fwlink/p/?LinkID=303942

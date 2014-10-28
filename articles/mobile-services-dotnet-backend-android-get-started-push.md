@@ -14,44 +14,42 @@ Este tema muestra cómo puede utilizar Servicios móviles de Azure para enviar n
 
 Este tutorial le guiará a través de estos pasos:
 
-1.  [Habilitación del servicio de mensajería en la nube de Google][]
-2.  [Configuración del servicio móvil para enviar solicitudes de inserción][]
-3.  [Actualización del servidor para enviar notificaciones de inserción][]
-4.  [Incorporación de notificaciones de inserción a la aplicación][]
-5.  [Habilitación de notificaciones de inserción para pruebas locales][]
-6.  [Prueba de la aplicación con el servicio móvil publicado][]
+1.  [Habilitación del servicio de mensajería en la nube de Google][Habilitación del servicio de mensajería en la nube de Google]
+2.  [Configuración del servicio móvil para enviar solicitudes de inserción][Configuración del servicio móvil para enviar solicitudes de inserción]
+3.  [Actualización del servidor para enviar notificaciones de inserción][Actualización del servidor para enviar notificaciones de inserción]
+4.  [Incorporación de notificaciones de inserción a la aplicación][Incorporación de notificaciones de inserción a la aplicación]
+5.  [Habilitación de notificaciones de inserción para pruebas locales][Habilitación de notificaciones de inserción para pruebas locales]
+6.  [Prueba de la aplicación con el servicio móvil publicado][Prueba de la aplicación con el servicio móvil publicado]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de empezar este tutorial, primero debe completar [Introducción a los Servicios móviles][] o [Introducción a los datos][] para conectar su proyecto al servicio móvil. Por este motivo, este tutorial requiere también Visual Studio 2013.
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de empezar este tutorial, primero debe completar [Introducción a los Servicios móviles][Introducción a los Servicios móviles] o [Introducción a los datos][Introducción a los datos] para conectar su proyecto al servicio móvil. Por este motivo, este tutorial requiere también Visual Studio 2013.
 
-> [WACOM.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
+> [WACOM.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][Evaluación gratuita de Azure].
 
 ## <span id="register"></span></a>Habilitación del servicio de mensajería en la nube de Google
 
-[WACOM.INCLUDE [Habilitación de GCM][]]
+[WACOM.INCLUDE [Enable GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 ## <span id="configure"></span></a>Configuración de Servicios móviles para enviar solicitudes de inserción
 
-1.  Inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, haga clic en su aplicación.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en su aplicación.
 
-    ![][]
+    ![][0]
 
 2.  Haga clic en la pestaña **Inserción**, escriba el valor de la **Clave de API** obtenido de GCM en el procedimiento anterior y, a continuación, haga clic en **Guardar**.
 
     ![][1]
 
-    <div class="dev-callout"><b>Importante</b>
-<p>Al configurar las credenciales de GCM para las notificaciones de inserci&oacute;n mejoradas en la pesta&ntilde;a Push del portal, se comparten con los Centros de notificaciones para configurar el centro de notificaciones con la aplicaci&oacute;n.</p>
-</div>
+    <div class="dev-callout"><b>Importante</b><p>Al configurar las credenciales de GCM para las notificaciones de inserción mejoradas en la pestaña Push del portal, se comparten con los Centros de notificaciones para configurar el centro de notificaciones con la aplicación.</p></div>
 
 Su servicio móvil ahora está configurado para trabajar con GCM y Centros de notificaciones.
 
 ## <a name="download-the-service"></a><span class="short-header">Descarga del servicio</span>Descarga del servicio en el equipo local
 
-[WACOM.INCLUDE [mobile-services-download-service-locally][]]
+[WACOM.INCLUDE [mobile-services-download-service-locally](../includes/mobile-services-download-service-locally.md)]
 
 ## <a name="test-the-service"></a><span class="short-header">Prueba del servicio</span>Prueba del servicio móvil
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ## <span id="update-server"></span></a> Actualización del servidor para enviar notificaciones de inserción
 
@@ -88,13 +86,14 @@ Su servicio móvil ahora está configurado para trabajar con GCM y Centros de no
 
 ## <a name="publish-the-service"></a><span class="short-header">Publicación del servicio</span>Publicación del servicio móvil en Azure
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
+
 
 ## <a name="update-app"></a>Incorporación de notificaciones de inserción a la aplicación
 
 ### Comprobación de la versión del SDK de Android
 
-[WACOM.INCLUDE [mobile-services-verify-android-sdk-version][]]
+[WACOM.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version.md)]
 
 El siguiente paso es instalar los servicios de Google Play. El servicio de mensajería en la nube de Google tiene algunos requisitos mínimos en el nivel de API para desarrollo y prueba, los que debe cumplir la propiedad **minSdkVersion** del manifiesto.
 
@@ -102,11 +101,11 @@ Si va a realizar pruebas con un dispositivo antiguo, consulte [Configuración de
 
 ### Incorporación de Google Play Services al proyecto
 
-[WACOM.INCLUDE [Incorporación de Play Services][]]
+[WACOM.INCLUDE [Add Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
 ### Incorporación de código
 
-[WACOM.INCLUDE [mobile-services-android-getting-started-with-push][]]
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-push](../includes/mobile-services-android-getting-started-with-push.md)]
 
 ## <a name="test-app"></a><span class="short-header">Prueba de la aplicación</span>Prueba de la aplicación con el servicio móvil publicado
 
@@ -128,7 +127,7 @@ Asegúrese de que usa un dispositivo virtual de Android (AVD) que sea compatible
 
 ### <span id="local-testing"></span></a>Habilitación de notificaciones de inserción para pruebas locales
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
 ### Ejecución de la prueba
 
@@ -148,16 +147,16 @@ Ha completado correctamente este tutorial.
 
 Puede obtener más información acerca de los Servicios móviles y los Centros de notificaciones en los siguientes temas:
 
--   [Introducción a los datos][]
+-   [Introducción a los datos][Introducción a los datos]
     <br/>Obtenga más información sobre cómo almacenar y consultar datos con los servicios móviles.
 
--   [Introducción a la autenticación][]
+-   [Introducción a la autenticación][Introducción a la autenticación]
     <br/>Aprenda a autenticar a los usuarios de su aplicación con distintos tipos de cuentas con los servicios móviles.
 
--   [¿Qué son los Centros de notificaciones?][]
+-   [¿Qué son los Centros de notificaciones?][¿Qué son los Centros de notificaciones?]
     <br/>Aprenda cómo funcionan los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas cliente.
 
--   [Uso de la biblioteca de cliente Android para Servicios móviles][]
+-   [Uso de la biblioteca de cliente Android para Servicios móviles][Uso de la biblioteca de cliente Android para Servicios móviles]
     <br/>Obtenga más información sobre cómo usar Servicios móviles con Android.
 
 <!-- Anchors. -->
@@ -179,10 +178,10 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
   [Prueba de la aplicación con el servicio móvil publicado]: #test-app
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
-  [Evaluación gratuita de Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
+  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
   [Habilitación de GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
   [mobile-services-download-service-locally]: ../includes/mobile-services-download-service-locally.md
   [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md

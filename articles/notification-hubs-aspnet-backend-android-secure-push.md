@@ -29,9 +29,9 @@ Es importante tener en cuenta que en el flujo anterior (y en este tutorial), asu
 
 Este tutorial Inserción segura muestra cómo enviar una notificación de inserción de forma segura. El tutorial se basa en el tutorial **Notificar a los usuarios**, por lo que debe completar los pasos de ese tutorial primero.
 
-> [AZURE.NOTE] Este tutorial asume que ha creado y configurado el centro de notificaciones tal y como se describe en [Introducción a los Centros de notificaciones (Android)][].
+> [AZURE.NOTE] Este tutorial asume que ha creado y configurado el centro de notificaciones tal y como se describe en [Introducción a los Centros de notificaciones (Android)][Introducción a los Centros de notificaciones (Android)].
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush][]]
+[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modificación del proyecto Android
 

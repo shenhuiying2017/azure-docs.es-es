@@ -4,15 +4,15 @@
 
 # Introducción a la auditoría de bases de datos SQL
 
-La auditoría de Base de datos SQL de Azure realiza un seguimiento de los eventos de base de datos y escribe eventos auditados en un registro de auditoría en la cuenta de Almacenamiento de Azure. La auditoría está disponible para los niveles de servicio Basic, Standard y Premium. Para usar la auditoría, [suscríbase a la vista previa][].
+La auditoría de Base de datos SQL de Azure realiza un seguimiento de los eventos de base de datos y escribe eventos auditados en un registro de auditoría en la cuenta de Almacenamiento de Azure. La auditoría está disponible para los niveles de servicio Basic, Standard y Premium. Para usar la auditoría, [suscríbase a la vista previa][suscríbase a la vista previa].
 
 La auditoría puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
 
-Las herramientas de auditoría posibilitan y facilitan la observancia de estándares reguladores pero no garantizan el cumplimiento. Para obtener más información acerca de los programas de Azure compatibles con la observancia de estándares, consulte el [Centro de confianza de Azure][].
+Las herramientas de auditoría posibilitan y facilitan la observancia de estándares reguladores pero no garantizan el cumplimiento. Para obtener más información acerca de los programas de Azure compatibles con la observancia de estándares, consulte el [Centro de confianza de Azure][Centro de confianza de Azure].
 
--   [Conceptos básicos de la auditoría de Base de datos SQL de Azure][]
--   [Configuración de la auditoría para su base de datos][]
--   [Análisis de registros e informes de auditoría][]
+-   [Conceptos básicos de la auditoría de Base de datos SQL de Azure][Conceptos básicos de la auditoría de Base de datos SQL de Azure]
+-   [Configuración de la auditoría para su base de datos][Configuración de la auditoría para su base de datos]
+-   [Análisis de registros e informes de auditoría][Análisis de registros e informes de auditoría]
 
 ## <span id="subheading-1"></span>Conceptos básicos de la auditoría de Base de datos SQL de Azure</a>
 
@@ -30,7 +30,7 @@ Puede auditar las siguientes actividades y eventos:
 -   **Cuentas, roles y permisos (DCL)**
 -   **Excepciones de seguridad**
 
-Para obtener más detalles acerca de las actividades y eventos registrados, consulte [Referencia del formato del registro de auditoría (descarga de archivo .doc)][].
+Para obtener más detalles acerca de las actividades y eventos registrados, consulte [Referencia del formato del registro de auditoría (descarga de archivo .doc)][Referencia del formato del registro de auditoría (descarga de archivo .doc)].
 
 También puede elegir la cuenta de almacenamiento donde se guardan los registros de auditoría.
 
@@ -45,8 +45,8 @@ Cadena de conexión con seguridad habilitada: *\<nombre de servidor*\>.database.
 ## <span id="subheading-2"></span></a>Configuración de la auditoría para su base de datos
 
 1.  [Suscripción a la vista previa de auditoría][suscríbase a la vista previa].
-2.  Asegúrese también de [suscribirse a la vista previa de nuevos niveles de servicio][] y cree una base de datos Basic, Standard o Premium.
-3.  Inicie el [Portal de vista previa de Azure][] en <https://portal.azure.com>.
+2.  Asegúrese también de [suscribirse a la vista previa de nuevos niveles de servicio][suscribirse a la vista previa de nuevos niveles de servicio] y cree una base de datos Basic, Standard o Premium.
+3.  Inicie el [Portal de vista previa de Azure][Portal de vista previa de Azure] en <https://portal.azure.com>.
 4.  Haga clic en la base de datos que desee auditar y después en **Vista previa de auditoría** para habilitar la vista previa de auditoría e iniciar el cuadro de configuración de auditoría.
 
     ![](./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png)
@@ -71,20 +71,20 @@ Cadena de conexión con seguridad habilitada: *\<nombre de servidor*\>.database.
 
 ## <span id="subheading-3"></span>Análisis de registros e informes de auditoría</a>
 
-Los registros de auditoría se agregan en una sola tabla de Almacenamiento de Azure llamada **AuditLogs** en la cuenta de almacenamiento de Azure que eligió durante la configuración. Puede ver archivos de registro usando una herramienta como el [Explorador de almacenamiento de Azure][].
+Los registros de auditoría se agregan en una sola tabla de Almacenamiento de Azure llamada **AuditLogs** en la cuenta de almacenamiento de Azure que eligió durante la configuración. Puede ver archivos de registro usando una herramienta como el [Explorador de almacenamiento de Azure][Explorador de almacenamiento de Azure].
 
-Hay una plantilla de informe de panel preconfigurado disponible como una [hoja de cálculo de Excel descargable][] para ayudarle a analizar datos de registro rápidamente. Para utilizar la plantilla en los registros de auditoría, necesita Excel 2013 o posterior y Power Query, que puede descargar [aquí][].
+Hay una plantilla de informe de panel preconfigurado disponible como una [hoja de cálculo de Excel descargable][hoja de cálculo de Excel descargable] para ayudarle a analizar datos de registro rápidamente. Para utilizar la plantilla en los registros de auditoría, necesita Excel 2013 o posterior y Power Query, que puede descargar [aquí][aquí].
 
 La plantilla contiene datos de ejemplo ficticios y puede configurar Power Query para importar el registro de auditoría directamente desde la cuenta de almacenamiento de Azure.
 
-Para obtener instrucciones más detalladas sobre el trabajo con la plantilla de informes, lea el documento [Cómo (.doc descargable)][].
+Para obtener instrucciones más detalladas sobre el trabajo con la plantilla de informes, lea el documento [Cómo (.doc descargable)][Cómo (.doc descargable)].
 
 ![][5]
 
 <!--Anchors--> <!--Image references--> <!--Link references-->
 
   [suscríbase a la vista previa]: http://go.microsoft.com/fwlink/?LinkId=404163
-  [Centro de confianza de Azure]: http://azure.microsoft.com/en-us/support/trust-center/compliance/
+  [Centro de confianza de Azure]: http://azure.microsoft.com/es-es/support/trust-center/compliance/
   [Conceptos básicos de la auditoría de Base de datos SQL de Azure]: #subheading-1
   [Configuración de la auditoría para su base de datos]: #subheading-2
   [Análisis de registros e informes de auditoría]: #subheading-3
@@ -98,6 +98,6 @@ Para obtener instrucciones más detalladas sobre el trabajo con la plantilla de 
   [4]: ./media/sql-database-auditing-get-started/sql-database-get-started-connectionstring.png
   [Explorador de almacenamiento de Azure]: http://azurestorageexplorer.codeplex.com/
   [hoja de cálculo de Excel descargable]: http://go.microsoft.com/fwlink/?LinkId=403540
-  [aquí]: http://www.microsoft.com/en-us/download/details.aspx?id=39379
+  [aquí]: http://www.microsoft.com/es-es/download/details.aspx?id=39379
   [Cómo (.doc descargable)]: http://go.microsoft.com/fwlink/?LinkId=506731
   [5]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png

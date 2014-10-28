@@ -10,17 +10,17 @@ En este tema se muestra cómo realizar una llamada a una API personalizada desde
 
 La API personalizada que se creó en este tema le ofrece la posibilidad de enviar una sola consulta de POST que establece la marca completada en `true` para todos los elementos todo en la tabla. Sin esta API personalizada, el cliente tendría que enviar consultas individuales para actualizar la marca para cada elemento todo en la tabla.
 
-Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el tutorial de [Introducción a los Servicios móviles][] o de [Introducción a los datos][]. Para hacer esto, debe completar los siguientes pasos:
+Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el tutorial de [Introducción a los Servicios móviles][Introducción a los Servicios móviles] o de [Introducción a los datos][Introducción a los datos]. Para hacer esto, debe completar los siguientes pasos:
 
-1.  [Definición de la API personalizada][]
-2.  [Actualización de la aplicación para llamar a la API personalizada][]
-3.  [Prueba de la aplicación][]
+1.  [Definición de la API personalizada][Definición de la API personalizada]
+2.  [Actualización de la aplicación para llamar a la API personalizada][Actualización de la aplicación para llamar a la API personalizada]
+3.  [Prueba de la aplicación][Prueba de la aplicación]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][] o [Introducción a los datos][].
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][Introducción a los Servicios móviles] o [Introducción a los datos][Introducción a los datos].
 
 ## <a name="define-custom-api"></a>Definición de la API personalizada
 
-[WACOM.INCLUDE [mobile-services-create-custom-api][]]
+[WACOM.INCLUDE [mobile-services-create-custom-api](../includes/mobile-services-create-custom-api.md)]
 
 ## <a name="update-app"></a><span class="short-header">Actualización de la aplicación </span>Actualización de la aplicación para llamar a la API personalizada
 
@@ -66,8 +66,8 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
 Ahora que ha creado una API personalizada y la llamó desde su aplicación HTML, considere la posibilidad de profundizar más sobre los siguientes temas de Servicios móviles:
 
--   [Referencia del script del servidor de Servicios móviles][]
-    <br/>Obtenga más información sobre la creación de API personalizadas.
+-   [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles]
+  <br/>Obtenga más información sobre la creación de API personalizadas.
 
 <!-- Anchors. -->
 <!-- URLs. -->

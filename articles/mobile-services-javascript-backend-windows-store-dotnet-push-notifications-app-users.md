@@ -14,13 +14,13 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/" title="Back-end de .NET">Back-end de .NET</a> | <a href="/es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/"  title="Back-end de JavaScript" class="current">Back-end de JavaScript</a></div>
 
-En este tema se muestra cómo enviar notificaciones de inserción a un usuario autenticado o a cualquier dispositivo registrado. A diferencia del tutorial de [notificaciones de inserción][] anterior, este tutorial cambia el dispositivo móvil para solicitar que un usuario se autentique antes de que el cliente pueda registrarse con el centro de notificaciones para notificaciones de inserción. El registro también se modifica para agregar una etiqueta basada en el identificador del usuario asignado. Por último, el script de servidor se actualiza para enviar la notificación solamente al usuario autenticado en lugar de a todos los registros.
+En este tema se muestra cómo enviar notificaciones de inserción a un usuario autenticado o a cualquier dispositivo registrado. A diferencia del tutorial de [notificaciones de inserción][notificaciones de inserción] anterior, este tutorial cambia el dispositivo móvil para solicitar que un usuario se autentique antes de que el cliente pueda registrarse con el centro de notificaciones para notificaciones de inserción. El registro también se modifica para agregar una etiqueta basada en el identificador del usuario asignado. Por último, el script de servidor se actualiza para enviar la notificación solamente al usuario autenticado en lugar de a todos los registros.
 
 Este tutorial le guiará a través del siguiente proceso:
 
--   [Actualización del servicio para solicitar autenticación para registro][]
--   [Actualización de la aplicación para iniciar sesión antes del registro][]
--   [Prueba de la aplicación][]
+-   [Actualización del servicio para solicitar autenticación para registro][Actualización del servicio para solicitar autenticación para registro]
+-   [Actualización de la aplicación para iniciar sesión antes del registro][Actualización de la aplicación para iniciar sesión antes del registro]
+-   [Prueba de la aplicación][Prueba de la aplicación]
 
 Este tutorial es compatible con aplicaciones tanto de la Tienda Windows como de la Tienda de Windows Phone.
 
@@ -28,7 +28,7 @@ Este tutorial es compatible con aplicaciones tanto de la Tienda Windows como de 
 
 Antes de empezar este tutorial, debe haber completado primero estos tutoriales de Servicios móviles:
 
--   [Introducción a la autenticación][]
+-   [Introducción a la autenticación][Introducción a la autenticación]
     Agrega un requisito de inicio de sesión a la aplicación de ejemplo TodoList.
 
 -   [Introducción a las notificaciones de inserción][notificaciones de inserción]
@@ -38,7 +38,7 @@ Después de haber completado ambos tutoriales, puede impedir que los usuarios au
 
 ## <a name="register"></a>Actualización del servicio para solicitar autenticación para registro
 
-[WACOM.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users][]]
+[WACOM.INCLUDE [mobile-services-javascript-backend-push-notifications-app-users](../includes/mobile-services-javascript-backend-push-notifications-app-users.md)]
 
 1.  Reemplace la función de inserción por el siguiente código y, a continuación, haga clic en **Guardar**:
 
@@ -73,11 +73,11 @@ Después de haber completado ambos tutoriales, puede impedir que los usuarios au
 
 ## <a name="update-app"></a>Actualización de la aplicación para iniciar sesión antes del registro
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-push-notifications-app-users][]]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-push-notifications-app-users](../includes/mobile-services-windows-store-dotnet-push-notifications-app-users.md)]
 
 ## <a name="test"></a>Prueba de la aplicación
 
-[WACOM.INCLUDE [mobile-services-windows-test-push-users][]]
+[WACOM.INCLUDE [mobile-services-windows-test-push-users](../includes/mobile-services-windows-test-push-users.md)]
 
 <!---## <a name="next-steps"> </a>Next steps 
 
@@ -85,7 +85,7 @@ In the next tutorial, [Service-side authorization of Mobile Services users][Auth
 <!-- Anchors. --> 
 <!-- URLs. -->
 
-  [C\# para Tienda Windows]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users "C# para Tienda Windows"
+  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users "C# para Tienda Windows"
   [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-push-notifications-app-users "JavaScript para Tienda Windows"
   [Windows Phone]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users "Windows Phone"
   [iOS]: /es-es/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users "iOS"
