@@ -1,18 +1,18 @@
-<properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-Selección de nombres de usuario para Linux en Azure
-===================================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
 
-Cuando cree una instancia de máquina virtual para imágenes de Linux en Azure, tiene la posibilidad de seleccionar el nombre de usuario para el que realizar el aprovisionamiento.
+# Selección de nombres de usuario para Linux en Azure
 
-Linux define un conjunto de nombres de usuario que no puede utilizar. Es muy importante que **no use estos nombres**. Si utiliza alguno de ellos, no se podrá realizar el aprovisionamiento de la imagen.
+Al crear una instancia de máquina virtual de Linux en Azure, tiene la posibilidad de seleccionar el nombre de usuario para el que realizar el aprovisionamiento (el nombre de usuario predeterminado es *azureuser*). En la mayoría de casos este usuario nuevo no existirá en la imagen base y se creará durante el proceso de aprovisionamiento. En algunos casos, si el usuario ya existe en la imagen de la máquina virtual base, el agente Azure Linux sencillamente configurará la contraseña (o la tecla SSH) para ese usuario de acuerdo con la información de configuración de aprovisionamiento que se ha pasado al crear la máquina virtual.
 
-Además, la API de administración de servicios devolverá un error que indica lo siguiente: Error al crear usuario *xxxxxx*. Esto también se dará si usa un nombre de usuario que ya existe en la imagen como resultado de una operación anterior de captura en la que no se canceló el aprovisionamiento de dicho nombre de usuario ya creado en la imagen.
+**Sin embargo**, Linux define un conjunto de nombres de usuario que no se deben utilizar al crear usuarios nuevos. El proceso de aprovisionamiento **fallará** si intenta aprovisionar una máquina virtual de Linux con un usuario existente del sistema, que se define como un usuario con UID 0-99. Un ejemplo habitual es el usuario `root`, que tiene UID 0.
 
-A continuación, se muestran los nombres de usuario que no puede utilizar.
+-   Consulte también: [Base estándar de Linux - Intervalos de identificadores de usuarios][]
 
-OpenSUSE
---------
+Las siguientes listas contienen nombres de usuario que debería evitar al realizar el aprovisionamiento de una máquina virtual de Linux. Para una mayor seguridad, se recomienda que **no utilice estos nombres de usuario** al realizar el aprovisionamiento de una máquina virtual de Linux, ya que de lo contrario es posible que el proceso falle.
+
+## openSUSE
 
 -   abrt
 -   adm
@@ -69,8 +69,7 @@ OpenSUSE
 -   video
 -   wheel
 
-SLES
-----
+## SLES
 
 -   audio
 -   bin
@@ -116,8 +115,7 @@ SLES
 -   wwwrun
 -   xok
 
-CentOS
-------
+## CentOS
 
 -   abrt
 -   adm
@@ -174,8 +172,7 @@ CentOS
 -   video
 -   wheel
 
-UBUNTU
-------
+## Ubuntu
 
 -   adm
 -   admin
@@ -231,3 +228,4 @@ UBUNTU
 -   whoopsie
 -   www-data
 
+  [Base estándar de Linux - Intervalos de identificadores de usuarios]: http://refspecs.linuxfoundation.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/uidrange.html

@@ -1,5 +1,3 @@
-
-
 El proyecto de servicio móvil descargado le permite ejecutar el nuevo servicio móvil en el equipo o máquina virtual local. De este modo, resulta sencillo depurar el código del servicio antes de publicarlo en Azure.
 
 En esta sección, probará la nueva aplicación en el servicio móvil que se ejecuta de manera local.
@@ -8,7 +6,7 @@ En esta sección, probará la nueva aplicación en el servicio móvil que se eje
 
 2.  Presione la tecla **F5** para recompilar el proyecto e iniciar el servicio móvil de manera local.
 
-    ![](./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png)
+    ![][]
 
     Una vez que se inicia el servicio móvil correctamente, aparece una página web.
 
@@ -20,4 +18,4 @@ En esta sección, probará la nueva aplicación en el servicio móvil que se eje
 
     De este modo, se envía una solicitud POST al servicio móvil local. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y se muestran los datos en la segunda columna de la aplicación.
 
-
+  []: ./media/mobile-services-dotnet-backend-test-local-service-dotnet/mobile-service-startup.png

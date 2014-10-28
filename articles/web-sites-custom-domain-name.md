@@ -1,89 +1,134 @@
-<properties  title="Learn how to configure an Azure web site to use a custom domain name" pageTitle="Configure a custom domain name for an Azure web site" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
+<properties title="Learn how to configure an Azure website to use a custom domain name" pageTitle="Configure a custom domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-# Configuración de un nombre de dominio personalizado para un Sitio web Azure
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth, mwasson"></tags>
 
- 
-<div  class="dev-center-tutorial-selector sublanding"><a href="/es-es/documentation/articles/web-sites-custom-domain-name" title="Personalizar dominio" class="current">Personalizar dominio</a><a href="/es-es/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy">GoDaddy</a><a href="/es-es/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Network Solutions</a><a href="/es-es/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/es-es/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/es-es/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/es-es/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/es-es/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/es-es/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
+# Configuración de un nombre de dominio personalizado para un sitio web de Azure.
 
- 
-<div  class="dev-center-tutorial-subselector"><a href="/es-es/documentation/articles/web-sites-custom-domain-name/" title="Sitios web" class="current">Sitios web</a> | <a href="/es-es/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Sitio web utilizando el Administrador de tráfico">Sitio web utilizando el Administrador de tráfico</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/documentation/articles/web-sites-custom-domain-name" title="Dominio personalizado" class="current">Dominio personalizado</a><a href="/es-es/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy" class="current">GoDaddy</a><a href="/es-es/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions" class="current">Network Solutions</a><a href="/es-es/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com" class="current">Register.com</a><a href="/es-es/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/es-es/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker" class="current">Moniker</a><a href="/es-es/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster" class="current">Dotster</a><a href="/es-es/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover" class="current">DomainDiscover</a><a href="/es-es/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic" class="current">Directnic</a></div>
 
- [WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
+<div class="dev-center-tutorial-subselector"><a href="/es-es/documentation/articles/web-sites-custom-domain-name/" title="Sitios web" class="current">Sitio web</a> | <a href="/es-es/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Sitio web mediante el Administrador de tr&aacute;fico">Sitio web mediante el Administrador de tr&aacute;fico</a></div>
 
-En este artículo se ofrecen instrucciones generales para utilizar un nombre de dominio personalizado con Sitios web Azure. Consulte las pestañas que aparecen en la parte superior de este articulo para comprobar si aparece su registrador de dominios. Si es así, seleccione la pestaña correspondiente para ver los pasos específicos de ese registrador en particular.
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
 
-[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
+Al crear un sitio web, Azure lo asigna a un subdominio de azurewebsites.net. Por ejemplo, si el sitio web se llama **contoso**, la dirección URL es **contoso.azurewebsites.net**. Azure también asigna una dirección IP virtual.
+
+![contoso.azurewebsites.net subdomain][]
+
+Para un sitio web de producción, es probable que desee que los usuarios vean un nombre de dominio personalizado. Este artículo explica cómo configurar un dominio personalizado con Sitios web de Azure. (En este artículo proporciona instrucciones generales para cualquier registrador de dominios. Las pestañas que aparecen en la parte superior de este articulo se vinculan a artículos para registradores específicos).
+
+[WACOM.INCLUDE [introfooter][]]
 
 En este artículo:
 
-* [Descripción de los registros DNS](#understanding-records)
-* [Configuración de los sitios web para el modo básico, compartido o
-  estándar](#bkmk_configsharedmode)
-* [Incorporación de un registro DNS para el dominio
-  personalizado](#bkmk_configurecname)
-* [Habilitación del dominio en su sitio web](#enabledomain)
+-   [Información general][]
+-   [Tipos de registro DNS][]
+-   [Búsqueda de la dirección IP virtual][]
+-   [Creación de registros DNS][]
+-   [Creación de un registro "awverify" (solo registros A)][]
+-   [Habilitación del nombre de dominio en su sitio web][]
 
-<h2><a name="understanding-records"></a>Descripción de los registros DNS</h2>
+## Información general
 
+Aquí se describen los pasos generales para configurar un nombre de dominio personalizado:
 
-[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
+1.  Reserve el nombre de dominio. En este artículo no se cubre ese proceso. Hay varios registradores de dominios entre los que elegir. Al registrar, el sitio le guiará por el proceso:
+2.  Cree registros DNS que asignen el dominio a su sitio web de Azure.
+3.  Agregue el nombre de dominio en el Portal de administración de Azure.
 
-<h2><a name="bkmk_configsharedmode"></a>Configuración de los sitios web para el modo básico, compartido o estándar</h2>
+En esta descripción básica, hay algunos casos específicos que se deben tener en cuenta:
 
+-   Asignación de su dominio raíz. El dominio raíz es el dominio que reservó con el registrador de dominios. Por ejemplo, **contoso.com**.
+-   Asignación de un subdominio. Por ejemplo, **blogs.contoso.com**. Puede asignar subdominios diferentes a sitios web diferentes.
+-   Asignación de un comodín. Por ejemplo, \***.contoso.com**. Una entrada comodín se aplica a todos los subdominios del dominio.
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
+[WACOM.INCLUDE [modes][]]
 
-<a name="bkmk_configurecname"></a><h2>Incorporación de un registro DNS para el dominio personalizado</h2>
+## Tipos de registro DNS
 
-Para asociar su dominio personalizado con un Sitio web Azure, debe agregar una nueva entrada en la tabla DNS para el dominio personalizado mediante las herramientas proporcionadas por el registrador de dominios al que ha adquirido su nombre de dominio. Siga estos pasos para ubicar y utilizar las herramientas DNS.
+El sistema de nombres de dominio (DNS) usa registros de datos para asignar nombres de dominio en direcciones IP. Existen varios tipos de registros DNS: Para sitios web, creará un registro *A* o un registro *CNAME*.
 
-1.  Inicie sesión en su cuenta en el registrador de dominios y busque la página de administración de los registros DNS. Busque los vínculos o áreas del sitio etiquetadas como **Domain Name**, **DNS** o **Name Server Management**. A menudo se puede encontrar un vínculo a esta página al consultar la información de la cuenta (suele poner algo parecido a **My domains**).
+-   Un registro A **(Address)** asigna un nombre de dominio a una dirección IP.
+-   Un registro **CNAME (Canonical Name)** asigna un nombre de dominio a otro nombre de dominio. DNS usa el segundo nombre para buscar la dirección. Los usuarios ven el primer nombre de dominio en su explorador. Por ejemplo, podría asignar contoso.com a *\<suSitio\>*.azurewebsites.net.
 
-2.  Cuando haya encontrado la página de administración para su nombre de dominio, busque un vínculo que le permita modificar los registros DNS. Debe aparecer como **Zone file**, **DNS Records** o un vínculo de configuración a las opciones avanzadas (**Advanced**).
-    
-    * Esta página seguramente mostrará algunos que ya se han creado, como una entrada en la que se asocia "**@**" o "\*" a una página donde figuran los dominios. Es posible también que contenga registros para los subdominios más comunes, como **www**.
-    * Esta página mencionará los registros **A records** y **CNAME records**, o bien facilitará una lista desplegable donde podrá seleccionar el tipo de registro. Es posible también que mencione otros registros, como **MX records**. En algunos casos, recibirán otros nombres, como **IP Address records** en lugar de "A  records", o **Alias Records** en lugar de "CNAME records".
-    * Esta página contendrá también campos que le permiten **asignar** desde un **nombre de host** o un **nombre de dominio** hasta una **dirección IP** u otro nombre de dominio.
+Si cambia la dirección IP, una entrada CNAME aún es válida, mientras que un registro A se debe actualizar. Sin embargo, algunos registradores de dominios no permiten registros CNAME para el dominio raíz o para los dominios comodín. En dicho caso, debe usar un registro A.
 
-3.  Aunque los detalles varían en función del registrador que se esté utilizando, en general se asigna *desde* el nombre del dominio personalizado (como **contoso.com**) *hasta* el nombre de dominio del Sitio web Azure (**contoso.azurewebsites.net**) o la dirección IP virtual del Sitio web Azure.
-    
-    * Los registros CNAME asignarán siempre el dominio de Sitios web Azure - **contoso.azurewebsites.net**. Por tanto, estará asignando *desde* un dominio como **www** *hasta* su dirección **<nombresitioweb>.azurewebsites.net**.
+> [WACOM.NOTE] La dirección IP puede cambiar si elimina y vuelve a crear el sitio web, o si vuelve a cambiar el modo de sitio web a Gratis.
 
+## Búsqueda de la dirección IP virtual
 
-     
-      > [WACOM.NOTE] Si utiliza un registro D, tiene que agregar
-      > también un registro CNAME con alguna de las configuraciones
-      > siguientes:
-      > 
-      > * Asigna *desde* **www** *hasta* su
-      >   **<nombresitioweb>.azurewebsites.net**.
-      > 
-      > O
-      > 
-      > * Asigna *desde* **awverify.www** *hasta*
-      >   **awverify.<nombresitioweb>.azurewebsites.net**.
-      > 
-      > Azure utiliza este registro CNAME para comprobar que el dominio
-      > descrito por el registro D es efectivamente suyo.
-    
-    * Los registros D asignan siempre hasta la dirección IP virtual de Sitios web Azure. Por tanto, asigna *desde* un dominio como **www** *hasta* la dirección IP virtual del sitio web.
+Si está creando un registro CNAME, omita este paso. Para crear un registro A, necesitará la dirección IP virtual de su sitio web. Para obtener la dirección IP:
 
+1.  En el explorador, abra el [Portal de administración de Azure][].
+2.  En la pestaña **Sitios web**, haga clic en el nombre del sitio y seleccione **Panel**.
+3.  Seleccione **Administrar dominios** en la parte inferior de la página. (Si esta opción está deshabilitada, asegúrese de usar el modo Compartido, Básico o Estándar. Para obtener más información, consulte [Escalación de sitios web][]).
 
-     
-      > [WACOM.NOTE] Para asignar un dominio raíz (como
-      > **contoso.com**) a un Sitio web Azure, normalmente tendrá que
-      > asignar desde "**@**" o una entrada en blanco hasta la dirección
-      > IP virtual. Para crear una asignación comodín que asigne todos
-      > los subdominios a la dirección IP virtual, normalmente tendrá
-      > que asignar desde "\*" hasta la dirección IP virtual.
-      > 
-      > Los detalles de asignación de una raíz o un comodín cambian en
-      > función del registrador utilizado. Consulte la documentación de
-      > su registrador para obtener información más específica.
+    ![][]
 
-4.  Una vez que haya terminado de agregar o modificar registros DNS en su registrador, guarde los cambios.
+4.  La dirección IP se muestra en la parte inferior del cuadro de diálogo.
 
-<h2><a name="enabledomain"></a>Habilitación del nombre de dominio en su sitio web</h2>
+    ![][1]
 
+## Creación de registros DNS
 
-[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
+Inicie sesión en el registrador de dominios y use su herramienta para agregar un registro a o un registro CNAME. Los sitios web de los registradores son diferentes, pero a continuación se proporcionan algunas pautas generales.
+
+1.  Busque la página de administración de registros DNS. Busque los vínculos o áreas del sitio etiquetadas como **Domain Name**, **DNS** o **Name Server Management**. A menudo el vínculo se encuentra al consultar la información de la cuenta (suele poner algo parecido a **My domains**).
+2.  Cuando haya encontrado la página de administración, busque un vínculo que le permita agregar o editar registros DNS. Debe aparecer como **Zone file**, **DNS Records** o un vínculo de configuración a las opciones avanzadas (**Advanced**).
+
+Esta página podría indicar los registros A records y los registros CNAME, o bien ofrecer una lista desplegable donde podrá seleccionar el tipo de registro. Además, es posible que use otros nombres para los tipos de registro, tal como **IP Address record** instead of A record o **Alias Record** en lugar del registro CNAME. Normalmente, el registrador crea los registros para usted. Por lo tanto, es posible que ya existan registros para el dominio raíz o para los subdominios comunes, tal como **www**.
+
+Al crear o editar un registro, los campos le permitirán asignar su nombre de dominio a una dirección IP (para registros A) u otro dominio (para registros CNAME). Para un registro CNAME, asignará elementos *desde* su dominio personalizado *a* su subdominio azurewebsites.net.
+
+En muchas herramientas de los registradores, simplemente escribirá la parte de subdominio del dominio, no el nombre completo del dominio. Además, muchas herramientas usan '@' para representar el dominio raíz. Por ejemplo:
+
+| Host | Tipo de registro | Dirección IP o dirección URL |
+|------|------------------|------------------------------|
+| @    | A (dirección)    | 127.0.0.1                    |
+| www  | CNAME (alias)    | contoso.azurewebsites.net    |
+
+Suponiendo que el nombre de dominio personalizado es 'contoso.com', esto crearía los registros siguientes:
+
+-   **contoso.com** asignado a 127.0.0.1.
+-   **www.contoso.com** asignado a **contoso.azurewebsites.net**.
+
+## Creación de un registro "awverify" (solo registros A)
+
+Si crea un registro A, Sitios web de Azure también requiere un registro CNAME especial, que se utiliza para verificar que se posee el dominio que está intentando utilizar. Este registro CNAME debe tener el formato siguiente.
+
+-   *Si el registro A se asigna al dominio raíz o a un dominio comodín:* Cree un registro CNAME que se asigna desde **awverify.\<suDominio\>** a**awverify.\<nombreDeSuSitioWeb\>.azurewebsites.net**. Por ejemplo, si el registro A es para **contoso.com**, cree un registro CNAME para **awverify.contoso.com**.
+-   *Si el registro A se asigna a un subdominio específico:* Cree un registro CNAME que se asigna desde **awverify.\<subdominio\>** a**awverify.\<nombreDeSuSitioWeb\>.azurewebsites.net**. Por ejemplo, si el registro A es para **blogs.contoso.com**, cree un registro CNAME para **awverify.blogs.contoso.com**.
+
+Los visitantes a su sitio no verán el subdominio awverify, este solo es para que Azure compruebe su dominio.
+
+## Habilitación del nombre de dominio en su sitio web
+
+[WACOM.INCLUDE [modes][2]]
+
+<!-- Anchors. --> <!-- Images -->
+
+  [Dominio personalizado]: /es-es/documentation/articles/web-sites-custom-domain-name "Dominio personalizado"
+  [GoDaddy]: /es-es/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
+  [Network Solutions]: /es-es/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
+  [Register.com]: /es-es/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
+  [Enom]: /es-es/documentation/articles/web-sites-enom-custom-domain-name "Enom"
+  [Moniker]: /es-es/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
+  [Dotster]: /es-es/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
+  [DomainDiscover]: /es-es/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
+  [Directnic]: /es-es/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
+  [Sitio web]: /es-es/documentation/articles/web-sites-custom-domain-name/ "Sitios web"
+  [Sitio web mediante el Administrador de tráfico]: /es-es/documentation/articles/web-sites-traffic-manager-custom-domain-name/ "Sitio web mediante el Administrador de tráfico"
+  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
+  [contoso.azurewebsites.net subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
+  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
+  [Información general]: #overview
+  [Tipos de registro DNS]: #dns-record-types
+  [Búsqueda de la dirección IP virtual]: #find-the-virtual-ip-address
+  [Creación de registros DNS]: #create-the-dns-records
+  [Creación de un registro "awverify" (solo registros A)]: #awverify
+  [Habilitación del nombre de dominio en su sitio web]: #enable-the-domain-name-on-your-website
+  [modes]: ../includes/custom-dns-web-site-modes.md
+  [Portal de administración de Azure]: https://manage.windowsazure.com
+  [Escalación de sitios web]: http://www.windowsazure.com/es-es/documentation/articles/web-sites-scale/
+  []: media/web-sites-custom-domain-name/dncmntask-cname-6.png
+  [1]: media/web-sites-custom-domain-name/ipaddress.png
+  [2]: ../includes/custom-dns-web-site-enable-on-web-site.md

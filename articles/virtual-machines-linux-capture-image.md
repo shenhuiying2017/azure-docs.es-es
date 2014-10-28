@@ -1,48 +1,59 @@
-<properties linkid="manage-linux-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Linux" metaKeywords="Azure Linux vm, Linux vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Linux. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
+<properties linkid="manage-linux-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Linux" metaKeywords="Azure Linux vm, Linux vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Linux. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-Captura de una imagen de una máquina virtual que ejecuta Linux
-==============================================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
 
-Puede utilizar imágenes de la galería de imágenes para crear fácilmente máquinas virtuales, o bien, puede capturar y utilizar sus propias imágenes para crear máquinas virtuales personalizadas. Una imagen es un archivo de disco duro virtual (.vhd) que se utiliza como plantilla para crear una máquina virtual. Una imagen es una plantilla porque no tiene una configuración específica como una máquina virtual configurada, tal como el nombre del host y la configuración de la cuenta de usuario. Si desea crear varias máquinas virtuales configuradas de la misma manera, puede capturar una imagen de una máquina virtual configurada y utilizar esa imagen como plantilla.
+# Cómo capturar una máquina virtual Linux para usarla como plantilla.
 
-1.  Siga los pasos que aparecen en [Inicio de sesión en una máquina virtual con Linux](../virtual-machines-linux-how-to-log-on) para conectarse a la máquina virtual.
+En este artículo se muestra como puede capturar una máquina virtual de Linux para usarla como plantilla en la creación de otras máquinas virtuales. Esta plantilla de máquina virtual incluye el disco del sistema operativo y cualquier otro disco de datos que acompañe a la máquina virtual. No incluye la configuración de red, por lo que deberá configurarla usted mismo cuando cree las otras máquinas virtuales que utilicen la plantilla.
 
-2.  En la ventana SSH, escriba el siguiente comando y, a continuación, especifique la contraseña para la cuenta que creó en la máquina virtual. Observe que el resultado de `waagent` puede variar levemente según la versión de esta utilidad:
+Después de capturar la máquina virtual, estará disponible en **Mis imágenes** cuando cree una máquina virtual. El archivo de imagen se almacena como un VHD en su cuenta de almacenamiento. Para obtener más información sobre imágenes, consulte [Administrar discos e imágenes][].
+
+## Antes de empezar
+
+Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y ha configurado el sistema operativo, incluida la anexión de cualquier disco de datos. Si no ha realizado esto todavía, siga estas instrucciones:
+
+-   [Creación de una máquina virtual personalizada][]
+-   [Acoplamiento de un disco de datos a una máquina virtual][]
+
+## Capture la máquina virtual
+
+1.  Establezca conexión con la máquina virtual y haga clic en **Conectar** en la barra de comandos. Para obtener los detalles, vea [Inicio de sesión en una máquina virtual con Linux][].
+
+2.  En la ventana SSH, escriba el siguiente comando y, a continuación, especifique la contraseña para la cuenta que creó en la máquina virtual. Observe que el resultado de `waagent` puede variar ligeramente según la versión de esta utilidad:
 
     `sudo waagent -deprovision`
 
-    ![Desaprovisionamiento de la máquina virtual](./media/virtual-machines-linux-capture-image/LinuxDeprovision.png)
+    ![Desaprovisionamiento de la máquina virtual][]
 
 3.  Escriba **y** para continuar.
 
-    ![Desaprovisionamiento correcto de la máquina virtual](./media/virtual-machines-linux-capture-image/LinuxDeprovision2.png)
+    ![Desaprovisionamiento correcto de la máquina virtual][]
 
 4.  Escriba **Exit** para cerrar el cliente SSH.
 
-5.  En el [Portal de administración](http://manage.windowsazure.com), seleccione la máquina virtual y, a continuación, haga clic en **Shutdown**.
+5.  En el [Portal de administración][], seleccione la máquina virtual y después haga clic en **Shut down**.
 
-    ![Apagado de la máquina virtual](./media/virtual-machines-linux-capture-image/ShutdownVM.png)
+6.  Cuando la máquina virtual se detenga, en la barra de comandos haga clic en **Capture** para abrir el cuadro de diálogo **Capture the Virtual Machine**.
 
-6.  Haga clic en **Yes** para aceptar que se le siga facturando por la máquina virtual cuando no esté en ejecución.
+7.  En **Image Name**, escriba un nombre para la nueva imagen.
 
-7.  Cuando la máquina virtual se detenga, en la barra de comandos haga clic en **Capture**.
+8.  Es necesario *desaprovisionar* todas las imágenes de Linux mediante la ejecución del comando `waagent` con la opción `-deprovision`. Haga clic en **I have run waagent-deprovision on the virtual machine** para indicar que el sistema operativo está preparado para ser una imagen.
 
-    ![Captura de una imagen de la máquina virtual](./media/virtual-machines-linux-capture-image/CaptureVM.png)
-
-    Aparece el cuadro de diálogo **Capture Virtual Machine**.
-
-    ![Escribir los detalles de la captura](./media/virtual-machines-linux-capture-image/CaptureLinux.png)
-
-8.  En **Image Name**, escriba el nombre de la imagen nueva.
-
-9.  Es necesario *desaprovisionar* todas las imágenes de Linux mediante la ejecución del comando `waagent` con la opción `-deprovision`. Haga clic en **I have run the de-provision command on the Virtual Machine** para indicar que el sistema operativo está preparado para ser una imagen.
-
-10. Haga clic en la marca de verificación para capturar la imagen.
+9.  Haga clic en la marca de verificación para capturar la imagen.
 
     La nueva imagen ahora está disponible en **Images**. La máquina virtual se elimina una vez capturada la imagen.
 
-    ![Captura correcta de la imagen](./media/virtual-machines-linux-capture-image/CaptureSuccess.png)
+    ![Captura correcta de la imagen][]
 
-    Cuando crea una máquina virtual con el método **From Gallery**, puede utilizar la imagen que capturó haciendo clic en **My Images** en la página **Select the virtual machine operating system**.
+## Pasos siguientes
 
+La imagen está lista para ser utilizada como plantilla para crear máquinas virtuales. Para ello, cree una máquina virtual personalizada con el método **De la galería** y seleccione la imagen que acaba de crear. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada][].
 
+  [Administrar discos e imágenes]: http://go.microsoft.com/fwlink/p/?LinkId=397536
+  [Creación de una máquina virtual personalizada]: ../virtual-machines-create-custom/
+  [Acoplamiento de un disco de datos a una máquina virtual]: ../storage-windows-attach-disk/
+  [Inicio de sesión en una máquina virtual con Linux]: ../virtual-machines-linux-how-to-log-on
+  [Desaprovisionamiento de la máquina virtual]: ./media/virtual-machines-linux-capture-image/LinuxDeprovision.png
+  [Desaprovisionamiento correcto de la máquina virtual]: ./media/virtual-machines-linux-capture-image/LinuxDeprovision2.png
+  [Portal de administración]: http://manage.windowsazure.com
+  [Captura correcta de la imagen]: ./media/virtual-machines-linux-capture-image/VMCapturedImageAvailable.png

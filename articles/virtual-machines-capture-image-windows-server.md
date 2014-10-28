@@ -1,40 +1,68 @@
 <properties linkid="manage-windows-howto-capture-an-image" urlDisplayName="Capture an image" pageTitle="Capture an image of a virtual machine running Windows Server" metaKeywords="Azure capture image vm, capturing vm" description="Learn how to capture an image of an Azure virtual machine (VM) running Windows Server 2008 R2. " metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Capture an Image of a Virtual Machine Running Windows Server" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
 
-Captura de una imagen de una máquina virtual que ejecuta Windows Server
-=======================================================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
 
-Puede utilizar imágenes de la galería de imágenes para crear fácilmente máquinas virtuales, o bien, puede capturar y utilizar sus propias imágenes para crear máquinas virtuales personalizadas. Una imagen es un archivo de disco duro virtual (.vhd) que se utiliza como plantilla para crear una máquina virtual. Es una plantilla porque no tiene la configuración específica de una máquina virtual configurada, tal como el nombre del equipo y la configuración de la cuenta de usuario. Si desea crear varias máquinas virtuales configuradas de la misma manera, puede capturar una imagen de una máquina virtual configurada y utilizar esa imagen como plantilla.
+# Cómo capturar una máquina virtual Windows para usarla como plantilla.
 
-1.  Siga los pasos que aparecen en [Inicio de sesión en una máquina virtual con Windows Server](http://www.windowsazure.com/es-es/manage/windows/how-to-guides/log-on-a-windows-vm/) para conectarse a una máquina virtual.
+En este artículo se muestra cómo puede capturar una máquina virtual Windows para usarla como plantilla en la creación de otras máquinas virtuales. Esta plantilla de máquina virtual incluye el disco del sistema operativo y cualquier otro disco de datos que acompañe a la máquina virtual. No incluye la configuración de red, por lo que deberá configurarla usted mismo cuando cree las otras máquinas virtuales que utilicen la plantilla.
+
+Después de capturar la máquina virtual, estará disponible en **Mis imágenes** cuando cree una máquina virtual. El archivo de imagen se almacena como un VHD en su cuenta de almacenamiento. Para obtener más información sobre imágenes, consulte [Administrar discos e imágenes][].
+
+## Antes de empezar
+
+Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y ha configurado el sistema operativo, incluida la anexión de cualquier disco de datos. Si no ha realizado esto todavía, siga estas instrucciones:
+
+-   [Creación de una máquina virtual personalizada][]
+-   [Acoplamiento de un disco de datos a una máquina virtual][]
+
+## Capture la máquina virtual
+
+1.  Establezca conexión con la máquina virtual y haga clic en **Conectar** en la barra de comandos. Para obtener los detalles, consulte [Inicio de sesión en una máquina virtual con Windows Server][].
 
 2.  Abra una ventana de símbolo del sistema como administrador.
 
-3.  Cambie el directorio a `%windir%\system32\sysprep` y, a continuación, ejecute sysprep.exe.
+3.  Cambie el directorio a `%windir%\system32\sysprep` y después ejecute sysprep.exe.
 
-4.  Aparecerá el cuadro de diálogo **System Preparation Tool**.
+4.  Aparecerá el cuadro de diálogo **System Preparation Tool**. Haga lo siguiente:
 
-    En **System Cleanup Action**, seleccione **Enter System Out-of-Box Experience (OOBE)** y asegúrese de que la casilla **Generalize** esté seleccionada. Para obtener más información acerca del uso Sysprep, consulte [How to Use Sysprep: An Introduction](http://technet.microsoft.com/en-us/library/bb457073.aspx).
+    -   En **System Cleanup Action**, seleccione **Enter System Out-of-Box Experience (OOBE)** y asegúrese de que la casilla **Generalize** esté seleccionada. Para obtener más información acerca del uso Sysprep, consulte [How to Use Sysprep: An Introduction][].
 
-5.  En **Shutdown Options**, seleccione **Shutdown**.
+    -   En **Shutdown Options**, seleccione **Shutdown**.
 
-6.  Haga clic en **OK**.
+    -   Haga clic en **OK**.
 
-7.  Sysprep apaga la máquina virtual, lo que cambia el estado de la máquina a **Stopped** en el [Portal de administración](http://manage.windowsazure.com).
+    ![Ejecute Sysprep][]
 
-8.  Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual que desea capturar.
+5.  Sysprep apaga la máquina virtual, lo que cambia su estado en el [Portal de administración][] a **Detenido**.
 
-9.  En la barra de comandos, haga clic en **Capture**.
+6.  Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual que desea capturar.
 
-    Aparecerá el cuadro de diálogo **Capture an Image from a Virtual Machine**.
+7.  En la barra de comandos, haga clic en **Capture**.
 
-10. En **Image Name**, escriba un nombre para la nueva imagen.
+    ![Capture la máquina virtual][]
 
-11. Antes de agregar una imagen de Windows Server al conjunto de imágenes personalizadas, ejecute Sysprep para generalizarla siguiendo las instrucciones de los pasos anteriores. Haga clic en **I have run Sysprep on the virtual machine** para indicar que ha realizado esta acción.
+    Aparece el cuadro de diálogo **Capturar la máquina virtual**.
 
-12. Haga clic en la marca de verificación para capturar la imagen. Al capturar la imagen de una máquina virtual, la máquina se elimina.
+8.  En **Image Name**, escriba un nombre para la nueva imagen.
+
+9.  Antes de agregar una imagen de Windows Server al conjunto de imágenes personalizadas, ejecute Sysprep para generalizarla siguiendo las instrucciones de los pasos anteriores. Haga clic en **I have run Sysprep on the virtual machine** para indicar que ha realizado esta acción.
+
+10. Haga clic en la marca de verificación para capturar la imagen. Al capturar la imagen de una máquina virtual generalizada, la máquina virtual se elimina.
 
     La nueva imagen ahora está disponible en **Images**.
 
-    Cuando se crea una máquina virtual mediante el método **From Gallery**, puede usarse la imagen capturada haciendo clic en **My Images** en la página **Choose an Image**.
+    ![Captura correcta de la imagen][]
 
+## Pasos siguientes
 
+La imagen está lista para ser utilizada como plantilla para crear máquinas virtuales. Para ello, cree una máquina virtual personalizada con el método **De la galería** y seleccione la imagen que acaba de crear. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada][].
+
+  [Administrar discos e imágenes]: http://go.microsoft.com/fwlink/p/?LinkId=397536
+  [Creación de una máquina virtual personalizada]: ../virtual-machines-create-custom/
+  [Acoplamiento de un disco de datos a una máquina virtual]: ../storage-windows-attach-disk/
+  [Inicio de sesión en una máquina virtual con Windows Server]: http://www.windowsazure.com/es-es/manage/windows/how-to-guides/log-on-a-windows-vm/
+  [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/es-es/library/bb457073.aspx
+  [Ejecute Sysprep]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
+  [Portal de administración]: http://manage.windowsazure.com
+  [Capture la máquina virtual]: ./media/virtual-machines-capture-image-windows-server/CaptureVM.png
+  [Captura correcta de la imagen]: ./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png

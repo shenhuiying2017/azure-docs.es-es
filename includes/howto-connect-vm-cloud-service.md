@@ -1,29 +1,27 @@
-<properties  authors="kathydav" editor="tysonn" manager="donaldg" />
+<properties authors="kathydav" editor="tysonn" manager="donaldg" />
 
 # Conexión de máquinas virtuales en un Servicio en la nube
 
 Cuando crea una máquina virtual, se crea automáticamente un servicio en la nube para dar cabida a esa máquina. Puede crear varias máquinas virtuales en el mismo servicio en la nube para permitir a las máquinas virtuales comunicarse entre sí, equilibrar la carga de tráfico de red entre las máquinas virtuales y mantener la alta disponibilidad de las máquinas.
 
-Para obtener más información sobre la realización del equilibrio de carga de las máquinas virtuales, consulte [Equilibrio de carga de máquinas virtuales](../load-balancing-vms/). Para obtener más información sobre la administración de la disponibilidad de la aplicación, consulte [Administración de la disponibilidad de las máquinas virtuales](../manage-vm-availability/).
+Para obtener más información sobre la realización del equilibrio de carga de las máquinas virtuales, consulte [Equilibrio de carga de máquinas virtuales][]. Para obtener más información sobre la administración de la disponibilidad de la aplicación, consulte [Administración de la disponibilidad de las máquinas virtuales][].
 
 Primero tendrá que crear una máquina virtual con un nuevo servicio en la nube y, a continuación, podrá conectar máquinas virtuales adicionales a la primera máquina virtual con el mismo servicio en la nube.
 
-1.  Cree una máquina virtual siguiendo los pasos de [Creación de una máquina virtual personalizada](../howto-custom-create-vm/).
+1.  Cree una máquina virtual siguiendo los pasos de [Creación de una máquina virtual personalizada][].
 
-2.  Una vez que cree la primera máquina virtual personalizada, en la barra de comandos [Portal de administración][1], haga clic en
-    **New**.
-    
-    ![Crear una m&aacute;quina
-    virtual](./media/howto-connect-vm-cloud-service/Create.png)
+2.  Una vez que cree la primera máquina virtual personalizada, en la barra de comandos [Portal de administración][], haga clic en **New**.
+
+    ![Crear una máquina virtual][]
 
 3.  Haga clic en **Máquina virtual** y, a continuación, haga clic en **From Gallery**.
-    
-    ![Crear una m&aacute;quina virtual personalizada](./media/howto-connect-vm-cloud-service/CreateNew.png)
-    
+
+    ![Crear una máquina virtual personalizada][]
+
     Aparece el cuadro de diálogo **Select the virtual machine operating system**.
 
 4.  En la página **Choose an image**, seleccione una imagen y, a continuación, haga clic en la flecha para continuar.
-    
+
     Aparecerá la primera página de **Virtual machine configuration**.
 
 5.  En **Virtual Machine Name**, escriba el nombre que desea usar para la máquina virtual.
@@ -46,6 +44,9 @@ Primero tendrá que crear una máquina virtual con un nuevo servicio en la nube 
 
 14. Haga clic en la marca de verificación para crear la máquina virtual conectada.
 
-
-
-[1]: http://manage.windowsazure.com
+  [Equilibrio de carga de máquinas virtuales]: ../../articles/load-balance-virtual-machines/
+  [Administración de la disponibilidad de las máquinas virtuales]: ../../articles/manage-availability-virtual-machines/
+  [Creación de una máquina virtual personalizada]: ../../articles/virtual-machines-create-custom/
+  [Portal de administración]: http://manage.windowsazure.com
+  [Crear una máquina virtual]: ./media/howto-connect-vm-cloud-service/Create.png
+  [Crear una máquina virtual personalizada]: ./media/howto-connect-vm-cloud-service/CreateNew.png

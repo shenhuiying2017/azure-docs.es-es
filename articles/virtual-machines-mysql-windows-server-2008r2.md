@@ -1,9 +1,10 @@
-<properties linkid="manage-windows-common-tasks-install-mysql" urlDisplayName="Install MySQL" pageTitle="Create a virtual machine running MySQL in Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Create an Azure virtual machine running Windows Server 2008 R2, and then install and configure a MySQL database on the virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running Windows Server 2008 R2 in Azure" authors="kathydav" solutions="" manager="jeffreyg" editor="tysonn" />
+<properties linkid="manage-windows-common-tasks-install-mysql" urlDisplayName="Install MySQL" pageTitle="Create a virtual machine running MySQL in Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Create an Azure virtual machine running Windows Server 2008 R2, and then install and configure a MySQL database on the virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running Windows Server 2008 R2 in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-Instalación de MySQL en una máquina virtual que ejecuta Windows Server 2008 R2 en Azure
-=======================================================================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/15/2013" ms.author="kathydav"></tags>
 
-[MySQL](http://www.mysql.com) es una conocida base de datos SQL de código abierto. Con el [Portal de administración de Azure](http://manage.windowsazure.com), puede crear una máquina virtual que ejecuta Windows Server 2008 R2 desde la Galería de imágenes. Después, puede instalar y configurar una base de datos MySQL en la máquina virtual.
+# Instalación de MySQL en una máquina virtual que ejecuta Windows Server 2008 R2 en Azure
+
+[MySQL][] es una conocida base de datos SQL de código abierto. Con el [Portal de administración de Azure][], puede crear una máquina virtual que ejecuta Windows Server 2008 R2 desde la Galería de imágenes. Después, puede instalar y configurar una base de datos MySQL en la máquina virtual.
 
 En este tutorial, aprenderá a:
 
@@ -11,18 +12,15 @@ En este tutorial, aprenderá a:
 
 -   Instalar y ejecutar MySQL Community Server en la máquina virtual.
 
-Creación de una máquina virtual que ejecuta Windows Server 2008 R2
-------------------------------------------------------------------
+## Creación de una máquina virtual con Windows Server 2008 R2
 
-[WACOM.INCLUDE [create-and-configure-windows-server-2008-vm-in-portal](../includes/create-and-configure-windows-server-2008-vm-in-portal.md)]
+[WACOM.INCLUDE [create-and-configure-windows-server-2008-vm-in-portal][]]
 
-Acoplamiento de un disco de datos
----------------------------------
+## Acoplamiento de un disco de datos
 
-[WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal](../includes/attach-data-disk-windows-server-2008-vm-in-portal.md)]
+[WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal][]]
 
-Instalación y ejecución de MySQL Community Server en la máquina virtual
------------------------------------------------------------------------
+## Instalación y ejecución de MySQL Community Server en la máquina virtual
 
 Siga estos pasos para instalar, configurar y ejecutar MySQL Community Server:
 
@@ -30,7 +28,7 @@ Siga estos pasos para instalar, configurar y ejecutar MySQL Community Server:
 
 2.  Seleccione el botón **Herramientas** de la esquina superior derecha. En **Opciones de Internet**, seleccione la pestaña **Seguridad** y, a continuación, seleccione el icono **Sitios de confianza**. Finalmente, haga clic en el botón **Sitios**. Agregue *http://\*.mysql.com* a la lista de sitios de confianza.
 
-3.  Vaya a [Download MySQL Community Server](http://www.mysql.com/downloads/mysql/).
+3.  Vaya a [Download MySQL Community Server][].
 
 4.  Seleccione **Microsoft Windows** en el menú desplegable **Platform** y haga clic en **Select**.
 
@@ -42,67 +40,67 @@ Siga estos pasos para instalar, configurar y ejecutar MySQL Community Server:
 
 8.  Haga clic en **Next**.
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall1.png)
+    ![Configuración de MySQL][]
 
 9.  Acepte los términos de licencia y, a continuación, haga clic en **Next**.
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall2.png)
+    ![Configuración de MySQL][1]
 
 10. Haga clic en **Typical** para instalar las características comunes.
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall3.png)
+    ![Configuración de MySQL][2]
 
-11. Haga clic en **Install**.
+11. Haga clic en **Instalar**.
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall4.png)
+    ![Configuración de MySQL][3]
 
 12. Inicie el Asistente para configuración de MySQL y haga clic en **Next**.
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig1.png)
+    ![Configuración de MySQL][4]
 
 13. Seleccione **Detailed Configuration** y haga clic en Next.
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig2.png)
+    ![Configuración de MySQL][5]
 
 14. Seleccione **Server Machine** si piensa ejecutar MySQL con otras aplicaciones en el servidor o la opción que mejor se adapte a sus necesidades. Haga clic en **Next**.
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig3.png)
+    ![Configuración de MySQL][6]
 
 15. Seleccione **Multifunctional Database** o la opción que mejor se adapte a sus necesidades. Haga clic en **Next**.
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig4.png)
+    ![Configuración de MySQL][7]
 
 16. Seleccione la unidad de datos que ha acoplado en los pasos anteriores.
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig5.png)
+    ![Configuración de MySQL][8]
 
 17. Seleccione **Decision Support (DSS)/OLAP** o la opción que mejor se adapte a sus necesidades. Haga clic en **Next**.
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig6.png)
+    ![Configuración de MySQL][9]
 
 18. Seleccione **Enable TCP/IP Networking** y **Add firewall exception for this port** (se creará una regla entrante en al Firewall de Windows llamada **MySQL Server**).
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig7.png)
+    ![Configuración de MySQL][10]
 
 19. Seleccione **Best Support For Multilingualism** si necesita guardar el texto idiomas diferentes, o seleccione la opción que mejor se adapte a sus necesidades. Haga clic en **Next**.
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig8.png)
+    ![Configuración de MySQL][11]
 
 20. Seleccione **Install As Windows Service** y **Launch the MySQL Server automatically**. Seleccione también **Include Bin Directory in Windows PATH**. Haga clic en **Next**.
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig9.png)
+    ![Configuración de MySQL][12]
 
 21. Especifique la contraseña raíz. No active **Enable root access from remote machines** ni **Create An Anonymous Account**. Haga clic en **Next**.
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig10.png)
+    ![Configuración de MySQL][13]
 
 22. Haga clic en **Execute** y espere a que finalice la configuración.
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig11.png)
+    ![Configuración de MySQL][14]
 
 23. Haga clic en **Finish**.
 
-    ![Configuración de MySQL](./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig12.png)
+    ![Configuración de MySQL][15]
 
 24. Haga clic en **Start** y seleccione **MySQL 5.x Command Line Client** para iniciar el cliente de línea de comandos.
 
@@ -131,17 +129,17 @@ Siga estos pasos para instalar, configurar y ejecutar MySQL Community Server:
 
         quit
 
-30. Cuando MySQL esté instalado, debe configurar un extremo para que pueda obtenerse acceso a MySQL de manera remota. Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com). En el Portal de Azure, haga clic en **Máquinas virtuales**, en el nombre de la nueva máquina virtual, en **Endpoints** y, finalmente, en **Add Endpoint**.
+30. Cuando MySQL esté instalado, debe configurar un extremo para que pueda obtenerse acceso a MySQL de manera remota. Inicie sesión en el [Portal de administración de Azure][]. En el Portal de Azure, haga clic en **Máquinas virtuales**, en el nombre de la nueva máquina virtual, en **Endpoints** y, finalmente, en **Add Endpoint**.
 
-    ![Extremos](./media/virtual-machines-mysql-windows-server-2008r2/WinVMAddEndpointMySQL0.png)
+    ![Extremos][]
 
 31. Seleccione **Add Endpoint** y haga clic en la flecha para continuar.
 
-    ![Extremos](./media/virtual-machines-mysql-windows-server-2008r2/WinVMAddEndpointMySQL1.png)
+    ![Extremos][16]
 
 32. Agregue un extremo con el nombre "MySQL", el protocolo **TCP** y los puertos **Public** y **Private** establecidos en "3306". Haga clic en la marca de verificación. Esto permitirá que se obtenga acceso remoto a MySQL.
 
-    ![Extremos](./media/virtual-machines-mysql-windows-server-2008r2/WinVMAddEndpointMySQL.png)
+    ![Extremos][17]
 
 33. Puede conectarse de manera remota a MySQL ejecutando su máquina virtual en Azure. Desde un equipo local que ejecuta MySQL, ejecute el comando siguiente para iniciar sesión como el usuario **mysqluser** que ha creado en los pasos anteriores:
 
@@ -151,8 +149,32 @@ Siga estos pasos para instalar, configurar y ejecutar MySQL Community Server:
 
         mysql -u mysqluser -p -h testwinvm.cloudapp.net
 
-Resumen
--------
+## Resumen
 
-En este tutorial ha aprendido a crear un equipo virtual Windows 2008 R2 y a conectarse a él de forma remota. También ha aprendido a instalar y configurar MySQL en el equipo virtual, crear una base de datos y un nuevo usuario de MySQL. Para obtener más información sobre MySQL, consulte [MySQL Documentation](http://dev.mysql.com/doc/).
+En este tutorial ha aprendido a crear un equipo virtual Windows 2008 R2 y a conectarse a él de forma remota. También ha aprendido a instalar y configurar MySQL en el equipo virtual, crear una base de datos y un nuevo usuario de MySQL. Para obtener más información sobre MySQL, consulte [MySQL Documentation][].
 
+  [MySQL]: http://www.mysql.com
+  [Portal de administración de Azure]: http://manage.windowsazure.com
+  [create-and-configure-windows-server-2008-vm-in-portal]: ../includes/create-and-configure-windows-server-2008-vm-in-portal.md
+  [attach-data-disk-windows-server-2008-vm-in-portal]: ../includes/attach-data-disk-windows-server-2008-vm-in-portal.md
+  [Download MySQL Community Server]: http://www.mysql.com/downloads/mysql/
+  [Configuración de MySQL]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall1.png
+  [1]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall2.png
+  [2]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall3.png
+  [3]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall4.png
+  [4]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig1.png
+  [5]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig2.png
+  [6]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig3.png
+  [7]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig4.png
+  [8]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig5.png
+  [9]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig6.png
+  [10]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig7.png
+  [11]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig8.png
+  [12]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig9.png
+  [13]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig10.png
+  [14]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig11.png
+  [15]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig12.png
+  [Extremos]: ./media/virtual-machines-mysql-windows-server-2008r2/WinVMAddEndpointMySQL0.png
+  [16]: ./media/virtual-machines-mysql-windows-server-2008r2/WinVMAddEndpointMySQL1.png
+  [17]: ./media/virtual-machines-mysql-windows-server-2008r2/WinVMAddEndpointMySQL.png
+  [MySQL Documentation]: http://dev.mysql.com/doc/

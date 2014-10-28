@@ -185,15 +185,20 @@ A continuación, modificará la aplicación de notificaciones de inserción para
 Este es el último tutorial que muestra los aspectos básicos relacionados con el uso de las notificaciones de inserción. Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
 -   [Introducción a los datos][]
-    Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
+    
+	Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
 -   [Introducción a la autenticación][]
-    Aprenda a autenticar a los usuarios de su aplicación con cuenta de Windows.
+    
+	Aprenda a autenticar a los usuarios de su aplicación con cuenta de Windows.
 
 -   [Referencia del script del servidor de Servicios móviles][]
-    Obtenga más información acerca del registro y uso de scripts de servidor.
+    
+	Obtenga más información acerca del registro y uso de scripts de servidor.
 
-<!-- anchors --> <!-- Images. --> <!-- URLs. -->
+<!-- anchors --> 
+<!-- Images. --> 
+<!-- URLs. -->
 
   [Windows Phone]: /es-es/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
   [iOS]: /es-es/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"

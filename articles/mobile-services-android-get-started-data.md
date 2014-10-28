@@ -1,222 +1,69 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-data-android" urlDisplayName="Get Started with Data - Android" pageTitle="Get started with data (Android) | Mobile Dev Center" metaKeywords="Azure android data, Azure mobile services data, windows droid, windows android, microsoft droid, microsoft android" description="Learn how to get started using Mobile Services to leverage data in your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="ricksal,glenga" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-data-android" urlDisplayName="Get Started with Data - Android" pageTitle="Get started with data (Android) | Mobile Dev Center" metaKeywords="Azure android data, Azure mobile services data, windows droid, windows android, microsoft droid, microsoft android" description="Learn how to get started using Mobile Services to leverage data in your Android app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="ricksal,glenga" solutions="" manager="dwrede" editor="" />
 
-Introducción a los datos en Servicios móviles
-=============================================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/29/2014" ms.author="ricksal,glenga"></tags>
 
-[C\# para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-data-dotnet "C# para Tienda Windows")[JavaScript para Tienda Windows](/es-es/develop/mobile/tutorials/get-started-with-data-js "JavaScript para Tienda Windows")[Windows Phone](/es-es/develop/mobile/tutorials/get-started-with-data-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/get-started-with-data-ios "iOS")[Android](/es-es/develop/mobile/tutorials/get-started-with-data-android "Android")[HTML](/es-es/develop/mobile/tutorials/get-started-with-data-html "HTML")[Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android "Xamarin.Android")
+# Introducción a los datos en Servicios móviles
 
-Este tema muestra cómo utilizar Servicios móviles de Azure para aprovechar los datos en una aplicación de Android. En este tutorial descargará una aplicación que almacena datos en memoria, creará un nuevo servicio móvil, integrará el servicio móvil en la aplicación y luego iniciará sesión en el Portal de administración de Azure para ver los cambios que se hicieron en los datos durante la ejecución de la aplicación.
+[WACOM.INCLUDE [mobile-services-selector-get-started-data][]]
 
-[Ver el tutorial (en inglés)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services) [Reproducir vídeo (en inglés)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services)15:32
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
 
-**Nota:**
+<p>Este tema muestra c&oacute;mo utilizar Servicios m&oacute;viles de Azure para aprovechar los datos en una aplicaci&oacute;n de Android. En este tutorial descargar&aacute; una aplicaci&oacute;n que almacena datos en memoria, crear&aacute; un nuevo servicio m&oacute;vil, integrar&aacute; el servicio m&oacute;vil en la aplicaci&oacute;n y luego iniciar&aacute; sesi&oacute;n en el Portal de administraci&oacute;n de Azure para ver los cambios que se hicieron en los datos durante la ejecuci&oacute;n de la aplicaci&oacute;n.</p>
 
-Este tutorial está destinado a ayudarle a comprender cómo los Servicios móviles le permiten usar Azure para almacenar y recuperar datos de una aplicación Android. Para ello, en este tema se recorren muchos de los pasos que se completan automáticamente en el inicio rápido de Servicios móviles. Si esta es la primera vez que usa los Servicios móviles, considere la posibilidad de completar antes el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-android).
+</div>
+
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="label">Ver el tutorial (en ingl&eacute;s)</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-data-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Reproducir v&iacute;deo (en ingl&eacute;s)</span></a><span class="time">15:32:00</span></div>
+
+</div>
+
+<div class="dev-callout"><b>Nota:</b>
+<p>Este tutorial est&aacute; destinado a ayudarle a comprender c&oacute;mo los Servicios m&oacute;viles le permiten usar Azure para almacenar y recuperar datos de una aplicaci&oacute;n Android. Para ello, en este tema se recorren muchos de los pasos que se completan autom&aacute;ticamente en el inicio r&aacute;pido de Servicios m&oacute;viles. Si esta es la primera vez que usa los Servicios m&oacute;viles, considere la posibilidad de completar antes el tutorial <a href="/es-es/develop/mobile/tutorials/get-started-android">Introducci&oacute;n a los Servicios m&oacute;viles</a>.</p>
+</div>
 
 Este tutorial le guiará a través de estos pasos básicos:
 
-1.  [Descarga del proyecto de la aplicación Android](#download-app)
-2.  [Creación del servicio móvil](#create-service)
-3.  [Incorporación de una tabla de datos para almacenamiento](#add-table)
-4.  [Actualización de la aplicación para usar Servicios móviles](#update-app)
-5.  [Prueba de la aplicación en Servicios móviles](#test-app)
+1.  [Descarga del proyecto de la aplicación Android][]
+2.  [Creación del servicio móvil][]
+3.  [Incorporación de una tabla de datos para almacenamiento][]
+4.  [Actualización de la aplicación para usar Servicios móviles][]
+5.  [Prueba de la aplicación en Servicios móviles][]
 
-**Nota:**
+<div class="dev-callout"><strong>Nota:</strong> <p>para completar este tutorial, deber&aacute; tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluaci&oacute;n gratuita en tan solo unos minutos. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AED8DE357" target="_blank">Evaluaci&oacute;n gratuita de Azure</a>.</p></div>
 
-Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AED8DE357).
+Este tutorial requiere el [SDK de Android para Servicios móviles][]; el [SDK de Android][], que incluye el entorno de desarrollo integrado de Eclipse (IDE) y el complemento de las herramientas del desarrollador de Android (ADT); y Android 4.2 o una versión más reciente.
 
-Este tutorial requiere el [SDK de Android para Servicios móviles](http://go.microsoft.com/fwlink/p/?LinkID=280126); el [SDK de Android](https://go.microsoft.com/fwLink/p/?LinkID=280125), que incluye el entorno de desarrollo integrado de Eclipse (IDE) y el complemento de las herramientas del desarrollador de Android (ADT); y Android 4.2 o una versión más reciente.
+<div class="dev-callout"><b>Nota:</b>
+<p>Este tutorial proporciona instrucciones para la instalaci&oacute;n del SDK de Android y del SDK de Android para Servicios m&oacute;viles. El proyecto GetStartedWithData descargado requiere Android 4.2 o una versi&oacute;n m&aacute;s reciente. No obstante, el SDK para Servicios m&oacute;viles solo requiere Android 2.2 o una versi&oacute;n m&aacute;s reciente.</p>
+</div>
 
-**Nota:**
-
-Este tutorial proporciona instrucciones para la instalación del SDK de Android y del SDK de Android para Servicios móviles. El proyecto GetStartedWithData descargado requiere Android 4.2 o una versión más reciente. No obstante, el SDK para Servicios móviles solo requiere Android 2.2 o una versión más reciente.
-
-Descarga del proyectoDescarga del proyecto GetStartedWithData
--------------------------------------------------------------
+## <a name="download-app"></a><span class="short-header">Descarga del proyecto</span>Descarga del proyecto GetStartedWithData
 
 ### Obtención del código de ejemplo
 
-Este tutorial se ha creado sobre la [aplicación GetStartedWithData](http://go.microsoft.com/fwlink/p/?LinkID=282122), que es una aplicación Android. La interfaz de usuario de esta aplicación es idéntica a la de la aplicación generada por el inicio rápido de Android para Servicios móviles, salvo por los elementos agregados que se almacenan localmente en la memoria. Agregará el código necesario para que los datos continúen en el almacenamiento.
-
-1.  Descargue la aplicación de ejemplo `GetStartedWithData` y expanda los archivos de su equipo.
-
-2.  En Eclipse, haga clic en **File**, **Import**, expanda **Android**, haga clic en **Existing Android Code into Workspace** y, por último, en **Next.**
-
-	![](./media/mobile-services-android-get-started-data/mobile-services-import-android-workspace.png)
-
-1.  Haga clic en **Browse**, desplácese a la ubicación de los archivos de proyecto expandidos, haga clic en **OK** y asegúrese de que el proyecto TodoActivity esté marcado. Si desea copiar el proyecto en su área de trabajo, marque la casilla **Copy projects into workspace**. Finalmente, haga clic en **Finish**.
-
-	![](./media/mobile-services-android-get-started-data/mobile-services-import-android-project.png)
-
-    De esta forma se importan los archivos del proyecto en el área de trabajo.
+[WACOM.INCLUDE [download-android-sample-code][]]
 
 ### Comprobación de la versión del SDK de Android
 
-[WACOM.INCLUDE [Verify SDK](../includes/mobile-services-verify-android-sdk-version.md)]
+[WACOM.INCLUDE [Verify SDK][]]
 
 ### Inspección y ejecución del código de ejemplo
 
-1.  En el explorador de paquetes, expanda **GetStartedWithData**, **src** y **.com.example.GetStartedWithData** y, a continuación, examine el archivo ToDoActivity.java.
+[WACOM.INCLUDE [mobile-services-android-run-sample-code][]]
 
-     ![](./media/mobile-services-android-get-started-data/mobile-eclipse-project.png)
+## <a name="create-service"></a><span class="short-header">Creación de un servicio móvil</span>Creación de un servicio móvil en el Portal de administración
 
-     Tenga en cuenta que hay comentarios `//TODO` que especifican los pasos que debe realizar para que la aplicación funcione con su servicio móvil.
+[WACOM.INCLUDE [mobile-services-create-new-service-data][]]
 
-2.  En el menú **Run**, haga clic en **Run** y, a continuación, en **Android Application** para iniciar el proyecto.
+## <a name="add-table"></a><span class="short-header">Incorporación de una tabla nueva</span>Incorporación de una tabla nueva al servicio móvil
 
-    **Nota:**
+[WACOM.INCLUDE [mobile-services-create-new-service-data-2][]]
 
-    puede ejecutar este proyecto usando un teléfono Android o el emulador de Android. La ejecución con un teléfono Android requiere la descarga de un controlador USB específico del teléfono.
+## <a name="update-app"></a><span class="short-header">Actualización de la aplicación</span>Actualización de la aplicación para usar el servicio móvil para el acceso a datos
 
-    Para ejecutar el proyecto en el emulador de Android, debe definir por lo menos un dispositivo virtual Android (AVD). Use el administrador AVD para crear y administrar estos dispositivos.
+[WACOM.INCLUDE [mobile-services-android-getting-started-with-data][]]
 
-3.  En la aplicación, escriba un texto significativo, como *Realice el tutorial* y, a continuación, haga clic en **Add**.
-
-     ![](./media/mobile-services-android-get-started-data/mobile-quickstart-startup-android.png)
-
-     Tenga en cuenta que el texto guardado se almacena en una colección de la memoria y se muestra en la lista de abajo.
-
-Creación de un servicio móvilCreación de un servicio móvil en el Portal de administración
------------------------------------------------------------------------------------------
-
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
-
-Incorporación de una tabla nuevaIncorporación de una tabla nueva al servicio móvil
-----------------------------------------------------------------------------------
-
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
-
-Actualización de la aplicaciónActualización de la aplicación para usar el servicio móvil para el acceso a datos
----------------------------------------------------------------------------------------------------------------
-
-Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin de almacenar elementos en Servicios móviles en lugar de en la colección local.
-
-1.  Si todavía no tiene el [SDK de Android para Servicios móviles](http://go.microsoft.com/fwlink/p/?LinkID=280126), descárguelo ya y expanda los archivos comprimidos.
-
-2.  Copie los archivos `.jar` de la carpeta `mobileservices` del SDK en la carpeta `libs` del proyecto GetStartedWithData.
-
-3.  En explorador de paquetes de Eclipse, haga clic con el botón secundario en la carpeta `libs`, haga clic en **Refresh** y aparecerán los archivos jar copiados.
-
-	De este modo, se agrega la referencia del SDK de los Servicios móviles al área de trabajo.
-
-4.  Abra el archivo AndroidManifest.xml y agregue la línea siguiente, que permite a la aplicación obtener acceso a los Servicios móviles de Azure.
-
-		<uses-permission android:name="android.permission.INTERNET" />         
-
-5.  En el explorador de paquetes, abra el archivo TodoActivity.java ubicado en el paquete com.example.getstartedwithdata y quite la marca de comentario de las siguientes líneas de código:
-
-        import com.microsoft.windowsazure.mobileservices.MobileServiceClient;
-        import com.microsoft.windowsazure.mobileservices.MobileServiceTable;
-        import com.microsoft.windowsazure.mobileservices.NextServiceFilterCallback;
-        import com.microsoft.windowsazure.mobileservices.ServiceFilter;
-        import com.microsoft.windowsazure.mobileservices.ServiceFilterRequest;
-        import com.microsoft.windowsazure.mobileservices.ServiceFilterResponse;
-        import com.microsoft.windowsazure.mobileservices.ServiceFilterResponseCallback;
-        import com.microsoft.windowsazure.mobileservices.TableOperationCallback;
-        import com.microsoft.windowsazure.mobileservices.TableQueryCallback;
-
-        import java.net.MalformedURLException;
-
-6.  Eliminaremos la lista de la memoria que utiliza actualmente la aplicación, para que podamos reemplazarla por un servicio móvil. En la clase **ToDoActivity**, convierta en comentario la línea de código siguiente que define la lista **toDoItemList** existente.
-
-        public List toDoItemList = new ArrayList();
-
-7.  Una vez que haya realizado el paso anterior, el proyecto indicará los errores de la compilación. Busque las tres ubicaciones restantes en las que se usa la variable `toDoItemList` y convierta en comentarios las secciones indicadas. Elimine también `import java.util.ArrayList`. De este modo se elimina por completo la lista de la memoria.
-
-8.  Ahora agregamos nuestros servicios móviles. Quite la marca de comentario de las líneas de código siguientes:
-
-        private MobileServiceClient mClient;
-        private private MobileServiceTable mToDoTable;
-
-9.  Busque la clase ProgressFilter en la parte inferior del archivo y quite la marca de comentario. Esta clase muestra un indicador 'loading' mientras MobileServiceClient está ejecutando operaciones de red.
-
-10.  En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
-
-11.  Haga clic en la pestańa **Panel** y tome nota de la dirección que aparece en **Site URL**; a continuación, haga clic en **Manage keys** y tome nota de la clave indicada en **Application key**.
-
-	![](./media/mobile-services-android-get-started-data/mobile-dashboard-tab.png)
-	
-	Necesitará estos valores al obtener acceso al servicio móvil desde el código de la aplicación.
-
-12.  En el método **onCreate**, quite la marca de comentario de las líneas de código siguientes que definen la variable **MobileServiceClient**:
-
-        try {
-        // Crear la instancia de cliente del servicio móvil usando la URL
-        // y la clave del servicio móvil proporcionadas.
-            mClient = new MobileServiceClient(
-                    "MobileServiceUrl",
-                    "AppKey", 
-                    this).withFilter(new ProgressFilter());
-
-            // Obtenga la instancia de la tabla de Servicios móviles que haya que usar.
-            mToDoTable = mClient.getTable(ToDoItem.class);
-        } catch (MalformedURLException e) {
-            createAndShowDialog(new Exception("Hubo un error al crear el servicio móvil. Compruebe la URL"), "Error");
-        }
-
-	De este modo, se crea la nueva instancia de MobileServiceClient que se usa para obtener acceso a su servicio móvil. Además, se crea la instancia de MobileServiceTable que se usa para el almacenamiento de datos de proxy en el servicio móvil.
-
-13.  En el código de arriba, reemplace `MobileServiceUrl` y `AppKey` por la URL y la clave de la aplicación de su servicio móvil, por ese orden.
-
-14.  Quite la marca de comentario de estas líneas del método **checkItem**:
-
-        mToDoTable.update(item, new TableOperationCallback() { 
-            public void onCompleted(ToDoItem entity, Exception exception,
-                    ServiceFilterResponse response) {
-                if(exception == null){
-                    if (entity.isComplete()) {
-                        mAdapter.remove(entity);
-                    }
-                } else {
-                    createAndShowDialog(exception, "Error");    
-                }
-            }
-        });
-
-	De este modo se envía una actualización del elemento al servicio móvil y se eliminan los elementos marcados del adaptador.
-
-1.  Quite la marca de comentario de estas líneas del método **addItem**:
-
-        mToDoTable.insert(item, new TableOperationCallback() {
-                
-            public void onCompleted(ToDoItem entity, Exception exception,
-                    ServiceFilterResponse response) {
-                if(exception == null){
-                    if (!entity.isComplete()) {
-                        mAdapter.add(entity);
-                    }
-                } else {
-                    createAndShowDialog(exception, "Error");
-                }               
-            }
-        });
-
-	Este código crea un elemento y lo inserta en la tabla del servicio móvil remoto.
-
-1.  Quite la marca de comentario de estas líneas del método **refreshItemsFromTable**:
-
-        mToDoTable.where().field("complete").eq(false)
-        .execute(new TableQueryCallback() {
-             public void onCompleted(List result, 
-                     int count, Exception exception, 
-                     ServiceFilterResponse response) {
-                            
-                        if(exception == null){
-                            mAdapter.clear();
-
-                            for (ToDoItem item : result) {
-                                mAdapter.add(item);
-                            }
-                        } else {
-                            createAndShowDialog(exception, "Error");
-                        }
-                    }
-                }); 
-
-    De este modo se consulta el servicio móvil y se devuelven todos los elementos que no se hayan marcado como completos. Los elementos se agregan al adaptador para enlace.
-
-Prueba de la aplicaciónPrueba de la aplicación con su servicio móvil nuevo
---------------------------------------------------------------------------
+## <a name="test-app"></a><span class="short-header">Prueba de la aplicación</span>Prueba de la aplicación con su servicio móvil nuevo
 
 Ahora que la aplicación se ha actualizado para usar los Servicios móviles para almacenamiento back-end, puede probarla con los Servicios móviles usando el emulador de Android o un teléfono Android.
 
@@ -228,35 +75,60 @@ Ahora que la aplicación se ha actualizado para usar los Servicios móviles para
 
     Esto envía un elemento nuevo como inserción al servicio móvil.
 
-3.  En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios móviles** y, a continuación, en su servicio móvil.
+3.  En el [Portal de administración][], haga clic en **Servicios móviles** y, a continuación, en su servicio móvil.
 
-4.  Haga clic en la pestańa **Data** y, a continuación, en **Browse**.
+4.  Haga clic en la pestaña **Data** y, a continuación, en **Browse**.
 
-     ![](./media/mobile-services-android-get-started-data/mobile-todoitem-data-browse.png)
-          
-     Fíjese en que la tabla **TodoItem** ahora contiene datos, con algunos valores generados por los Servicios móviles y que las columnas se han agregado automáticamente a la tabla para que coincidan con la clase TodoItem de la aplicación.
+    ![][]
+
+    Observe que la tabla **TodoItem** ahora contiene datos con valores de identificador generados por Servicios móviles y que se agregaron automáticamente columnas a la tabla para que coincida con la clase TodoItem de la aplicación.
 
 Así concluye el tutorial **Introducción a los datos** para Android.
 
-Pasos siguientes
-----------------
+## <a name="next-steps"> </a>Pasos siguientes
 
 Este tutorial muestra los aspectos básicos de la habilitación de una aplicación Android para que funcione con los datos de los Servicios móviles.
 
 A continuación, considere la realización de uno de los siguientes tutoriales que se basan en la aplicación GetStartedWithData que creó en este tutorial:
 
--   [Validación y modificación de datos con scripts](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet)
+-   [Validación y modificación de datos con scripts][]
     Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
 
--   [Limitación de consultas con paginación](/es-es/develop/mobile/tutorials/add-paging-to-data-android)
+-   [Limitación de consultas con paginación][]
     Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se manejan en una única solicitud.
 
 Cuando haya completado la serie de datos, pruebe estos otros tutoriales de Android:
 
--   [Introducción a la autenticación](/es-es/develop/mobile/tutorials/get-started-with-users-android)
+-   [Introducción a la autenticación][]
     Aprenda a autenticar a los usuarios de su aplicación.
 
--   [Introducción a las notificaciones de inserción](/es-es/develop/mobile/tutorials/get-started-with-push-android)
+-   [Introducción a las notificaciones de inserción][]
     Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
+<!-- Anchors. -->
+<!-- Images. -->
+<!-- URLs. -->
 
+  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
+  [Ver el tutorial (en inglés)]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-With-Data-Connecting-your-app-to-Windows-Azure-Mobile-Services
+  [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-android
+  [Descarga del proyecto de la aplicación Android]: #download-app
+  [Creación del servicio móvil]: #create-service
+  [Incorporación de una tabla de datos para almacenamiento]: #add-table
+  [Actualización de la aplicación para usar Servicios móviles]: #update-app
+  [Prueba de la aplicación en Servicios móviles]: #test-app
+  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AED8DE357
+  [SDK de Android para Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkID=280126
+  [SDK de Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+  [download-android-sample-code]: ../includes/download-android-sample-code.md
+  [Verify SDK]: ../includes/mobile-services-verify-android-sdk-version.md
+  [mobile-services-android-run-sample-code]: ../includes/mobile-services-android-run-sample-code.md
+  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
+  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
+  [mobile-services-android-getting-started-with-data]: ../includes/mobile-services-android-getting-started-with-data.md
+  [Portal de administración]: https://manage.windowsazure.com/
+  []: ./media/mobile-services-android-get-started-data/mobile-todoitem-data-browse.png
+  [Validación y modificación de datos con scripts]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+  [Limitación de consultas con paginación]: /es-es/develop/mobile/tutorials/add-paging-to-data-android
+  [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-android
+  [Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-android

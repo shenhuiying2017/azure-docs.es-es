@@ -1,44 +1,46 @@
-<properties linkid="mobile-services-how-to-xamarin-client" urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Azure Mobile Services feature guide" metaKeywords="Azure Mobile Services, Xamarin, iOS, Android, .NET client" description="Learn how to use the Xamarin Component client for Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Xamarin Component client for Azure Mobile Services" authors="" />
+<properties linkid="mobile-services-how-to-xamarin-client" urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Azure Mobile Services feature guide" metaKeywords="Azure Mobile Services, Xamarin, iOS, Android, .NET client" description="Learn how to use the Xamarin Component client for Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Xamarin Component client for Azure Mobile Services" authors="donnam" manager="dwrede" />
 
-Uso del cliente del componente Xamarin para Servicios móviles de Azure
-======================================================================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
 
-[.NET Framework](/es-es/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework") [HTML/JavaScript](/es-es/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript")[iOS](/es-es/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS")[Android](/es-es/develop/mobile/how-to-guides/work-with-android-client-library/ "Android")[Xamarin](/es-es/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin")
+# Uso del cliente del componente Xamarin para Servicios móviles de Azure
 
-Esta guía le muestra cómo realizar tareas comunes con el cliente del componente Xamarin para Servicios móviles de Azure, en aplicaciones Xamarin para iOS y Android. Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia con Servicios móviles, primero debería considerar realizar los tutoriales "Inicio rápido de Servicios móviles" ([Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-xamarin-ios/)/[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-xamarin-android/)) e "Introducción a los datos en .NET" ([Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-ios/)/[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android/)). El tutorial de inicio rápido requiere [Xamarin](http://xamarin.com/download/) y el [SDK de Servicios móviles](http://nuget.org/packages/WindowsAzure.MobileServices/), y le ayuda a configurar su cuenta y a crear su primer servicio móvil.
+<div class="dev-center-tutorial-selector sublanding"> 
+  <a href="/es-es/develop/mobile/how-to-guides/work-with-net-client-library/" title=".NET Framework">.NET Framework</a>
+    <a href="/es-es/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/es-es/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/es-es/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/es-es/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
+</div>
 
-Tabla de contenido
-------------------
+Esta guía le muestra cómo realizar tareas comunes con el cliente del componente Xamarin para Servicios móviles de Azure, en aplicaciones Xamarin para iOS y Android. Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia con Servicios móviles, primero debería considerar realizar los tutoriales "Inicio rápido de Servicios móviles" ([Xamarin.iOS][]/[Xamarin.Android][]) e "Introducción a los datos en .NET" ([Xamarin.iOS][1]/[Xamarin.Android][2]). El tutorial de inicio rápido requiere [Xamarin][3] y el [SDK de Servicios móviles][], y le ayuda a configurar su cuenta y a crear su primer servicio móvil.
 
--   [Qué es Servicios móviles](#what-is)
--   [Conceptos](#concepts)
--   [Creación del cliente de Servicios móviles](#create-client)
--   [Creación de una referencia de tabla](#instantiating)
--   [Consulta de datos desde un servicio móvil](#querying)
-    -   [Filtro de datos devueltos](#filtering)
-    -   [Clasificación de datos devueltos](#sorting)
-    -   [Devolución de datos en páginas](#paging)
-    -   [Selección de columnas específicas](#selecting)
-    -   [Búsqueda de datos por identificador](#lookingup)
--   [Inserción de datos en un servicio móvil](#inserting)
--   [Modificación de datos en un servicio móvil](#modifying)
--   [Eliminación de datos en un servicio móvil](#deleting)
--   [Autenticación de usuarios](#authentication)
--   [Gestión de errores](#errors)
--   [Uso de datos sin tipo](#untyped)
--   [Diseño de pruebas unitarias](#unit-testing)
--   [Pasos siguientes](#nextsteps)
+## Tabla de contenido
 
-[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
+-   [Qué es Servicios móviles][]
+-   [Conceptos][]
+-   [Direccionamiento del cliente de Servicios móviles][]
+-   [Direccionamiento del referencia de tabla][]
+-   [Direccionamiento del desde un servicio móvil][]
+    -   [Filtro de datos devueltos][]
+    -   [de datos devueltos][]
+    -   [de datos en páginas][]
+    -   [de columnas específicas][]
+    -   [Búsqueda de datos por identificador][]
+-   [Direccionamiento del datos en un servicio móvil][]
+-   [Direccionamiento del datos en un servicio móvil][4]
+-   [Direccionamiento del datos en un servicio móvil][5]
+-   [Direccionamiento del de usuarios][]
+-   [Direccionamiento del errores][]
+-   [Direccionamiento del datos sin tipo][]
+-   [Direccionamiento del pruebas unitarias][]
+-   [Pasos siguientes][]
 
-ConfiguraciónConfiguración y requisitos previos
------------------------------------------------
+[WACOM.INCLUDE [mobile-services-concepts][]]
 
-Se asume que ha creado un servicio móvil y una tabla. Para obtener más información, consulte [Crear una tabla](http://go.microsoft.com/fwlink/?LinkId=298592). En el código usado en este tema, el nombre de la tabla es `TodoItem` y dispondrá de las siguientes columnas: `id`, `Text` y `Complete`.
+## <a name="setup"></a><span class="short-header">Configuración</span>Configuración y requisitos previos
+
+Se asume que ha creado un servicio móvil y una tabla. Para obtener más información, consulte [Crear una tabla][]. En el código usado en este tema, el nombre de la tabla es `TodoItem` y dispondrá de las siguientes columnas: `id`, `Text` y `Complete`.
 
 El tipo .NET del cliente con tipo correspondiente es el siguiente:
 
-     public class TodoItem
+    public class TodoItem
     {
         public string id { get; set; }
 
@@ -49,10 +51,9 @@ El tipo .NET del cliente con tipo correspondiente es el siguiente:
         public bool Complete { get; set; }
     }
 
-Cuando está habilitado el esquema dinámico, Servicios móviles de Azure genera automáticamente columnas nuevas basadas en el objeto en las solicitudes de inserción o actualización. Para obtener más información, consulte [Esquema dinámico](http://go.microsoft.com/fwlink/?LinkId=296271).
+Cuando está habilitado el esquema dinámico, Servicios móviles de Azure genera automáticamente columnas nuevas basadas en el objeto en las solicitudes de inserción o actualización. Para obtener más información, consulte [Esquema dinámico][].
 
-Creación del cliente de Servicios móvilesCreación del cliente de Servicios móviles
-----------------------------------------------------------------------------------
+## <a name="create-client"></a><span class="short-header">Creación del cliente de Servicios móviles</span>Creación del cliente de Servicios móviles
 
 El código siguiente crea el objeto `MobileServiceClient` que se usa para obtener acceso al servicio móvil.
 
@@ -61,46 +62,45 @@ El código siguiente crea el objeto `MobileServiceClient` que se usa para obtene
         "AppKey" 
     ); 
 
-En el código anterior, reemplace `AppUrl` y `AppKey` por la dirección URL y la clave de aplicación del servicio móvil, en ese orden. Estos datos están disponibles en el Portal de administración de Azure si selecciona el servicio móvil y, a continuación, hace clic en Panel.
+En el código anterior, reemplace `AppUrl` y `AppKey` por la URL y la clave de aplicación del servicio móvil, en ese orden. Estos datos están disponibles en el Portal de administración de Azure si selecciona el servicio móvil y, a continuación, hace clic en Panel.
 
-Creación de una referencia de tablaCreación de una referencia de tabla
-----------------------------------------------------------------------
+## <a name="instantiating"></a><span class="short-header">Creación de una referencia de tabla</span>Creación de una referencia de tabla
 
-Todo el código que obtiene acceso o modifica los datos de la tabla de Servicios móviles llama a las funciones del objeto `MobileServiceTable`. Obtenga una referencia a la tabla llamando a la función [GetTable](http://msdn.microsoft.com/es-es/library/windowsazure/jj554275.aspx) en una instancia de `MobileServiceClient`.
+Todo el código que obtiene acceso o modifica los datos de la tabla de Servicios móviles llama a las funciones del objeto `MobileServiceTable`. Obtenga una referencia a la tabla llamando a la función [GetTable][] en una instancia de `MobileServiceClient`.
 
     IMobileServiceTable<TodoItem> todoTable = 
         client.GetTable<TodoItem>();
 
-Este es el modelo de serialización con tipo; consulte la descripción del [modelo de serialización sin tipo](#untyped) a continuación.
+Este es el modelo de serialización con tipo; consulte la descripción del [modelo de serialización sin tipo][Direccionamiento del datos sin tipo] a continuación.
 
-Consulta de datosConsulta de datos desde un servicio móvil
-----------------------------------------------------------
+## <a name="querying"></a><span class="short-header">Consulta de datos</span>Consulta de datos desde un servicio móvil
 
 En esta sección se describe cómo generar consultas al servicio móvil. Los subapartados describen distintos aspectos, como la ordenación, el filtrado o la paginación.
 
-### Diseño de Filtro de datos devueltos
+### <a name="filtering"></a>Direccionamiento del Filtro de datos devueltos
 
-El siguiente código muestra cómo filtrar los datos incluyendo una cláusula `Where` en una consulta. Devuelve todos los elementos de `todoTable` cuya propiedad `Complete` es igual a `false`. La función `Where` aplica un predicado de filtrado de filas a la consulta en relación con la tabla.
+El siguiente código muestra cómo filtrar los datos incluyendo una cláusula `Where` en una consulta. Devuelve todos los elementos de `todoTable` cuya propiedad `Complete` es igual a false`false`. La función `Where` aplica un predicado de filtrado de fila a la consulta en la tabla.
 
-    // Esta consulta filtra TodoItems completado y los elementos 
-    // sin una marca de tiempo. 
+    // This query filters out completed TodoItems and 
+    // items without a timestamp. 
     List<TodoItem> items = await todoTable
        .Where(todoItem => todoItem.Complete == false)
        .ToListAsync();
 
 Puede ver el URI de la solicitud que se ha enviado al servicio móvil mediante el software de inspección de mensajes, como las herramientas para desarrolladores del explorador o Fiddler. Si consulta el URI de solicitud siguiente, tenga en cuenta que se está modificando la propia cadena de consulta:
 
-    GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1                   
+    GET /tables/todoitem?$filter=(complete+eq+false) HTTP/1.1                  
 
 Normalmente, esta solicitud se traduciría aproximadamente en la siguiente consulta SQL en el servidor:
 
     SELECT * 
     FROM TodoItem           
     WHERE ISNULL(complete, 0) = 0
+            
 
 La función que se pasa al método `Where` puede disponer de un número arbitrario de condiciones. Por ejemplo, la siguiente línea:
 
-    // Esta consulta filtra TodoItems completado cuando Text no es nulo.
+    // This query filters out completed TodoItems where Text isn't null
     List<TodoItem> items = await todoTable
        .Where(todoItem => todoItem.Complete == false
            && todoItem.Text != null)
@@ -124,64 +124,64 @@ También podría haberse escrito en varias líneas:
 
 Los dos métodos son equivalentes y pueden usarse indistintamente. La opción anterior, de concatenación de varios predicados en una consulta, es más compacta y es la que se recomienda.
 
-La cláusula `where` es compatible con las operaciones que pueden traducirse en el subconjunto OData de Servicios móviles. Incluye operadores relacionales (==, !=, &lt;, &lt;=, \>, \>=), operadores aritméticos (+, -, /, \*, %), precisión numérica (Math.Floor, Math.Ceiling), funciones de cadena (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propiedades de fecha (Year, Month, Day, Hour, Minute, Second), propiedades de acceso de un objeto y expresiones que combinan todas las opciones anteriores.
+La cláusula `where` es compatible con las operaciones que pueden traducirse en el subconjunto OData de Servicios móviles. Incluye operadores relacionales (==, !=, \<, \<=, \>, \>=), operadores aritméticos (+, -, /, \*, %), precisión numérica (Math.Floor, Math.Ceiling), funciones de cadena (Length, Substring, Replace, IndexOf, StartsWith, EndsWith), propiedades de fecha (Year, Month, Day, Hour, Minute, Second), propiedades de acceso de un objeto y expresiones que combinan todas las opciones anteriores.
 
-### Clasificación de datos devueltos
+### <a name="sorting"></a>Direccionamiento del de datos devueltos
 
-El siguiente código muestra cómo ordenar datos incluyendo una función `OrderBy` o `OrderByDescending` en la consulta. Devuelve los elementos de `todoTable` ordenados de manera ascendente por el campo `Text`. De forma predeterminada, el servidor devuelve solo los primeros 50 elementos.
+El siguiente código muestra cómo ordenar datos incluyendo una función `OrderBy` u `OrderByDescending` en la consulta. Devuelve los elementos de `todoTable` ordenados de manera ascendente por el campo `Text`. De forma predeterminada, el servidor devuelve solo los primeros 50 elementos.
 
-**Nota:**
-
-se utiliza el tamaño de página del servidor de forma predeterminada para evitar que se devuelvan todos los elementos. De esta forma, se evita que las consultas predeterminadas de los conjuntos de datos de gran tamaño incidan negativamente en el servicio.
+<div class="dev-callout"><strong>Nota:</strong> <p>se utiliza el tama&ntilde;o de p&aacute;gina del servidor de forma predeterminada para evitar que se devuelvan todos los elementos. De esta forma, se evita que las consultas predeterminadas de los conjuntos de datos de gran tama&ntilde;o incidan negativamente en el servicio. </p> </div>
 
 Puede aumentar el número de elementos que se devuelven si llama a `Take`, tal como se describe en la sección siguiente.
 
-    // Ordenar elementos en orden ascendente por campo Text
+    // Sort items in ascending order by Text field
     MobileServiceTableQuery<TodoItem> query = todoTable
                     .OrderBy(todoItem => todoItem.Text)       
-	List items = await query.ToListAsync();
+    List<TodoItem> items = await query.ToListAsync();
 
-    // Ordenar elementos en orden descendente por campo Text
+    // Sort items in descending order by Text field
     MobileServiceTableQuery<TodoItem> query = todoTable
                     .OrderByDescending(todoItem => todoItem.Text)       
-	List items = await query.ToListAsync();
+    List<TodoItem> items = await query.ToListAsync();           
 
-### Devolución de datos en páginas
+### <a name="paging"></a>Direccionamiento del de datos en páginas
 
 El siguiente código muestra cómo implementar la paginación en los datos devueltos a través de las cláusulas `Take` y `Skip` en la consulta. Cuando se ejecuta la siguiente consulta, se devuelven los tres primeros elementos de la tabla.
 
-    // Definir una consulta filtrada que devuelva los tres primeros elementos.
+    // Define a filtered query that returns the top 3 items.
     MobileServiceTableQuery<TodoItem> query = todoTable
                     .Take(3);                              
     List<TodoItem> items = await query.ToListAsync();
 
 La siguiente consulta revisada omite los tres primeros resultados y devuelve los tres siguientes. Esa es realmente la segunda página de datos en la que el tamaño de página cuenta con tres elementos.
 
-    // Definir una consulta filtrada que omita los tres primeros elementos y devuelta los tres siguientes.
+    // Define a filtered query that skips the top 3 items and returns the next 3 items.
     MobileServiceTableQuery<TodoItem> query = todoTable
                     .Skip(3)
                     .Take(3);                              
     List<TodoItem> items = await query.ToListAsync();
+            
 
-También puede usar el método [IncludeTotalCount](http://msdn.microsoft.com/es-es/library/windowsazure/jj730933.aspx) para asegurarse de que la consulta obtendrá el recuento total de *todos* los registros que deberían devolverse, ignorando cualquier cláusula de limitación/paginación especificada.
+También puede usar el método [IncludeTotalCount][] para asegurarse de que la consulta obtendrá el recuento total de *todos* los registros que deberían devolverse, ignorando cualquier cláusula de limitación/paginación especificada.
 
     query = query.IncludeTotalCount();
 
 Este es un escenario simplificado para pasar valores de paginación codificados de forma rígida a los métodos `Take` y `Skip`. En una aplicación en tiempo real, puede usar consultas similares a las anteriores con un control de paginación o interfaz de usuario comparable para permitir a los usuarios desplazarse a las páginas anteriores y posteriores.
 
-### Selección de columnas específicas
+### <a name="selecting"></a>Direccionamiento del de columnas específicas
 
 Puede especificar qué conjunto de propiedades incluir en los resultados agregando una cláusula `Select` a su consulta. Por ejemplo, el siguiente código muestra cómo seleccionar solo un campo y también cómo seleccionar varios campos y darle formato:
 
-    // Seleccionar un campo, solo Text
+    // Select one field -- just the Text
     MobileServiceTableQuery<TodoItem> query = todoTable
                     .Select(todoItem => todoItem.Text);
     List<string> items = await query.ToListAsync();
 
-    // Seleccionar varios campos: información de Complete y Text
+    // Select multiple fields -- both Complete and Text info
     MobileServiceTableQuery<TodoItem> query = todoTable
                     .Select(todoItem => string.Format("{0} -- {1}", todoItem.Text.PadRight(30), todoItem.Complete ? "Now complete!" : "Incomplete!"));
     List<string> items = await query.ToListAsync();
+            
 
 Todas las funciones descritas en adelante son adicionales, por lo que es posible seguir llamándolas y cada vez irá afectando más a la consulta. A continuación se muestra un ejemplo más:
 
@@ -192,19 +192,16 @@ Todas las funciones descritas en adelante son adicionales, por lo que es posible
                     .Take(3);
     List<string> items = await query.ToListAsync();
 
-### Diseño de Búsqueda de datos por identificador
+### <a name="lookingup"></a>Direccionamiento del Búsqueda de datos por identificador
 
 La función `LookupAsync` puede usarse para buscar objetos desde la base de datos con un identificador determinado.
 
-    // Esta consulta filtra el elemento con el identificador 25
+    // This query filters out the item with the ID of 25
     TodoItem item25 = await todoTable.LookupAsync(25);
 
-Inserción de datosInserción de datos en un servicio móvil
----------------------------------------------------------
+## <a name="inserting"></a><span class="short-header">Inserción de datos</span>Inserción de datos en un servicio móvil
 
-**Nota:**
-
-si desea realizar operaciones de inserción, búsqueda, eliminación o actualización en un tipo, tiene que crear un miembro denominado **Id** (independientemente del caso). Este es el motivo por el que la clase de ejemplo **TodoItem** cuenta con un miembro de **Id** de nombre. No se debe definir un valor de identificador en un valor distinto al predeterminado durante las operaciones de inserción; por el contrario, el valor de identificador siempre se debe definir en un valor no predeterminado y debe existir en las operaciones de actualización y eliminación.
+<div class="dev-callout"><strong>Nota:</strong> <p>si desea realizar operaciones de inserci&oacute;n, b&uacute;squeda, eliminaci&oacute;n o actualizaci&oacute;n en un tipo, tiene que crear un miembro denominado <strong>Id</strong> (independientemente del caso). Este es el motivo por el que la clase de ejemplo <strong>TodoItem</strong> cuenta con un miembro de <strong>Id</strong> de nombre. No se debe definir un valor de identificador en un valor distinto al predeterminado durante las operaciones de inserci&oacute;n; por el contrario, el valor de identificador siempre se debe definir en un valor no predeterminado y debe existir en las operaciones de actualizaci&oacute;n y eliminaci&oacute;n.</p> </div>
 
 El siguiente código muestra cómo insertar filas nuevas en una tabla. El parámetro contiene los datos que se van a insertar como un objeto .NET.
 
@@ -221,8 +218,7 @@ Para insertar datos sin tipo, puede aprovechar Json.NET como se muestra a contin
 
 Si intenta insertar un elemento con el campo "Id" ya establecido, volverá a obtener `MobileServiceInvalidOperationException` del servicio.
 
-Modificación de datosModificación de datos en un servicio móvil
----------------------------------------------------------------
+## <a name="modifying"></a><span class="short-header">Modificación de datos</span>Modificación de datos en un servicio móvil
 
 El siguiente código muestra cómo actualizar una instancia existente con el mismo identificador con nueva información. El parámetro contiene los datos que se van a actualizar como un objeto .NET.
 
@@ -235,11 +231,11 @@ Para insertar datos sin tipo, puede aprovechar Json.NET. Tenga en cuenta que cua
     jo.Add("Text", "Hello World"); 
     jo.Add("Complete", false);
     var inserted = await table.UpdateAsync(jo);
+            
 
 Si intenta actualizar un elemento sin el campo "Id" ya establecido, no hay forma de que el servicio indique qué instancia actualizar, por lo que volverá a obtener `MobileServiceInvalidOperationException` del servicio. De forma parecida, si intenta actualizar un elemento sin tipo sin el campo "Id" ya establecido, volverá a obtener `MobileServiceInvalidOperationException` del servicio.
 
-Eliminación de datosEliminación de datos en un servicio móvil
--------------------------------------------------------------
+## <a name="deleting"></a><span class="short-header">Eliminación de datos</span>Eliminación de datos en un servicio móvil
 
 El siguiente código muestra cómo eliminar una instancia existente. La instancia se identifica mediante el campo "Id" establecido en `todoItem`.
 
@@ -250,21 +246,22 @@ Para eliminar datos sin tipo, puede aprovechar Json.NET. Tenga en cuenta que cua
     JObject jo = new JObject(); 
     jo.Add("Id", 52);
     await table.DeleteAsync(jo);
+            
 
 Si intenta eliminar un elemento sin el campo "Id" ya establecido, no hay forma de que el servicio indique qué instancia eliminar, por lo que volverá a obtener `MobileServiceInvalidOperationException` del servicio. De forma parecida, si intenta eliminar un elemento sin tipo sin el campo "Id" ya establecido, volverá a obtener `MobileServiceInvalidOperationException` del servicio.
 
-AutenticaciónAutenticación de usuarios
---------------------------------------
+## <a name="authentication"></a><span class="short-header">Autenticación</span>Autenticación de usuarios
 
-Servicios móviles es compatible con la autenticación y autorización de los usuarios de aplicaciones mediante una serie de proveedores de identidades externas: Facebook, Google, cuenta Microsoft, Twitter y Azure Active Directory. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Si desea obtener más información, consulte el tutorial "Introducción a la autenticación" ([Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-ios/)/[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android/)).
+Servicios móviles es compatible con la autenticación y autorización de los usuarios de aplicaciones mediante una serie de proveedores de identidades externas: Facebook, Google, cuenta Microsoft, Twitter y Azure Active Directory. Puede establecer permisos en tablas para restringir el acceso a operaciones específicas solo a usuarios autenticados. También puede usar la identidad de usuarios autenticados para implementar reglas de autorización en scripts del servidor. Si desea obtener más información, consulte el tutorial "Introducción a la autenticación" ([Xamarin.iOS][6]/[Xamarin.Android][7]).
 
 Se admiten dos flujos de autenticación: un *flujo de servidor* y un *flujo de cliente*. El flujo de servidor ofrece la experiencia de autenticación más simple, ya que se basa en la interfaz de autenticación web del proveedor. El flujo de cliente permite una mayor integración con capacidades específicas del dispositivo, ya que se basa en SDK específicos del dispositivo y específicos del proveedor.
 
 ### Flujo de servidor
 
-Para que Servicios móviles administre el proceso de autenticación en la aplicación de la Tienda Windows o Windows Phone, debe registrar la aplicación con el proveedor de identidades. A continuación, en el servicio móvil, tendrá que configurar el identificador y el secreto de la aplicación proporcionados por el proveedor. Si desea obtener más información, consulte el tutorial "Introducción a la autenticación" ([Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-ios/)/[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android/)).
+Para que Servicios móviles administre el proceso de autenticación en la aplicación de la Tienda Windows o Windows Phone,
+debe registrar la aplicación con el proveedor de identidades. A continuación, en el servicio móvil, tendrá que configurar el identificador y el secreto de la aplicación proporcionados por el proveedor. Si desea obtener más información, consulte el tutorial "Introducción a la autenticación" ([Xamarin.iOS][6]/[Xamarin.Android][7]).
 
-Una vez que haya registrado el proveedor de identidades, simplemente llame al método [LoginAsync](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) con el valor [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) del proveedor. Por ejemplo, el siguiente código activa un inicio de sesión de flujo de servidor mediante Facebook.
+Una vez que haya registrado el proveedor de identidades, simplemente llame al método [LoginAsync][] con el valor [MobileServiceAuthenticationProvider][] del proveedor. Por ejemplo, el siguiente código activa un inicio de sesión de flujo de servidor mediante Facebook.
 
     private MobileServiceUser user;
     private async System.Threading.Tasks.Task Authenticate()
@@ -290,9 +287,9 @@ Una vez que haya registrado el proveedor de identidades, simplemente llame al m�
         }
     }
 
-Si está usando un proveedor de identidades diferente al de Facebook, cambie el valor de [MobileServiceAuthenticationProvider](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx) anterior por el valor de su proveedor.
+Si está usando un proveedor de identidades diferente al de Facebook, cambie el valor de [MobileServiceAuthenticationProvider][] anterior por el valor de su proveedor.
 
-En este caso, Servicios móviles administra el flujo de autenticación de OAuth 2.0 mostrando la página de inicio de sesión del proveedor seleccionado y generando un token de autenticación de Servicios móviles después de que se realice un inicio de sesión correcto con el proveedor de identidades. El método [LoginAsync](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx) devuelve [MobileServiceUser](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx), que proporciona [userId](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx) del usuario autenticado y [MobileServiceAuthenticationToken](http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx) como un token de web JSON (JWT). El token puede almacenarse en caché y volver a usarse hasta que expire. Para obtener más información, consulte [Almacenamiento en caché del token de autenticación](#caching).
+En este caso, Servicios móviles administra el flujo de autenticación de OAuth 2.0 mostrando la página de inicio de sesión del proveedor seleccionado y generando un token de autenticación de Servicios móviles después de que se realice un inicio de sesión correcto con el proveedor de identidades. El método [LoginAsync][] devuelve [MobileServiceUser][], que proporciona [userId][] del usuario autenticado y [MobileServiceAuthenticationToken][] como un token de web JSON (JWT). El token puede almacenarse en caché y volver a usarse hasta que expire. Para obtener más información, consulte [Almacenamiento en caché del token de autenticación][].
 
 ### Flujo de cliente
 
@@ -301,8 +298,8 @@ La aplicación también puede ponerse en contacto de manera independiente con el
 En la forma más simplificada, puede usar el flujo de cliente como se muestra en este fragmento para Facebook o Google.
 
     var token = new JObject();
-    // Reemplazar ccess_token_value por el valor real del token de acceso obtenido 
-    // mediante el SDK de Google o Facebook.
+    // Replace access_token_value with actual value of your access token obtained 
+    // using the Facebook or Google SDK.
     token.Add("access_token", "access_token_value");
             
     private MobileServiceUser user;
@@ -313,8 +310,8 @@ En la forma más simplificada, puede usar el flujo de cliente como se muestra en
             string message;
             try
             {
-                // Cambiar MobileServiceAuthenticationProvider.Facebook 
-                // por MobileServiceAuthenticationProvider.Google si usa la autenticación de Google.
+                // Change MobileServiceAuthenticationProvider.Facebook 
+                // to MobileServiceAuthenticationProvider.Google if using Google auth.
                 user = await client
                     .LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
                 message = 
@@ -331,19 +328,19 @@ En la forma más simplificada, puede usar el flujo de cliente como se muestra en
         }
     }
 
-### Almacenamiento en caché del token de autenticación
+### <a name="caching"></a>Almacenamiento en caché del token de autenticación
 
-En algunos casos, la llamada al método de inicio de sesión puede evitarse después de la primera vez que el usuario se autentique. Puede usar un almacén local seguro (como [Xamarin.Auth](https://components.xamarin.com/view/xamarin.auth)) para almacenar en caché la identidad del usuario actual la primera vez que se inicie sesión y las veces posteriores que compruebe si ya dispone de la identidad de usuario en la memoria caché. Si la memoria caché está vacía, tendrá que enviar el usuario a través del proceso de inicio de sesión.
+En algunos casos, la llamada al método de inicio de sesión puede evitarse después de la primera vez que el usuario se autentique. Puede usar un almacén local seguro (como [Xamarin.Auth][]) para almacenar en caché la identidad del usuario actual la primera vez que se inicie sesión y las veces posteriores que compruebe si ya dispone de la identidad de usuario en la memoria caché. Si la memoria caché está vacía, tendrá que enviar el usuario a través del proceso de inicio de sesión.
 
     using Xamarin.Auth;
     var accountStore = AccountStore.Create(); // Xamarin.iOS
     //var accountStore = AccountStore.Create(this); // Xamarin.Android
 
-    // Después de iniciar sesión
+    // After logging in
     var account = new Account (user.UserId, new Dictionary<string,string> {{"token",user.MobileServiceAuthenticationToken}});
     accountStore.Save(account, "Facebook");
 
-    // Iniciar sesión 
+    // Log in 
     var accounts = accountStore.FindAccountsForService ("Facebook").ToArray();
     if (accounts.Count != 0)
     {
@@ -352,20 +349,19 @@ En algunos casos, la llamada al método de inicio de sesión puede evitarse desp
     }
     else
     {
-        // Flujo de inicio de sesión normal
+        // Regular login flow
         user = new MobileServiceuser( await client
             .LoginAsync(MobileServiceAuthenticationProvider.Facebook, token);
         var token = new JObject();
-        // Reemplazar access_token_value por el valor real del token de acceso
+        // Replace access_token_value with actual value of your access token
         token.Add("access_token", "access_token_value");
     }
             
-     // Cerrar sesión
+     // Log out
     client.Logout();
     accountStore.Delete(account, "Facebook");
 
-Gestión de erroresGestión de errores
-------------------------------------
+## <a name="errors"></a><span class="short-header">Gestión de errores</span>Gestión de errores
 
 Existen varias formas de detectar, validar y solucionar errores en Servicios móviles.
 
@@ -386,8 +382,8 @@ Ahora que el servicio móvil está validando datos y enviando respuestas de erro
 
     private async void InsertTodoItem(TodoItem todoItem)
     {
-        // Este código inserta un nuevo elemento TodoItem en la base de datos. Cuando la operación se completa
-        // y Servicios móviles dispone de un identificador, el elemento se agrega a CollectionView.
+        // This code inserts a new TodoItem into the database. When the operation completes
+        // and Mobile Services has assigned an Id, the item is added to the CollectionView
         try
         {
             await todoTable.InsertAsync(todoItem);
@@ -395,49 +391,103 @@ Ahora que el servicio móvil está validando datos y enviando respuestas de erro
         }
         catch (MobileServiceInvalidOperationException e)
         {
-            // Gestionar error
+            // Handle error
         }
     }
 
-Uso de datos sin tipoUso de datos sin tipo
-------------------------------------------
+## <a name="untyped"></a><span class="short-header">Uso de datos sin tipo</span>Uso de datos sin tipo
 
 El cliente del componente Xamarin se ha creado para escenarios fuertemente tipados. Sin embargo, es recomendable una experiencia menos tipada; por ejemplo, cuando se trata con objetos con un esquema abierto. El escenario se habilita de la forma siguiente. En las consultas, prescinda de LINQ y use el formato.
 
-    // Obtener una referencia de tabla sin tipo
-    IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");           
+    // Get an untyped table reference
+    IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");         
 
-    // Buscar datos sin tipo con OData
+    // Lookup untyped data using OData
     JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 
-Vuelva a obtener valores JSON que puede usar como un contenedor de propiedades. Para obtener más información sobre JToken y Json.NET, consulte [Json.NET](http://json.codeplex.com/).
+Vuelva a obtener valores JSON que puede usar como un contenedor de propiedades. Para obtener más información sobre JToken y Json.NET, consulte [Json.NET][].
 
-Diseño de pruebasDiseño de pruebas unitarias
---------------------------------------------
+## <a name="unit-testing"></a><span class="short-header">Diseño de pruebas</span>Diseño de pruebas unitarias
 
-El valor devuelto por `MobileServiceClient.GetTable` y las consultas son interfaces. Esto hace que puedan crearse bocetos fácilmente para propósitos de prueba, por lo que puede crear `MyMockTable : IMobileServiceTable<TodoItem>` que implemente la lógica de prueba.
+El valor devuelto por `MobileServiceClient.GetTable` y las consultas son interfaces. Esto hace que puedan crearse bocetos fácilmente para propósitos de prueba, por lo que puede crear `MyMockTable : IMobileServiceTable<TodoItem>` que implementa la lógica de prueba.
 
-Pasos siguientes
-----------------
+## <a name="nextsteps"></a>Pasos siguientes
 
 Ahora que ha completado este tema de referencia conceptual, conozca cómo realizar tareas importantes en Servicios móviles de forma detallada:
 
--   Introducción a los Servicios móviles ([Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-xamarin-ios)/[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-xamarin-android))
-  <br/>Conozca los aspectos básicos de cómo usar Servicios móviles.
+-   Introducción a los Servicios móviles ([Xamarin.iOS][8]/[Xamarin.Android][9])
+    Conozca los aspectos básicos de cómo usar Servicios móviles.
 
--   Introducción a los datos ([Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-ios)/[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android))
-  <br/>Obtenga más información sobre cómo almacenar y consultar datos mediante Servicios móviles.
+-   Introducción a los datos ([Xamarin.iOS][10]/[Xamarin.Android][11])
+    Obtenga más información sobre cómo almacenar y consultar datos mediante Servicios móviles.
 
--   Introducción a la autenticación ([Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-ios)/[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android))
-  <br/>Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
+-   Introducción a la autenticación ([Xamarin.iOS][12]/[Xamarin.Android][13])
+    Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
--   Validación y modificación de datos con scripts ([Xamarin.iOS](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios)/[Xamarin.Android](/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android))
-  <br/>Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar los datos enviados desde su aplicación.
+-   Validación y modificación de datos con scripts ([Xamarin.iOS][14]/[Xamarin.Android][15])
+    Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar los datos enviados desde su aplicación.
 
--   Limitación de consultas con paginación ([Xamarin.iOS](/es-es/develop/mobile/tutorials/add-paging-to-data-xamarin-ios)/[Xamarin.Android](/es-es/develop/mobile/tutorials/add-paging-to-data-xamarin-android))
-  <br/>Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se gestionan en una única solicitud.
+-   Limitación de consultas con paginación ([Xamarin.iOS][16]/[Xamarin.Android][17])
+    Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se gestionan en una única solicitud.
 
--   Autorización de usuarios con scripts ([Xamarin.iOS](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios)/[Xamarin.Android](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android))
-  <br/>Conozca cómo usar el valor de identificador de usuario proporcionado por Servicios móviles según el usuario autenticado para filtrar los datos que devuelve Servicios móviles.
+-   Autorización de usuarios con scripts ([Xamarin.iOS][18]/[Xamarin.Android][19])
+    Conozca cómo usar el valor de identificador de usuario proporcionado por Servicios móviles según el usuario autenticado para filtrar los datos que devuelve Servicios móviles.
 
+<!-- Anchors. --> <!-- URLs. -->
 
+  [.NET Framework]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
+  [HTML/JavaScript]: /es-es/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
+  [iOS]: /es-es/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
+  [Android]: /es-es/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
+  [Xamarin]: /es-es/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
+  [Xamarin.iOS]: /es-es/develop/mobile/tutorials/get-started-xamarin-ios/
+  [Xamarin.Android]: /es-es/develop/mobile/tutorials/get-started-xamarin-android/
+  [1]: /es-es/develop/mobile/tutorials/get-started-with-data-xamarin-ios/
+  [2]: /es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android/
+  [3]: http://xamarin.com/download/
+  [SDK de Servicios móviles]: http://nuget.org/packages/WindowsAzure.MobileServices/
+  [Qué es Servicios móviles]: #what-is
+  [Conceptos]: #concepts
+  [Direccionamiento del cliente de Servicios móviles]: #create-client
+  [Direccionamiento del referencia de tabla]: #instantiating
+  [Direccionamiento del desde un servicio móvil]: #querying
+  [Filtro de datos devueltos]: #filtering
+  [de datos devueltos]: #sorting
+  [de datos en páginas]: #paging
+  [de columnas específicas]: #selecting
+  [Búsqueda de datos por identificador]: #lookingup
+  [Direccionamiento del datos en un servicio móvil]: #inserting
+  [4]: #modifying
+  [5]: #deleting
+  [Direccionamiento del de usuarios]: #authentication
+  [Direccionamiento del errores]: #errors
+  [Direccionamiento del datos sin tipo]: #untyped
+  [Direccionamiento del pruebas unitarias]: #unit-testing
+  [Pasos siguientes]: #nextsteps
+  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
+  [Crear una tabla]: http://go.microsoft.com/fwlink/?LinkId=298592
+  [Esquema dinámico]: http://go.microsoft.com/fwlink/?LinkId=296271
+  [GetTable]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554275.aspx
+  [IncludeTotalCount]: http://msdn.microsoft.com/es-es/library/windowsazure/jj730933.aspx
+  [6]: /es-es/develop/mobile/tutorials/get-started-with-users-xamarin-ios/
+  [7]: /es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android/
+  [LoginAsync]: http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceclientextensions.loginasync.aspx
+  [MobileServiceAuthenticationProvider]: http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider.aspx
+  [MobileServiceUser]: http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.aspx
+  [userId]: http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid.aspx
+  [MobileServiceAuthenticationToken]: http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken.aspx
+  [Almacenamiento en caché del token de autenticación]: #caching
+  [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth
+  [Json.NET]: http://json.codeplex.com/
+  [8]: /es-es/develop/mobile/tutorials/get-started-xamarin-ios
+  [9]: /es-es/develop/mobile/tutorials/get-started-xamarin-android
+  [10]: /es-es/develop/mobile/tutorials/get-started-with-data-xamarin-ios
+  [11]: /es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android
+  [12]: /es-es/develop/mobile/tutorials/get-started-with-users-xamarin-ios
+  [13]: /es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android
+  [14]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios
+  [15]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android
+  [16]: /es-es/develop/mobile/tutorials/add-paging-to-data-xamarin-ios
+  [17]: /es-es/develop/mobile/tutorials/add-paging-to-data-xamarin-android
+  [18]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios
+  [19]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android

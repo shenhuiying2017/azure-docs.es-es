@@ -1,43 +1,40 @@
-<properties linkid="dev-net-how-to-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (.NET) - Azure feature guide" metaKeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="" solutions="" manager="" editor="" />
+<properties linkid="dev-net-how-to-sql-azure" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (.NET) - Azure feature guide" metaKeywords="Get started SQL Azure, Getting started SQL Azure, SQL Azure database connection, SQL Azure ADO.NET, SQL Azure ODBC, SQL Azure EntityClient" description="Get started with SQL Database. Learn how to create a SQL Database instance and connect to it using ADO.NET, ODBC, and EntityClient Provider." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="jeffreyg" solutions="" manager="" editor="" />
 
-Uso de Base de datos SQL de Azure en aplicaciones .NET
-======================================================
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg"></tags>
 
-En esta guía se muestra cómo crear una instancia de base de datos y un servidor lógico en Base de datos SQL de Azure y conectarse a la base de datos con las siguientes tecnologías del proveedor de datos .NET Framework: ADO.NET, ODBC y proveedor de EntityClient.
+# Uso de Base de datos SQL de Azure en aplicaciones .NET
 
-¿Qué es Base de datos SQL?
---------------------------
+En esta guía se muestra cómo crear una instancia de base de datos y un servidor lógico en Base de datos SQL de Azure y conectarse a la base de datos con las siguientes tecnologías del proveedor de datos .NET Framework: ADO.NET, ODBC, y proveedor de EntityClient.
+
+## <a name="Whatis"></a>¿Qué es Base de datos SQL?
 
 Una Base de datos SQL proporciona un sistema de administración de bases de datos relacionales para Azure y se basa en la tecnología de SQL Server. Con una instancia de base de datos SQL se pueden aprovisionar e implementar soluciones de bases de datos relacionales en la nube con toda facilidad, así como beneficiarse de un centro de datos distribuido que ofrece disponibilidad, escalabilidad y seguridad de clase empresarial con las ventajas de contar con funciones de protección de datos y recuperación automática integradas.
 
-Tabla de contenido
-------------------
+## Tabla de contenido
 
--   [Inicio de sesión en Azure](#PreReq1)
--   [Creación y configuración de Base de datos SQL](#PreReq2)
--   [Conectarse a Base de datos SQL](#connect-db)
--   [Conexión mediante ADO.NET](#using-sql-server)
--   [Conexión mediante ODBC](#using-ODBC)
--   [Conexión mediante el proveedor de EntityClient](#using-entity)
--   [Pasos siguientes](#next-steps)
+-   [Inicio de sesión en Azure][]
+-   [Creación y configuración de Base de datos SQL][]
+-   [Conectarse a Base de datos SQL][]
+-   [Conexión mediante ADO.NET][]
+-   [Conexión mediante ODBC][]
+-   [Conexión mediante el proveedor de EntityClient][]
+-   [Pasos siguientes][]
 
-Inicio de sesión en Azure
--------------------------
+## <a name="PreReq1"></a>Inicio de sesión en Azure
 
 Base de datos SQL proporciona servicios de administración, acceso y almacenamiento de datos relacionales en Azure. Para usarla, necesitará una suscripción a Azure.
 
-1.  Abra un explorador web y diríjase a <http://www.windowsazure.com>. Para comenzar con una cuenta gratuita, haga clic en Evaluación gratuita en la esquina superior derecha y siga los pasos.
+1.  Abra un explorador web y diríjase a [][]<http://www.windowsazure.com></a>. Para comenzar con una cuenta gratuita, haga clic en Evaluación gratuita en la esquina superior derecha y siga los pasos.
 
 2.  Se ha creado su cuenta. Ya está listo para comenzar.
 
-Creación y configuración de Base de datos SQL
----------------------------------------------
+## <a name="PreReq2"></a><span class="short-header">Creación y configuración de Base de datos SQL</span>
 
 A continuación, creará y configurará una base de datos y un servidor. En el Portal de administración de Azure, los flujos de trabajo revisados le permiten crear primero las bases de datos y, a continuación, realizar un seguimiento del aprovisionamiento del servidor.
 
 ### Creación de una instancia de base de datos y servidor lógico
 
-1.  Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com).
+1.  Inicie sesión en el [Portal de administración de Azure][].
 
 2.  Haga clic en **+NEW** en la parte inferior de la página.
 
@@ -53,9 +50,9 @@ A continuación, creará y configurará una base de datos y un servidor. En el P
 
     Base de datos SQL proporciona dos ediciones de base de datos. La edición Web tiene un tamaño de 5 GB. La edición Business tiene un tamaño de 50 GB.
 
-    Se especifica MAXSIZE cuando se crea la base de datos por primera vez y, a continuación, puede cambiarse con ALTER DATABASE. MAXSIZE ofrece la posibilidad de limitar el tamaño de la base de datos.
+    Se especifica MAXSIZE cuando se crea la base de datos por primera vez y puede cambiarse más tarde con ALTER DATABASE. MAXSIZE ofrece la posibilidad de limitar el tamaño de la base de datos.
 
-    Para cada base de datos SQL creada con Azure, existen realmente tres réplicas de esa base de datos. Esto se realiza para garantizar una disponibilidad alta. La conmutación por error es transparente y forma parte del servicio. El [contrato de nivel de servicio]({localLink:1132} "SLA") ofrece un 99,9 % de tiempo activo para la Base de datos SQL.
+    Para cada base de datos SQL creada con Azure, existen realmente tres réplicas de esa base de datos. Esto se realiza para garantizar una disponibilidad alta. La conmutación por error es transparente y forma parte del servicio. El [Contrato de nivel de servicio][] ofrece un 99,9 % de tiempo activo para la Base de datos SQL.
 
 8.  En Server, seleccione **Nuevo servidor de bases de datos SQL**.
 
@@ -79,7 +76,7 @@ Tenga en cuenta que no especificó un nombre de servidor. Base de datos SQL gene
 
 Una vez que se cree la base de datos, haga clic en ella para abrir el panel. El panel proporciona cadenas de conexión que puede copiar y usar en el código de aplicación. También muestra la dirección URL de administración que tendrá que especificar si se conecta a una base de datos desde Management Studio u otra herramienta administrativa.
 
-![imagen](./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG)
+![imagen][]
 
 En el próximo paso, configurará el firewall de manera que se permita el acceso a las conexiones de las aplicaciones que se ejecuten en la red.
 
@@ -87,7 +84,7 @@ En el próximo paso, configurará el firewall de manera que se permita el acceso
 
 1.  Haga clic en **Bases de datos SQL**, haga clic en **Servidores** en la parte superior de la página y, a continuación, haga clic en el servidor que acaba de crear.
 
-    ![Imagen2](./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG)
+    ![Imagen2][]
 
 2.  Haga clic en **Configure**.
 
@@ -101,24 +98,25 @@ En el próximo paso, configurará el firewall de manera que se permita el acceso
 
 6.  Haga clic en la marca de verificación junto a la regla para guardarla.
 
-    ![Imagen3](./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG)
+    ![Imagen3][]
 
 7.  Haga clic en **Save** en la parte inferior de la página para completar el paso. Si no consigue ver **Save**, actualice la página del explorador.
 
 Ahora dispone de una instancia de base de datos, una regla de firewall que permite conexiones entrantes desde la dirección IP, y un inicio de sesión de administrador. Ahora está listo para conectar se una base de datos mediante programación.
 
-Conectarse a Base de datos SQL
-------------------------------
+## <a name="Connect-DB"></a><span class="short-header">Conectarse a Base de datos SQL</span>
 
-Esta sección le muestra cómo conectarse a la instancia de Base de datos SQL con diferentes proveedores de datos .NET Framework.
+En esta sección se muestra cómo conectar a la instancia de Base de datos SQL con diferentes
+proveedores de datos .NET Framework.
 
 Si selecciona usar Visual Studio y su configuración no incluye una aplicación web de Azure como front-end, no existen herramientas adicionales o SDK necesarios que deban instalarse en el equipo de desarrollo. Puede comenzar por desarrollar la aplicación.
 
-Puede usar las mismas herramientas del diseñador en Visual Studio para trabajar con Base de datos SQL que con SQL Server. El Explorador de servidores le permite ver (pero no editar) objetos de base de datos. El diseñador de modelos de datos de entidades de Visual Studio es totalmente funcional y puede usarlo para crear modelos relacionados con Base de datos SQL para que funcionen con Entity Framework.
+Puede usar las mismas herramientas del diseñador en Visual Studio para trabajar con la Base de datos SQL que con SQL Server. El Explorador de servidores le permite ver (pero no editar) objetos de base de datos. El diseñador de modelos de datos de entidades de Visual Studio es totalmente funcional y puede usarlo para crear modelos relacionados con Base de datos SQL para que funcionen con Entity Framework.
 
-### Uso del proveedor de datos .NET Framework para SQL Server
+### <a name="using-sql-server"></a>Uso del proveedor de datos .NET Framework para SQL Server
 
-El espacio de nombres **System.Data.SqlClient** es el proveedor de datos .NET Framework para SQL Server.
+El espacio de nombres **System.Data.SqlClient** es el proveedor de datos .NET Framework
+para SQL Server.
 
 La cadena de conexión estándar tendrá la siguiente apariencia:
 
@@ -151,11 +149,11 @@ Para recuperar la cadena de conexión en un archivo de configuración, use la cl
 
     SqlConnectionStringBuilder csBuilder;
     csBuilder = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-    Una vez que haya generado la cadena de conexión, puede usar la clase SQLConnection para conectarse al servidor de Base de datos SQL:
+    After you have built your connection string, you can use the SQLConnection class to connect the SQL Database server:
     SqlConnection conn = new SqlConnection(csBuilder.ToString());
     conn.Open();
 
-### Uso del proveedor de datos .NET Framework para ODBC
+### <a name="using-ODBC"></a>Uso del proveedor de datos .NET Framework para ODBC
 
 El espacio de nombres **System.Data.Odbc** es el proveedor de datos .NET Framework para ODBC. A continuación se muestra una cadena de conexión para ODBC de ejemplo:
 
@@ -180,11 +178,11 @@ La clase **OdbcConnection** representa una conexión abierta para un origen de d
 
 Si desea generar la cadena de conexión en el tiempo de ejecución, puede usar la clase **OdbcConnectionStringBuilder**.
 
-### Uso del proveedor de EntityClient
+### <a name="using-entity"></a>Uso del proveedor de EntityClient
 
 El espacio de nombres **System.Data.EntityClient** es el proveedor de datos .NET Framework para Entity Framework.
 
-Entity Framework permite a los desarrolladores crear aplicaciones de acceso mediante la programación de un modelo de aplicación conceptual en lugar de la programación directamente de un esquema de almacenamiento relacional. Entity Framework se basa en los proveedores de datos ADO.NET específicos de almacenamiento que ofrecen un objeto **EntityConnection** a una base de datos relacional y a un proveedor de datos subyacente.
+Entity Framework permite a los desarrolladores crear aplicaciones de acceso mediante la programación de un modelo de aplicación conceptual en lugar de la programación directamente de un esquema de almacenamiento relacional. El Entity Framework se basa en los proveedores de datos ADO.NET específicos de almacenamiento que ofrecen un objeto **EntityConnection** a una base de datos relacional y a un proveedor de datos subyacente.
 
 Para construir un objeto **EntityConnection**, tiene que hacer referencia a un conjunto de metadatos que contiene la asignación y los modelos necesarios y también una cadena de conexión y un nombre de proveedor de datos específico del almacenamiento. Una vez que **EntityConnection** está en su lugar, puede obtenerse acceso a las entidades a través de las clases generadas a partir del modelo conceptual.
 
@@ -192,13 +190,29 @@ A continuación se ofrece un ejemplo de una cadena de conexión:
 
     metadata=res://*/SchoolModel.csdl|res://*/SchoolModel.ssdl|res://*/SchoolModel.msl;provider=System.Data.SqlClient;provider connection string="Data Source=xxxxxxxxxx.database.windows.net;Initial Catalog=School;Persist Security Info=True;User ID=MyAdmin;Password=***********"
 
-Para obtener más información, consulte [Proveedor de EntityClient para Entity Framework](http://msdn.microsoft.com/es-es/library/bb738561.aspx).
+Para obtener más información, consulte [Proveedor de EntityClient para Entity Framework][].
 
-Pasos siguientes
-----------------
+## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que conoce los aspectos básicos de la conexión a Base de datos SQL, consulte los siguientes recursos para obtener más información sobre Base de datos SQL.
+Ahora que conoce los aspectos básicos de la conexión a Base de datos SQL, consulte
+los siguientes recursos para obtener más información sobre Base de datos SQL.
 
--   [Desarrollo de Base de datos SQL de Azure: Temas de procedimientos](http://msdn.microsoft.com/es-es/library/windowsazure/ee621787.aspx)
--   [Base de datos SQL de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/ee336279.aspx)
+-   [Desarrollo de Base de datos SQL de Azure: Temas de procedimientos][]
+-   [Base de datos SQL de Azure][]
 
+  [Inicio de sesión en Azure]: #PreReq1
+  [Creación y configuración de Base de datos SQL]: #PreReq2
+  [Conectarse a Base de datos SQL]: #connect-db
+  [Conexión mediante ADO.NET]: #using-sql-server
+  [Conexión mediante ODBC]: #using-ODBC
+  [Conexión mediante el proveedor de EntityClient]: #using-entity
+  [Pasos siguientes]: #next-steps
+  []: http://www.windowsazure.com
+  [Portal de administración de Azure]: http://manage.windowsazure.com
+  [Contrato de nivel de servicio]: {localLink:1132} "SLA"
+  [imagen]: ./media/sql-database-dotnet-how-to-use/SQLDbDashboard.PNG
+  [Imagen2]: ./media/sql-database-dotnet-how-to-use/SQLDBFirewall.PNG
+  [Imagen3]: ./media/sql-database-dotnet-how-to-use/SQLDBIPRange.PNG
+  [Proveedor de EntityClient para Entity Framework]: http://msdn.microsoft.com/es-es/library/bb738561.aspx
+  [Desarrollo de Base de datos SQL de Azure: Temas de procedimientos]: http://msdn.microsoft.com/es-es/library/windowsazure/ee621787.aspx
+  [Base de datos SQL de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/ee336279.aspx

@@ -1,66 +1,61 @@
-<h2><a name="update-app"></a>Actualizaci&oacute;n de la aplicaci&oacute;n para llamar a la API personalizada</h2>
+<properties linkid="mobile-services-call-custom-api-wp8" urlDisplayName="Call a custom API from the client" pageTitle="Call a custom API from a Windows Phone client - Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from a Windows Phone app that use Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="glenga" solutions="" manager="" editor="" />
 
-1.  En Visual Studio 2012 Express para Windows Phone, abra el archivo MainPage.xaml en el proyecto de inicio rápido, busque el elemento **Button** con el nombre `ButtonRefresh` y reemplácelo por el siguiente código XAML:
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
 
-         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal">
-             <Button Width="225" Name="ButtonRefresh" 
-                 Click="ButtonRefresh_Click">Refresh</Button>
-             <Button Width="225"  Name="ButtonCompleteAll" 
-                 Click="ButtonCompleteAll_Click">Complete All</Button>
-         </StackPanel>
+# Llamada a una API personalizada desde el cliente
 
-    Esta acción agrega un nuevo botón a la página.
+<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="C# para Tienda Windows">C# para Tienda Windows</a><a href="/es-es/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="JavaScript para Tienda Windows">JavaScript para Tienda Windows</a><a href="/es-es/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone" class="current">Windows Phone</a><a href="/es-es/documentation/articles/mobile-services-ios-call-custom-api" title="iOS">iOS</a><a href="/es-es/documentation/articles/mobile-services-android-call-custom-api" title="Android" class="current">Android</a><a href="/es-es/documentation/articles/mobile-services-html-call-custom-api" title="HTML">HTML</a></div>
 
-2.  Abra el archivo de código MainPage.xaml.cs y agregue el siguiente código de definición de clase:
+<div class="dev-center-tutorial-subselector"><a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-call-custom-api" title="Back-end de .NET">Back-end de .NET</a> | <a href="/es-es/documentation/articles/mobile-services-windows-phone-call-custom-api"  title="Back-end de JavaScript" class="current">Back-end de JavaScript</a></div>
 
-         public class MarkAllResult
-         {
-             public int Count { get; set; }
-         }
+En este tema se muestra cómo realizar una llamada a una API personalizada desde una aplicación de Windows Phone. Una API personalizada le permite definir extremos personalizados que exponen la funcionalidad del servidor que no se asigna a una inserción, actualización, eliminación u operación de lectura. Al usar una API personalizada, puede tener más control sobre la mensajería, incluida la lectura y el establecimiento de encabezados de mensajes HTTP y la definición del formato del cuerpo de un mensaje diferente de JSON.
 
-    Esta clase se usa para mantener el valor de recuento de filas que devuelve la API personalizada.
+La API personalizada que se creó en este tema le ofrece la posibilidad de enviar una sola consulta de POST que establece la marca completada en `true` para todos los elementos todo en la tabla. Sin esta API personalizada, el cliente tendría que enviar consultas individuales para actualizar la marca para cada elemento todo en la tabla.
 
-3.  Busque el método **RefreshTodoItems** en la clase **MainPage** y asegúrese de que `query` se defina usando el siguiente método **Where**:
+Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el tutorial de [Introducción a los Servicios móviles][] o de [Introducción a los datos][]. Para hacer esto, debe completar los siguientes pasos:
 
-         .Where(todoItem => todoItem.Complete == false)
+1.  [Definición de la API personalizada][]
+2.  [Actualización de la aplicación para llamar a la API personalizada][]
+3.  [Prueba de la aplicación][]
 
-    Esto filtra los elementos para que la consulta no devuelva los elementos completados.
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][] o [Introducción a los datos][]. Este tutorial usa Visual Studio 2012 Express para Windows Phone.
 
-4.  En la clase **MainPage**, agregue el siguiente método:
+## <a name="define-custom-api"></a>Definición de la API personalizada
 
-         private async void ButtonCompleteAll_Click(object sender, RoutedEventArgs e)
-         {
-             string message;
-             try
-             {
-                 // De manera asincrónica, llamar a la API personalizada mediante el método POST. 
-                 var result = await App.MobileService
-                     .InvokeApiAsync<MarkAllResult>("completeAll", 
-                     System.Net.Http.HttpMethod.Post, null);
-                 message =  result.Count + " item(s) marked as complete.";
-                 RefreshTodoItems();
-             }
-             catch (MobileServiceInvalidOperationException ex)
-             {
-                 message = ex.Message;                
-             }
-            
-             MessageBox.Show(message);  
-         }
+[WACOM.INCLUDE [mobile-services-create-custom-api][]]
 
-    Este método controla el evento **Click** del nuevo botón. Se llama al método **InvokeApiAsync** en el cliente, que envía una solicitud a la nueva API personalizada. El resultado devuelto por la API personalizada se muestra en un cuadro de diálogo de mensaje.
+[WACOM.INCLUDE [mobile-services-windows-phone-call-custom-api][]]
 
-Prueba de la aplicación
------------------------
+## Pasos siguientes
 
-1.  En Visual Studio, presione la tecla **F5** para recompilar el proyecto e iniciar la aplicación.
+Ahora que ha creado una API personalizada y la llamó desde su aplicación de Windows Phone, considere la posibilidad de profundizar más sobre los siguientes temas de servicios móviles:
 
-2.  En la aplicación, escriba algún texto en **Insert a TodoItem** y, a continuación, seleccione **Save**.
+-   [Referencia del script del servidor de Servicios móviles][]
+    
+	Obtenga más información sobre la creación de API personalizadas.
 
-3.  Repita el paso anterior hasta que haya agregado varios elementos todo a la lista.
+-   [Almacenamiento de scripts de servidor en control de código fuente][]
+     
+	Obtenga información sobre cómo usar la característica de control de código fuente para desarrollar y publicar de manera más fácil y segura código script de la API personalizada.
 
-4.  Haga clic en el botón **Complete All**.
+<!-- Anchors. --> 
+<!-- Images. --> 
+<!-- URLs. -->
 
-	![](./media/mobile-services-windows-phone-call-custom-api/mobile-custom-api-windows-phone-completed.png)
-
-    Se mostrará un cuadro de mensaje que indica el número de elementos marcados como completados y la consulta filtrada se vuelve a ejecutar, por lo que se borran todos los elementos de la lista.
+  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "C# para Tienda Windows"
+  [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "JavaScript para Tienda Windows"
+  [Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
+  [iOS]: /es-es/documentation/articles/mobile-services-ios-call-custom-api "iOS"
+  [Android]: /es-es/documentation/articles/mobile-services-android-call-custom-api "Android"
+  [HTML]: /es-es/documentation/articles/mobile-services-html-call-custom-api "HTML"
+  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-call-custom-api "Back-end de .NET"
+  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-windows-phone-call-custom-api "Back-end de JavaScript"
+  [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-phone-get-started/
+  [Introducción a los datos]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-data/
+  [Definición de la API personalizada]: #define-custom-api
+  [Actualización de la aplicación para llamar a la API personalizada]: #update-app
+  [Prueba de la aplicación]: #test-app
+  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
+  [mobile-services-windows-phone-call-custom-api]: ../includes/mobile-services-windows-phone-call-custom-api.md
+  [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+  [Almacenamiento de scripts de servidor en control de código fuente]: /es-es/documentation/articles/mobile-services-store-scripts-source-control

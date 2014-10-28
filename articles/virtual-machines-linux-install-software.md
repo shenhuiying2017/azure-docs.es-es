@@ -1,16 +1,16 @@
-<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Azure" metaKeywords="" description="Learn how to install software on your Linux virtual machine in Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install software on your Linux virtual machine in Azure" authors="" solutions="" manager="" editor="" />
+<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Azure" metaKeywords="" description="Learn how to install software on your Linux virtual machine in Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install software on your Linux virtual machine in Azure" authors="timlt" solutions="" manager="timlt" editor="" />
 
-Instalación del software en la máquina virtual de Linux en Azure
-================================================================
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
+
+# Instalación del software en la máquina virtual de Linux en Azure
 
 Las distribuciones de Linux suelen usar paquetes de software para instalar software. Estos paquetes se administran normalmente mediante un conjunto de comandos, como `apt` o `yum`. También puede instalar programas sin un paquete, como con *tarball* del código fuente.
 
 Mostraremos cómo usar administradores de paquetes para algunas de las distribuciones comunes de Linux. Los pasos variarán según la distribución de Linux que use.
 
-**Nota:** según la forma en la que se configure el entorno, estos comandos pueden requerir que se ejecuten con privilegios raíz (a través de `sudo`).
+**Nota:** Según la forma en la que se configure el entorno, estos comandos pueden requerir que se ejecuten con privilegios raíz (a través de `sudo`).
 
-CentOS/Red Hat
---------------
+## CentOS/Red Hat
 
 CentOS incorpora `yum` para la administración de paquetes. Con esta herramienta, puede instalar, desinstalar, actualizar, enumerar paquetes instalados, etc. Consulte a continuación para ver la sintaxis para estos comandos.
 
@@ -18,19 +18,19 @@ CentOS incorpora `yum` para la administración de paquetes. Con esta herramienta
 
 Mediante este paso, se instalará un paquete y todos los paquetes de los que dependa. Debido a las dependencias, puede instalarse más de un paquete.
 
-    yum install [nombre del paquete]
+    yum install [package name]
 
 ### Desinstalación
 
 Mediante este paso, se desinstalará un paquete de la máquina. Tenga en cuenta que no se quitarán las dependencias.
 
-    yum remove [nombre del paquete]
+    yum remove [package name]
 
 ### Actualización
 
 Mediante este paso, se actualizará un paquete a la versión más reciente. El paquete debe instalarse para poder actualizarlo.
 
-    yum update [nombre del paquete]
+    yum update [package name]
 
 ### Enumeración de los paquetes instalados
 
@@ -38,8 +38,7 @@ Mediante este paso, se mostrará una lista de los paquetes instalados en la máq
 
     yum list installed
 
-Ubuntu
-------
+## Ubuntu
 
 Ubuntu incorpora `apt` (herramienta de empaquetado avanzado) para la administración de paquetes. Con esta herramienta, puede instalar, desinstalar, actualizar, enumerar paquetes instalados, etc. Consulte a continuación para ver la sintaxis para estos comandos.
 
@@ -47,13 +46,13 @@ Ubuntu incorpora `apt` (herramienta de empaquetado avanzado) para la administrac
 
 Mediante este paso, se instalará un paquete y todos los paquetes de los que dependa. Debido a las dependencias, puede instalarse más de un paquete.
 
-    apt-get install [nombre del paquete]
+    apt-get install [package name]
 
 ### Desinstalación
 
 Mediante este paso, se desinstalará un paquete de la máquina. Tenga en cuenta que no se quitarán las dependencias.
 
-    apt-get remove [nombre del paquete]
+    apt-get remove [package name]
 
 ### Actualización
 

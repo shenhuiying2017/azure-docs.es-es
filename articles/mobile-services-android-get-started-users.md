@@ -1,146 +1,80 @@
-<properties linkid="develop-mobile-tutorials-get-started-with-users-android" urlDisplayName="Get Started with Authentication" pageTitle="Get started with authentication (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-get-started-with-users-android" urlDisplayName="Get Started with Authentication" pageTitle="Get started with authentication (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-Introducción a la autenticación en Servicios móviles
-====================================================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/23/2014" ms.author="ricksal"></tags>
 
-[Tienda Windows C#](/es-es/develop/mobile/tutorials/get-started-with-users-dotnet "Tienda Windows C#")[Windows Store JavaScript](/es-es/develop/mobile/tutorials/get-started-with-users-js "Windows Store JavaScript")[Windows Phone](/es-es/develop/mobile/tutorials/get-started-with-users-wp8 "Windows Phone")[iOS](/es-es/develop/mobile/tutorials/get-started-with-users-ios "iOS")[Android](/es-es/develop/mobile/tutorials/get-started-with-users-android "Android")[HTML](/es-es/develop/mobile/tutorials/get-started-with-users-html "HTML")[Xamarin.iOS](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-ios "Xamarin.iOS")[Xamarin.Android](/es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android "Xamarin.Android")
+# Introducción a la autenticación en Servicios móviles
 
-En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde su aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
+[WACOM.INCLUDE [mobile-services-selector-get-started-users][]]
 
-[Ver el tutorial (en inglés)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services) [Reproducir vídeo (en inglés)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services)10:42
+<div class="dev-onpage-video-clear clearfix">
+<div class="dev-onpage-left-content">
+
+<p>En este tema se muestra c&oacute;mo autenticar usuarios en Servicios m&oacute;viles de Azure desde su aplicaci&oacute;n. En este tutorial podr&aacute; agregar la autenticaci&oacute;n al proyecto de inicio r&aacute;pido mediante un proveedor de identidades compatible con Servicios m&oacute;viles. Una vez que Servicios m&oacute;viles haya realizado la autenticaci&oacute;n y autorizaci&oacute;n correctamente, se mostrar&aacute; el valor de identificador de usuario.</p>
+</div>
+
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="label">Ver el tutorial (en ingl&eacute;s)</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-android-get-started-authentication-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Reproducir v&iacute;deo (en ingl&eacute;s)</span></a><span class="time">10:42</span></div>
+
+</div>
 
 En este tutorial se realiza un recorrido por los pasos básicos para habilitar la autenticación en su aplicación:
 
-1.  [Registro de la aplicación para la autenticación y configuración de Servicios móviles](#register)
-2.  [Restricción de los permisos de tabla a usuarios autenticados](#permissions)
-3.  [Incorporación de autenticación a la aplicación](#add-authentication)
+1.  [Registro de la aplicación para la autenticación y configuración de Servicios móviles][]
+2.  [Restricción de los permisos de tabla a usuarios autenticados][]
+3.  [Incorporación de autenticación a la aplicación][]
+4.  [Almacenamiento de tokens de autenticación en el cliente][]
+5.  [Actualización de los tokens expirados][]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-android).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles][].
 
 Para completar este tutorial necesita Eclipse y Android 4.2 o versiones posteriores.
 
-Registro de la aplicaciónRegistro de la aplicación para la autenticación y configuración de Servicios móviles
--------------------------------------------------------------------------------------------------------------
+## <a name="register"></a><span class="short-header">Registro de la aplicación</span>Registro de la aplicación para la autenticación y configuración de Servicios móviles
 
-Para poder autenticar usuarios, debe registrar la aplicación con un proveedor de identidades. A continuación, debe registrar el secreto de cliente generado por el proveedor con Servicios móviles.
+[WACOM.INCLUDE [mobile-services-register-authentication][]]
 
-1.  Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com/), haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
+## <a name="permissions"></a><span class="short-header">Restricción de permisos</span>Restricción de permisos a usuarios autenticados
 
-   	![](./media/mobile-services-android-get-started-users/mobile-services-selection.png)
+[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend][]]
 
-2.  Haga clic en la pestańa **Panel** y anote el valor de **Site URL**.
+1.  En Eclipse, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles][].
 
-   	![](./media/mobile-services-android-get-started-users/mobile-service-uri.png)
-
-    Es posible que tenga que proporcionar ese valor al proveedor de identidades cuando registre la aplicación.
-
-3.  Seleccione un proveedor de identidades compatible en la lista siguiente y siga los pasos para registrar la aplicación con ese proveedor:
-	-   [Cuenta Microsoft](/es-es/develop/mobile/how-to-guides/register-for-microsoft-authentication/)
-	-   [Inicio de sesión en Facebook](/es-es/develop/mobile/how-to-guides/register-for-facebook-authentication/)
-	-   [Inicio de sesión en Twitter](/es-es/develop/mobile/how-to-guides/register-for-twitter-authentication/)
-	-   [Inicio de sesión en Google](/es-es/develop/mobile/how-to-guides/register-for-google-authentication/)
-	-   [Azure Active Directory](/es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/)
-
-	    Recuerde anotar los valores secretos y la identidad del cliente que genera el proveedor.
-
-	    **Nota de seguridad**
-
-	    El secreto que genera el proveedor es una credencial de seguridad importante, por lo que no debe compartirlo con nadie ni distribuirlo con su aplicación.
-
-1.  Vuelva al Portal de administración, haga clic en la pestańa **Identity**, especifique el identificador de la aplicación y los valores secretos compartidos que le proporcionó el proveedor de identidades y haga clic en **Save**.
-
-   	![](./media/mobile-services-android-get-started-users/mobile-identity-tab.png)
-
-El servicio móvil y la aplicación están ahora configurados para que funcionen con el proveedor de autenticación seleccionado.
-
-Restricción de permisosRestricción de permisos a usuarios autenticados
-----------------------------------------------------------------------
-
-1.  En el Portal de administración, haga clic en la pestańa **Data** y, a continuación, en la tabla **TodoItem**.
-
-   	![](./media/mobile-services-android-get-started-users/mobile-portal-data-tables.png)
-
-2.  Haga clic en la pestańa **Permissions**, establezca todos los permisos en **Only authenticated users** y, a continuación, haga clic en **Save**. De esta forma, se garantiza que todas las operaciones en la tabla **TodoItem** requieren un usuario autenticado. Esto también simplifica los scripts del próximo tutorial, ya que no existirá la posibilidad de permitir usuarios anónimos.
-
-   	![](./media/mobile-services-android-get-started-users/mobile-portal-change-table-perms.png)
-
-3.  En Eclipse, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-android).
-
-4.  En el menú **Run**, haga clic en **Run** para iniciar la aplicación y, a continuación, compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación.
+2.  En el menú **Run**, haga clic en **Run** para iniciar la aplicación y, a continuación, compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación.
 
     Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla *TodoItem* requiere ahora autenticación.
 
 A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del servicio móvil.
 
-Incorporación de autenticaciónIncorporación de autenticación a la aplicación
-----------------------------------------------------------------------------
+## <a name="add-authentication"></a><span class="short-header">Incorporación de autenticación</span>Incorporación de autenticación a la aplicación
 
-1.  En el Explorador de paquetes de Eclipse, abra el archivo ToDoActivity.java y agregue las siguientes instrucciones de importación.
+[WACOM.INCLUDE [mobile-services-android-authenticate-app][]]
 
-         import com.microsoft.windowsazure.mobileservices.MobileServiceUser;
-         import com.microsoft.windowsazure.mobileservices.MobileServiceAuthenticationProvider;
-         import com.microsoft.windowsazure.mobileservices.UserAuthenticationCallback;
+## <a name="cache-tokens"></a>Almacenamiento en caché de tokens de autenticación en el cliente
 
-2.  Agregue el método siguiente a la clase **ToDoActivity**:
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-with-token][]]
 
-         private void authenticate() {
-            
-             // Inicie sesión usando el proveedor de Google.
-             mClient.login(MobileServiceAuthenticationProvider.Google,
-                     new UserAuthenticationCallback() {
+## <a name="refresh-tokens"></a>Actualización de la memoria caché de los tokens
 
-                         @Override
-                         public void onCompleted(MobileServiceUser user,
-                                 Exception exception, ServiceFilterResponse response) {
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-refresh-token][]]
 
-                             if (exception == null) {
-                                 createAndShowDialog(String.format(
-                                                 "You are now logged in - %1$2s",
-                                                 user.getUserId()), "Success");
-                                 createTable();
-                             } else {
-                                 createAndShowDialog("You must log in. Login Required", "Error");
-                             }
-                         }
-                     });
-         }
+## <a name="next-steps"></a>Pasos siguientes
 
-    De este modo se crea un método para administrar el proceso de autenticación. El usuario se autentica mediante el inicio de sesión en Google. Aparecerá un diálogo que muestra el identificador del usuario autenticado. No puede continuar sin una autenticación positiva.
+En el siguiente tutorial, [Autorización de usuarios con scripts][], usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles.
 
-    **Nota:**
+<!-- Anchors. -->
+<!-- Images. -->
+<!-- URLs. -->
 
-    Si usa un proveedor de identidades que no sea Google, cambie el valor que ha pasado al método **login** anterior por uno de los siguientes: *MicrosoftAccount*, *Facebook* o *Twitter*.
-
-3.  En el método **onCreate**, agregue la línea de código siguiente después del código que crea instancias en el objeto `MobileServiceClient`.
-
-         authenticate();
-
-    De este modo se llama al proceso de autenticación.
-
-4.  Mueva el código restante situado detrás de `authenticate();` del método **onCreate** a un nuevo método **createTable** cuyo aspecto es el siguiente:
-
-         private void createTable() {
-
-             // Obtenga la instancia de la tabla de Servicios móviles que haya que usar.
-             mToDoTable = mClient.getTable(ToDoItem.class);
-
-             mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
-
-             // Cree un adaptador para enlazar los elementos con la vista.
-             mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
-             ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
-             listViewToDo.setAdapter(mAdapter);
-
-             // Cargue los elementos desde el servicio móvil.
-             refreshItemsFromTable();
-         }
-
-5.  En el menú **Run**, haga clic en **Run** para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido.
-
-   	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
-
-Pasos siguientes
-----------------
-
-En el siguiente tutorial, [Autorización de usuarios con scripts](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-android), usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles.
-
+  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
+  [Ver el tutorial (en inglés)]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Getting-Started-with-Authentication-in-Windows-Azure-Mobile-Services
+  [Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
+  [Restricción de los permisos de tabla a usuarios autenticados]: #permissions
+  [Incorporación de autenticación a la aplicación]: #add-authentication
+  [Almacenamiento de tokens de autenticación en el cliente]: #cache-tokens
+  [Actualización de los tokens expirados]: #refresh-tokens
+  [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-android
+  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
+  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
+  [mobile-services-android-authenticate-app]: ../includes/mobile-services-android-authenticate-app.md
+  [mobile-services-android-authenticate-app-with-token]: ../includes/mobile-services-android-authenticate-app-with-token.md
+  [mobile-services-android-authenticate-app-refresh-token]: ../includes/mobile-services-android-authenticate-app-refresh-token.md
+  [Autorización de usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-android

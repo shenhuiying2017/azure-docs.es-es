@@ -1,81 +1,75 @@
-<properties  writer="josephd" editor="tysonn" manager="dongill" />
+<properties title="Load Balancing for Azure Infrastructure Services" pageTitle="Load Balancing for Azure Infrastructure Services" description="Describes the facilities to perform load balancing with Traffic Manager and load balancer." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt" />
 
-# Equilibrio de carga de máquinas virtuales
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="josephd"></tags>
 
-Todas las máquinas virtuales que se crean en Azure pueden comunicarse automáticamente mediante un canal de red privada con otras máquinas virtuales del mismo servicio en la nube o de la misma red virtual. El resto de comunicación entrante, como el tráfico iniciado desde hosts de Internet o máquinas virtuales de otros servicios de nube o redes virtuales, requiere un extremo.
+# Equilibrio de carga para Servicios de infraestructura de Azure
 
-Los extremos pueden utilizarse con diferentes objetivos. El uso y la configuración predeterminados de extremos en una máquina virtual que cree con el Portal de administración de Azure son el Protocolo de Escritorio remoto y el tráfico de sesión de Windows PowerShell remoto. Estos extremos le permiten administrar la máquina virtual de manera remota a través de Internet.
+Hay dos niveles de equilibrio de carga disponibles para Servicios de infraestructura de Azure:
 
-Otro uso de los extremos es la configuración del equilibrador de carga de Azure para distribuir un tipo específico de tráfico entre varios servicios o máquinas virtuales. Por ejemplo, puede extender la carga del tráfico de solicitudes web entre varios servidores web o roles web.
+-   **Nivel DNS**: equilibrio de carga para el tráfico a distintos servicios en la nube situados en centros de datos diferentes, a distintos sitios web de Azure situados en centros de datos diferentes o a extremos externos. Esto se realiza mediante el Administrador de tráfico y el método de equilibrio de carga Round Robin.
+-   **Nivel de red**: equilibrio de carga del tráfico de Internet entrante a distintas máquinas virtuales de un servicio en la nube o equilibrio de carga del tráfico entre las máquinas virtuales de un servicio en la nube o una red virtual. Esto se realiza mediante el equilibrador de carga de Azure.
 
-A cada extremo definido para una máquina virtual se le asigna un puerto público y privado, del tipo TCP o UDP. Los hosts de Internet envían su tráfico entrante a la dirección de IP pública del servicio de la nube y un puerto público. Las máquinas virtuales y los servicios en el servicio de la nube escuchan en su dirección IP y puerto privados. El equilibrador de carga asigna la dirección IP y el número de puerto públicos de tráfico entrante a la dirección IP y el número de puerto privados de la máquina virtual y viceversa para el tráfico de respuesta desde la máquina virtual.
+## Equilibrio de carga del Administrador de tráfico para servicios en la nube y sitios web
 
-Al configurar el equilibrio de carga del tráfico entre varias máquinas virtuales o servicios, Azure distribuye el tráfico entrante de manera aleatoria.
+El Administrador de tráfico de Azure permite controlar la distribución del tráfico de usuarios en los extremos especificados, que pueden incluir servicios en la nube, sitios web, sitios externos y otros perfiles del Administrador de tráfico. El Administrador de tráfico aplica un motor de directivas inteligente a las consultas del Sistema de nombres de dominio (DNS) para los nombres de dominio de los recursos de Internet. Los servicios en la nube o los sitios web pueden ejecutarse en centros de datos diferentes de todo el mundo.
 
-Para los servicios en la nube que contienen instancias de roles web o de roles de trabajo, puede definir un extremo público en la definición del servicio. Para los servicios en la nube que contienen máquinas virtuales, puede agregar un extremo a una máquina virtual en el momento de crearla o bien puede agregar el extremo en un momento posterior.
+Debe usar REST o Windows PowerShell para configurar los extremos externos o los perfiles de Administrador de tráfico como extremos.
+
+El Administrador de tráfico de Azure utiliza tres métodos de equilibrio de carga para distribuir el tráfico:
+
+-   **Conmutación por error**: use este método cuando desee usar un extremo principal para todo el tráfico, pero proporcionar copias de seguridad en caso de que el extremo principal pierda disponibilidad.
+-   **Rendimiento**: Utilice este método cuando tenga extremos en diferentes ubicaciones geográficas y desee solicitar a los clientes que usen el extremo “más cercano” en términos de la latencia más baja.
+-   **Round robin:** use este método cuando desee distribuir la carga entre un conjunto de servicios en la nube en el mismo centro de datos o entre servicios en la nube o sitios en diferentes centros de datos.
+
+Para obtener más información, consulte [Acerca de los métodos de equilibrio de carga del Administrador de tráfico][].
+
+En la figura siguiente se muestra un ejemplo del método de equilibrio de carga Round Robin para la distribución del tráfico entre diferentes servicios en la nube.
+
+![equilibrio de carga][]
+
+El proceso básico es el siguiente:
+
+1.  Un cliente de Internet requiere un nombre de dominio que corresponda a un servicio web.
+2.  DNS reenvía la solicitud de consulta de nombre al Administrador de tráfico.
+3.  El Administrador de tráfico devuelve el nombre DNS del servicio en la nube en la lista de Round Robin. El servidor DNS del cliente de Internet resuelve el nombre en una dirección IP y lo envía al cliente de Internet.
+4.  El cliente de Internet se conecta con el servicio en la nube elegido.
+
+Para obtener más información, consulte [Administrador de tráfico][].
+
+## Equilibrio de carga de Azure para máquinas virtuales
+
+Las máquinas virtuales que están en el mismo servicio en la nube o en la misma red virtual pueden comunicarse directamente entre sí mediante sus direcciones IP privadas. Los equipos y servicios fuera del servicio en la nube o la red virtual solo pueden comunicarse con las máquinas virtuales de un servicio en la nube o red virtual con un extremo configurado. Un extremo es una asignación de una dirección IP pública y un puerto a esa dirección IP privada y un puerto de una máquina virtual o rol web en un servicio en la nube de Azure.
+
+El Equilibrador de carga de Azure distribuye de forma aleatoria un tipo específico de tráfico entrante entre varias máquinas virtuales o servicios en una configuración conocida como conjunto de carga equilibrada. Por ejemplo, puede extender la carga del tráfico de solicitudes web entre varios servidores web o roles web.
 
 En la siguiente imagen se muestra un extremo con equilibrio de carga para tráfico web estándar (sin cifrar) compartido entre tres máquinas virtuales para el puerto TCP público y privado de 80. Estas tres máquinas virtuales se encuentran en un conjunto con equilibrio de carga.
 
-![equilibrio de carga](./media/load-balancing-vms/LoadBalancing.png)
+![equilibrio de carga][1]
 
-Cuando los clientes de Internet envían solicitudes de página web a la dirección IP pública del servicio de la nube y el puerto 80 de TCP, el equilibrador de carga realiza un equilibrio aleatorio de estas solicitudes entre las tres máquinas virtuales del conjunto con equilibrio de carga.
+Para obtener más información, consulte [Equilibrador de carga de Azure][]. Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un conjunto de carga equilibrada][].
 
-Para crear un conjunto con equilibrio de carga de máquinas virtuales Azure, siga estos pasos:
+Azure también puede equilibrar la carga en un servicio en la nube o una red virtual. Esto se conoce como equilibrio de carga interno y se puede usar de las siguientes maneras:
 
-* [Paso 1: Crear la primera máquina virtual](#firstmachine)
-* [Paso 2: Crear máquinas virtuales adicionales en el mismo servicio en
-  la nube](#addmachines)
-* [Paso 3: Crear un conjunto con equilibrio de carga con la primera
-  máquina virtual](#loadbalance)
-* [Paso 4: Agregar máquinas virtuales al conjunto con equilibrio de
-  carga](#addtoset)
+-   Para equilibrar la carga entre servidores de distintos niveles de una aplicación multinivel (por ejemplo, entre los niveles web y de base de datos).
+-   Equilibrio de carga para las aplicaciones de línea de negocio (LOB) hospedadas en Azure sin requerir hardware ni software adicional de equilibrador de carga.
+-   Incluir servidores locales en el conjunto de equipos cuyo tráfico tiene equilibrio de carga.
 
-## <a id="firstmachine"> </a>Paso 1: Crear la primera máquina virtual
+Simular al equilibrio de carga de Azure, el equilibrio de carga interno se facilita mediante la configuración de un conjunto interno de carga equilibrada.
 
-Si no lo ha hecho todavía, inicie sesión en el [Portal de administración de Azure][1]. Para crear la primera máquina virtual, puede utilizar From Gallery o el método Quick Create.
+En la figura siguiente se muestra un ejemplo de un extremo con carga equilibrada de una aplicación de línea de negocios (LOB) que se comparte entre tres máquinas virtuales en una red virtual de varias instalaciones.
 
-* **From Gallery**: Este método le permite crear extremos cuando crea la máquina virtual, y le permite especificar un nombre para el servicio en la nube que se crea al crear la máquina virtual. Para obtener instrucciones, consulte [Creación de una máquina virtual que ejecuta Linux](../virtual-machines-linux-tutorial) o [Creación de una máquina virtual que ejecuta Windows Server](../virtual-machines-windows-tutorial).
+![equilibrio de carga][2]
 
-* **Quick Create**: Para crear una máquina virtual se selecciona una imagen de la Galería de imágenes y se proporciona información básica. Si utiliza este método, deberá agregar el extremo después de crear la  virtual. Este método también crea un servicio en la nube usando un nombre predeterminado. Para obtener más información, consulte [Creación rápida de una máquina virtual](../virtual-machines-quick-create).
-
-**Nota**: después de crear la máquina virtual con Quick Create, la página Servicios en la nube del Portal de administración muestra el nombre del servicio en la nube junto con otra información acerca del servicio.
-
-## <a id="addmachines"> </a>Paso 2: Crear máquinas virtuales adicionales en el mismo servicio en la nube
-
-Cree las máquinas virtuales adicionales en el mismo servicio de nube que la primera máquina virtual utilizando el método From Gallery.
-
-## <a id="loadbalance"> </a>Paso 3: Crear un conjunto con equilibrio de carga con la primera máquina virtual
-
-1. En el Portal de administración de Azure, haga clic en **Máquinas virtuales** y, a continuación, en el nombre de la primera máquina virtual.
-
-2. Seleccione **Endpoints** y, a continuación, haga clic en **Add**.
-
-3. En la página Add an endpoint to a virtual machine, haga clic en la flecha derecha.
-
-4. En la página Specify the details of the endpoint:
-    
-	- En **Name**, escriba un nombre para el extremo o seleccione uno de la lista de extremos predefinidos para protocolos comunes.
-    - En **Protocol**, seleccione el protocolo que requiere el tipo de extremo, TCP o UDP, según sea necesario.
-    - En **Public Port** y **Private Port**, escriba los números de puerto que desee que utilice la máquina virtual, según sea necesario. Puede utilizar el puerto privado y las reglas de firewall en la máquina virtual para redirigir el tráfico de la manera más adecuada para su aplicación. El puerto privado puede ser el mismo que el puerto público. Por ejemplo, para un extremo para tráfico web (HTTP), puede asignar el puerto 80 al puerto público y el privado.
-
-5. Haga clic en **Create a load-balanced set** y, a continuación, en la flecha derecha.
-
-6. En la página Configure the load-balanced set, especifique un nombre para el conjunto con equilibrio de carga y, a continuación, asigne los valores para probar el comportamiento del equilibrador de carga de Azure. El equilibrador de carga utiliza pruebas para determinar si las máquinas virtuales del conjunto con equilibrio de carga están disponibles para recibir tráfico entrante.
-
-7.  Haga clic en la marca de verificación para crear el extremo con equilibrio de carga. Verá **Yes** en la columna **Load-balanced set name** de la página **Endpoints** de la máquina virtual.
-
-## <a id="addtoset"> </a>Paso 4: Agregar máquinas virtuales al conjunto con equilibrio de carga
-
-Después de crear el conjunto con equilibrio de carga, agréguele las demás máquinas virtuales. Para cada máquina virtual del mismo servicio en la nube:
-
-1.  En el Portal de administración, haga clic en **Máquinas virtuales**, en el nombre de la nueva máquina virtual, en **Endpoints** y, finalmente, en **Add**.
-
-2.  En la página Add an endpoint to a virtual machine, haga clic en **Add endpoint to an existing load-balanced set**, seleccione el nombre del conjunto con equilibrio de carga y, a continuación, haga clic en la flecha derecha.
-
-3.  En la página Specify the details of the endpoint, escriba un nombre para el extremo y, a continuación, haga clic en la marca de verificación.
+Para obtener más información, consulte [Equilibrio de carga interno][]. Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un equilibrio de carga interno establecido][].
 
 <!-- LINKS -->
 
-
-
-[1]: http://manage.windowsazure.com
+  [Acerca de los métodos de equilibrio de carga del Administrador de tráfico]: http://msdn.microsoft.com/es-es/library/azure/dn339010.aspx
+  [equilibrio de carga]: ./media/load-balancing-vms/TMSummary.png
+  [Administrador de tráfico]: http://msdn.microsoft.com/es-es/library/azure/hh745750.aspx
+  [1]: ./media/load-balancing-vms/LoadBalancing.png
+  [Equilibrador de carga de Azure]: http://msdn.microsoft.com/es-es/library/azure/dn655058.aspx
+  [Configurar un conjunto de carga equilibrada]: http://msdn.microsoft.com/es-es/library/azure/dn655055.aspx
+  [2]: ./media/load-balancing-vms/LOBServers.png
+  [Equilibrio de carga interno]: http://msdn.microsoft.com/es-es/library/azure/dn690121.aspx
+  [Configurar un equilibrio de carga interno establecido]: http://msdn.microsoft.com/es-es/library/azure/dn690125.aspx

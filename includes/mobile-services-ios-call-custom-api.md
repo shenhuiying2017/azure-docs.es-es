@@ -1,96 +1,60 @@
+<properties pageTitle="Call a custom API from an iOS app | Mobile Services" metaKeywords="" description="Learn how to define a custom API and then call it from an iOS app that uses Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Call a custom API from the client" authors="krisragh"  solutions="" writer="krisragh" manager="" editor=""  />
 
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
 
-Actualización de la aplicación Actualización de la aplicación para llamar a la API personalizada
-------------------------------------------------------------------------------------------------
+# Llamada a una API personalizada desde el cliente
 
-1.  Cree un botón. De esa manera, podrá hacer clic en él para llamar a la API personalizada. Arrastre un botón **Round Rect Button** de la biblioteca **Object Library** que se encuentra en la parte inferior del panel **Utilities** y colóquelo debajo del campo de texto o junto a él. Haga doble clic para agregar el texto **"All"**.
+<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api" title="C# para Tienda Windows">C# para Tienda Windows</a><a href="/es-es/documentation/articles/mobile-services-windows-store-javascript-call-custom-api" title="JavaScript para Tienda Windows">JavaScript para Tienda Windows</a><a href="/es-es/documentation/articles/mobile-services-windows-phone-call-custom-api" title="Windows Phone">Windows Phone</a><a href="/es-es/documentation/articles/mobile-services-ios-call-custom-api" title="iOS" class="current">iOS</a><a href="/es-es/documentation/articles/mobile-services-android-call-custom-api" title="Android">Android</a><a href="/es-es/documentation/articles/mobile-services-html-call-custom-api" title="HTML">HTML</a></div>
 
-    De esta forma, se agrega un nuevo botón **"All"**.
+<div class="dev-center-tutorial-subselector"><a href="/es-es/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api" title="Back-end de .NET">Back-end de .NET</a> | <a href="/es-es/documentation/articles/mobile-services-ios-call-custom-api"  title="Back-end de JavaScript" class="current">Back-end de JavaScript</a></div>
 
-2.  Abra el archivo de código **QSTodoService.m**, busque el método `refreshDataOnSuccess` y asegúrese de que contiene el siguiente código:
+En este tema se muestra cómo realizar una llamada a una API personalizada desde una aplicación de iOS. Una API personalizada le permite definir extremos personalizados que exponen la funcionalidad del servidor que no se asigna a una inserción, actualización, eliminación u operación de lectura. Al usar una API personalizada, puede tener más control sobre la mensajería, incluida la lectura y el establecimiento de encabezados de mensajes HTTP y la definición del formato del cuerpo de un mensaje diferente de JSON.
 
-         - (void)refreshDataOnSuccess:(QSCompletionBlock)completion
-         {         
-             // Crear un predicado que encuentre elementos en los que la acción de completar sea falsa
-             NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-                
-             // Consultar la tabla TodoItem y actualizar la propiedad de los elementos con los resultados del servicio.
-             [self.table readWithPredicate:predicate completion:^(NSArray *results, NSInteger totalCount, NSError *error)
-             {
-                 [self logErrorIfNotNil:error];
-                    
-                 items = [results mutableCopy];
-                    
-                 // Avise a la persona que llama de que hemos terminado.
-                 completion();
-             }];                                    
-         }
+La API personalizada que se creó en este tema le ofrece la posibilidad de enviar una sola consulta de POST que establece la marca completada en `true` para todos los elementos todo en la tabla. Sin esta API personalizada, el cliente tendría que enviar consultas individuales para actualizar la marca para cada elemento todo en la tabla.
 
-    Esto filtra los elementos para que la consulta no devuelva los elementos completados.
+Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el tutorial de [Introducción a los Servicios móviles][] o de [Introducción a los datos][]. Para hacer esto, debe completar los siguientes pasos:
 
-3.  Ahora es el momento de conectar este objeto al código fuente del controlador de vista. Haga clic en **Control** en el nuevo botón **"All"** y coloque el mouse sobre él antes de la línea `@end` en **QSTodoListViewController.h**. Conecte el objeto a una nuevo valor de **Action** con el nombre `onCompleteAll` en **QSTodoListViewController**. Xcode insertará automáticamente la siguiente línea antes de la línea `@end`:
+1.  [Definición de la API personalizada][]
+2.  [Actualización de la aplicación para llamar a la API personalizada][]
+3.  [Prueba de la aplicación][]
 
-            - (IBAction)onCompleteAll:(id)sender;
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][]. Este tutorial requiere el [SDK de iOS para Servicios móviles][], [XCode 4.5][] y iOS 5.0 o versiones posteriores.
 
-4.  El objetivo de este método `onCompleteAll` es administrar el evento Click para el nuevo botón. Invoca un nuevo método `completeAll` que agregaremos a nuestra clase personalidad, que envía a cambio una solicitud POST a la nueva API personalizada. El resultado devuelto por la API personalizada se muestra en un cuadro de diálogo de mensaje, al igual que todos los errores. Edite **QSTodoListViewController.m** para agregar la siguiente implementación delante de la línea `@end`:
+## <a name="define-custom-api"></a>Definición de la API personalizada
 
-            - (IBAction)onCompleteAll:(id)sender {
-             [self.todoService completeAll:^(id result, NSHTTPURLResponse* response, NSError* error)
-              {
-                  if (error)
-                  {
-                      NSString* errorMessage = @"There was a problem! ";
-                      errorMessage = [errorMessage stringByAppendingString:[error localizedDescription]];
-                      UIAlertView* myAlert = [[UIAlertView alloc]
-                                              initWithTitle:@"Error!"
-                                              message:errorMessage
-                                              delegate:nil
-                                              cancelButtonTitle:@"Okay"
-                                              otherButtonTitles:nil];
-                      [myAlert show];
-                      [self refresh];
-                  } else {
-                      NSString* successMessage = [NSString stringWithFormat:@"%d items marked as complete", [[result objectForKey:@"count"] integerValue]];                  
-                      UIAlertView* myAlert = [[UIAlertView alloc]
-                                              initWithTitle:@"Success!"
-                                              message:successMessage
-                                              delegate:nil
-                                              cancelButtonTitle:@"Okay"
-                                              otherButtonTitles:nil];
-                      [myAlert show];
-                      [self refresh];
-                  }
-              }];
+[WACOM.INCLUDE [mobile-services-create-custom-api][]]
 
-    }
+[WACOM.INCLUDE [mobile-services-ios-call-custom-api][]]
 
-5.  Tenga en cuenta que el código anterior hace referencia a un nuevo método `completeAll` que no se ha definido aún en **QSTodoService**. Edite **QSTodoService.h** y agregue la siguiente línea delante de la línea `@end`:
+## Pasos siguientes
 
-         - (void) completeAll:(MSAPIBlock)completion;
+Ahora que ha creado una API personalizada y la llamó desde su aplicación de iOS, considere la posibilidad de profundizar más sobre los siguientes temas de servicios móviles:
 
-6.  Agregue la implementación correspondiente de `completeAll` en **QSTodoService.m** delante de la línea `@end`. iOS es parecido a JavaScript en que no es compatible con la serialización JSON de tipos arbitrarios. En este aspecto, dispone también de una API bastante simple para invocar API personalizadas, que consiste en el método `invokeAPI`.
+-   [Referencia del script del servidor de Servicios móviles][]
+    Obtenga más información sobre la creación de API personalizadas.
 
-         - (void) completeAll:(MSAPIBlock)completion
-         {
-             [self.client
-              invokeAPI:@"completeall"
-              body:nil
-              HTTPMethod:@"POST"
-              parameters:nil
-              headers:nil
-              completion:completion ];
-         }
+-   [Almacenamiento de scripts de servidor en control de código fuente][]
+     Obtenga información sobre cómo usar la característica de control de código fuente para desarrollar y publicar de manera más fácil y segura código script de la API personalizada.
 
-Prueba de la aplicación
------------------------
+<!-- Anchors. --> 
+<!-- URLs. -->
 
-1.  En Xcode, seleccione un emulador en el que implementar (iPhone o iPad), presione el botón **Run** (o la tecla **Command+R**) para volver a crear el proyecto e iniciar la aplicación. Esta acción ejecuta su cliente de Servicios móviles de Azure, creado con el SDK de iOS, que consulta elementos desde su servicio móvil.
-
-2.  Escriba texto en el campo de texto y, a continuación, haga clic en el botón **+**. Esto envía un elemento nuevo como inserción al servicio móvil.
-
-3.  Repita el paso anterior hasta que haya agregado varios elementos a la lista.
-
-4.  Haga clic en el botón **All**. Se mostrará un cuadro de alerta que indica el número de elementos marcados como completados y la consulta filtrada se vuelve a ejecutar, por lo que se borran todos los elementos de la lista.
-
-	![](./media/mobile-services-ios-call-custom-api/mobile-custom-api-ios-completed.png)
-
+  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api "C# para Tienda Windows"
+  [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-javascript-call-custom-api "JavaScript para Tienda Windows"
+  [Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-call-custom-api "Windows Phone"
+  [iOS]: /es-es/documentation/articles/mobile-services-ios-call-custom-api "iOS"
+  [Android]: /es-es/documentation/articles/mobile-services-android-call-custom-api "Android"
+  [HTML]: /es-es/documentation/articles/mobile-services-html-call-custom-api "HTML"
+  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-call-custom-api "Back-end de .NET"
+  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-ios-call-custom-api "Back-end de JavaScript"
+  [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-ios-get-started/
+  [Introducción a los datos]: /es-es/documentation/articles/mobile-services-ios-get-started-data/
+  [Definición de la API personalizada]: #define-custom-api
+  [Actualización de la aplicación para llamar a la API personalizada]: #update-app
+  [Prueba de la aplicación]: #test-app
+  [SDK de iOS para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+  [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
+  [mobile-services-ios-call-custom-api]: ../includes/mobile-services-ios-call-custom-api.md
+  [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+  [Almacenamiento de scripts de servidor en control de código fuente]: /es-es/documentation/articles/mobile-services-store-scripts-source-control

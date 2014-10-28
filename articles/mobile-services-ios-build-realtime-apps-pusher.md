@@ -1,40 +1,41 @@
-<properties linkid="develop-mobile-tutorials-build-realtime-apps-with-pusher-ios" urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services" metaKeywords="" description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="" solutions="" manager="" editor="" />
+<properties linkid="develop-mobile-tutorials-build-realtime-apps-with-pusher-ios" urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services" metaKeywords="" description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="krisragh" solutions="" manager="" editor="" />
 
-Generación de aplicaciones en tiempo real con Servicios móviles y Pusher
-========================================================================
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
 
-[iOS]( "iOS")
+# Generación de aplicaciones en tiempo real con Servicios móviles y Pusher
+
+<div class="dev-center-tutorial-selector sublanding"> 
+    <a href="" title="iOS" class="current">iOS</a> 
+</div>
 
 En este tema se muestra cómo puede agregar funcionalidad en tiempo real a su aplicación basada en Servicios móviles de Azure. Cuando se complete, los datos de TodoList se sincronizarán en tiempo real en todas las instancias en ejecución de la aplicación.
 
-El tutorial [Notificaciones de inserción para usuarios](/es-es/develop/mobile/tutorials/push-notifications-to-users-ios) muestra cómo usar notificaciones de inserción para informar a los usuarios de nuevos elementos en la lista Todo. Las notificaciones de inserción son una manera fantástica de mostrar cambios ocasionales. Sin embargo, a veces una aplicación necesita notificaciones en tiempo real frecuentes. Las notificaciones en tiempo real se pueden agregar al servicio móvil con la API de Pusher. En este tutorial, usamos Pusher con Servicios móviles para mantener una lista Todo sincronizada cuando se realizan cambios en cualquier instancia en ejecución de la aplicación.
+El tutorial [Notificaciones de inserción para usuarios][] muestra cómo usar notificaciones de inserción para informar a los usuarios de nuevos elementos en la lista Todo. Las notificaciones de inserción son una manera fantástica de mostrar cambios ocasionales. Sin embargo, a veces una aplicación necesita notificaciones en tiempo real frecuentes. Las notificaciones en tiempo real se pueden agregar al servicio móvil con la API de Pusher. En este tutorial, usamos Pusher con Servicios móviles para mantener una lista Todo sincronizada cuando se realizan cambios en cualquier instancia en ejecución de la aplicación.
 
-Pusher es un servicio basado en la nube, al igual que Servicios móviles, que facilita enormemente la generación de aplicaciones en tiempo real. Puede usar Pusher para generar rápidamente sondeos en vivo, salas de chat, juegos multijugador, aplicaciones de colaboración, y transmitir contenido y datos activos, entre otras tareas. Para obtener más información, consulte <http://pusher.com>.
+Pusher es un servicio basado en la nube, al igual que Servicios móviles, que facilita enormemente la generación de aplicaciones en tiempo real. Puede usar Pusher para generar rápidamente sondeos en vivo, salas de chat, juegos multijugador, aplicaciones de colaboración, y transmitir contenido y datos activos, entre otras tareas. Para obtener más información, consulte [][]<http://pusher.com></a>.
 
 En este tutorial se realiza un recorrido por estos pasos básicos para agregar colaboración en tiempo real a la aplicación de la lista Todo:
 
-1.  [Creación de una cuenta Pusher](#sign-up)
-2.  [Actualización de la aplicación](#update-app)
-3.  [Instalación de los scripts de servidor](#install-scripts)
-4.  [Prueba de la aplicación](#test-app)
+1.  [Creación de una cuenta Pusher][]
+2.  [Actualización de la aplicación][]
+3.  [Instalación de los scripts de servidor][]
+4.  [Prueba de la aplicación][]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started).
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][].
 
-Creación de una cuenta Pusher
------------------------------
+## <a name="sign-up"></a>Creación de una cuenta Pusher
 
-[WACOM.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
+[WACOM.INCLUDE [pusher-sign-up][]]
 
-Actualización de la aplicación
-------------------------------
+## <a name="update-app"></a>Actualización de la aplicación
 
 Ahora que tiene configurada una cuenta Pusher, el próximo paso es modificar el código de la aplicación iOS para la nueva funcionalidad.
 
 ### Instalar la biblioteca libPusher
 
-La biblioteca [libPusher](http://go.microsoft.com/fwlink/p?LinkId=276999) le permite obtener acceso a Pusher desde iOS.
+La biblioteca [libPusher][] le permite obtener acceso a Pusher desde iOS.
 
-1.  Descargue la biblioteca libPusher [desde aquí](http://go.microsoft.com/fwlink/p/?LinkId=276998).
+1.  Descargue la biblioteca libPusher [desde aquí][].
 
 2.  Cree un grupo llamado *libPusher* en su proyecto.
 
@@ -42,28 +43,28 @@ La biblioteca [libPusher](http://go.microsoft.com/fwlink/p?LinkId=276999) le per
 
 4.  Seleccione **Copy items in destination group's folder** y, a continuación, haga clic en **Finish**.
 
-    ![](./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png)
+    ![][]
 
-    De esta forma, se copian los archivos libPusher en su proyecto.
+De esta forma, se copian los archivos libPusher en su proyecto.
 
-5.  En el proyecto raíz del explorador de proyectos, haga clic en **Build Phases** y, a continuación, en **Add Build Phase** y **Add Copy Files**.
+1.  En el proyecto raíz del explorador de proyectos, haga clic en **Build Phases** y, a continuación, en **Add Build Phase** y **Add Copy Files**.
 
-6.  Arrastre el archivo **libPusher-combined.a** del explorador de proyectos a la nueva fase de compilación.
+2.  Arrastre el archivo **libPusher-combined.a** del explorador de proyectos a la nueva fase de compilación.
 
-7.  Cambie el valor de **Destination** por **Frameworks** y haga clic en **Copy only when installing**.
+3.  Cambie el valor de **Destination** por **Frameworks** y haga clic en **Copy only when installing**.
 
-    ![](./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-build-phase.png)
+    ![][1]
 
-8.  En el área **Link Binary With Libraries**, agregue las siguientes bibliotecas:
+4.  En el área **Link Binary With Libraries**, agregue las siguientes bibliotecas:
 
     -   libicucore.dylib
     -   CFNetwork.framework
     -   Security.framework
     -   SystemConfiguration.framework
 
-9.  Finalmente, en **Build Settings**, busque la configuración de compilación de destino **Other Linker Flags** y agregue la marca **-all\_load**.
+5.  Finalmente, en **Build Settings**, busque la configuración de compilación de destino **Other Linker Flags** y agregue la marca **-all\_load**.
 
-    ![](./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-linker-flag.png)
+    ![][2]
 
     De esta forma, se muestra la marca **-all\_load** establecida para el destino de compilación de depuración.
 
@@ -73,133 +74,133 @@ La biblioteca está ahora instalada y lista para usar.
 
 1.  En Xcode, abra el archivo **QSTodoService.h** y agregue las siguientes declaraciones de método:
 
-         // Permite la recuperación de elementos por identificador
-         - (NSUInteger) getItemIndex:(NSDictionary *)item;
+        // Allows retrieval of items by id
+        - (NSUInteger) getItemIndex:(NSDictionary *)item;
 
-         // Puede llamarse cuando otros usuarios agregan los elementos
-         - (NSUInteger) itemAdded:(NSDictionary *)item;
-            
-         // Puede llamarse cuando otros usuarios completan los elementos
-         - (NSUInteger) itemCompleted:(NSDictionary *)item;
+        // To be called when items are added by other users
+        - (NSUInteger) itemAdded:(NSDictionary *)item;
+
+        // To be called when items are completed by other users
+        - (NSUInteger) itemCompleted:(NSDictionary *)item;
 
 2.  Reemplace las declaraciones existentes de **addItem** y **completeItem** por lo siguiente:
 
-         - (void) addItem:(NSDictionary *) item;
-         - (void) completeItem: (NSDictionary *) item;
+        - (void) addItem:(NSDictionary *) item;
+        - (void) completeItem: (NSDictionary *) item;
 
 3.  En **QSTodoService.m**, agregue el código siguiente para implementar los nuevos métodos:
 
-         // Permite la recuperación de elementos por identificador
-         - (NSUInteger) getItemIndex:(NSDictionary *)item
-         {
-             NSInteger itemId = [[item objectForKey: @"id"] integerValue];
+        // Allows retrieval of items by id
+        - (NSUInteger) getItemIndex:(NSDictionary *)item
+        {
+            NSInteger itemId = [[item objectForKey: @"id"] integerValue];
 
-             return [items indexOfObjectPassingTest:^BOOL(id currItem, NSUInteger idx, BOOL *stop)
-                  {
-                      return ([[currItem objectForKey: @"identificador"] integerValue] == itemId);
-                  }];
-         }
+            return [items indexOfObjectPassingTest:^BOOL(id currItem, NSUInteger idx, BOOL *stop)
+                 {
+                     return ([[currItem objectForKey: @"id"] integerValue] == itemId);
+                 }];
+        }
 
-         // Puede llamarse cuando otros usuarios agregan los elementos
-         -(NSUInteger) itemAdded:(NSDictionary *)item
-         {
-             NSUInteger index = [self getItemIndex:item];
+        // To be called when items are added by other users
+        -(NSUInteger) itemAdded:(NSDictionary *)item
+        {
+            NSUInteger index = [self getItemIndex:item];
 
-             // Solo completar la acción si el elemento no está ya en la lista
-             if(index == NSNotFound)
-             {
+            // Only complete action if item not already in list
+            if(index == NSNotFound)
+            {
                 NSUInteger newIndex = [items count];
-                 [(NSMutableArray *)items insertObject:item atIndex:newIndex];
-                 return newIndex;
-             }
-             else
+                [(NSMutableArray *)items insertObject:item atIndex:newIndex];
+                return newIndex;
+            }
+            else
                 return -1;
-         }
+        }
 
-         // Puede llamarse cuando otros usuarios completan los elementos
-         - (NSUInteger) itemCompleted:(NSDictionary *)item
-         {
-             NSUInteger index = [self getItemIndex:item];
+        // To be called when items are completed by other users
+        - (NSUInteger) itemCompleted:(NSDictionary *)item
+        {
+            NSUInteger index = [self getItemIndex:item];
 
-             // Solo completar la acción si el elemento está en la lista de elementos
-             if(index != NSNotFound)
-             {
-                 NSMutableArray *mutableItems = (NSMutableArray *) items;
-                 [mutableItems removeObjectAtIndex:index];
-             }          
-             return index;
-         }
+            // Only complete action if item exists in items list
+            if(index != NSNotFound)
+            {
+                NSMutableArray *mutableItems = (NSMutableArray *) items;
+                [mutableItems removeObjectAtIndex:index];
+            }       
+            return index;
+        }
 
     QSTodoService ahora le permite buscar elementos por **identificador** y agregar y completar elementos localmente sin enviar solicitudes explícitas al servicio remoto.
 
 4.  Reemplace los métodos existentes **addItem** y **completeItem** por el siguiente código:
 
-         -(void) addItem:(NSDictionary *)item
-         {
-             // Insertar el elemento en la tabla TodoItem y agregarlo a la matriz de elementos al terminar
-             [self.table insert:item completion:^(NSDictionary *result, NSError *error) {
+        -(void) addItem:(NSDictionary *)item
+        {
+            // Insert the item into the TodoItem table and add to the items array on completion
+            [self.table insert:item completion:^(NSDictionary *result, NSError *error) {
                 [self logErrorIfNotNil:error];
-             }];
-         }
+            }];
+        }
 
-         -(void) completeItem:(NSDictionary *)item
-         {
-             // Establecer el elemento que se vaya a completar (necesitamos una copia mutable).
-             NSMutableDictionary *mutable = [item mutableCopy];
-             [mutable setObject:@(YES) forKey:@"complete"];
+        -(void) completeItem:(NSDictionary *)item
+        {
+            // Set the item to be complete (we need a mutable copy)
+            NSMutableDictionary *mutable = [item mutableCopy];
+            [mutable setObject:@(YES) forKey:@"complete"];
 
-             // Actualizar el elemento en la tabla TodoItem y quitarlo de la matriz de elementos al terminar
-             [self.table update:mutable completion:^(NSDictionary *item, NSError *error) {
-                 [self logErrorIfNotNil:error];
-             }];
-         }
+            // Update the item in the TodoItem table and remove from the items array on completion
+            [self.table update:mutable completion:^(NSDictionary *item, NSError *error) {
+                [self logErrorIfNotNil:error];
+            }];
+        }
 
     Tenga en cuenta que ahora los elementos se agregan y completan, junto con las actualizaciones de la interfaz de usuario, cuando se reciben eventos de Pusher en lugar de cuando se actualiza la tabla de datos.
 
 5.  En el archivo **QSTodoListViewController.h**, agregue las siguientes instrucciones de importación:
 
-         #import "PTPusherDelegate.h"
-         #import "PTPusher.h"
-         #import "PTPusherEvent.h"
-         #import "PTPusherChannel.h"
+        #import "PTPusherDelegate.h"
+        #import "PTPusher.h"
+        #import "PTPusherEvent.h"
+        #import "PTPusherChannel.h"
 
 6.  Modifique la declaración de la interfaz para agregar **PTPusherDelegate** de forma que tenga el aspecto siguiente:
 
-         @interface QSTodoListViewController : UITableViewController<UITextFieldDelegate, PTPusherDelegate>
+        @interface QSTodoListViewController : UITableViewController<UITextFieldDelegate, PTPusherDelegate>
 
 7.  Agregue la propiedad nueva siguiente:
 
-         @property (nonatomic, strong) PTPusher *pusher;
+        @property (nonatomic, strong) PTPusher *pusher;
 
 8.  Agregue el siguiente código que declara un nuevo método:
 
-         // Configurar el cliente Pusher
-         - (void) setupPusher;
+        // Sets up the Pusher client
+        - (void) setupPusher;
 
-9.  En **QSTodoListViewController.m**, agregue la siguiente línea debajo de las otras líneas **@synthesise** para implementar la nueva propiedad:
+9.  En **QSTodoListViewController.m**, agregue la siguiente línea debajo de las otras líneas <**@synthesise*>\* para implementar la nueva propiedad:
 
-         @synthesize pusher = _pusher;
+        @synthesize pusher = _pusher;
 
 10. Ahora agregue el siguiente código para implementar el nuevo método:
 
-         // Configurar el cliente Pusher
+        // Sets up the Pusher client
         - (void) setupPusher {
-            
-            // Crear un cliente Pusher con la clave de aplicación de Pusher como credencial.
-            // TODO: mover la clave de aplicación de Pusher al archivo de configuración
-            self.pusher = [PTPusher pusherWithKey:@"**su_clave_de_aplicación**" delegate:self encrypted:NO];
+
+            // Create a Pusher client, using your Pusher app key as the credential
+            // TODO: Move Pusher app key to configuration file
+            self.pusher = [PTPusher pusherWithKey:@"**your_app_key**" delegate:self encrypted:NO];
             self.pusher.reconnectAutomatically = YES;
-                
-            // Suscribirse al canal 'todo-updates'
+
+            // Subscribe to the 'todo-updates' channel
             PTPusherChannel *todoChannel = [self.pusher subscribeToChannelNamed:@"todo-updates"];
-                
-            // Establecer la vinculación al evento 'todo-added'
+
+            // Bind to the 'todo-added' event
             [todoChannel bindToEventNamed:@"todo-added" handleWithBlock:^(PTPusherEvent *channelEvent) {
-                
-                // Agregar el elemento a la lista todo
+
+                // Add item to the todo list
                 NSUInteger index = [self.todoService itemAdded:channelEvent.data];
-            
-                // Si el elemento no está ya en la lista, agregar el elemento a la interfaz de usuario
+
+                // If the item was not already in the list, add the item to the UI
                 if(index != -1)
                 {
                     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
@@ -208,13 +209,13 @@ La biblioteca está ahora instalada y lista para usar.
                 }
             }];
 
-            // Establecer la vinculación al evento 'todo-completed'
+            // Bind to the 'todo-completed' event
             [todoChannel bindToEventNamed:@"todo-completed" handleWithBlock:^(PTPusherEvent *channelEvent) {
-                
-                // Actualizar el elemento que se vaya a completar
+
+                // Update the item to be completed
                 NSUInteger index = [self.todoService itemCompleted:channelEvent.data];
-                    
-                // Siempre que el elemento salga de la lista, actualizar la interfaz de usuario
+
+                // As long as the item did exit in the list, update the UI
                 if(index != NSNotFound)
                 {
                     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
@@ -224,7 +225,7 @@ La biblioteca está ahora instalada y lista para usar.
             }];
         }
 
-11. Reemplace el marcador de posición `**su_clave_de_aplicación**` por el valor de la clave de aplicación que copió del cuadro de diálogo de información de la conexión anteriormente.
+11. Reemplace el marcador de posición `**your_app_key**` por el valor de la clave de aplicación que copió del cuadro de diálogo de información de la conexión anteriormente.
 
 12. Reemplace el método **onAdd** por el código siguiente:
 
@@ -249,63 +250,62 @@ La biblioteca está ahora instalada y lista para usar.
 
 14. Al final del método **tableView:commitEditingStyle:forRowAtIndexPath**, reemplace la llamada a **completeItem** por el siguiente código:
 
-        // Solicitar a todoService que establezca el valor completo del elemento en YES
+        // Ask the todoService to set the item's complete value to YES
         [self.todoService completeItem:item];
 
 Esta aplicación está ahora disponible para recibir eventos de Pusher y para actualizar la lista Todo como corresponda.
 
-Instalación de los scripts de servidor
---------------------------------------
+## <a name="install-scripts"></a>Instalación de los scripts de servidor
 
 Lo único que queda es la configuración de los scripts de servidor. Insertaremos un script para cuando se inserte un elemento o se actualice en la tabla TodoList.
 
-1.  Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com/), haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
+1.  Inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
 
 2.  En el Portal de administración, haga clic en la pestaña **Data** y, a continuación, en la tabla **TodoItem**.
 
-    ![](./media/mobile-services-ios-build-realtime-apps-pusher/mobile-portal-data-tables.png)
+    ![][3]
 
 3.  En **TodoItem**, haga clic en la pestaña **Script** y seleccione **Insert**.
 
-    ![](./media/mobile-services-ios-build-realtime-apps-pusher/mobile-insert-script-push2.png)
+    ![][4]
 
     Se muestra la función que se invoca cuando se produce una inserción en la tabla **TodoItem**.
 
 4.  Reemplace la función de inserción por el código siguiente:
 
-         var Pusher = require('pusher');
-            
-         function insert(item, user, request) {   
+        var Pusher = require('pusher');
 
-             request.execute({
+        function insert(item, user, request) {   
+
+            request.execute({
                 success: function() {
-                     // Una vez que se haya insertado el registro, realizar la activación de inmediato en el cliente
+                    // After the record has been inserted, trigger immediately to the client
                     request.respond();
 
-                     // Publicar el evento para todos los demás clientes activos
-                     publishItemCreatedEvent(item);
-                 }
-             });
-            
-             function publishItemCreatedEvent(item) {
-            
-                 // Lo ideal es que estos valores se tomen de la configuración
-                 var pusher = new Pusher({
-                   appId: '**su_identificador_de_aplicación*',
-                   key: '**su_clave_de_aplicación**',
-                   secret: '**su_secreto_de_aplicación**'
-                 });     
-            
-                 // Publicar el evento en el canal de Pusher
-                 pusher.trigger( 'todo-updates', 'todo-added', item );  
-             }
-         }
+                    // Publish event for all other active clients
+                    publishItemCreatedEvent(item);
+                }
+            });
+
+            function publishItemCreatedEvent(item) {
+
+                // Ideally these settings would be taken from config
+                var pusher = new Pusher({
+                  appId: '**your_app_id**',
+                  key: '**your_app_key**',
+                  secret: '**your_app_secret**'
+                });     
+
+                // Publish event on Pusher channel
+                pusher.trigger( 'todo-updates', 'todo-added', item );   
+            }
+        }
 
 5.  Reemplace los marcadores de posición en el script anterior por los valores que copió del cuadro de diálogo de información de la conexión anterior:
 
-    -   **`**su_identificador_de_aplicación**`**: el valor de identificador de aplicación
-    -   **`**su_clave_de_aplicación**`**: el valor de clave de aplicación
-    -   **`**su_secreto_de_clave_de_aplicación**`**: el secreto de calve de aplicación
+    -   **`**your_app_id**`**: el valor de identificador de aplicación
+    -   **`**your_app_key**`**: el valor de clave de aplicación
+    -   **`**your_app_key_secret**`**: el secreto de clave de aplicación
 
 6.  Haga clic en el botón **Save**. Ahora ha configurado un script para publicar un evento en Pusher cada vez que se inserta un nuevo elemento en la tabla **TodoItem**.
 
@@ -313,41 +313,40 @@ Lo único que queda es la configuración de los scripts de servidor. Insertaremo
 
 8.  Reemplace la función de actualización por el código siguiente:
 
-         var Pusher = require('pusher');
-            
-         function update(item, user, request) {   
+        var Pusher = require('pusher');
 
-             request.execute({
+        function update(item, user, request) {   
+
+            request.execute({
                 success: function() {
-                     // Una vez que se haya actualizado el registro, realizar la activación de inmediato en el cliente
+                    // After the record has been updated, trigger immediately to the client
                     request.respond();
 
-                     // Publicar el evento para todos los demás clientes activos
-                     publishItemUpdatedEvent(item);
-                 }
-             });
-            
-             function publishItemUpdatedEvent(item) {
-            
-                 // Lo ideal es que estos valores se tomen de la configuración
-                 var pusher = new Pusher({
-                   appId: '**su_identificador_de_aplicación*',
-                   key: '**su_clave_de_aplicación**',
-                   secret: '**su_secreto_de_aplicación**'
-                 });     
-            
-                 // Publicar el evento en el canal de Pusher
-                 pusher.trigger( 'todo-updates', 'todo-completed', item );
-            
-             }
-         }
+                    // Publish event for all other active clients
+                    publishItemUpdatedEvent(item);
+                }
+            });
+
+            function publishItemUpdatedEvent(item) {
+
+                // Ideally these settings would be taken from config
+                var pusher = new Pusher({
+                  appId: '**your_app_id**',
+                  key: '**your_app_key**',
+                  secret: '**your_app_secret**'
+                });     
+
+                // Publish event on Pusher channel
+                pusher.trigger( 'todo-updates', 'todo-completed', item );
+
+            }
+        }
 
 9.  Repita el paso 5 para este script para reemplazar los marcadores de posición.
 
 10. Haga clic en el botón **Save**. Ahora ha configurado un script para publicar un evento en Pusher cada vez que se actualiza un nuevo elemento.
 
-Prueba de la aplicación
------------------------
+## <a name="test-app"></a>Prueba de la aplicación
 
 Para realizar una prueba de la aplicación, tendrá que ejecutar dos instancias. Puede ejecutar una instancia en un dispositivo iOS y otra en el simulador de iOS.
 
@@ -369,13 +368,34 @@ Para realizar una prueba de la aplicación, tendrá que ejecutar dos instancias.
 
 Enhorabuena, ha configurado correctamente la aplicación de servicios móviles para sincronizarla en todos los clientes en tiempo real.
 
-Pasos siguientes
-----------------
+## <a name="nextsteps"> </a>Pasos siguientes
 
 Ahora que ha visto lo fácil que es usar el servicio Pusher con Servicios móviles, siga estos vínculos para obtener más información sobre Pusher.
 
 -   Documentación sobre la API de Pusher: <http://pusher.com/docs>
 -   Tutoriales de Pusher: <http://pusher.com/tutorials>
 
-Para obtener más información sobre el registro y uso de scripts de servidor, consulte [Referencia del script del servidor de Servicios móviles](http://go.microsoft.com/fwlink/p/?LinkId=262293).
+Para obtener más información sobre el registro y uso de scripts de servidor, consulte [Referencia del script del servidor de Servicios móviles][].
 
+<!-- Anchors. --> 
+<!-- Images. --> 
+<!-- URLs. -->
+
+  [iOS]:  "iOS"
+  [Notificaciones de inserción para usuarios]: /es-es/develop/mobile/tutorials/push-notifications-to-users-ios
+  []: http://pusher.com
+  [Creación de una cuenta Pusher]: #sign-up
+  [Actualización de la aplicación]: #update-app
+  [Instalación de los scripts de servidor]: #install-scripts
+  [Prueba de la aplicación]: #test-app
+  [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started
+  [pusher-sign-up]: ../includes/pusher-sign-up.md
+  [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
+  [desde aquí]: http://go.microsoft.com/fwlink/p/?LinkId=276998
+  []: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png
+  [1]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-build-phase.png
+  [2]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-linker-flag.png
+  [Portal de administración de Azure]: https://manage.windowsazure.com/
+  [3]: ./media/mobile-services-ios-build-realtime-apps-pusher/mobile-portal-data-tables.png
+  [4]: ./media/mobile-services-ios-build-realtime-apps-pusher/mobile-insert-script-push2.png
+  [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=262293

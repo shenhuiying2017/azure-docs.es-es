@@ -1,18 +1,18 @@
-<properties linkid="manage-services-what-is-a-cloud-service" urlDisplayName="What is a Cloud Service" pageTitle="What is a cloud service - Azure service management" metaKeywords="Azure cloud services intro, cloud services overview, cloud services basics" description="An introduction to the cloud service in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="What is a cloud service?" authors="ryanwi" solutions="" manager="" editor="" />
+<properties linkid="manage-services-what-is-a-cloud-service" urlDisplayName="What is a Cloud Service" pageTitle="What is a cloud service - Azure service management" metaKeywords="Azure cloud services intro, cloud services overview, cloud services basics" description="An introduction to the cloud service in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="What is a cloud service?" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-¿Qué es un servicio en la nube?
-===============================
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+
+# ¿Qué es un servicio en la nube?
 
 Al crear una aplicación y ejecutarla en Azure, al código y a la configuración se les denomina de forma conjunta un servicio en la nube de Azure (conocido como un *servicio hospedado* en las versiones anteriores de Azure).
 
-Al crear un servicio en la nube, puede implementar una aplicación de niveles múltiples en Azure, definir múltiples roles para distribuir el procesamiento y permitir un escalado flexible de su aplicación. Un servicio en la nube consta de uno o varios roles web y/o roles de trabajo, cada uno de los cuales con sus propios archivos de aplicación y configuración.
+Al crear un servicio en la nube, puede implementar una aplicación web de niveles múltiples en Azure, definir múltiples roles para distribuir el procesamiento y permitir un escalado flexible de su aplicación. Un servicio en la nube consta de uno o varios roles web y/o roles de trabajo, cada uno de los cuales con sus propios archivos de aplicación y configuración. Los Sitios web y las Máquinas virtuales de Azure también habilitan aplicaciones web en Azure. La principal ventaja de los servicios en la nube es la capacidad de admitir más arquitecturas de niveles múltiples complejas. Para obtener una comparación detallada, vea [Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales][].
 
 Para un servicio en la nube, Azure mantiene la infraestructura por usted, de modo que realiza un mantenimiento rutinario, revisa los sistemas operativos e intenta recuperarse de los errores de hardware y del servicio. Si define al menos dos instancias de cada rol, la mayor parte del mantenimiento, así como sus propias actualizaciones del servicio, se pueden realizar sin interrupciones del servicio. Un servicio en la nube debe tener al menos dos instancias de cada rol para optar al contrato de nivel de servicio de Azure, que garantiza la conectividad externa a sus roles accesibles desde Internet con una disponibilidad mínima del 99,95%.
 
 Cada servicio en la nube tiene dos entornos en los que puede implementar el paquete y la configuración del servicio. Puede implementar un servicio en la nube en el entorno de ensayo para probarlo antes de pasar a producción. Para pasar un servicio en la nube de ensayo a producción, tan solo es necesario intercambiar las direcciones IP virtuales (VIP) que están asociadas a los dos entornos.
 
-Conceptos
----------
+## Conceptos
 
 -   **Rol de servicio en la nube:** un rol de servicio en la nube está compuesto de archivos de aplicación y una configuración. Un servicio en la nube puede tener dos tipos de rol:
 
@@ -38,14 +38,17 @@ Conceptos
 
 -   **Cambiar implementaciones:** para pasar una implementación del entorno de ensayo de Azure al entorno de producción, puede "cambiar" las implementaciones mediante un cambio de VIP, a través del cual se tiene acceso a las dos implementaciones. Después de la implementación, el nombre DNS del servicio en la nube apunta a la implementación que estaba en el entorno de ensayo.
 
--   **Supervisión mínima frente a detallada:** la *supervisión mínima*, configurada de forma predeterminada para un servicio en la nube, usa contadores de rendimiento recopilados de los sistemas operativos host para las instancias de rol (máquinas virtuales). La *supervisión detallada* recopila métricas adicionales basadas en los datos del rendimiento dentro de las instancias de rol para permitir un análisis más profundo de los problemas que se producen durante el procesamiento de la aplicación. Para obtener más información, consulte [Supervisión de servicios en la nube](https://www.windowsazure.com/es-es/manage/services/cloud-services/how-to-monitor-a-cloud-service/).
+-   **Supervisión mínima frente a detallada:** la *supervisión mínima*, configurada de forma predeterminada para un servicio en la nube, usa contadores de rendimiento recopilados de los sistemas operativos host para las instancias de rol (máquinas virtuales). La *supervisión detallada* recopila métricas adicionales basadas en los datos del rendimiento dentro de las instancias de rol para permitir un análisis más profundo de los problemas que se producen durante el procesamiento de la aplicación. Para obtener más información, consulte [Supervisión de servicios en la nube][].
 
--   **Diagnóstico de Azure:** Diagnósticos de Azure es la API que le permite recopilar datos de diagnóstico de las aplicaciones que se ejecutan en Azure. Los Diagnósticos de Azure deben estar habilitados para los roles del servicio en la nube para que la supervisión detallada esté activada.
+-   **Diagnóstico de Azure:** Diagnósticos de Azure es la API que le permite recopilar datos de diagnóstico de las aplicaciones que se ejecutan en Azure. Los Diagnósticos de Azure deben estar habilitados para los roles del servicio en la nube para que la supervisión detallada esté activada. Para obtener más información, vea [Habilitación de Diagnósticos en Azure][].
 
 -   **Vincular un recurso:** para ver las dependencias de su servicio en la nube en otros recursos, como una instancia de Base de datos SQL de Azure, puede "vincular" el recurso con el servicio en la nube. En el Portal de administración de vista previa, puede ver los recursos vinculados en la página **Linked Resources**, ver sus estados en el panel y escalar una instancia de Base de datos SQL vinculada junto con los roles de servicio en la página **Scale**. En este sentido, vincular un recurso no conecta el recurso con la aplicación; debe configurar las conexiones en el código de la aplicación.
 
 -   **Escalar un servicio en la nube:** un servicio en la nube amplía su escalado mediante el aumento del número de instancias de rol (máquinas virtuales) implementadas para un rol. Un servicio en la nube disminuye su escalado mediante la reducción de instancias de rol. En el Portal de administración de vista previa, también puede escalar una instancia de Base de datos SQL vinculada mediante el cambio de edición de la Base de datos SQL y de tamaño máximo de la base de datos, al escalar los roles del servicio.
 
--   **Contrato de nivel de servicio de Azure (SLA):** el SLA de proceso de Azure garantiza que, al implementar dos o más instancias de rol para cada rol, el acceso al servicio en la nube se mantendrá en una disponibilidad mínima del 99,95%. Además, la detacción y las acciones correctivas se iniciarán en un 99,9% de las veces si un proceso de instancia de rol no se está ejecutando. Para obtener más información, consulte [Contratos de nivel de servicio](https://www.windowsazure.com/en-us/support/legal/sla/).
+-   **Contrato de nivel de servicio de Azure (SLA):** el SLA de proceso de Azure garantiza que, al implementar dos o más instancias de rol para cada rol, el acceso al servicio en la nube se mantendrá en una disponibilidad mínima del 99,95%. Además, la detacción y las acciones correctivas se iniciarán en un 99,9% de las veces si un proceso de instancia de rol no se está ejecutando. Para obtener más información, consulte [Contratos de nivel de servicio][].
 
-
+  [Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales]: http://azure.microsoft.com/es-es/documentation/articles/choose-web-site-cloud-service-vm/
+  [Supervisión de servicios en la nube]: http://azure.microsoft.com/es-es/manage/services/cloud-services/how-to-monitor-a-cloud-service/
+  [Habilitación de Diagnósticos en Azure]: http://azure.microsoft.com/es-es/documentation/articles/cloud-services-dotnet-diagnostics/
+  [Contratos de nivel de servicio]: http://azure.microsoft.com/es-es/support/legal/sla/
