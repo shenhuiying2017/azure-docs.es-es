@@ -1,12 +1,8 @@
-###### Creación de una tabla
+##### de una tabla
 
-Los objetos **CloudTableClient** le permiten obtener objetos de referencia para las tablas y las entidades. El código siguiente crea un objeto **CloudTableClient** y lo utiliza para crear una nueva tabla.
+Los objetos **CloudTableClient** le permiten obtener objetos de referencia para las tablas y las entidades. El código siguiente crea un objeto **CloudTableClient** y lo utiliza para crear una nueva tabla. El código intenta hacer referencia a una tabla denominada “people”. Si no encuentra ninguna tabla con ese nombre, la crea.
 
 **NOTA:** en todo el código de esta guía se asume que la aplicación que se está desarrollando es un proyecto del Servicio en la nube de Azure y se utiliza una cadena de conexión de almacenamiento guardada en la configuración del servicio de la aplicación de Azure.
-
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
 
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -15,7 +11,7 @@ Los objetos **CloudTableClient** le permiten obtener objetos de referencia para 
     CloudTable table = tableClient.GetTableReference("people");
     table.CreateIfNotExists();
 
-###### Una entidad a una tabla
+##### una entidad a una tabla
 
 Para agregar una entidad a una tabla, cree una clase que defina las propiedades de la entidad. El código siguiente define una clase de entidad llamada **CustomerEntity** que utiliza el nombre de pila del cliente como clave de fila y el apellido como clave de partición.
 
@@ -36,13 +32,6 @@ Para agregar una entidad a una tabla, cree una clase que defina las propiedades 
 
 Las operaciones de tablas que afectan a las entidades se realizan utilizando el objeto **CloudTable** que se creó anteriormente en el apartado “Creación de una tabla". El objeto **TableOperation** representa la operación que se va a realizar. El ejemplo de código siguiente muestra la creación de un objeto **CloudTable** y un objeto **CustomerEntity**. Para preparar la operación, se crea un objeto **TableOperation** a fin de insertar la entidad del cliente en la tabla. Finalmente, se ejecuta la operación llamando a CloudTable.Execute.
 
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
     // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
 
@@ -57,16 +46,9 @@ Las operaciones de tablas que afectan a las entidades se realizan utilizando el 
     // Execute the insert operation.
     table.Execute(insertOperation);
 
-###### De un lote de entidades
+##### de un lote de entidades
 
 Puede insertar varias entidades en una tabla mediante una única operación de escritura. El siguiente ejemplo de código crea dos objetos de entidad ("Jeff Smith" y "Ben Smith"), agrega cada uno de ellos a un objeto **TableBatchOperation** utilizando el método Insert y, a continuación, inicia la operación llamando a CloudTable.Execute.
-
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
@@ -91,16 +73,9 @@ Puede insertar varias entidades en una tabla mediante una única operación de e
     // Execute the batch operation.
     table.ExecuteBatch(batchOperation);
 
-###### Obtención de todas las entidades en una partición
+##### Obtención de todas las entidades en una partición
 
 Para consultar una tabla a fin de obtener todas las entidades de una partición, utilice un objeto **TableQuery**. El ejemplo de código siguiente especifica un filtro para las entidades en las que “Smith” es la clave de partición. En este ejemplo, los campos de cada entidad se imprimen en la consola, como parte de los resultados de la consulta.
-
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
@@ -115,16 +90,9 @@ Para consultar una tabla a fin de obtener todas las entidades de una partición,
             entity.Email, entity.PhoneNumber);
     }
 
-###### Obtención de una sola entidad
+##### Obtención de una sola entidad
 
 Puede escribir una consulta para obtener una sola entidad concreta. El código siguiente utiliza un objeto **TableOperation** para especificar el cliente llamado "Ben Smith". Este método devuelve solo una entidad, en lugar de una colección, y el valor que aparece devuelto en TableResult.Result es un objeto **CustomerEntity**. La forma más rápida de recuperar una sola entidad del servicio **Tabla** es especificar claves tanto de partición como de fila en las consultas.
-
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Create the CloudTable object that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
@@ -141,16 +109,9 @@ Puede escribir una consulta para obtener una sola entidad concreta. El código s
     else
        Console.WriteLine("The phone number could not be retrieved.");
 
-###### Una entidad
+##### una entidad
 
 Puede eliminar fácilmente una entidad después de haberla encontrado. El código siguiente busca una entidad de cliente denominada "Ben Smith" y, si la encuentra, la elimina.
-
-    // Get the storage account from the connection string.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-      CloudConfigurationManager.GetSetting("StorageConnectionString"));
-
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
     // Create the CloudTable that represents the "people" table.
     CloudTable table = tableClient.GetTableReference("people");
@@ -177,3 +138,9 @@ Puede eliminar fácilmente una entidad después de haberla encontrado. El códig
 
     else
        Console.WriteLine("Couldn't delete the entity.");
+
+[Más información acerca de Almacenamiento de Azure][Más información acerca de Almacenamiento de Azure]
+Consulte también [Explorar recursos de almacenamiento en el Explorador de servidores][Explorar recursos de almacenamiento en el Explorador de servidores].
+
+  [Más información acerca de Almacenamiento de Azure]: http://azure.microsoft.com/documentation/services/storage/
+  [Explorar recursos de almacenamiento en el Explorador de servidores]: http://msdn.microsoft.com/es-es/library/azure/ff683677.aspx

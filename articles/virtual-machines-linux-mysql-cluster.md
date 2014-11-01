@@ -304,7 +304,7 @@ Y esta captura de pantalla muestra ambos nodos, con uno maestro y otro esclavo:
 
 ## Prueba
 
-Estamos preparados para llevar a cabo una simulación de conmutación por error automática. Existen dos formas de hacerlo: por software y por hardware. Para llevar a cabo la simulación por software, usaremos la función de cierre del clúster: `` crm_standby -U `uname -n` -v on ``. Usando esto en el maestro, el esclavo asumirá el control. No olvide volver a desactivarlo (crm\_mon le indicará que un nodo se encuentra en espera si no es así).
+Estamos preparados para llevar a cabo una simulación de conmutación por error automática. Existen dos formas de hacerlo: por software y por hardware. Para llevar a cabo la simulación por software, usaremos la función de cierre del clúster: `` crm_standby -U `uname -n` -v on ``. Usando esto en el principal, el esclavo asumirá el control. No olvide volver a desactivarlo (crm\_mon le indicará que un nodo se encuentra en espera si no es así).
 
 Si optamos por la opción de hardware, lo que haremos será cerrar la máquina virtual principal (hadb01) mediante el Portal o cambiar el nivel de ejecución en dicha máquina virtual (es decir, detenerla o cerrarla); de esta forma ayudamos a Corosync y Pacemaker indicando el apagado del maestro. Podemos probar esto (útil para ventanas de mantenimiento) pero también podemos forzar el escenario simplemente congelando la máquina virtual.
 

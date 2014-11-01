@@ -33,18 +33,18 @@ En función de la edición de Servicios de BizTalk, puede que no estén disponib
 
 </td>
 </p>
-        <td>Download the BizTalk Services SDK to install the Visual Studio project templates on your on-premises development computer. These templates create the <strong>BizTalk Services</strong> (bridge) and the <strong>BizTalk Service Artifacts</strong> (Transform) Visual Studio projects that are deployed to your BizTalk Service.
+        <td>Descargue el SDK de Servicios de BizTalk en el equipo de desarrollo para instalar las plantillas de proyecto de Visual Studio. Estas plantillas crean los proyectos de <strong>Servicios de BizTalk</strong> (puente) y de Artefactos de <strong>Servicios de BizTalk</strong> (Transformación) desarrollados en el Servicio de BizTalk.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> How do I Start Using the Azure BizTalk Services SDK </a> and <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">Installing the Azure BizTalk Services SDK</a> lists the steps to get started.
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=302335"> En la sección Cómo empiezo a trabajar con el SDK de los Servicios de BizTalk de Azure </a> y <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=241589">a instalar el SDK de los Servicios de BizTalk de Azure</a> se muestran los pasos necesarios para empezar.
         </td>
     </tr>
 
     <tr>
-        <td><strong>Create partner agreements</strong></td>
+        <td><strong>Crear acuerdos de asociado</strong></td>
 
-        <td>Opens the Azure BizTalk Services Portal hosted on Azure where you add partners and create X12, AS2, and EDIFACT EDI agreements.
+        <td>Abre el Portal de Servicios de BizTalk de Azure que se hospeda en Azure  y donde se pueden agregar asociados y crear acuerdos X12, AS2 y EDIFACT EDI.
         <br/><br/>
-        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">Configuring Components for EDI Messaging on BizTalk Services Portal</a> lists the steps to get started.
+        <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=303653">En la sección Configurar componentes para la mensajería EDI en el Portal de Servicios de BizTalk</a> se muestran los pasos necesarios para empezar.
         </td>
     </tr>
 
