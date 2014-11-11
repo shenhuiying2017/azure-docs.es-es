@@ -1,6 +1,6 @@
 <properties title="Query with Azure DocumentDB" pageTitle="Query with DocumentDB | Azure" description="DocumentDB's SQL query language supports a subset of ANSI SQL grammar and adds document-oriented support. Queries are served through up-to-date indexes that don't require index management."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Consulta con Base de datos de documentos de Azure
 
@@ -342,7 +342,7 @@ Para obtener información adicional, consulte la documentación del SDK de servi
 
 Los siguientes diagramas muestran la gramática SQL formal del lenguaje de consulta de Base de datos de documentos:
 
-![][]
+![][0]
 
 ![][1]
 
@@ -376,7 +376,7 @@ Los siguientes diagramas muestran la gramática SQL formal del lenguaje de consu
 
 ![][16]
 
-  []: ./media/documentdb-query/query1.png
+  [0]: ./media/documentdb-query/query1.png
   [1]: ./media/documentdb-query/query2.png
   [2]: ./media/documentdb-query/query3.png
   [3]: ./media/documentdb-query/query4.png

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-deploy-a-sqldb" urlDisplayName="How to deploy" pageTitle="How to deploy a SQL Database - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="Lori Clark" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori Clark"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori="" Clark" />
 
 # <span id="howtodeploySQLdb"></span></a>Implementación de una base de datos en Azure
 
@@ -12,13 +12,13 @@ La base de datos de ejemplo School es muy sencilla; todos sus objetos son compat
 
 ## Tabla de contenido
 
--   [Direccionamiento del de la base de datos School en un servidor local][]
--   [Direccionamiento del en Base de datos SQL][]
--   [Direccionamiento del de la implementación de la base de datos][]
+-   [Direccionamiento del de la base de datos School en un servidor local][Direccionamiento del de la base de datos School en un servidor local]
+-   [Direccionamiento del en Base de datos SQL][Direccionamiento del en Base de datos SQL]
+-   [Direccionamiento del de la implementación de la base de datos][Direccionamiento del de la implementación de la base de datos]
 
 ## <span id="schooldb"></span></a>Direccionamiento del de la base de datos School en un servidor local
 
-Puede encontrar los scripts para la creación de esta base de datos en [Introducción a la administración de Base de datos SQL][]. En esta guía, ejecutará los scripts en Management Studio para crear una versión local de la base de datos School.
+Puede encontrar los scripts para la creación de esta base de datos en [Introducción a la administración de Base de datos SQL][Introducción a la administración de Base de datos SQL]. En esta guía, ejecutará los scripts en Management Studio para crear una versión local de la base de datos School.
 
 1.  En Management Studio, conéctese a un servidor local. Haga clic con el botón secundario en **Databases**, haga clic en **New Database** y especifique *school*.
 

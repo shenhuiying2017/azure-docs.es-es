@@ -1,6 +1,6 @@
 <properties linkid="manage-linux-common-tasks-lampstack" urlDisplayName="Install LAMP stack" pageTitle="Install the LAMP stack on a Linux virtual machine" metaKeywords="" description="Learn how to install the LAMP stack on a Linux virtual machine (VM) in Azure. You can install on Ubuntu or CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # Instalación de la pila LAMP en una máquina virtual con Linux en Azure
 
@@ -80,7 +80,7 @@ Esto instalará las extensiones PHP mínimas necesarias para utilizar PHP con My
 
         -   CentOS y Oracle: `sudo service httpd restart`
 
-    -   Apache escucha en el puerto 80 de manera predeterminada. Tal vez necesite abrir un extremo para acceder a su servidor Apache de manera remota. Para obtener información más detallada consulte la documentación en [configurar extremos][].
+    -   Apache escucha en el puerto 80 de manera predeterminada. Tal vez necesite abrir un extremo para acceder a su servidor Apache de manera remota. Para obtener información más detallada consulte la documentación en [configurar extremos][configurar extremos].
 
     -   Ahora ya puede comprobar si Apache funciona y proporciona contenido. Dirija su explorador a `http://[MYSERVICE].cloudapp.net`, donde **[MYSERVICE]** es el nombre del servicio de nube en el que reside su máquina virtual. Es posible que en algunas distribuciones reciba la bienvenida con una página web predeterminada que sencillamente diga "Funciona". En otras puede tal vez vea una página web más completa con enlaces a documentación y contenido adicional para configurar el servidor Apache.
 

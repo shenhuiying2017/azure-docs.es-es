@@ -236,11 +236,7 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 
 4.  En la interfaz de usuario de la aplicación **NotifyUserWindowsPhone**, haga clic en **Log in and register**. Después, haga clic en **Send push**.
 
-  [Windows Universal]: /es-es/documentation/articles/notification-hubs-windows-dotnet-notify-users/ "Windows Universal"
-  [iOS]: /es-es/documentation/articles/notification-hubs-aspnet-backend-ios-notify-users/ "iOS"
-  [Android]: /es-es/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/ "Android"
   [Registro desde el backend de la aplicación]: http://msdn.microsoft.com/es-es/library/dn743807.aspx
-  [Introducción a los Centros de notificaciones (Tienda Windows)]: http://azure.microsoft.com/es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   [Registro de la aplicación para la Tienda Windows]: http://azure.microsoft.com/es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#register
   [Configuración de su Centro de notificaciones]: http://azure.microsoft.com/es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/#configure-hub
   [notification-hubs-aspnet-backend-notifyusers]: ../includes/notification-hubs-aspnet-backend-notifyusers.md

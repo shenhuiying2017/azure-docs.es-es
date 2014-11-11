@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with push notifications (legacy push) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Windows Phone app (legacy push)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services (legacy push)" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Introducción a las notificaciones de inserción en Servicios móviles (inserción heredada)
 
@@ -20,26 +20,26 @@
 Este tema muestra cómo puede utilizar Servicios móviles de Azure para enviar notificaciones de inserción a una aplicación de Windows Phone 8.
 En este tutorial aprenderá a agregar notificaciones de inserción al proyecto de inicio rápido con el servicio de notificaciones de inserción de Microsoft (MPNS). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
 
-> [WACOM.NOTE] Este tema admite *servicios móviles* existentes que *todavía no se hayan actualizado para usar* la integración con Centros de notificaciones. Al crear un *servicio móvil* nuevo, esta funcionalidad integrada se habilita automáticamente. Para servicios móviles nuevos, consulte [Introducción a las notificaciones de inserción][].
+> [WACOM.NOTE] Este tema admite *servicios móviles* existentes que *todavía no se hayan actualizado para usar* la integración con Centros de notificaciones. Al crear un *servicio móvil* nuevo, esta funcionalidad integrada se habilita automáticamente. Para servicios móviles nuevos, consulte [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción].
 >
-> La solución Servicios móviles se integra con Centros de notificaciones de Azure para ofrecer compatibilidad con la funcionalidad de notificación de inserción adicional, como plantillas, varias plataformas y escala. *Debería actualizar los servicios móviles existentes para que usen Centros de notificaciones siempre que sea posible*. Una vez que haya realizado la actualización, consulte esta versión de [Introducción a las notificaciones de inserción][].
+> La solución Servicios móviles se integra con Centros de notificaciones de Azure para ofrecer compatibilidad con la funcionalidad de notificación de inserción adicional, como plantillas, varias plataformas y escala. *Debería actualizar los servicios móviles existentes para que usen Centros de notificaciones siempre que sea posible*. Una vez que haya realizado la actualización, consulte esta versión de [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción].
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 
-1.  [Creación de la tabla Registros][]
-2.  [Incorporación de notificaciones de inserción a la aplicación][]
-3.  [Actualización de scripts para enviar notificaciones de inserción][]
-4.  [Inserción de datos para recibir notificaciones][]
+1.  [Creación de la tabla Registros][Creación de la tabla Registros]
+2.  [Incorporación de notificaciones de inserción a la aplicación][Incorporación de notificaciones de inserción a la aplicación]
+3.  [Actualización de scripts para enviar notificaciones de inserción][Actualización de scripts para enviar notificaciones de inserción]
+4.  [Inserción de datos para recibir notificaciones][Inserción de datos para recibir notificaciones]
 
-Este tutorial requiere [Visual Studio 2012 Express para Windows Phone][] o una versión posterior.
+Este tutorial requiere [Visual Studio 2012 Express para Windows Phone][Visual Studio 2012 Express para Windows Phone] o una versión posterior.
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][].
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
-> [WACOM.NOTE]Cuando envíe más de 500 mensajes por usuario al día, debe utilizar Centros de notificaciones. Para obtener más información, consulte [Introducción a los Centros de notificaciones][].
+> [WACOM.NOTE]Cuando envíe más de 500 mensajes por usuario al día, debe utilizar Centros de notificaciones. Para obtener más información, consulte [Introducción a los Centros de notificaciones][Introducción a los Centros de notificaciones].
 
 ## <a name="create-table"></a>Creación de una tabla
 
-[WACOM.INCLUDE [mobile-services-create-new-push-table][]]
+[WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
 ## <a name="add-push"></a><span class="short-header">Incorporación de notificaciones de inserción</span>Incorporación de notificaciones de inserción a la aplicación
 
@@ -93,13 +93,13 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
 5.  En el Explorador de soluciones, expanda **Propiedades**, abra el archivo WMAppManifest.xml, haga clic en la pestaña **Funcionalidades** y asegúrese de que la funcionalidad \*\*ID\_**CAP**\_PUSH\_NOTIFICATION\*\* esté marcada.
 
-    ![][]
+    ![][0]
 
     Esto asegura que la aplicación puede recibir notificaciones de inserción.
 
 ## <a name="update-scripts"></a><span class="short-header">Actualización del script de inserción</span>Actualización de scripts de inserción registrados en el Portal de administración
 
-[WACOM.INCLUDE [mobile-services-update-registrations-script][]]
+[WACOM.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
 
 1.  Haga clic en **TodoItem**, en **Script** y seleccione **Insert**.
 
@@ -171,11 +171,11 @@ Este tutorial demuestra la funcionalidad de notificación de inserción básica 
     
 	Aprenda a aprovechar Centros de notificaciones en su aplicación de la Tienda Windows.
 
--   [¿Qué son los Centros de notificaciones?][]
+-   [¿Qué son los Centros de notificaciones?][¿Qué son los Centros de notificaciones?]
     
 	Aprenda a crear e insertar notificaciones para usuarios en varias plataformas.
 
--   [Envío de notificaciones a los suscriptores][]
+-   [Envío de notificaciones a los suscriptores][Envío de notificaciones a los suscriptores]
     
 	Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
 
@@ -183,18 +183,18 @@ Este tutorial demuestra la funcionalidad de notificación de inserción básica 
 
 Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
--   [Introducción a los datos][]
+-   [Introducción a los datos][Introducción a los datos]
     
 	Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a la autenticación][]
+-   [Introducción a la autenticación][Introducción a la autenticación]
     
 	Aprenda a autenticar a los usuarios de su aplicación con cuenta de Windows.
 
--   [Referencia del script del servidor de Servicios móviles][]
+-   [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles]
     Obtenga más información acerca del registro y uso de scripts de servidor.
 
--   [Referencia conceptual de Servicios móviles con .NET][]
+-   [Referencia conceptual de Servicios móviles con .NET][Referencia conceptual de Servicios móviles con .NET]
     
 	Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
@@ -202,14 +202,6 @@ Considere la posibilidad de profundizar más en los siguientes temas de Servicio
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-push "JavaScript para Tienda Windows"
-  [Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /es-es/documentation/articles/mobile-services-ios-get-started-push "iOS"
-  [Android]: /es-es/documentation/articles/mobile-services-android-get-started-push "Android"
-  [Appcelerator]: /es-es/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
-  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Back-end de .NET"
-  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-push/ "Back-end de JavaScript"
   [Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push/
   [Creación de la tabla Registros]: #create-table
   [Incorporación de notificaciones de inserción a la aplicación]: #add-push
@@ -219,7 +211,7 @@ Considere la posibilidad de profundizar más en los siguientes temas de Servicio
   [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-wp8
   [Introducción a los Centros de notificaciones]: /es-es/manage/services/notification-hubs/getting-started-windows-dotnet/
   [mobile-services-create-new-push-table]: ../includes/mobile-services-create-new-push-table.md
-  []: ./media/mobile-services-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
+  [0]: ./media/mobile-services-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
   [mobile-services-update-registrations-script]: ../includes/mobile-services-update-registrations-script.md
   [1]: ./media/mobile-services-windows-phone-get-started-push/mobile-insert-script-push2.png
   [2]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push1-wp8.png
@@ -227,7 +219,6 @@ Considere la posibilidad de profundizar más en los siguientes temas de Servicio
   [4]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
   [5]: ./media/mobile-services-windows-phone-get-started-push/mobile-quickstart-push4-wp8.png
   [6]: /es-es/manage/services/notification-hubs/get-started-notification-hubs-wp8/
-  [¿Qué son los Centros de notificaciones?]: /es-es/develop/net/how-to-guides/service-bus-notification-hubs/
   [Envío de notificaciones a los suscriptores]: /es-es/manage/services/notification-hubs/breaking-news-wp8/
   [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-wp8
   [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-wp8

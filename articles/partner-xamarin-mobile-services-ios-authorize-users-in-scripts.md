@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-authorize-users-in-scripts-xamarin-ios" urlDisplayName="Authorize Users in Scripts (Xamarin.iOS)" pageTitle="Authorize users in scripts (Xamarin.iOS) - Azure Mobile Services" metaKeywords="Azure authorizing user, Xamarin.iOS scripts authorization, authorize mobile services" description="Learn how to authorize users with scripts in your Azure Mobile Services app for Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Use scripts to authorize users in Mobile Services" documentationCenter="Mobile" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Uso de scripts para autorizar a los usuarios en Servicios móviles
 
@@ -10,15 +10,15 @@
 
 Este tema le muestra cómo usar scripts de servidor para autorizar a los usuarios autenticados el acceso a los datos en Servicios móviles de Azure desde una aplicación Xamarin.iOS. En este tutorial registrará los scripts con Servicios móviles para filtrar las consultas basadas en el userId de un usuario autenticado, asegurándose de que cada usuario puede ver solo sus propios datos.
 
-Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutorial anterior, [Introducción a la autenticación][]. Antes de comenzar este tutorial, primero debe completar [Introducción a la autenticación][].
+Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutorial anterior, [Introducción a la autenticación][Introducción a la autenticación]. Antes de comenzar este tutorial, primero debe completar [Introducción a la autenticación][Introducción a la autenticación].
 
 ## <a name="register-scripts"></a>Registro de scripts
 
 Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que registrar los scripts para esas operaciones en la tabla TodoItem.
 
-1.  Inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, haga clic en su aplicación.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en su aplicación.
 
-    ![][]
+    ![][0]
 
 2.  Haga clic en la pestaña **Data** y, a continuación, haga clic en la tabla **TodoItem**.
 
@@ -52,7 +52,7 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
 
 ## Prueba de la aplicación
 
-1.  En Xamarin Studio o Visual Studio, abra el proyecto que modificó al realizar el tutorial [Introducción a la autenticación][].
+1.  En Xamarin Studio o Visual Studio, abra el proyecto que modificó al realizar el tutorial [Introducción a la autenticación][Introducción a la autenticación].
 
 2.  Presione el botón **Run** para compilar el proyecto, inicie la aplicación en el emulador de iPhone e inicie sesión con su proveedor de identidades elegido.
 
@@ -72,28 +72,20 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
 
 Este es el último tutorial que muestra los aspectos básicos relacionados con el uso de la autenticación. Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
--   [Introducción a los datos][]
+-   [Introducción a los datos][Introducción a los datos]
     Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a las notificaciones de inserción][]
+-   [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción]
     Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
--   [Referencia del script del servidor de Servicios móviles][]
+-   [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles]
     Obtenga más información acerca del registro y uso de scripts de servidor.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-dotnet "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-js "JavaScript para Tienda Windows"
-  [Windows Phone]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-wp8 "Windows Phone"
-  [iOS]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-ios "iOS"
-  [Android]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-android "Android"
-  [HTML]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-html "HTML"
-  [iOS C#]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-ios "Xamarin.iOS"
-  [C# para Android]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android "Xamarin.Android"
+
   [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-xamarin-ios
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  []: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-services-selection.png
+  [0]: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-services-selection.png
   [1]: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-portal-data-tables.png
   [2]: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-insert-script-users.png
   [3]: ./media/partner-xamarin-mobile-services-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png

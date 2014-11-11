@@ -1,6 +1,6 @@
 <properties linkid="manage-services-manage-acs" urlDisplayName="Manage ACS" pageTitle="Access Control Service - Azure service management" metaKeywords="" description="Learn how to manage your Azure Access Control Service (ACS) using certificates and keys." metaCanonical="" services="active-directory" documentationCenter="" title="Managing Your ACS Namespace" authors="mbaldwin" solutions="" manager="mbaldwin" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="mbaldwin" />
 
 # Administración del espacio de nombres ACS
 
@@ -10,7 +10,7 @@ En este tema de describen las tareas de administración que es recomendable real
 
 2.  Revise los proveedores de identidades, las identidades de servicio, las reglas y los administradores del portal y elimine los que están obsoletos.
 
-Para obtener más información acerca de ACS, consulte [Access Control Service 2.0][].
+Para obtener más información acerca de ACS, consulte [Access Control Service 2.0][Access Control Service 2.0].
 
 ## Instrucciones de administración de certificados y claves
 
@@ -38,13 +38,13 @@ Los pasos de alto nivel para sustituir las claves del servicio de administració
 
 Cuando un certificado o una clave caducan, ACS dejará de emitir tokens, lo que impedirá que el usuario de confianza opere con normalidad. ACS ignorará los certificados y las claves caducados, causando excepciones efectivamente como si no se hubiera configurado ningún certificado o clave en primer lugar. En las siguientes secciones encontrará información de cada certificado y clave administrada por ACS, el modo de renovarlos y cómo reconocer si han caducado y necesitan renovarse.
 
--   Use la sección Certificates and Keys del portal de administración de ACS para administrar certificados y claves relacionados con el espacio de nombres de servicio y las aplicaciones de usuarios de confianza. Para obtener más información acerca de estos tipos de credenciales, consulte [Certificados y claves][].
--   Use la sección Service identities del portal de administración de ACS para administrar credenciales (certificados, claves o contraseñas) relacionadas con identidades de servicio. Para obtener más información acerca de las identidades de servicio, consulte [Identidades de servicio][].
--   Use la sección Management Service del portal de administración de ACS para administrar credenciales (certificados, claves o contraseñas) relacionadas con las cuentas del Servicio de administración de ACS. Para obtener más información acerca del Servicio de administración de ACS, consulte [Servicio de administración de ACS][].
+-   Use la sección Certificates and Keys del portal de administración de ACS para administrar certificados y claves relacionados con el espacio de nombres de servicio y las aplicaciones de usuarios de confianza. Para obtener más información acerca de estos tipos de credenciales, consulte [Certificados y claves][Certificados y claves].
+-   Use la sección Service identities del portal de administración de ACS para administrar credenciales (certificados, claves o contraseñas) relacionadas con identidades de servicio. Para obtener más información acerca de las identidades de servicio, consulte [Identidades de servicio][Identidades de servicio].
+-   Use la sección Management Service del portal de administración de ACS para administrar credenciales (certificados, claves o contraseñas) relacionadas con las cuentas del Servicio de administración de ACS. Para obtener más información acerca del Servicio de administración de ACS, consulte [Servicio de administración de ACS][Servicio de administración de ACS].
 
-Hay algunos tipos de certificados y claves que no aparecen en el portal de administración de ACS. En particular para los proveedores de identidades de WS-Federation como AD FS, debe comprobar previamente la validez de los certificados que los proveedores de identidades usan. Actualmente, los certificados disponibles a través de los metadatos de los proveedores de identidades de WS-Federation no aparecen en el portal de administración de ACS. Para comprobar la validez de los certificados, debe usar el servicio de administración para inspeccionar las fechas de validez y caducidad para las propiedades StartDate y EndDate de [IdentityProviderKey][]. Cuando el certificado o una clave caducan y, por tanto, dejan de ser válidos, ACS empezará a lanzar [Códigos de error de ACS][] como excepciones específicos de cada certificado o clave. Consulte las siguientes secciones para conocer los códigos de error específicos.
+Hay algunos tipos de certificados y claves que no aparecen en el portal de administración de ACS. En particular para los proveedores de identidades de WS-Federation como AD FS, debe comprobar previamente la validez de los certificados que los proveedores de identidades usan. Actualmente, los certificados disponibles a través de los metadatos de los proveedores de identidades de WS-Federation no aparecen en el portal de administración de ACS. Para comprobar la validez de los certificados, debe usar el servicio de administración para inspeccionar las fechas de validez y caducidad para las propiedades StartDate y EndDate de [IdentityProviderKey][IdentityProviderKey]. Cuando el certificado o una clave caducan y, por tanto, dejan de ser válidos, ACS empezará a lanzar [Códigos de error de ACS][Códigos de error de ACS] como excepciones específicos de cada certificado o clave. Consulte las siguientes secciones para conocer los códigos de error específicos.
 
-Puede actualizar los certificados y las claves mediante programación con el [Servicio de administración de ACS][]. Plantéese revisar la muestra de código KeyManagement disponible para descarga como parte del [Ejemplo de código: Servicio de administración][].
+Puede actualizar los certificados y las claves mediante programación con el [Servicio de administración de ACS][Servicio de administración de ACS]. Plantéese revisar la muestra de código KeyManagement disponible para descarga como parte del [Ejemplo de código: Servicio de administración][Ejemplo de código: Servicio de administración].
 
 ## Certificados y claves disponibles
 
@@ -74,7 +74,7 @@ Puede administrar los certificados de firma de tokens a través de la sección C
 
 3.  Después de iniciar sesión con el Windows Live ID, se le redirigirá a la página del Portal de administración. En la parte inferior izquierda de la página, haga clic en **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Para lanzar el portal de administración de ACS, haga clic en **Control de acceso** en el árbol del lado izquierdo, seleccione el espacio de nombres del servicio ACS que desea configurar y, a continuación, haga clic en el botón **Servicio de control de acceso** de la barra de herramientas en la parte superior de la página.
 
@@ -102,7 +102,7 @@ Puede administrar los certificados de firma de tokens a través de la sección C
 
 10. Después de un período de gracia razonable, use el botón Delete en la sección Token Signing de la página Certificates and Keys para eliminar el certificado anterior de la configuración de ACS.
 
-Para obtener más información, consulte [Certificados y claves][].
+Para obtener más información, consulte [Certificados y claves][Certificados y claves].
 
 Cuando expiren los certificados de firma, recibirá los siguientes errores cuando intente solicitar un token:
 
@@ -128,7 +128,7 @@ Puede administrar las claves de firma de tokens a través de la sección Certifi
 
 3.  Después de iniciar sesión con el Windows Live ID, se le redirigirá a la página del Portal de administración. En la parte inferior izquierda de la página, haga clic en **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Para lanzar el portal de administración de ACS, haga clic en **Control de acceso** en el árbol del lado izquierdo, seleccione el espacio de nombres del servicio ACS que desea configurar y, a continuación, haga clic en el botón **Servicio de control de acceso** de la barra de herramientas en la parte superior de la página.
 
@@ -156,7 +156,7 @@ Puede administrar las claves de firma de tokens a través de la sección Certifi
 
 10. Después de un período de gracia razonable, use el botón Delete en la sección Token Signing de la página Certificates and Keys para eliminar la clave anterior de la configuración de ACS.
 
-Para obtener más información, consulte [Certificados y claves][].
+Para obtener más información, consulte [Certificados y claves][Certificados y claves].
 
 Cuando expiren las claves de firma, recibirá los siguientes errores cuando intente solicitar un token:
 
@@ -183,7 +183,7 @@ Puede administrar los certificados de cifrado de tokens a través de la sección
 
 3.  Después de iniciar sesión con el Windows Live ID, se le redirigirá a la página del Portal de administración. En la parte inferior izquierda de la página, haga clic en **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Para lanzar el portal de administración de ACS, haga clic en **Control de acceso** en el árbol del lado izquierdo, seleccione el espacio de nombres del servicio ACS que desea configurar y, a continuación, haga clic en el botón **Servicio de control de acceso** de la barra de herramientas en la parte superior de la página.
 
@@ -205,7 +205,7 @@ Puede administrar los certificados de cifrado de tokens a través de la sección
 7.  Use el botón Add para configurar el nuevo certificado de cifrado en ACS, junto con el certificado existente que va a caducar.
 8.  Use el botón Delete para eliminar el certificado de cifrado anterior.
 
-Para obtener más información, consulte [Certificados y claves][].
+Para obtener más información, consulte [Certificados y claves][Certificados y claves].
 
 Cuando expiren los certificados de cifrado, recibirá los siguientes errores cuando intente solicitar un token:
 
@@ -232,7 +232,7 @@ Puede administrar los certificados de descifrado de tokens a través de la secci
 
 3.  Después de iniciar sesión con el Windows Live ID, se le redirigirá a la página del Portal de administración. En la parte inferior izquierda de la página, haga clic en **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Para lanzar el portal de administración de ACS, haga clic en **Control de acceso** en el árbol del lado izquierdo, seleccione el espacio de nombres del servicio ACS que desea configurar y, a continuación, haga clic en el botón **Servicio de control de acceso** de la barra de herramientas en la parte superior de la página.
 
@@ -260,7 +260,7 @@ Puede administrar los certificados de descifrado de tokens a través de la secci
 
 10. Después de un período de gracia razonable, use el botón Delete en la sección Token Signing de la página Certificates and Keys para eliminar el certificado anterior de la configuración de ACS.
 
-Para obtener más información, consulte [Certificados y claves][].
+Para obtener más información, consulte [Certificados y claves][Certificados y claves].
 
 Cuando expiren los certificados de descifrado, recibirá los siguientes errores cuando intente solicitar un token:
 
@@ -287,7 +287,7 @@ Puede administrar las credenciales de identidad de servicio a través de la pág
 
 3.  Después de iniciar sesión con el Windows Live ID, se le redirigirá a la página del Portal de administración. En la parte inferior izquierda de la página, haga clic en **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Para lanzar el portal de administración de ACS, haga clic en **Control de acceso** en el árbol del lado izquierdo, seleccione el espacio de nombres del servicio ACS que desea configurar y, a continuación, haga clic en el botón **Servicio de control de acceso** de la barra de herramientas en la parte superior de la página.
 
@@ -311,7 +311,7 @@ Puede administrar las credenciales de identidad de servicio a través de la pág
 
 9.  Después de que se hayan actualizado todos los clientes (o después de un período de gracia razonable), use el botón Delete para eliminar el certificado o la clave anteriores.
 
-Para obtener más información, consulte [Identidades de servicio][].
+Para obtener más información, consulte [Identidades de servicio][Identidades de servicio].
 
 A continuación se indica la excepción que ACS lanzará si las credenciales han caducado:
 
@@ -344,7 +344,7 @@ A continuación se indica la excepción que ACS lanzará si las credenciales han
 </tbody>
 </table>
 
-Para comprobar y actualizar las fechas de caducidad de las claves simétricas o la contraseña, o bien para cargar el nuevo certificado como credenciales de identidad de servicio, siga las instrucciones descritas en [Procedimiento: Agregar identidades de servicio con un certificado X.509, una contraseña o una clave simétrica][]. Lista de credenciales de identidad de servicio disponible en la página Edit Service Identity.
+Para comprobar y actualizar las fechas de caducidad de las claves simétricas o la contraseña, o bien para cargar el nuevo certificado como credenciales de identidad de servicio, siga las instrucciones descritas en [Procedimiento: Agregar identidades de servicio con un certificado X.509, una contraseña o una clave simétrica][Procedimiento: Agregar identidades de servicio con un certificado X.509, una contraseña o una clave simétrica]. Lista de credenciales de identidad de servicio disponible en la página Edit Service Identity.
 
 ## Credenciales del servicio de administración
 
@@ -360,7 +360,7 @@ Puede administrar las credenciales del servicio de administración a través de 
 
 3.  Después de iniciar sesión con el Windows Live ID, se le redirigirá a la página del Portal de administración. En la parte inferior izquierda de la página, haga clic en **Service Bus and Access Control**.
 
-    ![][]
+    ![][0]
 
 4.  Para lanzar el portal de administración de ACS, haga clic en **Control de acceso** en el árbol del lado izquierdo, seleccione el espacio de nombres del servicio ACS que desea configurar y, a continuación, haga clic en el botón **Servicio de control de acceso** de la barra de herramientas en la parte superior de la página.
 
@@ -384,7 +384,7 @@ Puede administrar las credenciales del servicio de administración a través de 
 
 9.  Después de que se hayan actualizado todos los clientes (o después de un período de gracia razonable), use el botón Delete para eliminar el certificado o la clave anteriores.
 
-Para obtener más información, consulte [Servicio de administración de ACS][].
+Para obtener más información, consulte [Servicio de administración de ACS][Servicio de administración de ACS].
 
 ACS lanzará las siguientes excepciones si las credenciales han caducado:
 
@@ -421,7 +421,7 @@ La lista de las credenciales de la cuenta del Servicio de administración de ACS
 
 ## Certificado del proveedor de identidades de WS-Federation
 
-El certificado del proveedor de identidades de WS-Federation está disponible a través de sus metadatos. Al configurar el proveedor de identidades de WS-Federation, como AD FS, se configura el certificado de firma de WS-Federation a través de los metadatos de WS-Federation disponibles mediante URL o como un archivo; lea [Proveedores de identidades de WS-Federation][] y [Procedimiento: Configurar AD FS 2.0 como proveedor de identidades][] para obtener más información. Una vez configurado el proveedor de identidades de WS-Federation en ACS, utilice el servicio de administración de ACS para consultar la validez de sus certificados. Tenga en cuenta que para cada carga consecutiva de los metadatos a través del portal de administración de ACS o del servicio de administración de ACS, se sustituirán las claves.
+El certificado del proveedor de identidades de WS-Federation está disponible a través de sus metadatos. Al configurar el proveedor de identidades de WS-Federation, como AD FS, se configura el certificado de firma de WS-Federation a través de los metadatos de WS-Federation disponibles mediante URL o como un archivo; lea [Proveedores de identidades de WS-Federation][Proveedores de identidades de WS-Federation] y [Procedimiento: Configurar AD FS 2.0 como proveedor de identidades][Procedimiento: Configurar AD FS 2.0 como proveedor de identidades] para obtener más información. Una vez configurado el proveedor de identidades de WS-Federation en ACS, utilice el servicio de administración de ACS para consultar la validez de sus certificados. Tenga en cuenta que para cada carga consecutiva de los metadatos a través del portal de administración de ACS o del servicio de administración de ACS, se sustituirán las claves.
 
 A continuación se indican las excepciones que ACS lanzará si el certificado ha caducado:
 
@@ -445,8 +445,8 @@ td><td>Error al comprobar la firma. (El mensaje puede contener más detalles).</
   [IdentityProviderKey]: http://msdn.microsoft.com/es-es/library/hh124084.aspx
   [Códigos de error de ACS]: http://msdn.microsoft.com/es-es/library/gg185949.aspx
   [Ejemplo de código: Servicio de administración]: http://msdn.microsoft.com/es-es/library/gg185970.aspx
-  []: http://go.microsoft.com/fwlink/?LinkID=129428
-  []: ./media/manage-acs-namespace/ACS1.png
+  [0]: http://go.microsoft.com/fwlink/?LinkID=129428
+  [0]: ./media/manage-acs-namespace/ACS1.png
   [1]: ./media/manage-acs-namespace/ACS2.png
   [2]: ./media/manage-acs-namespace/ACS3.png
   [3]: ./media/manage-acs-namespace/ACS4.png

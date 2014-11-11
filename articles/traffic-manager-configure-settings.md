@@ -1,22 +1,22 @@
 <properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Configure Traffic Manager Settings" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="traffic-manager" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="traffic-manager" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # Configuración de los ajustes del Administrador de tráfico
 
 El Administrador de tráfico de Azure le permite controlar la distribución del tráfico de usuario en los servicios hospedados de Azure.
 
-El Administrador de tráfico funciona mediante la aplicación de un motor inteligente de directivas para las consultas de DNS en el nombre de dominio de la empresa principal. Actualice los registros de recursos DNS que posea la empresa para apuntar a los dominios del Administrador de tráfico. Las directivas del Administrador de tráfico que se adjuntan a esos dominios resuelven a continuación las consultas de DNS en el nombre de dominio de la empresa principal para las direcciones IP de los servicios hospedados de Azure contenidos en las directivas del Administrador de tráfico. Para obtener más información, consulte [Información general sobre Traffic Manager][].
+El Administrador de tráfico funciona mediante la aplicación de un motor inteligente de directivas para las consultas de DNS en el nombre de dominio de la empresa principal. Actualice los registros de recursos DNS que posea la empresa para apuntar a los dominios del Administrador de tráfico. Las directivas del Administrador de tráfico que se adjuntan a esos dominios resuelven a continuación las consultas de DNS en el nombre de dominio de la empresa principal para las direcciones IP de los servicios hospedados de Azure contenidos en las directivas del Administrador de tráfico. Para obtener más información, consulte [Información general sobre Traffic Manager][Información general sobre Traffic Manager].
 
 ## Tabla de contenido
 
--   [Redireccionamiento de un dominio de Internet de la compañía a un dominio del Administrador de tráfico][]
--   [Prueba de una directiva][]
--   [Deshabilitación temporal de directivas y servicios hospedados][]
--   [Edición de una directiva][]
--   [Equilibrio de carga de tráfico de forma equitativa en un grupo de servicios hospedados][]
--   [Creación de una directiva de conmutación por error][]
--   [Direccionamiento del tráfico entrante a servicios hospedados basados en el rendimiento de la red][]
+-   [Redireccionamiento de un dominio de Internet de la compañía a un dominio del Administrador de tráfico][Redireccionamiento de un dominio de Internet de la compañía a un dominio del Administrador de tráfico]
+-   [Prueba de una directiva][Prueba de una directiva]
+-   [Deshabilitación temporal de directivas y servicios hospedados][Deshabilitación temporal de directivas y servicios hospedados]
+-   [Edición de una directiva][Edición de una directiva]
+-   [Equilibrio de carga de tráfico de forma equitativa en un grupo de servicios hospedados][Equilibrio de carga de tráfico de forma equitativa en un grupo de servicios hospedados]
+-   [Creación de una directiva de conmutación por error][Creación de una directiva de conmutación por error]
+-   [Direccionamiento del tráfico entrante a servicios hospedados basados en el rendimiento de la red][Direccionamiento del tráfico entrante a servicios hospedados basados en el rendimiento de la red]
 
 ## <span id="howto_point_company"></span></a>Redireccionamiento un dominio de Internet de la compañía a un dominio del Administrador de tráfico
 
@@ -35,7 +35,7 @@ La mejor forma de probar la directiva es configurar un número de clientes y, a 
 
 -   **Conozca las direcciones IP de los servicios hospedados de Azure** en la directiva que está probando. Puede obtener esta información en el Portal de administración de Azure. Haga clic en la implementación de producción del servicio. En el panel de propiedades de la derecha, la última entrada será VIP, que es la dirección IP virtual de ese servicio hospedado.
 
-    ![Ubicación de IP del servicio hospedado][]
+    ![Ubicación de IP del servicio hospedado][Ubicación de IP del servicio hospedado]
 
     **Figura 1**: ubicación de IP del servicio hospedado
 
@@ -59,7 +59,7 @@ La mejor forma de probar la directiva es configurar un número de clientes y, a 
 > > -   El nombre de dominio del Administrador de tráfico que especificó en la línea de comandos después de "nslookup" y la dirección IP que el dominio del Administrador de tráfico resuelve.
 > >     La segunda dirección IP es la que es importante comprobar. Debe coincidir con una VIP para uno de los servicios hospedados en la directiva del Administrador de tráfico del que está realizando la prueba.
 
-> > ![Ejemplo del comando nslookup][]
+> > ![Ejemplo del comando nslookup][Ejemplo del comando nslookup]
 
 > > **Figura 2**: ejemplo del comando nslookup
 
@@ -161,21 +161,21 @@ Para cambiar una directiva a un tipo diferente, siga estos pasos:
 
 Un patrón común de equilibrio de carga es proporcionar un conjunto de servicios hospedados idénticos y enviar tráfico a cada uno con el método round robin. En este artículo se describen los pasos para configurar una directiva y un dominio del Administrador de tráfico para realizar este tipo de equilibrio de carga.
 
-Para obtener más información acerca de los distintos métodos de equilibrio de carga que proporciona el Administrador de tráfico, consulte [Información general sobre Traffic Manager][] y vaya a la sección de "Acerca de los métodos de equilibrio de carga de Traffic Manager".
+Para obtener más información acerca de los distintos métodos de equilibrio de carga que proporciona el Administrador de tráfico, consulte [Información general sobre Traffic Manager][Información general sobre Traffic Manager] y vaya a la sección de "Acerca de los métodos de equilibrio de carga de Traffic Manager".
 
-1.  **Implemente los servicios hospedados** en el entorno de producción. Para obtener información acerca del desarrollo y la implementación, consulte los [servicios hospedados de Azure][].
+1.  **Implemente los servicios hospedados** en el entorno de producción. Para obtener información acerca del desarrollo y la implementación, consulte los [servicios hospedados de Azure][servicios hospedados de Azure].
 
 2.  **Inicie sesión en el área del Administrador de tráfico en el Portal de administración** en [http://manage.windowsazure.com](http://manage.windowsazure.com). Haga clic en **Red virtual** en la parte inferior izquierda de las páginas del portal y seleccione **Administrador de tráfico** en las opciones del panel izquierdo.
 
 3.  **Seleccione Policies y haga clic en "Create".** Seleccione la carpeta **Policies** en el árbol de navegación de la izquierda para habilitar **Create** en la barra de herramientas superior. Seleccione **Create**. Aparecerá el cuadro de diálogo **Create Traffic Manager policy**.
 
-    ![Botón de creación de directivas][]
+    ![Botón de creación de directivas][Botón de creación de directivas]
 
     **Figura 1**: botón de creación de directivas
 
 4.  **Seleccione una suscripción.** Las directivas y los dominios se asocian a una única suscripción.
 
-5.  **Seleccione el método de equilibrio de carga round robin.** Para obtener más información acerca de los distintos métodos de equilibrio de carga que proporciona el Administrador de tráfico, consulte [Información general sobre Traffic Manager][] y vaya a la sección de "Acerca de los métodos de equilibrio de carga de Traffic Manager".
+5.  **Seleccione el método de equilibrio de carga round robin.** Para obtener más información acerca de los distintos métodos de equilibrio de carga que proporciona el Administrador de tráfico, consulte [Información general sobre Traffic Manager][Información general sobre Traffic Manager] y vaya a la sección de "Acerca de los métodos de equilibrio de carga de Traffic Manager".
 
 6.  **Busque los servicios hospedados y agréguelos a la directiva.** Use el cuadro de filtro para buscar los servicios hospedados que contienen la cadena que escriba en la casilla. Desactive la casilla para mostrar todos los servicios hospedados en producción para la suscripción que seleccionó en el paso 4. Use los botones de flecha para agregarlos a la directiva. El orden en la casilla **Selected DNS names** no influye en este método de equilibrio de carga.
 
@@ -187,7 +187,7 @@ Para obtener más información acerca de los distintos métodos de equilibrio de
 
     El cuadro de diálogo **Create Traffic Manager policy** debe ser similar al siguiente ejemplo.
 
-    ![Cuadro de diálogo para el método de equilibrio de carga round robin][]
+    ![Cuadro de diálogo para el método de equilibrio de carga round robin][Cuadro de diálogo para el método de equilibrio de carga round robin]
 
     **Figura 2**: cuadro de diálogo para el método de equilibrio de carga round robin
 
@@ -202,21 +202,21 @@ Para obtener más información acerca de los distintos métodos de equilibrio de
 
 En ocasiones, una organización desea proporcionar confiabilidad en sus servicios. Puede hacerlo mediante servicios de copia de seguridad en caso de que el servicio principal esté desactivado. Un patrón común para la conmutación por error del servicio es proporcionar un conjunto de servicios hospedados idénticos y enviar tráfico a un servicio principal con una lista de una o varias copias de seguridad. En este artículo se describen los pasos para configurar una directiva del Administrador de tráfico para realizar este tipo de copia de seguridad de conmutación por error.
 
-Para obtener más información acerca de los distintos métodos de equilibrio de carga que proporciona el Administrador de tráfico, consulte [Información general sobre Traffic Manager][] y vaya a la sección de "Acerca de los métodos de equilibrio de carga de Traffic Manager".
+Para obtener más información acerca de los distintos métodos de equilibrio de carga que proporciona el Administrador de tráfico, consulte [Información general sobre Traffic Manager][Información general sobre Traffic Manager] y vaya a la sección de "Acerca de los métodos de equilibrio de carga de Traffic Manager".
 
-1.  **Implemente los servicios hospedados** en el entorno de producción. Para obtener información acerca del desarrollo y la implementación de servicios hospedados, consulte los [servicios hospedados de Azure][].
+1.  **Implemente los servicios hospedados** en el entorno de producción. Para obtener información acerca del desarrollo y la implementación de servicios hospedados, consulte los [servicios hospedados de Azure][servicios hospedados de Azure].
 
 2.  **Inicie sesión en el área del Administrador de tráfico en el Portal de administración** en [http://manage.windowsazure.com](http://manage.windowsazure.com). Haga clic en **Red virtual** en la parte inferior izquierda de las páginas del portal y seleccione **Administrador de tráfico** en las opciones del panel izquierdo.
 
 3.  **Seleccione Policies y haga clic en "Create".** Seleccione la carpeta **Policies** en el árbol de navegación de la izquierda para habilitar **Create** en la barra de herramientas superior. Seleccione **Create**. Aparecerá el cuadro de diálogo **Create Traffic Manager policy**.
 
-    ![Botón de creación de directivas][]
+    ![Botón de creación de directivas][Botón de creación de directivas]
 
     **Figura 1**: botón de creación de directivas
 
 4.  **Seleccione una suscripción.** Las directivas y los dominios se asocian a una única suscripción.
 
-5.  **Seleccione el método de equilibrio de carga de directiva por conmutación por error.** Para obtener más información acerca de los distintos métodos de equilibrio de carga que proporciona el Administrador de tráfico, consulte [Información general sobre Traffic Manager][] y vaya a la sección de "Acerca de los métodos de equilibrio de carga de Traffic Manager".
+5.  **Seleccione el método de equilibrio de carga de directiva por conmutación por error.** Para obtener más información acerca de los distintos métodos de equilibrio de carga que proporciona el Administrador de tráfico, consulte [Información general sobre Traffic Manager][Información general sobre Traffic Manager] y vaya a la sección de "Acerca de los métodos de equilibrio de carga de Traffic Manager".
 
 6.  **Busque los servicios hospedados y agréguelos a la directiva.** Use el cuadro de filtro para buscar los servicios hospedados que contienen la cadena que escriba en la casilla. Desactive la casilla para mostrar todos los servicios hospedados en producción para la suscripción que seleccionó en el paso 4. Use los botones de flecha para agregarlos a la directiva. Cuando seleccione el método de equilibrio de carga por **conmutación por error**, el orden de los servicios seleccionados es importante. El servicio hospedado principal aparece en la parte superior. Use las flechas arriba y abajo para cambiar el orden según sea necesario.
 
@@ -228,37 +228,37 @@ Para obtener más información acerca de los distintos métodos de equilibrio de
 
     El cuadro de diálogo **Create Traffic Manager policy** debe ser similar al siguiente ejemplo.
 
-    ![Cuadro de diálogo para el método de equilibrio de carga de conmutación por error][]
+    ![Cuadro de diálogo para el método de equilibrio de carga de conmutación por error][Cuadro de diálogo para el método de equilibrio de carga de conmutación por error]
 
     **Figura 2**: cuadro de diálogo para el método de equilibrio de carga de conmutación por error
 
 9.  **Realice la prueba de la directiva y el dominio del Administrador de tráfico.** Para obtener más información, consulte [Prueba de una directiva del Administrador de tráfico de Azure][Prueba de una directiva].
 
 10. **Redireccione el servidor DNS al dominio del Administrador de tráfico.** Una vez que el dominio del Administrador de tráfico se haya configurado y esté en funcionamiento, edite el registro DNS en el servidor DNS relevante para redireccionar el dominio de la empresa al dominio del Administrador de tráfico.
-    Para obtener más información, consulte [Redireccionamiento de un dominio de Internet de la compañía a un dominio del Administrador de tráfico][].
+    Para obtener más información, consulte [Redireccionamiento de un dominio de Internet de la compañía a un dominio del Administrador de tráfico][Redireccionamiento de un dominio de Internet de la compañía a un dominio del Administrador de tráfico].
     Por ejemplo, el siguiente comando redirige todo el tráfico que va de **www.contoso.com** al dominio del Administrador de tráfico **contoso.trafficmanager.net**
     `www.contoso.com IN CNAME contoso.trafficmanager.net`
 
 ## <span id="howto_direct"></span></a>Direccionamiento del tráfico entrante a servicios hospedados basados en el rendimiento de la red
 
-Para cargar el servicio hospedado del equilibrio de carga que se encuentra en distintos centros de datos en todo el mundo, puede dirigir el tráfico entrante al servicio hospedado más próximo. Aunque "más cercano" puede corresponderse directamente con la distancia geográfica, también hace referencia a la ubicación con la latencia más baja para atender la solicitud. El método de equilibrio de carga de rendimiento le permitirá realizar la distribución según la ubicación y la latencia, pero no puede tener en cuenta los cambios en tiempo real de la cuenta en la carga o configuración de red. Para obtener más información acerca de los distintos métodos de equilibrio de carga que proporciona el Administrador de tráfico, consulte [Información general sobre Traffic Manager][] y vaya a la sección de "Acerca de los métodos de equilibrio de carga de Traffic Manager".
+Para cargar el servicio hospedado del equilibrio de carga que se encuentra en distintos centros de datos en todo el mundo, puede dirigir el tráfico entrante al servicio hospedado más próximo. Aunque "más cercano" puede corresponderse directamente con la distancia geográfica, también hace referencia a la ubicación con la latencia más baja para atender la solicitud. El método de equilibrio de carga de rendimiento le permitirá realizar la distribución según la ubicación y la latencia, pero no puede tener en cuenta los cambios en tiempo real de la cuenta en la carga o configuración de red. Para obtener más información acerca de los distintos métodos de equilibrio de carga que proporciona el Administrador de tráfico, consulte [Información general sobre Traffic Manager][Información general sobre Traffic Manager] y vaya a la sección de "Acerca de los métodos de equilibrio de carga de Traffic Manager".
 
 Los siguientes pasos le guían a lo largo del proceso:
 
-1.  **Implemente los servicios hospedados** en el entorno de producción. Para obtener más información, consulte [Creación de un servicio hospedado de Azure][].
+1.  **Implemente los servicios hospedados** en el entorno de producción. Para obtener más información, consulte [Creación de un servicio hospedado de Azure][Creación de un servicio hospedado de Azure].
     Consulte también "Procedimientos recomendados" en [Introducción a Traffic Manager][1].
 
 2.  **Inicie sesión en el área del Administrador de tráfico en el Portal de administración** en [http://manage.windowsazure.com](http://manage.windowsazure.com). Haga clic en **Red virtual** en la parte inferior izquierda de las páginas del portal y seleccione **Administrador de tráfico** en las opciones del panel izquierdo.
 
 3.  **Seleccione Policies y haga clic en "Create".** Seleccione la carpeta **Policies** en el árbol de navegación de la izquierda para habilitar **Create** en la barra de herramientas superior. Seleccione **Create**. Aparecerá el cuadro de diálogo **Create Traffic Manager policy**.
 
-    ![Botón de creación de directivas][]
+    ![Botón de creación de directivas][Botón de creación de directivas]
 
     **Figura 1**: botón de creación de directivas
 
 4.  **Seleccione una suscripción.** Las directivas y los dominios se asocian a una única suscripción.
 
-5.  **Seleccione el método de equilibrio de carga de rendimiento.** Para obtener más información acerca de los distintos métodos de equilibrio de carga que proporciona el Administrador de tráfico, consulte [Información general sobre Traffic Manager][] y vaya a la sección de "Acerca de los métodos de equilibrio de carga de Traffic Manager".
+5.  **Seleccione el método de equilibrio de carga de rendimiento.** Para obtener más información acerca de los distintos métodos de equilibrio de carga que proporciona el Administrador de tráfico, consulte [Información general sobre Traffic Manager][Información general sobre Traffic Manager] y vaya a la sección de "Acerca de los métodos de equilibrio de carga de Traffic Manager".
 
 6.  **Busque los servicios hospedados y agréguelos a la directiva.** Use el cuadro de filtro para buscar los servicios hospedados que contienen la cadena que escriba en la casilla. Desactive la casilla para mostrar todos los servicios hospedados en producción para la suscripción que seleccionó en el paso 4. Use los botones de flecha para agregarlos a la directiva. El orden en la casilla **Selected DNS names** no influye en este método de equilibrio de carga.
 
@@ -270,7 +270,7 @@ Los siguientes pasos le guían a lo largo del proceso:
 
     El cuadro de diálogo **Create Traffic Manager policy** debe tener un aspecto similar al del siguiente ejemplo.
 
-    ![Cuadro de diálogo para el método de equilibrio de carga de rendimiento][]
+    ![Cuadro de diálogo para el método de equilibrio de carga de rendimiento][Cuadro de diálogo para el método de equilibrio de carga de rendimiento]
 
     **Figura 2**: cuadro de diálogo para el método de equilibrio de carga de rendimiento
 
@@ -281,7 +281,7 @@ Los siguientes pasos le guían a lo largo del proceso:
     `www.contoso.com IN CNAME contoso.trafficmanager.net`
     Para obtener más información, consulte [Redireccionamiento de un dominio de Internet de la compañía a un dominio del Administrador de tráfico de Azure][Redireccionamiento de un dominio de Internet de la compañía a un dominio del Administrador de tráfico].
 
-  [Información general sobre Traffic Manager]: http://msdn.microsoft.com/en-us/library/windowsazure/hh744833.aspx
+  [Información general sobre Traffic Manager]: http://msdn.microsoft.com/es-es/library/windowsazure/hh744833.aspx
   [Redireccionamiento de un dominio de Internet de la compañía a un dominio del Administrador de tráfico]: #howto_point_company
   [Prueba de una directiva]: #howto_test
   [Deshabilitación temporal de directivas y servicios hospedados]: #howto_temp_disable
@@ -291,10 +291,10 @@ Los siguientes pasos le guían a lo largo del proceso:
   [Direccionamiento del tráfico entrante a servicios hospedados basados en el rendimiento de la red]: #howto_direct
   [Ubicación de IP del servicio hospedado]: ./media/traffic-manager-configure-settings/hosted_service_IP_location.png
   [Ejemplo del comando nslookup]: ./media/traffic-manager-configure-settings/nslookup_command_example.png
-  [1]: http://msdn.microsoft.com/en-us/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring
+  [1]: http://msdn.microsoft.com/es-es/library/windowsazure/5229dd1c-5a91-4869-8522-bed8597d9cf5#BKMK_Monitoring
     [servicios hospedados de Azure]: http://msdn.microsoft.com/library/gg432967.aspx
   [Botón de creación de directivas]: ./media/traffic-manager-configure-settings/Create_button_for_policies.png
   [Cuadro de diálogo para el método de equilibrio de carga round robin]: ./media/traffic-manager-configure-settings/Dialog_box_for_Round_Robin_load_balancing_method.png
   [Cuadro de diálogo para el método de equilibrio de carga de conmutación por error]: ./media/traffic-manager-configure-settings/Dialog_box_for_Failover_load_balancing_method.png
-  [Creación de un servicio hospedado de Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432967.aspx
+  [Creación de un servicio hospedado de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg432967.aspx
   [Cuadro de diálogo para el método de equilibrio de carga de rendimiento]: ./media/traffic-manager-configure-settings/Dialog_box_for_Performance_load_balancing_method.png

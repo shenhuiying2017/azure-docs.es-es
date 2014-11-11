@@ -1,25 +1,25 @@
 <properties linkid="develop-java-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (Java) - Azure" metaKeywords="Twilio, Twilio API, phone calls, SMS message, TwiML responses, Azure Twilio Java" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in Java." metaCanonical="" services="" videoId="" scriptId="" documentationCenter="Java" title="How to Use Twilio for Voice and SMS Capabilities in Java" authors="MicrosoftHelp@twilio.com; robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com; robmcm" />
 
 # Uso de Twilio para capacidades de voz y SMS en Java
 
-Esta guía describe cómo realizar tareas comunes de programación con el servicio de API de Twilio en Azure. Entre los escenarios descritos se incluyen realizar una llamada telefónica y enviar un mensaje de servicio de mensajes cortos (SMS). Para obtener más información sobre Twilio y el uso de voz y SMS en sus aplicaciones, consulte la sección [Pasos siguientes][].
+Esta guía describe cómo realizar tareas comunes de programación con el servicio de API de Twilio en Azure. Entre los escenarios descritos se incluyen realizar una llamada telefónica y enviar un mensaje de servicio de mensajes cortos (SMS). Para obtener más información sobre Twilio y el uso de voz y SMS en sus aplicaciones, consulte la sección [Pasos siguientes][Pasos siguientes].
 
 ## Tabla de contenido
 
--   [¿Qué es Twilio?][]
--   [Precios de Twilio][]
--   [Conceptos][]
--   [Creación de una cuenta de Twilio][]
--   [Comprobación de números de teléfono][]
--   [Creación de una aplicación Java][]
--   [Configuración de su aplicación para utilizar bibliotecas de Twilio][]
--   [Direccionamiento del una llamada saliente][]
--   [Direccionamiento del mensaje SMS][]
--   [Direccionamiento del TwiML desde su propio sitio web][]
--   [Direccionamiento del servicios Twilio adicionales][]
--   [Pasos siguientes][]
+-   [¿Qué es Twilio?][¿Qué es Twilio?]
+-   [Precios de Twilio][Precios de Twilio]
+-   [Conceptos][Conceptos]
+-   [Creación de una cuenta de Twilio][Creación de una cuenta de Twilio]
+-   [Comprobación de números de teléfono][Comprobación de números de teléfono]
+-   [Creación de una aplicación Java][Creación de una aplicación Java]
+-   [Configuración de su aplicación para utilizar bibliotecas de Twilio][Configuración de su aplicación para utilizar bibliotecas de Twilio]
+-   [Direccionamiento del una llamada saliente][Direccionamiento del una llamada saliente]
+-   [Direccionamiento del mensaje SMS][Direccionamiento del mensaje SMS]
+-   [Direccionamiento del TwiML desde su propio sitio web][Direccionamiento del TwiML desde su propio sitio web]
+-   [Direccionamiento del servicios Twilio adicionales][Direccionamiento del servicios Twilio adicionales]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <span id="WhatIs"></span></a>¿Qué es Twilio?
 
@@ -29,11 +29,11 @@ Twilio es una API de servicio web de telefonía que le permite utilizar las habi
 
 ## <span id="Pricing"></span></a>Precios de Twilio y ofertas especiales
 
-En [Twilio Pricing][] (en inglés) puede encontrar información sobre el precio de Twilio. Los clientes de Azure reciben una [oferta especial][]: un crédito gratis de 1000 textos o 1000 minutos entrantes. Para registrarse para obtener esta oferta o si desea más información, visite [][oferta especial]<http://ahoy.twilio.com/azure></a>.
+En [Twilio Pricing][Twilio Pricing] (en inglés) puede encontrar información sobre el precio de Twilio. Los clientes de Azure reciben una [oferta especial][oferta especial]: un crédito gratis de 1000 textos o 1000 minutos entrantes. Para registrarse para obtener esta oferta o si desea más información, visite [][oferta especial]<http://ahoy.twilio.com/azure></a>.
 
 ## <span id="Concepts"></span></a>Conceptos
 
-La API de Twilio es una API de RESTful que proporciona funciones de voz y SMS para las aplicaciones. Las bibliotecas de cliente están disponibles en varios idiomas; para ver una lista, consulte las [bibliotecas API de Twilio][] (en inglés).
+La API de Twilio es una API de RESTful que proporciona funciones de voz y SMS para las aplicaciones. Las bibliotecas de cliente están disponibles en varios idiomas; para ver una lista, consulte las [bibliotecas API de Twilio][bibliotecas API de Twilio] (en inglés).
 
 Aspectos fundamentales de la API de Twilio son los verbos de Twilio y el lenguaje de marcado de Twilio (TwiML).
 
@@ -67,26 +67,26 @@ Como ejemplo, el siguiente TwiML convierte el texto **Hello World** en voz.
 
 Cuando su aplicación llama a la API de Twilio, uno de los parámetros de API es la URL que devuelve la respuesta de TwiML. Con fines de desarrollo, puede usar las URL que ofrece Twilio para proporcionar las respuestas de TwiML que usaron sus aplicaciones. También puede hospedar sus propias URL para producir las repuestas de TwiML; otra opción es usar el objeto **TwiMLResponse**.
 
-Para obtener más información sobre los verbos de Twilio, sus atributos y TwiML, consulte [TwiML][]. Para obtener información adicional sobre la API de Twilio, consulte la [API de Twilio][] (en inglés).
+Para obtener más información sobre los verbos de Twilio, sus atributos y TwiML, consulte [TwiML][TwiML]. Para obtener información adicional sobre la API de Twilio, consulte la [API de Twilio][API de Twilio] (en inglés).
 
 ## <span id="CreateAccount"></span></a>Creación de una cuenta de Twilio
 
-Cuando esté preparado para obtener una cuenta de Twilio, regístrese en la [evaluación de Twilio][] (en inglés). Puede empezar con una cuenta gratuita y, posteriormente, actualizarla.
+Cuando esté preparado para obtener una cuenta de Twilio, regístrese en la [evaluación de Twilio][evaluación de Twilio] (en inglés). Puede empezar con una cuenta gratuita y, posteriormente, actualizarla.
 
-Cuando se registre para obtener una cuenta de Twilio, recibirá un identificador de cuenta y un token de autenticación. Necesitará ambos para realizar llamadas a la API de Twilio. Para evitar el acceso no autorizado a su cuenta, mantenga protegido el token de autenticación. Puede ver el identificador de cuenta y el token de autenticación en la [página de la cuenta de Twilio][] (en inglés) en los campos etiquetados como **SID AUTEN** y **TOKEN AUTEN**, respectivamente.
+Cuando se registre para obtener una cuenta de Twilio, recibirá un identificador de cuenta y un token de autenticación. Necesitará ambos para realizar llamadas a la API de Twilio. Para evitar el acceso no autorizado a su cuenta, mantenga protegido el token de autenticación. Puede ver el identificador de cuenta y el token de autenticación en la [página de la cuenta de Twilio][página de la cuenta de Twilio] (en inglés) en los campos etiquetados como **SID AUTEN** y **TOKEN AUTEN**, respectivamente.
 
 ## <span id="VerifyPhoneNumbers"></span></a>Comprobación de números de teléfono
 
-Es necesario comprobar varios números de teléfono con Twilio en la cuenta. Por ejemplo, si desea realizar llamadas de teléfono salientes, el número de teléfono se debe comprobar con Twilio como identificador de autor de una llamada de salida. De manera similar, si desea que un número de teléfono reciba mensajes SMS, se debe comprobar con Twilio el número de teléfono de recepción. Para obtener más información sobre cómo comprobar un número de teléfono, consulte la [administración de números][]. Parte del código que aparece a continuación se basa en números de teléfono que tendrá que comprobar con Twilio.
+Es necesario comprobar varios números de teléfono con Twilio en la cuenta. Por ejemplo, si desea realizar llamadas de teléfono salientes, el número de teléfono se debe comprobar con Twilio como identificador de autor de una llamada de salida. De manera similar, si desea que un número de teléfono reciba mensajes SMS, se debe comprobar con Twilio el número de teléfono de recepción. Para obtener más información sobre cómo comprobar un número de teléfono, consulte la [administración de números][administración de números]. Parte del código que aparece a continuación se basa en números de teléfono que tendrá que comprobar con Twilio.
 
-Como alternativa a utilizar un número existente para sus aplicaciones, puede comprar un número de teléfono de Twilio. Si desea obtener información sobre cómo comprar un número de teléfono de Twilio, consulte la [ayuda sobre números de teléfono de Twilio][] (en inglés).
+Como alternativa a utilizar un número existente para sus aplicaciones, puede comprar un número de teléfono de Twilio. Si desea obtener información sobre cómo comprar un número de teléfono de Twilio, consulte la [ayuda sobre números de teléfono de Twilio][ayuda sobre números de teléfono de Twilio] (en inglés).
 
 ## <span id="create_app"></span></a>Creación de una aplicación Java
 
 1.  Obtenga el archivo JAR de Twilio y agréguelo a su ruta de acceso de compilación de Java y a su ensamblado de implementación de WAR. En [][]<https://github.com/twilio/twilio-java></a> puede descargar los orígenes de GitHub y crear su propio archivo JAR, o bien, puede descargar un archivo JAR generado previamente (con o sin dependencias).
-2.  Asegúrese de que el KeyStore **cacerts** del JDK contenga el certificado Entidad de certificación segura de Equifax con la huella digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (el número de serie es 35:DE:F4:CF y la huella digital SHA1 es D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Este es el certificado de la entidad de certificación (CA) para el servicio [][1]<https://api.twilio.com></a>, que se llama cuando se utilizan las API de Twilio. Para obtener información sobre cómo asegurarse de que el KeyStore **cacerts** de su JDK contiene el certificado de CA, consulte [Incorporación de un certificado al almacén de certificados CA de Java][].
+2.  Asegúrese de que el KeyStore **cacerts** del JDK contenga el certificado Entidad de certificación segura de Equifax con la huella digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (el número de serie es 35:DE:F4:CF y la huella digital SHA1 es D2:32:09:AD:23:D3:14:23:21:74:E4:0D:7F:9D:62:13:97:86:63:3A). Este es el certificado de la entidad de certificación (CA) para el servicio [][1]<https://api.twilio.com></a>, que se llama cuando se utilizan las API de Twilio. Para obtener información sobre cómo asegurarse de que el KeyStore **cacerts** de su JDK contiene el certificado de CA, consulte [Incorporación de un certificado al almacén de certificados CA de Java][Incorporación de un certificado al almacén de certificados CA de Java].
 
-Puede obtener instrucciones detalladas sobre el uso de la biblioteca de cliente de Twilio para Java en [Realización de una llamada de teléfono con Twilio en una aplicación de Java en Azure][].
+Puede obtener instrucciones detalladas sobre el uso de la biblioteca de cliente de Twilio para Java en [Realización de una llamada de teléfono con Twilio en una aplicación de Java en Azure][Realización de una llamada de teléfono con Twilio en una aplicación de Java en Azure].
 
 ## <span id="configure_app"></span></a>Configuración de su aplicación para utilizar bibliotecas de Twilio
 
@@ -201,7 +201,7 @@ La siguiente página JSP resulta en una respuesta de TwiML que indica algún tex
         <Say>Good bye.</Say>
     </Response>
 
-El parámetro **ApiVersion** está disponible en solicitudes de voz de Twilio (no en solicitudes de SMS). Para ver los parámetros de solicitud disponibles para solicitudes de voz y de SMS de Twilio, consulte <https://www.twilio.com/docs/api/twiml/twilio_request> y <https://www.twilio.com/docs/api/twiml/sms/twilio_request>, respectivamente. La variable de entorno **RoleName** está disponible como parte de una implementación de Azure. (Si desea agregar variables de entorno personalizadas, para que se puedan elegir en **System.getenv**, consulte la sección de variables de entorno en [Ajustes de configuración de rol misceláneo][]).
+El parámetro **ApiVersion** está disponible en solicitudes de voz de Twilio (no en solicitudes de SMS). Para ver los parámetros de solicitud disponibles para solicitudes de voz y de SMS de Twilio, consulte <https://www.twilio.com/docs/api/twiml/twilio_request> y <https://www.twilio.com/docs/api/twiml/sms/twilio_request>, respectivamente. La variable de entorno **RoleName** está disponible como parte de una implementación de Azure. (Si desea agregar variables de entorno personalizadas, para que se puedan elegir en **System.getenv**, consulte la sección de variables de entorno en [Ajustes de configuración de rol misceláneo][Ajustes de configuración de rol misceláneo]).
 
 Una vez que tenga configurada su página de JSP para proporcionar respuestas de TwiML, utilice la URL de la página de JSP dado que la URL se transmitió al método **CallFactory.create**. Por ejemplo, si tiene una aplicación web llamada MyTwiML implementada en un servicio hospedado de Azure y el nombre de la página de JSP es mytwiml.jsp; la URL se puede transmitir a **CallFactory.create**, tal como aparece a continuación:
 
@@ -216,7 +216,7 @@ Una vez que tenga configurada su página de JSP para proporcionar respuestas de 
 
 Otra opción para responder con TwiML es mediante la clase **TwiMLResponse**, que está disponible en el paquete **com.twilio.sdk.verbs**.
 
-Si desea obtener más información acerca de cómo es usar Twilio en Azure con Java, consulte [Realización de una llamada de teléfono con Twilio en una aplicación de Java en Azure][].
+Si desea obtener más información acerca de cómo es usar Twilio en Azure con Java, consulte [Realización de una llamada de teléfono con Twilio en una aplicación de Java en Azure][Realización de una llamada de teléfono con Twilio en una aplicación de Java en Azure].
 
 ## <span id="AdditionalServices"></span></a>Direccionamiento del servicios Twilio adicionales
 
@@ -226,14 +226,13 @@ Además de los ejemplos aquí mostrados, Twilio ofrece API basadas en Web que pu
 
 Ahora que conoce los fundamentos del servicio Twilio, siga estos vínculos para obtener más información:
 
--   [Twilio Security Guidelines][]
--   [Twilio HowTo's and Example Code][]
--   [Twilio Quickstart Tutorials][]
--   [Twilio on GitHub][]
--   [Talk to Twilio Support][]
+-   [Twilio Security Guidelines][Twilio Security Guidelines]
+-   [Twilio HowTo's and Example Code][Twilio HowTo's and Example Code]
+-   [Twilio Quickstart Tutorials][Twilio Quickstart Tutorials]
+-   [Twilio on GitHub][Twilio on GitHub]
+-   [Talk to Twilio Support][Talk to Twilio Support]
 
   [Pasos siguientes]: #NextSteps
-  [¿Qué es Twilio?]: #WhatIs
   [Precios de Twilio]: #Pricing
   [Conceptos]: #Concepts
   [Creación de una cuenta de Twilio]: #CreateAccount

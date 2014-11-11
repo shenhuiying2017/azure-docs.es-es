@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-android" urlDisplayName="Get Started with Push (Android)" pageTitle="Get started with push notifications (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Introducción a las notificaciones de inserción en Servicios móviles (inserción heredada)
 
@@ -18,36 +18,36 @@
 
 Este tema muestra cómo puede utilizar Servicios móviles de Azure para enviar notificaciones de inserción a una aplicación Android. En este tutorial aprenderá a agregar notificaciones de inserción al proyecto de inicio rápido con el servicio de mensajería en la nube de Google (GCM). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
 
-> [WACOM.NOTE] Este tema admite *servicios móviles* existentes que *todavía no se hayan actualizado para usar* la integración con Centros de notificaciones. Al crear un *servicio móvil* nuevo, esta funcionalidad integrada se habilita automáticamente. Para servicios móviles nuevos, consulte [Introducción a las notificaciones de inserción][].
+> [WACOM.NOTE] Este tema admite *servicios móviles* existentes que *todavía no se hayan actualizado para usar* la integración con Centros de notificaciones. Al crear un *servicio móvil* nuevo, esta funcionalidad integrada se habilita automáticamente. Para servicios móviles nuevos, consulte [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción].
 >
-> La solución Servicios móviles se integra con Centros de notificaciones de Azure para ofrecer compatibilidad con la funcionalidad de notificación de inserción adicional, como plantillas, varias plataformas y escala. *Debería actualizar los servicios móviles existentes para que usen Centros de notificaciones siempre que sea posible*. Una vez que haya realizado la actualización, consulte esta versión de [Introducción a las notificaciones de inserción][].
+> La solución Servicios móviles se integra con Centros de notificaciones de Azure para ofrecer compatibilidad con la funcionalidad de notificación de inserción adicional, como plantillas, varias plataformas y escala. *Debería actualizar los servicios móviles existentes para que usen Centros de notificaciones siempre que sea posible*. Una vez que haya realizado la actualización, consulte esta versión de [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción].
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 
--   [Habilitación del servicio de mensajería en la nube de Google][]
--   [Configuración de Servicios móviles][]
--   [Incorporación de notificaciones de inserción a la aplicación][]
--   [Actualización de scripts para enviar notificaciones de inserción][]
--   [Inserción de datos para recibir notificaciones][]
+-   [Habilitación del servicio de mensajería en la nube de Google][Habilitación del servicio de mensajería en la nube de Google]
+-   [Configuración de Servicios móviles][Configuración de Servicios móviles]
+-   [Incorporación de notificaciones de inserción a la aplicación][Incorporación de notificaciones de inserción a la aplicación]
+-   [Actualización de scripts para enviar notificaciones de inserción][Actualización de scripts para enviar notificaciones de inserción]
+-   [Inserción de datos para recibir notificaciones][Inserción de datos para recibir notificaciones]
 
 Este tutorial requiere lo siguiente:
 
--   [SDK de Android para Servicios móviles][]
+-   [SDK de Android para Servicios móviles][SDK de Android para Servicios móviles]
 -   Una cuenta de Google activa
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][].
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
 ## <span id="register"></span></a>Habilitación del servicio de mensajería en la nube de Google
 
-[WACOM.INCLUDE [Habilitación de GCM][]]
+[WACOM.INCLUDE [Habilitación de GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 A continuación, utilizará este valor de clave de API para permitir que Servicios móviles se autentique con GCM y envíe notificaciones de inserción en nombre de su aplicación.
 
 ## <span id="configure"></span></a>Configuración de Servicios móviles para enviar solicitudes de inserción
 
-1.  Inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, haga clic en su aplicación.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en su aplicación.
 
-    ![][]
+    ![][0]
 
 2.  Haga clic en la pestaña **Push**, escriba el valor de la **Clave de API** obtenido de GCM en el procedimiento anterior y, a continuación, haga clic en **Save**.
 
@@ -59,11 +59,11 @@ Su servicio móvil ahora está configurado para trabajar con GCM para enviar not
 
 ### Incorporación de Google Play Services al proyecto
 
-[WACOM.INCLUDE [Incorporación de Play Services][]]
+[WACOM.INCLUDE [Incorporación de Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
 ### Incorporación de código
 
-1.  Abra el archivo de proyecto **AndroidManifest.xml**. El servicio de mensajería en la nube de Google tiene algunos requisitos mínimos en el nivel de API para desarrollo y prueba, los que debe cumplir la propiedad **minSdkVersion** del manifiesto. Consulte [Set Up Google Play Services SDK][] para determinar el valor menor que se puede definir, en caso de que necesite definir un valor inferior a 16, debido a que se utiliza un dispositivo anterior. Defina la propiedad como corresponda.
+1.  Abra el archivo de proyecto **AndroidManifest.xml**. El servicio de mensajería en la nube de Google tiene algunos requisitos mínimos en el nivel de API para desarrollo y prueba, los que debe cumplir la propiedad **minSdkVersion** del manifiesto. Consulte [Set Up Google Play Services SDK][Set Up Google Play Services SDK] para determinar el valor menor que se puede definir, en caso de que necesite definir un valor inferior a 16, debido a que se utiliza un dispositivo anterior. Defina la propiedad como corresponda.
 
 2.  Asegúrese de que en el elemento `uses-sdk`, la propiedad **targetSdkVersion** esté definida en el número de una plataforma de SDK que se ha instalado (paso 1). Es preferible definirla en la versión más reciente disponible.
 
@@ -205,7 +205,7 @@ Ahora su aplicación está actualizada para que sea compatible con las notificac
             });
         }
 
-    Esto registra un nuevo script de inserción, que usa el [gcm (objeto)][] para enviar una notificación de inserción (el texto insertado) al dispositivo indicado en la solicitud de inserción.
+    Esto registra un nuevo script de inserción, que usa el [gcm (objeto)][gcm (objeto)] para enviar una notificación de inserción (el texto insertado) al dispositivo indicado en la solicitud de inserción.
 
 ## <span id="test"></span></a>Pruebas de notificaciones de inserción en su aplicación
 
@@ -245,19 +245,11 @@ Ha completado correctamente este tutorial.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este ejemplo simple, un usuario recibe una notificación de inserción con los datos que se acaban de insertar. El cliente en la solicitud suministra al servicio móvil el token de dispositivo que GCM utiliza. En el siguiente tutorial, [Notificaciones de inserción para usuarios de la aplicación][], creará una tabla de dispositivos independiente en la que puede almacenar tokens de dispositivos y enviar una notificación de inserción a todos los canales almacenados cuando se produce una inserción.
+En este ejemplo simple, un usuario recibe una notificación de inserción con los datos que se acaban de insertar. El cliente en la solicitud suministra al servicio móvil el token de dispositivo que GCM utiliza. En el siguiente tutorial, [Notificaciones de inserción para usuarios de la aplicación][Notificaciones de inserción para usuarios de la aplicación], creará una tabla de dispositivos independiente en la que puede almacenar tokens de dispositivos y enviar una notificación de inserción a todos los canales almacenados cuando se produce una inserción.
 
 <!-- Images. -->
 <!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/develop/mobile/tutorials/get-started-with-push-dotnet "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /es-es/develop/mobile/tutorials/get-started-with-push-js "JavaScript para Tienda Windows"
-  [Windows Phone]: /es-es/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone"
-  [iOS]: /es-es/develop/mobile/tutorials/get-started-with-push-ios "iOS"
-  [Android]: /es-es/develop/mobile/tutorials/get-started-with-push-android "Android"
-  [Appcelerator]: /es-es/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
-  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Back-end de .NET"
-  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-android-get-started-push/ "Back-end de JavaScript"
   [Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
   [Habilitación del servicio de mensajería en la nube de Google]: #register
   [Configuración de Servicios móviles]: #configure
@@ -268,14 +260,13 @@ En este ejemplo simple, un usuario recibe una notificación de inserción con lo
   [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-android
   [Habilitación de GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
   [Incorporación de Play Services]: ../includes/mobile-services-add-Google-play-services.md
   [Set Up Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
   [2]: ./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png
   [3]: ./media/mobile-services-android-get-started-push/mobile-portal-data-tables.png
   [4]: ./media/mobile-services-android-get-started-push/mobile-insert-script-push2.png
-  [gcm (objeto)]: http://go.microsoft.com/fwlink/p/?LinkId=282645
   [5]: ./media/mobile-services-android-get-started-push/mobile-services-import-android-properties.png
   [6]: ./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager.png
   [7]: ./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png

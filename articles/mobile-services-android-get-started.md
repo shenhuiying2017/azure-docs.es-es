@@ -1,10 +1,10 @@
 <properties pageTitle="Get Started with Azure Mobile Services for Android apps" metaKeywords="Azure android application, mobile service android, getting started Azure android, azure droid, getting started droid windows" description="Follow this tutorial to get started using Azure Mobile Services for Android development." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
 
 # <a name="getting-started"> </a>Introducción a los Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -16,9 +16,9 @@
 
 </div>
 
-![][]
+![][0]
 
-Para completar este tutorial se requieren las [herramientas para desarrolladores de Android (en inglés)][] (ADT), que incluyen el entorno de desarrollo integrado (IDE) Eclipse, el complemento para las ADT y la última plataforma Android. Se requiere Android 4.2 o versiones posteriores.
+Para completar este tutorial se requieren las [herramientas para desarrolladores de Android (en inglés)][herramientas para desarrolladores de Android (en inglés)] (ADT), que incluyen el entorno de desarrollo integrado (IDE) Eclipse, el complemento para las ADT y la última plataforma Android. Se requiere Android 4.2 o versiones posteriores.
 
 El proyecto de inicio rápido descargado contiene el SDK de Servicios móviles para Android. Si bien este proyecto requiere Android 4.2 o versiones posteriores, el SDK mencionado tan solo requiere Android 2.2 o una versión posterior.
 
@@ -26,7 +26,7 @@ El proyecto de inicio rápido descargado contiene el SDK de Servicios móviles p
 
 ## <a name="create-new-service"> </a>Creación de un servicio móvil
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## 
 
@@ -47,7 +47,7 @@ En esta sección se creará una nueva aplicación Android que se conecta al serv
 
     ![][2]
 
-3.  Si aún no lo ha hecho, descargue las [herramientas para desarrolladores de Android (en inglés)][] e instálelas en el equipo local o la máquina virtual.
+3.  Si aún no lo ha hecho, descargue las [herramientas para desarrolladores de Android (en inglés)][herramientas para desarrolladores de Android (en inglés)] e instálelas en el equipo local o la máquina virtual.
 
 4.  Haga clic en **Create TodoItem table** para crear una tabla donde almacenar datos de la aplicación.
 
@@ -99,13 +99,13 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
--   [Introducción a los datos][]
+-   [Introducción a los datos][Introducción a los datos]
     Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a la autenticación][]
+-   [Introducción a la autenticación][Introducción a la autenticación]
     Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
--   [Introducción a las notificaciones de inserción][]
+-   [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción]
     Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
 <!-- Anchors. -->
@@ -113,10 +113,7 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 <!-- URLs. -->
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [Ver el tutorial (en inglés)]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services
-  []: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
-  [herramientas para desarrolladores de Android (en inglés)]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28
+  [0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
   [2]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android.png

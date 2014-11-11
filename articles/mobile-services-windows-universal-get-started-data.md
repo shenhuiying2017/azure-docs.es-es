@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-data-dotnet-vs2013" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services (universal Windows apps)" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Introducción a los datos en Servicios móviles (aplicación Windows universal)
 
@@ -27,7 +27,7 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices (en inglé
 
 1.  Descargue la versión de C# de la aplicación de muestra GetStartedWithMobileServices desde el [sitio de Muestras de código para desarrollador (en inglés)][aplicación GetStartedWithMobileServices (en inglés)].
 
-    ![][]
+    ![][0]
 
 2.  En Visual Studio 2013, abra el proyecto descargado y examine el archivo MainPage.xaml.cs.
 
@@ -173,26 +173,16 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
 <!-- Images. -->
 <!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/ "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-data/ "JavaScript para Tienda Windows"
-  [Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-data/ "Windows Phone"
-  [iOS]: /es-es/documentation/articles/mobile-services-ios-get-started-data/ "iOS"
-  [Android]: /es-es/documentation/articles/mobile-services-android-get-started-data/ "Android"
-  [HTML]: /es-es/documentation/articles/mobile-services-html-get-started-data/ "HTML"
-  [Xamarin.iOS]: /es-es/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/ "Xamarin.iOS"
-  [Xamarin.Android]: /es-es/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/ "Xamarin.Android"
   [Descarga del proyecto de la aplicación de la Tienda Windows]: #download-app
   [Creación del servicio móvil desde Visual Studio]: #create-service
   [Incorporación de una tabla de datos para almacenamiento y actualización de la aplicación]: #add-table
   [Prueba de la aplicación en Servicios móviles]: #test-app
   [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28
-  [aplicación GetStartedWithMobileServices (en inglés)]: http://go.microsoft.com/fwlink/p/?LinkId=328660
-  []: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-data-sample-download-dotnet-vs12.png
+  [0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-data-sample-download-dotnet-vs12.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-quickstart-startup.png
   [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
   [clase MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
   [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
-  [Esquema dinámico]: http://msdn.microsoft.com/es-es/library/windowsazure/jj193175.aspx
   [Portal de administración]: https://manage.windowsazure.com/
   [2]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2013/mobile-todoitem-data-browse.png
   [Validación y modificación de datos con scripts]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet

@@ -240,7 +240,6 @@ Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, cons
 el tema [Colas, temas y suscripciones][Colas, temas y suscripciones] de MSDN para obtener más información.
 
   [SDK de Azure para PHP]: http://go.microsoft.com/fwlink/?LinkId=252473
-  [¿Qué son las colas del bus de servicio?]: #what-are-service-bus-queues
   [Creación de un espacio de nombres de servicio]: #create-a-service-namespace
   [Obtención de credenciales de administración predeterminadas para el espacio de nombres]: #obtain-default-credentials
   [Creación de una aplicación PHP]: #CreateApplication

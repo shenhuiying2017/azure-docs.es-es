@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-sample-wordcount" urlDisplayName="Hadoop Samples in HDInsight" pageTitle="The WordCount Hadoop sample in HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample, hadoop, mapreduce" description="Learn how to run a simple MapReduce sample on HDInsight." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The WordCount Hadoop sample in HDInsight" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Ejemplo WordCount de Hadoop en HDInsight
 
@@ -15,26 +15,26 @@ El programa de MapReduce de Hadoop lee el archivo de texto y cuenta la frecuenci
 
 **Requisitos previos**:
 
--   Debe tener una cuenta de Azure. Para conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure][].
+-   Debe tener una cuenta de Azure. Para conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure][prueba gratuita de Azure].
 
--   Debe aprovisionar un clúster de HDInsight. Para obtener instrucciones acerca de las diversas formas de creación de dichos clústeres, consulte [Introducción a HDInsight de Azure][] o [Aprovisionamiento de clústeres de HDInsight][].
+-   Debe aprovisionar un clúster de HDInsight. Para obtener instrucciones acerca de las diversas formas de creación de dichos clústeres, consulte [Introducción a HDInsight de Azure][Introducción a HDInsight de Azure] o [Aprovisionamiento de clústeres de HDInsight][Aprovisionamiento de clústeres de HDInsight].
 
--   Debe tener instalado Azure PowerShell y haber configurado los clústeres para utilizarlos con su cuenta. Para obtener instrucciones acerca de cómo hacerlo, consulte [Instalación y configuración de Azure PowerShell][].
+-   Debe tener instalado Azure PowerShell y haber configurado los clústeres para utilizarlos con su cuenta. Para obtener instrucciones acerca de cómo hacerlo, consulte [Instalación y configuración de Azure PowerShell][Instalación y configuración de Azure PowerShell].
 
 ## En este artículo
 
 En este tema se muestra cómo ejecutar la muestra, presenta el código de Java para el programa de MapReduce, resume lo que ha aprendido y se describen algunos pasos a seguir. Tiene las siguientes secciones.
 
-1.  [Ejecución del ejemplo con Azure PowerShell][]
-2.  [El código Java para el programa de MapReduce de WordCount][]
-3.  [Resumen][]
-4.  [Pasos siguientes][]
+1.  [Ejecución del ejemplo con Azure PowerShell][Ejecución del ejemplo con Azure PowerShell]
+2.  [El código Java para el programa de MapReduce de WordCount][El código Java para el programa de MapReduce de WordCount]
+3.  [Resumen][Resumen]
+4.  [Pasos siguientes][Pasos siguientes]
 
 ## <span id="run-sample"></span></a>Ejecución del ejemplo con Azure PowerShell
 
 **Para enviar el trabajo de MapReduce**
 
-1.  Abra **Azure PowerShell**. Para obtener instrucciones acerca de cómo abrir la ventana de la consola de Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell][].
+1.  Abra **Azure PowerShell**. Para obtener instrucciones acerca de cómo abrir la ventana de la consola de Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell][Instalación y configuración de Azure PowerShell].
 
 2.  Ajuste las dos variables en los comandos siguientes y, a continuación, ejecútelos:
 
@@ -101,7 +101,7 @@ En este tema se muestra cómo ejecutar la muestra, presenta el código de Java p
 
 La salida del script de WordCount debe aparecer en la ventana cmd:
 
-![HDI.Sample.WordCount.Output][]
+![HDI.Sample.WordCount.Output][HDI.Sample.WordCount.Output]
 
 Tenga en cuenta que los archivos de salida de un trabajo de MapReduce son inmutables. Por lo tanto, si vuelve a ejecutar esta muestra tendrá que cambiar el nombre del archivo de salida.
 
@@ -183,15 +183,15 @@ En este tutorial, ha visto cómo ejecutar un programa de MapReduce que cuenta la
 
 Para ver tutoriales sobre la ejecución de otros ejemplos y que proporcionan instrucciones sobre el uso de Pig, Hive y los trabajos de MapReduce en HDInsight de Azure con Azure PowerShell, consulte los siguientes temas:
 
--   [Introducción a HDInsight de Azure][]
--   [Muestra: GraySort de 10 GB][]
--   [Muestra: Estimador de Pi][]
--   [Muestra: C# Steaming][]
--   [Uso de Pig con HDInsight][]
--   [Uso de Hive con HDInsight][]
--   [Azure HDInsight SDK documentation][]
+-   [Introducción a HDInsight de Azure][Introducción a HDInsight de Azure]
+-   [Muestra: GraySort de 10 GB][Muestra: GraySort de 10 GB]
+-   [Muestra: Estimador de Pi][Muestra: Estimador de Pi]
+-   [Muestra: C# Steaming][Muestra: C# Steaming]
+-   [Uso de Pig con HDInsight][Uso de Pig con HDInsight]
+-   [Uso de Hive con HDInsight][Uso de Hive con HDInsight]
+-   [Azure HDInsight SDK documentation][Azure HDInsight SDK documentation]
 
-  [prueba gratuita de Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [prueba gratuita de Azure]: http://azure.microsoft.com/es-es/pricing/free-trial/
   [Introducción a HDInsight de Azure]: ../hdinsight-get-started/
   [Aprovisionamiento de clústeres de HDInsight]: ../hdinsight-provision-clusters/
   [Instalación y configuración de Azure PowerShell]: ../install-configure-powershell/
@@ -205,4 +205,4 @@ Para ver tutoriales sobre la ejecución de otros ejemplos y que proporcionan ins
   [Muestra: C# Steaming]: ../hdinsight-sample-csharp-streaming/
   [Uso de Pig con HDInsight]: ../hdinsight-use-pig/
   [Uso de Hive con HDInsight]: ../hdinsight-use-hive/
-  [Azure HDInsight SDK documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+  [Azure HDInsight SDK documentation]: http://msdnstage.redmond.corp.microsoft.com/es-es/library/dn479185.aspx

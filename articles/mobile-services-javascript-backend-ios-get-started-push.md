@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-ios" urlDisplayName="Get Started with Push (iOS)" pageTitle="Get started with push notifications (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your iOS app." metaCanonical="http://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Introducción a las notificaciones de inserción en Servicios móviles
 
@@ -33,11 +33,11 @@ Este tutorial requiere lo siguiente:
 
 Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
-[WACOM.INCLUDE [Habilitación de notificaciones de inserción de Apple][Habilitación de notificaciones de inserción de Apple]]
+[WACOM.INCLUDE [Habilitación de notificaciones de inserción de Apple](../includes/enable-apple-push-notifications.md)]
 
 ## Configuración de Servicios móviles para enviar solicitudes de inserción
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push][mobile-services-apns-configure-push]]
+[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## Incorporación de notificaciones de inserción a la aplicación
 
@@ -110,7 +110,7 @@ Ahora su aplicación está actualizada para que sea compatible con las notificac
 
 1.  En el Portal de administración, haga clic en la pestaña **Data** y, a continuación, en la tabla **TodoItem**.
 
-    ![][]
+    ![][0]
 
 2.  En **todoitem**, haga clic en la pestaña **Script** y seleccione **Insert**.
 
@@ -198,14 +198,6 @@ En este tutorial se muestran los conceptos básicos de la habilitación de una a
 <!-- Images. --> 
 <!-- URLs.   -->
 
-  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push "JavaScript para Tienda Windows"
-  [Windows Phone]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /es-es/documentation/articles/mobile-services-javascript-backend-ios-get-started-push "iOS"
-  [Android]: /es-es/documentation/articles/mobile-services-javascript-backend-android-get-started-push "Android"
-  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "Back-end de .NET"
-  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "Back-end de JavaScript"
-  [Introducción a las notificaciones de inserción (heredadas)]: /es-es/documentation/articles/mobile-services-ios-get-started-push/
   [Generación del archivo de solicitud de firma de certificado]: #certificates
   [Registro de la aplicación y habilitación para las notificaciones de inserción]: #register
   [Creación de un perfil de aprovisionamiento para la aplicación]: #profile
@@ -218,7 +210,7 @@ En este tutorial se muestran los conceptos básicos de la habilitación de una a
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-ios-get-started
   [Habilitación de notificaciones de inserción de Apple]: ../includes/enable-apple-push-notifications.md
   [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
-  []: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
+  [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [objeto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
   [2]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
@@ -229,6 +221,5 @@ En este tutorial se muestran los conceptos básicos de la habilitación de una a
   [Envío de notificaciones a suscriptores]: /es-es/documentation/articles/notification-hubs-ios-send-breaking-news/
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-ios-get-started-data
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-ios-get-started-users
-  [¿Qué son los Centros de notificaciones?]: /es-es/documentation/articles/notification-hubs-overview/
   [Documentación conceptual sobre Objective-C en Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
   [Documentación de referencia sobre scripts de servidor para Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293

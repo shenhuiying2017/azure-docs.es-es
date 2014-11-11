@@ -1,6 +1,6 @@
 <properties linkid="Deploy_a_Secure_ASP.NET_Web_Forms_App_with_Membership_OAuth_and_SQL_Database_to_an_Azure_Web_Site" pageTitle="Deploy a Secure ASP.NET Web Forms App with Membership, OAuth, and SQL Database to an Azure Website" metaKeywords="Azure WebForms Hello World Tutorial, Azure Getting Started with WebForms Tutorial, Azure C# WebForms Hello World Tutorial, SQL Azure C# WebForms Tutorial" description="This tutorial shows you how to build a secure ASP.NET 4.5 Web Forms web app that incorporates a SQL Database and deploy the application to Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy a secure ASP.NET 4.5 Web Forms app to an Azure Website" authors="erikre"  solutions="" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="erikre"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="erikre" />
 
 # Implementación de una aplicación de ASP.NET Web Forms segura con suscripción, OAuth y Base de datos SQL en un sitio web de Azure
 
@@ -906,7 +906,6 @@ Es importante que haga comentarios acerca de lo que le gustó o lo que le gustar
   [Cuadro de diálogo Add Scaffold]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms13a.png
   [Cuadro de diálogo Add Web Forms Pages]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms13b.png
   [4]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms13c.png
-  [Inicialización y depuración de bases de datos de Entity Framework (EF)]: http://blogs.msdn.com/b/rickandy/archive/2013/02/12/seeding-and-debugging-entity-framework-ef-dbs.aspx
   [Package Manager Console.]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms13d.png
   [Página Lista de contactos]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms17.png
   [Project Properties]: ./media/web-sites-dotnet-web-forms-secure/SecureWebForms18.png

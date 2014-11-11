@@ -1,6 +1,6 @@
 <properties title="Securing an Azure Website" pageTitle="Securing an Azure Website." description="Learn how to secure an Azure Website." metaKeywords="Azure web site security, azure web site https, azure web site ftps, azure web site ssl, azure web site ssl rewrite" services="web-sites" solutions="" documentationCenter="web" authors="larryfr" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 ## Protección de una aplicación web en un Sitio web Azure
 
@@ -133,7 +133,6 @@ Para obtener más información sobre los archivos **web.config** o **application
 
 Para obtener información sobre información de registro para Sitios web Azure, que puede resultar útil en la detección de ataques, consulte [Habilitación del registro de diagnóstico][Habilitación del registro de diagnóstico].
 
-  [proyecto de código abierto sobre seguridad en aplicaciones web (OWASP)]: https://www.owasp.org/index.php/Main_Page
   [proyecto de los 10 principales]: https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project
   [Protección de comunicaciones]: #https
   [Protección de desarrollo]: #develop

@@ -1,28 +1,28 @@
 <properties linkid="dev-java-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Java) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Java" description="Learn how to use Service Bus queues in Azure. Code samples written in Java." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to Use Service Bus Queues" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Utilización de las colas del bus de servicio
 
 Esta guía le mostrará cómo usar las colas del bus de servicio. Los ejemplos están
-escritos en Java y utilizan el [SDK de Azure para Java][]. Entre
+escritos en Java y utilizan el [SDK de Azure para Java][SDK de Azure para Java]. Entre
 los escenarios proporcionados se incluyen los siguientes: **creación de colas**, **envío y recepción de
 mensajes** y **eliminación de colas**.
 
 ## Tabla de contenido
 
--   [¿Qué son las colas del bus de servicio?][]
--   [Creación de un espacio de nombres de servicio][]
--   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][]
--   [Configuración de la aplicación para usar el bus de servicio][]
--   [Direccionamiento del un proveedor de tokens de seguridad][]
+-   [¿Qué son las colas del bus de servicio?][¿Qué son las colas del bus de servicio?]
+-   [Creación de un espacio de nombres de servicio][Creación de un espacio de nombres de servicio]
+-   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][Obtención de credenciales de administración predeterminadas para el espacio de nombres]
+-   [Configuración de la aplicación para usar el bus de servicio][Configuración de la aplicación para usar el bus de servicio]
+-   [Direccionamiento del un proveedor de tokens de seguridad][Direccionamiento del un proveedor de tokens de seguridad]
 -   [Direccionamiento del una cola][Direccionamiento del un proveedor de tokens de seguridad]
--   [Direccionamiento del mensajes a una cola][]
--   [Direccionamiento del mensajes desde una cola][]
--   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer][]
--   [Pasos siguientes][]
+-   [Direccionamiento del mensajes a una cola][Direccionamiento del mensajes a una cola]
+-   [Direccionamiento del mensajes desde una cola][Direccionamiento del mensajes desde una cola]
+-   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer][Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer]
+-   [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <a name="bkmk_ConfigApp"> </a>Configuración de la aplicación para usar el bus de servicio
 
@@ -246,10 +246,9 @@ constante en todos los intentos de entrega.
 ## <a name="bkmk_NextSteps"> </a>Pasos siguientes
 
 Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, consulte
-el tema [Colas, temas y suscripciones][] de MSDN para obtener más información.
+el tema [Colas, temas y suscripciones][Colas, temas y suscripciones] de MSDN para obtener más información.
 
   [SDK de Azure para Java]: http://azure.microsoft.com/es-es/develop/java/
-  [¿Qué son las colas del bus de servicio?]: #what-are-service-bus-queues
   [Creación de un espacio de nombres de servicio]: #create-a-service-namespace
   [Obtención de credenciales de administración predeterminadas para el espacio de nombres]: #obtain-default-credentials
   [Configuración de la aplicación para usar el bus de servicio]: #bkmk_ConfigApp

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-js-rbac-with-aad" urlDisplayName="Role Based Access Control with Azure Active Directory" pageTitle="Role Based Access Control in Mobile Services and Azure Active Directory (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to control access based on Azure Active Directory roles in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Role Based Access Control in Mobile Services and Azure Active Directory" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/21/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/21/2014" ms.author="wesmc" />
 
 # Control de acceso basado en roles en Servicios móviles y Azure Active Directory
 
@@ -153,7 +153,7 @@ Si no está familiarizado con la implementación de scripts en el servicio móvi
 
 Cuando completó el tutorial [Introducción a la autenticación][Introducción a la autenticación], debió haber establecido las operaciones de tabla para solicitar autenticación tal y como se muestra a continuación.
 
-![][]
+![][0]
 
 Con cada operación de base de datos que requiere autenticación, podemos agregar scripts que usan el objeto de usuario para comprobaciones de acceso.
 
@@ -241,9 +241,6 @@ En los pasos siguientes se muestra cómo implementar el control de acceso basado
 
 <!-- Anchors. --> <!-- Images --> <!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "C# para Tienda Windows"
-  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/ "Back-end de .NET"
-  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/ "Back-end de JavaScript"
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [Creación de un grupo Sales con suscripción]: #create-group
@@ -257,7 +254,7 @@ En los pasos siguientes se muestra cómo implementar el control de acceso basado
   [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [referencia de errores de la API Graph]: http://msdn.microsoft.com/es-es/library/azure/hh974480.aspx
   [IsMemberOf]: http://msdn.microsoft.com/es-es/library/azure/dn151601.aspx
-  []: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
+  [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png
   [mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md

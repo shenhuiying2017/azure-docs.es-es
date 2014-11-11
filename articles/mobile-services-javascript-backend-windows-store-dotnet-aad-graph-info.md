@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-javascript-aad-graph-info" urlDisplayName="Accessing Azure Active Directory Graph Information" pageTitle="Accessing Azure Active Directory Graph Information (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to access Azure Active Directory information using the Graph API in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Accessing Azure Active Directory Graph Information" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/20/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="08/20/2014" ms.author="wesmc" />
 
 # Acceso a información de Azure Active Directory Graph
 
@@ -38,7 +38,7 @@ Antes de comenzar este tutorial, debe haber realizado los siguientes tutoriales 
 
 Durante el tutorial [Introducción a la autenticación][Introducción a la autenticación], creó un registro para la aplicación integrada cuando realizó el paso [Registro para usar un inicio de sesión de Azure Active Directory][Registro para usar un inicio de sesión de Azure Active Directory]. En esta sección, generará una clave que se usará cuando se lea información de directorios con el identificador de cliente de esa aplicación integrada.
 
-[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key][mobile-services-generate-aad-app-registration-access-key]]
+[WACOM.INCLUDE [mobile-services-generate-aad-app-registration-access-key](../includes/mobile-services-generate-aad-app-registration-access-key.md)]
 
 ## <a name="create-api"></a>Creación de una API GetUserInfo personalizada
 
@@ -48,7 +48,7 @@ Si nunca ha usado API personalizadas con Servicios móviles, debería revisar el
 
 1.  En el [Portal de administración de Aure][Portal de administración de Aure], cree la nueva API personalizada GetUserInfo para su servicio móvil y establezca el permiso **Solo usuarios autenticados** para el método get.
 
-    ![][]
+    ![][0]
 
 2.  Abra el editor de scripts para la nueva API GetUserInfo y agregue las variables siguientes al principio del script.
 
@@ -131,11 +131,11 @@ Si nunca ha usado API personalizadas con Servicios móviles, debería revisar el
 
 En esta sección, va a actualizar el método `AuthenticateAsync` que implementó en el tutorial [Introducción a la autenticación][Introducción a la autenticación] para que llame a la API personalizada y devuelva más información sobre el usuario de AAD.
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app][mobile-services-aad-graph-info-update-app]]
+[WACOM.INCLUDE [mobile-services-aad-graph-info-update-app](../includes/mobile-services-aad-graph-info-update-app.md)]
 
 ## <a name="test-app"></a>Prueba de la aplicación
 
-[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app][mobile-services-aad-graph-info-test-app]]
+[WACOM.INCLUDE [mobile-services-aad-graph-info-test-app](../includes/mobile-services-aad-graph-info-test-app.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -145,9 +145,6 @@ En el próximo tutorial, [Control de acceso basado en roles en Servicios móvile
 <!-- Images --> 
 <!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-aad-graph-info/ "C# para Tienda Windows"
-  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-graph-info/ "Back-end de .NET"
-  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/ "Back-end de JavaScript"
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [Generación de una clave de acceso para el registro de la aplicación en AAD]: #generate-key
@@ -159,7 +156,7 @@ En el próximo tutorial, [Control de acceso basado en roles en Servicios móvile
   [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [API REST Graph]: http://msdn.microsoft.com/es-es/library/azure/hh974478.aspx
   [Portal de administración de Aure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png
+  [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png
   [obtención de usuarios]: http://msdn.microsoft.com/es-es/library/azure/dn151678.aspx
   [mobile-services-aad-graph-info-update-app]: ../includes/mobile-services-aad-graph-info-update-app.md
   [mobile-services-aad-graph-info-test-app]: ../includes/mobile-services-aad-graph-info-test-app.md

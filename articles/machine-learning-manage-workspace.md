@@ -1,6 +1,6 @@
 <properties title="Manage an Azure Machine Learning workspace" pageTitle="Manage a Machine Learning workspace | Azure" description="Manage access to Azure Machine Learning workspaces, and deploy and manage ML API web services" metaKeywords="" services="" solutions="" documentationCenter="" authors="derrickv" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="derrickv" />
 
 # Verwalten eines Azure Machine Learning-Arbeitsbereichs
 
@@ -14,7 +14,7 @@ In der Registerkarte **WEBDIENSTE** können Sie Azure ML-Webdienste hinzufügen,
 2.  Klicken Sie im Microsoft Azure-Dienstbereich auf **MACHINE LEARNING**.
 3.  Klicken Sie in der Liste **Machine Learning** auf einen Arbeitsbereich.
 
-![][]
+![][0]
 
 ## Erteilen oder Blockieren des Zugriffs für Benutzer
 
@@ -26,4 +26,4 @@ Bereitstellen von Produktions-Webdiensten, siehe Link.
 
 
 
-  []: ./media/machine-learning-manage-workspace/mw1.png
+  [0]: ./media/machine-learning-manage-workspace/mw1.png

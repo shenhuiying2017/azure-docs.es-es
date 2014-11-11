@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage  from .NET | Microsoft Azure" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table." services="storage" documentationCenter=".NET" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="How to use Microsoft Azure Table storage" authors="tamram" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Uso del almacenamiento de tablas en .NET
 
@@ -8,45 +8,45 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del
 servicio de almacenamiento de tablas de Azure. Los ejemplos están escritos en código C#
 y utilizan la biblioteca del cliente de almacenamiento de Azure para .NET. Dichas tareas comunes incluyen **crear y
 eliminar una tabla**, así como **trabajar con entidades de tabla**. Para obtener más
-información acerca de las tablas, consulte la sección [Pasos siguientes][].
+información acerca de las tablas, consulte la sección [Pasos siguientes][Pasos siguientes].
 
-> [WACOM.NOTE] Esta guía se destina a la biblioteca de cliente de almacenamiento .NET de Azure 2.x y posterior. La versión recomendada es la biblioteca de cliente de almacenamiento 4.x, que está disponible a través de [NuGet][] o como parte del [SDK de Azure para .NET][]. Consulte [Acceso al almacenamiento de tabla mediante programación][] a continuación para obtener más información acerca de la obtención de una biblioteca de cliente de almacenamiento.
+> [WACOM.NOTE] Esta guía se destina a la biblioteca de cliente de almacenamiento .NET de Azure 2.x y posterior. La versión recomendada es la biblioteca de cliente de almacenamiento 4.x, que está disponible a través de [NuGet][NuGet] o como parte del [SDK de Azure para .NET][SDK de Azure para .NET]. Consulte [Acceso al almacenamiento de tabla mediante programación][Acceso al almacenamiento de tabla mediante programación] a continuación para obtener más información acerca de la obtención de una biblioteca de cliente de almacenamiento.
 
 ## Tabla de contenido
 
--   [Qué es el servicio Tabla][]
--   [Conceptos][]
--   [Creación de una cuenta de almacenamiento de Azure][]
--   [Configuración de una cadena de conexión de almacenamiento][]
+-   [Qué es el servicio Tabla][Qué es el servicio Tabla]
+-   [Conceptos][Conceptos]
+-   [Creación de una cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento de Azure]
+-   [Configuración de una cadena de conexión de almacenamiento][Configuración de una cadena de conexión de almacenamiento]
 -   [Acceso al almacenamiento de tablas mediante programación][Acceso al almacenamiento de tabla mediante programación]
--   [Creación de una tabla][]
--   [Incorporación de una entidad a una tabla][]
--   [Inserción de un lote de entidades][]
--   [Recuperación de todas las entidades de una partición][]
--   [Recuperación de un rango de entidades de una partición][]
--   [Recuperación de una sola entidad][]
--   [Reemplazo de una entidad][]
--   [Inserción o reemplazo de una entidad][]
--   [Consulta de un subconjunto de propiedades de las entidades][]
--   [Eliminación de una entidad][]
--   [Eliminación de una tabla][]
--   [Pasos siguientes][]
+-   [Creación de una tabla][Creación de una tabla]
+-   [Incorporación de una entidad a una tabla][Incorporación de una entidad a una tabla]
+-   [Inserción de un lote de entidades][Inserción de un lote de entidades]
+-   [Recuperación de todas las entidades de una partición][Recuperación de todas las entidades de una partición]
+-   [Recuperación de un rango de entidades de una partición][Recuperación de un rango de entidades de una partición]
+-   [Recuperación de una sola entidad][Recuperación de una sola entidad]
+-   [Reemplazo de una entidad][Reemplazo de una entidad]
+-   [Inserción o reemplazo de una entidad][Inserción o reemplazo de una entidad]
+-   [Consulta de un subconjunto de propiedades de las entidades][Consulta de un subconjunto de propiedades de las entidades]
+-   [Eliminación de una entidad][Eliminación de una entidad]
+-   [Eliminación de una tabla][Eliminación de una tabla]
+-   [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## 
 
 ## <a name="create-account"></a><span class="short-header">Creación de una cuenta</span>Creación de una cuenta de almacenamiento de Azure
 
 </h2>
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## 
 
 ## <a name="setup-connection-string"></a><span class="short-header">Configuración de una cadena de conexión</span>Configuración de una cadena de conexión de almacenamiento
 
 </h2>
-[WACOM.INCLUDE [storage-configure-connection-string][]]
+[WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
 ## 
 
@@ -57,7 +57,7 @@ información acerca de las tablas, consulte la sección [Pasos siguientes][].
 
 Puede utilizar NuGet para obtener el ensamblado `Microsoft.WindowsAzure.Storage.dll`. Haga clic con el botón secundario en el proyecto, en el **Explorador de soluciones**, y elija **Manage NuGet Packages**. Busque "Azure.Storage" en línea y haga clic en **Install** para instalar el paquete y las dependencias de almacenamiento de Azure.
 
-`Microsoft.WindowsAzure.Storage.dll` también se incluye en el SDK de Azure para .NET, que se puede descargar en el [Centro de desarrolladores de .NET][]. El ensamblado se instala en el directorio `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
+`Microsoft.WindowsAzure.Storage.dll` también se incluye en el SDK de Azure para .NET, que se puede descargar en el [Centro de desarrolladores de .NET][Centro de desarrolladores de .NET]. El ensamblado se instala en el directorio `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
 
 ### Declaraciones de espacio de nombres
 
@@ -92,7 +92,7 @@ Si está creando una aplicación sin ninguna referencia a Microsoft.WindowsAzure
 
 ### Dependencias ODataLib
 
-Las dependencias ODataLib de la biblioteca de clientes de almacenamiento para .NET se resuelven mediante los paquetes ODataLib (versión 5.0.2) disponibles a través de NuGet y no a través de los servicios de datos de WCF. A través de NuGet, es posible descargar directamente las bibliotecas ODataLib o bien hacer referencia a ellas con el código del proyecto. Los paquetes ODataLib específicos son [OData][], [Edm][] y [Spatial][].
+Las dependencias ODataLib de la biblioteca de clientes de almacenamiento para .NET se resuelven mediante los paquetes ODataLib (versión 5.0.2) disponibles a través de NuGet y no a través de los servicios de datos de WCF. A través de NuGet, es posible descargar directamente las bibliotecas ODataLib o bien hacer referencia a ellas con el código del proyecto. Los paquetes ODataLib específicos son [OData][OData], [Edm][Edm] y [Spatial][Spatial].
 
 ## <a name="create-table"></a><span class="short-header">Creación de una tabla</span>Creación de de una tabla
 
@@ -410,7 +410,7 @@ sobrescribirán.
 Una consulta de tabla puede recuperar tan solo unas cuantas propiedades de una entidad en lugar de todas ellas. Esta técnica, denominada proyección, reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades de gran tamaño. La consulta del código
 siguiente devuelve solo las direcciones de correo electrónico de las entidades
 de la tabla. Esto se consigue utilizando una consulta de **DynamicTableEntity** y
-también un objeto **EntityResolver**. Puede obtener más información acerca de la proyección en esta [entrada de blog][] (en inglés). Tenga en cuenta que la proyección no es compatible con el emulador de almacenamiento local, por lo que este código solo se ejecuta cuando se utiliza una cuenta del servicio Tabla.
+también un objeto **EntityResolver**. Puede obtener más información acerca de la proyección en esta [entrada de blog][entrada de blog] (en inglés). Tenga en cuenta que la proyección no es compatible con el emulador de almacenamiento local, por lo que este código solo se ejecuta cuando se utiliza una cuenta del servicio Tabla.
 
     // Retrieve storage account from connection string
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -497,18 +497,18 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento en ta
 para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
 -   Consulte la documentación de referencia del servicio de tabla para obtener información detallada acerca de las API disponibles:
-    -   [Referencia acerca de la biblioteca de clientes de almacenamiento para .NET][]
-    -   [Referencia de la API REST][]
--   Obtenga información acerca de las tareas más avanzadas que se pueden realizar con el almacenamiento de Azure en [Almacenamiento][].
--   Obtenga información acerca de cómo trabajar con Almacenamiento de Azure en procesos de back-end para Sitios web Azure en [Introducción al SDK de WebJobs de Azure][].
+    -   [Referencia acerca de la biblioteca de clientes de almacenamiento para .NET][Referencia acerca de la biblioteca de clientes de almacenamiento para .NET]
+    -   [Referencia de la API REST][Referencia de la API REST]
+-   Obtenga información acerca de las tareas más avanzadas que se pueden realizar con el almacenamiento de Azure en [Almacenamiento][Almacenamiento].
+-   Obtenga información acerca de cómo trabajar con Almacenamiento de Azure en procesos de back-end para Sitios web Azure en [Introducción al SDK de WebJobs de Azure][Introducción al SDK de WebJobs de Azure].
 -   Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
-    -   Utilice [Almacenamiento de blobs][] para almacenar datos no estructurados.
-    -   Utilice [Almacenamiento de cola][] para almacenar datos estructurados.
-    -   Utilice [Base de datos SQL][] para almacenar datos relacionales.
+    -   Utilice [Almacenamiento de blobs][Almacenamiento de blobs] para almacenar datos no estructurados.
+    -   Utilice [Almacenamiento de cola][Almacenamiento de cola] para almacenar datos estructurados.
+    -   Utilice [Base de datos SQL][Base de datos SQL] para almacenar datos relacionales.
 
   [Pasos siguientes]: #next-steps
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
-  [SDK de Azure para .NET]: /en-us/downloads/
+  [SDK de Azure para .NET]: /es-es/downloads/
   [Acceso al almacenamiento de tabla mediante programación]: #configure-access
   [Qué es el servicio Tabla]: #what-is
   [Conceptos]: #concepts
@@ -528,14 +528,14 @@ para obtener más información acerca de cómo realizar tareas de almacenamiento
   [howto-table-storage]: ../includes/howto-table-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
-  [Centro de desarrolladores de .NET]: http://www.windowsazure.com/en-us/develop/net/#
+  [Centro de desarrolladores de .NET]: http://www.windowsazure.com/es-es/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
   [entrada de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
   [Referencia acerca de la biblioteca de clientes de almacenamiento para .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Referencia de la API REST]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-  [Almacenamiento]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Referencia de la API REST]: http://msdn.microsoft.com/es-es/library/windowsazure/dd179355
+  [Almacenamiento]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
   [Introducción al SDK de WebJobs de Azure]: /es-es/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [Almacenamiento de blobs]: /es-es/documentation/articles/storage-dotnet-how-to-use-blobs/
   [Almacenamiento de cola]: /es-es/documentation/articles/storage-dotnet-how-to-use-queues/

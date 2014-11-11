@@ -1,6 +1,6 @@
 <properties umbracoNaviHide="0" pageTitle="How to Manage SQL Database" metaKeywords="Azure SQL database, SQL database, manage sql database, add logins, connect to sql database" description="Learn how to manage Azure SQL database." linkid="devnav-manage-services-cloud-services" urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg" />
 
 # <span id="swap"></span></a>Administración de Base de datos SQL
 
@@ -8,8 +8,8 @@ Este tema muestra cómo realizar tareas de administración sencillas en Base de 
 
 ## Tabla de contenido
 
--   [Direccionamiento del Base de datos SQL en Azure con Management Studio][]
--   [Direccionamiento del inicios de sesión y usuarios a Base de datos SQL en Azure][]
+-   [Direccionamiento del Base de datos SQL en Azure con Management Studio][Direccionamiento del Base de datos SQL en Azure con Management Studio]
+-   [Direccionamiento del inicios de sesión y usuarios a Base de datos SQL en Azure][Direccionamiento del inicios de sesión y usuarios a Base de datos SQL en Azure]
 
 ## <span id="connect"></span></a>Direccionamiento del Base de datos SQL en Azure con Management Studio
 
@@ -17,7 +17,7 @@ Management Studio es una herramienta administrativa que permite administrar vari
 
 Management Studio incluye características que no están actualmente disponibles en el portal de administración, como un comprobador de sintaxis y la posibilidad de guardar scripts y consultas con nombre para volver a usarlos. Base de datos SQL es un extremo de secuencia de datos tubular (TDS). Todas las herramientas que funcionan con TDS, incluido Management Studio, son válidas para las operaciones de Base de datos SQL. Los scripts que desarrolla para el servidor local se ejecutarán en un servidor lógico de Base de datos SQL.
 
-En el siguiente paso, utilizará Management Studio para conectarse a un servidor lógico en Azure. Este paso requiere tener SQL Server Management Studio versión 2008 R2 o 2012. Si necesita ayuda para descargar o conectarse a Management Studio, consulte [Administración de Base de datos SQL con Management Studio][] en este sitio.
+En el siguiente paso, utilizará Management Studio para conectarse a un servidor lógico en Azure. Este paso requiere tener SQL Server Management Studio versión 2008 R2 o 2012. Si necesita ayuda para descargar o conectarse a Management Studio, consulte [Administración de Base de datos SQL con Management Studio][Administración de Base de datos SQL con Management Studio] en este sitio.
 
 Antes de poder conectarse, a veces es necesario crear una excepción de firewall que permita realizar solicitudes salientes en el puerto 1433 en el sistema local. Los equipos que están asegurados de forma predeterminada suelen tener el puerto 1433 cerrado.
 
@@ -117,7 +117,7 @@ El segundo script asigna permisos de usuario de base de datos. Con este script, 
 
 6.  Abra una segunda ventana de consulta y cambie el contexto de conexión a *sqlwriter*. La misma consulta debería ejecutarse ahora correctamente.
 
-Ya ha creado y probado varios inicios de sesión. Para obtener más información, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][] y [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica][].
+Ya ha creado y probado varios inicios de sesión. Para obtener más información, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure] y [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica][Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica].
 
   [Direccionamiento del Base de datos SQL en Azure con Management Studio]: #connect
   [Direccionamiento del inicios de sesión y usuarios a Base de datos SQL en Azure]: #addlogins

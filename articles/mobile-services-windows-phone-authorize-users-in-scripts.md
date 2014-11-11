@@ -1,6 +1,6 @@
 <properties pageTitle="Service-side authorization (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to authorize users in the JavaScript backend of Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Autorización en el servicio de usuarios de Servicios móviles
 
@@ -23,9 +23,9 @@
 
 Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que registrar los scripts para esas operaciones en la tabla TodoItem.
 
-1.  Inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, haga clic en su aplicación.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en su aplicación.
 
-    ![][]
+    ![][0]
 
 2.  Haga clic en la pestaña **Data** y, a continuación, haga clic en la tabla **TodoItem**.
 
@@ -59,7 +59,7 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
 
 ## Prueba de la aplicación
 
-1.  En Visual Studio 2012 Express para Windows Phone, abra el proyecto que modificó cuando completó el tutorial [Introducción a la autenticación][].
+1.  En Visual Studio 2012 Express para Windows Phone, abra el proyecto que modificó cuando completó el tutorial [Introducción a la autenticación][Introducción a la autenticación].
 
 2.  Presione la tecla F5 para ejecutar la aplicación y, a continuación, inicie sesión con el proveedor de identidades seleccionado.
 
@@ -77,15 +77,15 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
 
 Este es el último tutorial que muestra los aspectos básicos relacionados con el uso de la autenticación. Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
--   [Introducción a los datos][]
+-   [Introducción a los datos][Introducción a los datos]
     
 	Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a las notificaciones de inserción][]
+-   [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción]
     
 	Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
--   [Referencia del script del servidor de Servicios móviles][]
+-   [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles]
     
 	Obtenga más información acerca del registro y uso de scripts de servidor.
 
@@ -93,20 +93,9 @@ Este es el último tutorial que muestra los aspectos básicos relacionados con e
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-authorize-users-in-scripts "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts "JavaScript para Tienda Windows"
-  [Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts "Windows Phone"
-  [iOS]: /es-es/documentation/articles/mobile-services-ios-authorize-users-in-scripts "iOS"
-  [Android]: /es-es/documentation/articles/mobile-services-android-authorize-users-in-scripts "Android"
-  [HTML]: /es-es/documentation/articles/mobile-services-html-authorize-users-in-scripts "HTML"
-  [Xamarin.iOS]: /es-es/documentation/articles/partner-xamarin-mobile-services-ios-authorize-users-in-scripts "Xamarin.iOS"
-  [Xamarin.Android]: /es-es/documentation/articles/partner-xamarin-mobile-services-android-authorize-users-in-scripts "Xamarin.Android"
-  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/ "Back-end de .NET"
-  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-windows-phone-authorize-users-in-scripts/ "Back-end de JavaScript"
   [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-wp8
-  [Ver el tutorial (en inglés)]: http://go.microsoft.com/fwlink/?LinkId=298630
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-portal-data-tables.png
   [2]: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-insert-script-users.png
   [3]: ./media/mobile-services-windows-phone-authorize-users-in-scripts/mobile-quickstart-startup-wp8.png

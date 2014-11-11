@@ -1,6 +1,6 @@
 <properties title="Get started with a DocumentDB account" pageTitle="Get started with a DocumentDB account | Azure" description="Learn how to create and configure an Azure DocumentDB account, create databases, create collections, and store JSON documents within the account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="paulettm" editor="cgronlun" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Primeros pasos con una cuenta de Base de datos de documentos
 
@@ -33,7 +33,7 @@ Se puede crear una instancia de un DocumentClient mediante el extremo de la cuen
 
 El extremo y las claves se pueden obtener del cuadro del Portal de vista previa de administración de Azure para su cuenta de Base de datos de documentos.
 
-![][]
+![][0]
 
 > Tenga en cuenta que las claves de acceso de Base de datos de documentos disponibles en el cuadro Claves otorgan acceso administrativo a su cuenta de Base de datos de documentos y a los recursos que contiene. Base de datos de documentos admite también el uso de claves de recursos que permiten a los clientes leer, escribir y eliminar recursos de la cuenta de acuerdo con los permisos otorgados, sin necesidad de una clave de cuenta.
 
@@ -196,7 +196,7 @@ Base de datos de documentos admite consultas enriquecidas contra los documentos 
   [Creación de documentos]: #CreateDoc
   [Consulta de recursos de Base de datos de documentos]: #Query
   [Pasos siguientes]: #NextSteps
-  []: ./media/documentdb-get-started/gs1.png
+  [0]: ./media/documentdb-get-started/gs1.png
   [Sitios web de Windows Azure: como funcionan las cadenas de aplicación y las cadenas de conexión]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
   [supervisar una cuenta de Base de datos de documentos]: http://go.microsoft.com/fwlink/p/?LinkId=402378
   [página de documentación de Base de datos de documentos]: http://go.microsoft.com/fwlink/p/?LinkID=402319

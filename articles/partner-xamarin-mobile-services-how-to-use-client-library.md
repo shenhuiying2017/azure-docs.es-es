@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-how-to-xamarin-client" urlDisplayName="Xamarin" pageTitle="How to use the Xamarin Component client - Azure Mobile Services feature guide" metaKeywords="Azure Mobile Services, Xamarin, iOS, Android, .NET client" description="Learn how to use the Xamarin Component client for Azure Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to use the Xamarin Component client for Azure Mobile Services" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Uso del cliente del componente Xamarin para Servicios móviles de Azure
 
@@ -9,34 +9,34 @@
     <a href="/es-es/develop/mobile/how-to-guides/work-with-html-js-client/" title="HTML/JavaScript">HTML/JavaScript</a><a href="/es-es/develop/mobile/how-to-guides/work-with-ios-client-library/" title="iOS">iOS</a><a href="/es-es/develop/mobile/how-to-guides/work-with-android-client-library/" title="Android">Android</a><a href="/es-es/develop/mobile/how-to-guides/work-with-xamarin-client-library/" title="Xamarin" class="current">Xamarin</a>
 </div>
 
-Esta guía le muestra cómo realizar tareas comunes con el cliente del componente Xamarin para Servicios móviles de Azure, en aplicaciones Xamarin para iOS y Android. Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia con Servicios móviles, primero debería considerar realizar los tutoriales "Inicio rápido de Servicios móviles" ([Xamarin.iOS][]/[Xamarin.Android][]) e "Introducción a los datos en .NET" ([Xamarin.iOS][1]/[Xamarin.Android][2]). El tutorial de inicio rápido requiere [Xamarin][3] y el [SDK de Servicios móviles][], y le ayuda a configurar su cuenta y a crear su primer servicio móvil.
+Esta guía le muestra cómo realizar tareas comunes con el cliente del componente Xamarin para Servicios móviles de Azure, en aplicaciones Xamarin para iOS y Android. Entre las tareas incluidas se encuentran la consulta, inserción, actualización y eliminación de datos, la autenticación de usuarios y la administración de errores. Si no tiene experiencia con Servicios móviles, primero debería considerar realizar los tutoriales "Inicio rápido de Servicios móviles" ([Xamarin.iOS][Xamarin.iOS]/[Xamarin.Android][Xamarin.Android]) e "Introducción a los datos en .NET" ([Xamarin.iOS][1]/[Xamarin.Android][2]). El tutorial de inicio rápido requiere [Xamarin][3] y el [SDK de Servicios móviles][SDK de Servicios móviles], y le ayuda a configurar su cuenta y a crear su primer servicio móvil.
 
 ## Tabla de contenido
 
--   [Qué es Servicios móviles][]
--   [Conceptos][]
--   [Direccionamiento del cliente de Servicios móviles][]
--   [Direccionamiento del referencia de tabla][]
--   [Direccionamiento del desde un servicio móvil][]
-    -   [Filtro de datos devueltos][]
-    -   [de datos devueltos][]
-    -   [de datos en páginas][]
-    -   [de columnas específicas][]
-    -   [Búsqueda de datos por identificador][]
--   [Direccionamiento del datos en un servicio móvil][]
+-   [Qué es Servicios móviles][Qué es Servicios móviles]
+-   [Conceptos][Conceptos]
+-   [Direccionamiento del cliente de Servicios móviles][Direccionamiento del cliente de Servicios móviles]
+-   [Direccionamiento del referencia de tabla][Direccionamiento del referencia de tabla]
+-   [Direccionamiento del desde un servicio móvil][Direccionamiento del desde un servicio móvil]
+    -   [Filtro de datos devueltos][Filtro de datos devueltos]
+    -   [de datos devueltos][de datos devueltos]
+    -   [de datos en páginas][de datos en páginas]
+    -   [de columnas específicas][de columnas específicas]
+    -   [Búsqueda de datos por identificador][Búsqueda de datos por identificador]
+-   [Direccionamiento del datos en un servicio móvil][Direccionamiento del datos en un servicio móvil]
 -   [Direccionamiento del datos en un servicio móvil][4]
 -   [Direccionamiento del datos en un servicio móvil][5]
--   [Direccionamiento del de usuarios][]
--   [Direccionamiento del errores][]
--   [Direccionamiento del datos sin tipo][]
--   [Direccionamiento del pruebas unitarias][]
--   [Pasos siguientes][]
+-   [Direccionamiento del de usuarios][Direccionamiento del de usuarios]
+-   [Direccionamiento del errores][Direccionamiento del errores]
+-   [Direccionamiento del datos sin tipo][Direccionamiento del datos sin tipo]
+-   [Direccionamiento del pruebas unitarias][Direccionamiento del pruebas unitarias]
+-   [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [mobile-services-concepts][]]
+[WACOM.INCLUDE [mobile-services-concepts](../includes/mobile-services-concepts.md)]
 
 ## <a name="setup"></a><span class="short-header">Configuración</span>Configuración y requisitos previos
 
-Se asume que ha creado un servicio móvil y una tabla. Para obtener más información, consulte [Crear una tabla][]. En el código usado en este tema, el nombre de la tabla es `TodoItem` y dispondrá de las siguientes columnas: `id`, `Text` y `Complete`.
+Se asume que ha creado un servicio móvil y una tabla. Para obtener más información, consulte [Crear una tabla][Crear una tabla]. En el código usado en este tema, el nombre de la tabla es `TodoItem` y dispondrá de las siguientes columnas: `id`, `Text` y `Complete`.
 
 El tipo .NET del cliente con tipo correspondiente es el siguiente:
 
@@ -51,7 +51,7 @@ El tipo .NET del cliente con tipo correspondiente es el siguiente:
         public bool Complete { get; set; }
     }
 
-Cuando está habilitado el esquema dinámico, Servicios móviles de Azure genera automáticamente columnas nuevas basadas en el objeto en las solicitudes de inserción o actualización. Para obtener más información, consulte [Esquema dinámico][].
+Cuando está habilitado el esquema dinámico, Servicios móviles de Azure genera automáticamente columnas nuevas basadas en el objeto en las solicitudes de inserción o actualización. Para obtener más información, consulte [Esquema dinámico][Esquema dinámico].
 
 ## <a name="create-client"></a><span class="short-header">Creación del cliente de Servicios móviles</span>Creación del cliente de Servicios móviles
 
@@ -66,7 +66,7 @@ En el código anterior, reemplace `AppUrl` y `AppKey` por la URL y la clave de a
 
 ## <a name="instantiating"></a><span class="short-header">Creación de una referencia de tabla</span>Creación de una referencia de tabla
 
-Todo el código que obtiene acceso o modifica los datos de la tabla de Servicios móviles llama a las funciones del objeto `MobileServiceTable`. Obtenga una referencia a la tabla llamando a la función [GetTable][] en una instancia de `MobileServiceClient`.
+Todo el código que obtiene acceso o modifica los datos de la tabla de Servicios móviles llama a las funciones del objeto `MobileServiceTable`. Obtenga una referencia a la tabla llamando a la función [GetTable][GetTable] en una instancia de `MobileServiceClient`.
 
     IMobileServiceTable<TodoItem> todoTable = 
         client.GetTable<TodoItem>();
@@ -162,7 +162,7 @@ La siguiente consulta revisada omite los tres primeros resultados y devuelve los
     List<TodoItem> items = await query.ToListAsync();
             
 
-También puede usar el método [IncludeTotalCount][] para asegurarse de que la consulta obtendrá el recuento total de *todos* los registros que deberían devolverse, ignorando cualquier cláusula de limitación/paginación especificada.
+También puede usar el método [IncludeTotalCount][IncludeTotalCount] para asegurarse de que la consulta obtendrá el recuento total de *todos* los registros que deberían devolverse, ignorando cualquier cláusula de limitación/paginación especificada.
 
     query = query.IncludeTotalCount();
 
@@ -261,7 +261,7 @@ Se admiten dos flujos de autenticación: un *flujo de servidor* y un *flujo de c
 Para que Servicios móviles administre el proceso de autenticación en la aplicación de la Tienda Windows o Windows Phone,
 debe registrar la aplicación con el proveedor de identidades. A continuación, en el servicio móvil, tendrá que configurar el identificador y el secreto de la aplicación proporcionados por el proveedor. Si desea obtener más información, consulte el tutorial "Introducción a la autenticación" ([Xamarin.iOS][6]/[Xamarin.Android][7]).
 
-Una vez que haya registrado el proveedor de identidades, simplemente llame al método [LoginAsync][] con el valor [MobileServiceAuthenticationProvider][] del proveedor. Por ejemplo, el siguiente código activa un inicio de sesión de flujo de servidor mediante Facebook.
+Una vez que haya registrado el proveedor de identidades, simplemente llame al método [LoginAsync][LoginAsync] con el valor [MobileServiceAuthenticationProvider][MobileServiceAuthenticationProvider] del proveedor. Por ejemplo, el siguiente código activa un inicio de sesión de flujo de servidor mediante Facebook.
 
     private MobileServiceUser user;
     private async System.Threading.Tasks.Task Authenticate()
@@ -287,9 +287,9 @@ Una vez que haya registrado el proveedor de identidades, simplemente llame al m�
         }
     }
 
-Si está usando un proveedor de identidades diferente al de Facebook, cambie el valor de [MobileServiceAuthenticationProvider][] anterior por el valor de su proveedor.
+Si está usando un proveedor de identidades diferente al de Facebook, cambie el valor de [MobileServiceAuthenticationProvider][MobileServiceAuthenticationProvider] anterior por el valor de su proveedor.
 
-En este caso, Servicios móviles administra el flujo de autenticación de OAuth 2.0 mostrando la página de inicio de sesión del proveedor seleccionado y generando un token de autenticación de Servicios móviles después de que se realice un inicio de sesión correcto con el proveedor de identidades. El método [LoginAsync][] devuelve [MobileServiceUser][], que proporciona [userId][] del usuario autenticado y [MobileServiceAuthenticationToken][] como un token de web JSON (JWT). El token puede almacenarse en caché y volver a usarse hasta que expire. Para obtener más información, consulte [Almacenamiento en caché del token de autenticación][].
+En este caso, Servicios móviles administra el flujo de autenticación de OAuth 2.0 mostrando la página de inicio de sesión del proveedor seleccionado y generando un token de autenticación de Servicios móviles después de que se realice un inicio de sesión correcto con el proveedor de identidades. El método [LoginAsync][LoginAsync] devuelve [MobileServiceUser][MobileServiceUser], que proporciona [userId][userId] del usuario autenticado y [MobileServiceAuthenticationToken][MobileServiceAuthenticationToken] como un token de web JSON (JWT). El token puede almacenarse en caché y volver a usarse hasta que expire. Para obtener más información, consulte [Almacenamiento en caché del token de autenticación][Almacenamiento en caché del token de autenticación].
 
 ### Flujo de cliente
 
@@ -330,7 +330,7 @@ En la forma más simplificada, puede usar el flujo de cliente como se muestra en
 
 ### <a name="caching"></a>Almacenamiento en caché del token de autenticación
 
-En algunos casos, la llamada al método de inicio de sesión puede evitarse después de la primera vez que el usuario se autentique. Puede usar un almacén local seguro (como [Xamarin.Auth][]) para almacenar en caché la identidad del usuario actual la primera vez que se inicie sesión y las veces posteriores que compruebe si ya dispone de la identidad de usuario en la memoria caché. Si la memoria caché está vacía, tendrá que enviar el usuario a través del proceso de inicio de sesión.
+En algunos casos, la llamada al método de inicio de sesión puede evitarse después de la primera vez que el usuario se autentique. Puede usar un almacén local seguro (como [Xamarin.Auth][Xamarin.Auth]) para almacenar en caché la identidad del usuario actual la primera vez que se inicie sesión y las veces posteriores que compruebe si ya dispone de la identidad de usuario en la memoria caché. Si la memoria caché está vacía, tendrá que enviar el usuario a través del proceso de inicio de sesión.
 
     using Xamarin.Auth;
     var accountStore = AccountStore.Create(); // Xamarin.iOS
@@ -405,7 +405,7 @@ El cliente del componente Xamarin se ha creado para escenarios fuertemente tipad
     // Lookup untyped data using OData
     JToken untypedItems = await untypedTodoTable.ReadAsync("$filter=complete eq 0&$orderby=text");
 
-Vuelva a obtener valores JSON que puede usar como un contenedor de propiedades. Para obtener más información sobre JToken y Json.NET, consulte [Json.NET][].
+Vuelva a obtener valores JSON que puede usar como un contenedor de propiedades. Para obtener más información sobre JToken y Json.NET, consulte [Json.NET][Json.NET].
 
 ## <a name="unit-testing"></a><span class="short-header">Diseño de pruebas</span>Diseño de pruebas unitarias
 
@@ -435,10 +435,6 @@ Ahora que ha completado este tema de referencia conceptual, conozca cómo realiz
 
 <!-- Anchors. --> <!-- URLs. -->
 
-  [.NET Framework]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /es-es/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /es-es/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /es-es/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
   [Xamarin]: /es-es/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Xamarin.iOS]: /es-es/develop/mobile/tutorials/get-started-xamarin-ios/
   [Xamarin.Android]: /es-es/develop/mobile/tutorials/get-started-xamarin-android/

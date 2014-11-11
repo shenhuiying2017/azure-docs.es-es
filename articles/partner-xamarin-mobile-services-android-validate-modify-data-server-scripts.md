@@ -1,30 +1,30 @@
 <properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-xamarin-android" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate and modify data (Xamarin Android) | Mobile Dev Center" metaKeywords="access and change data, Azure Mobile Services, mobile devices, Azure, mobile, Xamarin.Android" description="Learn how to validate and modify data sent using server scripts from your Xamarin.Android app." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" manager="dwrede" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor
 
 <div class="dev-center-tutorial-selector sublanding"><a href="/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet" title="C# para Tienda Windows">C# para Tienda Windows</a><a href="/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-js" title="JavaScript para Tienda Windows">JavaScript para Tienda Windows</a><a href="/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-wp8" title="Windows Phone">Windows Phone</a><a href="/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-ios" title="iOS">iOS</a><a href="/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-android" title="Android">Android</a><a href="/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-html" title="HTML">HTML</a><a href="/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios" title="Xamarin.iOS">Xamarin.iOS</a><a href="/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android" title="Xamarin.Android" class="current">Xamarin.Android</a>
 </div>
 
-En este tema se muestra cómo aprovechar los scripts del servidor en Servicios móviles de Azure. Dichos scripts se registran en un servicio móvil y pueden usarse para realizar una gran variedad de operaciones en los datos que se han insertado y actualizado, incluidas la modificación y validación de los datos. En este tutorial, definirá y registrará scripts de servidor que sirven para validar y modificar datos. Dado que el comportamiento de los scripts del servidor suele afectar al cliente, también actualizará la aplicación Android para que se beneficie de estos nuevos comportamientos. El código terminado está disponible en el ejemplo de la [aplicación ValidateModifyData][].
+En este tema se muestra cómo aprovechar los scripts del servidor en Servicios móviles de Azure. Dichos scripts se registran en un servicio móvil y pueden usarse para realizar una gran variedad de operaciones en los datos que se han insertado y actualizado, incluidas la modificación y validación de los datos. En este tutorial, definirá y registrará scripts de servidor que sirven para validar y modificar datos. Dado que el comportamiento de los scripts del servidor suele afectar al cliente, también actualizará la aplicación Android para que se beneficie de estos nuevos comportamientos. El código terminado está disponible en el ejemplo de la [aplicación ValidateModifyData][aplicación ValidateModifyData].
 
 Este tutorial le guiará a través de estos pasos básicos:
 
-1.  [Incorporación de la validación de longitud de cadena][]
-2.  [Actualización del cliente para admitir la validación][]
-3.  [Incorporación de una marca de tiempo al insertar][]
-4.  [Actualización del cliente para mostrar la marca de tiempo][]
+1.  [Incorporación de la validación de longitud de cadena][Incorporación de la validación de longitud de cadena]
+2.  [Actualización del cliente para admitir la validación][Actualización del cliente para admitir la validación]
+3.  [Incorporación de una marca de tiempo al insertar][Incorporación de una marca de tiempo al insertar]
+4.  [Actualización del cliente para mostrar la marca de tiempo][Actualización del cliente para mostrar la marca de tiempo]
 
-Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos][]. Antes de comenzar este tutorial, primero debe completar [Introducción a los datos][].
+Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos][Introducción a los datos]. Antes de comenzar este tutorial, primero debe completar [Introducción a los datos][Introducción a los datos].
 
 ## <a name="string-length-validation"></a>Incorporación de la validación
 
 Siempre es conveniente validar la longitud de los datos enviados por los usuarios. En primer lugar, registre un script que valide la longitud de los datos de cadena enviados al servicio móvil y que rechace las cadenas demasiado largas, en este caso con más de 10 caracteres.
 
-1.  Inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
 
-    ![][]
+    ![][0]
 
 2.  Haga clic en la pestaña **Data** y, a continuación, haga clic en la tabla **TodoItem**.
 
@@ -54,7 +54,7 @@ Siempre es conveniente validar la longitud de los datos enviados por los usuario
 
 Ahora que el servicio móvil puede validar los datos y enviar respuestas de error, debe confirmar que su aplicación está administrando correctamente los errores de la validación.
 
-1.  En Xamarin Studio, abra el proyecto que ha creado cuando realizó el tutorial [Introducción a los datos][].
+1.  En Xamarin Studio, abra el proyecto que ha creado cuando realizó el tutorial [Introducción a los datos][Introducción a los datos].
 
 2.  En el archivo TodoActivity.cs, localice el método **AddItem** y reemplace la llamada al método CreateAndShowDialog por el siguiente código:
 
@@ -146,29 +146,21 @@ Ha completado este tutorial de trabajo con datos.
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
-Ahora que ha completado este tutorial, considere continuar con el tutorial final de la serie de datos: [Limitación de consultas con paginación][].
+Ahora que ha completado este tutorial, considere continuar con el tutorial final de la serie de datos: [Limitación de consultas con paginación][Limitación de consultas con paginación].
 
 Los scripts de servidor también se usan al autorizar usuarios y para enviar notificaciones de inserción. Para obtener más información, consulte los siguientes tutoriales:
 
--   [Autorización de usuarios con scripts][]
+-   [Autorización de usuarios con scripts][Autorización de usuarios con scripts]
     Aprenda a filtrar datos basándose en el identificador de un usuario autenticado.
 
--   [Introducción a las notificaciones de inserción][]
+-   [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción]
     Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
--   [Referencia del script del servidor de Servicios móviles][]
+-   [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles]
     Obtenga más información acerca del registro y uso de scripts de servidor.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-js "JavaScript para Tienda Windows"
-  [Windows Phone]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-wp8 "Windows Phone"
-  [iOS]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-ios "iOS"
-  [Android]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-android "Android"
-  [HTML]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-html "HTML"
-  [Xamarin.iOS]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-xamarin-android "Xamarin.Android"
+
   [aplicación ValidateModifyData]: http://go.microsoft.com/fwlink/p/?LinkId=331330
   [Incorporación de la validación de longitud de cadena]: #string-length-validation
   [Actualización del cliente para admitir la validación]: #update-client-validation
@@ -176,7 +168,7 @@ Los scripts de servidor también se usan al autorizar usuarios y para enviar not
   [Actualización del cliente para mostrar la marca de tiempo]: #update-client-timestamp
   [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  []: ./media/partner-xamarin-mobile-services-android-validate-modify-data-server-scripts/mobile-services-selection.png
+  [0]: ./media/partner-xamarin-mobile-services-android-validate-modify-data-server-scripts/mobile-services-selection.png
   [1]: ./media/partner-xamarin-mobile-services-android-validate-modify-data-server-scripts/mobile-portal-data-tables.png
   [2]: ./media/partner-xamarin-mobile-services-android-validate-modify-data-server-scripts/mobile-insert-script-users.png
   [Limitación de consultas con paginación]: /es-es/develop/mobile/tutorials/add-paging-to-data-xamarin-android

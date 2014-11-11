@@ -1,6 +1,6 @@
 <properties linkid="biztalk-backup-restore" urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="BizTalk Services: Backup and Restore | Azure" metaKeywords="" description="BizTalk Services includes Backup and Restore capabilities. When creating a Backup, a snapshot of the BizTalk Services configuration is taken." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Servicios de BizTalk: Copia de seguridad y restauración
 
@@ -58,7 +58,7 @@ Una vez que finalice la copia de seguridad, en la cuenta de almacenamiento se cr
 2.  Establezca el **Estado de copia de seguridad** en **Automático**.
 3.  Seleccione la **Cuenta de almacenamiento** para almacenar la copia de seguridad, especifique la **Frecuencia** con la que desea crear las copias de seguridad y cuánto tiempo quiere conservar las copias de seguridad (**Días de retención**):
 
-    ![][]
+    ![][0]
 
     **Notas**
 
@@ -242,7 +242,6 @@ Para crear los Servicios de BizTalk de Azure en el Portal de administración de 
   [Introducción]: #beforebackup
   [Creación de una copia de seguridad]: #createbu
   [Restauración de una copia de seguridad]: #restore
-  [¿Qué se incluye en la copia de seguridad?]: #budata
   [API de REST de los Servicios de BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=325584
   [Servicios de BizTalk: Tabla de ediciones]: http://azure.microsoft.com/es-es/documentation/articles/biztalk-editions-feature-chart/
   [Copia de seguridad bajo demanda]: #backupnow
@@ -260,4 +259,3 @@ Para crear los Servicios de BizTalk de Azure en el Portal de administración de 
   [Servicios de BizTalk: Pestañas Panel, Monitor y Escala]: http://go.microsoft.com/fwlink/p/?LinkID=302281
   [Servicios de BizTalk: Limitaciones]: http://go.microsoft.com/fwlink/p/?LinkID=302282
   [Servicios de BizTalk: Nombre de emisor y clave de emisor]: http://go.microsoft.com/fwlink/p/?LinkID=303941
-  [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?]: http://go.microsoft.com/fwlink/p/?LinkID=302335

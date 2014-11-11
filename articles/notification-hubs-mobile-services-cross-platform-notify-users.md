@@ -1,6 +1,6 @@
 <properties linkid="manage-services-notification-hubs-notify-users-xplat-mobile-services" urlDisplayName="notify users xplat mobile services" pageTitle="Send cross-platform notifications to users with Notification Hubs (Mobile Services)" metaKeywords="" description="Learn how to use Notification Hubs templates to send, in a single request, a platform-agnostic notification that targets all platforms." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Send cross-platform notifications to users with Notification Hubs" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones
 
@@ -9,7 +9,7 @@
     <a href="/es-es/documentation/articles/notification-hubs-aspnet-cross-platform-notify-users/" title="ASP.NET">ASP.NET</a>
 </div>
 
-En el tutorial anterior, [Notificación a los usuarios con Centros de notificaciones][], aprendió a insertar notificaciones en todos los dispositivos que tiene registrado un usuario autenticado específico. En ese tutorial, se necesitaban varias solicitudes para enviar una notificación a cada plataforma de cliente compatible. Los centros de notificaciones son compatibles con plantillas, que le permiten especificar cómo un dispositivo específico desea recibir notificaciones. Con esto se simplifica el envío de notificaciones entre plataformas. Este tema muestra cómo aprovecha las plantillas para enviar, en una sola solicitud, una notificación independiente de la plataforma que se dirige a todas las plataformas. Si desea obtener información más detallada sobre las plantillas, consulte [Información general acerca de los centros de notificaciones de Azure][].
+En el tutorial anterior, [Notificación a los usuarios con Centros de notificaciones][Notificación a los usuarios con Centros de notificaciones], aprendió a insertar notificaciones en todos los dispositivos que tiene registrado un usuario autenticado específico. En ese tutorial, se necesitaban varias solicitudes para enviar una notificación a cada plataforma de cliente compatible. Los centros de notificaciones son compatibles con plantillas, que le permiten especificar cómo un dispositivo específico desea recibir notificaciones. Con esto se simplifica el envío de notificaciones entre plataformas. Este tema muestra cómo aprovecha las plantillas para enviar, en una sola solicitud, una notificación independiente de la plataforma que se dirige a todas las plataformas. Si desea obtener información más detallada sobre las plantillas, consulte [Información general acerca de los centros de notificaciones de Azure][Información general acerca de los centros de notificaciones de Azure].
 
 <div class="dev-callout"><b>Nota:</b>
     <p>Los centros de notificaciones permiten que un dispositivo registre varias plantillas con la misma etiqueta. En este caso, un mensaje entrante dirigido a esa etiqueta da lugar a que se entreguen varias notificaciones al dispositivo, una por cada plantilla. Esto le permite mostrar el mismo mensaje en varias notificaciones visuales, como distintivo y como notificaci&oacute;n del sistema en una aplicaci&oacute;n de la Tienda Windows.</p>
@@ -17,9 +17,9 @@ En el tutorial anterior, [Notificación a los usuarios con Centros de notificaci
 
 Lleve a cabo los siguientes pasos para enviar notificaciones entre plataformas mediante plantillas:
 
-1.  Inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
 
-    ![][]
+    ![][0]
 
 2.  Haga clic en la pestaña **API** y, a continuación, en la entrada **register\_notifications** de la tabla de API.
 
@@ -101,22 +101,20 @@ Lleve a cabo los siguientes pasos para enviar notificaciones entre plataformas m
 
 Ahora que completó este tutorial, obtenga más información acerca de los centros de notificaciones y las plantillas en estos temas:
 
--   **Uso de los Centros de notificaciones para enviar noticias de última hora ([C# para Tienda Windows][] / [iOS][])**
+-   **Uso de los Centros de notificaciones para enviar noticias de última hora ([C# para Tienda Windows][C# para Tienda Windows] / [iOS][iOS])**
     Muestra otro escenario para el uso de las plantillas
 
--   **[Información general acerca de los centros de notificaciones de Azure][]**
+-   **[Información general acerca de los centros de notificaciones de Azure][Información general acerca de los centros de notificaciones de Azure]**
     Este tema de información general contiene información más detallada sobre las plantillas.
 
--   **[Notification Hub How to for Windows Store][]**
+-   **[Notification Hub How to for Windows Store][Notification Hub How to for Windows Store]**
     Incluye una referencia al lenguaje de la expresión de plantilla.
 
 
-  [Servicios móviles]: /es-es/documentation/articles/notification-hubs-mobile-services-cross-platform-notify-users/ "Servicios móviles"
-  [ASP.NET]: /es-es/documentation/articles/notification-hubs-aspnet-cross-platform-notify-users/ "ASP.NET"
   [Notificación a los usuarios con Centros de notificaciones]: /es-es/manage/services/notification-hubs/notify-users
   [Información general acerca de los centros de notificaciones de Azure]: http://go.microsoft.com/fwlink/p/?LinkId=317339
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  []: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-services-selection.png
+  [0]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-services-selection.png
   [1]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-custom-api-select.png
   [2]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-portal-data-tables.png
   [3]: ./media/notification-hubs-mobile-services-cross-platform-notify-users/mobile-insert-script-push2.png

@@ -1,33 +1,33 @@
 <properties linkid="dev-ruby-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Ruby) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Ruby" description="Learn how to use Service Bus queues in Azure. Code samples written in Ruby." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Queues" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Utilización de las colas del bus de servicio
 
 Esta guía le mostrará cómo usar las colas del bus de servicio. Los ejemplos están
 escritos en Ruby y usan la gema de Azure. Entre los escenarios
 proporcionados se incluyen los siguientes: **creación de colas, envío y recepción de mensajes** y
-**eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][].
+**eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][Pasos siguientes].
 
 ## Tabla de contenido
 
--   [¿Qué son las colas del bus de servicio?][]
--   [Creación de un espacio de nombres de servicio][]
--   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][]
--   [Creación de una aplicación de Ruby][]
--   [Configuración de la aplicación para usar el bus de servicio][]
--   [Configuración de una conexión del bus de servicio de Azure][]
--   [Creación de una cola][]
--   [Envío de mensajes a una cola][]
--   [Recepción de mensajes de una cola][]
--   [Actuación ante errores de la aplicación y mensajes que no se pueden leer][]
--   [Pasos siguientes][]
+-   [¿Qué son las colas del bus de servicio?][¿Qué son las colas del bus de servicio?]
+-   [Creación de un espacio de nombres de servicio][Creación de un espacio de nombres de servicio]
+-   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][Obtención de credenciales de administración predeterminadas para el espacio de nombres]
+-   [Creación de una aplicación de Ruby][Creación de una aplicación de Ruby]
+-   [Configuración de la aplicación para usar el bus de servicio][Configuración de la aplicación para usar el bus de servicio]
+-   [Configuración de una conexión del bus de servicio de Azure][Configuración de una conexión del bus de servicio de Azure]
+-   [Creación de una cola][Creación de una cola]
+-   [Envío de mensajes a una cola][Envío de mensajes a una cola]
+-   [Recepción de mensajes de una cola][Recepción de mensajes de una cola]
+-   [Actuación ante errores de la aplicación y mensajes que no se pueden leer][Actuación ante errores de la aplicación y mensajes que no se pueden leer]
+-   [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span id="create-a-ruby-application"></span></a>Creación de una aplicación de Ruby
 
-Cree una aplicación de Ruby. Para obtener instrucciones, consulte [Creación de una aplicación de Ruby en Azure][].
+Cree una aplicación de Ruby. Para obtener instrucciones, consulte [Creación de una aplicación de Ruby en Azure][Creación de una aplicación de Ruby en Azure].
 
 ## <span id="configure-your-application-to-use-service-bus"></span></a>Configuración de la aplicación para usar el bus de servicio
 
@@ -111,13 +111,12 @@ En caso de que la aplicación sufra un error después de procesar el mensaje y a
 
 Ahora que conoce los fundamentos de las colas del bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del Service Bus][]
--   Visite el repositorio del [SDK de Azure para Ruby][] (en inglés) en GitHub.
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones del Service Bus][Colas, temas y suscripciones del Service Bus]
+-   Visite el repositorio del [SDK de Azure para Ruby][SDK de Azure para Ruby] (en inglés) en GitHub.
 
-Para ver la comparación entre Colas del Bus de servicio de Azure de este artículo y Colas de Azure del artículo [Uso del servicio Cola de Azure][], consulte [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias][].
+Para ver la comparación entre Colas del Bus de servicio de Azure de este artículo y Colas de Azure del artículo [Uso del servicio Cola de Azure][Uso del servicio Cola de Azure], consulte [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias][Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias].
 
   [Pasos siguientes]: #next-steps
-  [¿Qué son las colas del bus de servicio?]: #what-are-service-bus-queues
   [Creación de un espacio de nombres de servicio]: #create-a-service-namespace
   [Obtención de credenciales de administración predeterminadas para el espacio de nombres]: #obtain-default-credentials
   [Creación de una aplicación de Ruby]: #create-a-ruby-application

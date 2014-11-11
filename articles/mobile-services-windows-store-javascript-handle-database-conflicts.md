@@ -1,12 +1,12 @@
 <properties linkid="develop-mobile-tutorials-optimistic-concurrent-data-javascript" urlDisplayName="Optimistic concurrency" pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Mobile Dev Center" metaKeywords="" writer="wesmc" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conflicts" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Control de conflictos de escritura de bases de datos
 
 <div class="dev-center-tutorial-selector sublanding">
 
-[C# para Tienda Windows][] [JavaScript para Tienda Windows][] [Windows Phone][]
+[C# para Tienda Windows][C# para Tienda Windows] [JavaScript para Tienda Windows][JavaScript para Tienda Windows] [Windows Phone][Windows Phone]
 
 </div>
 
@@ -14,29 +14,29 @@ Este tutorial se ha elaborado para ayudarle a comprender mejor cómo controlar l
 
 En este tutorial agregará funcionalidad a la aplicación de inicio rápido para controlar los conflictos que se produzcan al actualizar la base de datos TodoItem. Este tutorial le guiará a través de estos pasos básicos:
 
-1.  [Actualización de la aplicación para permitir actualizaciones][]
-2.  [Habilitación de la detección de conflictos en la aplicación][]
-3.  [Prueba de conflictos de escritura de bases de datos en la aplicación][]
-4.  [Control automático de la resolución de conflictos en los scripts del servidor][]
+1.  [Actualización de la aplicación para permitir actualizaciones][Actualización de la aplicación para permitir actualizaciones]
+2.  [Habilitación de la detección de conflictos en la aplicación][Habilitación de la detección de conflictos en la aplicación]
+3.  [Prueba de conflictos de escritura de bases de datos en la aplicación][Prueba de conflictos de escritura de bases de datos en la aplicación]
+4.  [Control automático de la resolución de conflictos en los scripts del servidor][Control automático de la resolución de conflictos en los scripts del servidor]
 
 Este tutorial requiere lo siguiente:
 
 -   Microsoft Visual Studio 2013 Express para Windows o posterior.
--   Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar el tutorial [Introducción a los Servicios móviles][] descargando la versión del lenguaje de JavaScript del proyecto inicial.
--   [Cuenta de Azure][]
+-   Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles] descargando la versión del lenguaje de JavaScript del proyecto inicial.
+-   [Cuenta de Azure][Cuenta de Azure]
 -   Paquete de NuGet de Servicios móviles de Azure 1.1.5 o posterior. Para obtener la última versión, siga los pasos a continuación:
 
     1.  En Visual Studio, abra el proyecto y haga clic con el botón secundario en el proyecto en el Explorador de soluciones y, a continuación, haga clic en **Administrar paquetes de NuGet**.
 
     2.  Expanda **En línea** y haga clic en **Microsoft and .NET**. En el cuadro de texto de búsqueda, escriba **WindowsAzure.MobileServices.WinJS**. Haga clic en **Instalar** en el paquete de NuGet de **Servicios móviles de Azure para WinJS**.
 
-        ![][]
+        ![][0]
 
 ## <a name="uiupdate"></a><span class="short-header">Actualización de la interfaz de usuario</span>Actualización de la aplicación para permitir actualizaciones
 
 En esta sección, actualizará la interfaz de usuario para permitir la actualización del texto de cada elemento. La plantilla de enlace contendrá un control de casilla y clase de texto para cada elemento de la tabla de base de datos. Podrá actualizar el campo de texto de TodoItem. Esta aplicación controlará el evento `keydown` para que el elemento se actualice al presionar la tecla **Entrar**.
 
-1.  En Visual Studio, abra la versión de lenguaje de JavaScript del proyecto TodoList que descargó en el tutorial [Introducción a los Servicios móviles][].
+1.  En Visual Studio, abra la versión de lenguaje de JavaScript del proyecto TodoList que descargó en el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 2.  En el Explorador de soluciones de Visual Studio, abra default.html y sustituya la definición de etiqueta div `TemplateItem` por la etiqueta div que se muestra a continuación y guarde el cambio. Esto agrega el control de cuadro de texto para permitirle editar el texto de un objeto TodoItem.
 
         <div id="TemplateItem" data-win-control="WinJS.Binding.Template">
@@ -69,7 +69,7 @@ Ahora la aplicación escribe los cambios de texto en cada elemento de vuelta a l
 
 ## <a name="enableOC"></a><span class="short-header">Activación de la simultaneidad optimista</span>Activación de la detección de conflictos en la aplicación
 
-Servicios móviles de Azure es compatible con el control de simultaneidad optimista mediante el seguimiento de cambios en cada elemento con la columna de propiedades del sistema `__version` que se agrega en cada tabla. En esta sección, activaremos la aplicación para detectar estos conflictos de escritura a través de la propiedad del sistema `__version`. Una vez que se habilite la propiedad del sistema en el elemento todoTable, la aplicación recibirá una notificación mediante una excepción `MobileServicePreconditionFailedException` durante un intento de actualización si el registro ha cambiado desde la última consulta. La aplicación podrá elegir si confirmar el cambio realizado en la base de datos o dejar intacto el último cambio realizado en la base de datos. Para obtener más información acerca de las propiedades del sistema para Servicios móviles, consulte las [propiedades del sistema][].
+Servicios móviles de Azure es compatible con el control de simultaneidad optimista mediante el seguimiento de cambios en cada elemento con la columna de propiedades del sistema `__version` que se agrega en cada tabla. En esta sección, activaremos la aplicación para detectar estos conflictos de escritura a través de la propiedad del sistema `__version`. Una vez que se habilite la propiedad del sistema en el elemento todoTable, la aplicación recibirá una notificación mediante una excepción `MobileServicePreconditionFailedException` durante un intento de actualización si el registro ha cambiado desde la última consulta. La aplicación podrá elegir si confirmar el cambio realizado en la base de datos o dejar intacto el último cambio realizado en la base de datos. Para obtener más información acerca de las propiedades del sistema para Servicios móviles, consulte las [propiedades del sistema][propiedades del sistema].
 
 1.  En el archivo default.js, debajo de la declaración de la variable `todoTable`, agregue el código para incluir la propiedad del sistema \*\*\_\_version\*\* que permite la compatibilidad con la detección de conflictos de escritura.
 
@@ -190,7 +190,7 @@ Puede detectar y resolver conflictos de escritura en los scripts del servidor. E
 
 Los siguientes pasos describen la incorporación del script de actualización del servidor y su prueba.
 
-1.  Inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
 
     ![][11]
 
@@ -274,21 +274,21 @@ Los siguientes pasos describen la incorporación del script de actualización de
 
 Este tutorial le ha mostrado cómo habilitar la aplicación de Tienda Windows para controlar los conflictos de escritura al trabajar con datos en Servicios móviles. A continuación, plantéese completar uno de los siguientes tutoriales en nuestra serie de datos:
 
--   [Validación y modificación de datos con scripts][]
+-   [Validación y modificación de datos con scripts][Validación y modificación de datos con scripts]
     
 	Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
 
--   [Limitación de consultas con paginación][]
+-   [Limitación de consultas con paginación][Limitación de consultas con paginación]
     
 	Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se manejan en una única solicitud.
 
 Una vez que haya completado la serie de datos, también puede probar uno de los siguientes tutoriales de la Tienda Windows:
 
--   [Introducción a la autenticación][]
+-   [Introducción a la autenticación][Introducción a la autenticación]
     
 	Aprenda a autenticar a los usuarios de su aplicación.
 
--   [Introducción a las notificaciones de inserción][]
+-   [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción]
     
 	Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
@@ -305,7 +305,7 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
   [Control automático de la resolución de conflictos en los scripts del servidor]: #scriptsexample
   [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started
   [Cuenta de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/
-  []: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
+  [0]: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
   [propiedades del sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
   [1]: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
   [2]: ./media/mobile-services-windows-store-javascript-handle-database-conflicts/Mobile-oc-store-create-app-package2.png

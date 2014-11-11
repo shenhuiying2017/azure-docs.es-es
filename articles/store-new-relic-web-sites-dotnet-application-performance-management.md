@@ -1,10 +1,10 @@
 <properties linkid="develop-net-how-to-guides-new-relic-app" urlDisplayName="New Relic App Performance Management" pageTitle="New Relic App Performance Management on Azure" metaKeywords="new relic Azure, performance azure" description="Learn how to use New Relic's performance monitoring on Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="New Relic Application Performance Management on Azure Websites" authors="new relic" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new relic"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new="" relic" />
 
 # Administración del rendimiento de la aplicación New Relic en sitios web de Azure
 
-En esta guía se describe cómo agregar la supervisión del rendimiento de primer nivel de New Relic en su sitio web de Azure. Veremos cómo agregar de forma fácil y sencilla New Relic a la aplicación y le mostraremos algunas de las características de New Relic. Para obtener más información sobre el uso de New Relic, consulte [Uso de New Relic][].
+En esta guía se describe cómo agregar la supervisión del rendimiento de primer nivel de New Relic en su sitio web de Azure. Veremos cómo agregar de forma fácil y sencilla New Relic a la aplicación y le mostraremos algunas de las características de New Relic. Para obtener más información sobre el uso de New Relic, consulte [Uso de New Relic][Uso de New Relic].
 
 ## ¿Qué es New Relic?
 
@@ -17,7 +17,7 @@ New Relic realiza el seguimiento del tiempo de carga y de la capacidad de proces
 La versión estándar de New Relic es gratuita para usuarios de Azure.
 La versión profesional de New Relic se ofrece en varios paquetes basados en el modo de sitio web que use y el tamaño de instancia si está usando el modo reservado.
 
-Para obtener información sobre el precio, consulte la [página de New Relic en la Tienda de Azure][].
+Para obtener información sobre el precio, consulte la [página de New Relic en la Tienda de Azure][página de New Relic en la Tienda de Azure].
 
 <div class="dev-callout"> 
 <strong>Nota:</strong>
@@ -34,7 +34,7 @@ Para suscribirse directamente a New Relic desde la Tienda de Azure, siga estos c
 
 ### Paso 1. Suscribirse mediante la Tienda de Azure
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  En el panel inferior del portal de administración, haga clic en **New**.
 3.  Haga clic en **Store**.
 4.  En el cuadro de diálogo **Choose an Add-on**, seleccione **New Relic** y haga clic en **Next**.
@@ -52,7 +52,7 @@ Para suscribirse directamente a New Relic desde la Tienda de Azure, siga estos c
 
 ### Paso 2. Instalar el paquete New Relic
 
-El Agente de sitios web de New Relic se distribuye como un paquete NuGet, que puede agregarse al sitio web mediante Visual Studio o WebMatrix. Si no tiene experiencia en el uso de Visual Studio o WebMatrix con el sitio web de Azure, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure con Visual Studio][] o [Desarrollo e implementación de un sitio web con Microsoft WebMatrix][].
+El Agente de sitios web de New Relic se distribuye como un paquete NuGet, que puede agregarse al sitio web mediante Visual Studio o WebMatrix. Si no tiene experiencia en el uso de Visual Studio o WebMatrix con el sitio web de Azure, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure con Visual Studio][Implementación de una aplicación web ASP.NET en un sitio web de Azure con Visual Studio] o [Desarrollo e implementación de un sitio web con Microsoft WebMatrix][Desarrollo e implementación de un sitio web con Microsoft WebMatrix].
 
 Realice los siguientes pasos para el entorno de desarrollo específico que está usando:
 
@@ -62,7 +62,7 @@ Realice los siguientes pasos para el entorno de desarrollo específico que está
 
 2.  Abra la consola del Administrador de paquetes seleccionando **Tools \> Library Package Manager \> Package Manager Console**. Establezca su proyecto para que sea el predeterminado en la parte superior de la ventana de la Consola del Administrador de paquetes.
 
-    ![Consola del Administrador de paquetes][]
+    ![Consola del Administrador de paquetes][Consola del Administrador de paquetes]
 
 3.  En el símbolo del sistema del Administrador de paquetes, use el siguiente comando para instalar el paquete:
 
@@ -70,7 +70,7 @@ Realice los siguientes pasos para el entorno de desarrollo específico que está
 
 4.  Cuando se le solicite la clave de licencia, escriba la clave que ha recibido de la Tienda de Azure.
 
-    ![Introducción de clave de licencia][]
+    ![Introducción de clave de licencia][Introducción de clave de licencia]
 
 <!--5. Optional: At the application name prompt, enter your app's name as it will    appear in New Relic's dashboard. Or, use your solution name as the default.      ![enter application name](./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelicAzureNuget08.png)-->
 
@@ -80,17 +80,17 @@ Realice los siguientes pasos para el entorno de desarrollo específico que está
 
 2.  En la pestaña **Home** de la cinta de opciones, seleccione **NuGet**.
 
-    ![Botón Nuget en la pestaña Home][]
+    ![Botón Nuget en la pestaña Home][Botón Nuget en la pestaña Home]
 
 3.  En la galería de NuGet Gallery, establezca el origen en **NuGet Official Package Source** y, a continuación, busque NewRelic.Azure.WebSites.
 
-    ![Búsqueda en la galería Nuget de NewRelic.Azure.WebSites][]
+    ![Búsqueda en la galería Nuget de NewRelic.Azure.WebSites][Búsqueda en la galería Nuget de NewRelic.Azure.WebSites]
 
 4.  Seleccione la entrada **New Relic for Azure Web Sites** y, a continuación, haga clic en **Install**.
 
 5.  Después de instalar el paquete, el sitio contendrá una carpeta con el nombre **newrelic**. Expanda esta carpeta y abra el archivo **newrelic.config**. En este archivo, reemplace el valor **REPLACE\_WITH\_LICENSE\_KEY** por la clave de licencia recibida de la Tienda de Azure.
 
-    ![Carpeta newrelic expandida con newrelic.conf seleccionado][]
+    ![Carpeta newrelic expandida con newrelic.conf seleccionado][Carpeta newrelic expandida con newrelic.conf seleccionado]
 
     Después de agregar la información de la clave de licencia, guarde los cambios en el archivo **newrelic.config**.
 
@@ -98,17 +98,17 @@ Realice los siguientes pasos para el entorno de desarrollo específico que está
 
 El paquete New Relic agregado a la aplicación en el paso anterior se configura mediante la **configuración de la aplicación** agregada al sitio web de Azure. Realice los siguientes pasos y agregue esta configuración.
 
-1.  Inicie sesión en el [Portal de administración de Azure][] y diríjase al sitio web.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure] y diríjase al sitio web.
 
 2.  En el sitio web, seleccione **Configure**. En la sección **Análisis del desarrollador**, seleccione **Add-on** o **Custom**. Ambos métodos producen el mismo resultado, pero requieren una entrada ligeramente distinta. **Add-on** enumera las licencias de New Relic actuales y le permite seleccionar una, mientras que **Custom** le solicita que especifique manualmente la clave de licencia.
 
     Si ha seleccionado **Add-on**, use el campo **Elegir complemento** para seleccionar la licencia de New Relic.
 
-    ![Imagen de los campos de complementos][]
+    ![Imagen de los campos de complementos][Imagen de los campos de complementos]
 
     Si ha seleccionado **Custom**, use el New Relic seleccionado como **Proveedor** y, a continuación, especifique la licencia en el campo **Clave de proveedor**.
 
-    ![Imagen de los campos personalizados][]
+    ![Imagen de los campos personalizados][Imagen de los campos personalizados]
 
 3.  Después de especificar una licencia en **Análisis del desarrollador**, haga clic en **Save**. Una vez que la operación de guardado se haya completado, se agregarán los siguientes valores a la sección **Configuración de aplicaciones** de la página para admitir New Relic:
 
@@ -196,7 +196,7 @@ Para ver el panel de New Relic:
 
     El panel **Monitoring \> Overview** se muestra automáticamente.
 
-    ![Panel de supervisión de New Relic][]
+    ![Panel de supervisión de New Relic][Panel de supervisión de New Relic]
 
     Después de seleccionar una aplicación en la lista en el menú **Applications**, el panel **Overview** muestra información del explorador y del servidor de aplicaciones actual.
 
@@ -204,7 +204,7 @@ Para ver el panel de New Relic:
 
 Después de seleccionar la aplicación de la lista en el menú Applications, el panel Overview muestra información actual del explorador y del servidor de aplicaciones. Para alternar entre las dos vistas, haga clic en el botón **App server** o **Browser**.
 
-Además de las funciones de [la interfaz de usuario estándar de New Relic][] y la [información detallada del panel][], el panel Applications Overview muestra funciones adicionales.
+Además de las funciones de [la interfaz de usuario estándar de New Relic][la interfaz de usuario estándar de New Relic] y la [información detallada del panel][información detallada del panel], el panel Applications Overview muestra funciones adicionales.
 
 <table>
 <colgroup>
@@ -262,14 +262,14 @@ A continuación se muestra un ejemplo del panel Applications Overview cuando se 
 
 Consulte estos recursos adicionales para obtener más información:
 
--   [Installing the .NET Agent for Azure Web Sites][]: procedimientos de instalación de .NET Agent de New Relic.
--   [La interfaz de usuario de New Relic][]:
+-   [Installing the .NET Agent for Azure Web Sites][Installing the .NET Agent for Azure Web Sites]: procedimientos de instalación de .NET Agent de New Relic.
+-   [La interfaz de usuario de New Relic][La interfaz de usuario de New Relic]:
     Información general de la nueva interfaz de usuario de New Relic, configuración de derechos de usuario y perfiles, uso de funciones estándar e información detallada del panel.
--   [Applications Overview][]: características y funciones cuando se utiliza el panel Applications Overview de New Relic.
--   [Apdex][]: información general de cómo Apdex mide la satisfacción de los usuarios finales con la aplicación.
--   [Real User Monitoring][]: Información general sobre cómo RUM detalla el tiempo que tardan los
+-   [Applications Overview][Applications Overview]: características y funciones cuando se utiliza el panel Applications Overview de New Relic.
+-   [Apdex][Apdex]: información general de cómo Apdex mide la satisfacción de los usuarios finales con la aplicación.
+-   [Real User Monitoring][Real User Monitoring]: Información general sobre cómo RUM detalla el tiempo que tardan los
     exploradores de los usuarios en cargar las páginas web, de dónde proceden y qué exploradores utilizan.
--   [Finding Help][]: recursos disponibles en el centro de ayuda en línea de New Relic.
+-   [Finding Help][Finding Help]: recursos disponibles en el centro de ayuda en línea de New Relic.
 
   [Uso de New Relic]: #using-new-relic
   [página de New Relic en la Tienda de Azure]: http://www.windowsazure.com/es-es/gallery/store/new-relic/new-relic/
@@ -287,10 +287,6 @@ Consulte estos recursos adicionales para obtener más información:
   [la interfaz de usuario estándar de New Relic]: https://newrelic.com/docs/site/the-new-relic-ui#functions
   [información detallada del panel]: https://newrelic.com/docs/site/the-new-relic-ui#drilldown
   [Apdex]: https://newrelic.com/docs/site/apdex
-  [Geography]: https://newrelic.com/docs/site/geography
-  [Web Transactions]: https://docs.newrelic.com/docs/applications-menu/transactions-dashboard
-  [Key Transactions]: https://newrelic.com/docs/site/key-transactions
-  [Errors]: https://newrelic.com/docs/site/errors
   [1]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/NewRelic_app_browser.png
   [Installing the .NET Agent for Azure Web Sites]: https://newrelic.com/docs/dotnet/azure-web-sites-beta#manual_install
   [La interfaz de usuario de New Relic]: https://newrelic.com/docs/site/the-new-relic-ui

@@ -6,17 +6,17 @@
 
 ## Tabla de contenido
 
--   [Administración de replicación de cuenta de almacenamiento][]
--   [Visualización, copiado y regeneración de claves de acceso de almacenamiento][]
--   [Eliminación de una cuenta de almacenamiento][]
+-   [Administración de replicación de cuenta de almacenamiento][Administración de replicación de cuenta de almacenamiento]
+-   [Visualización, copiado y regeneración de claves de acceso de almacenamiento][Visualización, copiado y regeneración de claves de acceso de almacenamiento]
+-   [Eliminación de una cuenta de almacenamiento][Eliminación de una cuenta de almacenamiento]
 
 ## <span id="georeplication"></span></a>Replicación de los datos de la cuenta de almacenamiento para obtener durabilidad y alta disponibilidad
 
-[WACOM.INCLUDE [storage-replication-options][]]
+[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ### Para especificar la configuración de replicación de una cuenta de almacenamiento
 
-1.  En el [Portal de administración de Azure][], haga clic en **Almacenamiento** y, a continuación, haga clic en el nombre de su cuenta de almacenamiento para ver el panel.
+1.  En el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Almacenamiento** y, a continuación, haga clic en el nombre de su cuenta de almacenamiento para ver el panel.
 
 2.  Haga clic en **Configure**.
 
@@ -28,19 +28,19 @@
 
 Al crear una cuenta de almacenamiento, Azure genera dos claves de acceso de almacenamiento de 512 bits que se usan para autenticación cuando se obtiene acceso a la cuenta de almacenamiento. Al brindar dos claves de acceso de almacenamiento, Azure le permite volver a generar las claves sin interrupción en su servicio de almacenamiento, o bien, tener acceso a ese servicio.
 
-En el [Portal de administración][], use **Manage Keys** en el panel o la página **Almacenamiento** para ver, copiar y regenerar las claves de acceso de almacenamiento que se usan para tener acceso a los servicios de Blob, Tabla y Cola.
+En el [Portal de administración][Portal de administración], use **Manage Keys** en el panel o la página **Almacenamiento** para ver, copiar y regenerar las claves de acceso de almacenamiento que se usan para tener acceso a los servicios de Blob, Tabla y Cola.
 
 ### Copia de una clave de acceso de almacenamiento
 
-Puede usar **Manage Keys** para copiar una clave de acceso de almacenamiento para usarla en una cadena de conexión. La cadena de conexión requiere el uso del nombre de la cuenta de almacenamiento y una clave en la autenticación. Para obtener información sobre la configuración de cadenas de conexión para tener acceso a los servicios de almacenamiento de Azure, consulte [Configurar las cadenas de conexión de Windows Azure][].
+Puede usar **Manage Keys** para copiar una clave de acceso de almacenamiento para usarla en una cadena de conexión. La cadena de conexión requiere el uso del nombre de la cuenta de almacenamiento y una clave en la autenticación. Para obtener información sobre la configuración de cadenas de conexión para tener acceso a los servicios de almacenamiento de Azure, consulte [Configurar las cadenas de conexión de Windows Azure][Configurar las cadenas de conexión de Windows Azure].
 
-1.  En el [Portal de administración][], haga clic en **Almacenamiento** y, a continuación, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
+1.  En el [Portal de administración][Portal de administración], haga clic en **Almacenamiento** y, a continuación, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
 
 2.  Haga clic en **Manage Keys**.
 
     Se abre **Manage Access Keys**.
 
-    ![Managekeys][]
+    ![Managekeys][Managekeys]
 
 3.  Para copiar una clave de acceso de almacenamiento, seleccione el texto de la clave. Posteriormente, haga clic con el botón secundario y clic en **Copy**.
 
@@ -62,7 +62,7 @@ Debe cambiar las claves de acceso de su cuenta de almacenamiento periódicamente
 
 1.  Actualice las cadenas de conexión en el código de su aplicación para hacer referencia a la clave de acceso secundaria de la cuenta de almacenamiento.
 
-2.  Vuelva a generar la clave de acceso primaria para su cuenta de almacenamiento. En el [Portal de administración][], desde el panel o la página **Configure**, haga clic en **Manage Keys**. Haga clic en **Regenerate** debajo de la clave de acceso primaria y, a continuación, haga clic en **Yes** para confirmar que desea generar una clave nueva.
+2.  Vuelva a generar la clave de acceso primaria para su cuenta de almacenamiento. En el [Portal de administración][Portal de administración], desde el panel o la página **Configure**, haga clic en **Manage Keys**. Haga clic en **Regenerate** debajo de la clave de acceso primaria y, a continuación, haga clic en **Yes** para confirmar que desea generar una clave nueva.
 
 3.  Actualice las cadenas de conexión en su código para hacer referencia a la nueva clave de acceso primaria.
 
@@ -84,7 +84,7 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Delete** en el
     </p>
 </div>
 
-1.  En el [Portal de administración][], haga clic en **Almacenamiento**.
+1.  En el [Portal de administración][Portal de administración], haga clic en **Almacenamiento**.
 
 2.  Haga clic en cualquier lugar de la entrada de la cuenta de almacenamiento excepto en el nombre y, a continuación, haga clic en **Delete**.
 
@@ -100,5 +100,5 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Delete** en el
   [storage-replication-options]: ../includes/storage-replication-options.md
   [Portal de administración de Azure]: https://manage.windowsazure.com
   [Portal de administración]: http://manage.windowsazure.com
-  [Configurar las cadenas de conexión de Windows Azure]: http://msdn.microsoft.com/en-us/library/ee758697.aspx
+  [Configurar las cadenas de conexión de Windows Azure]: http://msdn.microsoft.com/es-es/library/ee758697.aspx
   [Managekeys]: ./media/storage-manage-storage-account/Storage_ManageKeys.png

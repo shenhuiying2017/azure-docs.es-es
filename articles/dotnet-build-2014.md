@@ -1,6 +1,6 @@
 <properties pageTitle="Azure Spring 2014 release highlights - .NET Dev Center" metaKeywords="azure .net sdk 2.3" description="Learn about the new tools and features available for Azure .NET developers." documentationCenter=".NET" title="Azure Spring 2014 release highlights" authors="mollybos" solutions="" manager="carolz" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mollybos"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mollybos" />
 
 # Información destacada de la versión de Azure de la primavera de 2014
 
@@ -123,7 +123,6 @@ Resource Manager es un nuevo marco para la implementación y administración de 
   [Introducción a Azure y ASP.NET]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-dotnet-get-started/
   [Introducción a Azure Tools para Visual Studio]: http://msdn.microsoft.com/es-es/library/azure/ff687127.aspx
   [Creación de proyectos Web ASP.NET en Visual Studio 2013]: http://asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio
-  [Build 2014: Novedades para ASP.NET y web en Visual Studio 2013 Update 2 y posterior (vídeo)]: http://channel9.msdn.com/Events/Build/2014/3-602
   [Depurar un servicio en la nube o una máquina virtual en Visual Studio]: http://msdn.microsoft.com/es-es/library/azure/ff683670.aspx
   [Utilizar Emulator Express para ejecutar y depurar un servicio en la nube localmente]: http://msdn.microsoft.com/es-es/library/windowsazure/dn339018.aspx
   [Solución de problemas de Sitios web Azure en Visual Studio]: http://www.windowsazure.com/es-es/documentation/articles/web-sites-dotnet-troubleshoot-visual-studio
@@ -133,17 +132,12 @@ Resource Manager es un nuevo marco para la implementación y administración de 
   [Explorar recursos de almacenamiento con el Explorador de servidores]: http://msdn.microsoft.com/es-es/library/windowsazure/ff683677.aspx
   [Instalación y configuración de Azure PowerShell]: http://www.windowsazure.com/es-es/documentation/articles/install-configure-powershell/
   [1]: http://msdn.microsoft.com/es-es/library/windowsazure/jj156055.aspx
-  [Build 2014: Automatización en todas partes con los nuevos SDK; herramientas y servicios de Azure (vídeo)]: http://channel9.msdn.com/Events/Build/2014/3-621
   [Utilizar scripts de Windows PowerShell para la publicación en entornos de desarrollo y pruebas]: http://msdn.microsoft.com/es-es/library/windowsazure/dn642480.aspx
-  [Descripción de la nube: el backend .NET de Servicios móviles de Azure (vídeo)]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-137-The-Azure-Mobile-Services-NET-Backend-with-Yavor-Georgiev
   [Centro de desarrollo móvil de Azure]: /es-es/develop/mobile/
   [Inicio rápido: Agregar un servicio móvil]: http://msdn.microsoft.com/es-es/library/windows/apps/xaml/dn629482.aspx
   [Cómo enviar notificaciones de inserción a una aplicación en ejecución con Visual Studio]: http://msdn.microsoft.com/es-es/library/windows/apps/xaml/dn614131.aspx
-  [Cómo crear API personalizadas y trabajos programados en un servicio móvil (con back-end de .NET)]: http://msdn.microsoft.com/es-es/library/windows/apps/xaml/dn614130.aspx
   [Biblioteca del cliente de almacenamiento 3.0 de Azure]: http://go.microsoft.com/fwlink/?LinkId=394927
   [Introducción a Almacenamiento de Azure]: /es-es/documentation/articles/storage-introduction/
-  [Build 2014: Almacenamiento de Microsoft Azure: novedades, prácticas recomendadas y patrones (vídeo)]: http://channel9.msdn.com/Events/Build/2014/3-628
   [Almacenamiento de Microsoft Azure @ BUILD 2014]: http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/08/microsoft-azure-storage-build-2014.aspx
   [Uso de Azure PowerShell con Resource Manager]: http://go.microsoft.com/fwlink/?LinkID=394767
   [Uso de la interfaz de la línea de comandos entre plataformas de Azure con Resource Manager]: /es-es/documentation/articles/xplat-cli-azure-resource-manager/
-  [Build 2014: Modelo de grupo de recursos de Azure: administración moderna para la nube moderna (vídeo)]: http://channel9.msdn.com/Events/Build/2014/2-607

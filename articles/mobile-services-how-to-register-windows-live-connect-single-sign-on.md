@@ -1,6 +1,6 @@
 <properties pageTitle="Register for single sign-on - Azure Mobile Services" metaKeywords="" description="Learn how to register for single sign-on authentication in your Azure Mobile Services application." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store apps to use Windows Live Connect single sign-on" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Registro de las aplicaciones de la Tienda Windows para usar el inicio de sesión único de Live Connect de Windows
 
@@ -10,9 +10,9 @@ En este tema se explica cómo registrar la aplicación con la Tienda Windows par
 <p>No es necesario que registre la aplicaci&oacute;n con la Tienda Windows para poder usar la cuenta Microsoft para la autenticaci&oacute;n antes de publicar la aplicaci&oacute;n. Cuando la aplicaci&oacute;n de la Tienda Windows no requiere inicio de sesi&oacute;n &uacute;nico o notificaciones de inserci&oacute;n, puede simplemente registrar la aplicaci&oacute;n con Live Connect para usar un inicio de sesi&oacute;n de la cuenta Microsoft.  Para obtener m&aacute;s informaci&oacute;n, consulte <a href="/es-es/develop/mobile/how-to-guides/register-for-microsoft-authentication">Registro de sus aplicaciones de la Tienda Windows para usar un inicio de sesi&oacute;n de la cuenta Microsoft</a>.</p>
 </div>
 
-1.  Si aún no ha registrado la aplicación, vaya a la [página Enviar una aplicación][] en el Centro de desarrollo de aplicaciones de la Tienda Windows, inicie sesión en su cuenta Microsoft y, a continuación, haga clic en **Nombre de la aplicación**.
+1.  Si aún no ha registrado la aplicación, vaya a la [página Enviar una aplicación][página Enviar una aplicación] en el Centro de desarrollo de aplicaciones de la Tienda Windows, inicie sesión en su cuenta Microsoft y, a continuación, haga clic en **Nombre de la aplicación**.
 
-    ![][]
+    ![][0]
 
 2.  Escriba el nombre de la aplicación en **App name**, haga clic en **Reserve app name** y, a continuación, haga clic en **Save**.
 
@@ -20,7 +20,7 @@ En este tema se explica cómo registrar la aplicación con la Tienda Windows par
 
     Se crea un nuevo registro de la Tienda Windows para su aplicación.
 
-3.  En Visual Studio 2012 Express para Windows 8, abra el proyecto que creó cuando completó el tutorial [Introducción a los Servicios móviles][].
+3.  En Visual Studio 2012 Express para Windows 8, abra el proyecto que creó cuando completó el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
 4.  En el Explorador de soluciones, haga clic con el botón secundario en el proyecto, haga clic en **Store** y, a continuación, haga clic en **Associate App with the Store...**.
 
@@ -36,7 +36,7 @@ En este tema se explica cómo registrar la aplicación con la Tienda Windows par
 
     Se agrega la información de registro necesaria de la Tienda Windows al manifiesto de aplicación.
 
-7.  Desplácese hasta la página [My Applications][] del Centro para desarrolladores de Live Connect y haga clic en su aplicación en la lista **My applications**.
+7.  Desplácese hasta la página [My Applications][My Applications] del Centro para desarrolladores de Live Connect y haga clic en su aplicación en la lista **My applications**.
 
     ![][4]
 
@@ -52,17 +52,16 @@ En este tema se explica cómo registrar la aplicación con la Tienda Windows par
 
 Ahora está preparado para integrar la autenticación a su aplicación mediante el uso de Live Connect. Servicios móviles proporciona los dos siguientes métodos para autenticar usuarios mediante Live Connect:
 
--   Inicio de sesión único para aplicaciones de la Tienda Windows. En este método, los usuarios solo deben autorizar la autenticación en la aplicación una vez con Live Connect; a continuación, Windows administra las credenciales, según las preferencias del usuario. Para obtener más información, consulte [Inicio de sesión único para aplicaciones de la Tienda Windows mediante Live Connect][].
+-   Inicio de sesión único para aplicaciones de la Tienda Windows. En este método, los usuarios solo deben autorizar la autenticación en la aplicación una vez con Live Connect; a continuación, Windows administra las credenciales, según las preferencias del usuario. Para obtener más información, consulte [Inicio de sesión único para aplicaciones de la Tienda Windows mediante Live Connect][Inicio de sesión único para aplicaciones de la Tienda Windows mediante Live Connect].
 
--   Autenticación básica. Este método, que es compatible con diversos proveedores de autenticación, requiere que los usuarios inicien sesión cada vez que se inicia la aplicación. Para obtener más información, consulte [Introducción a la autenticación][].
+-   Autenticación básica. Este método, que es compatible con diversos proveedores de autenticación, requiere que los usuarios inicien sesión cada vez que se inicia la aplicación. Para obtener más información, consulte [Introducción a la autenticación][Introducción a la autenticación].
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Registro de sus aplicaciones de la Tienda Windows para usar un inicio de sesión de la cuenta Microsoft]: /es-es/develop/mobile/how-to-guides/register-for-microsoft-authentication
   [página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-  []: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-submit-win8-app.png
+  [0]: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-submit-win8-app.png
   [1]: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-win8-app-name.png
   [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started
   [2]: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-store-association.png

@@ -1,10 +1,14 @@
 <properties linkid="develop-nodejs-tutorials-web-site-with-sql-database" urlDisplayName="Website with SQL Database" pageTitle="Node.js website with SQL Database - Azure tutorial" metaKeywords="" description="Learn how to create a Node.js website that accesses a SQL Database and is deployed to Azure" metaCanonical="" services="web-sites,sql-database" documentationCenter="nodejs" title="Node.js Web Application using the Azure SQL Database" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
+
+
+
+
 
 # Aplicación web Node.js utilizando la base de datos SQL de Azure
 
-En este tutorial aprenderá a utilizar Base de datos SQL que la administración de datos de Azure proporciona para almacenar y tener acceso a datos desde una aplicación [Node][] hospedada en Azure. En este tutorial se asume que tiene alguna experiencia anterior en el uso de Node y [Git][].
+En este tutorial aprenderá a utilizar Base de datos SQL que la administración de datos de Azure proporciona para almacenar y tener acceso a datos desde una aplicación [Node][Node] hospedada en Azure. En este tutorial se asume que tiene alguna experiencia anterior en el uso de Node y [Git][Git].
 
 Aprenderá a:
 
@@ -20,7 +24,7 @@ Al seguir este tutorial, podrá compilar una aplicación de administración de t
 
 Los archivos del proyecto para este tutorial se almacenarán en un directorio llamado **tasklist** y la aplicación completada tendrá una apariencia similar a la siguiente:
 
-![Página web que muestra una lista de tareas vacía][]
+![Página web que muestra una lista de tareas vacía][Página web que muestra una lista de tareas vacía]
 
 <div class="dev-callout">
 <b>Nota:</b>
@@ -41,11 +45,11 @@ Los archivos del proyecto para este tutorial se almacenarán en un directorio ll
 
 Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener instalados los siguientes elementos:
 
--   [Node][] versión 0.6.14 o superior
+-   [Node] versión 0.6.14 o superior
 
--   [Git][]
+-   [Git]
 
--   Bibliotecas de cliente nativas para Microsoft SQL Server, disponibles como parte de [Microsoft SQL Server 2012 Feature Pack][]
+-   Bibliotecas de cliente nativas para Microsoft SQL Server, disponibles como parte de [Microsoft SQL Server 2012 Feature Pack][Microsoft SQL Server 2012 Feature Pack]
 
 -   Un editor de texto
 
@@ -57,46 +61,48 @@ Antes de seguir las instrucciones del presente artículo, debe asegurarse de ten
 
 Siga estos pasos para crear un sitio web de Azure y una base de datos SQL:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  Haga clic en el icono **+ New**, situado en la parte inferior izquierda del portal.
 
-    ![Crear un sitio web de Azure][]
+    ![Crear un sitio web de Azure][Crear un sitio web de Azure]
 
 3.  Haga clic en **SITIO WEB** y, a continuación, en **CREACIÓN PERSONALIZADA**.
 
-    ![Crear un sitio web personalizado][]
+    ![Crear un sitio web personalizado][Crear un sitio web personalizado]
 
     Especifique un valor para **URL**, seleccione **Crear una nueva base de datos SQL** en la lista desplegable **BASE DE DATOS** y seleccione el centro de datos del sitio web en la lista desplegable **REGIÓN**. Haga clic en la flecha que aparece en la parte inferior del cuadro de diálogo.
 
-    ![Rellenar los detalles del sitio web][]
+    ![Rellenar los detalles del sitio web][Rellenar los detalles del sitio web]
 
-4.  Escriba el valor **NAME** de su base de datos, seleccione el tipo de **EDITION** [(WEB o BUSINESS)][], el valor **MAX SIZE** de la base de datos, la clase **COLLATION** y, a continuación, seleccione **NEW SQL Database server**. Haga clic en la flecha que aparece en la parte inferior del cuadro de diálogo.
+4.  Escriba el valor **NAME** de su base de datos, seleccione el tipo de **EDITION** [(WEB o BUSINESS)][(WEB o BUSINESS)], el valor **MAX SIZE** de la base de datos, la clase **COLLATION** y, a continuación, seleccione **NEW SQL Database server**. Haga clic en la flecha que aparece en la parte inferior del cuadro de diálogo.
 
-    ![Rellenar configuración de la base de datos SQL][]
+    ![Rellenar configuración de la base de datos SQL][Rellenar configuración de la base de datos SQL]
 
 5.  Especifique un nombre y una contraseña de administrador (y confirme la contraseña), elija la región donde se creará el nuevo servidor de base de datos SQL y active la casilla **Permitir que los servicios de Azure accedan al servidor**.
 
-    ![Crear servidor de base de datos SQL][]
+    ![Crear servidor de base de datos SQL][Crear servidor de base de datos SQL]
 
     Una vez creado el sitio web, se mostrará el texto **Creation of website '[NOMBRESITIO]' completed successfully**. Ahora puede habilitarse la publicación Git.
 
 6.  Haga clic en el nombre del sitio web que se muestra en la lista para abrir el panel QuickStart del sitio web.
 
-    ![Abrir panel del sitio web][]
+    ![Abrir panel del sitio web][Abrir panel del sitio web]
+
 
 7.  En la parte inferior de la página Quick Start, haga clic en **Set up Git publishing**.
 
-    ![Configuración de la publicación Git][]
+    ![Configuración de la publicación Git][Configuración de la publicación Git]
 
 8.  Para habilitar la publicación Git, debe proporcionar un nombre de usuario y una contraseña. Tome nota de ambos. (Si ya ha configurado un repositorio Git anteriormente, este paso se omitirá).
 
-    ![Crear credenciales de publicación][]
+    ![Crear credenciales de publicación][Crear credenciales de publicación]
 
     Se tardará unos segundos en configurar el repositorio.
 
+
 9.  Una vez listo, aparecerán instrucciones para publicar los archivos de aplicación en el repositorio. Tome nota de estas instrucciones, las necesitará más adelante.
 
-    ![Instrucciones de Git][]
+    ![Instrucciones de Git][Instrucciones de Git]
 
 ## Obtención de información de conexión de la Base de datos SQL
 
@@ -104,11 +110,11 @@ Para conectarse a la instancia de Base de datos SQL que se ejecuta en Sitios web
 
 1.  En el Portal de administración de Azure, haga clic en **LINKED RESOURCES** y, a continuación, en el nombre de la base de datos.
 
-    ![Recursos vinculados][]
+    ![Recursos vinculados][Recursos vinculados]
 
 2.  Haga clic en **View connection strings**.
 
-    ![Cadena de conexión][]
+    ![Cadena de conexión][Cadena de conexión]
 
 3.  En la sección **ODBC** del cuadro de diálogo resultante, anote la cadena de conexión, puesto que se utilizará más adelante.
 
@@ -118,29 +124,29 @@ Lleve a cabo los siguientes pasos para crear la tabla de base de datos que se ut
 
 1.  En el Portal de administración de Azure, seleccione la base de datos SQL y haga clic en **MANAGE** en la parte inferior de la página. Si recibe un mensaje que indique que la dirección IP actual no forma parte de las reglas del firewall, seleccione **OK** para agregarla.
 
-    ![botón de administración][]
+    ![botón de administración][botón de administración]
 
 2.  Inicie sesión con el nombre y la contraseña de inicio de sesión que seleccionó cuando anteriormente creó el servidor de base de datos.
 
-    ![inicio de sesión de administración de base de datos][]
+    ![inicio de sesión de administración de base de datos][inicio de sesión de administración de base de datos]
 
 3.  En la parte inferior izquierda de la página, seleccione **Design** y, a continuación, **New Table**.
 
-    ![Nueva tabla][]
+    ![Nueva tabla][Nueva tabla]
 
 4.  Escriba "tareas" como el **nombre de la tabla** y marque **Is Identity?** para la columna **ID**.
 
-    ![nombre de tabla definido en tareas y con identidad marcada][]
+    ![nombre de tabla definido en tareas y con identidad marcada][nombre de tabla definido en tareas y con identidad marcada]
 
 5.  Cambie **Column1** a **name** y **Column2** a **category**. Haga clic en el botón **Add column** para agregar dos columnas nuevas. La primera columna se debe llamar **created** y debe tener un tipo de **date**. La segunda columna se debe llamar **completed** y debe tener un tipo de **bit**. Ambas columnas nuevas deben estar marcadas como **Is Required?**.
 
-    ![diseño de tabla completado][]
+    ![diseño de tabla completado][diseño de tabla completado]
 
 6.  Haga clic en el botón **Save** para guardar los cambios en la tabla. Ahora puede cerrar la página de administración de Base de datos SQL.
 
 ## Instalación de módulos y generación de scaffolding
 
-En esta sección podrá crear una nueva aplicación Node y usar npm para agregar paquetes de módulos. Para la aplicación de lista de tareas, utilizará los módulos [express][] y [node-sqlserver][]. El módulo Express proporciona un marco de controlador de vista de modelo para Node, mientras que el módulo node-sqlserver proporciona conectividad a Base de datos SQL de Azure.
+En esta sección podrá crear una nueva aplicación Node y usar npm para agregar paquetes de módulos. Para la aplicación de lista de tareas, utilizará los módulos [express][express] y [node-sqlserver][node-sqlserver]. El módulo Express proporciona un marco de controlador de vista de modelo para Node, mientras que el módulo node-sqlserver proporciona conectividad a Base de datos SQL de Azure.
 
 ### Instalar Express y generar scaffolding
 
@@ -151,9 +157,9 @@ En esta sección podrá crear una nueva aplicación Node y usar npm para agregar
         npm install express -g
 
     <div class="dev-callout">
-<strong>Nota:</strong>
-<p>Cuando se usa el par&aacute;metro &quot;-g&quot; en algunos sistemas operativos, es posible que reciba un error <strong>Error: EPERM, chmod '/usr/local/bin/express'</strong> y una solicitud para intentar ejecutar la cuenta como administrador. Si esto ocurre, utilice el comando <strong>sudo</strong> para ejecutar npm en un nivel de privilegio m&aacute;s elevado.</p>
-</div>
+    <strong>Nota:</strong>
+    <p>Cuando se usa el parámetro '-g' en algunos sistemas operativos, es posible que reciba un error <strong>Error: EPERM, chmod '/usr/local/bin/express'</strong> y una solicitud para intentar ejecutar la cuenta como administrador. Si esto ocurre, utilice el comando <strong>sudo</strong> para ejecutar npm en un nivel de privilegio más elevado.</p>
+    </div>
 
     El resultado de este comando debe ser similar al siguiente:
 
@@ -164,9 +170,9 @@ En esta sección podrá crear una nueva aplicación Node y usar npm para agregar
         └── connect@1.8.7
 
     <div class="dev-callout">
-<strong>Nota:</strong>
-<p>El par&aacute;metro &quot;-g&quot; que se utiliza cuando se instala el m&oacute;dulo Express lo instala de manera global. Esto se realiza para tener acceso al comando <strong>express</strong> para generar scaffolding del sitio web sin tener que escribir informaci&oacute;n de ruta adicional.</p>
-</div>
+    <strong>Nota:</strong>
+    <p>El parámetro '-g' que se utiliza cuando se instala el m&oacute;dulo Express lo instala de manera global. Esto se realiza para tener acceso al comando <strong>express</strong> para generar scaffolding del sitio web sin tener que escribir información de ruta adicional.</p>
+    </div>
 
 3.  Para crear el scaffolding que se usará para esta aplicación, use el comando **express**:
 
@@ -216,7 +222,7 @@ En esta sección podrá crear una nueva aplicación Node y usar npm para agregar
 
     npm install nconf -save
 
-3.  A continuación, descargue la versión binaria del controlador de Microsoft para Node.JS de SQL Server desde el [centro de descarga][].
+3.  A continuación, descargue la versión binaria del controlador de Microsoft para Node.JS de SQL Server desde el [centro de descarga][centro de descarga].
 
 4.  Extraiga el archivo en el directorio **tasklist\\node\_modules**.
 
@@ -288,11 +294,14 @@ En esta sección se extenderá la aplicación básica creada con el comando **ex
 
 3.  Ahora inserte el siguiente código.
 
+
         app.get('/', routes.index);
         app.post('/', routes.updateItem);
 
+
 Con esto se agregará una ruta nueva al método **updateItem** que agregó anteriormente en el archivo **index.js**.
 
+       		
 1.  Guarde el archivo **app.js**.
 
 ### Modificar la vista de índice
@@ -335,7 +344,7 @@ Con esto se agregará una ruta nueva al método **updateItem** que agregó anter
 
 ### Modificar el diseño global
 
-El archivo **layout.jade** en el directorio **views** se utiliza como plantilla global para otros archivos **.jade**. En este paso podrá modificarlo para utilizar [Twitter Bootstrap][], un kit de herramientas que facilita el diseño de un sitio web atractivo.
+El archivo **layout.jade** en el directorio **views** se utiliza como plantilla global para otros archivos **.jade**. En este paso podrá modificarlo para utilizar [Twitter Bootstrap][Twitter Bootstrap], un kit de herramientas que facilita el diseño de un sitio web atractivo.
 
 1.  Descargue y extraiga los archivos para [Twitter Bootstrap][1]. Copie el archivo **bootstrap.min.css** desde la carpeta **bootstrap\\css** al directorio **public\\stylesheets** de su aplicación de lista de tareas.
 
@@ -369,7 +378,7 @@ El archivo **config.json** contiene la cadena de conexión que se utiliza para c
           "SQL_CONN" : "connection_string"
         }
 
-    Reemplace **connection\_string** por el valor de cadena de conexión ODBC anteriormente devuelto.
+    Reemplace **connection_string** por el valor de cadena de conexión ODBC anteriormente devuelto.
 
 3.  Guarde el archivo.
 
@@ -383,7 +392,7 @@ Lleve a cabo los siguientes pasos para probar la aplicación en su máquina loca
 
         node app.js
 
-3.  Abra el explorador y navegue a <http://127.0.0.1:3000>. Debería ver una página web similar a la siguiente:
+3.  Abra el explorador y navegue a http://127.0.0.1:3000. Debería ver una página web similar a la siguiente:
 
     ![Página web que muestra una lista de tareas vacía][2]
 
@@ -391,7 +400,7 @@ Lleve a cabo los siguientes pasos para probar la aplicación en su máquina loca
 
 5.  La página debe actualizarse para mostrar el elemento en la lista ToDo.
 
-    ![Imagen del elemento nuevo en la lista de tareas][]
+    ![Imagen del elemento nuevo en la lista de tareas][Imagen del elemento nuevo en la lista de tareas]
 
 6.  Para completar una tarea, simplemente marque la casilla en la columna Complete y, a continuación, haga clic en **Update tasks**.
 
@@ -418,27 +427,27 @@ En esta sección, utilizará los pasos de implementación que recibió después 
         To https://username@tabletasklist.azurewebsites.net/TableTasklist.git
          * [new branch]      master -> master
 
-3.  Una vez que haya finalizado la operación de inserción, vaya a **[http://[nombre][] de sitio].azurewebsites.net/** para ver la aplicación.
+3.  Una vez que haya finalizado la operación de inserción, vaya a **http://[nombre de sitio].azurewebsites.net/** para ver la aplicación.
 
 ### Cambio a una variable de entorno
 
-Anteriormente implementamos un código que busca una variable de entorno **SQL\_CONN** para la cadena de conexión o que carga el valor del archivo **config.json**. En los siguientes pasos, creará un par clave/valor en la configuración de su sitio web al que la aplicación tiene acceso real a través de una variable de entorno.
+Anteriormente implementamos un código que busca una variable de entorno **SQL_CONN** para la cadena de conexión o que carga el valor del archivo **config.json**. En los siguientes pasos, creará un par clave/valor en la configuración de su sitio web al que la aplicación tiene acceso real a través de una variable de entorno.
 
 1.  En el Portal de administración de Azure, haga clic en **Sitios web** y seleccione el sitio web.
 
-    ![Abrir panel del sitio web][]
+    ![Abrir panel del sitio web][Abrir panel del sitio web]
 
 2.  Haga clic en **CONFIGURE** y, a continuación, encuentre la sección **app settings** de la página.
 
-    ![vínculo de configuración][]
+    ![vínculo de configuración][vínculo de configuración]
 
-3.  En la sección **app settings**, escriba **SQL\_CONN** en el campo **KEY** y la cadena de conexión ODBC en el campo **VALUE**. Finalmente, haga clic en la marca de verificación.
+3.  En la sección **app settings**, escriba **SQL_CONN** en el campo **KEY** y la cadena de conexión ODBC en el campo **VALUE**. Finalmente, haga clic en la marca de verificación.
 
-    ![configuración de aplicaciones][]
+    ![configuración de aplicaciones][configuración de aplicaciones]
 
 4.  Finalmente, haga clic en el icono **SAVE** en la parte inferior de la página para confirmar este cambio en el entorno de tiempo de ejecución.
 
-    ![guardar configuración de aplicaciones][]
+    ![guardar configuración de aplicaciones][guardar configuración de aplicaciones]
 
 5.  En la línea de comandos, cambie los directorios por el directorio **tasklist** y escriba el siguiente comando para eliminar el archivo **config.json**:
 
@@ -449,18 +458,18 @@ Anteriormente implementamos un código que busca una variable de entorno **SQL\_
 
         git push azure master
 
-Una vez que se han implementado los cambios en Azure, la aplicación web deberá seguir trabajando, dado que ahora lee la cadena de conexión desde la entrada **app settings**. Para comprobarlo, cambie el valor de la entrada **SQL\_CONN** en **app settings** por un valor no válido. Una vez que se ha guardado este valor, el sitio web presentará errores debido a la cadena de conexión no válida.
+Una vez que se han implementado los cambios en Azure, la aplicación web deberá seguir trabajando, dado que ahora lee la cadena de conexión desde la entrada **app settings**. Para comprobarlo, cambie el valor de la entrada **SQL_CONN** en **app settings** por un valor no válido. Una vez que se ha guardado este valor, el sitio web presentará errores debido a la cadena de conexión no válida.
 
 ## Pasos siguientes
 
--   [Node.js Web Application with MongoDB][]
+-   [Node.js Web Application with MongoDB][Node.js Web Application with MongoDB]
 
--   [Aplicación web Node.js con almacenamiento de tablas]
+-   [Aplicación web Node.js con almacenamiento de tablas][Aplicación web Node.js con almacenamiento de tablas]
 
 ## Recursos adicionales
 
 [Herramienta de línea de comandos de Azure para Mac y Linux] [Creación e implementación de una aplicación Node.js en sitios web de Azure]: /es-es/develop/nodejs/tutorials/create-a-website-(mac)/
-[Publicación en sitios web de Azure con Git][]: /es-es/develop/nodejs/common-tasks/publishing-with-git/
+[Publicación en sitios web de Azure con Git]: /es-es/develop/nodejs/common-tasks/publishing-with-git/
 [Centro para desarrolladores de Azure]: /es-es/develop/nodejs/
 [Aplicación web Node.js con almacenamiento de tablas]: /es-es/develop/nodejs/tutorials/web-site-with-storage/
 
@@ -472,7 +481,6 @@ Una vez que se han implementado los cambios en Azure, la aplicación web deberá
   [Crear un sitio web de Azure]: ./media/sql-database-nodejs-use-web-site/new_website.jpg
   [Crear un sitio web personalizado]: ./media/sql-database-nodejs-use-web-site/custom_create.png
   [Rellenar los detalles del sitio web]: ./media/sql-database-nodejs-use-web-site/website_details_sqlazure.jpg
-  [(WEB o BUSINESS)]: http://msdn.microsoft.com/es-es/library/windowsazure/ee621788.aspx
   [Rellenar configuración de la base de datos SQL]: ./media/sql-database-nodejs-use-web-site/database_settings.jpg
   [Crear servidor de base de datos SQL]: ./media/sql-database-nodejs-use-web-site/create_server.jpg
   [Abrir panel del sitio web]: ./media/sql-database-nodejs-use-web-site/go_to_dashboard.png
@@ -493,9 +501,7 @@ Una vez que se han implementado los cambios en Azure, la aplicación web deberá
   [1]: http://getbootstrap.com/
   [2]: ./media/sql-database-nodejs-use-web-site/sql_todo_empty.png
   [Imagen del elemento nuevo en la lista de tareas]: ./media/sql-database-nodejs-use-web-site/sql_todo_list.png
-  [http://[nombre]: http://[site
   [vínculo de configuración]: ./media/sql-database-nodejs-use-web-site/sql-task-configure.png
   [configuración de aplicaciones]: ./media/sql-database-nodejs-use-web-site/appsettings.png
   [guardar configuración de aplicaciones]: ./media/sql-database-nodejs-use-web-site/savebutton.png
   [Node.js Web Application with MongoDB]: ../store-mongolab-web-sites-nodejs-store-data-mongodb/
-  [Publicación en sitios web de Azure con Git]: ../CommonTasks/publishing-with-git

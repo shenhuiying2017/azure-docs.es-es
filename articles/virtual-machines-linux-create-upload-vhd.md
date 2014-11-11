@@ -1,34 +1,34 @@
 <properties linkid="manage-linux-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Linux VHD in Azure" metaKeywords="Azure VHD, uploading Linux VHD" description="Learn to create and upload an Azure virtual hard disk (VHD) that has the Linux operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains the Linux Operating System" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="kathydav, szarkos"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="kathydav, szarkos" />
 
 # Creación y carga de un disco duro virtual que contiene el sistema operativo Linux
 
 En este artículo se muestra cómo puede crear y cargar un disco duro virtual (VHD) que podrá utilizar como imagen propia para crear máquinas virtuales en Azure. Aprenderá a preparar el sistema operativo que podrá utilizar para crear máquinas virtuales basadas en esa imagen.
 
-> [WACOM.NOTE] No es necesario que tenga experiencia con máquinas virtuales de Azure para completar los pasos de este artículo. Sin embargo, sí necesita una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Creación de una cuenta de Azure][].
+> [WACOM.NOTE] No es necesario que tenga experiencia con máquinas virtuales de Azure para completar los pasos de este artículo. Sin embargo, sí necesita una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Creación de una cuenta de Azure][Creación de una cuenta de Azure].
 
-Una máquina virtual en Azure ejecuta el sistema operativo basado en la imagen que elige cuando crea la máquina virtual. Las imágenes se almacenan en formato VHD en archivos .vhd en una cuenta de almacenamiento. Para obtener más información acerca de los discos y las imágenes en Azure, consulte [Administrar discos e imágenes][].
+Una máquina virtual en Azure ejecuta el sistema operativo basado en la imagen que elige cuando crea la máquina virtual. Las imágenes se almacenan en formato VHD en archivos .vhd en una cuenta de almacenamiento. Para obtener más información acerca de los discos y las imágenes en Azure, consulte [Administrar discos e imágenes][Administrar discos e imágenes].
 
-Al crear la máquina virtual, puede personalizar parte de la configuración del sistema operativo para adaptarla a la aplicación que desea ejecutar. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada][].
+Al crear la máquina virtual, puede personalizar parte de la configuración del sistema operativo para adaptarla a la aplicación que desea ejecutar. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada][Creación de una máquina virtual personalizada].
 
-**Importante**: El contrato de nivel de servicio de la plataforma Azure se aplica a las máquinas virtuales que ejecutan el sistema operativo Linux solo cuando una de las distribuciones aprobadas se use con los detalles de la configuración según se indica en [este artículo][]. Todas las distribuciones de Linux que se ofrezcan en la galería de imágenes de Azure son distribuciones aprobadas con la configuración requerida.
+**Importante**: El contrato de nivel de servicio de la plataforma Azure se aplica a las máquinas virtuales que ejecutan el sistema operativo Linux solo cuando una de las distribuciones aprobadas se use con los detalles de la configuración según se indica en [este artículo][este artículo]. Todas las distribuciones de Linux que se ofrezcan en la galería de imágenes de Azure son distribuciones aprobadas con la configuración requerida.
 
 ## Requisitos previos
 
 En este artículo se supone que tiene los siguientes elementos:
 
--   **Un certificado de administración**: Ha creado un certificado de administración para la suscripción para la que desea cargar un VHD, y ha exportado el certificado a un archivo .cer. Para obtener más información acerca de la creación de certificados, consulte [Crear y cargar un certificado de administración para Azure][].
+-   **Un certificado de administración**: Ha creado un certificado de administración para la suscripción para la que desea cargar un VHD, y ha exportado el certificado a un archivo .cer. Para obtener más información acerca de la creación de certificados, consulte [Crear y cargar un certificado de administración para Azure][Crear y cargar un certificado de administración para Azure].
 
--   **Sistema operativo Linux instalado en un archivo .vhd.** - Ha instalado un sistema operativo Linux compatible en un disco duro virtual. Existen varias herramientas para crear archivos .vhd. Puede utilizar una solución de virtualización como Hyper-V para crear el archivo .vhd e instalar el sistema operativo. Para obtener instrucciones, consulte [Instalar el rol Hyper-V y configurar una máquina virtual][].
+-   **Sistema operativo Linux instalado en un archivo .vhd.** - Ha instalado un sistema operativo Linux compatible en un disco duro virtual. Existen varias herramientas para crear archivos .vhd. Puede utilizar una solución de virtualización como Hyper-V para crear el archivo .vhd e instalar el sistema operativo. Para obtener instrucciones, consulte [Instalar el rol Hyper-V y configurar una máquina virtual][Instalar el rol Hyper-V y configurar una máquina virtual].
 
     **Importante**: el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
 
-    Para ver una lista de distribuciones aprobadas, consulte [Linux en distribuciones aprobadas por Azure][]. También puede consultar la sección que se encuentra al final de este artículo para obtener [información para las distribuciones no aprobadas][].
+    Para ver una lista de distribuciones aprobadas, consulte [Linux en distribuciones aprobadas por Azure][Linux en distribuciones aprobadas por Azure]. También puede consultar la sección que se encuentra al final de este artículo para obtener [información para las distribuciones no aprobadas][información para las distribuciones no aprobadas].
 
--   **Herramienta de línea de comandos de Azure para Linux.** Si usa el sistema operativo Linux para crear su imagen, utilizará esta herramienta para cargar el archivo VHD. Para descargar la herramienta, consulte [Herramientas de línea de comandos de Azure para Linux y Mac][].
+-   **Herramienta de línea de comandos de Azure para Linux.** Si usa el sistema operativo Linux para crear su imagen, utilizará esta herramienta para cargar el archivo VHD. Para descargar la herramienta, consulte [Herramientas de línea de comandos de Azure para Linux y Mac][Herramientas de línea de comandos de Azure para Linux y Mac].
 
--   El **cmdlet Add-AzureVHD**, que forma parte del módulo PowerShell de Azure. Para descargar el módulo, consulte la página de [descargas de Azure][]. Para obtener más información, consulte [Add-AzureVhd][].
+-   El **cmdlet Add-AzureVHD**, que forma parte del módulo PowerShell de Azure. Para descargar el módulo, consulte la página de [descargas de Azure][descargas de Azure]. Para obtener más información, consulte [Add-AzureVhd][Add-AzureVhd].
 
 **Tenga en cuenta lo siguiente para todas las distribuciones:**
 
@@ -38,16 +38,16 @@ En este artículo se supone que tiene los siguientes elementos:
 
 -   NUMA no es compatible con máquinas virtuales de gran tamaño debido a un error en las versiones kernel de Linux inferiores a 2.6.37. La instalación manual de waagent deshabilitará automáticamente NUMA en la configuración GRUB para el kernel de Linux. Este problema afecta principalmente a las distribuciones que usan el kernel Red Hat 2.6.32 de canal de subida.
 
--   Se recomienda que no cree una partición de intercambio en el momento de la instalación. Puede configurar el espacio de intercambio usando el Agente de Linux de Azure. Tampoco se recomienda utilizar el kernel de Linux estándar con una máquina virtual de Azure sin la revisión disponible en el [sitio web de Microsoft][] (es posible que muchas distribuciones/kernels actuales ya incluyan esta revisión).
+-   Se recomienda que no cree una partición de intercambio en el momento de la instalación. Puede configurar el espacio de intercambio usando el Agente de Linux de Azure. Tampoco se recomienda utilizar el kernel de Linux estándar con una máquina virtual de Azure sin la revisión disponible en el [sitio web de Microsoft][sitio web de Microsoft] (es posible que muchas distribuciones/kernels actuales ya incluyan esta revisión).
 
 -   El tamaño de todos los archivos VHD debe ser múltiplo de 1 MB.
 
 Esta tarea incluye los siguientes pasos:
 
--   [Paso 1: Preparar la imagen que se va a cargar][]
--   [Paso 2: Crear una cuenta de almacenamiento en Azure][]
--   [Paso 3: Preparar la conexión a Azure][]
--   [Paso 4: Cargar la imagen en Azure][]
+-   [Paso 1: Preparar la imagen que se va a cargar][Paso 1: Preparar la imagen que se va a cargar]
+-   [Paso 2: Crear una cuenta de almacenamiento en Azure][Paso 2: Crear una cuenta de almacenamiento en Azure]
+-   [Paso 3: Preparar la conexión a Azure][Paso 3: Preparar la conexión a Azure]
+-   [Paso 4: Cargar la imagen en Azure][Paso 4: Cargar la imagen en Azure]
 
 ## <span id="prepimage"></span> </a>Paso 1: Preparar la imagen que se va a cargar
 
@@ -94,15 +94,15 @@ Asegúrese de completar estos pasos de configuración en el sistema operativo pa
 
     **Nota:** el paso solo es válido para CentOS 6.2 y 6.3. En CentOS 6.4+ los servicios de integración de Linux ya están disponibles en el kernel.
 
-    a) Obtenga el archivo .iso que contiene los controladores para los servicios de integración de Linux en el [Centro de descarga][].
+    a) Obtenga el archivo .iso que contiene los controladores para los servicios de integración de Linux en el [Centro de descarga][Centro de descarga].
 
     b) En el Administrador de Hyper-V, en el panel **Actions**, haga clic en **Settings**.
 
-    ![Abrir la configuración de Hyper-V][]
+    ![Abrir la configuración de Hyper-V][Abrir la configuración de Hyper-V]
 
     c) En el panel **Hardware**, haga clic en **IDE Controller 1**.
 
-    ![Agregar una unidad de DVD con medio de instalación][]
+    ![Agregar una unidad de DVD con medio de instalación][Agregar una unidad de DVD con medio de instalación]
 
     d) En el cuadro **IDE Controller**, haga clic en **DVD Drive** y, a continuación, en **Add**.
 
@@ -408,7 +408,7 @@ Debe completar los pasos de configuración específicos del sistema operativo pa
 
 ### Preparación de SUSE Linux Enterprise Server 11 SP2 y SP3
 
-**NOTA:** [SUSE Studio][] puede crear y administrar fácilmente sus imágenes de SLES/opeSUSE para Azure y Hyper-V. Además, las imágenes oficiales siguientes de SUSE Studio Gallery se pueden descargar o clonar en su propia cuenta de SUSE Studio para personalizarlas fácilmente:[SLES 11 SP3 for Azure on SUSE Studio Gallery][].
+**NOTA:** [SUSE Studio][SUSE Studio] puede crear y administrar fácilmente sus imágenes de SLES/opeSUSE para Azure y Hyper-V. Además, las imágenes oficiales siguientes de SUSE Studio Gallery se pueden descargar o clonar en su propia cuenta de SUSE Studio para personalizarlas fácilmente:[SLES 11 SP3 for Azure on SUSE Studio Gallery][SLES 11 SP3 for Azure on SUSE Studio Gallery].
 
 1.  Seleccione la máquina virtual en el panel central del Administrador de Hyper-V.
 
@@ -429,7 +429,7 @@ Debe completar los pasos de configuración específicos del sistema operativo pa
 
         "No repositories defined. Use the 'zypper addrepo' command to add one or more repositories."
 
-    puede que los repositorios tengan que volver a habilitarse o que haya que registrar el sistema. Esto se puede hacer mediante la utilidad suse\_register. Para obtener más información, consulte la [documentación SLES][].
+    puede que los repositorios tengan que volver a habilitarse o que haya que registrar el sistema. Esto se puede hacer mediante la utilidad suse\_register. Para obtener más información, consulte la [documentación SLES][documentación SLES].
 
 En caso de que no haya un repositorio de actualizaciones relevante habilitado, habilítelo con el comando siguiente:
 
@@ -490,9 +490,9 @@ En el caso anterior, el comando correcto sería:
 
 ### Preparación de openSUSE 12.3+
 
-**NOTA:** [SUSE Studio][] puede crear y administrar fácilmente sus imágenes de SLES/opeSUSE para Azure y Hyper-V. Además, las imágenes oficiales siguientes de SUSE Studio Gallery se pueden descargar o clonar en su propia cuenta de SUSE Studio para personalizarlas fácilmente:
+**NOTA:** [SUSE Studio][SUSE Studio] puede crear y administrar fácilmente sus imágenes de SLES/opeSUSE para Azure y Hyper-V. Además, las imágenes oficiales siguientes de SUSE Studio Gallery se pueden descargar o clonar en su propia cuenta de SUSE Studio para personalizarlas fácilmente:
 
-> -   [openSUSE 13,1 for Azure on SUSE Studio Gallery][]
+> -   [openSUSE 13,1 for Azure on SUSE Studio Gallery][openSUSE 13,1 for Azure on SUSE Studio Gallery]
 
 1.  Seleccione la máquina virtual en el panel central del Administrador de Hyper-V.
 
@@ -587,15 +587,15 @@ Una cuenta de almacenamiento representa el más alto nivel del espacio de nombre
 
 2.  En la barra de comandos, haga clic en **New**.
 
-    ![Crear una cuenta de almacenamiento][]
+    ![Crear una cuenta de almacenamiento][Crear una cuenta de almacenamiento]
 
 3.  Haga clic en **Cuenta de almacenamiento** y, a continuación, en **Quick Create**.
 
-    ![Creación rápida de una cuenta de almacenamiento][]
+    ![Creación rápida de una cuenta de almacenamiento][Creación rápida de una cuenta de almacenamiento]
 
 4.  Rellene los campos de la manera siguiente:
 
-    ![Escribir los detalles de la cuenta de almacenamiento][]
+    ![Escribir los detalles de la cuenta de almacenamiento][Escribir los detalles de la cuenta de almacenamiento]
 
 -   En **URL**, escriba el nombre de subdominio que vaya usar en la URL para la cuenta de almacenamiento. Esta entrada puede contener de 3 a 24 letras minúsculas y números. Este nombre se convierte en el nombre del host dentro de la URL que se ha usado para direccionar los recursos Blob, Cola o Tabla de la suscripción.
 
@@ -607,7 +607,7 @@ Una cuenta de almacenamiento representa el más alto nivel del espacio de nombre
 
     La cuenta aparece ahora en **Cuentas de almacenamiento**.
 
-    ![Cuenta de almacenamiento creada correctamente][]
+    ![Cuenta de almacenamiento creada correctamente][Cuenta de almacenamiento creada correctamente]
 
 ## <span id="#connect"></span> </a>Paso 3: Preparar la conexión a Azure
 
@@ -629,7 +629,7 @@ Antes de cargar el archivo .vhd, debe establecer una conexión segura entre el e
 
     Donde `<PathToFile>` es la ruta de acceso completa al archivo .publishsettings.
 
-    Para obtener información, consulte [Introducción a los cmdlets de Azure][].
+    Para obtener información, consulte [Introducción a los cmdlets de Azure][Introducción a los cmdlets de Azure].
 
 ## <span id="upload"></span> </a>Paso 4: Cargar la imagen en Azure
 
@@ -653,11 +653,11 @@ En esencia, todas las distribuciones que se ejecutan en Azure tendrán que cumpl
 
 Esta lista no pretende ser exhaustiva ya que cada distribución es diferente; y es bastante posible que aunque cumpla todos los criterios siguientes, todavía tenga que ajustar significativamente la imagen para asegurarse de que se ejecuta correctamente en la plataforma.
 
-Por este motivo, le recomendamos que empiece con una de nuestras [imágenes aprobadas de asociados][].
+Por este motivo, le recomendamos que empiece con una de nuestras [imágenes aprobadas de asociados][imágenes aprobadas de asociados].
 
 La lista que aparece a continuación reemplaza el paso 1 del proceso de creación de su propio VHD:
 
-1.  Tendrá que asegurarse de ejecutar un kernel que incorpore los controladores LIS más recientes para Hyper V o haberlos compilado correctamente (que sean de código abierto). Podrá encontrar los controladores [en esta ubicación][] (en inglés).
+1.  Tendrá que asegurarse de ejecutar un kernel que incorpore los controladores LIS más recientes para Hyper V o haberlos compilado correctamente (que sean de código abierto). Podrá encontrar los controladores [en esta ubicación][en esta ubicación] (en inglés).
 
 2.  El kernel también debería incluir la versión más reciente del controlador ATA PiiX que se utiliza para aprovisionar las imágenes y tiene las revisiones confirmadas al kernel con confirmación cd006086fa5d91414d8ff9ff2b78fbb593878e3c Date: Fri May 4 22:15:11 2012 +0100 ata\_piix: aplazar discos a los controladores de Hyper-V de manera predeterminada
 
@@ -671,7 +671,7 @@ La lista que aparece a continuación reemplaza el paso 1 del proceso de creació
 
 6.  Debería asegurarse de que todos los dispositivos SCSI montados en el kernel incluyen un tiempo de espera de E/S de como mínimo 300 segundos.
 
-7.  Tendrá que instalar el Agente de Linux de Azure siguiendo los pasos de la [Guía del Agente de Linux][]. El agente se ha publicado bajo la licencia Apache 2 y puede obtener las secciones más recientes en [Ubicación de GitHub del agente][] (en inglés).
+7.  Tendrá que instalar el Agente de Linux de Azure siguiendo los pasos de la [Guía del Agente de Linux][Guía del Agente de Linux]. El agente se ha publicado bajo la licencia Apache 2 y puede obtener las secciones más recientes en [Ubicación de GitHub del agente][Ubicación de GitHub del agente] (en inglés).
 
 8.  En /etc/sudoers, convierta en comentarios la línea siguiente, si existe:
 

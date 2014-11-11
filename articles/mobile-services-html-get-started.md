@@ -1,10 +1,10 @@
 <properties pageTitle="Get Started with Azure Mobile Services for HTML 5 apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for HTML development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
 
 # <a name="getting-started"> </a>Introducción a los Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
@@ -17,7 +17,7 @@
 
 La siguiente captura de pantalla muestra la aplicación final:
 
-![][]
+![][0]
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Servicios móviles para aplicaciones HTML.
 
@@ -27,9 +27,9 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Serv
 
 -   Este tutorial requiere que uno de los siguientes servidores web se esté ejecutando en su equipo local:
 
-    -   **En Windows**: IIS Express. El [Instalador de plataforma web de Microsoft][] se encarga de instalar IIS Express.
+    -   **En Windows**: IIS Express. El [Instalador de plataforma web de Microsoft][Instalador de plataforma web de Microsoft] se encarga de instalar IIS Express.
     -   **En MacOS X**: Python, que ya debería estar instalado.
-    -   **En Linux**: Python. Debe instalar la [última versión de Python][] (información en inglés).
+    -   **En Linux**: Python. Debe instalar la [última versión de Python][última versión de Python] (información en inglés).
 
     Puede usar cualquier servidor web para hospedar la aplicación, aunque estos son los servidores web que admiten los scripts descargados.
 
@@ -37,7 +37,7 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Serv
 
 ## <a name="create-new-service"> </a>Creación de un servicio móvil
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## 
 
@@ -113,19 +113,19 @@ La etapa final de este tutorial consiste en hospedar y ejecutar la aplicación n
 
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
--   **[Introducción a los datos][]**
+-   **[Introducción a los datos][Introducción a los datos]**
     
 	Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
--   **[Llamada a una API personalizada desde una aplicación HTML][]**
+-   **[Llamada a una API personalizada desde una aplicación HTML][Llamada a una API personalizada desde una aplicación HTML]**
     
 	Conéctese a su aplicación HTML mediante una API personalizada hospedada en Servicios móviles.
 
--   **[Introducción a la autenticación][]**
+-   **[Introducción a la autenticación][Introducción a la autenticación]**
     
 	Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
--   **[Referencia conceptual de Servicios móviles con HTML/JavaScript][]**
+-   **[Referencia conceptual de Servicios móviles con HTML/JavaScript][Referencia conceptual de Servicios móviles con HTML/JavaScript]**
     
 	Obtenga más información acerca de cómo utilizar los Servicios móviles con HTML/JavaScript.
 
@@ -134,16 +134,13 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 <!-- URLs. -->
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [Ver el tutorial (en inglés)]: http://go.microsoft.com/fwlink/?LinkId=287040
-  []: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
-  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F
+  [0]: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
   [Instalador de plataforma web de Microsoft]: http://go.microsoft.com/fwlink/p/?LinkId=286333
   [última versión de Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-html-get-started/mobile-portal-quickstart-html.png
   [2]: ./media/mobile-services-html-get-started/mobile-quickstart-steps-html.png
   [3]: ./media/mobile-services-html-get-started/mobile-services-set-cors-localhost.png
-  [Uso compartido de recursos entre orígenes]: http://msdn.microsoft.com/es-es/library/windowsazure/dn155871.aspx
   [4]: ./media/mobile-services-html-get-started/mobile-quickstart-startup-html.png
   [5]: ./media/mobile-services-html-get-started/mobile-data-tab.png
   [6]: ./media/mobile-services-html-get-started/mobile-data-browse.png

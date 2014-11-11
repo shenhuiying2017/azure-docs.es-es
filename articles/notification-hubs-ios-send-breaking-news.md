@@ -1,6 +1,6 @@
 <properties linkid="notification-hubs-ios-send-breaking-news" pageTitle="Notification Hubs Breaking News Tutorial - iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Uso de los Centros de notificaciones para enviar noticias de última hora
 
@@ -11,16 +11,16 @@
 
 Este tema muestra cómo puede usar los Centros de notificaciones de Azure para difundir notificaciones de noticias de última hora en una aplicación iOS. Cuando lo complete, podrá registrar las categorías de noticias de última hora en las que esté interesado y recibir solo notificaciones de inserción para esas categorías. Este escenario es un patrón común para muchas aplicaciones en las que las notificaciones tienen que enviarse a grupos de usuarios que han mostrado previamente interés en ellas, por ejemplo, lectores RSS, aplicaciones para aficionados a la música, etc.
 
-Los escenarios de difusión se habilitan mediante la inclusión de una o más *etiquetas* cuando se crea un registro en el centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para obtener información sobre las etiquetas, consulte [Notification Hubs Guidance][].
+Los escenarios de difusión se habilitan mediante la inclusión de una o más *etiquetas* cuando se crea un registro en el centro de notificaciones. Cuando las notificaciones se envían a una etiqueta, todos los dispositivos registrados para la etiqueta recibirán la notificación. Puesto que las etiquetas son cadenas simples, no tendrán que aprovisionarse antes. Para obtener información sobre las etiquetas, consulte [Notification Hubs Guidance][Notification Hubs Guidance].
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar este escenario:
 
-1.  [Incorporación de una selección de categorías a la aplicación][]
-2.  [Registro de notificaciones][]
-3.  [Envío de notificaciones desde su back-end][]
-4.  [Ejecución de la aplicación y generación de notificaciones][]
+1.  [Incorporación de una selección de categorías a la aplicación][Incorporación de una selección de categorías a la aplicación]
+2.  [Registro de notificaciones][Registro de notificaciones]
+3.  [Envío de notificaciones desde su back-end][Envío de notificaciones desde su back-end]
+4.  [Ejecución de la aplicación y generación de notificaciones][Ejecución de la aplicación y generación de notificaciones]
 
-Este tema se basa en la aplicación que creó en [Introducción a los Centros de notificaciones][]. Antes de comenzar este tutorial, debe haber completado la [Introducción a los Centros de notificaciones][].
+Este tema se basa en la aplicación que creó en [Introducción a los Centros de notificaciones][Introducción a los Centros de notificaciones]. Antes de comenzar este tutorial, debe haber completado la [Introducción a los Centros de notificaciones][Introducción a los Centros de notificaciones].
 
 ## <a name="adding-categories"></a>Incorporación de una selección de categorías a la aplicación
 
@@ -35,7 +35,7 @@ El primer paso es agregar los elementos de la interfaz de usuario al guión grá
 
     El guión gráfico debe tener el aspecto siguiente:
 
-    ![][]
+    ![][0]
 
 2.  En el editor del asistente, cree medios para todos los modificadores y llámelos "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch" y "SportsSwitch".
 
@@ -201,7 +201,7 @@ La aplicación está ahora completa y puede almacenar un conjunto de categorías
 
 ## <a name="send"></a><span class="short-header">Envío de notificaciones</span>Envío de notificaciones desde el back-end
 
-[WACOM.INCLUDE [notification-hubs-back-end][]]
+[WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
 ## <a name="test-app"></a>Ejecución de la aplicación y generación de notificaciones
 
@@ -227,26 +227,22 @@ La aplicación está ahora completa y puede almacenar un conjunto de categorías
 
 En este tutorial hemos aprendido cómo difundir noticias de última hora por categoría. Considere la posibilidad de llevar a cabo uno de los siguientes tutoriales que destacan otros escenarios de centros de notificaciones avanzados:
 
--   **[Uso de los Centros de notificaciones para difundir noticias de última hora localizadas][]**
+-   **[Uso de los Centros de notificaciones para difundir noticias de última hora localizadas][Uso de los Centros de notificaciones para difundir noticias de última hora localizadas]**
 
     Conozca cómo expandir la aplicación de noticias de última hora para habilitar el envío de notificaciones localizadas.
 
--   **[Notificación a los usuarios con los Centros de notificaciones][]**
+-   **[Notificación a los usuarios con los Centros de notificaciones][Notificación a los usuarios con los Centros de notificaciones]**
 
     Conozca cómo insertar notificaciones para usuarios autenticados específicos. Esta es una buena solución para enviar notificaciones solo a usuarios específicos.
 
 
-  [Windows Universal]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universal"
-  [Windows Phone]: /es-es/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
-  [iOS]: /es-es/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
-  [Android]: /es-es/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
   [Notification Hubs Guidance]: http://msdn.microsoft.com/es-es/library/jj927170.aspx
   [Incorporación de una selección de categorías a la aplicación]: #adding-categories
   [Registro de notificaciones]: #register
   [Envío de notificaciones desde su back-end]: #send
   [Ejecución de la aplicación y generación de notificaciones]: #test-app
   [Introducción a los Centros de notificaciones]: /es-es/manage/services/notification-hubs/get-started-notification-hubs-ios/
-  []: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
+  [0]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
   [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios3.png
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png

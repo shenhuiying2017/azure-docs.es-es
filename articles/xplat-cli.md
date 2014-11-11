@@ -1,6 +1,6 @@
 <properties linkid="script-xplat-intro" urlDisplayName="Azure Cross-Platform Command-Line Interface" pageTitle="The Azure Cross-Platform Command-Line Interface" title="The Azure Cross-Platform Command-Line Interface" metaKeywords="Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli" description="Install and configure the Azure Cross-Platform Command-Line Interface to manage Azure Services" metaCanonical="http://www.windowsazure.com/es-es/script/xplat-cli-intro" umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="paulettm" documentationCenter="" solutions="" authors="carolz" services="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 
 # Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure
 
@@ -14,11 +14,11 @@ Este documento indica cómo instalar y configurar la interfaz de la línea de co
 
 ## Este documento incluye los siguientes temas:
 
--   [Instalación de la interfaz de la línea de comandos entre plataformas de Azure][]
--   [Conexión con su suscripción de Azure][]
--   [Uso de la interfaz de la línea de comandos entre plataformas de Azure][]
--   [Script de la interfaz de la línea de comandos entre plataformas de Azure][]
--   [Recursos adicionales][]
+-   [Instalación de la interfaz de la línea de comandos entre plataformas de Azure][Instalación de la interfaz de la línea de comandos entre plataformas de Azure]
+-   [Conexión con su suscripción de Azure][Conexión con su suscripción de Azure]
+-   [Uso de la interfaz de la línea de comandos entre plataformas de Azure][Uso de la interfaz de la línea de comandos entre plataformas de Azure]
+-   [Script de la interfaz de la línea de comandos entre plataformas de Azure][Script de la interfaz de la línea de comandos entre plataformas de Azure]
+-   [Recursos adicionales][Recursos adicionales]
 
 ## <span id="install"></span></a>Instalación de la interfaz de la línea de comandos entre plataformas de Azure
 
@@ -32,9 +32,9 @@ Una vez instalada la xplat-cli, podrá usar el comando **azure** desde su interf
 
 Están disponibles los siguientes paquetes del instalador:
 
--   [Windows Installer][]
+-   [Windows Installer][Windows Installer]
 
--   [Instalador de OS X][]
+-   [Instalador de OS X][Instalador de OS X]
 
 ### Uso de npm
 
@@ -82,7 +82,7 @@ Para elegir el método de autenticación más adecuado a sus necesidades, tenga 
 
     > [WACOM.NOTE] El método de inicio de sesión solo funciona con la cuenta profesional. Una cuenta profesional es un usuario administrado por su organización y definido en su inquilino de Azure Active Directory de la organización. Si actualmente no tiene una cuenta profesional y usa una cuenta Microsoft para iniciar sesión en su suscripción de Azure, puede crear una fácilmente siguiendo los pasos que se indican a continuación.
     >
-    > 1.  Inicie sesión en el [Portal de administración de Azure][] y haga clic en **Active Directory**.
+    > 1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure] y haga clic en **Active Directory**.
     >
     > 2.  Si no hay ningún directorio, seleccione **Create your directory** y proporcione la información que se le pida.
     >
@@ -94,13 +94,13 @@ Para elegir el método de autenticación más adecuado a sus necesidades, tenga 
     >
     > 5.  Finalmente, cierre sesión en el portal de Azure y, a continuación, vuelva a iniciarla usando la nueva cuenta profesional. Si es la primera vez que inicia sesión con esta cuenta, se le pedirá que cambie la contraseña.
     >
-    > Para obtener más información acerca de la cuenta profesional con Microsoft Azure, consulte [Inicio de sesión como organización en Microsoft Azure][].
+    > Para obtener más información acerca de la cuenta profesional con Microsoft Azure, consulte [Inicio de sesión como organización en Microsoft Azure][Inicio de sesión como organización en Microsoft Azure].
 
 -   El método del archivo de configuración de publicación instala un certificado que le permite realizar tareas de administración durante el periodo de validez de la suscripción y el certificado. Este método facilita el uso de la automatización para las tareas de ejecución prolongada. Una vez que descarga e importa la información, no tiene que volver a facilitarla. Sin embargo, este método dificulta la administración del acceso a una suscripción, ya que cualquier persona con acceso al certificado podría administrar la suscripción.
 
-Para obtener más información acerca de la administración de la autenticación y la suscripción, consulte [¿Cuál es la diferencia entre la autenticación basada en cuentas y la basada en certificados?][].
+Para obtener más información acerca de la administración de la autenticación y la suscripción, consulte [¿Cuál es la diferencia entre la autenticación basada en cuentas y la basada en certificados?][¿Cuál es la diferencia entre la autenticación basada en cuentas y la basada en certificados?].
 
-En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
+En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][Evaluación gratuita de Azure].
 
 ### Uso del método de inicio de sesión
 
@@ -250,7 +250,7 @@ Para volver al modo Azure Service Management, utilice el siguiente comando:
 
 > [WACOM.NOTE] Los modos Resource Manager y Azure Service Management se excluyen mutuamente. Es decir, los recursos creados en un modo no se pueden administrar desde el otro.
 
-Para obtener más información acerca de cómo trabajar con Resource Manager usando la xplat-cli, consulte [Uso de la interfaz de la línea de comandos entre plataformas de Azure con Resource Manager][].
+Para obtener más información acerca de cómo trabajar con Resource Manager usando la xplat-cli, consulte [Uso de la interfaz de la línea de comandos entre plataformas de Azure con Resource Manager][Uso de la interfaz de la línea de comandos entre plataformas de Azure con Resource Manager].
 
 ### Trabajo con los servicios en el modo de administración de servicios de Azure
 
@@ -300,11 +300,11 @@ Este ejemplo proporciona una lista de sitios web para el comando `grep`, que ins
 
 Aunque esto demuestra cómo se pueden encadenar unos comandos a otros, también puede crear scripts más elaborados usando las funciones de scripting proporcionadas por su intérprete de línea de comandos. Los diferentes intérpretes de línea de comandos tienen distintas características y sintaxis de scripting. Bash es probablemente el intérprete de línea de comandos más usado para los sistemas basados en UNIX, incluyendo Linux y OS X.
 
-Para obtener información acerca del scripting con Bash, consulte [Advanced Bash-Scripting Guide][].
+Para obtener información acerca del scripting con Bash, consulte [Advanced Bash-Scripting Guide][Advanced Bash-Scripting Guide].
 
-Para obtener información más general acerca del scripting de sistemas basados en OS X o Linux, consulte [Shell script][].
+Para obtener información más general acerca del scripting de sistemas basados en OS X o Linux, consulte [Shell script][Shell script].
 
-Para obtener información acerca del scripting de los sistemas basados en Windows usando archivos por lotes, consulte [Command-line reference A-Z][].
+Para obtener información acerca del scripting de los sistemas basados en Windows usando archivos por lotes, consulte [Command-line reference A-Z][Command-line reference A-Z].
 
 ### Interpretación de los resultados
 
@@ -356,7 +356,7 @@ Si se han especificado los parámetros `--verbose` o `-v`, se devolverá informa
     data:    myawesomesite  Running  Free  myawesomesite.azurewebsites.net
     info:    site list command OK
 
-Observe que la información de `verbose:` parece ser datos en formato JSON. Puede usar el parámetro `--json` para devolver la información en formato JSON si trabaja con las utilidades que entienden de forma nativa JSON, como [jsawk][] o [jq][]. Por ejemplo:
+Observe que la información de `verbose:` parece ser datos en formato JSON. Puede usar el parámetro `--json` para devolver la información en formato JSON si trabaja con las utilidades que entienden de forma nativa JSON, como [jsawk][jsawk] o [jq][jq]. Por ejemplo:
 
     azure site list --json | jsawk -n 'out(this.Name)' | xargs -L 1 azure site delete -q 
 
@@ -378,14 +378,12 @@ Si crea un script basado en el estado de salida, verifique que los comandos de x
 
 ## <span id="additional-resources"></span></a>Recursos adicionales
 
--   Para obtener más información acerca de la xplat-cli, para descargar el código fuente, informar de problemas o colaborar con el proyecto, visite el [Repositorio de GitHub para la interfaz de la línea de comandos entre plataformas de Azure][].
+-   Para obtener más información acerca de la xplat-cli, para descargar el código fuente, informar de problemas o colaborar con el proyecto, visite el [Repositorio de GitHub para la interfaz de la línea de comandos entre plataformas de Azure][Repositorio de GitHub para la interfaz de la línea de comandos entre plataformas de Azure].
 
--   Si tiene problemas al usar la xplat-cli, o Azure, visite los [Foros de Azure][].
+-   Si tiene problemas al usar la xplat-cli, o Azure, visite los [Foros de Azure][Foros de Azure].
 
 -   Para obtener más información acerca de Azure, consulte [][2]<http://azure.microsoft.com/></a>.
 
-  [PowerShell]: /es-es/manage/install-and-configure-windows-powershell/ "PowerShell"
-  [CLI entre plataformas]: /es-es/manage/install-and-configure-cli/ "CLI entre plataformas"
   []: https://github.com/WindowsAzure/azure-sdk-tools-xplat
   [Instalación de la interfaz de la línea de comandos entre plataformas de Azure]: #install
   [Conexión con su suscripción de Azure]: #configure
@@ -397,7 +395,6 @@ Si crea un script basado en el estado de salida, verifique que los comandos de x
   [Instalador de OS X]: http://go.microsoft.com/fwlink/?LinkId=252249
   [Portal de administración de Azure]: https://manage.windowsazure.com
   [Inicio de sesión como organización en Microsoft Azure]: http://www.windowsazure.com/es-es/documentation/articles/sign-up-organization/
-  [¿Cuál es la diferencia entre la autenticación basada en cuentas y la basada en certificados?]: http://msdn.microsoft.com/es-es/library/windowsazure/hh531793.aspx#BKMK_AccountVCert
   [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A7171371E
   [Uso de la interfaz de la línea de comandos entre plataformas de Azure con Resource Manager]: /es-es/documentation/articles/xplat-cli-azure-resource-manager/
   [Advanced Bash-Scripting Guide]: http://tldp.org/LDP/abs/html/

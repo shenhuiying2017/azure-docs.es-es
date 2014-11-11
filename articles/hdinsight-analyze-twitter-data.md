@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze Twitter data with HDInsight Hadoop" pageTitle="Analyze Twitter data with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyze Twitter data with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Análisis de datos de Twitter con Hadoop en HDInsight
 
@@ -12,18 +12,18 @@ Los sitios web de las redes sociales constituyen una de las principales fuerzas 
 
 ## En este artículo
 
--   [Requisitos previos][]
--   [Obtención de una fuente de Twitter][]
--   [Creación de un script de HiveQL][]
--   [Procesamiento de los datos con Hive][]
--   [Limpieza del tutorial][]
--   [Pasos siguientes][]
+-   [Requisitos previos][Requisitos previos]
+-   [Obtención de una fuente de Twitter][Obtención de una fuente de Twitter]
+-   [Creación de un script de HiveQL][Creación de un script de HiveQL]
+-   [Procesamiento de los datos con Hive][Procesamiento de los datos con Hive]
+-   [Limpieza del tutorial][Limpieza del tutorial]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <span id="prerequisites"></span></a>Requisitos previos
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
--   Una **estación de trabajo** con Azure PowerShell instalado y configurado. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][]. Para ejecutar scripts de PowerShell, debe ejecutar Azure PowerShell como administrador y establecer la directiva de ejecución en *RemoteSigned*. Consulte [Running Windows PowerShell scripts][].
+-   Una **estación de trabajo** con Azure PowerShell instalado y configurado. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][Instalación y configuración de Azure PowerShell]. Para ejecutar scripts de PowerShell, debe ejecutar Azure PowerShell como administrador y establecer la directiva de ejecución en *RemoteSigned*. Consulte [Running Windows PowerShell scripts][Running Windows PowerShell scripts].
 
     Antes de ejecutar scripts de PowerShell, asegúrese de estar conectado a su suscripción de Azure mediante el siguiente cmdlet:
 
@@ -33,7 +33,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
         Select-AzureSubscription <AzureSubscriptionName>
 
--   **Un clúster de HDInsight de Azure**. Para obtener instrucciones acerca del aprovisionamiento del clúster, consulte [Introducción al uso de HDInsight de Azure][] o [Aprovisionamiento de clústeres de HDInsight][]. Para completar el tutorial, necesitará los datos siguientes:
+-   **Un clúster de HDInsight de Azure**. Para obtener instrucciones acerca del aprovisionamiento del clúster, consulte [Introducción al uso de HDInsight de Azure][Introducción al uso de HDInsight de Azure] o [Aprovisionamiento de clústeres de HDInsight][Aprovisionamiento de clústeres de HDInsight]. Para completar el tutorial, necesitará los datos siguientes:
 
     <table>
     <colgroup>
@@ -74,9 +74,9 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 **Descripción del almacenamiento de HDInsight**
 
-HDInsight usa el almacenamiento de blobs de Azure para el almacenamiento de datos. Se llama *WASB* o *Almacenamiento de Azure - Blob*. WASB es la implementación del sistema de archivos distribuido de Hadoop (HDFS) de Microsoft en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][].
+HDInsight usa el almacenamiento de blobs de Azure para el almacenamiento de datos. Se llama *WASB* o *Almacenamiento de Azure - Blob*. WASB es la implementación del sistema de archivos distribuido de Hadoop (HDFS) de Microsoft en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][Uso del almacenamiento de blobs de Azure con HDInsight].
 
-Cuando aprovisiona un clúster de HDInsight, se designa un contenedor de almacenamiento de blobs como sistema de archivos predeterminado, al igual que en HDFS. Además de este contenedor, puede agregar más contenedores desde la misma cuenta de almacenamiento de Azure o desde otras diferentes durante el proceso de aprovisionamiento. Para obtener instrucciones acerca de cómo agregar más cuentas de almacenamiento, consulte [Aprovisionamiento de clústeres de HDInsight][].
+Cuando aprovisiona un clúster de HDInsight, se designa un contenedor de almacenamiento de blobs como sistema de archivos predeterminado, al igual que en HDFS. Además de este contenedor, puede agregar más contenedores desde la misma cuenta de almacenamiento de Azure o desde otras diferentes durante el proceso de aprovisionamiento. Para obtener instrucciones acerca de cómo agregar más cuentas de almacenamiento, consulte [Aprovisionamiento de clústeres de HDInsight][Aprovisionamiento de clústeres de HDInsight].
 
 Para simplificar el script de PowerShell que se utiliza en este tutorial, todos los archivos se almacenan en el contenedor del sistema de archivos predeterminado, ubicado en */tutorials/twitter*. De forma predeterminada, este contenedor tiene el mismo nombre que el del clúster de HDInsight.
 
@@ -86,7 +86,7 @@ La sintaxis de WASB es la siguiente:
 
 > [WACOM.NOTE] La sintaxis *wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La sintaxis *asv://* anterior es compatible con los clústeres de las versiones 2.1 y 1.6 de HDInsight, pero no con los de la versión 3.0, y no será compatible con versiones posteriores.
 
-> La ruta de acceso WASB es la ruta de acceso virtual. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][].
+> La ruta de acceso WASB es la ruta de acceso virtual. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][Uso del almacenamiento de blobs de Azure con HDInsight].
 
 Para tener acceso a un archivo almacenado en el contenedor del sistema de archivos predeterminado desde HDInsight se puede usar cualquiera de los URI siguientes (use tweets.txt como ejemplo):
 
@@ -109,11 +109,11 @@ La siguiente tabla enumera los archivos utilizados en este tutorial:
 
 ## <span id="feed"></span></a>Obtención de una fuente de Twitter
 
-En este tutorial, verá las [API de streaming de Twitter][]. La API de streaming de Twitter específica que utilizará es [statuses/filter][].
+En este tutorial, verá las [API de streaming de Twitter][API de streaming de Twitter]. La API de streaming de Twitter específica que utilizará es [statuses/filter][statuses/filter].
 
-Los [datos de tweets][] se almacenan en formato JSon que contiene una compleja estructura anidada. En lugar de escribir varias líneas de código con un lenguaje de programación convencional, puede transformar esta estructura anidada en una tabla Hive para que se puedan realizar consultas a través de un lenguaje similar a SQL llamado HiveQL.
+Los [datos de tweets][datos de tweets] se almacenan en formato JSon que contiene una compleja estructura anidada. En lugar de escribir varias líneas de código con un lenguaje de programación convencional, puede transformar esta estructura anidada en una tabla Hive para que se puedan realizar consultas a través de un lenguaje similar a SQL llamado HiveQL.
 
-Twitter utiliza OAuth para brindar acceso autorizado a su API. OAuth es un protocolo de autenticación que permite que los usuarios permitan que la aplicación pueda actuar en su nombre sin compartir la contraseña. Puede encontrar más información en [oauth.net][] o en la excelente [Beginner's Guide to OAuth][] de Hueniverse.
+Twitter utiliza OAuth para brindar acceso autorizado a su API. OAuth es un protocolo de autenticación que permite que los usuarios permitan que la aplicación pueda actuar en su nombre sin compartir la contraseña. Puede encontrar más información en [oauth.net][oauth.net] o en la excelente [Beginner's Guide to OAuth][Beginner's Guide to OAuth] de Hueniverse.
 
 El primer paso es utilizar OAuth para crear una aplicación nueva en el sitio de desarrolladores de Twitter.
 
@@ -136,13 +136,13 @@ El primer paso es utilizar OAuth para crear una aplicación nueva en el sitio de
 8.  Haga clic en **Prueba de OAuth** en la esquina superior derecha de la página.
 9.  Anote la **clave del consumidor**, el **token del consumidor**, **token de acceso** y **acceso a secreto de token**. Los necesitará más adelante en el tutorial.
 
-En este tutorial, pasarán a PowerShell para realizar una llamada de servicio web. La otra herramienta popular para realizar llamadas de servicios web [*Curl*][]. Es posible descargar la Curl [aquí][].
+En este tutorial, pasarán a PowerShell para realizar una llamada de servicio web. La otra herramienta popular para realizar llamadas de servicios web [*Curl*][*Curl*]. Es posible descargar la Curl [aquí][aquí].
 
 > [WACOM.NOTE] Cuando utilice el comando Curl en Windows, utilice comillas dobles en lugar de comillas simples para los valores de opción.
 
 **Para obtener tweets**
 
-1.  Abra Windows PowerShell ISE (en la pantalla Inicio de Windows 8, escriba **PowerShell\_ISE** y, a continuación, haga clic en **Windows PowerShell ISE**. Consulte [Start Windows PowerShell on Windows 8 and Windows][]).
+1.  Abra Windows PowerShell ISE (en la pantalla Inicio de Windows 8, escriba **PowerShell\_ISE** y, a continuación, haga clic en **Windows PowerShell ISE**. Consulte [Start Windows PowerShell on Windows 8 and Windows][Start Windows PowerShell on Windows 8 and Windows]).
 
 2.  Copie el siguiente script en el panel de scripts:
 
@@ -254,8 +254,8 @@ En este tutorial, pasarán a PowerShell para realizar una llamada de servicio we
 
     | Variable                 | Descripción                                                                                                                                                                                                                |
     |--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | $storageAccountName      | La cuenta de almacenamiento de Azure utilizada como sistema de archivos predeterminado del clúster de HDInsight. Esta es la cuenta de almacenamiento especificada en la provisión. Consulte los [Requisitos previos][].    |
-    | $containerName           | El contenedor de blobs que se utiliza para el sistema de archivos de clúster de HDInsight predeterminado. Este es el contenedor especificado en la provisión. Consulte los [Requisitos previos][].                         |
+    | $storageAccountName      | La cuenta de almacenamiento de Azure utilizada como sistema de archivos predeterminado del clúster de HDInsight. Esta es la cuenta de almacenamiento especificada en la provisión. Consulte los [Requisitos previos][Requisitos previos].    |
+    | $containerName           | El contenedor de blobs que se utiliza para el sistema de archivos de clúster de HDInsight predeterminado. Este es el contenedor especificado en la provisión. Consulte los [Requisitos previos][Requisitos previos].                         |
     | $destBlobName            | Este es el nombre de blob de salida. El valor predeterminado se encuentra en **tutorials/twitter/data/tweets.txt**. Si cambia el valor predeterminado, deberá actualizar los scripts de PowerShell como corresponda.       |
     | $trackString             | El servicio web devolverá tweets relacionados con estas palabras clave. El valor predeterminado es **Azure, Cloud, HDInsight**. Si cambia el valor predeterminado, actualizará los scripts de PowerShell como corresponda. |
     | $lineMax                 | El valor determina cuántos tweets leerá el script. Tomará unos tres minutos para leer 100 tweets. Puede definir un número mayor, pero aumentará el tiempo necesario para la descarga.                                      |
@@ -267,7 +267,7 @@ En este tutorial, pasarán a PowerShell para realizar una llamada de servicio we
 4.  Presione **F5** para ejecutar el script. Si encuentra problemas, como solución alternativa, seleccione todas las líneas y, a continuación, presione **F8**.
 5.  Verá un anuncio de "Complete!" al final de la salida. Los mensajes de error aparecerán en rojo.
 
-Como procedimiento de validación, puede revisar el archivo de salida, **/tutorials/twitter/data/tweets.txt**, en el almacenamiento de blobs de Azure con un explorador de almacenamiento de Azure o Azure PowerShell. Para obtener un script de ejemplo de PowerShell, consulte [Uso de almacenamiento de blobs con HDInsight][].
+Como procedimiento de validación, puede revisar el archivo de salida, **/tutorials/twitter/data/tweets.txt**, en el almacenamiento de blobs de Azure con un explorador de almacenamiento de Azure o Azure PowerShell. Para obtener un script de ejemplo de PowerShell, consulte [Uso de almacenamiento de blobs con HDInsight][Uso de almacenamiento de blobs con HDInsight].
 
 ## <span id="script"></span></a>Creación de un script de HiveQL
 
@@ -276,7 +276,7 @@ Con Azure PowerShell, puede ejecutar varias instrucciones HiveQL a la vez, o emp
 El script de HiveQL realizará lo siguiente:
 
 1.  **Descartar la tabla tweets\_raw** en caso de que ya exista la etiqueta.
-2.  **Crear la tabla de tweets\_raw Hive**. La tabla estructurada temporal de Hive contiene los datos para un procesamiento adicional de ETL. Para obtener información sobre la partición, consulte el [tutorial de Hive][].
+2.  **Crear la tabla de tweets\_raw Hive**. La tabla estructurada temporal de Hive contiene los datos para un procesamiento adicional de ETL. Para obtener información sobre la partición, consulte el [tutorial de Hive][tutorial de Hive].
 3.  **Cargar datos** desde la carpeta de origen /tutorials/twitter/data. El gran conjunto de datos de los tweets en formato JSON anidado se ha transformado en una estructura de tabla temporal de Hive.
 4.  **Descartar la tabla de tweets** en caso de que ya exista.
 5.  **Crear la tabla de tweets**. Antes de poder consultar el conjunto de datos de tweets mediante Hive, hay que ejecutar otro proceso de ETL. Este proceso ETL define un esquema de tabla más detallado para los datos que hemos almacenado en la tabla "twitter\_raw".
@@ -442,8 +442,8 @@ El script de HiveQL realizará lo siguiente:
 
     | Variable            | Descripción                                                                                                                                                                                                             |
     |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | $storageAccountName | La cuenta de almacenamiento de Azure utilizada como sistema de archivos predeterminado del clúster de HDInsight. Esta es la cuenta de almacenamiento especificada en la provisión. Consulte los [Requisitos previos][]. |
-    | $containerName      | El contenedor de blobs que se utiliza para el sistema de archivos de clúster de HDInsight predeterminado. Este es el contenedor especificado en la provisión. Consulte los [Requisitos previos][].                      |
+    | $storageAccountName | La cuenta de almacenamiento de Azure utilizada como sistema de archivos predeterminado del clúster de HDInsight. Esta es la cuenta de almacenamiento especificada en la provisión. Consulte los [Requisitos previos][Requisitos previos]. |
+    | $containerName      | El contenedor de blobs que se utiliza para el sistema de archivos de clúster de HDInsight predeterminado. Este es el contenedor especificado en la provisión. Consulte los [Requisitos previos][Requisitos previos].                      |
     | $sourceDataPath     | La ubicación de WASB desde donde se leerán los datos de consultas de Hive. No es necesario que cambie esta variable.                                                                                                    |
     | $outputPath         | La ubicación de WASB desde donde se almacenarán los resultados de consultas de Hive. No es necesario que cambie esta variable.                                                                                          |
     | $hqlScriptFile      | La ubicación y el nombre de archivo del archivo de script de HiveQL.                                                                                                                                                    |
@@ -451,7 +451,7 @@ El script de HiveQL realizará lo siguiente:
 4.  Presione **F5** para ejecutar el script. Si encuentra problemas, como solución alternativa, seleccione todas las líneas y, a continuación, presione **F8**.
 5.  Verá un anuncio de "Complete!" al final de la salida. Los mensajes de error aparecerán en rojo.
 
-Como procedimiento de validación, puede revisar el archivo de salida, **/tutorials/twitter/twitter.hql**, en el almacenamiento de blobs de Azure con un explorador de almacenamiento de Azure o Azure PowerShell. Para obtener un script de ejemplo de PowerShell, consulte [Uso de almacenamiento de blobs con HDInsight][].
+Como procedimiento de validación, puede revisar el archivo de salida, **/tutorials/twitter/twitter.hql**, en el almacenamiento de blobs de Azure con un explorador de almacenamiento de Azure o Azure PowerShell. Para obtener un script de ejemplo de PowerShell, consulte [Uso de almacenamiento de blobs con HDInsight][Uso de almacenamiento de blobs con HDInsight].
 
 ## <a name="process"></a> Procesamiento de datos de Twitter de manera interactiva mediante Hive
 
@@ -496,23 +496,23 @@ Use el siguiente script de PowerShell para comprobar la salida del trabajo de Hi
 
 > [WACOM.NOTE] La tabla de Hive utiliza \\001 como delimitador de campo. El delimitador no es visible en la salida.
 
-Una vez que los resultados del análisis se hayan colocado en WASB, puede exportar los datos a SQL Server/Base de datos SQL de Azure, exportar los datos a Excel con Power Query, o bien, conectar la aplicación con los datos mediante el uso de Hive ODBC. Para obtener más información, consulte [Uso de Sqoop con HDInsight][] ,[Análisis de la información de retraso de vuelos usando HDInsight][], [Conexión de Excel a HDInsight con Power Query][] y [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver][].
+Una vez que los resultados del análisis se hayan colocado en WASB, puede exportar los datos a SQL Server/Base de datos SQL de Azure, exportar los datos a Excel con Power Query, o bien, conectar la aplicación con los datos mediante el uso de Hive ODBC. Para obtener más información, consulte [Uso de Sqoop con HDInsight][Uso de Sqoop con HDInsight] ,[Análisis de la información de retraso de vuelos usando HDInsight][Análisis de la información de retraso de vuelos usando HDInsight], [Conexión de Excel a HDInsight con Power Query][Conexión de Excel a HDInsight con Power Query] y [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver][Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver].
 
 ## <span id="cleanup"></span></a>Limpieza del tutorial
 
 En caso de que desee volver a ejecutar el tutorial, necesitará:
 
--   **Volver a crear el archivo de datos de Tweets**. El trabajo de Hive quitó el archivo de datos de Tweets de origen. Necesitará generar uno nuevo. El nombre del archivo es **tutorials/twitter/data/tweets.txt**. Consulte [Obtención de una fuente de Twitter][].
+-   **Volver a crear el archivo de datos de Tweets**. El trabajo de Hive quitó el archivo de datos de Tweets de origen. Necesitará generar uno nuevo. El nombre del archivo es **tutorials/twitter/data/tweets.txt**. Consulte [Obtención de una fuente de Twitter][Obtención de una fuente de Twitter].
 
 ## <span id="nextsteps"></span></a>Pasos siguientes
 
 En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estructurado en una tabla de Hive estructurada para consultar, explorar y analizar datos desde Twitter mediante HDInsight en Azure. Para obtener más información, consulte:
 
 -   [Introducción a HDInsight][Introducción al uso de HDInsight de Azure]
--   [Análisis de la información de retraso de vuelos usando HDInsight][]
--   [Conexión de Excel a HDInsight con Power Query][]
--   [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver][]
--   [Uso de Sqoop con HDInsight][]
+-   [Análisis de la información de retraso de vuelos usando HDInsight][Análisis de la información de retraso de vuelos usando HDInsight]
+-   [Conexión de Excel a HDInsight con Power Query][Conexión de Excel a HDInsight con Power Query]
+-   [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver][Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver]
+-   [Uso de Sqoop con HDInsight][Uso de Sqoop con HDInsight]
 
   [Requisitos previos]: #prerequisites
   [Obtención de una fuente de Twitter]: #feed
@@ -521,7 +521,7 @@ En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estr
   [Limpieza del tutorial]: #cleanup
   [Pasos siguientes]: #nextsteps
   [Instalación y configuración de Azure PowerShell]: ../install-configure-powershell
-  [Running Windows PowerShell scripts]: http://technet.microsoft.com/en-us/library/ee176949.aspx
+  [Running Windows PowerShell scripts]: http://technet.microsoft.com/es-es/library/ee176949.aspx
   [Introducción al uso de HDInsight de Azure]: ../hdinsight-get-started/
   [Aprovisionamiento de clústeres de HDInsight]: ../hdinsight-provision-clusters/
   [Uso del almacenamiento de blobs de Azure con HDInsight]: ../hdinsight-use-blob-storage/
@@ -531,9 +531,8 @@ En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estr
   [oauth.net]: http://oauth.net/
   [Beginner's Guide to OAuth]: http://hueniverse.com/oauth/
   []: https://apps.twitter.com/
-  [*Curl*]: http://curl.haxx.se
   [aquí]: http://curl.haxx.se/download.html
-  [Start Windows PowerShell on Windows 8 and Windows]: http://technet.microsoft.com/en-us/library/hh847889.aspx
+  [Start Windows PowerShell on Windows 8 and Windows]: http://technet.microsoft.com/es-es/library/hh847889.aspx
   [Uso de almacenamiento de blobs con HDInsight]: ../hdinsight-use-blob-storage/#powershell
   [tutorial de Hive]: https://cwiki.apache.org/confluence/display/Hive/Tutorial
   [Uso de Sqoop con HDInsight]: ../hdinsight-use-sqoop/

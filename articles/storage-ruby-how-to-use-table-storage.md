@@ -8,37 +8,37 @@ Esta guía le indicará cómo actuar en situaciones habituales usando el servici
 Azure. Los ejemplos se han escrito usando la
 API Ruby. Entre los escenarios descritos se incluyen la **creación y eliminación de una
 tabla, la inserción y la consulta de entidades en una tabla**. Para obtener más
-información acerca de las tablas, consulte la sección [Pasos siguientes][].
+información acerca de las tablas, consulte la sección [Pasos siguientes][Pasos siguientes].
 
 ## Tabla de contenido
 
--   [¿Qué es el servicio Tabla?][]
--   [Conceptos][]
--   [Creación de una cuenta de almacenamiento de Azure][]
--   [Creación de una aplicación de Ruby][]
--   [Configuración de su aplicación para obtener acceso al almacenamiento][]
--   [Configuración de una conexión de almacenamiento de Azure][]
--   [Creación de una tabla][]
--   [Incorporación de una entidad a una tabla][]
--   [Actualización de una entidad][]
--   [Tabajo con grupos de entidades][]
--   [Consulta de una entidad][]
--   [Consulta de un conjunto de entidades][]
--   [Consulta de un subconjunto de propiedades de las entidades][]
--   [Eliminación de una entidad][]
--   [Eliminación de una tabla][]
--   [Pasos siguientes][]
+-   [¿Qué es el servicio Tabla?][¿Qué es el servicio Tabla?]
+-   [Conceptos][Conceptos]
+-   [Creación de una cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento de Azure]
+-   [Creación de una aplicación de Ruby][Creación de una aplicación de Ruby]
+-   [Configuración de su aplicación para obtener acceso al almacenamiento][Configuración de su aplicación para obtener acceso al almacenamiento]
+-   [Configuración de una conexión de almacenamiento de Azure][Configuración de una conexión de almacenamiento de Azure]
+-   [Creación de una tabla][Creación de una tabla]
+-   [Incorporación de una entidad a una tabla][Incorporación de una entidad a una tabla]
+-   [Actualización de una entidad][Actualización de una entidad]
+-   [Tabajo con grupos de entidades][Tabajo con grupos de entidades]
+-   [Consulta de una entidad][Consulta de una entidad]
+-   [Consulta de un conjunto de entidades][Consulta de un conjunto de entidades]
+-   [Consulta de un subconjunto de propiedades de las entidades][Consulta de un subconjunto de propiedades de las entidades]
+-   [Eliminación de una entidad][Eliminación de una entidad]
+-   [Eliminación de una tabla][Eliminación de una tabla]
+-   [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <span id="create-a-windows-azure-storage-account"></span></a>Creación de una cuenta de almacenamiento de Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="create-a-ruby-application"></span></a>Creación de una aplicación de Ruby
 
 Cree una aplicación de Ruby. Para obtener instrucciones,
-consulte [Creación de una aplicación de Ruby en Azure][].
+consulte [Creación de una aplicación de Ruby en Azure][Creación de una aplicación de Ruby en Azure].
 
 ## <span id="configure-your-application-to-access-storage"></span></a>Configuración de su aplicación para obtener acceso al almacenamiento
 
@@ -67,7 +67,7 @@ El módulo azure leerá las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y *
 
 Para obtener estos valores:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  Vaya a la cuenta de almacenamiento que desea utilizar.
 
@@ -163,12 +163,11 @@ Para eliminar una tabla, use el método **delete\_table()** para pasar el nombre
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de tablas, siga estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][]
--   Visite el [blog del equipo de almacenamiento de Azure][] (en inglés).
--   Visite el repositorio del [SDK de Azure para Ruby][] (en inglés) en GitHub.
+-   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][Almacenamiento de datos y acceso a los mismos en Azure]
+-   Visite el [blog del equipo de almacenamiento de Azure][blog del equipo de almacenamiento de Azure] (en inglés).
+-   Visite el repositorio del [SDK de Azure para Ruby][SDK de Azure para Ruby] (en inglés) en GitHub.
 
   [Pasos siguientes]: #next-steps
-  [¿Qué es el servicio Tabla?]: #what-is
   [Conceptos]: #concepts
   [Creación de una cuenta de almacenamiento de Azure]: #create-a-windows-azure-storage-account
   [Creación de una aplicación de Ruby]: #create-a-ruby-application
@@ -185,8 +184,8 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
   [Eliminación de una tabla]: #how-to-delete-a-table
   [howto-table-storage]: ../includes/howto-table-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Creación de una aplicación de Ruby en Azure]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [Creación de una aplicación de Ruby en Azure]: /es-es/develop/ruby/tutorials/web-app-with-linux-vm/
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
   [blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [SDK de Azure para Ruby]: http://github.com/WindowsAzure/azure-sdk-for-ruby

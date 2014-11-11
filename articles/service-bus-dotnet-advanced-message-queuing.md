@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the .NET Service Bus API - Azure" metaKeywords="" description="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to use AMQP 1.0 with the Service Bus .NET API" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Uso de AMQP 1.0 con la API .NET del bus de servicio
 
@@ -14,7 +14,7 @@ En esta guía de procedimientos se explica cómo utilizar las funciones de mensa
 
 ## <span class="short-header">Introducción</span>Introducción al bus de servicio
 
-En esta guía se asume que ya dispone de un espacio de nombres del bus de servicio con una cola denominada “queue1”. Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de administración de Azure][]. Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio.][]
+En esta guía se asume que ya dispone de un espacio de nombres del bus de servicio con una cola denominada “queue1”. Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de administración de Azure][Portal de administración de Azure]. Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio.][Utilización de las colas del bus de servicio.]
 
 ## <span class="short-header">Descarga del SDK</span>Descarga del SDK del bus de servicio.
 
@@ -24,7 +24,7 @@ La compatibilidad con AMQP 1.0 está disponible en el SDK del bus de servicio 2.
 
 De manera predeterminada, la biblioteca de clientes .NET del bus de servicio se comunica con el servicio del bus de servicio utilizando un protocolo dedicado basado en SOAP. Para utilizar AMQP 1.0 en lugar del protocolo predeterminado, es necesario configurar de manera explícita la cadena de conexión del bus de servicio tal y como se describe en la sección siguiente. Aparte de este cambio, el código de la aplicación prácticamente permanece invariable al utilizar AMQP 1.0.
 
-La versión actual incluye unas cuantas funciones de la API que no son compatibles con el uso de AMQP. Estas funciones incompatibles se enumeran más adelante en la sección Funciones incompatibles y restricciones. Algunos de los parámetros de configuración avanzados también adquieren un significado diferente cuando se usa AMQP. En esta breve guía de procedimientos no se utiliza ninguno de estos parámetros, pero puede encontrar más información en la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][].
+La versión actual incluye unas cuantas funciones de la API que no son compatibles con el uso de AMQP. Estas funciones incompatibles se enumeran más adelante en la sección Funciones incompatibles y restricciones. Algunos de los parámetros de configuración avanzados también adquieren un significado diferente cuando se usa AMQP. En esta breve guía de procedimientos no se utiliza ninguno de estos parámetros, pero puede encontrar más información en la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][Guía para desarrolladores sobre AMQP 1.0 del bus de servicio].
 
 ### Configuración mediante App.config
 
@@ -47,7 +47,7 @@ El valor del parámetro **Microsoft.ServiceBus.ConnectionString** es la cadena d
 
     Endpoint=sb://[namespace].servicebus.windows.net;SharedSecretIssuer=[issuer name];SharedSecretValue=[issuer key];TransportType=Amqp
 
-Los valores [namespace], [issuer name] e [issuer key] se obtienen del Portal de administración de Azure. Para obtener más información, consulte [Utilización de las colas del bus de servicio][].
+Los valores [namespace], [issuer name] e [issuer key] se obtienen del Portal de administración de Azure. Para obtener más información, consulte [Utilización de las colas del bus de servicio][Utilización de las colas del bus de servicio].
 
 Al utilizar AMQP, se agrega “;TransportType=Amqp” al final de la cadena de conexión para informar a la biblioteca de clientes de que debe recurrir a AMQP 1.0 para establecer la conexión con el bus de servicio.
 
@@ -206,9 +206,9 @@ Al ejecutar la aplicación se obtienen resultados del tipo:
 
 Hasta ahora hemos visto cómo enviar mensajes al bus de servicio utilizando .NET y cómo recibir mensajes utilizando .NET. Sin embargo, una de las ventajas principales de AMQP 1.0 es que permite que las aplicaciones estén formadas por componentes escritos en diferentes lenguajes, a la vez que garantiza que los mensajes se intercambien con total seguridad y fidelidad.
 
-Utilizando la aplicación .NET de ejemplo descrita anteriormente y una aplicación Java similar tomada de la guía complementaria [Uso de la API de Java Message Service (JMS) con el bus de servicio y AMQP 1.0][], es posible intercambiar mensajes entre .NET y Java.
+Utilizando la aplicación .NET de ejemplo descrita anteriormente y una aplicación Java similar tomada de la guía complementaria [Uso de la API de Java Message Service (JMS) con el bus de servicio y AMQP 1.0][Uso de la API de Java Message Service (JMS) con el bus de servicio y AMQP 1.0], es posible intercambiar mensajes entre .NET y Java.
 
-Para obtener más información acerca de la mensajería entre diferentes plataformas utilizando el bus de servicio y AMQP 1.0, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][].
+Para obtener más información acerca de la mensajería entre diferentes plataformas utilizando el bus de servicio y AMQP 1.0, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][Guía para desarrolladores sobre AMQP 1.0 del bus de servicio].
 
 ### De JMS a .NET
 
@@ -279,25 +279,24 @@ Actualmente las siguientes funciones de la API .NET del bus de servicio no son c
 -   Renovación del bloqueo de la sesión
 -   Pequeñas diferencias de funcionamiento
 
-Para obtener más información, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][]. Aquí se incluye una lista detallada de las API incompatibles.
+Para obtener más información, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][Guía para desarrolladores sobre AMQP 1.0 del bus de servicio]. Aquí se incluye una lista detallada de las API incompatibles.
 
 ## <span class="short-header">Resumen</span>Resumen
 
 En esta guía de procedimientos mostramos cómo obtener acceso a las funciones de mensajería asíncrona del bus de servicio (colas y publicación/suscripción de temas) desde .NET utilizando AMQP 1.0 y la API .NET del bus de servicio.
 
-También puede utilizar AMQP 1.0 del bus de servicio desde otros lenguajes, como Java, C, Python y PHP. Los componentes creados utilizando estos lenguajes pueden intercambiar mensajes con seguridad y fidelidad utilizando AMQP 1.0 del bus de servicio. Para obtener más información, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][].
+También puede utilizar AMQP 1.0 del bus de servicio desde otros lenguajes, como Java, C, Python y PHP. Los componentes creados utilizando estos lenguajes pueden intercambiar mensajes con seguridad y fidelidad utilizando AMQP 1.0 del bus de servicio. Para obtener más información, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][Guía para desarrolladores sobre AMQP 1.0 del bus de servicio].
 
 ## <span class="short-header">Más información</span>Más información
 
--   [Compatibilidad de AMQP 1.0 en el bus de servicio de Azure][]
--   [Uso de la API de Java Message Service (JMS) con el bus de servicio y AMQP 1.0][]
--   [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][]
--   [Utilización de las colas del bus de servicio][]
+-   [Compatibilidad de AMQP 1.0 en el bus de servicio de Azure][Compatibilidad de AMQP 1.0 en el bus de servicio de Azure]
+-   [Uso de la API de Java Message Service (JMS) con el bus de servicio y AMQP 1.0][Uso de la API de Java Message Service (JMS) con el bus de servicio y AMQP 1.0]
+-   [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][Guía para desarrolladores sobre AMQP 1.0 del bus de servicio]
+-   [Utilización de las colas del bus de servicio][Utilización de las colas del bus de servicio]
 
   [Portal de administración de Azure]: http://manage.windowsazure.com
   [Utilización de las colas del bus de servicio.]: https://www.windowsazure.com/es-es/develop/net/how-to-guides/service-bus-queues/
   []: http://nuget.org/packages/WindowsAzure.ServiceBus/
   [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio]: http://msdn.microsoft.com/es-es/library/windowsazure/jj841071.aspx
   [Utilización de las colas del bus de servicio]: http://www.windowsazure.com/es-es/develop/net/how-to-guides/service-bus-queues/
-  [Uso de la API de Java Message Service (JMS) con el bus de servicio y AMQP 1.0]: http://aka.ms/ll1fm3
   [Compatibilidad de AMQP 1.0 en el bus de servicio de Azure]: http://aka.ms/pgr3dp

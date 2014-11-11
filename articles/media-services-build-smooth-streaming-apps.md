@@ -1,12 +1,12 @@
 <properties linkid="develop-media-services-tutorials-smooth-streaming-windows-store-app" urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" metaKeywords="" description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="Michael Greenn" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Michael Greenn"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Michael="" Greenn" />
 
 # Generación de una aplicación de la Tienda Windows de Smooth Streaming
 
-El SDK de cliente Smooth Streaming para Windows 8 permite a los desarrolladores crear aplicaciones de la Tienda Windows que reproduzcan contenido de Smooth Streaming en directo y bajo demanda. Además de la reproducción básica de contenido de Smooth Streaming, el SDK también ofrece funciones enriquecidas como la protección de Microsoft PlayReady, la restricción del nivel de calidad, Live DVR, la conmutación de la secuencia de audio, la escucha de las actualizaciones de estado (como los cambios del nivel de calidad) y los eventos de error, entre otras. Para obtener más información acerca de las funciones compatibles, consulte las [notas de la versión][] (en inglés).
+El SDK de cliente Smooth Streaming para Windows 8 permite a los desarrolladores crear aplicaciones de la Tienda Windows que reproduzcan contenido de Smooth Streaming en directo y bajo demanda. Además de la reproducción básica de contenido de Smooth Streaming, el SDK también ofrece funciones enriquecidas como la protección de Microsoft PlayReady, la restricción del nivel de calidad, Live DVR, la conmutación de la secuencia de audio, la escucha de las actualizaciones de estado (como los cambios del nivel de calidad) y los eventos de error, entre otras. Para obtener más información acerca de las funciones compatibles, consulte las [notas de la versión][notas de la versión] (en inglés).
 
-En este tutorial se tratan las API. Para el desarrollo de reproductores, Microsoft recomienda encarecidamente el uso de [Player Framework para Windows 8][] (información en inglés). Player Framework facilita la creación de aplicaciones y ofrece cantidad de funciones adicionales.
+En este tutorial se tratan las API. Para el desarrollo de reproductores, Microsoft recomienda encarecidamente el uso de [Player Framework para Windows 8][Player Framework para Windows 8] (información en inglés). Player Framework facilita la creación de aplicaciones y ofrece cantidad de funciones adicionales.
 
 Este tutorial contiene cuatro lecciones:
 
@@ -17,19 +17,19 @@ Este tutorial contiene cuatro lecciones:
 
 # Requisitos previos
 
--   Windows 8 de 32 o 64 bits. Puede conseguir la [Evaluación de Windows 8 Enterprise][] en MSDN.
--   Visual Studio 2012 o Visual Studio Express 2012 para Windows 8 instalado en Windows 8. Puede conseguir la versión de prueba [aquí][].
--   [SDK de cliente Smooth Streaming para Windows 8][] (en inglés).
+-   Windows 8 de 32 o 64 bits. Puede conseguir la [Evaluación de Windows 8 Enterprise][Evaluación de Windows 8 Enterprise] en MSDN.
+-   Visual Studio 2012 o Visual Studio Express 2012 para Windows 8 instalado en Windows 8. Puede conseguir la versión de prueba [aquí][aquí].
+-   [SDK de cliente Smooth Streaming para Windows 8][SDK de cliente Smooth Streaming para Windows 8] (en inglés).
 
-La solución completa de cada lección se puede descargar en las muestras de código de desarrollador de MSDN (Galería de código) (información en inglés): [Lección 1][], [Lección 2][], [Lección 3][] y [Lección 4][].
+La solución completa de cada lección se puede descargar en las muestras de código de desarrollador de MSDN (Galería de código) (información en inglés): [Lección 1][Lección 1], [Lección 2][Lección 2], [Lección 3][Lección 3] y [Lección 4][Lección 4].
 
 # Lección 1: Creación de una aplicación básica de Tienda de Smooth Streaming
 
 En esta lección, creará una aplicación de Tienda Windows con un control MediaElement para reproducir contenido de Smooth Streaming. La aplicación en ejecución tiene este aspecto:
 
-![Ejemplo de aplicación de Tienda Windows de Smooth Streaming][]
+![Ejemplo de aplicación de Tienda Windows de Smooth Streaming][Ejemplo de aplicación de Tienda Windows de Smooth Streaming]
 
-Para obtener más información acerca del desarrollo de la aplicación de Tienda Windows, consulte [Desarrollo de magníficas aplicaciones para Windows 8][].
+Para obtener más información acerca del desarrollo de la aplicación de Tienda Windows, consulte [Desarrollo de magníficas aplicaciones para Windows 8][Desarrollo de magníficas aplicaciones para Windows 8].
 Esta lección contiene los procedimientos siguientes:
 
 1.  Creación de un proyecto de Tienda Windows
@@ -188,7 +188,7 @@ En este archivo XAML, algunos controladores de eventos están asociados a los co
 
 El archivo de código subyacente finalizado tendrá un aspecto similar al siguiente:
 
-![Vista del código en Visual Studio de la aplicación de Tienda Windows de Smooth Streaming][]
+![Vista del código en Visual Studio de la aplicación de Tienda Windows de Smooth Streaming][Vista del código en Visual Studio de la aplicación de Tienda Windows de Smooth Streaming]
 
 **Para compilar y probar la aplicación**
 
@@ -954,20 +954,18 @@ Ha terminado la lección 4. En esta lección ha agregado la funcionalidad para e
 
 # Otros recursos:
 
--   [Creación de una aplicación JavaScript de Smooth Streaming para Windows 8 con características avanzadas (en inglés)][]
--   [Información técnica sobre Smooth Streaming (en inglés)][]
+-   [Creación de una aplicación JavaScript de Smooth Streaming para Windows 8 con características avanzadas (en inglés)][Creación de una aplicación JavaScript de Smooth Streaming para Windows 8 con características avanzadas (en inglés)]
+-   [Información técnica sobre Smooth Streaming (en inglés)][Información técnica sobre Smooth Streaming (en inglés)]
 
   [notas de la versión]: http://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes
   [Player Framework para Windows 8]: http://playerframework.codeplex.com/
-  [Evaluación de Windows 8 Enterprise]: http://msdn.microsoft.com/en-us/evalcenter/jj554510.aspx
-  [aquí]: http://www.microsoft.com/visualstudio/11/en-us/downloads
+  [Evaluación de Windows 8 Enterprise]: http://msdn.microsoft.com/es-es/evalcenter/jj554510.aspx
+  [aquí]: http://www.microsoft.com/visualstudio/11/es-es/downloads
   [SDK de cliente Smooth Streaming para Windows 8]: http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home
   [Lección 1]: http://code.msdn.microsoft.com/Smooth-Streaming-Client-0bb1471f "Un sencillo reproductor multimedia de Smooth Streaming para Windows 8"
   [Lección 2]: http://code.msdn.microsoft.com/A-simple-Windows-8-Smooth-ee98f63a "Un sencillo reproductor multimedia de Smooth Streaming para Windows 8 con un control de barra deslizante"
   [Lección 3]: http://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44 "Un reproductor multimedia de Smooth Streaming para Windows 8 con selección de secuencias"
   [Lección 4]: http://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907 "Un reproductor multimedia de Smooth Streaming para Windows 8 con selección de pistas"
   [Ejemplo de aplicación de Tienda Windows de Smooth Streaming]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
-  [Desarrollo de magníficas aplicaciones para Windows 8]: http://msdn.microsoft.com/en-us/windows/apps/br229512.aspx
+  [Desarrollo de magníficas aplicaciones para Windows 8]: http://msdn.microsoft.com/es-es/windows/apps/br229512.aspx
   [Vista del código en Visual Studio de la aplicación de Tienda Windows de Smooth Streaming]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-  [Creación de una aplicación JavaScript de Smooth Streaming para Windows 8 con características avanzadas (en inglés)]: http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx
-  [Información técnica sobre Smooth Streaming (en inglés)]: http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview

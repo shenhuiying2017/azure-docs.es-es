@@ -1,12 +1,12 @@
 <properties linkid="dev-nodejs-how-to-debug-website" urlDisplayName="Debug Websites (Node)" pageTitle="How to Debug Azure Websites in Node.js" metaKeywords="debug website azure, debugging azure, troubleshooting azure web site, troubleshoot azure website node" description="Learn how to debug an Azure website in Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Depuración de una aplicación Node.js en Sitios web Azure
 
 Azure proporciona diagnósticos integrados para ayudar a depurar aplicaciones Node.js hospedadas en Sitios web Azure. En este artículo aprenderá a habilitar el registro de stdout y stderr, mostrar información de error en el explorador y a descargar y ver los archivos de registro.
 
-El diagnóstico de las aplicaciones Node.js hospedadas en Azure lo proporciona [IISNode][]. Si bien este artículo analiza la configuración más común para recopilar información de diagnóstico, no proporciona una referencia completa para trabajar con IISNode. Para obtener más información sobre el trabajo con IISNode, consulte el [archivo léame de IISNode][] (en inglés) en GitHub.
+El diagnóstico de las aplicaciones Node.js hospedadas en Azure lo proporciona [IISNode][IISNode]. Si bien este artículo analiza la configuración más común para recopilar información de diagnóstico, no proporciona una referencia completa para trabajar con IISNode. Para obtener más información sobre el trabajo con IISNode, consulte el [archivo léame de IISNode][archivo léame de IISNode] (en inglés) en GitHub.
 
 ## <span id="enablelogging"></span></a>Habilitación del registro
 
@@ -36,9 +36,9 @@ Si el archivo **IISNode.yml** no existía ya en su aplicación, debe reiniciar s
 <p>Si su sitio web se cre&oacute; usando las herramientas de l&iacute;nea de comandos de Azure o los cmdlets de Azure PowerShell, autom&aacute;ticamente se crea un archivo predeterminado <strong>IISNode.yml</strong>.</p>
 </div>
 
-Puede reiniciar el sitio web si selecciona el sitio desde el [Portal de administración de Azure][] y, a continuación, selecciona el botón **RESTART**:
+Puede reiniciar el sitio web si selecciona el sitio desde el [Portal de administración de Azure][Portal de administración de Azure] y, a continuación, selecciona el botón **RESTART**:
 
-![Botón de reinicio][]
+![Botón de reinicio][Botón de reinicio]
 
 Si las herramientas de línea de comandos de Azure están instaladas en su entorno de desarrollo, puede usar el siguiente comando para reiniciar el sitio web:
 
@@ -55,7 +55,7 @@ Se puede tener acceso a los registros de diagnósticos de tres formas; mediante 
 
     npm install azure-cli -g
 
-Una vez instaladas, se puede tener acceso a ellas mediante el comando 'azure'. Las herramientas de línea de comandos se deben configurar primero para usar su suscripción de Azure. Para obtener información sobre cómo llevar a cabo esta tarea, consulte la sección **Descarga e importación de la configuración de publicación** del artículo [Uso de las herramientas de línea de comandos de Azure][].
+Una vez instaladas, se puede tener acceso a ellas mediante el comando 'azure'. Las herramientas de línea de comandos se deben configurar primero para usar su suscripción de Azure. Para obtener información sobre cómo llevar a cabo esta tarea, consulte la sección **Descarga e importación de la configuración de publicación** del artículo [Uso de las herramientas de línea de comandos de Azure][Uso de las herramientas de línea de comandos de Azure].
 
 ### FTP
 
@@ -100,15 +100,14 @@ De esta manera se devolverá una secuencia de eventos de registro que se actuali
 
 En este artículo aprendió a habilitar y a tener acceso a información de diagnóstico en Azure. Si bien esta información es útil para comprender los problemas que se producen con su aplicación, puede indicar un problema con un módulo que está usando o que la versión de Node.js que usan los Sitios web Azure es diferente a la usada en su entorno de implementación.
 
-Para obtener información sobre el trabajo con módulos en Azure, consulte [Uso de módulos Node.js con aplicaciones de Azure][].
+Para obtener información sobre el trabajo con módulos en Azure, consulte [Uso de módulos Node.js con aplicaciones de Azure][Uso de módulos Node.js con aplicaciones de Azure].
 
-Para obtener información sobre la especificación de una versión de Node.js para su aplicación, consulte [Especificación de una versión de Node.js en una aplicación de Azure][].
+Para obtener información sobre la especificación de una versión de Node.js para su aplicación, consulte [Especificación de una versión de Node.js en una aplicación de Azure][Especificación de una versión de Node.js en una aplicación de Azure].
 
   [IISNode]: https://github.com/tjanczuk/iisnode
   [archivo léame de IISNode]: https://github.com/tjanczuk/iisnode#readme
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [Botón de reinicio]: ./media/web-sites-nodejs-debug/restartbutton.png
-  [iisnode\_schema.xml]: https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml
   [Uso de las herramientas de línea de comandos de Azure]: /es-es/documentation/articles/xplat-cli/
   [Uso de módulos Node.js con aplicaciones de Azure]: /es-es/documentation/articles/nodejs-use-node-modules-azure-apps/
   [Especificación de una versión de Node.js en una aplicación de Azure]: /es-es/documentation/articles/nodejs-specify-node-version-azure-apps/

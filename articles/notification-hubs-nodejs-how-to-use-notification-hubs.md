@@ -1,27 +1,27 @@
 <properties linkid="develop-nodejs-how-to-guides-service-bus-notification-hubs" urlDisplayName="Notification Hubs" pageTitle="Notification Hubs - Node.js Dev Center" metaKeywords="" description="Learn how to use Notification Hubs to send push notifications. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Notification Hubs" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Cómo usar los centros de notificaciones
 
 En esta guía se indica cómo usar los centros de notificaciones
-desde aplicaciones Node.js. Los escenarios abordados incluyen el **envío de notificaciones a aplicaciones de Android, iOS, Windows Phone y la Tienda Windows**. Para obtener más información acerca de los centros de notificaciones, consulte la sección [Pasos siguientes][].
+desde aplicaciones Node.js. Los escenarios abordados incluyen el **envío de notificaciones a aplicaciones de Android, iOS, Windows Phone y la Tienda Windows**. Para obtener más información acerca de los centros de notificaciones, consulte la sección [Pasos siguientes][Pasos siguientes].
 
 ## Tabla de contenido
 
--   [¿Qué son los centros de notificaciones?][]
--   [Creación de una aplicación Node.js][]
--   [Configuración de la aplicación para usar el centro de notificaciones][]
--   [Direccionamiento del notificaciones][]
--   [Pasos siguientes][]
+-   [¿Qué son los centros de notificaciones?][¿Qué son los centros de notificaciones?]
+-   [Creación de una aplicación Node.js][Creación de una aplicación Node.js]
+-   [Configuración de la aplicación para usar el centro de notificaciones][Configuración de la aplicación para usar el centro de notificaciones]
+-   [Direccionamiento del notificaciones][Direccionamiento del notificaciones]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <span id="hub"></span></a> ¿Qué son los Centros de notificaciones?
 
-Los centros de notificaciones de Azure proporcionan una infraestructura multiplataforma escalable de fácil uso para enviar notificaciones de inserción a los dispositivos móviles. Para obtener más información, consulte [Centros de notificaciones de Azure][].
+Los centros de notificaciones de Azure proporcionan una infraestructura multiplataforma escalable de fácil uso para enviar notificaciones de inserción a los dispositivos móviles. Para obtener más información, consulte [Centros de notificaciones de Azure][Centros de notificaciones de Azure].
 
 ## <span id="create"></span></a> Creación de una aplicación Node.js
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure][], [Servicio en la nube Node.js][] (usando Windows PowerShell) o [Sitio web con WebMatrix][].
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure][Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube Node.js][Servicio en la nube Node.js] (usando Windows PowerShell) o [Sitio web con WebMatrix][Sitio web con WebMatrix].
 
 ## <span id="config"></span></a>Configuración de su aplicación para usar el Centro de notificaciones
 
@@ -100,7 +100,7 @@ El objeto **GcmService** proporciona un método **send** que se puede usar para 
 -   Payload: carga de cadena o JSON del mensaje.
 -   Callback: función de devolución de llamada.
 
-Para obtener más información acerca del formato de carga, consulte la sección Payload de [Implementing GCM Server][].
+Para obtener más información acerca del formato de carga, consulte la sección Payload de [Implementing GCM Server][Implementing GCM Server].
 
 El código siguiente usa la instancia **GcmService** expuesta por **NotificationHubService** para enviar un mensaje a todos los clientes.
 
@@ -123,7 +123,7 @@ El objeto **ApnsService** proporciona un método **send** que se puede usar para
 -   Payload: carga de cadena o JSON del mensaje.
 -   Callback: función de devolución de llamada.
 
-Para obtener más información acerca del formato de carga, consulte la sección The Notification Payload de la guía [Local and Push Notification Programming Guide][].
+Para obtener más información acerca del formato de carga, consulte la sección The Notification Payload de la guía [Local and Push Notification Programming Guide][Local and Push Notification Programming Guide].
 
 El código siguiente usa la instancia **ApnsService** expuesta por **NotificationHubService** para enviar un mensaje de alerta a todos los clientes.
 
@@ -143,11 +143,11 @@ El objeto **MpnsService** proporciona un método **send** que se puede usar para
 -   Tags: identificador de etiqueta. Si no se proporciona ninguna, la notificación se enviará a todos los clientes.
 -   Payload: carga XML del mensaje.
 -   TargetName: 'toast' para notificaciones del sistema. 'token' para notificaciones de icono.
--   NotificationClass: prioridad de la notificación. Consulte la sección HTTP Header Elements del tema [Pushing notifications from a server][] para obtener los valores válidos.
+-   NotificationClass: prioridad de la notificación. Consulte la sección HTTP Header Elements del tema [Pushing notifications from a server][Pushing notifications from a server] para obtener los valores válidos.
 -   Options: encabezados de solicitud opcionales.
 -   Callback: función de devolución de llamada.
 
-Para obtener una lista de valores TargetName, NotificationClass y opciones de encabezado válidos, consulte [Pushing notifications from a server][].
+Para obtener una lista de valores TargetName, NotificationClass y opciones de encabezado válidos, consulte [Pushing notifications from a server][Pushing notifications from a server].
 
 El código siguiente usa la instancia **MpnsService** expuesta por **NotificationHubService** para enviar una alerta del sistema:
 
@@ -168,7 +168,7 @@ El objeto **WnsService** proporciona un método **send** que se puede usar para 
 -   Options: encabezados de solicitud opcionales.
 -   Callback: función de devolución de llamada.
 
-Para obtener una lista de valores Type y encabezados de solicitud válidos, consulte [Push notification service request and response headers][].
+Para obtener una lista de valores Type y encabezados de solicitud válidos, consulte [Push notification service request and response headers][Push notification service request and response headers].
 
 El código siguiente usa la instancia **WnsService** expuesta por **NotificationHubService** para enviar una alerta del sistema:
 
@@ -184,11 +184,10 @@ El código siguiente usa la instancia **WnsService** expuesta por **Notification
 Ahora que conoce los fundamentos de uso de los Centros de notificaciones, consulte estos
 vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Centros de notificaciones de Azure][].
--   Visite el repositorio del [SDK de Azure para Node.js][] (en inglés) en GitHub.
+-   Consulte la referencia de MSDN: [Centros de notificaciones de Azure][Centros de notificaciones de Azure].
+-   Visite el repositorio del [SDK de Azure para Node.js][SDK de Azure para Node.js] (en inglés) en GitHub.
 
   [Pasos siguientes]: #next
-  [¿Qué son los centros de notificaciones?]: #hub
   [Creación de una aplicación Node.js]: #create
   [Configuración de la aplicación para usar el centro de notificaciones]: #config
   [Direccionamiento del notificaciones]: #send

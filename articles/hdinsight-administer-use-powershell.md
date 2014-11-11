@@ -1,29 +1,29 @@
 <properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-powershell" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters in HDInsight with Azure PowerShell | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, Hadoop, administration, administer" description="Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Manage Hadoop clusters in HDInsight using Azure PowerShell" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Administración de clústeres de HDInsight con Azure PowerShell
 
-Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. En este artículo, aprenderá a administrar clústeres de Hadoop en HDInsight con una consola local de Azure PowerShell mediante el uso de Windows PowerShell. Para obtener más información acerca de los cmdlets de HDInsight PowerShell, consulte [Documentación de referencia de los cmdlets de HDInsight][].
+Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. En este artículo, aprenderá a administrar clústeres de Hadoop en HDInsight con una consola local de Azure PowerShell mediante el uso de Windows PowerShell. Para obtener más información acerca de los cmdlets de HDInsight PowerShell, consulte [Documentación de referencia de los cmdlets de HDInsight][Documentación de referencia de los cmdlets de HDInsight].
 
 **Requisitos previos:**
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
--   Una suscripción de Azure. Azure es una plataforma basada en suscripción. Los cmdlets de HDInsight PowerShell realizan las tareas con su suscripción. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][], [Ofertas para miembros][] o [Evaluación gratuita][].
+-   Una suscripción de Azure. Azure es una plataforma basada en suscripción. Los cmdlets de HDInsight PowerShell realizan las tareas con su suscripción. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][Opciones de compra], [Ofertas para miembros][Ofertas para miembros] o [Evaluación gratuita][Evaluación gratuita].
 
--   Una estación de trabajo con Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][].
+-   Una estación de trabajo con Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][Instalación y configuración de Azure PowerShell].
 
 ## En este artículo
 
--   [Aprovisionamiento de un clúster][]
--   [Enumeración y visualización de clústeres][]
--   [Eliminación de un clúster][]
--   [Concesión/Revocación del acceso a los servicios de HTTP][]
--   [Envío de trabajos de MapReduce][]
--   [Envío de trabajos de Hive][]
--   [Carga de datos en el almacenamiento de blobs][]
--   [Descarga de datos de salida de MapReduce del almacenamiento de blobs][]
+-   [Aprovisionamiento de un clúster][Aprovisionamiento de un clúster]
+-   [Enumeración y visualización de clústeres][Enumeración y visualización de clústeres]
+-   [Eliminación de un clúster][Eliminación de un clúster]
+-   [Concesión/Revocación del acceso a los servicios de HTTP][Concesión/Revocación del acceso a los servicios de HTTP]
+-   [Envío de trabajos de MapReduce][Envío de trabajos de MapReduce]
+-   [Envío de trabajos de Hive][Envío de trabajos de Hive]
+-   [Carga de datos en el almacenamiento de blobs][Carga de datos en el almacenamiento de blobs]
+-   [Descarga de datos de salida de MapReduce del almacenamiento de blobs][Descarga de datos de salida de MapReduce del almacenamiento de blobs]
 
 ## <span id="provision"></span></a>Aprovisionamiento de un clúster de HDInsight
 
@@ -47,7 +47,7 @@ Después de importar el archivo publishsettings, puede usar el siguiente comando
 > -   Este de EE. UU.
 > -   Oeste de EE. UU.
 
-Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure a través del portal de administración, consulte [Creación de una cuenta de almacenamiento][].
+Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure a través del portal de administración, consulte [Creación de una cuenta de almacenamiento][Creación de una cuenta de almacenamiento].
 
 Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, puede usar los comandos siguientes para recuperar dicha información:
 
@@ -56,7 +56,7 @@ Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, pue
     # List the keys for a storage account
     Get-AzureStorageKey <StorageAccountName>
 
-Para obtener información acerca de cómo conseguir la información usando el portal de administración, consulte la sección *Visualización, copia y regeneración de claves de acceso al almacenamiento* de [Administración de cuentas de almacenamiento][].
+Para obtener información acerca de cómo conseguir la información usando el portal de administración, consulte la sección *Visualización, copia y regeneración de claves de acceso al almacenamiento* de [Administración de cuentas de almacenamiento][Administración de cuentas de almacenamiento].
 
 **Para crear un contendor de almacenamiento de Azure**
 
@@ -92,7 +92,7 @@ Una vez que tenga preparados la cuenta de almacenamiento y el contenedor de blob
 
 En la siguiente captura de pantalla se muestra la ejecución del script:
 
-![HDI.PS.Provision][]
+![HDI.PS.Provision][HDI.PS.Provision]
 
 ## <span id="listshow"></span></a> Enumeración y visualización de los detalles del clúster
 
@@ -130,7 +130,7 @@ En la muestra *hdiv2* es el nombre de un clúster de HDInsight.
 
 > [WACOM.NOTE] Al conceder/revocar el acceso, restablecerá el nombre de usuario y la contraseña del usuario del clúster.
 
-Esto también se puede hacer a través del Portal de administración de Azure. Consulte [Administración de HDInsight con el portal de administración][].
+Esto también se puede hacer a través del Portal de administración de Azure. Consulte [Administración de HDInsight con el portal de administración][Administración de HDInsight con el portal de administración].
 
 ## <span id="mapreduce"></span></a> Envío de trabajos de MapReduce
 
@@ -170,7 +170,7 @@ La siguiente script de PowerShell recupera la salida del trabajo de MapReduce de
     # Display the output
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
 
-Para obtener más información acerca del desarrollo y la ejecución de trabajos de MapReduce, consulte [Uso de MapReduce con HDInsight][].
+Para obtener más información acerca del desarrollo y la ejecución de trabajos de MapReduce, consulte [Uso de MapReduce con HDInsight][Uso de MapReduce con HDInsight].
 
 ## <span id="hive"></span></a> Envío de trabajos de Hive
 
@@ -195,11 +195,11 @@ El siguiente script envía un trabajo de Hive para enumerar las tablas de Hive:
 
 El trabajo de Hive mostrará primero las tablas de Hive creadas en el clúster y los datos devueltos por hivesampletable.
 
-Para obtener más información acerca del uso de Hive, consulte [Uso de Hive con HDInsight][].
+Para obtener más información acerca del uso de Hive, consulte [Uso de Hive con HDInsight][Uso de Hive con HDInsight].
 
 ## <span id="upload"></span></a>Carga de datos en el almacenamiento de blobs
 
-Consulte [Carga de datos en HDInsight][].
+Consulte [Carga de datos en HDInsight][Carga de datos en HDInsight].
 
 ## <span id="download"></span></a>Descarga de datos de salida de MapReduce del almacenamiento de blobs
 
@@ -207,18 +207,18 @@ Consulte la sección [Envío de trabajos MapReduce][Envío de trabajos de MapRed
 
 ## Otras referencias
 
--   [Documentación de referencia de los cmdlets de HDInsight][]
--   [Administración de HDInsight con el portal de administración][]
--   [Administración de HDInsight con la interfaz de línea de comandos][]
--   [Aprovisionamiento de clústeres de HDInsight][]
--   [Carga de datos en HDInsight][]
--   [Envío de trabajos de Hadoop mediante programación][]
--   [Introducción a HDInsight de Azure][]
+-   [Documentación de referencia de los cmdlets de HDInsight][Documentación de referencia de los cmdlets de HDInsight]
+-   [Administración de HDInsight con el portal de administración][Administración de HDInsight con el portal de administración]
+-   [Administración de HDInsight con la interfaz de línea de comandos][Administración de HDInsight con la interfaz de línea de comandos]
+-   [Aprovisionamiento de clústeres de HDInsight][Aprovisionamiento de clústeres de HDInsight]
+-   [Carga de datos en HDInsight][Carga de datos en HDInsight]
+-   [Envío de trabajos de Hadoop mediante programación][Envío de trabajos de Hadoop mediante programación]
+-   [Introducción a HDInsight de Azure][Introducción a HDInsight de Azure]
 
-  [Documentación de referencia de los cmdlets de HDInsight]: http://msdn.microsoft.com/en-us/library/windowsazure/dn479228.aspx
-  [Opciones de compra]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Ofertas para miembros]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Evaluación gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Documentación de referencia de los cmdlets de HDInsight]: http://msdn.microsoft.com/es-es/library/windowsazure/dn479228.aspx
+  [Opciones de compra]: http://azure.microsoft.com/es-es/pricing/purchase-options/
+  [Ofertas para miembros]: http://azure.microsoft.com/es-es/pricing/member-offers/
+  [Evaluación gratuita]: http://azure.microsoft.com/es-es/pricing/free-trial/
   [Instalación y configuración de Azure PowerShell]: ../install-configure-powershell/
   [Aprovisionamiento de un clúster]: #provision
   [Enumeración y visualización de clústeres]: #listshow

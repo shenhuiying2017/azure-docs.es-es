@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-service-bus-relay" urlDisplayName="Service Bus Relay" pageTitle="How to use Service Bus relay (.NET) - Azure" metaKeywords="get started azure Service Bus Relay C# " description="Learn how to use the Azure Service Bus relay service to connect two applications hosted in different locations." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Uso del servicio del relé del bus de servicio
 
@@ -8,10 +8,10 @@ En esta guía se proporcionará información sobre cómo usar el servicio del re
 Los ejemplos se escriben en C# y usan la API de Windows Communication
 Foundation con extensiones contenidas en el conjunto del bus de
 servicio que forma parte de las bibliotecas .NET de Azure. Para obtener
-más información sobre el relé del bus de servicio, consulte la sección [Pasos siguientes][]
+más información sobre el relé del bus de servicio, consulte la sección [Pasos siguientes][Pasos siguientes]
 .
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <span class="short-header">Qué es el relé del bus de servicio</span>Qué es el relé del bus de servicio
 
@@ -24,7 +24,7 @@ en una red corporativa en la nube pública sin tener que abrir una conexión de
 firewall y sin que sea necesario realizar cambios intrusivos en una infraestructura de
 red corporativa.
 
-![Conceptos del relé][]
+![Conceptos del relé][Conceptos del relé]
 
 El relé del bus de servicio le permite hospedar servicios WCF en su
 entorno empresarial existente. A continuación, puede delegar la escucha de las sesiones
@@ -48,14 +48,14 @@ con un ámbito para el desvío de recursos del Bus de servicio en la aplicación
 
 Para crear un nombre de espacio de servicio:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  En el panel de navegación izquierdo del Portal de administración, haga clic en
     **Bus de servicio**.
 
 3.  En el panel inferior del Portal de administración, haga clic en **Create**.
 
-    ![][]
+    ![][0]
 
 4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, especifique un nombre de espacio de nombres.
     El sistema realiza la comprobación de inmediato para ver si el nombre está disponible.
@@ -81,7 +81,7 @@ Para realizar operaciones de administración (como la creación de una conexión
 
 1.  En el panel de navegación izquierdo, haga clic en el nodo **Service Bus** para
     ver la lista de espacios de nombres disponibles:   
-    ![][]
+    ![][0]
 
 2.  Seleccione el espacio de nombres que acaba de crear en la lista que se muestra:    
     ![][3]   
@@ -330,15 +330,15 @@ de servicio.
 Ahora que conoce los fundamentos del servicio del **relé** del bus de servicio,
 siga estos vínculos para obtener más información.
 
--   Creación de un servicio: [Generación de un servicio para el Service Bus][].
--   Creación del cliente: [Generación de una aplicación de Service Bus Client][].
--   Ejemplos del bus de servicio: descarga desde [Azure Samples][].
+-   Creación de un servicio: [Generación de un servicio para el Service Bus][Generación de un servicio para el Service Bus].
+-   Creación del cliente: [Generación de una aplicación de Service Bus Client][Generación de una aplicación de Service Bus Client].
+-   Ejemplos del bus de servicio: descarga desde [Azure Samples][Azure Samples].
 
   [Pasos siguientes]: #next_steps
   [create-account-note]: ../includes/create-account-note.md
   [Conceptos del relé]: ./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png
   [Portal de administración de Azure]: http://manage.windowsazure.com
-  []: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-13.png
   [1]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-04.png
   [2]: ./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-27.png
   [3]: ./media/service-bus-dotnet-how-to-use-relay/sb-queues-09.png

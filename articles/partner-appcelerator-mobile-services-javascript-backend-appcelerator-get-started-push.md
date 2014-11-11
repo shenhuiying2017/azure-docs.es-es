@@ -444,12 +444,6 @@ Esto registra un nuevo script de inserción, que usa el [objeto push de Servicio
 
 <!-- Images. --> <!-- Anchors. --> <!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-push "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-push "JavaScript para Tienda Windows"
-  [Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-push "Windows Phone"
-  [iOS]: /es-es/documentation/articles/mobile-services-ios-get-started-push "iOS"
-  [Android]: /es-es/documentation/articles/mobile-services-android-get-started-push "Android"
-  [Appcelerator]: /es-es/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push "Appcelerator"
   [Generación del archivo de solicitud de firma de certificado]: #certificates
   [Registro de la aplicación y habilitación para las notificaciones de inserción]: #register
   [Creación de un perfil de aprovisionamiento para la aplicación]: #profile

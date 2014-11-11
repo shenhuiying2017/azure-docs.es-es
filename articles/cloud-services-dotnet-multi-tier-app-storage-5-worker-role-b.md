@@ -1,10 +1,10 @@
 <properties linkid="develop-net-tutorials-multi-tier-web-site-5-worker-role-b" pageTitle="Azure Cloud Service Tutorial: Worker Role with Azure Storage Tables, Queues, and Blobs" metaKeywords="Azure tutorial, Azure storage tutorial, Azure multi-tier tutorial, Azure worker role tutorial, Azure blobs tutorial, Azure tables tutorial, Azure queues tutorial" description="Learn how to create a multi-tier app using ASP.NET MVC and Azure. The app runs in a cloud service, with web role and worker roles, and uses Azure storage tables, queues, and blobs." metaCanonical="" services="cloud-services,storage" documentationCenter=".NET" title="Azure Cloud Service Tutorial: ASP.NET MVC Web Role, Worker Role, Azure Storage Tables, Queues, and Blobs" authors="tdykstra,riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande"></tags>
+<tags ms.service="cloud-services" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra,riande" />
 
 # Creación del rol de trabajo B (remitente de correo electrónico) para la aplicación Servicio de correo electrónico de Azure: 5 de 5.
 
-Este es el quinto tutorial de una serie de cinco que muestra cómo crear e implementar la aplicación de ejemplo de Servicio de correo electrónico de Azure. Para obtener información sobre la serie de tutoriales y la aplicación, consulte el [primer tutorial de la serie][].
+Este es el quinto tutorial de una serie de cinco que muestra cómo crear e implementar la aplicación de ejemplo de Servicio de correo electrónico de Azure. Para obtener información sobre la serie de tutoriales y la aplicación, consulte el [primer tutorial de la serie][primer tutorial de la serie].
 
 En este tutorial, aprenderá a realizar las siguientes tareas:
 
@@ -16,23 +16,23 @@ En este tutorial, aprenderá a realizar las siguientes tareas:
 
 ## Apartados de este tutorial
 
--   [Agregar el proyecto de rol de trabajo B a la solución][]
--   [Agregar una referencia al proyecto web][]
--   [Agregar el paquete NuGet de SendGrid al proyecto][]
--   [Agregar configuración del proyecto][]
--   [Agregar código que se ejecuta cuando el rol de trabajo se inicia][]
--   [Probar rol de trabajo B][]
--   [Pasos siguientes][]
+-   [Agregar el proyecto de rol de trabajo B a la solución][Agregar el proyecto de rol de trabajo B a la solución]
+-   [Agregar una referencia al proyecto web][Agregar una referencia al proyecto web]
+-   [Agregar el paquete NuGet de SendGrid al proyecto][Agregar el paquete NuGet de SendGrid al proyecto]
+-   [Agregar configuración del proyecto][Agregar configuración del proyecto]
+-   [Agregar código que se ejecuta cuando el rol de trabajo se inicia][Agregar código que se ejecuta cuando el rol de trabajo se inicia]
+-   [Probar rol de trabajo B][Probar rol de trabajo B]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="addworkerrole"></a><span class="short-header">Incorporación del rol de trabajo B</span>Incorporación del proyecto de rol de trabajo B a la solución
 
 1.  En el Explorador de soluciones, haga clic con el botón secundario en el proyecto de servicio en la nube y, a continuación, seleccione **Nuevo proyecto de rol de trabajador**.
 
-    ![Menú Nuevo proyecto de rol de trabajador][]
+    ![Menú Nuevo proyecto de rol de trabajador][Menú Nuevo proyecto de rol de trabajador]
 
 2.  En el cuadro de diálogo **Agregar nuevo proyecto de rol**, seleccione **C#**, elija **Rol de trabajo**, asigne el nombre WorkerRoleB al proyecto y, a continuación, haga clic en **Agregar**.
 
-    ![Cuadro de diálogo Nuevo proyecto de rol][]
+    ![Cuadro de diálogo Nuevo proyecto de rol][Cuadro de diálogo Nuevo proyecto de rol]
 
 ## <a name="addreference"></a>Agregar una referencia al proyecto web
 
@@ -42,7 +42,7 @@ Necesita una referencia para el proyecto web porque es ahí donde se definen las
 
 2.  En **Administrador de referencias**, agregue una referencia al proyecto MvcWebRole.
 
-    ![Agregar una referencia a MvcWebRole][]
+    ![Agregar una referencia a MvcWebRole][Agregar una referencia a MvcWebRole]
 
 ## <a name="addsendgrid"></a>Agregar el paquete NuGet de SendGrid al proyecto
 
@@ -50,13 +50,13 @@ Para enviar correos electrónicos con SendGrid, necesita instalar el paquete NuG
 
 1.  En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto WorkerRoleB y, a continuación, seleccione **Manage NuGet Packages**.
 
-    ![Administración de paquetes de NuGet][]
+    ![Administración de paquetes de NuGet][Administración de paquetes de NuGet]
 
 2.  En el cuadro de diálogo **Manage NuGet Packages**, seleccione la pestaña **Online**, escriba "sendgrid" en el cuadro de búsqueda y presione Entrar.
 
 3.  Haga clic en **Install** en el paquete de **SendGrid**.
 
-    ![Instalar el paquete de Sendgrid][]
+    ![Instalar el paquete de Sendgrid][Instalar el paquete de Sendgrid]
 
 4.  Cierre el cuadro de diálogo.
 
@@ -64,7 +64,7 @@ Para enviar correos electrónicos con SendGrid, necesita instalar el paquete NuG
 
 Al igual que el rol de trabajo A, el rol de trabajo B necesita las credenciales de la cuenta de almacenamiento para usar tablas, colas y blobs. Además, para enviar correos electrónicos, el rol de trabajo necesita tener credenciales para insertar las llamadas al servicio SendGrid. Por otra parte, para crear un vínculo de cancelación de suscripción a fin de incluirlo en los correos electrónicos enviados, el rol de trabajo necesita saber la URL de la aplicación. Estos valores están almacenados en la configuración del proyecto.
 
-Para las credenciales de la cuenta de almacenamiento, el procedimiento es el mismo que el descrito en el [tercer tutorial][].
+Para las credenciales de la cuenta de almacenamiento, el procedimiento es el mismo que el descrito en el [tercer tutorial][tercer tutorial].
 
 1.  En **Explorador de soluciones**, en **Roles** en el proyecto en la nube, haga clic con el botón secundario en **WorkerRoleB** y seleccione **Propiedades**.
 
@@ -86,13 +86,13 @@ A continuación, cree y configure las tres nuevas opciones que solo usa el rol d
 
 1.  En la pestaña **Settings** de la ventana **Propiedades**, haga clic en **Agregar configuración** y, a continuación, agregue las tres opciones de configuración nuevas del tipo **Cadena**:
 
-    -   **Name**: SendGridUserName, **Value**: el nombre de usuario de SendGrid establecido en el [segundo tutorial][].
+    -   **Name**: SendGridUserName, **Value**: el nombre de usuario de SendGrid establecido en el [segundo tutorial][segundo tutorial].
 
     -   **Name**: SendGridPassword, **Value**: la contraseña de SendGrid.
 
     -   **Name**: AzureMailServiceURL, **Value**: la URL de base que la aplicación tendrá al implementarla; por ejemplo: <http://sampleurl.cloudapp.net>.
 
-    ![Nueva configuración del proyecto WorkerRoleB][]
+    ![Nueva configuración del proyecto WorkerRoleB][Nueva configuración del proyecto WorkerRoleB]
 
 ## <a name="addcode"></a>Agregar código que se ejecuta cuando el rol de trabajo se inicia
 
@@ -233,13 +233,13 @@ Si no hay ningún elemento en espera en la cola, el código se suspende durante 
                         System.Threading.Thread.Sleep(1000 * 60);
                     }
 
-El propósito del tiempo de suspensión es minimizar los costes de las transacciones de almacenamiento de Azure, como se ha explicado en el [tutorial anterior][].
+El propósito del tiempo de suspensión es minimizar los costes de las transacciones de almacenamiento de Azure, como se ha explicado en el [tutorial anterior][tutorial anterior].
 
-Si se obtiene un elemento de la cola con el método [GetMessage][], dicho elemento se hace invisible durante 30 segundos para todos los demás roles de trabajo y web que tienen acceso a la cola. Esto es lo que garantiza que solo una instancia de rol de trabajo se ocupe del procesamiento de un mensaje de cola concreto. Puede definir de forma explícita el tiempo de la *concesión exclusiva* (el tiempo durante el cual el elemento de la cola es invisible) transfiriendo un parámetro de [tiempo de espera de visibilidad][] al método `GetMessage`. Si el rol de trabajo tarda más de 30 segundos en procesar un mensaje de la cola, debe aumentar el tiempo de concesión exclusiva para prevenir que otras instancias de rol procesen el mismo mensaje.
+Si se obtiene un elemento de la cola con el método [GetMessage][GetMessage], dicho elemento se hace invisible durante 30 segundos para todos los demás roles de trabajo y web que tienen acceso a la cola. Esto es lo que garantiza que solo una instancia de rol de trabajo se ocupe del procesamiento de un mensaje de cola concreto. Puede definir de forma explícita el tiempo de la *concesión exclusiva* (el tiempo durante el cual el elemento de la cola es invisible) transfiriendo un parámetro de [tiempo de espera de visibilidad][tiempo de espera de visibilidad] al método `GetMessage`. Si el rol de trabajo tarda más de 30 segundos en procesar un mensaje de la cola, debe aumentar el tiempo de concesión exclusiva para prevenir que otras instancias de rol procesen el mismo mensaje.
 
 Por otra parte, no deseará definir el tiempo de concesión exclusiva con un valor excesivamente alto. Por ejemplo, si el tiempo de concesión exclusiva se define en 48 horas y el rol de trabajo se apaga inesperadamente después de quitar un mensaje de la cola, los demás roles de trabajo no podrían procesar el mensaje durante 48 horas. El tiempo de concesión exclusiva máximo es de 7 días.
 
-El método [GetMessages][] (observe la "s" al final del nombre) se puede usar para obtener hasta 32 mensajes de la cola en una llamada. Cada acceso a la cola supone un coste de transacción bajo, que será el mismo independientemente de que se devuelvan 32 mensajes o ninguno. El siguiente código captura hasta 32 mensajes en una llamada y, a continuación, los procesa.
+El método [GetMessages][GetMessages] (observe la "s" al final del nombre) se puede usar para obtener hasta 32 mensajes de la cola en una llamada. Cada acceso a la cola supone un coste de transacción bajo, que será el mismo independientemente de que se devuelvan 32 mensajes o ninguno. El siguiente código captura hasta 32 mensajes en una llamada y, a continuación, los procesa.
 
         foreach (CloudQueueMessage msg in sendEmailQueue.GetMessages(32))
         {
@@ -401,7 +401,7 @@ Por último, si todo lo demás se completa satisfactoriamente, el mensaje de la 
 
 El método `SendEmailToList` realiza el trabajo real de envío del correo electrónico mediante SendGrid. Si desea usar un servicio diferente a SendGrid, lo único que tiene que hacer es cambiar el código en este método.
 
-**Nota:** si tiene credenciales que no son válidas en la configuración del proyecto, se producirá un error al llamar a SendGrid, pero la aplicación no obtendrá ninguna indicación del error. Si usa SendGrid en una aplicación de producción, considere la opción de configurar credenciales independientes para la API web a fin de evitar que se produzcan errores silenciosos cuando un administrador cambia la contraseña de la cuenta de usuario de SendGrid. Para obtener más información, consulte [SendGrid MultiAuth - Multiple Account Credentials][]. Puede configurar las credenciales en [][]<https://sendgrid.com/credentials></a>.
+**Nota:** si tiene credenciales que no son válidas en la configuración del proyecto, se producirá un error al llamar a SendGrid, pero la aplicación no obtendrá ninguna indicación del error. Si usa SendGrid en una aplicación de producción, considere la opción de configurar credenciales independientes para la API web a fin de evitar que se produzcan errores silenciosos cuando un administrador cambia la contraseña de la cuenta de usuario de SendGrid. Para obtener más información, consulte [SendGrid MultiAuth - Multiple Account Credentials][SendGrid MultiAuth - Multiple Account Credentials]. Puede configurar las credenciales en [][]<https://sendgrid.com/credentials></a>.
 
         private void SendEmailToList(string emailAddress, string fromEmailAddress, string subjectLine,
             string htmlMessageBodyRef, string textMessageBodyRef)
@@ -516,51 +516,51 @@ Como sucede con los correos electrónicos enviados a listas, el envío real del 
 
 ## <a name="nextsteps"></a>Pasos siguientes
 
-Ya ha creado la aplicación Servicio de correo electrónico de Azure desde cero y lo que consigue es el mismo resultado que el proyecto completado que ha descargado. Para implementarla y probarla en la nube y pasarla a producción, puede usar los mismos procedimientos descritos en el [segundo tutorial][].
+Ya ha creado la aplicación Servicio de correo electrónico de Azure desde cero y lo que consigue es el mismo resultado que el proyecto completado que ha descargado. Para implementarla y probarla en la nube y pasarla a producción, puede usar los mismos procedimientos descritos en el [segundo tutorial][segundo tutorial].
 
-Para ver una aplicación de ejemplo que muestra cómo usar LINQ en las consultas del servicio de tabla de Almacenamiento de Azure, consulte [PhluffyFotos][].
+Para ver una aplicación de ejemplo que muestra cómo usar LINQ en las consultas del servicio de tabla de Almacenamiento de Azure, consulte [PhluffyFotos][PhluffyFotos].
 
 Para obtener más información sobre el almacenamiento de Azure, consulte el siguiente recurso:
 
--   [Essential Knowledge for Windows Azure Storage][] (blog de Bruno Terkaly)
+-   [Essential Knowledge for Windows Azure Storage][Essential Knowledge for Windows Azure Storage] (blog de Bruno Terkaly)
 
 Para obtener más información acerca del servicio de tablas de Azure, consulte los siguientes recursos:
 
--   [Essential Knowledge for Azure Table Storage][] (blog de Bruno Terkaly)
--   [How to get the most out of Windows Azure Tables][] (blog del equipo de almacenamiento de Azure)
--   [Uso del servicio de almacenamiento de tablas en .NET][]
--   [Windows Azure Storage Client Library 2.0 Tables Deep Dive][] (blog del equipo de almacenamiento de Azure)
--   [Casos reales: Diseño de una estrategia de partición escalable para el almacenamiento de tablas de Azure][]
+-   [Essential Knowledge for Azure Table Storage][Essential Knowledge for Azure Table Storage] (blog de Bruno Terkaly)
+-   [How to get the most out of Windows Azure Tables][How to get the most out of Windows Azure Tables] (blog del equipo de almacenamiento de Azure)
+-   [Uso del servicio de almacenamiento de tablas en .NET][Uso del servicio de almacenamiento de tablas en .NET]
+-   [Windows Azure Storage Client Library 2.0 Tables Deep Dive][Windows Azure Storage Client Library 2.0 Tables Deep Dive] (blog del equipo de almacenamiento de Azure)
+-   [Casos reales: Diseño de una estrategia de partición escalable para el almacenamiento de tablas de Azure][Casos reales: Diseño de una estrategia de partición escalable para el almacenamiento de tablas de Azure]
 
 Para obtener más información acerca del servicio de colas de Azure y las colas del Bus de servicio de Azure, consulte los siguientes recursos:
 
--   [Queue-Centric Work Pattern (Building Real-World Cloud Apps with Windows Azure)][]
--   [Colas de Windows Azure y Colas de Service Bus de Windows Azure: comparación y diferencias][]
--   [Uso del almacenamiento en cola en .NET][]
+-   [Queue-Centric Work Pattern (Building Real-World Cloud Apps with Windows Azure)][Queue-Centric Work Pattern (Building Real-World Cloud Apps with Windows Azure)]
+-   [Colas de Windows Azure y Colas de Service Bus de Windows Azure: comparación y diferencias][Colas de Windows Azure y Colas de Service Bus de Windows Azure: comparación y diferencias]
+-   [Uso del almacenamiento en cola en .NET][Uso del almacenamiento en cola en .NET]
 
 Para obtener más información acerca del servicio BLOB de Azure, consulte los siguientes recursos:
 
--   [Unstructured Blob Storage (Building Real-World Cloud Apps with Windows Azure)][]
--   [Uso del servicio de almacenamiento de blobs de Azure en .NET][]
+-   [Unstructured Blob Storage (Building Real-World Cloud Apps with Windows Azure)][Unstructured Blob Storage (Building Real-World Cloud Apps with Windows Azure)]
+-   [Uso del servicio de almacenamiento de blobs de Azure en .NET][Uso del servicio de almacenamiento de blobs de Azure en .NET]
 
 Para obtener más información acerca de la autoescala de roles del Servicio en la nube de Azure, consulte los siguientes recursos:
 
--   [Uso del bloque de autoescala de la aplicación][]
--   [Autoscaling and Azure][]
--   [Building Elastic, Autoscalable Solutions with Azure][] (vídeo del canal 9 de MSDN)
+-   [Uso del bloque de autoescala de la aplicación][Uso del bloque de autoescala de la aplicación]
+-   [Autoscaling and Azure][Autoscaling and Azure]
+-   [Building Elastic, Autoscalable Solutions with Azure][Building Elastic, Autoscalable Solutions with Azure] (vídeo del canal 9 de MSDN)
 
 ## <a name="Acknowledgments"></a><span class="short-header">Reconocimientos</span>Reconocimientos
 
-Estos tutoriales y la aplicación de ejemplo los han elaborado [Rick Anderson][] y Tom Dykstra. Nos gustaría mostrar nuestro agradecimiento a las siguientes personas por su colaboración:
+Estos tutoriales y la aplicación de ejemplo los han elaborado [Rick Anderson][Rick Anderson] y Tom Dykstra. Nos gustaría mostrar nuestro agradecimiento a las siguientes personas por su colaboración:
 
--   Barry Dorrans (Twitter [@blowdart][])
--   [Cory Fowler][] (Twitter [@SyntaxC4][] )
--   [Joe Giardino][]
+-   Barry Dorrans (Twitter [@blowdart][@blowdart])
+-   [Cory Fowler][Cory Fowler] (Twitter [@SyntaxC4][@SyntaxC4] )
+-   [Joe Giardino][Joe Giardino]
 -   Don Glover
 -   Jai Haridas
--   [Scott Hunter][] (Twitter: [@coolcsh][])
--   [Brian Swan][]
--   [Daniel Wang][]
+-   [Scott Hunter][Scott Hunter] (Twitter: [@coolcsh][@coolcsh])
+-   [Brian Swan][Brian Swan]
+-   [Daniel Wang][Daniel Wang]
 -   A los miembros del Consejo consultivo de desarrolladores que han dado sus comentarios:
  -   Damir Arh
  -   Jean-Luc Boucho
@@ -604,10 +604,8 @@ Estos tutoriales y la aplicación de ejemplo los han elaborado [Rick Anderson][]
   [Uso del servicio de almacenamiento de tablas en .NET]: http://www.windowsazure.com/es-es/develop/net/how-to-guides/table-services/
   [Windows Azure Storage Client Library 2.0 Tables Deep Dive]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/06/windows-azure-storage-client-library-2-0-tables-deep-dive.aspx
   [Casos reales: Diseño de una estrategia de partición escalable para el almacenamiento de tablas de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/hh508997.aspx
-  [Queue-Centric Work Pattern (Building Real-World Cloud Apps with Windows Azure)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern
   [Colas de Windows Azure y Colas de Service Bus de Windows Azure: comparación y diferencias]: http://msdn.microsoft.com/es-es/library/windowsazure/hh767287.aspx
   [Uso del almacenamiento en cola en .NET]: /es-es/develop/net/how-to-guides/queue-service/
-  [Unstructured Blob Storage (Building Real-World Cloud Apps with Windows Azure)]: http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage
   [Uso del servicio de almacenamiento de blobs de Azure en .NET]: /es-es/develop/net/how-to-guides/blob-storage/
   [Uso del bloque de autoescala de la aplicación]: /es-es/develop/net/how-to-guides/autoscaling/
   [Autoscaling and Azure]: http://msdn.microsoft.com/es-es/library/hh680945(v=PandP.50).aspx

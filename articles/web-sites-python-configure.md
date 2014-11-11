@@ -1,6 +1,6 @@
 <properties linkid="develop-python-tutorials-web-sites-configuration" urlDisplayName="Configuring Python with Azure Websites" pageTitle="Configuring Python with Azure Websites" metaKeywords="" description="This tutorial describes options for authoring and configuring a basic Web server Gateway Interface (WSGI) compliant Python application on Azure Websites." metaCanonical="" services="web-sites" documentationCenter="Python" title="Configuring Python with Azure Websites" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Configuración de Python con Sitios web Azure
 
@@ -13,7 +13,7 @@ Para ver un ejemplo más completo de configuración del marco de trabajo Django 
 
 ## Compatibilidad para WSGI
 
-WSGI es un estándar de Python descrito por [PEP 3333][] que define una interfaz entre el servidor web y Python. Ofrece una interfaz normalizada para escribir varios marcos de trabajo y aplicaciones web con Python. Los marcos de trabajo web conocidos de Python usan WSGI hoy en día. La plataforma Sitios web Azure admite tales marcos de trabajo; además, los usuarios avanzados incluso pueden crear los suyos propios siempre que el controlador personalizado siga las instrucciones de la especificación de WSGI.
+WSGI es un estándar de Python descrito por [PEP 3333][PEP 3333] que define una interfaz entre el servidor web y Python. Ofrece una interfaz normalizada para escribir varios marcos de trabajo y aplicaciones web con Python. Los marcos de trabajo web conocidos de Python usan WSGI hoy en día. La plataforma Sitios web Azure admite tales marcos de trabajo; además, los usuarios avanzados incluso pueden crear los suyos propios siempre que el controlador personalizado siga las instrucciones de la especificación de WSGI.
 
 ## Creación de sitios web
 
@@ -21,7 +21,7 @@ En este tutorial se asume que existe una suscripción a Azure y que ya se tiene 
 
 En resumen, si no tiene ya un sitio web, puede crearlo en el Portal de administración de Azure. Seleccione la característica SITIOS WEB y use la opción QUICK CREATE, donde debe especificar una URL para el sitio web.
 
-![][]
+![][0]
 
 ## Publicación Git
 
@@ -35,7 +35,7 @@ Después de configurar la publicación Git, se creará un repositorio Git y se a
 
 Como ejemplo, usamos una aplicación Python básica con un controlador de WSGI básico que ilustra el trabajo mínimo necesario para beneficiarse de la compatibilidad de Python en Sitios web Azure. Esta aplicación Python de base se puede usar para comenzar a crear diferentes soluciones, con una complejidad que abarca desde el ejemplo siguiente hasta un marco de trabajo web completo.
 
-A continuación se muestra el código del controlador de WSGI básico. Es similar al sugerido por la especificación [PEP 3333][] como punto de partida para una aplicación compatible con WSGI. Hemos guardado este contenido en un archivo denominado ConfigurePython.py creado en una carpeta ConfigurePython en la raíz del sitio web:
+A continuación se muestra el código del controlador de WSGI básico. Es similar al sugerido por la especificación [PEP 3333][PEP 3333] como punto de partida para una aplicación compatible con WSGI. Hemos guardado este contenido en un archivo denominado ConfigurePython.py creado en una carpeta ConfigurePython en la raíz del sitio web:
 
     def application(environ, start_response):
         status = '200 OK'
@@ -131,10 +131,10 @@ Vaya al sitio web para probar la configuración correcta. Para este ejemplo, apa
 
 ![][5]
 
-  []: http://www.windowsazure.com/es-es/develop/python/tutorials/web-sites-with-django
+  [0]: http://www.windowsazure.com/es-es/develop/python/tutorials/web-sites-with-django
   [PEP 3333]: http://www.python.org/dev/peps/pep-3333/
   [1]: http://www.windowsazure.com/es-es/manage/services/web-sites/how-to-create-websites
-  []: ./media/web-sites-python-configure/configure-python-create-website.png
+  [0]: ./media/web-sites-python-configure/configure-python-create-website.png
   [2]: ./media/web-sites-python-configure/configure-python-git.png
   [3]: ./media/web-sites-python-configure/configure-python-handler-mapping.png
   [4]: ./media/web-sites-python-configure/configure-python-app-settings.png

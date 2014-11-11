@@ -1,32 +1,32 @@
 <properties linkid="dev-ruby-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Ruby) - Azure" metaKeywords="Get started Azure Service Bus topics, Get Started Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions, Service Bus topic ruby" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications." metaCanonical="" services="service-bus" documentationCenter="Ruby" title="How to Use Service Bus Topics/Subscriptions" authors="guayan" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Uso de temas/suscripciones del bus de servicio
 
-En esta guía se indica cómo usar los temas y las suscripciones del bus de servicio desde aplicaciones Ruby. Entre los escenarios tratados se incluyen **la creación de temas y suscripciones, la creación de filtros de suscripción, el envío de mensajes a un tema**, **la recepción de mensajes de una suscripción** y **la eliminación de temas y suscripciones**. Para obtener más información acerca de los temas y las suscripciones, consulte la sección [Pasos siguientes][].
+En esta guía se indica cómo usar los temas y las suscripciones del bus de servicio desde aplicaciones Ruby. Entre los escenarios tratados se incluyen **la creación de temas y suscripciones, la creación de filtros de suscripción, el envío de mensajes a un tema**, **la recepción de mensajes de una suscripción** y **la eliminación de temas y suscripciones**. Para obtener más información acerca de los temas y las suscripciones, consulte la sección [Pasos siguientes][Pasos siguientes].
 
 ## Tabla de contenido
 
--   [Qué son las suscripciones y los temas del bus de servicio][]
--   [Creación de un espacio de nombres de servicio][]
--   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][]
--   [Creación de una aplicación de Ruby][]
--   [Configuración de la aplicación para usar el bus de servicio][]
--   [Configuración de una conexión del bus de servicio de Azure][]
--   [Creación de un tema][]
--   [Creación de suscripciones][]
--   [Envío de mensajes a un tema][]
--   [Recepción de mensajes de una suscripción][]
--   [Actuación ante errores de la aplicación y mensajes que no se pueden leer][]
--   [Eliminación de temas y suscripciones][]
--   [Pasos siguientes][]
+-   [Qué son las suscripciones y los temas del bus de servicio][Qué son las suscripciones y los temas del bus de servicio]
+-   [Creación de un espacio de nombres de servicio][Creación de un espacio de nombres de servicio]
+-   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][Obtención de credenciales de administración predeterminadas para el espacio de nombres]
+-   [Creación de una aplicación de Ruby][Creación de una aplicación de Ruby]
+-   [Configuración de la aplicación para usar el bus de servicio][Configuración de la aplicación para usar el bus de servicio]
+-   [Configuración de una conexión del bus de servicio de Azure][Configuración de una conexión del bus de servicio de Azure]
+-   [Creación de un tema][Creación de un tema]
+-   [Creación de suscripciones][Creación de suscripciones]
+-   [Envío de mensajes a un tema][Envío de mensajes a un tema]
+-   [Recepción de mensajes de una suscripción][Recepción de mensajes de una suscripción]
+-   [Actuación ante errores de la aplicación y mensajes que no se pueden leer][Actuación ante errores de la aplicación y mensajes que no se pueden leer]
+-   [Eliminación de temas y suscripciones][Eliminación de temas y suscripciones]
+-   [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span id="create-a-ruby-application"></span></a>Creación de una aplicación de Ruby
 
-Cree una aplicación de Ruby. Para obtener instrucciones, consulte [Creación de una aplicación de Ruby en Azure][].
+Cree una aplicación de Ruby. Para obtener instrucciones, consulte [Creación de una aplicación de Ruby en Azure][Creación de una aplicación de Ruby en Azure].
 
 ## <span id="configure-your-application-to-use-service-bus"></span></a>Configuración de la aplicación para usar el bus de servicio
 
@@ -89,7 +89,7 @@ El filtro predeterminado **MatchAll** se usa en caso de que no se haya especific
 
 También puede configurar filtros que le permitan especificar qué mensajes enviados a un tema deben aparecer dentro de una suscripción de tema determinada.
 
-El tipo de filtro más flexible compatible con las suscripciones es **Azure::ServiceBus::SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, revise la sintaxis de [SqlFilter.SqlExpression][].
+El tipo de filtro más flexible compatible con las suscripciones es **Azure::ServiceBus::SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, revise la sintaxis de [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 Es posible agregar filtros a una suscripción utilizando el método **create\_rule()** del objeto **Azure::ServiceBusService**. Este método le permite agregar nuevos filtros a una suscripción existente.
 
@@ -166,7 +166,7 @@ En caso de que la aplicación sufra un error después de procesar el mensaje y a
 
 ## <span id="how-to-delete-topics-and-subscriptions"></span></a>Eliminación de temas y suscripciones
 
-Los temas y suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Portal de administración de Azure][] o mediante programación. En el ejemplo siguiente se muestra cómo eliminar el tema llamado "test-topic".
+Los temas y suscripciones son permanentes, por lo que deben eliminarse explícitamente a través del [Portal de administración de Azure][Portal de administración de Azure] o mediante programación. En el ejemplo siguiente se muestra cómo eliminar el tema llamado "test-topic".
 
     azure_service_bus_service.delete_topic("test-topic")
 
@@ -178,9 +178,9 @@ Al eliminar un tema también se eliminan todas las suscripciones que estén regi
 
 Ahora que conoce los fundamentos de los temas del bus de servicio, siga estos vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del Service Bus][]
--   Referencia de API para [Clase SqlFilter][].
--   Visite el repositorio del [SDK de Azure para Ruby][] (en inglés) en GitHub.
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones del Service Bus][Colas, temas y suscripciones del Service Bus]
+-   Referencia de API para [Clase SqlFilter][Clase SqlFilter].
+-   Visite el repositorio del [SDK de Azure para Ruby][SDK de Azure para Ruby] (en inglés) en GitHub.
 
   [Pasos siguientes]: #NextSteps
   [Qué son las suscripciones y los temas del bus de servicio]: #what-are-service-bus-topics

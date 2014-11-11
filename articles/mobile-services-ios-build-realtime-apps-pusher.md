@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-build-realtime-apps-with-pusher-ios" urlDisplayName="Build Realtime Apps with Pusher" pageTitle="Build Realtime Apps with Pusher (iOS) - Mobile Services" metaKeywords="" description="Learn how to use Pusher to send notifications to your Azure Media Services app on iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Build Real-time Apps with Mobile Services and Pusher" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Generación de aplicaciones en tiempo real con Servicios móviles y Pusher
 
@@ -10,22 +10,22 @@
 
 En este tema se muestra cómo puede agregar funcionalidad en tiempo real a su aplicación basada en Servicios móviles de Azure. Cuando se complete, los datos de TodoList se sincronizarán en tiempo real en todas las instancias en ejecución de la aplicación.
 
-El tutorial [Notificaciones de inserción para usuarios][] muestra cómo usar notificaciones de inserción para informar a los usuarios de nuevos elementos en la lista Todo. Las notificaciones de inserción son una manera fantástica de mostrar cambios ocasionales. Sin embargo, a veces una aplicación necesita notificaciones en tiempo real frecuentes. Las notificaciones en tiempo real se pueden agregar al servicio móvil con la API de Pusher. En este tutorial, usamos Pusher con Servicios móviles para mantener una lista Todo sincronizada cuando se realizan cambios en cualquier instancia en ejecución de la aplicación.
+El tutorial [Notificaciones de inserción para usuarios][Notificaciones de inserción para usuarios] muestra cómo usar notificaciones de inserción para informar a los usuarios de nuevos elementos en la lista Todo. Las notificaciones de inserción son una manera fantástica de mostrar cambios ocasionales. Sin embargo, a veces una aplicación necesita notificaciones en tiempo real frecuentes. Las notificaciones en tiempo real se pueden agregar al servicio móvil con la API de Pusher. En este tutorial, usamos Pusher con Servicios móviles para mantener una lista Todo sincronizada cuando se realizan cambios en cualquier instancia en ejecución de la aplicación.
 
 Pusher es un servicio basado en la nube, al igual que Servicios móviles, que facilita enormemente la generación de aplicaciones en tiempo real. Puede usar Pusher para generar rápidamente sondeos en vivo, salas de chat, juegos multijugador, aplicaciones de colaboración, y transmitir contenido y datos activos, entre otras tareas. Para obtener más información, consulte [][]<http://pusher.com></a>.
 
 En este tutorial se realiza un recorrido por estos pasos básicos para agregar colaboración en tiempo real a la aplicación de la lista Todo:
 
-1.  [Creación de una cuenta Pusher][]
-2.  [Actualización de la aplicación][]
-3.  [Instalación de los scripts de servidor][]
-4.  [Prueba de la aplicación][]
+1.  [Creación de una cuenta Pusher][Creación de una cuenta Pusher]
+2.  [Actualización de la aplicación][Actualización de la aplicación]
+3.  [Instalación de los scripts de servidor][Instalación de los scripts de servidor]
+4.  [Prueba de la aplicación][Prueba de la aplicación]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][].
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
 ## <a name="sign-up"></a>Creación de una cuenta Pusher
 
-[WACOM.INCLUDE [pusher-sign-up][]]
+[WACOM.INCLUDE [pusher-sign-up](../includes/pusher-sign-up.md)]
 
 ## <a name="update-app"></a>Actualización de la aplicación
 
@@ -33,9 +33,9 @@ Ahora que tiene configurada una cuenta Pusher, el próximo paso es modificar el 
 
 ### Instalar la biblioteca libPusher
 
-La biblioteca [libPusher][] le permite obtener acceso a Pusher desde iOS.
+La biblioteca [libPusher][libPusher] le permite obtener acceso a Pusher desde iOS.
 
-1.  Descargue la biblioteca libPusher [desde aquí][].
+1.  Descargue la biblioteca libPusher [desde aquí][desde aquí].
 
 2.  Cree un grupo llamado *libPusher* en su proyecto.
 
@@ -43,7 +43,7 @@ La biblioteca [libPusher][] le permite obtener acceso a Pusher desde iOS.
 
 4.  Seleccione **Copy items in destination group's folder** y, a continuación, haga clic en **Finish**.
 
-    ![][]
+    ![][0]
 
 De esta forma, se copian los archivos libPusher en su proyecto.
 
@@ -259,7 +259,7 @@ Esta aplicación está ahora disponible para recibir eventos de Pusher y para ac
 
 Lo único que queda es la configuración de los scripts de servidor. Insertaremos un script para cuando se inserte un elemento o se actualice en la tabla TodoList.
 
-1.  Inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
 
 2.  En el Portal de administración, haga clic en la pestaña **Data** y, a continuación, en la tabla **TodoItem**.
 
@@ -375,15 +375,14 @@ Ahora que ha visto lo fácil que es usar el servicio Pusher con Servicios móvil
 -   Documentación sobre la API de Pusher: <http://pusher.com/docs>
 -   Tutoriales de Pusher: <http://pusher.com/tutorials>
 
-Para obtener más información sobre el registro y uso de scripts de servidor, consulte [Referencia del script del servidor de Servicios móviles][].
+Para obtener más información sobre el registro y uso de scripts de servidor, consulte [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles].
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [iOS]:  "iOS"
   [Notificaciones de inserción para usuarios]: /es-es/develop/mobile/tutorials/push-notifications-to-users-ios
-  []: http://pusher.com
+  [0]: http://pusher.com
   [Creación de una cuenta Pusher]: #sign-up
   [Actualización de la aplicación]: #update-app
   [Instalación de los scripts de servidor]: #install-scripts
@@ -392,7 +391,7 @@ Para obtener más información sobre el registro y uso de scripts de servidor, c
   [pusher-sign-up]: ../includes/pusher-sign-up.md
   [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
   [desde aquí]: http://go.microsoft.com/fwlink/p/?LinkId=276998
-  []: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png
+  [0]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png
   [1]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-build-phase.png
   [2]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-linker-flag.png
   [Portal de administración de Azure]: https://manage.windowsazure.com/

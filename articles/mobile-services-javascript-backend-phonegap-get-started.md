@@ -1,8 +1,8 @@
 <properties pageTitle="Get started with Mobile Services with PhoneGap | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for PhoneGap development for iOS, Android, and Windows Phone." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
-[WACOM.INCLUDE [mobile-services-selector-get-started][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 # <a name="getting-started"> </a>Introducción a los Servicios móviles
 
@@ -10,7 +10,7 @@ En este tutorial se muestra cómo agregar un servicio back-end basado en la nube
 
 La siguiente captura de pantalla muestra la aplicación final:
 
-![][]
+![][0]
 
 ### <a name="additional-requirements"></a>Requisitos adicionales
 
@@ -18,14 +18,14 @@ Completar este tutorial requiere las herramientas de PhoneGap (se requiere v3.2+
 
 PhoneGap admite el desarrollo para varias plataformas. Además de las propias herramientas de PhoneGap, debe instalar las herramientas para cada plataforma a la que se dirige:
 
--   Windows Phone: instale [Visual Studio 2012 Express para Windows Phone][]
--   iOS: Instale [Xcode][] (se requiere v4.4+)
--   Android: instale las [herramientas para desarrolladores de Android][]
+-   Windows Phone: instale [Visual Studio 2012 Express para Windows Phone][Visual Studio 2012 Express para Windows Phone]
+-   iOS: Instale [Xcode][Xcode] (se requiere v4.4+)
+-   Android: instale las [herramientas para desarrolladores de Android][herramientas para desarrolladores de Android]
     (el SDK de Servicios móviles para Android es compatible con aplicaciones para Android 2.2 o una versión posterior. Se requiere Android 4.2 o superior para ejecutar la aplicación de inicio rápido).
 
 ## <a name="create-new-service"> </a>Creación de un servicio móvil
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## <span class="short-header">Creación de una aplicación nueva</span>Creación de una aplicación nueva de PhoneGap
 
@@ -73,7 +73,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
     2.  Presione el botón **Run** para crear el proyecto e iniciar la aplicación en el emulador de iPhone, que es la solución predeterminada para este proyecto.
 
-        ![][]
+        ![][0]
 
     -   **Android**
 
@@ -138,11 +138,11 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
--   [Introducción a los datos][]
+-   [Introducción a los datos][Introducción a los datos]
     
 	Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a la autenticación][]
+-   [Introducción a la autenticación][Introducción a la autenticación]
     
 	Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
@@ -150,7 +150,7 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 <!-- URLs. -->
 
   [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  []: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png
+  [0]: ./media/mobile-services-javascript-backend-phonegap-get-started/mobile-portal-quickstart-ios.png
   [Visual Studio 2012 Express para Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
   [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [herramientas para desarrolladores de Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125

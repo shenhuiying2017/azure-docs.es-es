@@ -4,40 +4,40 @@
 
 # Uso del almacenamiento de colas en Java
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Azure. Los ejemplos están escritos en Java y utilizan el [SDK de almacenamiento de Azure para Java][]. Entre los escenarios descritos se incluyen la **inserción**, **inspección**, **obtención** y **eliminación** de los mensajes en cola, así como la **creación** y **eliminación** de colas. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][].
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Azure. Los ejemplos están escritos en Java y utilizan el [SDK de almacenamiento de Azure para Java][SDK de almacenamiento de Azure para Java]. Entre los escenarios descritos se incluyen la **inserción**, **inspección**, **obtención** y **eliminación** de los mensajes en cola, así como la **creación** y **eliminación** de colas. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][Pasos siguientes].
 
-Nota: hay un SDK disponible para los desarrolladores que usen el almacenamiento de Azure en dispositivos Android. Para obtener más información, consulte el [SDK de almacenamiento de Azure para Android][].
+Nota: hay un SDK disponible para los desarrolladores que usen el almacenamiento de Azure en dispositivos Android. Para obtener más información, consulte el [SDK de almacenamiento de Azure para Android][SDK de almacenamiento de Azure para Android].
 
 ## <a name="Contents"> </a>Tabla de contenido
 
--   [¿Qué es el almacenamiento en cola?][]
--   [Conceptos][]
--   [Creación de una cuenta de almacenamiento de Azure][]
--   [Creación de una aplicación Java][]
--   [Configuración de la aplicación para obtener acceso al almacenamiento en cola][]
--   [Configuración de una cadena de conexión de almacenamiento de Azure][]
--   [Creación de una cola][]
--   [Incorporación de un mensaje a una cola][]
--   [Inspección del siguiente mensaje][]
--   [Cambio del contenido de un mensaje en cola][]
--   [Obtención de la longitud de la cola][]
--   [Extracción del siguiente mensaje de la cola][]
--   [Opciones adicionales para quitar mensajes de la cola][]
--   [Enumeración de las colas][]
--   [Eliminación de una cola][]
--   [Pasos siguientes][]
+-   [¿Qué es el almacenamiento en cola?][¿Qué es el almacenamiento en cola?]
+-   [Conceptos][Conceptos]
+-   [Creación de una cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento de Azure]
+-   [Creación de una aplicación Java][Creación de una aplicación Java]
+-   [Configuración de la aplicación para obtener acceso al almacenamiento en cola][Configuración de la aplicación para obtener acceso al almacenamiento en cola]
+-   [Configuración de una cadena de conexión de almacenamiento de Azure][Configuración de una cadena de conexión de almacenamiento de Azure]
+-   [Creación de una cola][Creación de una cola]
+-   [Incorporación de un mensaje a una cola][Incorporación de un mensaje a una cola]
+-   [Inspección del siguiente mensaje][Inspección del siguiente mensaje]
+-   [Cambio del contenido de un mensaje en cola][Cambio del contenido de un mensaje en cola]
+-   [Obtención de la longitud de la cola][Obtención de la longitud de la cola]
+-   [Extracción del siguiente mensaje de la cola][Extracción del siguiente mensaje de la cola]
+-   [Opciones adicionales para quitar mensajes de la cola][Opciones adicionales para quitar mensajes de la cola]
+-   [Enumeración de las colas][Enumeración de las colas]
+-   [Eliminación de una cola][Eliminación de una cola]
+-   [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Creación de una cuenta de almacenamiento de Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"> </a>Creación de una aplicación Java
 
 En esta guía utilizará funciones del almacenamiento que puede ejecutar en una aplicación Java localmente o bien mediante código a través de un rol web o un rol de trabajo de Azure.
 
-Para ello, deberá instalar el Kit de desarrollo de Java (JDK) y crear una cuenta de almacenamiento de Azure en su suscripción de Azure. A continuación, deberá verificar que su sistema de desarrollo satisface los requisitos mínimos y las dependencias que se indican en el repositorio del [SDK de almacenamiento de Azure para Java][] en GitHub. Si su sistema cumple esos requisitos, puede seguir las instrucciones para descargar e instalar las bibliotecas de almacenamiento de Azure para Java en su sistema desde ese repositorio. Cuando haya completado esas tareas, podrá crear una aplicación Java que use los ejemplos de este artículo.
+Para ello, deberá instalar el Kit de desarrollo de Java (JDK) y crear una cuenta de almacenamiento de Azure en su suscripción de Azure. A continuación, deberá verificar que su sistema de desarrollo satisface los requisitos mínimos y las dependencias que se indican en el repositorio del [SDK de almacenamiento de Azure para Java][SDK de almacenamiento de Azure para Java] en GitHub. Si su sistema cumple esos requisitos, puede seguir las instrucciones para descargar e instalar las bibliotecas de almacenamiento de Azure para Java en su sistema desde ese repositorio. Cuando haya completado esas tareas, podrá crear una aplicación Java que use los ejemplos de este artículo.
 
 ## <a name="ConfigureStorage"> </a>Configuración de la aplicación para obtener acceso al almacenamiento en cola
 
@@ -67,7 +67,7 @@ En los ejemplos siguientes se supone que ha usado uno de estos dos métodos para
 
 ## <a name="create-queue"> </a>Creación de una cola
 
-Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. (Nota: existen otras maneras de crear objetos **CloudStorageAccount**; para obtener más información, consulte **CloudStorageAccount** en la [Referencia del SDK del cliente de almacenamiento de Azure][]).
+Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. (Nota: existen otras maneras de crear objetos **CloudStorageAccount**; para obtener más información, consulte **CloudStorageAccount** en la [Referencia del SDK del cliente de almacenamiento de Azure][Referencia del SDK del cliente de almacenamiento de Azure]).
 
 Use el objeto **CloudQueueClient** para obtener una referencia a la cola que desea utilizar. En caso de que la cola no exista todavía, es posible crearla:
 
@@ -381,15 +381,14 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento en cola, utilice estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   [SDK de almacenamiento de Azure para Java][]
+-   [SDK de almacenamiento de Azure para Java][SDK de almacenamiento de Azure para Java]
 -   [Referencia del SDK de cliente de almacenamiento de Azure][Referencia del SDK del cliente de almacenamiento de Azure]
--   [API REST de almacenamiento de Azure][]
--   [Blog del equipo de almacenamiento de Azure][]
+-   [API REST de almacenamiento de Azure][API REST de almacenamiento de Azure]
+-   [Blog del equipo de almacenamiento de Azure][Blog del equipo de almacenamiento de Azure]
 
   [SDK de almacenamiento de Azure para Java]: https://github.com/azure/azure-storage-java
   [Pasos siguientes]: #NextSteps
   [SDK de almacenamiento de Azure para Android]: https://github.com/azure/azure-storage-android
-  [¿Qué es el almacenamiento en cola?]: #what-is
   [Conceptos]: #Concepts
   [Creación de una cuenta de almacenamiento de Azure]: #CreateAccount
   [Creación de una aplicación Java]: #CreateApplication
@@ -407,5 +406,5 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento en co
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [Referencia del SDK del cliente de almacenamiento de Azure]: http://dl.windowsazure.com/storage/javadoc/
-  [API REST de almacenamiento de Azure]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+  [API REST de almacenamiento de Azure]: http://msdn.microsoft.com/es-es/library/azure/gg433040.aspx
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/

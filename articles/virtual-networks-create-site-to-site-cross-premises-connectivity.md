@@ -1,12 +1,12 @@
 <properties linkid="manage-services-cross-premises-connectivity" urlDisplayName="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" pageTitle="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" metaKeywords="" description="Learn how to create an Azure Virtual Network with cross-premises connectivity in this tutorial." metaCanonical="" services="virtual-network" documentationCenter="" title="Create a Virtual Network for Site-to-Site Cross-Premises Connectivity" authors="cherylmc" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc"></tags>
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc" />
 
 # Tutorial: Creación de una red virtual entre locales para una conectividad sitio a sitio
 
-En este tutorial se muestran los pasos que debe seguir para crear, por ejemplo, una red virtual entre locales con conexión sitio a sitio. Si desea crear una VPN de punto a sitio utilizando certificados y un cliente VPN, consulte [Configurar una VPN de punto a sitio con el asistente del Portal de administración][].
+En este tutorial se muestran los pasos que debe seguir para crear, por ejemplo, una red virtual entre locales con conexión sitio a sitio. Si desea crear una VPN de punto a sitio utilizando certificados y un cliente VPN, consulte [Configurar una VPN de punto a sitio con el asistente del Portal de administración][Configurar una VPN de punto a sitio con el asistente del Portal de administración].
 
-En este tutorial se asume que no tiene ninguna experiencia previa con Azure. La finalidad del mismo es ayudarle a familiarizarse con los pasos necesarios para crear una red virtual entre locales. Si busca escenarios de diseño e información avanzada sobre redes virtuales, consulte la [información general sobre Red virtual de Azure][].
+En este tutorial se asume que no tiene ninguna experiencia previa con Azure. La finalidad del mismo es ayudarle a familiarizarse con los pasos necesarios para crear una red virtual entre locales. Si busca escenarios de diseño e información avanzada sobre redes virtuales, consulte la [información general sobre Red virtual de Azure][información general sobre Red virtual de Azure].
 
 Después de finalizar este tutorial, tendrá un ejemplo de red virtual entre locales en la que podrá implementar los servicios de Azure y las máquinas virtuales.
 
@@ -14,13 +14,13 @@ Tenga en cuenta que los parámetros de configuración utilizados en este tutoria
 
 Para obtener información acerca de cómo agregar una máquina virtual y ampliar su dominio local de Active Directory a Red virtual de Azure, consulte los siguientes documentos:
 
--   [How to Create a Custom Virtual Machine][]
+-   [How to Create a Custom Virtual Machine][How to Create a Custom Virtual Machine]
 
--   [Instalación de una réplica de controlador de dominio de Active Directory en Red virtual de Azure][]
+-   [Instalación de una réplica de controlador de dominio de Active Directory en Red virtual de Azure][Instalación de una réplica de controlador de dominio de Active Directory en Red virtual de Azure]
 
-Para obtener directrices acerca de la implementación de AD DS en máquinas virtuales de Azure, consulte [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Azure][].
+Para obtener directrices acerca de la implementación de AD DS en máquinas virtuales de Azure, consulte [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Azure][Directrices para implementar Windows Server Active Directory en máquinas virtuales de Azure].
 
-Para obtener información acerca de procedimientos y configuración de la red virtual, consulte [Tareas de configuración de Red virtual de Azure][].
+Para obtener información acerca de procedimientos y configuración de la red virtual, consulte [Tareas de configuración de Red virtual de Azure][Tareas de configuración de Red virtual de Azure].
 
 ## Objetivos
 
@@ -32,7 +32,7 @@ En este tutorial, aprenderá a:
 
 ## Requisitos previos
 
--   Una cuenta de Microsoft con al menos una suscripción válida y activa de Azure. Si todavía no dispone de una suscripción de Azure, puede registrarse para una prueba gratuita en [Try Azure][]. Si tiene una suscripción de MSDN, consulte [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits][].
+-   Una cuenta de Microsoft con al menos una suscripción válida y activa de Azure. Si todavía no dispone de una suscripción de Azure, puede registrarse para una prueba gratuita en [Try Azure][Try Azure]. Si tiene una suscripción de MSDN, consulte [Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits][Microsoft Azure Special Pricing: MSDN, MPN, and Bizspark Benefits].
 
 Si utiliza este tutorial para configurar una red virtual entre locales que funciones y que esté personalizada para su organización, necesitará lo siguiente:
 
@@ -40,10 +40,10 @@ Si utiliza este tutorial para configurar una red virtual entre locales que funci
 
 -   Nombre y dirección IP de un servidor DNS local.
 
--   Dispositivo VPN con una dirección IPv4 pública. Necesitará la dirección IP para completar el asistente. El dispositivo VPN no puede estar situado detrás de un traductor de direcciones de red (NAT) y debe cumplir los requisitos mínimos de los dispositivos. Consulte [Acerca de los dispositivos VPN de la red virtual][] para obtener más información.
+-   Dispositivo VPN con una dirección IPv4 pública. Necesitará la dirección IP para completar el asistente. El dispositivo VPN no puede estar situado detrás de un traductor de direcciones de red (NAT) y debe cumplir los requisitos mínimos de los dispositivos. Consulte [Acerca de los dispositivos VPN de la red virtual][Acerca de los dispositivos VPN de la red virtual] para obtener más información.
 
     Nota: Puede utilizar el servicio de enrutamiento y acceso remoto (RRAS) en un Windows Server como parte de la solución de VPN. Sin embargo, en este tutorial no se incluyen los pasos de configuración de RRAS.
-    Para obtener información acerca de la configuración de RRAS, consulte [Plantillas del Servicio de Enrutamiento y acceso remoto][].
+    Para obtener información acerca de la configuración de RRAS, consulte [Plantillas del Servicio de Enrutamiento y acceso remoto][Plantillas del Servicio de Enrutamiento y acceso remoto].
 
 -   Conocimientos para configurar un enrutador para una conexión en modo túnel de IPsec, o bien alguien que le pueda ayudar con este paso.
 
@@ -51,23 +51,23 @@ Si utiliza este tutorial para configurar una red virtual entre locales que funci
 
 ## Pasos de alto nivel
 
-1.  [Creación de una red virtual][]
+1.  [Creación de una red virtual][Creación de una red virtual]
 
-2.  [Inicio de la puerta de enlace y recopilación de información para el administrador de red][]
+2.  [Inicio de la puerta de enlace y recopilación de información para el administrador de red][Inicio de la puerta de enlace y recopilación de información para el administrador de red]
 
-3.  [Configuración del dispositivo VPN][]
+3.  [Configuración del dispositivo VPN][Configuración del dispositivo VPN]
 
 ## <a name="CreateVN">Creación de una red virtual</a>
 
 Para crear un ejemplo de red virtual que se conecte a la red de una empresa:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  En la esquina inferior izquierda de la pantalla, haga clic en **New**. En el panel de navegación, haga clic en **Redes** y, a continuación, en **Red virtual**. Haga clic en **Custom Create** para iniciar el asistente de configuración.
 
-    ![][]
+    ![][0]
 
-3.  En la página **Virtual Network Details**, escriba la información siguiente y, a continuación, haga clic en la flecha para avanzar situada en la esquina inferior derecha. Para obtener más información acerca de la configuración de la página de detalles, consulte la sección **Página Detalles de red virtual** del documento [Acerca de la configuración de una red virtual en el Portal de administración][].
+3.  En la página **Virtual Network Details**, escriba la información siguiente y, a continuación, haga clic en la flecha para avanzar situada en la esquina inferior derecha. Para obtener más información acerca de la configuración de la página de detalles, consulte la sección **Página Detalles de red virtual** del documento [Acerca de la configuración de una red virtual en el Portal de administración][Acerca de la configuración de una red virtual en el Portal de administración].
 
     -   **NAME:** Asigne un nombre a la red virtual. Por ejemplo en este tutorial escriba **YourVirtualNetwork**.
 
@@ -87,7 +87,7 @@ Para crear un ejemplo de red virtual que se conecte a la red de una empresa:
 
     ![][1]
 
-5.  En la página **Site-To-Site Connectivity**, escriba la información siguiente y, a continuación, haga clic en la marca de verificación que aparece en la esquina inferior derecha de la página. Para obtener más información acerca de la configuración de esta página, consulte la sección **Página Conectividad de sitio a sitio** del documento [Acerca de la configuración de una red virtual en el Portal de administración][].
+5.  En la página **Site-To-Site Connectivity**, escriba la información siguiente y, a continuación, haga clic en la marca de verificación que aparece en la esquina inferior derecha de la página. Para obtener más información acerca de la configuración de esta página, consulte la sección **Página Conectividad de sitio a sitio** del documento [Acerca de la configuración de una red virtual en el Portal de administración][Acerca de la configuración de una red virtual en el Portal de administración].
 
     -   **NAME:** Por ejemplo en este tutorial escriba **YourCorpHQ**.
 
@@ -100,7 +100,7 @@ Para crear un ejemplo de red virtual que se conecte a la red de una empresa:
 
 6.  En la página **Virtual Network Address Spaces**, escriba la información siguiente y, a continuación, haga clic en la marca de verificación que aparece en la esquina inferior derecha para configurar la red.
 
-    El espacio de direcciones debe ser un rango de direcciones privadas, con la notación CIDR desde los espacios de direcciones 10.0.0.0/8, 172.16.0.0/12 o 192.168.0.0/16 (de conformidad con el documento RFC 1918). Para obtener más información acerca de la configuración de esta página, consulte la página **Espacios de direcciones de la red virtual** del documento [Acerca de la configuración de una red virtual en el Portal de administración][].
+    El espacio de direcciones debe ser un rango de direcciones privadas, con la notación CIDR desde los espacios de direcciones 10.0.0.0/8, 172.16.0.0/12 o 192.168.0.0/16 (de conformidad con el documento RFC 1918). Para obtener más información acerca de la configuración de esta página, consulte la página **Espacios de direcciones de la red virtual** del documento [Acerca de la configuración de una red virtual en el Portal de administración][Acerca de la configuración de una red virtual en el Portal de administración].
 
     -   **Address Space:** Por ejemplo, en este tutorial haga clic en **CIDR** en la esquina superior derecha y, a continuación, escriba lo siguiente:
 
@@ -122,7 +122,7 @@ Para crear un ejemplo de red virtual que se conecte a la red de una empresa:
 
 ## <a name="StartGateway">Inicio de la puerta de enlace</a>
 
-Después de crear la red virtual de Azure, siga este procedimiento para configurar la puerta de enlace de la red virtual a fin de crear la VPN de sitio a sitio. Para este procedimiento necesita un dispositivo VPN que cumpla los requisitos mínimos. Para obtener más información acerca de los dispositivos de VPN y su configuración, consulte [Acerca de los dispositivos VPN de la red virtual][].
+Después de crear la red virtual de Azure, siga este procedimiento para configurar la puerta de enlace de la red virtual a fin de crear la VPN de sitio a sitio. Para este procedimiento necesita un dispositivo VPN que cumpla los requisitos mínimos. Para obtener más información acerca de los dispositivos de VPN y su configuración, consulte [Acerca de los dispositivos VPN de la red virtual][Acerca de los dispositivos VPN de la red virtual].
 
 **Para iniciar la puerta de enlace:**
 
@@ -134,7 +134,7 @@ Después de crear la red virtual de Azure, siga este procedimiento para configur
 
 2.  Haga clic en **PANEL** en la parte superior de la página. En la parte inferior de la página Panel, haga clic en **CREATE GATEWAY**. Seleccione **Dynamic Routing** o **Static Routing** como tipo de puerta de enlace según sus preferencias.
 
-    Tenga en cuenta que, si desea utilizar esta red virtual para conexiones punto a sitio además de sitio a sitio, debe seleccionar **Dynamic Routing** como tipo de puerta de enlace. Antes de crear la puerta de enlace, compruebe que el dispositivo VPN sea compatible con el tipo de puerta de enlace que desea crear. Consulte [Acerca de los dispositivos VPN de la red virtual][]. Cuando el sistema le pida confirmación de que desea crear la puerta de enlace, haga clic en **YES**.
+    Tenga en cuenta que, si desea utilizar esta red virtual para conexiones punto a sitio además de sitio a sitio, debe seleccionar **Dynamic Routing** como tipo de puerta de enlace. Antes de crear la puerta de enlace, compruebe que el dispositivo VPN sea compatible con el tipo de puerta de enlace que desea crear. Consulte [Acerca de los dispositivos VPN de la red virtual][Acerca de los dispositivos VPN de la red virtual]. Cuando el sistema le pida confirmación de que desea crear la puerta de enlace, haga clic en **YES**.
 
     ![][7]
 
@@ -164,7 +164,7 @@ Después de crear la red virtual de Azure, siga este procedimiento para configur
 
     ![][10]
 
-Si no encuentra el dispositivo VPN en la lista desplegable, consulte [Acerca de los dispositivos VPN de la red virtual][] en MSDN Library para obtener plantillas de script adicionales.
+Si no encuentra el dispositivo VPN en la lista desplegable, consulte [Acerca de los dispositivos VPN de la red virtual][Acerca de los dispositivos VPN de la red virtual] en MSDN Library para obtener plantillas de script adicionales.
 
 ## <a name="ConfigVPN">Configuración del dispositivo VPN (administrador de red)</a>
 
@@ -172,7 +172,7 @@ Dado que cada dispositivo VPN es diferente, este procedimiento es de alto nivel 
 
 Puede obtener el script de configuración de VPN en el Portal de administración o en el documento [Acerca de los dispositivos VPN de la red virtual][11], que también incluye información sobre los tipos de enrutamiento y los dispositivos que son compatibles con la configuración de enrutamiento seleccionada.
 
-Para obtener información adicional acerca de la configuración de una puerta de enlace de red virtual, consulte [Configurar una puerta de enlace de red virtual en el Portal de administración][], así como la documentación del dispositivo VPN.
+Para obtener información adicional acerca de la configuración de una puerta de enlace de red virtual, consulte [Configurar una puerta de enlace de red virtual en el Portal de administración][Configurar una puerta de enlace de red virtual en el Portal de administración], así como la documentación del dispositivo VPN.
 
 En este procedimiento se asume lo siguiente:
 
@@ -203,25 +203,25 @@ En este procedimiento se asume lo siguiente:
 
 Para ampliar el dominio local de Active Directory a la red virtual que acaba de crear, realice los siguientes tutoriales:
 
--   [How to Create a Custom Virtual Machine][]
+-   [How to Create a Custom Virtual Machine][How to Create a Custom Virtual Machine]
 
--   [Instalación de una réplica de controlador de dominio de Active Directory en Red virtual de Azure][]
+-   [Instalación de una réplica de controlador de dominio de Active Directory en Red virtual de Azure][Instalación de una réplica de controlador de dominio de Active Directory en Red virtual de Azure]
 
-Si desea exportar la configuración de la red virtual a un archivo de configuración de red para guardarlo como copia de seguridad o utilizarlo como plantilla, consulte [Exportar la configuración de red virtual a un archivo de configuración de red][].
+Si desea exportar la configuración de la red virtual a un archivo de configuración de red para guardarlo como copia de seguridad o utilizarlo como plantilla, consulte [Exportar la configuración de red virtual a un archivo de configuración de red][Exportar la configuración de red virtual a un archivo de configuración de red].
 
 ## Otras referencias
 
 -   [Red virtual][información general sobre Red virtual de Azure]
 
--   [P+F de Red virtual][]
+-   [P+F de Red virtual][P+F de Red virtual]
 
--   [Configurar una red virtual con archivos de configuración de red][]
+-   [Configurar una red virtual con archivos de configuración de red][Configurar una red virtual con archivos de configuración de red]
 
--   [Incorporación de una máquina virtual a una red virtual][]
+-   [Incorporación de una máquina virtual a una red virtual][Incorporación de una máquina virtual a una red virtual]
 
 -   [Acerca de los dispositivos VPN de la red virtual][2]
 
--   [Resolución de nombres][]
+-   [Resolución de nombres][Resolución de nombres]
 
   [Configurar una VPN de punto a sitio con el asistente del Portal de administración]: http://go.microsoft.com/fwlink/?LinkId=296653
   [información general sobre Red virtual de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/jj156007.aspx
@@ -237,7 +237,7 @@ Si desea exportar la configuración de la red virtual a un archivo de configurac
   [Inicio de la puerta de enlace y recopilación de información para el administrador de red]: #StartGateway
   [Configuración del dispositivo VPN]: #ConfigVPN
   [Portal de administración de Azure]: http://manage.windowsazure.com/
-  []: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png
+  [0]: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVnet_01_OpenVirtualNetworkWizard.png
   [Acerca de la configuración de una red virtual en el Portal de administración]: http://go.microsoft.com/fwlink/?LinkID=248092
   [1]: ./media/virtual-networks-create-site-to-site-cross-premises-connectivity/CreateCrossVNet_03_DNSServersandVPNConnectivity.png
   [2]: http://msdn.microsoft.com/es-es/library/windowsazure/jj156075.aspx
@@ -252,7 +252,6 @@ Si desea exportar la configuración de la red virtual a un archivo de configurac
   [11]: http://go.microsoft.com/fwlink/?LinkId=248098
   [Configurar una puerta de enlace de red virtual en el Portal de administración]: http://go.microsoft.com/fwlink/?LinkId=299878
   [Exportar la configuración de red virtual a un archivo de configuración de red]: http://go.microsoft.com/fwlink/?LinkID=299880
-  [P+F de Red virtual]: http://msdn.microsoft.com/library/windowsazure/dn133803.aspx
   [Configurar una red virtual con archivos de configuración de red]: http://msdn.microsoft.com/es-es/library/windowsazure/jj156097.aspx
   [Incorporación de una máquina virtual a una red virtual]: http://www.windowsazure.com/es-es/manage/services/networking/add-a-vm-to-a-virtual-network/
   [Resolución de nombres]: http://go.microsoft.com/fwlink/?LinkId=248097

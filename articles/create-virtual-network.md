@@ -1,6 +1,6 @@
 <properties linkid="manage-services-create-a-virtual-network" urlDisplayName="Tutorial: Create a cloud-only virtual network" pageTitle="Tutorial: Create a cloud-only virtual network" metaKeywords="" description="Learn how to create an example cloud-only Azure Virtual Network in this tutorial." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Tutorial: Create a Clound-only Virtual Network in Azure" authors="cherylmc" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc"></tags>
+<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc" />
 
 # Tutorial: Creación de una red virtual solo en la nube en Azure
 
@@ -33,7 +33,7 @@ Para crear esta red virtual de ejemplo solo en la nube, haga lo siguiente:
 
 2.  En la esquina inferior izquierda de la pantalla, haga clic en **Nuevo** \> **Servicios de red** \> **Red virtual** y luego en **Creación personalizada** para iniciar el asistente para la configuración.
 
-    ![][]
+    ![][0]
 
 3.  En la página **Detalles de la red virtual**, escriba la siguiente información:
 
@@ -92,11 +92,10 @@ Para obtener información acerca de procedimientos y configuración de la red vi
   [createvnet]: ./media/create-virtual-network/createVNet_06_VNetExample.png
   [Configurar una red virtual solo en la nube en el Portal de administración]: http://msdn.microsoft.com/library/azure/dn631643.aspx
   [Red virtual]: http://msdn.microsoft.com/library/windowsazure/jj156007.aspx
-  [Tutorial: Creación de una red virtual entre locales para una conectividad sitio a sitio]: /es-es/manage/services/networking/cross-premises-connectivity/
   [Probar Azure]: http://www.windowsazure.com/pricing/free-trial/
   [Microsoft Azure Special Pricing: Ventajas de MSDN, MPN y Bizspark]: http://azure.microsoft.com/es-es/pricing/member-offers/msdn-benefits-details/
   [Portal de administración de Azure]: http://manage.windowsazure.com/
-  []: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
+  [0]: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
   [1]: ./media/create-virtual-network/createVNet_02_VirtualNetworkDetails.png
   [Acerca de la configuración de una red virtual en el Portal de administración]: http://go.microsoft.com/fwlink/?linkid=248092&clcid=0x409
   [2]: ./media/create-virtual-network/createVNet_04_VirtualNetworkAddressSpaces.png
@@ -106,7 +105,6 @@ Para obtener información acerca de procedimientos y configuración de la red vi
   [Instalación de un nuevo bosque de Active Directory en una red virtual de Azure]: http://www.windowsazure.com/es-es/manage/services/networking/active-directory-forest/
   [Instrucciones para implementar Active Directory de Windows Server en máquinas virtuales de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/jj156090.aspx
   [Tareas de configuración de Red virtual de Azure]: http://go.microsoft.com/fwlink/?linkid=296652&clcid=0x409
-  [P+F de Red virtual]: http://go.microsoft.com/fwlink/?LinkId=296650
   [4]: http://go.microsoft.com/fwlink/?LinkId=296652
   [Configurar una red virtual con archivos de configuración de red]: http://msdn.microsoft.com/es-es/library/windowsazure/jj156097.aspx
   [Resolución de nombres]: http://go.microsoft.com/fwlink/?LinkId=248097

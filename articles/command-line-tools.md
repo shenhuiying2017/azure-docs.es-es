@@ -1,12 +1,12 @@
 <properties linkid="manage-linux-other-resources-command-line-tools" urlDisplayName="Command-Line Tools" pageTitle="Azure Command-Line Tools for Mac and Linux" metaKeywords="Azure command-line, Azure tools Mac, Azure tools Linux" description="Learn about using the command-line tool for Mac and Linux in Azure." metaCanonical="" services="web-sites,virtual-machines,mobile-services,cloud-services" documentationCenter="" title="" authors="carolz" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="carolz" />
 
 # Herramienta de línea de comandos de Azure para Mac y Linux
 
 Esta herramienta proporciona funciones para la creación, implementación y administración de máquinas virtuales, sitios web y Servicios móviles de Azure desde escritorios de Mac y Linux. Su funcionalidad es parecida a la proporcionada por los cmdlets de Windows PowerShell que se han instalado con los SDK de Azure para .NET, Node.JS y PHP.
 
-Para instalar la herramienta en Mac, descargue y ejecute el [instalador de SDK de Azure][].
+Para instalar la herramienta en Mac, descargue y ejecute el [instalador de SDK de Azure][instalador de SDK de Azure].
 
 Para instalar la herramienta en Linux, instale la última versión de Node.JS y, a continuación, use NPM para instalar:
 
@@ -18,20 +18,20 @@ Además de los parámetros opcionales específicos de los comandos documentados 
 
 **Tabla de contenido:**
 
--   [Administración de la información de la cuenta y publicación de la configuración][]
--   [Comandos para administrar máquinas virtuales de Azure][]
--   [Comandos para administrar extremos de máquinas virtuales de Azure][]
--   [Comandos para administrar imágenes de máquinas virtuales de Azure][]
--   [Comandos para administrar discos de datos de máquinas virtuales de Azure][]
--   [Comandos para administrar servicios en la nube de Azure][]
--   [Comandos para administrar certificados de Azure][]
--   [Comandos para administrar sitios web][]
--   [Comandos para administrar Servicios Móviles de Azure][]
--   [Administración de la configuración local de las herramientas][]
--   [Comandos para administrar el bus de servicio][]
--   [Comandos para administrar objetos de almacenamiento][]
--   [Comandos para administrar bases de datos SQL][]
--   [Comandos para administrar redes virtuales][]
+-   [Administración de la información de la cuenta y publicación de la configuración][Administración de la información de la cuenta y publicación de la configuración]
+-   [Comandos para administrar máquinas virtuales de Azure][Comandos para administrar máquinas virtuales de Azure]
+-   [Comandos para administrar extremos de máquinas virtuales de Azure][Comandos para administrar extremos de máquinas virtuales de Azure]
+-   [Comandos para administrar imágenes de máquinas virtuales de Azure][Comandos para administrar imágenes de máquinas virtuales de Azure]
+-   [Comandos para administrar discos de datos de máquinas virtuales de Azure][Comandos para administrar discos de datos de máquinas virtuales de Azure]
+-   [Comandos para administrar servicios en la nube de Azure][Comandos para administrar servicios en la nube de Azure]
+-   [Comandos para administrar certificados de Azure][Comandos para administrar certificados de Azure]
+-   [Comandos para administrar sitios web][Comandos para administrar sitios web]
+-   [Comandos para administrar Servicios Móviles de Azure][Comandos para administrar Servicios Móviles de Azure]
+-   [Administración de la configuración local de las herramientas][Administración de la configuración local de las herramientas]
+-   [Comandos para administrar el bus de servicio][Comandos para administrar el bus de servicio]
+-   [Comandos para administrar objetos de almacenamiento][Comandos para administrar objetos de almacenamiento]
+-   [Comandos para administrar bases de datos SQL][Comandos para administrar bases de datos SQL]
+-   [Comandos para administrar redes virtuales][Comandos para administrar redes virtuales]
 
 ## <a name="Manage_your_account_information_and_publish_settings"></a>Administración de la información de la cuenta y publicación de la configuración
 
@@ -186,7 +186,7 @@ Este comando permite eliminar el entorno especificado de la cuenta.
 
 El siguiente diagrama muestra cómo se han hospedado las máquinas virtuales de Azure en el entorno de implementación de producción de un servicio en la nube de Azure.
 
-![Diagrama técnico de Azure][]
+![Diagrama técnico de Azure][Diagrama técnico de Azure]
 
 **create-new** permite crear la unidad en el almacenamiento de blobs (es decir, e:\\ en el diagrama); **attach** permite conectar un disco ya creado pero sin conectar a una máquina virtual.
 
@@ -345,7 +345,7 @@ Este comando permite exportar una imagen de la máquina virtual de Azure a un ar
 
 El siguiente diagrama muestra la arquitectura de una implementación típica de varias instancias de una máquina virtual. Tenga en cuenta que en este ejemplo, el puerto 3389 está abierto en cada máquina virtual (para el acceso RDP) y existe también una dirección IP interna (por ejemplo, 168.55.11.1) en cada máquina virtual que utilice el equilibrador de carga para dirigir el tráfico a la máquina virtual. Esta dirección IP interna también puede usarse para la comunicación entre máquinas virtuales.
 
-![Diagrama de red de Azure][]
+![Diagrama de red de Azure][Diagrama de red de Azure]
 
 Las solicitudes externas a máquinas virtuales pasan por un equilibrador de carga. Debido a esto, las solicitudes no pueden especificarse en una máquina virtual determinada en las implementaciones con varias máquinas virtuales. Para las implementaciones con varias máquinas virtuales, la asignación de puertos debe configurarse entre las máquinas virtuales (vm-port) y el equilibrador de carga (lb-port).
 
@@ -658,7 +658,7 @@ Para forzar la eliminación, use el parámetro `-q`.
 
 ## <a name="Commands_to_manage_your_Azure_certificates"></a>Comandos para administrar certificados de Azure
 
-Los certificados de servicio de Azure son certificados SSL conectados a la cuenta de Azure. Para obtener más información sobre los certificados de Azure, vea [Administrar certificados][].
+Los certificados de servicio de Azure son certificados SSL conectados a la cuenta de Azure. Para obtener más información sobre los certificados de Azure, vea [Administrar certificados][Administrar certificados].
 
 **service cert list [options]**
 
@@ -1135,12 +1135,12 @@ Este comando configura las opciones de diagnóstico para el sitio web.
 
 Servicios móviles de Azure reúne un conjunto de servicios de Azure que habilitan las capacidades back-end para sus aplicaciones. Los comandos de Servicios móviles se dividen en las siguientes categorías:
 
--   [Comandos para administrar instancias de servicios móviles][]
--   [Comandos para administrar la configuración de servicios móviles][]
--   [Comandos para administrar tablas de servicios móviles][]
--   [Comandos para administrar scripts de servicios móviles][]
--   [Comandos para administrar trabajos programados][]
--   [Comandos para escalar un servicio móvil][]
+-   [Comandos para administrar instancias de servicios móviles][Comandos para administrar instancias de servicios móviles]
+-   [Comandos para administrar la configuración de servicios móviles][Comandos para administrar la configuración de servicios móviles]
+-   [Comandos para administrar tablas de servicios móviles][Comandos para administrar tablas de servicios móviles]
+-   [Comandos para administrar scripts de servicios móviles][Comandos para administrar scripts de servicios móviles]
+-   [Comandos para administrar trabajos programados][Comandos para administrar trabajos programados]
+-   [Comandos para escalar un servicio móvil][Comandos para escalar un servicio móvil]
 
 Las opciones siguientes se aplican a la mayor parte de los comandos de Servicios móviles:
 
@@ -1459,7 +1459,7 @@ Este comando permite quitar todas las filas de datos de la tabla.
 
 ### <a name="Mobile_Scripts"></a>Comandos para administrar scripts
 
-Los comandos de esta sección se usan para administrar los scripts de servidor que pertenecen a un servicio móvil. Para obtener más información, consulte [Uso de scripts del servidor en Servicios móviles][].
+Los comandos de esta sección se usan para administrar los scripts de servidor que pertenecen a un servicio móvil. Para obtener más información, consulte [Uso de scripts del servidor en Servicios móviles][Uso de scripts del servidor en Servicios móviles].
 
 **mobile script list [options] [servicename]**
 
@@ -1517,7 +1517,7 @@ Este comando permite eliminar el script de inserción existente de la tabla Todo
 
 ### <a name="Mobile_Jobs"></a>Comandos para administrar trabajos programados
 
-Los comandos de esta sección se usan para administrar los trabajos programados que pertenecen a un servicio móvil. Para obtener más información, consulte [Programar trabajos][].
+Los comandos de esta sección se usan para administrar los trabajos programados que pertenecen a un servicio móvil. Para obtener más información, consulte [Programar trabajos][Programar trabajos].
 
 **mobile job list [options] [servicename]**
 
@@ -1593,7 +1593,7 @@ Este comando quita el trabajo programado getUpdates del servidor TodoList.
 
 ### <a name="Mobile_Scale"></a>Comandos para escalar un servicio móvil
 
-Los comandos de esta sección se usan para escalar un servicio móvil. Para obtener más información, consulte [Escalar un servicio móvil][].
+Los comandos de esta sección se usan para escalar un servicio móvil. Para obtener más información, consulte [Escalar un servicio móvil][Escalar un servicio móvil].
 
 **mobile scale show [options] [servicename]**
 

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-mediaservices-create-a-media-services-account" urlDisplayName="How to create" pageTitle="Create a Media Services Account - Azure" metaKeywords="" description="Describes how to create a new Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Create a Media Services Account" authors="migree" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
 
 # Creación de una cuenta de Servicios multimedia
 
@@ -10,8 +10,8 @@ En este tema se explica cómo usar el método Quick Create para crear una nueva 
 
 ## Tabla de contenido
 
--   [Conceptos][]
--   [Creación de una cuenta de Servicios multimedia mediante Quick Create][]
+-   [Conceptos][Conceptos]
+-   [Creación de una cuenta de Servicios multimedia mediante Quick Create][Creación de una cuenta de Servicios multimedia mediante Quick Create]
 
 ## <span id="concepts"></span></a>Conceptos
 
@@ -24,9 +24,9 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
 
 ## <span id="quick"></span></a>Creación de una cuenta de Servicios multimedia mediante Quick Create
 
-1.  En el [Portal de administración][], haga clic en **New**, después en **Servicios multimedia** y, finalmente, en **Quick Create**.
+1.  En el [Portal de administración][Portal de administración], haga clic en **New**, después en **Servicios multimedia** y, finalmente, en **Quick Create**.
 
-    ![Creación rápida de Servicios multimedia][]
+    ![Creación rápida de Servicios multimedia][Creación rápida de Servicios multimedia]
 
 2.  En **NAME**, especifique el nombre de la cuenta nueva. El nombre de cuenta de Servicios multimedia debe estar compuesto de números o letras en minúscula, sin espacios y con una longitud de entre 3 y 24 caracteres.
 
@@ -42,7 +42,7 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
 
     Se abrirá la página **Servicios multimedia** con la nueva cuenta. Cuando el estado cambie a Active, la cuenta se habrá creado correctamente.
 
-    ![Página de Servicios multimedia][]
+    ![Página de Servicios multimedia][Página de Servicios multimedia]
 
     Cuando haga doble clic en el nombre de cuenta, se mostrará la página de inicio rápido de forma predeterminada. La página le permite realizar algunas tareas de administración que también están disponibles en otras páginas del portal. Por ejemplo, puede cargar un archivo de vídeo desde esta página o hacerlo desde la página CONTENT.
 

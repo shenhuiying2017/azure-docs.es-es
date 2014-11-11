@@ -1,6 +1,6 @@
 <properties pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
 
 # <a name="getting-started"> </a>Introducción a los Servicios móviles
 
@@ -36,17 +36,17 @@ Con este tutorial creará tanto un servicio móvil nuevo como una aplicación si
 
 La siguiente captura de pantalla muestra la aplicación final:
 
-![][]
+![][0]
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Servicios móviles para aplicaciones de la Tienda Windows.
 
-> [WACOM.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
+> [WACOM.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][Evaluación gratuita de Azure].
 
-> Este tutorial requiere Visual Studio 2013. Para conectar una aplicación de la Tienda Windows mediante Visual Studio 2012, siga los pasos en el tema [Introducción a los datos en Servicios móviles con Visual Studio 2012][].
+> Este tutorial requiere Visual Studio 2013. Para conectar una aplicación de la Tienda Windows mediante Visual Studio 2012, siga los pasos en el tema [Introducción a los datos en Servicios móviles con Visual Studio 2012][Introducción a los datos en Servicios móviles con Visual Studio 2012].
 
 ## Creación de un servicio móvil
 
-[WACOM.INCLUDE [mobile-services-create-new-service][]]
+[WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
 ## Creación de una aplicación de la Tienda Windows
 
@@ -64,7 +64,7 @@ En esta sección, creará una aplicación de Tienda Windows que se conecta al se
 
     ![][2]
 
-3.  Si todavía no lo ha hecho, descargue e instale [Visual Studio 2013 Express para Windows][] en el equipo local o máquina virtual.
+3.  Si todavía no lo ha hecho, descargue e instale [Visual Studio 2013 Express para Windows][Visual Studio 2013 Express para Windows] en el equipo local o máquina virtual.
 
 4.  Haga clic en **Create TodoItem table** para crear una tabla donde almacenar datos de la aplicación.
 
@@ -100,7 +100,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
--   **Introducción a los datos** ( [C#][] / [JavaScript][] )
+-   **Introducción a los datos** ( [C#][C#] / [JavaScript][JavaScript] )
     
 	Obtenga más información sobre cómo almacenar y consultar datos mediante Servicios móviles.
 
@@ -116,20 +116,7 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-get-started "Tienda Windows"
-  [Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-get-started "Windows Phone"
-  [iOS]: /es-es/documentation/articles/mobile-services-ios-get-started "iOS"
-  [Android]: /es-es/documentation/articles/mobile-services-android-get-started "Android"
-  [HTML]: /es-es/documentation/articles/mobile-services-html-get-started "HTML"
-  [Xamarin.iOS]: /es-es/documentation/articles/partner-xamarin-mobile-services-ios-get-started "Xamarin.iOS"
-  [Xamarin.Android]: /es-es/documentation/articles/partner-xamarin-mobile-services-android-get-started "Xamarin.Android"
-  [Sencha]: /es-es/documentation/articles/partner-sencha-mobile-services-get-started/ "Sencha"
-  [PhoneGap]: /es-es/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/ "PhoneGap"
-  [Appcelerator]: /es-es/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started "Appcelerator"
-  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/ "Back-end de .NET"
-  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-windows-store-get-started/ "Back-end de JavaScript"
-  [Ver el tutorial (en inglés)]: http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Introduction-to-Windows-Azure-Mobile-Services
-  []: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
+  [0]: ./media/mobile-services-windows-store-get-started/mobile-quickstart-completed.png
   [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Introducción a los datos en Servicios móviles con Visual Studio 2012]: /es-es/develop/mobile/tutorials/get-started-with-data-dotnet-vs2012/
   [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md

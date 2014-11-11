@@ -1,6 +1,6 @@
 <properties linkid="/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users" pageTitle="Send push notifications to authenticated users" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Send push notifications to authenticated users" authors="wesmc" solutions="Mobile" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
 
 # Senden von Pushbenachrichtigungen an authentifizierte Benutzer
 
@@ -53,13 +53,6 @@ Nachdem Sie beide Lernprogramm abgeschlossen haben, können Sie verhindern, dass
 
 <!---## <a name="next-steps"> </a>Next steps  In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]--> <!-- Anchors. --> <!-- URLs. -->
 
-  [Windows Store C#]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users "Windows Store C#"
-  [Windows Store JavaScript]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users "Windows Store JavaScript"
-  [Windows Phone]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-push-notifications-app-users "Windows Phone"
-  [iOS]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users "iOS"
-  [Android]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users "Android"
-  [.NET-Back-End]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/ ".NET-Back-End"
-  [JavaScript-Back-End]: /es-es/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/ "JavaScript-Back-End"
   [Pushbenachrichtigung]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
   [Aktualisieren des Diensts, sodass für die Registrierung eine Authentifizierung benötigt wird]: #register
   [Aktualisieren der App zum Anmelden vor der Registrierung]: #update-app

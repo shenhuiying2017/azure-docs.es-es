@@ -8,36 +8,36 @@ Esta guía le indicará cómo actuar en situaciones habituales usando el servici
 Azure. Los ejemplos están escritos usando la API
 Node.js. Entre los escenarios descritos se incluyen la **inserción**, **inspección**,
 **obtención** y **eliminación** de los mensajes en cola, así como la **creación y
-eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][].
+eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][Pasos siguientes].
 
 ## Tabla de contenido
 
--   [¿Qué es el servicio Cola?][]
--   [Conceptos][]
--   [Creación de una cuenta de almacenamiento de Azure][]
--   [Creación de una aplicación Node.js][]
--   [Configuración de su aplicación para obtener acceso al almacenamiento][]
--   [Configuración de una cadena de conexión de almacenamiento de Azure][]
--   [Creación de una cola][]
--   [Inserción de un mensaje en una cola][]
--   [Inspección del siguiente mensaje][]
--   [Extracción del siguiente mensaje de la cola][]
--   [Cambio del contenido de un mensaje en cola][]
--   [Opcionales adicionales para quitar mensajes de la cola][]
--   [Obtención de la longitud de la cola][]
--   [Eliminación de una cola][]
--   [Trabajo con firmas de acceso compartido][]
--   [Pasos siguientes][]
+-   [¿Qué es el servicio Cola?][¿Qué es el servicio Cola?]
+-   [Conceptos][Conceptos]
+-   [Creación de una cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento de Azure]
+-   [Creación de una aplicación Node.js][Creación de una aplicación Node.js]
+-   [Configuración de su aplicación para obtener acceso al almacenamiento][Configuración de su aplicación para obtener acceso al almacenamiento]
+-   [Configuración de una cadena de conexión de almacenamiento de Azure][Configuración de una cadena de conexión de almacenamiento de Azure]
+-   [Creación de una cola][Creación de una cola]
+-   [Inserción de un mensaje en una cola][Inserción de un mensaje en una cola]
+-   [Inspección del siguiente mensaje][Inspección del siguiente mensaje]
+-   [Extracción del siguiente mensaje de la cola][Extracción del siguiente mensaje de la cola]
+-   [Cambio del contenido de un mensaje en cola][Cambio del contenido de un mensaje en cola]
+-   [Opcionales adicionales para quitar mensajes de la cola][Opcionales adicionales para quitar mensajes de la cola]
+-   [Obtención de la longitud de la cola][Obtención de la longitud de la cola]
+-   [Eliminación de una cola][Eliminación de una cola]
+-   [Trabajo con firmas de acceso compartido][Trabajo con firmas de acceso compartido]
+-   [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <a name="create-account"></a>Creación de una cuenta de Almacenamiento de Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-app"> </a> Creación de una aplicación Node.js
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure][], [Servicio en la nube Node.js][] (usando Windows PowerShell) o [Sitio web con WebMatrix][].
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure][Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube Node.js][Servicio en la nube Node.js] (usando Windows PowerShell) o [Sitio web con WebMatrix][Sitio web con WebMatrix].
 
 ## <a name="configure-access"> </a>Configuración de su aplicación para obtener acceso al almacenamiento
 
@@ -77,7 +77,7 @@ Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte su
 
 El módulo azure leerá las variables de entorno AZURE\_STORAGE\_ACCOUNT, AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING para obtener la información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta mediante la llamada a **createQueueService**.
 
-Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento][].
+Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento][Aplicación web de Node.js con almacenamiento].
 
 ## <a name="create-queue"> </a>Creación de una cola
 
@@ -330,12 +330,11 @@ Después de establecer una ACL, puede crear luego una SAS basada en el Id. de un
 Ahora que está familiarizado con los aspectos básicos del almacenamiento en cola, utilice estos vínculos
 para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][].
--   Visite el [blog del equipo de almacenamiento de Azure][] (en inglés).
--   Visite el repositorio del [SDK de almacenamiento de Azure para Node.js][] en GitHub.
+-   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][Almacenamiento de datos y acceso a los mismos en Azure].
+-   Visite el [blog del equipo de almacenamiento de Azure][blog del equipo de almacenamiento de Azure] (en inglés).
+-   Visite el repositorio del [SDK de almacenamiento de Azure para Node.js][SDK de almacenamiento de Azure para Node.js] en GitHub.
 
   [Pasos siguientes]: #next-steps
-  [¿Qué es el servicio Cola?]: #what-is
   [Conceptos]: #concepts
   [Creación de una cuenta de almacenamiento de Azure]: #create-account
   [Creación de una aplicación Node.js]: #create-app
@@ -356,6 +355,6 @@ para obtener más información acerca de cómo realizar tareas de almacenamiento
   [Servicio en la nube Node.js]: /es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Sitio web con WebMatrix]: /es-es/documentation/articles/web-sites-nodejs-use-webmatrix/
   [Aplicación web de Node.js con almacenamiento]: /es-es/documentation/articles/storage-nodejs-use-table-storage-web-site/
-  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
   [blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node

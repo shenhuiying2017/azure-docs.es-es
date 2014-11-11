@@ -1,6 +1,6 @@
 <properties pageTitle="Work with a JavaScript backend mobile service" metaKeywords="server scripts, mobile devices, Azure, scheduler" description="Provides examples on how to define, register, and use server scripts in Azure Mobile Services." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Work with server scripts in Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Uso de un servicio móvil back-end de JavaScript
 
@@ -8,35 +8,35 @@
 
 Este artículo proporciona información detallada y ejemplos sobre cómo usar scripts del back-end de JavaScript en Servicios móviles de Azure. Este tema está dividido en las siguientes secciones:
 
--   [Introducción][]
--   [Operaciones de tabla][]
-    -   [Direccionamiento del operaciones de tabla][]
-    -   [Direccionamiento del la respuesta predeterminada][]
-    -   [Direccionamiento del execute success][]
-    -   [Direccionamiento del control de errores predeterminado][]
-    -   [Direccionamiento del parámetros personalizados][]
-    -   [Direccionamiento del usuarios de tablas][]
--   [API personalizada][]
-    -   [Direccionamiento del una API personalizada][]
-    -   [Direccionamiento del de métodos HTTP][]
-    -   [Direccionamiento del y recepción de datos como XML][]
-    -   [Direccionamiento del de usuarios y encabezados en una API personalizada][]
-    -   [Direccionamiento del de varias rutas en una API personalizada][]
--   [Programador de trabajos][]
+-   [Introducción][Introducción]
+-   [Operaciones de tabla][Operaciones de tabla]
+    -   [Direccionamiento del operaciones de tabla][Direccionamiento del operaciones de tabla]
+    -   [Direccionamiento del la respuesta predeterminada][Direccionamiento del la respuesta predeterminada]
+    -   [Direccionamiento del execute success][Direccionamiento del execute success]
+    -   [Direccionamiento del control de errores predeterminado][Direccionamiento del control de errores predeterminado]
+    -   [Direccionamiento del parámetros personalizados][Direccionamiento del parámetros personalizados]
+    -   [Direccionamiento del usuarios de tablas][Direccionamiento del usuarios de tablas]
+-   [API personalizada][API personalizada]
+    -   [Direccionamiento del una API personalizada][Direccionamiento del una API personalizada]
+    -   [Direccionamiento del de métodos HTTP][Direccionamiento del de métodos HTTP]
+    -   [Direccionamiento del y recepción de datos como XML][Direccionamiento del y recepción de datos como XML]
+    -   [Direccionamiento del de usuarios y encabezados en una API personalizada][Direccionamiento del de usuarios y encabezados en una API personalizada]
+    -   [Direccionamiento del de varias rutas en una API personalizada][Direccionamiento del de varias rutas en una API personalizada]
+-   [Programador de trabajos][Programador de trabajos]
     -   [Direccionamiento del de scripts de trabajos programados][Programador de trabajos]
--   [Control de código fuente, código compartido y funciones auxiliares][]
-    -   [Direccionamiento del de módulos Node.js][]
-    -   [Direccionamiento del de funciones auxiliares][]
-    -   [Direccionamiento del compartido de código mediante el control de código fuente][]
-    -   [Direccionamiento del de configuración de aplicaciones][]
--   [Uso de la herramienta de la línea de comandos][]
--   [Uso de tablas][]
-    -   [Direccionamiento del a tablas desde scripts][]
-    -   [Direccionamiento del de inserciones en masa][]
-    -   [Direccionamiento del de tipos JSON a tipos de base de datos][]
-    -   [Uso de Transact-SQL para obtener acceso a las tablas][]
--   [Depuración y solución de problemas][]
-    -   [Direccionamiento del del resultado en los registros de servicios móviles][]
+-   [Control de código fuente, código compartido y funciones auxiliares][Control de código fuente, código compartido y funciones auxiliares]
+    -   [Direccionamiento del de módulos Node.js][Direccionamiento del de módulos Node.js]
+    -   [Direccionamiento del de funciones auxiliares][Direccionamiento del de funciones auxiliares]
+    -   [Direccionamiento del compartido de código mediante el control de código fuente][Direccionamiento del compartido de código mediante el control de código fuente]
+    -   [Direccionamiento del de configuración de aplicaciones][Direccionamiento del de configuración de aplicaciones]
+-   [Uso de la herramienta de la línea de comandos][Uso de la herramienta de la línea de comandos]
+-   [Uso de tablas][Uso de tablas]
+    -   [Direccionamiento del a tablas desde scripts][Direccionamiento del a tablas desde scripts]
+    -   [Direccionamiento del de inserciones en masa][Direccionamiento del de inserciones en masa]
+    -   [Direccionamiento del de tipos JSON a tipos de base de datos][Direccionamiento del de tipos JSON a tipos de base de datos]
+    -   [Uso de Transact-SQL para obtener acceso a las tablas][Uso de Transact-SQL para obtener acceso a las tablas]
+-   [Depuración y solución de problemas][Depuración y solución de problemas]
+    -   [Direccionamiento del del resultado en los registros de servicios móviles][Direccionamiento del del resultado en los registros de servicios móviles]
 
 ## <a name="intro"></a>Introducción
 
@@ -48,7 +48,7 @@ En un servicio móvil de back-end de JavaScript, puede definir la lógica de neg
 
 La firma de la función principal del script del servidor depende del contexto en el que se use el script. También puede definir el código de script común como módulos nodes.js que se comparten entre scripts. Para obtener más información, consulte [Control de código fuente y código compartido][Control de código fuente, código compartido y funciones auxiliares].
 
-Para ver las descripciones de las funciones y los objetos de script del servidor individuales, consulte [Referencia de script de servidor de Servicios móviles][].
+Para ver las descripciones de las funciones y los objetos de script del servidor individuales, consulte [Referencia de script de servidor de Servicios móviles][Referencia de script de servidor de Servicios móviles].
 
 ## <a name="table-scripts"></a>Operaciones de tabla
 
@@ -71,17 +71,17 @@ Una función de script de tabla siempre cuenta con tres argumentos.
 
     -   Para las inserciones y las actualizaciones, es un objeto **item**, que es una representación JSON de la fila afectada por la operación. Esto le permite obtener acceso a los valores de columna por nombre, por ejemplo, *item.Owner*, donde *Owner* es uno de los nombres en la representación JSON.
     -   Para la eliminación, es el identificador del registro que se va a eliminar.
-    -   Para la lectura, es un objeto [query][] que especifica el conjunto de filas que se van a devolver.
--   El segundo argumento es siempre un objeto [user][] que representa al usuario que envió la solicitud.
+    -   Para la lectura, es un objeto [query][query] que especifica el conjunto de filas que se van a devolver.
+-   El segundo argumento es siempre un objeto [user][user] que representa al usuario que envió la solicitud.
 
--   El tercer argumento es siempre un objeto [request][] mediante el que puede controlar la ejecución de la operación solicitada y la respuesta enviada al cliente.
+-   El tercer argumento es siempre un objeto [request][request] mediante el que puede controlar la ejecución de la operación solicitada y la respuesta enviada al cliente.
 
 A continuación se muestran las firmas canónicas de funciones principales para las operaciones de tabla:
 
--   [Insert (función)][]: `function insert (item, user, request) { ... }`
--   [Update, función][]: `function update (item, user, request) { ... }`
--   [Delete (función)][]: `function del (id, user, request) { ... }`
--   [Read (función)][]: `function read (query, user, request) { ... }`
+-   [Insert (función)][Insert (función)]: `function insert (item, user, request) { ... }`
+-   [Update, función][Update, función]: `function update (item, user, request) { ... }`
+-   [Delete (función)][Delete (función)]: `function del (id, user, request) { ... }`
+-   [Read (función)][Read (función)]: `function read (query, user, request) { ... }`
 
 > [WACOM.NOTE]Debe usarse el nombre *del* para la función registrada en la operación de eliminación porque "delete" es una palabra clave reservada en JavaScript.
 
@@ -91,17 +91,17 @@ Cada script del servidor cuenta con una función principal y dispone de funcione
 
 Puede definir los scripts del servidor que están registrados en una operación de tabla de alguna de las siguientes formas:
 
--   En el [Portal de administración de Azure][]. Puede obtenerse acceso a los scripts para las operaciones de tabla en la pestaña **Scripts** para una tabla determinada. A continuación se muestra el código predeterminado registrado en el script de inserción para la tabla `TodoItem`. Puede reemplazar este código por su propia lógica de negocios personalizada.
+-   En el [Portal de administración de Azure][Portal de administración de Azure]. Puede obtenerse acceso a los scripts para las operaciones de tabla en la pestaña **Scripts** para una tabla determinada. A continuación se muestra el código predeterminado registrado en el script de inserción para la tabla `TodoItem`. Puede reemplazar este código por su propia lógica de negocios personalizada.
 
-    ![1][]
+    ![1][1]
 
-    Para obtener información al respecto, consulte [Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor][].
+    Para obtener información al respecto, consulte [Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor][Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor].
 
 -   Mediante el control de código fuente. Cuando tenga el control de código fuente habilitado, simplemente cree un archivo con el nombre *`<table>``<operation>`*.js en la subcarpeta .\\service\\table del repositorio git, donde *`<table>`* es el nombre de la tabla y *`<operation>`* es la operación de tabla que se registra. Para obtener más información, consulte [Control de código fuente y código compartido][Control de código fuente, código compartido y funciones auxiliares].
 
--   Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, consulte [Uso de la herramienta de la línea de comandos][].
+-   Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, consulte [Uso de la herramienta de la línea de comandos][Uso de la herramienta de la línea de comandos].
 
-Un script de operación de tabla debe llamar a al menos a una de las siguientes funciones del objeto [request][] para asegurarse de que el cliente recibe una respuesta.
+Un script de operación de tabla debe llamar a al menos a una de las siguientes funciones del objeto [request][request] para asegurarse de que el cliente recibe una respuesta.
 
 -   Función **execute**: La operación se ha completado como se ha solicitado y se devuelve la respuesta estándar.
 
@@ -118,7 +118,7 @@ El siguiente script llama a la función **execute** para completar la operación
 
 En este ejemplo, el elemento se inserta en la base de datos y se devuelve el código de estado apropiado al usuario.
 
-Cuando se llama a la función **execute**, se utiliza el valor `item`, [query][] o `id` que se pasó como el primer argumento en la función de script para realizar la operación. Para una operación de inserción, actualización o consulta, puede modificar el objeto o la consulta antes de llamar a **execute**:
+Cuando se llama a la función **execute**, se utiliza el valor `item`, [query][query] o `id` que se pasó como el primer argumento en la función de script para realizar la operación. Para una operación de inserción, actualización o consulta, puede modificar el objeto o la consulta antes de llamar a **execute**:
 
     function insert(item, user, request) { 
         item.scriptComment =
@@ -140,7 +140,7 @@ Cuando se llama a la función **execute**, se utiliza el valor `item`, [query][]
 
 > [WACOM.NOTE]En un script de eliminación, cambiar el valor de las variables userId proporcionadas no afecta al registro que se elimina.
 
-Para ver más ejemplos, consulte [Leer y escribir datos][], [Modificar la solicitud][] y [Validar datos][].
+Para ver más ejemplos, consulte [Leer y escribir datos][Leer y escribir datos], [Modificar la solicitud][Modificar la solicitud] y [Validar datos][Validar datos].
 
 ### <a name="override-response"></a>Direccionamiento del la respuesta predeterminada
 
@@ -155,7 +155,7 @@ También puede usar un script para implementar la lógica de validación que pue
         }
     }
 
-En este ejemplo, se rechaza la solicitud cuando el elemento insertado no dispone de una propiedad `userId` que coincida con el `userId` del objeto [user][] proporcionado para el cliente autenticado. En este caso, no se produce una operación de base de datos (*insert*) y se devuelve una respuesta con el código de estado 403 HTTP y un mensaje de error personalizado al cliente. Para ver más ejemplos, consulte [Modificar la respuesta][].
+En este ejemplo, se rechaza la solicitud cuando el elemento insertado no dispone de una propiedad `userId` que coincida con el `userId` del objeto [user][user] proporcionado para el cliente autenticado. En este caso, no se produce una operación de base de datos (*insert*) y se devuelve una respuesta con el código de estado 403 HTTP y un mensaje de error personalizado al cliente. Para ver más ejemplos, consulte [Modificar la respuesta][Modificar la respuesta].
 
 ### <a name="override-success"></a>Direccionamiento del execute success
 
@@ -206,7 +206,7 @@ Por ejemplo, el siguiente URI para una solicitud POST indica al servicio que no 
 
         https://todolist.azure-mobile.net/tables/TodoItem?duplicateText=false
 
-Puede obtenerse acceso a los parámetros de consulta predeterminados desde la propiedad **parameters** del objeto [request][]. Servicios móviles proporciona el objeto **request** para cualquier función registrada en una operación de tabla. El siguiente script del servidor para la operación de inserción comprueba el valor del parámetro `duplicateText` antes de que se ejecute la operación de inserción:
+Puede obtenerse acceso a los parámetros de consulta predeterminados desde la propiedad **parameters** del objeto [request][request]. Servicios móviles proporciona el objeto **request** para cualquier función registrada en una operación de tabla. El siguiente script del servidor para la operación de inserción comprueba el valor del parámetro `duplicateText` antes de que se ejecute la operación de inserción:
 
         function insert(item, user, request) {
             var todoItemTable = tables.getTable('TodoItem');
@@ -236,7 +236,7 @@ Puede obtenerse acceso a los parámetros de consulta predeterminados desde la pr
             }
         }
 
-Tenga en cuenta que en **insertItemIfNotComplete**, la función **execute** del objeto [request][] se invoca para insertar el elemento cuando no existe texto duplicado; de lo contrario, se invoca la función **respond** para avisar al cliente del duplicado.
+Tenga en cuenta que en **insertItemIfNotComplete**, la función **execute** del objeto [request][request] se invoca para insertar el elemento cuando no existe texto duplicado; de lo contrario, se invoca la función **respond** para avisar al cliente del duplicado.
 
 Tenga en cuenta la sintaxis de la llamada a la función **success** en el código anterior:
 
@@ -253,7 +253,7 @@ En JavaScript es una versión compacta del equivalente más largo:
 
 ### <a name="work-with-users"></a>Direccionamiento del de usuarios
 
-En Servicios móviles de Azure puede usar un proveedor de identidades para autenticar usuarios. Para obtener más información, consulte [Introducción a la autenticación][]. Cuando un usuario autenticado invoca una operación de tabla, Servicios móviles usa el objeto [user][] para proporcionar información sobre el usuario a la función de script registrada. La propiedad **userId** puede usarse para almacenar y recuperar información específica del usuario. En el siguiente ejemplo se establece la propiedad owner de un elemento basado en el userId de un usuario autenticado:
+En Servicios móviles de Azure puede usar un proveedor de identidades para autenticar usuarios. Para obtener más información, consulte [Introducción a la autenticación][Introducción a la autenticación]. Cuando un usuario autenticado invoca una operación de tabla, Servicios móviles usa el objeto [user][user] para proporcionar información sobre el usuario a la función de script registrada. La propiedad **userId** puede usarse para almacenar y recuperar información específica del usuario. En el siguiente ejemplo se establece la propiedad owner de un elemento basado en el userId de un usuario autenticado:
 
     function insert(item, user, request) {
         item.owner = user.userId;
@@ -273,7 +273,7 @@ En el siguiente ejemplo se agrega un filtro adicional a la consulta basado en el
 
 Una API personalizada es un extremo del servicio móvil al que se obtiene acceso mediante uno o varios métodos HTTP estándar: GET, POST, PUT, PATCH y DELETE. Puede definirse una exportación de función independiente para cada método HTTP proporcionado por la API personalizada, todo en un único archivo de script. El script registrado se invoca cuando se recibe una solicitud a la API personalizada con el método determinado. Para obtener más información, consulte [API personalizada][2].
 
-Cuando el tiempo de ejecución de Servicios móviles llama a las funciones de la API personalizada, se proporcionan tanto el objeto [request][] como [response][]. Estos objetos ofrecen la funcionalidad de [express.js library][], que los scripts pueden aprovechar. La siguiente API personalizada llamada **hello** es un ejemplo muy sencillo que devuelve *Hello, world!* en respuesta a la solicitud POST:
+Cuando el tiempo de ejecución de Servicios móviles llama a las funciones de la API personalizada, se proporcionan tanto el objeto [request][request] como [response][response]. Estos objetos ofrecen la funcionalidad de [express.js library][express.js library], que los scripts pueden aprovechar. La siguiente API personalizada llamada **hello** es un ejemplo muy sencillo que devuelve *Hello, world!* en respuesta a la solicitud POST:
 
         exports.post = function(request, response) {
             response.send(200, "{ message: 'Hello, world!' }");
@@ -289,15 +289,15 @@ El estado global se mantiene entre ejecuciones.
 
 Puede definir los scripts del servidor que están registrados en métodos HTTP en un extremo de la API personalizada de alguna de las siguientes formas:
 
--   En el [Portal de administración de Azure][]. Los scripts de la API personalizada se crean y modifican en la pestaña **API**. El código del script del servidor se encuentra en la pestaña **Scripts** de una determinada API personalizada. A continuación se muestra el script que invoca la solicitud POST en el extremo de la API personalizada `CompleteAll`.
+-   En el [Portal de administración de Azure][Portal de administración de Azure]. Los scripts de la API personalizada se crean y modifican en la pestaña **API**. El código del script del servidor se encuentra en la pestaña **Scripts** de una determinada API personalizada. A continuación se muestra el script que invoca la solicitud POST en el extremo de la API personalizada `CompleteAll`.
 
     ![2][3]
 
-    Los métodos de permisos de acceso a la API personalizada se encuentran asignados en la pestaña Permissions. Para ver cómo se creó esta API personalizada, consulte [Llamada a una API personalizada desde el cliente][].
+    Los métodos de permisos de acceso a la API personalizada se encuentran asignados en la pestaña Permissions. Para ver cómo se creó esta API personalizada, consulte [Llamada a una API personalizada desde el cliente][Llamada a una API personalizada desde el cliente].
 
 -   Mediante el control de código fuente. Cuando disponga de un control de código fuente habilitado, simplemente cree un archivo con el nombre *`<custom_api>`*.js en la subcarpeta .\\service\\api en el repositorio git, donde *`<custom_api>`* es el nombre de la API personalizada que se registra. El script contienen una función *exported* para cada método HTTP que ofrece la API personalizada. Los permisos se definen en un archivo .json complementario. Para obtener más información, consulte [Control de código fuente y código compartido][Control de código fuente, código compartido y funciones auxiliares].
 
--   Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, consulte [Uso de la herramienta de la línea de comandos][].
+-   Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, consulte [Uso de la herramienta de la línea de comandos][Uso de la herramienta de la línea de comandos].
 
 ### <a name="handle-methods"></a>Direccionamiento del de métodos HTTP
 
@@ -313,7 +313,7 @@ No se puede llamar al extremo de la API personalizada mediante un método HTTP q
 
 ### <a name="api-return-xml"></a>Direccionamiento del y recepción de datos como XML
 
-Cuando los clientes almacenan y recuperan datos, Servicios móviles usa la notación de objetos JavaScript (JSON) para representar datos en el cuerpo del mensaje. Sin embargo, existen escenarios en los que es posible que desee usar una carga XML. Por ejemplo, las aplicaciones de Tienda Windows disponen de una funcionalidad de notificaciones periódicas integrada que requiere que el servicio emita XML. Para obtener más información, consulte [Definición de una API personalizada que admita notificaciones periódicas][].
+Cuando los clientes almacenan y recuperan datos, Servicios móviles usa la notación de objetos JavaScript (JSON) para representar datos en el cuerpo del mensaje. Sin embargo, existen escenarios en los que es posible que desee usar una carga XML. Por ejemplo, las aplicaciones de Tienda Windows disponen de una funcionalidad de notificaciones periódicas integrada que requiere que el servicio emita XML. Para obtener más información, consulte [Definición de una API personalizada que admita notificaciones periódicas][Definición de una API personalizada que admita notificaciones periódicas].
 
 La siguiente función de la API personalizada **OrderPizza** devuelve un documento XML simple como carga de respuesta:
 
@@ -329,7 +329,7 @@ Una solicitud HTTP GET invoca esta función de la API personalizada para el sigu
 
 ### <a name="get-api-user"></a>Direccionamiento del de usuarios y encabezados en una API personalizada
 
-En Servicios móviles de Azure puede usar un proveedor de identidades para autenticar usuarios. Para obtener más información, consulte [Introducción a la autenticación][]. Cuando un usuario autenticado solicita una API personalizada, Servicios móviles usa el objeto [user][] para proporcionar información sobre el usuario al código de la API personalizada. Se obtiene acceso al objeto [user][] desde la propiedad del usuario del objeto [request][]. La propiedad **userId** puede usarse para almacenar y recuperar información específica del usuario.
+En Servicios móviles de Azure puede usar un proveedor de identidades para autenticar usuarios. Para obtener más información, consulte [Introducción a la autenticación][Introducción a la autenticación]. Cuando un usuario autenticado solicita una API personalizada, Servicios móviles usa el objeto [user][user] para proporcionar información sobre el usuario al código de la API personalizada. Se obtiene acceso al objeto [user][user] desde la propiedad del usuario del objeto [request][request]. La propiedad **userId** puede usarse para almacenar y recuperar información específica del usuario.
 
 En la siguiente función de la API personalizada **OrderPizza** se establece la propiedad owner de un elemento basado en el userId de un usuario autenticado:
 
@@ -349,7 +349,7 @@ Una solicitud HTTP POST invoca esta función de la API personalizada para el sig
 
         https://<service>.azure-mobile.net/api/orderpizza
 
-También puede obtener acceso a un encabezado HTTP desde el objeto [request][] como se muestra en el siguiente código:
+También puede obtener acceso a un encabezado HTTP desde el objeto [request][request] como se muestra en el siguiente código:
 
         exports.get = function(request, response) {    
             var header = request.header('my-custom-header');
@@ -365,7 +365,7 @@ Servicios móviles le permite definir varias rutas en una API personalizada. Por
 -   `https://<service>.azure-mobile.net/api/calculator/add`
 -   `https://<service>.azure-mobile.net/api/calculator/sub`
 
-Las distintas rutas se definen mediante la exportación de una función **register**, en la que se pasa un objeto **api** (parecido al objeto [express][] en express.js) que se usa para registrar rutas en el extremo de la API personalizada. En el siguiente ejemplo se implementan los métodos **add** y **sub** en la API personalizada **calculator**:
+Las distintas rutas se definen mediante la exportación de una función **register**, en la que se pasa un objeto **api** (parecido al objeto [express][express] en express.js) que se usa para registrar rutas en el extremo de la API personalizada. En el siguiente ejemplo se implementan los métodos **add** y **sub** en la API personalizada **calculator**:
 
         exports.register = function (api) {
             api.get('add', add);
@@ -396,9 +396,9 @@ Las solicitudes HTTP GET pueden invocar las dos rutas del ejemplo anterior de la
 
 ## <a name="scheduler-scripts"></a>Programador de trabajos
 
-Servicios móviles le permite definir scripts del servidor que se ejecuten como trabajos en una programación fija o a petición en el Portal de administración. Los trabajos programados son útiles para la realización de tareas periódicas como la limpieza de datos de una tabla y el procesamiento por lotes. Para obtener más información, consulte [Programar trabajos][].
+Servicios móviles le permite definir scripts del servidor que se ejecuten como trabajos en una programación fija o a petición en el Portal de administración. Los trabajos programados son útiles para la realización de tareas periódicas como la limpieza de datos de una tabla y el procesamiento por lotes. Para obtener más información, consulte [Programar trabajos][Programar trabajos].
 
-Los scripts que se han registrado en trabajos programados tienen una función principal con el mismo nombre que el trabajo programado. Puesto que una solicitud HTTP no invoca un script programado, no existe ningún contexto que el tiempo de ejecución del servidor pueda pasar y la función no usa ningún parámetro. Como con otros tipos de scripts, puede disponer de funciones de subrutinas y solicitar módulos compartidos. Para obtener más información, consulte [Control de código fuente, código compartido y funciones auxiliares][].
+Los scripts que se han registrado en trabajos programados tienen una función principal con el mismo nombre que el trabajo programado. Puesto que una solicitud HTTP no invoca un script programado, no existe ningún contexto que el tiempo de ejecución del servidor pueda pasar y la función no usa ningún parámetro. Como con otros tipos de scripts, puede disponer de funciones de subrutinas y solicitar módulos compartidos. Para obtener más información, consulte [Control de código fuente, código compartido y funciones auxiliares][Control de código fuente, código compartido y funciones auxiliares].
 
 ### <a name="scheduler-scripts"></a>Direccionamiento del scripts de trabajos programados
 
@@ -406,13 +406,13 @@ Puede asignarse un script del servidor a una trabajo definido en el Programador 
 
 Puede definir trabajos programados de una de las siguientes formas:
 
--   En el [Portal de administración de Azure][] en la pestaña **Script** del programador:
+-   En el [Portal de administración de Azure][Portal de administración de Azure] en la pestaña **Script** del programador:
 
     ![3][4]
 
-    Para obtener más información sobre cómo hacer esto, consulte [Programación de trabajos de back-end en Servicios móviles][].
+    Para obtener más información sobre cómo hacer esto, consulte [Programación de trabajos de back-end en Servicios móviles][Programación de trabajos de back-end en Servicios móviles].
 
--   Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, consulte [Uso de la herramienta de la línea de comandos][].
+-   Desde el símbolo del sistema mediante la herramienta de la línea de comandos de Azure. Para obtener más información, consulte [Uso de la herramienta de la línea de comandos][Uso de la herramienta de la línea de comandos].
 
 > [WACOM.NOTE]Cuando cuente con un control de código fuente habilitado, podrá editar archivos de script de trabajos programados directamente en la subcarpeta .\\service\\scheduler del repositorio git. Para obtener más información, consulte [Inserción de compartido de código mediante el control de código fuente][Direccionamiento del compartido de código mediante el control de código fuente].
 
@@ -422,12 +422,12 @@ Puesto que Servicios móviles usa Node.js en el servidor, los scripts ya dispone
 
 A continuación se muestran algunos de los módulos más útiles de los que puede sacar provecho en los scripts mediante la función **require** global:
 
--   **azure**: Ofrece la funcionalidad del SDK de Azure para Node.js. Para obtener más información, consulte [Azure SDK for Node.js][].
--   **crypto**: Proporciona la funcionalidad crypto de OpenSSL. Para obtener más información, consulte [Node.js documentation][].
+-   **azure**: Ofrece la funcionalidad del SDK de Azure para Node.js. Para obtener más información, consulte [Azure SDK for Node.js][Azure SDK for Node.js].
+-   **crypto**: Proporciona la funcionalidad crypto de OpenSSL. Para obtener más información, consulte [Node.js documentation][Node.js documentation].
 -   **path**: Contiene utilidades para trabajar con rutas de archivos. Para obtener más información, consulte [Node.js documentation][5].
 -   **querystring**: Contiene utilidades para trabajar con cadenas de consulta. Para obtener más información, consulte [Node.js documentation][6].
--   **request**: Envía solicitudes HTTP a servicios REST externos, como Twitter y Facebook. Para obtener más información, consulte [Enviar solicitud HTTP][].
--   **sendgrid**: Envía un correo electrónico mediante el servicio de correo electrónico Sendgrid en Azure. Para obtener más información, consulte [Envío de correo electrónico desde Servicios móviles con SendGrid][].
+-   **request**: Envía solicitudes HTTP a servicios REST externos, como Twitter y Facebook. Para obtener más información, consulte [Enviar solicitud HTTP][Enviar solicitud HTTP].
+-   **sendgrid**: Envía un correo electrónico mediante el servicio de correo electrónico Sendgrid en Azure. Para obtener más información, consulte [Envío de correo electrónico desde Servicios móviles con SendGrid][Envío de correo electrónico desde Servicios móviles con SendGrid].
 -   **url**: Contiene utilidades para redistribuir y resolver direcciones URL. Para obtener más información, consulte [Node.js documentation][7].
 -   **util**: Contiene varias utilidades, como una comprobación del tipo de objeto y un formato de cadena. Para obtener más información, consulte [Node.js documentation][8].
 -   **zlib**: Ofrece la funcionalidad de compresión, como gzip y deflate. Para obtener más información, consulte [Node.js documentation][9].
@@ -447,9 +447,9 @@ Servicios móviles proporciona una serie de módulos que los scripts pueden carg
 
 Puede usar el control de código fuente con el administrador de paquetes Node.js (npm) para controlar qué módulos se encuentran disponibles para el servicio móvil. Existen dos formas de hacerlo:
 
--   Para los módulos publicados en npm o que npm ha instalado, use el archivo package.json para establecer qué paquete desea que el servicio móvil instale. De esta forma, su servicio siempre dispondrá de acceso a la versión más reciente de los paquetes requeridos. El archivo package.json se encuentra en el directorio `.\service`. Para obtener más información, consulte [Support for package.json in Azure Mobile Services][].
+-   Para los módulos publicados en npm o que npm ha instalado, use el archivo package.json para establecer qué paquete desea que el servicio móvil instale. De esta forma, su servicio siempre dispondrá de acceso a la versión más reciente de los paquetes requeridos. El archivo package.json se encuentra en el directorio `.\service`. Para obtener más información, consulte [Support for package.json in Azure Mobile Services][Support for package.json in Azure Mobile Services].
 
--   En los módulos privados o personalizados, puede usar npm para instalar manualmente el módulo en el directorio `.\service\node_modules` del control de código fuente. Para obtener un ejemplo de cómo cargar manualmente un módulo, consulte [Aprovechamiento del código compartido y de módulos Node.js en los scripts del servidor][].
+-   En los módulos privados o personalizados, puede usar npm para instalar manualmente el módulo en el directorio `.\service\node_modules` del control de código fuente. Para obtener un ejemplo de cómo cargar manualmente un módulo, consulte [Aprovechamiento del código compartido y de módulos Node.js en los scripts del servidor][Aprovechamiento del código compartido y de módulos Node.js en los scripts del servidor].
 
     > [WACOM.NOTE] Si `node_modules` ya existe en la jerarquía de directorios, NPM creará el subdirectorio `\node-uuid` ahí en lugar de crear un nuevo `node_modules` en el repositorio. En este caso, elimine el directorio `node_modules` existente.
 
@@ -497,15 +497,15 @@ A continuación, puede usar una función como esta en un script de operaciones d
             }
         }
 
-En este ejemplo debe pasar un objeto [tables][] y un objeto [user][] a la función compartida. Esto se debe a que los scripts compartidos no pueden obtener acceso al objeto [tables][] global y a que el objeto [user][] solo existe en el contexto de una solicitud.
+En este ejemplo debe pasar un objeto [tables][tables] y un objeto [user][user] a la función compartida. Esto se debe a que los scripts compartidos no pueden obtener acceso al objeto [tables][tables] global y a que el objeto [user][user] solo existe en el contexto de una solicitud.
 
 Los archivos de script se cargan en el directorio compartido mediante el [control de código fuente][Direccionamiento del compartido de código mediante el control de código fuente] o con la [herramienta de la línea de comandos][Uso de la herramienta de la línea de comandos].
 
 ### <a name="app-settings"></a>Direccionamiento del configuración de aplicaciones
 
-Servicios móviles le permite almacenar de forma segura valores como configuraciones de aplicaciones, a los que los scripts del servidor pueden obtener acceso en el tiempo de ejecución. Cuando agrega datos a la configuración de aplicaciones del servicio móvil, los pares nombre/valor se almacenan cifrados y puede obtener acceso a ellos en los scripts del servidor sin integrarlos como parte del código en el archivo de script. Para obtener más información, consulte [Configuración de aplicación][].
+Servicios móviles le permite almacenar de forma segura valores como configuraciones de aplicaciones, a los que los scripts del servidor pueden obtener acceso en el tiempo de ejecución. Cuando agrega datos a la configuración de aplicaciones del servicio móvil, los pares nombre/valor se almacenan cifrados y puede obtener acceso a ellos en los scripts del servidor sin integrarlos como parte del código en el archivo de script. Para obtener más información, consulte [Configuración de aplicación][Configuración de aplicación].
 
-El siguiente ejemplo de API personalizada usa el objeto [service][] proporcionado para recuperar un valor de configuración de aplicaciones.
+El siguiente ejemplo de API personalizada usa el objeto [service][service] proporcionado para recuperar un valor de configuración de aplicaciones.
 
         exports.get = function(request, response) {
         
@@ -529,7 +529,7 @@ El siguiente código usa el módulo de configuración para recuperar los valores
         var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
             accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
 
-Tenga en cuenta que este código también recupera los valores clave del usuario de Twitter almacenados en la pestaña **Identity** del portal. Puesto que no hay disponible un objeto **config** en la operación de tabla y en los scripts de trabajos programados, debe solicitar al módulo de configuración que obtenga acceso a la configuración de aplicaciones. Para ver un ejemplo completo, consulte [Programación de trabajos de back-end en Servicios móviles][].
+Tenga en cuenta que este código también recupera los valores clave del usuario de Twitter almacenados en la pestaña **Identity** del portal. Puesto que no hay disponible un objeto **config** en la operación de tabla y en los scripts de trabajos programados, debe solicitar al módulo de configuración que obtenga acceso a la configuración de aplicaciones. Para ver un ejemplo completo, consulte [Programación de trabajos de back-end en Servicios móviles][Programación de trabajos de back-end en Servicios móviles].
 
 ## <a name="command-prompt"></a>Uso de la herramienta de la línea de comandos
 
@@ -572,30 +572,30 @@ El siguiente comando devuelve información sobre cada archivo de script que se m
         data:    register_notifications  application  application  user         application  application
         info:    mobile script list command OK
 
-Para obtener más información, consulte [Comandos para administrar Servicios móviles de Azure][].
+Para obtener más información, consulte [Comandos para administrar Servicios móviles de Azure][Comandos para administrar Servicios móviles de Azure].
 
 ## <a name="working-with-tables"></a>Uso de tablas
 
 Muchos escenarios de Servicios móviles requieren que los scripts del servidor obtengan acceso a las tablas en la base de datos. Por ejemplo, puesto que Servicios móviles no conserva el estado entre ejecuciones de scripts, los datos que tengan que mantenerse entre las ejecuciones de scripts deben almacenarse en tablas. Es posible que desee examinar entradas en una tabla de permisos o almacenar datos de auditoría en lugar de escribir simplemente el registro, donde los datos cuentan con una duración limitada y a los que no puede obtenerse acceso mediante programación.
 
-Servicios móviles cuenta con dos formas de obtener acceso a las tablas, usando un proxy de objeto [table][] o componiendo consultas Transact-SQL con el objeto [mssql][]. El objeto [table][] facilita el acceso a los datos de tabla desde el código del script del servidor, pero el objeto [mssql][] es compatible con operaciones de datos más complejas y proporciona la mayor flexibilidad.
+Servicios móviles cuenta con dos formas de obtener acceso a las tablas, usando un proxy de objeto [table][table] o componiendo consultas Transact-SQL con el objeto [mssql][mssql]. El objeto [table][table] facilita el acceso a los datos de tabla desde el código del script del servidor, pero el objeto [mssql][mssql] es compatible con operaciones de datos más complejas y proporciona la mayor flexibilidad.
 
 ### <a name="access-tables"></a>Direccionamiento del tablas desde scripts
 
-La forma más sencilla de obtener acceso a las tablas desde el script es usar el objeto [tables][]. La función **getTable** devuelve una instancia del objeto [table][] que es un proxy para obtener acceso a la tabla solicitada. A continuación, puede llamar a las funciones en el proxy para obtener acceso y cambiar los datos.
+La forma más sencilla de obtener acceso a las tablas desde el script es usar el objeto [tables][tables]. La función **getTable** devuelve una instancia del objeto [table][table] que es un proxy para obtener acceso a la tabla solicitada. A continuación, puede llamar a las funciones en el proxy para obtener acceso y cambiar los datos.
 
-Los scripts registrados en las operaciones de tabla y los trabajos programados pueden obtener acceso al objeto [tables][] como un objeto global. Esta línea de código obtiene un proxy para la tabla *TodoItems* desde el objeto [tables][] global:
+Los scripts registrados en las operaciones de tabla y los trabajos programados pueden obtener acceso al objeto [tables][tables] como un objeto global. Esta línea de código obtiene un proxy para la tabla *TodoItems* desde el objeto [tables][tables] global:
 
         var todoItemsTable = tables.getTable('TodoItems');
 
-Los scripts de la API personalizada pueden obtener acceso al objeto [tables][] desde la propiedad **service** del objeto [request][] proporcionado. Esta línea de código obtiene el objeto [tables][] de la solicitud:
+Los scripts de la API personalizada pueden obtener acceso al objeto [tables][tables] desde la propiedad **service** del objeto [request][request] proporcionado. Esta línea de código obtiene el objeto [tables][tables] de la solicitud:
 
         var todoItemsTable = request.service.tables.getTable('TodoItem');
 
 <div class="dev-callout"><strong>Nota:</strong>
 <p>Las funciones compartidas no pueden obtener acceso al objeto <strong>tables</strong> directamente. En una funci&oacute;n compartida, debe pasar el objeto tables a la funci&oacute;n.</p></div>
 
-Una vez que disponga de un objeto [table][], puede llamar a una o más funciones de operación de tablas: insertar, actualizar, eliminar o leer. En este ejemplo se leen los permisos de usuario desde una tabla de permisos:
+Una vez que disponga de un objeto [table][table], puede llamar a una o más funciones de operación de tablas: insertar, actualizar, eliminar o leer. En este ejemplo se leen los permisos de usuario desde una tabla de permisos:
 
     function insert(item, user, request) {
         var permissionsTable = tables.getTable('permissions');
@@ -637,7 +637,7 @@ En el siguiente ejemplo se escribe información de auditoría en una **tabla de 
         }
     }
 
-Puede encontrar un ejemplo final en la muestra de código aquí: [Direccionamiento del parámetros personalizados][].
+Puede encontrar un ejemplo final en la muestra de código aquí: [Direccionamiento del parámetros personalizados][Direccionamiento del parámetros personalizados].
 
 ### <a name="bulk-inserts"></a>Direccionamiento del de inserciones en masa
 
@@ -686,7 +686,7 @@ Puede establecer el tamaño de un lote de registros que se va a insertar en para
         
         insertItems(); 
 
-Puede encontrar el ejemplo de código al completo y la discusión relacionada con él en esta [entrada de blog (en inglés)][]. Si usa este código, puede adaptarlo a su situación específica y probarlo minuciosamente.
+Puede encontrar el ejemplo de código al completo y la discusión relacionada con él en esta [entrada de blog (en inglés)][entrada de blog (en inglés)]. Si usa este código, puede adaptarlo a su situación específica y probarlo minuciosamente.
 
 ### <a name="JSON-types"></a>Direccionamiento del de tipos JSON a tipos de base de datos
 
@@ -694,13 +694,13 @@ Las recopilaciones de tipos de datos en el cliente y en la tabla de base de dato
 
 -   Los tipos específicos del lenguaje del cliente se encuentran serializados en JSON.
 -   La representación JSON se traduce a JavaScript antes de que aparezca en los scripts del servidor.
--   Los tipos de datos de JavaScript se convierten a tipos de base de datos SQL cuando se guardan con el objeto [tables][].
+-   Los tipos de datos de JavaScript se convierten a tipos de base de datos SQL cuando se guardan con el objeto [tables][tables].
 
 La transformación del esquema de cliente en JSON varía entre plataformas. JSON.NET se usa en los clientes de Windows Phone y Tienda Windows. El cliente Android usa la biblioteca gson. El cliente iOS usa la clase NSJSONSerialization. Se utiliza el comportamiento de serialización predeterminado de cada una de estas bibliotecas, excepto en el caso en el que los objetos date se conviertan en cadenas que contengan la fecha codificada mediante ISO 8601.
 
-Cuando escriba scripts del servidor que usen funciones [insert][Insert (función)], [update][Update, función], [read][Read (función)] o [delete][Delete (función)], puede obtener acceso a la representación de JavaScript de sus datos. Servicios móviles usa la función de deserialización de Node.js ([JSON.parse][]) para transformar los elementos JSON del protocolo de cable en objetos JavaScript. Sin embargo, Servicios móviles realiza una transformación para extraer objetos **Date** de las cadenas ISO 8601.
+Cuando escriba scripts del servidor que usen funciones [insert][Insert (función)], [update][Update, función], [read][Read (función)] o [delete][Delete (función)], puede obtener acceso a la representación de JavaScript de sus datos. Servicios móviles usa la función de deserialización de Node.js ([JSON.parse][JSON.parse]) para transformar los elementos JSON del protocolo de cable en objetos JavaScript. Sin embargo, Servicios móviles realiza una transformación para extraer objetos **Date** de las cadenas ISO 8601.
 
-Cuando use el objeto [tables][] o el objeto [mssql][], o simplemente deje que los scripts de tablas se ejecuten, los objetos JavaScript deserializados se insertan en la base de datos SQL. En ese proceso, las propiedades del objeto se asignan a tipos T-SQL:
+Cuando use el objeto [tables][tables] o el objeto [mssql][mssql], o simplemente deje que los scripts de tablas se ejecuten, los objetos JavaScript deserializados se insertan en la base de datos SQL. En ese proceso, las propiedades del objeto se asignan a tipos T-SQL:
 
 |----------------------|-------------------|
 | Propiedad JavaScript | Tipo T-SQL        |
@@ -715,7 +715,7 @@ Cuando use el objeto [tables][] o el objeto [mssql][], o simplemente deje que lo
 
 ### <a name="TSQL"></a>Uso de Transact-SQL para obtener acceso a las tablas
 
-La forma más sencilla de trabajar con datos de tablas de scripts del servidor es mediante un proxy del objeto [table][]. Sin embargo, existen escenarios más avanzados que no son compatibles con el objeto [table][], como las consultas de unión y otras consultas complejas y la invocación de procedimientos almacenados. En estos casos, debe ejecutar las instrucciones Transact-SQL directamente en contra de la tabla relacional mediante el objeto [mssql][]. Este objeto proporciona las siguientes funciones:
+La forma más sencilla de trabajar con datos de tablas de scripts del servidor es mediante un proxy del objeto [table][table]. Sin embargo, existen escenarios más avanzados que no son compatibles con el objeto [table][table], como las consultas de unión y otras consultas complejas y la invocación de procedimientos almacenados. En estos casos, debe ejecutar las instrucciones Transact-SQL directamente en contra de la tabla relacional mediante el objeto [mssql][mssql]. Este objeto proporciona las siguientes funciones:
 
 -   **query**: Ejecuta una consulta, especificada por una cadena TSQL; los resultados se devuelven a la devolución de llamada **success** en el objeto **options**. La consulta puede incluir parámetros si el parámetro *params* está presente.
 -   **queryRaw**: Como *query*, con la excepción de que el conjunto de resultados devuelto de la consulta está en formato sin procesar (consulte el siguiente ejemplo).
@@ -723,11 +723,11 @@ La forma más sencilla de trabajar con datos de tablas de scripts del servidor e
 
 Estos métodos le proporcionan un control cada vez mayor de nivel bajo sobre el procesamiento de consultas.
 
--   [Direccionamiento del una consulta estática][]
--   [Direccionamiento del una consulta dinámica][]
--   [Direccionamiento del de tablas relacionales][]
--   [Direccionamiento del de una consulta que devuelve resultados *sin procesar*][]
--   [Direccionamiento del acceso a una conexión de base de datos][]
+-   [Direccionamiento del una consulta estática][Direccionamiento del una consulta estática]
+-   [Direccionamiento del una consulta dinámica][Direccionamiento del una consulta dinámica]
+-   [Direccionamiento del de tablas relacionales][Direccionamiento del de tablas relacionales]
+-   [Direccionamiento del de una consulta que devuelve resultados *sin procesar*][Direccionamiento del de una consulta que devuelve resultados *sin procesar*]
+-   [Direccionamiento del acceso a una conexión de base de datos][Direccionamiento del acceso a una conexión de base de datos]
 
 #### <a name="static-query"></a>Direccionamiento del una consulta estática
 
@@ -764,7 +764,7 @@ En el siguiente ejemplo se implementa la autorización personalizada mediante la
 
 #### <a name="joins"></a>Direccionamiento del tablas relacionales
 
-Puede unir dos tablas mediante el método **query** del objeto [mssql][] para pasar el código TSQL que implementa la unión. Supongamos que disponemos de algunos elementos en la tabla **ToDoItem** y que cada elemento de la tabla dispone de una propiedad **priority** que se corresponde con una columna de la tabla. El aspecto del elemento sería el siguiente:
+Puede unir dos tablas mediante el método **query** del objeto [mssql][mssql] para pasar el código TSQL que implementa la unión. Supongamos que disponemos de algunos elementos en la tabla **ToDoItem** y que cada elemento de la tabla dispone de una propiedad **priority** que se corresponde con una columna de la tabla. El aspecto del elemento sería el siguiente:
 
         { text: 'Take out the trash', complete: false, priority: 1}
 
@@ -850,12 +850,12 @@ La forma más sencilla de depurar y solucionar los problemas de los scripts del 
 
 ### <a name="write-to-logs"></a>Direccionamiento del del resultado en los registros de servicios móviles
 
-Para escribir en los registros, use el objeto [console][] global. Use la función **log** o **info** para registrar las advertencias de nivel de información. Las funciones **warning** y **error** registran sus niveles respectivos, a los que se llama en los registros.
+Para escribir en los registros, use el objeto [console][console] global. Use la función **log** o **info** para registrar las advertencias de nivel de información. Las funciones **warning** y **error** registran sus niveles respectivos, a los que se llama en los registros.
 
 <div class="dev-callout"><strong>Nota:</strong>
 <p>Para ver los registros para el servicio m&oacute;vil, inicie sesi&oacute;n en el <a href="https://manage.windowsazure.com/">Portal de administraci&oacute;n</a>, seleccione el servicio m&oacute;vil y, a continuaci&oacute;n, seleccione la pesta&ntilde;a <strong>Logs</strong>.</p></div>
 
-También puede usar las funciones de registro del objeto [console][] para dar formato a sus mensajes mediante parámetros. En el siguiente ejemplo se proporciona un objeto JSON como parámetro para la cadena de mensaje:
+También puede usar las funciones de registro del objeto [console][console] para dar formato a sus mensajes mediante parámetros. En el siguiente ejemplo se proporciona un objeto JSON como parámetro para la cadena de mensaje:
 
     function insert(item, user, request) {
         console.log("Inserting item '%j' for user '%j'.", item, user);  
@@ -869,8 +869,6 @@ Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas 
 <!-- Anchors. --> 
 <!-- URLs. -->
 
-  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-how-to-use/ "Back-end de .NET"
-  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-how-to-use-server-scripts/ "Back-end de JavaScript"
   [Introducción]: #intro
   [Operaciones de tabla]: #table-scripts
   [Direccionamiento del operaciones de tabla]: #register-table-scripts
@@ -903,10 +901,7 @@ Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas 
   [query]: http://msdn.microsoft.com/es-es/library/windowsazure/jj613353.aspx
   [user]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554220.aspx
   [request]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554218.aspx
-  [Insert (función)]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554229.aspx
   [Update, función]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554214.aspx
-  [Delete (función)]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554215.aspx
-  [Read (función)]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554224.aspx
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-how-to-use-server-scripts/1-mobile-insert-script-users.png
   [Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
@@ -943,11 +938,9 @@ Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas 
   [Comandos para administrar Servicios móviles de Azure]: /es-es/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
   [table]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554210.aspx
   [mssql]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554212.aspx
-  [entrada de blog (en inglés)]: http://blogs.msdn.com/b/jpsanders/archive/2013/03/20/server-script-to-insert-table-items-in-windows-azure-mobile-services.aspx
   [JSON.parse]: http://es5.github.io/#x15.12
   [Direccionamiento del una consulta estática]: #static-query
   [Direccionamiento del una consulta dinámica]: #dynamic-query
   [Direccionamiento del de tablas relacionales]: #joins
-  [Direccionamiento del de una consulta que devuelve resultados *sin procesar*]: #raw
   [Direccionamiento del acceso a una conexión de base de datos]: #connection
   [console]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554209.aspx

@@ -1,23 +1,23 @@
 <properties linkid="manage-linux-howto-attach-a-disk" urlDisplayName="Attach a disk" pageTitle="Attach a disk to a virtual machine running Linux in Azure" metaKeywords="disk VM Azure, initialize new disk Azure, initialize disk Azure Linux, attaching empty disk Azure" description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." metaCanonical="http://www.windowsazure.com/es-es/manage/windows/how-to-guides/attach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav" />
 
 # Acoplamiento de un disco de datos a una máquina virtual Linux
 
 Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos casos, se trata realmente de archivos .vhd que residen en una cuenta de almacenamiento de Azure. También en ambos casos, una vez acoplado el disco, tendrá que inicializarlo para que esté listo para utilizarse.
 
 > [WACOM.NOTE] Es recomendable utilizar uno o varios discos independientes para almacenar los datos de una máquina virtual. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo y un disco temporal. **No utilice el disco temporal para almacenar datos.** Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure.
-> En Linux, el disco de recursos se administra generalmente mediante el Agente de Linux de Azure y se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Por otra parte, en Linux el kernel debe poner al disco de datos el nombre `/dev/sdc`. Si ese fuera el caso, tiene que crear particiones en ese recurso, darle formato y montarlo. Consulte la [Guía de usuario del Agente de Linux de Azure][] para obtener más información.
+> En Linux, el disco de recursos se administra generalmente mediante el Agente de Linux de Azure y se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Por otra parte, en Linux el kernel debe poner al disco de datos el nombre `/dev/sdc`. Si ese fuera el caso, tiene que crear particiones en ese recurso, darle formato y montarlo. Consulte la [Guía de usuario del Agente de Linux de Azure][Guía de usuario del Agente de Linux de Azure] para obtener más información.
 
--   [Direccionamiento del un disco vacío][]
--   [Direccionamiento del un disco existente][]
--   [Direccionamiento del un nuevo disco de datos en Linux][]
+-   [Direccionamiento del un disco vacío][Direccionamiento del un disco vacío]
+-   [Direccionamiento del un disco existente][Direccionamiento del un disco existente]
+-   [Direccionamiento del un nuevo disco de datos en Linux][Direccionamiento del un nuevo disco de datos en Linux]
 
-[WACOM.INCLUDE [howto-attach-disk-windows-linux][]]
+[WACOM.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
 ## <span id="initializeinlinux"></span></a>Direccionamiento del un nuevo disco de datos en Linux
 
-1.  Siga los pasos que aparecen en [Inicio de sesión en una máquina virtual con Linux][] para conectarse a una máquina virtual.
+1.  Siga los pasos que aparecen en [Inicio de sesión en una máquina virtual con Linux][Inicio de sesión en una máquina virtual con Linux] para conectarse a una máquina virtual.
 
 2.  En la ventana SSH, escriba el siguiente comando y, a continuación, especifique la contraseña para la cuenta que creó para administrar la máquina virtual:
 
@@ -25,7 +25,7 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 
     Puede buscar el identificador del último disco de datos conectado en los mensajes que se muestran.
 
-    ![Obtener mensajes de disco][]
+    ![Obtener mensajes de disco][Obtener mensajes de disco]
 
 3.  En la ventana SSH, escriba el siguiente comando para crear un nuevo dispositivo y, a continuación, especifique la contraseña de la cuenta:
 
@@ -35,25 +35,25 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 
 4.  Escriba **n** para crear una nueva partición.
 
-    ![Crear un dispositivo nuevo][]
+    ![Crear un dispositivo nuevo][Crear un dispositivo nuevo]
 
 5.  Escriba **p** para que la partición sea la partición principal, escriba **1** para que sea la primera partición y, a continuación, escriba "enter" para aceptar el valor predeterminado para el cilindro.
 
-    ![Crear partición][]
+    ![Crear partición][Crear partición]
 
 6.  Escriba **p** para ver los detalles del disco en el que se va a crear la partición.
 
-    ![Enumerar la información del disco][]
+    ![Enumerar la información del disco][Enumerar la información del disco]
 
 7.  Escriba **w** para escribir la configuración del disco.
 
-    ![Escribir los cambios del disco][]
+    ![Escribir los cambios del disco][Escribir los cambios del disco]
 
 8.  Cree el sistema de archivos en la partición nueva. Como ejemplo, escriba el siguiente comando y, a continuación, especifique la contraseña de la cuenta:
 
         # sudo mkfs -t ext4 /dev/sdc1
 
-    ![Crear sistema de archivos][]
+    ![Crear sistema de archivos][Crear sistema de archivos]
 
     > [WACOM.NOTE] Tenga en cuenta que los sistemas SUSE Linux Enterprise 11 únicamente admiten acceso de solo lectura a sistemas de archivos ext4. Para estos sistemas, es recomendable dar formato al nuevo sistema de archivos como ext3 en vez de ext4.
 

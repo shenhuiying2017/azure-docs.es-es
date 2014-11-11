@@ -137,9 +137,5 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 
 4.  En la interfaz de usuario de la aplicación iOS, haga clic en **Log in**. Después, haga clic en **Send push**. Debe ver la notificación segura mostrada en el centro notificaciones.
 
-  [Windows Universal]: /es-es/documentation/articles/notification-hubs-windows-dotnet-secure-push/ "Windows Universal"
-  [iOS]: /es-es/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/ "iOS"
-  [Android]: /es-es/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/ "Android"
-  [Introducción a los Centros de notificaciones (iOS)]: http://azure.microsoft.com/es-es/documentation/articles/notification-hubs-ios-get-started/
   [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md
    

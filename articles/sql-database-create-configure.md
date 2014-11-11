@@ -1,21 +1,22 @@
-<properties linkid="manage-services-how-to-configure-a-sqldb" urlDisplayName="How to configure" pageTitle="How to configure a SQL Database - Azure" metaKeywords="Azure creating SQL Server, Azure configuring SQL Server" description="Learn how to create and configure a logical server using SQL Server in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure SQL Database" authors="Lori Clark," solutions="" manager="" editor="" />
+<properties linkid="manage-services-how-to-configure-a-sqldb" urlDisplayName="How to configure" pageTitle="How to configure a SQL Database - Azure" metaKeywords="Azure creating SQL Server, Azure configuring SQL Server" description="Learn how to create and configure a logical server using SQL Server in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure SQL Database" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori Clark,"></tags>
-
-# <span id="configLogical"></span></a>Creación y configuración de una base de datos SQL
+Creación y configuración de una base de datos SQL
+=================================================
 
 Este tema le llevará por los pasos para crear y configurar el servidor lógico. En el nuevo Portal de administración de Azure (Vista previa), los flujos de trabajo revisados le permiten crear primero una base de datos y, a continuación, crear un servidor.
 
 Sin embargo, en este tema, creará primero el servidor. Es posible que prefiera este enfoque si dispone de bases de datos SQL Server existentes que quiera cargar.
 
-## Tabla de contenido
+Tabla de contenido
+------------------
 
--   [Direccionamiento del un servidor lógico][]
--   [Direccionamiento del firewall para el servidor lógico][]
+-   [Creación de un servidor lógico](#createLogical)
+-   [Configuración del firewall para el servidor lógico](#configFWLogical)
 
-## <span id="createLogical"></span></a>Direccionamiento del un servidor lógico
+Creación de un servidor lógico
+------------------------------
 
-1.  Inicie sesión en el [Portal de administración][].
+1.  Inicie sesión en el [Portal de administración](http://manage.windowsazure.com).
 
 2.  Haga clic en **Base de datos SQL** y, a continuación, en **SERVERS** en la página principal de Base de datos SQL.
 
@@ -39,9 +40,10 @@ Tenga en cuenta que no especificó un nombre de servidor. Base de datos SQL gene
 
 En el próximo paso, configurará el firewall de manera que se permita el acceso a las conexiones de las aplicaciones que se ejecuten en la red.
 
-## <span id="configFWLogical"></span></a>Direccionamiento del Configuración del firewall para el servidor lógico
+Configuración del firewall para el servidor lógico
+--------------------------------------------------
 
-1.  En el [Portal de administración][], haga clic en **Bases de datos SQL**, en **Servidores** y, a continuación, haga clic en el servidor que acaba de crear.
+1.  En el [Portal de administración](http://manage.windowsazure.com), haga clic en **Bases de datos SQL**, en **Servidores** y, a continuación, haga clic en el servidor que acaba de crear.
 
 2.  Haga clic en **Configure**.
 
@@ -61,6 +63,3 @@ Ahora dispone de un servidor lógico, una regla de firewall que permite conexion
 
 **Nota:** el servidor lógico que acaba de crear es transitorio y se hospedará dinámicamente en los servidores físicos de un centro de datos. Si elimina el servidor, debe saber antes que se trata de una acción irreversible. Asegúrese de realizar una copia de seguridad de las bases de datos que cargue posteriormente en el servidor.
 
-  [Direccionamiento del un servidor lógico]: #createLogical
-  [Direccionamiento del firewall para el servidor lógico]: #configFWLogical
-  [Portal de administración]: http://manage.windowsazure.com

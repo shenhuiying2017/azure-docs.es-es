@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-with-push-js" urlDisplayName="Get Started with Push (JS)" pageTitle="Get started with push notifications (JavaScript)" metaKeywords="" description="Learn how to use push notifications in your Windows Store app with Azure Mobile Services." metaCanonical="http://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started-with-push-dotnet/" disqusComments="1" umbracoNaviHide="1" title="Get started with push notifications in Mobile Services using Visual Studio 2012" documentationCenter="Mobile" authors="glenga" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Introducción a las notificaciones de inserción en Servicios móviles con Visual Studio 2012
 
@@ -17,30 +17,30 @@ En este tutorial aprenderá a agregar notificaciones de inserción al proyecto d
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 
-1.  [Registro de la aplicación para notificaciones de inserción y configuración de Servicios móviles][]
-2.  [Creación de la tabla Registros][]
-3.  [Incorporación de notificaciones de inserción a la aplicación][]
-4.  [Actualización de scripts para enviar notificaciones de inserción][]
-5.  [Inserción de datos para recibir notificaciones][]
+1.  [Registro de la aplicación para notificaciones de inserción y configuración de Servicios móviles][Registro de la aplicación para notificaciones de inserción y configuración de Servicios móviles]
+2.  [Creación de la tabla Registros][Creación de la tabla Registros]
+3.  [Incorporación de notificaciones de inserción a la aplicación][Incorporación de notificaciones de inserción a la aplicación]
+4.  [Actualización de scripts para enviar notificaciones de inserción][Actualización de scripts para enviar notificaciones de inserción]
+5.  [Inserción de datos para recibir notificaciones][Inserción de datos para recibir notificaciones]
 
 Este tutorial requiere lo siguiente:
 
 -   Microsoft Visual Studio 2012 Express para Windows 8
 -   Activación de la cuenta de la Tienda Windows
 
-Este tutorial se basa en el tutorial [Introducción a los datos][]. Antes de empezar este tutorial, primero debe completar [este tutorial][Introducción a los datos].
+Este tutorial se basa en el tutorial [Introducción a los datos][Introducción a los datos]. Antes de empezar este tutorial, primero debe completar [este tutorial][Introducción a los datos].
 
 ## <a name="register"></a><span class="short-header">Registro de la aplicación</span>Registro de la aplicación para la Tienda Windows
 
 Para poder enviar notificaciones de inserción a las aplicaciones de la Tienda Windows desde Servicios móviles, debe enviar su aplicación a la Tienda Windows. A continuación, debe configurar el servicio móvil para que se integre con WNS.
 
-[WACOM.INCLUDE [mobile-services-register-windows-store-app][]]
+[WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
 El servicio móvil y la aplicación están ahora configurados para funcionar con WNS. A continuación, creará una tabla para almacenar los registros.
 
 ## <a name="create-table"></a>Creación de una tabla
 
-[WACOM.INCLUDE [mobile-services-create-new-push-table][]]
+[WACOM.INCLUDE [mobile-services-create-new-push-table](../includes/mobile-services-create-new-push-table.md)]
 
 ## <a name="add-push"></a><span class="short-header">Incorporación de notificaciones de inserción</span>Incorporación de notificaciones de inserción a la aplicación
 
@@ -67,13 +67,13 @@ El servicio móvil y la aplicación están ahora configurados para funcionar con
 
 3.  Abra el archivo Package.appxmanifest y asegúrese de que en la pestaña **IU de la aplicación**, la opción **Capacidad de aviso** esté definida en **Sí**.
 
-    ![][]
+    ![][0]
 
     Esto asegura que la aplicación puede generar notificaciones del sistema.
 
 ## <a name="update-scripts"></a><span class="short-header">Actualización del script de inserción</span>Actualización del script de inserción registrado en el Portal de administración
 
-[WACOM.INCLUDE [mobile-services-update-registrations-script][]]
+[WACOM.INCLUDE [mobile-services-update-registrations-script](../includes/mobile-services-update-registrations-script.md)]
 
 1.  Haga clic en **TodoItem**, en **Script** y seleccione **Insert**.
 
@@ -125,37 +125,37 @@ El servicio móvil y la aplicación están ahora configurados para funcionar con
 
 Este tutorial demuestra la funcionalidad de notificación de inserción básica que brinda Servicios móviles. Si su aplicación requiere funcionalidades más avanzadas, como enviar notificaciones entre plataformas, enrutamiento basado en suscripción o volúmenes de tamaño muy grande, considere utilizar Centros de notificaciones de Azure con su servicio móvil. Para obtener más información, consulte uno de los siguientes temas de Centros de notificaciones:
 
--   [Introducción a los Centros de notificaciones][]
+-   [Introducción a los Centros de notificaciones][Introducción a los Centros de notificaciones]
     
 	Aprenda a aprovechar Centros de notificaciones en su aplicación de la Tienda Windows.
 
--   [Envío de notificaciones a los suscriptores][]
+-   [Envío de notificaciones a los suscriptores][Envío de notificaciones a los suscriptores]
     
 	Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
 
--   [Envío de notificaciones a los usuarios][]
+-   [Envío de notificaciones a los usuarios][Envío de notificaciones a los usuarios]
     
 	Obtenga información sobre cómo enviar notificaciones de inserción desde un servicio móvil a usuarios específicos en cualquier dispositivo.
 
--   [Envío de notificaciones entre plataformas a los usuarios][]
+-   [Envío de notificaciones entre plataformas a los usuarios][Envío de notificaciones entre plataformas a los usuarios]
     
 	Obtenga información sobre cómo usar las plantillas para enviar notificaciones de inserción desde un servicio móvil sin tener que diseñar cargas específicas de plataforma en el back-end.
 
 Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
--   [Introducción a los datos][]
+-   [Introducción a los datos][Introducción a los datos]
     
 	Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a la autenticación][]
+-   [Introducción a la autenticación][Introducción a la autenticación]
     
 	Aprenda a autenticar a los usuarios de su aplicación con cuenta de Windows.
 
--   [Referencia del script del servidor de Servicios móviles][]
+-   [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles]
     
 	Obtenga más información acerca del registro y uso de scripts de servidor.
 
--   [Referencia conceptual de Servicios móviles con HTML/JavaScript][]
+-   [Referencia conceptual de Servicios móviles con HTML/JavaScript][Referencia conceptual de Servicios móviles con HTML/JavaScript]
     
 	Obtenga más información acerca de cómo utilizar los Servicios móviles con HTML y JavaScript.
 
@@ -163,14 +163,6 @@ Considere la posibilidad de profundizar más en los siguientes temas de Servicio
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/develop/mobile/tutorials/get-started-with-push-dotnet-vs2012 "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /es-es/develop/mobile/tutorials/get-started-with-push-js-vs2012 "JavaScript para Tienda Windows"
-  [Windows Phone]: /es-es/develop/mobile/tutorials/get-started-with-push-wp8 "Windows Phone"
-  [iOS]: /es-es/develop/mobile/tutorials/get-started-with-push-ios "iOS"
-  [Android]: /es-es/develop/mobile/tutorials/get-started-with-push-android "Android"
-  [Xamarin.iOS]: /es-es/develop/mobile/tutorials/get-started-with-push-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /es-es/develop/mobile/tutorials/get-started-with-push-xamarin-android "Xamarin.Android"
-  [Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-js
   [Registro de la aplicación para notificaciones de inserción y configuración de Servicios móviles]: #register
   [Creación de la tabla Registros]: #create-table
   [Incorporación de notificaciones de inserción a la aplicación]: #add-push
@@ -179,7 +171,7 @@ Considere la posibilidad de profundizar más en los siguientes temas de Servicio
   [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-js
   [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [mobile-services-create-new-push-table]: ../includes/mobile-services-create-new-push-table.md
-  []: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
+  [0]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-app-enable-toast-win8.png
   [mobile-services-update-registrations-script]: ../includes/mobile-services-update-registrations-script.md
   [1]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-insert-script-push2.png
   [2]: ./media/mobile-services-windows-store-javascript-get-started-push-vs2012/mobile-quickstart-push1.png

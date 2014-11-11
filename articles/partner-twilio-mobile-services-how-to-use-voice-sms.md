@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-twilio-for-voice-and-sms" pageTitle="Use Twilio for Voice and SMS Capabilities | Mobile Dev Center" metaKeywords="" description="Learn how to perform common tasks using the Twilio API with Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use Twilio for voice and SMS capabilities from Mobile Services" authors="MicrosoftHelp@twilio.com" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
 
 # Uso de Twilio para funciones de voz y SMS desde Servicios móviles
 
@@ -14,13 +14,13 @@ Twilio está potenciando el futuro de las comunicaciones empresariales, al permi
 
 ## <span id="Pricing"></span></a>Precios de Twilio y ofertas especiales
 
-Los clientes de Azure reciben una [oferta especial][]: 10 $ de regalo en crédito Twilio al actualizar su cuenta de Twilio. Este crédito Twilio se puede aplicar a cualquier uso de Twilio (10 $ de crédito equivalen al envío de aproximadamente 1.000 mensajes SMS o recibir hasta 1.000 minutos de voz entrante, según la ubicación del número de teléfono y el destino del mensaje o de la llamada). Canjee este crédito Twilio y comience en [ahoy.twilio.com/azure][oferta especial].
+Los clientes de Azure reciben una [oferta especial][oferta especial]: 10 $ de regalo en crédito Twilio al actualizar su cuenta de Twilio. Este crédito Twilio se puede aplicar a cualquier uso de Twilio (10 $ de crédito equivalen al envío de aproximadamente 1.000 mensajes SMS o recibir hasta 1.000 minutos de voz entrante, según la ubicación del número de teléfono y el destino del mensaje o de la llamada). Canjee este crédito Twilio y comience en [ahoy.twilio.com/azure][oferta especial].
 
-Twilio es un servicio de pago por uso. No hay comisiones establecidas y puede cerrar su cuenta en cualquier momento. Puede encontrar más detalles en la [página de precios de Twilio][] (en inglés).
+Twilio es un servicio de pago por uso. No hay comisiones establecidas y puede cerrar su cuenta en cualquier momento. Puede encontrar más detalles en la [página de precios de Twilio][página de precios de Twilio] (en inglés).
 
 ## <span id="Concepts"></span></a>Conceptos
 
-La API de Twilio es una API de RESTful que proporciona funciones de voz y SMS para las aplicaciones. Las bibliotecas de cliente están disponibles en varios idiomas; para ver una lista, consulte las [bibliotecas API de Twilio][] (en inglés). Hay otros tutoriales disponibles para usar Twilio con cualquier aplicación de Azure escrita en [.NET][], [node.js][], [Java][], [PHP][], [Python][] o [Ruby][].
+La API de Twilio es una API de RESTful que proporciona funciones de voz y SMS para las aplicaciones. Las bibliotecas de cliente están disponibles en varios idiomas; para ver una lista, consulte las [bibliotecas API de Twilio][bibliotecas API de Twilio] (en inglés). Hay otros tutoriales disponibles para usar Twilio con cualquier aplicación de Azure escrita en [.NET][.NET], [node.js][node.js], [Java][Java], [PHP][PHP], [Python][Python] o [Ruby][Ruby].
 
 Aspectos fundamentales de la API de Twilio son los verbos de Twilio y el lenguaje de marcado de Twilio (TwiML).
 
@@ -28,7 +28,7 @@ Aspectos fundamentales de la API de Twilio son los verbos de Twilio y el lenguaj
 
 La API utiliza los verbos de Twilio, por ejemplo, el verbo **\<Say\>** indica a Twilio que entregue de manera audible un mensaje en una llamada.
 
-A continuación se presenta una lista de verbos de Twilio. Obtenga información sobre los otros verbos y funciones mediante la [documentación del lenguaje de marcado de Twilio][] (en inglés).
+A continuación se presenta una lista de verbos de Twilio. Obtenga información sobre los otros verbos y funciones mediante la [documentación del lenguaje de marcado de Twilio][documentación del lenguaje de marcado de Twilio] (en inglés).
 
 -   **\<Dial\>**: Conecta la persona que llama con otro teléfono.
 -   **\<Gather\>**: Recopila los dígitos numéricos que se introdujeron en el teclado del teléfono.
@@ -54,29 +54,29 @@ Como ejemplo, el siguiente TwiML convierte el texto **Hello World** en voz.
 
 Cuando su aplicación llama a la API de Twilio, uno de los parámetros de API es la URL que devuelve la respuesta de TwiML. Con fines de desarrollo, puede usar las URL que ofrece Twilio para proporcionar las respuestas de TwiML que usaron sus aplicaciones. También puede hospedar sus propias URL para producir las repuestas de TwiML; otra opción es usar el objeto **TwiMLResponse**.
 
-Para obtener más información sobre los verbos de Twilio, sus atributos y TwiML, consulte [TwiML][documentación del lenguaje de marcado de Twilio]. Para obtener información adicional sobre la API de Twilio, consulte la [API de Twilio][] (en inglés).
+Para obtener más información sobre los verbos de Twilio, sus atributos y TwiML, consulte [TwiML][documentación del lenguaje de marcado de Twilio]. Para obtener información adicional sobre la API de Twilio, consulte la [API de Twilio][API de Twilio] (en inglés).
 
 ## <span id="CreateAccount"></span></a>Creación de una cuenta de Twilio
 
-Cuando esté preparado para obtener una cuenta de Twilio, regístrese en la [evaluación de Twilio][] (en inglés). Puede empezar con una cuenta gratuita y, posteriormente, actualizarla.
+Cuando esté preparado para obtener una cuenta de Twilio, regístrese en la [evaluación de Twilio][evaluación de Twilio] (en inglés). Puede empezar con una cuenta gratuita y, posteriormente, actualizarla.
 
-Cuando se registre para obtener una cuenta de Twilio, recibirá un identificador de cuenta y un token de autenticación. Necesitará ambos para realizar llamadas a la API de Twilio. Para evitar el acceso no autorizado a su cuenta, mantenga protegido el token de autenticación. Puede ver el identificador de cuenta y el token de autenticación en la [página de la cuenta de Twilio][] (en inglés) en los campos etiquetados como **SID AUTEN** y **TOKEN AUTEN**, respectivamente.
+Cuando se registre para obtener una cuenta de Twilio, recibirá un identificador de cuenta y un token de autenticación. Necesitará ambos para realizar llamadas a la API de Twilio. Para evitar el acceso no autorizado a su cuenta, mantenga protegido el token de autenticación. Puede ver el identificador de cuenta y el token de autenticación en la [página de la cuenta de Twilio][página de la cuenta de Twilio] (en inglés) en los campos etiquetados como **SID AUTEN** y **TOKEN AUTEN**, respectivamente.
 
 ## <span id="VerifyPhoneNumbers"></span></a>Comprobación de números de teléfono
 
-Es necesario comprobar varios números de teléfono con Twilio en la cuenta. Por ejemplo, si desea realizar llamadas de teléfono salientes, el número de teléfono se debe comprobar con Twilio como identificador de autor de una llamada de salida. De manera similar, si desea que un número de teléfono reciba mensajes SMS, se debe comprobar con Twilio el número de teléfono de recepción. Para obtener información sobre cómo comprobar un número de teléfono, consulte la [administración de números][] (en inglés). Parte del código que aparece a continuación se basa en números de teléfono que tendrá que comprobar con Twilio.
+Es necesario comprobar varios números de teléfono con Twilio en la cuenta. Por ejemplo, si desea realizar llamadas de teléfono salientes, el número de teléfono se debe comprobar con Twilio como identificador de autor de una llamada de salida. De manera similar, si desea que un número de teléfono reciba mensajes SMS, se debe comprobar con Twilio el número de teléfono de recepción. Para obtener información sobre cómo comprobar un número de teléfono, consulte la [administración de números][administración de números] (en inglés). Parte del código que aparece a continuación se basa en números de teléfono que tendrá que comprobar con Twilio.
 
-Como alternativa a utilizar un número existente para sus aplicaciones, puede comprar un número de teléfono de Twilio. Si desea obtener información sobre cómo comprar un número de teléfono de Twilio, consulte la [ayuda sobre números de teléfono de Twilio][] (en inglés).
+Como alternativa a utilizar un número existente para sus aplicaciones, puede comprar un número de teléfono de Twilio. Si desea obtener información sobre cómo comprar un número de teléfono de Twilio, consulte la [ayuda sobre números de teléfono de Twilio][ayuda sobre números de teléfono de Twilio] (en inglés).
 
 ## <span id="create_app"></span></a>Creación de un servicio móvil
 
-Un servicio móvil que hospeda una aplicación habilitada para Twilio no es diferente de ningún otro servicio móvil. Solo tiene que agregar la biblioteca node.js de Twilio para poder hacer referencia a esta desde los scripts de la API personalizada del servicio móvil. Para obtener información acerca de cómo crear un servicio móvil inicial, consulte [Introducción a los Servicios móviles][].
+Un servicio móvil que hospeda una aplicación habilitada para Twilio no es diferente de ningún otro servicio móvil. Solo tiene que agregar la biblioteca node.js de Twilio para poder hacer referencia a esta desde los scripts de la API personalizada del servicio móvil. Para obtener información acerca de cómo crear un servicio móvil inicial, consulte [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
 ## <span id="VerifyPhoneNumbers"></span></a>Configuración del servicio móvil para usar la biblioteca Node.js de Twilio
 
 Twilio proporciona la biblioteca Node.js, que encapsula varios aspectos de Twilio a fin de proporcionar maneras sencillas y fáciles de interactuar con la API de Twilio REST y el Cliente de Twilio para producir respuestas TwiML.
 
-Para usar la biblioteca node.js de Twilio en el servicio móvil, debe aprovechar la compatibilidad con el módulo npm de Servicios móviles, lo que puede hacer mediante el almacenamiento de los scripts en el control del código fuente. El tutorial [Almacenamiento de scripts en control de código fuente][] muestra cómo configurar el control del código fuente en Servicios móviles por primera vez y cómo almacenar los scripts del servidor en un repositorio Git.
+Para usar la biblioteca node.js de Twilio en el servicio móvil, debe aprovechar la compatibilidad con el módulo npm de Servicios móviles, lo que puede hacer mediante el almacenamiento de los scripts en el control del código fuente. El tutorial [Almacenamiento de scripts en control de código fuente][Almacenamiento de scripts en control de código fuente] muestra cómo configurar el control del código fuente en Servicios móviles por primera vez y cómo almacenar los scripts del servidor en un repositorio Git.
 
 Una vez configurado el control de código fuente para el servicio móvil, abra la pestaña Configure del panel Servicio móvil, busque la dirección URL de Git y cópiela.
 
@@ -92,7 +92,7 @@ por:
 
 Cuando se le solicite, escriba las credenciales que usó al configurar el control del código fuente para el servicio. Una vez que haya iniciado sesión, se abrirá la consola de Servicios móviles de Azure.
 
-![Consola de Servicios móviles][]
+![Consola de Servicios móviles][Consola de Servicios móviles]
 
 En la consola, cambie el directorio a la carpeta de scripts:
 
@@ -127,7 +127,7 @@ El script siguiente muestra cómo iniciar una llamada saliente desde el servicio
 
 Para obtener más información sobre los parámetros que se pasan a la función **client.makeCall**, consulte [][]<http://www.twilio.com/docs/api/rest/making-calls></a>.
 
-Como se mencionó, este código usa el sitio proporcionado por Twilio para devolver la respuesta de TwiML. Podría en cambio usar su propio sitio para proporcionar la respuesta de TwiML. Para obtener más información, consulte [Inserción de respuestas de TwiML desde su propio sitio web][].
+Como se mencionó, este código usa el sitio proporcionado por Twilio para devolver la respuesta de TwiML. Podría en cambio usar su propio sitio para proporcionar la respuesta de TwiML. Para obtener más información, consulte [Inserción de respuestas de TwiML desde su propio sitio web][Inserción de respuestas de TwiML desde su propio sitio web].
 
 ## <span id="howto_send_sms"></span></a>Direccionamiento del mensaje SMS
 
@@ -202,7 +202,7 @@ Después de que haya configurado una manera de proporcionar respuestas de TwiML,
         });
     };
 
-[WACOM.INCLUDE [twilio\_additional\_services\_and\_next\_steps][]]
+[WACOM.INCLUDE [twilio_additional_services_and_next_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
   [oferta especial]: http://ahoy.twilio.com/azure
   [página de precios de Twilio]: http://www.twilio.com/pricing
@@ -224,7 +224,5 @@ Después de que haya configurado una manera de proporcionar respuestas de TwiML,
   [Consola de Servicios móviles]: ./media/partner-twilio-mobile-services-how-to-use-voice-sms/twilio-kuduconsole.png
   []: http://www.twilio.com/docs/api/rest/making-calls
   [Inserción de respuestas de TwiML desde su propio sitio web]: #howto_provide_twiml_responses
-  [twimlet\_message\_url]: http://twimlets.com/message
-  [twimlet\_message\_url\_hello\_world]: http://twimlets.com/message?Message%5B0%5D=Hello%20World
   [1]: https://www.twilio.com/docs/api/twiml
-  [twilio\_additional\_services\_and\_next\_steps]: ../includes/twilio_additional_services_and_next_steps.md
+  [twilio_additional_services_and_next_steps]: ../includes/twilio_additional_services_and_next_steps.md

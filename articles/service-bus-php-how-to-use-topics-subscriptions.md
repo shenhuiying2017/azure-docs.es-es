@@ -1,48 +1,48 @@
 <properties linkid="develop-php-how-to-guides-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (PHP) - Azure" metaKeywords="" description="Learn how to use Service Bus topics with PHP in Azure." metaCanonical="" services="service-bus" documentationCenter="PHP" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Uso de temas/suscripciones del bus de servicio
 
 En esta guía se indica cómo usar los temas y las suscripciones de bus
-de servicio. Los ejemplos están escritos en PHP y utilizan el [SDK de Azure para PHP][]. Entre los escenarios tratados se incluyen **la creación de temas y suscripciones**, **la creación de filtros de suscripción**, **el envío de mensajes a un tema**, **la recepción de mensajes de una suscripción** y **la eliminación de temas y suscripciones**.
+de servicio. Los ejemplos están escritos en PHP y utilizan el [SDK de Azure para PHP][SDK de Azure para PHP]. Entre los escenarios tratados se incluyen **la creación de temas y suscripciones**, **la creación de filtros de suscripción**, **el envío de mensajes a un tema**, **la recepción de mensajes de una suscripción** y **la eliminación de temas y suscripciones**.
 
 ## Tabla de contenido
 
--   [Qué son los temas y las suscripciones del bus de servicio][]
--   [Creación de un espacio de nombres de servicio][]
--   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][]
--   [Creación de una aplicación PHP][]
--   [Obtención de las bibliotecas de clientes de Azure][]
--   [Configuración de la aplicación para usar el bus de servicio][]
--   [Direccionamiento del de un tema][]
--   [Direccionamiento del una suscripción][]
--   [Direccionamiento del mensajes a un tema][]
--   [Direccionamiento del mensajes de una suscripción][]
--   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer][]
--   [Direccionamiento del de temas y suscripciones][]
--   [Pasos siguientes][]
+-   [Qué son los temas y las suscripciones del bus de servicio][Qué son los temas y las suscripciones del bus de servicio]
+-   [Creación de un espacio de nombres de servicio][Creación de un espacio de nombres de servicio]
+-   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][Obtención de credenciales de administración predeterminadas para el espacio de nombres]
+-   [Creación de una aplicación PHP][Creación de una aplicación PHP]
+-   [Obtención de las bibliotecas de clientes de Azure][Obtención de las bibliotecas de clientes de Azure]
+-   [Configuración de la aplicación para usar el bus de servicio][Configuración de la aplicación para usar el bus de servicio]
+-   [Direccionamiento del de un tema][Direccionamiento del de un tema]
+-   [Direccionamiento del una suscripción][Direccionamiento del una suscripción]
+-   [Direccionamiento del mensajes a un tema][Direccionamiento del mensajes a un tema]
+-   [Direccionamiento del mensajes de una suscripción][Direccionamiento del mensajes de una suscripción]
+-   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer][Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer]
+-   [Direccionamiento del de temas y suscripciones][Direccionamiento del de temas y suscripciones]
+-   [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span id="CreateApplication"></span></a>Creación de una aplicación PHP
 
-El único requisito a la hora de crear una aplicación PHP para obtener acceso al servicio BLOB de Azure es que el código haga referencia a clases del [SDK de Azure para PHP][]. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas.
+El único requisito a la hora de crear una aplicación PHP para obtener acceso al servicio BLOB de Azure es que el código haga referencia a clases del [SDK de Azure para PHP][SDK de Azure para PHP]. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas.
 
 > [WACOM.NOTE]
-> La instalación de PHP debe tener también la [extensión OpenSSL][] instalada y habilitada.
+> La instalación de PHP debe tener también la [extensión OpenSSL][extensión OpenSSL] instalada y habilitada.
 
 En esta guía, utilizará funciones del servicio a las que se puede llamar desde una aplicación PHP localmente o bien mediante código a través de un rol web, rol de trabajo o sitio web de Azure.
 
 ## <span id="GetClientLibrary"></span></a>Obtención de las bibliotecas de clientes de Azure
 
-[WACOM.INCLUDE [get-client-libraries][]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="ConfigureApp"></span></a>Configuración de la aplicación para usar el bus de servicio
 
 Para usar las API del tema del bus de servicio de Azure, necesita:
 
-1.  Hacer referencia al archivo autocargador mediante la instrucción [require\_once][].
+1.  Hacer referencia al archivo autocargador mediante la instrucción [require\_once][require\_once].
 2.  Hacer referencia a todas las clases que utilice.
 
 En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **ServiceBusService**.
@@ -148,7 +148,7 @@ El filtro predeterminado **MatchAll** se usa en caso de que no se haya especific
 
 ### Creación de suscripciones con filtros
 
-También puede configurar filtros que le permitan especificar qué mensajes enviados a un tema deben aparecer dentro de una suscripción de tema determinada. El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información sobre los SqlFilter, consulte [SqlExpression Propiedad][].
+También puede configurar filtros que le permitan especificar qué mensajes enviados a un tema deben aparecer dentro de una suscripción de tema determinada. El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información sobre los SqlFilter, consulte [SqlExpression Propiedad][SqlExpression Propiedad].
 
     > [WACOM.NOTE]
     > Each rule on a subscription processes incoming messages independently, adding their result messages to the subscription. In addition, each new subscription has a default <b>Rule</b> with a filter that adds all messages from the topic to the subscription. To receive only messages matching your filter, you must remove the default rule. You can remove the default rule by using the <b>ServiceBusRestProxy->deleteRule</b> method.
@@ -318,7 +318,7 @@ Si usa el método **deleteSubscription**, puede eliminar una suscripción de man
 ## <span id="NextSteps"></span></a>Pasos siguientes
 
 Ahora que ya conoce los aspectos básicos de las colas del bus de servicio, consulte
-el tema [Colas, temas y suscripciones][] de MSDN para obtener más información.
+el tema [Colas, temas y suscripciones][Colas, temas y suscripciones] de MSDN para obtener más información.
 
   [SDK de Azure para PHP]: http://go.microsoft.com/fwlink/?LinkId=252473
   [Qué son los temas y las suscripciones del bus de servicio]: #what-are-service-bus-topics
@@ -337,6 +337,5 @@ el tema [Colas, temas y suscripciones][] de MSDN para obtener más información.
   [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [extensión OpenSSL]: http://php.net/openssl
   [get-client-libraries]: ../includes/get-client-libraries.md
-  [require\_once]: http://php.net/require_once
   [SqlExpression Propiedad]: http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Colas, temas y suscripciones]: http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx

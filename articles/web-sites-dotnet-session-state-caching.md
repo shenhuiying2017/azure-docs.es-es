@@ -1,10 +1,10 @@
 <properties linkid="video-center-index" urlDisplayName="index" pageTitle="Use ASP.NET session state with Azure Websites" metaKeywords="azure cache service session state" description="Learn how to use the Azure Cache Service to support ASP.NET session state caching." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use ASP.NET Session State with Azure Websites" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra" />
 
 # Uso del estado de la sesión de ASP.NET con Sitios web Azure
 
-*Por [Rick Anderson][]. Actualizado el 1 de julio de 2014.*
+*Por [Rick Anderson][Rick Anderson]. Actualizado el 1 de julio de 2014.*
 
 En este tema se explica cómo utilizar el servicio de caché Redis de Azure (vista previa) para el estado de sesión.
 
@@ -12,14 +12,14 @@ Si su aplicación de ASP.NET utiliza el estado de sesión, deberá configurar un
 
 Los pasos básicos para utilizar el servicio de caché (vista previa) para el almacenamiento en caché de estado de sesión incluyen:
 
--   [Creación de la caché][]
--   [Agregue el paquete NuGet RedisSessionStateProvider a su aplicación web.][]
--   [Modificación del archivo web.config][]
--   [Uso del objeto Session para almacenar y recuperar elementos almacenados en caché.][]
+-   [Creación de la caché][Creación de la caché]
+-   [Agregue el paquete NuGet RedisSessionStateProvider a su aplicación web.][Agregue el paquete NuGet RedisSessionStateProvider a su aplicación web.]
+-   [Modificación del archivo web.config][Modificación del archivo web.config]
+-   [Uso del objeto Session para almacenar y recuperar elementos almacenados en caché.][Uso del objeto Session para almacenar y recuperar elementos almacenados en caché.]
 
 ## <span id="createcache"></span></a>Creación de la caché
 
-Siga [estas instrucciones][] para crear la caché.
+Siga [estas instrucciones][estas instrucciones] para crear la caché.
 
 ## <span id="configureproject"></span></a>Agregue el paquete NuGet RedisSessionStateProvider a su aplicación web.
 
@@ -29,7 +29,7 @@ Instalar el paquete NuGet `RedisSessionStateProvider`. Utilice el comando siguie
 
 Para instalar desde **Tools** \> **NuGet Package Manager** \> **Manage NugGet Packages for Solution**, busque `RedisSessionStateProvider` y asegúrese de marcar **Include Prerelease**.
 
-Para obtener más información vea la [página NuGet RedisSessionStateProvider][] y [Configuración de los clientes de caché][].
+Para obtener más información vea la [página NuGet RedisSessionStateProvider][página NuGet RedisSessionStateProvider] y [Configuración de los clientes de caché][Configuración de los clientes de caché].
 
 ## <span id="configurewebconfig"></span></a>Modificación del archivo web.config
 
@@ -37,7 +37,7 @@ Además de hacer referencias de ensamblado para la caché, el paquete NuGet agre
 
 1.  Abra *web.config* y encuentre el elemento **sessionState**.
 
-2.  Introduzca los valores de `host`, `accessKey`, `port` (el puerto de SSL debe ser el 6380) y ajuste `SSL` en `true`. Estos valores se pueden obtener del cuadro del portal de vista previa de administración de Azure para su instancia de caché. Para obtener más información vea [Conexión a la memoria caché][].
+2.  Introduzca los valores de `host`, `accessKey`, `port` (el puerto de SSL debe ser el 6380) y ajuste `SSL` en `true`. Estos valores se pueden obtener del cuadro del portal de vista previa de administración de Azure para su instancia de caché. Para obtener más información vea [Conexión a la memoria caché][Conexión a la memoria caché].
     El siguiente marcado muestra los cambios en el archivo *web.config*.
 
 ``` prettyprint
@@ -58,8 +58,8 @@ El siguiente código recupera este valor desde el estado de sesión.
     if (objValue != null)
        strValue = (string)obj;  
 
-También puede usar el caché Redis para almacenar objetos en la memoria caché en su aplicación web. Para obtener más información consulte [Aplicación de películas MVC con caché Redis de Azure en 15 minutos][].
-Para obtener más detalles acerca de cómo utilizar el estado de sesión de ASP.NET, consulte [Información general sobre el estado de sesión de ASP.NET][].
+También puede usar el caché Redis para almacenar objetos en la memoria caché en su aplicación web. Para obtener más información consulte [Aplicación de películas MVC con caché Redis de Azure en 15 minutos][Aplicación de películas MVC con caché Redis de Azure en 15 minutos].
+Para obtener más detalles acerca de cómo utilizar el estado de sesión de ASP.NET, consulte [Información general sobre el estado de sesión de ASP.NET][Información general sobre el estado de sesión de ASP.NET].
 
   [Rick Anderson]: https://twitter.com/RickAndMSFT
   [Creación de la caché]: #createcache

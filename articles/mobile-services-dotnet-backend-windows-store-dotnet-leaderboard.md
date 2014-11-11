@@ -1,6 +1,6 @@
 <properties urlDisplayName=".NET Client Library" pageTitle="Creating a Leaderboard App with Azure Mobile Services .NET Backend" metaKeywords="Azure Mobile Services, Mobile Service .NET client, .NET client" description="Learn how to build a Windows Store app using Azure Mobile Services with a .NET backend." documentationCenter="Mobile" title="Creating a Leaderboard App with Azure Mobile Services .NET Backend" authors="mwasson" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mwasson"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="mwasson" />
 
 # Creación de una aplicación de marcador con el backend .NET de Servicios móviles de Azure
 
@@ -43,7 +43,7 @@ Este tutorial utiliza [Visual Studio 2013 Update 2][Visual Studio 2013 Update 2]
 
 Un *marcador* muestra una lista de jugadores de un juego junto con sus puntuaciones y la clasificación de cada jugador. Un marcador puede formar parte de un juego más grande o ser una aplicación aparte. Un marcador es una aplicación real, pero lo suficientemente sencilla para un tutorial. Esta es una captura de pantalla de la aplicación:
 
-![][]
+![][0]
 
 Para mantener la aplicación sencilla, no hay un juego real, sino que puede agregar jugadores y enviar una puntuación para cada jugador. Cuando envía una puntuación, el servicio móvil calcula las nuevas clasificaciones. En el backend, el servicio móvil crea una base de datos con dos tablas:
 
@@ -729,13 +729,13 @@ Ahora, cuando ejecuta la aplicación, se comunica con el servicio real.
   [Publicación del servicio móvil]: #publish-your-mobile-service
   [Pasos siguientes]: #next-steps
   [Visual Studio 2013 Update 2]: http://go.microsoft.com/fwlink/p/?LinkID=390465
-  []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/01leaderboard.png
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/01leaderboard.png
   [1]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/02leaderboard.png
   [aquí]: http://code.msdn.microsoft.com/Leaderboard-App-with-Azure-9acf63af
   [2]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/03leaderboard.png
   [3]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/04leaderboard.png
   [4]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/05leaderboard.png
-  [EF Code First]: http://msdn.microsoft.com/en-US/data/ee712907#codefirst
+  [EF Code First]: http://msdn.microsoft.com/es-es/data/ee712907#codefirst
   [controlar los conflictos de escritura en la base de datos]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-windows-store-dotnet-handle-database-conflicts/
   [propiedad navigation]: http://msdn.microsoft.com/es-es/data/jj713564.aspx
   [5]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-leaderboard/06leaderboard.png

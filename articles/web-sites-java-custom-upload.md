@@ -1,14 +1,14 @@
-<properties linkid="develop-java-tutorials-web-site-custom_upload" urlDisplayName="Upload custom Java website" pageTitle="Upload a custom Java website to Azure" metaKeywords="" description="This tutorial shows you how to upload a custom Java website to Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Upload a custom Java website to Azure" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+<properties linkid="develop-java-tutorials-web-site-custom_upload" urlDisplayName="Upload custom Java web site" pageTitle="Upload a custom Java web site to Azure" metaKeywords="" description="This tutorial shows you how to upload a custom Java web site to Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Upload a custom Java web site to Azure" videoId="" scriptId="" authors="waltpo" solutions="" manager="keboyd" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
-
-# Carga de un sitio web de Java personalizado en Azure
+Carga de un sitio web de Java personalizado en Azure
+====================================================
 
 En este tema se explica cómo cargar un sitio web de Java personalizado en Azure. Se incluye información que se aplica a cualquier sitio web de Java, así como algunos ejemplos de aplicaciones específicas.
 
-Tenga en cuenta que Azure proporciona un medio para la creación de sitios web de Java con la interfaz de usuario de configuración del portal de Azure y la galería de aplicaciones de Azure, como se documenta en [Introducción a los Sitios web Azure y Java][]. Este tutorial se destina a situaciones en las que no desea utilizar la interfaz de usuario de configuración de Azure ni la galería de aplicaciones de Azure.
+Tenga en cuenta que Azure proporciona un medio para la creación de sitios web de Java con la interfaz de usuario de configuración del portal de Azure y la galería de aplicaciones de Azure, como se documenta en [Introducción a los Sitios web Azure y Java](../web-sites-java-get-started). Este tutorial se destina a situaciones en las que no desea utilizar la interfaz de usuario de configuración de Azure ni la galería de aplicaciones de Azure.
 
-# Directrices de configuración
+Directrices de configuración
+============================
 
 A continuación se describe la configuración esperada para los sitios web de Java personalizados en Azure.
 
@@ -20,7 +20,8 @@ A continuación se describe la configuración esperada para los sitios web de Ja
 
 Puede establecer las variables de entorno como se requiere en el archivo web.config.
 
-# Configuración de web.config httpPlatform
+Configuración de web.config httpPlatform
+========================================
 
 La siguiente información describe el formato **httpPlatform** dentro de web.config.
 
@@ -32,7 +33,7 @@ Ejemplos (que se muestran con **processPath** incluido):
     arguments="start"
 
     processPath="%JAVA_HOME\bin\java.exe"
-    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base="d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115" -jar "d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar""
 
 **processPath** - Ruta de acceso al ejecutable o script que pondrá en marcha un proceso de escucha de las solicitudes HTTP.
 
@@ -43,7 +44,6 @@ Ejemplos:
     processPath="d:\home\site\wwwroot\bin\tomcat\bin\startup.bat"
 
     processPath="d:\home\site\wwwroot\bin\tomcat\bin\catalina.bat"
-                                                                                       
 
 **rapidFailsPerMinute** (Valor predeterminado=10). Número de veces que se permite que el proceso especificado en **processPath** se bloquee por minuto. Si se supera este límite, **HttpPlatformHandler** detendrá el inicio del proceso durante el resto del minuto.
 
@@ -59,15 +59,18 @@ Ejemplos:
 
 > [WACOM.NOTE] `%HTTP_PLATFORM_PORT%` es un marcador de posición especial que se debe especificar como parte de los **argumentos** o como parte de la lista **environmentVariables** de **httpPlatform**. Esto se reemplazará por un puerto generado internamente mediante **HttpPlatformHandler** de modo que el proceso que se especifica en **processPath** puede escuchar en este puerto.
 
-# Implementación
+Implementación
+==============
 
-Los sitios web basados ​​en Java se pueden implementar fácilmente a través de la mayoría de los mismos medios que se utilizan con las aplicaciones web basadas en Internet Information Services (IIS). FTP, Git y Kudu son todas compatibles como mecanismos de implementación, así como la funcionalidad de SCM integrada para los sitios web. WebDeploy funciona como un protocolo; sin embargo, debido a que Java no está desarrollado en Visual Studio, WebDeploy no se adapta a los casos de uso de la implementación de un sitio web de Java.
+Los sitios web basados ??en Java se pueden implementar fácilmente a través de la mayoría de los mismos medios que se utilizan con las aplicaciones web basadas en Internet Information Services (IIS). FTP, Git y Kudu son todas compatibles como mecanismos de implementación, así como la funcionalidad de SCM integrada para los sitios web. WebDeploy funciona como un protocolo; sin embargo, debido a que Java no está desarrollado en Visual Studio, WebDeploy no se adapta a los casos de uso de la implementación de un sitio web de Java.
 
-# Ejemplos de configuración de aplicaciones
+Ejemplos de configuración de aplicaciones
+=========================================
 
 Para las siguientes aplicaciones, se proporciona un archivo web.config y la configuración de la aplicación como ejemplos para mostrar cómo habilitar la aplicación Java en sitios web de Azure.
 
-## Tomcat
+Tomcat
+------
 
 Si bien hay dos variaciones en Tomcat que se suministran con Sitios web Azure, todavía es posible cargar las instancias específicas de los clientes. A continuación se muestra un ejemplo de una instalación de Tomcat con una JVM diferente.
 
@@ -95,11 +98,12 @@ Por el lado de Tomcat, es necesario realizar algunos cambios en la configuració
 -   Puerto del conector HTTP = {port.http}
 -   Dirección del conector HTTP = "127.0.0.1"
 -   Convierta en comentarios los conectores HTTPS y AJP
--   La configuración de IPv4 también se puede configurar en el archivo catalina.properties donde se puede agregar `java.net.preferIPv4Stack=true`
+-   La configuración de IPv4 también se puede configurar en el archivo catalina.properties donde se puede agregar `java.net.preferIPv4Stack = true`
 
 Las llamadas Direct3D no se admiten en los sitios web de Azure. Para deshabilitarlas, agregue la siguiente opción de Java si la aplicación realiza llamadas de ese tipo: `-Dsun.java2d.d3d=false`
 
-## Jetty
+Jetty
+-----
 
 Como es el caso de Tomcat, los clientes pueden cargar sus propias instancias de Jetty. En el caso de ejecutar la instalación completa de Jetty, la configuración sería similar a la siguiente:
 
@@ -110,7 +114,7 @@ Como es el caso de Tomcat, los clientes pueden cargar sus propias instancias de 
           <add name="httppPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
         </handlers>
         <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" 
-             arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+             arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base="d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115" -jar "d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar""
             startupTimeLimit="20"
           startupRetryCount="10"
           stdoutLogEnabled="true">
@@ -120,7 +124,8 @@ Como es el caso de Tomcat, los clientes pueden cargar sus propias instancias de 
 
 La configuración de Jetty necesita cambiarse en el archivo start.ini para establecer `java.net.preferIPv4Stack=true`.
 
-## Hudson
+Hudson
+------
 
 Nuestra prueba utilizó war de Hudson 3.1.2 y la instancia predeterminada de Tomcat 7.0.50, pero sin utilizar la interfaz de usuario para realizar la configuración. Debido a que Hudson es una herramienta de compilación de software, se recomienda instalarla en instancias dedicadas donde la marca **AlwaysOn** se pueda configurar en el sitio.
 
@@ -128,46 +133,47 @@ Nuestra prueba utilizó war de Hudson 3.1.2 y la instancia predeterminada de Tom
 2.  Descargue apache maven 3.0.5 (compatible con Hudson) y colóquelo en **d:\\home\\site\\wwwroot**.
 3.  Cree web.config en **d:\\home\\site\\wwwroot** y pegue el siguiente contenido en él:
 
-        <?xml version="1.0" encoding="UTF-8"?>
-        <configuration>
-          <system.webServer>
-            <handlers>
-              <add name="httppPlatformHandler" path="*" verb="*" 
-        modules="httpPlatformHandler" resourceType="Unspecified" />
-            </handlers>
-            <httpPlatform processPath="%AZURE_TOMCAT7_HOME%\bin\startup.bat"
-        startupTimeLimit="20"
-        startupRetryCount="10">
-        <environmentVariables>
-          <environmentVariable name="HUDSON_HOME" 
-        value="d:\home\site\wwwroot\hudson_home" />
-          <environmentVariable name="JAVA_OPTS" 
-        value="-Djava.net.preferIPv4Stack=true -Duser.home=d:/home/site/wwwroot/user_home -Dhudson.DNSMultiCast.disabled=true" />
-        </environmentVariables>            
-            </httpPlatform>
-          </system.webServer>
-        </configuration>
+         <?xml version="1.0" encoding="UTF-8"?>
+         <configuration>
+           <system.webServer>
+             <handlers>
+               <add name="httppPlatformHandler" path="*" verb="*" 
+         modules="httpPlatformHandler" resourceType="Unspecified" />
+             </handlers>
+             <httpPlatform processPath="%AZURE_TOMCAT7_HOME%\bin\startup.bat"
+         startupTimeLimit="20"
+         startupRetryCount="10">
+         <environmentVariables>
+           <environmentVariable name="HUDSON_HOME" 
+         value="d:\home\site\wwwroot\hudson_home" />
+           <environmentVariable name="JAVA_OPTS" 
+         value="-Djava.net.preferIPv4Stack=true -Duser.home=d:/home/site/wwwroot/user_home -Dhudson.DNSMultiCast.disabled=true" />
+         </environmentVariables>            
+             </httpPlatform>
+           </system.webServer>
+         </configuration>
 
-    En este punto, se puede reiniciar el sitio web para que los cambios surtan efecto. Conéctese con <http://yoursite/hudson> para iniciar Hudson.
+    En este punto, se puede reiniciar el sitio web para que los cambios surtan efecto. Conéctese con http://yoursite/hudson para iniciar Hudson.
 
 4.  Cuando Hudson se haya configurado, debería ver la siguiente pantalla:
 
-    ![Hudson][]
+    ![Hudson](./media/web-sites-java-custom-upload/hudson1.png)
 
 5.  Obtenga acceso a la página de configuración de Hudson: Haga clic en **Manage Hudson** y, a continuación, haga clic en **Configure System**.
 6.  Configure el JDK como se muestra a continuación:
 
-    ![Configuración de Hudson][]
+    ![Configuración de Hudson](./media/web-sites-java-custom-upload/hudson2.png)
 
 7.  Configure Maven como se muestra a continuación:
 
-    ![Configuración de Maven][]
+    ![Configuración de Maven](./media/web-sites-java-custom-upload/maven.png)
 
 8.  Guarde la configuración Hudson debe estar ahora configurado y listo para su uso.
 
-Para obtener información adicional sobre Hudson, consulte [][]<http://hudson-ci.org></a>.
+Para obtener información adicional sobre Hudson, consulte <http://hudson-ci.org>.
 
-## Liferay
+Liferay
+-------
 
 Liferay es compatible con los sitios web de Azure. Debido a que Liferay puede requerir una importante cantidad de memoria, el sitio necesita ejecutarse en un trabajo dedicado mediano o grande, que puede proporcionar suficiente memoria. Liferay también tarda varios minutos en iniciarse. Por esa razón, se recomienda que configure el sitio en **Always On**.
 
@@ -176,8 +182,7 @@ Con Liferay 6.1.2 Community Edition GA3 incluido con Tomcat, se editaron los sig
 **Server.xml**
 
 -   Cambie el puerto de apagado a -1.
--   Cambie el conector HTTP a
-     `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
+-   Cambie el conector HTTP a `<Connector port="${port.http}" protocol="HTTP/1.1" connectionTimeout="600000" address="127.0.0.1" URIEncoding="UTF-8" />`
 -   Comente el conector AJP.
 
 En la carpeta **liferay\\tomcat-7.0.40\\webapps\\ROOT\\WEB-INF\\classes**, cree un archivo llamado **portal-ext.properties**. Este archivo debe contener una línea, como se muestra aquí:
@@ -208,17 +213,11 @@ En el mismo nivel de directorio que la carpeta tomcat-7.0.40, cree un archivo ll
       </system.webServer>
     </configuration>
 
-En el bloque **httpPlatform**, **requestTimeout** se establece en “00:10:00”. Se puede reducir, pero entonces es probable se vean algunos errores de tiempo de espera mientras Liferay arranca. Si se cambia este valor, se debe modificar también **connectionTimeout** en el server.xml de tomcat.
+En el bloque **httpPlatform**, **requestTimeout** se establece en "00:10:00". Se puede reducir, pero entonces es probable se vean algunos errores de tiempo de espera mientras Liferay arranca. Si se cambia este valor, se debe modificar también **connectionTimeout** en el server.xml de tomcat.
 
 Vale la pena señalar que la variable de entorno JRE\_HOME se especifica en web.config anterior para apuntar a la JDK de 64 bits. El valor predeterminado es 32 bits, pero debido a que Liferay puede requerir altos niveles de memoria, se recomienda utilizar el JDK de 64 bits.
 
-Después de que realice estos cambios, reinicie el sitio web que ejecuta Liferay y, a continuación, abra <http://yoursite>. El portal de Liferay está disponible en la raíz del sitio web.
+Después de que realice estos cambios, reinicie el sitio web que ejecuta Liferay y, a continuación, abra http://yoursite. El portal de Liferay está disponible en la raíz del sitio web.
 
-Para obtener más información sobre Liferay, visite [][1]<http://www.liferay.com></a>.
+Para obtener más información sobre Liferay, visite <http://www.liferay.com>.
 
-  [Introducción a los Sitios web Azure y Java]: ../web-sites-java-get-started
-  [Hudson]: ./media/web-sites-java-custom-upload/hudson1.png
-  [Configuración de Hudson]: ./media/web-sites-java-custom-upload/hudson2.png
-  [Configuración de Maven]: ./media/web-sites-java-custom-upload/maven.png
-  []: http://hudson-ci.org
-  [1]: http://www.liferay.com

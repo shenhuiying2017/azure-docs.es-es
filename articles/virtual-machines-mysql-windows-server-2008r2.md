@@ -1,10 +1,10 @@
 <properties linkid="manage-windows-common-tasks-install-mysql" urlDisplayName="Install MySQL" pageTitle="Create a virtual machine running MySQL in Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Create an Azure virtual machine running Windows Server 2008 R2, and then install and configure a MySQL database on the virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running Windows Server 2008 R2 in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/15/2013" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/15/2013" ms.author="kathydav" />
 
 # Instalación de MySQL en una máquina virtual que ejecuta Windows Server 2008 R2 en Azure
 
-[MySQL][] es una conocida base de datos SQL de código abierto. Con el [Portal de administración de Azure][], puede crear una máquina virtual que ejecuta Windows Server 2008 R2 desde la Galería de imágenes. Después, puede instalar y configurar una base de datos MySQL en la máquina virtual.
+[MySQL][MySQL] es una conocida base de datos SQL de código abierto. Con el [Portal de administración de Azure][Portal de administración de Azure], puede crear una máquina virtual que ejecuta Windows Server 2008 R2 desde la Galería de imágenes. Después, puede instalar y configurar una base de datos MySQL en la máquina virtual.
 
 En este tutorial, aprenderá a:
 
@@ -14,11 +14,11 @@ En este tutorial, aprenderá a:
 
 ## Creación de una máquina virtual con Windows Server 2008 R2
 
-[WACOM.INCLUDE [create-and-configure-windows-server-2008-vm-in-portal][]]
+[WACOM.INCLUDE [create-and-configure-windows-server-2008-vm-in-portal](../includes/create-and-configure-windows-server-2008-vm-in-portal.md)]
 
 ## Acoplamiento de un disco de datos
 
-[WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal][]]
+[WACOM.INCLUDE [attach-data-disk-windows-server-2008-vm-in-portal](../includes/attach-data-disk-windows-server-2008-vm-in-portal.md)]
 
 ## Instalación y ejecución de MySQL Community Server en la máquina virtual
 
@@ -28,7 +28,7 @@ Siga estos pasos para instalar, configurar y ejecutar MySQL Community Server:
 
 2.  Seleccione el botón **Herramientas** de la esquina superior derecha. En **Opciones de Internet**, seleccione la pestaña **Seguridad** y, a continuación, seleccione el icono **Sitios de confianza**. Finalmente, haga clic en el botón **Sitios**. Agregue *http://\*.mysql.com* a la lista de sitios de confianza.
 
-3.  Vaya a [Download MySQL Community Server][].
+3.  Vaya a [Download MySQL Community Server][Download MySQL Community Server].
 
 4.  Seleccione **Microsoft Windows** en el menú desplegable **Platform** y haga clic en **Select**.
 
@@ -40,7 +40,7 @@ Siga estos pasos para instalar, configurar y ejecutar MySQL Community Server:
 
 8.  Haga clic en **Next**.
 
-    ![Configuración de MySQL][]
+    ![Configuración de MySQL][Configuración de MySQL]
 
 9.  Acepte los términos de licencia y, a continuación, haga clic en **Next**.
 
@@ -129,9 +129,9 @@ Siga estos pasos para instalar, configurar y ejecutar MySQL Community Server:
 
         quit
 
-30. Cuando MySQL esté instalado, debe configurar un extremo para que pueda obtenerse acceso a MySQL de manera remota. Inicie sesión en el [Portal de administración de Azure][]. En el Portal de Azure, haga clic en **Máquinas virtuales**, en el nombre de la nueva máquina virtual, en **Endpoints** y, finalmente, en **Add Endpoint**.
+30. Cuando MySQL esté instalado, debe configurar un extremo para que pueda obtenerse acceso a MySQL de manera remota. Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure]. En el Portal de Azure, haga clic en **Máquinas virtuales**, en el nombre de la nueva máquina virtual, en **Endpoints** y, finalmente, en **Add Endpoint**.
 
-    ![Extremos][]
+    ![Extremos][Extremos]
 
 31. Seleccione **Add Endpoint** y haga clic en la flecha para continuar.
 
@@ -151,7 +151,7 @@ Siga estos pasos para instalar, configurar y ejecutar MySQL Community Server:
 
 ## Resumen
 
-En este tutorial ha aprendido a crear un equipo virtual Windows 2008 R2 y a conectarse a él de forma remota. También ha aprendido a instalar y configurar MySQL en el equipo virtual, crear una base de datos y un nuevo usuario de MySQL. Para obtener más información sobre MySQL, consulte [MySQL Documentation][].
+En este tutorial ha aprendido a crear un equipo virtual Windows 2008 R2 y a conectarse a él de forma remota. También ha aprendido a instalar y configurar MySQL en el equipo virtual, crear una base de datos y un nuevo usuario de MySQL. Para obtener más información sobre MySQL, consulte [MySQL Documentation][MySQL Documentation].
 
   [MySQL]: http://www.mysql.com
   [Portal de administración de Azure]: http://manage.windowsazure.com

@@ -1,6 +1,6 @@
 <properties linkid="develop-net-tutorials-compute-intensive-task-on-a-virtual-machine" urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on an Azure virtual machine" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
 # Ejecución de una tarea de proceso intensivo en .NET en una máquina virtual de Azure
 
@@ -20,17 +20,17 @@ Aprenderá a:
 
 En este tutorial se utilizará el problema del viajante para explicar la tarea de proceso intensivo. A continuación se mostrará un ejemplo de la aplicación .NET que ejecuta la tarea de proceso intensivo:
 
-![Solucionador del problema del viajante][]
+![Solucionador del problema del viajante][Solucionador del problema del viajante]
 
 A continuación se muestra un ejemplo de la aplicación .NET que supervisa la tarea de proceso intensivo:
 
-![Cliente del problema del viajante][]
+![Cliente del problema del viajante][Cliente del problema del viajante]
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Para crear una máquina virtual
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  Haga clic en **New**.
 3.  Haga clic en **Máquina virtual**.
 4.  Haga clic en **Quick create**.
@@ -57,15 +57,15 @@ con un ámbito para el desvío de recursos del Bus de servicio en la aplicación
 
 Para crear un nombre de espacio de servicio:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  En el panel de navegación izquierdo del Portal de administración, haga clic en **Bus de servicio**.
 3.  En el panel inferior del Portal de administración, haga clic en **Create**.
 
-    ![Creación de un nuevo bus de servicio][]
+    ![Creación de un nuevo bus de servicio][Creación de un nuevo bus de servicio]
 
 4.  En el cuadro de diálogo **Create a namespace**, especifique un nombre de espacio de nombres. El sistema realiza la comprobación de inmediato para ver si el nombre está disponible, ya que debe ser un nombre exclusivo.
 
-    ![Creación de un cuadro de diálogo de espacio de nombres][]
+    ![Creación de un cuadro de diálogo de espacio de nombres][Creación de un cuadro de diálogo de espacio de nombres]
 
 5.  Tras asegurarse de que el espacio de nombres está disponible, elija la región en la que se debe alojar su espacio de nombres (asegúrese de que utiliza la misma región en la que se aloja su máquina virtual).
     <div class="dev-callout"><br /><strong>Importante</strong><br /><p>Seleccione la <strong>misma regi&oacute;n</strong> que use o vaya a usar para la m&aacute;quina virtual. Con esto conseguir&aacute; el m&aacute;ximo rendimiento.</p><br /></div>
@@ -73,7 +73,7 @@ Para crear un nombre de espacio de servicio:
 6.  Si dispone de más de una suscripción a Azure para la cuenta con la que ha iniciado sesión, seleccione la suscripción que desea usar para el espacio de nombres. Si cuenta solo con una suscripción para la cuenta con la que inicia sesión, no verá una lista desplegable que contenga las suscripciones.
 7.  Haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
 
-    ![Captura de pantalla de hacer clic para crear][]
+    ![Captura de pantalla de hacer clic para crear][Captura de pantalla de hacer clic para crear]
 
 El espacio de nombres que creó aparecerá a continuación en el Portal de administración y tardará un poco en activarse. Espere hasta que el estado sea **Active** antes de continuar con el siguiente paso.
 
@@ -85,16 +85,16 @@ espacio de nombres.
 
 1.  En el panel de navegación izquierdo, haga clic en el nodo **Service Bus** para
     ver la lista de espacios de nombres disponibles:
-    ![Available namespaces screenshot][]
+    ![Available namespaces screenshot][Available namespaces screenshot]
 2.  Seleccione el espacio de nombres que acaba de crear en la lista que se muestra:
-    ![Namespace list screenshot][]
+    ![Namespace list screenshot][Namespace list screenshot]
 3.  Haga clic en **Access Key**.
-    ![Access key button][]
+    ![Access key button][Access key button]
 4.  En el cuadro de diálogo, busque las entradas **Default Issuer** y **Default Key**. Anote estos valores, ya que usará la información que aparece a continuación para realizar operaciones con el espacio de nombres.
 
 ## Creación de una aplicación .NET que realiza una tarea de proceso intensivo
 
-1.  En la máquina de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para .NET][].
+1.  En la máquina de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para .NET][SDK de Azure para .NET].
 2.  Cree una aplicación de la consola .NET con el proyecto con el nombre **TSPSolver**. Asegúrese de que el marco de trabajo de destino esté establecido para **.NET Framework 4** (no para **.NET Framework 4 Client Profile**). El marco de trabajo de destino puede establecerse después de crear un proyecto mediante la siguiente forma: en el menú de Visual Studio, haga clic en **Proyectos**, en **Propiedades** y en la pestaña **Aplicación**. A continuación, establezca el valor para **Marco de trabajo de destino**.
 3.  Agregue en la biblioteca de Microsoft ServiceBus. En el Explorador de soluciones de Visual Studio, haga clic con el botón secundario en **TSPSolver**, en **Agregar referencia** y en la pestaña **Examinar**, y diríjase a **C:\\Program Files\\Microsoft SDKs\\Windows Azure.NET SDK\\2012-06\\ref** y seleccione **Microsoft.ServiceBus.dll** como referencia.
 4.  Agregue la biblioteca System Runtime Serialization. En el Explorador de soluciones de Visual Studio, haga clic con el botón secundario en **TSPSolver**, haga clic en **Agregar referencia**, haga clic en la pestaña **.NET** y seleccione **System.Runtime.Serialization** como referencia.
@@ -541,7 +541,7 @@ En ambas aplicaciones, el solucionador y el cliente, presione **Ctrl+C** para sa
 
 ## Alternativa a la creación y eliminación de la cola con TSPSolver
 
-En lugar de usar TSPSolver para crear o eliminar la cola, puede crear o eliminar la cola con el [Portal de administración de Azure][]. Consulte la sección del bus de servicio del Portal de administración para obtener acceso a las interfaces de usuario para la creación o eliminación de una cola, así como para la recuperación de la cadena de conexión, el emisor y la clave de acceso. También puede ver un panel de las colas del bus de servicio, que le permitirá ver la métrica para los mensajes entrantes y salientes.
+En lugar de usar TSPSolver para crear o eliminar la cola, puede crear o eliminar la cola con el [Portal de administración de Azure][Portal de administración de Azure]. Consulte la sección del bus de servicio del Portal de administración para obtener acceso a las interfaces de usuario para la creación o eliminación de una cola, así como para la recuperación de la cadena de conexión, el emisor y la clave de acceso. También puede ver un panel de las colas del bus de servicio, que le permitirá ver la métrica para los mensajes entrantes y salientes.
 
   [Solucionador del problema del viajante]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
   [Cliente del problema del viajante]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png

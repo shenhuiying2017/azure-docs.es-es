@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-send-localized-breaking-news-windowsdotnet" urlDisplayName="Localized Breaking News" pageTitle="Notification Hubs Localized Breaking News Tutorial" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send localized breaking news notifications." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Uso de los Centros de notificaciones para enviar noticias de última hora localizadas
 
@@ -159,8 +159,6 @@ Modifique el archivo MainPage.xaml para que incluya un cuadro combinado de confi
 Para obtener más información acerca del uso de las plantillas, consulte [Notificación a los usuarios con los Centros de notificaciones: ASP.NET][Notificación a los usuarios con los Centros de notificaciones: ASP.NET], [Notificación a los usuarios con los Centros de notificaciones: Servicios móviles][Notificación a los usuarios con los Centros de notificaciones: Servicios móviles] e [Información general acerca de los centros de notificaciones de Azure][Información general acerca de los Centros de notificaciones de Azure]. Como referencia sobre el lenguaje de expresión de las plantillas, puede consultar los [procedimientos de los Centros de notificaciones para la Tienda Windows][procedimientos de los Centros de notificaciones para la Tienda Windows] (en inglés).
 
 
-  [C# para Tienda Windows]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/ "C# para Tienda Windows"
-  [iOS]: /es-es/documentation/articles/notification-hubs-ios-send-localized-breaking-news/ "iOS"
   [Uso de los Centros de notificaciones para enviar noticias de última hora]: /es-es/manage/services/notification-hubs/breaking-news-dotnet
   [Conceptos de plantilla]: #concepts
   [La interfaz de usuario de la aplicación]: #ui

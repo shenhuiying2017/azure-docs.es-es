@@ -1,6 +1,6 @@
 <properties linkid="develop-python-web-site-with-django" urlDisplayName="Websites with Django" pageTitle="Python Websites with Django - Azure tutorial" metaKeywords="Azure django, django website" description="A tutorial that introduces you to running a Python website on Azure." metaCanonical="" services="web-sites" documentationCenter="Python" title="Creating Websites with Django" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Creación de sitios web con Django
 
@@ -8,7 +8,7 @@ En este tutorial se describe cómo empezar a ejecutar Python en los sitios web A
 
 En este tutorial se muestra cómo implementar una aplicación compilada con el marco de trabajo web Django y se analizan los distintos pasos para implementar la aplicación y las bibliotecas necesarias, incluidas las de Django. Todos estos elementos se incluirán en un repositorio Git, lo cual facilitará y agilizará la inserción de actualizaciones en el sitio web. Por último, el sitio recién creado se configurará mediante Azure para poder ejecutar la aplicación Python.
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 En este tutorial se usan Python 2.7 y Django 1.4. Puede obtener estas aplicaciones por su cuenta o bien instalarlas de forma rápida y sencilla a través del vínculo del instalador de Windows en [][]<http://www.windowsazure.com/es-es/develop/python/></a>.
 
@@ -16,7 +16,7 @@ En este tutorial se usan Python 2.7 y Django 1.4. Puede obtener estas aplicacion
 
 > [WACOM.NOTE] Ahora puede seleccionar la versión de Python que desee usar en el portal Sitios web de Azure. Para ello, abra la pestaña Configurar de su sitio web y cambie la opción **Versión de Python**.
 
-También deberá instalar una opción de implementación para insertar el sitio en Azure. Hay varias herramientas de implementación disponibles, si bien en este tutorial se usa Git. Se recomienda [msysgit][].
+También deberá instalar una opción de implementación para insertar el sitio en Azure. Hay varias herramientas de implementación disponibles, si bien en este tutorial se usa Git. Se recomienda [msysgit][msysgit].
 
 **Nota**: la publicación TFS no se admite actualmente para los proyectos de Python.
 
@@ -26,7 +26,7 @@ Una vez instalados Python, Django y Git, tendrá todo lo necesario para comenzar
 
 El primer paso para crear la aplicación consiste en crear el sitio web a través del Portal de administración de Azure. Para ello, deberá iniciar sesión en el portal y hacer clic en el botón NEW de la esquina inferior izquierda. Aparecerá una ventana. Haga clic en **Quick Create**, especifique una dirección URL y seleccione **Create Website**.
 
-![][]
+![][0]
 
 El sitio se configurará rápidamente. A continuación, se agregará compatibilidad para publicar a través de Git. Para ello, elija **Set up deployment from source control**.
 
@@ -61,7 +61,7 @@ Estos comandos copian todas las bibliotecas ubicadas en "site-packages", incluid
 
 ![][5]
 
-A continuación, cree la aplicación inicial de Django. Esta puede crearse de la misma forma que se haría con cualquier otra aplicación de Django desde la línea de comandos, o bien puede usar las [herramientas de Python para Visual Studio][] (en inglés) para crear el proyecto. Ambas opciones se muestran a continuación.
+A continuación, cree la aplicación inicial de Django. Esta puede crearse de la misma forma que se haría con cualquier otra aplicación de Django desde la línea de comandos, o bien puede usar las [herramientas de Python para Visual Studio][herramientas de Python para Visual Studio] (en inglés) para crear el proyecto. Ambas opciones se muestran a continuación.
 
 **Opción 1:**
 Para crear el nuevo proyecto a partir de la línea de comandos, ejecute el comando siguiente. que crea la aplicación de Django en la carpeta DjangoApplication:
@@ -120,7 +120,7 @@ Por último, vuelva al panel. Desplácese hasta la opción **SITE URL** que apar
 
 ## Pasos siguientes
 
-A partir de aquí, puede continuar el desarrollo de la aplicación de Django con las herramientas que ya utiliza. Si usa las [herramientas de Python para Visual Studio][] (en inglés) para desarrollar, probablemente deseará instalar [VisualGit][] para integrar el control de código fuente desde Visual Studio.
+A partir de aquí, puede continuar el desarrollo de la aplicación de Django con las herramientas que ya utiliza. Si usa las [herramientas de Python para Visual Studio][herramientas de Python para Visual Studio] (en inglés) para desarrollar, probablemente deseará instalar [VisualGit][VisualGit] para integrar el control de código fuente desde Visual Studio.
 
 La aplicación puede tener otras dependencias, aparte de Python y Django. Si para Python se usó el instalador incluido en [][]<http://www.windowsazure.com/es-es/develop/python/></a>, PIP ya estará instalado y podrá utilizarse para agregar nuevas dependencias de forma rápida. Por ejemplo, para instalar el kit de herramientas de lenguaje natural y todas sus dependencias, escriba:
 
@@ -133,9 +133,9 @@ Una vez copiados los archivos, ejecute el comando **git status** para ver los ar
 Ahora puede ir al directorio DjangoApplication y usar manage.py de la forma habitual para empezar a agregar nuevas aplicaciones al proyecto de Django.
 
   [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
-  []: http://www.windowsazure.com/es-es/develop/python/
+  [0]: http://www.windowsazure.com/es-es/develop/python/
   [msysgit]: http://code.google.com/p/msysgit/
-  []: ./media/web-sites-python-create-deploy-django-app/django-ws-003.png
+  [0]: ./media/web-sites-python-create-deploy-django-app/django-ws-003.png
   [1]: ./media/web-sites-python-create-deploy-django-app/django-ws-004.png
   [2]: ./media/web-sites-python-create-deploy-django-app/django-ws-005.png
   [3]: ./media/web-sites-python-create-deploy-django-app/django-ws-006.png

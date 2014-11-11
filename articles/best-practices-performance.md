@@ -1,6 +1,6 @@
 <properties linkid="develop-dotnet-performance" urlDisplayName="Performance" pageTitle="Performance best practices - Azure" metaKeywords="Azure optimization, Azure best practice performance" description="Learn about best practices for performance in Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
 # Procedimientos recomendados para optimizar el rendimiento de las aplicaciones de Azure
 
@@ -331,7 +331,6 @@ Otros recursos
 -   [Bus de servicio][Bus de servicio]
 -   [Azure Planning – A Post-decision Guide to Integrate Azure in Your Environment][Azure Planning – A Post-decision Guide to Integrate Azure in Your Environment]
 
-  [“the amount of useful work accomplished compared to the time and resources used (la cantidad de trabajo útil realizado comparada con el tiempo y los recursos empleados)”.]: http://go.microsoft.com/fwlink/?LinkId=252650
   [documento de información general de Visual Studio sobre las pruebas de carga en Azure]: http://www.visualstudio.com/get-started/load-test-your-app-vs
   [Database Design and Modeling Fundamentals]: http://go.microsoft.com/fwlink/?LinkId=252675
   [Stairway to Database Design]: http://go.microsoft.com/fwlink/?LinkId=252676
@@ -341,14 +340,12 @@ Otros recursos
   [SQL Azure and Microsoft Azure Table Storage]: http://go.microsoft.com/fwlink/?LinkId=252664
   [Improving Performance by Batching Azure Table Storage Inserts]: http://go.microsoft.com/fwlink/?LinkID=252665
   [Guía sobre rendimiento y elasticidad de las bases de datos SQL]: http://go.microsoft.com/fwlink/?LinkId=221876
-  [Federaciones en Base de datos SQL de Azure (anteriormente SQL Azure)]: http://go.microsoft.com/fwlink/?LinkId=252668
   [Scale-First Approach to Database Design with Federations: Part 1 - Picking Federations and Picking the Federation Key]: http://go.microsoft.com/fwlink/?LinkId=252671
   [Scale-First Approach to Database Design with Federations: Part 2 - Annotating and Deploying Schema for Federations]: http://go.microsoft.com/fwlink/?LinkId=252672
   [parte 2]: http://go.microsoft.com/fwlink/?LinkId=252673
   [How to Shard with Azure SQL Database]: http://go.microsoft.com/fwlink/?LinkId=252678
   [SQL Server and SQL Azure Shard Library]: http://go.microsoft.com/fwlink/?LinkId=252679
   [Introducing the Microsoft Azure Caching Service]: http://go.microsoft.com/fwlink/?LinkId=252680
-  [Windows \#Azure Caching – Performance considerations]: http://go.microsoft.com/fwlink/?LinkId=252681
   [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias]: http://go.microsoft.com/fwlink/?LinkId=252682
   [Prácticas recomendadas para las mejoras de rendimiento mediante la mensajería con confianza establecida del Service Bus]: http://go.microsoft.com/fwlink/?LinkID=252683
   [Datos de gran tamaño]: /es-es/solutions/big-data/

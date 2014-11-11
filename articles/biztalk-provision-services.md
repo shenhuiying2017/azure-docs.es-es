@@ -1,6 +1,6 @@
 <properties linkid="provisioning-biztalk-service" urlDisplayName="Provision BizTalk Services in management portal" pageTitle="Create BizTalk Services in management portal | Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="Learn how to provision a BizTalk service in the Azure Management Portal, as well as create an optional SQL database server and Storage account." metaCanonical="http://www.windowsazure.com/es-es/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="BizTalk Services: Provisioning Using Azure Management Portal" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Crear un Servicio de BizTalk mediante el portal de administración de Azure
 
@@ -323,7 +323,6 @@ Ahora que se crea un Servicio de BizTalk, familiarícese con las distintas pesta
   [Pasos posteriores al aprovisionamiento]: #PostProv
   [Requisitos explicados]: #Requirements
   [Conexiones híbridas, novedad]: #HC
-  [Evaluación gratuita de Azure]: http://go.microsoft.com/fwlink/p/?LinkID=239738
   [Portal de administración de Azure]: http://go.microsoft.com/fwlink/p/?LinkID=213885
   [Seleccione el botón Nuevo]: ./media/biztalk-provision-services/WABS_New.png
   [Seleccione Servicio de BizTalk y seleccione Creación personalizada]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
@@ -348,4 +347,3 @@ Ahora que se crea un Servicio de BizTalk, familiarícese con las distintas pesta
   [Servicios de BizTalk: Copia de seguridad y restauración]: http://go.microsoft.com/fwlink/p/?LinkID=329873
   [Servicios de BizTalk: Limitaciones]: http://go.microsoft.com/fwlink/p/?LinkID=302282
   [Servicios de BizTalk: Nombre de emisor y clave de emisor]: http://go.microsoft.com/fwlink/p/?LinkID=303941
-  [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?]: http://go.microsoft.com/fwlink/p/?LinkID=302335

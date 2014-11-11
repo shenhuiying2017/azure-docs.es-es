@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-ios" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/24/2014" ms.author="krisragh"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="09/24/2014" ms.author="krisragh" />
 
 # Introducción a los Centros de notificaciones
 
@@ -11,17 +11,17 @@ En este tutorial, creará una aplicación iOS que recibirá notificaciones de in
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 
-1.  [Generación del archivo de solicitud de firma de certificado][]
-2.  [Registro de la aplicación y habilitación para las notificaciones de inserción][]
-3.  [Creación de un perfil de aprovisionamiento para la aplicación][]
-4.  [Configuración de su Centro de notificaciones][]
-5.  [Conexión de su aplicación al centro de notificaciones][]
-6.  [Envío de notificaciones desde su backend][]
+1.  [Generación del archivo de solicitud de firma de certificado][Generación del archivo de solicitud de firma de certificado]
+2.  [Registro de la aplicación y habilitación para las notificaciones de inserción][Registro de la aplicación y habilitación para las notificaciones de inserción]
+3.  [Creación de un perfil de aprovisionamiento para la aplicación][Creación de un perfil de aprovisionamiento para la aplicación]
+4.  [Configuración de su Centro de notificaciones][Configuración de su Centro de notificaciones]
+5.  [Conexión de su aplicación al centro de notificaciones][Conexión de su aplicación al centro de notificaciones]
+6.  [Envío de notificaciones desde su backend][Envío de notificaciones desde su backend]
 
 En este tutorial se demuestra el escenario de difusión sencillo con centros de notificaciones. Asegúrese de seguirlo junto con el próximo tutorial para aprender a usar los centros de notificaciones para abordar usuarios y grupos de dispositivos específicos. Este tutorial cuenta con los siguientes requisitos previos:
 
--   [SDK de iOS para Servicios móviles][]
--   [XCode 4,5][]
+-   [SDK de iOS para Servicios móviles][SDK de iOS para Servicios móviles]
+-   [XCode 4,5][XCode 4,5]
 -   Dispositivo compatible con iOS 5.0 (o una versión posterior)
 -   Pertenencia al programa para desarrolladores de iOS
 
@@ -31,19 +31,19 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Cent
 
 <div class="dev-callout"><strong>Nota:</strong> <p>para completar este tutorial, deber&aacute; tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluaci&oacute;n gratuita en tan solo unos minutos. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluaci&oacute;n gratuita de Azure</a>.</p></div>
 
-[WACOM.INCLUDE [Habilitar notificaciones de inserción de Apple][]]
+[WACOM.INCLUDE [Habilitar notificaciones de inserción de Apple](../includes/enable-apple-push-notifications.md)]
 
 ## <a name="configure-hub"></a>Configuración de su Centro de notificaciones
 
 1.  En Acceso a llaves, haga clic con el botón secundario en el nuevo certificado de la aplicación de inicio rápido **My Certificates**. Haga clic en **Export**, utilice un nombre para el archivo, seleccione el formato **.p12** y, a continuación, haga clic en **Save**.
 
-    ![][]
+    ![][0]
 
 Anote el nombre de archivo y la ubicación del certificado exportado.
 
 > [WACOM.NOTE] Con este tutorial se crea un archivo QuickStart.p12. El nombre del archivo y la ubicación pueden ser diferentes.
 
-1.  Inicie sesión en el [Portal de administración de Azure][] y haga clic en **+NEW** en la parte inferior de la pantalla.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure] y haga clic en **+NEW** en la parte inferior de la pantalla.
 
 2.  Haga clic sucesivamente en **Servicios de aplicaciones**, **Bus de servicio**, **Centro de notificaciones** y finalmente en **Quick Create**.
 
@@ -120,7 +120,7 @@ Su centro de notificaciones está ahora configurado para funcionar con APN y tie
 
 ## <a name="send"></a>Envíe notificaciones desde su backend
 
-Puede enviar notificaciones mediante los centros de notificaciones desde cualquier back-end que use la [interfaz REST][]. En este tutorial puede enviar notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un backend de los Servicios móviles de Azure integrado en centros de notificaciones, vea **Introducción a las notificaciones de inserción en Servicios móviles** ([.NET backend][] | [JavaScript backend][.NET backend]). Para ver un ejemplo de cómo enviar notificaciones con REST API, vea **Uso de Centro de notificaciones desde Java/PHP** ([Java][] | [PHP][]).
+Puede enviar notificaciones mediante los centros de notificaciones desde cualquier back-end que use la [interfaz REST][interfaz REST]. En este tutorial puede enviar notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un backend de los Servicios móviles de Azure integrado en centros de notificaciones, vea **Introducción a las notificaciones de inserción en Servicios móviles** ([.NET backend][.NET backend] | [JavaScript backend][.NET backend]). Para ver un ejemplo de cómo enviar notificaciones con REST API, vea **Uso de Centro de notificaciones desde Java/PHP** ([Java][Java] | [PHP][PHP]).
 
 1.  En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y luego **Proyecto...**, a continuación en **Visual C#** haga clic en **Windows** y **Aplicación de consola** y haga clic en **Aceptar**.
 
@@ -136,7 +136,7 @@ Puede enviar notificaciones mediante los centros de notificaciones desde cualqui
 
         Install-Package WindowsAzure.ServiceBus
 
-    Esto agrega una referencia al SDK de Bus de servicio de Azure con el [paquete WindowsAzure.ServiceBus NuGet][].
+    Esto agrega una referencia al SDK de Bus de servicio de Azure con el [paquete WindowsAzure.ServiceBus NuGet][paquete WindowsAzure.ServiceBus NuGet].
 
 4.  Abra el archivo Program.cs y agregue la siguiente instrucción `using`:
 
@@ -164,20 +164,13 @@ Puede enviar notificaciones mediante los centros de notificaciones desde cualqui
 
     Debe recibir una alerta en el dispositivo. Si usa Wi-Fi, asegúrese de que la conexión funciona.
 
-Puede buscar todas las cargas posibles en la guía [Local and Push Notification Programming Guide][] de Apple.
+Puede buscar todas las cargas posibles en la guía [Local and Push Notification Programming Guide][Local and Push Notification Programming Guide] de Apple.
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
-En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iOS. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de Centros de notificaciones para insertar notificaciones en los usuarios][], mientras que, si desea segmentar sus usuarios por grupos de interés, puede leer [Uso de los Centros de notificaciones para enviar noticias de última hora][]. Obtenga más información sobre el uso de Centros de notificaciones en la [orientación sobre los Centros de notificaciones][] (en inglés).
+En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iOS. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de Centros de notificaciones para insertar notificaciones en los usuarios][Uso de Centros de notificaciones para insertar notificaciones en los usuarios], mientras que, si desea segmentar sus usuarios por grupos de interés, puede leer [Uso de los Centros de notificaciones para enviar noticias de última hora][Uso de los Centros de notificaciones para enviar noticias de última hora]. Obtenga más información sobre el uso de Centros de notificaciones en la [orientación sobre los Centros de notificaciones][orientación sobre los Centros de notificaciones] (en inglés).
 
 
-  [Windows Universal]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /es-es/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /es-es/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /es-es/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /es-es/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /es-es/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /es-es/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [Generación del archivo de solicitud de firma de certificado]: #certificates
   [Registro de la aplicación y habilitación para las notificaciones de inserción]: #register
   [Creación de un perfil de aprovisionamiento para la aplicación]: #profile
@@ -186,9 +179,8 @@ En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iO
   [Envío de notificaciones desde su backend]: #send
   [SDK de iOS para Servicios móviles]: http://go.microsoft.com/fwLink/?LinkID=266533
   [XCode 4,5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Habilitar notificaciones de inserción de Apple]: ../includes/enable-apple-push-notifications.md
-  []: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-27.png
+  [0]: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-27.png
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [1]: ./media/notification-hubs-ios-get-started/notification-hub-create-from-portal.png
   [2]: ./media/notification-hubs-ios-get-started/notification-hub-create-from-portal2.png

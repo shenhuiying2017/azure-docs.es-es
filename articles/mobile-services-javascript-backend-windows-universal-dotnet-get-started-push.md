@@ -1,6 +1,6 @@
 <properties pagetitle="Get started with push notification using a JavaScript backend mobile service" metakeywords description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." metacanonical services="mobile-services,notification-hubs" documentationcenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor></properties>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/11/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/11/2014" ms.author="glenga" />
 
 # Introducción a las notificaciones de inserción en Servicios móviles
 
@@ -27,19 +27,17 @@ Para completar este tutorial, necesitará lo siguiente:
 
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
-<ol start="6">
-<li><p>Vaya a la carpeta de proyecto <code>\Services\MobileServices\your_service_name</code>, abra el archivo de código push.register.cs generado e inspeccione el método <b>UploadChannel</b> que registra la URL de canal del dispositivo con el Centro de notificaciones.</p></li>
+1.  Vaya a la carpeta de proyecto `\Services\MobileServices\your_service_name`, abra el archivo de código push.register.cs generado e inspeccione el método **UploadChannel** que registra la URL de canal del dispositivo con el Centro de notificaciones.
 
-<li><p>Abra el archivo de código App.xaml.cs compartido y observe que se ha agregado una llamada al nuevo método <b>UploadChannel</b> en el controlador de eventos <b>OnLaunched</b>.</p></li>
+2.  Abra el archivo de código App.xaml.cs compartido y observe que se ha agregado una llamada al nuevo método **UploadChannel** en el controlador de eventos **OnLaunched**.
 
-    <p>Así se garantiza que se intentará registrar el dispositivo siempre que se inicie la aplicación.</p>
+    Así se garantiza que se intentará registrar el dispositivo siempre que se inicie la aplicación.
 
-<li><p>Repita los pasos anteriores para agregar las notificaciones de inserción al proyecto de aplicación de la Tienda de Windows Phone y, en el archivo App.xaml.cs compartido, quite la llamada extra a <b>UploadChannel</b> y el contenedor condicional <code>#if...#endif</code> restante.</p></li>
+3.  Repita los pasos anteriores para agregar las notificaciones de inserción al proyecto de aplicación de la Tienda de Windows Phone y, en el archivo App.xaml.cs compartido, quite la llamada extra a **UploadChannel** y el contenedor condicional `#if...#endif` restante.
 
-    <p>Ahora los dos proyectos pueden compartir una misma llamada a <b>UploadChannel</b>.</p>
+    Ahora los dos proyectos pueden compartir una misma llamada a **UploadChannel**.
 
     <div class="dev-callout"><strong>Nota:</strong> <p>Si quiere simplificar el c&oacute;digo generado, unifique las definiciones <a href="http://msdn.microsoft.com/es-es/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> del contenedor <code data-inline="1">#if...#endif</code> en una &uacute;nica definici&oacute;n sin contenedor, que deben usar las dos versiones de la aplicaci&oacute;n.</p></div>
-</ol>
 
 Tras habilitar las notificaciones de inserción en la aplicación, actualice el servicio móvil para enviarlas.
 
@@ -71,9 +69,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 -   [Uso de un cliente .NET para Servicios móviles de Azure][Uso de un cliente .NET para Servicios móviles de Azure]
     Obtenga más información sobre cómo usar Servicios móviles desde aplicaciones de C# Windows.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+
 
   [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
   [Introducción a las notificaciones de inserción en Servicios móviles]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push
@@ -84,11 +80,9 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
   [cuenta de Microsoft Store]: http://go.microsoft.com/fwlink/p/?LinkId=280045
   [Visual Studio 2013 Express para Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
   [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [MobileServiceClient]: http://msdn.microsoft.com/es-es/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
   [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
   [mobile-services-javascript-backend-windows-universal-test-push]: ../includes/mobile-services-javascript-backend-windows-universal-test-push.md
   [enviar notificaciones de inserción a usuarios autenticados]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-users
-  [¿Qué son los Centros de notificaciones?]: /es-es/documentation/articles/notification-hubs-overview/
   [Uso de un cliente .NET para Servicios móviles de Azure]: /es-es/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/

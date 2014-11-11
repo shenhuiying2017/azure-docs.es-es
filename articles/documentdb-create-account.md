@@ -1,6 +1,6 @@
 <properties title="How to Create a DocumentDB Account" pageTitle="How to create a DocumentDB account | Azure" description="Find out how to create a DocumentDB account and choose account settings in the Azure Preview portal."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Creación de una cuenta de Base de datos de documentos
 
@@ -15,7 +15,7 @@ Para usar Base de datos de documentos, debe crear una cuenta en una región geog
 
 1.  Inicie sesión en el [Portal de vista previa de administración de Azure][Portal de vista previa de administración de Azure].
 2.  Haga clic en Nuevo -\> Cuenta de Base de datos de documentos.
-    ![][]
+    ![][0]
 
     También puede ir a la Galería de Azure, seleccionar la categoría "Datos, almacenamiento, + copia de seguridad", elegir **Base de datos de documentos** y luego hacer clic en **Crear**.
 
@@ -76,7 +76,7 @@ Para usar Base de datos de documentos, debe crear una cuenta en una región geog
   [Creación de una cuenta de Base de datos de documentos]: #Howto
   [Pasos siguientes]: #NextSteps
   [Portal de vista previa de administración de Azure]: https://portal.azure.com/
-  []: ./media/documentdb-create-account/ca1.png
+  [0]: ./media/documentdb-create-account/ca1.png
   [1]: ./media/documentdb-create-account/ca2.png
   [2]: ./media/documentdb-create-account/ca3.png
   [Detalles de precios de Base de datos de documentos]: http://go.microsoft.com/fwlink/p/?LinkID=402317&clcid=0x409

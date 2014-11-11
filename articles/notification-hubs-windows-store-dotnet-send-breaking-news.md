@@ -2,7 +2,7 @@
 
 <properties linkid="notification-hubs-windows-store-dotnet-send-breaking-news" pagetitle="Use Notification Hubs to send breaking news (Windows Phone)" metakeywords description="Use  Azure Notification Hubs to use tag in registrations to send breaking news to a Windows Phone app." metacanonical services="notification-hubs" documentationcenter="Mobile" title="Use Notification Hubs to send breaking news" authors="glenga" solutions manager="dwrede" editor></properties>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Uso de los Centros de notificaciones para enviar noticias de última hora
 
@@ -169,7 +169,7 @@ La aplicación está ahora completa y puede almacenar un conjunto de categorías
 
 1.  En Visual Studio, presione F5 para compilar e iniciar la aplicación.
 
-    ![][]
+    ![][0]
 
     Tenga en cuenta que la interfaz de usuario de la aplicación ofrece un conjunto de elementos de alternancia que le permite seleccionar las categorías a las que suscribirse.
 
@@ -202,10 +202,7 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
     Conozca cómo insertar notificaciones para usuarios autenticados específicos. Esta es una buena solución para enviar notificaciones solo a usuarios específicos.
 
 
-  [Windows Universal]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universal"
   [Windows Phone]: /es-es/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
-  [iOS]: /es-es/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
-  [Android]: /es-es/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
   [1]: /es-es/documentation/articles/notification-hubs-ios-send-breaking-news
   [Notification Hubs Guidance]: http://msdn.microsoft.com/es-es/library/jj927170.aspx
   [Incorporación de una selección de categorías a la aplicación]: #adding-categories
@@ -214,7 +211,7 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
   [Ejecución de la aplicación y generación de notificaciones]: #test-app
   [Introducción a los Centros de notificaciones]: /es-es/manage/services/notification-hubs/getting-started-windows-dotnet/
   [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
-  []: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
+  [0]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
   [2]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
   [3]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png
   [Uso de los Centros de notificaciones para difundir noticias de última hora localizadas]: /es-es/manage/services/notification-hubs/breaking-news-localized-dotnet/

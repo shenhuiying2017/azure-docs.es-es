@@ -1,6 +1,6 @@
 <properties  pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Programación de trabajos periódicos en Servicios móviles
 
@@ -16,18 +16,18 @@ Este tema le muestra cómo usar la funcionalidad del programador de trabajos en 
 
 Este tutorial le guiará por los siguientes pasos relativos al uso del programador de trabajos para crear un trabajo programado que solicite datos de tweets de Twitter y almacene los tweets en una nueva tabla de actualizaciones:
 
--   [Registro para obtener acceso a Twitter y almacenamiento de credenciales][]
--   [Descarga e instalación de la biblioteca LINQ to Twitter][]
--   [Creación de la nueva tabla de actualizaciones][]
--   [Creación de un nuevo trabajo programado][]
--   [Prueba local del trabajo programado][]
--   [Publicación del servicio y registro del trabajo][]
+-   [Registro para obtener acceso a Twitter y almacenamiento de credenciales][Registro para obtener acceso a Twitter y almacenamiento de credenciales]
+-   [Descarga e instalación de la biblioteca LINQ to Twitter][Descarga e instalación de la biblioteca LINQ to Twitter]
+-   [Creación de la nueva tabla de actualizaciones][Creación de la nueva tabla de actualizaciones]
+-   [Creación de un nuevo trabajo programado][Creación de un nuevo trabajo programado]
+-   [Prueba local del trabajo programado][Prueba local del trabajo programado]
+-   [Publicación del servicio y registro del trabajo][Publicación del servicio y registro del trabajo]
 
-> [WACOM.NOTE]Este tutorial usa la biblioteca de terceros LINQ to Twitter a fin de simplificar el acceso de OAuth 2.0 a las API de Twitter v1.1. Para completar el tutorial, debe descargar e instalar el paquete de NuGet LINQ to Twitter. Para obtener más información, consulte el [proyecto de CodePlex de LINQ to Twitter][] (en inglés).
+> [WACOM.NOTE]Este tutorial usa la biblioteca de terceros LINQ to Twitter a fin de simplificar el acceso de OAuth 2.0 a las API de Twitter v1.1. Para completar el tutorial, debe descargar e instalar el paquete de NuGet LINQ to Twitter. Para obtener más información, consulte el [proyecto de CodePlex de LINQ to Twitter][proyecto de CodePlex de LINQ to Twitter] (en inglés).
 
 ## <a name="get-oauth-credentials"></a>Registro para obtener acceso a las API de Twitter v1.1 y almacenamiento de credenciales
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access][]]
+[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 1.  En el Explorador de soluciones de Visual Studio, abra el archivo web.config del proyecto de servicio móvil, busque los valores **MS\_TwitterConsumerKey** y **MS\_TwitterConsumerSecret** de la aplicación y reemplace los valores de estas claves por los valores de clave de usuario y secreto de usuario de Twitter que ha establecido en el portal.
 
@@ -44,7 +44,7 @@ Este tutorial le guiará por los siguientes pasos relativos al uso del programad
 
 2.  En el panel izquierdo, seleccione la categoría **En línea**, busque `linq2twitter`, haga clic en **Instalar** en el paquete **linqtotwitter** y, a continuación, lea y acepte los contratos de licencia.
 
-    ![][]
+    ![][0]
 
     De esta forma se agrega la biblioteca Linq to Twitter al proyecto de servicio móvil.
 
@@ -85,7 +85,7 @@ A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 
     La tabla de actualizaciones (Updates), que se crea en la base de datos al obtener acceso a DbSet por primera vez, se usa en el servicio para almacenar los datos de tweets.
 
-    > [WACOM.NOTE] Al usar el inicializador de base de datos predeterminado, Entity Framework eliminará la base de datos y la volverá a crear siempre que detecte un cambio del modelo de datos en la definición del modelo de Code First. Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe utilizar Migraciones de Code First. El inicializador predeterminado no se puede usar con una base de datos SQL en Azure. Para obtener más información, consulte [Uso de Migraciones de Code First para actualizar el modelo de datos][].
+    > [WACOM.NOTE] Al usar el inicializador de base de datos predeterminado, Entity Framework eliminará la base de datos y la volverá a crear siempre que detecte un cambio del modelo de datos en la definición del modelo de Code First. Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe utilizar Migraciones de Code First. El inicializador predeterminado no se puede usar con una base de datos SQL en Azure. Para obtener más información, consulte [Uso de Migraciones de Code First para actualizar el modelo de datos][Uso de Migraciones de Code First para actualizar el modelo de datos].
 
 A continuación, cree el trabajo programado que obtiene acceso a Twitter y almacena los datos de tweets en la nueva tabla de actualizaciones.
 
@@ -237,7 +237,7 @@ El trabajo debe registrarse en la pestaña **Programador** para que Servicios m�
 
 1.  Vuelva a publicar el proyecto de servicio móvil en Azure.
 
-2.  En el [Portal de administración de Azure][], haga clic en Servicios móviles y, a continuación, en la aplicación.
+2.  En el [Portal de administración de Azure][Portal de administración de Azure], haga clic en Servicios móviles y, a continuación, en la aplicación.
 
     ![][4]
 
@@ -261,7 +261,7 @@ El trabajo debe registrarse en la pestaña **Programador** para que Servicios m�
 
     > [WACOM.NOTE] Puede seguir utilizándose una solicitud POST para iniciar el trabajo programado. Sin embargo, la autorización recae de forma predeterminada en el usuario, lo que significa que la solicitud debe incluir la clave de la aplicación en el encabezado.
 
-6.  (Opcional) En el [Portal de administración de Azure][], haga clic en Manage para la base de datos asociada al servicio móvil.
+6.  (Opcional) En el [Portal de administración de Azure][Portal de administración de Azure], haga clic en Manage para la base de datos asociada al servicio móvil.
 
     ![][8]
 
@@ -275,8 +275,6 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ "Back-end de .NET"
-  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-schedule-recurring-tasks/ "Back-end de JavaScript"
   [Registro para obtener acceso a Twitter y almacenamiento de credenciales]: #get-oauth-credentials
   [Descarga e instalación de la biblioteca LINQ to Twitter]: #install-linq2twitter
   [Creación de la nueva tabla de actualizaciones]: #create-table
@@ -285,7 +283,7 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
   [Publicación del servicio y registro del trabajo]: #register-job
   [proyecto de CodePlex de LINQ to Twitter]: http://linqtotwitter.codeplex.com/
   [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
-  []: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
+  [0]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
   [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-component-model-reference.png
   [Uso de Migraciones de Code First para actualizar el modelo de datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations
   [2]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/mobile-service-start-page.png

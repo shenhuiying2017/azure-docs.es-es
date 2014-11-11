@@ -1,6 +1,6 @@
 <properties linkid="hdinsight-dotnet-avro-serialization" urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="Serialize data with the Microsoft .NET Library for Avro | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Avro to serialize big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Serialize data with the Microsoft .NET Library for Avro " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Serialización de datos con la biblioteca de Microsoft .NET para Avro
 
@@ -10,7 +10,7 @@ En este tema se explica el uso de la biblioteca de Microsoft .NET para Avro para
 
 ### Apache Avro
 
-La biblioteca de Microsoft .NET para Avro implementa el sistema de serialización de datos Apache Avro para el entorno Microsoft.NET. Apache Avro proporciona un formato compacto de intercambio de datos binarios para la serialización. Utiliza [JSON][] para definir un esquema independiente del lenguaje que garantiza la interoperabilidad de lenguajes. Los datos serializados en un lenguaje se pueden leer en otro. Actualmente, se admiten C, C++, C#, Java, PHP, Python y Ruby. Encontrará información detallada sobre el formato en las [Especificaciones de Apache Avro][]. Tenga en cuenta que la versión actual de la biblioteca de Microsoft .NET para Avro no admite la parte de las llamadas a procedimiento remoto (RPC) de estas especificaciones.
+La biblioteca de Microsoft .NET para Avro implementa el sistema de serialización de datos Apache Avro para el entorno Microsoft.NET. Apache Avro proporciona un formato compacto de intercambio de datos binarios para la serialización. Utiliza [JSON][JSON] para definir un esquema independiente del lenguaje que garantiza la interoperabilidad de lenguajes. Los datos serializados en un lenguaje se pueden leer en otro. Actualmente, se admiten C, C++, C#, Java, PHP, Python y Ruby. Encontrará información detallada sobre el formato en las [Especificaciones de Apache Avro][Especificaciones de Apache Avro]. Tenga en cuenta que la versión actual de la biblioteca de Microsoft .NET para Avro no admite la parte de las llamadas a procedimiento remoto (RPC) de estas especificaciones.
 
 La representación serializada de un objeto en el sistema Avro consta de dos partes: esquema y valor real. El esquema Avro describe el modelo de datos independiente del lenguaje de los datos serializados con JSON. Está presente en paralelo con una representación binaria de los datos. Tener el esquema aparte de la representación binaria permite escribir cada objeto sin sobrecargas por valor, lo que agiliza la serialización y reduce la representación.
 
@@ -23,14 +23,14 @@ El formato de serialización de Apache Avro se utiliza de forma generalizada en 
 La biblioteca de .NET para Avro admite dos formas de serialización de objetos:
 
 -   **Reflexión**: el esquema JSON para los tipos se compila automáticamente a partir de los atributos del contrato de datos de los tipos .NET que se van a serializar.
--   **Registro genérico**: el esquema JSON se especifica de forma explícita en un registro representado por la clase [**AvroRecord**][] cuando no hay tipos .NET para describir el esquema de los datos que se van a serializar.
+-   **Registro genérico**: el esquema JSON se especifica de forma explícita en un registro representado por la clase [**AvroRecord**][**AvroRecord**] cuando no hay tipos .NET para describir el esquema de los datos que se van a serializar.
 
 Cuando tanto el escritor como el lector de la secuencia conocen el esquema de los datos, se pueden enviar los datos sin el esquema. Pero si este no es el caso, debe compartirse el esquema con un archivo contenedor de Avro. Se pueden especificar otros parámetros como el códec utilizado para la compresión de datos. Estos escenarios se explican e ilustran con más detalle en los ejemplos de código siguientes.
 
 ### Requisitos previos de la biblioteca de Microsoft .NET para Avro
 
--   [Microsoft .NET Framework 4.0][]
--   [Newtonsoft Json.NET][] (v5.0.5 o posterior)
+-   [Microsoft .NET Framework 4.0][Microsoft .NET Framework 4.0]
+-   [Newtonsoft Json.NET][Newtonsoft Json.NET] (v5.0.5 o posterior)
 
 Tenga en cuenta que la dependencia de Newtonsoft.Json.dll se descarga automáticamente con la instalación de la biblioteca de Microsoft .NET para Avro, procedimiento para el que se proporciona en la sección siguiente.
 
@@ -52,21 +52,21 @@ Los dos primeros muestran cómo serializar y deserializar datos en búferes de s
 
 Los ejemplos tercero y cuarto muestran cómo serializar y deserializar datos en búferes de secuencias de memoria usando reflexión y un registro genérico con archivos contenedores de objetos de Avro. Cuando los datos se almacenan en un archivo contenedor de Avro, el esquema se almacena siempre con ellos porque debe compartirse para la deserialización.
 
-La muestra que contiene los cuatro ejemplos primeros se puede descargar del sitio de [ejemplos de código de Azure][].
+La muestra que contiene los cuatro ejemplos primeros se puede descargar del sitio de [ejemplos de código de Azure][ejemplos de código de Azure].
 
 El quinto y último ejemplo muestra cómo usar un códec de compresión personalizado para archivos contenedores de objetos. Puede descargar una muestra que contiene el código para este ejemplo en el sitio de [ejemplos de código de Azure][1].
 
 La biblioteca de Microsoft .NET para Avro está diseñada para funcionar con cualquier secuencia. En estos ejemplo, los datos se manipulan usando secuencias de memoria en lugar de secuencias de archivos o bases de datos por simplicidad y coherencia. El método que se elija en un entorno de producción dependerá de los requisitos exactos del escenario, el origen de datos y el volumen, restricciones de rendimiento y otros factores.
 
--   [**Serialización mediante el uso de reflexión**][]: El esquema JSON para los tipos que se van a serializar se compila automáticamente a partir de los atributos del contrato de datos.
--   [**Serialización mediante el uso de un registro genérico**][]: El esquema JSON se especifica de forma explícita en un registro cuando no hay ningún tipo .NET disponible para reflexión.
--   [**Serialización mediante el uso de archivos contenedores de objetos con reflexión**][]: El esquema JSON se serializa de forma implícita con los datos y se comparte con un archivo contenedor de Avro.
--   [**Serialización mediante el uso de archivos contenedores de objetos con un registro genérico**][]: El esquema JSON se serializa de forma explícita con los datos y se comparte con un archivo contenedor de Avro.
--   [**Serialización mediante el uso de archivos contenedores de objetos con un códec de compresión personalizado**][]: El esquema JSON se serializa con los datos y se comparte en un archivo contenedor de Avro con una implementación personalizada para .NET del códec de compresión de datos Deflate.
+-   [**Serialización mediante el uso de reflexión**][**Serialización mediante el uso de reflexión**]: El esquema JSON para los tipos que se van a serializar se compila automáticamente a partir de los atributos del contrato de datos.
+-   [**Serialización mediante el uso de un registro genérico**][**Serialización mediante el uso de un registro genérico**]: El esquema JSON se especifica de forma explícita en un registro cuando no hay ningún tipo .NET disponible para reflexión.
+-   [**Serialización mediante el uso de archivos contenedores de objetos con reflexión**][**Serialización mediante el uso de archivos contenedores de objetos con reflexión**]: El esquema JSON se serializa de forma implícita con los datos y se comparte con un archivo contenedor de Avro.
+-   [**Serialización mediante el uso de archivos contenedores de objetos con un registro genérico**][**Serialización mediante el uso de archivos contenedores de objetos con un registro genérico**]: El esquema JSON se serializa de forma explícita con los datos y se comparte con un archivo contenedor de Avro.
+-   [**Serialización mediante el uso de archivos contenedores de objetos con un códec de compresión personalizado**][**Serialización mediante el uso de archivos contenedores de objetos con un códec de compresión personalizado**]: El esquema JSON se serializa con los datos y se comparte en un archivo contenedor de Avro con una implementación personalizada para .NET del códec de compresión de datos Deflate.
 
 ## <a name="Scenario1"></a>Serialización mediante el uso de reflexión
 
-El esquema JSON para los tipos se puede compilar automáticamente con la biblioteca de Microsoft .NET para Avro usando reflexión a partir de los atributos del contrato de datos de los objetos de C# que se van a serializar. La biblioteca de Microsoft .NET para Avro crea un objeto [**IAvroSeralizer<t>**][] para identificar los campos que se van a serializar.
+El esquema JSON para los tipos se puede compilar automáticamente con la biblioteca de Microsoft .NET para Avro usando reflexión a partir de los atributos del contrato de datos de los objetos de C# que se van a serializar. La biblioteca de Microsoft .NET para Avro crea un objeto [**IAvroSeralizer<t>**][**IAvroSeralizer<t>**] para identificar los campos que se van a serializar.
 
 En este ejemplo, los objetos (una clase **SensorData** con un miembro struct **Location**) se serializan en una secuencia de memoria que, a su vez, se deserializa. Después se compara el resultado con la instancia inicial para confirmar que el objeto **SensorData** recuperado es idéntico al original.
 
@@ -192,7 +192,7 @@ En este ejemplo, se supone que el esquema está compartido entre los lectores y 
 
 Cuando no se puede usar reflexión porque los datos no se pueden representar mediante clases .NET con un contrato de datos, se puede especificar el esquema JSON de forma explícita en un registro genérico. En general, este método es más lento que el uso de reflexión y serializa para una clase de C# específica. En estos casos, el esquema de los datos puede ser dinámico también porque no se conoce hasta el momento de la compilación. Los datos representados como archivos de valores separados por comas (CSV) cuyo esquema se desconoce hasta que se transforman con el formato de Avro en tiempo de ejecución son un ejemplo de este tipo de escenario dinámico.
 
-En este ejemplo se muestra cómo crear y usar un objeto [**AvroRecord**][] para especificar un esquema JSON de forma explícita, cómo rellenarlo con los datos y cómo serializarlo y deserializarlo. Después se compara el resultado con la instancia inicial para confirmar que el registro recuperado es idéntico al original.
+En este ejemplo se muestra cómo crear y usar un objeto [**AvroRecord**][**AvroRecord**] para especificar un esquema JSON de forma explícita, cómo rellenarlo con los datos y cómo serializarlo y deserializarlo. Después se compara el resultado con la instancia inicial para confirmar que el registro recuperado es idéntico al original.
 
 En este ejemplo, se supone que el esquema está compartido entre los lectores y escritores, por lo que no es necesario el formato de contenedor de objetos de Avro. Para ver un ejemplo de cómo serializar y deserializar datos en búferes de memoria usando un registro genérico con el formato de contenedor de objetos cuando debe incluirse el esquema con los datos serializados, consulte [Serialización mediante el uso de archivos contenedores de objetos con un registro genérico][**Serialización mediante el uso de archivos contenedores de objetos con un registro genérico**].
 
@@ -312,11 +312,11 @@ En este ejemplo, se supone que el esquema está compartido entre los lectores y 
 
 ## <a name="Scenario3"></a>Serialización mediante el uso de archivos contenedores de objetos y serialización con reflexión
 
-Este ejemplo es similar al escenario del [primer ejemplo][**Serialización mediante el uso de reflexión**], donde el esquema se especifica de forma implícita con reflexión, excepto que aquí no se supone que el lector que lo deserializa lo conoce. Los objetos **SensorData** que se van a serializar y el esquema especificado de forma implícita se almacenan en un archivo contenedor de objetos representado por la clase [**AvroContainer**][].
+Este ejemplo es similar al escenario del [primer ejemplo][**Serialización mediante el uso de reflexión**], donde el esquema se especifica de forma implícita con reflexión, excepto que aquí no se supone que el lector que lo deserializa lo conoce. Los objetos **SensorData** que se van a serializar y el esquema especificado de forma implícita se almacenan en un archivo contenedor de objetos representado por la clase [**AvroContainer**][**AvroContainer**].
 
-En este ejemplo, los datos se serializan con [**SequentialWriter<sensordata>**][] y deserializan con [**SequentialReader<sensordata>**][**SequentialWriter<sensordata>**]. Después se compara el resultado con las instancias iniciales para asegurarse de la identidad.
+En este ejemplo, los datos se serializan con [**SequentialWriter<sensordata>**][**SequentialWriter<sensordata>**] y deserializan con [**SequentialReader<sensordata>**][**SequentialWriter<sensordata>**]. Después se compara el resultado con las instancias iniciales para asegurarse de la identidad.
 
-Los datos del archivo contenedor de objetos se comprimen usando el códec de compresión predeterminado [**Deflate**][] de .NET Framework 4.0. Consulte el [último ejemplo][**Serialización mediante el uso de archivos contenedores de objetos con un códec de compresión personalizado**] de este tema para ver cómo utilizar una versión más reciente del códec de compresión [**Deflate**][2] disponible en .NET Framework 4.5.
+Los datos del archivo contenedor de objetos se comprimen usando el códec de compresión predeterminado [**Deflate**][**Deflate**] de .NET Framework 4.0. Consulte el [último ejemplo][**Serialización mediante el uso de archivos contenedores de objetos con un códec de compresión personalizado**] de este tema para ver cómo utilizar una versión más reciente del códec de compresión [**Deflate**][2] disponible en .NET Framework 4.5.
 
     namespace Microsoft.Hadoop.Avro.Sample
     {
@@ -553,7 +553,7 @@ Los datos del archivo contenedor de objetos se comprimen usando el códec de com
 
 Este ejemplo es similar al escenario del [segundo ejemplo][**Serialización mediante el uso de un registro genérico**], donde el esquema se especifica de forma explícita con JSON, excepto que aquí no se supone que el lector que lo deserializa lo conoce.
 
-El conjunto de datos de prueba se recopila en una lista de objetos [**AvroRecord**][] usando un esquema JSON definido de forma explícita y se almacenan en un archivo contenedor de objetos representado por la clase [**AvroContainer**][]. Este archivo contenedor crea un escritor que se usa para serializar los datos, descomprimidos, en una secuencia de memoria que se guarda después en un archivo. El parámetro [**Codex.Null**][] que se usa cuando se crea el lector es el que especifica que estos datos no se van a comprimir.
+El conjunto de datos de prueba se recopila en una lista de objetos [**AvroRecord**][**AvroRecord**] usando un esquema JSON definido de forma explícita y se almacenan en un archivo contenedor de objetos representado por la clase [**AvroContainer**][**AvroContainer**]. Este archivo contenedor crea un escritor que se usa para serializar los datos, descomprimidos, en una secuencia de memoria que se guarda después en un archivo. El parámetro [**Codex.Null**][**Codex.Null**] que se usa cuando se crea el lector es el que especifica que estos datos no se van a comprimir.
 
 Los datos se leen después en el archivo y se deserializan en una colección de objetos. Esta colección se compara con la lista inicial de registros de Avro para confirmar que son idénticos.
 
@@ -810,7 +810,7 @@ Los datos se leen después en el archivo y se deserializan en una colección de 
 
 ## <a name="Scenario5"></a>Serialización mediante el uso de archivos contenedores de objetos con un códec de compresión personalizado
 
-El ejemplo siguiente muestra cómo usar un códec de compresión personalizado para archivos contenedores de objetos de Avro. Las [Especificaciones de Avro][] permiten el uso de un códec de compresión opcional (además de los predeterminados **Null** y **Deflate**). En este ejemplo no se implementa el códec totalmente nuevo Snappy (mencionado como códec opcional admitido en las [Especificaciones de Avro][3]). Se muestra cómo usar la implementación de .NET Framework 4.5 del códec [**Deflate**][2], que proporciona un algoritmo de compresión basado en la biblioteca de compresión [zlib][] mejor que el predeterminado de la versión .NET Framework 4.0.
+El ejemplo siguiente muestra cómo usar un códec de compresión personalizado para archivos contenedores de objetos de Avro. Las [Especificaciones de Avro][Especificaciones de Avro] permiten el uso de un códec de compresión opcional (además de los predeterminados **Null** y **Deflate**). En este ejemplo no se implementa el códec totalmente nuevo Snappy (mencionado como códec opcional admitido en las [Especificaciones de Avro][3]). Se muestra cómo usar la implementación de .NET Framework 4.5 del códec [**Deflate**][2], que proporciona un algoritmo de compresión basado en la biblioteca de compresión [zlib][zlib] mejor que el predeterminado de la versión .NET Framework 4.0.
 
     // 
     // This code needs to be compiled with the parameter Target Framework set as ".NET Framework 4.5"
@@ -1304,22 +1304,12 @@ El ejemplo siguiente muestra cómo usar un códec de compresión personalizado p
 
   [JSON]: http://www.json.org
   [Especificaciones de Apache Avro]: http://avro.apache.org/docs/current/spec.html
-  [**AvroRecord**]: http://msdn.microsoft.com/en-us/library/microsoft.hadoop.avro.avrorecord.aspx
-  [Microsoft .NET Framework 4.0]: http://www.microsoft.com/en-us/download/details.aspx?id=17851
+  [Microsoft .NET Framework 4.0]: http://www.microsoft.com/es-es/download/details.aspx?id=17851
   [Newtonsoft Json.NET]: http://james.newtonking.com/json
   [ejemplos de código de Azure]: http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-86055923
   [1]: http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111
-  [**Serialización mediante el uso de reflexión**]: #Scenario1
-  [**Serialización mediante el uso de un registro genérico**]: #Scenario2
-  [**Serialización mediante el uso de archivos contenedores de objetos con reflexión**]: #Scenario3
   [**Serialización mediante el uso de archivos contenedores de objetos con un registro genérico**]: #Scenario4
-  [**Serialización mediante el uso de archivos contenedores de objetos con un códec de compresión personalizado**]: #Scenario5
-  [**IAvroSeralizer<t>**]: http://msdn.microsoft.com/en-us/library/dn627341.aspx
-  [**AvroContainer**]: http://msdn.microsoft.com/en-us/library/microsoft.hadoop.avro.container.avrocontainer.aspx
-  [**SequentialWriter<sensordata>**]: http://msdn.microsoft.com/en-us/library/dn627340.aspx
-  [**Deflate**]: http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.100).aspx
-  [2]: http://msdn.microsoft.com/en-us/library/system.io.compression.deflatestream(v=vs.110).aspx
-  [**Codex.Null**]: http://msdn.microsoft.com/en-us/library/microsoft.hadoop.avro.container.codec.null.aspx
+  [2]: http://msdn.microsoft.com/es-es/library/system.io.compression.deflatestream(v=vs.110).aspx
   [Especificaciones de Avro]: http://avro.apache.org/docs/current/spec.html#Required+Codecs
   [3]: http://avro.apache.org/docs/current/spec.html#snappy
   [zlib]: http://zlib.net/

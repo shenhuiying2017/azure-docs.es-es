@@ -1,6 +1,6 @@
 <properties linkid="manage-services-recovery-configure-backup-vault" urlDisplayName="Configure a Backup Vault" pageTitle="Configure Azure Recovery Services to quickly and easily back-up Windows Server" metaKeywords="disaster recovery" description="Use this tutorial to learn how to use the Backup service in Microsoft's Azure cloud offering to back up Windows Server to the cloud." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="raynew" solutions="" manager="johndaw" editor="tysonn" />
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew"></tags>
+<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="raynew" />
 
 # <span id="configure-a-backup-vault-tutorial"></span></a>Configuración de una copia de seguridad de Azure para hacer una copia de seguridad de Windows Server de manera rápida y fácil
 
@@ -21,19 +21,19 @@ Para hacer una copia de seguridad de los archivos y los datos desde Windows Serv
 
 ## <span id="create"></span></a>Creación de un almacén de credenciales de copia de seguridad
 
-1.  Inicie sesión en el [Portal de administración][].
+1.  Inicie sesión en el [Portal de administración][Portal de administración].
 
 2.  Haga clic en **Nuevo**, seleccione **Servicios de datos** y luego **Servicios de recuperación**, haga clic en **Almacén de copia de seguridad** y luego en **Creación rápida**.
 
 3.  En **Name**, escriba un nombre descriptivo para identificar el almacén de credenciales de copia de seguridad.
 
 4.  En **Región**, seleccione la región geográfica del almacén de copia de seguridad.
-     ![Nuevo almacén de credenciales de copia de seguridad][]
+     ![Nuevo almacén de credenciales de copia de seguridad][Nuevo almacén de credenciales de copia de seguridad]
 
 5.  Haga clic en **Crear almacén**.
 
     La creación del almacén de credenciales de copia de seguridad puede tardar unos minutos. Para revisar el estado, puede supervisar las notificaciones en la parte inferior del portal. Una vez creado el almacén de copia de seguridad, aparecerá un mensaje que indica que el almacén se ha creado correctamente y que se mostrará en los recursos de Servicios de recuperación como **Activo**.
-    ![Creación del almacén de copia de seguridad][]
+    ![Creación del almacén de copia de seguridad][Creación del almacén de copia de seguridad]
 
 6.  Si tiene varias suscripciones asociadas a su cuenta profesional, elija la cuenta adecuada que se asociará al almacén de copia de seguridad.
 
@@ -41,7 +41,7 @@ Para hacer una copia de seguridad de los archivos y los datos desde Windows Serv
 
 Las credenciales de almacén reemplazan los certificados como manera de registrar el servicio de Azur en el servidor. Los certificados aún se pueden usar. Sin embargo, las credenciales de almacén son más fáciles de usar porque utiliza el portal de Azure para generarlas y descargarlas.
 
-1.  Inicie sesión en el [Portal de administración][].
+1.  Inicie sesión en el [Portal de administración][Portal de administración].
 
 2.  Haga clic en **Servicios de recuperación** y seleccione el almacén de copia de seguridad que desee registrar en un servidor. Aparecerá la página de inicio rápido del almacén de copia de seguridad.
 
@@ -51,20 +51,20 @@ Las credenciales de almacén reemplazan los certificados como manera de registra
 
 ## <span id="download"></span></a>Descarga e instalación de un agente de copia de seguridad
 
-1.  En el [Portal de administración][].
+1.  En el [Portal de administración][Portal de administración].
 
 2.  Haga clic en **Servicios de recuperación** y seleccione un almacén de copia de seguridad para ver su página de inicio rápido.
 
 3.  En la página de inicio rápido, seleccione el tipo de agente que desee descargar. Puede elegir **Descargar Azure Backup Agent**, **Windows Server y System Center Data Protection Manager** o **Windows Server Essentials**. Para obtener más información, consulte:
 
-    -   [Instalación de Azure Backup Agent para Windows Server 2012 y System Center 2012 SP1 - Data Protection Manager][]
-    -   [Instalación de Azure Backup Agent para Windows Server 2012 Essentials][]
+    -   [Instalación de Azure Backup Agent para Windows Server 2012 y System Center 2012 SP1 - Data Protection Manager][Instalación de Azure Backup Agent para Windows Server 2012 y System Center 2012 SP1 - Data Protection Manager]
+    -   [Instalación de Azure Backup Agent para Windows Server 2012 Essentials][Instalación de Azure Backup Agent para Windows Server 2012 Essentials]
 
 Después de que se instala el agente, puede usar la interfaz de administración local adecuada (como el complemento de Microsoft Management Console, System Center Data Protection Manager Console o el Panel de Windows Server Essentials) para configurar la directiva de copia de seguridad del servidor.
 
 ## <span id="manage"></span></a>Administración de almacenes de credenciales de copia de seguridad y servidores
 
-1.  Inicie sesión en el [Portal de administración][].
+1.  Inicie sesión en el [Portal de administración][Portal de administración].
 
 2.  Haga clic en **Servicios de recuperación** y luego en el nombre del almacén de copia de seguridad para ver la página de inicio rápido.
 
@@ -75,22 +75,21 @@ Después de que se instala el agente, puede usar la interfaz de administración 
     -   **Credenciales de almacén**. Use este elemento del menú de vista rápida para configurar las credenciales de almacén.
 
 4.  Haga clic en **Protected Items** para ver los elementos a los que se les ha hecho una copia de seguridad desde los servidores. Esta lista solo tiene propósitos informativos.
-    ![Elementos protegidos][]
+    ![Elementos protegidos][Elementos protegidos]
 
 5.  Haga clic en **Servers** para ver los nombres de los servidores que se registraron en este almacén. Aquí puede realizar las siguientes tareas:
 
     -   **Permitir nuevo registro**. Cuando se selecciona esta opción para un servidor, puede usar el Asistente para registro en el agente para registrar el servidor con el almacén de credenciales de copia de seguridad por segunda vez. Es posible que necesite volver a registrarse debido a un error en el certificado o si un servidor tuvo que reconstruirse. El nuevo registro se permite solo una vez por nombre de servidor.
     -   **Delete**. Elimina un servidor del almacén de credenciales de copias seguridad. Todos los datos almacenados asociados con el servidor se eliminan inmediatamente.
 
-        ![Servidor eliminado][]
+        ![Servidor eliminado][Servidor eliminado]
 
 ## <span id="next"></span></a>Pasos siguientes
 
--   Para obtener más información sobre la copia de seguridad de Azure, consulte [Información general sobre Azure Backup][].
+-   Para obtener más información sobre la copia de seguridad de Azure, consulte [Información general sobre Azure Backup][Información general sobre Azure Backup].
 
--   Visite el [Foro de Azure Backup][].
+-   Visite el [Foro de Azure Backup][Foro de Azure Backup].
 
-  [Evaluación gratuita de Azure]: /es-es/pricing/free-trial/
   [Portal de administración]: https://manage.windowsazure.com
   [Nuevo almacén de credenciales de copia de seguridad]: http://i.imgur.com/506c7ch.png
   [Creación del almacén de copia de seguridad]: http://i.imgur.com/grtLcKM.png

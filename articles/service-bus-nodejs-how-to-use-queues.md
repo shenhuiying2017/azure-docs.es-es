@@ -1,6 +1,6 @@
 <properties linkid="dev-nodejs-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Node.js) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Node.js" description="Learn how to use Service Bus queues in Azure. Code samples written in Node.js." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Service Bus Queues" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Utilización de las colas del bus de servicio
 
@@ -8,27 +8,28 @@ Esta guía le mostrará cómo usar las colas del bus de servicio. Los ejemplos e
 escritos en JavaScript y usan el módulo Node.js de Azure. Entre los escenarios
 proporcionados se incluyen los siguientes: **creación de colas, envío y recepción de mensajes** y
 **eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos
-siguientes][].
+siguientes][Pasos
+siguientes].
 
 ## Tabla de contenido
 
--   [¿Qué son las colas del bus de servicio?][]
--   [Creación de un espacio de nombres de servicio][]
--   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][]
--   [Creación de una aplicación Node.js][]
--   [Configuración de la aplicación para usar el bus de servicio][]
--   [Direccionamiento del una cola][]
--   [Direccionamiento del mensajes a una cola][]
--   [Direccionamiento del mensajes desde una cola][]
--   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer][]
+-   [¿Qué son las colas del bus de servicio?][¿Qué son las colas del bus de servicio?]
+-   [Creación de un espacio de nombres de servicio][Creación de un espacio de nombres de servicio]
+-   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][Obtención de credenciales de administración predeterminadas para el espacio de nombres]
+-   [Creación de una aplicación Node.js][Creación de una aplicación Node.js]
+-   [Configuración de la aplicación para usar el bus de servicio][Configuración de la aplicación para usar el bus de servicio]
+-   [Direccionamiento del una cola][Direccionamiento del una cola]
+-   [Direccionamiento del mensajes a una cola][Direccionamiento del mensajes a una cola]
+-   [Direccionamiento del mensajes desde una cola][Direccionamiento del mensajes desde una cola]
+-   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer][Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer]
 -   [Pasos siguientes][Pasos
     siguientes]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <a name="create-app"> </a> Creación de una aplicación Node.js
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure][], [Servicio en la nube Node.js][] (usando Windows PowerShell) o [Sitio web con WebMatrix][].
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure][Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube Node.js][Servicio en la nube Node.js] (usando Windows PowerShell) o [Sitio web con WebMatrix][Sitio web con WebMatrix].
 
 ## <a name="configure-app"> </a>Configuración de la aplicación para usar el bus de servicio
 
@@ -73,9 +74,9 @@ del archivo **server.js** de la aplicación:
 
 El módulo azure leerá las variables de entorno AZURE\_SERVICEBUS\_NAMESPACE y AZURE\_SERVICEBUS\_ACCESS\_KEY para obtener la información necesaria para conectarse al bus de servicio de Azure. Si estas variables de entorno no están configuradas, debe especificar la información de la cuenta al llamar a **createServiceBusService**.
 
-Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio de nube de Azure, consulte [Servicio de nube de Node.js con almacenamiento][].
+Para ver un ejemplo de cómo configurar las variables de entorno en un archivo de configuración para un servicio de nube de Azure, consulte [Servicio de nube de Node.js con almacenamiento][Servicio de nube de Node.js con almacenamiento].
 
-Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento][].
+Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento][Aplicación web de Node.js con almacenamiento].
 
 ## <a name="create-queue"> </a>Creación de una cola
 
@@ -246,12 +247,9 @@ intentos de entrega.
 Ahora que conoce los fundamentos de las colas del bus de servicio, siga estos
 vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio][]
--   Visite el repositorio del [SDK de Azure para Node.js][] (en inglés) en GitHub.
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio][Colas, temas y suscripciones del bus de servicio]
+-   Visite el repositorio del [SDK de Azure para Node.js][SDK de Azure para Node.js] (en inglés) en GitHub.
 
-  [Pasos
-  siguientes]: #next-steps
-  [¿Qué son las colas del bus de servicio?]: #what-are-service-bus-queues
   [Creación de un espacio de nombres de servicio]: #create-a-service-namespace
   [Obtención de credenciales de administración predeterminadas para el espacio de nombres]: #obtain-default-credentials
   [Creación de una aplicación Node.js]: #create-app

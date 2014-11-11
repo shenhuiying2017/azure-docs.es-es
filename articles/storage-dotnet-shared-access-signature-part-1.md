@@ -1,10 +1,10 @@
 <properties linkid="manage-services-storage-net-shared-access-signature-part-1" urlDisplayName="" pageTitle="Shared access signatures: Understanding the SAS Model | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Firmas de acceso compartido, parte 1: Descripción del modelo de firmas de acceso compartido
 
-Usar una firma de acceso compartido (SAS) es una manera eficaz de conceder acceso limitado a los blobs, las tablas y las colas en la cuenta de almacenamiento a otros clientes sin tener que exponer la clave de cuenta. En la parte 1 de este tutorial sobre firmas de acceso compartido, le ofreceremos información general del modelo SAS y una revisión de las prácticas recomendadas de SAS. La [parte 2][] de este tutorial le guiará a través del proceso de creación de firmas de acceso compartido con el servicio BLOB.
+Usar una firma de acceso compartido (SAS) es una manera eficaz de conceder acceso limitado a los blobs, las tablas y las colas en la cuenta de almacenamiento a otros clientes sin tener que exponer la clave de cuenta. En la parte 1 de este tutorial sobre firmas de acceso compartido, le ofreceremos información general del modelo SAS y una revisión de las prácticas recomendadas de SAS. La [parte 2][parte 2] de este tutorial le guiará a través del proceso de creación de firmas de acceso compartido con el servicio BLOB.
 
 ## ¿Qué es una firma de acceso compartido?
 
@@ -119,7 +119,7 @@ Las siguientes recomendaciones para el uso de firmas de acceso compartido le ayu
 7.  **Comprenda que se le hará un cargo en la cuenta por cualquier uso, incluido el realizado con la SAS.** Si proporciona acceso de escritura a un blob, el usuario puede seleccionar cargar un blob de 200 GB. Si le proporciona también acceso de lectura, puede seleccionar descargarlo 10 veces, lo que le supone 2 TB de costes de salida. Proporcione de nuevo permisos limitados para ayudar a mitigar la posibilidad de usuarios malintencionados. Use una SAS de corta duración para reducir esa amenaza (pero tenga en cuenta el desplazamiento del reloj y la hora final).
 8.  **Valide los datos escritos mediante la SAS.** Cuando una aplicación cliente escribe datos en la cuenta de almacenamiento, tenga en cuenta que pueden existir problemas con esos datos. Si la aplicación requiere que se validen o autoricen los datos antes de que estén listos para usar, debe realizar la validación después de que se escriban los datos y antes de que la aplicación los use. Esta práctica también le protege frente a los datos erróneos o malintencionados que se escriben en la cuenta, ya sea mediante un usuario que adquirió correctamente la SAS o un usuario que aproveche una SAS errónea.
 9.  **No use siempre la SAS.** En ocasiones, los riesgos asociados a una operación determinada en la cuenta de almacenamiento superan a las ventajas del uso de la SAS. Para esas operaciones, cree un servicio de nivel medio que escriba en la cuenta de almacenamiento después de llevar a cabo una auditoría, autenticación o validación de la regla de negocio. A veces también es más sencillo administrar el acceso de otras formas. Por ejemplo, si desea que todos los blobs de un contenedor puedan leerse públicamente, puede hacer que el contenedor sea público en lugar de proporcionar un SAS a cada cliente para obtener acceso.
-10. **Use el análisis de almacenamiento para supervisar la aplicación.** Puede hacer uso de registros y métricas para observar cualquier pico en los errores de autenticación producidos por la interrupción del servicio del proveedor de SAS o la eliminación involuntaria de una directiva de acceso almacenada. Consulte el [blog del equipo de almacenamiento de Azure][] (en inglés) para obtener más información.
+10. **Use el análisis de almacenamiento para supervisar la aplicación.** Puede hacer uso de registros y métricas para observar cualquier pico en los errores de autenticación producidos por la interrupción del servicio del proveedor de SAS o la eliminación involuntaria de una directiva de acceso almacenada. Consulte el [blog del equipo de almacenamiento de Azure][blog del equipo de almacenamiento de Azure] (en inglés) para obtener más información.
 
 ## Conclusión
 
@@ -129,16 +129,14 @@ Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su
 
 [Firmas de acceso compartido, parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB][parte 2]
 
-[Administración del acceso a los recursos de almacenamiento de Azure][]
+[Administración del acceso a los recursos de almacenamiento de Azure][Administración del acceso a los recursos de almacenamiento de Azure]
 
-[Delegación de acceso con una firma de acceso compartido (API de REST)][]
+[Delegación de acceso con una firma de acceso compartido (API de REST)][Delegación de acceso con una firma de acceso compartido (API de REST)]
 
-[Introducción a SAS (firma de acceso compartido) de Tabla, SAS de Cola y actualización a SAS de Blob][]
+[Introducción a SAS (firma de acceso compartido) de Tabla, SAS de Cola y actualización a SAS de Blob][Introducción a SAS (firma de acceso compartido) de Tabla, SAS de Cola y actualización a SAS de Blob]
  [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
   [parte 2]: ../storage-dotnet-shared-access-signature-part-2/
   [blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx
-  [Administración del acceso a los recursos de almacenamiento de Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx
-  [Delegación de acceso con una firma de acceso compartido (API de REST)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx
-  [Introducción a SAS (firma de acceso compartido) de Tabla, SAS de Cola y actualización a SAS de Blob]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx
+  [Administración del acceso a los recursos de almacenamiento de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/ee393343.aspx

@@ -4,7 +4,7 @@
 
 # Uso del Almacenamiento de Azure con una solución de integración continua Jenkins
 
-*Por [Microsoft Open Technologies Inc.][]*
+*Por [Microsoft Open Technologies Inc.][Microsoft Open Technologies Inc.]*
 
 La siguiente información describe cómo usar el servicio BLOB de Azure como repositorio de artefactos de compilación creados por una solución de integración continua Jenkins, o como origen de archivos descargables para su uso en un proceso de compilación. Uno de los escenarios en que esto le puede resultar útil es para codificar en un entorno de desarrollo ágil (con el uso de Java o de otros lenguajes), cuando las compilaciones se ejecutan según una integración continua y si necesita un repositorio para los artefactos de compilación, a fin de que, por ejemplo, pueda compartirlos con otros miembros de la organización, con los clientes o para mantener un archivo. Otro es cuando su trabajo de compilación propiamente dicho requiere otros archivos, por ejemplo, la descarga de dependencias como parte de la entrada de compilación.
 
@@ -12,21 +12,21 @@ En este tutorial va a usar el complemento de almacenamiento de Azure para la int
 
 ## Tabla de contenido
 
--   [Información general sobre Jenkins][]
--   [Ventajas de usar el servicio BLOB][]
--   [Requisitos previos][]
--   [Uso del servicio BLOB con la integración continua Jenkins][]
--   [Instalación del complemento de almacenamiento de Azure][]
--   [Configuración del complemento de almacenamiento de Azure para usar la cuenta de almacenamiento][]
--   [Creación de una acción posterior a la compilación que carga los artefactos de compilación para la cuenta de almacenamiento][]
--   [Creación de un paso de compilación que descarga del almacenamiento de blobs de Azure][]
--   [Componentes usados por el servicio BLOB][]
+-   [Información general sobre Jenkins][Información general sobre Jenkins]
+-   [Ventajas de usar el servicio BLOB][Ventajas de usar el servicio BLOB]
+-   [Requisitos previos][Requisitos previos]
+-   [Uso del servicio BLOB con la integración continua Jenkins][Uso del servicio BLOB con la integración continua Jenkins]
+-   [Instalación del complemento de almacenamiento de Azure][Instalación del complemento de almacenamiento de Azure]
+-   [Configuración del complemento de almacenamiento de Azure para usar la cuenta de almacenamiento][Configuración del complemento de almacenamiento de Azure para usar la cuenta de almacenamiento]
+-   [Creación de una acción posterior a la compilación que carga los artefactos de compilación para la cuenta de almacenamiento][Creación de una acción posterior a la compilación que carga los artefactos de compilación para la cuenta de almacenamiento]
+-   [Creación de un paso de compilación que descarga del almacenamiento de blobs de Azure][Creación de un paso de compilación que descarga del almacenamiento de blobs de Azure]
+-   [Componentes usados por el servicio BLOB][Componentes usados por el servicio BLOB]
 
 ## <a name="overview"></a><span class="short header">Información general</span>Información general sobre Jenkins
 
 Jenkins permite la integración continua de un proyecto de software al hacer posible que los desarrolladores integren fácilmente los cambios de su código y cuenten con compilaciones generadas de manera automática y frecuente, lo que les permite aumentar la productividad. Las compilaciones tienen varias versiones y los artefactos de compilación se pueden cargar en varios repositorios. En este tema se describe cómo usar el almacenamiento de blobs de Azure como repositorio de los artefactos de compilación. También se mostrará cómo descargar dependencias del almacenamiento de blobs de Azure.
 
-Puede encontrar más información acerca de Jenkins en [Meet Jenkins][].
+Puede encontrar más información acerca de Jenkins en [Meet Jenkins][Meet Jenkins].
 
 ## <a name="benefits"></a><span class="short header">Ventajas</span>Ventajas de usar el servicio BLOB
 
@@ -56,7 +56,7 @@ Para usar el servicio BLOB con la solución de integración continua Jenkins, ne
 
 -   Una cuenta de Azure. Puede iniciar sesión en una cuenta de Azure en <http://www.windowsazure.com>.
 
--   Una cuenta de almacenamiento de Azure. Si aún no tiene una cuenta de almacenamiento, puede crearla con los pasos descritos en [Creación de una cuenta de almacenamiento][].
+-   Una cuenta de almacenamiento de Azure. Si aún no tiene una cuenta de almacenamiento, puede crearla con los pasos descritos en [Creación de una cuenta de almacenamiento][Creación de una cuenta de almacenamiento].
 
 -   Es recomendable estar familiarizado con la solución de integración continua Jenkins, pero no obligatorio, ya que a continuación se ilustrará un ejemplo básico con los pasos que debe seguir para usar el servicio BLOB como repositorio para los artefactos de compilación de integración continua Jenkins.
 
@@ -109,7 +109,7 @@ Con el fin de facilitar instrucciones, primero necesitaremos crear un trabajo qu
 
     Debajo de la sección **Command** en la que ha insertado un script para **Execute Windows batch command** hay un vínculo a las variables de entorno reconocidas por Jenkins. Haga clic en dicho vínculos para obtener acceso a las descripciones y los nombres de las variables de entorno. Tenga en cuenta que las variables de entorno que contienen caracteres especiales, como **BUILD\_URL**, no se admiten como nombre de contenedor ni como ruta de acceso virtual común.
 
-8.  Haga clic en **Make new container public by default** para este ejemplo. (Si desea usar un contenedor privado, también tendrá que crear una firma de acceso compartida para permitir el acceso. Eso va más allá del ámbito de este tema. Puede obtener más información acerca de las firmas de acceso compartido en [Crear y usar una firma de acceso compartido][]).
+8.  Haga clic en **Make new container public by default** para este ejemplo. (Si desea usar un contenedor privado, también tendrá que crear una firma de acceso compartida para permitir el acceso. Eso va más allá del ámbito de este tema. Puede obtener más información acerca de las firmas de acceso compartido en [Crear y usar una firma de acceso compartido][Crear y usar una firma de acceso compartido]).
 9.  [Opcional] Haga clic en **Clean container before uploading** si desea que se borre el contenido del contenedor antes de cargar los artefactos de compilación (déjela sin marcar si no desea limpiar el contenido del contenedor).
 10. En **List of Artifacts to upload**, escriba \*\*text/\*.txt\*\*.
 11. En **Common virtual path for uploaded artifacts**, escriba **${BUILD\_ID}/${BUILD\_NUMBER}** para los fines de este tutorial.
@@ -145,7 +145,7 @@ A continuación se ofrece información general acerca de los componentes del ser
 
 -   **Cuenta de almacenamiento**: todo el acceso al almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Se trata del nivel superior del espacio de nombres para el acceso a los blobs. Una cuenta puede contener una cantidad ilimitada de contenedores, siempre que su tamaño total no supere los 100 TB.
 -   **Contenedor**: un contenedor ofrece una agrupación de un conjunto de blobs. Todos los blobs deben residir en un contenedor. Además, una cuenta puede disponer de un número ilimitado de contenedores y un contenedor puede almacenar un número ilimitado de blobs.
--   **Blob**: un archivo de cualquier tipo y tamaño. Existen dos tipos de blobs que pueden almacenarse en Almacenamiento de Azure: blobs en páginas y en bloques. La mayoría de los archivos son blobs en bloques. Un blob en bloques único puede tener un tamaño de hasta 200 GB. En este tutorial se usan blobs en bloques. Los blobs en páginas, que son otro tipo de blobs, pueden tener un tamaño de hasta 1 TB y son más eficaces cuando los intervalos de bytes de un archivo se modifican con frecuencia. Para obtener más información sobre los blobs, consulte [Introducción a los blobs en bloques y a los blobs en páginas][].
+-   **Blob**: un archivo de cualquier tipo y tamaño. Existen dos tipos de blobs que pueden almacenarse en Almacenamiento de Azure: blobs en páginas y en bloques. La mayoría de los archivos son blobs en bloques. Un blob en bloques único puede tener un tamaño de hasta 200 GB. En este tutorial se usan blobs en bloques. Los blobs en páginas, que son otro tipo de blobs, pueden tener un tamaño de hasta 1 TB y son más eficaces cuando los intervalos de bytes de un archivo se modifican con frecuencia. Para obtener más información sobre los blobs, consulte [Introducción a los blobs en bloques y a los blobs en páginas][Introducción a los blobs en bloques y a los blobs en páginas].
 -   **Formato de dirección URL**: es posible dirigir los blobs con el siguiente formato de dirección URL:
 
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -169,4 +169,4 @@ A continuación se ofrece información general acerca de los componentes del ser
   [Meet Jenkins]: https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins
   [Creación de una cuenta de almacenamiento]: http://go.microsoft.com/fwlink/?LinkId=279823
   [Crear y usar una firma de acceso compartido]: http://go.microsoft.com/fwlink/?LinkId=279889
-  [Introducción a los blobs en bloques y a los blobs en páginas]: http://msdn.microsoft.com/en-us/library/windowsazure/ee691964.aspx
+  [Introducción a los blobs en bloques y a los blobs en páginas]: http://msdn.microsoft.com/es-es/library/windowsazure/ee691964.aspx

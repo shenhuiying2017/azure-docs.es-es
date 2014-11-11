@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-command-line" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer Hadoop clusters using the Cross-platform Command-line Interface" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Administración de clústeres de Hadoop mediante la interfaz de la línea de comandos entre plataformas
 
@@ -8,23 +8,23 @@ En este artículo, aprenderá a utilizar la interfaz de la línea de comandos en
 
 La herramienta de línea de comandos es de código abierto. El código fuente se administra en GitHub en <https://github.com/WindowsAzure/azure-sdk-tools-xplat>.
 
-Este artículo solo trata el uso de la interfaz de línea de comandos en Windows. Para obtener información general acerca de cómo usar la interfaz de la línea de comandos, consulte [Uso de las herramientas de línea de comandos de Azure para Mac y Linux][]. Para obtener una documentación de referencia completa, consulte [Herramienta de línea de comandos de Azure para Mac y Linux][].
+Este artículo solo trata el uso de la interfaz de línea de comandos en Windows. Para obtener información general acerca de cómo usar la interfaz de la línea de comandos, consulte [Uso de las herramientas de línea de comandos de Azure para Mac y Linux][Uso de las herramientas de línea de comandos de Azure para Mac y Linux]. Para obtener una documentación de referencia completa, consulte [Herramienta de línea de comandos de Azure para Mac y Linux][Herramienta de línea de comandos de Azure para Mac y Linux].
 
 **Requisitos previos:**
 
 Antes de empezar este artículo, debe tener lo siguiente:
 
--   **Suscripción de Azure**. Azure es una plataforma basada en suscripción. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][], [Ofertas para miembros][] o [Evaluación gratuita][].
+-   **Suscripción de Azure**. Azure es una plataforma basada en suscripción. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][Opciones de compra], [Ofertas para miembros][Ofertas para miembros] o [Evaluación gratuita][Evaluación gratuita].
 
 ## En este artículo
 
--   [Instalación][]
--   [Descarga e importación de la configuración de publicación de la cuenta de Azure][]
--   [Aprovisionamiento de un clúster][]
--   [Aprovisionamiento de clústeres mediante un archivo de configuración][]
--   [Enumeración y visualización de clústeres][]
--   [Eliminación de un clúster][]
--   [Pasos siguientes][]
+-   [Instalación][Instalación]
+-   [Descarga e importación de la configuración de publicación de la cuenta de Azure][Descarga e importación de la configuración de publicación de la cuenta de Azure]
+-   [Aprovisionamiento de un clúster][Aprovisionamiento de un clúster]
+-   [Aprovisionamiento de clústeres mediante un archivo de configuración][Aprovisionamiento de clústeres mediante un archivo de configuración]
+-   [Enumeración y visualización de clústeres][Enumeración y visualización de clústeres]
+-   [Eliminación de un clúster][Eliminación de un clúster]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <span id="installation"></span></a> Instalación
 
@@ -54,7 +54,7 @@ La interfaz de línea de comandos se puede instalar usando *Node.js Package Mana
 
 **Para instalar la interfaz de línea de comandos usando Windows Installer**
 
-1.  Vaya a **[http://azure.microsoft.com/es-es/downloads/][]**.
+1.  Vaya a **[http://azure.microsoft.com/es-es/downloads/][http://azure.microsoft.com/es-es/downloads/]**.
 2.  Desplácese hasta la sección **Command line tools** y, a continuación, haga clic en **Cross-platform Command Line Interface** y siga el asistente del instalador de plataforma web.
 
 ## <span id="importsettings"></span></a> Descarga e importación de la configuración de publicación de la cuenta de Azure
@@ -70,7 +70,7 @@ Antes de usar la interfaz de línea de comandos, debe configurar la conectividad
 
         azure account download
 
-    ![HDI.CLIAccountDownloadImport][]
+    ![HDI.CLIAccountDownloadImport][HDI.CLIAccountDownloadImport]
 
     El comando muestra las instrucciones para descargar el archivo, incluyendo una URL.
 
@@ -98,7 +98,7 @@ Después de importar el archivo publishsettings, puede usar el siguiente comando
 > -   Este de EE. UU.
 > -   Oeste de EE. UU.
 
-Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure usando el Portal de administración de Azure, consulte [Creación de una cuenta de almacenamiento][].
+Para obtener información acerca de la creación de una cuenta de almacenamiento de Azure usando el Portal de administración de Azure, consulte [Creación de una cuenta de almacenamiento][Creación de una cuenta de almacenamiento].
 
 Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, puede usar los comandos siguientes para recuperar dicha información:
 
@@ -109,7 +109,7 @@ Si ya tiene una cuenta de almacenamiento pero no sabe su nombre ni su clave, pue
     -- Lists the keys for a storage account
     azure account storage keys list <StorageAccountName>
 
-Para obtener información acerca de cómo conseguir la información usando el portal de administración, consulte la sección *Visualización, copia y regeneración de claves de acceso al almacenamiento* de [Administración de cuentas de almacenamiento][].
+Para obtener información acerca de cómo conseguir la información usando el portal de administración, consulte la sección *Visualización, copia y regeneración de claves de acceso al almacenamiento* de [Administración de cuentas de almacenamiento][Administración de cuentas de almacenamiento].
 
 El comando *azure hdinsight cluster create* crea el contenedor si no existe. Si opta por crear el contenedor antes, puede usar el comando siguiente:
 
@@ -120,7 +120,7 @@ Una vez que tenga preparados la cuenta de almacenamiento y el contenedor de blob
 
     azure hdinsight cluster create --clusterName <ClusterName> --storageAccountName <StorageAccountName> --storageAccountKey <storageAccountKey> --storageContainer <StorageContainer> --nodes <NumberOfNodes> --location <DataCenterLocation> --username <HDInsightClusterUsername> --clusterPassword <HDInsightClusterPassword>
 
-![HDI.CLIClusterCreation][]
+![HDI.CLIClusterCreation][HDI.CLIClusterCreation]
 
 ## <span id="provisionconfigfile"></span></a> Aprovisionamiento de un clúster de HDInsight usando un archivo de configuración
 
@@ -142,7 +142,7 @@ Normalmente, se aprovisiona un clúster de HDInsight, se ejecutan los trabajos e
     azure hdinsight cluster create --config <file>
          
 
-![HDI.CLIClusterCreationConfig][]
+![HDI.CLIClusterCreationConfig][HDI.CLIClusterCreationConfig]
 
 ## <span id="listshow"></span></a> Enumeración y visualización de los detalles del clúster
 
@@ -151,7 +151,7 @@ Use los comandos siguientes para enumerar y mostrar los detalles del clúster:
     azure hdinsight cluster list
     azure hdinsight cluster show <ClusterName>
 
-![HDI.CLIListCluster][]
+![HDI.CLIListCluster][HDI.CLIListCluster]
 
 ## <span id="delete"></span></a> Eliminación de un clúster
 
@@ -163,17 +163,17 @@ Use el comando siguiente para eliminar un clúster:
 
 En este artículo, ha aprendido a realizar diferentes tareas administrativas en clústeres de HDInsight. Para obtener más información, consulte los artículos siguientes:
 
--   [Administración de HDInsight con el portal de administración][]
--   [Administración de HDInsight con PowerShell][]
--   [Introducción a HDInsight de Azure][]
--   [Uso de las herramientas de línea de comandos de Azure para Mac y Linux][]
--   [Herramienta de línea de comandos de Azure para Mac y Linux][]
+-   [Administración de HDInsight con el portal de administración][Administración de HDInsight con el portal de administración]
+-   [Administración de HDInsight con PowerShell][Administración de HDInsight con PowerShell]
+-   [Introducción a HDInsight de Azure][Introducción a HDInsight de Azure]
+-   [Uso de las herramientas de línea de comandos de Azure para Mac y Linux][Uso de las herramientas de línea de comandos de Azure para Mac y Linux]
+-   [Herramienta de línea de comandos de Azure para Mac y Linux][Herramienta de línea de comandos de Azure para Mac y Linux]
 
   [Uso de las herramientas de línea de comandos de Azure para Mac y Linux]: ../xplat-cli/
   [Herramienta de línea de comandos de Azure para Mac y Linux]: ../command-line-tools/
-  [Opciones de compra]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Ofertas para miembros]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Evaluación gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Opciones de compra]: http://azure.microsoft.com/es-es/pricing/purchase-options/
+  [Ofertas para miembros]: http://azure.microsoft.com/es-es/pricing/member-offers/
+  [Evaluación gratuita]: http://azure.microsoft.com/es-es/pricing/free-trial/
   [Instalación]: #installation
   [Descarga e importación de la configuración de publicación de la cuenta de Azure]: #importsettings
   [Aprovisionamiento de un clúster]: #provision
@@ -181,7 +181,7 @@ En este artículo, ha aprendido a realizar diferentes tareas administrativas en 
   [Enumeración y visualización de clústeres]: #listshow
   [Eliminación de un clúster]: #delete
   [Pasos siguientes]: #nextsteps
-  [http://azure.microsoft.com/es-es/downloads/]: http://azure.microsoft.com/en-us/downloads/
+  [http://azure.microsoft.com/es-es/downloads/]: http://azure.microsoft.com/es-es/downloads/
   [HDI.CLIAccountDownloadImport]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
   [Creación de una cuenta de almacenamiento]: ../storage-create-storage-account/
   [Administración de cuentas de almacenamiento]: ../storage-manage-storage-account/

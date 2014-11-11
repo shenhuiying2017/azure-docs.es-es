@@ -1,6 +1,6 @@
 <properties linkid="dev-net-e2e-multi-tier" urlDisplayName="Multi-Tier Application" pageTitle=".NET Multi-Tier Application - Azure Tutorial" metaKeywords="Azure Service Bus queue tutorial, Azure queue tutorial, Azure worker role tutorial, Azure .NET queue tutorial, Azure C# queue tutorial, Azure C# worker role tutorial" description="A tutorial that helps you develop a multi-tier app in Azure that uses Service Bus queues to communicate between tiers. Samples in .NET." metaCanonical="" services="cloud-services,service-bus" documentationCenter=".NET" title=".NET Multi-Tier Application Using Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 
 # Aplicación de niveles múltiples .NET con colas del bus de servicio
 
@@ -21,15 +21,15 @@ Aprenderá a:
     roles web y de trabajo.
 -   Cómo comunicarse entre niveles mediante las colas del bus de servicio.
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-En este tutorial compilará y ejecutará la aplicación de niveles múltiples en un servicio en la nube de Azure. El front-end será un rol web de ASP.NET MVC y el back-end será un rol de trabajo Puede crear la misma aplicación de niveles múltiples con el front-end como un proyecto web que se puede implementar en un sitio web de Azure en lugar de en un servicio en la nube. Para obtener instrucciones acerca de cómo realizar de manera diferente un front-end de sitio web de Azure, consulte la sección [Pasos siguientes][].
+En este tutorial compilará y ejecutará la aplicación de niveles múltiples en un servicio en la nube de Azure. El front-end será un rol web de ASP.NET MVC y el back-end será un rol de trabajo Puede crear la misma aplicación de niveles múltiples con el front-end como un proyecto web que se puede implementar en un sitio web de Azure en lugar de en un servicio en la nube. Para obtener instrucciones acerca de cómo realizar de manera diferente un front-end de sitio web de Azure, consulte la sección [Pasos siguientes][Pasos siguientes].
 
 A continuación, se muestra una captura de la pantalla de la aplicación finalizada:
 
-![][]
+![][0]
 
-**Nota**: Azure también proporciona funcionalidad de colas de almacenamiento. Para obtener más información sobre las colas de almacenamiento de Azure y las colas del bus de servicio, consulte [Colas de Windows Azure y Colas de Service Bus de Windows Azure: comparación y diferencias][].
+**Nota**: Azure también proporciona funcionalidad de colas de almacenamiento. Para obtener más información sobre las colas de almacenamiento de Azure y las colas del bus de servicio, consulte [Colas de Windows Azure y Colas de Service Bus de Windows Azure: comparación y diferencias][Colas de Windows Azure y Colas de Service Bus de Windows Azure: comparación y diferencias].
 
 ## <span class="short-header">Comunicación entre roles</span>Información general del escenario: comunicación entre roles
 
@@ -96,7 +96,7 @@ Antes de comenzar a desarrollar la aplicación de Azure, debe obtener las herram
 
 1.  Para instalar el SDK de Azure para .NET, haga clic en el botón siguiente:
 
-    [Obtención de herramientas y de SDK][]
+    [Obtención de herramientas y de SDK][Obtención de herramientas y de SDK]
 
 2.  Haga clic en **install the SDK**.
 
@@ -131,7 +131,7 @@ Tenga en cuenta que también puede administrar espacios de nombres y entidades d
 
 ### Configuración del espacio de nombres mediante el Portal de administración
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  En el panel de navegación izquierdo del Portal de administración, haga clic en
     **Bus de servicio**.
@@ -172,7 +172,7 @@ Tenga en cuenta que también puede administrar espacios de nombres y entidades d
 
 ### Administración de espacios de nombres y de entidades de mensajería mediante el Explorador de servidores de Visual Studio
 
-Para administrar un espacio de nombres y obtener la información de conexión utilizando Visual Studio en vez del Portal de administración, siga el procedimiento descrito [aquí][], en la sección titulada **Para conectarse a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Microsoft Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombre que ya haya creado. Haga clic con el botón secundario en cualquier espacio de nombre, a continuación haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio.
+Para administrar un espacio de nombres y obtener la información de conexión utilizando Visual Studio en vez del Portal de administración, siga el procedimiento descrito [aquí][aquí], en la sección titulada **Para conectarse a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Microsoft Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombre que ya haya creado. Haga clic con el botón secundario en cualquier espacio de nombre, a continuación haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio.
 
 Anote el valor de **SharedAccessKey**, o cópielo en el Portapapeles:
 
@@ -493,7 +493,7 @@ cola del Bus de servicio.
 
 ## <span class="short-header">Administrador de configuración</span>Administrador de configuración de nube
 
-Azure admite un conjunto de API administradas que ofrece una forma coherente de crear nuevas instancias de clientes de servicio de Azure (como el bus de servicio) en los servicios en la nube de Microsoft. Estas API le permiten crear instancias de estos clientes (por ejemplo, **CloudBlobClient**, **QueueClient**, **TopicClient**) con independencia de dónde se hospede la aplicación; localmente, en un servicio en la nube de Microsoft, en sitios web o en un rol de máquina virtual persistente. También puede usar estas API para recuperar la información de la configuración necesaria para crear una instancia de estos clientes y cambiar la configuración sin tener que volver a implementar la aplicación de llamada. Las API están ubicadas en la clase [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][]. También hay API en el cliente.
+Azure admite un conjunto de API administradas que ofrece una forma coherente de crear nuevas instancias de clientes de servicio de Azure (como el bus de servicio) en los servicios en la nube de Microsoft. Estas API le permiten crear instancias de estos clientes (por ejemplo, **CloudBlobClient**, **QueueClient**, **TopicClient**) con independencia de dónde se hospede la aplicación; localmente, en un servicio en la nube de Microsoft, en sitios web o en un rol de máquina virtual persistente. También puede usar estas API para recuperar la información de la configuración necesaria para crear una instancia de estos clientes y cambiar la configuración sin tener que volver a implementar la aplicación de llamada. Las API están ubicadas en la clase [Microsoft.WindowsAzure.Configuration.CloudConfigurationManager][Microsoft.WindowsAzure.Configuration.CloudConfigurationManager]. También hay API en el cliente.
 
 ### Cadena de conexión
 
@@ -599,15 +599,15 @@ pedido. Este ejemplo utiliza la plantilla de proyecto de Visual Studio de **Work
 
 Para obtener más información sobre el bus de servicio, consulte los siguientes recursos:
 
--   [Service Bus][]
--   [Procedimientos del bus de servicio][]
--   [Utilización de las colas del bus de servicio][]
+-   [Service Bus][Service Bus]
+-   [Procedimientos del bus de servicio][Procedimientos del bus de servicio]
+-   [Utilización de las colas del bus de servicio][Utilización de las colas del bus de servicio]
 
 Para obtener más información sobre los escenarios de niveles múltiples o sobre cómo implementar una aplicación en un servicio en la nube, consulte:
 
--   [Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento][]
+-   [Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento][Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento]
 
-Es posible que desee implementar el front-end de una aplicación de niveles múltiples en un sitio web de Azure en lugar de en un servicio en la nube de Azure. Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure][].
+Es posible que desee implementar el front-end de una aplicación de niveles múltiples en un sitio web de Azure en lugar de en un servicio en la nube de Azure. Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure][Modelos de ejecución de Azure].
 
 Para implementar la aplicación que ha creado en este tutorial como un proyecto web estándar en lugar de como un rol web de servicio en la nube, siga los pasos de este tutorial con las diferentes siguientes:
 
@@ -617,11 +617,11 @@ Para implementar la aplicación que ha creado en este tutorial como un proyecto 
 
 3.  Puede probar por separado el front-end y el back-end, o bien puede ejecutar ambos simultáneamente en instancias separadas de Visual Studio.
 
-Para obtener información sobre cómo implementar el front-end en un sitio web de Azure, consulte [Implementación de una aplicación web ASP.NET a un sitio web de Azure][]. Para obtener información sobre cómo implementar el back-end en un servicio en la nube de Azure, consulte [Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento][].
+Para obtener información sobre cómo implementar el front-end en un sitio web de Azure, consulte [Implementación de una aplicación web ASP.NET a un sitio web de Azure][Implementación de una aplicación web ASP.NET a un sitio web de Azure]. Para obtener información sobre cómo implementar el back-end en un servicio en la nube de Azure, consulte [Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento][Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento].
 
   [create-account-note]: ../includes/create-account-note.md
   [Pasos siguientes]: #nextsteps
-  []: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
+  [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [Colas de Windows Azure y Colas de Service Bus de Windows Azure: comparación y diferencias]: http://msdn.microsoft.com/es-es/library/windowsazure/hh767287.aspx
   [1]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-100.png
   [2]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-101.png

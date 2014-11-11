@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning Sample: Prediction of student performance" pageTitle="Machine Learning Sample: Predict student performance | Azure" description="A sample Azure Machine Learning experiment to develop a model that predicts student performance on tests." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
 # Ejemplo de Aprendizaje automático de Azure: predicción del rendimiento estudiantil
 
@@ -27,7 +27,7 @@ El archivo algebra\_train\_small.txt\_ascii resultante sigue siendo bastante amp
     $ctxt = New-AzureStorageContext -StorageAccountName $key.StorageAccountName -StorageAccountKey $key.Primary
     Set-AzureStorageBlobContent –Container <container name in your storage account> -File "algebra_train_small.txt_ascii" –Context $ctxt
 
-![][]
+![][0]
 
 Los parámetros del módulo **Lector** se muestran arriba. En este ejemplo, el nombre de la cuenta de almacenamiento es "datascience", el archivo del conjunto de datos algebra\_train\_small.txt\_ascii se coloca en el contenedor "sampleexperiments". La clave de cuenta es una clave de acceso de la cuenta de almacenamiento de Azure. Se puede recuperar de la cuenta en el portal de administración de Azure ([][1]<https://manage.windowsazure.com></a>).
 
@@ -100,9 +100,9 @@ Llegamos a la conclusión de que el cuarto conjunto de características proporci
 
 H.-F. Yu et al. Feature Engineering and Classifier Ensemble for KDD Cup 2010. KDD Cup 2010 Workshop, 2010.
 
-  []: https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp
+  [0]: https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp
   [raíz cuadrada del error cuadrático medio]: http://en.wikipedia.org/wiki/Root-mean-square_deviation
-  []: ./media/machine-learning-sample-prediction-of-student-performance/student-performance-1.jpg
+  [0]: ./media/machine-learning-sample-prediction-of-student-performance/student-performance-1.jpg
   [1]: https://manage.windowsazure.com
   [2]: ./media/machine-learning-sample-prediction-of-student-performance/student-performance-2.jpg
   [3]: ./media/machine-learning-sample-prediction-of-student-performance/student-performance-3.jpg

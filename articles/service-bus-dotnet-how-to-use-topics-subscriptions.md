@@ -1,14 +1,14 @@
 <properties linkid="dev-net-how-to-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (.NET) - Azure" metaKeywords="Get started Azure Service Bus topics, Azure publish subscribe messaging, Azure messaging topics and subscriptions C# " description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for .NET applications. " metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Uso de temas/suscripciones del bus de servicio
 
-<span>En esta guía se indica cómo usar los temas y las suscripciones de bus de servicio. Los ejemplos están escritos en C# y utilizan la API .NET. Entre los escenarios tratados se incluyen **la creación de temas y suscripciones, la creación de filtros de suscripción, el envío de mensajes** a un tema, **la recepción de mensajes de una suscripción** y **la eliminación de temas y suscripciones**. Para obtener más información acerca de los temas y las suscripciones, consulte la sección [Pasos siguientes][]. </span>
+<span>En esta guía se indica cómo usar los temas y las suscripciones de bus de servicio. Los ejemplos están escritos en C# y utilizan la API .NET. Entre los escenarios tratados se incluyen **la creación de temas y suscripciones, la creación de filtros de suscripción, el envío de mensajes** a un tema, **la recepción de mensajes de una suscripción** y **la eliminación de temas y suscripciones**. Para obtener más información acerca de los temas y las suscripciones, consulte la sección [Pasos siguientes][Pasos siguientes]. </span>
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
 ## <span class="short-header">Configuración de la aplicación</span>Configuración de la aplicación para usar el bus de servicio
 
@@ -26,7 +26,7 @@ Realice los pasos siguientes para instalar el paquete NuGet en su aplicación:
     Servicie Bus**. Haga clic en **Instaló** para completar la instalación y,
     a continuación, cierre este cuadro de diálogo.
 
-    ![][]
+    ![][0]
 
 De este modo ya estará listo para escribir código en el bus de servicio.
 
@@ -148,7 +148,7 @@ El filtro predeterminado **MatchAll** se usa en caso de que no se haya especific
 
 También puede configurar filtros que le permitan especificar qué mensajes enviados a un tema deben aparecer dentro de una suscripción de tema determinada.
 
-El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, revise la sintaxis de [SqlFilter.SqlExpression][].
+El tipo de filtro más flexible compatible con las suscripciones es **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan en las propiedades de los mensajes que se publican en el tema. Para obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL, revise la sintaxis de [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 En el ejemplo que aparece a continuación se crea una suscripción llamada "HighMessages" con un **SqlFilter** que solo selecciona los mensajes con una propiedad **MessageNumber** personalizada superior a 3:
 
@@ -273,16 +273,16 @@ Al eliminar un tema también se eliminan todas las suscripciones que estén regi
 Ahora que conoce los fundamentos de los temas y las suscripciones del bus de servicio, siga estos
 vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio][].
--   Referencia de API para [Clase SqlFilter][].
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio][Colas, temas y suscripciones del bus de servicio].
+-   Referencia de API para [Clase SqlFilter][Clase SqlFilter].
 -   Creación de una aplicación que envíe y reciba mensajes desde la cola
     del bus de servicio y hacia ella: [Tutorial de .NET de mensajería con confianza establecida del
-    bus de servicio][].
+    bus de servicio][Tutorial de .NET de mensajería con confianza establecida del
+    bus de servicio].
 
   [Pasos siguientes]: #nextsteps
   [create-account-note]: ../includes/create-account-note.md
   [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
-  []: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   [Colas, temas y suscripciones del bus de servicio]: http://msdn.microsoft.com/es-es/library/hh367516.aspx
   [Clase SqlFilter]: http://msdn.microsoft.com/es-es/library/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Tutorial de .NET de mensajería con confianza establecida del bus de servicio]: http://msdn.microsoft.com/es-es/library/hh367512.aspx

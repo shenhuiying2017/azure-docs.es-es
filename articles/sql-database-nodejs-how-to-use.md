@@ -1,20 +1,20 @@
 <properties linkid="develop-node-how-to-sql-database" urlDisplayName="SQL Database" pageTitle="How to use SQL Database (Node.js) - Azure feature guide" metaKeywords="" description="Learn how to use Azure SQL Database from Node.js." metaCanonical="" services="sql-database" documentationCenter="nodejs" title="How to Access Azure SQL Database from Node.js" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr" />
 
 # Acceso a una base de datos SQL de Azure desde Node.js
 
-En esta guía se muestran los aspectos básicos del uso de Microsoft Driver para Node.JS en SQL Server a fin de obtener acceso a una base de datos SQL de Azure. Entre los escenarios descritos se incluyen la **creación de una base de datos SQL** y la **conexión a una base de datos SQL**. En esta guía abordaremos la creación de una base de datos SQL desde el [Portal de administración de Azure][].
+En esta guía se muestran los aspectos básicos del uso de Microsoft Driver para Node.JS en SQL Server a fin de obtener acceso a una base de datos SQL de Azure. Entre los escenarios descritos se incluyen la **creación de una base de datos SQL** y la **conexión a una base de datos SQL**. En esta guía abordaremos la creación de una base de datos SQL desde el [Portal de administración de Azure][Portal de administración de Azure].
 
 ## Tabla de contenido
 
--   [Conceptos][]
--   [Direccionamiento del del entorno][]
--   [Direccionamiento del de una Base de datos SQL][]
--   [Direccionamiento del de información de conexión de la Base de datos SQL][]
--   [Direccionamiento del a una instancia de Base de datos SQL][]
--   [Consideraciones de la implementación de Azure][]
--   [Pasos siguientes][]
+-   [Conceptos][Conceptos]
+-   [Direccionamiento del del entorno][Direccionamiento del del entorno]
+-   [Direccionamiento del de una Base de datos SQL][Direccionamiento del de una Base de datos SQL]
+-   [Direccionamiento del de información de conexión de la Base de datos SQL][Direccionamiento del de información de conexión de la Base de datos SQL]
+-   [Direccionamiento del a una instancia de Base de datos SQL][Direccionamiento del a una instancia de Base de datos SQL]
+-   [Consideraciones de la implementación de Azure][Consideraciones de la implementación de Azure]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <span id="Concepts"></span></a>Conceptos
 
@@ -24,7 +24,7 @@ Una base de datos SQL de Azure proporciona un sistema de administración de base
 
 ## Qué es Microsoft Driver para Node.JS en SQL Server
 
-Microsoft Driver para Node.JS en SQL Server permite a los desarrolladores obtener acceso a la información almacenada en una base de datos de Microsoft SQL Server o SQL de Azure desde una aplicación Node.js. Actualmente, el controlador solo se encuentra disponible como versión preliminar. A medida que se completen características adicionales, se irán integrando en el proyecto. Para obtener más información acerca de este controlador, consulte la [página Github][] (en inglés) del proyecto de Microsoft Driver para Node.JS en SQL Server y el [wiki][] asociado.
+Microsoft Driver para Node.JS en SQL Server permite a los desarrolladores obtener acceso a la información almacenada en una base de datos de Microsoft SQL Server o SQL de Azure desde una aplicación Node.js. Actualmente, el controlador solo se encuentra disponible como versión preliminar. A medida que se completen características adicionales, se irán integrando en el proyecto. Para obtener más información acerca de este controlador, consulte la [página Github][página Github] (en inglés) del proyecto de Microsoft Driver para Node.JS en SQL Server y el [wiki][wiki] asociado.
 
 <div class="dev-callout">
 <b>Nota:</b>
@@ -35,7 +35,7 @@ Microsoft Driver para Node.JS en SQL Server permite a los desarrolladores obtene
 
 ### Instalar SQL Server Native Client
 
-El controlador de Microsoft SQL Server para Node.js se basa en SQL Server Native Client. Si bien el cliente nativo está disponible automáticamente al implementar la aplicación en Azure, es posible que esté presente en el entorno de desarrollo local. Puede instalar SQL Server Native Client desde la página de descarga de [Microsoft SQL Server 2012 Feature Pack][].
+El controlador de Microsoft SQL Server para Node.js se basa en SQL Server Native Client. Si bien el cliente nativo está disponible automáticamente al implementar la aplicación en Azure, es posible que esté presente en el entorno de desarrollo local. Puede instalar SQL Server Native Client desde la página de descarga de [Microsoft SQL Server 2012 Feature Pack][Microsoft SQL Server 2012 Feature Pack].
 
 <div class="dev-callout">
 <b>Nota:</b>
@@ -53,33 +53,33 @@ Siga estos pasos para crear una base de datos SQL de Azure:
 1.  Inicie sesión en el [Portal de administración][Portal de administración de Azure].
 2.  Haga clic en el icono **+ New**, situado en la parte inferior izquierda del portal.
 
-    ![Crear un sitio web de Azure][]
+    ![Crear un sitio web de Azure][Crear un sitio web de Azure]
 
 3.  Haga clic en **Base de datos SQL** y, a continuación, en **Custom Create**.
 
-    ![Crear una Base de datos SQL personalizada][]
+    ![Crear una Base de datos SQL personalizada][Crear una Base de datos SQL personalizada]
 
 4.  Escriba el valor **NAME** de la base de datos, seleccione el tipo de **EDITION** (WEB o BUSINESS), el valor **MAX SIZE** de la base de datos, la clase de **COLLATION** y, por último, seleccione **NEW SQL Database Server**. Haga clic en la flecha que aparece en la parte inferior del cuadro de diálogo. (Tenga en cuenta que si ha creado una Base de datos SQL anteriormente, puede elegir un servidor ya existente en la lista desplegable **Choose a server**).
 
-    ![Rellenar configuración de la base de datos SQL][]
+    ![Rellenar configuración de la base de datos SQL][Rellenar configuración de la base de datos SQL]
 
 5.  Especifique un nombre y una contraseña de administrador (y confirme la contraseña), elija la región donde se creará la Base de datos SQL y active la casilla `Allow Azure Services to access the server`.
 
-    ![Crear servidor de base de datos SQL][]
+    ![Crear servidor de base de datos SQL][Crear servidor de base de datos SQL]
 
 Para ver la información del servidor y de la base de datos, haga clic en la opción **SQL Databases** del Portal de administración de Azure. A continuación, puede hacer clic en **DATABASES** o **SERVERS** para ver la información pertinente.
 
-![Ver información del servidor y de la base de datos][]
+![Ver información del servidor y de la base de datos][Ver información del servidor y de la base de datos]
 
 ## <span id="ConnectionInfo"></span></a>Direccionamiento del Obtención de información de conexión de la Base de datos SQL
 
 Para obtener información de conexión de la Base de datos SQL, haga clic en la opción **SQL DATABASES** del portal y, después, en el nombre de la base de datos.
 
-![Ver información de la base de datos][]
+![Ver información de la base de datos][Ver información de la base de datos]
 
 A continuación, haga clic en **Show connection strings**.
 
-![Mostrar cadenas de conexión][]
+![Mostrar cadenas de conexión][Mostrar cadenas de conexión]
 
 Anote los valores de la cadena de conexión que aparecen en la sección ODBC de la ventana resultante. Esta es la cadena de conexión que se usará al conectarse a la base de datos SQL desde la aplicación Node. La contraseña será la misma que se utilizó al crear la Base de datos SQL.
 
@@ -87,7 +87,7 @@ Anote los valores de la cadena de conexión que aparecen en la sección ODBC de 
 
 ### Instalar node-sqlserver
 
-Microsoft Driver para Node.JS en SQL Server está disponible como módulo nativo node-sqlserver. En el [centro de descarga][] puede encontrarse una versión binaria de este módulo. Para usar dicha versión, realice estos pasos:
+Microsoft Driver para Node.JS en SQL Server está disponible como módulo nativo node-sqlserver. En el [centro de descarga][centro de descarga] puede encontrarse una versión binaria de este módulo. Para usar dicha versión, realice estos pasos:
 
 1.  Extraiga el archivo binario en el directorio **node\_modules** de la aplicación.
 2.  Ejecute el archivo **node-sqlserver-install.cmd** extraído. Al hacerlo, se creará un subdirectorio **node-sqlserver** bajo **node\_modules** y los archivos del controlador se trasladarán a esta nueva estructura de directorios.
@@ -152,11 +152,11 @@ Azure no instalará de forma dinámica el módulo node-sqlserver en tiempo de ej
 
 El directorio **node-sqlserver** debe contener un archivo **package.json**. El directorio **lib** debe contener los archivos **sql.js** y **sqlserver.node**, que son la forma compilada del módulo node-sqlserver.
 
-Para obtener más información sobre cómo implementar una aplicación Node.js en Azure, consulte [Creación e implementación de una aplicación Node.js en sitios web de Azure][] y [Servicio en la nube Node.js][].
+Para obtener más información sobre cómo implementar una aplicación Node.js en Azure, consulte [Creación e implementación de una aplicación Node.js en sitios web de Azure][Creación e implementación de una aplicación Node.js en sitios web de Azure] y [Servicio en la nube Node.js][Servicio en la nube Node.js].
 
 ## <span id="NextSteps"></span></a>Pasos siguientes
 
--   [Presentación de Microsoft Driver para Node.JS en SQL Server][]
+-   [Presentación de Microsoft Driver para Node.JS en SQL Server][Presentación de Microsoft Driver para Node.JS en SQL Server]
 -   [Microsoft Driver para Node.js para SQL Server en Github.com][página Github]
 
   [Portal de administración de Azure]: https://manage.windowsazure.com

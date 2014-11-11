@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website to use a custom domain name" pageTitle="Configure a custom domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth, mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth, mwasson" />
 
 # Configuración de un nombre de dominio personalizado para un sitio web de Azure.
 
@@ -8,24 +8,24 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/es-es/documentation/articles/web-sites-custom-domain-name/" title="Sitios web" class="current">Sitio web</a> | <a href="/es-es/documentation/articles/web-sites-traffic-manager-custom-domain-name/" title="Sitio web mediante el Administrador de tr&aacute;fico">Sitio web mediante el Administrador de tr&aacute;fico</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 Al crear un sitio web, Azure lo asigna a un subdominio de azurewebsites.net. Por ejemplo, si el sitio web se llama **contoso**, la dirección URL es **contoso.azurewebsites.net**. Azure también asigna una dirección IP virtual.
 
-![contoso.azurewebsites.net subdomain][]
+![contoso.azurewebsites.net subdomain][contoso.azurewebsites.net subdomain]
 
 Para un sitio web de producción, es probable que desee que los usuarios vean un nombre de dominio personalizado. Este artículo explica cómo configurar un dominio personalizado con Sitios web de Azure. (En este artículo proporciona instrucciones generales para cualquier registrador de dominios. Las pestañas que aparecen en la parte superior de este articulo se vinculan a artículos para registradores específicos).
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 En este artículo:
 
--   [Información general][]
--   [Tipos de registro DNS][]
--   [Búsqueda de la dirección IP virtual][]
--   [Creación de registros DNS][]
--   [Creación de un registro "awverify" (solo registros A)][]
--   [Habilitación del nombre de dominio en su sitio web][]
+-   [Información general][Información general]
+-   [Tipos de registro DNS][Tipos de registro DNS]
+-   [Búsqueda de la dirección IP virtual][Búsqueda de la dirección IP virtual]
+-   [Creación de registros DNS][Creación de registros DNS]
+-   [Creación de un registro "awverify" (solo registros A)][Creación de un registro "awverify" (solo registros A)]
+-   [Habilitación del nombre de dominio en su sitio web][Habilitación del nombre de dominio en su sitio web]
 
 ## Información general
 
@@ -41,7 +41,7 @@ En esta descripción básica, hay algunos casos específicos que se deben tener 
 -   Asignación de un subdominio. Por ejemplo, **blogs.contoso.com**. Puede asignar subdominios diferentes a sitios web diferentes.
 -   Asignación de un comodín. Por ejemplo, \***.contoso.com**. Una entrada comodín se aplica a todos los subdominios del dominio.
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 ## Tipos de registro DNS
 
@@ -58,11 +58,11 @@ Si cambia la dirección IP, una entrada CNAME aún es válida, mientras que un r
 
 Si está creando un registro CNAME, omita este paso. Para crear un registro A, necesitará la dirección IP virtual de su sitio web. Para obtener la dirección IP:
 
-1.  En el explorador, abra el [Portal de administración de Azure][].
+1.  En el explorador, abra el [Portal de administración de Azure][Portal de administración de Azure].
 2.  En la pestaña **Sitios web**, haga clic en el nombre del sitio y seleccione **Panel**.
-3.  Seleccione **Administrar dominios** en la parte inferior de la página. (Si esta opción está deshabilitada, asegúrese de usar el modo Compartido, Básico o Estándar. Para obtener más información, consulte [Escalación de sitios web][]).
+3.  Seleccione **Administrar dominios** en la parte inferior de la página. (Si esta opción está deshabilitada, asegúrese de usar el modo Compartido, Básico o Estándar. Para obtener más información, consulte [Escalación de sitios web][Escalación de sitios web]).
 
-    ![][]
+    ![][0]
 
 4.  La dirección IP se muestra en la parte inferior del cuadro de diálogo.
 
@@ -106,17 +106,6 @@ Los visitantes a su sitio no verán el subdominio awverify, este solo es para qu
 
 <!-- Anchors. --> <!-- Images -->
 
-  [Dominio personalizado]: /es-es/documentation/articles/web-sites-custom-domain-name "Dominio personalizado"
-  [GoDaddy]: /es-es/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /es-es/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [Register.com]: /es-es/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /es-es/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /es-es/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /es-es/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /es-es/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /es-es/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [Sitio web]: /es-es/documentation/articles/web-sites-custom-domain-name/ "Sitios web"
-  [Sitio web mediante el Administrador de tráfico]: /es-es/documentation/articles/web-sites-traffic-manager-custom-domain-name/ "Sitio web mediante el Administrador de tráfico"
   [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [contoso.azurewebsites.net subdomain]: media/web-sites-custom-domain-name/azurewebsites-subdomain.png
   [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
@@ -124,11 +113,10 @@ Los visitantes a su sitio no verán el subdominio awverify, este solo es para qu
   [Tipos de registro DNS]: #dns-record-types
   [Búsqueda de la dirección IP virtual]: #find-the-virtual-ip-address
   [Creación de registros DNS]: #create-the-dns-records
-  [Creación de un registro "awverify" (solo registros A)]: #awverify
   [Habilitación del nombre de dominio en su sitio web]: #enable-the-domain-name-on-your-website
   [modes]: ../includes/custom-dns-web-site-modes.md
   [Portal de administración de Azure]: https://manage.windowsazure.com
   [Escalación de sitios web]: http://www.windowsazure.com/es-es/documentation/articles/web-sites-scale/
-  []: media/web-sites-custom-domain-name/dncmntask-cname-6.png
+  [0]: media/web-sites-custom-domain-name/dncmntask-cname-6.png
   [1]: media/web-sites-custom-domain-name/ipaddress.png
   [2]: ../includes/custom-dns-web-site-enable-on-web-site.md

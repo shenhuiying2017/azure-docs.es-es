@@ -1,6 +1,6 @@
 <properties linkid="manage-services-mediaservices-monitor-a-media-services-account" urlDisplayName="How to monitor" pageTitle="Monitor a Media Services Account - Azure" metaKeywords="" description="Describes how to configure monitoring for your Media Services account in Azure." metaCanonical="" services="media-services" documentationCenter="" title="How to Monitor a Media Services Account" authors="migree" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree" />
 
 # <span id="monitormediaservicesaccount"></span></a>Supervisión de una cuenta de Servicios multimedia
 
@@ -8,13 +8,13 @@ El panel Servicios multimedia de Azure presenta las métricas de uso y la inform
 
 Puede supervisar el número de trabajos de codificación en cola, tareas de codificación con error, trabajos de codificación activos representados por los datos de entrada y salida del codificador, así como el uso de almacenamiento de blobs asociados a la cuenta de Servicios multimedia. Además, si está realizando streaming de contenido a los clientes, puede recuperar también varias métricas de streaming. Puede elegir supervisar los datos durante las últimas 6 horas, 24 horas o 7 días.
 
-**Nota:** existen costes adicionales asociados a la supervisión de los datos de almacenamiento en el Portal de administración de Azure. Para obtener más información, consulte [Facturación del análisis de almacenamiento][].
+**Nota:** existen costes adicionales asociados a la supervisión de los datos de almacenamiento en el Portal de administración de Azure. Para obtener más información, consulte [Facturación del análisis de almacenamiento][Facturación del análisis de almacenamiento].
 
 ## <span id="configuremonitoring"></span></a>Supervisión de una cuenta de Servicios multimedia
 
-1.  En el [Portal de administración][], haga clic en **Servicios multimedia** y, a continuación, haga clic en el nombre de la cuenta de Servicios multimedia para abrir el panel.
+1.  En el [Portal de administración][Portal de administración], haga clic en **Servicios multimedia** y, a continuación, haga clic en el nombre de la cuenta de Servicios multimedia para abrir el panel.
 
-    ![Panel\_ServiciosMultimedia][]
+    ![Panel\_ServiciosMultimedia][Panel\_ServiciosMultimedia]
 
 2.  Para supervisar los datos o trabajos de codificación, comience a enviar los trabajos de codificación a Servicios multimedia, o comience a realizar streaming de contenido a los clientes a través de la transmisión por secuencias a petición de Servicios multimedia de Azure. Debería empezar a ver los datos de supervisión en el panel al cabo de una hora aproximadamente.
 
@@ -25,7 +25,7 @@ Puede supervisar el número de trabajos de codificación en cola, tareas de codi
 
     **Nota:** los blobs son el único tipo de almacenamiento admitido en Servicios multimedia.
 
-    ![OpcionesAlmacenamiento][]
+    ![OpcionesAlmacenamiento][OpcionesAlmacenamiento]
 
 3.  En **supervisión**, configure el nivel de supervisión y la directiva de retención de datos para los blobs:
 
@@ -41,12 +41,11 @@ Puede supervisar el número de trabajos de codificación en cola, tareas de codi
 
 1.  Al finalizar la configuración de la supervisión, haga clic en **Save**.
     De manera similar a las métricas de Servicios multimedia, debería empezar a ver los datos de supervisión en el panel al cabo de una hora aproximadamente.
-    Las métricas se almacenan en la cuenta de almacenamiento en cuatro tablas denominadas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue y $MetricsCapacityBlob. Para obtener más información, consulte [Storage Analytics Metrics][].
+    Las métricas se almacenan en la cuenta de almacenamiento en cuatro tablas denominadas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue y $MetricsCapacityBlob. Para obtener más información, consulte [Storage Analytics Metrics][Storage Analytics Metrics].
 
 <!-- Images -->
 
   [Facturación del análisis de almacenamiento]: http://go.microsoft.com/fwlink/?LinkId=256667
   [Portal de administración]: http://go.microsoft.com/fwlink/?LinkID=256666
-  [Panel\_ServiciosMultimedia]: ./media/media-services-monitor-services-account/media-services-dashboard.png
   [OpcionesAlmacenamiento]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
   [Storage Analytics Metrics]: http://go.microsoft.com/fwlink/?LinkId=256668

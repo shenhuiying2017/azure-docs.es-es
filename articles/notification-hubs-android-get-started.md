@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-android" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Introducción a los Centros de notificaciones
 
@@ -11,18 +11,18 @@ En este tutorial, creará una aplicación Android que recibirá notificaciones d
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 
--   [Habilitación del servicio de mensajería en la nube de Google][]
--   [Configuración de su Centro de notificaciones][]
--   [Conexión de su aplicación al Centro de notificaciones][]
--   [Envío de una notificación a la aplicación][]
--   [Prueba de la aplicación][]
+-   [Habilitación del servicio de mensajería en la nube de Google][Habilitación del servicio de mensajería en la nube de Google]
+-   [Configuración de su Centro de notificaciones][Configuración de su Centro de notificaciones]
+-   [Conexión de su aplicación al Centro de notificaciones][Conexión de su aplicación al Centro de notificaciones]
+-   [Envío de una notificación a la aplicación][Envío de una notificación a la aplicación]
+-   [Prueba de la aplicación][Prueba de la aplicación]
 
 En este tutorial se demuestra el escenario de difusión sencillo con centros de notificaciones. Asegúrese de seguirlo junto con el próximo tutorial para saber cómo usar los centros de notificaciones para abordar usuarios y grupos de dispositivos específicos.
 
 Este tutorial requiere lo siguiente:
 
--   El SDK de Android (se presupone que usará Eclipse), que puede descargarse desde [aquí][]
--   El [SDK de Android para Servicios móviles][]
+-   El SDK de Android (se presupone que usará Eclipse), que puede descargarse desde [aquí][aquí]
+-   El [SDK de Android para Servicios móviles][SDK de Android para Servicios móviles]
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Centros de notificaciones para aplicaciones Android.
 
@@ -30,17 +30,17 @@ Completar este tutorial es un requisito previo para todos los tutoriales de Cent
 
 ## <span id="register"></span></a>Habilitación del servicio de mensajería en la nube de Google
 
-[WACOM.INCLUDE [Habilitación de GCM][]]
+[WACOM.INCLUDE [Habilitación de GCM](../includes/mobile-services-enable-Google-cloud-messaging.md)]
 
 A continuación, utilizará este valor de clave de API para permitir que su centro de notificaciones se autentique con GCM y envíe notificaciones de inserción en nombre de su aplicación.
 
 ## <span id="configure-hub"></span></a>Configuración de su Centro de notificaciones
 
-1.  Inicie sesión en el [Portal de administración de Azure][] y, a continuación, haga clic en **+NEW** en la parte inferior de la pantalla.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure] y, a continuación, haga clic en **+NEW** en la parte inferior de la pantalla.
 
 2.  Haga clic sucesivamente en **Servicios de aplicaciones**, **Bus de servicio**, **Centro de notificaciones** y finalmente en **Quick Create**.
 
-    ![][]
+    ![][0]
 
 3.  Escriba un nombre para su centro de notificaciones, seleccione la región deseada y, a continuación, haga clic en **Create a new Notification Hub**.
 
@@ -76,7 +76,7 @@ Su centro de notificaciones está ahora configurado para funcionar con GCM y tie
 
 ### Incorporación de Google Play Services al proyecto
 
-[WACOM.INCLUDE [Incorporación de Play Services][]]
+[WACOM.INCLUDE [Incorporación de Play Services](../includes/mobile-services-add-Google-play-services.md)]
 
 ### Incorporación de código
 
@@ -214,7 +214,7 @@ Su centro de notificaciones está ahora configurado para funcionar con GCM y tie
 
 ## <a name="send"></a>Envío de una notificación a la aplicación
 
-Puede enviar notificaciones mediante los centros de notificaciones desde cualquier back-end que use la [interfaz REST][]. En este tutorial puede enviar notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un backend de los Servicios móviles de Azure integrado en centros de notificaciones, vea **Introducción a las notificaciones de inserción en Servicios móviles** ([.NET backend][] | [JavaScript backend][.NET backend]). Para ver un ejemplo de cómo enviar notificaciones con REST API, vea **Uso de Centro de notificaciones desde Java/PHP** ([Java][] | [PHP][]).
+Puede enviar notificaciones mediante los centros de notificaciones desde cualquier back-end que use la [interfaz REST][interfaz REST]. En este tutorial puede enviar notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un backend de los Servicios móviles de Azure integrado en centros de notificaciones, vea **Introducción a las notificaciones de inserción en Servicios móviles** ([.NET backend][.NET backend] | [JavaScript backend][.NET backend]). Para ver un ejemplo de cómo enviar notificaciones con REST API, vea **Uso de Centro de notificaciones desde Java/PHP** ([Java][Java] | [PHP][PHP]).
 
 1.  En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y luego **Proyecto...**, a continuación en **Visual C#** haga clic en **Windows** y **Aplicación de consola** y haga clic en **Aceptar**.
 
@@ -230,7 +230,7 @@ Puede enviar notificaciones mediante los centros de notificaciones desde cualqui
 
         Install-Package WindowsAzure.ServiceBus
 
-    Esto agrega una referencia al SDK de Bus de servicio de Azure con el [paquete WindowsAzure.ServiceBus NuGet][].
+    Esto agrega una referencia al SDK de Bus de servicio de Azure con el [paquete WindowsAzure.ServiceBus NuGet][paquete WindowsAzure.ServiceBus NuGet].
 
 4.  Abra el archivo Program.cs y agregue la siguiente instrucción `using`:
 
@@ -285,17 +285,10 @@ Siga estos pasos para ejecutar la aplicación en un dispositivo o en un emulador
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
-En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Android. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de Centros de notificaciones para insertar notificaciones en los usuarios][], mientras que, si desea segmentar sus usuarios por grupos de interés, puede leer [Uso de los Centros de notificaciones para enviar noticias de última hora][]. Obtenga más información sobre el uso de Centros de notificaciones en la [orientación sobre los Centros de notificaciones][] (en inglés).
+En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Android. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de Centros de notificaciones para insertar notificaciones en los usuarios][Uso de Centros de notificaciones para insertar notificaciones en los usuarios], mientras que, si desea segmentar sus usuarios por grupos de interés, puede leer [Uso de los Centros de notificaciones para enviar noticias de última hora][Uso de los Centros de notificaciones para enviar noticias de última hora]. Obtenga más información sobre el uso de Centros de notificaciones en la [orientación sobre los Centros de notificaciones][orientación sobre los Centros de notificaciones] (en inglés).
 
 <!-- Images. --> <!-- URLs. -->
 
-  [Windows Universal]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /es-es/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /es-es/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /es-es/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /es-es/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /es-es/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /es-es/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [Habilitación del servicio de mensajería en la nube de Google]: #register
   [Configuración de su Centro de notificaciones]: #configure-hub
   [Conexión de su aplicación al Centro de notificaciones]: #connecting-app
@@ -303,10 +296,9 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
   [Prueba de la aplicación]: #run-app
   [aquí]: http://go.microsoft.com/fwlink/?LinkId=389797
   [SDK de Android para Servicios móviles]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Habilitación de GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  []: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
+  [0]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal.png
   [1]: ./media/notification-hubs-android-get-started/notification-hub-create-from-portal2.png
   [2]: ./media/notification-hubs-android-get-started/notification-hub-select-from-portal.png
   [3]: ./media/notification-hubs-android-get-started/notification-hub-select-from-portal2.png

@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-create-and-deploy-a-cloud-service" urlDisplayName="How to create and deploy" pageTitle="How to create and deploy a cloud service - Azure" metaKeywords="Azure creating cloud service, deleting cloud service" description="Learn how to create and deploy a cloud service using the Quick Create method in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Create and Deploy a Cloud Service" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Creación e implementación de un servicio en la nube
 
@@ -168,15 +168,6 @@ Hay tres características del servicio en la nube que requieren configuraciones 
   [Overview of Setting Up a Remote Desktop Connection for a Role]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433010.aspx
   [Habilitación de los diagnósticos en Azure]: http://www.windowsazure.com/es-es/develop/net/common-tasks/diagnostics/
   [Portal de administración]: http://manage.windowsazure.com/
-  [CloudServices\_QuickCreate]: ./media/cloud-services-how-to-create-deploy/CloudServices_QuickCreate.png
   [Operaciones en grupos de afinidad]: http://msdn.microsoft.com/es-es/library/windowsazure/ee460798.aspx
-  [CloudServices\_CloudServicesPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_CloudServicesPage.png
-  [CloudServices\_EmptyDashboard]: ./media/cloud-services-how-to-create-deploy/CloudServices_EmptyDashboard.png
-  [CloudServices\_CertificatesPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_CertificatesPage.png
-  [CloudServices\_AddaCertificate]: ./media/cloud-services-how-to-create-deploy/CloudServices_AddaCertificate.png
-  [CloudServices\_CertificateProgress]: ./media/cloud-services-how-to-create-deploy/CloudServices_CertificateProgress.png
   [Notas de la versión de Windows Azure SDK para .NET]: http://msdn.microsoft.com/es-es/library/windowsazure/hh552718.aspx
-  [CloudServices\_QuickStartPage]: ./media/cloud-services-how-to-create-deploy/CloudServices_QuickStartPage.png
-  [CloudServices\_UploadaPackage]: ./media/cloud-services-how-to-create-deploy/CloudServices_UploadaPackage.png
   [Contratos de nivel de servicio]: http://www.windowsazure.com/es-es/support/legal/sla/
-  [CloudServices\_UploadProgress]: ./media/cloud-services-how-to-create-deploy/CloudServices_UploadProgress.png

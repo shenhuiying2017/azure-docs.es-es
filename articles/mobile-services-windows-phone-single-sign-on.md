@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-single-sign-on-windows-8-wp8" urlDisplayName="Authenticate with single sign-on" pageTitle="Authenticate your app with Live Connect (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Live Connect single sign-on in Azure Mobile Services from a Windows Phone application." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Phone 8 app with Live Connect single sign-on" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Autenticación de una aplicación de Windows Phone 8 con el inicio de sesión único de Live Connect
 
@@ -16,24 +16,24 @@ En este tema se muestra cómo utilizar el inicio de sesión único de Live Conne
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar la autenticación de Live Connect:
 
-1.  [Registro de la aplicación para la autenticación y configuración de Servicios móviles][]
-2.  [Restricción de los permisos de tabla a usuarios autenticados][]
-3.  [Incorporación de autenticación a la aplicación][]
+1.  [Registro de la aplicación para la autenticación y configuración de Servicios móviles][Registro de la aplicación para la autenticación y configuración de Servicios móviles]
+2.  [Restricción de los permisos de tabla a usuarios autenticados][Restricción de los permisos de tabla a usuarios autenticados]
+3.  [Incorporación de autenticación a la aplicación][Incorporación de autenticación a la aplicación]
 
 Este tutorial requiere lo siguiente:
 
--   [SDK de Live para Windows y Windows Phone][]
+-   [SDK de Live para Windows y Windows Phone][SDK de Live para Windows y Windows Phone]
 -   Microsoft Visual Studio 2012 Express para Windows Phone
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles][].
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
 ## <a name="register"></a><span class="short-header">Registro de la aplicación</span>Registro de la aplicación con Live Connect
 
 Para autenticar usuarios, debe registrar la aplicación en el Centro para desarrolladores de Live Connect. A continuación, debe registrar el secreto de cliente para integrar Live Connect en Servicios móviles.
 
-1.  Inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
 
-    ![][]
+    ![][0]
 
 2.  Haga clic en la pestaña **Panel** y anote el valor de **Site URL**.
 
@@ -41,7 +41,7 @@ Para autenticar usuarios, debe registrar la aplicación en el Centro para desarr
 
     Este valor se usará para definir el dominio de redirección.
 
-3.  Vaya a la página [Mis aplicaciones][] del Centro para desarrolladores de Live Connect e inicie sesión con cuenta Microsoft, si procede.
+3.  Vaya a la página [Mis aplicaciones][Mis aplicaciones] del Centro para desarrolladores de Live Connect e inicie sesión con cuenta Microsoft, si procede.
 
 4.  Haga clic en **Create application** y, a continuación, escriba el **nombre de la aplicación** y haga clic en **I accept**.
 
@@ -75,7 +75,7 @@ El servicio móvil y la aplicación están ahora configurados para funcionar con
 
     ![][6]
 
-3.  En Visual Studio 2012 Express para Windows Phone, abra el proyecto que creó cuando completó el tutorial [Introducción a los Servicios móviles][].
+3.  En Visual Studio 2012 Express para Windows Phone, abra el proyecto que creó cuando completó el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
 4.  Presione la tecla F5 para ejecutar esta aplicación basada en el inicio rápido; compruebe que se genera una excepción con el código de estado 401 (No autorizado).
 
@@ -162,15 +162,12 @@ A continuación, actualizará la aplicación para autenticar a los usuarios con 
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
-En el siguiente tutorial, [Autorización de usuarios con scripts][], usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. Para obtener información sobre cómo usar otros proveedores de identidades para la autenticación, consulte [Introducción a la autenticación][8].
+En el siguiente tutorial, [Autorización de usuarios con scripts][Autorización de usuarios con scripts], usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. Para obtener información sobre cómo usar otros proveedores de identidades para la autenticación, consulte [Introducción a la autenticación][8].
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/develop/mobile/tutorials/single-sign-on-windows-8-dotnet "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /es-es/develop/mobile/tutorials/single-sign-on-windows-8-js "JavaScript para Tienda Windows"
-  [Windows Phone]: /es-es/develop/mobile/tutorials/single-sign-on-wp8/ "Windows Phone"
   [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-wp8/
   [Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
   [Restricción de los permisos de tabla a usuarios autenticados]: #permissions
@@ -178,7 +175,7 @@ En el siguiente tutorial, [Autorización de usuarios con scripts][], usará el v
   [SDK de Live para Windows y Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=262253
   [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-wp8
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-selection.png
+  [0]: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-selection.png
   [1]: ./media/mobile-services-windows-phone-single-sign-on/mobile-service-uri.png
   [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
   [2]: ./media/mobile-services-windows-phone-single-sign-on/mobile-services-live-connect-add-app.png
@@ -187,6 +184,5 @@ En el siguiente tutorial, [Autorización de usuarios con scripts][], usará el v
   [5]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-data-tables.png
   [6]: ./media/mobile-services-windows-phone-single-sign-on/mobile-portal-change-table-perms.png
   [7]: ./media/mobile-services-windows-phone-single-sign-on/mobile-add-reference-live-wp8.png
-  [aplicación de la Tienda Windows]: /es-es/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
   [Autorización de usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-wp8
   [8]: /es-es/develop/mobile/tutorials/get-started-with-users-wp8

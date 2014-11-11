@@ -1,6 +1,6 @@
 <properties pageTitle="Using Windows PowerShell with Resource Manager" metaKeywords="ResourceManager, PowerShell, Azure PowerShell" description="Use Windows PowerShell to create a resource group" metaCanonical="" services="" documentationCenter="" title="Using Windows PowerShell with Resource Manager" authors="stevenka; juneb" solutions="" manager="stevenka" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka; juneb" />
 
 # Uso de Windows PowerShell con el Administrador de recursos
 
@@ -16,11 +16,11 @@ En este tutorial, se ofrece información acerca de cómo usar Windows PowerShell
 
 Para poder usar Windows PowerShell con el Administrador de recursos, necesita lo siguiente:
 
--   Windows PowerShell, versiones 3.0 o 4.0. Para encontrar la versión de `$PSVersionTable`, escriba: y compruebe que el valor de `PSVersion` es 3.0 o 4.0. Para instalar una versión compatible, consulte [Windows Management Framework 3.0][] o [Windows Management Framework 4.0][].
+-   Windows PowerShell, versiones 3.0 o 4.0. Para encontrar la versión de `$PSVersionTable`, escriba: y compruebe que el valor de `PSVersion` es 3.0 o 4.0. Para instalar una versión compatible, consulte [Windows Management Framework 3.0][Windows Management Framework 3.0] o [Windows Management Framework 4.0][Windows Management Framework 4.0].
 
--   La versión 0.8.0 o posterior de Azure PowerShell. Para instalar la última versión y asociarla a la suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell][].
+-   La versión 0.8.0 o posterior de Azure PowerShell. Para instalar la última versión y asociarla a la suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell][Instalación y configuración de Azure PowerShell].
 
-Este tutorial está diseñado para los principiantes de Windows PowerShell, pero se asume que se conocen los conceptos básicos, como los módulos, los cmdlets y las sesiones. Para obtener más información acerca de Windows PowerShell, consulte [Getting Started with Windows PowerShell][].
+Este tutorial está diseñado para los principiantes de Windows PowerShell, pero se asume que se conocen los conceptos básicos, como los módulos, los cmdlets y las sesiones. Para obtener más información acerca de Windows PowerShell, consulte [Getting Started with Windows PowerShell][Getting Started with Windows PowerShell].
 
 Para obtener ayuda detallada con cualquier cmdlet que aparezca en este tutorial, use el cmdlet Get-Help.
 
@@ -32,21 +32,21 @@ Por ejemplo, para obtener ayuda para el cmdlet Add-AzureAccount, escriba:
 
 ## Apartados de este tutorial
 
--   [Acerca de los módulos de Azure Powershell][]
--   [Crear un grupo de recursos][]
--   [Administración de un grupo de recursos][]
--   [Solución de problemas de un grupo de recursos][]
--   [Pasos siguientes][]
+-   [Acerca de los módulos de Azure Powershell][Acerca de los módulos de Azure Powershell]
+-   [Crear un grupo de recursos][Crear un grupo de recursos]
+-   [Administración de un grupo de recursos][Administración de un grupo de recursos]
+-   [Solución de problemas de un grupo de recursos][Solución de problemas de un grupo de recursos]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <span id="about"></span></a>Acerca de los módulos de Azure Powershell
 
 A partir de la versión 0.8.0, la instalación de Azure PowerShell incluye tres módulos de Windows PowerShell:
 
--   **Azure**: Incluye los cmdlets tradicionales para administrar recursos individuales, como cuentas de almacenamiento, sitios web, bases de datos, máquinas virtuales y servicios multimedia. Para obtener más información, consulte [Azure Service Management Cmdlets][].
+-   **Azure**: Incluye los cmdlets tradicionales para administrar recursos individuales, como cuentas de almacenamiento, sitios web, bases de datos, máquinas virtuales y servicios multimedia. Para obtener más información, consulte [Azure Service Management Cmdlets][Azure Service Management Cmdlets].
 
--   **AzureResourceManager**: Incluye cmdlets para crear, administrar e implementar los recursos de Azure de un grupo de recursos. Para obtener más información, consulte [Azure Resource Manager Cmdlets][].
+-   **AzureResourceManager**: Incluye cmdlets para crear, administrar e implementar los recursos de Azure de un grupo de recursos. Para obtener más información, consulte [Azure Resource Manager Cmdlets][Azure Resource Manager Cmdlets].
 
--   **AzureProfile**: Incluye cmdlets comunes para ambos módulos, como Add-AzureAccount, Get-AzureSubscription y Switch-AzureMode. Para obtener más información, consulte [Azure Profile Cmdlets][].
+-   **AzureProfile**: Incluye cmdlets comunes para ambos módulos, como Add-AzureAccount, Get-AzureSubscription y Switch-AzureMode. Para obtener más información, consulte [Azure Profile Cmdlets][Azure Profile Cmdlets].
 
 > [ WACOM.NOTE] El módulo del Administrador de recursos de Azure se encuentra disponible actualmente en modo de vista previa. Puede que no ofrezca las mismas capacidades de administración que el módulo de Azure.
 
@@ -64,7 +64,7 @@ Para volver al módulo de Azure, escriba:
 
 De manera predeterminada, Switch-AzureMode afecta solo a la sesión actual. Para que el cambio se aplique a todas las sesiones de Windows PowerShell, use el parámetro **Global** de Switch-AzureMode.
 
-Para obtener ayuda con el cmdlet Switch-AzureMode, escriba: `Get-Help Switch-AzureMode` o consulte [Switch-AzureMode][].
+Para obtener ayuda con el cmdlet Switch-AzureMode, escriba: `Get-Help Switch-AzureMode` o consulte [Switch-AzureMode][Switch-AzureMode].
 
 Para obtener una lista de los cmdlets del módulo AzureResourceManager con una sinopsis de ayuda, escriba:
 
@@ -466,14 +466,12 @@ El módulo AzureResourceManager incluye cmdlets que le ayudan a prevenir errores
 Para obtener más información acerca de Windows PowerShell con el Administrador de recursos:
 
 -   [Azure Resource Manager Cmdlets][1]: Obtenga información acerca del uso de los cmdlets en el módulo AzureResourceManager.
--   [Uso del grupo de recursos para administrar los recursos de Azure][]: Obtenga información acerca de la creación y administración de grupos de recursos en el Portal de administración de Azure.
--   [Uso de la interfaz de la línea de comandos para varias plataformas de Azure con el Administrador de recursos][]: Obtenga información acerca de la creación y administración de grupos de recursos con herramientas de línea de comandos que funcionen en una gran cantidad de plataformas de sistemas operativos.
--   [Blog sobre Azure][] (en inglés): obtenga información acerca de las nuevas características de Azure.
--   [Blog sobre Windows PowerShell][] (en inglés): obtenga información acerca de las nuevas características de Windows PowerShell.
--   ["Hey, Scripting Guy!" Blog][]: Obtenga sugerencias y trucos del mundo real de la comunidad de Windows PowerShell.
+-   [Uso del grupo de recursos para administrar los recursos de Azure][Uso del grupo de recursos para administrar los recursos de Azure]: Obtenga información acerca de la creación y administración de grupos de recursos en el Portal de administración de Azure.
+-   [Uso de la interfaz de la línea de comandos para varias plataformas de Azure con el Administrador de recursos][Uso de la interfaz de la línea de comandos para varias plataformas de Azure con el Administrador de recursos]: Obtenga información acerca de la creación y administración de grupos de recursos con herramientas de línea de comandos que funcionen en una gran cantidad de plataformas de sistemas operativos.
+-   [Blog sobre Azure][Blog sobre Azure] (en inglés): obtenga información acerca de las nuevas características de Azure.
+-   [Blog sobre Windows PowerShell][Blog sobre Windows PowerShell] (en inglés): obtenga información acerca de las nuevas características de Windows PowerShell.
+-   ["Hey, Scripting Guy!" Blog]["Hey, Scripting Guy!" Blog]: Obtenga sugerencias y trucos del mundo real de la comunidad de Windows PowerShell.
 
-  [Windows PowerShell]: /es-es/documentation/articles/powershell-azure-resource-manager.md "Windows PowerShell"
-  [Cross-Platform CLI]: /es-es/documentation/articles/xplat-cli-azure-resource-manager.md "Cross-Platform CLI"
   [Windows Management Framework 3.0]: http://www.microsoft.com/es-es/download/details.aspx?id=34595
   [Windows Management Framework 4.0]: http://www.microsoft.com/es-es/download/details.aspx?id=40855
   [Instalación y configuración de Azure PowerShell]: http://www.windowsazure.com/es-es/documentation/articles/install-configure-powershell/
@@ -487,7 +485,6 @@ Para obtener más información acerca de Windows PowerShell con el Administrador
   [Azure Resource Manager Cmdlets]: http://go.microsoft.com/fwlink/?LinkID=394765
   [Azure Profile Cmdlets]: http://go.microsoft.com/fwlink/?LinkID=394766
   [Switch-AzureMode]: http://go.microsoft.com/fwlink/?LinkID=394398
-  [1]: http://go.microsoft.com/fwlink/?LinkID=394765&clcid=0x409
   [Uso del grupo de recursos para administrar los recursos de Azure]: http://azure.microsoft.com/es-es/documentation/articles/azure-preview-portal-using-resource-groups
   [Uso de la interfaz de la línea de comandos para varias plataformas de Azure con el Administrador de recursos]: http://www.windowsazure.com/es-es/documentation/articles/xplat-cli-azure-resource-manager/
   [Blog sobre Azure]: http://blogs.msdn.com/windowsazure

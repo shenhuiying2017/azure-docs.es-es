@@ -1,10 +1,10 @@
 <properties linkid="develop-net-how-to-guides-new-relic" urlDisplayName="New Relic" pageTitle="Using New Relic with Azure - Azure feature guides" metaKeywords="" description="Learn how to use the New Relic service to manage and monitor your Azure application." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Azure" authors="" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new relic"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new="" relic" />
 
 # Administración del rendimiento de la aplicación New Relic en Azure
 
-En esta guía se describe cómo agregar la supervisión del rendimiento de primer nivel de New Relic a sus aplicaciones hospedadas en Azure. Veremos cómo agregar de forma fácil y sencilla New Relic a la aplicación y le mostraremos algunas de las características de New Relic. Para obtener más información sobre el uso de New Relic, consulte [Uso de New Relic][].
+En esta guía se describe cómo agregar la supervisión del rendimiento de primer nivel de New Relic a sus aplicaciones hospedadas en Azure. Veremos cómo agregar de forma fácil y sencilla New Relic a la aplicación y le mostraremos algunas de las características de New Relic. Para obtener más información sobre el uso de New Relic, consulte [Uso de New Relic][Uso de New Relic].
 
 ## ¿Qué es New Relic?
 
@@ -16,7 +16,7 @@ New Relic realiza el seguimiento del tiempo de carga y de la capacidad de proces
 
 Los usuarios de Azure pueden obtener la versión estándar de New Relic de manera gratuita, mientras que New Relic Pro se ofrece por tamaño de instancia para los Servicios en la nube de Azure.
 
-Para obtener información sobre el precio, consulte la [página de New Relic en la Tienda de Azure][].
+Para obtener información sobre el precio, consulte la [página de New Relic en la Tienda de Azure][página de New Relic en la Tienda de Azure].
 
 <div class="dev-callout"> 
 <strong>Nota:</strong>
@@ -33,7 +33,7 @@ Para suscribirse directamente a New Relic desde la Tienda de Azure, siga estos t
 
 ### Paso 1. Suscribirse mediante la Tienda de Azure
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  En el panel inferior del portal de administración, haga clic en **New**.
 3.  Haga clic en **Store**.
 4.  En el cuadro de diálogo **Choose an Add-on**, seleccione **New Relic** y haga clic en **Next**.
@@ -54,37 +54,37 @@ Para suscribirse directamente a New Relic desde la Tienda de Azure, siga estos t
 
 1.  Abra la solución de Visual Studio o cree una nueva seleccionando **Archivo \> Nuevo \> Proyecto**.
 
-    ![Visual Studio][]
+    ![Visual Studio][Visual Studio]
 
 2.  Si todavía no tiene un proyecto de Servicios en la nube de Azure en la solución, agregue uno haciendo clic con el botón secundario en la aplicación en el Explorador de soluciones y seleccione **Add Azure Cloud Service Project**.
 
-    ![Crear un servicio en la nube][]
+    ![Crear un servicio en la nube][Crear un servicio en la nube]
 
 3.  Abra la consola del Administrador de paquetes seleccionando **Tools \> Library Package Manager \> Package Manager Console**. Establezca su proyecto para que sea el predeterminado en la parte superior de la ventana de la Consola del Administrador de paquetes.
 
-    ![Consola del Administrador de paquetes][]
+    ![Consola del Administrador de paquetes][Consola del Administrador de paquetes]
 
 4.  En el símbolo del sistema del Administrador de paquetes, escriba `Install-Package    NewRelicWindowsAzure` y pulse **Entrar**.
 
-    ![Instalar el Administrador de paquetes][]
+    ![Instalar el Administrador de paquetes][Instalar el Administrador de paquetes]
 
 5.  Cuando se le solicite la clave de licencia, escriba la clave que ha recibido de la Tienda de Azure.
 
-    ![Introducción de clave de licencia][]
+    ![Introducción de clave de licencia][Introducción de clave de licencia]
 
 6.  Opcional: En el aviso del nombre de aplicación, escriba el nombre de la aplicación tal como
      aparecerá en el panel de New Relic. O bien, utilice su nombre de solución como valor predeterminado.
 
-    ![Escribir el nombre de aplicación][]
+    ![Escribir el nombre de aplicación][Escribir el nombre de aplicación]
 
 7.  Desde el Explorador de soluciones, haga clic con el botón secundario en su proyecto de Servicios en la nube de Azure y seleccione **Publish**.
 
-    ![Publicar el proyecto en la nube][]
+    ![Publicar el proyecto en la nube][Publicar el proyecto en la nube]
 
 **Nota:** Si es la primera vez que implementa esta aplicación en Azure, se le pedirá que escriba las
-credenciales correspondientes. Para obtener más información, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure][].
+credenciales correspondientes. Para obtener más información, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure][Implementación de una aplicación web ASP.NET en un sitio web de Azure].
 
-![configuración de publicación][]
+![configuración de publicación][configuración de publicación]
 
 ### Paso 3. Comprobar el rendimiento de la aplicación en New Relic
 
@@ -96,7 +96,7 @@ Para ver el panel de New Relic:
 
     El panel **Monitoring \> Overview** se muestra automáticamente.
 
-    ![Panel de supervisión de New Relic][]
+    ![Panel de supervisión de New Relic][Panel de supervisión de New Relic]
 
     Después de seleccionar una aplicación en la lista en el menú **Applications**, el panel **Overview** muestra información del explorador y del servidor de aplicaciones actual.
 
@@ -104,7 +104,7 @@ Para ver el panel de New Relic:
 
 Después de seleccionar la aplicación de la lista en el menú Applications, el panel Overview muestra información actual del explorador y del servidor de aplicaciones. Para alternar entre las dos vistas, haga clic en el botón **App server** o **Browser**.
 
-Además de las funciones de [la interfaz de usuario estándar de New Relic][] y la [información detallada del panel][], el panel Applications Overview muestra funciones adicionales.
+Además de las funciones de [la interfaz de usuario estándar de New Relic][la interfaz de usuario estándar de New Relic] y la [información detallada del panel][información detallada del panel], el panel Applications Overview muestra funciones adicionales.
 
 <table>
 <colgroup>
@@ -162,14 +162,14 @@ A continuación se muestra un ejemplo del panel Applications Overview cuando se 
 
 Consulte estos recursos adicionales para obtener más información:
 
--   [Installing the .NET Agent on Azure][]: procedimientos de instalación de .NET Agent de New Relic.
--   [La interfaz de usuario de New Relic][]:
+-   [Installing the .NET Agent on Azure][Installing the .NET Agent on Azure]: procedimientos de instalación de .NET Agent de New Relic.
+-   [La interfaz de usuario de New Relic][La interfaz de usuario de New Relic]:
     Información general de la nueva interfaz de usuario de New Relic, configuración de derechos de usuario y perfiles, uso de funciones estándar e información detallada del panel.
--   [Applications Overview][]: características y funciones cuando se utiliza el panel Applications Overview de New Relic.
--   [Apdex][]: información general de cómo Apdex mide la satisfacción de los usuarios finales con la aplicación.
--   [Real User Monitoring][]: Información general sobre cómo RUM detalla el tiempo que tardan los
+-   [Applications Overview][Applications Overview]: características y funciones cuando se utiliza el panel Applications Overview de New Relic.
+-   [Apdex][Apdex]: información general de cómo Apdex mide la satisfacción de los usuarios finales con la aplicación.
+-   [Real User Monitoring][Real User Monitoring]: Información general sobre cómo RUM detalla el tiempo que tardan los
     exploradores de los usuarios en cargar las páginas web, de dónde proceden y qué exploradores utilizan.
--   [Finding Help][]: recursos disponibles en el centro de ayuda en línea de New Relic.
+-   [Finding Help][Finding Help]: recursos disponibles en el centro de ayuda en línea de New Relic.
 
   [Uso de New Relic]: #using-new-relic
   [página de New Relic en la Tienda de Azure]: http://www.windowsazure.com/es-es/gallery/store/new-relic/new-relic/
@@ -187,10 +187,6 @@ Consulte estos recursos adicionales para obtener más información:
   [la interfaz de usuario estándar de New Relic]: https://newrelic.com/docs/site/the-new-relic-ui#functions
   [información detallada del panel]: https://newrelic.com/docs/site/the-new-relic-ui#drilldown
   [Apdex]: https://newrelic.com/docs/site/apdex
-  [Geography]: https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard
-  [Web Transactions]: https://newrelic.com/docs/applications-dashboards/web-transactions
-  [Key Transactions]: https://newrelic.com/docs/site/key-transactions
-  [Errors]: https://newrelic.com/docs/site/errors
   [1]: ./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelic_app_browser.png
   [Installing the .NET Agent on Azure]: https://newrelic.com/docs/dotnet/installing-the-net-agent-on-azure
   [La interfaz de usuario de New Relic]: https://newrelic.com/docs/site/the-new-relic-ui

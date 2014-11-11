@@ -1,17 +1,17 @@
 <properties linkid="dev-net-how-to-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (.NET) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Learn how to use Service Bus queues in Azure. Code samples written in C# using the .NET API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Utilización de las colas del bus de servicio
 
 <span>Esta guía le mostrará cómo usar las colas del bus de servicio. Los
 ejemplos están escritos en C# y utilizan la API de .NET. Entre los escenarios proporcionados se
 incluyen los siguientes: **creación de colas, envío y recepción de mensajes** y
-**eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][]. </span>
+**eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][Pasos siguientes]. </span>
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
 ## <span class="short-header">Configuración de la aplicación</span>Configuración de la aplicación para usar el bus de servicio
 
@@ -35,7 +35,7 @@ Realice los pasos siguientes para instalar el paquete NuGet en su aplicación:
     Servicie Bus**. Haga clic en **Instaló** para completar la instalación y,
     a continuación, cierre este cuadro de diálogo.
 
-    ![][]
+    ![][0]
 
 De este modo ya estará listo para escribir código en el bus de servicio.
 
@@ -286,15 +286,14 @@ intentos de entrega.
 Ahora que conoce los fundamentos de las colas del bus de servicio, siga estos
 vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio][]
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio][Colas, temas y suscripciones del bus de servicio]
 -   Creación de una aplicación que envíe y reciba mensajes desde la cola
     del bus de servicio y hacia ella: [Tutorial de .NET de mensajería con confianza establecida del
-    bus de servicio][].
+    bus de servicio][Tutorial de .NET de mensajería con confianza establecida del
+    bus de servicio].
 
   [Pasos siguientes]: #next-steps
   [create-account-note]: ../includes/create-account-note.md
   [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
-  []: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
+  [0]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Colas, temas y suscripciones del bus de servicio]: http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx
-  [Tutorial de .NET de mensajería con confianza establecida del
-  bus de servicio]: http://msdn.microsoft.com/es-es/library/windowsazure/hh367512.aspx

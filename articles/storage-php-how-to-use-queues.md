@@ -4,31 +4,31 @@
 
 # Uso del servicio Cola de PHP
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio Cola de Azure. Los ejemplos se escriben con las clases del SDK de Windows para PHP. Entre los escenarios descritos se incluyen la **inserción**, **inspección**, **obtención** y **eliminación** de los mensajes en cola, así como la **creación y eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][].
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio Cola de Azure. Los ejemplos se escriben con las clases del SDK de Windows para PHP. Entre los escenarios descritos se incluyen la **inserción**, **inspección**, **obtención** y **eliminación** de los mensajes en cola, así como la **creación y eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][Pasos siguientes].
 
 ## Tabla de contenido
 
--   [¿Qué es el almacenamiento en cola?][]
--   [Conceptos][]
--   [Creación de una cuenta de almacenamiento de Azure][]
--   [Creación de una aplicación PHP][]
--   [Configuración de la aplicación para el servicio Cola][]
--   [Configuración de una conexión de almacenamiento de Azure][]
--   [Creación de una cola][]
--   [Incorporación de un mensaje a una cola][]
--   [Inspección del siguiente mensaje][]
--   [Extracción del siguiente mensaje de la cola][]
--   [Cambio del contenido de un mensaje en cola][]
--   [Opciones adicionales de los mensajes quitados de la cola][]
--   [Obtención de la longitud de la cola][]
--   [Eliminación de una cola][]
+-   [¿Qué es el almacenamiento en cola?][¿Qué es el almacenamiento en cola?]
+-   [Conceptos][Conceptos]
+-   [Creación de una cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento de Azure]
+-   [Creación de una aplicación PHP][Creación de una aplicación PHP]
+-   [Configuración de la aplicación para el servicio Cola][Configuración de la aplicación para el servicio Cola]
+-   [Configuración de una conexión de almacenamiento de Azure][Configuración de una conexión de almacenamiento de Azure]
+-   [Creación de una cola][Creación de una cola]
+-   [Incorporación de un mensaje a una cola][Incorporación de un mensaje a una cola]
+-   [Inspección del siguiente mensaje][Inspección del siguiente mensaje]
+-   [Extracción del siguiente mensaje de la cola][Extracción del siguiente mensaje de la cola]
+-   [Cambio del contenido de un mensaje en cola][Cambio del contenido de un mensaje en cola]
+-   [Opciones adicionales de los mensajes quitados de la cola][Opciones adicionales de los mensajes quitados de la cola]
+-   [Obtención de la longitud de la cola][Obtención de la longitud de la cola]
+-   [Eliminación de una cola][Eliminación de una cola]
 -   [Pasos siguientes][1]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <span id="create-account"></span></a>Creación de una cuenta de almacenamiento de Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="create-app"></span></a>Creación de una aplicación PHP
 
@@ -38,13 +38,13 @@ En esta guía, utilizará funciones del servicio Cola a las que se puede llamar 
 
 ## <span id="GetClientLibrary"></span></a>Obtención de las bibliotecas de clientes de Azure
 
-[WACOM.INCLUDE [get-client-libraries][]]
+[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
 ## <span id="configure-app"></span></a>Configuración de la aplicación para obtener acceso al servicio Cola
 
 Para utilizar las API del servicio Cola de Azure, necesita:
 
-1.  Hacer referencia al archivo autocargador mediante la instrucción [require\_once][].
+1.  Hacer referencia al archivo autocargador mediante la instrucción [require\_once][require\_once].
 2.  Hacer referencia a todas las clases que utilice.
 
 En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **ServicesBuilder**.
@@ -110,7 +110,7 @@ Un objeto **QueueRestProxy** le permite crear una cola con el método **createQu
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -140,7 +140,7 @@ Para agregar un mensaje a una cola, use **QueueRestProxy-\>createMessage**. El m
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -169,7 +169,7 @@ Puede inspeccionar uno o varios mensajes en la parte delantera de una cola, sin 
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -223,7 +223,7 @@ El código borra un mensaje de una cola en dos pasos. Primero, llama a **QueueRe
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -265,7 +265,7 @@ Puede cambiar el contenido de un mensaje local en la cola llamando a **QueueRest
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -312,7 +312,7 @@ Hay dos formas de personalizar la recuperación de mensajes de una cola. En prim
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -338,7 +338,7 @@ Puede obtener una estimación del número de mensajes existentes en una cola. El
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -365,7 +365,7 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
         // Error codes and messages are here: 
-        // http://msdn.microsoft.com/en-us/library/windowsazure/dd179446.aspx
+        // http://msdn.microsoft.com/es-es/library/windowsazure/dd179446.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
@@ -375,11 +375,10 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 Ahora que está familiarizado con los aspectos básicos del servicio Cola de Azure, utilice estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][]
+-   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][Almacenamiento de datos y acceso a los mismos en Azure]
 -   Obtenga acceso al blog del equipo de almacenamiento de Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
 
   [Pasos siguientes]: #NextSteps
-  [¿Qué es el almacenamiento en cola?]: #what-is
   [Conceptos]: #concepts
   [Creación de una cuenta de almacenamiento de Azure]: #create-account
   [Creación de una aplicación PHP]: #create-app
@@ -397,5 +396,4 @@ Ahora que está familiarizado con los aspectos básicos del servicio Cola de Azu
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [get-client-libraries]: ../includes/get-client-libraries.md
-  [require\_once]: http://www.php.net/manual/en/function.require-once.php
-  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx

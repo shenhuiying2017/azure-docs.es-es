@@ -1,25 +1,25 @@
 <properties linkid="manage-services-how-to-create-websites" urlDisplayName="How to create" pageTitle="How to create websites - Azure service management" metaKeywords="Azure creating website, Azure deleting website" description="Learn how to create a website using the Azure Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create and Deploy a Website" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Creación de un sitio web
 
 Este tema muestra cómo puede crear un sitio web desde la galería o con el portal de administración.
 
-Para obtener información acerca de cómo implementar contenidos en un sitio web Azure que haya creado previamente, consulte la sección **Implementar** en [Sitios web Azure][].
+Para obtener información acerca de cómo implementar contenidos en un sitio web Azure que haya creado previamente, consulte la sección **Implementar** en [Sitios web Azure][Sitios web Azure].
 
 ## Tabla de contenido
 
--   [Direccionamiento del un Sitio web con el Portal de administración][]
--   [Direccionamiento del un Sitio web desde la galería][]
--   [Direccionamiento del un Sitio web][]
--   [Pasos siguientes][]
+-   [Direccionamiento del un Sitio web con el Portal de administración][Direccionamiento del un Sitio web con el Portal de administración]
+-   [Direccionamiento del un Sitio web desde la galería][Direccionamiento del un Sitio web desde la galería]
+-   [Direccionamiento del un Sitio web][Direccionamiento del un Sitio web]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="createawebsiteportal"></a>Direccionamiento del Creación de un sitio web con el Portal de administración
 
 Siga estos pasos para crear un sitio web en Azure.
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  Haga clic en el icono **Create New**, situado en la parte inferior izquierda del Portal de administración.
 
@@ -59,7 +59,7 @@ Siga estos pasos para crear un sitio web en Azure.
 
 ## <a name="howtocreatefromgallery"></a>Direccionamiento del Creación de un sitio web desde la galería
 
-[WACOM.INCLUDE [website-from-gallery][]]
+[WACOM.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
 ## <a name="deleteawebsite"></a>Direccionamiento del Eliminación de un sitio web
 
@@ -67,7 +67,7 @@ Los sitios web se eliminan mediante el icono **Delete** del Portal de administra
 
 ## <a name="nextsteps"></a>Pasos siguientes
 
-Para obtener más información, consulte [Sitios web Azure][].
+Para obtener más información, consulte [Sitios web Azure][Sitios web Azure].
 
   [Sitios web Azure]: /es-es/documentation/services/web-sites/
   [Direccionamiento del un Sitio web con el Portal de administración]: #createawebsiteportal

@@ -88,7 +88,6 @@ Para obtener instrucciones más detalladas sobre el trabajo con la plantilla de 
   [Conceptos básicos de la auditoría de Base de datos SQL de Azure]: #subheading-1
   [Configuración de la auditoría para su base de datos]: #subheading-2
   [Análisis de registros e informes de auditoría]: #subheading-3
-  [Referencia del formato del registro de auditoría (descarga de archivo .doc)]: http://go.microsoft.com/fwlink/?LinkId=506733
   [suscribirse a la vista previa de nuevos niveles de servicio]: https://account.windowsazure.com/PreviewFeatures?fid=premiumdb
   [Portal de vista previa de Azure]: https://portal.azure.com
   
@@ -99,5 +98,4 @@ Para obtener instrucciones más detalladas sobre el trabajo con la plantilla de 
   [Explorador de almacenamiento de Azure]: http://azurestorageexplorer.codeplex.com/
   [hoja de cálculo de Excel descargable]: http://go.microsoft.com/fwlink/?LinkId=403540
   [aquí]: http://www.microsoft.com/es-es/download/details.aspx?id=39379
-  [Cómo (.doc descargable)]: http://go.microsoft.com/fwlink/?LinkId=506731
   [5]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png

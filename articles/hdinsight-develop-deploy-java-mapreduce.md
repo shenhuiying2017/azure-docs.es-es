@@ -1,6 +1,6 @@
 <properties linkid="manage-services-hdinsight-develop-Java-MapReduce-programs-for-HDInsight-Hadoop" urlDisplayName="HDInsight Tutorials" pageTitle="Develop Java MapReduce programs for Hadoop in HDInsight | Azure" metaKeywords="hdinsight, hdinsight development, hadoop development, hdinsight deployment, development, deployment, tutorial, MapReduce, Java" description="Learn how to develop Java MapReduce programs on HDInsight emulator, how to deploy them to HDInsight." services="hdinsight" title="Develop Java MapReduce programs for Hadoop in HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="jgao" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Desarrollo de programas MapReduce de Java para Hadoop en HDInsight
 
@@ -10,18 +10,18 @@ Este tutorial le guiará por un escenario integral, desde el desarrollo y las pr
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
--   Instale el emulador de HDInsight de Azure. Para obtener más información, consulte [Introducción al emulador de HDInsight][].
--   Instale Azure PowerShell en el equipo emulador. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][].
--   Obtenga una suscripción de Azure. Para obtener más información, consulte [Opciones de compra][], [Ofertas para miembros][] o [Evaluación gratuita][].
+-   Instale el emulador de HDInsight de Azure. Para obtener más información, consulte [Introducción al emulador de HDInsight][Introducción al emulador de HDInsight].
+-   Instale Azure PowerShell en el equipo emulador. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][Instalación y configuración de Azure PowerShell].
+-   Obtenga una suscripción de Azure. Para obtener más información, consulte [Opciones de compra][Opciones de compra], [Ofertas para miembros][Ofertas para miembros] o [Evaluación gratuita][Evaluación gratuita].
 
 ## En este artículo
 
--   [Desarrollo de un programa de MapReduce para el recuento de palabras en Java][]
--   [Prueba del programa en el emulador][]
--   [Carga de los archivos de datos y la aplicación al almacenamiento de blobs de Azure][]
--   [Ejecución del programa de MapReduce en HDInsight de Azure][]
--   [Recuperación de los resultados de MapReduce][]
--   [Pasos siguientes][]
+-   [Desarrollo de un programa de MapReduce para el recuento de palabras en Java][Desarrollo de un programa de MapReduce para el recuento de palabras en Java]
+-   [Prueba del programa en el emulador][Prueba del programa en el emulador]
+-   [Carga de los archivos de datos y la aplicación al almacenamiento de blobs de Azure][Carga de los archivos de datos y la aplicación al almacenamiento de blobs de Azure]
+-   [Ejecución del programa de MapReduce en HDInsight de Azure][Ejecución del programa de MapReduce en HDInsight de Azure]
+-   [Recuperación de los resultados de MapReduce][Recuperación de los resultados de MapReduce]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="develop"></a>Desarrollo de un programa de MapReduce para el recuento de palabras en Java
 
@@ -128,7 +128,7 @@ El emulador de HDInsight incluye el compilador *javac*.
 
     El comando crea un archivo WordCount.jar en la carpeta actual.
 
-    ![HDI.EMulator.WordCount.Compile][]
+    ![HDI.EMulator.WordCount.Compile][HDI.EMulator.WordCount.Compile]
 
 ## <a name="test"></a>Prueba del programa en el emulador
 
@@ -141,7 +141,7 @@ La prueba del trabajo de MapReduce en el emulador incluye los procedimientos sig
 
 De manera predeterminada, el emulador de HDInsight utiliza HDFS como sistema de archivos predeterminado. Opcionalmente, puede configurar el emulador de HDInsight para utilizar el almacenamiento de blobs de Azure. Para obtener más información, consulte [Introducción al emulador de HDInsight][1].
 
-En este tutorial, utilizará el comando *copyFromLocal* de HDFS para cargar los archivos de datos a HDFS. La siguiente sección muestra cómo cargar archivos con Azure PowerShell en el almacenamiento de blobs de Azure. Para obtener información acerca de otros métodos para cargar archivos en el almacenamiento de blobs de Azure, consulte [Carga de datos en HDInsight][].
+En este tutorial, utilizará el comando *copyFromLocal* de HDFS para cargar los archivos de datos a HDFS. La siguiente sección muestra cómo cargar archivos con Azure PowerShell en el almacenamiento de blobs de Azure. Para obtener información acerca de otros métodos para cargar archivos en el almacenamiento de blobs de Azure, consulte [Carga de datos en HDInsight][Carga de datos en HDInsight].
 
 Este tutorial utiliza la siguiente estructura de carpetas de HDFS:
 
@@ -194,11 +194,11 @@ Este tutorial utiliza los archivos .txt ubicados en el directorio %hadoop\_home%
 
     Si el trabajo se completa satisfactoriamente, debería obtener un resultado similar al de la captura de pantalla siguiente:
 
-    ![HDI.EMulator.WordCount.Run][]
+    ![HDI.EMulator.WordCount.Run][HDI.EMulator.WordCount.Run]
 
     En la captura de pantalla, puede ver tanto la asignación como la reducción completadas al 100%. También muestra el identificador del trabajo, job\_201312092021\_0002. El mismo informe se puede recuperar abriendo el acceso directo **Hadoop MapReduce status** en el escritorio y buscando el identificador del trabajo.
 
-La otra opción para ejecutar un trabajo de MapReduce es utilizar Azure PowerShell. Para obtener más información, consulte [Introducción al emulador de HDInsight][].
+La otra opción para ejecutar un trabajo de MapReduce es utilizar Azure PowerShell. Para obtener más información, consulte [Introducción al emulador de HDInsight][Introducción al emulador de HDInsight].
 
 **Para mostrar el resultado de HDFS**
 
@@ -230,7 +230,7 @@ En este tutorial, creará un contenedor en una cuenta de almacenamiento independ
         $containerName_Data = "<ContainerName>"
         $location = "<MicrosoftDataCenter>"  # For example, "East US"
 
-    El valor **$subscripionName** está asociado a la suscripción de Azure. Debe asignar un nombre a los valores **$storageAccountName\_Data** y **$containerName\_Data**. Para las restricciones de nomenclatura, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos][].
+    El valor **$subscripionName** está asociado a la suscripción de Azure. Debe asignar un nombre a los valores **$storageAccountName\_Data** y **$containerName\_Data**. Para las restricciones de nomenclatura, consulte [Asignación de nombres y referencias a contenedores, blobs y metadatos][Asignación de nombres y referencias a contenedores, blobs y metadatos].
 
 3.  Ejecute el comando siguiente para crear una cuenta de almacenamiento y un contenedor de almacenamiento de blobs en la cuenta:
 
@@ -445,11 +445,11 @@ El siguiente script de PowerShell ejecuta las tareas siguientes:
 
         PowerShell -File <FileName> -ExecutionPolicy RemoteSigned
 
-8.  Cuando se le solicite, escriba el nombre de usuario y la contraseña para el clúster de HDInsight. Como eliminará el clúster al final del script y no necesitará más el nombre de usuario y la contraseña, estos pueden ser cualquier cadena. Si no desea que se le soliciten las credenciales, consulte [Working with Passwords, Secure Strings and Credentials in Windows PowerShell][]
+8.  Cuando se le solicite, escriba el nombre de usuario y la contraseña para el clúster de HDInsight. Como eliminará el clúster al final del script y no necesitará más el nombre de usuario y la contraseña, estos pueden ser cualquier cadena. Si no desea que se le soliciten las credenciales, consulte [Working with Passwords, Secure Strings and Credentials in Windows PowerShell][Working with Passwords, Secure Strings and Credentials in Windows PowerShell]
 
 ## <a name="retrieve"></a>Recuperación del resultado del trabajo de MapReduce
 
-En esta sección se muestra cómo descargar y mostrar los resultados. Para obtener más información sobre cómo mostrar los resultados en Excel, consulte [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver][] y [Conexión de Excel a HDInsight con Power Query][].
+En esta sección se muestra cómo descargar y mostrar los resultados. Para obtener más información sobre cómo mostrar los resultados en Excel, consulte [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver][Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver] y [Conexión de Excel a HDInsight con Power Query][Conexión de Excel a HDInsight con Power Query].
 
 **Para recuperar los resultados**
 
@@ -473,28 +473,28 @@ En esta sección se muestra cómo descargar y mostrar los resultados. Para obten
         Get-AzureStorageBlobContent -Container $containerName_Data -Blob $blobName -Context $storageContext -Force
         cat "./$blobName" | findstr "there"
 
-Después de finalizar el trabajo, puede exportar los datos a una base de datos SQL Server o Azure SQL usando [Sqoop][] o exportar los datos a Excel.
+Después de finalizar el trabajo, puede exportar los datos a una base de datos SQL Server o Azure SQL usando [Sqoop][Sqoop] o exportar los datos a Excel.
 
 ## <span id="nextsteps"></span></a>Pasos siguientes
 
 En este tutorial, ha aprendido a desarrollar un trabajo de MapReduce de Java, a probar la aplicación en el emulador de HDInsight y a escribir un script PowerShell para aprovisionar un clúster de HDInsight y ejecutar un MapReduce en el clúster. Para obtener más información, consulte los artículos siguientes:
 
--   [Desarrollo de programas de MapReduce de streaming de Hadoop C# para HDInsight][]
--   [Introducción a HDInsight de Azure][]
--   [Introducción al emulador de HDInsight][]
--   [Uso del almacenamiento de blobs de Azure con HDInsight][]
--   [Administración de HDInsight con PowerShell][]
--   [Carga de datos en HDInsight][]
--   [Uso de Hive con HDInsight][]
--   [Uso de Pig con HDInsight][]
--   [Conexión de Excel a HDInsight con Power Query][]
--   [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver][]
+-   [Desarrollo de programas de MapReduce de streaming de Hadoop C# para HDInsight][Desarrollo de programas de MapReduce de streaming de Hadoop C# para HDInsight]
+-   [Introducción a HDInsight de Azure][Introducción a HDInsight de Azure]
+-   [Introducción al emulador de HDInsight][Introducción al emulador de HDInsight]
+-   [Uso del almacenamiento de blobs de Azure con HDInsight][Uso del almacenamiento de blobs de Azure con HDInsight]
+-   [Administración de HDInsight con PowerShell][Administración de HDInsight con PowerShell]
+-   [Carga de datos en HDInsight][Carga de datos en HDInsight]
+-   [Uso de Hive con HDInsight][Uso de Hive con HDInsight]
+-   [Uso de Pig con HDInsight][Uso de Pig con HDInsight]
+-   [Conexión de Excel a HDInsight con Power Query][Conexión de Excel a HDInsight con Power Query]
+-   [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver][Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver]
 
   [Introducción al emulador de HDInsight]: ../hdinsight-get-started-emulator/
   [Instalación y configuración de Azure PowerShell]: ../install-configure-powershell/
-  [Opciones de compra]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Ofertas para miembros]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Evaluación gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Opciones de compra]: http://azure.microsoft.com/es-es/pricing/purchase-options/
+  [Ofertas para miembros]: http://azure.microsoft.com/es-es/pricing/member-offers/
+  [Evaluación gratuita]: http://azure.microsoft.com/es-es/pricing/free-trial/
   [Desarrollo de un programa de MapReduce para el recuento de palabras en Java]: #develop
   [Prueba del programa en el emulador]: #test
   [Carga de los archivos de datos y la aplicación al almacenamiento de blobs de Azure]: #upload
@@ -505,7 +505,7 @@ En este tutorial, ha aprendido a desarrollar un trabajo de MapReduce de Java, a 
   [1]: ../hdinsight-get-started-emulator/#blobstorage
   [Carga de datos en HDInsight]: ../hdinsight-upload-data/
   [HDI.EMulator.WordCount.Run]: ./media/hdinsight-develop-deploy-java-mapreduce/HDI-Emulator-Run-Java-MapReduce.png
-  [Asignación de nombres y referencias a contenedores, blobs y metadatos]: http://msdn.microsoft.com/en-us/library/windowsazure/dd135715.aspx
+  [Asignación de nombres y referencias a contenedores, blobs y metadatos]: http://msdn.microsoft.com/es-es/library/windowsazure/dd135715.aspx
   [Working with Passwords, Secure Strings and Credentials in Windows PowerShell]: http://social.technet.microsoft.com/wiki/contents/articles/4546.working-with-passwords-secure-strings-and-credentials-in-windows-powershell.aspx
   [Conexión de Excel a HDInsight con Microsoft Hive ODBC Driver]: ../hdinsight-connect-excel-hive-ODBC-driver/
   [Conexión de Excel a HDInsight con Power Query]: ../hdinsight-connect-excel-power-query/

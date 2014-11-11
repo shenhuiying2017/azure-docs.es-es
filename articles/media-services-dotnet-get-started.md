@@ -1,31 +1,31 @@
 <properties linkid="develop-media-services-tutorials-get-started" urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 # <a name="getting-started"></a>Introducción a los Servicios multimedia
 
 En este tutorial se muestra cómo empezar a desarrollar con los Servicios multimedia de Azure. Presenta el flujo de trabajo básico de los Servicios multimedia y la mayoría de los objetos y tareas de programación más comunes necesarios para el desarrollo de los Servicios multimedia. Al término del tutorial, podrá reproducir un archivo multimedia de ejemplo que cargó, codificó y descargó. O bien, puede dirigirse al recurso codificado y reproducirlo en el servidor.
 
-Un proyecto de C# Visual Studio que contiene el código de este tutorial está disponible aquí: [Descargar][].
+Un proyecto de C# Visual Studio que contiene el código de este tutorial está disponible aquí: [Descargar][Descargar].
 
 Este tutorial le guiará a través de estos pasos básicos:
 
--   [Configuración de su proyecto][]
--   [Obtención del contexto de servidor de los Servicios multimedia][]
--   [Creación de un recurso y carga de los archivos asociados con el recurso en los Servicios multimedia][]
--   [Codificación de un recurso y descarga de un recurso de salida][]
+-   [Configuración de su proyecto][Configuración de su proyecto]
+-   [Obtención del contexto de servidor de los Servicios multimedia][Obtención del contexto de servidor de los Servicios multimedia]
+-   [Creación de un recurso y carga de los archivos asociados con el recurso en los Servicios multimedia][Creación de un recurso y carga de los archivos asociados con el recurso en los Servicios multimedia]
+-   [Codificación de un recurso y descarga de un recurso de salida][Codificación de un recurso y descarga de un recurso de salida]
 
 ## Requisitos previos
 
 Se requieren los siguientes requisitos previos para el tutorial y el desarrollo basado en el SDK de los Servicios multimedia de Azure.
 
--   Una cuenta de Servicios multimedia en una suscripción de Azure nueva o existente. Para obtener más información, consulte [Creación de una cuenta de Servicios multimedia][].
+-   Una cuenta de Servicios multimedia en una suscripción de Azure nueva o existente. Para obtener más información, consulte [Creación de una cuenta de Servicios multimedia][Creación de una cuenta de Servicios multimedia].
 -   Sistemas operativos: Windows 7, Windows 2008 R2 o Windows 8.
 -   .NET Framework 4.5 o .NET Framework 4.
 -   Visual Studio 2012 o Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express).
--   Instale **SDK de Azure para .NET**, **SDK de los Servicios multimedia de Azure para .NET** y **WCF Data Services 5.0 para las bibliotecas de OData V3** y agregue referencias a su proyecto usando el paquete [windowsazure.mediaservices Nuget][]. La siguiente sección demuestra cómo instalar y agregar estas referencias.
+-   Instale **SDK de Azure para .NET**, **SDK de los Servicios multimedia de Azure para .NET** y **WCF Data Services 5.0 para las bibliotecas de OData V3** y agregue referencias a su proyecto usando el paquete [windowsazure.mediaservices Nuget][windowsazure.mediaservices Nuget]. La siguiente sección demuestra cómo instalar y agregar estas referencias.
 
-<div class="dev-callout"><strong>Nota:</strong> <p>para completar este tutorial, deber&aacute; tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluaci&oacute;n gratuita en tan solo unos minutos. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Evaluaci&oacute;n gratuita de Azure</a>.</p></div>
+<div class="dev-callout"><strong>Nota:</strong> <p>para completar este tutorial, deber&aacute; tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluaci&oacute;n gratuita en tan solo unos minutos. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Evaluaci&oacute;n gratuita de Azure</a>.</p></div>
 
 ## <span id="Step1"></span></a>Configuración de su proyecto
 
@@ -35,7 +35,7 @@ Se requieren los siguientes requisitos previos para el tutorial y el desarrollo 
 
     Para agregar referencias usando el cuadro de diálogo **Administrar referencias**, siga estos pasos. Haga clic con el botón secundario en el nodo **Referencias** en el **Explorador de soluciones** y seleccione **Agregar referencia**. En el cuadro de diálogo **Administrar referencias**, seleccione los ensamblados adecuados (en este caso System.Configuration).
 
-3.  Si todavía no lo ha hecho, agregue referencias al **SDK de Azure para .NET** (Microsoft.WindowsAzure.StorageClient.dll), **SDK de los Servicios multimedia de Azure para .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll) y las bibliotecas de **WCF Data Services 5.0 para OData V3** (Microsoft.Data.OData.dll) usando el paquete [windowsazure.mediaservices Nuget][].
+3.  Si todavía no lo ha hecho, agregue referencias al **SDK de Azure para .NET** (Microsoft.WindowsAzure.StorageClient.dll), **SDK de los Servicios multimedia de Azure para .NET** (Microsoft.WindowsAzure.MediaServices.Client.dll) y las bibliotecas de **WCF Data Services 5.0 para OData V3** (Microsoft.Data.OData.dll) usando el paquete [windowsazure.mediaservices Nuget][windowsazure.mediaservices Nuget].
 
     Para agregar referencias usando Nuget, realice lo siguiente. En el menú principal de Visual Studio, seleccione TOOLS -\> Library Package Manager -\> Package Manager Console. En la ventana de la consola, escriba *Install-Package [nombre del paquete]* y presione Entrar (en este caso use el siguiente comando: *Install-Package windowsazure.mediaservices*).
 
@@ -167,7 +167,7 @@ Agregue una llamada al método después de la línea \*\*\_context = new CloudMe
 
 ## <span id="Step4"></span></a>Codificación del recurso en el servidor y descarga de un recurso de salida
 
-En los Servicios multimedia, puede crear trabajos que procesan contenidos multimedia de varias formas: codificación, cifrado, realización de conversiones de formato, etc. Un trabajo de Servicios multimedia contiene una o más tareas que especifican los detalles del trabajo de procesamiento. En esta sección puede crear una tarea de codificación básica y luego ejecutar un trabajo que la realiza usando el codificador multimedia de Azure. La tarea usa una cadena predefinida para especificar el tipo de codificación que se debe realizar. Para ver los valores de codificación predefinidos disponibles, consulte [Valores predefinidos del sistema Media Services Encoder][]. Los Servicios multimedia admiten los mismos formatos de archivo multimedia de entrada y salida que Microsoft Expression Encoder. Para obtener una lista de formatos admitidos, consulte [Códecs y tipos de archivo compatibles con Azure Media Encoder][].
+En los Servicios multimedia, puede crear trabajos que procesan contenidos multimedia de varias formas: codificación, cifrado, realización de conversiones de formato, etc. Un trabajo de Servicios multimedia contiene una o más tareas que especifican los detalles del trabajo de procesamiento. En esta sección puede crear una tarea de codificación básica y luego ejecutar un trabajo que la realiza usando el codificador multimedia de Azure. La tarea usa una cadena predefinida para especificar el tipo de codificación que se debe realizar. Para ver los valores de codificación predefinidos disponibles, consulte [Valores predefinidos del sistema Media Services Encoder][Valores predefinidos del sistema Media Services Encoder]. Los Servicios multimedia admiten los mismos formatos de archivo multimedia de entrada y salida que Microsoft Expression Encoder. Para obtener una lista de formatos admitidos, consulte [Códecs y tipos de archivo compatibles con Azure Media Encoder][Códecs y tipos de archivo compatibles con Azure Media Encoder].
 
 1.  Agregue la siguiente definición del método **CreateEncodingJob** a su clase. Este método demuestra cómo llevar a cabo varias tareas necesarias para un trabajo de codificación:
 
@@ -618,8 +618,8 @@ Ejecute el programa (presione F5). La consola muestra una salida similar a la si
 
 Este tutorial ha demostrado una secuencia de tareas de programación para crear una aplicación sencilla de Servicios multimedia. Aprendió las tareas fundamentales de la programación de Servicios multimedia, incluida la obtención de contenido del servidor, la creación de recursos, la codificación de recursos y la descarga u obtención de acceso a los recursos en el servidor. Para conocer los pasos siguientes y tareas de desarrollo más avanzadas, consulte lo siguiente:
 
--   [Uso de Servicios multimedia][]
--   [Entrega de contenido][]
+-   [Uso de Servicios multimedia][Uso de Servicios multimedia]
+-   [Entrega de contenido][Entrega de contenido]
 
 <!-- Anchors. -->
 
@@ -630,9 +630,8 @@ Este tutorial ha demostrado una secuencia de tareas de programación para crear 
   [Codificación de un recurso y descarga de un recurso de salida]: #Step4
   [Creación de una cuenta de Servicios multimedia]: http://go.microsoft.com/fwlink/?LinkId=256662
   [windowsazure.mediaservices Nuget]: http://nuget.org/packages/windowsazure.mediaservices
-  [Evaluación gratuita de Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A8A8397B5
-  [Valores predefinidos del sistema Media Services Encoder]: http://msdn.microsoft.com/en-us/library/windowsazure/jj129582.aspx
-  [Códecs y tipos de archivo compatibles con Azure Media Encoder]: http://msdn.microsoft.com/en-us/library/windowsazure/hh973634.aspx
+  [Valores predefinidos del sistema Media Services Encoder]: http://msdn.microsoft.com/es-es/library/windowsazure/jj129582.aspx
+  [Códecs y tipos de archivo compatibles con Azure Media Encoder]: http://msdn.microsoft.com/es-es/library/windowsazure/hh973634.aspx
   [1]: http://msdn.microsoft.com/library/windowsazure/jj129582.aspx
-  [Uso de Servicios multimedia]: http://www.windowsazure.com/en-us/develop/net/how-to-guides/media-services/
-  [Entrega de contenido]: http://msdn.microsoft.com/en-us/library/windowsazure/hh973618.aspx
+  [Uso de Servicios multimedia]: http://www.windowsazure.com/es-es/develop/net/how-to-guides/media-services/
+  [Entrega de contenido]: http://msdn.microsoft.com/es-es/library/windowsazure/hh973618.aspx

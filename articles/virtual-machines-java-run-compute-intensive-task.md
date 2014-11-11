@@ -1,6 +1,6 @@
 <properties linkid="dev-java-compute-load" urlDisplayName="TSP on Virtual Machine" pageTitle="Compute-intensive Java application on a VM - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Learn how to create an Azure virtual machine that runs a compute-intensive Java application that can be monitored by another Java application." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Ejecución de una tarea de Java de proceso intensivo en una máquina virtual
 
@@ -20,17 +20,17 @@ Aprenderá a:
 
 En este tutorial se utilizará el problema del viajante para explicar la tarea de proceso intensivo. A continuación se mostrará un ejemplo de la aplicación Java que ejecuta la tarea de proceso intensivo:
 
-![Solucionador del problema del viajante][]
+![Solucionador del problema del viajante][Solucionador del problema del viajante]
 
 A continuación se muestra un ejemplo de la aplicación Java que supervisa la tarea de proceso intensivo:
 
-![Cliente del problema del viajante][]
+![Cliente del problema del viajante][Cliente del problema del viajante]
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Para crear una máquina virtual
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  Haga clic sucesivamente en **New**, **Proceso**, **Máquina virtual** y, a continuación, en **From Gallery**.
 3.  En el cuadro de diálogo **Selección de imágenes de máquina virtual**, seleccione **JDK 7 Windows Server 2012**.
     Observe que **JDK 6 Windows Server 2012** está disponible si tiene aplicaciones heredadas que aún no están preparadas para ejecutarse en JDK 7.
@@ -65,7 +65,7 @@ A continuación se muestra un ejemplo de la aplicación Java que supervisa la ta
 4.  Haga clic en **Connect**.
 5.  Siga las indicaciones, según sea necesario, para conectarse a la máquina virtual. Cuando se le pida el nombre y la contraseña del administrador, utilice los valores que proporcionó cuando creó la máquina virtual.
 
-Tenga en cuenta que la funcionalidad del bus de servicio de Azure requiere que se instale el certificado Baltimore CyberTrust Root como parte de su almacén **cacerts** de JRE. Este certificado se incluye automáticamente en el JRE usado para este tutorial. Si no tiene este certificado en su almacén **cacerts** de JRE, consulte [Incorporación de un certificado al almacén de certificados CA de Java][] para obtener más información acerca de cómo agregarlo (así como información acerca de la visualización de certificados en el almacén cacerts).
+Tenga en cuenta que la funcionalidad del bus de servicio de Azure requiere que se instale el certificado Baltimore CyberTrust Root como parte de su almacén **cacerts** de JRE. Este certificado se incluye automáticamente en el JRE usado para este tutorial. Si no tiene este certificado en su almacén **cacerts** de JRE, consulte [Incorporación de un certificado al almacén de certificados CA de Java][Incorporación de un certificado al almacén de certificados CA de Java] para obtener más información acerca de cómo agregarlo (así como información acerca de la visualización de certificados en el almacén cacerts).
 
 ## Creación de un espacio de nombres del bus de servicio
 
@@ -75,15 +75,15 @@ con un ámbito para el desvío de recursos del Bus de servicio en la aplicación
 
 Para crear un nombre de espacio de servicio:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  En el panel de navegación izquierdo del Portal de administración, haga clic en **Bus de servicio, Access Control y Caché**.
 3.  En el panel superior izquierdo del Portal de administración, haga clic en el nodo **Service
     Bus** y, a continuación, en el botón **Nuevo**.
-    ![Captura de pantalla del nodo Service Bus][]
+    ![Captura de pantalla del nodo Service Bus][Captura de pantalla del nodo Service Bus]
 4.  En el cuadro de diálogo **Crear un espacio de nombres de servicio nuevo**, escriba un
     **espacio de nombres** y, a continuación, para asegurarse de que es único, haga clic en el botón
     **Comprobar disponibilidad**.
-    ![Captura de pantalla del cuadro de diálogo Crear un espacio de nombres de servicio nuevo][]
+    ![Captura de pantalla del cuadro de diálogo Crear un espacio de nombres de servicio nuevo][Captura de pantalla del cuadro de diálogo Crear un espacio de nombres de servicio nuevo]
 5.  Después de asegurarse de que el nombre del espacio de nombres está disponible, elija el
     país o región en el que debería alojarse el espacio de nombres y, a continuación, haga clic en el botón **Crear espacio de nombres**.
 
@@ -98,22 +98,22 @@ espacio de nombres.
 
 1.  En el panel de navegación izquierdo, haga clic en el nodo **Service Bus** para
     ver la lista de espacios de nombres disponibles:
-    ![Captura de pantalla del cuadro de diálogo Espacios de nombres disponibles][]
+    ![Captura de pantalla del cuadro de diálogo Espacios de nombres disponibles][Captura de pantalla del cuadro de diálogo Espacios de nombres disponibles]
 2.  Seleccione el espacio de nombres que acaba de crear en la lista que se muestra:
-    ![Captura de pantalla de la Lista de espacios de nombres][]
+    ![Captura de pantalla de la Lista de espacios de nombres][Captura de pantalla de la Lista de espacios de nombres]
 3.  El panel **Propiedades**, situado a la derecha, mostrará las propiedades del nuevo
     espacio de nombres:
-    ![Captura de pantalla del panel Propiedades][]
+    ![Captura de pantalla del panel Propiedades][Captura de pantalla del panel Propiedades]
 4.  El valor de **Default Key** está oculto. Haga clic en el botón **Ver** para mostrar
     las credenciales de seguridad:
-    ![Captura de pantalla del cuadro de diálogo Clave predeterminada][]
+    ![Captura de pantalla del cuadro de diálogo Clave predeterminada][Captura de pantalla del cuadro de diálogo Clave predeterminada]
 5.  Tome nota del valor de **Emisor predeterminado** y de **Clave predeterminada** cuando utilice
     la información siguiente para realizar las operaciones con el
     espacio de nombres.
 
 ## Creación de una aplicación Java que realiza una tarea de proceso intensivo
 
-1.  En nuestro equipo de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para Java][].
+1.  En nuestro equipo de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para Java][SDK de Azure para Java].
 2.  Cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. Para este tutorial, utilizaremos **TSPSolver.java** como nombre de archivo de Java. Modifique los marcadores de posición **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** y **your\_service\_bus\_key** que utilizan respectivamente los valores **Espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada** del bus de servicio.
 3.  Después de la codificación, exporte la aplicación a un archivo Java (JAR) ejecutable y empaquete las bibliotecas requeridas en el JAR generado. Para este tutorial, utilizaremos **TSPSolver.java** como el nombre JAR generado.
 

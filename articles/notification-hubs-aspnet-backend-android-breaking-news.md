@@ -294,10 +294,6 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 
 <!-- Anchors. --> <!-- Images. --> <!-- URLs.-->
 
-  [Windows Universal]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/ "Windows Universal"
-  [Windows Phone]: /es-es/documentation/articles/notification-hubs-windows-phone-send-breaking-news/ "Windows Phone"
-  [iOS]: /es-es/documentation/articles/notification-hubs-ios-send-breaking-news/ "iOS"
-  [Android]: /es-es/documentation/articles/notification-hubs-aspnet-backend-android-breaking-news/ "Android"
   [Introducción a centros de notificaciones]: http://msdn.microsoft.com/es-es/library/jj927170.aspx
   [Incorporación de una selección de categorías a la aplicación]: #adding-categories
   [Registro de notificaciones]: #register

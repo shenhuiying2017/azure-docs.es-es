@@ -1,6 +1,6 @@
 <properties title="Azure Machine Learning Sample: Network intrusion detection" pageTitle="Machine Learning Sample: Network intrusion detection | Azure" description="A sample Azure Machine Learning experiment that uses a classification model to determine which network activities are a part of network intrusion." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
 # Ejemplo de Aprendizaje automático de Azure: detección de intrusión en red
 
@@ -27,7 +27,7 @@ La demostración utiliza varias características de red para detectar cuáles de
 
 1.  El clasificador no lineal (árbol de decisión ampliado) obtiene resultados ligeramente mejores que el clasificador lineal (regresión logística):
 
-![][]
+![][0]
 
 Ahora queremos comparar un árbol de decisión ampliado con la selección de características. Los resultados de la clasificación son bastante similares, pero el árbol de decisión ampliado en todas las características es ligeramente mejor, y se utilizará para el flujo de trabajo de puntuación. Tenga en cuenta que esta AUC de alta clasificación es habitual para este conjunto de datos.
 
@@ -35,5 +35,5 @@ Ahora queremos comparar un árbol de decisión ampliado con la selección de car
 
 <!-- Removed until this part is fixed ## Operationalization ##   We wanted to see our model in action, to do this we wanted a request-response service around the model we just learned. Doing this is straightforward and can be achieved in few simple clicks in studio:   1. First step is to save the learned model (by right clicking on the classifier module output)  1. Now create a new experiment and search for saved model and drop it in the panel for new experiment  1. Then we need to replicate the steps we did for pre-process, again we can just select the modules from experiment we need and copy and paste to the new experiment  1. The last step is to plug in the test data and run the experiment, once the run is finished we can define the input and output points for the service  1. Again, using one click we can publish the service end points that is deployed right away and can be tested using a friendly user interface - all within studio    -->
 
-  []: ./media/machine-learning-sample-network-intrusion-detection/network-intrusion-detection-1.png
+  [0]: ./media/machine-learning-sample-network-intrusion-detection/network-intrusion-detection-1.png
   [1]: ./media/machine-learning-sample-network-intrusion-detection/network-intrusion-detection-2.png

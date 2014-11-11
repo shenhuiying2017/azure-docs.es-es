@@ -1,22 +1,22 @@
 <properties linkid="dev-net-transform-extend-site" urlDisplayName="Service Bus Topics" pageTitle="Transform and extend your site" metaKeywords="none" description="TBD" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="cephalin" writer="cephalin" editor="mollybos" manager="wpickett" title="Transform and extend your site"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Transformación y extensión del sitio
 
-Puede transformar el archivo [ApplicationHost.config][] en los sitios web de Azure mediante las declaraciones de [XML Document Transformation][] (XDT). También puede usar las declaraciones XDT para agregar extensiones de sitios privados para habilitar acciones de administración del sitio personalizado. Este artículo incluye un sitio del administrador PHP de ejemplo que habilita la administración de la configuración de PHP a través de una interfaz web.
+Puede transformar el archivo [ApplicationHost.config][ApplicationHost.config] en los sitios web de Azure mediante las declaraciones de [XML Document Transformation][XML Document Transformation] (XDT). También puede usar las declaraciones XDT para agregar extensiones de sitios privados para habilitar acciones de administración del sitio personalizado. Este artículo incluye un sitio del administrador PHP de ejemplo que habilita la administración de la configuración de PHP a través de una interfaz web.
 
 <!-- MINI TOC -->
 
--   [Transformación de la configuración del sitio en ApplicationHost.config][]
--   [Extensión del sitio][]
+-   [Transformación de la configuración del sitio en ApplicationHost.config][Transformación de la configuración del sitio en ApplicationHost.config]
+-   [Extensión del sitio][Extensión del sitio]
 
-    -   [Información general de las extensiones de sitios privados][]
-    -   [Ejemplo de extensión del sitio: administrador PHP][]
+    -   [Información general de las extensiones de sitios privados][Información general de las extensiones de sitios privados]
+    -   [Ejemplo de extensión del sitio: administrador PHP][Ejemplo de extensión del sitio: administrador PHP]
 
-        -   [Aplicación web del administrador PHP][]
-        -   [Archivo applicationHost.xdt][]
-    -   [Implementación de la extensión del sitio][]
+        -   [Aplicación web del administrador PHP][Aplicación web del administrador PHP]
+        -   [Archivo applicationHost.xdt][Archivo applicationHost.xdt]
+    -   [Implementación de la extensión del sitio][Implementación de la extensión del sitio]
 
 ## <span id="transform"></span></a>Transformación de la configuración del sitio en ApplicationHost.config
 
@@ -69,13 +69,13 @@ El administrador PHP es una extensión del sitio que permite a los administrador
 
 A continuación se muestra la página principal del sitio web del administrador PHP:
 
-![TransformSitePHPUI][]
+![TransformSitePHPUI][TransformSitePHPUI]
 
 Como puede ver, una extensión del sitio es como una aplicación web normal, pero con un archivo ApplicationHost.xdt adicional situado en la carpeta raíz del sitio (puede encontrar más información sobre el archivo ApplicationHost.xdt disponible en la siguiente sección de este artículo).
 
 La extensión del administrador PHP se creó mediante la plantilla de la aplicación ASP.NET MVC 4 Web Application de Visual Studio. La siguiente vista del Explorador de soluciones muestra la estructura de la extensión del sitio del administrador PHP.
 
-![TransformSiteSolEx][]
+![TransformSiteSolEx][TransformSiteSolEx]
 
 La única lógica especial necesaria para la E/S del archivo es indicar dónde se encuentra el directorio wwwroot del sitio. Puesto que se muestra el siguiente ejemplo de código, la variable de entorno "HOME" indica la ruta raíz del sitio y la ruta wwwroot puede construirse anexando "site\\wwwroot":
 
@@ -158,11 +158,11 @@ Para instalar la extensión del sitio, puede usar el FTP para copiar todos los a
 
 A continuación, en el Portal de Sitios web Azure, diríjase a la pestaña **Configure** para el sitio web que tenga su extensión. En la sección **configuración de aplicaciones**, agregue la clave `WEBSITE_PRIVATE_EXTENSIONS` y proporciónele un valor de `1`.
 
-![TransformSiteappSettings][]
+![TransformSiteappSettings][TransformSiteappSettings]
 
 Finalmente, en el Portal de Azure, reinicie el sitio web para habilitar su extensión.
 
-![TransformSiteRestart][]
+![TransformSiteRestart][TransformSiteRestart]
 
 Debe poder ver la extensión del sitio en:
 

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-optimistic-concurrent-data-wp8" urlDisplayName="Optimistic concurrency" pageTitle="Handle database write conflicts with optimistic concurrency (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to handle database write conflicts on both the server and in your Windows Store application." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conlicts" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
 # Control de conflictos de escritura de bases de datos
 
@@ -14,22 +14,22 @@ Este tutorial tiene como finalidad ayudarle a comprender mejor cómo controlar l
 
 En este tutorial agregará funcionalidad a la aplicación de inicio rápido para controlar los conflictos que se produzcan al actualizar la base de datos TodoItem. Este tutorial le guiará a través de estos pasos básicos:
 
-1.  [Actualización de la aplicación para permitir actualizaciones][]
-2.  [Habilitación de la detección de conflictos en la aplicación][]
-3.  [Prueba de conflictos de escritura de bases de datos en la aplicación][]
-4.  [Control automático de la resolución de conflictos en los scripts del servidor][]
+1.  [Actualización de la aplicación para permitir actualizaciones][Actualización de la aplicación para permitir actualizaciones]
+2.  [Habilitación de la detección de conflictos en la aplicación][Habilitación de la detección de conflictos en la aplicación]
+3.  [Prueba de conflictos de escritura de bases de datos en la aplicación][Prueba de conflictos de escritura de bases de datos en la aplicación]
+4.  [Control automático de la resolución de conflictos en los scripts del servidor][Control automático de la resolución de conflictos en los scripts del servidor]
 
 Este tutorial requiere lo siguiente:
 
 -   Microsoft Visual Studio 2012 Express para Windows Phone 8 o posterior.
--   [SDK de Windows Phone 8][] que se ejecute en Windows 8.
--   [Cuenta de Azure][]
--   Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][].
+-   [SDK de Windows Phone 8][SDK de Windows Phone 8] que se ejecute en Windows 8.
+-   [Cuenta de Azure][Cuenta de Azure]
+-   Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 -   Paquete de NuGet de Servicios móviles de Azure 1.1.0 o posterior. Para obtener la última versión, siga los pasos a continuación:
 
     1.  En Visual Studio, abra el proyecto y haga clic con el botón secundario en el proyecto en el Explorador de soluciones y, a continuación, haga clic en **Administrar paquetes de NuGet**.
 
-        ![][]
+        ![][0]
 
     2.  Expanda **En línea** y haga clic en **Microsoft and .NET**. En el cuadro de texto de búsqueda, escriba **Servicios móviles de Azure**. Haga clic en **Instalar** en el paquete de NuGet de **Servicios móviles de Azure**.
 
@@ -39,7 +39,7 @@ Este tutorial requiere lo siguiente:
 
 En esta sección, actualizará la interfaz de usuario TodoList para permitir la actualización del texto de cada elemento en un control ListBox. ListBox contendrá un control de CheckBox y TextBox para cada elemento en la tabla de la base de datos. Podrá actualizar el campo de texto de TodoItem. La aplicación controlará el evento `LostFocus` desde TextBox para actualizar el elemento en la base de datos.
 
-1.  En Visual Studio, abra el proyecto TodoList que descargó en el tutorial [Introducción a los Servicios móviles][].
+1.  En Visual Studio, abra el proyecto TodoList que descargó en el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 2.  En el Explorador de soluciones de Visual Studio, abra MainPage.xaml y reemplace la definición `phone:LongListSelector` por el ListBox que aparece a continuación y guarde los cambios.
 
         <ListBox Grid.Row="4" Grid.ColumnSpan="2" Name="ListItems">
@@ -90,7 +90,7 @@ Ahora la aplicación escribe los cambios del texto en cada elemento devuelto a l
 
 ## <a name="enableOC"></a><span class="short-header">Activación de la simultaneidad optimista</span>Activación de la detección de conflictos en la aplicación
 
-En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. El [control de simultaneidad optimista][] asume que cada transacción puede confirmarse y, por lo tanto, no usa ningún bloqueo de recursos. Antes de confirmar una transacción, el control de simultaneidad optimista comprueba que ninguna otra transacción haya modificado los datos. Si los datos se han modificado, la transacción de confirmación se desecha. Servicios móviles de Azure es compatible con el control de simultaneidad optimista mediante el seguimiento de cambios en cada elemento con la columna de propiedades del sistema `__version` que se agrega en cada tabla. En esta sección, activaremos la aplicación para detectar estos conflictos de escritura a través de la propiedad del sistema `__version`. La aplicación recibirá una notificación mediante una excepción `MobileServicePreconditionFailedException` durante un intento de actualización si el registro ha cambiado desde la última consulta. Entonces podrá elegir si confirmar el cambio realizado en la base de datos o dejar intacto el último cambio realizado en la base de datos. Para obtener más información acerca de las propiedades del sistema para Servicios móviles, consulte las [propiedades del sistema][].
+En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. El [control de simultaneidad optimista][control de simultaneidad optimista] asume que cada transacción puede confirmarse y, por lo tanto, no usa ningún bloqueo de recursos. Antes de confirmar una transacción, el control de simultaneidad optimista comprueba que ninguna otra transacción haya modificado los datos. Si los datos se han modificado, la transacción de confirmación se desecha. Servicios móviles de Azure es compatible con el control de simultaneidad optimista mediante el seguimiento de cambios en cada elemento con la columna de propiedades del sistema `__version` que se agrega en cada tabla. En esta sección, activaremos la aplicación para detectar estos conflictos de escritura a través de la propiedad del sistema `__version`. La aplicación recibirá una notificación mediante una excepción `MobileServicePreconditionFailedException` durante un intento de actualización si el registro ha cambiado desde la última consulta. Entonces podrá elegir si confirmar el cambio realizado en la base de datos o dejar intacto el último cambio realizado en la base de datos. Para obtener más información acerca de las propiedades del sistema para Servicios móviles, consulte las [propiedades del sistema][propiedades del sistema].
 
 1.  En MainPage.xaml.cs, actualice la definición de clase de **TodoItem** con el siguiente código para incluir la propiedad del sistema \*\*\_\_version\*\* que permite la compatibilidad para la detección de conflictos de escritura:
 
@@ -220,7 +220,7 @@ Puede detectar y resolver conflictos de escritura en los scripts del servidor. E
 
 Los siguientes pasos describen la incorporación del script de actualización del servidor y su prueba.
 
-1.  Inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
 
     ![][9]
 
@@ -274,21 +274,21 @@ Los siguientes pasos describen la incorporación del script de actualización de
 
 Este tutorial le ha mostrado cómo habilitar la aplicación de Windows Phone 8 para controlar los conflictos de escritura al trabajar con datos en Servicios móviles. A continuación, plantéese completar uno de los siguientes tutoriales en nuestra serie de datos:
 
--   [Validación y modificación de datos con scripts][]
+-   [Validación y modificación de datos con scripts][Validación y modificación de datos con scripts]
     
 	Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
 
--   [Limitación de consultas con paginación][]
+-   [Limitación de consultas con paginación][Limitación de consultas con paginación]
     
 	Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se manejan en una única solicitud.
 
 Una vez que haya completado la serie de datos, también puede probar uno de los siguientes tutoriales de Windows Phone 8:
 
--   [Introducción a la autenticación][]
+-   [Introducción a la autenticación][Introducción a la autenticación]
     
 	Aprenda a autenticar a los usuarios de su aplicación.
 
--   [Introducción a las notificaciones de inserción][]
+-   [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción]
     
 	Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
@@ -296,9 +296,6 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/ "JavaScript para Tienda Windows"
-  [Windows Phone]: /es-es/develop/mobile/tutorials/handle-database-write-conflicts-wp8/ "Windows Phone"
   [Actualización de la aplicación para permitir actualizaciones]: #uiupdate
   [Habilitación de la detección de conflictos en la aplicación]: #enableOC
   [Prueba de conflictos de escritura de bases de datos en la aplicación]: #test-app
@@ -306,7 +303,7 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
   [SDK de Windows Phone 8]: http://go.microsoft.com/fwlink/p/?LinkID=268374
   [Cuenta de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/
   [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-wp8
-  []: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
+  [0]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
   [1]: ./media/mobile-services-windows-phone-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
   [control de simultaneidad optimista]: http://go.microsoft.com/fwlink/?LinkId=330935
   [propiedades del sistema]: http://go.microsoft.com/fwlink/?LinkId=331143

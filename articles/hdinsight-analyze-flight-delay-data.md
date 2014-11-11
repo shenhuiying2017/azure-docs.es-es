@@ -1,31 +1,31 @@
 <properties linkid="manage-services-hdinsight-analyze-flight-delay-data" urlDisplayName="Analyze flight delay data with Hadoop in HDInsight" pageTitle="Analyze flight delay data using Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how to upload data to HDInsight, how to process the data using Hive, and how to export the results to SQL Database using Sqoop." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze flight delay data using Hadoop in HDInsight " authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Análisis de la información de retraso de vuelos usando Hadoop en HDInsight
 
-Hive ofrece el modo de ejecutar trabajos de MapReduce de Hadoop mediante un lenguaje de scripting de tipo SQL, llamado *[HiveQL][]*, que se puede aplicar al resumen, la consulta y el análisis de grandes volúmenes de datos. En este tutorial se muestra cómo utilizar Hive para calcular retrasos promedio en aeropuertos y cómo utilizar Sqoop para exportar los resultados a la Base de datos SQL.
+Hive ofrece el modo de ejecutar trabajos de MapReduce de Hadoop mediante un lenguaje de scripting de tipo SQL, llamado *[HiveQL][HiveQL]*, que se puede aplicar al resumen, la consulta y el análisis de grandes volúmenes de datos. En este tutorial se muestra cómo utilizar Hive para calcular retrasos promedio en aeropuertos y cómo utilizar Sqoop para exportar los resultados a la Base de datos SQL.
 
 **Requisitos previos:**
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
--   Un clúster de HDInsight de Azure. Para obtener información acerca de cómo aprovisionar un clúster de HDInsight, consulte [Introducción a HDInsight][] o [Aprovisionamiento de clústeres de HDInsight][].
--   Una estación de trabajo con Azure PowerShell instalado y configurado. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][].
+-   Un clúster de HDInsight de Azure. Para obtener información acerca de cómo aprovisionar un clúster de HDInsight, consulte [Introducción a HDInsight][Introducción a HDInsight] o [Aprovisionamiento de clústeres de HDInsight][Aprovisionamiento de clústeres de HDInsight].
+-   Una estación de trabajo con Azure PowerShell instalado y configurado. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][Instalación y configuración de Azure PowerShell].
 
 **Duración aproximada:** 30 minutos
 
 ## Apartados de este tutorial
 
--   [Preparación del tutorial][]
--   [Creación y carga del script de HiveQL][]
--   [Ejecución del script de HiveQL][]
--   [Exportación del resultado a la Base de datos SQL de Azure][]
--   [Pasos siguientes][]
+-   [Preparación del tutorial][Preparación del tutorial]
+-   [Creación y carga del script de HiveQL][Creación y carga del script de HiveQL]
+-   [Ejecución del script de HiveQL][Ejecución del script de HiveQL]
+-   [Exportación del resultado a la Base de datos SQL de Azure][Exportación del resultado a la Base de datos SQL de Azure]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <span id="prepare"></span></a>Preparación del tutorial
 
-En este tutorial se utiliza el rendimiento puntual de los datos de vuelos de aerolíneas de [Research and Innovative Technology Administration, Bureau of Transportation Statistics][] (RITA) en su estación de trabajo. Realizará lo siguiente:
+En este tutorial se utiliza el rendimiento puntual de los datos de vuelos de aerolíneas de [Research and Innovative Technology Administration, Bureau of Transportation Statistics][Research and Innovative Technology Administration, Bureau of Transportation Statistics] (RITA) en su estación de trabajo. Realizará lo siguiente:
 
 1.  descargar datos de rendimiento puntual desde RITA a su estación de trabajo con un explorador web
 2.  cargar los datos a HDInsight usando Azure PowerShell
@@ -33,9 +33,9 @@ En este tutorial se utiliza el rendimiento puntual de los datos de vuelos de aer
 
 **Descripción del almacenamiento de HDInsight**
 
-HDInsight usa el almacenamiento de blobs de Azure para el almacenamiento de datos. Se llama *WASB* o *Almacenamiento de Azure - Blob*. WASB es la implementación del sistema de archivos distribuido de Hadoop (HDFS) de Microsoft en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][].
+HDInsight usa el almacenamiento de blobs de Azure para el almacenamiento de datos. Se llama *WASB* o *Almacenamiento de Azure - Blob*. WASB es la implementación del sistema de archivos distribuido de Hadoop (HDFS) de Microsoft en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][Uso del almacenamiento de blobs de Azure con HDInsight].
 
-Cuando aprovisiona un clúster de HDInsight, se designa un contenedor de almacenamiento de blobs como sistema de archivos predeterminado, al igual que en HDFS. Además de este contenedor, puede agregar más contenedores desde la misma cuenta de almacenamiento de Azure o desde otras diferentes durante el proceso de aprovisionamiento. Para obtener instrucciones acerca de cómo agregar más cuentas de almacenamiento, consulte [Aprovisionamiento de clústeres de HDInsight][].
+Cuando aprovisiona un clúster de HDInsight, se designa un contenedor de almacenamiento de blobs como sistema de archivos predeterminado, al igual que en HDFS. Además de este contenedor, puede agregar más contenedores desde la misma cuenta de almacenamiento de Azure o desde otras diferentes durante el proceso de aprovisionamiento. Para obtener instrucciones acerca de cómo agregar más cuentas de almacenamiento, consulte [Aprovisionamiento de clústeres de HDInsight][Aprovisionamiento de clústeres de HDInsight].
 
 Para simplificar el script de PowerShell que se utiliza en este tutorial, todos los archivos se almacenan en el contenedor del sistema de archivos predeterminado, ubicado en */tutorials/flightdelays*. De forma predeterminada, este contenedor tiene el mismo nombre que el del clúster de HDInsight.
 
@@ -45,7 +45,7 @@ La sintaxis de WASB es la siguiente:
 
 > [WACOM.NOTE] La sintaxis *wasb://* es la única compatible con la versión 3.0 del clúster de HDInsight. La sintaxis *asv://* anterior es compatible con los clústeres de las versiones 2.1 y 1.6 de HDInsight, pero no con los de la versión 3.0, y no será compatible con versiones posteriores.
 
-> La ruta de acceso WASB es la ruta de acceso virtual. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][].
+> La ruta de acceso WASB es la ruta de acceso virtual. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][Uso del almacenamiento de blobs de Azure con HDInsight].
 
 Para tener acceso a un archivo almacenado en el contenedor del sistema de archivos predeterminado desde HDInsight se puede usar cualquiera de los URI siguientes (use flightdelays.hql como ejemplo):
 
@@ -83,7 +83,7 @@ Para obtener más información, consulte [HDInsight: Hive Internal and External 
 
 **Para descargar los datos de vuelo**
 
-1.  Diríjase a [Research and Innovative Technology Administration, Bureau of Transportation Statistics][] (RITA)
+1.  Diríjase a [Research and Innovative Technology Administration, Bureau of Transportation Statistics][Research and Innovative Technology Administration, Bureau of Transportation Statistics] (RITA)
 2.  En la página, seleccione los siguientes valores:
 
 	<table border="1">
@@ -100,7 +100,7 @@ Para obtener más información, consulte [HDInsight: Hive Internal and External 
 
 **Para cargar los datos de retraso de vuelos en el almacenamiento de blobs de Azure**
 
-1.  Abra Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][].
+1.  Abra Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][Instalación y configuración de Azure PowerShell].
 2.  Ejecute el comando siguiente para conectarse a su suscripción de Azure:
 
         Add-AzureAccount
@@ -383,9 +383,9 @@ Para obtener una lista completa de los comandos de HiveQL, consulte [Hive Data D
 
 ## <span id="executehqlscript"></span></a>Ejecución del script de HiveQL
 
-Hay varios cmdlets de Azure PowerShell que puede utilizar para ejecutar Hive. En este tutorial se utiliza Invoke-Hive. Para otros métodos, consulte [Uso de Hive con HDInsight][]. Con Invoke-Hive, puede ejecutar una instrucción de HiveQL o un script de HiveQL. Usará el script de HiveQL que ha creado y cargado al almacenamiento de blobs de Azure.
+Hay varios cmdlets de Azure PowerShell que puede utilizar para ejecutar Hive. En este tutorial se utiliza Invoke-Hive. Para otros métodos, consulte [Uso de Hive con HDInsight][Uso de Hive con HDInsight]. Con Invoke-Hive, puede ejecutar una instrucción de HiveQL o un script de HiveQL. Usará el script de HiveQL que ha creado y cargado al almacenamiento de blobs de Azure.
 
-Hay un problema conocido de la ruta de acceso de Hive. Las instrucciones para solucionarlo se pueden encontrar en [TechNet Wiki][].
+Hay un problema conocido de la ruta de acceso de Hive. Las instrucciones para solucionarlo se pueden encontrar en [TechNet Wiki][TechNet Wiki].
 
 **Para ejecutar las consultas de Hive usando PowerShell**
 
@@ -501,19 +501,19 @@ Los últimos pasos sirven para ejecutar la exportación de Sqoop a fin de export
 
 5.  Conéctese a la Base de datos SQL y consulte los retrasos promedio de los vuelos por ciudad en la tabla *AvgDelays*:
 
-    ![HDI.FlightDelays.AvgDelays.Dataset][]
+    ![HDI.FlightDelays.AvgDelays.Dataset][HDI.FlightDelays.AvgDelays.Dataset]
 
 ## <span id="nextsteps"></span></a>Pasos siguientes
 
 Ahora sabe cómo cargar archivos al almacenamiento de blobs, cómo rellenar una tabla de Hive utilizando los datos del almacenamiento de blobs, cómo ejecutar consultas de Hive y cómo utilizar Sqoop para exportar datos de HDFS a la Base de datos SQL de Azure. Para obtener más información, consulte los artículos siguientes:
 
--   [Introducción a HDInsight][]
--   [Uso de Hive con HDInsight][]
--   [Uso de Oozie con HDInsight][]
--   [Uso de Sqoop con HDInsight][]
--   [Uso de Pig con HDInsight][]
--   [Desarrollo de programas MapReduce de Java para HDInsight][]
--   [Desarrollo de programas de streaming de Hadoop C# para HDInsight][]
+-   [Introducción a HDInsight][Introducción a HDInsight]
+-   [Uso de Hive con HDInsight][Uso de Hive con HDInsight]
+-   [Uso de Oozie con HDInsight][Uso de Oozie con HDInsight]
+-   [Uso de Sqoop con HDInsight][Uso de Sqoop con HDInsight]
+-   [Uso de Pig con HDInsight][Uso de Pig con HDInsight]
+-   [Desarrollo de programas MapReduce de Java para HDInsight][Desarrollo de programas MapReduce de Java para HDInsight]
+-   [Desarrollo de programas de streaming de Hadoop C# para HDInsight][Desarrollo de programas de streaming de Hadoop C# para HDInsight]
 
   [HiveQL]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
   [Introducción a HDInsight]: ../hdinsight-get-started/

@@ -1,28 +1,28 @@
 <properties linkid="develop-python-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Python) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Utilización de las colas del bus de servicio
 
 Esta guía le mostrará cómo usar las colas del bus de servicio. Los ejemplos están
 escritos en Python y usan el modelo de Azure para Python. Entre los escenarios
 proporcionados se incluyen los siguientes: **creación de colas, envío y recepción de mensajes** y
-**eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][].
+**eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][Pasos siguientes].
 
 ## Tabla de contenido
 
--   [¿Qué son las colas del bus de servicio?][]
--   [Creación de un espacio de nombres de servicio][]
--   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][]
--   [Direccionamiento del una cola][]
--   [Direccionamiento del mensajes a una cola][]
--   [Direccionamiento del mensajes desde una cola][]
--   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer][]
--   [Pasos siguientes][]
+-   [¿Qué son las colas del bus de servicio?][¿Qué son las colas del bus de servicio?]
+-   [Creación de un espacio de nombres de servicio][Creación de un espacio de nombres de servicio]
+-   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][Obtención de credenciales de administración predeterminadas para el espacio de nombres]
+-   [Direccionamiento del una cola][Direccionamiento del una cola]
+-   [Direccionamiento del mensajes a una cola][Direccionamiento del mensajes a una cola]
+-   [Direccionamiento del mensajes desde una cola][Direccionamiento del mensajes desde una cola]
+-   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer][Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer]
+-   [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [howto-service-bus-queues][]]
+[WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-**Nota:** Si necesita instalar Python o las bibliotecas de clientes, consulte la [guía de instalación de Python][] (en inglés).
+**Nota:** Si necesita instalar Python o las bibliotecas de clientes, consulte la [guía de instalación de Python][guía de instalación de Python] (en inglés).
 
 ## <a name="create-queue"> </a>Creación de una cola
 
@@ -141,10 +141,9 @@ intentos de entrega.
 Ahora que conoce los fundamentos de las colas del bus de servicio, siga estos
 vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio][]
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio][Colas, temas y suscripciones del bus de servicio]
 
   [Pasos siguientes]: #next-steps
-  [¿Qué son las colas del bus de servicio?]: #what-are-service-bus-queues
   [Creación de un espacio de nombres de servicio]: #create-a-service-namespace
   [Obtención de credenciales de administración predeterminadas para el espacio de nombres]: #obtain-default-credentials
   [Direccionamiento del una cola]: #create-queue

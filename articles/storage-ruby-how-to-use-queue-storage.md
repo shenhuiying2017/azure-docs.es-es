@@ -12,32 +12,32 @@ de colas**. Para obtener más información acerca de las colas, consulte la secc
 
 ## Tabla de contenido
 
--   [¿Qué es el almacenamiento en cola?][]
--   [Conceptos][]
--   [Creación de una cuenta de almacenamiento de Azure][]
--   [Creación de una aplicación de Ruby][]
--   [Configuración de su aplicación para obtener acceso al almacenamiento][]
--   [Configuración de una conexión de almacenamiento de Azure][]
--   [Creación de una cola][]
--   [Inserción de un mensaje en una cola][]
--   [Inspección del siguiente mensaje][]
--   [Extracción del siguiente mensaje de la cola][]
--   [Cambio del contenido de un mensaje en cola][]
--   [Opciones adicionales para quitar mensajes de la cola][]
--   [Obtención de la longitud de la cola][]
--   [Eliminación de una cola][]
+-   [¿Qué es el almacenamiento en cola?][¿Qué es el almacenamiento en cola?]
+-   [Conceptos][Conceptos]
+-   [Creación de una cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento de Azure]
+-   [Creación de una aplicación de Ruby][Creación de una aplicación de Ruby]
+-   [Configuración de su aplicación para obtener acceso al almacenamiento][Configuración de su aplicación para obtener acceso al almacenamiento]
+-   [Configuración de una conexión de almacenamiento de Azure][Configuración de una conexión de almacenamiento de Azure]
+-   [Creación de una cola][Creación de una cola]
+-   [Inserción de un mensaje en una cola][Inserción de un mensaje en una cola]
+-   [Inspección del siguiente mensaje][Inspección del siguiente mensaje]
+-   [Extracción del siguiente mensaje de la cola][Extracción del siguiente mensaje de la cola]
+-   [Cambio del contenido de un mensaje en cola][Cambio del contenido de un mensaje en cola]
+-   [Opciones adicionales para quitar mensajes de la cola][Opciones adicionales para quitar mensajes de la cola]
+-   [Obtención de la longitud de la cola][Obtención de la longitud de la cola]
+-   [Eliminación de una cola][Eliminación de una cola]
 -   [Pasos Siguientes](#next-steps)
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <span id="CreateAccount"></span></a>Creación de una cuenta de almacenamiento de Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <span id="create-a-ruby-application"></span></a>Creación de una aplicación de Ruby
 
 Cree una aplicación de Ruby. Para obtener instrucciones,
-consulte [Creación de una aplicación de Ruby en Azure][].
+consulte [Creación de una aplicación de Ruby en Azure][Creación de una aplicación de Ruby en Azure].
 
 ## <span id="configure-your-application-to-access-storage"></span></a>Configuración de su aplicación para obtener acceso al almacenamiento
 
@@ -66,7 +66,7 @@ debe especificar la información de la cuenta antes de usar **Azure::QueueServic
 
 Para obtener estos valores:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  Vaya a la cuenta de almacenamiento que desea utilizar.
 3.  Haga clic en **MANAGE KEYS** en la parte inferior del panel de navegación.
 4.  En el cuadro de diálogo emergente, verá el nombre de cuenta de almacenamiento, la clave de acceso principal y la clave de acceso secundaria. Para la clave de acceso, puede elegir la principal o la secundaria.
@@ -154,14 +154,13 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento en cola, utilice estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][]
--   Visite el [blog del equipo de almacenamiento de Azure][] (en inglés).
--   Visite el repositorio del [SDK de Azure para Ruby][] (en inglés) en GitHub.
+-   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][Almacenamiento de datos y acceso a los mismos en Azure]
+-   Visite el [blog del equipo de almacenamiento de Azure][blog del equipo de almacenamiento de Azure] (en inglés).
+-   Visite el repositorio del [SDK de Azure para Ruby][SDK de Azure para Ruby] (en inglés) en GitHub.
 
-Podrá encontrar una comparación entre el servicio Cola de Azure, que se explica en este artículo, y las Colas del Bus de servicio de Azure, que se explican en el artículo [Utilización de las colas del bus de servicio][], en el documento [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias][].
+Podrá encontrar una comparación entre el servicio Cola de Azure, que se explica en este artículo, y las Colas del Bus de servicio de Azure, que se explican en el artículo [Utilización de las colas del bus de servicio][Utilización de las colas del bus de servicio], en el documento [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias][Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias].
 
   
-  [¿Qué es el almacenamiento en cola?]: #what-is
   [Conceptos]: #concepts
   [Creación de una cuenta de almacenamiento de Azure]: #CreateAccount
   [Creación de una aplicación de Ruby]: #create-a-ruby-application
@@ -177,10 +176,10 @@ Podrá encontrar una comparación entre el servicio Cola de Azure, que se explic
   [Eliminación de una cola]: #how-to-delete-a-queue
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
-  [Creación de una aplicación de Ruby en Azure]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [Creación de una aplicación de Ruby en Azure]: /es-es/develop/ruby/tutorials/web-app-with-linux-vm/
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
   [blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
   [SDK de Azure para Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby
-  [Utilización de las colas del bus de servicio]: /en-us/develop/ruby/how-to-guides/service-bus-queues/
-  [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias]: http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx
+  [Utilización de las colas del bus de servicio]: /es-es/develop/ruby/how-to-guides/service-bus-queues/
+  [Colas de Azure y Colas de Service Bus de Azure: comparación y diferencias]: http://msdn.microsoft.com/es-es/library/windowsazure/hh767287.aspx

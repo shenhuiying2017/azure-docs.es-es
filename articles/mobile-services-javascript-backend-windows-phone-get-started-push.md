@@ -1,24 +1,24 @@
 <properties pageTitle="Get started with push notifications (Windows Store) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your Windows Store app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor=""  />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
 # Introducción a las notificaciones de inserción en Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push-legacy][]]
+[WACOM.INCLUDE [mobile-services-selector-get-started-push-legacy](../includes/mobile-services-selector-get-started-push-legacy.md)]
 
 Este tema muestra cómo puede utilizar Servicios móviles de Azure para enviar notificaciones de inserción a una aplicación Silverlight de Windows Phone. Este tutorial le permite habilitar notificaciones de inserción con los Centros de notificaciones de Azure para el proyecto de inicio rápido. Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción con Centros de notificaciones cada vez que se inserte un registro. El centro de notificaciones que cree es gratuito con el servicio móvil, puede administrarse independientemente del servicio móvil y pueden utilizarlo otras aplicaciones y servicios.
 
-> [WACOM.NOTE]En este tutorial se muestra la integración de los Servicios móviles con los Centros de notificaciones, para enviar notificaciones de inserción desde el servicio móvil. Si usa un servicio móvil anterior que emplea la inserción heredada y que todavía no se ha actualizado para el uso de los Centros de notificaciones, *es recomendable llevar a cabo esta actualización* como parte de este tutorial. Si opta por no actualizar ahora, debería seguir esta versión del tutorial: [Introducción a las notificaciones de inserción (heredadas)][].
+> [WACOM.NOTE]En este tutorial se muestra la integración de los Servicios móviles con los Centros de notificaciones, para enviar notificaciones de inserción desde el servicio móvil. Si usa un servicio móvil anterior que emplea la inserción heredada y que todavía no se ha actualizado para el uso de los Centros de notificaciones, *es recomendable llevar a cabo esta actualización* como parte de este tutorial. Si opta por no actualizar ahora, debería seguir esta versión del tutorial: [Introducción a las notificaciones de inserción (heredadas)][Introducción a las notificaciones de inserción (heredadas)].
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 
-1.  [Actualización de la aplicación para registrarse a fin de recibir notificaciones][]
-2.  [Actualización de scripts del servidor para enviar notificaciones de inserción][]
-3.  [Inserción de datos para recibir notificaciones de inserción][]
+1.  [Actualización de la aplicación para registrarse a fin de recibir notificaciones][Actualización de la aplicación para registrarse a fin de recibir notificaciones]
+2.  [Actualización de scripts del servidor para enviar notificaciones de inserción][Actualización de scripts del servidor para enviar notificaciones de inserción]
+3.  [Inserción de datos para recibir notificaciones de inserción][Inserción de datos para recibir notificaciones de inserción]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de empezar este tutorial, primero debe completar [Introducción a los Servicios móviles][] o [Introducción a los datos][] para conectar su proyecto al servicio móvil. Si no se conecta un servicio móvil, el Asistente para agregar notificaciones de inserción se encarga de crear esta conexión.
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de empezar este tutorial, primero debe completar [Introducción a los Servicios móviles][Introducción a los Servicios móviles] o [Introducción a los datos][Introducción a los datos] para conectar su proyecto al servicio móvil. Si no se conecta un servicio móvil, el Asistente para agregar notificaciones de inserción se encarga de crear esta conexión.
 
-> [WACOM.NOTE] Para enviar notificaciones de inserción a una aplicación de la Tienda Windows Phone 8.1, siga la versión [Aplicación de la Tienda Windows][] de este tutorial.
+> [WACOM.NOTE] Para enviar notificaciones de inserción a una aplicación de la Tienda Windows Phone 8.1, siga la versión [Aplicación de la Tienda Windows][Aplicación de la Tienda Windows] de este tutorial.
 
 ## <span id="update-app"></span></a> Actualización de la aplicación para registrarse a fin de recibir notificaciones
 
@@ -67,7 +67,7 @@ Para que la aplicación pueda recibir notificaciones de inserción, debe registr
 
 5.  En el Explorador de soluciones, expanda **Propiedades**, abra el archivo WMAppManifest.xml, haga clic en la pestaña **Funcionalidades** y asegúrese de que la funcionalidad \*\*ID\_**CAP**\_PUSH\_NOTIFICATION\*\* esté marcada.
 
-    ![][]
+    ![][0]
 
     Esto asegura que la aplicación puede generar notificaciones del sistema.
 
@@ -109,13 +109,13 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 
 3.  Haga clic en la pestaña **Insertar**, marque **Habilite las notificaciones de inserción no autenticadas** y, a continuación, haga clic en **Guardar**.
 
-    > [WACOM.NOTE]Si completa este tutorial con un servicio móvil anterior, es posible que aparezca un vínculo al final de la pestaña **Insertar** que indique **Habilitar inserción mejorada**. Haga clic en este enlace para actualizar el servicio móvil, de modo que se integre con los Centros de notificaciones. Este cambio no se puede deshacer. Para obtener detalles sobre cómo habilitar las notificaciones de inserción mejoradas en un servicio móvil de producción, consulte [esta guía][].
+    > [WACOM.NOTE]Si completa este tutorial con un servicio móvil anterior, es posible que aparezca un vínculo al final de la pestaña **Insertar** que indique **Habilitar inserción mejorada**. Haga clic en este enlace para actualizar el servicio móvil, de modo que se integre con los Centros de notificaciones. Este cambio no se puede deshacer. Para obtener detalles sobre cómo habilitar las notificaciones de inserción mejoradas en un servicio móvil de producción, consulte [esta guía][esta guía].
 
     ![][2]
 
     Con esto se permite que el servicio móvil se conecte a MPNS en modo sin autenticar para enviar notificaciones de inserción.
 
-    > [WACOM.NOTE] Este tutorial usa MPNS en modo sin autenticar. En este modo, MPNS limita el número de notificaciones que se pueden enviar a un canal de dispositivo. Para quitar esta restricción, debe generar y cargar un certificado con un clic en **Upload** y seleccionando el certificado. Para obtener más información sobre la generación del certificado, consulte [Setting up an authenticated web service to send push notifications for Windows Phone][].
+    > [WACOM.NOTE] Este tutorial usa MPNS en modo sin autenticar. En este modo, MPNS limita el número de notificaciones que se pueden enviar a un canal de dispositivo. Para quitar esta restricción, debe generar y cargar un certificado con un clic en **Upload** y seleccionando el certificado. Para obtener más información sobre la generación del certificado, consulte [Setting up an authenticated web service to send push notifications for Windows Phone][Setting up an authenticated web service to send push notifications for Windows Phone].
 
 ## <span id="test"></span></a>Pruebas de notificaciones de inserción en su aplicación
 
@@ -131,17 +131,17 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 
     ![][4]
 
-    > [WACOM.NOTE] No recibirá la notificación mientras permanezca en la aplicación. Para recibir una notificación del sistema mientras la aplicación esté activa, deberá gestionar el evento [ShellToastNotificationReceived][].
+    > [WACOM.NOTE] No recibirá la notificación mientras permanezca en la aplicación. Para recibir una notificación del sistema mientras la aplicación esté activa, deberá gestionar el evento [ShellToastNotificationReceived][ShellToastNotificationReceived].
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
 En este tutorial se demostraron los aspectos básicos de la habilitación de una aplicación de la Tienda Windows para usar Servicios móviles y Centros de notificaciones con el fin de enviar notificaciones de inserción. A continuación, considere completar uno de los siguientes tutoriales:
 
--   [Enviar notificaciones de inserción a los usuarios autenticados][]
+-   [Enviar notificaciones de inserción a los usuarios autenticados][Enviar notificaciones de inserción a los usuarios autenticados]
     
 	Aprenda a usar las etiquetas para enviar notificaciones de inserción desde un servicio móvil solo a un usuario autenticado.
 
--   [Enviar notificaciones de difusión a los suscriptores][]
+-   [Enviar notificaciones de difusión a los suscriptores][Enviar notificaciones de difusión a los suscriptores]
     
 	Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
 
@@ -149,23 +149,23 @@ En este tutorial se demostraron los aspectos básicos de la habilitación de una
 
 Puede obtener más información acerca de los Servicios móviles y los Centros de notificaciones en los siguientes temas:
 
--   [Introducción a los datos][]
+-   [Introducción a los datos][Introducción a los datos]
     
 	Obtenga más información sobre cómo almacenar y consultar datos con los servicios móviles.
 
--   [Introducción a la autenticación][]
+-   [Introducción a la autenticación][Introducción a la autenticación]
     
 	Aprenda a autenticar a los usuarios de su aplicación con distintos tipos de cuentas con los servicios móviles.
 
--   [¿Qué son los Centros de notificaciones?][]
+-   [¿Qué son los Centros de notificaciones?][¿Qué son los Centros de notificaciones?]
     
 	Aprenda cómo funcionan los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas cliente.
 
--   [Referencia conceptual de Servicios móviles con .NET][]
+-   [Referencia conceptual de Servicios móviles con .NET][Referencia conceptual de Servicios móviles con .NET]
     
 	Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
--   [Referencia del script del servidor de Servicios móviles][]
+-   [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles]
     
 	Obtenga más información sobre cómo implementar lógica empresarial al servicio móvil.
 
@@ -174,14 +174,13 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 <!-- URLs. -->
 
   [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
-  [Introducción a las notificaciones de inserción (heredadas)]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-push/
   [Actualización de la aplicación para registrarse a fin de recibir notificaciones]: #update-app
   [Actualización de scripts del servidor para enviar notificaciones de inserción]: #update-scripts
   [Inserción de datos para recibir notificaciones de inserción]: #test
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-phone-get-started
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-data
   [Aplicación de la Tienda Windows]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
-  []: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
+  [0]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-app-enable-push-wp8.png
   [1]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-insert-script-push2.png
   [esta guía]: http://go.microsoft.com/fwlink/p/?LinkId=391951
   [2]: ./media/mobile-services-javascript-backend-windows-phone-get-started-push/mobile-push-tab.png
@@ -192,6 +191,5 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
   [Enviar notificaciones de inserción a los usuarios autenticados]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-phone-push-notifications-app-users/
   [Enviar notificaciones de difusión a los suscriptores]: /es-es/documentation/articles/notification-hubs-windows-phone-send-breaking-news/
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-users
-  [¿Qué son los Centros de notificaciones?]: /es-es/documentation/articles/notification-hubs-overview/
   [Referencia conceptual de Servicios móviles con .NET]: /es-es/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
   [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293

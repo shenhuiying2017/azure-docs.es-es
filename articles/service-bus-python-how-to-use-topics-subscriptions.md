@@ -1,6 +1,6 @@
 <properties linkid="develop-python-service-bus-topics" urlDisplayName="Service Bus Topics" pageTitle="How to use Service Bus topics (Python) - Azure" metaKeywords="Get started Azure Service Bus topics publising subscribe messaging Python" description="Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Python applications." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Topics/Subscriptions" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Uso de temas/suscripciones del bus de servicio
 
@@ -9,24 +9,24 @@ desde aplicaciones Python. Entre los escenarios tratados se incluyen **la creaci
 de temas y suscripciones, la creación de filtros de suscripción,
 el envío de mensajes** a un tema**, la recepción de mensajes de una suscripción** y
 **la eliminación de temas y suscripciones**. Para obtener más información acerca de los temas
-y las suscripciones, consulte la sección [Pasos siguientes][].
+y las suscripciones, consulte la sección [Pasos siguientes][Pasos siguientes].
 
 ## Tabla de contenido
 
--   [Qué son los temas y las suscripciones del bus de servicio][]
--   [Creación de un espacio de nombres de servicio][]
--   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][]
--   [Direccionamiento del de un tema][]
--   [Direccionamiento del suscripciones][]
--   [Direccionamiento del mensajes a un tema][]
--   [Direccionamiento del mensajes de una suscripción][]
--   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer][]
--   [Direccionamiento del de temas y suscripciones][]
--   [Pasos siguientes][]
+-   [Qué son los temas y las suscripciones del bus de servicio][Qué son los temas y las suscripciones del bus de servicio]
+-   [Creación de un espacio de nombres de servicio][Creación de un espacio de nombres de servicio]
+-   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][Obtención de credenciales de administración predeterminadas para el espacio de nombres]
+-   [Direccionamiento del de un tema][Direccionamiento del de un tema]
+-   [Direccionamiento del suscripciones][Direccionamiento del suscripciones]
+-   [Direccionamiento del mensajes a un tema][Direccionamiento del mensajes a un tema]
+-   [Direccionamiento del mensajes de una suscripción][Direccionamiento del mensajes de una suscripción]
+-   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer][Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer]
+-   [Direccionamiento del de temas y suscripciones][Direccionamiento del de temas y suscripciones]
+-   [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [howto-service-bus-topics][]]
+[WACOM.INCLUDE [howto-service-bus-topics](../includes/howto-service-bus-topics.md)]
 
-**Nota:** Si necesita instalar Python o las bibliotecas de clientes, consulte la [guía de instalación de Python][] (en inglés).
+**Nota:** Si necesita instalar Python o las bibliotecas de clientes, consulte la [guía de instalación de Python][guía de instalación de Python] (en inglés).
 
 ## <a name="How_to_Create_a_Topic"></a>Creación de un tema
 
@@ -86,7 +86,7 @@ El tipo de filtro más flexible compatible con las suscripciones es
 **SqlFilter**, que implementa un subconjunto de SQL92. Los filtros de SQL operan
 en las propiedades de los mensajes que se publican en el tema. Para
 obtener más información acerca de las expresiones que se pueden usar con un filtro de SQL,
-revise la sintaxis de [SqlFilter.SqlExpression][].
+revise la sintaxis de [SqlFilter.SqlExpression][SqlFilter.SqlExpression].
 
 Es posible agregar filtros a una suscripción utilizando el método **create\_rule**
  del objeto **ServiceBusService**. Este método le permite
@@ -237,8 +237,8 @@ código siguiente indica cómo eliminar una suscripción llamada
 Ahora que conoce los fundamentos de los temas del bus de servicio, siga estos
 vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio][].
--   Referencia de API para [Clase SqlFilter][].
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio][Colas, temas y suscripciones del bus de servicio].
+-   Referencia de API para [Clase SqlFilter][Clase SqlFilter].
 
   [Pasos siguientes]: #Next_Steps
   [Qué son los temas y las suscripciones del bus de servicio]: #what-are-service-bus-topics

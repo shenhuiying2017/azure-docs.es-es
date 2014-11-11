@@ -1,10 +1,10 @@
 <properties linkid="manage-services-how-to-monitor-a-cloud-service" urlDisplayName="How to monitor" pageTitle="How to monitor a cloud service - Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="Learn how to monitor cloud services by using the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Monitor Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
 
 # Supervisión de servicios en la nube
 
-[WACOM.INCLUDE [disclaimer][]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Puede supervisar las métricas de rendimiento principales de sus servicios en la nube en el Portal de administración de Azure. También es posible configurar el nivel de supervisión a mínimo o detallado para cada rol del servicio, así como personalizar la visualización de la supervisión. Los datos de la supervisión detallada se almacenan en una cuenta de almacenamiento, a la que puede obtener acceso fuera del portal.
 
@@ -12,19 +12,19 @@ En el Portal de administración, puede configurar muchos parámetros de las visu
 
 ## Tabla de contenido
 
--   [Conceptos][]
--   [Direccionamiento del la supervisión para los servicios en la nube][]
--   [Direccionamiento del alertas de las métricas de los servicios en la nube][]
--   [Direccionamiento del métricas en la tabla de métricas][]
--   [Direccionamiento del gráfico de métricas][]
--   [Direccionamiento del los datos de supervisión detallada fuera del Portal de administración][]
+-   [Conceptos][Conceptos]
+-   [Direccionamiento del la supervisión para los servicios en la nube][Direccionamiento del la supervisión para los servicios en la nube]
+-   [Direccionamiento del alertas de las métricas de los servicios en la nube][Direccionamiento del alertas de las métricas de los servicios en la nube]
+-   [Direccionamiento del métricas en la tabla de métricas][Direccionamiento del métricas en la tabla de métricas]
+-   [Direccionamiento del gráfico de métricas][Direccionamiento del gráfico de métricas]
+-   [Direccionamiento del los datos de supervisión detallada fuera del Portal de administración][Direccionamiento del los datos de supervisión detallada fuera del Portal de administración]
 
 ## <span id="concepts"></span></a>Conceptos
 
 De forma predeterminada, para un servicio en la nube nuevo, se proporciona la supervisión mínima con contadores de rendimiento recopilados del sistema operativo host para las instancias de los roles (máquinas virtuales). Las métricas mínimas se limitan a porcentaje de CPU, datos de entrada, datos de salida, rendimiento de lectura de disco y rendimiento de escritura de disco. Al configurar la supervisión detallada, puede recibir métricas adicionales en función de los datos de rendimiento de las máquinas virtuales (instancias de rol). Las métricas detalladas facilitan el análisis preciso de los problemas que se producen durante las operaciones de las aplicaciones.
 
 > [WACOM.NOTE]
-> Si utiliza la supervisión detallada, puede agregar más contadores de rendimiento en el inicio de la instancia de rol, a través de un archivo de configuración de diagnóstico, o de forma remota con la API de diagnóstico de Azure. Para poder supervisar estas métricas en el Portal de administración, debe agregar los contadores de rendimiento antes de configurar la supervisión detallada. Para obtener más información, consulte [Recopilar datos de registro mediante Diagnósticos de Azure][] y [Crear y utilizar contadores de rendimiento en una aplicación de Azure][].
+> Si utiliza la supervisión detallada, puede agregar más contadores de rendimiento en el inicio de la instancia de rol, a través de un archivo de configuración de diagnóstico, o de forma remota con la API de diagnóstico de Azure. Para poder supervisar estas métricas en el Portal de administración, debe agregar los contadores de rendimiento antes de configurar la supervisión detallada. Para obtener más información, consulte [Recopilar datos de registro mediante Diagnósticos de Azure][Recopilar datos de registro mediante Diagnósticos de Azure] y [Crear y utilizar contadores de rendimiento en una aplicación de Azure][Crear y utilizar contadores de rendimiento en una aplicación de Azure].
 
 De forma predeterminada, los datos del contador de rendimiento de las instancias de los roles se muestrean y transfieren desde la instancia de rol en intervalos de 3 minutos. Al activar la supervisión detallada, los datos del contador de rendimiento se agregan para cada instancia de rol y entre las instancias de rol de cada rol en intervalos de 5 minutos, 1 hora y 12 horas. Los datos agregados se eliminan después de 10 días.
 
@@ -38,16 +38,16 @@ Utilice los siguientes procedimientos para configurar la supervisión detallada 
 
 ### Antes de empezar
 
--   Cree una cuenta de almacenamiento para almacenar los datos de supervisión. Puede utilizar cuentas de almacenamiento diferentes para roles diferentes. Para obtener más información, consulte la ayuda de **Cuentas de almacenamiento** o consulte [Creación de una cuenta de almacenamiento][].
+-   Cree una cuenta de almacenamiento para almacenar los datos de supervisión. Puede utilizar cuentas de almacenamiento diferentes para roles diferentes. Para obtener más información, consulte la ayuda de **Cuentas de almacenamiento** o consulte [Creación de una cuenta de almacenamiento][Creación de una cuenta de almacenamiento].
 
 -   Active Diagnósticos de Azure en sus roles de servicios en la nube.
-    Debe actualizar el archivo de definiciones de los servicios en la nube (.csdef) y el archivo de configuración de los servicios en la nube (.cscfg). Para obtener más información, consulte [Configurar Diagnósticos de Azure][].
+    Debe actualizar el archivo de definiciones de los servicios en la nube (.csdef) y el archivo de configuración de los servicios en la nube (.cscfg). Para obtener más información, consulte [Configurar Diagnósticos de Azure][Configurar Diagnósticos de Azure].
 
 En el Portal de administración, puede agregar o modificar las cadenas de conexión de diagnósticos que Diagnósticos de Azure utiliza para tener acceso a las cuentas de almacenamiento que almacenan datos de supervisión detallada, y puede configurar el nivel de supervisión a detallado o mínimo. Dado que la supervisión detallada almacena los datos en una cuenta de almacenamiento, debe configurar las cadenas de conexión de diagnósticos antes de configurar la supervisión en un nivel detallado.
 
 ### Para configurar las cadenas de conexiones de diagnósticos de la supervisión detallada
 
-1.  Copie una clave de acceso de almacenamiento para la cuenta de almacenamiento que va a utilizar para almacenar los datos de la supervisión detallada. En el [Portal de administración de Azure][], puede usar **Manage Keys** en la página **Cuentas de almacenamiento**. Para obtener más información, consulte [Administración de servicios en la nube][] o la ayuda de la página **Cuentas de almacenamiento**.
+1.  Copie una clave de acceso de almacenamiento para la cuenta de almacenamiento que va a utilizar para almacenar los datos de la supervisión detallada. En el [Portal de administración de Azure][Portal de administración de Azure], puede usar **Manage Keys** en la página **Cuentas de almacenamiento**. Para obtener más información, consulte [Administración de servicios en la nube][Administración de servicios en la nube] o la ayuda de la página **Cuentas de almacenamiento**.
 
 2.  Abra **Cloud Services**. A continuación, para abrir el panel, haga clic en el nombre del servicio en la nube que desee configurar.
 
@@ -57,7 +57,7 @@ En el Portal de administración, puede agregar o modificar las cadenas de conexi
 
     Editará los parámetros de **supervisión** en la parte superior de la página **Configure**, que se muestra a continuación. Si no ha activado Diagnósticos de Azure para el servicio en la nube, la opción **Level** no está disponible. No puede cambiar la directiva de retención de datos. Los datos de la supervisión detallada de un servicio en la nube se mantienen almacenados durante 10 días.
 
-    ![Opciones de supervisión][]
+    ![Opciones de supervisión][Opciones de supervisión]
 
 5.  En **Diagnostics Connection Strings**, complete la cadena de conexión de diagnósticos para cada rol en el que desee tener una supervisión detallada.
 
@@ -83,22 +83,22 @@ Los datos del contador de rendimiento y los datos de supervisión agregados se a
 
 ## <span id="receivealerts"></span></a>Direccionamiento del alertas de las métricas de los servicios en la nube
 
-Puede recibir alertas basadas en las métricas de supervisión de los servicios en la nube. En la página de **servicios de administración** del Portal de administración de Azure, puede crear una regla para desencadenar una alerta cuando la métrica seleccionada alcance el valor que haya especificado. Puede también elegir que se envíe un correo electrónico cuando se desencadene la alerta. Para obtener más información, consulte [Inserción de notificaciones de alerta y administración de reglas de alerta en Azure][].
+Puede recibir alertas basadas en las métricas de supervisión de los servicios en la nube. En la página de **servicios de administración** del Portal de administración de Azure, puede crear una regla para desencadenar una alerta cuando la métrica seleccionada alcance el valor que haya especificado. Puede también elegir que se envíe un correo electrónico cuando se desencadene la alerta. Para obtener más información, consulte [Inserción de notificaciones de alerta y administración de reglas de alerta en Azure][Inserción de notificaciones de alerta y administración de reglas de alerta en Azure].
 
 ## <span id="addmetrics"></span></a>Direccionamiento del métricas en la tabla de métricas
 
-1.  En el [Portal de administración][], abra la página de **supervisión** del servicio en la nube.
+1.  En el [Portal de administración][Portal de administración], abra la página de **supervisión** del servicio en la nube.
 
     La tabla de métricas muestra de forma predeterminada un subconjunto de las métricas disponibles. La ilustración muestra las métricas detalladas predeterminadas de un servicio en la nube, que están limitadas al contador de rendimiento Memoria/MBytes disponibles, con datos agregados en el nivel del rol. Utilice **Add Metrics** para seleccionar las métricas agregadas y de nivel del rol adicionales que desee supervisar en el Portal de administración.
 
-    ![Visualización detallada][]
+    ![Visualización detallada][Visualización detallada]
 
 2.  Para agregar métricas a la tabla de métricas:
 
     a. Haga clic en **Agregar métricas** para abrir **Elegir métricas**, como se muestra a continuación.
     La primera métrica disponible se expande para mostrar las opciones que hay disponibles. En cada métrica, la opción superior muestra los datos de supervisión agregados de todos los roles. Además, puede elegir los roles individuales de los que desee visualizar los datos.
 
-    ![Agregar métricas][]
+    ![Agregar métricas][Agregar métricas]
 
     b. Para seleccionar las métricas que desea visualizar:
 
@@ -112,13 +112,13 @@ Puede recibir alertas basadas en las métricas de supervisión de los servicios 
 <p>En la supervisi&oacute;n detallada, la lista de m&eacute;tricas puede contener muchas m&eacute;tricas. Para mostrar una barra de desplazamiento, desplace el rat&oacute;n sobre el lado derecho del cuadro de di&aacute;logo. Para filtrar la lista, haga clic en el icono de b&uacute;squeda y escriba en texto en el cuadro de b&uacute;squeda como se muestra a continuaci&oacute;n.</p> 
 </div>
 
-    ![Búsqueda de Agregar métricas][]
+    ![Búsqueda de Agregar métricas][Búsqueda de Agregar métricas]
 
 3.  Después de haber seleccionado las métricas, haga clic en la marca de verificación.
 
     Las métricas seleccionadas se agregan a la tabla de métricas como se muestra a continuación.
 
-    ![supervisar métricas][]
+    ![supervisar métricas][supervisar métricas]
 
 4.  Para eliminar una métrica de la tabla de métricas, haga clic en la métrica para seleccionarla y, a continuación, haga clic en **Delete Metric**. (Solo verá **Delete Metric** si ha seleccionado una métrica).
 
@@ -130,11 +130,11 @@ Puede recibir alertas basadas en las métricas de supervisión de los servicios 
 
 2.  Para alternar entre los valores relativos de visualización (solo el valor final de cada métrica) y los valores absolutos (se muestra el eje Y), seleccione Relative o Absolute en la parte superior del gráfico.
 
-    ![Relative o Absolute][]
+    ![Relative o Absolute][Relative o Absolute]
 
 3.  Para cambiar el intervalo de tiempo que se muestra en el gráfico de métricas, seleccione 1 hora, 24 horas o 7 días en la parte superior del gráfico.
 
-    ![Periodo de la pantalla de supervisión][]
+    ![Periodo de la pantalla de supervisión][Periodo de la pantalla de supervisión]
 
     En el panel del gráfico de métricas, el método de visualización de métricas es diferente. Hay un conjunto de métricas estándar disponible, y las métricas se agregan o se borran seleccionando el encabezado de la métrica.
 

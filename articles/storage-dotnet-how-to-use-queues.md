@@ -1,6 +1,6 @@
 <properties linkid="dev-net-how-to-queue-service" urlDisplayName="Queue Service" pageTitle="How to use queue storage from .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Uso del almacenamiento en cola en .NET
 
@@ -9,42 +9,42 @@ servicio de almacenamiento en cola de Azure. Los ejemplos están escritos en có
 y utilizan el cliente de almacenamiento de Azure para .NET. Entre los escenarios descritos se incluyen la **inserción**,
 **inspección**, **obtención** y **eliminación** de los mensajes en cola, así como la
 **creación y eliminación de colas**. Para obtener más información acerca de las colas, consulte
-la sección [Pasos siguientes][].
+la sección [Pasos siguientes][Pasos siguientes].
 
-> [WACOM.NOTE] Esta guía se destina a la biblioteca de cliente de almacenamiento .NET de Azure 2.x y posterior. La versión recomendada es la biblioteca de cliente de almacenamiento 4.x, que está disponible a través de [NuGet][] o como parte del [SDK de Azure para .NET][]. Consulte [Acceso al almacenamiento de cola mediante programación][] a continuación para obtener más información acerca de la obtención de una biblioteca de cliente de almacenamiento.
+> [WACOM.NOTE] Esta guía se destina a la biblioteca de cliente de almacenamiento .NET de Azure 2.x y posterior. La versión recomendada es la biblioteca de cliente de almacenamiento 4.x, que está disponible a través de [NuGet][NuGet] o como parte del [SDK de Azure para .NET][SDK de Azure para .NET]. Consulte [Acceso al almacenamiento de cola mediante programación][Acceso al almacenamiento de cola mediante programación] a continuación para obtener más información acerca de la obtención de una biblioteca de cliente de almacenamiento.
 
 ## Tabla de contenido
 
--   [¿Qué es el almacenamiento en cola?][]
--   [Conceptos][]
--   [Creación de una cuenta de almacenamiento de Azure][]
--   [Configuración de una cadena de conexión de almacenamiento de Azure][]
--   [Acceso al almacenamiento de cola mediante programación][]
--   [Creación de una cola][]
--   [Inserción de un mensaje en una cola][]
--   [Inspección del siguiente mensaje][]
--   [Cambio del contenido de un mensaje en cola][]
--   [Extracción del siguiente mensaje de la cola][]
--   [Aprovechamiento de las opciones adicionales de los mensajes quitados de la cola][]
--   [Obtención de la longitud de la cola][]
--   [Eliminación de una cola][]
--   [Pasos siguientes][]
+-   [¿Qué es el almacenamiento en cola?][¿Qué es el almacenamiento en cola?]
+-   [Conceptos][Conceptos]
+-   [Creación de una cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento de Azure]
+-   [Configuración de una cadena de conexión de almacenamiento de Azure][Configuración de una cadena de conexión de almacenamiento de Azure]
+-   [Acceso al almacenamiento de cola mediante programación][Acceso al almacenamiento de cola mediante programación]
+-   [Creación de una cola][Creación de una cola]
+-   [Inserción de un mensaje en una cola][Inserción de un mensaje en una cola]
+-   [Inspección del siguiente mensaje][Inspección del siguiente mensaje]
+-   [Cambio del contenido de un mensaje en cola][Cambio del contenido de un mensaje en cola]
+-   [Extracción del siguiente mensaje de la cola][Extracción del siguiente mensaje de la cola]
+-   [Aprovechamiento de las opciones adicionales de los mensajes quitados de la cola][Aprovechamiento de las opciones adicionales de los mensajes quitados de la cola]
+-   [Obtención de la longitud de la cola][Obtención de la longitud de la cola]
+-   [Eliminación de una cola][Eliminación de una cola]
+-   [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## 
 
 ## <a name="create-account"></a><span class="short-header">Creación de una cuenta</span>Creación de una cuenta de almacenamiento de Azure
 
 </h2>
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## 
 
 ## <a name="setup-connection-string"></a><span class="short-header">Configuración de una cadena de conexión</span>Configuración de una cadena de conexión de almacenamiento de Azure
 
 </h2>
-[WACOM.INCLUDE [storage-configure-connection-string][]]
+[WACOM.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 
 ## <a name="configure-access"> </a><span class="short-header">Acceso mediante programación</span>Acceso al almacenamiento de cola mediante programación
 
@@ -52,7 +52,7 @@ la sección [Pasos siguientes][].
 
 Puede utilizar NuGet para obtener el ensamblado `Microsoft.WindowsAzure.Storage.dll`. Haga clic con el botón secundario en el proyecto, en el **Explorador de soluciones**, y elija **Manage NuGet Packages**. Busque "Azure.Storage" en línea y haga clic en **Install** para instalar el paquete y las dependencias de almacenamiento de Azure.
 
-`Microsoft.WindowsAzure.Storage.dll` también se incluye en el SDK de Azure para .NET, que se puede descargar en el [Centro de desarrolladores de .NET][]. El ensamblado se instala en el directorio `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
+`Microsoft.WindowsAzure.Storage.dll` también se incluye en el SDK de Azure para .NET, que se puede descargar en el [Centro de desarrolladores de .NET][Centro de desarrolladores de .NET]. El ensamblado se instala en el directorio `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
 
 ### Declaraciones de espacio de nombres
 
@@ -87,7 +87,7 @@ Si está creando una aplicación sin ninguna referencia a Microsoft.WindowsAzure
 
 ### Dependencias ODataLib
 
-Las dependencias ODataLib de la biblioteca de clientes de almacenamiento para .NET se resuelven mediante los paquetes ODataLib (versión 5.0.2) disponibles a través de NuGet y no a través de los servicios de datos de WCF. A través de NuGet, es posible descargar directamente las bibliotecas ODataLib o bien hacer referencia a ellas con el código del proyecto. Los paquetes ODataLib específicos son [OData][], [Edm][] y [Spatial][].
+Las dependencias ODataLib de la biblioteca de clientes de almacenamiento para .NET se resuelven mediante los paquetes ODataLib (versión 5.0.2) disponibles a través de NuGet y no a través de los servicios de datos de WCF. A través de NuGet, es posible descargar directamente las bibliotecas ODataLib o bien hacer referencia a ellas con el código del proyecto. Los paquetes ODataLib específicos son [OData][OData], [Edm][Edm] y [Spatial][Spatial].
 
 ## <a name="create-queue"></a><span class="short-header">Creación de una cola</span>Creación de una cola
 
@@ -95,7 +95,7 @@ Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para 
 El código siguiente crea un objeto **CloudQueueClient**. Todo el código que
 contiene esta guía utiliza una cadena de conexión de almacenamiento almacenada
 en la configuración de servicios de la aplicación de Azure. Además, existen otros métodos de creación
-de un objeto **CloudStorageAccount**. Consulte la documentación de [CloudStorageAccount][]
+de un objeto **CloudStorageAccount**. Consulte la documentación de [CloudStorageAccount][CloudStorageAccount]
  para obtener más información.
 
     // Retrieve storage account from connection string
@@ -301,20 +301,19 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento en co
 para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
 -   Consulte la documentación de referencia del servicio de cola para obtener información detallada acerca de las API disponibles:
-    -   [Referencia acerca de la biblioteca de clientes de almacenamiento para .NET][]
-    -   [Referencia de la API REST][]
--   Obtenga información acerca de las tareas más avanzadas que se pueden realizar con el almacenamiento de Azure en [Almacenamiento][].
--   Obtenga información acerca de cómo trabajar con Almacenamiento de Azure en procesos de back-end para Sitios web Azure en [Introducción al SDK de WebJobs de Azure][].
+    -   [Referencia acerca de la biblioteca de clientes de almacenamiento para .NET][Referencia acerca de la biblioteca de clientes de almacenamiento para .NET]
+    -   [Referencia de la API REST][Referencia de la API REST]
+-   Obtenga información acerca de las tareas más avanzadas que se pueden realizar con el almacenamiento de Azure en [Almacenamiento][Almacenamiento].
+-   Obtenga información acerca de cómo trabajar con Almacenamiento de Azure en procesos de back-end para Sitios web Azure en [Introducción al SDK de WebJobs de Azure][Introducción al SDK de WebJobs de Azure].
 -   Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
-    -   Utilice [Almacenamiento de tablas][] para almacenar datos estructurados.
-    -   Utilice [Almacenamiento de blobs][] para almacenar datos no estructurados.
-    -   Utilice [Base de datos SQL][] para almacenar datos relacionales.
+    -   Utilice [Almacenamiento de tablas][Almacenamiento de tablas] para almacenar datos estructurados.
+    -   Utilice [Almacenamiento de blobs][Almacenamiento de blobs] para almacenar datos no estructurados.
+    -   Utilice [Base de datos SQL][Base de datos SQL] para almacenar datos relacionales.
 
   [Pasos siguientes]: #next-steps
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
-  [SDK de Azure para .NET]: /en-us/downloads/
+  [SDK de Azure para .NET]: /es-es/downloads/
   [Acceso al almacenamiento de cola mediante programación]: #configure-access
-  [¿Qué es el almacenamiento en cola?]: #what-is
   [Conceptos]: #concepts
   [Creación de una cuenta de almacenamiento de Azure]: #create-account
   [Configuración de una cadena de conexión de almacenamiento de Azure]: #setup-connection-string
@@ -329,14 +328,14 @@ para obtener más información acerca de cómo realizar tareas de almacenamiento
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
-  [Centro de desarrolladores de .NET]: http://www.windowsazure.com/en-us/develop/net/#
+  [Centro de desarrolladores de .NET]: http://www.windowsazure.com/es-es/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-  [CloudStorageAccount]: http://msdn.microsoft.com/en-us/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
+  [CloudStorageAccount]: http://msdn.microsoft.com/es-es/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx
   [Referencia acerca de la biblioteca de clientes de almacenamiento para .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Referencia de la API REST]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179355
-  [Almacenamiento]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Referencia de la API REST]: http://msdn.microsoft.com/es-es/library/windowsazure/dd179355
+  [Almacenamiento]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
   [Introducción al SDK de WebJobs de Azure]: /es-es/documentation/articles/websites-dotnet-webjobs-sdk-get-started/
   [Almacenamiento de tablas]: /es-es/documentation/articles/storage-dotnet-how-to-use-tables/
   [Almacenamiento de blobs]: /es-es/documentation/articles/storage-dotnet-how-to-use-blobs/

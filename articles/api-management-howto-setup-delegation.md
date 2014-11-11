@@ -1,6 +1,6 @@
 <properties pageTitle="How to delegate user registration and product subscription" metaKeywords="" description="Learn how to delegate user registration and product subscription to a third party in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to delegate user registration and product subscription in Azure API Management" authors="antonba" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="antonba"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="antonba" />
 
 # Delegación de registros de usuario y suscripciones a producto
 
@@ -114,5 +114,4 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
   [Delegación de suscripciones a productos]: #delegate-product-subscription
   [Delegation page]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png
   [Cree un usuario]: http://go.microsoft.com/fwlink/?LinkId=507655#CreateUser
-  [solicite un token de inicio de sesión único (SSO)]: http://go.microsoft.com/fwlink/?LinkId=507409
   [llamando a la API de REST para la suscripción del producto]: http://go.microsoft.com/fwlink/?LinkId=507655#SSO

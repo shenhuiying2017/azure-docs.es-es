@@ -8,21 +8,21 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del servicio 
 de Azure. Los ejemplos están escritos usando la API
 Python. Dichas tareas comunes incluyen **cargar**, **enumerar**,
 **descargar** y **eliminar** blobs. Para obtener más información acerca de los blobs,
-consulte la sección [Pasos siguientes][].
+consulte la sección [Pasos siguientes][Pasos siguientes].
 
 ## Tabla de contenido
 
 <p><a href="#what-is">&iquest;Qu&eacute; es el almacenamiento de blobs?</a><br /> <a href="#concepts">Conceptos</a><br /> <a href="#create-account">Creaci&oacute;n de una cuenta de almacenamiento de Azure</a><br /> <a href="#create-container">Creaci&oacute;n de un contenedor</a><br /> <a href="#upload-blob">Carga de un blob en un contenedor</a><br /> <a href="#list-blob">Enumeraci&oacute;n de los blobs de un contenedor</a><br /> <a href="#download-blobs">Descarga de blobs</a><br /> <a href="#delete-blobs">Eliminaci&oacute;n de un blob</a><br /> <a href="#large-blobs">Carga y descarga de blobs de gran tama&ntilde;o</a><br /> <a href="#next-steps">Pasos siguientes</a></p>
 
-[WACOM.INCLUDE [howto-blob-storage][]]
+[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
 ## <a name="create-account"> </a>Creación de una cuenta de almacenamiento de Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="create-container"> </a>Creación de un contenedor
 
-**Nota:** Si necesita instalar Python o las bibliotecas de clientes, consulte la [guía de instalación de Python][] (en inglés).
+**Nota:** Si necesita instalar Python o las bibliotecas de clientes, consulte la [guía de instalación de Python][guía de instalación de Python] (en inglés).
 
 El objeto **BlobService** le permite trabajar con contenedores y blobs. El
 código siguiente crea un objeto **BlobService**. Agregue lo siguiente cerca
@@ -90,21 +90,12 @@ Finalmente, para eliminar un blob, llame a **delete\_blob**.
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de blobs, siga estos
 vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][]
--   Visite el [blog del equipo de almacenamiento de Azure][] (en inglés).
+-   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][Almacenamiento de datos y acceso a los mismos en Azure]
+-   Visite el [blog del equipo de almacenamiento de Azure][blog del equipo de almacenamiento de Azure] (en inglés).
 
   [Pasos siguientes]: #next-steps
-  [¿Qué es el almacenamiento de blobs?]: #what-is
-  [Conceptos]: #concepts
-  [Creación de una cuenta de almacenamiento de Azure]: #create-account
-  [Creación de un contenedor]: #create-container
-  [Carga de un blob en un contenedor]: #upload-blob
-  [Enumeración de los blobs de un contenedor]: #list-blob
-  [Descarga de blobs]: #download-blobs
-  [Eliminación de un blob]: #delete-blobs
-  [Carga y descarga de blobs de gran tamaño]: #large-blobs
   [howto-blob-storage]: ../includes/howto-blob-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [guía de instalación de Python]: ../python-how-to-install/
-  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
   [blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/

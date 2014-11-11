@@ -1,33 +1,33 @@
 <properties linkid="manage-services-how-to-configure-a-cloud-service" urlDisplayName="How to configure" pageTitle="How to configure a cloud service - Azure" metaKeywords="Configuring cloud services" description="Learn how to configure cloud services in Azure. Learn to update the cloud service configuration and configure remote access to role instances." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Configure Cloud Services" authors="davidmu" solutions="" manager="" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu" />
 
 # <span id="configurecloudservice"></span></a>Configuración de servicios en la nube
 
-[WACOM.INCLUDE [disclaimer][]]
+[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Puede configurar la mayoría de los ajustes más usados para un servicio en la nube en el Portal de administración de Azure. O bien, si desea actualizar los archivos de configuración directamente, descargue un archivo de configuración de servicio para actualizar y, a continuación, cargue el archivo actualizado y actualice el servicio en la nube con los cambios en la configuración. De cualquier manera, las actualizaciones de la configuración se realizan en todas las instancias de rol.
 
 También puede habilitar una conexión de Escritorio remoto con uno o todos los roles que se ejecutan en su servicio en la nube. Escritorio remoto le permite tener acceso al escritorio de su aplicación mientras se ejecuta, además de solucionar y diagnosticar problemas. Puede habilitar una conexión de Escritorio remoto con su rol incluso si no configuró el archivo de definición de servicio (.csdef) para el Escritorio remoto durante el desarrollo de la aplicación. No es necesario volver a implementar su aplicación para habilitar una conexión de Escritorio remoto.
 
-Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las actualizaciones de la configuración si tiene al menos dos instancias de rol (máquinas virtuales) para cada rol. Esto permite que una máquina virtual procese las solicitudes del cliente mientras la otra se actualiza. Para obtener más información, consulte [Contratos de nivel de servicio][].
+Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las actualizaciones de la configuración si tiene al menos dos instancias de rol (máquinas virtuales) para cada rol. Esto permite que una máquina virtual procese las solicitudes del cliente mientras la otra se actualiza. Para obtener más información, consulte [Contratos de nivel de servicio][Contratos de nivel de servicio].
 
 ## Tabla de contenido
 
--   [Direccionamiento del configuración del servicio en la nube][]
--   [Direccionamiento del acceso remoto a las instancias de rol][]
+-   [Direccionamiento del configuración del servicio en la nube][Direccionamiento del configuración del servicio en la nube]
+-   [Direccionamiento del acceso remoto a las instancias de rol][Direccionamiento del acceso remoto a las instancias de rol]
 
 ## <span id="update"></span></a>Direccionamiento del configuración del servicio en la nube
 
-1.  En el [Portal de administración de Azure][], haga clic en **Servicios en la nube**. A continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
+1.  En el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios en la nube**. A continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
 
 2.  Haga clic en **Configure**.
 
     En la página **Configure**, puede configurar la supervisión, actualizar la configuración de roles y seleccionar el sistema operativo invitado y la familia para las instancias de rol (máquinas virtuales).
 
-    ![Página de configuración][]
+    ![Página de configuración][Página de configuración]
 
-3.  En la configuración de supervisión, establezca el nivel de supervisión en Verbose o Minimal, y configure las cadenas de conexión del diagnóstico que se requieren para la supervisión detallada. Para obtener instrucciones, consulte [Supervisión de servicios en la nube][].
+3.  En la configuración de supervisión, establezca el nivel de supervisión en Verbose o Minimal, y configure las cadenas de conexión del diagnóstico que se requieren para la supervisión detallada. Para obtener instrucciones, consulte [Supervisión de servicios en la nube][Supervisión de servicios en la nube].
 
 4.  Para los roles de servicio (agrupados por rol), puede actualizar la siguiente configuración:
 
@@ -43,7 +43,7 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las
 
     Si soluciona todos los problemas de compatibilidad que tienen sus aplicaciones con la versión más reciente del sistema operativo, puede reanudar las actualizaciones automáticas del sistema operativo al establecer la versión del sistema operativo en **Automatic**.
 
-    ![Configuración del SO][]
+    ![Configuración del SO][Configuración del SO]
 
 6.  Para guardar los ajustes de configuración y transmitirlos a las instancias de rol, haga clic en **Save**. (Haga clic en **Discard** para cancelar los cambios). Se agregan **Save** y **Discard** a la barra de comandos después de cambiar un ajuste.
 
@@ -57,7 +57,7 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las
 
     Se abre **Cargar un nuevo archivo de configuración**.
 
-    ![Cargar configuración][]
+    ![Cargar configuración][Cargar configuración]
 
     b. En **Archivo de configuración**, utilice **Browse** para seleccionar el archivo .cscfg actualizado.
 
@@ -80,7 +80,7 @@ En la pagina **Configure** de su servicio en la nube, puede habilitar el Escrito
 
 ### Para configurar el Acceso remoto en el archivo de definición del servicio
 
-Agregue elementos de **Import** al archivo de definición de servicio (.csdef) para importar los módulos RemoteAccess y RemoteForwarder al modelo de servicio. Cuando esos módulos están presentes, Azure agrega los ajustes de configuración para Escritorio remoto en el archivo de configuración del servicio. Para completar la configuración de Escritorio remoto, necesitará importar un certificado a Azure y especificar dicho certificado en el archivo de configuración del servicio. Para obtener más información, consulte [Establecer una conexión a Escritorio remoto para un rol de Azure][].
+Agregue elementos de **Import** al archivo de definición de servicio (.csdef) para importar los módulos RemoteAccess y RemoteForwarder al modelo de servicio. Cuando esos módulos están presentes, Azure agrega los ajustes de configuración para Escritorio remoto en el archivo de configuración del servicio. Para completar la configuración de Escritorio remoto, necesitará importar un certificado a Azure y especificar dicho certificado en el archivo de configuración del servicio. Para obtener más información, consulte [Establecer una conexión a Escritorio remoto para un rol de Azure][Establecer una conexión a Escritorio remoto para un rol de Azure].
 
 ### Para habilitar o modificar el Acceso remoto para las instancias de rol en el Portal de administración
 
@@ -90,12 +90,12 @@ Agregue elementos de **Import** al archivo de definición de servicio (.csdef) p
 
     La sección **Configure Remote Desktop** muestra los ajustes (de haberlos) que se agregaron al archivo de configuración del servicio cuando se implementó el servicio en la nube, como se muestra a continuación.
 
-    ![Servicios en la nube remotos][]
+    ![Servicios en la nube remotos][Servicios en la nube remotos]
 
 > [WACOM.NOTE]
-> **Advertencia:** se reiniciarán todas las instancias de rol la primera vez que habilite el Escritorio remoto y haga clic en Aceptar (marca de verificación). Para evitar un reinicio, el certificado que se usó para cifrar la contraseña debe instalarse en el rol. Si no se instala ningún certificado, verá la siguiente opción: ![CloudServices\_CreateNewCertDropDown][]
+> **Advertencia:** se reiniciarán todas las instancias de rol la primera vez que habilite el Escritorio remoto y haga clic en Aceptar (marca de verificación). Para evitar un reinicio, el certificado que se usó para cifrar la contraseña debe instalarse en el rol. Si no se instala ningún certificado, verá la siguiente opción: ![CloudServices\_CreateNewCertDropDown][CloudServices\_CreateNewCertDropDown]
 
-    To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Azure Roles][] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
+    To prevent a restart, install a certificate and then return to this dialog (see [Using Remote Desktop with Azure Roles][Using Remote Desktop with Azure Roles] for more information). If you choose an existing certificate, then a configuration update will be sent to all the instances in the role.
 
 1.  En **Roles**, seleccione el rol de servicio que desea actualizar o seleccione **All** para todos los roles.
 
@@ -147,4 +147,3 @@ Agregue elementos de **Import** al archivo de definición de servicio (.csdef) p
   [1]: http://www.windowsazure.com/es-es/support/legal/sla/
   [Establecer una conexión a Escritorio remoto para un rol de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/hh124107.aspx
   [Servicios en la nube remotos]: ./media/cloud-services-how-to-configure/CloudServices_Remote.png
-  [CloudServices\_CreateNewCertDropDown]: ./media/cloud-services-how-to-configure/CloudServices_CreateNewCertDropDown.png

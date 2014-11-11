@@ -1,20 +1,20 @@
 <properties linkid="develop-mobile-how-to-guides-register-for-facebook-authentication" urlDisplayName="Register for Facebook Authentication" pageTitle="Register for Facebook authentication - Mobile Services" metaKeywords="Azure Facebook, Azure Facebook, Azure authenticate Mobile Services" description="Learn how to use Facebook authentication in your Azure Mobile Services app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your apps for Facebook authentication with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Registro de las aplicaciones para la autenticación de Facebook con Servicios móviles
 
 En este tema se muestra cómo registrar las aplicaciones a fin de poder usar Facebook para la autenticación con Servicios móviles de Azure.
 
-> [WACOM.NOTE] En este tutorial se describen los [Servicios móviles de Azure][], una solución que le ayuda a crear aplicaciones móviles escalables para cualquier plataforma. La solución Servicios móviles facilita la sincronización de datos, la autenticación de usuarios y el envío de notificaciones de inserción. En esta página se incluye el tutorial [Introducción a la autenticación][] en el que se muestra cómo registrar usuarios en la aplicación. Si esta es la primera vez que usa Servicios móviles, complete el tutorial [Introducción a los Servicios móviles][].
+> [WACOM.NOTE] En este tutorial se describen los [Servicios móviles de Azure][Servicios móviles de Azure], una solución que le ayuda a crear aplicaciones móviles escalables para cualquier plataforma. La solución Servicios móviles facilita la sincronización de datos, la autenticación de usuarios y el envío de notificaciones de inserción. En esta página se incluye el tutorial [Introducción a la autenticación][Introducción a la autenticación] en el que se muestra cómo registrar usuarios en la aplicación. Si esta es la primera vez que usa Servicios móviles, complete el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
-Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Facebook asociada a una dirección de correo electrónico verificada y a un número de teléfono móvil. Para crear una cuenta de Facebook, vaya a [facebook.com][].
+Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Facebook asociada a una dirección de correo electrónico verificada y a un número de teléfono móvil. Para crear una cuenta de Facebook, vaya a [facebook.com][facebook.com].
 
-1.  Desplácese hasta el sitio web para [desarrolladores de Facebook][] e inicie sesión con las credenciales de su cuenta de Facebook.
+1.  Desplácese hasta el sitio web para [desarrolladores de Facebook][desarrolladores de Facebook] e inicie sesión con las credenciales de su cuenta de Facebook.
 
 2.  (Opcional) Si aún no está registrado, haga clic en **Aplicaciones** y, a continuación, en **Register as a Developer**; acepte la política y siga los pasos de registro.
 
-    ![][]
+    ![][0]
 
 3.  Haga clic en **Aplicaciones** y, a continuación, en **Crea una nueva aplicación**.
 
@@ -63,7 +63,7 @@ Ahora ya puede habilitar el uso del inicio de sesión de Facebook para autentica
   [Introducción a los Servicios móviles]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-ios-get-started/
   [facebook.com]: http://go.microsoft.com/fwlink/p/?LinkId=268285
   [desarrolladores de Facebook]: http://go.microsoft.com/fwlink/p/?LinkId=268286
-  []: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-developer-register.png
+  [0]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-developer-register.png
   [1]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-add-app.png
   [2]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-new-app-dialog.png
   [3]: ./media/mobile-services-how-to-register-facebook-authentication/mobile-services-facebook-configure-app.png

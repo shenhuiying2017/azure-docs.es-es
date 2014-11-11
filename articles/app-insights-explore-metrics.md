@@ -1,6 +1,6 @@
 <properties title="Explore your metrics" pageTitle="Explore your metrics" description="Analyze usage, availability and performance of your on-premises or Microsoft Azure web application with Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills"></tags>
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="awills" />
 
 # Exploración de las métricas
 
@@ -16,7 +16,7 @@ A continuación se muestran los informes que puede esperar consultar en el cuadr
 
 El estado de la aplicación está supervisado por la instrumentación del código de la aplicación.
 
-![][]
+![][0]
 
 ### Tiempo medio de respuesta
 
@@ -105,7 +105,7 @@ Haga clic para ver los gráficos de las vistas de página en la semana anterior.
   [Estado de la aplicación]: #health
   [Análisis de uso]: #usage
   [Pasos siguientes]: #next
-  []: ./media/appinsights/appinsights-42reqs.png
+  [0]: ./media/appinsights/appinsights-42reqs.png
   [1]: ./media/appinsights/appinsights-43webtests.png
   [pruebas web]: ../app-insights-monitor-web-app-availability/
   [2]: ./media/appinsights/appinsights-44slowest.png

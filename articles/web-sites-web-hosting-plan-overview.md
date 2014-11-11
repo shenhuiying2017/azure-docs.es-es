@@ -1,6 +1,6 @@
 <properties pageTitle="What is a web hosting plan?" description="Web hosting plan overview" title="What is a web hosting plan?" services="web-sites" authors="adamab" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
 
 # ¿Qué es un plan de hospedaje web?
 
@@ -8,7 +8,7 @@ Los planes de hospedaje web representan un conjunto de características y capaci
 
 ## Características en los planes de hospedaje web
 
-Cada nivel de precio (por ejemplo, gratis, compartido, básico y estándar) tiene su propio conjunto de características. [Vaya a este sitio][] para conocer la información más reciente sobre características y precios.
+Cada nivel de precio (por ejemplo, gratis, compartido, básico y estándar) tiene su propio conjunto de características. [Vaya a este sitio][Vaya a este sitio] para conocer la información más reciente sobre características y precios.
 
 Estas son algunas sugerencias útiles respecto de los planes de hospedaje web y sus características:
 
@@ -16,7 +16,7 @@ Estas son algunas sugerencias útiles respecto de los planes de hospedaje web y 
 -   Los sitios en la misma suscripción, ubicación y grupo de recursos pueden compartir un plan de hospedaje web.
 -   Características como la escala automática funcionan dirigidas a un plan de hospedaje web. Si desea escalar de manera automática sitios individuales, debe dedicar un plan de hospedaje web a ese sitio.
 
-[Obtenga más información acerca de la administración de planes de hospedaje web][].
+[Obtenga más información acerca de la administración de planes de hospedaje web][Obtenga más información acerca de la administración de planes de hospedaje web].
 
 ## Planes de hospedaje web y capacidad
 
@@ -34,26 +34,26 @@ Cuando se crea un sitio nuevo, el portal le preguntará con qué plan de hospeda
 
 Puede ver todos los planes de hospedaje web en todas sus suscripciones si utiliza el botón **Browse** en la barra de menú de la izquierda y, a continuación, hace clic en **Everything** en la esquina superior derecha del panel de actividades que aparece en pantalla.
 
-![][]
+![][0]
 ![][1]
 
 También puede ver con qué plan de hospedaje web está asociado cada sitio web si mira la representación gráfica del grupo de recursos que aparece en la parte superior del cuadro del sitio web.
 
 ![][2]
 
-Si hace clic en el plan, aparece un cuadro que le permite administrar el plan de hospedaje web. [Obtenga más información acerca de la administración de planes de hospedaje web][].
+Si hace clic en el plan, aparece un cuadro que le permite administrar el plan de hospedaje web. [Obtenga más información acerca de la administración de planes de hospedaje web][Obtenga más información acerca de la administración de planes de hospedaje web].
 
 ![][3]
 
 ### Pasos siguientes
 
-Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure][].
+Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure][evaluación gratuita de Microsoft Azure].
 
 <!-- Images. -->
 
   [Vaya a este sitio]: http://go.microsoft.com/fwlink/?LinkID=394421
   [Obtenga más información acerca de la administración de planes de hospedaje web]: http://go.microsoft.com/fwlink/?LinkID=394411
-  []: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
+  [0]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
   [1]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
   [2]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
   [3]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png

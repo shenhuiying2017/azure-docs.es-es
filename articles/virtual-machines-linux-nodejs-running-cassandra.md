@@ -1,6 +1,6 @@
 <properties linkid="services-linux-cassandra-with-linux" urlDisplayName="Cassandra with Linux" pageTitle="Run Cassandra with Linux on Azure" metaKeywords="" description="Explains how to run a Cassandra cluster on Linux in Azure Virtual Machines." metaCanonical="" services="virtual-machines" documentationCenter="nodejs" title="Running Cassandra with Linux on Azure and Accessing it from Node.js" authors="hanuk" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanuk"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanuk" />
 
 # <span></span></a>Ejecución de Cassandra con Linux en Azure y acceso desde Node.js
 
@@ -8,14 +8,14 @@
 
 ## Tabla de contenido
 
--   [Información general][]
--   [Esquema de implementación de Cassandra][]
--   [Implementación compuesta][]
--   [Implementación de Máquina virtual de Azure][]
--   [Tarea 1: Implementación del clúster de Linux][]
--   [Tarea 2: Configuración de Cassandra en cada máquina virtual][]
--   [Tarea 3: Acceso al clúster de Cassandra desde Node.js][]
--   [Conclusión][]
+-   [Información general][Información general]
+-   [Esquema de implementación de Cassandra][Esquema de implementación de Cassandra]
+-   [Implementación compuesta][Implementación compuesta]
+-   [Implementación de Máquina virtual de Azure][Implementación de Máquina virtual de Azure]
+-   [Tarea 1: Implementación del clúster de Linux][Tarea 1: Implementación del clúster de Linux]
+-   [Tarea 2: Configuración de Cassandra en cada máquina virtual][Tarea 2: Configuración de Cassandra en cada máquina virtual]
+-   [Tarea 3: Acceso al clúster de Cassandra desde Node.js][Tarea 3: Acceso al clúster de Cassandra desde Node.js]
+-   [Conclusión][Conclusión]
 
 ## <span id="overview"></span> </a>Información general
 
@@ -23,7 +23,7 @@ Azure proporciona un servicio de base de datos NoSQL a través del almacenamient
 
 ## <span id="schematic"></span> </a>Esquema de implementación de Cassandra
 
-La funcionalidad de Máquinas virtuales de Azure permite ejecutar bases de datos NoSQL como [Cassandra][] en la nube pública de Microsoft de manera tan simple como sería ejecutarlas en un entorno de nube privada, con la excepción de una diferencia en la configuración de la red virtual específica para la infraestructura de Máquinas virtuales de Azure. En el momento de la redacción de este documento, Cassandra no se encuentra disponible como servicio administrado en Azure y, por tanto, este artículo tratará de la configuración de un clúster de Cassandra en Máquinas virtuales y del acceso a él desde otra instancia de Linux hospedada también dentro de Máquinas virtuales. Los fragmentos de código de Node.js que se muestran también se pueden utilizar desde un servicio web o una aplicación web hospedados en PaaS. Una de las principales fortalezas de Azure es que permite el modelo de aplicación compuesta que puede aprovechar lo mejor de los mundos de IaaS y PaaS.
+La funcionalidad de Máquinas virtuales de Azure permite ejecutar bases de datos NoSQL como [Cassandra][Cassandra] en la nube pública de Microsoft de manera tan simple como sería ejecutarlas en un entorno de nube privada, con la excepción de una diferencia en la configuración de la red virtual específica para la infraestructura de Máquinas virtuales de Azure. En el momento de la redacción de este documento, Cassandra no se encuentra disponible como servicio administrado en Azure y, por tanto, este artículo tratará de la configuración de un clúster de Cassandra en Máquinas virtuales y del acceso a él desde otra instancia de Linux hospedada también dentro de Máquinas virtuales. Los fragmentos de código de Node.js que se muestran también se pueden utilizar desde un servicio web o una aplicación web hospedados en PaaS. Una de las principales fortalezas de Azure es que permite el modelo de aplicación compuesta que puede aprovechar lo mejor de los mundos de IaaS y PaaS.
 
 Existen dos modelos de implementación posibles para el entorno de aplicación de Cassandra: una implementación de Máquinas virtuales autocontenida y una implementación compuesta. En una implementación compuesta, se consumirá un clúster de Cassandra hospedado en Máquinas virtuales desde una aplicación web (o servicio web) de Azure hospedada en PaaS mediante una interfaz de Thrift a través del equilibrador de carga. A pesar de que cada nodo de Cassandra transmite la solicitud a otros nodos del mismo nivel ante la eventualidad de un error de espacio clave, el equilibrador de carga ayuda con el equilibrio de carga básico de las solicitudes. Además, el equilibrador de carga crea un espacio aislado protegido con firewall para controlar mejor los datos.
 
@@ -31,11 +31,11 @@ Existen dos modelos de implementación posibles para el entorno de aplicación d
 
 El objetivo de una implementación compuesta es maximizar el uso de PaaS mientras se mantiene la superficie de la máquina virtual en un valor mínimo absoluto, en un esfuerzo por ahorrar en la sobrecarga impuesta por la administración de la infraestructura de las máquinas virtuales. Debido a la sobrecarga de administración del servidor, implemente solo los componentes que requieran un comportamiento con estado que no se puedan modificar fácilmente debido a diversos motivos, entre otros, el plazo de comercialización, la falta de visibilidad del código fuente y un bajo nivel de acceso al SO.
 
-![Diagrama de la implementación compuesta][]
+![Diagrama de la implementación compuesta][Diagrama de la implementación compuesta]
 
 ## <span id="deployment"></span> </a>Implementación de Máquina virtual de Azure
 
-![Implementación de una máquina virtual][]
+![Implementación de una máquina virtual][Implementación de una máquina virtual]
 
 En los diagramas anteriores, un clúster de Cassandra de cuatro nodos se implementa dentro de Máquinas virtuales tras un equilibrador de carga que está configurado para permitir el tráfico de Thrift. La aplicación PaaS hospedada en Azure tiene acceso al clúster a través de bibliotecas Thrift específicas para el lenguaje. Existen bibliotecas para lenguajes como Java, C#, Node.js, Python y C++. La implementación de Máquinas virtuales autocontenida que se muestra en el segundo diagrama consume datos por aplicaciones que se ejecutan dentro de otro servicio en la nube hospedado en Máquinas virtuales.
 
@@ -43,15 +43,15 @@ En los diagramas anteriores, un clúster de Cassandra de cuatro nodos se impleme
 
 La secuencia típica para crear un clúster es:
 
-![Diagrama de secuencia para crear un clúster][]
+![Diagrama de secuencia para crear un clúster][Diagrama de secuencia para crear un clúster]
 
 **Paso 1: Generación de par de claves de SSH**
 
-Azure necesita una clave pública X509 con codificación PEM o DER en el momento del aprovisionamiento. Genere un par de claves públicas/privadas con las instrucciones ubicadas en [Utilización de SSH con Linux en Azure][]. Si planea utilizar putty.exe como un cliente SSH en Windows o en Linux, debe convertir la clave privada RSA con codificación PEM en formato PPK mediante puttygen.exe. Puede encontrar las instrucciones para hacerlo en [Generación de par de claves SSH para implementación de máquinas virtuales de Linux en Azure][].
+Azure necesita una clave pública X509 con codificación PEM o DER en el momento del aprovisionamiento. Genere un par de claves públicas/privadas con las instrucciones ubicadas en [Utilización de SSH con Linux en Azure][Utilización de SSH con Linux en Azure]. Si planea utilizar putty.exe como un cliente SSH en Windows o en Linux, debe convertir la clave privada RSA con codificación PEM en formato PPK mediante puttygen.exe. Puede encontrar las instrucciones para hacerlo en [Generación de par de claves SSH para implementación de máquinas virtuales de Linux en Azure][Generación de par de claves SSH para implementación de máquinas virtuales de Linux en Azure].
 
 **Paso 2: Creación de una máquina virtual de Ubuntu**
 
-Para crear la primera máquina virtual de Ubuntu, inicie sesión en el portal de vista previa de Azure, haga clic en **New**, **Virtual Machine**, **From Gallery**, **Unbuntu Server 12.xx** y, a continuación, haga clic en la flecha derecha. Si necesita un tutorial en que se describe cómo crear una máquina virtual de Linux, consulte [Creación de una máquina virtual que ejecuta Linux][].
+Para crear la primera máquina virtual de Ubuntu, inicie sesión en el portal de vista previa de Azure, haga clic en **New**, **Virtual Machine**, **From Gallery**, **Unbuntu Server 12.xx** y, a continuación, haga clic en la flecha derecha. Si necesita un tutorial en que se describe cómo crear una máquina virtual de Linux, consulte [Creación de una máquina virtual que ejecuta Linux][Creación de una máquina virtual que ejecuta Linux].
 
 Luego, escriba la siguiente información en la pantalla VM Configuration:
 
@@ -235,7 +235,7 @@ Repita el paso "e" para los nodos subsiguientes en el clúster.
 
 Ahora que las máquinas virtuales están listas, es momento de configurar Cassandra en cada una de ellas. Como Cassandra no es parte estándar de muchas de las distribuciones de Linux, recurriremos a un proceso de implementación manual.
 
-[Observe que utilizamos un enfoque manual para la instalación del software en cada máquina virtual. Sin embargo, es posible acelerar el proceso al configurar una máquina virtual de Cassandra completamente funcional, capturarla como la imagen base y crear instancias adicionales a partir de esta imagen base. Las instrucciones para capturar la imagen de Linux se encuentran en [Captura de una imagen de una máquina virtual que ejecuta Linux][].]
+[Observe que utilizamos un enfoque manual para la instalación del software en cada máquina virtual. Sin embargo, es posible acelerar el proceso al configurar una máquina virtual de Cassandra completamente funcional, capturarla como la imagen base y crear instancias adicionales a partir de esta imagen base. Las instrucciones para capturar la imagen de Linux se encuentran en [Captura de una imagen de una máquina virtual que ejecuta Linux][Observe que utilizamos un enfoque manual para la instalación del software en cada máquina virtual. Sin embargo, es posible acelerar el proceso al configurar una máquina virtual de Cassandra completamente funcional, capturarla como la imagen base y crear instancias adicionales a partir de esta imagen base. Las instrucciones para capturar la imagen de Linux se encuentran en [Captura de una imagen de una máquina virtual que ejecuta Linux].]
 
 ## <span id="task2"></span> </a>Tarea 2: Configuración de Cassandra en cada máquina virtual
 
@@ -398,7 +398,7 @@ En esta etapa, el clúster está preparado para clientes Thrift a través de la 
 
 ## <span id="task3"></span> </a>Tarea 3: Acceso al clúster de Cassandra desde Node.js
 
-Cree una máquina virtual de Linux en Azure con el proceso descrito en las tareas anteriores. Asegúrese de que esta máquina virtual es una máquina virtual independiente, porque la utilizaremos como cliente para tener acceso al clúster de Cassandra. Instalaremos Node.js, NPM y [cassandra-client][] desde GitHub antes de conectarse al clúster de Cassandra desde esta máquina virtual:
+Cree una máquina virtual de Linux en Azure con el proceso descrito en las tareas anteriores. Asegúrese de que esta máquina virtual es una máquina virtual independiente, porque la utilizaremos como cliente para tener acceso al clúster de Cassandra. Instalaremos Node.js, NPM y [cassandra-client][cassandra-client] desde GitHub antes de conectarse al clúster de Cassandra desde esta máquina virtual:
 
 **Paso 1: Instalación de Node.js y NPM**
 
@@ -433,7 +433,7 @@ e) Instale NPM desde archivos binarios estables mediante la ejecución del sigui
 
 El almacenamiento Cassandra utiliza los conceptos de KEYSPACE y COLUMNFAMILY que se puede comparar aproximadamente con las estructuras DATABASE y TABLE en lenguaje RDBMS. KEYSPACE contendrá un conjunto de definiciones de COLUMNFAMILY. Cada COLUMNFAMILY contendrá un conjunto de filas y, a su vez, cada fila contiene varias columnas, tal como aparece a continuación en la vista compuesta:
 
-![Filas y columnas][]
+![Filas y columnas][Filas y columnas]
 
 Utilizaremos el clúster de Cassandra anteriormente implementado para demostrar el acceso de Node.js a través de la creación y consulta de las estructuras de datos anteriores. Crearemos un script simple de Node.js que ejecuta la preparación básica del clúster para almacenar datos de cliente. Las técnicas que aparecen en el script se pueden utilizar fácilmente en servicios web o en una aplicación web de Node.js. Tenga en cuenta que los fragmentos de código solo tienen como objetivo mostrar cómo funcionan las cosas y, para las soluciones reales, el código que aparece tiene mucho espacio (por ejemplo, seguridad, registro, escalabilidad, etc.) para mejorar.
 
@@ -467,7 +467,7 @@ Como preparación para almacenar los datos de cliente, primero necesitamos crear
        con.shutdown();
     } 
 
-La función createKeysapce toma una función de devolución como el argumento que debe ejecutar la función de creación de COLUMNFAMILY como KEYSPACE es un requisito previo para la creación de la familia de columnas. Observe que necesitamos conectarnos con el KEYSPACE de "sistema" para la definición de KEYSPACE de aplicación. [Cassandra Query Language (CQL)][] se usa de manera coherente en la interacción con el clúster en todos estos fragmentos de código. Como el CQL compuesto en el script anterior no tenía ningún marcador de parámetro, utilizamos una colección de parámetros en blanco ("[]") con el método PooledConnection.execute().
+La función createKeysapce toma una función de devolución como el argumento que debe ejecutar la función de creación de COLUMNFAMILY como KEYSPACE es un requisito previo para la creación de la familia de columnas. Observe que necesitamos conectarnos con el KEYSPACE de "sistema" para la definición de KEYSPACE de aplicación. [Cassandra Query Language (CQL)][Cassandra Query Language (CQL)] se usa de manera coherente en la interacción con el clúster en todos estos fragmentos de código. Como el CQL compuesto en el script anterior no tenía ningún marcador de parámetro, utilizamos una colección de parámetros en blanco ("[]") con el método PooledConnection.execute().
 
 Una vez que se crea correctamente el espacio clave, se ejecutará la función createColumnFamily(), que aparece en el siguiente fragmento de código, para crear las definiciones necesarias de COLUMNFAMILY:
 
@@ -589,4 +589,3 @@ La funcionalidad de Máquinas virtuales de Azure permite la creación de máquin
   [1]: http://wiki.apache.org/cassandra/GettingStarted
   [cassandra-client]: https://github.com/racker/node-cassandra-client
   [Filas y columnas]: ./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux3.png
-  [Cassandra Query Language (CQL)]: http://cassandra.apache.org/doc/cql/CQL.html

@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-push-notifications-to-users-android" urlDisplayName="" pageTitle="Push notifications to users (Android ) | Mobile Dev Center" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="ricksal" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Notificaciones de inserción para usuarios mediante Servicios móviles
 
@@ -14,18 +14,18 @@
 
 Este tutorial le guiará a través de estos pasos en la actualización de las notificaciones de inserción en su aplicación:
 
-1.  [Creación de la tabla Registration][]
-2.  [Actualización de la aplicación][]
-3.  [Actualización de los scripts de servidor][]
-4.  [Pruebas de notificaciones de inserción en su aplicación][]
+1.  [Creación de la tabla Registration][Creación de la tabla Registration]
+2.  [Actualización de la aplicación][Actualización de la aplicación]
+3.  [Actualización de los scripts de servidor][Actualización de los scripts de servidor]
+4.  [Pruebas de notificaciones de inserción en su aplicación][Pruebas de notificaciones de inserción en su aplicación]
 
 Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutorial anterior, [Introducción a las notificaciones de inserción][tutorial de notificaciones de inserción anterior]. Antes de comenzar este tutorial, primero debe completar [Introducción a las notificaciones de inserción][tutorial de notificaciones de inserción anterior].
 
 ## <a name="create-table"></a>Creación de una tabla
 
-1.  Inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
 
-    ![][]
+    ![][0]
 
 2.  Haga clic en la pestaña **Data** y, a continuación, en **Create**.
 
@@ -224,32 +224,29 @@ Ha completado correctamente este tutorial.
 
 Este es el último tutorial que muestra los aspectos básicos relacionados con el uso de las notificaciones de inserción. Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
--   [Introducción a los datos][]
+-   [Introducción a los datos][Introducción a los datos]
     Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
--   [Introducción a la autenticación][]
+-   [Introducción a la autenticación][Introducción a la autenticación]
     Aprenda a autenticar a los usuarios de su aplicación con cuenta de Windows.
 
--   [Referencia del script del servidor de Servicios móviles][]
+-   [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles]
     Obtenga más información acerca del registro y uso de scripts de servidor.
 
--   [Uso de la biblioteca de cliente Android para Servicios móviles][]
+-   [Uso de la biblioteca de cliente Android para Servicios móviles][Uso de la biblioteca de cliente Android para Servicios móviles]
     Obtenga más información sobre cómo usar Servicios móviles con .NET.
 
 <!-- Anchors. -->
 <!-- Images. -->
 <!-- URLs. -->
 
-  [Windows Phone]: /es-es/develop/mobile/tutorials/push-notifications-to-users-wp8 "Windows Phone"
-  [iOS]: /es-es/develop/mobile/tutorials/push-notifications-to-users-ios "iOS"
-  [Android]: /es-es/develop/mobile/tutorials/push-notifications-to-users-android "Android"
   [tutorial de notificaciones de inserción anterior]: /es-es/develop/mobile/tutorials/get-started-with-push-android
   [Creación de la tabla Registration]: #create-table
   [Actualización de la aplicación]: #update-app
   [Actualización de los scripts de servidor]: #update-scripts
   [Pruebas de notificaciones de inserción en su aplicación]: #test-app
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-android-push-notifications-app-users/mobile-services-selection.png
+  [0]: ./media/mobile-services-android-push-notifications-app-users/mobile-services-selection.png
   [1]: ./media/mobile-services-android-push-notifications-app-users/mobile-create-table.png
   [2]: ./media/mobile-services-android-push-notifications-app-users/mobile-create-registration-table.png
   [3]: ./media/mobile-services-android-push-notifications-app-users/mobile-create-registration-class.png

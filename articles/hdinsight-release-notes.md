@@ -1,6 +1,6 @@
 <properties title="HDInsight Release Notes" pageTitle="HDInsight Release Notes | Azure" description="HDInsight release notes." metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure, release notes" services="HDInsight" solutions="" documentationCenter="" editor="cgronlun" manager="paulettm"  authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
 # Notas de la versión de Microsoft HDInsight
 
@@ -44,7 +44,7 @@ Esta versión contiene varias nuevas mejoras del servicio HDInsight:
 -   **Disponibilidad de HDP 2.1**: HDInsight 3.1, que contiene HDP 2.1, está ahora disponible con carácter general y es la versión predeterminada de los nuevos clústeres.
 -   **HBase: mejoras del Portal de administración de Azure**: Vamos a hacer que los clústeres estén disponibles en vista previa. Ahora puede crear clústeres de HBase desde el portal con tres clics.
 
-![][]
+![][0]
 
 Con HBase, puede compilar diversas cargas de trabajo en tiempo real en HDInsight, desde sitios web interactivos que trabajan con grandes conjuntos de datos hasta servicios que almacenan datos de sensores y telemetría de millones de extremos. El paso siguiente sería analizar los datos de estas cargas de trabajo con trabajos de Hadoop. Esto es posible inmediatamente en HDInsight gracias a las experiencias proporcionadas como PowerShell y el panel de clúster de Hive.
 
@@ -428,7 +428,7 @@ Las notas de la versión de los HDP que se usan en las versiones del clúster de
   [New-AzureHDInsightCluster]: http://msdn.microsoft.com/es-es/library/dn593744.aspx
   [SDK de HDInsight]: http://msdn.microsoft.com/es-es/library/azure/dn469975.aspx
   [versiones de componentes de HDInsight]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-component-versioning/
-  []: http://i.imgur.com/cmOl5fM.png
+  [0]: http://i.imgur.com/cmOl5fM.png
   [Mahout]: http://hortonworks.com/hadoop/mahout/
   [ejemplo de Breiman]: https://mahout.apache.org/users/classification/breiman-example.html
   [Comparativa de Apache Hive 13 para Enterprise Hadoop]: http://hortonworks.com/blog/benchmarking-apache-hive-13-enterprise-hadoop/

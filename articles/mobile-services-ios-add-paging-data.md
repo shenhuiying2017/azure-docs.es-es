@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-add-paging-to-data-ios" urlDisplayName="Add paging to data" pageTitle="Add paging to data (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to use paging to manage the amount of data returned to your iOS app from Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="Refine Mobile Services queries with paging" authors="krisragh" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
 
 # Limitación de consultas de Servicios móviles con paginación
 
@@ -12,9 +12,9 @@ En este tema se muestra cómo utilizar la paginación para administrar la cantid
 <p>Para evitar el desbordamiento de datos en clientes de dispositivos m&oacute;viles, Servicios m&oacute;viles implementa un l&iacute;mite autom&aacute;tico de p&aacute;ginas, con un valor determinado de 50 elementos en una respuesta. Si especifica el tama&ntilde;o de la p&aacute;gina, puede solicitar expl&iacute;citamente hasta 1.000 elementos en la respuesta.</p>
 </div>
 
-Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos][]. Antes de comenzar este tutorial, debe completar al menos el primer tutorial de la serie de trabajo con datos, [Introducción a los datos][].
+Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos][Introducción a los datos]. Antes de comenzar este tutorial, debe completar al menos el primer tutorial de la serie de trabajo con datos, [Introducción a los datos][Introducción a los datos].
 
-1.  En Xcode, abra el proyecto que ha modificado al completar el tutorial [Introducción a los datos][].
+1.  En Xcode, abra el proyecto que ha modificado al completar el tutorial [Introducción a los datos][Introducción a los datos].
 
 2.  Presione el botón **Ejecutar** (Comando + R) para crear el proyecto e iniciar la aplicación y, a continuación, escriba algún texto en el cuadro de texto y haga clic en el icono más (**+**).
 
@@ -76,7 +76,7 @@ Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial a
 
 Así concluye el conjunto de tutoriales que demuestra los aspectos básicos del trabajo con datos en Servicios móviles. Considere la posibilidad de profundizar más en el siguiente tema de Servicios móviles:
 
--   [Introducción a la autenticación][]
+-   [Introducción a la autenticación][Introducción a la autenticación]
     Aprenda a autenticar a los usuarios de su aplicación con cuenta de Windows.
 
 <!-- * [Get started with push notifications]    
@@ -85,13 +85,5 @@ Así concluye el conjunto de tutoriales que demuestra los aspectos básicos del 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/develop/mobile/tutorials/add-paging-to-data-dotnet "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /es-es/develop/mobile/tutorials/add-paging-to-data-js "JavaScript para Tienda Windows"
-  [Windows Phone]: /es-es/develop/mobile/tutorials/add-paging-to-data-wp8 "Windows Phone"
-  [iOS]: /es-es/develop/mobile/tutorials/add-paging-to-data-ios "iOS"
-  [Android]: /es-es/develop/mobile/tutorials/add-paging-to-data-android "Android"
-  [HTML]: /es-es/develop/mobile/tutorials/add-paging-to-data-html "HTML"
-  [Xamarin.iOS]: /es-es/develop/mobile/tutorials/add-paging-to-data-xamarin-ios "Xamarin.iOS"
-  [Xamarin.Android]: /es-es/develop/mobile/tutorials/add-paging-to-data-xamarin-android "Xamarin.Android"
   [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-ios
   [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-ios

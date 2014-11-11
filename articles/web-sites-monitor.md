@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-monitor-websites" urlDisplayName="How to monitor" pageTitle="How to monitor websites - Azure service management" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Learn how to monitor Azure websites by using the Monitor page in the Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # <a name="howtomonitor"></a>Supervisión de sitios web
 
@@ -8,17 +8,17 @@ Los sitios web proporcionan la funcionalidad de supervisión a través de la pá
 
 ## Tabla de contenido
 
--   [Direccionamiento del métricas de sitio web][]
--   [Direccionamiento del alertas desde métricas de sitio web][]
--   [Direccionamiento del cuotas de uso para un sitio web][]
--   [Direccionamiento del uso de recursos][]
--   [¿Qué sucede cuando se supera una cuota de uso de recursos?][]
--   [Direccionamiento del registros de diagnóstico y descarga para un sitio web][]
--   [Direccionamiento del estado de extremo web][]
+-   [Direccionamiento del métricas de sitio web][Direccionamiento del métricas de sitio web]
+-   [Direccionamiento del alertas desde métricas de sitio web][Direccionamiento del alertas desde métricas de sitio web]
+-   [Direccionamiento del cuotas de uso para un sitio web][Direccionamiento del cuotas de uso para un sitio web]
+-   [Direccionamiento del uso de recursos][Direccionamiento del uso de recursos]
+-   [¿Qué sucede cuando se supera una cuota de uso de recursos?][¿Qué sucede cuando se supera una cuota de uso de recursos?]
+-   [Direccionamiento del registros de diagnóstico y descarga para un sitio web][Direccionamiento del registros de diagnóstico y descarga para un sitio web]
+-   [Direccionamiento del estado de extremo web][Direccionamiento del estado de extremo web]
 
 ## <a name="websitemetrics"></a>Direccionamiento del Adición de métricas de sitio web
 
-1.  En el [Portal de administración de Azure][], en las páginas de administración del sitio web, haga clic en la pestaña **Monitor** para mostrar la página de administración **Monitor**. De manera predeterminada, el gráfico de la pantalla **Monitor** muestra las mismas métricas que el gráfico de la página **Panel**.
+1.  En el [Portal de administración de Azure][Portal de administración de Azure], en las páginas de administración del sitio web, haga clic en la pestaña **Monitor** para mostrar la página de administración **Monitor**. De manera predeterminada, el gráfico de la pantalla **Monitor** muestra las mismas métricas que el gráfico de la página **Panel**.
 
 2.  Si desea ver métricas adicionales para el sitio web, haga clic en **Add Metrics** en la parte inferior de la página para mostrar el cuadro de diálogo **Choose Metrics**.
 
@@ -47,14 +47,14 @@ La siguiente lista describe las métricas que puede ver en el gráfico de la pá
 
 ## <a name="howtoreceivealerts"></a>Direccionamiento del Alertas desde métricas de sitio web
 
-En el modo de sitio web **estándar**, puede recibir alertas según las métricas de supervisión de su sitio web. La característica de alerta requiere primero configurar un extremo web para supervisión, lo que puede hacer en la sección **Monitoring** de la página **Configure**. En la página **Settings** del Portal de administración de Azure, puede crear una regla para desencadenar una alerta cuando la métrica seleccionada alcance el valor que haya especificado. Puede también elegir que se envíe un correo electrónico cuando se desencadene la alerta. Para obtener más información, consulte [Inserción de notificaciones de alerta y administración de reglas de alerta en Azure][].
+En el modo de sitio web **estándar**, puede recibir alertas según las métricas de supervisión de su sitio web. La característica de alerta requiere primero configurar un extremo web para supervisión, lo que puede hacer en la sección **Monitoring** de la página **Configure**. En la página **Settings** del Portal de administración de Azure, puede crear una regla para desencadenar una alerta cuando la métrica seleccionada alcance el valor que haya especificado. Puede también elegir que se envíe un correo electrónico cuando se desencadene la alerta. Para obtener más información, consulte [Inserción de notificaciones de alerta y administración de reglas de alerta en Azure][Inserción de notificaciones de alerta y administración de reglas de alerta en Azure].
 
 ## <a name="howtoviewusage"></a>Direccionamiento del Cuotas de uso para un sitio web
 
 Los sitios web pueden estar configurados para ejecutarse en modo de sitio web **compartido** o **estándar** desde la página de administración **Scale** del sitio web. Cada suscripción a Azure tiene acceso a un conjunto de recursos que tienen como finalidad la ejecución de hasta 100 sitios web por región en el modo de sitio web **compartido**. El grupo de recursos disponibles para cada suscripción de Sitio web con este fin es compartido por otros sitios web en la misma región geográfica que estén configurados para ejecutarse en modo **compartido**. Como estos recursos son compartidos para su uso de parte de otros sitios web, todas las suscripciones tienen límites en el uso que hacen de estos recursos. Los límites que se aplican al uso que una suscripción hace de estos recursos se expresan como cuotas de uso enumeradas bajo la sección de información general de uso en la página de administración de **Panel** de cada sitio web.
 
 **Nota:**  
-cuando un sitio web está configurado para ejecutarse en modo **estándar**, se le asignan recursos dedicados equivalentes a los tamaños **Pequeño** (valor predeterminado), **Mediano** o **Grande** de máquina virtual en la tabla de [Tamaños de máquinas virtuales y servicios en la nube de Azure][]. No hay límites en los recursos que puede utilizar una suscripción para ejecutar sitios web en modo **estándar**. Sin embargo, la cantidad de sitios web en modo **estándar** que se pueden crear por región es 500.
+cuando un sitio web está configurado para ejecutarse en modo **estándar**, se le asignan recursos dedicados equivalentes a los tamaños **Pequeño** (valor predeterminado), **Mediano** o **Grande** de máquina virtual en la tabla de [Tamaños de máquinas virtuales y servicios en la nube de Azure][Tamaños de máquinas virtuales y servicios en la nube de Azure]. No hay límites en los recursos que puede utilizar una suscripción para ejecutar sitios web en modo **estándar**. Sin embargo, la cantidad de sitios web en modo **estándar** que se pueden crear por región es 500.
 
 ### Visualización de cuotas de uso para sitios web configurados para el modo de sitio web compartido
 
@@ -114,7 +114,7 @@ Puede habilitar o deshabilitar los siguientes diagnósticos de aplicación:
 
     Para especificar el blob y la cuenta de almacenamiento de Azure, elija **On**, seleccione el **Logging Level** y, a continuación, **Manage Blob Storage**. Especifique la cuenta de almacenamiento, el contenedor de blobs y el nombre de blob que se utilizará o cree un contenedor y un blob nuevos.
 
-Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte [Administración de cuentas de almacenamiento][].
+Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte [Administración de cuentas de almacenamiento][Administración de cuentas de almacenamiento].
 
 <div class="dev-callout"> 
 <b>Nota:</b> 
@@ -146,7 +146,7 @@ La sección de **diagnósticos de sitios** de la página de administración **Co
 
 -   **Web Server Logging**: Active el registro de servidores web para guardar registros de sitios web que utilicen formato de archivo de registro W3C extendido. El registro de servidores web genera un registro de todas las solicitudes entrantes a su sitio web, que contiene información como la dirección IP del cliente, el URI solicitado, el código de estado HTTP de la respuesta y la cadena de agente de usuario del cliente. Puede guardar los registros en una cuenta de almacenamiento de Azure o en el sistema de archivos.
 
-  Para guardar los registros de servidores web en una cuenta de almacenamiento de Azure, elija **Almacenamiento** y, a continuación, **manage storage** para especificar un contenedor de blobs de Azure donde se conservarán los registros. Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte [Administración de cuentas de almacenamiento][].
+  Para guardar los registros de servidores web en una cuenta de almacenamiento de Azure, elija **Almacenamiento** y, a continuación, **manage storage** para especificar un contenedor de blobs de Azure donde se conservarán los registros. Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte [Administración de cuentas de almacenamiento][Administración de cuentas de almacenamiento].
 
   Para guardar registros de servidores web en el sistema de archivos, elija **File System**. Con esto se habilitará la casilla **Quota**, en la que podrá definir la cantidad máxima de espacio en disco para los archivos de registro. El tamaño mínimo es de 25 MB, mientras que el máximo es de 100 MB. El tamaño predeterminado es de 35 MB.
 
@@ -193,7 +193,7 @@ Los archivos de registro se pueden descargar mediante el uso de FTP, Azure Power
 
 1.  Abra la página de administración **Panel** del sitio web y tome nota del sitio FTP que aparece en **Diagnostics Logs** y la cuenta que aparece en **Deployment User**. El sitio FTP es donde se ubican los archivos de registro y la cuenta que aparece bajo Deployment User se utiliza para autenticarse en el sitio FTP.
 2.  Si todavía no ha creado credenciales de implementación, la cuenta que aparece en **Deployment User** se muestra como **Not set**. En este caso, debe crear credenciales de implementación tal como se describen en la sección Reset Deployment Credentials del Panel, porque estas credenciales se deben usar para autenticarse en el sitio de FTP donde se almacenan los archivos de registro. Azure no es compatible con la autenticación en este sitio FTP con las credenciales de Live ID.
-3.  Considere utilizar un cliente FTP, como [FileZilla][], para conectarse al sitio FTP. Con un cliente FTP es más fácil especificar las credenciales y visualizar las carpetas en un sitio FTP de lo que normalmente sería posible con un explorador.
+3.  Considere utilizar un cliente FTP, como [FileZilla][FileZilla], para conectarse al sitio FTP. Con un cliente FTP es más fácil especificar las credenciales y visualizar las carpetas en un sitio FTP de lo que normalmente sería posible con un explorador.
 4.  Copie los archivos de registro desde el sitio FTP a su equipo local.
 
 **Azure PowerShell**
@@ -270,7 +270,7 @@ Los archivos .htm incluyen las siguientes opciones:
 
 **Tipo de archivo de registro: Registro del servidor web**
 
--   Location: /LogFiles/http/RawLogs. El formato de la información almacenada en los archivos se aplica con [W3C extended log format][]. Sitios web Azure no utiliza los campos s-computername, s-ip y cs-version.
+-   Location: /LogFiles/http/RawLogs. El formato de la información almacenada en los archivos se aplica con [W3C extended log format][W3C extended log format]. Sitios web Azure no utiliza los campos s-computername, s-ip y cs-version.
 
 -   Lea los archivos con: Analizador de registro. Se usa para analizar y consultar archivos de registro de IIS. El Analizador de registro 2.2 está disponible en el Centro de descarga de Microsoft en <http://go.microsoft.com/fwlink/?LinkId=246619>.
 
@@ -297,27 +297,21 @@ Después de configurar la supervisión de extremo, puede obtener detalles sobre 
 
 Vea el siguiente vídeo para obtener más información sobre la supervisión de extremos de sitio web:
 
--   [Scott Guthrie introduces Azure Web Sites and sets up Endpoint Monitoring][]
+-   [Scott Guthrie introduces Azure Web Sites and sets up Endpoint Monitoring][Scott Guthrie introduces Azure Web Sites and sets up Endpoint Monitoring]
 
--   [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow][]
+-   [Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow][Keeping Azure Web Sites up plus Endpoint Monitoring - with Stefan Schackow]
 
   [Direccionamiento del métricas de sitio web]: #websitemetrics
   [Direccionamiento del alertas desde métricas de sitio web]: #howtoreceivealerts
   [Direccionamiento del cuotas de uso para un sitio web]: #howtoviewusage
   [Direccionamiento del uso de recursos]: #resourceusage
-  [¿Qué sucede cuando se supera una cuota de uso de recursos?]: #exceeded
   [Direccionamiento del registros de diagnóstico y descarga para un sitio web]: #howtoconfigdiagnostics
   [Direccionamiento del estado de extremo web]: #webendpointstatus
   [Portal de administración de Azure]: http://manage.windowsazure.com/
   [Inserción de notificaciones de alerta y administración de reglas de alerta en Azure]: http://go.microsoft.com/fwlink/?LinkId=309356
   [Tamaños de máquinas virtuales y servicios en la nube de Azure]: http://go.microsoft.com/fwlink/?LinkID=309169
   [Administración de cuentas de almacenamiento]: https://www.windowsazure.com/es-es/manage/services/storage/how-to-manage-a-storage-account/
-  [Uso de Azure PowerShell]: http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/
-  [Habilitación del registro de diagnóstico para Sitios web Azure]: /es-es/develop/net/common-tasks/diagnostics-logging-and-instrumentation/
-  [Depuración de una aplicación Node.js en Sitios web Azure]: /es-es/develop/nodejs/how-to-guides/Debug-Website/
   [FileZilla]: http://go.microsoft.com/fwlink/?LinkId=247914
-  [Introducción a los cmdlets de Azure PowerShell]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554332.aspx
-  [Uso de las herramientas de línea de comandos]: http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/command-line-tools/
   [W3C extended log format]: http://go.microsoft.com/fwlink/?LinkID=90561
   []: http://contoso.cloudapp.net
   [Scott Guthrie introduces Azure Web Sites and sets up Endpoint Monitoring]: http://www.windowsazure.com/es-es/documentation/videos/websites-and-endpoint-monitoring-scottgu/

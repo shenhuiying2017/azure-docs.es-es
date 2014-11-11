@@ -8,19 +8,19 @@ Esta guía le indicará cómo actuar en situaciones habituales usando el servici
 Azure. Los ejemplos están escritos usando la API
 Python. Entre los escenarios descritos se incluyen la **inserción**, **inspección**,
 **obtención** y **eliminación** de los mensajes en cola, así como la **creación y
-eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][].
+eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][Pasos siguientes].
 
 ## Tabla de contenido
 
 <p><a href="#what-is">&iquest;Qu&eacute; es el almacenamiento en cola?</a><br /> <a href="#concepts">Conceptos</a><br /> <a href="#create-account">Creaci&oacute;n de una cuenta de almacenamiento de Azure</a><br /> <a href="#create-queue">Creaci&oacute;n de una cola</a><br /> <a href="#insert-message">Inserci&oacute;n de un mensaje en una cola</a><br /> <a href="#peek-message">Inspecci&oacute;n del siguiente mensaje</a><br /> <a href="#get-message">Extracci&oacute;n del siguiente mensaje de la cola</a><br /> <a href="#change-contents">Cambio del contenido de un mensaje en cola</a><br /> <a href="#advanced-get">Opciones adicionales para quitar mensajes de la cola</a><br /> <a href="#get-queue-length">Obtenci&oacute;n de la longitud de la cola</a><br /> <a href="#delete-queue">Eliminaci&oacute;n de una cola</a><br /> <a href="#next-steps">Pasos siguientes</a></p>
 
-[WACOM.INCLUDE [howto-queue-storage][]]
+[WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
 ## <a name="create-account"> </a>Creación de una cuenta de almacenamiento de Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-**Nota:** Si necesita instalar Python o las bibliotecas de clientes, consulte la [guía de instalación de Python][] (en inglés).
+**Nota:** Si necesita instalar Python o las bibliotecas de clientes, consulte la [guía de instalación de Python][guía de instalación de Python] (en inglés).
 
 ## <a name="create-queue"> </a>Creación de una cola
 
@@ -118,23 +118,12 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 Ahora que está familiarizado con los aspectos básicos del almacenamiento en cola, utilice estos vínculos
 para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][]
--   Visite el [blog del equipo de almacenamiento de Azure][] (en inglés).
+-   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][Almacenamiento de datos y acceso a los mismos en Azure]
+-   Visite el [blog del equipo de almacenamiento de Azure][blog del equipo de almacenamiento de Azure] (en inglés).
 
   [Pasos siguientes]: #next-steps
-  [¿Qué es el almacenamiento en cola?]: #what-is
-  [Conceptos]: #concepts
-  [Creación de una cuenta de almacenamiento de Azure]: #create-account
-  [Creación de una cola]: #create-queue
-  [Inserción de un mensaje en una cola]: #insert-message
-  [Inspección del siguiente mensaje]: #peek-message
-  [Extracción del siguiente mensaje de la cola]: #get-message
-  [Cambio del contenido de un mensaje en cola]: #change-contents
-  [Opciones adicionales para quitar mensajes de la cola]: #advanced-get
-  [Obtención de la longitud de la cola]: #get-queue-length
-  [Eliminación de una cola]: #delete-queue
   [howto-queue-storage]: ../includes/howto-queue-storage.md
   [create-storage-account]: ../includes/create-storage-account.md
   [guía de instalación de Python]: ../python-how-to-install/
-  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
   [blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/

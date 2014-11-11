@@ -1,6 +1,6 @@
 <properties linkid="manage-services-sql-databases-datasync" urlDisplayName="How to sync data" pageTitle="Getting started with SQL Databases Data Sync" metaKeywords="" description="" metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Data Sync" authors="spelleru" solutions="" manager="" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelleru"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelleru" />
 
 # Introducción a SQL Data Sync de Azure
 
@@ -10,16 +10,16 @@ En este tutorial se supone que no tiene una experiencia previa en SQL Server o B
 
 ## Tabla de contenido
 
--   [Paso 1: Conectarse a la Base de datos SQL de Azure][]
--   [Paso 2: Agregar un agente cliente ()][]
--   [Paso 3: Registrar una base de datos de SQL Server con el agente cliente][]
--   [Paso 4: Crear un grupo de sincronización][]
--   [Paso 5: Definir los datos que hay que sincronizar][]
--   [Paso 6: Configurar su grupo de sincronización][]
+-   [Paso 1: Conectarse a la Base de datos SQL de Azure][Paso 1: Conectarse a la Base de datos SQL de Azure]
+-   [Paso 2: Agregar un agente cliente ()][Paso 2: Agregar un agente cliente ()]
+-   [Paso 3: Registrar una base de datos de SQL Server con el agente cliente][Paso 3: Registrar una base de datos de SQL Server con el agente cliente]
+-   [Paso 4: Crear un grupo de sincronización][Paso 4: Crear un grupo de sincronización]
+-   [Paso 5: Definir los datos que hay que sincronizar][Paso 5: Definir los datos que hay que sincronizar]
+-   [Paso 6: Configurar su grupo de sincronización][Paso 6: Configurar su grupo de sincronización]
 
 ## <span id="Connect"></span></a>Paso 1: Conectarse a la Base de datos SQL de Azure
 
-1.  Inicie sesión en el [Portal de administración][].
+1.  Inicie sesión en el [Portal de administración][Portal de administración].
 
 2.  Haga clic en **SQL DATABASES** en el panel izquierdo.
 
@@ -29,7 +29,7 @@ En este tutorial se supone que no tiene una experiencia previa en SQL Server o B
 
 5.  Si nunca antes ha agregado un agente, haga clic en **descargar aquí**.
 
-    ![Imagen1][]
+    ![Imagen1][Imagen1]
 
 ## <span id="AddAgent"></span></a>Paso 2: Agregar un agente cliente
 
@@ -41,7 +41,7 @@ Asegúrese de tener el software siguiente instalado en el equipo donde instalar�
 
 -   **.NET Framework 4.0**
 
-    Puede instalar .NET Framework 4.0 desde [aquí][].
+    Puede instalar .NET Framework 4.0 desde [aquí][aquí].
 
 -   **Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)**
 
@@ -53,7 +53,7 @@ Asegúrese de tener el software siguiente instalado en el equipo donde instalar�
 
 ### <span id="InstallClient"></span></a>Paso 2b: Instalar un nuevo agente cliente
 
-Siga la instrucción de [Instalar un cliente de agente de SQL Data Sync][] para instalar el agente.
+Siga la instrucción de [Instalar un cliente de agente de SQL Data Sync][Instalar un cliente de agente de SQL Data Sync] para instalar el agente.
 
 ### <span id="RegisterSSDb"></span></a>Paso 2c: Finalizar el Asistente de nuevo agente de SQL Data Sync
 
@@ -66,17 +66,17 @@ Siga la instrucción de [Instalar un cliente de agente de SQL Data Sync][] para 
 ## <span id="RegisterSSDB"></span></a>Paso 3: Registrar una base de datos de SQL Server con el agente cliente
 
 Cuando del agente cliente se haya instalado, registre todas las bases de datos de SQL Server locales que pretenda incluir en un grupo de sincronización con el agente.
-Para registrar una base de datos con el agente, siga las instrucciones de [Registrar una base de datos de SQL Server con un cliente de agente][].
+Para registrar una base de datos con el agente, siga las instrucciones de [Registrar una base de datos de SQL Server con un cliente de agente][Registrar una base de datos de SQL Server con un cliente de agente].
 
 ## <span id="CreateSG"></span></a>Paso 4: Crear un grupo de sincronización
 
 ### <span id="StartNewSGWizard"></span></a>Paso 4a: Iniciar el Asistente de nuevo grupo de sincronización
 
-1.  Vuelva al [Portal de administración][].
+1.  Vuelva al [Portal de administración][Portal de administración].
 2.  Haga clic en **SQL DATABASES**.
 3.  Haga clic en **ADD SYNC** al final de la página y, a continuación, seleccione New Sync Group en el cajón.
 
-    ![Imagen2][]
+    ![Imagen2][Imagen2]
 
 ### <span></span></a>Paso 4b: Introducir la configuración básica
 
@@ -84,7 +84,7 @@ Para registrar una base de datos con el agente, siga las instrucciones de [Regis
 2.  En el menú desplegable, seleccione **REGIÓN** (centro de datos) para hospedar este grupo de sincronización.
 3.  Haga clic en la flecha derecha.
 
-    ![Imagen3][]
+    ![Imagen3][Imagen3]
 
 ### <span id="DefineHubDB"></span></a>Paso 4c: Definir el concentrador de sincronización
 
@@ -99,7 +99,7 @@ Para registrar una base de datos con el agente, siga las instrucciones de [Regis
 
 1.  Haga clic en la flecha derecha.
 
-    ![Imagen4][]
+    ![Imagen4][Imagen4]
 
 ### <span id="AddRefDB"></span></a>Paso 4d: Agregar una base de datos de referencia
 
@@ -122,13 +122,13 @@ Repita este paso en todas las bases de datos adicionales que quiera agregar al g
 
 5.  Haga clic en la marca de verificación otra vez. De este modo volverá a la página **SYNC** debajo de Bases de datos SQL. Este grupo de sincronización ahora aparece con los demás grupos de sincronización y agentes.
 
-    ![Image5][]
+    ![Image5][Image5]
 
 ## <span id="SyncRules"></span></a>Paso 5: Definir los datos que hay que sincronizar
 
 SQL Data Sync de Azure le permite seleccionar tablas y columnas para sincronizarlas. Si además desea filtrar una columna para que solo sincronice filas con valores concretos (como, Age\>=65), use el portal SQL Data Sync en Azure y la documentación de Seleccionar las tablas, las columnas y las filas que hay que sincronizar para definir los datos que se sincronizarán.
 
-1.  Vuelva al [Portal de administración][].
+1.  Vuelva al [Portal de administración][Portal de administración].
 2.  Haga clic en **SQL DATABASES**.
 3.  Haga clic en la pestaña **SYNC**.
 4.  Haga clic en el nombre de este grupo de sincronización.
@@ -144,14 +144,14 @@ SQL Data Sync de Azure le permite seleccionar tablas y columnas para sincronizar
 10. Haga clic en **SAVE** y espere a que el grupo de sincronización termine el aprovisionamiento.
 11. Para volver a la página de aterrizaje de Data Sync, haga clic en la flecha atrás situada en la parte superior izquierda de la pantalla (encima del nombre del grupo de sincronización).
 
-    ![Imagen6][]
+    ![Imagen6][Imagen6]
 
 ## <span id="Configure"></span></a>Paso 6: Configurar su grupo de sincronización
 
 Siempre podrá sincronizar un grupo de sincronización haciendo clic en SYNC en la parte inferior de la página de aterrizaje de Data Sync.
 Si desea programar la sincronización de un grupo de sincronización, configúrelo en el grupo de sincronización.
 
-1.  Vuelva al [Portal de administración][].
+1.  Vuelva al [Portal de administración][Portal de administración].
 2.  Haga clic en **SQL DATABASES**.
 3.  Haga clic en la pestaña **SYNC**.
 4.  Haga clic en el nombre de este grupo de sincronización.
@@ -167,7 +167,7 @@ Si desea programar la sincronización de un grupo de sincronización, configúre
 
 8.  Haga clic en **SAVE**.
 
-![Imagen7][]
+![Imagen7][Imagen7]
 
 ¡Enhorabuena! Ha creado un grupo de sincronización que incluye una instancia de Base de datos SQL y una base de datos SQL Server.
 
@@ -176,12 +176,11 @@ Si desea programar la sincronización de un grupo de sincronización, configúre
 Para obtener más información acerca de Base de datos SQL y SQL Data Sync, consulte:
 
 -   [Sign up for the Premium Offer for SQL Database] (../sign-up-for-sql-database-premium/)
--   [SQL Data Sync (Portal WA)][]
--   [Introducción a Base de datos SQL de Azure][]
--   [Ciclo de vida de base de datos SQL Server][]
+-   [SQL Data Sync (Portal WA)][SQL Data Sync (Portal WA)]
+-   [Introducción a Base de datos SQL de Azure][Introducción a Base de datos SQL de Azure]
+-   [Ciclo de vida de base de datos SQL Server][Ciclo de vida de base de datos SQL Server]
 
   [Paso 1: Conectarse a la Base de datos SQL de Azure]: #Connect
-  [Paso 2: Agregar un agente cliente ()]: #AddAgent
   [Paso 3: Registrar una base de datos de SQL Server con el agente cliente]: #RegisterSSDB
   [Paso 4: Crear un grupo de sincronización]: #CreateSG
   [Paso 5: Definir los datos que hay que sincronizar]: #SyncRules
@@ -198,6 +197,5 @@ Para obtener más información acerca de Base de datos SQL y SQL Data Sync, cons
   [Image5]: ./media/sql-database-get-started-data-sync/NewSyncGroupReference-Figure5.PNG
   [Imagen6]: ./media/sql-database-get-started-data-sync/NewSyncGroupSyncRules-Figure6.PNG
   [Imagen7]: ./media/sql-database-get-started-data-sync/NewSyncGroupConfigure-Figure7.PNG
-  [SQL Data Sync (Portal WA)]: http://msdn.microsoft.com/es-es/library/windowsazure/jj856263.aspx
   [Introducción a Base de datos SQL de Azure]: ../getting-started-w-sql-databases/
   [Ciclo de vida de base de datos SQL Server]: http://go.microsoft.com/fwlink/?LinkId=275193

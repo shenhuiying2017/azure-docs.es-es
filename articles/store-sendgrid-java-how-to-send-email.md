@@ -1,28 +1,28 @@
 <properties linkid="dev-java-how-to-access-control" urlDisplayName="SendGrid Email Service" pageTitle="How to use the SendGrid email service (Java) - Azure" metaKeywords="Azure SendGrid, Azure email service, Azure SendGrid Java, Azure email Java" description="Learn how send email with the SendGrid email service on Azure. Code samples written in Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Envío de correo electrónico con SendGrid desde Java
 
 En esta guía se describe cómo realizar tareas comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos en Java. Los escenarios cubiertos incluyen **crear un correo electrónico**, **enviar un correo electrónico**, **agregar archivos adjuntos**, **utilizar filtros** y **actualizar propiedades**. Para obtener más información acerca de SendGrid y el envío de correos electrónicos, consulte
-la sección [Pasos siguientes][].
+la sección [Pasos siguientes][Pasos siguientes].
 
 ## Tabla de contenido
 
--   [¿Qué es el servicio de correo electrónico SendGrid?][]
--   [Creación de una cuenta de SendGrid][]
--   [Direccionamiento del las bibliotecas javax.mail][]
--   [Direccionamiento del un correo electrónico][]
+-   [¿Qué es el servicio de correo electrónico SendGrid?][¿Qué es el servicio de correo electrónico SendGrid?]
+-   [Creación de una cuenta de SendGrid][Creación de una cuenta de SendGrid]
+-   [Direccionamiento del las bibliotecas javax.mail][Direccionamiento del las bibliotecas javax.mail]
+-   [Direccionamiento del un correo electrónico][Direccionamiento del un correo electrónico]
 -   [Direccionamiento del un correo electrónico][1]
--   [Direccionamiento del un archivo adjunto][]
--   [Direccionamiento del filtros para habilitar pies de página, seguimiento y análisis][]
--   [Direccionamiento del las propiedades del correo electrónico][]
--   [Direccionamiento del servicios adicionales de SendGrid][]
--   [Pasos siguientes][]
+-   [Direccionamiento del un archivo adjunto][Direccionamiento del un archivo adjunto]
+-   [Direccionamiento del filtros para habilitar pies de página, seguimiento y análisis][Direccionamiento del filtros para habilitar pies de página, seguimiento y análisis]
+-   [Direccionamiento del las propiedades del correo electrónico][Direccionamiento del las propiedades del correo electrónico]
+-   [Direccionamiento del servicios adicionales de SendGrid][Direccionamiento del servicios adicionales de SendGrid]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="bkmk_WhatIsSendGrid"> </a>¿Qué es el servicio de correo electrónico SendGrid?
 
-SendGrid es un [servicio de correo electrónico basado en la nube][] que proporciona un sistema fiable de [entrega de correo electrónico transaccional][], escalabilidad y análisis en tiempo real, además de API flexibles que facilitan la integración personalizada. Entre los escenarios de uso de SendGrid más comunes se incluyen:
+SendGrid es un [servicio de correo electrónico basado en la nube][servicio de correo electrónico basado en la nube] que proporciona un sistema fiable de [entrega de correo electrónico transaccional][entrega de correo electrónico transaccional], escalabilidad y análisis en tiempo real, además de API flexibles que facilitan la integración personalizada. Entre los escenarios de uso de SendGrid más comunes se incluyen:
 
 -   Envío automático de recibos a los clientes
 -   Administración de listas de distribución para enviar a los clientes
@@ -37,7 +37,7 @@ Para obtener más información, consulte <http://sendgrid.com> (en inglés).
 
 ## <a name="bkmk_CreateSendGridAcct"> </a>Creación de una cuenta de SendGrid
 
-[WACOM.INCLUDE [sendgrid-sign-up][]]
+[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 ## <a name="bkmk_HowToUseJavax"> </a>Direccionamiento del las bibliotecas javax.mail
 
@@ -133,7 +133,7 @@ El siguiente código muestra cómo agregar un archivo adjunto.
 
 ## <a name="bkmk_HowToUseFilters"> </a>Direccionamiento del filtros para habilitar pies de página, seguimiento y análisis
 
-SendGrid proporciona funciones de correo electrónico adicionales mediante el uso de *filtros*. Estos filtros son configuraciones que se pueden agregar a un mensaje de correo electrónico para habilitar funcionalidad específica, como habilitar el seguimiento de clics, el análisis de Google, el seguimiento de suscripciones, etc. Si desea obtener una lista completa de los filtros, vea [Filter Settings][].
+SendGrid proporciona funciones de correo electrónico adicionales mediante el uso de *filtros*. Estos filtros son configuraciones que se pueden agregar a un mensaje de correo electrónico para habilitar funcionalidad específica, como habilitar el seguimiento de clics, el análisis de Google, el seguimiento de suscripciones, etc. Si desea obtener una lista completa de los filtros, vea [Filter Settings][Filter Settings].
 
 -   El siguiente código muestra cómo insertar un filtro de pie de página que hace que aparezca texto HTML en la parte inferior del correo electrónico que se envía.
 
@@ -181,19 +181,18 @@ Para agregar a un destinatario **Cc**, utilice el siguiente código:
 
 ## <a name="bkmk_HowToUseAdditionalSvcs"> </a>Direccionamiento del servicios adicionales de SendGrid
 
-SendGrid ofrece API basadas en web que puede utilizar para aprovechar la funcionalidad adicional de SendGrid desde su aplicación de Azure. Para obtener toda la información al respecto, consulte la [documentación de las API de SendGrid][].
+SendGrid ofrece API basadas en web que puede utilizar para aprovechar la funcionalidad adicional de SendGrid desde su aplicación de Azure. Para obtener toda la información al respecto, consulte la [documentación de las API de SendGrid][documentación de las API de SendGrid].
 
 ## <a name="bkmk_NextSteps"> </a>Pasos siguientes
 
 Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, siga estos vínculos para obtener más información:
 
--   Ejemplo que demuestra el uso de SendGrid en una implementación de Azure: [Envío de correo electrónico con SendGrid desde Java en una implementación de Azure][]
+-   Ejemplo que demuestra el uso de SendGrid en una implementación de Azure: [Envío de correo electrónico con SendGrid desde Java en una implementación de Azure][Envío de correo electrónico con SendGrid desde Java en una implementación de Azure]
 -   Información sobre Java de SendGrid: <http://sendgrid.com/docs/Code_Examples/java.html>
 -   Documentación sobre la API de SendGrid <http://sendgrid.com/docs/API_Reference/index.html>
 -   Oferta especial de SendGrid para clientes de Azure: <http://sendgrid.com/azure.html>
 
   [Pasos siguientes]: #bkmk_NextSteps
-  [¿Qué es el servicio de correo electrónico SendGrid?]: #bkmk_WhatIsSendGrid
   [Creación de una cuenta de SendGrid]: #bkmk_CreateSendGridAcct
   [Direccionamiento del las bibliotecas javax.mail]: #bkmk_HowToUseJavax
   [Direccionamiento del un correo electrónico]: #bkmk_HowToCreateEmail

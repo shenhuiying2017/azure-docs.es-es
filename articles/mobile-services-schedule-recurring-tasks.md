@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-schedule-backend-tasks" urlDisplayName="Schedule Backend Tasks" pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Programación de trabajos periódicos en Servicios móviles
 
@@ -18,13 +18,13 @@ Este tema le muestra cómo usar la funcionalidad del programador de trabajos en 
 
 Este tutorial le guiará por los siguientes pasos relativos al uso del programador de trabajos para crear un trabajo programado que solicite datos de tweets de Twitter y almacene los tweets en una nueva tabla de actualizaciones:
 
--   [Registro para obtener acceso a Twitter y almacenamiento de credenciales][]
--   [Creación de la nueva tabla de actualizaciones][]
--   [Creación de un nuevo trabajo programado][]
+-   [Registro para obtener acceso a Twitter y almacenamiento de credenciales][Registro para obtener acceso a Twitter y almacenamiento de credenciales]
+-   [Creación de la nueva tabla de actualizaciones][Creación de la nueva tabla de actualizaciones]
+-   [Creación de un nuevo trabajo programado][Creación de un nuevo trabajo programado]
 
 ## <a name="get-oauth-credentials"></a>Registro para obtener acceso a las API de Twitter v1.1 y almacenamiento de credenciales
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access][]]
+[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
 ## <a name="create-table"></a>Creación de la nueva tabla de actualizaciones
 
@@ -32,7 +32,7 @@ A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 
 1.  En el Portal de administración, haga clic en la pestaña **Data** para el servicio móvil y, a continuación, haga clic en **+Create**.
 
-    ![][]
+    ![][0]
 
     Esto muestra el cuadro de diálogo **Create new table**.
 
@@ -139,7 +139,7 @@ Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena 
 
     Este script llama a la API de consulta de Twitter mediante las credenciales almacenadas para solicitar los tweets recientes que contienen el hashtag `#mobileservices`. Las respuestas y tweets duplicados se quitan de los resultados antes de almacenarse en la tabla.
 
-    > [WACOM.NOTE]En este ejemplo se presupone que solo se insertan algunas filas en la tabla durante cada ejecución programada. En los casos en los que se inserten muchas filas en un bucle, es posible que se agoten las conexiones con el nivel gratis. En ese caso, debe realizar inserciones en los lotes. Para obtener más información, consulte [Inserción de inserciones en masa][].
+    > [WACOM.NOTE]En este ejemplo se presupone que solo se insertan algunas filas en la tabla durante cada ejecución programada. En los casos en los que se inserten muchas filas en un bucle, es posible que se agoten las conexiones con el nivel gratis. En ese caso, debe realizar inserciones en los lotes. Para obtener más información, consulte [Inserción de inserciones en masa][Inserción de inserciones en masa].
 
 5.  Haga clic en **Run Once** para probar el script.
 
@@ -161,20 +161,18 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 
 ## <a name="nextsteps"> </a>Pasos siguientes
 
--   [Referencia del script del servidor de Servicios móviles][]
+-   [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles]
     Obtenga más información acerca del registro y uso de scripts de servidor.
 
 <!-- Anchors. --> 
 <!-- Images. --> 
 <!-- URLs. -->
 
-  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/ "Back-end de .NET"
-  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-schedule-recurring-tasks/ "Back-end de JavaScript"
   [Registro para obtener acceso a Twitter y almacenamiento de credenciales]: #get-oauth-credentials
   [Creación de la nueva tabla de actualizaciones]: #create-table
   [Creación de un nuevo trabajo programado]: #add-job
   [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
-  []: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
+  [0]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
   [1]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
   [2]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
   [3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png

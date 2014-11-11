@@ -4,43 +4,43 @@
 
 # Uso del almacenamiento de tablas en Java
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de tablas de Azure. Los ejemplos están escritos en Java y utilizan el [SDK de almacenamiento de Azure para Java][]. Entre los escenarios descritos se incluyen la **creación**, **visualización** y **eliminación** de tablas, así como la **inserción**, **consulta**, **modificación** y **eliminación** de las entidades de una tabla. Para obtener más información acerca de las tablas, consulte la sección [Pasos siguientes][].
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento de tablas de Azure. Los ejemplos están escritos en Java y utilizan el [SDK de almacenamiento de Azure para Java][SDK de almacenamiento de Azure para Java]. Entre los escenarios descritos se incluyen la **creación**, **visualización** y **eliminación** de tablas, así como la **inserción**, **consulta**, **modificación** y **eliminación** de las entidades de una tabla. Para obtener más información acerca de las tablas, consulte la sección [Pasos siguientes][Pasos siguientes].
 
-Nota: hay un SDK disponible para los desarrolladores que usen el almacenamiento de Azure en dispositivos Android. Para obtener más información, consulte el [SDK de almacenamiento de Azure para Android][].
+Nota: hay un SDK disponible para los desarrolladores que usen el almacenamiento de Azure en dispositivos Android. Para obtener más información, consulte el [SDK de almacenamiento de Azure para Android][SDK de almacenamiento de Azure para Android].
 
 ## <a name="Contents"> </a>Tabla de contenido
 
--   [Qué es el almacenamiento de tablas][]
--   [Conceptos][]
--   [Creación de una cuenta de almacenamiento de Azure][]
--   [Creación de una aplicación Java][]
--   [Configuración de su aplicación para obtener acceso al almacenamiento de tablas][]
--   [Configuración de una cadena de conexión de almacenamiento de Azure][]
--   [Creación de una tabla][]
--   [Enumeración de las tablas][]
--   [Incorporación de una entidad a una tabla][]
--   [Inserción de un lote de entidades][]
--   [Recuperación de todas las entidades de una partición][]
--   [Recuperación de un rango de entidades de una partición][]
--   [Recuperación de una sola entidad][]
--   [Modificación de una entidad][]
--   [Consulta de un subconjunto de propiedades de las entidades][]
--   [Inserción o reemplazo de una entidad][]
--   [Eliminación de una entidad][]
--   [Eliminación de una tabla][]
--   [Pasos siguientes][]
+-   [Qué es el almacenamiento de tablas][Qué es el almacenamiento de tablas]
+-   [Conceptos][Conceptos]
+-   [Creación de una cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento de Azure]
+-   [Creación de una aplicación Java][Creación de una aplicación Java]
+-   [Configuración de su aplicación para obtener acceso al almacenamiento de tablas][Configuración de su aplicación para obtener acceso al almacenamiento de tablas]
+-   [Configuración de una cadena de conexión de almacenamiento de Azure][Configuración de una cadena de conexión de almacenamiento de Azure]
+-   [Creación de una tabla][Creación de una tabla]
+-   [Enumeración de las tablas][Enumeración de las tablas]
+-   [Incorporación de una entidad a una tabla][Incorporación de una entidad a una tabla]
+-   [Inserción de un lote de entidades][Inserción de un lote de entidades]
+-   [Recuperación de todas las entidades de una partición][Recuperación de todas las entidades de una partición]
+-   [Recuperación de un rango de entidades de una partición][Recuperación de un rango de entidades de una partición]
+-   [Recuperación de una sola entidad][Recuperación de una sola entidad]
+-   [Modificación de una entidad][Modificación de una entidad]
+-   [Consulta de un subconjunto de propiedades de las entidades][Consulta de un subconjunto de propiedades de las entidades]
+-   [Inserción o reemplazo de una entidad][Inserción o reemplazo de una entidad]
+-   [Eliminación de una entidad][Eliminación de una entidad]
+-   [Eliminación de una tabla][Eliminación de una tabla]
+-   [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <a name="CreateAccount"></a>Creación de una cuenta de almacenamiento de Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 ## <a name="CreateApplication"></a>Creación de una aplicación Java
 
 En esta guía utilizará funciones del almacenamiento que puede ejecutar en una aplicación Java localmente o bien mediante código a través de un rol web o un rol de trabajo de Azure.
 
-Para ello, deberá instalar el Kit de desarrollo de Java (JDK) y crear una cuenta de almacenamiento de Azure en su suscripción de Azure. A continuación, deberá verificar que su sistema de desarrollo satisface los requisitos mínimos y las dependencias que se indican en el repositorio del [SDK de almacenamiento de Azure para Java][] en GitHub. Si su sistema cumple esos requisitos, puede seguir las instrucciones para descargar e instalar las bibliotecas de almacenamiento de Azure para Java en su sistema desde ese repositorio. Cuando haya completado esas tareas, podrá crear una aplicación Java que use los ejemplos de este artículo.
+Para ello, deberá instalar el Kit de desarrollo de Java (JDK) y crear una cuenta de almacenamiento de Azure en su suscripción de Azure. A continuación, deberá verificar que su sistema de desarrollo satisface los requisitos mínimos y las dependencias que se indican en el repositorio del [SDK de almacenamiento de Azure para Java][SDK de almacenamiento de Azure para Java] en GitHub. Si su sistema cumple esos requisitos, puede seguir las instrucciones para descargar e instalar las bibliotecas de almacenamiento de Azure para Java en su sistema desde ese repositorio. Cuando haya completado esas tareas, podrá crear una aplicación Java que use los ejemplos de este artículo.
 
 ## <a name="ConfigureStorage"> </a>Configuración de su aplicación para obtener acceso al almacenamiento de tablas
 
@@ -73,7 +73,7 @@ En los ejemplos siguientes se supone que ha usado uno de estos dos métodos para
 
 Los objetos **CloudTableClient** le permiten obtener objetos de referencia para las tablas
 y las entidades. El siguiente código crea un objeto **CloudTableClient**
-y lo usa para crear un nuevo objeto **CloudTable** que representa una tabla llamada "people". (Nota: existen otras maneras de crear objetos **CloudStorageAccount**; para obtener más información, consulte **CloudStorageAccount** en la [Referencia del SDK del cliente de almacenamiento de Azure][]).
+y lo usa para crear un nuevo objeto **CloudTable** que representa una tabla llamada "people". (Nota: existen otras maneras de crear objetos **CloudStorageAccount**; para obtener más información, consulte **CloudStorageAccount** en la [Referencia del SDK del cliente de almacenamiento de Azure][Referencia del SDK del cliente de almacenamiento de Azure]).
 
     try
     {
@@ -420,7 +420,7 @@ Para modificar una entidad, recupérela del servicio Tabla, realice los cambios 
 
 ## <a name="QueryProperties"> </a>Consulta de un subconjunto de propiedades de las entidades
 
-Una consulta de tabla puede recuperar solo algunas propiedades de una entidad. Esta técnica, denominada proyección, reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades de gran tamaño. La consulta del código siguiente usa el método **select** para devolver solo las direcciones de correo electrónico de las entidades de la tabla. Los resultados se proyectan en una colección de propiedades **String** con la ayuda de un objeto **EntityResolver**, que hace la conversión del tipo de entidades que el servidor devuelve. Puede obtener más información acerca de la proyección en esta [entrada de blog][] (en inglés). Tenga en cuenta que la proyección no es compatible con el emulador de almacenamiento local, por lo que este código solo se ejecuta cuando se utiliza una cuenta del servicio Tabla.
+Una consulta de tabla puede recuperar solo algunas propiedades de una entidad. Esta técnica, denominada proyección, reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades de gran tamaño. La consulta del código siguiente usa el método **select** para devolver solo las direcciones de correo electrónico de las entidades de la tabla. Los resultados se proyectan en una colección de propiedades **String** con la ayuda de un objeto **EntityResolver**, que hace la conversión del tipo de entidades que el servidor devuelve. Puede obtener más información acerca de la proyección en esta [entrada de blog][entrada de blog] (en inglés). Tenga en cuenta que la proyección no es compatible con el emulador de almacenamiento local, por lo que este código solo se ejecuta cuando se utiliza una cuenta del servicio Tabla.
 
     try
     {
@@ -461,7 +461,7 @@ Una consulta de tabla puede recuperar solo algunas propiedades de una entidad. E
 
 ## <a name="InsertOrReplace"> </a>Inserción o reemplazo de una entidad
 
-En ocasiones, es posible que desee agregar una entidad a una tabla sin saber si ya existe en la tabla. Una operación de inserción o reemplazo le permite realizar una consulta única que insertará la entidad si no existe o que reemplazará la existente si la hubiera. Según los ejemplos anteriores, el siguiente código inserta o reemplaza la entidad de "Walter Harp". Después de crear una nueva entidad, este código llama al método **TableOperation.insertOrReplace**. A continuación, este código llama a **execute** en el objeto **CloudTable** con la tabla y las operaciones de inserción o reemplazo de tabla como parámetros. Para actualizar solo parte de una entidad, en su lugar, se puede usar el método **TableOperation.insertOrMerge**. Tenga en cuenta que la inserción o el reemplazo no son compatibles con el emulador de almacenamiento local, por lo que este código solo se ejecuta cuando se utiliza una cuenta del servicio Tabla. Puede obtener más información sobre la inserción o el reemplazo y sobre la inserción o la fusión en esta [entrada de blog][].
+En ocasiones, es posible que desee agregar una entidad a una tabla sin saber si ya existe en la tabla. Una operación de inserción o reemplazo le permite realizar una consulta única que insertará la entidad si no existe o que reemplazará la existente si la hubiera. Según los ejemplos anteriores, el siguiente código inserta o reemplaza la entidad de "Walter Harp". Después de crear una nueva entidad, este código llama al método **TableOperation.insertOrReplace**. A continuación, este código llama a **execute** en el objeto **CloudTable** con la tabla y las operaciones de inserción o reemplazo de tabla como parámetros. Para actualizar solo parte de una entidad, en su lugar, se puede usar el método **TableOperation.insertOrMerge**. Tenga en cuenta que la inserción o el reemplazo no son compatibles con el emulador de almacenamiento local, por lo que este código solo se ejecuta cuando se utiliza una cuenta del servicio Tabla. Puede obtener más información sobre la inserción o el reemplazo y sobre la inserción o la fusión en esta [entrada de blog][entrada de blog].
 
     try
     {
@@ -554,10 +554,10 @@ Finalmente, el código siguiente elimina una tabla de una cuenta de almacenamien
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de tablas, siga estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   [SDK de almacenamiento de Azure para Java][]
+-   [SDK de almacenamiento de Azure para Java][SDK de almacenamiento de Azure para Java]
 -   [Referencia del SDK de cliente de almacenamiento de Azure][Referencia del SDK del cliente de almacenamiento de Azure]
--   [API REST de almacenamiento de Azure][]
--   [Blog del equipo de almacenamiento de Azure][]
+-   [API REST de almacenamiento de Azure][API REST de almacenamiento de Azure]
+-   [Blog del equipo de almacenamiento de Azure][Blog del equipo de almacenamiento de Azure]
 
   [SDK de almacenamiento de Azure para Java]: https://github.com/azure/azure-storage-java
   [Pasos siguientes]: #NextSteps
@@ -584,5 +584,5 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
   [create-storage-account]: ../includes/create-storage-account.md
   [Referencia del SDK del cliente de almacenamiento de Azure]: http://dl.windowsazure.com/storage/javadoc/
   [entrada de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
-  [API REST de almacenamiento de Azure]: http://msdn.microsoft.com/en-us/library/azure/gg433040.aspx
+  [API REST de almacenamiento de Azure]: http://msdn.microsoft.com/es-es/library/azure/gg433040.aspx
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
