@@ -53,9 +53,8 @@ Almacenamiento de archivos contiene los siguientes componentes:
 
 -   **Archivo:** se trata de un archivo del recurso compartido. Un archivo puede tener un tamaño de hasta 1 TB.
 
--   **Formato de dirección URL:** es posible dirigir los archivos con el siguiente formato de dirección URL
-    :
-    <https://>`<storage account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`
+-   **Formato de dirección URL:** es posible dirigir los archivos con el siguiente formato de dirección URL:
+    `https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>`
 
     En el diagrama anterior se utilizó la siguiente dirección URL de ejemplo
     para dirigir uno de los archivos:
@@ -251,7 +250,6 @@ archivos, siga estos vínculos para obtener información más detallada.
 </p>
 
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
-  [¿Qué es Almacenamiento de archivos?]: #what-is-file-storage
   [Conceptos de Almacenamiento de archivos]: #file-storage-concepts
   [Crear una cuenta de almacenamiento de Azure]: #create-account
   [Uso de PowerShell para crear un recurso compartido de archivos]: #use-cmdlets

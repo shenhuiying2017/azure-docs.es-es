@@ -1,10 +1,10 @@
-<properties linkid="develop-java-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the Java Service Bus API - Azure" metaKeywords="ava Messsage AMQP, Service Bus AMQP, download AMQP JMS library" description="Learn how to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0" authors="sethm"  solutions="" writer="sethm" manager="timlt" editor="mattshel"  />
+<properties linkid="develop-java-how-to-guides-service-bus-amqp" urlDisplayName="Service Bus AMQP" pageTitle="How to use AMQP 1.0 with the Java Service Bus API - Azure" metaKeywords="ava Messsage AMQP, Service Bus AMQP, download AMQP JMS library" description="Learn how to use the Java Message Service (JMS) with Azure Service Bus and Advanced Message Queuing Protodol (AMQP) 1.0." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to use the Java Message Service (JMS) API with Service Bus &amp; AMQP 1.0" authors="" solutions="" writer="sethm" manager="dwrede" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+Uso de la API de Java Message Service (JMS) con el bus de servicio y AMQP 1.0
+=============================================================================
 
-# Uso de la API de Java Message Service (JMS) con el bus de servicio y AMQP 1.0
-
-## Introducción
+Introducción
+------------
 
 Advanced Message Queuing Protocol (AMQP) 1.0 es un protocolo de mensajes a nivel de red, confiable y eficaz que se puede utilizar para crear aplicaciones de mensajería robustas y compatibles con varias plataformas.
 
@@ -12,13 +12,15 @@ La compatibilidad con AMQP 1.0 del bus de servicio implica que puede utilizar la
 
 En esta guía de instrucciones se explica cómo utilizar las funciones de mensajería asíncrona del bus de servicio (colas y publicación/suscripción a temas) desde aplicaciones Java utilizando la popular API estándar Java Message Service (JMS). Existe otra guía de instrucciones complementaria en la que se explica cómo hacer lo mismo utilizando la API de .NET del bus de servicio. Puede utilizar estas dos guías conjuntamente para obtener información acerca de la mensajería entre diferentes plataformas mediante AMQP 1.0.
 
-## Introducción al bus de servicio
+Introducción al bus de servicio
+-------------------------------
 
-En esta guía se asume que ya dispone de un espacio de nombres del bus de servicio con una cola denominada “queue1”. Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de administración de Azure][]. Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio.][]
+En esta guía se asume que ya dispone de un espacio de nombres del bus de servicio con una cola denominada “queue1”. Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de administración de Azure](http://manage.windowsazure.com). Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio.](https://www.windowsazure.com/es-es/develop/net/how-to-guides/service-bus-queues/)
 
-## Descarga de la biblioteca de cliente AMQP 1.0 JMS
+Descarga de la biblioteca de cliente AMQP 1.0 JMS
+-------------------------------------------------
 
-Para obtener información acerca de dónde descargar la versión más reciente de la biblioteca de cliente Apache Qpid JMS AMQP 1.0, visite [][]<http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html></a>.
+Para obtener información acerca de dónde descargar la versión más reciente de la biblioteca de cliente Apache Qpid JMS AMQP 1.0, visite <http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html>.
 
 Debe agregar los cuatro archivos JAR siguientes del archivo de distribución de Apache Qpid JMS AMQP 1.0 al CLASSPATH de Java cuando vaya a crear y ejecutar aplicaciones JMS con el bus de servicio:
 
@@ -27,7 +29,8 @@ Debe agregar los cuatro archivos JAR siguientes del archivo de distribución de 
 -   qpid-amqp-1-0-client-jms-[version].jar
 -   qpid-amqp-1-0-common-[version].jar
 
-## Codificación de las aplicaciones Java
+Codificación de las aplicaciones Java
+-------------------------------------
 
 ### Interfaz de denominación y directorio Java (JNDI)
 
@@ -35,11 +38,11 @@ JMS usa la interfaz de denominación y directorio Java (JNDI) para crear una sep
 
     # servicebus.properties - sample JNDI configuration
 
-    # Register a ConnectionFactory in JNDI using the form:
+    # Registrar un ConnectionFactory en JNDI usando el formato:
     # connectionfactory.[jndi_name] = [ConnectionURL]
     connectionfactory.SBCF = amqps://[username]:[password]@[namespace].servicebus.windows.net
 
-    # Register some queues in JNDI using the form
+    # Registrar algunas colas en JNDI usando el formato:
     # queue.[jndi_name] = [physical_name]
     # topic.[jndi_name] = [physical_name]
     queue.QUEUE = queue1
@@ -52,9 +55,17 @@ La entrada usada para definir **ConnectionFactory** en el proveedor JNDI de arch
 
 Donde [jndi\_name] y [ConnectionURL] tienen los significados siguientes:
 
-|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
-| [jndi\_name]    | El nombre lógico de ConnectionFactory. Este es el nombre que se resolverá en la aplicación Java usando el método JNDI IntialContext.lookup(). |
-| [ConnectionURL] | Una URL que proporciona la biblioteca JMS con la información necesaria para el agente AMQP.                                                   |
+<table>
+  <tr>
+    <td>[jndi_name]</td>
+    <td>El nombre lógico de ConnectionFactory. Este es el nombre que se resolverá en la aplicación Java usando el método JNDI IntialContext.lookup().</td>
+  </tr>
+  <tr>
+    <td>[ConnectionURL]</td>
+    <td>Una URL que proporciona la biblioteca JMS con la información necesaria para el agente AMQP.</td>
+  </tr>
+</table>
+
 
 El formato de **ConnectionURL** es el siguiente:
 
@@ -62,19 +73,39 @@ El formato de **ConnectionURL** es el siguiente:
 
 Donde [namespace], [username] y [password] tienen los significados siguientes:
 
-|-------------|---------------------------------------------------------------------------------------------------------------------------|
-| [namespace] | El espacio de nombres del bus de servicio obtenido del Portal de administración de Azure.                                 |
-| [username]  | El nombre del emisor del bus de servicio obtenido del Portal de administración de Azure.                                  |
-| [password]  | Formulario codificado como URL de la clave del emisor del bus de servicio obtenido del Portal de administración de Azure. |
+<table>
+  <tr>
+    <td>[namespace]</td>
+    <td>El espacio de nombres del bus de servicio obtenido del Portal de administración de Azure.</td>
+  </tr>
+  <tr>
+    <td>[username]</td>
+    <td>El nombre del emisor del bus de servicio obtenido del Portal de administración de Azure.</td>
+  </tr>
+  <tr>
+    <td>[password]</td>
+    <td>Formulario codificado como URL de la clave del emisor del bus de servicio obtenido del Portal de administración de Azure.</td>
+  </tr>
+</table>
 
-**Nota**: debe codificar la contraseña manualmente como dirección URL. Podrá encontrar una práctica utilidad de codificación de la URL en [][1]<http://www.w3schools.com/tags/ref_urlencode.asp></a>.
+**Nota**: debe codificar la contraseña manualmente como dirección URL. Podrá encontrar una práctica utilidad de codificación de la URL en <http://www.w3schools.com/tags/ref_urlencode.asp>.
 
 Por ejemplo, si la información obtenida del Portal de administración de Azure es la siguiente:
 
-|---------------------|----------------------------------------------|
-| Espacio de nombres: | foo.servicebus.windows.net                   |
-| Nombre del emisor:  | owner                                        |
-| Clave del emisor:   | j9VYv1q33Ea+cbahWsHFYnLkEzrF0yA5SAqcLNvU7KM= |
+<table>
+  <tr>
+    <td>Espacio de nombres:</td>
+    <td>foo.servicebus.windows.net</td>
+  </tr>
+  <tr>
+    <td>Nombre del emisor:</td>
+    <td>owner</td>
+  </tr>
+  <tr>
+    <td>Clave del emisor:</td>
+    <td>j9VYv1q33Ea+cbahWsHFYnLkEzrF0yA5SAqcLNvU7KM=</td>
+  </tr>
+</table>
 
 A continuación, para definir un **ConnectionFactory** llamado "SBCF", la cadena de configuración tendrá el aspecto siguiente:
 
@@ -86,17 +117,24 @@ La entrada usada para definir un destino en el proveedor JNDI de archivo de prop
 
     queue.[jndi_name] = [physical_name]
 
-o
+O bien,
 
     topic.[jndi_name] = [physical_name]
 
 Donde [jndi\_name] y [physical\_name] tienen los significados siguientes:
 
-|------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| [jndi\_name]     | El nombre lógico del destino. Este es el nombre que se resolverá en la aplicación Java usando el método JNDI IntialContext.lookup(). |
-| [physical\_name] | El nombre de la entidad del bus de servicio a la que la aplicación envía mensajes o de la que los recibe.                            |
+<table>
+  <tr>
+    <td>[jndi_name]</td>
+    <td>El nombre lógico del destino. Este es el nombre que se resolverá en la aplicación Java usando el método JNDI IntialContext.lookup().</td>
+  </tr>
+  <tr>
+    <td>[physical_name]</td>
+    <td>El nombre de la entidad del bus de servicio a la que la aplicación envía mensajes o de la que los recibe.</td>
+  </tr>
+</table>
 
-**Nota**: al recibir de una suscripción al tema del bus de servicio, el nombre físico especificado en JNDI debe ser el nombre del tema. El nombre de la suscripción se proporciona cuando la suscripción duradera se crea en el código de aplicación JMS. La [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][] proporciona más información acerca de cómo trabajar con las suscripciones a temas del bus de servicio desde JMS.
+**Nota**: al recibir de una suscripción al tema del bus de servicio, el nombre físico especificado en JNDI debe ser el nombre del tema. El nombre de la suscripción se proporciona cuando la suscripción duradera se crea en el código de aplicación JMS. La [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/jj841071.aspx) proporciona más información acerca de cómo trabajar con las suscripciones a temas del bus de servicio desde JMS.
 
 ### Escritura de la aplicación JMS
 
@@ -135,26 +173,26 @@ El programa de ejemplo siguiente envía JMS TextMessages a una cola de bus de se
         private static Random randomGenerator = new Random();
 
         public SimpleSenderReceiver() throws Exception {
-            // Configure JNDI environment
+            // Configurar el entorno JNDI
             Hashtable<String, String> env = new Hashtable<String, String>();
             env.put(Context.INITIAL_CONTEXT_FACTORY, 
                     "org.apache.qpid.amqp_1_0.jms.jndi.PropertiesFileInitialContextFactory");
             env.put(Context.PROVIDER_URL, "servicebus.properties");
             Context context = new InitialContext(env);
 
-            // Lookup ConnectionFactory and Queue
+            // Buscar ConnectionFactory y Queue.
             ConnectionFactory cf = (ConnectionFactory) context.lookup("SBCF");
             Destination queue = (Destination) context.lookup("QUEUE");
 
-            // Create Connection
+            // Crear una conexión
             connection = cf.createConnection();
 
-            // Create sender-side Session and MessageProducer
+            // Crear una sesión de emisor y MessageProducer
             sendSession = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
             sender = sendSession.createProducer(queue);
 
             if (runReceiver) {
-                // Create receiver-side Session, MessageConsumer,and MessageListener
+                // Crear una sesión de destinatario, MessageConsumer y MessageListener
                 receiveSession = connection.createSession(false, Session.CLIENT_ACKNOWLEDGE);
                 receiver = receiveSession.createConsumer(queue);
                 receiver.setMessageListener(this);
@@ -221,19 +259,20 @@ Al ejecutar la aplicación se obtienen resultados del tipo:
     Received message with JMSMessageID = ID:2867600614942270318
 
     Sent message with JMSMessageID = ID:7578408152750301483
-    Received message with JMSMessageID = ID:7578408152750301483
+    Sent message with JMSMessageID = ID:7578408152750301483
 
     Sent message with JMSMessageID = ID:956102171969368961
-    Received message with JMSMessageID = ID:956102171969368961
+    Sent message with JMSMessageID = ID:956102171969368961
     exit
 
-## Mensajería de diferentes plataformas entre JMS y .NET
+Mensajería de diferentes plataformas entre JMS y .NET
+-----------------------------------------------------
 
 Esta guía le ha mostrado cómo enviar y recibir mensajes con el bus de servicio como origen y destino usando JMS. Sin embargo, una de las ventajas principales de AMQP 1.0 es que permite que las aplicaciones estén formadas por componentes escritos en diferentes lenguajes, a la vez que garantiza que los mensajes se intercambien con total seguridad y fidelidad.
 
-Utilizando la aplicación JMS de ejemplo descrita anteriormente y una aplicación .NET similar tomada de la guía complementaria [Uso de la API de .NET con el bus de servicio .NET y AMQP 1.0][], es posible intercambiar mensajes entre .NET y Java.
+Utilizando la aplicación JMS de ejemplo descrita anteriormente y una aplicación .NET similar tomada de la guía complementaria [Uso de la API de .NET con el bus de servicio .NET y AMQP 1.0](http://aka.ms/lym3vk), es posible intercambiar mensajes entre .NET y Java.
 
-Para obtener más información acerca de la mensajería entre diferentes plataformas utilizando el bus de servicio y AMQP 1.0, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][].
+Para obtener más información acerca de la mensajería entre diferentes plataformas utilizando el bus de servicio y AMQP 1.0, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/jj841071.aspx).
 
 ### De JMS a .NET
 
@@ -255,7 +294,7 @@ Para comprobar cómo funciona la mensajería de JMS a .NET:
 
 **Resultados de la aplicación .NET**
 
-    > SimpleSenderReceiver.exe  
+    > SimpleSenderReceiver.exe    
     Press [enter] to send a message. Type 'exit' + [enter] to quit.
     Received message with MessageID = 4364096528752411591
     Received message with MessageID = 459252991689389983
@@ -282,14 +321,15 @@ Para comprobar cómo funciona la mensajería de .NET a JMS:
 
 **Resultados de la aplicación JMS**
 
-    > java SimpleSenderReceiver 
+    > java SimpleSenderReceiver   
     Press [enter] to send a message. Type 'exit' + [enter] to quit.
     Received message with JMSMessageID = ID:d64e681a310a48a1ae0ce7b017bf1cf3
     Received message with JMSMessageID = ID:98a39664995b4f74b32e2a0ecccc46bb
     Received message with JMSMessageID = ID:acbca67f03c346de9b7893026f97ddeb
     exit
 
-## Características no admitidas y restricciones
+Características no admitidas y restricciones
+--------------------------------------------
 
 Existen las restricciones siguientes al usar JMS sobre AMQP 1.0 con el bus de servicio, a saber:
 
@@ -299,24 +339,18 @@ Existen las restricciones siguientes al usar JMS sobre AMQP 1.0 con el bus de se
 -   Actualmente no se admiten destinos temporales como **TemporaryQueue** o **TemporaryTopic**, junto con las API **QueueRequestor** y **TopicRequestor** que los usan.
 -   No se admiten las sesiones de transacción ni las transacciones distribuidas.
 
-## Resumen
+Resumen
+-------
 
 En esta guía de instrucciones se indica cómo usar las características de mensajería asíncrona del bus de servicio (colas y publicación/suscripción a temas) desde Java utilizando las populares JMS API y AMQP 1.0.
 
-También puede utilizar AMQP 1.0 del bus de servicio desde otros lenguajes, como .NET, C, Python y PHP. Los componentes creados utilizando estos lenguajes pueden intercambiar mensajes con seguridad y fidelidad gracias a la compatibilidad de AMQP 1.0 en el bus de servicio. Para obtener más información, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][].
+También puede utilizar AMQP 1.0 del bus de servicio desde otros lenguajes, como .NET, C, Python y PHP. Los componentes creados utilizando estos lenguajes pueden intercambiar mensajes con seguridad y fidelidad gracias a la compatibilidad de AMQP 1.0 en el bus de servicio. Para obtener más información, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/jj841071.aspx).
 
-## Más información
+Más información
+---------------
 
--   [Compatibilidad de AMQP 1.0 en el bus de servicio de Azure][]
--   [Uso de AMQP 1.0 con la API .NET del bus de servicio][Uso de la API de .NET con el bus de servicio .NET y AMQP 1.0]
--   [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][]
--   [Utilización de las colas del bus de servicio][]
+-   [Compatibilidad de AMQP 1.0 en el bus de servicio de Azure](http://aka.ms/pgr3dp)
+-   [Uso de AMQP 1.0 con la API .NET del bus de servicio](http://aka.ms/lym3vk)
+-   [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/jj841071.aspx)
+-   [Utilización de las colas del bus de servicio](http://www.windowsazure.com/es-es/develop/net/how-to-guides/service-bus-queues/)
 
-  [Portal de administración de Azure]: http://manage.windowsazure.com
-  [Utilización de las colas del bus de servicio.]: https://www.windowsazure.com/es-es/develop/net/how-to-guides/service-bus-queues/
-  []: http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html
-  [1]: http://www.w3schools.com/tags/ref_urlencode.asp
-  [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio]: http://msdn.microsoft.com/es-es/library/windowsazure/jj841071.aspx
-  [Uso de la API de .NET con el bus de servicio .NET y AMQP 1.0]: http://aka.ms/lym3vk
-  [Compatibilidad de AMQP 1.0 en el bus de servicio de Azure]: http://aka.ms/pgr3dp
-  [Utilización de las colas del bus de servicio]: http://www.windowsazure.com/es-es/develop/net/how-to-guides/service-bus-queues/

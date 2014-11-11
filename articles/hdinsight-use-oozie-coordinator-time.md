@@ -1,6 +1,6 @@
 <properties linkid="hdinsight-use-time-based-oozie-coordinator-with-hdinsight" urlDisplayName="Use time-based Hadoop Oozie Coordinator in HDInsight" pageTitle="Use time-based Hadoop Oozie Coordinator in HDInsight | Azure" metaKeywords="" description="Use time-based Hadoop Oozie Coordinator in HDInsight, a big data solution. Learn how to define Oozie workflows and coordinators, and submit coordinator jobs." metaCanonical="" services="hdinsight" documentationCenter="" title="Use time-based Hadoop Oozie Coordinator in HDInsight" authors="jgao" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Uso del coordinador de Oozie de tiempo con Hadoop en HDInsight
 
@@ -10,7 +10,7 @@ Obtenga más información acerca de cómo definir los flujos de trabajo y los co
 
 ## En este artículo
 
-1.  [¿Qué es Oozie?][¿Qué es Oozie?]
+1.  [¿Qué es Oozie?](¿Qué es Oozie?)
 2.  [Requisitos previos][Requisitos previos]
 3.  [Definición del archivo de flujo de trabajo de Oozie][Definición del archivo de flujo de trabajo de Oozie]
 4.  [Implementación del proyecto de Oozie y preparación del tutorial][Implementación del proyecto de Oozie y preparación del tutorial]
@@ -692,7 +692,7 @@ de PowerShell Invoke-RestMethod para invocar los servicios web de Oozie. La API 
 
     Elimine el signo \# si desea ejecutar las funciones adicionales.
 
-9.  Si el clúster de HDinsight es la versión 2.1, reemplace "<https://$clusterName.azurehdinsight.net:443/oozie/v2/>" por "<https://$clusterName.azurehdinsight.net:443/oozie/v1/>". La versión del clúster de HDInsight 2.1 no es compatible con la versión 2 de los servicios web.
+9.  Si el clúster de HDinsight es la versión 2.1, reemplace "https://$clusterName.azurehdinsight.net:443/oozie/v2/" por "https://$clusterName.azurehdinsight.net:443/oozie/v1/". La versión del clúster de HDInsight 2.1 no es compatible con la versión 2 de los servicios web.
 
 10. Haga clic en **Run Script** o presione **F5** para ejecutar el script. La salida debe ser similar a:
 
@@ -755,7 +755,6 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie, un coordin
 -   [Desarrollo de programas MapReduce de Java para HDInsight][Desarrollo de programas MapReduce de Java para HDInsight]
 
   [Uso de Oozie con HDInsight]: ../hdinsight-use-oozie/
-  [¿Qué es Oozie?]: #whatisoozie
   [Requisitos previos]: #prerequisites
   [Definición del archivo de flujo de trabajo de Oozie]: #defineworkflow
   [Implementación del proyecto de Oozie y preparación del tutorial]: #deploy

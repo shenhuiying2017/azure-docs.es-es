@@ -117,7 +117,7 @@ El esquema URI para obtener acceso a los archivos del almacenamiento de blobs es
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
-> [WACOM.NOTE] La sintaxis para enviar los archivos al emulador de almacenamiento (que se ejecuta en el emulador de HDInsight) es *wasb:[//\<NombreDeContenedor\>@storageemulator][//\<NombreDeContenedor\>@storageemulator]*.
+> [WACOM.NOTE] La sintaxis para enviar los archivos al emulador de almacenamiento (que se ejecuta en el emulador de HDInsight) es <i>wasb://&lt;NombredelContenedor&gt;@storageemulator</i>.
 
 El esquema de URI proporciona tanto acceso no cifrado con el prefijo *wasb:* como acceso SSL cifrado con *wasbs*. Se recomienda usar *wasbs* siempre que sea posible, incluso al obtener acceso a los datos que residen en el mismo centro de datos de Azure.
 
@@ -262,7 +262,6 @@ Para obtener más información, consulte los artículos siguientes:
   [HDI.QuickCreate]: ./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png
   [HDI.CustomCreateStorageAccount]: ./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png
   [Azure PowerShell]: ../install-configure-powershell/
-  [//\<NombreDeContenedor\>@storageemulator]: mailto://<ContainerName>@storageemulator
   [Blob.PowerShell.cmdlets]: ./media/hdinsight-use-blob-storage/HDI.PowerShell.BlobCommands.png
   [Carga de datos en HDInsight]: ../hdinsight-upload-data/
   [Uso de Hive con HDInsight]: ../hdinsight-use-hive/

@@ -136,7 +136,7 @@ La máquina virtual debe tener un extremo para escuchar la comunicación TCP de 
 
 1.  Conéctese a la máquina virtual a través del Escritorio remoto de Windows. Una vez que ha iniciado sesión, en el menú de inicio, haga clic en **Ejecutar**, escriba **WF.msc** y, a continuación, haga clic en **Aceptar**.
 
-    ![Iniciar el programa de firewall][Image12]]
+    ![Iniciar el programa de firewall][Image12]
 
 2.  En **Firewall de Windows con seguridad avanzada**, en el panel de la izquierda, haga clic con el botón secundario en **Reglas de entrada** y, a continuación, haga clic en **Nueva regla** en el panel de acciones.
 
@@ -258,7 +258,7 @@ Para conectarse al motor de base de datos desde otro equipo, debe crear al menos
 
 12. Haga clic en Aceptar.
 
-Para ver más información acerca de los inicios de sesión de SQL Server, consulte [Crear un inicio de sesión][].
+Para ver más información acerca de los inicios de sesión de SQL Server, consulte [Crear un inicio de sesión][Crear un inicio de sesión].
 
 ### <span id="DNS"></span>Determinación del nombre DNS de la máquina virtual</a>
 
@@ -266,7 +266,7 @@ Para conectarse al motor de base de datos de SQL Server desde otro equipo, debe 
 
 1.  En el Portal de administración de Azure (o desde el paso anterior), seleccione **MÁQUINAS VIRTUALES**.
 
-2.  En la página **VIRTUAL MACHINE INSTANCES**, en la columna **DNS NAME**, encuentre y copie el nombre DNS para la máquina virtual que aparece antecedido por **<http://>**. (Puede que la interfaz de usuario no muestre todo el nombre, pero puede hacer clic con el botón secundario en él y seleccionar Copiar).
+2.  En la página **VIRTUAL MACHINE INSTANCES**, en la columna **DNS NAME**, encuentre y copie el nombre DNS para la máquina virtual que aparece antecedido por **http://**. (Puede que la interfaz de usuario no muestre todo el nombre, pero puede hacer clic con el botón secundario en él y seleccionar Copiar).
 
     ![DNS Name][Image32]
 

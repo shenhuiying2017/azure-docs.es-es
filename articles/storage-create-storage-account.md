@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-create-a-storage-account" urlDisplayName="How to create" pageTitle="How to create a storage account | Azure" metaKeywords="" description="Learn how to create a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # <span id="createstorageaccount"></span></a>Creación de una cuenta de almacenamiento
 
@@ -23,7 +23,7 @@ Para obtener más información acerca de la capacidad y el rendimiento de la cue
 
     ![Nueva cuenta de almacenamiento][Nueva cuenta de almacenamiento]
 
-3.  En **URL**, escriba el nombre de subdominio que vaya usar en la URL para la cuenta de almacenamiento. Para tener acceso a un objeto en almacenamiento, anexará la ubicación del objeto al extremo. Por ejemplo, la dirección URL para obtener acceso a un blob podría ser <http://*myaccount>*.blob.core.windows.net/*mycontainer*/*myblob\*.
+3.  En **URL**, escriba el nombre de subdominio que vaya usar en la URL para la cuenta de almacenamiento. Para tener acceso a un objeto en almacenamiento, anexará la ubicación del objeto al extremo. Por ejemplo, la dirección URL para obtener acceso a un blob podría ser http://*myaccount*.blob.core.windows.net/*mycontainer*/*myblob\*.
 
 4.  En **Region/Affinity Group**, seleccione una región o un grupo de afinidad para el almacenamiento. Seleccione un grupo de afinidad en lugar de una región si desea que sus servicios de almacenamiento estén en el mismo centro de datos con otros servicios de Azure que utilice. Con esto se puede mejorar el rendimiento y no se generan cargos por concepto de salida.
 

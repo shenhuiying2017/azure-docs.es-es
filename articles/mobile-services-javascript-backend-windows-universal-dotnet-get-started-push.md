@@ -27,17 +27,19 @@ Para completar este tutorial, necesitará lo siguiente:
 
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
-1.  Vaya a la carpeta de proyecto `\Services\MobileServices\your_service_name`, abra el archivo de código push.register.cs generado e inspeccione el método **UploadChannel** que registra la URL de canal del dispositivo con el Centro de notificaciones.
+<ol start="6">
+<li><p>Vaya a la carpeta de proyecto <code>\Services\MobileServices\your_service_name</code>, abra el archivo de código push.register.cs generado e inspeccione el método <b>UploadChannel</b> que registra la URL de canal del dispositivo con el Centro de notificaciones.</p></li>
 
-2.  Abra el archivo de código App.xaml.cs compartido y observe que se ha agregado una llamada al nuevo método **UploadChannel** en el controlador de eventos **OnLaunched**.
+<li><p>Abra el archivo de código App.xaml.cs compartido y observe que se ha agregado una llamada al nuevo método <b>UploadChannel</b> en el controlador de eventos <b>OnLaunched</b>.</p></li>
 
-    Así se garantiza que se intentará registrar el dispositivo siempre que se inicie la aplicación.
+    <p>Así se garantiza que se intentará registrar el dispositivo siempre que se inicie la aplicación.</p>
 
-3.  Repita los pasos anteriores para agregar las notificaciones de inserción al proyecto de aplicación de la Tienda de Windows Phone y, en el archivo App.xaml.cs compartido, quite la llamada extra a **UploadChannel** y el contenedor condicional `#if...#endif` restante.
+<li><p>Repita los pasos anteriores para agregar las notificaciones de inserción al proyecto de aplicación de la Tienda de Windows Phone y, en el archivo App.xaml.cs compartido, quite la llamada extra a <b>UploadChannel</b> y el contenedor condicional <code>#if...#endif</code> restante.</p></li>
 
-    Ahora los dos proyectos pueden compartir una misma llamada a **UploadChannel**.
+    <p>Ahora los dos proyectos pueden compartir una misma llamada a <b>UploadChannel</b>.</p>
 
     <div class="dev-callout"><strong>Nota:</strong> <p>Si quiere simplificar el c&oacute;digo generado, unifique las definiciones <a href="http://msdn.microsoft.com/es-es/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> del contenedor <code data-inline="1">#if...#endif</code> en una &uacute;nica definici&oacute;n sin contenedor, que deben usar las dos versiones de la aplicaci&oacute;n.</p></div>
+</ol>
 
 Tras habilitar las notificaciones de inserción en la aplicación, actualice el servicio móvil para enviarlas.
 
@@ -69,7 +71,9 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 -   [Uso de un cliente .NET para Servicios móviles de Azure][Uso de un cliente .NET para Servicios móviles de Azure]
     Obtenga más información sobre cómo usar Servicios móviles desde aplicaciones de C# Windows.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
+<!-- Anchors. --> 
+<!-- Images. --> 
+<!-- URLs. -->
 
   [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
   [Introducción a las notificaciones de inserción en Servicios móviles]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push

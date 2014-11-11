@@ -1,10 +1,11 @@
 <properties linkid="develop-node-website-with-mongodb-mac" urlDisplayName="Website with MongoDB" pageTitle="Node.js website with MongoDB on a VM - Azure tutorial" metaKeywords="Azure tutorial MongoDB, MongoDB store data, access data MongoDB Node, Azure Node app" description="A tutorial that teaches you how to use MongoDB to store and access data from a Node application hosted on Azure." metaCanonical="http://www.windowsazure.com/es-es/develop/nodejs/tutorials/website-with-mongodb-mongolab/" services="web-sites,virtual-machines" documentationCenter="nodejs" title="Node.js Web Application with Storage on MongoDB (Virtual Machine)" authors="larryfr"  solutions="" writer="" manager="" editor=""  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+
 
 # Creación de una aplicación Node.js en Azure con MongoDB en una máquina virtual
 
-Este tutorial le muestra cómo usar [MongoDB][] hospedado en una máquina virtual de Azure para almacenar datos y tener acceso a ellos desde una aplicación [Node][] hospedada en un sitio web de Azure. [MongoDB][] es una conocida base de datos NoSQL de alto rendimiento de código abierto.
+Este tutorial le muestra cómo usar [MongoDB][MongoDB] hospedado en una máquina virtual de Azure para almacenar datos y tener acceso a ellos desde una aplicación [Node][Node] hospedada en un sitio web de Azure. [MongoDB][MongoDB] es una conocida base de datos NoSQL de alto rendimiento de código abierto.
 
 Aprenderá a:
 
@@ -14,11 +15,11 @@ Aprenderá a:
 
 Al seguir este tutorial, podrá compilar una aplicación de administración de tareas basadas en web sencilla que permite crear, recuperar y completar tareas. Las tareas se almacenan en MongoDB.
 
-> [WACOM.NOTE] Este tutorial usa una instancia de MongoDB instalada en una máquina virtual. Si prefiere usar una instancia de MongoDB hospedada proporcionada por MongoLabs, consulte [Creación de una aplicación Node.js en Azure con MongoDB y el complemento de MongoLab][].
+> [WACOM.NOTE] Este tutorial usa una instancia de MongoDB instalada en una máquina virtual. Si prefiere usar una instancia de MongoDB hospedada proporcionada por MongoLabs, consulte [Creación de una aplicación Node.js en Azure con MongoDB y el complemento de MongoLab][Creación de una aplicación Node.js en Azure con MongoDB y el complemento de MongoLab].
 
 Los archivos del proyecto para este tutorial se almacenarán en un directorio llamado **tasklist** y la aplicación completada tendrá una apariencia similar a la siguiente:
 
-![Página web que muestra una lista de tareas vacía][]
+![Página web que muestra una lista de tareas vacía][Página web que muestra una lista de tareas vacía]
 
 > [WACOM.NOTE] Muchos de los pasos que se mencionan a continuación usan la línea de comandos. Para estos pasos, use la línea de comandos de su sistema operativo, como **Windows PowerShell** (Windows) o **Bash** (Unix Shell). En los sistemas OS X puede tener acceso a la línea de comandos mediante la aplicación Terminal.
 
@@ -26,25 +27,25 @@ Los archivos del proyecto para este tutorial se almacenarán en un directorio ll
 
 Los pasos de este tutorial usan Node.js. Debe tener una versión reciente de [Node.js][Node] en su entorno de desarrollo.
 
-Adicionalmente, el [Git][] debe estar disponible desde la línea de comandos en su entorno de desarrollo, debido a que se utiliza para implementar la aplicación en un sitio web de Azure.
+Adicionalmente, el [Git][Git] debe estar disponible desde la línea de comandos en su entorno de desarrollo, debido a que se utiliza para implementar la aplicación en un sitio web de Azure.
 
-[WACOM.INCLUDE [create-account-and-websites-note][]]
+[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-## de una máquina virtual
+##Creación de una máquina virtual
 
 <!--This tutorial assumes you have created a virtual machine in Azure. After creating the virtual machine you need to install MongoDB on the virtual machine:  * To create a Linux virtual machine and install MongoDB, see [Installing MongoDB on a Linux Virtual machine].  After you have created the virtual machine in Azure and installed MongoDB, be sure to remember the DNS name of the virtual machine ("testlinuxvm.cloudapp.net", for example) and the external port for MongoDB that you specified in the endpoint.  You will need this information later in the tutorial.-->
 
-Si bien es posible crear una máquina virtual nueva y luego instalar MongoDB en ella siguiendo las [guías de instalación de MongoDB][], la mayoría de este trabajo ya lo realizó la comunidad y está disponible en el depósito de máquinas virtuales. Los siguientes pasos demuestran cómo usar una imagen del depósito de máquinas virtuales que ya tiene Mongo DB instalado y configurado.
+Si bien es posible crear una máquina virtual nueva y luego instalar MongoDB en ella siguiendo las [guías de instalación de MongoDB][guías de instalación de MongoDB], la mayoría de este trabajo ya lo realizó la comunidad y está disponible en el depósito de máquinas virtuales. Los siguientes pasos demuestran cómo usar una imagen del depósito de máquinas virtuales que ya tiene Mongo DB instalado y configurado.
 
-> [WACOM.NOTE] La imagen de comunidad utilizada en este tutorial almacena datos de MongoDB en el disco del sistema operativo. Aunque esto es suficiente para los objetivos del tutorial, el almacenamiento de datos de MongoDB en un disco de datos proporcionará un rendimiento mayor. Para obtener los pasos necesarios para crear una nueva máquina virtual, incluido un disco de datos, y almacenar los datos de MongoDB en el disco de datos, vea [Instalación de MongoDB en Linux en Azure][].
+> [WACOM.NOTE] La imagen de comunidad utilizada en este tutorial almacena datos de MongoDB en el disco del sistema operativo. Aunque esto es suficiente para los objetivos del tutorial, el almacenamiento de datos de MongoDB en un disco de datos proporcionará un rendimiento mayor. Para obtener los pasos necesarios para crear una nueva máquina virtual, incluido un disco de datos, y almacenar los datos de MongoDB en el disco de datos, vea [Instalación de MongoDB en Linux en Azure][Instalación de MongoDB en Linux en Azure].
 
-1.  Inicie sesión en el [Portal de administración de Azure][], seleccione **Máquinas virtuales**, seleccione **Images** y, a continuación, seleccione **VM Depot**.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], seleccione **Máquinas virtuales**, seleccione **Images** y, a continuación, seleccione **VM Depot**.
 
-    ![Captura de pantalla de la selección del depósito de máquinas virtuales][]
+    ![Captura de pantalla de la selección del depósito de máquinas virtuales][Captura de pantalla de la selección del depósito de máquinas virtuales]
 
 2.  Seleccione una imagen que incluya MongoDB. En este caso, seleccioné Ubuntu para reducir la lista a solo imágenes según la distribución de Ubuntu Linux. Por último, seleccioné MongoDB v2.2.3 en una imagen protegida de Ubuntu
 
-    ![Captura de pantalla de mongodb v2.2.3 seleccionado en imagen protegida de ubuntu][]
+    ![Captura de pantalla de mongodb v2.2.3 seleccionado en imagen protegida de ubuntu][Captura de pantalla de mongodb v2.2.3 seleccionado en imagen protegida de ubuntu]
 
     > [WACOM.NOTE] Asegúrese de seleccionar **More** para ver toda la información sobre la imagen. Algunas imágenes pueden tener una configuración adicional que se requiere después de haber creado una máquina virtual usando la imagen.
 
@@ -52,29 +53,29 @@ Si bien es posible crear una máquina virtual nueva y luego instalar MongoDB en 
 
 3.  Seleccione la región y la cuenta de almacenamiento que se usarán para almacenar el VHD para esta imagen. Haga clic en la marca de verificación para continuar.
 
-    ![Captura de pantalla de selección de una cuenta de almacenamiento][]
+    ![Captura de pantalla de selección de una cuenta de almacenamiento][Captura de pantalla de selección de una cuenta de almacenamiento]
 
     > [WACOM.NOTE] De esta manera se inicia un proceso de copia que copia la imagen desde el depósito de máquinas virtuales hasta la cuenta de almacenamiento especificada. Esta operación puede tardar bastante tiempo, 15 minutos o más.
 
 4.  Después de que el estado de la imagen cambia a **Pending registration**, seleccione **Register** y escriba un nombre descriptivo para la imagen nueva. Haga clic en la marca de verificación para continuar.
 
-    ![Captura de pantalla del registro de una imagen][]
+    ![Captura de pantalla del registro de una imagen][Captura de pantalla del registro de una imagen]
 
 5.  Después de que el estado de la imagen cambia a **Available**, seleccione **+ New**, **Máquina virtual**, **From Gallery**. Cuando se le pida que **elija una imagen**, seleccione **My Images** y, a continuación, la imagen que se creó en los pasos anteriores. Haga clic en la flecha para continuar.
 
-    ![Captura de pantalla de la imagen][]
+    ![Captura de pantalla de la imagen][Captura de pantalla de la imagen]
 
 6.  Proporciona el nombre de la máquina virtual, el tamaño y el nombre de usuario. Haga clic en la flecha para continuar.
 
-    ![Captura de pantalla del nombre de la máquina virtual, nombre de usuario, etc.][]
+    ![Captura de pantalla del nombre de la máquina virtual, nombre de usuario, etc.][Captura de pantalla del nombre de la máquina virtual, nombre de usuario, etc.]
 
     > [WACOM.NOTE] En este tutorial, no necesitará usar SSH para conectarse de manera remota a su máquina virtual. Seleccione **Use a password** y proporcione una contraseña si no está familiarizado con el uso de un certificado con SSH.
     >
-    > Para obtener más información sobre el uso de SSH con una máquina virtual del Linux en Azure, consulte [Utilización de SSH con Linux en Azure][].
+    > Para obtener más información sobre el uso de SSH con una máquina virtual del Linux en Azure, consulte [Utilización de SSH con Linux en Azure][Utilización de SSH con Linux en Azure].
 
 7.  Seleccione si va a usar un servicio en la nube nuevo o existente y la región en la que se va a crear la máquina virtual. Haga clic en la flecha para continuar.
 
-    ![Captura de pantalla de la configuración de la máquina virtual][]
+    ![Captura de pantalla de la configuración de la máquina virtual][Captura de pantalla de la configuración de la máquina virtual]
 
 8.  Establezca extremos adicionales para la máquina virtual. Debido a que tendremos acceso a MongoDB en esta máquina virtual, agregue un extremo nuevo con la siguiente información:
 
@@ -92,9 +93,9 @@ Si bien es posible crear una máquina virtual nueva y luego instalar MongoDB en 
 
     Por último, seleccione la marca de verificación para configurar la máquina virtual.
 
-    ![Captura de pantalla de la configuración del extremo][]
+    ![Captura de pantalla de la configuración del extremo][Captura de pantalla de la configuración del extremo]
 
-9.  Después de que el estado de la máquina virtual haya cambiado a **Running**, debería poder abrir un explorador web en \_\_[http://\<YourVMDNSName\>.cloudapp.net:28017/\_\_][] para verificar que MongoDB está en ejecución. En la parte inferior de la página debe haber un registro que muestra información sobre el servicio, similar al siguiente:
+9.  Después de que el estado de la máquina virtual haya cambiado a **Running**, debería poder abrir un explorador web en __http://&lt;YourVMDNSName&gt;.cloudapp.net:28017/__ para verificar que MongoDB está en ejecución. En la parte inferior de la página debe haber un registro que muestra información sobre el servicio, similar al siguiente:
 
         Fri Mar  7 18:57:16 [initandlisten] MongoDB starting : pid=1019 port=27017 dbpath=/var/lib/mongodb 64-bit host=localhost.localdomain
            18:57:16 [initandlisten] db version v2.2.3, pdfile version 4.5
@@ -105,11 +106,11 @@ Si bien es posible crear una máquina virtual nueva y luego instalar MongoDB en 
            18:57:16 [initandlisten] recover : no journal files present, no recovery needed
            18:57:17 [initandlisten] waiting for connections on port 27017
 
-    Si el registro muestra errores, consulte la [documentación de MongoDB][] para conocer los pasos para solucionar problemas.
+    Si el registro muestra errores, consulte la [documentación de MongoDB][documentación de MongoDB] para conocer los pasos para solucionar problemas.
 
 ## Instalación de módulos y generación de scaffolding
 
-En esta sección podrá crear una nueva aplicación Node en su entorno de desarrollo y usar npm para agregar paquetes de módulos. Para la aplicación de lista de tareas, usará los módulos [Express][] y [Mongoose][]. El módulo Express proporciona un marco de controlador de vista de modelo para Node, mientras que Mongoose es un controlador para comunicarse con MongoDB.
+En esta sección podrá crear una nueva aplicación Node en su entorno de desarrollo y usar npm para agregar paquetes de módulos. Para la aplicación de lista de tareas, usará los módulos [Express][Express] y [Mongoose][Mongoose]. El módulo Express proporciona un marco de controlador de vista de modelo para Node, mientras que Mongoose es un controlador para comunicarse con MongoDB.
 
 ### Instalar Express y generar scaffolding
 
@@ -404,13 +405,13 @@ En esta sección extenderá la aplicación básica creada por el comando **expre
 
 Los pasos de esta sección usan las herramientas de la línea de comandos de Azure para crear un sitio web de Azure nuevo y, posteriormente, usan Git para implementar su aplicación. Para realizar estos pasos debe tener una suscripción a Azure.
 
-> [WACOM.NOTE] Estos pasos también pueden llevarse a cabo usando el portal de Azure. Para conocer los pasos para usar el portal de Azure y así implementar una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un Sitio web Azure][].
+> [WACOM.NOTE] Estos pasos también pueden llevarse a cabo usando el portal de Azure. Para conocer los pasos para usar el portal de Azure y así implementar una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un Sitio web Azure][Creación e implementación de una aplicación Node.js en un Sitio web Azure].
 
 > [WACOM.NOTE] Si este es el primer sitio web de Azure que crea, debe usar el portal de Azure para implementar esta aplicación.
 
 ### Instalar la interfaz de línea de comandos entre plataformas de Azure
 
-La interfaz de línea de comandos entre plataformas de Azure (xplat-cli) le permite realizar operaciones de administración para los servicios de Azure. Si todavía no ha instalado ni configurado la xplat-cli en su entorno de desarrollo, consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure][] para obtener instrucciones.
+La interfaz de línea de comandos entre plataformas de Azure (xplat-cli) le permite realizar operaciones de administración para los servicios de Azure. Si todavía no ha instalado ni configurado la xplat-cli en su entorno de desarrollo, consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure][Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure] para obtener instrucciones.
 
 ### Creación de un sitio web de Azure
 
@@ -422,7 +423,7 @@ La interfaz de línea de comandos entre plataformas de Azure (xplat-cli) le perm
 
     Se le solicitará el centro de datos en el que se ubicará el sitio. Seleccione el centro de datos que se encuentra geográficamente cerca de su ubicación.
 
-    El parámetro `--git` creará un repositorio de Git de manera local en la carpeta **tasklist** si no existe ninguno. Creará también un [Git remoto][] con el nombre 'azure', que se usará para publicar la aplicación en Azure. Creará un [iisnode.yml][], que contiene la configuración usada por Azure para hospedar aplicaciones Node. Finalmente, creará también un archivo .gitignore para excluir la carpeta de módulos de Node para que se publique en .git.
+    El parámetro `--git` creará un repositorio de Git de manera local en la carpeta **tasklist** si no existe ninguno. Creará también un [Git remoto][Git remoto] con el nombre 'azure', que se usará para publicar la aplicación en Azure. Creará un [iisnode.yml][iisnode.yml], que contiene la configuración usada por Azure para hospedar aplicaciones Node. Finalmente, creará también un archivo .gitignore para excluir la carpeta de módulos de Node para que se publique en .git.
 
     > [WACOM.NOTE] Si este comando se ejecutó desde un directorio que ya contiene un repositorio de Git, no reinicializará el repositorio.
 
@@ -486,16 +487,16 @@ Esto crea una nueva configuración de aplicación para el sitio web, que se usar
 
 ## Pasos siguientes
 
-Si bien los pasos de este artículo describen el uso de MongoDB para almacenar información, puede también usar el servicio de tablas de Azure. Consulte [Aplicación web Node.js con el servicio de tablas de Azure][] para obtener más información.
+Si bien los pasos de este artículo describen el uso de MongoDB para almacenar información, puede también usar el servicio de tablas de Azure. Consulte [Aplicación web Node.js con el servicio de tablas de Azure][Aplicación web Node.js con el servicio de tablas de Azure] para obtener más información.
 
-Para obtener información sobre el uso de una instancia hospedada de MongoDB proporcionada por MongoLab, consulte [Creación de una aplicación Node.js en Azure con MongoDB y el complemento de MongoLab][].
+Para obtener información sobre el uso de una instancia hospedada de MongoDB proporcionada por MongoLab, consulte [Creación de una aplicación Node.js en Azure con MongoDB y el complemento de MongoLab][Creación de una aplicación Node.js en Azure con MongoDB y el complemento de MongoLab].
 
-Para obtener información sobre la protección de MongoDB, consulte [MongoDB Security][].
+Para obtener información sobre la protección de MongoDB, consulte [MongoDB Security][MongoDB Security].
 
 ## Recursos adicionales
 
-[Herramienta de línea de comandos de Azure para Mac y Linux][Creación e implementación de una aplicación Node.js en un Sitio web Azure]
-[Publicación en sitios web de Azure con Git][]
+[Herramienta de línea de comandos de Azure para Mac y Linux][Creación e implementación de una aplicación Node.js en un Sitio web Azure]    
+[Publicación en sitios web de Azure con Git][Publicación en sitios web de Azure con Git]
 
   [MongoDB]: http://www.mongodb.org
   [Node]: http://nodejs.org
@@ -515,7 +516,6 @@ Para obtener información sobre la protección de MongoDB, consulte [MongoDB Sec
   [Utilización de SSH con Linux en Azure]: http://www.windowsazure.com/es-es/documentation/articles/linux-use-ssh-key/
   [Captura de pantalla de la configuración de la máquina virtual]: ./media/web-sites-nodejs-store-data-mongodb/vmconfig.png
   [Captura de pantalla de la configuración del extremo]: ./media/web-sites-nodejs-store-data-mongodb/endpoints.png
-  [http://\<YourVMDNSName\>.cloudapp.net:28017/\_\_]: http://<YourVMDNSName>.cloudapp.net:28017/__
   [documentación de MongoDB]: http://docs.mongodb.org/manual/
   [Express]: http://expressjs.com
   [Mongoose]: http://mongoosejs.com

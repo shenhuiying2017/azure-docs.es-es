@@ -1,6 +1,6 @@
 <properties linkid="develop-php-website-with-mysql-and-webmatrix" urlDisplayName="Web w/ WebMatrix" pageTitle="PHP website with MySQL and WebMatrix - Azure tutorial" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in MySQL." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Azure Website using WebMatrix" authors="" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 
 
@@ -150,9 +150,9 @@ Antes de publicar la aplicación en Sitios web Azure, la información de conexi�
 
     ![WebMatrix: publicar][WebMatrix: publicar]
 
-3.  Diríjase a [http://[su][http://[su] nombre de sitio web].azurewebsites.net/createtable.php para crear la tabla `items`.
+3.  Diríjase a http://[nombre de su sitio web].azurewebsites.net/createtable.php para crear la tabla `items`.
 
-4.  Finalmente, diríjase a [http://[su][http://[su] nombre de sitio web].azurewebsites.net/index.php para iniciar la aplicación.
+4.  Finalmente, diríjase a http://[nombre de su sitio web].azurewebsites.net/index.php para iniciar la aplicación.
 
 ## Modificación y nueva publicación de la aplicación
 
@@ -198,7 +198,6 @@ Ha aprendido a crear e implementar un sitio web de WebMatrix en Azure. Para obte
   [WebMatrix: inicio de createtable.php en el explorador]: ./media/web-sites-php-mysql-use-webmatrix/edit_run.png
   [Creación de un sitio web de Azure y una base de datos MySQL]: #CreateWebsite
   [WebMatrix: publicar]: ./media/web-sites-php-mysql-use-webmatrix/edit_publish.png
-  [http://[su]: http://[your
   [WebMatrix: abrir la vista remota]: ./media/web-sites-php-mysql-use-webmatrix/OpenRemoteView.png
   [WebMatrix - Open index file]: ./media/web-sites-php-mysql-use-webmatrix/Remote_editIndex.png
   [WebMatrix - Launch site in Remote]: ./media/web-sites-php-mysql-use-webmatrix/Remote_run.png

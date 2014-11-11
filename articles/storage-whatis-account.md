@@ -24,15 +24,15 @@ La página [Detalles de precios de Storage][Detalles de precios de Storage] prop
 
 Los *extremos* de una cuenta de almacenamiento representan el nivel más alto del espacio de nombres para el acceso a blobs, tablas, colas o archivos. Los extremos predeterminados para una cuenta de almacenamiento tienen los siguientes formatos:
 
--   Servicio BLOB: <http://*mystorageaccount>\*.blob.core.windows.net
+-   Servicio BLOB: http://*mystorageaccount\*.blob.core.windows.net
 
--   Servicio Tabla: <http://*mystorageaccount>\*.table.core.windows.net
+-   Servicio Tabla: http://*mystorageaccount\*.table.core.windows.net
 
--   Servicio Cola: <http://*mystorageaccount>\*.queue.core.windows.net
+-   Servicio Cola: http://*mystorageaccount\*.queue.core.windows.net
 
--   Servicio de archivos: <http://*mystorageaccount>\*.file.core.windows.net
+-   Servicio de archivos: http://*mystorageaccount\*.file.core.windows.net
 
-La dirección URL para el acceso a un objeto en una cuenta de almacenamiento se crea anexando la ubicación del objeto en la cuenta de almacenamiento al extremo. Por ejemplo, una dirección de blob podría tener el siguiente formato: <http://*mystorageaccount>*.blob.core.windows.net/*mycontainer*/*myblob\*.
+La dirección URL para el acceso a un objeto en una cuenta de almacenamiento se crea anexando la ubicación del objeto en la cuenta de almacenamiento al extremo. Por ejemplo, una dirección de blob podría tener el siguiente formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob\*.
 
 ### Seguridad de la cuenta de almacenamiento
 

@@ -16,13 +16,13 @@ Aprenderá a:
 
 En este tutorial, se va a instalar un servidor de aplicaciones Apache Tomcat en una máquina virtual. La instalación completada dará como resultado una instalación de Tomcat como la siguiente.
 
-![Máquina virtual que ejecuta Apache Tomcat][]
+![Máquina virtual que ejecuta Apache Tomcat][Máquina virtual que ejecuta Apache Tomcat]
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Para crear una máquina virtual
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  Haga clic sucesivamente en **New**, **Proceso**, **Máquina virtual** y, a continuación, en **From Gallery**.
 3.  En el cuadro de diálogo **Selección de imágenes de máquina virtual**, seleccione **JDK 7 Windows Server 2012**.
     Observe que **JDK 6 Windows Server 2012** está disponible si tiene aplicaciones heredadas que aún no están preparadas para ejecutarse en JDK 7.
@@ -100,11 +100,11 @@ Para ver que Tomcat se ejecuta desde máquinas externas, deberá crear un extrem
 4.  Haga clic en **Sistema y seguridad**, **Firewall de Windows** y, a continuación, en **Configuración avanzada**.
 5.  Haga clic en **Reglas de entrada** y, a continuación, en **Nueva regla**.
 
-![Nueva regla de entrada][]
+![Nueva regla de entrada][Nueva regla de entrada]
 
 1.  Para la nueva regla, seleccione **Puerto** en **Tipo de regla** y, a continuación, haga clic en **Siguiente**.
 
-![Puerto de nueva regla de entrada][]
+![Puerto de nueva regla de entrada][Puerto de nueva regla de entrada]
 
 1.  Seleccione **TCP** para el protocolo y especifique **8080** para el puerto; a continuación, haga clic en **Siguiente**.
 
@@ -112,33 +112,32 @@ Para ver que Tomcat se ejecuta desde máquinas externas, deberá crear un extrem
 
 1.  Elija **Permitir la conexión** y haga clic en **Siguiente**.
 
-![Acción de nueva regla de entrada][]
+![Acción de nueva regla de entrada][Acción de nueva regla de entrada]
 
 1.  Asegúrese de que las casillas **Dominio**, **Privado** y **Público** estén activadas para el perfil y, a continuación, haga clic en **Siguiente**.
 
-![Perfil de nueva regla de entrada][]
+![Perfil de nueva regla de entrada][Perfil de nueva regla de entrada]
 
 1.  Especifique un nombre para la regla, por ejemplo **HttpIn** (sin embargo, no es necesario que el nombre de la regla coincida con el nombre del extremo) y haga clic en **Finalizar**.
 
-![Nombre de la nueva regla de entrada][]
+![Nombre de la nueva regla de entrada][Nombre de la nueva regla de entrada]
 
-En este momento, el sitio web de Tomcat se debería ver desde un explorador externo, usando una URL con el formato **[http://\*su\\\_nombre\\\_DNS][]*.cloudapp.net**, donde*** su\_nombre\_DNS**\* es el nombre DNS que especificó cuando creó la máquina virtual.
+En este momento, el sitio web de Tomcat se debería ver desde un explorador externo, usando una URL con el formato **http://*su\_nombre\_DNS*.cloudapp.net**, donde ***su\_nombre\_DNS*** es el nombre DNS que especificó cuando creó la máquina virtual.
 
 ## Consideraciones acerca del ciclo de vida de las aplicaciones
 
 -   Puede crear su propio archivo web de aplicación (WAR) y agregarlo a la carpeta **webapps**. Por ejemplo, cree un proyecto web dinámico JSP (Java Service Page) básico y expórtelo como un archivo WAR; copie el archivo WAR en la carpeta **webapps** de Apache Tomcat en la máquina virtual y, a continuación, ejecútelo en un explorador.
 -   De forma predeterminada, cuando el servicio Tomcat está instalado, estará configurado para iniciarse manualmente. Puede cambiarlo para que se inicie automáticamente mediante el complemento Servicios. Para iniciar el complemento Servicios, haga clic en **inicio de Windows**, **Herramientas administrativas** y, a continuación, en **Servicios**. Para configurar Tomcat para que se inicie automáticamente, haga doble clic en el servicio **Apache Tomcat** en el complemento Servicios y configure **Tipo de inicio** como **Automático**, según se muestra a continuación.
 
-    ![Configurar un servicio para que se inicie automáticamente][]
+    ![Configurar un servicio para que se inicie automáticamente][Configurar un servicio para que se inicie automáticamente]
 
     La ventaja de que Tomcat se inicie automáticamente es que se iniciará de nuevo si se inicia la máquina virtual (por ejemplo, después de instalar actualizaciones de software que requieren un reinicio).
 
 ## Pasos siguientes
 
--   Para obtener más información acerca de otros servicios, como Almacenamiento de Azure, bus de servicio, Base de datos SQL, etc., que desee incluir con sus aplicaciones Java, consulte la información disponible en [http://www.windowsazure.com/es-es/develop/java/][].
+-   Para obtener más información acerca de otros servicios, como Almacenamiento de Azure, bus de servicio, Base de datos SQL, etc., que desee incluir con sus aplicaciones Java, consulte la información disponible en [http://www.windowsazure.com/es-es/develop/java/][http://www.windowsazure.com/es-es/develop/java/].
 
   [Máquina virtual que ejecuta Apache Tomcat]: ./media/virtual-machines-java-run-tomcat-application-server/WA_VirtualMachineRunningApacheTomcat.png
-  [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [Portal de administración de Azure]: https://manage.windowsazure.com
   [Nueva regla de entrada]: ./media/virtual-machines-java-run-tomcat-application-server/NewInboundRule.png
   [Puerto de nueva regla de entrada]: ./media/virtual-machines-java-run-tomcat-application-server/NewRulePort.png
@@ -146,6 +145,5 @@ En este momento, el sitio web de Tomcat se debería ver desde un explorador exte
   [Acción de nueva regla de entrada]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleAction.png
   [Perfil de nueva regla de entrada]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleProfile.png
   [Nombre de la nueva regla de entrada]: ./media/virtual-machines-java-run-tomcat-application-server/NewRuleName.png
-  [http://\*su\\\_nombre\\\_DNS]: http://*your\_DNS\_name
   [Configurar un servicio para que se inicie automáticamente]: ./media/virtual-machines-java-run-tomcat-application-server/WA_TomcatServiceAutomaticStart.png
   [http://www.windowsazure.com/es-es/develop/java/]: http://www.windowsazure.com/es-es/develop/java/

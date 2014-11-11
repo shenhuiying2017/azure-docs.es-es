@@ -1,6 +1,6 @@
 <properties linkid="cdn-cloud-service-with-cdn" urlDisplayName="Integrate a cloud service with Azure CDN" pageTitle="Integrate a cloud service with Azure CDN" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, cloud service" description="A tutorial that teaches you how to deploy a cloud service that serves content from an integrated Azure CDN endpoint" metaCanonical="" services="cdn,cloud-services" documentationCenter=".NET" title="Integrate a cloud service with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
 
-<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 <a name="intro"></a>
 
@@ -54,7 +54,7 @@ En esta sección, implementará la plantilla de aplicación predeterminada ASP.N
 
 1.  En Visual Studio 2013, cree un nuevo servicio en la nube de Azure desde la barra de menú; para ello, vaya a **Archivo \> Nuevo \> Proyecto \> Nube \> Servicio de nube de Windows Azure**. Asigne un nombre y haga clic en **Aceptar**.
 
-    ![][]
+    ![][0]
 
 2.  Seleccione **Rol web de ASP.NET** y haga clic en el botón **\>**. Haga clic en Aceptar.
 
@@ -92,7 +92,7 @@ En esta sección, implementará la plantilla de aplicación predeterminada ASP.N
     Cuando el **Registro de actividad de Windows Azure** muestre que el estado de publicación es **Completado**, creará un extremo de CDN que se integra con este servicio en la nube.
 
 10. Para crear un extremo de CDN, inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
-11. Haga clic en **Nuevo**, **Servicios de aplicaciones**, **CDN** \> **Creación rápida**. Seleccione **<http://>*\<nombre del servicio\>*.cloudapp.net/cdn/** y haga clic en **Crear**.
+11. Haga clic en **Nuevo**, **Servicios de aplicaciones**, **CDN** \> **Creación rápida**. Seleccione **http://\<*nombre del servicio*\>.cloudapp.net/cdn/** y haga clic en **Crear**.
 
     ![][8]
 
@@ -135,7 +135,7 @@ En esta sección, implementará la plantilla de aplicación predeterminada ASP.N
 
     ![][3]
 
-17. Cuando el estado de publicación sea **Completado**, abra una ventana de explorador y vaya a **<http://>*\<nombre de cdn\>*.vo.msecnd.net/Content/bootstrap.css**. En nuestra instalación, esta URL es:
+17. Cuando el estado de publicación sea **Completado**, abra una ventana de explorador y vaya a **http://\<*nombre de cdn*\>.vo.msecnd.net/Content/bootstrap.css**. En nuestra instalación, esta URL es:
 
         http://az632148.vo.msecnd.net/Content/bootstrap.css
 
@@ -147,25 +147,25 @@ En esta sección, implementará la plantilla de aplicación predeterminada ASP.N
 
         http://cephalinservice.cloudapp.net/Content/bootstrap.css
 
-    Cuando vaya a **<http://>*\<nombre de cdn\>*.vo.msecnd.net/Content/bootstrap.css**, se le pedirá que descargue el archivo bootstrap.css que procedía de su aplicación web publicada.
+    Cuando vaya a **http://\<*nombre de cdn*\>.vo.msecnd.net/Content/bootstrap.css**, se le pedirá que descargue el archivo bootstrap.css que procedía de su aplicación web publicada.
 
     ![][12]
 
-De igual forma, puede acceder a cualquier URL de acceso público en **<http://>*\<nombre de servicio\>*.cloudapp.net/**, directamente desde el extremo de CDN. Por ejemplo:
+De igual forma, puede acceder a cualquier URL de acceso público en **http://\<*nombre de servicio*\>.cloudapp.net/**, directamente desde el extremo de CDN. Por ejemplo:
 
 -   Un archivo .js desde la ruta /Script
 -   Cualquier archivo de contenido desde la ruta /Content
 -   Cualquier controlador/acción
 -   Si la cadena de consulta está habilitada en el extremo de CDN, cualquier URL con cadenas de consulta
 
-De hecho, con la configuración anterior, puede hospedar el servicio en la nube entero desde **<http://>*\<nombre de cdn\>*.vo.msecnd.net/**. Si vamos a **<http://az632148.vo.msecnd.net/>**, obtenemos el resultado de la acción de Home/Index.
+De hecho, con la configuración anterior, puede hospedar el servicio en la nube entero desde **http://\<*nombre de cdn*\>.vo.msecnd.net/**. Si vamos a **http://az632148.vo.msecnd.net/**, obtenemos el resultado de la acción de Home/Index.
 
 ![][13]
 
 Esto no significa, sin embargo, que sea siempre una buena idea (o en general una buena idea) suministrar un servicio en la nube entero a través de CDN de Azure. Estos son algunos de los puntos a tener en cuenta:
 
 -   Este enfoque requiere que el sitio entero sea público, dado que CDN de Azure no puede servir contenido privado.
--   Si por algún motivo el extremo de CDN se desconecta, ya sea por mantenimiento programado o debido a un error del usuario, el servicio en la nube entero se desconecta a menos que los clientes se puedan redirigir a la URL de origen **<http://>*\<nombre del servicio\>*.cloudapp.net/**.
+-   Si por algún motivo el extremo de CDN se desconecta, ya sea por mantenimiento programado o debido a un error del usuario, el servicio en la nube entero se desconecta a menos que los clientes se puedan redirigir a la URL de origen **http://\<*nombre del servicio*\>.cloudapp.net/**.
 -   Incluso con la configuración personalizada del control de la memoria caché (consulte [Configuración de las opciones de caché para los archivos estáticos del servicio en la nube][Configuración de los valores de la caché para el contenido estático en el servicio en la nube]), un extremo de CDN no mejora el rendimiento del contenido extremadamente dinámico. Si ha intentado cargar la página principal desde el extremo de CDN como se ha mostrado anteriormente, tenga en cuenta que al menos tardará cinco segundos en cargarse la página principal predeterminada la primera vez, pese a ser una página bastante simple. Imagine entonces cómo sería la experiencia del cliente si esta página incluyera contenido dinámico que se debe actualizar cada minuto. Servir contenido dinámico desde un extremo de CDN requiere una corta caducidad de la caché, lo que se traduce en errores frecuentes de la caché en el extremo de CDN. Esto afecta al rendimiento o al servicio en la nube, y frustra el propósito de una red CDN.
 
 La alternativa es determinar qué contenido servir desde CDN de Azure según el caso en el servicio en la nube. Para tal fin, ya ha visto cómo acceder a archivos de contenido individuales desde el extremo de CDN. Le mostraremos cómo servir una acción de controlador específica a través del extremo de CDN en [Suministro de contenido de acciones de controlador a través de CDN de Azure][Suministro de contenido de acciones de controlador a través de CDN de Azure].
@@ -230,8 +230,21 @@ Siga los pasos anteriores para configurar esta acción de controlador:
 1.  En la carpeta *\\Controllers*, cree un nuevo archivo .cs llamado *MemeGeneratorController.cs* y sustituya el contenido por el siguiente código. Asegúrese de sustituir la parte resaltada por su nombre de CDN.
 
     ``` prettyprint
-    using System;using System.Collections.Generic;using System.Diagnostics;using System.Drawing;using System.IO;using System.Net;using System.Web.Hosting;using System.Web.Mvc;using System.Web.UI;
-    namespace WebRole1.Controllers{ public class MemeGeneratorController : Controller { static readonly Dictionary> Memes = new Dictionary>();
+    using System;
+    using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.Drawing;
+    using System.IO;
+    using System.Net;
+    using System.Web.Hosting;
+    using System.Web.Mvc;
+    using System.Web.UI;
+
+    namespace WebRole1.Controllers
+    {
+        public class MemeGeneratorController : Controller
+    {
+      static readonly Dictionary> Memes = new Dictionary>();
         public ActionResult Index()
         {
             return View();
@@ -308,16 +321,11 @@ Siga los pasos anteriores para configurar esta acción de controlador:
                 Font oldFont = font;
                 font = new Font(font.Name, (float)(font.Size * .9), font.Style);
                 oldFont.Dispose();
-            }
-        }
-    }
+             }
+           }
+         }
+       }
     ```
-
-    <p>
-    }
-
-    </pre>
-    </p>
 2.  Haga clic con el botón secundario en la acción `Index()` predeterminada y seleccione **Agregar vista**.
 
     ![][15]
@@ -338,7 +346,7 @@ Siga los pasos anteriores para configurar esta acción de controlador:
             <input class="btn" type="submit" value="Generate meme" />
         </form>
 
-5.  Publique de nuevo el servicio en la nube y vaya a **<http://>*\<nombre de servicio\>*.cloudapp.net/MemeGenerator/Index** en el explorador.
+5.  Publique de nuevo el servicio en la nube y vaya a **http://<*nombre de servicio*>.cloudapp.net/MemeGenerator/Index** en el explorador.
 
 Cuando envía los valores de formulario a `/MemeGenerator/Index`, el método de acción `Index_Post` devuelve un vínculo al método de acción `Show` con el identificador de entrada respectivo. Cuando hace clic en el vínculo, llega al siguiente código:
 <pre class="prettyprint">
@@ -617,7 +625,7 @@ La clase [Bundle][Bundle] contiene una propiedad llamada [CdnFallbackExpression]
 
 # Más información
 
--   [Información general de la Red de entrega de contenido (CDN) de Azure][Información general de la Red de entrega de contenido (CDN) de Azure]
+-   [Información general de la Red de entrega de contenido (CDN) de Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
 -   [Suministro de contenido desde CDN de Azure en la aplicación web][Suministro de contenido desde CDN de Azure en la aplicación web]
 -   [Unión y minificación de ASP.NET][Unión y minificación de ASP.NET]
 -   [Uso de la red CDN en Azure][Uso de la red CDN en Azure]
@@ -629,9 +637,7 @@ La clase [Bundle][Bundle] contiene una propiedad llamada [CdnFallbackExpression]
   [Configuración de la reserva de los scripts y CSS cuando la red CDN de Azure está sin conexión]: #fallback
   [cuenta de Microsoft Azure]: http://azure.microsoft.com/es-es/account/
   [SDK de Azure]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
-  [abrir una cuenta de Azure de manera gratuita]: http://azure.microsoft.com/es-es/pricing/free-trial/?WT.mc_id=A261C142F
-  [activar las ventajas de suscriptor de MSDN]: http://azure.microsoft.com/es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-  []: media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG
+  [0]: media/cdn-cloud-service-with-cdn/cdn-cs-1-new-project.PNG
   [1]: media/cdn-cloud-service-with-cdn/cdn-cs-2-select-role.PNG
   [2]: media/cdn-cloud-service-with-cdn/cdn-cs-3-mvc-template.PNG
   [3]: media/cdn-cloud-service-with-cdn/cdn-cs-4-publish-a.png
@@ -647,7 +653,6 @@ La clase [Bundle][Bundle] contiene una propiedad llamada [CdnFallbackExpression]
   [11]: media/cdn-cloud-service-with-cdn/cdn-cs-13-testcdn.png
   [12]: media/cdn-cloud-service-with-cdn/cdn-1-browser-access.PNG
   [13]: media/cdn-cloud-service-with-cdn/cdn-2-home-page.PNG
-  [Caché de cliente \<clientCache\>]: http://www.iis.net/configreference/system.webserver/staticcontent/clientcache
   [Maarten Balliauw]: https://twitter.com/maartenballiauw
   [Reducción de la latencia en Web con CDN de Windows Azure]: http://channel9.msdn.com/events/TechDays/Techdays-2014-the-Netherlands/Reducing-latency-on-the-web-with-the-Windows-Azure-CDN
   [Alan Light]: http://www.flickr.com/photos/alan-light/218493788/
@@ -662,7 +667,6 @@ La clase [Bundle][Bundle] contiene una propiedad llamada [CdnFallbackExpression]
   [reserva de paquetes de estilo]: https://github.com/EmberConsultingGroup/StyleBundleFallback
   [Ember Consulting Group]: https://github.com/EmberConsultingGroup
   [código de GitHub]: https://github.com/EmberConsultingGroup/StyleBundleFallback/blob/master/Website/App_Start/StyleBundleExtensions.cs
-  [Información general de la Red de entrega de contenido (CDN) de Azure]: http://msdn.microsoft.com/library/azure/ff919703.aspx
   [Suministro de contenido desde CDN de Azure en la aplicación web]: http://azure.microsoft.com/es-es/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/
   [Unión y minificación de ASP.NET]: http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification
   [Uso de la red CDN en Azure]: http://azure.microsoft.com/es-es/documentation/articles/cdn-how-to-use/
