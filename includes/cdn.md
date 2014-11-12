@@ -50,7 +50,7 @@ API de administraci&oacute;n de servicios de Azure, vea el tema de referencia <a
 
     Aparece el cuadro de diálogo **Create Storage Account**.
 
-    ![Crear una cuenta de almacenamiento][]
+    ![Crear una cuenta de almacenamiento][1]
 
 4.  En el campo **URL**, escriba un nombre de subdominio. Esta entrada puede contener de 3 a 24 letras minúsculas y números.
 
@@ -160,7 +160,7 @@ CDN de Azure.
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [plan de facturación]: /es-es/pricing/calculator/?scenario=full
   [Crear cuenta de almacenamiento]: http://msdn.microsoft.com/es-es/library/windowsazure/hh264518.aspx
-  [Crear una cuenta de almacenamiento]: ./media/cdn/CDN_CreateNewStorageAcct.png
+  [1]: ./media/cdn/CDN_CreateNewStorageAcct.png
   [Operaciones en grupos de afinidad]: http://msdn.microsoft.com/library/azure/ee460798.aspx
   [Administración de la caducidad del contenido de blobs]: http://msdn.microsoft.com/es-es/library/gg680306.aspx
   [Acceso restringido a contenedores y blobs]: http://msdn.microsoft.com/es-es/library/dd179354.aspx
