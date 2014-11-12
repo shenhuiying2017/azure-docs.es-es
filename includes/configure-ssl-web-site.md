@@ -2,23 +2,21 @@
 
 Cuando alguien visita su sitio web mediante HTTPS, la comunicación entre el sitio web y el explorador se protege con un cifrado de Capa de sockets seguros (SSL). Este es el método más usado para proteger los datos que se envían por Internet y asegura a los visitantes la protección de las transacciones que realizan en su sitio. Este artículo analiza la habilitación de HTTPS en un sitio web de Azure.
 
-> [WACOM.NOTE] Para habilitar HTTPS en nombres de dominio personalizados, debe configurar sus sitios web en modo estándar. Si actualmente usa un modo gratuito o compartido, es posible que el cambio de modo suponga costes adicionales. Para obtener más información acerca de los precios de los modos estándar y compartido, consulte la [Información sobre el precio][]. Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure][].
+> [WACOM.NOTE] Para habilitar HTTPS en nombres de dominio personalizados, debe configurar sus sitios web en modo estándar. Si actualmente usa un modo gratuito o compartido, es posible que el cambio de modo suponga costes adicionales. Para obtener más información acerca de los precios de los modos estándar y compartido, consulte la [Información sobre el precio][pricing]. Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure](http://azure.microsoft.com/en-us/pricing/free-trial/).
 
-[][]
+<a href="bkmk_azurewebsites"></a><h2> El dominio \*.azurewebsites.net</h2>
 
-## El dominio \*.azurewebsites.net
 
 </p>
 Si en lugar de usar un nombre de dominio personalizado tiene previsto usar el dominio \*.azurewebsites.net que Azure ha asignado a su sitio web (por ejemplo, contoso.azurewebsites.net), su sitio ya está protegido por el certificado proporcionado por Microsoft. Puede usar **<https://mywebsite.azurewebsites.net>** para obtener acceso a su sitio de forma protegida. Sin embargo, \*.azurewebsites.net es un dominio compartido y, al igual que todos los dominios compartidos, no es igual de seguro que utilizar un dominio personalizado con su propio certificado.
 
 El resto de este documento proporciona información acerca de la habilitación de HTTPS en nombres de dominio personalizados, como **contoso.com**, **www.contoso.com** o **\*.contoso.com**.
 
-[][1]
+<a href="bkmk_domainname"></a><h2>Nombres de dominio personalizados</h2>
 
-## Nombres de dominio personalizados
 
 </p>
-Para habilitar HTTPS en un nombre de dominio personalizado, como **contoso.com**, debe registrar un nombre de dominio personalizado en un registrador de nombres de dominio. Para obtener más información acerca de la configuración del nombre de dominio de un sitio web de Azure, consulte [Configuración de un nombre de dominio personalizado para un sitio web de Azure][]. Una vez que haya registrado un nombre de dominio personalizado y configurado su sitio web para que se corresponda con el nombre personalizado, debe solicitar un certificado SSL para el dominio.
+Para habilitar HTTPS en un nombre de dominio personalizado, como **contoso.com**, debe registrar un nombre de dominio personalizado en un registrador de nombres de dominio. Para obtener más información acerca de la configuración del nombre de dominio de un sitio web de Azure, consulte [Configuración de un nombre de dominio personalizado para un sitio web de Azure](/en-us/develop/net/common-tasks/custom-dns-web-site/). Una vez que haya registrado un nombre de dominio personalizado y configurado su sitio web para que se corresponda con el nombre personalizado, debe solicitar un certificado SSL para el dominio.
 
 El registro de un nombre de dominio, además, le permite crear subdominios, como **www.contoso.com** o **mail.contoso.com**. Antes de solicitar un certificado SSL, debe determinar los nombres de dominio que contarán con la protección del certificado. De este modo, se determinará el tipo de certificado que debe obtener. Si solo necesita proteger un nombre de dominio, como **contoso.com** o **www.contoso.com**, es probable que un certificado básico sea suficiente. Si necesita proteger varios nombres de dominio, como **contoso.com**, **www.contoso.com** y **mail.contoso.com**, deberá solicitar un certificado comodín o un certificado con nombre alternativo del sujeto (subjectAltName, SAN).
 
@@ -39,7 +37,7 @@ Un certificado también puede ser compatible con comodines y subjectAltName.
 ## Obtención de un certificado
 
 </p>
-Los certificados SSL usados con Sitios web Azure deben tener la firma de una entidad de certificación (CA), una entidad de terceros de confianza que emite certificados con esta finalidad. Si todavía no tiene una de estas firmas, deberá obtenerla mediante una compañía que venda certificados SSL. Para obtener una lista de entidades de certificación, consulte [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][] en Microsoft TechNet Wiki.
+Los certificados SSL usados con Sitios web Azure deben tener la firma de una entidad de certificación (CA), una entidad de terceros de confianza que emite certificados con esta finalidad. Si todavía no tiene una de estas firmas, deberá obtenerla mediante una compañía que venda certificados SSL. Para obtener una lista de entidades de certificación, consulte [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] en Microsoft TechNet Wiki.
 
 El certificado debe cumplir los siguientes requisitos de certificados SSL en Azure:
 
@@ -49,7 +47,7 @@ El certificado debe cumplir los siguientes requisitos de certificados SSL en Azu
 
 -   El nombre de sujeto del certificado debe coincidir con el dominio usado para tener acceso al sitio web. Si necesita ofrecer servicio a varios dominios con este certificado, deberá usar un valor comodín o especificar los valores subjectAltName tal y como se ha descrito previamente.
 
-    -   Para obtener información acerca de la configuración de un nombre de dominio personalizado para un Sitio web Azure, consulte [Configuración de un nombre de dominio personalizado para un sitio web de Azure][].
+    -   Para obtener información acerca de la configuración de un nombre de dominio personalizado para un Sitio web Azure, consulte [Configuración de un nombre de dominio personalizado para un sitio web de Azure][customdomain].
 
     > [WACOM.NOTE] No intente obtener o generar un certificado para el dominio azurewebsites.net.
 
@@ -57,7 +55,7 @@ El certificado debe cumplir los siguientes requisitos de certificados SSL en Azu
 
 > [WACOM.NOTE] Los certificados emitidos por servidores de entidades de certificación privados no son compatibles con Sitios web Azure.
 
-Para obtener un certificado SSL de una entidad de certificación, debe generar una solicitud de firma de certificado (CSR), que se enviará a la entidad de certificación. La entidad de certificación devolverá un certificado que deberá usar para completar la solicitud de firma de certificado. Normalmente, para generar una CSR, se usa una de las dos aplicaciones siguientes: certmgr.exe u [OpenSSL][]. Certmgr.exe solo está disponible en Windows, mientras que OpenSSL está disponible para la mayoría de las plataformas. Los pasos que debe seguir para emplear estas utilidades se muestran a continuación.
+Para obtener un certificado SSL de una entidad de certificación, debe generar una solicitud de firma de certificado (CSR), que se enviará a la entidad de certificación. La entidad de certificación devolverá un certificado que deberá usar para completar la solicitud de firma de certificado. Normalmente, para generar una CSR, se usa una de las dos aplicaciones siguientes: certmgr.exe u [OpenSSL][openssl]. Certmgr.exe solo está disponible en Windows, mientras que OpenSSL está disponible para la mayoría de las plataformas. Los pasos que debe seguir para emplear estas utilidades se muestran a continuación.
 
 > [WACOM.NOTE] Los certificados de criptografía de curva elíptica (ECC) son compatibles con Sitios web Azure; sin embargo, son relativamente nuevos y debería preguntar a su entidad de certificación a fin de conocer los pasos exactos para crear la solicitud de firma de certificado. Cuando haya obtenido un certificado ECC, podrá cargarlo a su sitio web como se describe en los pasos que se describen más adelante.
 
@@ -65,17 +63,17 @@ Puede que deba obtener **certificados intermedios** (también denominados certif
 
 > [WACOM.NOTE] Al seguir cualquier serie de pasos, se le solicitará que escriba un **nombre común**. Si va a obtener un certificado comodín para su uso en varios dominios (www.contoso.com, sales.contoso.com), este valor debe ser \*.nombre\_de\_dominio (por ejemplo, \*.contoso.com). Si va a obtener un certificado para un único nombre de dominio, este valor debe ser el valor exacto que los usuarios escribirán en el explorador para visitar su sitio web. Por ejemplo, www.contoso.com.
 >
-> Si necesita tener compatibilidad con un nombre comodín, como \*.contoso.com, y un nombre de dominio raíz, como contoso.com, puede usar un certificado de Nombres alternativos del sujeto (SAN). Para obtener un ejemplo de creación de una solicitud de certificado que use las extensiones SubjectAltName, consulte [Certificado SubjectAltName][].
+> Si necesita tener compatibilidad con un nombre comodín, como \*.contoso.com, y un nombre de dominio raíz, como contoso.com, puede usar un certificado de Nombres alternativos del sujeto (SAN). Para obtener un ejemplo de creación de una solicitud de certificado que use las extensiones SubjectAltName, consulte [Certificado SubjectAltName](#bkmk_subjectaltname).
 >
-> Para obtener más información acerca de la configuración del nombre de dominio de un sitio web de Azure, consulte [Configuración de un nombre de dominio personalizado para un sitio web de Azure][].
+> Para obtener más información acerca de la configuración del nombre de dominio de un sitio web de Azure, consulte <a href="/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuración de un nombre de dominio personalizado para un sitio web de Azure</a>.
 
 ### Obtención de un certificado con Certreq.exe (solo Windows)
 
 Certreq.exe es una utilidad de Windows para crear solicitudes de certificado. Ha formado parte de la instalación base de Windows desde Windows XP/Windows Server 2000, por lo que debe estar disponible en los sistemas Windows más recientes. Realice los siguientes pasos para obtener un certificado SSL con certreq.exe.
 
-Si desea crear un certificado autofirmado de evaluación, consulte la sección [Certificados autofirmados][] de este documento.
+Si desea crear un certificado autofirmado de evaluación, consulte la sección [Certificados autofirmados](#bkmk_selfsigned) de este documento.
 
-Si desea usar el módulo Administrador de IIS para crear una solicitud de certificado, consulte la sección [Obtención de un certificado con el Administrador de IIS][].
+Si desea usar el módulo Administrador de IIS para crear una solicitud de certificado, consulte la sección [Obtención de un certificado con el Administrador de IIS](#bkmk_iismgr).
 
 1.  Abra la aplicación **Bloc de notas** y cree un nuevo documento que contenga lo siguiente: En la línea Subject, sustituya **mysite.com** por el nombre de dominio personalizado de su sitio web. Por ejemplo, Subject = "CN=www.contoso.com".
 
@@ -93,7 +91,7 @@ Si desea usar el módulo Administrador de IIS para crear una solicitud de certif
         [EnhancedKeyUsageExtension]
         OID=1.3.6.1.5.5.7.3.1
 
-    Para obtener más información acerca de las opciones especificadas anteriormente, así como otras opciones disponibles, consulte la [Documentación de referencia de Certreq (en inglés)][].
+    Para obtener más información acerca de las opciones especificadas anteriormente, así como otras opciones disponibles, consulte la [Documentación de referencia de Certreq (en inglés)](http://technet.microsoft.com/library/cc725793.aspx).
 
 2.  Guarde el archivo de texto como **myrequest.txt**.
 
@@ -107,7 +105,7 @@ Si desea usar el módulo Administrador de IIS para crear una solicitud de certif
 
 5.  Envíe el archivo **myrequest.csr** a una entidad de certificación para obtener un certificado SSL. Puede que sea necesario cargar el archivo o abrirlo en la aplicación Bloc de notas y pegar los contenidos directamente en el formulario web.
 
-    Para obtener una lista de entidades de certificación, consulte [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][] en Microsoft TechNet Wiki.
+    Para obtener una lista de entidades de certificación, consulte [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)][cas] en Microsoft TechNet Wiki.
 
 6.  Una vez que la entidad de certificación le haya proporcionado un archivo de certificado (.CER), guarde este archivo en el equipo usado para generar la solicitud y, a continuación, use el siguiente comando para aceptar la solicitud y completar el proceso de generación del certificado.
 
@@ -121,23 +119,23 @@ Si desea usar el módulo Administrador de IIS para crear una solicitud de certif
 
 8.  Para exportar el certificado desde el almacén de certificados, ejecute **certmgr.msc** desde la **pantalla Inicio** o el **menú Inicio**. Cuando aparezca **Certificate Manager**, expanda la carpeta **Personal** y, a continuación, seleccione **Certificates**. En el campo **Issued To**, busque una entrada con el nombre de dominio personalizado para el que solicitó un certificado. En el campo **Issued By**, debería mostrarse la entidad de certificación que ha usado para este certificado.
 
-    ![Insertar imagen del administrador de certificados aquí][]
+    ![Insertar imagen del administrador de certificados aquí][certmgr]
 
 9.  Haga clic con el botón secundario en el certificado, seleccione **All Tasks** y, a continuación, seleccione **Export**. En **Certificate Export Wizard**, haga clic en **Next** y, a continuación, seleccione **Yes, export the private key**. Haga clic en **Next**.
 
-    ![Exportar la clave privada][]
+    ![Exportar la clave privada][certwiz1]
 
 10. Seleccione **Personal Information Exchange - PKCS \#12**, **Include all certificates in the certificate chain** y **Export all extended properties**. Haga clic en **Next**.
 
-    ![incluir todos los certificados y propiedades extendidas][]
+    ![incluir todos los certificados y propiedades extendidas][certwiz2]
 
 11. Seleccione **Password** y, a continuación, escriba y confirme la contraseña. Haga clic en **Next**.
 
-    ![especificar una contraseña][]
+    ![especificar una contraseña][certwiz3]
 
 12. Proporcione una ruta y el nombre del archivo que contendrá el certificado exportado. El nombre de archivo debe tener una extensión **.pfx**. Haga clic en **Next** para finalizar el proceso.
 
-    ![proporcionar una ruta de archivo][]
+    ![proporcionar una ruta de archivo][certwiz4]
 
 Ahora puede cargar el archivo PFX exportado en su sitio web de Azure.
 
@@ -215,19 +213,19 @@ La habilitación de HTTPS para un dominio personalizado solo está disponible pa
 
 > [WACOM.NOTE] Antes de cambiar un sitio web del modo gratis al modo estándar, debe eliminar los límites de gasto configurados en su suscripción de sitio web, puesto que, de lo contrario, se arriesga a que su sitio no esté disponible si alcanza el límite de gasto antes de que finalice el período de facturación. Para obtener más información acerca de los precios de los modos estándar y compartido, consulte la [Información sobre el precio][].
 
-1.  En el explorador, abra el [Portal de administración][].
+1.  En el explorador, abra el [Portal de administración][portal].
 
 2.  En la pestaña **Sitios web**, haga clic en el nombre del sitio.
 
-    ![selección de un sitio web][]
+    ![selección de un sitio web][website]
 
 3.  Haga clic en la pestaña **SCALE**.
 
-    ![Pestaña SCALE][]
+    ![Pestaña SCALE][scale]
 
 4.  En la sección **general**, establezca el modo de sitio web haciendo clic en **ESTÁNDAR**.
 
-    ![modo estándar seleccionado][]
+    ![modo estándar seleccionado][standard]
 
 5.  Haga clic en **Save**. Cuando se le solicite, haga clic en **Yes**.
 
@@ -244,23 +242,23 @@ Antes de realizar los pasos de esta sección, debe haber asociado un nombre de d
 
 2.  En la pestaña **Sitios web**, haga clic en el nombre de su sitio y, a continuación, seleccione la pestaña **CONFIGURAR**.
 
-    ![Pestaña CONFIGURE][]
+    ![Pestaña CONFIGURE][configure]
 
 3.  En la sección **certificates**, haga clic en **Upload a certificate**
 
-    ![cargar un certificado][]
+    ![cargar un certificado][uploadcert]
 
 4.  Mediante el cuadro de diálogo **Upload a certificate**, seleccione el archivo de certificado .pfx que ha creado previamente con Administrador de IIS u OpenSSL. Especifique la contraseña, si procede, que se utilizó para proteger el archivo .pfx. Finalmente, haga clic en la **marca de verificación** para cargar el certificado.
 
-    ![Cuadro de diálogo para cargar un certificado][]
+    ![Cuadro de diálogo para cargar un certificado][uploadcertdlg]
 
 5.  En la sección **ssl bindings** de la pestaña **CONFIGURE**, use las listas desplegables para seleccionar el nombre de dominio que va a proteger con SSL y el certificado que va a usar. Es posible que también desee seleccionar el uso de SSL basada en IP o en la extensión [Indicación de nombre de servidor][] (SNI).
 
-    ![enlaces ssl][]
+    ![enlaces ssl][sslbindings]
 
     -   El modo SSL basado en IP asocia un certificado a un nombre de dominio mediante la asignación de una dirección IP pública dedicada del servidor al nombre de dominio. En este caso es necesario que cada nombre de dominio (contoso.com, fabrikam.com, etc.) asociado a un servicio tenga una dirección IP dedicada. Este es el método tradicional de asociación de certificados SSL a un servidor web.
 
-    -   La encriptación SSL basada en SNI es una extensión de SSL y [Seguridad de la capa de transporte][] (TLS) que permite que varios dominios compartan la misma dirección IP con certificados de seguridad independientes para cada dominio. Los exploradores más modernos (entre los que se incluyen Internet Explorer, Chrome, Firefox y Opera) son compatibles con la extensión SNI; sin embargo, es posible que los exploradores más antiguos no sean compatibles con la extensión SNI. Para obtener más información acerca de la extensión SNI, consulte el artículo [Indicación de nombre de servidor][] en Wikipedia.
+    -   La encriptación SSL basada en SNI es una extensión de SSL y [Seguridad de la capa de transporte][tls] (TLS) que permite que varios dominios compartan la misma dirección IP con certificados de seguridad independientes para cada dominio. Los exploradores más modernos (entre los que se incluyen Internet Explorer, Chrome, Firefox y Opera) son compatibles con la extensión SNI; sin embargo, es posible que los exploradores más antiguos no sean compatibles con la extensión SNI. Para obtener más información acerca de la extensión SNI, consulte el artículo [Indicación de nombre de servidor][sni] en Wikipedia.
 
 6.  Haga clic en **Save** para guardar los cambios y habilitar la encriptación SSL.
 
@@ -268,7 +266,7 @@ Antes de realizar los pasos de esta sección, debe haber asociado un nombre de d
 >
 > 1.  Después de haber configurado un enlace SSL basado en IP, se asigna una dirección IP dedicada a su sitio web. Puede encontrar esta dirección IP en la página **Panel** de su sitio web, en la sección **vista rápida**. Se mostrará como **Virtual IP Address**:
 >
->     ![Dirección IP virtual][]
+>     ![Dirección IP virtual](./media/configure-ssl-web-site/staticip.png)
 >
 >     Tenga en cuenta que esta dirección IP será distinta de la dirección IP virtual que ha usado previamente para configurar el registro D de su dominio. Si lo ha configurado para usar un cifrado SSL basado en SNI, o no lo ha configurado para usar SSL, esta entrada no contendrá ninguna dirección.
 >
@@ -486,39 +484,33 @@ Puede crear un certificado de evaluación desde un sistema Windows que tenga ins
 
     El archivo **myserver.pfx** producido por este comando se puede usar para proteger su sitio web de Azure con fines de evaluación.
 
-  [Información sobre el precio]: https://www.windowsazure.com/en-us/pricing/details/
-  [evaluación gratuita de Microsoft Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/
-  []: bkmk_azurewebsites
+[customdomain]: /en-us/develop/net/common-tasks/custom-dns-web-site/
+[iiscsr]: http://technet.microsoft.com/en-us/library/cc732906(WS.10).aspx
+[cas]: http://go.microsoft.com/fwlink/?LinkID=269988
+[installcertiis]: http://technet.microsoft.com/en-us/library/cc771816(WS.10).aspx
+[exportcertiis]: http://technet.microsoft.com/en-us/library/cc731386(WS.10).aspx
   [1]: bkmk_domainname
   [Configuración de un nombre de dominio personalizado para un sitio web de Azure]: /en-us/develop/net/common-tasks/custom-dns-web-site/
   [2]: bkmk_getcert
   [Windows and Windows Phone 8 SSL Root Certificate Program (Members CAs)]: http://go.microsoft.com/fwlink/?LinkID=269988
   [OpenSSL]: http://www.openssl.org/
   [Certificado SubjectAltName]: #bkmk_subjectaltname
-  [Certificados autofirmados]: #bkmk_selfsigned
-  [Obtención de un certificado con el Administrador de IIS]: #bkmk_iismgr
+[portal]: https://manage.windowsazure.com/
+[tls]: http://en.wikipedia.org/wiki/Transport_Layer_Security
   [Documentación de referencia de Certreq (en inglés)]: http://technet.microsoft.com/library/cc725793.aspx
-  [Insertar imagen del administrador de certificados aquí]: ./media/configure-ssl-web-site/waws-certmgr.png
-  [Exportar la clave privada]: ./media/configure-ssl-web-site/waws-certwiz1.png
-  [incluir todos los certificados y propiedades extendidas]: ./media/configure-ssl-web-site/waws-certwiz2.png
-  [especificar una contraseña]: ./media/configure-ssl-web-site/waws-certwiz3.png
-  [proporcionar una ruta de archivo]: ./media/configure-ssl-web-site/waws-certwiz4.png
-  [3]: bkmk_standardmode
-  [Portal de administración]: https://manage.windowsazure.com/
-  [selección de un sitio web]: ./media/configure-ssl-web-site/sslwebsite.png
-  [Pestaña SCALE]: ./media/configure-ssl-web-site/sslscale.png
-  [modo estándar seleccionado]: ./media/configure-ssl-web-site/sslreserved.png
-  [Soporte técnico de Azure]: http://www.windowsazure.com/en-us/support/options/
+[staticip]: ./media/configure-ssl-web-site/staticip.png
+[website]: ./media/configure-ssl-web-site/sslwebsite.png
+[scale]: ./media/configure-ssl-web-site/sslscale.png
+[standard]: ./media/configure-ssl-web-site/sslreserved.png
+[pricing]: https://www.windowsazure.com/en-us/pricing/details/
+[configure]: ./media/configure-ssl-web-site/sslconfig.png
+[uploadcert]: ./media/configure-ssl-web-site/ssluploadcert.png
+[uploadcertdlg]: ./media/configure-ssl-web-site/ssluploaddlg.png
+[sslbindings]: ./media/configure-ssl-web-site/sslbindings.png
+[sni]: http://en.wikipedia.org/wiki/Server_Name_Indication
   [4]: bkmk_configuressl
-  [Pestaña CONFIGURE]: ./media/configure-ssl-web-site/sslconfig.png
-  [cargar un certificado]: ./media/configure-ssl-web-site/ssluploadcert.png
-  [Cuadro de diálogo para cargar un certificado]: ./media/configure-ssl-web-site/ssluploaddlg.png
-  [Indicación de nombre de servidor]: http://en.wikipedia.org/wiki/Server_Name_Indication
-  [enlaces ssl]: ./media/configure-ssl-web-site/sslbindings.png
-  [Seguridad de la capa de transporte]: http://en.wikipedia.org/wiki/Transport_Layer_Security
-  [Dirección IP virtual]: ./media/configure-ssl-web-site/staticip.png
-  [5]: bkmk_subjectaltname
-  [Solicitar un certificado de servidor de Internet (IIS 7)]: http://technet.microsoft.com/en-us/library/cc732906(WS.10).aspx
-  [Instalar un certificado de servidor de Internet (IIS 7)]: http://technet.microsoft.com/en-us/library/cc771816(WS.10).aspx
-  [Exportar un certificado de servidor (IIS 7)]: http://technet.microsoft.com/en-us/library/cc731386(WS.10).aspx
-  [6]: bkmk_selfsigned
+[certmgr]: ./media/configure-ssl-web-site/waws-certmgr.png
+[certwiz1]: ./media/configure-ssl-web-site/waws-certwiz1.png
+[certwiz2]: ./media/configure-ssl-web-site/waws-certwiz2.png
+[certwiz3]: ./media/configure-ssl-web-site/waws-certwiz3.png
+[certwiz4]: ./media/configure-ssl-web-site/waws-certwiz4.png

@@ -95,13 +95,13 @@ Ya ha creado un sitio web de Azure, pero todavía no hay contenido en él. El si
 
 1.  En el menú **Archivo**, haga clic en **Nuevo proyecto**.
 
-    ![Nuevo proyecto en el menú Archivo][Nuevo proyecto en el menú Archivo]
+    ![Nuevo proyecto en el menú Archivo](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/gs13newproj.png)
 
 1.  En el cuadro de diálogo **Nuevo proyecto**, expanda **C\#** y seleccione **Web** debajo de **Plantillas instaladas**; a continuación, seleccione **Aplicación web ASP.NET** .
 
 2.  Póngale a la aplicación el nombre **ContactManager** y haga clic en **Aceptar**.
 
-    ![Cuadro de diálogo Nuevo proyecto][Cuadro de diálogo Nuevo proyecto]
+    ![Cuadro de diálogo Nuevo proyecto](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13newprojdb.png)
 
     **Nota:** en la imagen aparece “MyExample” como nombre de la aplicación, pero debe escribir “ContactManager”. En los bloques de código que copiará más tarde se supone que el nombre del proyecto es ContactManager.
 
@@ -120,7 +120,7 @@ Ya ha creado un sitio web de Azure, pero todavía no hay contenido en él. El si
 
 4.  Actualice el primer enlace de acción y reemplace *Home* por *Cm* para usar el controlador *Cm*.
 
-    ![cambios de código][cambios de código]
+    ![cambios de código](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs3.png)
 
 ### Ejecución de la aplicación de forma local
 
@@ -128,7 +128,7 @@ Ya ha creado un sitio web de Azure, pero todavía no hay contenido en él. El si
 
     Aparece la página principal de la aplicación en el explorador predeterminado.
 
-    ![Sitio web ejecutándose de forma local][Sitio web ejecutándose de forma local]
+    ![Sitio web ejecutándose de forma local](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr2.png)
 
 Esto es todo lo que necesita hacer por ahora para crear la aplicación que va a implementar en Azure. Más adelante agregará la funcionalidad de base de datos.
 
@@ -136,7 +136,7 @@ Esto es todo lo que necesita hacer por ahora para crear la aplicación que va a 
 
 1.  En Visual Studio, haga clic con el botón secundario en el proyecto, en el **Explorador de soluciones**, y seleccione **Publicar** en el menú contextual.
 
-    ![Opción Publicar del menú contextual del proyecto][Opción Publicar del menú contextual del proyecto]
+    ![Opción Publicar del menú contextual del proyecto](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13publish.png)
 
     Se abre el asistente para **publicación web**.
 
@@ -152,11 +152,11 @@ Esto es todo lo que necesita hacer por ahora para crear la aplicación que va a 
 
 1.  Seleccione el sitio web que creó en la primera parte de este tutorial y haga clic en **Aceptar**.
 
-    ![seleccionar sitio web][seleccionar sitio web]
+    ![seleccionar sitio web](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss3.png)
 
 1.  En el cuadro de diálogo **Publish Web**, haga clic en **Publicar**.
 
-    ![Publicar][Publicar]
+    ![Publicar](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr3.png)
 
     La aplicación creada ahora se ejecuta en la nube. La próxima vez que implemente la aplicación, solo se implementarán los archivos modificados o nuevos.
 
@@ -172,7 +172,7 @@ Se empieza por crear un modelo de datos sencillo en código.
 
 1.  En el **Explorador de soluciones**, haga clic con el botón secundario en la carpeta Modelos, a continuación en **Add** y, por último, en **Class**.
 
-    ![Agregar clase en el menú contextual de la carpeta Models][Agregar clase en el menú contextual de la carpeta Models]
+    ![Agregar clase en el menú contextual de la carpeta Models](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr5.png)
 
 2.  En el cuadro de diálogo **Add New Item**, ponga al archivo de la nueva clase el nombre *Contact.cs* y, a continuación, haga clic en **Add**.
 
@@ -212,7 +212,7 @@ La característica de scaffolding de ASP.NET MVC puede generar automáticamente 
 
 3.  En el cuadro de diálogo **Add Scaffold**, seleccione **MVC 5 Controller with views, using EF** y, a continuación, haga clic en **Add**.
 
-    ![Cuadro de diálogo Add Scaffold][Cuadro de diálogo Add Scaffold]
+    ![Cuadro de diálogo Add Scaffold](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr6.png)
 
 4.  En el cuadro desplegable **Model class**, seleccione **Contact (ContactManager.Models)**. (Consulte la imagen que aparece a continuación).
 5.  En **Data context class**, seleccione **ApplicationDbContext (ContactManager.Models)**. El valor **ApplicationDbContext** se utilizará tanto para la base de datos de suscripciones como para los datos de nuestros contactos.
@@ -229,7 +229,7 @@ La característica de scaffolding de ASP.NET MVC puede generar automáticamente 
 La siguiente tarea consiste en habilitar la función [Migraciones de Code First][Migraciones de Code First] para crear la base de datos a partir del modelo de datos ya establecido.
 
 1.  En el menú **Herramientas**, seleccione **Administrar paquetes NuGet** y **Package Manager Console**.
-    ![Cuadro de diálogo Add Web Forms Pages][Cuadro de diálogo Add Web Forms Pages]
+    ![Cuadro de diálogo Add Web Forms Pages](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/SS6.png)
 
 2.  En la ventana **Package Manager Console**, escriba el comando siguiente:
 
@@ -444,7 +444,7 @@ En esta sección, aplicará el atributo [Authorize][Authorize] para restringir e
 3.  Realice una búsqueda global de *AllowAnonymous*; como puede ver, se utiliza en los métodos de inicio de sesión y registro del controlador de cuentas.
 4.  En *CmController.cs*, agregue `[Authorize(Roles = "canEdit")]` a los métodos HttpGet y HttpPost que cambian los datos (todos los métodos de acción [Create, Edit, Delete] excepto Index y Details) del controlador *Cm*. A continuación, se muestra un fragmento del código final:
 
-    ![imagen del código][imagen del código]
+    ![imagen del código](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rr11.png)
 
 ## Habilitación de SSL para el proyecto
 
@@ -456,7 +456,7 @@ En esta sección, aplicará el atributo [Authorize][Authorize] para restringir e
 3.  En el panel izquierdo, haga clic en **Web**.
 4.  Cambie la **URL del proyecto** por la **URL de SSL** y guarde la página (Control+S).
 
-    ![habilitar SSL][6]
+    ![habilitar SSL](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr1.png)
 
 5.  Compruebe que es Internet Explorer el explorador que inicia Visual Studio, como se muestra en la imagen siguiente:
 
@@ -464,7 +464,7 @@ En esta sección, aplicará el atributo [Authorize][Authorize] para restringir e
 
     El selector de explorador le permite especificar el explorador que inicia Visual Studio.
 
-    ![selector de explorador][selector de explorador]
+    ![selector de explorador](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/ss13.png)
 
     You can select multiple browsers and have Visual Studio update each browser when you make changes. For more information see [Using Browser Link in Visual Studio 2013](http://www.asp.net/visual-studio/overview/2013/using-browser-link).
 
@@ -508,11 +508,11 @@ En esta sección, aplicará el atributo [Authorize][Authorize] para restringir e
 
 2.  Haga clic en la pestaña **Settings** a la izquierda del cuadro de diálogo **Publish Web**. Haga clic en el icono **v** para seleccionar la **Remote connection string** de **ApplicationDbContext** y seleccione **ContactDB**.
 
-    ![configuración][configuración]
+    ![configuración](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc2.png)
 
 3.  Debajo de **ContactManagerContext**, seleccione **Execute Code First Migrations**.
 
-    ![configuración][8]
+    ![configuración](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrc3.png)
 
 4.  Haga clic en **Publicar**.
 
@@ -527,11 +527,11 @@ En esta sección, aplicará el atributo [Authorize][Authorize] para restringir e
 1.  En el **Explorador de servidores**, navegue a **Sitios web**.
 2.  Haga clic con el botón secundario en cada instancia del sitio web y seleccione **Detener sitio web**.
 
-    ![detener sitio web][detener sitio web]
+    ![detener sitio web](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr2.png) 
 
     También tiene la opción de seleccionar el sitio web en el Portal de administración de Azure y hacer clic en el icono **Detener** situado en la parte inferior de la página.
 
-    ![detener sitio web][9]
+    ![detener sitio web](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr3.png)
 
 ### Eliminación de AddToRoleAsync, Publish y Test
 
@@ -540,7 +540,7 @@ En esta sección, aplicará el atributo [Authorize][Authorize] para restringir e
 2.  Desarrolle el proyecto (lo que guarda los cambios del archivo) y compruebe que no haya errores de compilación.
 3.  Haga clic con el botón derecho en el proyecto, en el **Explorador de soluciones**, y seleccione **Publicar**.
 
-    ![Opción Publicar del menú contextual del proyecto][Opción Publicar del menú contextual del proyecto]
+    ![Opción Publicar del menú contextual del proyecto](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/GS13publish.png)
 
 4.  Haga clic en el botón **Start Preview**. Solo se implementan los archivos que deben actualizarse.
 5.  Inicie el sitio web desde Visual Studio o el portal. **No podrá publicar contenido mientras el sitio web esté detenido**.
@@ -560,7 +560,7 @@ En esta sección, aplicará el atributo [Authorize][Authorize] para restringir e
 
 11. Haga clic en el enlace **CM Demo** para obtener acceso al controlador **Cm**. También puede agregar *Cm* a la URL.
 
-    ![Página CM][Página CM]
+    ![Página CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr4.png)
 
 12. Haga clic en un enlace de edición. Se le redirigirá a la página de inicio de sesión. Debajo de **Use another service to log in**, haga clic en Google o Facebook e inicie sesión con la cuenta que registró anteriormente. (Si está trabajando con rapidez y la cookie de la sesión aún no ha expirado, iniciará sesión automáticamente con la cuenta de Google o Facebook utilizada anteriormente).
 13. Compruebe que puede editar datos con esa cuenta.
@@ -573,21 +573,21 @@ Si no ha proporcionado aún el nombre y apellido en la información de su cuenta
 1.  En el **Explorador de servidores**, desplácese hasta **ContactDB**.
 2.  Haga clic con el botón derecho en **ContactDB** y seleccione **Open in SQL Server Object Explorer**.
 
-    ![abrir en SSOX][abrir en SSOX]
+    ![abrir en SSOX](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr12.png)
 
 **Nota:** si no puede expandir las **bases de datos SQL** *ni* ver la base de datos **ContactDB** desde Visual Studio, debe seguir las instrucciones que aparecen a continuación para abrir un puerto o rango de puertos de firewall. Siga las instrucciones de **Set up Azure firewall rules**. Es posible que tenga que esperar unos minutos para obtener acceso a la base de datos una vez agregada la regla de firewall.
 
 1.  Haga clic con el botón derecho en la tabla **AspNetUsers** y seleccione **View Data**.
 
-    ![Página CM][10]
+    ![Página CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr8.png)
 
 2.  El identificador de la cuenta de Google con la que se registró estará incluido en el rol **canEdit**, al igual que el identificador de *user1@contoso.com*. Estos deberían ser los únicos usuarios del rol **canEdit**. (Esto se comprobará en el paso siguiente).
 
-    ![Página CM][11]
+    ![Página CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rrr9.png)
 
 3.  En el **Explorador de objetos de SQL Server**, haga clic con el botón derecho en **AspNetUserRoles** y seleccione **View Data**.
 
-    ![Página CM][12]
+    ![Página CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs1.png)
 
 Compruebe que los valores **UserId** proceden de *user1@contoso.com* y de la cuenta de Google que registró.
 
@@ -595,7 +595,7 @@ Compruebe que los valores **UserId** proceden de *user1@contoso.com* y de la cue
 
 Siga los pasos de esta sección si no puede conectar con SQL Azure desde Visual Studio o si aparece un diálogo de error del tipo “No se puede abrir el servidor”.
 
-![error de firewall][error de firewall]
+![error de firewall](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rx5.png)
 
 Deberá agregar su dirección IP a la lista de direcciones IP permitidas.
 
@@ -640,7 +640,7 @@ Finalmente, puede conectarse a la instancia de Base de datos SQL desde SQL Serve
 
 7.  Pegue el **servidor** y el **identificador de usuario** en el diálogo **Connect to Server** de Visual Studio. El **identificador de usuario** debe escribirlo en el campo **Login**. Escriba la contraseña que utilizó para crear la base de datos SQL.
 
-    ![Diálogo Connect to Server][Diálogo Connect to Server]
+    ![Diálogo Connect to Server](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rss1.png)
 
 Ahora puede desplazarse hasta la base de datos ContactDB siguiendo las instrucciones facilitadas anteriormente.
 
@@ -650,11 +650,11 @@ Anteriormente en este tutorial, utilizamos código para agregar usuarios al rol 
 
 1.  En el **Explorador de objetos de SQL Server**, haga clic con el botón derecho en **AspNetUserRoles** y seleccione **View Data**.
 
-    ![Página CM][12]
+    ![Página CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs1.png)
 
 2.  Copie el *identificador del rol* y péguelo en la fila vacía (nueva).
 
-    ![Página CM][13]
+    ![Página CM](./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/rs2.png)
 
 3.  En la tabla **AspNetUsers**, busque el usuario que desee agregar al rol, copie su *identificador* y, a continuación, péguelo en la columna **UserId** de la tabla **AspNetUserRoles**.
 
