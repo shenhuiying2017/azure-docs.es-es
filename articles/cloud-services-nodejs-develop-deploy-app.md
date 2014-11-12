@@ -22,7 +22,7 @@ implementará con las herramientas de línea de comandos de PowerShell.
 
 A continuación se muestra una captura de pantalla de la aplicación completada:
 
-![Ventana del explorador que muestra la página Hello World. La URL indica que la página está hospedada en Azure.][Ventana del explorador que muestra la página Hello World. La URL indica que la página está hospedada en Azure.]
+![Ventana del explorador que muestra la página Hello World. La URL indica que la página está hospedada en Azure.](https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png)
 
 ## Creación de una nueva aplicación Node
 

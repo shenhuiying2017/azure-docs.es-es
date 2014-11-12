@@ -4,7 +4,7 @@
 
 # Inicio de sesión en Azure como una organización
 
-[WACOM.INCLUDE [disclaimer][]]
+[WACOM.INCLUDE [disclaimer][]
 
 Hasta hace poco, solo era posible registrarse para obtener una suscripción a Azure con su cuenta Microsoft (Windows Live ID). Azure ahora es compatible con cualquiera de los dos métodos de cuenta siguientes para registrarse:
 
