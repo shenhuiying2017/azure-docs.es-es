@@ -1,6 +1,6 @@
-<properties linkid="develop-java-tutorials-jenkins-continuous-integration" urlDisplayName="Jenkins Continuous Integration" pageTitle="Using Azure Storage with a Jenkins Continuous Integration Solution | Microsoft Azure" metaKeywords="" description="This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution." metaCanonical="" services="storage" documentationCenter="Java" title="Using Azure Storage with a Jenkins Continuous Integration solution" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Jenkins Continuous Integration" pageTitle="Uso del Almacenamiento de Azure con una soluci&oacute;n de integraci&oacute;n continua Jenkins | Microsoft Azure" metaKeywords="" description="En este tutorial se muestra c&oacute;mo usar el servicio BLOB de Azure como repositorio para artefactos de compilaci&oacute;n creados por una soluci&oacute;n de integraci&oacute;n continua Jenkins." metaCanonical="" services="storage" documentationCenter="Java" title="Uso del Almacenamiento de Azure con una soluci&oacute;n de integraci&oacute;n continua Jenkins" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Uso del Almacenamiento de Azure con una solución de integración continua Jenkins
 
@@ -123,9 +123,9 @@ Con el fin de facilitar instrucciones, primero necesitaremos crear un trabajo qu
     4.  Haga clic en **Containers**.
     5.  Haga clic en el contenedor llamado **myjob**, que es la versión en minúscula del nombre del trabajo asignado cuando ha creado el trabajo de Jenkins. Los nombres de los contenedores y los nombres de los blobs se guardan en minúscula en el almacenamiento de Azure y, además, distinguen mayúsculas de minúsculas. En la lista de blobs del contenedor llamado **myjob**, deben aparecer **hello.txt** y **date.txt**. Copie la URL de cualquiera de estos elementos y ábrala en el explorador. A continuación, verá el archivo de texto cargado como un artefacto de compilación.
 
-Solo se puede crear una acción posterior a la compilación que cargue artefactos en el almacenamiento de blobs de Azure por cada trabajo. Tenga en cuenta que la acción posterior a la compilación para cargar artefactos en el almacenamiento de blobs de Azure puede especificar diferentes archivos (comodines incluidos) y rutas de acceso a los archivos en **List of Artifacts to upload** mediante el uso del separador punto y coma. Por ejemplo, si su proceso de compilación Jenkins produce archivos JAR y TXT en la carpeta **build** del área de trabajo, y desea cargar ambos en el almacenamiento de blobs de Azure, use el siguiente código para el valor **List of Artifacts to upload**: **build/\*.jar;build/\*.txt**. También puede usar sintaxis de dos puntos dobles para especificar una ruta de acceso dentro del nombre del blob. Por ejemplo, si desea que los archivos JAR se carguen mediante **binaries** en la ruta de acceso del blob y que los TXT lo hagan por medio de **notices** en esta misma ruta, use lo siguiente para el valor **List of Artifacts to upload**: **build/\*.<jar::binaries;build/>\*.txt::notices**.
+Solo se puede crear una acción posterior a la compilación que cargue artefactos en el almacenamiento de blobs de Azure por cada trabajo. Tenga en cuenta que la acción posterior a la compilación para cargar artefactos en el almacenamiento de blobs de Azure puede especificar diferentes archivos (comodines incluidos) y rutas de acceso a los archivos en **List of Artifacts to upload** mediante el uso del separador punto y coma. Por ejemplo, si su proceso de compilación Jenkins produce archivos JAR y TXT en la carpeta **build** del área de trabajo, y desea cargar ambos en el almacenamiento de blobs de Azure, use el siguiente código para el valor **List of Artifacts to upload**: **build/\*.jar;build/\*.txt**. También puede usar sintaxis de dos puntos dobles para especificar una ruta de acceso dentro del nombre del blob. Por ejemplo, si desea que los archivos JAR se carguen mediante **binaries** en la ruta de acceso del blob y que los TXT lo hagan por medio de **notices** en esta misma ruta, use lo siguiente para el valor **List of Artifacts to upload**: **build/\*.jar::binaries;build/\*.txt::notices**.
 
-## <a name="howtocreatebuildstep"></a><span class="short header">Creación de un paso de compilación</span> Creación de un paso de compilación que descargue del almacenamiento de blobs de Azure
+## <a name="howtocreatebuildstep"></a><span class="short header">Creación de un paso de compilación</span>Creación de un paso de compilación que descargue del almacenamiento de blobs de Azure
 
 En los siguientes pasos se muestra cómo configurar un paso de compilación para descargar elementos del almacenamiento de blobs de Azure. Esto sería útil si desea incluir elementos en la compilación, por ejemplo, archivos JAR que mantenga en el almacenamiento de blobs de Azure.
 
@@ -139,7 +139,7 @@ Si tiene elementos adicionales que desea descargar del almacenamiento de blobs d
 
 Después de ejecutar una compilación, puede comprobar la salida de la consola del historial de compilación, o examinar la ubicación de descarga, para ver si los blobs que esperaba se han descargado correctamente.
 
-## <a name="components"></a><span class="short header">Componentes del servicio BLOB</span> Componentes usados por el servicio BLOB
+## <a name="components"></a><span class="short header">Componentes del servicio BLOB</span>Componentes usados por el servicio BLOB
 
 A continuación se ofrece información general acerca de los componentes del servicio BLOB.
 

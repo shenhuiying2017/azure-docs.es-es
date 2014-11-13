@@ -1,4 +1,4 @@
-<properties linkid="dev-net-commons-tasks-enable-ssl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Learn how to specify an HTTPS endpoint for a web role and how to upload an SSL certificate to secure your application." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="timlt" solutions="" manager="timlt" editor="mollybos" />
+<properties urlDisplayName="Enable SSL" pageTitle="Configuraci&oacute;n de SSL para un servicio en la nube - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Aprenda a especificar un extremo HTTPS para un rol web y c&oacute;mo cargar un certificado SSL para proteger su aplicaci&oacute;n." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuraci&oacute;n de SSL para una aplicaci&oacute;n en Azure" authors="timlt" solutions="" manager="timlt" editor="mollybos" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
@@ -163,7 +163,6 @@ Si desea usar SSL para una implementación de ensayo en vez de una implementaci�
 
 -   [How to configure an SSL certificate on an HTTPS endpoint][How to configure an SSL certificate on an HTTPS endpoint]
 
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
   [Paso 1: Obtenga un certificado SSL]: #step1
   [Paso 2: Modificar la definición del servicio y los archivos de configuración]: #step2
   [Paso 3: Cargar el paquete de implementación y el certificado]: #step3

@@ -1,6 +1,6 @@
-<properties linkid="manage-windows-common-tasks-vm-availability" urlDisplayName="Manage Availability of VMs" pageTitle="Manage the availability of virtual machines - Azure" metaKeywords="" description="Learn how to use multiple virtual machines to ensure high availability for your Azure application. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Manage Availability of VMs" pageTitle="Administraci&oacute;n de la disponibilidad de las m&aacute;quinas virtuales - Azure" metaKeywords="" description="Aprenda c&oacute;mo utilizar varias m&aacute;quinas virtuales para garantizar una alta disponibilidad para su aplicaci&oacute;n de Azure. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="timlt" editor="tysonn" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kenazk" />
 
 # Administración de la disponibilidad de las máquinas virtuales
 
@@ -16,22 +16,24 @@ Existen dos tipos de eventos de plataforma Azure que pueden afectar a la disponi
 
 Para reducir el impacto del tiempo de parada debido a uno o más de estos eventos, recomendamos las siguientes mejores prácticas de alta disponibilidad para las máquinas virtuales:
 
--   [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia][]
--   [Configure cada nivel de aplicación en conjuntos separados de disponibilidad][]
--   [Combine el equilibrador de carga con los conjuntos de disponibilidad][]
--   [Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad][]
+-   [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia][Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia]
+-   [Configure cada nivel de aplicación en conjuntos separados de disponibilidad][Configure cada nivel de aplicación en conjuntos separados de disponibilidad]
+-   [Combine el equilibrador de carga con los conjuntos de disponibilidad][Combine el equilibrador de carga con los conjuntos de disponibilidad]
+-   [Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad][Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad]
 
 ### Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia
 
-Para proporcionar redundancia a la aplicación, recomendamos que agrupe dos máquinas virtuales o más en un conjunto de disponibilidad. Esta configuración garantiza que durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual estará disponible y cumplirá el 99,95% de los niveles de servicio contratados de Azure. Para obtener más información sobre los contratos de nivel de servicio, consulte la sección “Servicios en la nube, máquinas virtuales y red virtual” en [Contratos de nivel de servicio][].
+Para proporcionar redundancia a la aplicación, recomendamos que agrupe dos máquinas virtuales o más en un conjunto de disponibilidad. Esta configuración garantiza que durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual estará disponible y cumplirá el 99,95% de los niveles de servicio contratados de Azure. Para obtener más información sobre los contratos de nivel de servicio, consulte la sección “Servicios en la nube, máquinas virtuales y red virtual” en [Contratos de nivel de servicio][Contratos de nivel de servicio].
 
-La plataforma Azure subyacente asigna a cada máquina virtual de su conjunto de disponibilidad un dominio de actualización (UD) y un dominio de error (FD). Para un conjunto de disponibilidad determinado, se asignan cinco UD, que el usuario no puede configurar, para indicar grupos de máquinas virtuales y hardware físico subyacente que se pueden reiniciar simultáneamente. Cuando se configuran más de cinco máquinas virtuales dentro de un único conjunto de disponibilidad, la sexta máquina virtual se colocará en el mismo UD que la primera, la séptima en el mismo que la segunda y así sucesivamente. El orden en que los UD se reiniciarán tal vez no siga una secuencia durante un mantenimiento planeado, pero solo se reiniciarán uno por uno.
+La plataforma Azure subyacente asigna a cada máquina virtual del conjunto de disponibilidad un dominio de actualización (UD) y un dominio de error (FD). Para un conjunto de disponibilidad determinado, se asignan cinco UD, que el usuario no puede configurar, para indicar grupos de máquinas virtuales y hardware físico subyacente que se pueden reiniciar simultáneamente. Cuando se configuran más de cinco máquinas virtuales dentro de un único conjunto de disponibilidad, la sexta máquina virtual se colocará en el mismo UD que la primera, la séptima en el mismo que la segunda y así sucesivamente. El orden en que los UD se reiniciarán tal vez no siga una secuencia durante un mantenimiento planeado, pero solo se reiniciarán uno por uno.
 
 FD definen un grupo de máquinas virtuales que comparten un origen de alimentación y un interruptor de red comunes. De manera predeterminada, las máquinas virtuales configuradas dentro de su conjunto de disponibilidad se separan en dos FD. Aunque colocar las máquinas virtuales en un conjunto de disponibilidad no protege su aplicación contra el sistema operativo ni los errores específicos de aplicaciones, limita el impacto de errores de hardware físico específico, interrupciones de red o cortes de alimentación.
 
 <!--Image reference-->
 
-![Configuración de UD y FD][]
+![Configuración de UD y FD][Configuración de UD y FD]
+
+> [WACOM.NOTE] Para obtener instrucciones, consulte [Configuración de un conjunto de disponibilidad para máquinas virtuales][Configuración de un conjunto de disponibilidad para máquinas virtuales].
 
 ### Configure cada nivel de aplicación en conjuntos separados de disponibilidad
 
@@ -41,11 +43,11 @@ Por ejemplo, podría poner todas las máquinas virtuales en el front-end de la a
 
 <!--Image reference-->
 
-![Niveles de aplicación][]
+![Niveles de aplicación][Niveles de aplicación]
 
 ### Combine el equilibrador de carga con los conjuntos de disponibilidad
 
-Combine el equilibrador de carga con un conjunto de disponibilidad para aprovechar al máximo la resistencia de la aplicación. El equilibrador de carga de Azure distribuye el tráfico entre varias máquinas virtuales. El equilibrador de carga de Azure está incluido en nuestras máquinas virtuales de niveles estándar. Tenga en cuenta que no todos los niveles de máquinas virtuales incluyen el equilibrador de carga de Azure. Para obtener más información sobre el equilibrio de cargas en máquinas virtuales, lea [Usar equilibrio de carga en máquinas virtuales][].
+Combine el equilibrador de carga con un conjunto de disponibilidad para aprovechar al máximo la resistencia de la aplicación. El equilibrador de carga de Azure distribuye el tráfico entre varias máquinas virtuales. El equilibrador de carga de Azure está incluido en nuestras máquinas virtuales de niveles estándar. Tenga en cuenta que no todos los niveles de máquinas virtuales incluyen el equilibrador de carga de Azure. Para obtener más información sobre el equilibrio de cargas en máquinas virtuales, lea [Usar equilibrio de carga en máquinas virtuales][Usar equilibrio de carga en máquinas virtuales].
 
 Si el equilibrador de carga no está configurado para equilibrar el tráfico entre varias máquinas virtuales, entonces cualquier evento de mantenimiento planeado afectará a la única máquina virtual dedicada al tráfico y provocará una interrupción del nivel de la aplicación. Si se colocan varias máquinas virtuales en el mismo nivel en el mismo equilibrador de carga y conjunto de disponibilidad, se permitirá tener un tráfico continuamente disponible asistido por al menos una instancia.
 
@@ -53,11 +55,14 @@ Si el equilibrador de carga no está configurado para equilibrar el tráfico ent
 
 Evite dejar una máquina virtual de instancia única sola en un conjunto de disponibilidad. Las máquinas virtuales en esta configuración no tienen derecho a la garantía de los contratos de nivel de servicio. Además, si implementa una instancia de máquina virtual individual en un conjunto de disponibilidad, no recibirá ninguna advertencia ni notificación por adelantado acerca del mantenimiento de la plataforma. En esta configuración, la instancia de máquina virtual individual se puede reiniciar y lo hará sin advertencia previa cuando se produzca el mantenimiento de la plataforma.
 
+<!-- Link references -->
+
   [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy
   [Configure cada nivel de aplicación en conjuntos separados de disponibilidad]: #configure-each-application-tier-into-separate-availability-sets
   [Combine el equilibrador de carga con los conjuntos de disponibilidad]: #combine-the-load-balancer-with-availability-sets
   [Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad]: #avoid-single-instance-virtual-machines-in-availability-sets
   [Contratos de nivel de servicio]: ../../../support/legal/sla/
   [Configuración de UD y FD]: ./media/virtual-machines-manage-availability/ud-fd-configuration.png
+  [Configuración de un conjunto de disponibilidad para máquinas virtuales]: ../virtual-machines-how-to-configure-availability
   [Niveles de aplicación]: ./media/virtual-machines-manage-availability/application-tiers.png
   [Usar equilibrio de carga en máquinas virtuales]: ../load-balance-virtual-machines/

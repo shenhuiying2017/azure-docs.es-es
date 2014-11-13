@@ -1,4 +1,4 @@
-<properties linkid="develop-php-how-to-guides-service-management" urlDisplayName="Service Management" pageTitle="How to use Azure service management APIs (PHP)" metaKeywords="" description="Learn how to use the Azure PHP Service Management APIs to manage cloud services and other Azure applications." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties urlDisplayName="Service Management" pageTitle="Uso de API de administraci&oacute;n de servicios de Azure (PHP)" metaKeywords="" description="Vea c&oacute;mo utilizar las API de administraci&oacute;n de servicios PHP de Azure para administrar servicios en la nube y otras aplicaciones de Azure." metaCanonical="" services="" documentationCenter="PHP" title="Uso de la Administraci&oacute;n de servicios con PHP" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
@@ -57,7 +57,7 @@ Para crear el certificado `.cer`, ejecute este comando:
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Para obtener más información acerca de los certificados de Azure, consulte [Información general sobre los certificados de Azure][Información general sobre los certificados de Azure]. Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación disponible en [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+Para obtener más información acerca de los certificados de Azure, consulte [Información general sobre los certificados de Azure][Información general sobre los certificados de Azure]. Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación disponible en <http://www.openssl.org/docs/apps/openssl.html>.
 
 Si ha descargado e importado el archivo de configuración de publicación con las [Herramientas de línea de comandos de Azure][Herramientas de línea de comandos de Azure], puede usar el archivo `.pem` que las herramientas crean en lugar de crear su propio archivo. Las herramientas crean un archivo `.cer`, lo cargan en Azure y, a continuación, colocan el archivo `.pem` correspondiente en el directorio `.azure` del equipo (en el directorio de usuarios).
 
@@ -552,11 +552,9 @@ Puede eliminar un grupo de afinidad si transfiere el nombre del grupo al método
   [5]: #DeleteAffinityGroup
   [crear una cuenta de Azure]: /es-es/pricing/free-trial/
   [API de administración de servicios de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/ee460799.aspx
-  [get-client-libraries]: ../includes/get-client-libraries.md
   [OpenSSL]: http://www.openssl.org/
   [descargar para Windows]: http://www.openssl.org/related/binaries.html
   [Información general sobre los certificados de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg981935.aspx
-  
   [Herramientas de línea de comandos de Azure]: ../command-line-tools/
   [servicio en la nube]: ../cloud-services-what-is/
   [CreateServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateServiceOptions.php
@@ -564,6 +562,7 @@ Puede eliminar un grupo de afinidad si transfiere el nombre del grupo al método
   [paquete de servicio]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433093
   [cmdlets de Azure PowerShell]: ../install-configure-powershell/
   [Herramienta de línea de comandos CSPack]: http://msdn.microsoft.com/es-es/library/windowsazure/gg432988.aspx
+  [Esquema de configuración del servicio de Azure (archivo .cscfg)]: http://msdn.microsoft.com/es-es/library/windowsazure/ee758710.aspx
   [Información general sobre la administración de implementaciones en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/hh386336.aspx
   [servicio de almacenamiento]: ../storage-whatis-account/
   [blobs]: ../storage-php-how-to-use-blobs/

@@ -1,6 +1,6 @@
-<properties title="Get started with SQL database auditing" pageTitle="Get started with SQL database auditing | Azure" description="Get started with SQL database auditing" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId=""  />
+<properties title="Introducci&oacute;n a la auditor&iacute;a de bases de datos SQL" pageTitle="Introducci&oacute;n a la auditor&iacute;a de bases de datos SQL | Azure" description="Introducci&oacute;n a la auditor&iacute;a de bases de datos SQL" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId="" manager="jeffreyg" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg"/>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jeffreyg" />
 
 # Introducción a la auditoría de bases de datos SQL
 
@@ -38,36 +38,35 @@ También puede elegir la cuenta de almacenamiento donde se guardan los registros
 
 Cuando se configura la auditoría, Azure proporciona una cadena de conexión con seguridad habilitada para la base de datos. Solamente las aplicaciones cliente que usan esta cadena de conexión registrarán su actividad y eventos, por lo que necesita actualizar las aplicaciones cliente existentes para que usen el nuevo formato de cadena.
 
-Formato de cadena de conexión tradicional: *\<nombre de servidor*\>.database.windows.net
+Formato de cadena de conexión tradicional: \<*nombre de servidor*\>.database.windows.net
 
-Cadena de conexión con seguridad habilitada: *\<nombre de servidor*\>.database.**secure**.windows.net
+Cadena de conexión con seguridad habilitada: \<*nombre de servidor*\>.database.**secure**.windows.net
 
 ## <span id="subheading-2"></span></a>Configuración de la auditoría para su base de datos
 
 1.  [Suscripción a la vista previa de auditoría][suscríbase a la vista previa].
-2.  Asegúrese también de [suscribirse a la vista previa de nuevos niveles de servicio][suscribirse a la vista previa de nuevos niveles de servicio] y cree una base de datos Basic, Standard o Premium.
-3.  Inicie el [Portal de vista previa de Azure][Portal de vista previa de Azure] en <https://portal.azure.com>.
-4.  Haga clic en la base de datos que desee auditar y después en **Vista previa de auditoría** para habilitar la vista previa de auditoría e iniciar el cuadro de configuración de auditoría.
+2.  Inicie el [Portal de vista previa de Azure][Portal de vista previa de Azure] en https://portal.azure.com.
+3.  Haga clic en la base de datos que desee auditar y después en **Vista previa de auditoría** para habilitar la vista previa de auditoría e iniciar el cuadro de configuración de auditoría.
 
-    ![](./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png)
+    ![][0]
 
-5.  En el cuadro de configuración de auditoría, seleccione la cuenta de almacenamiento de Azure donde se guardarán los registros. **Sugerencia:** Use la misma cuenta de almacenamiento para todas las bases de datos auditadas para obtener el máximo rendimiento de las plantillas de informes preconfigurados.
+4.  En el cuadro de configuración de auditoría, seleccione la cuenta de almacenamiento de Azure donde se guardarán los registros. **Sugerencia:** Use la misma cuenta de almacenamiento para todas las bases de datos auditadas para obtener el máximo rendimiento de las plantillas de informes preconfigurados.
 
     ![][1]
 
-6.  En **Opciones de auditoría**, haga clic en **Todo** para registrar todos los eventos o elija tipos de evento individuales.
+5.  En **Opciones de auditoría**, haga clic en **Todo** para registrar todos los eventos o elija tipos de evento individuales.
 
     ![][2]
 
-7.  Active la casilla **Guardar esta configuración como predeterminada** si desea que esta configuración se aplique a todas las bases de datos futuras en el servidor y a cualquiera que todavía no tenga configurada la auditoría. Puede anular la configuración más tarde para cada base de datos siguiendo estos mismos pasos.
+6.  Active la casilla **Guardar esta configuración como predeterminada** si desea que esta configuración se aplique a todas las bases de datos futuras en el servidor y a cualquiera que todavía no tenga configurada la auditoría. Puede anular la configuración más tarde para cada base de datos siguiendo estos mismos pasos.
 
     ![][3]
 
-8.  Haga clic en **Mostrar cadenas de conexión de base de datos** y copie la cadena de conexión con seguridad habilitada apropiada o anote dicha cadena para la aplicación. Utilice esta cadena para cualquier aplicación cliente cuya actividad desee auditar.
+7.  Haga clic en **Mostrar cadenas de conexión de base de datos** y copie la cadena de conexión con seguridad habilitada apropiada o anote dicha cadena para la aplicación. Utilice esta cadena para cualquier aplicación cliente cuya actividad desee auditar.
 
     ![][4]
 
-9.  Haga clic en **OK**.
+8.  Haga clic en **OK**.
 
 ## <span id="subheading-3"></span>Análisis de registros e informes de auditoría</a>
 
@@ -88,9 +87,9 @@ Para obtener instrucciones más detalladas sobre el trabajo con la plantilla de 
   [Conceptos básicos de la auditoría de Base de datos SQL de Azure]: #subheading-1
   [Configuración de la auditoría para su base de datos]: #subheading-2
   [Análisis de registros e informes de auditoría]: #subheading-3
-  [suscribirse a la vista previa de nuevos niveles de servicio]: https://account.windowsazure.com/PreviewFeatures?fid=premiumdb
+  [Referencia del formato del registro de auditoría (descarga de archivo .doc)]: http://go.microsoft.com/fwlink/?LinkId=506733
   [Portal de vista previa de Azure]: https://portal.azure.com
-  
+  [0]: ./media/sql-database-auditing-get-started/sql-database-get-started-auditingpreview.png
   [1]: ./media/sql-database-auditing-get-started/sql-database-get-started-storageaccount.png
   [2]: ./media/sql-database-auditing-get-started/sql-database-auditing-eventtype.png
   [3]: ./media/sql-database-auditing-get-started/sql-database-get-started-saveconfigasdefault.png
@@ -98,4 +97,5 @@ Para obtener instrucciones más detalladas sobre el trabajo con la plantilla de 
   [Explorador de almacenamiento de Azure]: http://azurestorageexplorer.codeplex.com/
   [hoja de cálculo de Excel descargable]: http://go.microsoft.com/fwlink/?LinkId=403540
   [aquí]: http://www.microsoft.com/es-es/download/details.aspx?id=39379
+  [Cómo (.doc descargable)]: http://go.microsoft.com/fwlink/?LinkId=506731
   [5]: ./media/sql-database-auditing-get-started/sql-database-auditing-dashboard.png

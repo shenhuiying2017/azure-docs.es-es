@@ -1,10 +1,9 @@
 ## <a name="what-is"> </a>Qué es el almacenamiento de blobs
 
 El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de
-datos no estructurados a los que puede obtenerse acceso desde cualquier lugar del mundo a través de
-HTTP o HTTPS. Un solo blob puede tener un tamaño de cientos de gigabytes.
-
-Una cuenta de almacenamiento de Azure puede contener grandes cantidades de datos de blobs, colas y tablas. Consulte [Azure Storage Scalability and Performance Targets][] para obtener información sobre la capacidad de la cuenta de almacenamiento.
+datos no estructurados, como texto o datos binarios, a los que puede obtenerse acceso desde cualquier lugar del mundo a través de
+HTTP o HTTPS. Puede usar el almacenamiento de blobs para exponer datos públicamente o
+para almacenar datos de la aplicación de manera privada.
 
 El almacenamiento de blobs suele usarse para realizar las siguientes tareas:
 
@@ -15,17 +14,14 @@ El almacenamiento de blobs suele usarse para realizar las siguientes tareas:
 -   Almacenamiento de datos para el análisis en local o en un servicio hospedado
     de Azure
 
-Puede usar el almacenamiento de blobs para exponer datos públicamente
-o de manera privada para el almacenamiento interno de aplicaciones.
-
 ## <a name="concepts"> </a>Conceptos
 
 El servicio BLOB contiene los componentes siguientes:
 
-![Blob1][]
+![Blob1][Blob1]
 
 -   **Cuenta de almacenamiento:** Todo el acceso a Almacenamiento de Azure se realiza
-    a través de una cuenta de almacenamiento. Consulte [Azure Storage Scalability and Performance Targets][] para obtener información sobre la capacidad de la cuenta de almacenamiento.
+    a través de una cuenta de almacenamiento. Consulte [Azure Storage Scalability and Performance Targets][Azure Storage Scalability and Performance Targets] para obtener información sobre la capacidad de la cuenta de almacenamiento.
 
 -   **Contenedor:** Un contenedor ofrece una agrupación de un conjunto de blobs.
     Todos los blobs deben residir en un contenedor. Además, una cuenta puede disponer de un
@@ -38,14 +34,15 @@ El servicio BLOB contiene los componentes siguientes:
     de hasta 200 GB. En este tutorial se usan blobs en bloques. Los blobs en páginas, que son otro tipo de
     blobs, pueden tener un tamaño de hasta 1 TB y son más eficaces cuando los intervalos
     de bytes de un archivo se modifican con frecuencia. Para obtener más información
-    sobre los blobs, consulte [Introducción a los blobs en bloques y a los blobs en páginas][].
+    sobre los blobs, consulte [Introducción a los blobs en bloques y a los blobs en páginas][Introducción a los blobs en bloques y a los blobs en páginas].
 
--   **Formato de dirección URL:** Es posible dirigir los blobs con el siguiente formato de dirección URL:  
+-   **Formato de dirección URL:** Es posible dirigir los blobs con el siguiente formato de dirección
+    URL:
     http://`<storage account>`.blob.core.windows.net/`<container>`/`<blob>`
 
     En el diagrama anterior se utilizó la siguiente dirección URL de ejemplo
-    para dirigir uno de los blobs:  
+    para dirigir uno de los blobs:
     `http://sally.blob.core.windows.net/movies/MOV1.AVI`
 
-  [Azure Storage Scalability and Performance Targets]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
   [Blob1]: ./media/howto-blob-storage/blob1.jpg
+  [Azure Storage Scalability and Performance Targets]: http://msdn.microsoft.com/es-es/library/dn249410.aspx

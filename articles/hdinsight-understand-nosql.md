@@ -1,6 +1,6 @@
-<properties linkid="manage-hdinsight-understand-nosql" urlDisplayName="Understand NoSQL technologies" pageTitle="Understanding NoSQL Technologies on Azure | Azure" metaKeywords="" description="Learn how NoSQL technologies on HDInsight can help you manage data not suited to relational databases, such as big data sets and JSON documents or graphs." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="Data management: Understanding NoSQL technologies on Azure" authors="dchappell" />
+<properties urlDisplayName="Understand NoSQL technologies" pageTitle="Informaci&oacute;n sobre la tecnolog&iacute;a NoSQL de Azure | Azure" metaKeywords="" description="Obtenga informaci&oacute;n sobre c&oacute;mo la tecnolog&iacute;a NoSQL de HDInsight puede ayudarle a administrar datos no adecuados para bases de datos relacionales como, por ejemplo, conjuntos de grandes vol&uacute;menes de datos y documentos o gr&aacute;ficos JSON." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="storage,hdinsight" documentationCenter="" title="Administraci&oacute;n de datos: informaci&oacute;n sobre la tecnolog&iacute;a NoSQL de Azure" authors="dchappell" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="dchappell"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="dchappell" />
 
 # Administración de datos: información sobre la tecnología NoSQL de Azure
 
@@ -29,6 +29,6 @@ Desde hace tiempo, la tecnología relacional es el método dominante para trabaj
 
 **Revisión:** 1.0
 
-**Descarga:** [archivo PDF Información sobre la tecnología NoSQL de Azure][]
+**Descarga:** [archivo PDF Información sobre la tecnología NoSQL de Azure][archivo PDF Información sobre la tecnología NoSQL de Azure]
 
   [archivo PDF Información sobre la tecnología NoSQL de Azure]: http://go.microsoft.com/fwlink/p/?LinkId=330292

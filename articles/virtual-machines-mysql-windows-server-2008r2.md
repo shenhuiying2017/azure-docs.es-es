@@ -1,4 +1,4 @@
-<properties linkid="manage-windows-common-tasks-install-mysql" urlDisplayName="Install MySQL" pageTitle="Create a virtual machine running MySQL in Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Create an Azure virtual machine running Windows Server 2008 R2, and then install and configure a MySQL database on the virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install MySQL on a virtual machine running Windows Server 2008 R2 in Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Install MySQL" pageTitle="Creaci&oacute;n de una m&aacute;quina virtual que ejecuta MySQL en Azure " metaKeywords="Azure virtual machines, Azure Windows Server, Azure installing MySQL, Azure configuring MySQL, Azure databases" description="Cree una m&aacute;quina virtual de Azure que ejecute Windows Server 2008 R2 y, a continuaci&oacute;n, instale y configure una base de datos MySQL en la m&aacute;quina virtual." metaCanonical="" services="virtual-machines" documentationCenter="" title="Instalaci&oacute;n de MySQL en una m&aacute;quina virtual que ejecuta Windows Server 2008 R2 en Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="12/15/2013" ms.author="kathydav" />
 
@@ -155,8 +155,6 @@ En este tutorial ha aprendido a crear un equipo virtual Windows 2008 R2 y a cone
 
   [MySQL]: http://www.mysql.com
   [Portal de administración de Azure]: http://manage.windowsazure.com
-  [create-and-configure-windows-server-2008-vm-in-portal]: ../includes/create-and-configure-windows-server-2008-vm-in-portal.md
-  [attach-data-disk-windows-server-2008-vm-in-portal]: ../includes/attach-data-disk-windows-server-2008-vm-in-portal.md
   [Download MySQL Community Server]: http://www.mysql.com/downloads/mysql/
   [Configuración de MySQL]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall1.png
   [1]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLInstall2.png

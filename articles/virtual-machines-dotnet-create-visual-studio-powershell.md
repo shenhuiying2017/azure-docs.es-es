@@ -1,6 +1,6 @@
-<properties linkid="dotnet-visualstudio-create-virtual-machine" urlDisplayName="Create a virtual machine for a website" pageTitle="Creating a virtual machine for a web project using Visual Studio" metaKeywords="Visual Studio, ASP.NET, web project, virtual machine" description="Create a virtual machine for a website" metaCanonical="" services="" documentationCenter="" title="Creating a virtual machine for a website with Visual Studio" authors="ghogen" solutions="" manager="" editor="" />
+<properties urlDisplayName="Create a virtual machine for a website" pageTitle="Creaci&oacute;n de una m&aacute;quina virtual para un proyecto web usando Visual Studio" metaKeywords="Visual Studio, ASP.NET, web project, virtual machine" description="Creaci&oacute;n de una m&aacute;quina virtual para un sitio web" metaCanonical="" services="" documentationCenter="" title="Creaci&oacute;n de una m&aacute;quina virtual para un sitio web con Visual Studio" authors="ghogen" solutions="" manager="douge" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
 # Creación de una máquina virtual para un sitio web con Visual Studio
 
@@ -11,7 +11,7 @@ Para crear una máquina virtual cuando cree un sitio web, siga estos pasos:
 1.  En Visual Studio, elija **Archivo**, **Nuevo proyecto**, elija **Web** y después **Aplicación web ASP.NET**.
 2.  En el cuadro de diálogo **Nuevo proyecto ASP.NET**, seleccione el tipo de aplicación web que desee y en la sección de Azure de dicho cuadro de diálogo (en la esquina inferior derecha), asegúrese de que la casilla **Host en la nube** está selecciona (esta casilla tiene la etiqueta **Crear recursos remotos** en algunas instalaciones).
 
-    ![][]
+    ![][0]
 
 3.  Elija **Máquina virtual** y después el botón **Aceptar**.
 4.  Si se le pide, inicie sesión en Azure. Aparecerá el cuadro de diálogo Crear máquina virtual.
@@ -44,7 +44,7 @@ Para crear una máquina virtual cuando cree un sitio web, siga estos pasos:
 
 Si desea personalizar los scripts de publicación creados, [aquí][aquí] encontrará información más detallada.
 
-  []: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_NewProject.PNG
+  [0]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_NewProject.PNG
   [1]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_CreateVM.PNG
   [2]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_Provisioning.png
   [3]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SolutionExplorer.png

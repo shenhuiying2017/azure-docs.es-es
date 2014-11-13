@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-tutorials-web-site-with-storage" urlDisplayName="Website with Storage" pageTitle="Node.js website with table storage | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="A tutorial that teaches you how to use the Azure Table service to store data from a Node application hosted on an Azure website." metaCanonical="" services="web-sites,storage" documentationCenter="Node.js" title="Node.js Web Application using the Azure Table Service" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Website with Storage" pageTitle="Sitio web Node.js con almacenamiento de tablas | Microsoft Azure" metaKeywords="Azure table storage Node.js, Azure Node.js application, Azure Node.js tutorial, Azure Node.js example" description="Un tutorial que le ense&ntilde;a a usar el servicio Tabla de Azure para almacenar datos desde una aplicaci&oacute;n Node hospedada en un sitio web de Azure." metaCanonical="" services="web-sites,storage" documentationCenter="nodejs" title="Aplicaci&oacute;n web Node.js utilizando el servicio Tabla de Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Aplicación web Node.js utilizando el servicio Tabla de Azure
 
@@ -38,7 +38,7 @@ Antes de seguir las instrucciones del presente artículo, debe asegurarse de ten
 
 [WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
-## una cuenta de almacenamiento
+## Crear una cuenta de almacenamiento
 
 Realice los siguientes pasos para crear una cuenta de almacenamiento. Esta cuenta se utilizará con las siguientes instrucciones de este tutorial.
 
@@ -470,7 +470,7 @@ Lleve a cabo los siguientes pasos para probar la aplicación en su máquina loca
 
         npm start
 
-3.  Abra el explorador y navegue a <http://127.0.0.1:3000>. Debería ver una página web similar a la siguiente:
+3.  Abra un explorador web y navegue a http://127.0.0.1:3000. Con esto debe aparecer una página web similar a la siguiente:
 
     ![Página web que muestra una lista de tareas vacía][Página web que muestra una lista de tareas vacía]
 
@@ -643,8 +643,8 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
   [Node]: http://nodejs.org
   [Git]: http://git-scm.com
   [Página web que muestra una lista de tareas vacía]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_empty.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Portal de Azure]: http://windowsazure.com
+  [+new]: ./media/storage-nodejs-use-table-storage-web-site/plus-new.png
   [Cuenta de almacenamiento]: ./media/storage-nodejs-use-table-storage-web-site/new-storage.png
   [Creación rápida]: ./media/storage-nodejs-use-table-storage-web-site/quick-storage.png
   [Claves de acceso]: ./media/storage-nodejs-use-table-storage-web-site/manage-access-keys.png
@@ -654,7 +654,6 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
   [1]: http://getbootstrap.com/
   [Imagen del elemento nuevo en la lista de tareas]: ./media/storage-nodejs-use-table-storage-web-site/table_todo_list.png
   [Creación e implementación de una aplicación Node.js en un Sitio web Azure]: /es-es/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [antares-iaas-signup]: ../includes/antares-iaas-signup.md
   [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure]: /es-es/documentation/articles/xplat-cli/
   [La página de descarga]: ./media/storage-nodejs-use-table-storage-web-site/azure-account-download-cli.png
   [Git remoto]: http://git-scm.com/docs/git-remote

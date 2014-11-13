@@ -1,10 +1,10 @@
-<properties linkid="manage-services-hdinsight-administer-hdinsight-hadoop-clusters-using-command-line" urlDisplayName="HDInsight Administration" pageTitle="Manage Hadoop clusters using Cross-Platform Command-Line | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Learn how to use the Cross-Platform Command-Line Interface to manage Hadoop clusters in HDIsight on any platform that supports Node.js, including Windows, Mac, and Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administer Hadoop clusters using the Cross-platform Command-line Interface" authors="jgao" />
+<properties urlDisplayName="HDInsight Administration" pageTitle="Administraci&oacute;n de cl&uacute;steres de Hadoop usando la l&iacute;nea de comandos multiplataforma | Azure" metaKeywords="hdinsight, hdinsight administration, hdinsight administration azure, hadoop, administration" description="Vea c&oacute;mo usar la interfaz de l&iacute;nea de comandos multiplataforma para administrar cl&uacute;steres de Hadoop en HDIsight en una plataforma que admita Node.js, incluidos Windows, Mac y Linux." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Administraci&oacute;n de cl&uacute;steres de Hadoop mediante la interfaz de la l&iacute;nea de comandos multiplataforma" authors="jgao" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
-# Administración de clústeres de Hadoop mediante la interfaz de la línea de comandos entre plataformas
+# Administración de clústeres de Hadoop mediante la interfaz de la línea de comandos multiplataforma
 
-En este artículo, aprenderá a utilizar la interfaz de la línea de comandos entre plataformas para administrar clústeres de Hadoop en HDInsight. La herramienta de línea de comandos se implementa en Node.js y se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux.
+En este artículo, aprenderá a utilizar la interfaz de la línea de comandos multiplataforma para administrar clústeres de Hadoop en HDInsight. La herramienta de línea de comandos se implementa en Node.js y se puede usar en cualquier plataforma compatible con Node.js, entre las que se incluyen Windows, Mac y Linux.
 
 La herramienta de línea de comandos es de código abierto. El código fuente se administra en GitHub en <https://github.com/WindowsAzure/azure-sdk-tools-xplat>.
 
@@ -54,7 +54,7 @@ La interfaz de línea de comandos se puede instalar usando *Node.js Package Mana
 
 **Para instalar la interfaz de línea de comandos usando Windows Installer**
 
-1.  Vaya a **[http://azure.microsoft.com/es-es/downloads/][http://azure.microsoft.com/es-es/downloads/]**.
+1.  Vaya a **http://azure.microsoft.com/es-es/downloads/**.
 2.  Desplácese hasta la sección **Command line tools** y, a continuación, haga clic en **Cross-platform Command Line Interface** y siga el asistente del instalador de plataforma web.
 
 ## <span id="importsettings"></span></a> Descarga e importación de la configuración de publicación de la cuenta de Azure
@@ -83,6 +83,8 @@ Antes de usar la interfaz de línea de comandos, debe configurar la conectividad
     En la captura de pantalla anterior, el archivo publishsettings se guardó en la carpeta C:\\HDInsight de la estación de trabajo.
 
 ## <span id="provision"></span></a>Aprovisionamiento de un clúster de HDInsight
+
+[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
 HDInsight utiliza contenedores de almacenamiento de blobs de Azure como sistemas de archivos predeterminados. Es preciso tener una cuenta de almacenamiento de Azure antes de crear un clúster de HDInsight.
 
@@ -181,7 +183,6 @@ En este artículo, ha aprendido a realizar diferentes tareas administrativas en 
   [Enumeración y visualización de clústeres]: #listshow
   [Eliminación de un clúster]: #delete
   [Pasos siguientes]: #nextsteps
-  [http://azure.microsoft.com/es-es/downloads/]: http://azure.microsoft.com/es-es/downloads/
   [HDI.CLIAccountDownloadImport]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
   [Creación de una cuenta de almacenamiento]: ../storage-create-storage-account/
   [Administración de cuentas de almacenamiento]: ../storage-manage-storage-account/

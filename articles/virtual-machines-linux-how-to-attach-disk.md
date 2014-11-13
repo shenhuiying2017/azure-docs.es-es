@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-howto-attach-a-disk" urlDisplayName="Attach a disk" pageTitle="Attach a disk to a virtual machine running Linux in Azure" metaKeywords="disk VM Azure, initialize new disk Azure, initialize disk Azure Linux, attaching empty disk Azure" description="Learn how to attach a data disk to an Azure virtual machine and initialize it so it's ready for use." metaCanonical="http://www.windowsazure.com/es-es/manage/windows/how-to-guides/attach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Attach a disk" pageTitle="Acoplamiento de un disco a una m&aacute;quina virtual que ejecuta Linux en Azure" metaKeywords="disk VM Azure, initialize new disk Azure, initialize disk Azure Linux, attaching empty disk Azure" description="Aprenda como acoplar un disco de datos a una m&aacute;quina virtual de Azure y a inicializarla para que est&eacute; lista para utilizarse." metaCanonical="http://www.windowsazure.com/es-es/manage/windows/how-to-guides/attach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="7/29/2014" ms.author="kathydav" />
 
@@ -106,7 +106,6 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
   [Direccionamiento del un disco vacío]: #attachempty
   [Direccionamiento del un disco existente]: #attachexisting
   [Direccionamiento del un nuevo disco de datos en Linux]: #initializeinlinux
-  [howto-attach-disk-windows-linux]: ../includes/howto-attach-disk-windows-linux.md
   [Inicio de sesión en una máquina virtual con Linux]: ../virtual-machines-linux-how-to-log-on/
   [Obtener mensajes de disco]: ./media/virtual-machines-linux-how-to-attach-disk/DiskMessages.png
   [Crear un dispositivo nuevo]: ./media/virtual-machines-linux-how-to-attach-disk/DiskPartition.png

@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage  from .NET | Microsoft Azure" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" description="Learn how to use Microsoft Azure Table storage to create and delete tables and insert and query entities in a table." services="storage" documentationCenter=".NET" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="How to use Microsoft Azure Table storage" authors="tamram" />
+<properties urlDisplayName="Table Service" pageTitle="Uso del almacenamiento de tablas en .NET | Microsoft Azure" metaKeywords="Get started Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage   Azure table .NET   Azure table storage .NET   Azure table C#   Azure table storage C#" description="Aprenda a usar el almacenamiento de tablas de Microsoft Azure para crear y eliminar tablas e insertar y consultar entidades en una tabla." services="storage" documentationCenter=".NET" metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Uso de almacenamiento de tablas de Microsoft Azure" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -18,18 +18,18 @@ información acerca de las tablas, consulte la sección [Pasos siguientes][Pasos
 -   [Conceptos][Conceptos]
 -   [Creación de una cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento de Azure]
 -   [Configuración de una cadena de conexión de almacenamiento][Configuración de una cadena de conexión de almacenamiento]
--   [Acceso al almacenamiento de tablas mediante programación][Acceso al almacenamiento de tabla mediante programación]
--   [Creación de una tabla][Creación de una tabla]
--   [Incorporación de una entidad a una tabla][Incorporación de una entidad a una tabla]
--   [Inserción de un lote de entidades][Inserción de un lote de entidades]
--   [Recuperación de todas las entidades de una partición][Recuperación de todas las entidades de una partición]
--   [Recuperación de un rango de entidades de una partición][Recuperación de un rango de entidades de una partición]
--   [Recuperación de una sola entidad][Recuperación de una sola entidad]
--   [Reemplazo de una entidad][Reemplazo de una entidad]
--   [Inserción o reemplazo de una entidad][Inserción o reemplazo de una entidad]
--   [Consulta de un subconjunto de propiedades de las entidades][Consulta de un subconjunto de propiedades de las entidades]
--   [Eliminación de una entidad][Eliminación de una entidad]
--   [Eliminación de una tabla][Eliminación de una tabla]
+-   [Direccionamiento del almacenamiento de tablas mediante programación][Acceso al almacenamiento de tabla mediante programación]
+-   [Direccionamiento del una tabla][Direccionamiento del una tabla]
+-   [Direccionamiento del una entidad a una tabla][Direccionamiento del una entidad a una tabla]
+-   [Direccionamiento del de un lote de entidades][Direccionamiento del de un lote de entidades]
+-   [Direccionamiento del todas las entidades de una partición][Direccionamiento del todas las entidades de una partición]
+-   [Direccionamiento del de un rango de entidades de una partición][Direccionamiento del de un rango de entidades de una partición]
+-   [Direccionamiento del una sola entidad][Direccionamiento del una sola entidad]
+-   [Direccionamiento del una entidad][Direccionamiento del una entidad]
+-   [Direccionamiento del o reemplazo de una entidad][Direccionamiento del o reemplazo de una entidad]
+-   [Direccionamiento del un subconjunto de propiedades de las entidades][Direccionamiento del un subconjunto de propiedades de las entidades]
+-   [Direccionamiento del de una entidad][Direccionamiento del de una entidad]
+-   [Direccionamiento del una tabla][1]
 -   [Pasos siguientes][Pasos siguientes]
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
@@ -57,7 +57,7 @@ información acerca de las tablas, consulte la sección [Pasos siguientes][Pasos
 
 Puede utilizar NuGet para obtener el ensamblado `Microsoft.WindowsAzure.Storage.dll`. Haga clic con el botón secundario en el proyecto, en el **Explorador de soluciones**, y elija **Manage NuGet Packages**. Busque "Azure.Storage" en línea y haga clic en **Install** para instalar el paquete y las dependencias de almacenamiento de Azure.
 
-`Microsoft.WindowsAzure.Storage.dll` también se incluye en el SDK de Azure para .NET, que se puede descargar en el [Centro de desarrolladores de .NET][Centro de desarrolladores de .NET]. El ensamblado se instala en el directorio `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
+`Microsoft.WindowsAzure.Storage.dll` también se incluye en el SDK de Azure para .NET, que se puede descargar en el [Centro de desarrolladores de .NET][Centro de desarrolladores de .NET]. El ensamblado se instala en el directorio `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code>.
 
 ### Declaraciones de espacio de nombres
 
@@ -514,20 +514,17 @@ para obtener más información acerca de cómo realizar tareas de almacenamiento
   [Conceptos]: #concepts
   [Creación de una cuenta de almacenamiento de Azure]: #create-account
   [Configuración de una cadena de conexión de almacenamiento]: #setup-connection-string
-  [Creación de una tabla]: #create-table
-  [Incorporación de una entidad a una tabla]: #add-entity
-  [Inserción de un lote de entidades]: #insert-batch
-  [Recuperación de todas las entidades de una partición]: #retrieve-all-entities
-  [Recuperación de un rango de entidades de una partición]: #retrieve-range-entities
-  [Recuperación de una sola entidad]: #retrieve-single-entity
-  [Reemplazo de una entidad]: #replace-entity
-  [Inserción o reemplazo de una entidad]: #insert-or-replace-entity
-  [Consulta de un subconjunto de propiedades de las entidades]: #query-entity-properties
-  [Eliminación de una entidad]: #delete-entity
-  [Eliminación de una tabla]: #delete-table
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
+  [Direccionamiento del una tabla]: #create-table
+  [Direccionamiento del una entidad a una tabla]: #add-entity
+  [Direccionamiento del de un lote de entidades]: #insert-batch
+  [Direccionamiento del todas las entidades de una partición]: #retrieve-all-entities
+  [Direccionamiento del de un rango de entidades de una partición]: #retrieve-range-entities
+  [Direccionamiento del una sola entidad]: #retrieve-single-entity
+  [Direccionamiento del una entidad]: #replace-entity
+  [Direccionamiento del o reemplazo de una entidad]: #insert-or-replace-entity
+  [Direccionamiento del un subconjunto de propiedades de las entidades]: #query-entity-properties
+  [Direccionamiento del de una entidad]: #delete-entity
+  [1]: #delete-table
   [Centro de desarrolladores de .NET]: http://www.windowsazure.com/es-es/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2

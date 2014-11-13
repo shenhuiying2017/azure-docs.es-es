@@ -1,4 +1,4 @@
-<properties linkid="manage-services-storage-net-shared-access-signature-part-1" urlDisplayName="" pageTitle="Shared access signatures: Understanding the SAS Model | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="" pageTitle="Firmas de acceso compartido: Descripci&oacute;n del modelo de firmas de acceso compartido | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Aprenda a delegar el acceso a recursos de blob, cola y tabla con firmas de acceso compartido" metaCanonical="" services="storage" documentationCenter="" title="Parte 1: Descripci&oacute;n del modelo de firmas de acceso compartido" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -16,14 +16,13 @@ Puede usar una SAS cuando desee proporcionar acceso a los recursos en la cuenta 
 
 Un escenario común en el que es útil una SAS es un servicio en el que los usuarios leen y escriben sus propios datos en la cuenta de almacenamiento. Existen dos patrones de diseño típicos en los escenarios en los que una cuenta de almacenamiento guarda datos de usuario:
 
-1\.	Los clientes cargan y descargan datos a través de un servicio de proxy front-end que realiza la autenticación. Este servicio de proxy front-end cuenta con la ventaja de permitir la validación de reglas de negocio, pero para grandes cantidades de datos o transacciones de gran volumen, la creación de un servicio que pueda escalarse para satisfacer la demanda puede ser complicada o costosa.
+1. Los clientes cargan y descargan datos a través de un servicio de proxy front-end que realiza la autenticación. Este servicio de proxy front-end cuenta con la ventaja de permitir la validación de reglas de negocio, pero para grandes cantidades de datos o transacciones de gran volumen, la creación de un servicio que pueda escalarse para satisfacer la demanda puede ser complicada o costosa.
 
-![sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
+[sas-storage-fe-proxy-service][sas-storage-fe-proxy-service]
 
+2. Un servicio ligero realiza la autenticación del cliente según sea necesario y, a continuación, genera una SAS. Una vez que el cliente recibe la SAS, puede obtener acceso a los recursos de la cuenta de almacenamiento directamente con los permisos definidos por la SAS y para el intervalo permitido por ella. La SAS mitiga la necesidad de enrutar todos los datos a través del servicio de proxy front-end.
 
-2\. Un servicio ligero realiza la autenticación del cliente según sea necesario y, a continuación, genera una SAS. Una vez que el cliente recibe la SAS, puede obtener acceso a los recursos de la cuenta de almacenamiento directamente con los permisos definidos por la SAS y para el intervalo permitido por ella. La SAS mitiga la necesidad de enrutar todos los datos a través del servicio de proxy front-end.
-
-![sas-storage-provider-service][sas-storage-provider-service]
+[sas-storage-provider-service][sas-storage-provider-service]
 
 Muchos servicios en tiempo real pueden usar una combinación de estos dos enfoques, según el escenario implicado, con algunos datos procesados y validados a través del proxy front-end mientras se guardan o leen los demás datos directamente mediante la SAS.
 
@@ -40,7 +39,7 @@ Las firmas de acceso compartido tienen las siguientes restricciones que las defi
 
 A continuación se muestra un ejemplo de un URI de SAS que ofrece permisos de lectura y escritura en un blob. En la tabla siguiente se divide cada parte del URI para saber cómo contribuye a la SAS:
 
-<https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D>
+https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-29T22%3A18%3A26Z&se=2013-04-30T02%3A23%3A26Z&sr=b&sp=rw&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 
 <table>
 <colgroup>
@@ -133,10 +132,12 @@ Las firmas de acceso compartido son útiles para ofrecer permisos limitados a su
 
 [Delegación de acceso con una firma de acceso compartido (API de REST)][Delegación de acceso con una firma de acceso compartido (API de REST)]
 
-[Introducción a SAS (firma de acceso compartido) de Tabla, SAS de Cola y actualización a SAS de Blob][Introducción a SAS (firma de acceso compartido) de Tabla, SAS de Cola y actualización a SAS de Blob]
+[Introducing Table SAS (Shared Access Signature), Queue SAS and update to Blob SAS][Introducing Table SAS (Shared Access Signature), Queue SAS and update to Blob SAS]
  [sas-storage-fe-proxy-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png
 [sas-storage-provider-service]: ./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png
 
   [parte 2]: ../storage-dotnet-shared-access-signature-part-2/
   [blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx
   [Administración del acceso a los recursos de almacenamiento de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/ee393343.aspx
+  [Delegación de acceso con una firma de acceso compartido (API de REST)]: http://msdn.microsoft.com/es-es/library/windowsazure/ee395415.aspx
+  [Introducing Table SAS (Shared Access Signature), Queue SAS and update to Blob SAS]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

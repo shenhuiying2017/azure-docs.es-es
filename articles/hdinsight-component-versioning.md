@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-version" urlDisplayName="HDInsight Hadoop Version" pageTitle="What's new in Hadoop cluster versions of HDInsight? | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight supports multiple Hadoop cluster versions deployable at any time. See the Hadoop and HortonWorks Data Platform (HDP) distribution versions supported." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="What's new in the cluster versions provided by HDInsight?" authors="bradsev" />
+<properties urlDisplayName="HDInsight Hadoop Version" pageTitle="Novedades en las versiones de cl&uacute;ster de Hadoop de HDInsight | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight es compatible con varias versiones de cl&uacute;ster de Hadoop que se pueden implementar en cualquier momento. Vea las versiones de distribuci&oacute;n de Hadoop y HortonWorks Data Platform (HDP) que se admiten." services="hdinsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="&iquest;Cu&aacute;les son las novedades en las versiones de cl&uacute;steres proporcionadas por HDInsight?" authors="bradsev" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -20,7 +20,7 @@ HDInsight es compatible con varias versiones de clústeres de Hadoop que se pued
 <tr class="header">
 <th align="left">Componente</th>
 <th align="left">HDInsight versión 3.1 (predeterminada)</th>
-<th align="left">HDInsight versión 3.0</th>
+<th align="left">HDInsight versión 3,0</th>
 <th align="left">HDInsight versión 2.1</th>
 <th align="left">HDInsight versión 1.6</th>
 </tr>
@@ -138,7 +138,7 @@ Si utiliza la opción **Creación rápida**, obtendrá la versión 3.1 de HDInsi
 
 Ahora, Azure HDInsight admite Hadoop 2.4 con el clúster de HDInsight versión 3.1 (usando HortonWorks Data Platform 2.1) de forma predeterminada. Aprovecha totalmente las ventajas de la plataforma para proporcionar una serie de ventajas importantes a los clientes. De entre ellas, las más destacadas son:
 
--   **HBase**: HBase es una base de datos NoSQL de baja latencia que permite el procesamiento de transacciones en línea de datos de gran tamaño. HBase se ofrece como un clúster administrado integrado en el entorno de Azure. Los clústeres están configurados para almacenar los datos directamente en el almacenamiento de blobs de Azure, lo que proporciona una baja latencia y una mayor elasticidad en las opciones de rendimiento/coste. Esto permite que los clientes creen sitios web interactivos que trabajen con grandes conjuntos de datos, creen servicios que almacenen datos del sensor y telemetría desde millones de extremos y analicen estos datos con trabajos de Hadoop.
+-   **HBase**: HBase es una base de datos NoSQL de baja latencia que permite el procesamiento de transacciones en línea de Big Data. HBase se ofrece como un clúster administrado integrado en el entorno de Azure. Los clústeres están configurados para almacenar datos directamente en el almacenamiento de blobs de Azure, que proporciona una latencia baja y una mayor elasticidad de las opciones de rendimiento o coste. Esto permite que los clientes creen sitios web interactivos que trabajen con grandes conjuntos de datos, creen servicios que almacenen datos del sensor y telemetría desde millones de extremos y analicen estos datos con trabajos de Hadoop.
 
 -   **Cluster Dashboard**: nueva aplicación web que se implementa en el clúster de HDInsight. Utilícela para ejecutar consultas de Hive, consultar registros de trabajos y examinar el almacenamiento de blobs de Azure. La dirección URL utilizada para obtener acceso a la aplicación web es \<*NombreDeClúster*\>.azurehdinsight.net.
 
@@ -155,6 +155,8 @@ Ahora, Azure HDInsight admite Hadoop 2.4 con el clúster de HDInsight versión 3
 -   **Pig, Sqoop, Qozie, Ambari**: Actualizaciones de versión de componentes para el clúster de HDInsight versión 3.0 (HDP 2.0/Hadoop 2.2) que proporciona paridad con el clúster de HDInsight versión 2.1 (HDP 1.3/Hadoop 1.2). Consulte las tablas de versiones a continuación para obtener información específica.
 
 -   **Mahout**: Esta biblioteca de algoritmos de aprendizaje automático escalable está preinstalada en los clústeres de Hadoop de HDInsight 3.1. Por tanto, puede ejecutar trabajos de Mahout sin necesidad de configuración adicional del clúster.
+
+-   **Compatibilidad con redes virtuales**: Los clústeres de HDInsight se pueden usar con Red virtual de Azure para permitir el aislamiento de recursos en la nube o escenarios híbridos que vinculen recursos en la nube con los de su centro de datos.
 
 ## Versiones compatibles
 
@@ -196,11 +198,11 @@ Fecha de desuso
 </tr>
 <tr>
 <td>
-HDI 3.1
+HDI 3,1
 
 </td>
 <td>
-HDP 2.1
+HDP 2,1
 
 </td>
 <td>
@@ -220,11 +222,11 @@ Sí
 </tr>
 <tr>
 <td>
-HDI 3.0
+HDI 3,0
 
 </td>
 <td>
-HDP 2.0
+HDP 2,0
 
 </td>
 <td>
@@ -250,11 +252,11 @@ Sí
 </tr>
 <tr>
 <td>
-HDI 2.1
+HDI 2,1
 
 </td>
 <td>
-HDP 1.3
+HDP 1,3
 
 </td>
 <td>
@@ -328,9 +330,9 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
 
 -   El clúster de HDInsight versión 3.1 utiliza una distribución de Hadoop basada en [HortonWorks Data Platform 2.1][HortonWorks Data Platform 2.1]. Este es el clúster de Hadoop predeterminado que se crea cuando se usa el portal de HDInsight de Azure.
 
--   La versión 3.0 del clúster de HDInsight utiliza una distribución de Hadoop basada en la distribución [Hortonworks Data Platform 2.0][Hortonworks Data Platform 2.0].
+-   La versión 3,0 del clúster de HDInsight utiliza una distribución de Hadoop basada en la distribución [Hortonworks Data Platform 2,0][Hortonworks Data Platform 2,0].
 
--   La versión 2.1 del clúster de HDInsight utiliza una distribución de Hadoop basada en la distribución [Hortonworks Data Platform 1.3][Hortonworks Data Platform 1.3].
+-   La versión 2,1 del clúster de HDInsight utiliza una distribución de Hadoop basada en la distribución [Hortonworks Data Platform 1,3][Hortonworks Data Platform 1,3].
 
 -   La versión 1.6 del clúster de HDInsight utiliza una distribución de Hadoop basada en la distribución [Hortonworks Data Platform 1.1][Hortonworks Data Platform 1.1].
 
@@ -340,6 +342,6 @@ La **fecha de desuso** es la fecha tras la cual no se puede crear la versión de
   [New-AzureHDInsightCluster]: http://msdn.microsoft.com/es-es/library/dn593744.aspx
   [Familia 4]: http://msdn.microsoft.com/es-es/library/azure/ee924680.aspx#explanation
   [HortonWorks Data Platform 2.1]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.1/bk_releasenotes_hdp_2.1/content/ch_relnotes-hdp-2.1.1.html
-  [Hortonworks Data Platform 2.0]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
-  [Hortonworks Data Platform 1.3]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
+  [Hortonworks Data Platform 2,0]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.8.0/bk_releasenotes_hdp_2.0/content/ch_relnotes-hdp2.0.8.0.html
+  [Hortonworks Data Platform 1,3]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
   [Hortonworks Data Platform 1.1]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/bk_releasenotes_HDP-Win/content/ch_relnotes-hdp-win-1.1.0_1.html

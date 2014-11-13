@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-commontasks-install-software" urlDisplayName="Install software on VM" pageTitle="Install software on a Linux virtual machine - Azure" metaKeywords="" description="Learn how to install software on your Linux virtual machine in Azure by using CentOS/Red Hat or Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install software on your Linux virtual machine in Azure" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Install software on VM" pageTitle="Instalaci&oacute;n de software en una m&aacute;quina virtual de Linux - Azure" metaKeywords="" description="Aprenda a instalar software en su m&aacute;quina virtual de Linux en Azure utilizando CentOS/Red Hat o Ubuntu." metaCanonical="" services="virtual-machines" documentationCenter="" title="Instalaci&oacute;n del software en la m&aacute;quina virtual de Linux en Azure" authors="timlt" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
 # Instalación del software en la máquina virtual de Linux en Azure
 

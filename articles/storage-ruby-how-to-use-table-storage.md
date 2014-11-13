@@ -1,6 +1,6 @@
-<properties linkid="dev-ruby-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Learn how to use the table storage service in Azure. Code samples are written using the Ruby API." metaCanonical="" services="storage" documentationCenter="Ruby" title="How to Use the Table Service from Ruby" authors="guayan" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Uso del almacenamiento de tablas (Ruby) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Ruby, table storage Ruby" description="Aprenda a usar el servicio de almacenamiento de tablas en Azure. Los ejemplos de c&oacute;digo est&aacute;n escritos usando la API Ruby." metaCanonical="" services="storage" documentationCenter="Ruby" title="Uso del servicio Tabla desde Ruby" authors="guayan" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Uso del servicio Tabla desde Ruby
 
@@ -18,15 +18,15 @@ información acerca de las tablas, consulte la sección [Pasos siguientes][Pasos
 -   [Creación de una aplicación de Ruby][Creación de una aplicación de Ruby]
 -   [Configuración de su aplicación para obtener acceso al almacenamiento][Configuración de su aplicación para obtener acceso al almacenamiento]
 -   [Configuración de una conexión de almacenamiento de Azure][Configuración de una conexión de almacenamiento de Azure]
--   [Creación de una tabla][Creación de una tabla]
--   [Incorporación de una entidad a una tabla][Incorporación de una entidad a una tabla]
--   [Actualización de una entidad][Actualización de una entidad]
--   [Tabajo con grupos de entidades][Tabajo con grupos de entidades]
--   [Consulta de una entidad][Consulta de una entidad]
--   [Consulta de un conjunto de entidades][Consulta de un conjunto de entidades]
--   [Consulta de un subconjunto de propiedades de las entidades][Consulta de un subconjunto de propiedades de las entidades]
+-   [Direccionamiento del una tabla][Direccionamiento del una tabla]
+-   [Direccionamiento del una entidad a una tabla][Direccionamiento del una entidad a una tabla]
 -   [Eliminación de una entidad][Eliminación de una entidad]
--   [Eliminación de una tabla][Eliminación de una tabla]
+-   [Direccionamiento del grupos de entidades][Direccionamiento del grupos de entidades]
+-   [Direccionamiento del una entidad][Direccionamiento del una entidad]
+-   [Direccionamiento del un conjunto de entidades][Direccionamiento del un conjunto de entidades]
+-   [Eliminación de un subconjunto de propiedades de las entidades][Eliminación de un subconjunto de propiedades de las entidades]
+-   [Eliminación de una entidad][1]
+-   [Direccionamiento del de una tabla][Direccionamiento del de una tabla]
 -   [Pasos siguientes][Pasos siguientes]
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
@@ -94,7 +94,7 @@ Para agregar una entidad, primero cree un objeto hash que defina las propiedades
       :PartitionKey => "test-partition-key", :RowKey => "1" }
     azure_table_service.insert_entity("testtable", entity)
 
-## <span id="how-to-update-an-entity"></span></a>Actualización de una entidad
+## <span id="how-to-update-an-entity"></span></a>Eliminación de de una entidad
 
 Hay varios métodos para actualizar una entidad existente:
 
@@ -111,7 +111,7 @@ El ejemplo siguiente demuestra cómo actualizar una entidad usando **update\_ent
 
 Con **update\_entity()** y **merge\_entity()**, si la entidad que se está actualizando no existe, se producirá un error en la operación de actualización. Por lo tanto, si desea almacenar una entidad independientemente de si ya existe, debe usar **insert\_or\_replace\_entity()** o **insert\_or\_merge\_entity()**.
 
-## <span id="how-to-work-with-groups-of-entities"></span></a>Trabajo con grupos de entidades
+## <span id="how-to-work-with-groups-of-entities"></span></a>Direccionamiento del grupos de entidades
 
 A veces resulta útil enviar varias operaciones juntas en un lote a fin de garantizar el procesamiento atómico por parte del servidor. Para ello, primero debe crear un objeto **Batch** y, a continuación, usar el método **execute\_batch()** en **TableService**. El siguiente ejemplo muestra el envío de dos entidades con RowKey 2 y 3 en un lote. Tenga en cuenta que solo funciona para entidades con el mismo valor de PartitionKey.
 
@@ -123,14 +123,14 @@ A veces resulta útil enviar varias operaciones juntas en un lote a fin de garan
     end
     results = azure_table_service.execute_batch(batch)
 
-## <span id="how-to-query-for-an-entity"></span></a>Consulta de una entidad
+## <span id="how-to-query-for-an-entity"></span></a>Direccionamiento del una entidad
 
 Para consultar la entidad de una tabla, use el método **get\_entity()**, pasando el nombre de tabla, la **PartitionKey** y la **RowKey**.
 
     result = azure_table_service.get_entity("testtable", "test-partition-key", 
       "1")
 
-## <span id="how-to-query-a-set-of-entities"></span></a>Consulta de un conjunto de entidades
+## <span id="how-to-query-a-set-of-entities"></span></a>Direccionamiento del un conjunto de entidades
 
 Para realizar una consulta de un conjunto de entidades en una tabla, cree un objeto hash de consulta y use el método **query\_entities()**. El siguiente ejemplo muestra la obtención de todas las entidades con el mismo valor de **PartitionKey**:
 
@@ -139,7 +139,7 @@ Para realizar una consulta de un conjunto de entidades en una tabla, cree un obj
 
 **Tenga en cuenta** que si el resultado establecido es demasiado largo para que lo devuelva una única consulta, se devolverá un token de continuación que puede usar para recuperar las páginas siguientes.
 
-## <span id="how-to-query-a-subset-of-entity-properties"></span></a>Consulta de un subconjunto de propiedades de las entidades
+## <span id="how-to-query-a-subset-of-entity-properties"></span></a>Eliminación de un subconjunto de propiedades de las entidades
 
 Una consulta de tabla puede recuperar solo algunas propiedades de una entidad. Esta técnica, denominada "proyección", reduce el ancho de banda y puede mejorar el rendimiento de las consultas, en especial en el caso de entidades de gran tamaño. Utilice la cláusula select y pase los nombres de las propiedades que quiera que lleguen al cliente.
 
@@ -153,7 +153,7 @@ Para eliminar una entidad, use el método **delete\_entity()**. Tiene que pasar 
 
         azure_table_service.delete_entity("testtable", "test-partition-key", "1")
 
-## <span id="how-to-delete-a-table"></span></a>Eliminación de una tabla
+## <span id="how-to-delete-a-table"></span></a>Direccionamiento del una tabla
 
 Para eliminar una tabla, use el método **delete\_table()** para pasar el nombre de la tabla que desee eliminar.
 
@@ -168,22 +168,21 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 -   Visite el repositorio del [SDK de Azure para Ruby][SDK de Azure para Ruby] (en inglés) en GitHub.
 
   [Pasos siguientes]: #next-steps
+  [¿Qué es el servicio Tabla?]: #what-is
   [Conceptos]: #concepts
   [Creación de una cuenta de almacenamiento de Azure]: #create-a-windows-azure-storage-account
   [Creación de una aplicación de Ruby]: #create-a-ruby-application
   [Configuración de su aplicación para obtener acceso al almacenamiento]: #configure-your-application-to-access-storage
   [Configuración de una conexión de almacenamiento de Azure]: #setup-a-windows-azure-storage-connection
-  [Creación de una tabla]: #how-to-create-a-table
-  [Incorporación de una entidad a una tabla]: #how-to-add-an-entity-to-a-table
-  [Actualización de una entidad]: #how-to-update-an-entity
-  [Tabajo con grupos de entidades]: #how-to-work-with-groups-of-entities
-  [Consulta de una entidad]: #how-to-query-for-an-entity
-  [Consulta de un conjunto de entidades]: #how-to-query-a-set-of-entities
-  [Consulta de un subconjunto de propiedades de las entidades]: #how-to-query-a-subset-of-entity-properties
-  [Eliminación de una entidad]: #how-to-delete-an-entity
-  [Eliminación de una tabla]: #how-to-delete-a-table
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
+  [Direccionamiento del una tabla]: #how-to-create-a-table
+  [Direccionamiento del una entidad a una tabla]: #how-to-add-an-entity-to-a-table
+  [Eliminación de una entidad]: #how-to-update-an-entity
+  [Direccionamiento del grupos de entidades]: #how-to-work-with-groups-of-entities
+  [Direccionamiento del una entidad]: #how-to-query-for-an-entity
+  [Direccionamiento del un conjunto de entidades]: #how-to-query-a-set-of-entities
+  [Eliminación de un subconjunto de propiedades de las entidades]: #how-to-query-a-subset-of-entity-properties
+  [1]: #how-to-delete-an-entity
+  [Direccionamiento del de una tabla]: #how-to-delete-a-table
   [Creación de una aplicación de Ruby en Azure]: /es-es/develop/ruby/tutorials/web-app-with-linux-vm/
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx

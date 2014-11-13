@@ -12,7 +12,7 @@
 
 5.  La segunda pantalla permite seleccionar el nombre del equipo y el tamaño, así como el nombre de usuario y la contraseña del usuario administrativo. Si solo desea probar máquinas virtuales de Azure, rellene los campos tal como se muestra en la imagen siguiente. En caso contrario, elija el nivel y el tamaño necesarios para ejecutar la aplicación o carga de trabajo. A continuación, se ofrecen algunos datos para ayudarle a rellenarlos:
 
-    -   **Nuevo nombre de usuario** se refiere a la cuenta administrativa que se usa para administrar el servidor. Cree una contraseña única para esta cuenta y asegúrese de recordarla. **Necesitará un nombre de usuario y una contraseña para iniciar sesión en la máquina virtual**.
+    -   **Nuevo nombre de usuario** se refiere a la cuenta administrativa que se usa para administrar el servidor. Cree una contraseña única para esta cuenta y asegúrese de recordarla. **Necesitará el nombre de usuario y la contraseña para iniciar sesión en la máquina virtual**.
 
     -   El tamaño de la máquina virtual afecta al coste de usarla, así como a algunas opciones de configuración como, por ejemplo, el número de discos de datos que se pueden acoplar. Para obtener información más detallada, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure][Tamaños de máquinas virtuales y servicios en la nube de Azure].
 

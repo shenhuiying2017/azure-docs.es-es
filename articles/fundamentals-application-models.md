@@ -1,4 +1,4 @@
-<properties umbracoNaviHide="0" pageTitle="Application Model" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="Learn about the Azure hosted service application model. Understand core concepts, design considerations, defining and configuring your application, and scaling." linkid="dev-net-fundamentals-application-model" urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Application Model" authors="robb" manager="johndaw" />
+<properties umbracoNaviHide="0" pageTitle="Modelo de aplicaci&oacute;n" metaKeywords="Azure, Azure, application model, Azure application model, development model, Azure development model, hosted service, Azure hosted service, web role, worker role" description="Conozca el modelo de aplicaci&oacute;n de un servicio hospedado en Azure. Comprenda los conceptos principales, las consideraciones de dise&ntilde;o, la definici&oacute;n y configuraci&oacute;n de su aplicaci&oacute;n y el escalado." urlDisplayName="Application Model" headerExpose="" footerExpose="" disqusComments="1" title="Modelo de aplicaci&oacute;n" authors="robb" manager="johndaw" />
 
 <tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robb" />
 
@@ -184,12 +184,20 @@ Azure proporciona distintos modelos de ejecución porque las plataformas de nube
   [Máquinas virtuales]: #VMachine
   [Sitios web]: #WebSites
   [Servicios en la nube]: #CloudServices
+  [¿Qué debo utilizar? Toma de una decisión]: #WhatShouldIUse
   [ilustración 1]: #Fig1
+  [01\_CreatingVMs]: ./media/fundamentals-application-models/ExecModels_01_CreatingVMs.png
   [VMDepot]: http://vmdepot.msopentech.com/
   [en la biblioteca de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/dn197896.aspx
   [ilustración 2]: #Fig2
+  [02\_CloudServices]: ./media/fundamentals-application-models/ExecModels_02_CloudServices.png
   [ilustración 3]: #Fig3
+  [03\_AppUsingSQLServer]: ./media/fundamentals-application-models/ExecModels_03_AppUsingSQLServer.png
   [ilustración 4]: #Fig4
+  [04\_SharePointFarm]: ./media/fundamentals-application-models/ExecModels_04_SharePointFarm.png
+  [05\_Websites]: ./media/fundamentals-application-models/ExecModels_05_Websites.png
   [Figura 5]: #Fig5
   [ilustración 6]: #Fig6
+  [06\_CloudServices2]: ./media/fundamentals-application-models/ExecModels_06_CloudServices2.png
   [ilustración 7]: #Fig7
+  [07\_CombineTechnologies]: ./media/fundamentals-application-models/ExecModels_07_CombineTechnologies.png

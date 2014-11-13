@@ -13,17 +13,17 @@ Siga estos pasos para configurar la cadena de conexión mediante la configuraci�
 
 1.  En el Explorador de soluciones de Visual Studio, en la carpeta **Roles**
      del proyecto de implementación de Azure, haga clic con el botón secundario en su
-    rol web o de trabajo y, a continuación, haga clic en **Propiedades**.  
-    ![Select the properties on a Cloud Service role in Visual Studio][]
+    rol web o de trabajo y, a continuación, haga clic en **Propiedades**.
+    ![Select the properties on a Cloud Service role in Visual Studio][Select the properties on a Cloud Service role in Visual Studio]
 
-2.  Haga clic en la pestaña **Configuración** y, a continuación, en el botón **Agregar configuración**.  
-    ![Add a Cloud Service setting in visual Studio][]
+2.  Haga clic en la pestaña **Configuración** y, a continuación, en el botón **Agregar configuración**.
+    ![Add a Cloud Service setting in visual Studio][Add a Cloud Service setting in visual Studio]
 
     Entonces aparecerá una nueva entrada, **Setting1**, en la cuadrícula de configuración.
 
 3.  En el menú desplegable **Tipo** de la nueva entrada **Setting1**, elija
-    **Cadena de conexión**.  
-    ![Set connection string type][]
+    **Cadena de conexión**.
+    ![Set connection string type][Set connection string type]
 
 4.  Haga clic en el botón (**...**) en el extremo derecho de la entrada **Setting1**.
     Se abrirá el cuadro de diálogo **Cadena de conexión de cuenta de almacenamiento**.
@@ -37,11 +37,12 @@ Siga estos pasos para configurar la cadena de conexión mediante la configuraci�
 
     > [WACOM.NOTE] Puede dirigirse al emulador de almacenamiento para evitar incurrir en cualquier coste asociado con Almacenamiento de Windows Azure. Sin embargo, si selecciona dirigirse a una cuenta de almacenamiento de Azure en la nube, los costes derivados de la realización de este tutorial serán insignificantes.
 
-    ![Select target environment][]
+    ![Select target environment][Select target environment]
 
-6.  Cambie el contenido del campo **Nombre** de **Setting1** por algo más intuitivo, como **CadenaConexiónAlmacenamiento**.
-    Más adelante en esta guía hará referencia a esta cadena de conexión.  
-    ![Change connection string name][]
+6.  Cambie el contenido del campo **Nombre** de **Setting1** por algo más intuitivo
+    , como **CadenaConexiónAlmacenamiento**. Más adelante en esta guía
+    hará referencia a esta cadena de conexión.
+    ![Change connection string name][Change connection string name]
 
 ### Configuración de la cadena de conexión mediante la configuración .NET
 
@@ -61,7 +62,7 @@ Por ejemplo, la configuración del archivo config debería ser similar a lo sigu
         </appSettings>
     </configuration>
 
-Consulte [Configurar las cadenas de conexión de Azure][] para obtener más información acerca de las cadenas de conexión de almacenamiento.
+Consulte [Configurar las cadenas de conexión de Azure][Configurar las cadenas de conexión de Azure] para obtener más información acerca de las cadenas de conexión de almacenamiento.
 
 Ahora está preparado para realizar los procedimientos de esta guía.
 
@@ -70,4 +71,4 @@ Ahora está preparado para realizar los procedimientos de esta guía.
   [Set connection string type]: ./media/storage-configure-connection-string/connection-string3.png
   [Select target environment]: ./media/storage-configure-connection-string/connection-string4.png
   [Change connection string name]: ./media/storage-configure-connection-string/connection-string5.png
-  [Configurar las cadenas de conexión de Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758697.aspx
+  [Configurar las cadenas de conexión de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/ee758697.aspx

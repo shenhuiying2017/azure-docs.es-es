@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-howto-blob-store" urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Use Blob storage with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how HDInsight uses Blob storage as the underlying data store for HDFS and how you can query data from the store." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Use Azure Blob storage with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Blob Storage with  Hadoop in HDInsight" pageTitle="Uso del almacenamiento de blobs con Hadoop en HDInsight | Azure" metaKeywords="" description="Obtenga informaci&oacute;n sobre c&oacute;mo HDInsight usa el almacenamiento de blobs como almac&eacute;n de datos subyacente para HDFS y c&oacute;mo se pueden consultar datos en el almac&eacute;n." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Uso del almacenamiento de blobs de Azure con Hadoop en HDInsight" authors="jgao" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
 # Uso del almacenamiento de blobs de Azure con Hadoop en HDInsight
 
@@ -117,7 +117,7 @@ El esquema URI para obtener acceso a los archivos del almacenamiento de blobs es
 
     wasb[s]://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>
 
-> [WACOM.NOTE] La sintaxis para enviar los archivos al emulador de almacenamiento (que se ejecuta en el emulador de HDInsight) es <i>wasb://&lt;NombredelContenedor&gt;@storageemulator</i>.
+> [WACOM.NOTE] La sintaxis para enviar los archivos al emulador de almacenamiento (que se ejecuta en el emulador de HDInsight) es *wasb://\<ContainerName\>@storageemulator*.
 
 El esquema de URI proporciona tanto acceso no cifrado con el prefijo *wasb:* como acceso SSL cifrado con *wasbs*. Se recomienda usar *wasbs* siempre que sea posible, incluso al obtener acceso a los datos que residen en el mismo centro de datos de Azure.
 

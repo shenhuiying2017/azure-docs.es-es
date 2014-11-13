@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-fundamentals-intro-to-linux" urlDisplayName="Intro to Linux" pageTitle="Introduction to Linux in Azure - Azure Tutorial" metaKeywords="Azure Linux vm, Linux vm" description="Learn about using Linux virtual machines on Azure." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Introduction to Linux on Azure" authors="szark" solutions="" manager="" editor="" />
+<properties urlDisplayName="Intro to Linux" pageTitle="Introducci&oacute;n a Linux en Azure - Tutorial de Azure" metaKeywords="Azure Linux vm, Linux vm" description="Aprenda a utilizar m&aacute;quinas virtuales de Linux en Azure." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Introducci&oacute;n a Linux en Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # Introducción a Linux en Azure
 
@@ -36,11 +36,11 @@ La versión actual del Portal de administración solo acepta claves públicas SS
 
         chmod 600 myPrivateKey.key
 
-3.  Convierta myCert.pem en myCert.cer (certificado X509 con codificación DER).
+3.  Convierta `myCert.pem` en `myCert.cer` (certificado X509 con codificación DER)
 
         openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
-4.  Cargue myCert.cer mientras se crea la máquina virtual con Linux. El proceso de aprovisionamiento instalará automáticamente la clave pública del certificado en el archivo authorized\_keys para el usuario especificado en la máquina virtual.
+4.  Cargue `myCert.cer` mientras se crea la máquina virtual con Linux. El proceso de aprovisionamiento instalará automáticamente la clave pública del certificado en el archivo `~/.ssh/authorized_keys` para el usuario especificado en la máquina virtual.
 
 5.  Conéctese a la máquina virtual con Linux mediante ssh.
 
@@ -48,7 +48,11 @@ La versión actual del Portal de administración solo acepta claves públicas SS
 
     La primera vez que inicie sesión, se le solicitará que acepte la huella digital de la clave pública del host.
 
-6.  Opcionalmente, puede copiar myPrivateKey.key en ~/.ssh/id\_rsa para que su cliente OpenSSH pueda recuperarla automáticamente sin usar la opción -i.
+6.  Opcionalmente, puede copiar `myPrivateKey.key` en `~/.ssh/id_rsa` para que su cliente openssh pueda recuperarla automáticamente sin usar la opción -i.
+     También puede modificar `~/.ssh/config` para incluir una sección para su máquina virtual:
+
+        Host servicename.cloudapp.net
+          IdentityFile %d/.ssh/myPrivateKey.key
 
 ### Generación de una clave a partir de una clave compatible con OpenSSH existente
 
@@ -106,7 +110,7 @@ Azure ofrece la capacidad de capturar el estado de una máquina virtual existent
 
 3.  Haga clic en *Capturar* en el Portal de administración o use Powershell o las herramientas de la CLI para capturar la máquina virtual como una imagen.
 
- - Consulte: [Captura de una máquina virtual de Linux para usar como plantilla][Captura de una máquina virtual de Linux para usar como plantilla]
+-   Consulte: [Captura de una máquina virtual de Linux para usar como plantilla][Captura de una máquina virtual de Linux para usar como plantilla]
 
 ## <span id="attachingdisks"></span></a>Acoplamiento de discos
 
@@ -116,7 +120,7 @@ En Linux, el disco de recursos se administra generalmente mediante el Agente de 
 
     >[WACOM.NOTE] Note that the resource disk is a **temporary** disk, and might be deleted and reformatted when the VM is rebooted.
 
-En Linux el kernel debe poner al disco de datos el nombre `/dev/sdc` y los usuarios tendrán que particionar ese recurso, darle formato y montarlo. Esto se trata paso a paso en el tutorial sobre cómo [Acoplamiento de un disco de datos a una máquina virtual][Acoplamiento de un disco de datos a una máquina virtual].
+En Linux el kernel debe poner al disco de datos el nombre `/dev/sdc` y los usuarios tendrán que particionar ese recurso, darle formato y montarlo. Esto se explica paso a paso en el tutorial: [Acoplamiento de un disco de datos a una máquina virtual][Acoplamiento de un disco de datos a una máquina virtual].
 
 -   Consulte también: [Configuración del software RAID en Linux][Configuración del software RAID en Linux]
 

@@ -1,6 +1,6 @@
-<properties linkid="manage-services-getting-started-with-sqldbs" urlDisplayName="How to create and provision" pageTitle="Getting started with SQL Database - Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="loclar"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+<properties urlDisplayName="How to create and provision" pageTitle="Introducci&oacute;n a Base de datos SQL de Azure" metaKeywords="" description="Aprenda a crear y administrar bases de datos SQL en Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Introducci&oacute;n a Base de datos SQL de Azure" authors="loclar"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="loclar"></tags>
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="loclar" />
 
 # Introducción a Base de datos SQL de Microsoft Azure
 
@@ -12,34 +12,34 @@ Creará y realizará el aprovisionamiento de una base de datos de ejemplo en Azu
 
 ## Tabla de contenido
 
--   [Paso 1: Crear una cuenta de Microsoft Azure](#Subscribe)
--   [Paso 2: Conectarse a Azure y crear una base de datos](#Subscribe)
--   [Paso 3: Configurar el firewall](#ConfigFirewall)
--   [Paso 4: Agregar datos y un esquema mediante el script Transact-SQL](#AddData)
--   [Paso 5: Crear el esquema](#createschema)
--   [Paso 6: Insertar datos](#insertData)
--   [Paso 7: Ejemplo de consulta y datos del sistema en el Portal de administración para Base de datos SQL](#QueryDBSysData)
--   [Paso 8: Crear un inicio de sesión de base de datos y asignar permisos](#DBLogin)
--   [Paso 9: Conectar desde otras aplicaciones](#ClientConnection)
+-   [Paso 1: Crear una cuenta de Microsoft Azure][Paso 1: Crear una cuenta de Microsoft Azure]
+-   [Paso 2: Conectarse a Azure y crear una base de datos][Paso 1: Crear una cuenta de Microsoft Azure]
+-   [Paso 3: Configurar el firewall][Paso 3: Configurar el firewall]
+-   [Paso 4: Agregar datos y un esquema mediante el script Transact-SQL][Paso 4: Agregar datos y un esquema mediante el script Transact-SQL]
+-   [Paso 5: Crear el esquema][Paso 5: Crear el esquema]
+-   [Paso 6: Insertar datos][Paso 6: Insertar datos]
+-   [Paso 7: Ejemplo de consulta y datos del sistema en el Portal de administración para Base de datos SQL][Paso 7: Ejemplo de consulta y datos del sistema en el Portal de administración para Base de datos SQL]
+-   [Paso 8: Crear un inicio de sesión de base de datos y asignar permisos][Paso 8: Crear un inicio de sesión de base de datos y asignar permisos]
+-   [Paso 9: Conectar desde otras aplicaciones][Paso 9: Conectar desde otras aplicaciones]
 
 ## Paso 1: Crear una cuenta de Microsoft Azure
 
-1.  Abra un explorador web y diríjase a [http://azure.microsoft.com](http://azure.microsoft.com).
+1.  Abra un explorador web y diríjase a <http://azure.microsoft.com>.
     Para comenzar con una cuenta gratuita, haga clic en Evaluación gratuita en la esquina superior derecha y siga los pasos.
 
 2.  Se ha creado su cuenta. Ya está listo para comenzar.
 
 ## Paso 2: Conectarse a Azure y crear una base de datos
 
-1.  Inicie sesión en el [Portal de administración](http://manage.windowsazure.com). Debe ver un panel de navegación con el siguiente aspecto:
+1.  Inicie sesión en el [Portal de administración][Portal de administración]. Debe ver un panel de navegación con el siguiente aspecto:
 
-    ![Panel de navegación][Image1]
+    ![Panel de navegación][Panel de navegación]
 
 2.  Haga clic en **New** en la parte inferior de la página. Cuando haga clic en **New**, aparecerá una lista en la pantalla que le mostrará los elementos que puede crear.
 
 3.  Haga clic en **Base de datos SQL** y, a continuación, en **Custom Create**.
 
-    ![Panel de navegación][Image2]
+    ![Panel de navegación][1]
 
 Si selecciona esta opción, puede crear un nuevo servidor y una base de datos SQL a la vez con usted como administrador. Como administrador del sistema, puede realizar más tareas, incluida la conexión al Portal de administración para Base de datos SQL, que realizará más tarde en este tutorial.
 
@@ -47,7 +47,7 @@ Si selecciona esta opción, puede crear un nuevo servidor y una base de datos SQ
 
     Complete la página Database Settings de la siguiente forma:
 
-    ![Panel de navegación][Image3]
+    ![Panel de navegación][2]
 
 -   Especifique **School** como nombre de la base de datos.
 
@@ -59,7 +59,7 @@ Si selecciona esta opción, puede crear un nuevo servidor y una base de datos SQ
 
 1.  Rellene los campos de Server Settings de la siguiente forma:
 
-    ![Panel de navegación][Image4]
+    ![Panel de navegación][3]
 
 -   Especifique un nombre de administrador con una sola palabra sin espacios. Base de datos SQL usa la autenticación SQL a través de una conexión cifrada para validar la identidad de usuario. Se creará un inicio de sesión de autenticación de SQL Server con permisos de administrador con el nombre que proporcione. El nombre de administrador no puede ser un usuario de Windows ni debe ser un nombre de usuario Live ID. La autenticación de Windows no es compatible con Base de datos SQL.
 
@@ -81,7 +81,7 @@ En el próximo paso, configurará el firewall de manera que las conexiones de la
 
 Para configurar el firewall para que se permitan las conexiones, especifique la información en la página del servidor.
 
-**Nota:** el servicio de Base de datos SQL solo está disponible con el puerto TCP 1433 que usa el protocolo TDS. Por lo tanto, asegúrese de que el firewall de la red y el equipo local permitan la comunicación TCP de salida en el puerto 1433. Para obtener más información, consulte [Azure SQL Database Firewall](http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-es-es.aspx).
+**Nota:** el servicio de Base de datos SQL solo está disponible con el puerto TCP 1433 que usa el protocolo TDS. Por lo tanto, asegúrese de que el firewall de la red y el equipo local permitan la comunicación TCP de salida en el puerto 1433. Para obtener más información, consulte [Azure SQL Database Firewall][Azure SQL Database Firewall].
 
 1.  En el panel de navegación de la izquierda, haga clic en **SQL Databases**.
 
@@ -97,7 +97,7 @@ Para configurar el firewall para que se permitan las conexiones, especifique la 
 
 7.  Una vez que haya guardado la regla, la página tendrá un aspecto similar al que se muestra en la siguiente captura de pantalla.
 
-    ![Panel de navegación][Image7]
+    ![Panel de navegación][4]
 
 Ahora dispone de un servidor de Base de datos SQL en Azure, una regla de firewall que permite el acceso al servidor, un objeto de base de datos y un inicio de sesión de administrador. Pero todavía no tiene una base de datos operativa en la que pueda realizar consultas. Para ello su base de datos necesita tener un esquema y datos reales.
 
@@ -109,11 +109,11 @@ A medida que aumenten sus conocimientos, querrá explorar formas adicionales de 
 
 En este paso, ejecutará dos scripts. El primero crea un esquema que define tablas, columnas y relaciones. El segundo script agrega los datos. Cada paso se realiza de forma independiente en una conexión independiente. Si ha integrado bases de datos en SQL Server antes, una de las diferencias que notará en Base de datos SQL es que los comandos CREATE e INSERT deben ejecutarse en lotes separados. Base de datos SQL impone este requisito para reducir los ataques contra los datos cuando se encuentran en tránsito.
 
-**Nota:** Los valores de datos y el esquema proceden de este [MSDN article](http://msdn.microsoft.com/es-es/library/windowsazure/ee621790.aspx "artículo de MSDN") y se han modificado para que funcionen con la Base de datos SQL.
+**Nota:** Los valores de datos y el esquema proceden de este [MSDN article][MSDN article] y se han modificado para que funcionen con la Base de datos SQL.
 
-1.  Vaya a la página principal. En el [Portal de administración](http://manage.windowsazure.com), aparece la base de datos **School** en la lista de elementos de la página principal.
+1.  Vaya a la página principal. En el [Portal de administración][Portal de administración], aparece la base de datos **School** en la lista de elementos de la página principal.
 
-    ![Panel de navegación][Image8]
+    ![Panel de navegación][5]
 
 2.  Haga clic en **School** para seleccionarla y después haga clic en **Manage** en la parte inferior de la página. Se abrirá el Portal de administración para Base de datos SQL. Este portal es independiente del Portal de administración de Azure. Usará este portal para ejecutar los comandos Transact-SQL y las consultas.
 
@@ -123,7 +123,7 @@ En este paso, ejecutará dos scripts. El primero crea un esquema que define tabl
 
 ## Paso 5: Crear el esquema
 
-En este paso, creará el esquema mediante el siguiente script. El script comprueba primero si existe una tabla con el mismo nombre para asegurarse de que no habrá una colisión de nombres y crea la tabla mediante la instrucción [CREATE TABLE (Base de datos SQL de Azure)](http://msdn.microsoft.com/es-es/library/windowsazure/ee336258.aspx). Posteriormente, el script usa la instrucción [ALTER TABLE (Base de datos SQL de Azure)](http://msdn.microsoft.com/es-es/library/windowsazure/ee336286.aspx) para especificar la clave principal y las relaciones de tabla.
+En este paso, creará el esquema mediante el siguiente script. El script comprueba primero si existe una tabla con el mismo nombre para asegurarse de que no habrá una colisión de nombres y crea la tabla mediante la instrucción [CREATE TABLE (Base de datos SQL de Azure)][CREATE TABLE (Base de datos SQL de Azure)]. Posteriormente, el script usa la instrucción [ALTER TABLE (Base de datos SQL de Azure)][ALTER TABLE (Base de datos SQL de Azure)] para especificar la clave principal y las relaciones de tabla.
 
 Copie el script y péguelo en la ventana de consulta. Haga clic en **Run** en la parte superior de la ventana para ejecutar el script.
 
@@ -367,7 +367,7 @@ Copie el script y péguelo en la ventana de consulta. Haga clic en **Run** en la
 
 ## Paso 6: Insertar datos
 
-Abra una nueva ventana de consulta y, a continuación, pegue el siguiente script. Ejecute el script para insertar datos. Este script usa la instrucción [INSERT (Base de datos SQL de Azure)](http://msdn.microsoft.com/es-es/library/windowsazure/ee336284.aspx) para agregar valores a cada columna.
+Abra una nueva ventana de consulta y, a continuación, pegue el siguiente script. Ejecute el script para insertar datos. Este script usa la instrucción [INSERT (Base de datos SQL de Azure)][INSERT (Base de datos SQL de Azure)] para agregar valores a cada columna.
 
 <div style="width:auto; height:600px; overflow:auto"><pre>
     -- Insertar datos en la tabla Person.
@@ -493,7 +493,7 @@ Para crear un inicio de sesión, primero debe conectase a la base de datos maest
 
 #### Crear un inicio de sesión de autenticación de SQL Server
 
-1.  En el [Portal de administración](http://manage.windowsazure.com), seleccione **SQL Databases**, haga clic en **Servers**, seleccione el servidor y, a continuación, haga clic en la flecha blanca para abrir la
+1.  En el [Portal de administración][Portal de administración], seleccione **SQL Databases**, haga clic en **Servers**, seleccione el servidor y, a continuación, haga clic en la flecha blanca para abrir la
     página del servidor.
 
 2.  En la página Quick Start, haga clic en **Manage Server** para abrir una nueva conexión al Portal de administración para Base de datos SQL.
@@ -504,7 +504,7 @@ Para crear un inicio de sesión, primero debe conectase a la base de datos maest
 
 5.  Si se produce un error en la página similar al siguiente, ignórelo. Haga clic en **New Query** para abrir una ventana de consulta que le permita ejecutar comandos Transact-SQL en la base de datos maestra (**master**).
 
-    ![Panel de navegación][Image15]
+    ![Panel de navegación][6]
 
 6.  Copie y pegue el siguiente comando en la ventana de consulta.
 
@@ -520,7 +520,7 @@ Una vez creado un inicio de sesión de autenticación de SQL Server, el siguient
 
     En la página del portal de administración de Base de datos SQL, puede visualizarse el nombre de la base de datos **School** en la esquina superior izquierda.
 
-    ![Panel de navegación][Image12]
+    ![Panel de navegación][7]
 
 2.  Haga clic en **New Query** para abrir una nueva ventana de consulta y copie la siguiente instrucción.
 
@@ -528,7 +528,7 @@ Una vez creado un inicio de sesión de autenticación de SQL Server, el siguient
 
 3.  Ejecute el script. Este script crea un nuevo usuario de base de datos basado en el inicio de sesión.
 
-    A continuación, asignará permisos con el rol db\_datareader. Los usuarios de base de datos asignados a este rol pueden leer todos los datos de todas las tablas de usuario en la base de datos.
+A continuación, asignará permisos con el rol db\_datareader. Los usuarios de base de datos asignados a este rol pueden leer todos los datos de todas las tablas de usuario en la base de datos.
 
 1.  Abra una nueva ventana de consulta y, a continuación, especifique y ejecute la siguiente instrucción. Esta instrucción ejecuta un procedimiento almacenado integrado que asigna el rol db\_datareader al nuevo usuario que acaba de crear.
 
@@ -548,54 +548,63 @@ Si tiene Microsoft Excel instalado en su equipo, puede usar los siguientes pasos
 
 2.  En el Asistente para la conexión de datos, especifique el nombre de dominio completo del servidor de Base de datos SQL, seguido del inicio de sesión de autenticación de SQL Server que disponga de permiso para obtener acceso a la base de datos.
 
-    El nombre de servidor de puede encontrar en el Portal de administración de Azure, en Base de datos SQL, en la página Server, en el Panel o en **Manage URL**. El nombre de servidor consta de una serie de letras y números seguidos de '.database.windows.net'. Especifique este nombre en el asistente para la conexión de base de datos. No incluya el prefijo http:// o https:// cuando especifique el nombre.
+El nombre de servidor de puede encontrar en el Portal de administración de Azure, en Base de datos SQL, en la página Server, en el Panel o en **Manage URL**. El nombre de servidor consta de una serie de letras y números seguidos de '.database.windows.net'. Especifique este nombre en el asistente para la conexión de base de datos. No incluya el prefijo http:// o https:// cuando especifique el nombre.
 
-    Especifique un inicio de sesión de autenticación de SQL Server. Para propósitos de prueba, puede usar el inicio de sesión de administrador que creó cuando configuró el servidor. Para obtener acceso a datos de forma normal, use un inicio de sesión de usuario de base de datos similar al que acaba de crear.
+Especifique un inicio de sesión de autenticación de SQL Server. Para propósitos de prueba, puede usar el inicio de sesión de administrador que creó cuando configuró el servidor. Para obtener acceso a datos de forma normal, use un inicio de sesión de usuario de base de datos similar al que acaba de crear.
 
-![Panel de navegación][Image16]
+![Panel de navegación][8]
 
 1.  En la siguiente página, seleccione la base de datos **School** y, a continuación, seleccione **Person**. Haga clic en **Finish**. Si se le pide que introduzca los datos de inicio de sesión, escríbalos y después haga clic en **OK**.
 
 2.  Aparecerá el cuadro de diálogo Import Data que le solicitará que seleccione cómo y dónde importar los datos. Con las opciones predeterminadas seleccionadas, haga clic en **OK**.
 
-    ![Panel de navegación][Image19]
+    ![Panel de navegación][9]
 
 3.  En la hoja de cálculo verá una tabla con un conjunto de resultados que incluye 34 filas de la tabla de personas que incluye PersonID, LastName, FirstName, HireDate y EnrollmentDate, al igual que en los resultados de la consulta del Paso 7.
 
-Si usa Excel, puede importar solo una tabla a la vez. Un mejor enfoque es usar el complemento PowerPivot para Excel, que le permite importar y trabajar con varias tablas como un conjunto de datos único. Trabajar con PowerPivot se encuentra fuera del ámbito de este tutorial, pero puede obtener más información al respecto en [PowerPivot for Excel](http://go.microsoft.com/fwlink/?LinkId=396969).
+Si usa Excel, puede importar solo una tabla a la vez. Un mejor enfoque es usar el complemento PowerPivot para Excel, que le permite importar y trabajar con varias tablas como un conjunto de datos único. Trabajar con PowerPivot se encuentra fuera del ámbito de este tutorial, pero puede obtener más información al respecto en [PowerPivot for Excel][PowerPivot for Excel].
 
 ## Pasos siguientes
 
 Ahora que está familiarizado con Base de datos SQL y los portales de administración, puede probar otras herramientas y técnicas usadas por los administradores de bases de datos SQL Server.
 
-Para administrar activamente su nueva base de datos, considere instalar y usar SQL Server Management Studio. Management Studio es la herramienta de administración de base de datos principal para la administración de bases de datos SQL Server, incluidas las que se ejecutan en Azure. Use Management Studio para guardar consultas y usarlas más adelante, agregar nuevas tablas y procedimientos almacenados y perfeccionar sus conocimientos de Transact-SQL en un entorno de scripting enriquecido que incluya un comprobador de sintaxis, IntelliSense y plantillas. Para comenzar, siga las instrucciones que se describen en [Administración de bases de datos SQL con SQL Server Management Studio](http://www.azure.microsoft.com/es-es/documentation/articles/sql-database-manage-azure-ssms/).
+Para administrar activamente su nueva base de datos, considere instalar y usar SQL Server Management Studio. Management Studio es la herramienta de administración de base de datos principal para la administración de bases de datos SQL Server, incluidas las que se ejecutan en Azure. Use Management Studio para guardar consultas y usarlas más adelante, agregar nuevas tablas y procedimientos almacenados y perfeccionar sus conocimientos de Transact-SQL en un entorno de scripting enriquecido que incluya un comprobador de sintaxis, IntelliSense y plantillas. Para comenzar, siga las instrucciones que se describen en [Administración de bases de datos SQL con SQL Server Management Studio][Administración de bases de datos SQL con SQL Server Management Studio].
 
-Contar con un buen dominio del lenguaje de definición de datos y de las consultas Transact-SQL es fundamental para los administradores de bases de datos. Si no tiene experiencia en Transact-SQL, comience por el [Tutorial: Escribir instrucciones Transact-SQL](http://msdn.microsoft.com/es-es/library/ms365303.aspx) para adquirir algunos conocimientos básicos.
+Contar con un buen dominio del lenguaje de definición de datos y de las consultas Transact-SQL es fundamental para los administradores de bases de datos. Si no tiene experiencia en Transact-SQL, comience por el [Tutorial: Escribir instrucciones Transact-SQL][Tutorial: Escribir instrucciones Transact-SQL] para adquirir algunos conocimientos básicos.
 
 Existen otros métodos para mover una base de datos local a una Base de datos SQL. Si ya dispone de bases de datos, o si ha descargado bases de datos de ejemplo con las que practicar, pruebe los siguientes enfoques alternativos:
 
--   [Migrar bases de datos a bases de datos SQL de Azure (anteriormente SQL Azure)](http://msdn.microsoft.com/es-es/library/windowsazure/ee730904.aspx)
--   [Copiar bases de datos en Base de datos SQL de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/ff951624.aspx)
--   [Implementar una Base de datos SQL en una máquina virtual de Azure](http://msdn.microsoft.com/es-es/library/dn195938(v=sql.120).aspx)
+-   [Migrar bases de datos a bases de datos SQL de Azure (anteriormente SQL Azure)][Migrar bases de datos a bases de datos SQL de Azure (anteriormente SQL Azure)]
+-   [Copiar bases de datos en Base de datos SQL de Azure][Copiar bases de datos en Base de datos SQL de Azure]
+-   [Implementar una Base de datos SQL en una máquina virtual de Azure][Implementar una Base de datos SQL en una máquina virtual de Azure]
 
-[Image1]: ./media/sql-database-get-started/1NavPaneDBSelected_SQLTut.png
-[Image2]: ./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png
-[Image3]: ./media/sql-database-get-started/3DatabaseSettings_SQLTut.PNG
-[Image4]: ./media/sql-database-get-started/4ServerSettings_SQLTut.PNG
-[Image5]: ./media/sql-database-get-started/5DBPortalDatabasesServers_SQLTut.PNG
-[Image6]: ./media/sql-database-get-started/6DBConfigFirewall_SQLTut.PNG
-[Image7]: ./media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.png
-[Image8]: ./media/sql-database-get-started/20MainPageHome_SQLTut.PNG
-[Image9]: ./media/sql-database-get-started/9dblistschool_SQLTut.PNG
-[Image10]: ./media/sql-database-get-started/10dbportalmanagebutton_SQLTut.PNG
-[Image11]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
-[Image12]: ./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.PNG
-[Image13]: ./media/sql-database-get-started/13DBQueryResults_SQLTut.PNG
-[Image14]: ./media/sql-database-get-started/14DBPortalConnectMaster_SQLTut.PNG
-[Image15]: ./media/sql-database-get-started/15DBPortalConnectMasterErr_SQLTut.PNG
-[Image16]: ./media/sql-database-get-started/16ExcelConnect_SQLTut.png
-[Image17]: ./media/sql-database-get-started/17ExcelSelect_SQLTut.PNG
-[Image18]: ./media/sql-database-get-started/18ExcelTable_SQLTut.PNG
-[Image19]: ./media/sql-database-get-started/19ExcelImport_SQLTut.png
-[Image20]: ./media/sql-database-get-started/11ManageDatabaseLogin_SQLTut.PNG
-
+  [Paso 1: Crear una cuenta de Microsoft Azure]: #Subscribe
+  [Paso 3: Configurar el firewall]: #ConfigFirewall
+  [Paso 4: Agregar datos y un esquema mediante el script Transact-SQL]: #AddData
+  [Paso 5: Crear el esquema]: #createschema
+  [Paso 6: Insertar datos]: #insertData
+  [Paso 7: Ejemplo de consulta y datos del sistema en el Portal de administración para Base de datos SQL]: #QueryDBSysData
+  [Paso 8: Crear un inicio de sesión de base de datos y asignar permisos]: #DBLogin
+  [Paso 9: Conectar desde otras aplicaciones]: #ClientConnection
+  [Portal de administración]: http://manage.windowsazure.com
+  [Panel de navegación]: ./media/sql-database-get-started/1NavPaneDBSelected_SQLTut.png
+  [1]: ./media/sql-database-get-started/2MainPageCustomCreateDB_SQLTut.png
+  [2]: ./media/sql-database-get-started/3DatabaseSettings_SQLTut.PNG
+  [3]: ./media/sql-database-get-started/4ServerSettings_SQLTut.PNG
+  [Azure SQL Database Firewall]: http://social.technet.microsoft.com/wiki/contents/articles/2677.sql-azure-firewall-es-es.aspx
+  [4]: ./media/sql-database-get-started/7DBConfigFirewallSAVE_SQLTut.png
+  [MSDN article]: http://msdn.microsoft.com/es-es/library/windowsazure/ee621790.aspx "artículo de MSDN"
+  [5]: ./media/sql-database-get-started/20MainPageHome_SQLTut.PNG
+  [CREATE TABLE (Base de datos SQL de Azure)]: http://msdn.microsoft.com/es-es/library/windowsazure/ee336258.aspx
+  [ALTER TABLE (Base de datos SQL de Azure)]: http://msdn.microsoft.com/es-es/library/windowsazure/ee336286.aspx
+  [INSERT (Base de datos SQL de Azure)]: http://msdn.microsoft.com/es-es/library/windowsazure/ee336284.aspx
+  [6]: ./media/sql-database-get-started/15DBPortalConnectMasterErr_SQLTut.PNG
+  [7]: ./media/sql-database-get-started/12DBPortalNewQuery_SQLTut.PNG
+  [8]: ./media/sql-database-get-started/16ExcelConnect_SQLTut.png
+  [9]: ./media/sql-database-get-started/19ExcelImport_SQLTut.png
+  [PowerPivot for Excel]: http://go.microsoft.com/fwlink/?LinkId=396969
+  [Administración de bases de datos SQL con SQL Server Management Studio]: http://www.azure.microsoft.com/es-es/documentation/articles/sql-database-manage-azure-ssms/
+  [Tutorial: Escribir instrucciones Transact-SQL]: http://msdn.microsoft.com/es-es/library/ms365303.aspx
+  [Migrar bases de datos a bases de datos SQL de Azure (anteriormente SQL Azure)]: http://msdn.microsoft.com/es-es/library/windowsazure/ee730904.aspx
+  [Copiar bases de datos en Base de datos SQL de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/ff951624.aspx
+  [Implementar una Base de datos SQL en una máquina virtual de Azure]: http://msdn.microsoft.com/es-es/library/dn195938(v=sql.120).aspx

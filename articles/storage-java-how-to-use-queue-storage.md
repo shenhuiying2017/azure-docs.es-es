@@ -1,6 +1,6 @@
-<properties linkid="dev-net-how-to-use-queue-storage-service-java" urlDisplayName="Queue Service" pageTitle="How to use the queue service (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Queue storage service from Java" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="Uso del servicio de colas (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Ejemplos escritos en Java." metaCanonical="" services="storage" documentationCenter="Java" title="Uso del servicio de almacenamiento en cola en Java" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Uso del almacenamiento de colas en Java
 
@@ -12,19 +12,19 @@ Nota: hay un SDK disponible para los desarrolladores que usen el almacenamiento 
 
 -   [¿Qué es el almacenamiento en cola?][¿Qué es el almacenamiento en cola?]
 -   [Conceptos][Conceptos]
--   [Creación de una cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento de Azure]
+-   [Crear una cuenta de almacenamiento de Azure][Crear una cuenta de almacenamiento de Azure]
 -   [Creación de una aplicación Java][Creación de una aplicación Java]
 -   [Configuración de la aplicación para obtener acceso al almacenamiento en cola][Configuración de la aplicación para obtener acceso al almacenamiento en cola]
 -   [Configuración de una cadena de conexión de almacenamiento de Azure][Configuración de una cadena de conexión de almacenamiento de Azure]
--   [Creación de una cola][Creación de una cola]
--   [Incorporación de un mensaje a una cola][Incorporación de un mensaje a una cola]
--   [Inspección del siguiente mensaje][Inspección del siguiente mensaje]
--   [Cambio del contenido de un mensaje en cola][Cambio del contenido de un mensaje en cola]
--   [Obtención de la longitud de la cola][Obtención de la longitud de la cola]
--   [Extracción del siguiente mensaje de la cola][Extracción del siguiente mensaje de la cola]
+-   [Direccionamiento del de una cola][Direccionamiento del de una cola]
+-   [Direccionamiento del un mensaje a una cola][Direccionamiento del un mensaje a una cola]
+-   [Direccionamiento del siguiente mensaje][Direccionamiento del siguiente mensaje]
+-   [Direccionamiento del contenido de un mensaje en cola][Direccionamiento del contenido de un mensaje en cola]
+-   [Direccionamiento del la longitud de la cola][Direccionamiento del la longitud de la cola]
+-   [Direccionamiento del siguiente mensaje de la cola][Direccionamiento del siguiente mensaje de la cola]
 -   [Opciones adicionales para quitar mensajes de la cola][Opciones adicionales para quitar mensajes de la cola]
--   [Enumeración de las colas][Enumeración de las colas]
--   [Eliminación de una cola][Eliminación de una cola]
+-   [Direccionamiento del las colas][Direccionamiento del las colas]
+-   [Direccionamiento del una cola][Direccionamiento del una cola]
 -   [Pasos siguientes][Pasos siguientes]
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
@@ -65,7 +65,7 @@ En una aplicación que se esté ejecutando en un rol de Microsoft Azure, esta ca
 
 En los ejemplos siguientes se supone que ha usado uno de estos dos métodos para obtener la cadena de conexión de almacenamiento.
 
-## <a name="create-queue"> </a>Creación de una cola
+## <a name="create-queue"> </a>Direccionamiento del una cola
 
 Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. (Nota: existen otras maneras de crear objetos **CloudStorageAccount**; para obtener más información, consulte **CloudStorageAccount** en la [Referencia del SDK del cliente de almacenamiento de Azure][Referencia del SDK del cliente de almacenamiento de Azure]).
 
@@ -92,7 +92,7 @@ Use el objeto **CloudQueueClient** para obtener una referencia a la cola que des
         e.printStackTrace();
     }
 
-## <a name="add-message"> </a>Incorporación de un mensaje a una cola
+## <a name="add-message"> </a>Direccionamiento del un mensaje a una cola
 
 Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo **CloudQueueMessage**. A continuación, llame al método **addMessage**. Se puede crear un objeto **CloudQueueMessage** a partir de una cadena (en formato UTF-8) o de una matriz de bytes. A continuación se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje "Hola, mundo".
 
@@ -121,7 +121,7 @@ Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo **
         e.printStackTrace();
     }
 
-## <a name="peek-message"> </a>Inspección del siguiente mensaje
+## <a name="peek-message"> </a>Direccionamiento del siguiente mensaje
 
 Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método **peekMessage**.
 
@@ -152,7 +152,7 @@ Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin qui
         e.printStackTrace();
     }
 
-## <a name="change-message"> </a>Cambio del contenido de un mensaje en cola
+## <a name="change-message"> </a>Direccionamiento del contenido de un mensaje en cola
 
 Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje representa una tarea de trabajo, puede utilizar esta característica para actualizar el estado de la tarea de trabajo. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 60 segundos más. De este modo, se guarda el estado de trabajo asociado al mensaje y se le proporciona al cliente un minuto más para que siga elaborando el mensaje. Esta técnica se puede utilizar para realizar un seguimiento de los flujos de trabajo de varios pasos en los mensajes en cola, sin que sea necesario volver a empezar desde el principio si se produce un error en un paso del proceso a causa de un error de hardware o software. Normalmente, también mantendría un número de reintentos y, si el mensaje se intentara más de *n* veces, lo eliminaría. Esto proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
 
@@ -232,7 +232,7 @@ Como alternativa, el siguiente código de ejemplo actualiza únicamente el prime
         e.printStackTrace();
     }
 
-## <a name="get-queue-length"> </a>Obtención de la longitud de la cola
+## <a name="get-queue-length"> </a>Direccionamiento del la longitud de la cola
 
 Puede obtener una estimación del número de mensajes existentes en una cola. El método **downloadAttributes** pide al servicio de cola varios valores actuales, incluido un conteo de cuántos mensajes están en la cola. El recuento solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud. El método **getApproximateMethodCount** devuelve el último valor recuperado por la llamada a **downloadAttributes**, sin llamar al servicio de cola.
 
@@ -263,7 +263,7 @@ Puede obtener una estimación del número de mensajes existentes en una cola. El
         e.printStackTrace();
     }
 
-## <a name="dequeue-message"> </a>Extracción del siguiente mensaje de la cola
+## <a name="dequeue-message"> </a>Direccionamiento del siguiente mensaje de la cola
 
 El código extrae un mensaje de una cola en dos pasos. Si llama a **retrieveMessage**, obtiene el siguiente mensaje en una cola. Un mensaje devuelto por **retrieveMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para terminar de quitar el mensaje de la cola, también debe llamar a **deleteMessage**. Este proceso extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. Su código llama a **deleteMessage** justo después de que se haya procesado el mensaje.
 
@@ -325,7 +325,7 @@ El siguiente ejemplo de código utiliza el método **retrieveMessage** para obte
         e.printStackTrace();
     }
 
-## <a name="list-queues"> </a>Enumeración de las colas
+## <a name="list-queues"> </a>Direccionamiento del las colas
 
 Para obtener una lista de las colas actuales, llame al método **CloudQueueClient.listQueues()**, el cual devolverá una colección de objetos **CloudQueue**.
 
@@ -352,7 +352,7 @@ Para obtener una lista de las colas actuales, llame al método **CloudQueueClien
         e.printStackTrace();
     }
 
-## <a name="delete-queue"> </a>Eliminación de una cola
+## <a name="delete-queue"> </a>Direccionamiento del una cola
 
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **deleteIfExists** en el objeto de cola **CloudQueue**.
 
@@ -389,22 +389,21 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento en co
   [SDK de almacenamiento de Azure para Java]: https://github.com/azure/azure-storage-java
   [Pasos siguientes]: #NextSteps
   [SDK de almacenamiento de Azure para Android]: https://github.com/azure/azure-storage-android
+  [¿Qué es el almacenamiento en cola?]: #what-is
   [Conceptos]: #Concepts
-  [Creación de una cuenta de almacenamiento de Azure]: #CreateAccount
+  [Crear una cuenta de almacenamiento de Azure]: #CreateAccount
   [Creación de una aplicación Java]: #CreateApplication
   [Configuración de la aplicación para obtener acceso al almacenamiento en cola]: #ConfigureStorage
   [Configuración de una cadena de conexión de almacenamiento de Azure]: #ConnectionString
-  [Creación de una cola]: #create-queue
-  [Incorporación de un mensaje a una cola]: #add-message
-  [Inspección del siguiente mensaje]: #peek-message
-  [Cambio del contenido de un mensaje en cola]: #change-message
-  [Obtención de la longitud de la cola]: #get-queue-length
-  [Extracción del siguiente mensaje de la cola]: #dequeue-message
+  [Direccionamiento del de una cola]: #create-queue
+  [Direccionamiento del un mensaje a una cola]: #add-message
+  [Direccionamiento del siguiente mensaje]: #peek-message
+  [Direccionamiento del contenido de un mensaje en cola]: #change-message
+  [Direccionamiento del la longitud de la cola]: #get-queue-length
+  [Direccionamiento del siguiente mensaje de la cola]: #dequeue-message
   [Opciones adicionales para quitar mensajes de la cola]: #additional-options
-  [Enumeración de las colas]: #list-queues
-  [Eliminación de una cola]: #delete-queue
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
+  [Direccionamiento del las colas]: #list-queues
+  [Direccionamiento del una cola]: #delete-queue
   [Referencia del SDK del cliente de almacenamiento de Azure]: http://dl.windowsazure.com/storage/javadoc/
   [API REST de almacenamiento de Azure]: http://msdn.microsoft.com/es-es/library/azure/gg433040.aspx
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/

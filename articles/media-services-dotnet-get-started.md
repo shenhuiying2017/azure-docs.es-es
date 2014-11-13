@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-tutorials-get-started" urlDisplayName="Get Started with Media Services" pageTitle="Get Started with Media Services - Azure" metaKeywords="Azure media services" description="An introduction to using Media Services with Azure." metaCanonical="" services="media-services" documentationCenter="" title="Get started with Media Services" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Get Started with Media Services" pageTitle="Introducci&oacute;n a los Servicios multimedia en Azure" metaKeywords="Azure media services" description="Una introducci&oacute;n al uso de los Servicios multimedia con Azure." metaCanonical="" services="media-services" documentationCenter="" title="Introducci&oacute;n a los Servicios multimedia" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # <a name="getting-started"></a>Introducción a los Servicios multimedia
 
@@ -20,12 +20,13 @@ Este tutorial le guiará a través de estos pasos básicos:
 Se requieren los siguientes requisitos previos para el tutorial y el desarrollo basado en el SDK de los Servicios multimedia de Azure.
 
 -   Una cuenta de Servicios multimedia en una suscripción de Azure nueva o existente. Para obtener más información, consulte [Creación de una cuenta de Servicios multimedia][Creación de una cuenta de Servicios multimedia].
--   Sistemas operativos: Windows 7, Windows 2008 R2 o Windows 8.
+-   Sistemas operativos: Windows 7, Windows 2008 R2, Windows 8 o posterior.
 -   .NET Framework 4.5 o .NET Framework 4.
--   Visual Studio 2012 o Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express).
+-   Visual Studio 2012, Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express) o posterior.
 -   Instale **SDK de Azure para .NET**, **SDK de los Servicios multimedia de Azure para .NET** y **WCF Data Services 5.0 para las bibliotecas de OData V3** y agregue referencias a su proyecto usando el paquete [windowsazure.mediaservices Nuget][windowsazure.mediaservices Nuget]. La siguiente sección demuestra cómo instalar y agregar estas referencias.
 
-<div class="dev-callout"><strong>Nota:</strong> <p>para completar este tutorial, deber&aacute; tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluaci&oacute;n gratuita en tan solo unos minutos. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Evaluaci&oacute;n gratuita de Azure</a>.</p></div>
+> [WACOM.NOTE]
+> Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][Evaluación gratuita de Azure].
 
 ## <span id="Step1"></span></a>Configuración de su proyecto
 
@@ -112,10 +113,12 @@ El código de esta sección realiza lo siguiente:
     -   **AssetCreationOptions.CommonEncryptionProtected**: Para archivos protegidos con cifrado común (CENC). Un ejemplo es un conjunto de archivos que ya está cifrado para PlayReady.
     -   **AssetCreationOptions.StorageEncrypted**: Cifrado de almacenamiento. Cifra un archivo de entrada limpio antes de que se cargue en el almacenamiento de Azure.
 
-        <div class="dev-callout"> 
-<strong>Nota:</strong> 
-<p>Los Servicios multimedia proporcionan cifrado de almacenamiento en el disco, no por cable como el administrador de derechos digitales (DRM).</p> 
-</div>
+        <div class="dev-callout">
+
+        **Nota:**
+        Los Servicios multimedia proporcionan cifrado de almacenamiento en el disco, no por cable como el administrador de derechos digitales (DRM).
+
+        </div>
 
 2.  Crea una instancia de AssetFile que necesitamos asociar con el recurso.
 3.  Crea una instancia de AccessPolicy que define los permisos y la duración del acceso al recurso.
@@ -288,15 +291,15 @@ En los Servicios multimedia, puede crear trabajos que procesan contenidos multim
         CreateEncodingJob(asset, _singleInputFilePath, _outputFilesFolder);
 
 3.  Agregue los siguientes métodos auxiliares a la clase. Se requieren para admitir el método **CreateEncodingJob**. A continuación se encuentra un resumen de los métodos auxiliares.
-    -   El método **GetLatestMediaProcessorByName** devuelve un procesador de multimedia adecuado para administrar una codificación, un cifrado u otra tarea de procesamiento relacionada. Puede crear un procesador de multimedia usando el nombre de cadena adecuado del procesador que desea crear. Las posibles cadenas que se pueden transferir al método para el parámetro mediaProcessor son: **Azure Media Encoder**, **Azure Media Packager**, **Azure Media Encryptor**, **Storage Decryption**.
+    -   El método **GetLatestMediaProcessorByName** devuelve un procesador de multimedia adecuado para administrar una codificación, un cifrado u otra tarea de procesamiento relacionada. Puede crear un procesador de multimedia usando el nombre de cadena adecuado del procesador que desea crear. Las posibles cadenas que se pueden transferir al método para el parámetro mediaProcessor son: **Azure Media Encoder**, **Windows Azure Media Packager**, **Windows Azure Media Encryptor**, **Storage Decryption**.
 
             private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
             {
                 // The possible strings that can be passed into the 
                 // method for the mediaProcessor parameter:
                 //   Azure Media Encoder
-                //   Azure Media Packager
-                //   Azure Media Encryptor
+                //   Windows Azure Media Packager
+                //   Windows Azure Media Encryptor
                 //   Storage Decryption
 
                 var processor = _context.MediaProcessors.Where(p => p.Name == mediaProcessorName).
@@ -609,10 +612,8 @@ Ejecute el programa (presione F5). La consola muestra una salida similar a la si
 
 5.  El archivo multimedia .mp4 y el archivo \_metadata.xml se descargan a la carpeta outputFiles.
 
-<div class="dev-callout"> 
-<strong>Nota:</strong> 
-<p>En el modelo de objetos de los Servicios multimedia, un recurso es un objeto de recopilaci&oacute;n de contenido de los Servicios multimedia que representa de uno a muchos archivos. La ruta del localizador proporciona una URL de blobs de Azure, que es la ruta base a este recurso en el almacenamiento de Azure. Para tener acceso a archivos espec&iacute;ficos dentro del recurso, agregue un nombre de archivo a la ruta del localizador base.</p> 
-</div>
+> [WACOM.NOTE]
+> En el modelo de objetos de los Servicios multimedia, un activo es un objeto de recopilación de contenido de los Servicios multimedia que representa de uno a muchos archivos. La ruta del localizador proporciona una URL de blobs de Azure, que es la ruta base a este recurso en el almacenamiento de Azure. Para tener acceso a archivos específicos dentro del recurso, agregue un nombre de archivo a la ruta del localizador base.
 
 ## Pasos siguientes
 
@@ -630,8 +631,9 @@ Este tutorial ha demostrado una secuencia de tareas de programación para crear 
   [Codificación de un recurso y descarga de un recurso de salida]: #Step4
   [Creación de una cuenta de Servicios multimedia]: http://go.microsoft.com/fwlink/?LinkId=256662
   [windowsazure.mediaservices Nuget]: http://nuget.org/packages/windowsazure.mediaservices
+  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A8A8397B5
   [Valores predefinidos del sistema Media Services Encoder]: http://msdn.microsoft.com/es-es/library/windowsazure/jj129582.aspx
   [Códecs y tipos de archivo compatibles con Azure Media Encoder]: http://msdn.microsoft.com/es-es/library/windowsazure/hh973634.aspx
   [1]: http://msdn.microsoft.com/library/windowsazure/jj129582.aspx
-  [Uso de Servicios multimedia]: http://www.windowsazure.com/es-es/develop/net/how-to-guides/media-services/
+  [Uso de Servicios multimedia]: http://azure.microsoft.com/es-es/develop/media-services/resources/
   [Entrega de contenido]: http://msdn.microsoft.com/es-es/library/windowsazure/hh973618.aspx

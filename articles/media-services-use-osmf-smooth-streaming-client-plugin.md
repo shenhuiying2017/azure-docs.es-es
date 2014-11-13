@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-tutorials-smooth-streaming-plugin-for-open-source-media-framework" urlDisplayName="Smooth Streaming Plugin" pageTitle="Smooth Streaming Plugin for the Open Source Media Framework" metaKeywords="" description="Learn how to use the Azure Media Services Smooth Streaming plugin for the Adobe Open Source Media Framework." metaCanonical="" services="media-services" documentationCenter="" title="How to Use the Microsoft Smooth Streaming Plugin for the Adobe Open Source Media Framework" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Smooth Streaming Plugin" pageTitle="El complemento Smooth Streaming para Open Source Media Framework" metaKeywords="" description="Aprenda a usar el complemento Smooth Streaming de Servicios multimedia de Azure para Adobe Open Source Media Framework." metaCanonical="" services="media-services" documentationCenter="" title="Uso del complemento Smooth Streaming de Microsoft para Open Source Media Framework de Adobe" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Uso del complemento Smooth Streaming de Microsoft para Open Source Media Framework de Adobe
 
@@ -329,7 +329,7 @@ El fragmento de código siguiente muestra cómo cargar dinámicamente el complem
 El complemento dinámico Smooth Streaming para OSMF es compatible con [Strobe Media Playback (SMP)][Strobe Media Playback (SMP)]. Puede usar el complemento SS para OSMF para agregar la reproducción de contenido Smooth Streaming a SMP. Para ello, copie "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" en un servidor web para cargas HTTP mediante estos pasos:
 
 1.  Examine la [página de configuración de Strobe Media Playback][página de configuración de Strobe Media Playback] (en inglés).
-2.  Defina src como un origen Smooth Streaming (por ejemplo, <http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest>).
+2.  Defina src como un origen Smooth Streaming (por ejemplo, http://devplatem.vo.msecnd.net/Sintel/Sintel\_H264.ism/manifest).
 3.  Realice los cambios de configuración deseados y haga clic en Preview y Update.
 
     **Nota:** el servidor web de contenido necesita un archivo crossdomain.xml válido.
@@ -387,5 +387,6 @@ Para obtener más información acerca del desarrollo de OSMF general, consulte l
   [Using Flash Player]: http://forums.adobe.com/message/4483498#4483498
   [Adobe Flash Player 11.3 - Bug 3210964]: https://bugbase.adobe.com/index.cfm?event=bug&id=3210964
   [página oficial del complemento de OSMF]: http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf
+  [Strobe Media Playback (SMP)]: http://osmf.org/strobe_mediaplayback.html
   [página de configuración de Strobe Media Playback]: http://osmf.org/dev/2.0gm/setup.html
   [página oficial de desarrollo de OSMF]: http://osmf.org/resources.html

@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-how-to-table-services" urlDisplayName="Table Service" pageTitle="How to use table storage (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Learn how to use the table storage service in Azure. Code samples are written using the Node.js API." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Uso del almacenamiento de tablas (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Aprenda a usar el servicio de almacenamiento de tablas en Azure. Los ejemplos de c&oacute;digo est&aacute;n escritos usando la API Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="Uso del servicio Tabla desde Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Uso del servicio Tabla desde Node.js
 
@@ -18,15 +18,15 @@ información acerca de las tablas, consulte la sección [Pasos siguientes][Pasos
 -   [Creación de una aplicación Node.js][Creación de una aplicación Node.js]
 -   [Configuración de su aplicación para obtener acceso al almacenamiento][Configuración de su aplicación para obtener acceso al almacenamiento]
 -   [Configuración de una conexión de almacenamiento de Azure][Configuración de una conexión de almacenamiento de Azure]
--   [Creación de una tabla][Creación de una tabla]
--   [Incorporación de una entidad a una tabla][Incorporación de una entidad a una tabla]
--   [Actualización de una entidad][Actualización de una entidad]
--   [Trabajo con grupos de entidades][Trabajo con grupos de entidades]
--   [Recuperación de una entidad][Recuperación de una entidad]
--   [Consulta de un conjunto de entidades][Consulta de un conjunto de entidades]
--   [Eliminación de una entidad][Eliminación de una entidad]
 -   [Eliminación de una tabla][Eliminación de una tabla]
--   [Trabajo con firmas de acceso compartido][Trabajo con firmas de acceso compartido]
+-   [Eliminación de una entidad a una tabla][Eliminación de una entidad a una tabla]
+-   [Eliminación de una entidad][Eliminación de una entidad]
+-   [Direccionamiento del grupos de entidades][Direccionamiento del grupos de entidades]
+-   [Direccionamiento del una entidad][Direccionamiento del una entidad]
+-   [Direccionamiento del un conjunto de entidades][Direccionamiento del un conjunto de entidades]
+-   [Eliminación de una entidad][1]
+-   [Eliminación de de una tabla][Eliminación de de una tabla]
+-   [Direccionamiento del firmas de acceso compartido][Direccionamiento del firmas de acceso compartido]
 -   [Pasos siguientes][Pasos siguientes]
 
 [WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
@@ -313,7 +313,7 @@ pasa al método **deleteEntity**.
       }
     });
 
-> [WACOM.NOTE] Cuando elimine elementos, debería considerar el uso de etiquetas ETag para garantizar que otro proceso no haya modificado el elemento. Consulte [Actualización de una entidad][Actualización de una entidad] para obtener información acerca del uso de etiquetas ETag.
+> [WACOM.NOTE] Cuando elimine elementos, debería considerar el uso de etiquetas ETag para garantizar que otro proceso no haya modificado el elemento. Consulte [Actualización de una entidad][Eliminación de una entidad] para obtener información acerca del uso de etiquetas ETag.
 
 ## <a name="delete-table"> </a>Eliminación de una tabla
 
@@ -327,7 +327,7 @@ El código siguiente elimina una tabla de la cuenta de almacenamiento.
 
 Si no está seguro de si existe la tabla, use **deleteTableIfExists**.
 
-## <a name="sas"></a>Trabajo con firmas de acceso compartido
+## <a name="sas"></a>Direccionamiento del firmas de acceso compartido
 
 Las firmas de acceso compartido (SAS) constituyen una manera segura de ofrecer acceso granular a las tablas sin proporcionar el nombre o las claves de su cuenta de almacenamiento. Las SAS se usan con frecuencia para proporcionar acceso limitado a sus datos, por ejemplo, para permitir que una aplicación móvil consulte registros.
 
@@ -420,22 +420,21 @@ para obtener más información acerca de cómo realizar tareas de almacenamiento
 -   Visite el repositorio del [SDK de almacenamiento de Azure para Node.js][SDK de almacenamiento de Azure para Node.js] en GitHub.
 
   [Pasos siguientes]: #next-steps
+  [¿Qué es el servicio Tabla?]: #what-is
   [Conceptos]: #concepts
   [Creación de una cuenta de almacenamiento de Azure]: #create-account
   [Creación de una aplicación Node.js]: #create-app
   [Configuración de su aplicación para obtener acceso al almacenamiento]: #configure-access
   [Configuración de una conexión de almacenamiento de Azure]: #setup-connection-string
-  [Creación de una tabla]: #create-table
-  [Incorporación de una entidad a una tabla]: #add-entity
-  [Actualización de una entidad]: #update-entity
-  [Trabajo con grupos de entidades]: #change-entities
-  [Recuperación de una entidad]: #query-for-entity
-  [Consulta de un conjunto de entidades]: #query-set-entities
-  [Eliminación de una entidad]: #delete-entity
-  [Eliminación de una tabla]: #delete-table
-  [Trabajo con firmas de acceso compartido]: #sas
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
+  [Eliminación de una tabla]: #create-table
+  [Eliminación de una entidad a una tabla]: #add-entity
+  [Eliminación de una entidad]: #update-entity
+  [Direccionamiento del grupos de entidades]: #change-entities
+  [Direccionamiento del una entidad]: #query-for-entity
+  [Direccionamiento del un conjunto de entidades]: #query-set-entities
+  [1]: #delete-entity
+  [Eliminación de de una tabla]: #delete-table
+  [Direccionamiento del firmas de acceso compartido]: #sas
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: /es-es/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [Servicio en la nube Node.js]: /es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Sitio web con WebMatrix]: /es-es/documentation/articles/web-sites-nodejs-use-webmatrix/

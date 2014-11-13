@@ -1,6 +1,6 @@
-<properties linkid="develop-python-service-management" urlDisplayName="Service Management" pageTitle="How to use the service management API (Python) - feature guide" metaKeywords="" description="Learn how to programmatically perform common service management tasks from Python." metaCanonical="" services="cloud-services" documentationCenter="Python" title="How to use Service Management from Python" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="Service Management" pageTitle="Uso de la API de administraci&oacute;n de servicios (Python) - Gu&iacute;a de caracter&iacute;sticas" metaKeywords="" description="Vea c&oacute;mo ejecutar tareas comunes de administraci&oacute;n de servicios mediante programaci&oacute;n con Python." metaCanonical="" services="cloud-services" documentationCenter="Python" title="Uso de la administraci&oacute;n de servicios con Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
 
 # Uso de la administración de servicios con Python
 
@@ -77,7 +77,7 @@ Para crear el certificado `.cer`, ejecute este comando:
 
     `openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Para obtener más información acerca de los certificados de Azure, consulte [Administrar certificados en Azure][Administrar certificados en Azure]. Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación disponible en [][]<http://www.openssl.org/docs/apps/openssl.html></a>.
+Para obtener más información acerca de los certificados de Azure, consulte [Administrar certificados en Azure][Administrar certificados en Azure]. Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación disponible en <http://www.openssl.org/docs/apps/openssl.html>.
 
 Después de haber creado estos archivos, necesitará actualizar el archivo `.cer` en Azure a través de la acción "Upload" de la pestaña "Settings" del [portal de administración][portal de administración]; además, deberá anotar dónde ha guardado el archivo `.pem`.
 
@@ -523,7 +523,6 @@ Ahora que está familiarizado con los aspectos básicos de la administración de
   [Crear y cargar un certificado de administración para Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg551722.aspx
   [OpenSSL]: http://www.openssl.org/
   [Administrar certificados en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg981929.aspx
-  []: http://www.openssl.org/docs/apps/openssl.html
   [servicio en la nube]: http://windowsazure.com/es-es/documentation/articles/cloud-services-what-is
   [paquete de servicio]: http://msdn.microsoft.com/es-es/library/windowsazure/jj155995.aspx
   [cmdlets de Azure PowerShell]: https://www.windowsazure.com/es-es/develop/php/how-to-guides/powershell-cmdlets/

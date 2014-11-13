@@ -1,6 +1,6 @@
-<properties linkid="storage-introduction" urlDisplayName="Introduction to Azure Storage" pageTitle="Introduction to Storage | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure " description="An overview of Microsoft Azure Storage." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introduction to Microsoft Azure Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="Introduction to Azure Storage" pageTitle="Introducci&oacute;n a Almacenamiento | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure " description="Informaci&oacute;n general de Almacenamiento de Microsoft Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introducci&oacute;n a Almacenamiento de Microsoft Azure" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Introducción a Almacenamiento de Microsoft Azure
 
@@ -43,7 +43,7 @@ La siguiente imagen muestra las relaciones entre los recursos de almacenamiento 
 
 ![Recursos de almacenamiento de Azure][Recursos de almacenamiento de Azure]
 
-Para poder crear una cuenta de almacenamiento, debe tener una suscripción de Azure, que es un plan que le proporciona acceso a diversos servicios de Azure. Puede crear hasta 20 cuentas de almacenamiento con nombre único con una única suscripción.
+Para poder crear una cuenta de almacenamiento, debe tener una suscripción de Azure, que es un plan que le proporciona acceso a diversos servicios de Azure. Puede crear hasta 100 cuentas de almacenamiento con nombre único con una única suscripción. Consulte [Detalles de precios de almacenamiento][Detalles de precios de almacenamiento] para obtener información acerca de los precios por volumen.
 
 Para comenzar con Azure, puede usar una [evaluación gratuita][evaluación gratuita]. Una vez que decida adquirir un plan, puede elegir entre diversas [opciones de compra][opciones de compra]. Si ya es [suscriptor de MSDN][suscriptor de MSDN], obtendrá créditos mensuales gratuitos que podrá usar con los servicios de Azure, incluido Almacenamiento de Azure.
 
@@ -70,7 +70,7 @@ A menudo, las aplicaciones modernas demandan almacenes de datos con una flexibil
 
 Este tipo de almacenamiento se basa en un almacén de clave-atributo, lo que significa que cada valor de una tabla se almacena con un nombre de propiedad tipado. El nombre de propiedad se puede usar para filtrar y especificar criterios de selección. Una colección de propiedades y sus valores, componen una entidad. Puesto que este tipo de almacenamiento no tiene esquema, dos entidades de una misma tabla pueden contener distintas colecciones de propiedades y dichas propiedades pueden ser de distintos tipos.
 
-El almacenamiento de tablas se puede usar para almacenar conjuntos de datos flexibles, como datos de usuarios para aplicaciones web, libretas de direcciones, información de dispositivos y cualquier otro tipo de metadatos requerido por el servicio. Una tabla puede almacenar un número cualquiera de entidades y una cuenta de almacenamiento puede incluir un número cualquiera de tablas, hasta alcanzar el límite de capacidad de 200 TB de este tipo de cuenta.
+El almacenamiento de tablas se puede usar para almacenar conjuntos de datos flexibles, como datos de usuarios para aplicaciones web, libretas de direcciones, información de dispositivos y cualquier otro tipo de metadatos requerido por el servicio. Una tabla puede almacenar un número cualquiera de entidades y una cuenta de almacenamiento puede incluir un número cualquiera de tablas, hasta alcanzar el límite de capacidad de este tipo de cuenta.
 
 Al igual que ocurre con el almacenamiento de blobs y colas, los desarrolladores pueden administrar el almacenamiento de tablas y obtener acceso al mismo a través de los protocolos REST estándar. Sin embargo, este tipo de almacenamiento también admite un subconjunto del protocolo OData, lo que simplifica las capacidades de consulta avanzadas y permite los formatos JSON y AtomPub (basados en XML).
 
@@ -80,7 +80,7 @@ Para las aplicaciones actuales basadas en Internet, las bases de datos NoSQL com
 
 A la hora de diseñar aplicaciones para escala, los componentes de las mismas suelen desacoplarse para poder escalarlos de forma independiente. El almacenamiento de colas ofrece una solución de mensajería de confianza para la comunicación asincrónica entre los componentes de las aplicaciones, independientemente de que se ejecuten en la nube, en el escritorio, en un servidor local o en un dispositivo móvil. Además, este tipo de almacenamiento admite la administración de tareas asincrónicas y la creación de flujos de trabajo de procesos.
 
-Una cuenta de almacenamiento puede contener un número cualquiera de colas y, a su vez, una cola puede contener un número cualquiera de mensajes, hasta alcanzar el límite de capacidad de 200 TB de este tipo de cuenta. Los mensajes individuales pueden tener un tamaño máximo de 64 KB.
+Una cuenta de almacenamiento puede contener un número cualquiera de colas y, a su vez, una cola puede contener un número cualquiera de mensajes, hasta alcanzar el límite de capacidad de este tipo de cuenta. Los mensajes individuales pueden tener un tamaño máximo de 64 KB.
 
 ## Almacenamiento de archivos
 
@@ -175,17 +175,17 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
   [página de vista previa de Azure]: /es-es/services/preview/
   [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure]: http://msdn.microsoft.com/library/windowsazure/dn249410.aspx
   [Recursos de almacenamiento de Azure]: ./media/storage-introduction/storage-concepts.png
+  [Detalles de precios de almacenamiento]: http://www.windowsazure.com/es-es/pricing/details/storage/
   [evaluación gratuita]: /es-es/pricing/free-trial/
   [opciones de compra]: /es-es/pricing/purchase-options/
   [suscriptor de MSDN]: /es-es/pricing/member-offers/msdn-benefits-details/
   [servicio de importación y exportación de Azure]: http://azure.microsoft.com/es-es/documentation/articles/storage-import-export-service/
   [firma de acceso compartido]: ../storage-dotnet-shared-access-signature-part-1/
-  [storage-replication-options]: ../includes/storage-replication-options.md
   [Detalles de precios de Storage]: /es-es/pricing/details/storage/
   [Detalles de precios de Transferencias de datos]: /es-es/pricing/details/data-transfers/
   [calculadora de precios de Almacenamiento de Azure]: /es-es/pricing/calculator/?scenario=data-management
   [API REST]: http://msdn.microsoft.com/library/windowsazure/dd179355.aspx
-  [.NET]: http://msdn.microsoft.com/library/dn495001.aspx
+  [.NET]: http://go.microsoft.com/fwlink/?LinkID=390731
   [Código nativo]: http://msdn.microsoft.com/library/dn495438.aspx
   [Java/Android]: /es-es/develop/java/
   [Node.js]: /es-es/develop/nodejs/

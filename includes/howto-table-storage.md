@@ -22,15 +22,17 @@ que aumente la demanda.
 
 El servicio Tabla contiene los siguientes componentes:
 
-![Tabla1][]
+![Tabla1][Tabla1]
 
--   **Formato de dirección URL:** El código se desvía a las tablas en una cuenta con este formato de dirección:  
+-   **Formato de dirección URL:** El código se desvía a las tablas en una cuenta con este
+    formato de dirección:
     http://`<storage account>`.table.core.windows.net/`<table>`
 
-    Puede desviar las tablas de Azure directamente mediante esta dirección con el protocolo OData. Para obtener más información, consulte [OData.org][].
+    Puede desviar las tablas de Azure directamente mediante esta dirección con el
+    protocolo OData. Para obtener más información, consulte [OData.org][OData.org].
 
--   **Cuenta de almacenamiento:** Todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento.
-    Consulte [Azure Storage Scalability and Performance Targets][] para obtener información sobre la capacidad de la cuenta de almacenamiento.
+-   **Cuenta de almacenamiento:** Todo el acceso a Almacenamiento de Azure se realiza
+    a través de una cuenta de almacenamiento. Consulte [Azure Storage Scalability and Performance Targets][Azure Storage Scalability and Performance Targets] para obtener información sobre la capacidad de la cuenta de almacenamiento.
 
 -   **Tabla**: Una tabla es una colección de entidades. Las tablas no exigen
     un esquema sobre entidades, lo que significa que una única tabla puede contener
@@ -50,4 +52,4 @@ El servicio Tabla contiene los siguientes componentes:
 
   [Tabla1]: ./media/storage-java-how-to-use-table-storage/table1.png
   [OData.org]: http://www.odata.org/
-  [Azure Storage Scalability and Performance Targets]: http://msdn.microsoft.com/en-us/library/dn249410.aspx
+  [Azure Storage Scalability and Performance Targets]: http://msdn.microsoft.com/es-es/library/dn249410.aspx

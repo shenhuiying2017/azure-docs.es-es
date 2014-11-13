@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-hbase-get-started-hdinsight-hadoop" urlDisplayName="Get Started" pageTitle="Get started using HBase with Hadoop in HDInsight | Azure" metaKeywords="" description="Get started using HBase with Hadoop in HDInsight. learn how to created HBase tables and query them with Hive." metaCanonical="" services="hdinsight" documentationCenter="" title="Get started using HBase with Hadoop in HDInsight" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Get Started" pageTitle="Introducci&oacute;n al uso de HBase con Hadoop en HDInsight | Azure" metaKeywords="" description="Introducci&oacute;n al uso de HBase con Hadoop en HDInsight. Vea c&oacute;mo crear tablas de HBase y consultarlas con Hive." metaCanonical="" services="hdinsight" documentationCenter="" title="Introducci&oacute;n al uso de HBase con Hadoop en HDInsight" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="bradsev" />
 
 # Introducción al uso de HBase con Hadoop en HDInsight
 
@@ -13,39 +13,40 @@ En este tutorial, aprenderá a crear y consultar tablas de HBase con HDInsight. 
 -   Creación de una tabla de Hive que se asigna a una tabla de HBase existente y uso de HiveQL para consultar los datos en la tabla de HBase.
 -   Uso del SDK de .NET para crear una nueva tabla de HBase y mostrar las tablas de HBase de su cuenta y cómo agregar y recuperar las filas de las tablas.
 
-> [WACOM.NOTE] Actualmente HBase solo está disponible en vista previa para su uso con clústeres de HDInsight 3.0 en HDInsight (basado en Hadoop 2.2.0). Para obtener información de la versión, consulte [Novedades en las versiones de clústeres proporcionadas por HDInsight][]
-
-Durante el período de vista previa, se recomienda que la copia de seguridad de la versión original de los datos usados en el clúster de HBase se almacenen fuera de ese clúster. El motivo es que el formato de los archivos de base de datos podría cambiar en las versiones futuras y los formatos actuales de los archivos de datos usados en la versión de vista previa podrían no ser compatibles o actualizables en las sucesivas versiones.
+> [WACOM.NOTE] HBase (versión 0.98.0) solo está disponible para usarlo con clústeres de HDInsight 3.1 en HDInsight (basado en Apache Hadoop y YARN 2.4.0). Para obtener información de la versión, consulte [Novedades en las versiones de clústeres proporcionadas por HDInsight][Novedades en las versiones de clústeres proporcionadas por HDInsight]
 
 **Requisitos previos:**
 
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
--   Una suscripción de Azure. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][], [Ofertas para miembros][] o [Evaluación gratuita][].
--   Una cuenta de almacenamiento de Azure. Para obtener instrucciones, consulte [Creación de una cuenta de almacenamiento][].
+-   Una suscripción de Azure. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][Opciones de compra], [Ofertas para miembros][Ofertas para miembros] o [Evaluación gratuita][Evaluación gratuita].
+-   Una cuenta de almacenamiento de Azure. Para obtener instrucciones, consulte [Creación de una cuenta de almacenamiento][Creación de una cuenta de almacenamiento].
 -   Una copia de Visual Studio.
 
 **Duración aproximada:** 30 minutos
 
 ## Apartados de este tutorial
 
--   [Aprovisionamiento de un clúster de HBase en el Portal de Azure][]
--   [Creación de una tabla de ejemplo de HBase a partir del shell de HBase][]
--   [Uso de Hive para consultar una tabla de HBase][]
--   [Uso de las API de C# para HBase para crear una tabla de HBase y recuperar los datos de la tabla][]
--   [Resumen][]
+-   [Aprovisionamiento de un clúster de HBase en el Portal de Azure][Aprovisionamiento de un clúster de HBase en el Portal de Azure]
+-   [Creación de una tabla de ejemplo de HBase a partir del shell de HBase][Creación de una tabla de ejemplo de HBase a partir del shell de HBase]
+-   [Uso de Hive para consultar una tabla de HBase][Uso de Hive para consultar una tabla de HBase]
+-   [Uso de las API de C# para HBase para crear una tabla de HBase y recuperar los datos de la tabla][Uso de las API de C# para HBase para crear una tabla de HBase y recuperar los datos de la tabla]
+-   [Resumen][Resumen]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="create-hbase-cluster"></a>Aprovisionamiento de un clúster de HBase en el Portal de Azure
 
 En esta sección se describe cómo aprovisionar un clúster de HBase mediante el Portal de Azure.
 
+[WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
+
 **Para aprovisionar un clúster de HBase en el Portal de Azure, siga estos pasos:**
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  Haga clic en **HDInsight** a la izquierda para mostrar el estado de los clústeres de su cuenta y luego el icono **+NUEVO** en la parte inferior izquierda.
 
-    ![][]
+    ![][0]
 
 3.  Haga clic en el icono de HDInsight en la segunda columna de la izquierda y luego en la opción HBase de la siguiente columna. Especifique los valores para NOMBRE DEL CLÚSTER y TAMAÑO DEL CLÚSTER, el nombre de la cuenta de almacenamiento y una contraseña para el nuevo clúster de HBase.
 
@@ -97,7 +98,7 @@ Ahora que tiene un clúster de HBase aprovisionado y que ha creado una tabla, pu
 
 **Para abrir el panel del clúster, siga estos pasos:**
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  Haga clic en **HDINSIGHT** en el panel izquierdo. Verá una lista de los clústeres creados, junto con el que acaba de crear en la última sección.
 3.  Haga clic en el nombre del clúster donde desea ejecutar el trabajo de Hive.
 4.  Haga clic en **ADMINISTRAR CLÚSTER** en la parte inferior de la página para abrir el panel del clúster. Se abre una página web en una pestaña de explorador diferente.
@@ -109,7 +110,6 @@ Ahora que tiene un clúster de HBase aprovisionado y que ha creado una tabla, pu
 
 1.  Para crear una tabla de Hive con una asignación a la tabla de HBase, escriba a continuación el script de Hive en la ventana de la consola de Hive y haga clic en el botón **ENVIAR**. Asegúrese de que ha creado la tabla de ejemplo a la que se hace referencia aquí en HBase mediante el shell de HBase antes de ejecutar esta instrucción.
 
-        SET hbase.zookeeper.quorum=zookeepernode0,zookeepernode1,zookeepernode2;  
         CREATE EXTERNAL TABLE hbasesampletable(rowkey STRING, col1 STRING, col2 STRING)
         STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
         WITH SERDEPROPERTIES ('hbase.columns.mapping' = ':key,cf1:col1,cf1:col2')
@@ -117,8 +117,6 @@ Ahora que tiene un clúster de HBase aprovisionado y que ha creado una tabla, pu
 
 2.  Para ejecutar una consulta de Hive sobre los datos de HBase, escriba a continuación el script de HiveQL en la ventana de la consola de Hive y haga clic en el botón **ENVIAR**.
 
-        SET hbase.zookeeper.quorum=zookeepernode0,zookeepernode1,zookeepernode2;
-        SET hive.aux.jars.path=file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hive-hbase-handler-0.12.0.2.0.9.0-1677.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hbase-server-0.96.0.2.0.9.0-1677-hadoop2.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hbase-protocol-0.96.0.2.0.9.0-1677-hadoop2.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/htrace-core-2.01.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/hbase-client-0.96.0.2.0.9.0-1677-hadoop2.jar,file:///C:/Apps/dist/hive-0.12.0.2.0.9.0-1677/lib/guava-12.0.1.jar;
         SELECT count(*) FROM hbasesampletable;
 
 3.  Para recuperar los resultados de la consulta de Hive, haga clic en el vínculo **Ver detalles** de la ventana **Sesión de trabajo** cuando el trabajo termine de ejecutarse.
@@ -134,9 +132,9 @@ Nota: el vínculo del shell de HBase cambia la pestaña por el **shell de HBase*
 
 ## <a name="hbase-powershell"></a>Uso de las API de C# para HBase para crear una tabla de HBase y recuperar los datos de la tabla
 
-Marlin es una capa delgada encima de la API REST, que se ocupa de la interacción con HBase mediante ProtoBuf en C\#. El proyecto Marlin se debe descargar de github y el proyecto compilado para usar el SDK de .NET para HBase.
+Marlin es una capa delgada encima de la API REST, que se ocupa de la interacción con HBase mediante ProtoBuf en C#. El proyecto Marlin se debe descargar de github y el proyecto compilado para usar el SDK de .NET para HBase.
 
-1.  Siga los pasos de compilación que se describen en la sección de descarga del proyecto Marlin desde la [página del proyecto Marlin][]. Descomprímalo en un directorio local.
+1.  Siga los pasos de compilación que se describen en la sección de descarga del proyecto Marlin desde la [página del proyecto Marlin][página del proyecto Marlin]. Descomprímalo en un directorio local.
 
 2.  Abra el proyecto en Visual Studio. Abra el asistente del Administrador de paquetes NuGet; para ello, vaya a los menús **HERRAMIENTAS** -\> **Administrador de paquetes de la biblioteca** y seleccione **Administrar paquetes NuGet para la solución ...**
 
@@ -144,7 +142,7 @@ Marlin es una capa delgada encima de la API REST, que se ocupa de la interacció
 
 3.  En el cuadro En línea de la parte superior derecha, busque protobuf-net e instale v2.0.0.68. Compule el proyecto Marlin; para ello, haga clic con el botón secundario en el proyecto **Marlin** en el **Explorador de soluciones** y seleccione **Compilar**.
 
-4.  Recupere el archivo marlin.dll compilado resultante y agréguelo al proyecto de C\#.
+4.  Recupere el archivo marlin.dll compilado resultante y agréguelo al proyecto de C#.
 
 5.  Cree una nueva instancia de Marlin mediante las credenciales del clúster y recupere la versión del clúster:
 
@@ -194,19 +192,30 @@ Marlin es una capa delgada encima de la API REST, que se ocupa de la interacció
 
 En este tutorial, ha aprendido a aprovisionar un clúster de HBase, a crear tablas y a ver los datos de esas tablas desde el shell de HBase. También ha aprendido a usar Hive para consultar los datos de las tablas de HBasey a usar las API de C# para HBase para crear una tabla de HBase y recuperar los datos de la tabla.
 
+## <a name="next"></a>Pasos siguientes
+
+[Información general de HBase de HDInsight][Información general de HBase de HDInsight]:
+HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que proporciona acceso aleatorio y una coherencia sólida para grandes cantidades de datos no estructurados y semiestructurados.
+
+[Aprovisionamiento de clústeres de HBase en Red virtual de Azure][Aprovisionamiento de clústeres de HBase en Red virtual de Azure]:
+Con la integración de redes virtuales, los clústeres de HBase se pueden implementar en la misma red virtual que sus aplicaciones para que estas puedan comunicarse directamente con HBase.
+
   [Novedades en las versiones de clústeres proporcionadas por HDInsight]: ../hdinsight-component-versioning/
-  [Opciones de compra]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-  [Ofertas para miembros]: http://azure.microsoft.com/en-us/pricing/member-offers/
-  [Evaluación gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Opciones de compra]: http://azure.microsoft.com/es-es/pricing/purchase-options/
+  [Ofertas para miembros]: http://azure.microsoft.com/es-es/pricing/member-offers/
+  [Evaluación gratuita]: http://azure.microsoft.com/es-es/pricing/free-trial/
   [Creación de una cuenta de almacenamiento]: http://azure.microsoft.com/es-es/documentation/articles/storage-create-storage-account/
   [Aprovisionamiento de un clúster de HBase en el Portal de Azure]: #create-hbase-cluster
   [Creación de una tabla de ejemplo de HBase a partir del shell de HBase]: #create-sample-table
   [Uso de Hive para consultar una tabla de HBase]: #hive-query
   [Uso de las API de C# para HBase para crear una tabla de HBase y recuperar los datos de la tabla]: #hbase-powershell
   [Resumen]: #summary
+  [Pasos siguientes]: #next
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  []: http://i.imgur.com/PmGynKZ.jpg
+  [0]: http://i.imgur.com/PmGynKZ.jpg
   [1]: http://i.imgur.com/ecxbB9K.jpg
   [2]: http://i.imgur.com/tMwXlj9.jpg
   [página del proyecto Marlin]: https://github.com/thomasjungblut/marlin
   [3]: http://i.imgur.com/hUNoJDJ.jpg
+  [Información general de HBase de HDInsight]: ../hdinsight-hbase-overview/
+  [Aprovisionamiento de clústeres de HBase en Red virtual de Azure]: ../hdinsight-hbase-provision-vnet

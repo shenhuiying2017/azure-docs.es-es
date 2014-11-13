@@ -1,20 +1,30 @@
-<properties linkid="develop-net-how-to-guides-new-relic" urlDisplayName="New Relic" pageTitle="Using New Relic with Azure - Azure feature guides" metaKeywords="" description="Learn how to use the New Relic service to manage and monitor your Azure application." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Azure" authors="" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="New Relic" pageTitle="Uso de New Relic con Azure - Gu&iacute;a de caracter&iacute;sticas de Azure" metaKeywords="" description="Aprenda a utilizar el servicio New Relic para administrar y supervisar su aplicaci&oacute;n de Azure." metaCanonical="" services="" documentationCenter=".NET" title="Administraci&oacute;n del rendimiento de la aplicaci&oacute;n New Relic en Azure" authors="" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="new="" relic" />
 
 # Administración del rendimiento de la aplicación New Relic en Azure
 
-En esta guía se describe cómo agregar la supervisión del rendimiento de primer nivel de New Relic a sus aplicaciones hospedadas en Azure. Veremos cómo agregar de forma fácil y sencilla New Relic a la aplicación y le mostraremos algunas de las características de New Relic. Para obtener más información sobre el uso de New Relic, consulte [Uso de New Relic][Uso de New Relic].
+En esta guía se describe cómo agregar la
+supervisión del rendimiento de primer nivel de New Relic a sus aplicaciones hospedadas en Azure. Veremos cómo agregar de forma fácil y sencilla
+New Relic a la aplicación y le mostraremos algunas
+de las características de New Relic. Para obtener más información sobre el uso de New Relic, consulte [Uso de New Relic][Uso de New Relic].
 
 ## ¿Qué es New Relic?
 
-New Relic es una herramienta para desarrolladores que supervisa las aplicaciones de producción y proporciona un conocimiento profundo de su rendimiento y fiabilidad. Está diseñado para ahorrar tiempo al identificar y diagnosticar problemas de rendimiento, poniendo al alcance de la mano toda la información necesaria para solucionar estos problemas.
+New Relic es una herramienta para desarrolladores que supervisa las aplicaciones de producción
+y proporciona un conocimiento profundo de su rendimiento y fiabilidad. Está
+diseñado para ahorrar tiempo al identificar y diagnosticar problemas de rendimiento,
+poniendo al alcance de la mano toda la información necesaria para solucionar estos problemas.
 
-New Relic realiza el seguimiento del tiempo de carga y de la capacidad de proceso de su transacción web, tanto para los exploradores del servidor como de los usuarios. Muestra cuánto tiempo pasa en la base de datos, analiza las consultas lentas y las solicitudes web, proporciona supervisión y alertas del tiempo de actividad, realiza el seguimiento de excepciones de la aplicación y mucho más.
+New Relic realiza el seguimiento del tiempo de carga y de la capacidad de proceso de su transacción web, tanto para los exploradores del servidor
+ como de los usuarios. Muestra cuánto tiempo pasa en la
+base de datos, analiza las consultas lentas y las solicitudes web, proporciona supervisión y
+alertas del tiempo de actividad, realiza el seguimiento de excepciones de la aplicación y mucho más.
 
 ## Precio especial de New Relic en la Tienda de Azure
 
-Los usuarios de Azure pueden obtener la versión estándar de New Relic de manera gratuita, mientras que New Relic Pro se ofrece por tamaño de instancia para los Servicios en la nube de Azure.
+Los usuarios de Azure pueden obtener la versión estándar de New Relic de manera gratuita, mientras que
+New Relic Pro se ofrece por tamaño de instancia para los Servicios en la nube de Azure.
 
 Para obtener información sobre el precio, consulte la [página de New Relic en la Tienda de Azure][página de New Relic en la Tienda de Azure].
 
@@ -52,15 +62,20 @@ Para suscribirse directamente a New Relic desde la Tienda de Azure, siga estos t
 
 ### Paso 2. Instalar el paquete Nuget
 
-1.  Abra la solución de Visual Studio o cree una nueva seleccionando **Archivo \> Nuevo \> Proyecto**.
+1.  Abra la solución de Visual Studio o cree una nueva seleccionando
+    **Archivo \> Nuevo \> Proyecto**.
 
     ![Visual Studio][Visual Studio]
 
-2.  Si todavía no tiene un proyecto de Servicios en la nube de Azure en la solución, agregue uno haciendo clic con el botón secundario en la aplicación en el Explorador de soluciones y seleccione **Add Azure Cloud Service Project**.
+2.  Si todavía no tiene un proyecto de Servicios en la nube de Azure en la
+    solución, agregue uno haciendo clic con el botón secundario en la aplicación en el Explorador de soluciones y
+     seleccione **Add Azure Cloud Service Project**.
 
     ![Crear un servicio en la nube][Crear un servicio en la nube]
 
-3.  Abra la consola del Administrador de paquetes seleccionando **Tools \> Library Package Manager \> Package Manager Console**. Establezca su proyecto para que sea el predeterminado en la parte superior de la ventana de la Consola del Administrador de paquetes.
+3.  Abra la consola del Administrador de paquetes seleccionando **Tools \> Library Package Manager \>
+     Package Manager Console**. Establezca su proyecto para que sea el predeterminado en la
+     parte superior de la ventana de la Consola del Administrador de paquetes.
 
     ![Consola del Administrador de paquetes][Consola del Administrador de paquetes]
 
@@ -81,7 +96,7 @@ Para suscribirse directamente a New Relic desde la Tienda de Azure, siga estos t
 
     ![Publicar el proyecto en la nube][Publicar el proyecto en la nube]
 
-**Nota:** Si es la primera vez que implementa esta aplicación en Azure, se le pedirá que escriba las
+**Nota:**Si es la primera vez que implementa esta aplicación en Azure, se le pedirá que escriba las
 credenciales correspondientes. Para obtener más información, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure][Implementación de una aplicación web ASP.NET en un sitio web de Azure].
 
 ![configuración de publicación][configuración de publicación]

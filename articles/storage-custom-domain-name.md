@@ -1,10 +1,10 @@
-<properties linkid="manage-services-storage-custom-dns-storage" urlDisplayName="custom dns storage" pageTitle="Configure a domain name for blob data in a storage account | Microsoft Azure" metaKeywords="" description="Learn how to configure a custom domain for accessing blob data in an Azure storage account." metaCanonical="" services="storage" documentationCenter="" title="Configure a custom domain name for blob data in a storage account" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="custom dns storage" pageTitle="Configuraci&oacute;n de un nombre de dominio para datos Blob en una cuenta de almacenamiento | Microsoft Azure" metaKeywords="" description="Aprenda a configurar un dominio personalizado para acceder a datos Blob en una cuenta de almacenamiento de Azure." metaCanonical="" services="storage" documentationCenter="" title="Configuraci&oacute;n de un nombre de dominio personalizado para datos Blob en una cuenta de almacenamiento" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Configuración de un nombre de dominio personalizado para datos Blob en una cuenta de almacenamiento de Azure
 
-Puede configurar un dominio personalizado para obtener acceso a los datos Blob en la cuenta de almacenamiento de Azure. El extremo predeterminado para el servicio BLOB es https://<*mystorageaccount*>.blob.core.windows.net. Si asigna un subdominio y un dominio personalizados como **www.contoso.com** al extremo del blob para la cuenta de almacenamiento, los usuarios también pueden obtener acceso a los datos de blob en la cuenta de almacenamiento mediante ese dominio.
+Puede configurar un dominio personalizado para obtener acceso a los datos Blob en la cuenta de almacenamiento de Azure. El extremo predeterminado para el servicio BLOB es https://\<*micuentadealmacenamiento*\>.blob.core.windows.net. Si asigna un subdominio y un dominio personalizados como **www.contoso.com** al extremo del blob para la cuenta de almacenamiento, los usuarios también pueden obtener acceso a los datos Blob en la cuenta de almacenamiento mediante ese dominio.
 
 <div class="dev-callout"> 
 <b>Nota:</b> 
@@ -17,33 +17,18 @@ El proceso de asignación del dominio personalizado al extremo del blob puede pr
 
 La siguiente tabla muestra las direcciones URL de ejemplo para obtener acceso a los datos Blob en una cuenta de almacenamiento denominada **mystorageaccount**. El dominio personalizado registrado para la cuenta de almacenamiento es **www.contoso.com**:
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-	<tbody>
-		<tr>
-			<td style="width: 100px;"><strong>Tipo de recurso</strong></td>
-			<td><strong>Formatos de dirección URL</strong></td>
-		</tr>
-		<tr>
-			<td>Cuenta de almacenamiento</td>
-			<td><strong>Dirección URL predeterminada:</strong> http://mystorageaccount.blob.core.windows.net<br />
-			<strong>URL de dominio personalizadas:</strong> http://www.contoso.com</td>
-		</tr>
-		<tr>
-			<td>Blob</td>
-			<td><strong>Dirección URL predeterminada:</strong> http://mystorageaccount.blob.core.windows.net/mycontainer/myblob<br /><strong>Dirección URL de dominio personalizada:</strong>
-			http://www.contoso.com/mycontainer/myblob</td>
-		</tr>
-		<tr>
-			<td>Contenedor raíz</td>
-			<td><strong>Dirección URL predeterminada:</strong> http://mystorageaccount.blob.core.windows.net/myblob 
-			<br/>o<br />
-			http://mystorageaccount.blob.core.windows.net/$root/myblob<br />
-			<strong>URL de dominio personalizadas:</strong> http://www.contoso.com/myblob
-			<br/>o<br />
-			http://www.contoso.com/$root/myblob</td>
-		</tr>
-	</tbody>
-</table>
+|--------------------------|----------------------------------------------------------------------------------------------------|
+| **Tipo de recurso**      | **Formatos de dirección URL**                                                                      |
+| Cuenta de almacenamiento | **Dirección URL predeterminada:** http://mystorageaccount.blob.core.windows.net                    
+                             **URL de dominio personalizadas:** http://www.contoso.com                                          |
+| Blob                     | **Dirección URL predeterminada:** http://mystorageaccount.blob.core.windows.net/mycontainer/myblob 
+                            **Dirección URL de dominio personalizada:** http://www.contoso.com/mycontainer/myblob               |
+| Contenedor raíz          | **Dirección URL predeterminada:** http://mystorageaccount.blob.core.windows.net/myblob             
+                            o                                                                                                   
+                             http://mystorageaccount.blob.core.windows.net/$root/myblob                                         
+                             **URL de dominio personalizadas:** http://www.contoso.com/myblob                                   
+                            o                                                                                                   
+                             http://www.contoso.com/$root/myblob                                                                |
 
 Esta tarea le mostrará cómo realizar los siguientes procedimientos:
 
@@ -66,7 +51,7 @@ es el mismo. Tenga en cuenta que muchos paquetes de registro de domino básicos 
 
 2.  En la pestaña **Almacenamiento**, haga clic en el nombre de la cuenta de almacenamiento para la que desee asignar el dominio personalizado.
 
-3.  Haga clic en la pestaña **Configure**.
+3.  Haga clic en la pestaña **Configurar**.
 
 4.  En la parte inferior de la pantalla, haga clic en **Manage Domain** para visualizar el cuadro de diálogo **Manage Custom Domain**. En el texto de la parte superior del cuadro de diálogo, verá información sobre cómo crear el registro CNAME. Para este procedimiento, ignore el texto que hace referencia al subdominio **asverify**.
 
@@ -97,7 +82,7 @@ El subdominio asverify es un subdominio especial reconocido por Azure. Si antepo
 
 2.  En la pestaña **Almacenamiento**, haga clic en el nombre de la cuenta de almacenamiento para la que desee asignar el dominio personalizado.
 
-3.  Haga clic en la pestaña **Configure**.
+3.  Haga clic en la pestaña **Configurar**.
 
 4.  En la parte inferior de la pantalla, haga clic en **Manage Domain** para visualizar el cuadro de diálogo **Manage Custom Domain**. En el texto de la parte superior del cuadro de diálogo, verá información sobre cómo crear el registro CNAME con el subdominio **asverify**.
 
@@ -132,7 +117,7 @@ Los usuarios podrán ahora ver los datos Blob en el dominio personalizado siempr
 
 Para comprobar que el dominio personalizado se haya asignado realmente al extremo del servicio BLOB, cree un blob en un contenedor público en la cuenta de almacenamiento. A continuación, en un explorador web, use un URI con el mismo formato para obtener acceso al blob:
 
--   http://<*subdomain.customdomain*>/<*mycontainer*>/<*myblob*>
+-   http://\<*subdominio.dominiopersonalizado*\>/\<*micontenedor*\>/\<*miblob*\>
 
 Por ejemplo, puede usar el siguiente URI para obtener acceso a un formulario web a través de un subdominio personalizado
 **photos.contoso.com** que se asigne a un blob en el contenedor
@@ -144,8 +129,6 @@ Por ejemplo, puede usar el siguiente URI para obtener acceso a un formulario web
 
 -   [Asignación del contenido de la red CDN a un dominio personalizado][Asignación del contenido de la red CDN a un dominio personalizado]
 
-  [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure]: /es-es/develop/net/common-tasks/custom-dns/
-  [Configuración de un nombre de dominio personalizado para un Sitio web Azure]: /es-es/develop/net/common-tasks/custom-dns-web-site/
   [Registro de un dominio personalizado para la cuenta de almacenamiento]: #register-domain
   [Registro de un dominio personalizado para la cuenta de almacenamiento con el subdominio asverify del intermediario]: #register-asverify
   [Asignación del contenido de la red CDN a un dominio personalizado]: http://msdn.microsoft.com/es-es/library/windowsazure/gg680307.aspx

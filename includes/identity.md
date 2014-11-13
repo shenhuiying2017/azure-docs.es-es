@@ -12,17 +12,17 @@ En este artículo se describen las tres opciones.
 
 ## Tabla de contenido
 
--   [Ejecución de Windows Server Active Directory en máquinas virtuales][]
+-   [Ejecución de Windows Server Active Directory en máquinas virtuales][Ejecución de Windows Server Active Directory en máquinas virtuales]
 
--   [Uso de Azure Active Directory][]
+-   [Uso de Azure Active Directory][Uso de Azure Active Directory]
 
--   [Uso del control de acceso de Azure Active Directory][]
+-   [Uso del control de acceso de Azure Active Directory][Uso del control de acceso de Azure Active Directory]
 
 ## <a name="adinvm"></a>Ejecución de Windows Server Active Directory en máquinas virtuales
 
-Ejecutar Windows Server AD en las máquinas virtuales de Azure es muy parecido a hacerlo de manera local. La [ilustración 1][] muestra un ejemplo típico de su apariencia.
+Ejecutar Windows Server AD en las máquinas virtuales de Azure es muy parecido a hacerlo de manera local. La [ilustración 1][ilustración 1] muestra un ejemplo típico de su apariencia.
 
-![Azure Active Directory en máquina virtual][]
+![Azure Active Directory en máquina virtual][Azure Active Directory en máquina virtual]
 
 <a name="Fig1"></a>Ilustración 1: Windows Server Active Directory puede ejecutarse en máquinas virtuales de Azure conectadas a un centro de datos local de una organización mediante la red virtual de Azure.
 
@@ -46,7 +46,7 @@ Ejecutar Windows Server AD en máquinas virtuales de Azure es recomendable en di
 
 -   Una organización que usa Azure para la recuperación ante desastres puede conservar un conjunto reducido de máquinas virtuales activas en la nube, incluido un controlador de dominio. Por lo tanto, puede estar preparada para ampliar este sitio según corresponda y hacerse cargo de los errores en cualquier otro lugar.
 
-Existen también otras posibilidades. Por ejemplo, en un centro de datos local no es obligatorio conectarse a Windows Server AD en la nube. Debe crear un bosque independiente en Azure si su intención es ejecutar una granja de SharePoint que ofrezca servicio, por ejemplo, a un determinado grupo de usuarios que iniciarían sesión de manera independiente con identidades basadas en la nube. La forma en la que use esta tecnología depende de cuáles sean sus objetivos. Para obtener información más detallada sobre cómo usar Windows Server AD con Azure, [consulte aquí][].
+Existen también otras posibilidades. Por ejemplo, en un centro de datos local no es obligatorio conectarse a Windows Server AD en la nube. Debe crear un bosque independiente en Azure si su intención es ejecutar una granja de SharePoint que ofrezca servicio, por ejemplo, a un determinado grupo de usuarios que iniciarían sesión de manera independiente con identidades basadas en la nube. La forma en la que use esta tecnología depende de cuáles sean sus objetivos. Para obtener información más detallada sobre cómo usar Windows Server AD con Azure, [consulte aquí][consulte aquí].
 
 ## <a name="ad"></a>Uso de Azure Active Directory
 
@@ -58,7 +58,7 @@ Existen dos opciones principales para usar este servicio de directorio en la nub
 
 -   Las organizaciones que ejecutan Windows Server Active Directory pueden conectar su directorio local a Azure Active Directory y, a continuación, usarlo para ofrecer a sus usuarios un inicio de sesión único en aplicaciones SaaS.
 
-En la [ilustración 2][] se muestra la primera de las dos opciones, en la que Azure Active Directory es lo único necesario.
+En la [ilustración 2][ilustración 2] se muestra la primera de las dos opciones, en la que Azure Active Directory es lo único necesario.
 
 ![Azure Active Directory en máquina virtual][1]
 
@@ -74,16 +74,16 @@ El token se envía después a la aplicación SaaS (paso 4), que valida la firma 
 
 Si la aplicación precisa más información sobre el usuario contenido en el token, puede solicitarla directamente en la API Graph de Azure AD (paso 6). En la versión inicial de Azure AD, el esquema de directorios es bastante simple: contiene simplemente los usuarios y grupos y las relaciones entre ellos. Las aplicaciones pueden usar esa información para conocer las conexiones entre usuarios. Por ejemplo, supongamos que una aplicación quiere saber cuál es la decisión del administrador de usuarios para permitirle el acceso a algunos fragmentos de datos. Puede saberlo realizando una consulta a Azure AD a través de API Graph.
 
-API Graph usa un protocolo RESTful ordinario, que facilita el uso desde la mayor parte de los clientes, incluidos los dispositivos móviles. La API también es compatible con las extensiones que define OData, ya que se agregan elementos como un lenguaje de consulta para permitir a los clientes obtener acceso a los datos de una forma más útil. Para obtener más información sobre OData, consulte [Introducing OData][]. Puesto que API Graph puede usarse para conocer las relaciones entre usuarios, permite a las aplicaciones conocer el gráfico social incrustado en el esquema de Azure AD de una organización determinada (por eso se llama API Graph, gráfico de la API). Para realizar la autenticación en Azure AD para las solicitudes de API Graph, la aplicación usa OAuth 2.0.
+API Graph usa un protocolo RESTful ordinario, que facilita el uso desde la mayor parte de los clientes, incluidos los dispositivos móviles. La API también es compatible con las extensiones que define OData, ya que se agregan elementos como un lenguaje de consulta para permitir a los clientes obtener acceso a los datos de una forma más útil. Para obtener más información sobre OData, consulte [Introducing OData][Introducing OData]. Puesto que API Graph puede usarse para conocer las relaciones entre usuarios, permite a las aplicaciones conocer el gráfico social incrustado en el esquema de Azure AD de una organización determinada (por eso se llama API Graph, gráfico de la API). Para realizar la autenticación en Azure AD para las solicitudes de API Graph, la aplicación usa OAuth 2.0.
 
-Si una organización no usa Windows Server Active Directory (no dispone de dominios o servidores locales) y confía solo en aplicaciones en la nube que usan Azure AD, el uso de solo este directorio en la nube proporcionará a un inicio de sesión único a todos los usuarios de la empresa. A pesar de que este escenario es más común cada día, la mayor parte de las organizaciones siguen usando dominios locales creados con Windows Server Active Directory. Azure AD también tiene un rol importante aquí, como se muestra en la [ilustración 3][].
+Si una organización no usa Windows Server Active Directory (no dispone de dominios o servidores locales) y confía solo en aplicaciones en la nube que usan Azure AD, el uso de solo este directorio en la nube proporcionará a un inicio de sesión único a todos los usuarios de la empresa. A pesar de que este escenario es más común cada día, la mayor parte de las organizaciones siguen usando dominios locales creados con Windows Server Active Directory. Azure AD también tiene un rol importante aquí, como se muestra en la [ilustración 3][ilustración 3].
 
 ![Azure Active Directory en máquina virtual][2]
 <span id="fig3"></span></a>Ilustración 3: Una organización puede federar Windows Server Active Directory con Azure Active Directory para ofrecer a los usuarios un inicio de sesión único a aplicaciones SaaS.
 
 En este escenario, un usuario de la organización B desea obtener acceso a una aplicación SaaS. Antes de conseguirlo, los administradores del directorio de la organización deben establecer una relación de federación con Azure AD con AD FS, como se muestra en la ilustración. Los administradores también deben configurar la sincronización de datos entre las soluciones Windows Server AD y Azure AD locales de la organización. De esta forma, se copia automáticamente la información de usuario y del grupo del directorio local a Azure AD. Tenga en cuenta lo que supone esto. De hecho, la organización está ampliando el directorio local en la nube. La combinación de Windows Server AD y Azure AD de esta forma ofrece a la organización un servicio de directorio que puede administrarse como una única entidad a la vez que se mantiene un rastro en la nube y localmente.
 
-Para usar Azure AD, el usuario primero inicia sesión en el dominio de Active Directory local de manera normal (paso 1). Cuando intenta obtener acceso a la aplicación SaaS (paso 2), el proceso de federación provoca que Azure AD le emita un token para esa aplicación (paso 3). Para obtener más información sobre cómo funciona la federación, consulte [Claims-Based Identity for Windows: Technologies and Scenarios][]. Como ocurría anteriormente, este token contiene información que identifica al usuario y se encuentra firmado digitalmente por Azure AD. El token se envía después a la aplicación SaaS (paso 4), que valida la firma del token y usa su contenido (paso 5). Como ocurre en el escenario anterior, la aplicación SaaS puede usar API Graph para obtener más información sobre el usuario si fuese necesario (paso 6).
+Para usar Azure AD, el usuario primero inicia sesión en el dominio de Active Directory local de manera normal (paso 1). Cuando intenta obtener acceso a la aplicación SaaS (paso 2), el proceso de federación provoca que Azure AD le emita un token para esa aplicación (paso 3). Para obtener más información sobre cómo funciona la federación, consulte [Claims-Based Identity for Windows: Technologies and Scenarios][Claims-Based Identity for Windows: Technologies and Scenarios]. Como ocurría anteriormente, este token contiene información que identifica al usuario y se encuentra firmado digitalmente por Azure AD. El token se envía después a la aplicación SaaS (paso 4), que valida la firma del token y usa su contenido (paso 5). Como ocurre en el escenario anterior, la aplicación SaaS puede usar API Graph para obtener más información sobre el usuario si fuese necesario (paso 6).
 
 Actualmente, Azure AD no es una sustitución completa para Windows Server AD local. Como ya hemos mencionado, el directorio en la nube cuenta con un esquema mucho más simple y al que también le faltan elementos como una directiva de grupo, la capacidad de almacenar información sobre máquinas y compatibilidad con LDAP. De hecho, no puede configurarse una máquina de Windows para permitir a los usuarios iniciar sesión en ella con otra solución que no sea Azure AD; este escenario no se admite. En este caso, entre los objetivos iniciales de Azure AD se encuentran dejar que los usuarios empresariales obtengan acceso a aplicaciones en la nube sin conservar un inicio de sesión independiente y liberar a los administradores de directorio de la sincronización manual del directorio local con cada aplicación SaaS que usa su organización. Sin embargo, con el paso del tiempo, se espera que este servicio de directorio en la nube se aplique a un mayor número de escenarios.
 
@@ -95,7 +95,7 @@ Supongamos, por ejemplo, que una aplicación desea permitir a sus usuarios inici
 
 Sin embargo, si el proveedor de identidad emite algún tipo de token, estos no son estándar; cada IdP tiene su propio formato. Además, la información en esos tokens tampoco es estándar. Una aplicación que desee aceptar tokens emitidos por ejemplo por Facebook, Google, y Microsoft, se enfrenta al reto de escribir código exclusivo para administrar cada uno de esos formatos diferentes.
 
-¿Por qué hacer esto? ¿Por qué no crear un intermediario que pueda generar un formato de token único con una representación común de información de identidad? Este enfoque le haría la vida más fácil a los desarrolladores que crean aplicaciones, ya que ahora necesitarían administrar solo un tipo de token. El control de acceso de Azure Active Directory hace precisamente eso, proporciona un intermediario en la nube para trabajar con distintos tokens. La [ilustración 4][] muestra su funcionamiento.
+¿Por qué hacer esto? ¿Por qué no crear un intermediario que pueda generar un formato de token único con una representación común de información de identidad? Este enfoque le haría la vida más fácil a los desarrolladores que crean aplicaciones, ya que ahora necesitarían administrar solo un tipo de token. El control de acceso de Azure Active Directory hace precisamente eso, proporciona un intermediario en la nube para trabajar con distintos tokens. La [ilustración 4][ilustración 4] muestra su funcionamiento.
 
 ![Azure Active Directory en máquina virtual][3]
 <span id="fig4"></span></a>Ilustración 4: El control de acceso de Azure Active Directory facilita que las aplicaciones acepten tokens de identidad emitidos por distintos proveedores de identidad.
@@ -116,14 +116,14 @@ Trabajar con identidades es importante en prácticamente cualquier aplicación. 
 
 ## Acerca del autor
 
-David Chappell es el director de Chappell & Associates [www.davidchappell.com][] en San Francisco (California). A través de sus conferencias, redacciones y consultoría,
+David Chappell es el director de Chappell & Associates [www.davidchappell.com][www.davidchappell.com] en San Francisco (California). A través de sus conferencias, redacciones y consultoría,
 
   [Ejecución de Windows Server Active Directory en máquinas virtuales]: #adinvm
   [Uso de Azure Active Directory]: #ad
   [Uso del control de acceso de Azure Active Directory]: #ac
   [ilustración 1]: #fig1
   [Azure Active Directory en máquina virtual]: ./media/identity/identity_01_ADinVM.png
-  [consulte aquí]: http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
+  [consulte aquí]: http://msdn.microsoft.com/es-es/library/windowsazure/jj156090.aspx
   [ilustración 2]: #fig2
   [1]: ./media/identity/identity_02_AD.png
   [Introducing OData]: http://download.microsoft.com/download/E/5/A/E5A59052-EE48-4D64-897B-5F7C608165B8/IntroducingOData.pdf

@@ -1,6 +1,6 @@
-<properties title="Using load-balanced sets to clusterize MySQL on Linux" pageTitle="Using load-balanced sets to clusterize MySQL on Linux" description="An article that illustrates patterns to setup a load-balanced, high availability Linux cluster on Azure using MySQL as an example" metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" />
+<properties title="Uso de conjuntos de carga equilibrada para crear cl&uacute;steres en MySQL en Linux" pageTitle="Uso de conjuntos de carga equilibrada para crear cl&uacute;steres en MySQL en Linux" description="Un art&iacute;culo que ilustra los modelos para configurar un cl&uacute;ster de Linux de alta disponibilidad y carga equilibrada en Azure utilizando MySQL como ejemplo." metaKeywords="mysql, linux, cluster, azure, ha, high availability, corosync, pacemaker, drbd, heartbeat" services="virtual-machines" solutions="" documentationCenter="" authors="jparrel" videoId="" scriptId="" manager="timlt" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jparrel"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jparrel" />
 
 # Uso de conjuntos de carga equilibrada para crear clústeres en MySQL en Linux
 
@@ -32,9 +32,9 @@ Necesitará una cuenta de Microsoft Azure con una suscripción válida capaz de 
 ### Entorno probado
 
 -   Ubuntu 13.10
-  - DRBD
-  - MySQL Server
-  - Corosync y Pacemaker
+-   DRBD
+-   MySQL Server
+-   Corosync y Pacemaker
 
 ### Grupo de afinidad
 
@@ -304,7 +304,7 @@ Y esta captura de pantalla muestra ambos nodos, con uno maestro y otro esclavo:
 
 ## Prueba
 
-Estamos preparados para llevar a cabo una simulación de conmutación por error automática. Existen dos formas de hacerlo: por software y por hardware. Para llevar a cabo la simulación por software, usaremos la función de cierre del clúster: `` crm_standby -U `uname -n` -v on ``. Usando esto en el principal, el esclavo asumirá el control. No olvide volver a desactivarlo (crm\_mon le indicará que un nodo se encuentra en espera si no es así).
+Estamos preparados para llevar a cabo una simulación de conmutación por error automática. Existen dos formas de hacerlo: por software y por hardware. Para llevar a cabo la simulación por software, usaremos la función de cierre del clúster: `` crm_standby -U `uname -n` -v on ``. Usando esto en el maestro, el esclavo asumirá el control. No olvide volver a desactivarlo (crm\_mon le indicará que un nodo se encuentra en espera si no es así).
 
 Si optamos por la opción de hardware, lo que haremos será cerrar la máquina virtual principal (hadb01) mediante el Portal o cambiar el nivel de ejecución en dicha máquina virtual (es decir, detenerla o cerrarla); de esta forma ayudamos a Corosync y Pacemaker indicando el apagado del maestro. Podemos probar esto (útil para ventanas de mantenimiento) pero también podemos forzar el escenario simplemente congelando la máquina virtual.
 
@@ -327,8 +327,8 @@ Código de ejemplo para el recurso disponible en [GitHub][GitHub]. Necesita camb
 Se aplican las siguientes limitaciones:
 
 -   El script de recursos DRBD linbit que administra DRBD como un recurso en Pacemaker usa `drbdadm down` para cerrar un nodo, aunque dicho nodo acabe de emprender el camino al estado de espera. No se trata de la situación ideal porque el esclavo no sincronizará el recurso DRBD mientras se escribe en el maestro. Si no se produce un error en el maestro, el esclavo podrá asumir el control y el estado del sistema de archivos anterior. Hay dos formas posibles de resolver este problema:
-  - Forzando un comando `drbdadm up r0` en todos los nodos del clúster mediante un guardián local (sin clústeres), o bien,
-  - Editando el script DRBD linbit asegurándose de que no se llama a `down`, en `/usr/lib/ocf/resource.d/linbit/drbd`.
+-   Forzando un comando `drbdadm up r0` en todos los nodos del clúster mediante un guardián local (sin clústeres), o bien,
+-   Editando el script DRBD linbit asegurándose de que no se llama a `down`, en `/usr/lib/ocf/resource.d/linbit/drbd`.
 -   El equilibrador de carga necesita al menos 5 segundos para responder, por lo que las aplicaciones deben ser compatibles con clústeres y ser más tolerantes en lo que al tiempo de espera se refiere; otras arquitecturas también pueden ser útiles, como por ejemplo colas en aplicación, middleware de consulta, etc.
 -   El ajuste de MySQL es necesario para garantizar que la escritura se realiza a un ritmo apropiado y las memorias caché se vacían en disco con la máxima frecuencia posible para minimizar la pérdida de memoria.
 -   El rendimiento de escritura dependerá de la interconexión de las máquinas virtuales en la conmutación virtual ya que este es el mecanismo que usa DRBD para replicar el dispositivo.

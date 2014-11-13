@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-worker-app-with-socketio" urlDisplayName="App Using Socket.IO" pageTitle="Node.js application using Socket.io - Azure tutorial" metaKeywords="Azure Node.js socket.io tutorial, Azure Node.js socket.io, Azure Node.js tutorial" description="A tutorial that demonstrates using socket.io in a node.js application hosted on Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build a Node.js Chat Application with Socket.IO on an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="App Using Socket.IO" pageTitle="Aplicaci&oacute;n Node.js con Socket.io - Tutorial de Azure" metaKeywords="Azure Node.js socket.io tutorial, Azure Node.js socket.io, Azure Node.js tutorial" description="Este tutorial muestra el uso de socket.io en una aplicaci&oacute;n node.js hospedada en Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Creaci&oacute;n de una aplicaci&oacute;n de chat Node.js con Socket.IO en un servicio en la nube de Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Creación de una aplicación de chat Node.js con Socket.IO en un servicio en la nube de Azure
 
@@ -124,24 +124,31 @@ emulador de Azure:
         PS C:\node\chatapp\WorkerRole1> Publish-AzureServiceProject -ServiceName mychatapp -Location "East US" -Launch
 
     <div class="dev-callout">
-<strong>Nota:</strong>
-<p>Aseg&uacute;rese de usar un nombre &uacute;nico, de lo contrario, se producir&aacute; un error en el proceso de publicaci&oacute;n. Una vez finalizada la implementaci&oacute;n, se abrir&aacute; una ventana del explorador y navegar&aacute; hasta el servicio implementado.</p>
-<p>Si recibe un error que afirma que el nombre de suscripci&oacute;n proporcionado no existe en el perfil de publicaci&oacute;n importado, debe descargar e importar el perfil de publicaci&oacute;n para su suscripci&oacute;n antes de la implementaci&oacute;n en Azure. Consulte la secci&oacute;n <b>Implementaci&oacute;n de la aplicaci&oacute;n en Azure</b> de <a href="https://www.windowsazure.com/es-es/develop/nodejs/tutorials/getting-started/">Compilaci&oacute;n e implementaci&oacute;n de una aplicaci&oacute;n Node.js en un Servicio en la nube de Azure</a></p>
-</div>
+
+    **Nota:**
+    Asegúrese de usar un nombre único, de lo contrario, se producirá un error en el proceso de publicación. Una vez finalizada la implementación, se abrirá una ventana del explorador y navegará hasta el servicio implementado.
+
+    Si recibe un error que afirma que el nombre de suscripción proporcionado no existe en el perfil de publicación importado, debe descargar e importar el perfil de publicación para su suscripción antes de la implementación en Azure. Consulte la sección **Implementación de la aplicación en Azure** de [Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure][Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure]
+
+    </div>
 
     ![Una ventana del explorador que muestra el servicio hospedado en Azure][Una ventana del explorador que muestra el servicio hospedado en Azure]
 
     <div class="dev-callout">
-<strong>Nota:</strong>
-<p>Si recibe un error que afirma que el nombre de suscripci&oacute;n proporcionado no existe en el perfil de publicaci&oacute;n importado, debe descargar e importar el perfil de publicaci&oacute;n para su suscripci&oacute;n antes de la implementaci&oacute;n en Azure. Consulte la secci&oacute;n <b>Implementaci&oacute;n de la aplicaci&oacute;n en Azure</b> de <a href="https://www.windowsazure.com/es-es/develop/nodejs/tutorials/getting-started/">Compilaci&oacute;n e implementaci&oacute;n de una aplicaci&oacute;n Node.js en un Servicio en la nube de Azure</a></p>
-</div>
+
+    **Nota:**
+    Si recibe un error que afirma que el nombre de suscripción proporcionado no existe en el perfil de publicación importado, debe descargar e importar el perfil de publicación para su suscripción antes de la implementación en Azure. Consulte la sección **Implementación de la aplicación en Azure** de [Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure][Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure]
+
+    </div>
 
 Su aplicación se está ejecutando ahora en Azure y puede retransmitir los mensajes
 de chat entre los diferentes clientes que usan Socket.IO.
 
 <div class="dev-callout">
-<strong>Nota:</strong>
-<p>Para fines de simplicidad, este ejemplo se limita a un chat entre los usuarios que est&aacute;n conectados en la misma instancia. Esto significa que si el servicio en la nube crea dos instancias de rol de trabajo, los usuarios solo podr&aacute;n conversar con otros que est&eacute;n conectados en la misma instancia de rol de trabajo. Para escalar la aplicaci&oacute;n a fin de que funcione con varias instancias de rol, puede usar una tecnolog&iacute;a como el Bus de servicio para compartir el estado de almac&eacute;n de Socket.IO en todas las instancias. Para ver ejemplos, consulte los ejemplos de uso de Colas y Temas del Bus de servicio en el <a href="https://github.com/WindowsAzure/azure-sdk-for-node">repositorio de GitHub de SDK de Azure para Node.js</a> (en ingl&eacute;s).</p>
+
+**Nota:**
+Para fines de simplicidad, este ejemplo se limita a un chat entre los usuarios que están conectados en la misma instancia. Esto significa que si el servicio en la nube crea dos instancias de rol de trabajo, los usuarios solo podrán conversar con otros que estén conectados en la misma instancia de rol de trabajo. Para escalar la aplicación a fin de que funcione con varias instancias de rol, puede usar una tecnología como el Bus de servicio para compartir el estado de almacén de Socket.IO en todas las instancias. Para ver ejemplos, consulte los ejemplos de uso de Colas y Temas del Bus de servicio en el [repositorio de GitHub de SDK de Azure para Node.js][repositorio de GitHub de SDK de Azure para Node.js] (en inglés).
+
 </div>
 
 ## Pasos siguientes
@@ -150,10 +157,10 @@ En este tutorial aprendió a crear una aplicación de chat básica hospedada en 
 
   [Una ventana del explorador que muestra el servicio hospedado en Azure]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
   [Icono de Azure PowerShell]: ./media/cloud-services-nodejs-chat-app-socketio/azure-powershell-start.png
-  [install-dev-tools]: ../includes/install-dev-tools.md
   [La salida de new-azureservice y add-azurenodeworkerrolecmdlets]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-1.png
   [Ventana de explorador con https://github.com/LearnBoost/socket.io/tree/master/examples/chat, y el icono de descarga ZIP resaltado]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png
-  [Explorador que muestra el contenido del directorio examples\\chat extraído del archivo]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-5.png
   [Salida del comando npm install]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-7.png
   [Dos ventanas de explorador que muestran mensajes de chat de User1 y User2]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-8.png
+  [Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure]: https://www.windowsazure.com/es-es/develop/nodejs/tutorials/getting-started/
+  [repositorio de GitHub de SDK de Azure para Node.js]: https://github.com/WindowsAzure/azure-sdk-for-node
   [Creación de una aplicación de chat Node.js con Socket.IO en un sitio web de Azure]: /es-es/develop/nodejs/tutorials/website-using-socketio/

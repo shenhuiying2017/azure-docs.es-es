@@ -1,6 +1,6 @@
-<properties title="How to Create a DocumentDB Account" pageTitle="How to create a DocumentDB account | Azure" description="Find out how to create a DocumentDB account and choose account settings in the Azure Preview portal."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Creaci&oacute;n de una cuenta de Base de datos de documentos" pageTitle="Creaci&oacute;n de una cuenta de Base de datos de documentos | Azure" description="Vea c&oacute;mo crear una cuenta de Base de datos de documentos y elegir la configuraci&oacute;n de la cuenta en el portal de Azure en vista previa."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 
 # Creación de una cuenta de Base de datos de documentos
 
@@ -8,10 +8,10 @@ Para usar Base de datos de documentos, debe crear una cuenta en una región geog
 
 ## Tabla de contenido
 
--   [Creación de una cuenta de Base de datos de documentos][Creación de una cuenta de Base de datos de documentos]
+-   [Direccionamiento del de una cuenta de Base de datos de documentos][Direccionamiento del de una cuenta de Base de datos de documentos]
 -   [Pasos siguientes][Pasos siguientes]
 
-## <span id="HowTo"></span></a>Creación de una cuenta de Base de datos de documentos
+## <span id="HowTo"></span></a>Direccionamiento del de una cuenta de Base de datos de documentos
 
 1.  Inicie sesión en el [Portal de vista previa de administración de Azure][Portal de vista previa de administración de Azure].
 2.  Haga clic en Nuevo -\> Cuenta de Base de datos de documentos.
@@ -48,7 +48,6 @@ Para usar Base de datos de documentos, debe crear una cuenta en una región geog
     Use **Ubicación** para especificar la ubicación geográfica en la que se hospedará su cuenta de Base de datos de documentos.
 
 3.  Una vez que las nuevas opciones de cuenta de Base de datos de documentos estén configuradas, haga clic en **Crear**. La creación de la cuenta puede tardar unos minutos. Para comprobar el estado, puede supervisar el progreso en el panel de inicio.
-
     ![][3]
 
     O bien, desde el Centro de notificaciones.
@@ -60,11 +59,9 @@ Para usar Base de datos de documentos, debe crear una cuenta en una región geog
 4.  Después de crear la cuenta de Base de datos de documentos, ya se puede usar con la configuración predeterminada.
 
     *Tenga en cuenta que la coherencia predeterminada de la cuenta se establecerá en Sesión. Pero puede cambiar la configuración predeterminada a través del [Portal de vista previa de administración de Azure][Portal de vista previa de administración de Azure].*
-
     ![][6]
 
 5.  También puede acceder a las cuentas de Base de datos de documentos existentes desde el cuadro **Examinar**.
-
     ![][7]
 
 ## <span id="NextSteps"></span></a>Pasos siguientes
@@ -73,7 +70,7 @@ Para usar Base de datos de documentos, debe crear una cuenta en una región geog
 
 <!--Image references-->
 
-  [Creación de una cuenta de Base de datos de documentos]: #Howto
+  [Direccionamiento del de una cuenta de Base de datos de documentos]: #Howto
   [Pasos siguientes]: #NextSteps
   [Portal de vista previa de administración de Azure]: https://portal.azure.com/
   [0]: ./media/documentdb-create-account/ca1.png

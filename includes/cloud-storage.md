@@ -4,26 +4,26 @@ Es tan importante administrar y analizar los datos que están en la nube como lo
 
 ## Tabla de contenido
 
--   [Almacenamiento de blobs][]
--   [Ejecución de un DBMS en una Máquina virtual][]
--   [Base de datos SQL de Azure][]
+-   [Almacenamiento de blobs][Almacenamiento de blobs]
+-   [Ejecución de un DBMS en una Máquina virtual][Ejecución de un DBMS en una Máquina virtual]
+-   [Base de datos SQL de Azure][Base de datos SQL de Azure]
 
-    -   [SQL Data Sync][]
-    -   [SQL Data Reporting con Máquinas virtuales][]
--   [Almacenamiento de tablas][]
--   [Hadoop][]
+    -   [SQL Data Sync][SQL Data Sync]
+    -   [SQL Data Reporting con Máquinas virtuales][SQL Data Reporting con Máquinas virtuales]
+-   [Almacenamiento de tablas][Almacenamiento de tablas]
+-   [Hadoop][Hadoop]
 
 ## <a name="blob"></a>Almacenamiento de blobs
 
-La palabra "blob" es la forma abreviada de "Binary Large OBject" (objeto binario grande) y describe exactamente lo que es: una recopilación de información binaria. Si bien son simples, los blobs también son muy útiles. La [ilustración 1][] muestra los fundamentos del almacenamiento de blobs de Azure.
+La palabra "blob" es la forma abreviada de "Binary Large OBject" (objeto binario grande) y describe exactamente lo que es: una recopilación de información binaria. Si bien son simples, los blobs también son muy útiles. La [ilustración 1][ilustración 1] muestra los fundamentos del almacenamiento de blobs de Azure.
 
-<a name="Fig1"></a>![Diagrama de blobs][]
+<a name="Fig1"></a>![Diagrama de blobs][Diagrama de blobs]
 
 **Ilustración 1: Almacenamiento de blobs de Azure almacena datos binarios (blobs) en contenedores.**
 
 Para usar blobs, en primer lugar debe crear una *cuenta de almacenamiento* de Azure. Como parte de este proceso, debe especificar el centro de datos de Azure que almacenará los objetos que cree con esta cuenta. Cualquiera que sea su ubicación, todos los blobs que cree pertenecerán a algún contenedor de su cuenta de almacenamiento. Para tener acceso a un blob, una aplicación proporciona a una URL el formulario:
 
-[http://\<\*cuenta de almacenamiento][]*\>.blob.core.windows.net/\<*contenedor*\>/\<*nombre del blob\*\>
+http://\<*cuenta de almacenamiento*\>.blob.core.windows.net/\<*contenedor*\>/\<*nombre del blob*\>
 
 \<*cuenta de almacenamiento*\> es un identificador único que se asigna al crear una nueva cuenta de almacenamiento, mientras que \<*contenedor*\> y \<*nombre del blob*\> son los nombres de un contenedor específico y un blob de ese contenedor.
 
@@ -47,23 +47,23 @@ Si bien son sencillos, los blobs son la elección adecuada en muchas situaciones
 
 ## <a name="dbinvm"></a>Ejecución de un DBMS en una Máquina virtual
 
-Muchas aplicaciones actuales usan algún tipo de sistema de administración de bases de datos (DBMS). Los sistemas relacionales, como SQL Server, son la opción más utilizada, pero los modelos no relacionales, comúnmente conocidos como tecnologías *NoSQL*, son cada día más populares. Para que las aplicaciones en la nube usen estas opciones de administración de datos, el modelo de ejecución Máquinas virtuales de Azure le permite ejecutar un sistema DBMS (relacional o NoSQL) en una máquina virtual. La [ilustración 2][] muestra su apariencia en SQL Server.
+Muchas aplicaciones actuales usan algún tipo de sistema de administración de bases de datos (DBMS). Los sistemas relacionales, como SQL Server, son la opción más utilizada, pero los modelos no relacionales, comúnmente conocidos como tecnologías *NoSQL*, son cada día más populares. Para que las aplicaciones en la nube usen estas opciones de administración de datos, el modelo de ejecución Máquinas virtuales de Azure le permite ejecutar un sistema DBMS (relacional o NoSQL) en una máquina virtual. La [ilustración 2][ilustración 2] muestra su apariencia en SQL Server.
 
-<a name="Fig2"></a>![Diagrama de SQL Server en una máquina virtual][]
+<a name="Fig2"></a>![Diagrama de SQL Server en una máquina virtual][Diagrama de SQL Server en una máquina virtual]
 
 **Ilustración 2: El modelo de ejecución Máquinas virtuales de Azure permite ejecutar un sistema DBMS en una máquina virtual, con almacenamiento proporcionado por los blobs.**
 
 Tanto para los desarrolladores como para los administradores de las bases de datos, este escenario se asemeja en gran medida a la ejecución del mismo software en su propio centro de datos. En el ejemplo que aquí se muestra, entre otros posibles, se pueden usar casi todas las funciones de SQL Server y se proporciona un acceso total de administrador al sistema. Por supuesto, también tiene la responsabilidad de administrar el servidor de la base de datos, al igual que si se estuviera ejecutando en un entorno local.
 
-Tal y como muestra la [ilustración 2][], sus bases de datos parecen estar almacenadas en un disco local de la máquina virtual en el que se ejecuta el servidor. Sin embargo, cada uno de esos discos se escribe realmente en un blob de Azure. (Es similar a utilizar un SAN en su propio centro de datos, con un blob ejerciendo más o menos las funciones de un LUN). Al igual que con cualquier blob de Azure, los datos que contiene se replican tres veces en un centro de datos y, si el usuario lo solicita, se replica geográficamente a otro centro de datos ubicado en la misma región. También es posible usar opciones como la creación de reflejo de una base de datos SQL Server para mejorar su fiabilidad.
+Tal y como muestra la [ilustración 2][ilustración 2], sus bases de datos parecen estar almacenadas en un disco local de la máquina virtual en el que se ejecuta el servidor. Sin embargo, cada uno de esos discos se escribe realmente en un blob de Azure. (Es similar a utilizar un SAN en su propio centro de datos, con un blob ejerciendo más o menos las funciones de un LUN). Al igual que con cualquier blob de Azure, los datos que contiene se replican tres veces en un centro de datos y, si el usuario lo solicita, se replica geográficamente a otro centro de datos ubicado en la misma región. También es posible usar opciones como la creación de reflejo de una base de datos SQL Server para mejorar su fiabilidad.
 
 Otra forma de usar SQL Server en una máquina virtual consiste en crear una aplicación híbrida, en la que los datos se alojen en Azure mientras que la parte lógica de la aplicación se ejecuta en el entorno local. Por ejemplo, podría ser más lógico usar esta forma con las aplicaciones que se ejecutan en múltiples ubicaciones o en varios dispositivos móviles que deben compartir los mismos datos. Para facilitar la comunicación entre la base de datos en la nube y la parte lógica en el entorno local, una organización puede usar el modelo de ejecución Red virtual de Azure para crear una conexión de red privada virtual (VPN) entre un centro de datos de Azure y su propio centro de datos en el entorno local.
 
 ## <a name="sqldb"></a>Base de datos SQL
 
-Para muchas personas, ejecutar un sistema DBMS en una máquina virtual es la primera opción que viene a la mente para administrar datos estructurados en la nube. Si bien no es la única posibilidad, tampoco es siempre la mejor opción. En algunos casos, es más lógico administrar los datos mediante un modelo de plataforma como servicio (PaaS). Azure proporciona una tecnología PaaS denominada Base de datos SQL, que le permite tratar los datos relacionales de este modo. La [ilustración 3][] muestra esta opción.
+Para muchas personas, ejecutar un sistema DBMS en una máquina virtual es la primera opción que viene a la mente para administrar datos estructurados en la nube. Si bien no es la única posibilidad, tampoco es siempre la mejor opción. En algunos casos, es más lógico administrar los datos mediante un modelo de plataforma como servicio (PaaS). Azure proporciona una tecnología PaaS denominada Base de datos SQL, que le permite tratar los datos relacionales de este modo. La [ilustración 3][ilustración 3] muestra esta opción.
 
-<a name="Fig3"></a>![Diagrama de Base de datos SQL][]
+<a name="Fig3"></a>![Diagrama de Base de datos SQL][Diagrama de Base de datos SQL]
 
 **Ilustración 3: Base de datos SQL proporciona un servicio de almacenamiento relacional PaaS compartido.**
 
@@ -87,9 +87,9 @@ Finalmente, es importante destacar que el modelo de ejecución Base de datos SQL
 
 ### <a name="datasync"></a>SQL Data Sync
 
-Mientras que el modelo de ejecución Base de datos SQL mantiene tres copias de cada base de datos en un solo centro de datos de Azure, no copia automáticamente los datos entre los centros de datos de Azure. En su lugar, proporciona el servicio SQL Data Sync, que el usuario puede utilizar para ello. La [ilustración 4][] muestra su apariencia.
+Mientras que el modelo de ejecución Base de datos SQL mantiene tres copias de cada base de datos en un solo centro de datos de Azure, no copia automáticamente los datos entre los centros de datos de Azure. En su lugar, proporciona el servicio SQL Data Sync, que el usuario puede utilizar para ello. La [ilustración 4][ilustración 4] muestra su apariencia.
 
-<a name="Fig4"></a>![Diagrama de SQL Data Sync][]
+<a name="Fig4"></a>![Diagrama de SQL Data Sync][Diagrama de SQL Data Sync]
 
 **Ilustración 4: SQL Data Sync sincroniza los datos en el modelo de ejecución Base de datos SQL con los datos en otros centros de datos de Azure y del entorno local.**
 
@@ -99,9 +99,9 @@ La sincronización puede ser bidireccional y permite determinar exactamente los 
 
 ### <a name="datarpt"></a>SQL Data Reporting con Máquinas virtuales
 
-Cuando una base de datos contenga datos, es probable que alguien quiera crear informes con esos datos. Azure puede ejecutar SQL Server Reporting Services (SSRS) en el modelo de ejecución Máquinas virtuales de Azure, que equivale funcionalmente a ejecutar SQL Server Reporting Services en el entorno local. A partir de entonces puede usar SSRS para generar informes sobre los datos almacenados en un modelo de ejecución Base de datos SQL de Azure. La [ilustración 5][] muestra el funcionamiento de este proceso.
+Cuando una base de datos contenga datos, es probable que alguien quiera crear informes con esos datos. Azure puede ejecutar SQL Server Reporting Services (SSRS) en el modelo de ejecución Máquinas virtuales de Azure, que equivale funcionalmente a ejecutar SQL Server Reporting Services en el entorno local. A partir de entonces puede usar SSRS para generar informes sobre los datos almacenados en un modelo de ejecución Base de datos SQL de Azure. La [ilustración 5][ilustración 5] muestra el funcionamiento de este proceso.
 
-<a name="Fig5"></a>![Diagrama de SQL Reporting][]
+<a name="Fig5"></a>![Diagrama de SQL Reporting][Diagrama de SQL Reporting]
 
 **Ilustración 5: La ejecución de SQL Server Reporting Services en Máquinas virtuales de Azure proporciona servicios de generación de informes de los datos contenidos en el modelo de ejecución Base de datos SQL. .**
 
@@ -117,21 +117,21 @@ SSRS en una máquina virtual de Azure proporciona toda la funcionalidad de una s
 
 Los datos relacionales son útiles en muchas situaciones, pero no siempre son la elección adecuada. En el caso de que su aplicación necesite tener un acceso rápido y sencillo a cantidades muy grandes de datos poco estructurados, por ejemplo, una base de datos relacionales, podrían no funcionar bien. Es posible que una tecnología NoSQL sea la mejor opción.
 
-El almacenamiento de tablas de Azure es un ejemplo de este tipo de modelo NoSQL. A pesar de su nombre, el almacenamiento de tablas no es compatible con tablas relacionales estándar. En su lugar, proporciona lo que se conoce como *almacén de claves/valores*, para asociar un conjunto de datos a una clave en particular y, a continuación, permitir el acceso de una aplicación a esos datos mediante el uso de la clave. La [ilustración 6][] muestra sus conceptos básicos.
+El almacenamiento de tablas de Azure es un ejemplo de este tipo de modelo NoSQL. A pesar de su nombre, el almacenamiento de tablas no es compatible con tablas relacionales estándar. En su lugar, proporciona lo que se conoce como *almacén de claves/valores*, para asociar un conjunto de datos a una clave en particular y, a continuación, permitir el acceso de una aplicación a esos datos mediante el uso de la clave. La [ilustración 6][ilustración 6] muestra sus conceptos básicos.
 
-<a name="Fig6"></a>![Diagrama del almacenamiento de tablas][]
+<a name="Fig6"></a>![Diagrama del almacenamiento de tablas][Diagrama del almacenamiento de tablas]
 
 **Ilustración 6: El almacenamiento de tablas de Azure es un almacén de claves/valores que proporciona un acceso rápido y sencillo a grandes cantidades de datos.**
 
 Al igual que los blobs, cada tabla se asocia a una cuenta de almacenamiento de Azure. Las tablas también se denominan de un modo muy similar a los blobs, con una URL del formulario.
 
-http://&lt;*CuentadeAlmacenamiento*&gt;.table.core.windows.net/&lt;*TableName*&gt;
+http://\<*cuenta de almacenamiento*\>.table.core.windows.net/\<*nombre de la tabla*\>
 
 Tal y como muestra la ilustración, cada tabla está dividida en un número indeterminado de particiones, cada una de las cuales se puede almacenar en una máquina diferente. (Este es un formulario de particionamiento, al igual que con SQL Federation). Tanto las aplicaciones de Azure como las aplicaciones que se ejecutan en cualquier otro sitio pueden tener acceso a una tabla con el protocolo OData RESTful o la biblioteca del Cliente de almacenamiento de Azure.
 
 Cada partición de una tabla incluye un número indeterminado de *entidades*, cada una de las cuales contiene 255 *propiedades*. Cada propiedad tiene un nombre, un tipo (como Binary, Bool, DateTime, Int, o String) y un valor. A diferencia del almacenamiento relacional, estas tablas no tienen esquemas fijos, por lo que las entidades diferentes de la misma tabla pueden contener propiedades con diferentes tipos. Una entidad podría tener solo una propiedad String que contuviera un nombre, por ejemplo, mientras que otra entidad de la misma tabla tuviera dos propiedades Int que contuvieran un número de identificación de cliente y una calificación de solvencia crediticia.
 
-Para identificar una entidad en particular dentro de una tabla, existe una aplicación que proporciona la clave de esa entidad. La clave tiene dos partes: una *clave de partición*, que identifica una partición específica, y una *clave de fila*, que identifica una entidad dentro de esa partición. En la [ilustración 6][], por ejemplo, el cliente solicita la entidad con clave de partición A y clave de fila 3 y el almacenamiento de tablas devuelve esa entidad, incluidas todas las propiedades que contiene.
+Para identificar una entidad en particular dentro de una tabla, existe una aplicación que proporciona la clave de esa entidad. La clave tiene dos partes: una *clave de partición*, que identifica una partición específica, y una *clave de fila*, que identifica una entidad dentro de esa partición. En la [ilustración 6][ilustración 6], por ejemplo, el cliente solicita la entidad con clave de partición A y clave de fila 3 y el almacenamiento de tablas devuelve esa entidad, incluidas todas las propiedades que contiene.
 
 Esta estructura permite que las tablas sean grandes (una tabla sencilla puede contener hasta 100 terabytes de datos), y proporciona un acceso rápido a los datos que contiene. No obstante, también tiene limitaciones. Por ejemplo, no admite las actualizaciones transaccionales que amplían las tablas ni las particiones en una única tabla. Solo es posible agrupar un conjunto de actualizaciones para una tabla en una transacción instantánea si todas las entidades involucradas están en la misma partición. Además, no es posible consultar a una tabla a partir del valor de sus propiedades ni existe compatibilidad de uniones en múltiples tablas. Y, a diferencia de las bases de datos relacionales, las tablas no son compatibles con los procedimientos almacenados.
 
@@ -145,9 +145,9 @@ Pero supongamos que desea analizar datos no relacionales. Los datos con los que 
 
 Para analizar este tipo de datos de gran tamaño, los agentes de nuestra industria han coincidido ampliamente en una única solución: la tecnología de código abierto Hadoop. Hadoop se ejecuta en un clúster de máquinas físicas o virtuales para distribuir los datos con los que trabaja entre esas máquinas y procesarlos en paralelo. Cuantas más máquinas utiliza Hadoop, más rápido puede completar cualquier trabajo que deba realizar.
 
-Este tipo de problema es un paso natural de la nube pública. En lugar de mantener un ejército de servidores en un entorno local que podría permanecer inactivo mucho tiempo, ejecutar Hadoop en la nube le permite crear máquinas virtuales (y pagar por ellas) solo cuando las necesita. Es más, una parte cada vez mayor de los datos de gran tamaño que desee analizar con Hadoop se crea directamente en la nube, por lo que se ahorra la molestia de tener que desplazarlos de un sitio a otro. Para ayudarle a explotar estas sinergias, Microsoft proporciona el servicio Hadoop en Azure. La [ilustración 7][] muestra los componentes más importantes de este servicio.
+Este tipo de problema es un paso natural de la nube pública. En lugar de mantener un ejército de servidores en un entorno local que podría permanecer inactivo mucho tiempo, ejecutar Hadoop en la nube le permite crear máquinas virtuales (y pagar por ellas) solo cuando las necesita. Es más, una parte cada vez mayor de los datos de gran tamaño que desee analizar con Hadoop se crea directamente en la nube, por lo que se ahorra la molestia de tener que desplazarlos de un sitio a otro. Para ayudarle a explotar estas sinergias, Microsoft proporciona el servicio Hadoop en Azure. La [ilustración 7][ilustración 7] muestra los componentes más importantes de este servicio.
 
-<a name="Fig7"></a>![Diagrama de Hadoop][]
+<a name="Fig7"></a>![Diagrama de Hadoop][Diagrama de Hadoop]
 
 **Ilustración 7: En Azure, Hadoop ejecuta tareas MapReduce que procesan los datos en paralelo mediante múltiples máquinas virtuales.**
 
@@ -157,7 +157,7 @@ Una aplicación Hadoop, normalmente denominada un *trabajo*, usa un modelo de pr
 
 En Azure, los datos con los que utiliza un trabajo de MapReduce se mantienen almacenados normalmente en blobs. En los trabajos de MapReduce en Hadoop, sin embargo, se espera que los datos se almacenen en el *sistema de archivos distribuido de Hadoop (HDFS)*. El sistema HDFS se asemeja en cierta medida al almacenamiento en blobs; por ejemplo, replica los datos en múltiples servidores físicos. En lugar de duplicar esta funcionalidad, Hadoop en Azure expone el almacenamiento en blobs a través de la API del sistema HDFS, tal y como muestra la ilustración. Mientras que la parte lógica de un trabajo de MapReduce cree que está teniendo un acceso ordinario a los archivos del sistema HDFS, el trabajo, en realidad, está utilizando los datos que se transfieren desde los blobs. Si se ejecutan varios trabajos con los mismos datos, Hadoop en Azure también permite copiar datos de blobs al sistema HDFS completo, que se ejecuta en las máquinas virtuales.
 
-En la actualidad, los trabajos de MapReduce se escriben normalmente en Java, modelo compatible con Hadoop en Azure. Microsoft también ha agregado compatibilidad para crear trabajos de MapReduce en otros lenguajes, entre los que se incluyen C\#, F\#, y JavaScript. El objetivo es conseguir que esta tecnología de datos de gran tamaño sea más fácilmente accesible para un mayor grupo de desarrolladores.
+En la actualidad, los trabajos de MapReduce se escriben normalmente en Java, modelo compatible con Hadoop en Azure. Microsoft también ha agregado compatibilidad para crear trabajos de MapReduce en otros lenguajes, entre los que se incluyen C#, F\#, y JavaScript. El objetivo es conseguir que esta tecnología de datos de gran tamaño sea más fácilmente accesible para un mayor grupo de desarrolladores.
 
 Además del sistema HDFS y MapReduce, Hadoop incluye otras tecnologías que permiten a las personas analizar datos sin escribir manualmente un trabajo de MapReduce. Por ejemplo, Pig es un lenguaje de alto nivel que se ha diseñado para analizar datos de gran tamaño, mientras que Hive ofrece un lenguaje similar a SQL que se denomina HiveQL. Tanto Pig como Hive generan trabajos de MapReduce que procesan datos HDFS, pero ocultan esta complejidad a los usuarios.
 Los dos cuentan con Hadoop en Azure.
@@ -177,7 +177,6 @@ En términos generales, los datos de todos los tipos son importantes. Por este m
   [Hadoop]: #hadoop
   [ilustración 1]: #Fig1
   [Diagrama de blobs]: ./media/cloud-storage/Data_01_Blobs.png
-  [http://\<\*cuenta de almacenamiento]: http://<*StorageAccount
   [ilustración 2]: #Fig2
   [Diagrama de SQL Server en una máquina virtual]: ./media/cloud-storage/Data_02_SQLSvrVM.png
   [ilustración 3]: #Fig3

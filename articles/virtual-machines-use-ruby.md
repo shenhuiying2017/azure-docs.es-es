@@ -1,6 +1,6 @@
-<properties linkid="manage-services-identity-multi-factor-authentication" urlDisplayName="What is Azure Multi-Factor Authentication?" pageTitle="What is Azure Multi-Factor Authentication?" metaKeywords="" description="Learn more about Azure Multi-Factor Authentication, a method of authentication that requires the use of more than one verification method and adds a critical second layer of security to user sign-ins and transactions." metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="How to Manage Azure Virtual Machines using Ruby" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="What is Azure Multi-Factor Authentication?" pageTitle="&iquest;Qu&eacute; es Azure Multi-Factor Authentication?" metaKeywords="" description="Obtenga m&aacute;s informaci&oacute;n acerca de Azure Multi-Factor Authentication, un m&eacute;todo de autenticaci&oacute;n que requiere el uso de m&aacute;s de un m&eacute;todo de verificaci&oacute;n y agrega una segunda capa importante de seguridad a las transacciones e inicios de sesi&oacute;n del usuario." metaCanonical="" services="active-directory,multi-factor-authentication" documentationCenter="" title="Administraci&oacute;n de M&aacute;quinas virtuales de Azure usando Ruby" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Administración de Máquinas virtuales de Azure usando Ruby
 
@@ -8,21 +8,21 @@ En esta guía se indica cómo realizar las tareas de administración habituales 
 
 ## Tabla de contenido
 
--   [Qué es la administración de servicios][]
--   [Conceptos][]
--   [Creación de un certificado de administración][]
--   [Creación de una aplicación de Ruby][]
--   [Configuración de la aplicación para que use el SDK][]
--   [Configuración de una conexión de administración de Azure][]
--   [Eliminación de Máquinas virtuales][]
--   [Eliminación de imágenes y discos][]
--   [Eliminación de Servicios en la nube][]
--   [Eliminación de servicios de almacenamiento][]
--   [Pasos siguientes][]
+-   [Qué es la administración de servicios][Qué es la administración de servicios]
+-   [Conceptos][Conceptos]
+-   [Creación de un certificado de administración][Creación de un certificado de administración]
+-   [Creación de una aplicación de Ruby][Creación de una aplicación de Ruby]
+-   [Configuración de la aplicación para que use el SDK][Configuración de la aplicación para que use el SDK]
+-   [Configuración de una conexión de administración de Azure][Configuración de una conexión de administración de Azure]
+-   [Eliminación de Máquinas virtuales][Eliminación de Máquinas virtuales]
+-   [Eliminación de imágenes y discos][Eliminación de imágenes y discos]
+-   [Eliminación de Servicios en la nube][Eliminación de Servicios en la nube]
+-   [Eliminación de servicios de almacenamiento][Eliminación de servicios de almacenamiento]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="what-is"> </a>Qué es la administración de servicios
 
-Azure proporciona las [API REST para las operaciones de administración de servicios][], entre las que se incluyen la administración de Máquinas virtuales de Azure. El SDK de Azure para Ruby expone operaciones de administración para Máquinas virtuales mediante la clase **Azure::VirtualMachineSerivce**. Se puede obtener acceso a gran parte de la funcionalidad de administración de máquinas virtuales en el [Portal de administración de Azure][] usando esta clase.
+Azure proporciona las [API REST para las operaciones de administración de servicios][API REST para las operaciones de administración de servicios], entre las que se incluyen la administración de Máquinas virtuales de Azure. El SDK de Azure para Ruby expone operaciones de administración para Máquinas virtuales mediante la clase **Azure::VirtualMachineSerivce**. Se puede obtener acceso a gran parte de la funcionalidad de administración de máquinas virtuales en el [Portal de administración de Azure][Portal de administración de Azure] usando esta clase.
 
 Mientras que la API de administración de servicios se puede usar para administrar deferentes servicios hospedados en Azure, este documento solo proporciona información sobre la administración de Máquinas virtuales de Azure.
 
@@ -38,7 +38,7 @@ La mayoría de las imágenes las proporciona Microsoft o los socios; no obstante
 
 Al realizar operaciones de administración de servicios, como las expuestas mediante la clase **Azure::VirtualMachineService**, tiene que proporcionar el Id. de suscripción de Azure y un archivo que contenga un certificado de administración para la suscripción. El SDK usa ambos al autenticase en la API REST de Azure.
 
-Puede obtener el Id. de suscripción y un certificado de administración usando la interfaz de línea de comandos entre plataformas de Azure (xplat-cli). Consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure][] para obtener información acerca de cómo instalar y configurar la xplat-cli.
+Puede obtener el Id. de suscripción y un certificado de administración usando la interfaz de línea de comandos entre plataformas de Azure (xplat-cli). Consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure][Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure] para obtener información acerca de cómo instalar y configurar la xplat-cli.
 
 Una vez configurada la xplat-cli, puede realizar los pasos siguientes para recuperar el Id. de suscripción de Azure y exportar un certificado de administración:
 
@@ -89,9 +89,11 @@ Para administrar los servicios de Azure, tiene que descargar y usar la gema de A
         7 gems installed
 
     <div class="dev-callout">
-<b>Nota:</b>
-<p>Si ve un error relacionado con los permisos, use <code data-inline="1">sudo gem install azure</code> en lugar de lo anterior.</p>
-</div>
+
+    **Nota:**
+    Si ve un error relacionado con los permisos, use `sudo gem install azure` en lugar de lo anterior.
+
+    </div>
 
 ### Gema obligatoria
 
@@ -174,7 +176,7 @@ A continuación encontrará las opciones disponibles al usar el método **create
 
 -   **:ssh\_port**: Puerto público que se usará para la comunicación SSH. Si se omite, el valor de puerto SSH predeterminado será 22.
 
--   **:vm\_size**: Tamaño de la máquina virtual. Determina el tamaño de la memoria, el número de núcleos, el ancho de banda y otras características físicas de la máquina virtual. Consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure][] para ver las características físicas y los tamaños disponibles.
+-   **:vm\_size**: Tamaño de la máquina virtual. Determina el tamaño de la memoria, el número de núcleos, el ancho de banda y otras características físicas de la máquina virtual. Consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure][Tamaños de máquinas virtuales y servicios en la nube de Azure] para ver las características físicas y los tamaños disponibles.
 
 -   **:winrm\_transport**: Matriz de transportes disponible para su uso con WinRM. Los transportes válidos son http y https. Si se especifica "https" como transporte, también debe usar **:ssh\_private\_key\_file** y **:ssh\_certificate\_file** para especificar el certificado usado para proteger las comunicaciones HTTPS.
 
@@ -220,8 +222,10 @@ Para eliminar una máquina virtual, use el método **delete\_virtual\_machine** 
     vm = vm_mgr.delete_virtual_machine('myvm', 'mycloudservice')
 
 <div class="dev-callout">
-<b>Advertencia</b>
-<p>El m&eacute;todo <b>delete_virtual_machine</b> elimina el servicio en la nube y todos los discos asociados a la m&aacute;quina virtual.</p>
+
+**Advertencia**
+El método **delete\_virtual\_machine** elimina el servicio en la nube y todos los discos asociados a la máquina virtual.
+
 </div>
 
 ### Reproducción de una máquina virtual
@@ -312,7 +316,7 @@ Para eliminar la implementación de un servicio en la nube, use el método **del
 
 Las operaciones de administración de Servicios en la nube de Azure se realizan usando la clase **Azure::StorageService**.
 
-### Reproducción de una cuenta de almacenamiento
+### Reproducción de Crear una cuenta de almacenamiento
 
 Para crear una cuenta de almacenamiento, use el método **create\_storage\_account** y proporcione un nombre y un hash de opciones. Las opciones válidas son:
 
@@ -350,9 +354,9 @@ Para eliminar una cuenta de almacenamiento, use el método **delete\_storage\_ac
 
 Ahora que ya conoce los aspectos básicos de la creación de máquinas virtuales de Azure mediante programación, utilice estos vínculos para obtener más información acerca de cómo trabajar con las máquinas virtuales.
 
--   Visite la página de características de las [máquinas virtuales][].
--   Consulte la referencia de MSDN: [Máquinas virtuales][]
--   Más información acerca de cómo hospedar una [Aplicación de Ruby on Rails en una máquina virtual][]
+-   Visite la página de características de las [máquinas virtuales][máquinas virtuales].
+-   Consulte la referencia de MSDN: [Máquinas virtuales][Máquinas virtuales]
+-   Más información acerca de cómo hospedar una [Aplicación de Ruby on Rails en una máquina virtual][Aplicación de Ruby on Rails en una máquina virtual]
 
   [Qué es la administración de servicios]: #what-is
   [Conceptos]: #concepts

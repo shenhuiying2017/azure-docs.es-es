@@ -1,6 +1,6 @@
-<properties linkid="develop-python-ipython-notebook" urlDisplayName="IPython Notebook" pageTitle="IPython Notebook - Azure tutorial" metaKeywords="" description="A tutorial that shows how to deploy the IPython Notebook on Azure, using Linux or Windows virtual machines (VMs)." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="IPython Notebook on Azure" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="IPython Notebook" pageTitle="Bloc de notas de IPython - Tutorial de Azure" metaKeywords="" description="Un tutorial que muestra c&oacute;mo implementar el bloc de notas de IPython en Azure, utilizando m&aacute;quinas virtuales de Linux o Windows." metaCanonical="" services="virtual-machines" documentationCenter="Python" title="Bloc de notas de IPython en Azure" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="python" ms.topic="article" ms.date="09/25/2014" ms.author="huvalo" />
 
 # Bloc de notas de IPython en Azure
 
@@ -20,9 +20,9 @@ siguiente muestra el bloc de notas de IPhyton que se está utilizando, junto con
 los paquetes SciPy y matplotlib, para analizar la estructura de una
 grabación de sonido:
 
-![Instantánea][]
+![Instantánea][Instantánea]
 
-En este documento se explicará cómo implementar el bloc de notas de IPython en
+En este documento se explicará cómo implementar el bloc de notas de IPython en Microsoft
 Azure, utilizando máquinas virtuales de Linux o Windows. Al utilizar el bloc de
 notas de IPython en Azure, puede proporcionar fácilmente una interfaz
 accesible por web a los recursos informáticos escalables con toda la potencia de Python y
@@ -30,7 +30,7 @@ sus múltiples bibliotecas. Como la instalación se realiza en la nube, los usua
 recursos sin necesidad de configuración local alguna, salvo
 un explorador web moderno.
 
-[WACOM.INCLUDE [create-account-and-vms-note][]]
+[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Creación y configuración de una máquina virtual en Azure
 
@@ -41,11 +41,11 @@ y trataremos la instalación de IPython en ambos tipos de máquinas virtuales.
 
 ### Máquina virtual de Linux
 
-Siga las instrucciones indicadas [aquí][] para crear una máquina virtual de la distribución *OpenSUSE* o *Ubuntu*. En este tutorial se utilizan OpenSUSE 12.3 y Ubuntu Server 13.04. Asumiremos el nombre de usuario predeterminado *azureuser*.
+Siga las instrucciones indicadas [aquí][aquí] para crear una máquina virtual de la distribución *OpenSUSE* o *Ubuntu*. En este tutorial se utiliza OpenSUSE 13.1 y Ubuntu Server 14.04 LTS. Asumiremos el nombre de usuario predeterminado *azureuser*.
 
 ### Máquina virtual de Windows
 
-Siga las instrucciones indicadas [aquí][1] para crear una máquina virtual de la distribución *Windows Server 2012 Datacenter*. En este tutorial, asumiremos que el nombre de usuario es *azureuser*.
+Siga las instrucciones indicadas [aquí][1] para crear una máquina virtual de la distribución *Windows Server 2012 R2 Datacenter*. En este tutorial, asumiremos que el nombre de usuario es *azureuser*.
 
 ## Creación de un extremo para el bloc de notas de IPython
 
@@ -75,10 +75,11 @@ sus dependencias.
 Para instalar IPython y sus dependencias, conéctese con SSH en la máquina virtual Linux y
 realice los pasos siguientes.
 
-Instale [NumPy][], [Matplotlib][], [Tornado][] y otras dependencias de IPython realizando lo siguiente:
+Instale [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][Tornado] y otras dependencias de IPython realizando lo siguiente:
 
     sudo zypper install python-matplotlib
     sudo zypper install python-tornado
+    sudo zypper install python-jinja2
     sudo zypper install ipython
 
 ### Linux (Ubuntu)
@@ -86,7 +87,7 @@ Instale [NumPy][], [Matplotlib][], [Tornado][] y otras dependencias de IPython r
 Para instalar IPython y sus dependencias, conéctese con SSH en la máquina virtual Linux y
 realice los pasos siguientes.
 
-Instale [NumPy][], [Matplotlib][], [Tornado][] y otras dependencias de IPython realizando lo siguiente:
+Instale [NumPy][NumPy], [Matplotlib][Matplotlib], [Tornado][Tornado] y otras dependencias de IPython realizando lo siguiente:
 
     sudo apt-get install python-matplotlib
     sudo apt-get install python-tornado
@@ -100,28 +101,32 @@ utilizando Windows PowerShell para ejecutar todas las acciones de la línea de c
 
 **Nota**: para realizar descargas con Internet Explorer, tendrá que cambiar alguna configuración de seguridad. En el **Administrador de servidores**, haga clic en **Servidor local**, a continuación en **Configuración de seguridad mejorada de IE** y desactívelo para administradores. Puede volver a habilitarlo una vez instalado IPython.
 
-1.  Instale Python 2.7.5 (32 bits) desde [python.org][].
+1.  Instale Python 2.7.8 (32 bits) desde [python.org][python.org].
     También necesitará agregar `C:\Python27` y `C:\Python27\Scripts` a su variable de entorno `PATH`
     .
 
-2.  Instale la distribución descargando el archivo **distribute\_setup.py**
-     en [python-distribute.org][] (en inglés) y, a continuación, ejecute
-    el comando:
+2.  Instale pip y setuptools descargando el archivo **get-pip.py**
+    desde <https://pip.pypa.io/en/latest/installing.html> y, a continuación, ejecutando el
+    comando:
 
-        python distribute_setup.py
+        python get-pip.py
 
-3.  Instale [Tornado][] y [PyZMQ][] ejecutando los comandos:
+3.  Instale [Tornado][Tornado] y [PyZMQ][PyZMQ] y otras dependencias de IPython realizando lo siguiente:
 
         easy_install tornado
         easy_install pyzmq
+        easy_install jinja2
+        easy_install six
+        easy_install python-dateutil
+        easy_install pyparsing
 
-4.  Descargue e instale [NumPy][] utilizando el instalador binario
-    `.exe` disponible en su sitio web. En el momento de la redacción de este documento, la versión más reciente es **numpy-1.7.1-win32-superpack-python2.7.exe**.
+4.  Descargue e instale [NumPy][NumPy] utilizando el instalador binario
+    `.exe` disponible en su sitio web. En el momento de la redacción de este documento, la versión más reciente es **numpy-1,90,0-win32-superpack-python2.7.exe**.
 
-5.  Descargue e instale [Matplotlib][] utilizando el instalador binario
-    `.exe` disponible en su sitio web. En el momento de la redacción de este documento, la versión más reciente es **matplotlib-1.2.1.win32-py2.7.exe**.
+5.  Descargue e instale [Matplotlib][Matplotlib] utilizando el instalador binario
+    `.exe` disponible en su sitio web. En el momento de la redacción de este documento, la versión más reciente es **matplotlib-1,40,0.win32-py2.7.exe**.
 
-6.  Descargue e instale OpenSSL. Puede encontrar las versiones de Windows de OpenSSL en [][]<http://slproweb.com/products/Win32OpenSSL.html></a>.
+6.  Descargue e instale OpenSSL. Puede encontrar las versiones de Windows de OpenSSL en <http://slproweb.com/products/Win32OpenSSL.html>.
 
     -   Si instala una versión **Light**, también debe instalar **Visual C++ 2008 Redistributable** (disponible asimismo en esta página.)
 
@@ -194,8 +199,8 @@ la contraseña de la forma siguiente:
     sha1:b86e933199ad:a02e9592e59723da722.. (elided the rest for security)
 
 A continuación, modificaremos el archivo de configuración del perfil, que es el archivo
-`ipython_notebook_config.py` en el directorio de perfil en el que se encuentra. Este
-archivo cuenta con varios campos y, de manera predeterminada, todos están convertidos en comentario. Puede abrir
+`ipython_notebook_config.py` en el directorio de perfil en el que se encuentra. Tenga en cuenta que es posible que este archivo no exista; si es así, créelo. Este
+archivo tiene varios campos que, de manera predeterminada, se convierten en comentario. Puede abrir
 este archivo con el editor de texto que prefiera y debería asegurase de que al menos
 tiene el contenido siguiente:
 
@@ -311,7 +316,8 @@ se puede usar:
 
 Si se dirige al repositorio del código fuente de IPython, encontrará
 un directorio completo con [ejemplos de
-blocs de notas][]
+blocs de notas][ejemplos de
+blocs de notas]
  que se pueden descargar para experimentar en su propia máquina virtual de IPython de Azure.
 Solo tiene que descargar los archivos `.ipynb` desde el sitio y cargarlos en el panel de la máquina virtual
 del bloc de notas de Azure (o descargarlos directamente en la máquina virtual).
@@ -327,15 +333,12 @@ que se pueden compartir con otros usuarios de IPython. El bloc de notas de IPyth
 una aplicación local, pero es perfectamente adecuada para las implementaciones de nube en Azure.
 
 Las características centrales de IPython también están disponibles en Visual Studio mediante las herramientas
-[Python Tools for Visual Studio][] (PTVS). PTVS es un complemento gratuito y de código abierto
+[Python Tools for Visual Studio][Python Tools for Visual Studio] (PTVS). PTVS es un complemento gratuito y de código abierto
 de Microsoft que convierte a Visual Studio un
 entorno de desarrollo avanzado de Python, que incluye un editor avanzado con la integración de IntelliSense, depuración,
 creación de perfiles y la informática en paralelo.
 
-  [proyecto IPython]: http://ipython.org
-  [Ver el tutorial (en inglés)]: http://go.microsoft.com/fwlink/?LinkID=254535&clcid=0x409
   [Instantánea]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-spectral.png
-  [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [aquí]: /es-es/manage/linux/tutorials/virtual-machine-from-gallery/
   [1]: /es-es/manage/windows/tutorials/virtual-machine-from-gallery/
   [2]: ./media/virtual-machines-python-ipython-notebook/ipy-azure-linux-005.png
@@ -344,9 +347,7 @@ creación de perfiles y la informática en paralelo.
   [Matplotlib]: http://matplotlib.sourceforge.net/ "Matplotlib"
   [Tornado]: http://www.tornadoweb.org/ "Tornado"
   [python.org]: http://www.python.org/download
-  [python-distribute.org]: http://python-distribute.org/
   [PyZMQ]: https://github.com/zeromq/pyzmq "PyZMQ"
-  []: http://slproweb.com/products/Win32OpenSSL.html
   [4]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-001.png
   [5]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-002.png
   [6]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-003.png
@@ -355,6 +356,4 @@ creación de perfiles y la informática en paralelo.
   [9]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-006.png
   [10]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-007.png
   [11]: ./media/virtual-machines-python-ipython-notebook/ipy-notebook-008.png
-  [ejemplos de
-  blocs de notas]: https://github.com/ipython/ipython/tree/master/examples/notebooks
   [Python Tools for Visual Studio]: http://pytools.codeplex.com

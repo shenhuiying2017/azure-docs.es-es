@@ -4,25 +4,25 @@ La Red de entrega de contenido de Azure (CDN) ofrece a los desarrolladores
 una solución global de entrega de contenido con alto ancho de banda; para ello,
 almacena en memoria caché los blobs y los contenidos estáticos de las instancias de proceso en nodos físicos ubicados en
 Estados Unidos, Europa, Asia, Australia y Sudamérica. Para obtener una lista actualizada de las
-ubicaciones de nodos de la red CDN, vea [Ubicaciones del nodo red CDN de Azure][].
+ubicaciones de nodos de la red CDN, vea [Ubicaciones del nodo red CDN de Azure][Ubicaciones del nodo red CDN de Azure].
 
 Esta tarea incluye los siguientes pasos:
 
--   [Paso 1: una cuenta de almacenamiento][]
--   [Paso 2: Crear un nuevo extremo de la red CDN para su cuenta de almacenamiento][]
--   [Paso 3: Obtener acceso a su contenido de la red CDN][]
--   [Paso 4: Eliminar su contenido de la red CDN][]
+-   [Paso 1: una cuenta de almacenamiento][Paso 1: una cuenta de almacenamiento]
+-   [Paso 2: Crear un nuevo extremo de la red CDN para su cuenta de almacenamiento][Paso 2: Crear un nuevo extremo de la red CDN para su cuenta de almacenamiento]
+-   [Paso 3: Obtener acceso a su contenido de la red CDN][Paso 3: Obtener acceso a su contenido de la red CDN]
+-   [Paso 4: Eliminar su contenido de la red CDN][Paso 4: Eliminar su contenido de la red CDN]
 
 Entre las ventajas de utilizar la red CDN para almacenar en memoria caché los datos de Azure se incluyen:
 
 -   Mejor rendimiento y experiencia de usuario para aquellos usuarios finales que están lejos de un origen de contenido y utilicen aplicaciones donde son necesarias muchas conexiones a Internet para cargar el contenido.
 -   Gran distribución para mejorar la administración de cargas instantáneas pesadas, por ejemplo, al comienzo de un acontecimiento como el lanzamiento de un producto.
 
-Los clientes existentes de la red CDN ahora pueden usar la red CDN de Azure mediante el [Portal de administración de Azure][]. La red CDN es una solución complementaria a su suscripción y tiene un [plan de facturación][] independiente.
+Los clientes existentes de la red CDN ahora pueden usar la red CDN de Azure mediante el [Portal de administración de Azure][Portal de administración de Azure]. La red CDN es una solución complementaria a su suscripción y tiene un [plan de facturación][plan de facturación] independiente.
 
 <span id="Step1"></span> </a>
 
-## Paso 1: una cuenta de almacenamiento
+## Paso 1: Crear una cuenta de almacenamiento
 
 </p>
 Use el siguiente procedimiento para crear una nueva cuenta de almacenamiento para una
@@ -37,20 +37,21 @@ Para crear una cuenta de almacenamiento, debe ser administrador del
 servicio o coadministrador de la suscripción asociada.
 
 <div class="dev-callout">
-<strong>Nota:</strong>
-<p>Para obtener informaci&oacute;n acerca de la realizaci&oacute;n de esta operaci&oacute;n mediante la
-API de administraci&oacute;n de servicios de Azure, vea el tema de referencia <a href="http://msdn.microsoft.com/es-es/library/windowsazure/hh264518.aspx">Crear cuenta de almacenamiento</a>.</p>
+
+**Nota:**
+Para obtener información acerca de la realización de esta operación mediante la API de administración de servicios de Azure, vea el tema de referencia [Crear cuenta de almacenamiento][Crear cuenta de almacenamiento].
+
 </div>
 
 **Para crear una cuenta de almacenamiento para una suscripción de Azure**
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  En la esquina inferior izquierda, haga clic en **New** y, a continuación, haga clic en **Almacenamiento**.
 3.  Haga clic en **Quick Create**.
 
     Aparece el cuadro de diálogo **Create Storage Account**.
 
-    ![Crear una cuenta de almacenamiento][1]
+    ![Crear una cuenta de almacenamiento][Crear una cuenta de almacenamiento]
 
 4.  En el campo **URL**, escriba un nombre de subdominio. Esta entrada puede contener de 3 a 24 letras minúsculas y números.
 
@@ -60,7 +61,7 @@ API de administraci&oacute;n de servicios de Azure, vea el tema de referencia <a
     URI en el siguiente formato, en el que *\<etiqueta de la cuenta de almacenamiento\>* hace referencia
     al valor que ha escrito en **Escriba la dirección URL**:
 
-    <http://>*\<etiqueta de la cuenta de almacenamiento\>*.blob.core.windows.net/*\<mi contenedor\>*
+    http://*\<etiqueta de la cuenta de almacenamiento\>*.blob.core.windows.net/*\<mi contenedor\>*
 
     **Importante:** La etiqueta de URL forma el subdominio del
     URI de la cuenta de almacenamiento y debe ser único entre todos los servicios hospedados en
@@ -70,7 +71,7 @@ API de administraci&oacute;n de servicios de Azure, vea el tema de referencia <a
 
 5.  En la lista desplegable **Región/grupo de afinidad**, seleccione una región o grupo de afinidad para la cuenta de almacenamiento. Seleccione un grupo de afinidad en lugar de una región si desea que sus servicios de almacenamiento estén en el mismo centro de datos con otros servicios de Windows Azure que utilice. Con esto se puede mejorar el rendimiento y no se generan cargos por concepto de salida.
 
-    **Nota:** Para crear un grupo de afinidad, abra el área **Configuración** del Portal de administración, haga clic en **Grupos de afinidad** y, a continuación, haga clic en **Agregar un grupo de afinidad** o **Agregar**. Además puede crear y administrar los grupos de afinidad usando la API de administración de servicios de Windows Azure. Para obtener más información, consulte [Operaciones en grupos de afinidad][].
+    **Nota:** Para crear un grupo de afinidad, abra el área **Configuración** del Portal de administración, haga clic en **Grupos de afinidad** y, a continuación, haga clic en **Agregar un grupo de afinidad** o **Agregar**. Además puede crear y administrar los grupos de afinidad usando la API de administración de servicios de Windows Azure. Para obtener más información, consulte [Operaciones en grupos de afinidad][Operaciones en grupos de afinidad].
 
 6.  Desde la lista desplegable **Subscription**, seleccione la suscripción con la que se usará la cuenta de almacenamiento.
 7.  Haga clic en **Crear cuenta de almacenamiento**. El proceso de creación de la cuenta de almacenamiento podría tardar varios minutos en completarse.
@@ -89,7 +90,7 @@ contenido al cumplir el período de vida del contenido almacenado en caché.
 
 **Para crear un nuevo extremo de la red CDN para su cuenta de almacenamiento**
 
-1.  En el [Portal de administración de Azure][], en el panel de navegación, haga clic en **CDN**.
+1.  En el [Portal de administración de Azure][Portal de administración de Azure], en el panel de navegación, haga clic en **CDN**.
 
 2.  En la cinta de opciones, haga clic en **New**. En el cuadro de diálogo **New**, seleccione **Servicios de aplicaciones**, luego **red CDN** y, a continuación, **Quick Create**.
 
@@ -100,16 +101,14 @@ contenido al cumplir el período de vida del contenido almacenado en caché.
 5.  Una vez creado el extremo, aparecerá en la lista de extremos de la suscripción. La visualización de la lista muestra la URL que se debe utilizar para tener acceso al contenido en caché, así como al dominio de origen.
 
     El dominio de origen es la ubicación desde la que la red CDN almacena el
-    contenido en la memoria caché. El dominio de origen puede ser una cuenta de almacenamiento o un servicio en la nube; en este ejemplo se usa una cuenta de almacenamiento. El contenido de almacenamiento se almacena en la memoria caché de los servidores perimetrales conforme a la configuración de control de la memoria caché que se haya especificado o a la heurística predeterminada de la red de almacenamiento en caché. Consulte [Administración de la caducidad del contenido de blobs][] para obtener más información.
+    contenido en la memoria caché. El dominio de origen puede ser una cuenta de almacenamiento o un servicio en la nube; en este ejemplo se usa una cuenta de almacenamiento. El contenido de almacenamiento se almacena en la memoria caché de los servidores perimetrales conforme a la configuración de control de la memoria caché que se haya especificado o a la heurística predeterminada de la red de almacenamiento en caché. Consulte [Administración de la caducidad del contenido de blobs][Administración de la caducidad del contenido de blobs] para obtener más información.
 
     <div class="dev-callout">
-<strong>Nota:</strong>
-<p>La configuraci&oacute;n creada para el extremo no
-estar&aacute; disponible de inmediato; el registro puede tardar hasta 60 minutos
-en propagarse por la red CDN. Es posible que los usuarios que intenten
-usar el nombre de dominio de la red CDN de forma inmediata reciban el c&oacute;digo de estado 400
-(Solicitud incorrecta) hasta que el contenido est&eacute; disponible a trav&eacute;s de la red CDN.</p>
-</div>
+
+    **Nota:**
+    La configuración creada para el extremo no estará disponible de inmediato; el registro puede tardar hasta 60 minutos en propagarse por la red CDN. Es posible que los usuarios que intenten usar el nombre de dominio de la red CDN de forma inmediata reciban el código de estado 400 (Solicitud incorrecta) hasta que el contenido esté disponible a través de la red CDN.
+
+    </div>
 
 <span id="Step3"></span> </a>
 
@@ -118,7 +117,7 @@ usar el nombre de dominio de la red CDN de forma inmediata reciban el c&oacute;d
 </p>
 Para obtener acceso al contenido almacenado en la memoria caché de la red CDN, use la URL de la red CDN que se le ha proporcionado en el portal. La dirección del blob en caché será similar a la siguiente:
 
-<http://>\<*espacio de nombres de la red CDN*\>.vo.msecnd.net/\<*mi contenedor público*\>/\<*nombre del blob*\>
+http://\<*espacio de nombres de la red CDN*\>.vo.msecnd.net/\<*mi contenedor público*\>/\<*nombre del blob*\>
 
 <span id="Step4"></span> </a>
 
@@ -130,7 +129,7 @@ Red de entrega de contenido de Azure (CDN), puede realizar uno de los siguientes
 
 -   Para un blob de Azure, puede eliminar el blob desde el contenedor
     público.
--   Puede crear un contenedor privado en vez de público. Consulte [Acceso restringido a contenedores y blobs][] para obtener más información.
+-   Puede crear un contenedor privado en vez de público. Consulte [Acceso restringido a contenedores y blobs][Acceso restringido a contenedores y blobs] para obtener más información.
 -   Puede deshabilitar o eliminar el extremo de la red CDN con el
     Portal de administración.
 -   Puede modificar su servicio hospedado para no seguir respondiendo las solicitudes del
@@ -148,9 +147,9 @@ CDN de Azure.
 ## Recursos adicionales
 
 -   [Creación de un grupo de afinidad en Azure]
--   [Direccionamiento del cuentas de almacenamiento para una suscripción de Azure][]
--   [Acerca de la API de administración de servicios][]
--   [Asignación del contenido de la red CDN a un dominio personalizado][]
+-   [Direccionamiento del cuentas de almacenamiento para una suscripción de Azure][Direccionamiento del cuentas de almacenamiento para una suscripción de Azure]
+-   [Acerca de la API de administración de servicios][Acerca de la API de administración de servicios]
+-   [Asignación del contenido de la red CDN a un dominio personalizado][Asignación del contenido de la red CDN a un dominio personalizado]
 
   [Ubicaciones del nodo red CDN de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg680302.aspx
   [Paso 1: una cuenta de almacenamiento]: #Step1
@@ -160,7 +159,7 @@ CDN de Azure.
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [plan de facturación]: /es-es/pricing/calculator/?scenario=full
   [Crear cuenta de almacenamiento]: http://msdn.microsoft.com/es-es/library/windowsazure/hh264518.aspx
-  [1]: ./media/cdn/CDN_CreateNewStorageAcct.png
+  [Crear una cuenta de almacenamiento]: ./media/cdn/CDN_CreateNewStorageAcct.png
   [Operaciones en grupos de afinidad]: http://msdn.microsoft.com/library/azure/ee460798.aspx
   [Administración de la caducidad del contenido de blobs]: http://msdn.microsoft.com/es-es/library/gg680306.aspx
   [Acceso restringido a contenedores y blobs]: http://msdn.microsoft.com/es-es/library/dd179354.aspx

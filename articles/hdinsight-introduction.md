@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-introduction-hdinsight" urlDisplayName="HDInsight Introduction" pageTitle="Introduction to Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Apache Hadoop clusters in the cloud, to provide a software framework to manage, analyze, and report on big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Introduction to Hadoop in HDInsight" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="HDInsight Introduction" pageTitle="Introducci&oacute;n a Hadoop en HDInsight | Azure" metaKeywords="" description="Vea c&oacute;mo HDInsight de Azure utiliza cl&uacute;steres de Apache Hadoop en la nube para proporcionar un marco de trabajo de software para administrar, analizar y crear informes de Big Data." metaCanonical="" services="hdinsight" documentationCenter="" title="Introducci&oacute;n a Hadoop en HDInsight" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -6,15 +6,15 @@
 
 ## Información general
 
-Azure HDInsight es un servicio que implementa y aprovisiona clústeres Apache™ Hadoop® en la nube con el fin de proporcionar un marco de software que se ha diseñado para realizar tareas de administración, análisis y generación de informes en relación con datos de gran tamaño.
+Azure HDInsight es un servicio que implementa y aprovisiona clústeres de Apache™ Hadoop® en la nube con el fin de proporcionar un marco de software que se ha diseñado para realizar tareas de administración, análisis y generación de informes de Big Data.
 
-### Datos de gran tamaño
+### Big Data
 
-Los datos se describen como "datos de gran tamaño" para indicar que se están recopilando en volúmenes de escala continua, a velocidades cada vez mayores, y para una variedad cada vez más amplia de formatos no estructurados y contextos semánticos variables. La recopilación de datos de gran tamaño no proporciona valor por sí mismo a una empresa. Para que los datos de gran tamaño proporcionen valor en forma de conocimientos o datos de inteligencia procesables, no solo es necesario formular las preguntas correctas y recopilar datos relevantes para los problemas en cuestión, sino que también los datos deben ser accesibles y se deben limpiar y analizar para presentarlos de forma útil, normalmente en combinación con datos de otras fuentes diversas que establezcan una perspectiva y un contexto en relación con lo que actualmente se denomina mashup.
+Los datos se describen como "Big Data" (datos de gran tamaño) para indicar que se están recopilando en volúmenes de escala continua, a velocidades cada vez mayores, y para una variedad cada vez más amplia de formatos no estructurados y contextos semánticos variables. La recopilación de Big Data no proporciona valor por sí mismo a una empresa. Para que los Big Data proporcionen valor en forma de conocimientos o datos de inteligencia procesables, no solo es necesario formular las preguntas correctas y recopilar datos relevantes para los problemas en cuestión, sino que también los datos deben ser accesibles y se deben limpiar y analizar para presentarlos de forma útil, normalmente en combinación con datos de otras fuentes diversas que establezcan una perspectiva y un contexto en relación con lo que actualmente se denomina mashup.
 
 ### Apache Hadoop
 
-Apache Hadoop es un marco de software que facilita la administración y el análisis de datos de gran tamaño. El núcleo de Apache Hadoop proporciona almacenamiento de datos fiable con el sistema de archivos distribuidos Hadoop (HDFS, Hadoop Distributed File System) y un modelo de programación MapReduce sencillo para procesar y analizar, en paralelo, los datos almacenados en este sistema distribuido. HDFS utiliza la replicación de datos para resolver los problemas ocasionados por errores de hardware que surgen al implementar dichos sistemas altamente distribuidos.
+Apache Hadoop es un marco de software que facilita la administración y el análisis de Big Data. El núcleo de Apache Hadoop proporciona almacenamiento de datos fiable con el sistema de archivos distribuidos Hadoop (HDFS, Hadoop Distributed File System) y un modelo de programación MapReduce sencillo para procesar y analizar, en paralelo, los datos almacenados en este sistema distribuido. HDFS utiliza la replicación de datos para resolver los problemas ocasionados por errores de hardware que surgen al implementar dichos sistemas altamente distribuidos.
 
 ### MapReduce y YARN
 
@@ -26,7 +26,7 @@ Otros proyectos relacionados con Hadoop, por ejemplo Pig y Hive, se compilan sob
 
 Azure HDInsight pone Apache Hadoop a disposición de los usuarios como servicio en la nube. Proporciona el marco de software HDFS/MapReduce y los proyectos relacionados, como Pig, Hive y Oozie, en un entorno más sencillo, escalable y rentable.
 
-Se ha agregado un segundo nodo principal a los clústeres de Hadoop desarrollados por HDInsight para aumentar la disponibilidad del servicio. Las implementaciones estándar de clústeres de Hadoop normalmente tienen un solo nodo principal. HDInsight elimina este único punto de error al agregar un segundo nodo principal. El cambio a la nueva configuración de clúster HA no cambia el precio de dicho clúster, a menos que el cliente aprovisione clústeres con un nodo principal extragrande.
+Se ha agregado un segundo nodo principal a los clústeres de Hadoop desarrollados por HDInsight para aumentar la disponibilidad del servicio. Las implementaciones estándar de clústeres de Hadoop normalmente tienen un solo nodo principal. HDInsight elimina este único punto de error al agregar un segundo nodo principal. El cambio a la nueva configuración de clúster de alta disponibilidad no cambia el precio de dicho clúster, a menos que el cliente aprovisione clústeres con un nodo principal extragrande.
 
 Uno de los aspectos más eficientes que se han introducido en HDInsight es el modo de administración y almacenamiento de los datos. HDInsight utiliza el almacenamiento de blobs de Azure como sistema de archivos predeterminado. El almacenamiento de blobs y el sistema HDFS son sistemas de archivos distintos que se han optimizado, respectivamente, para el almacenamiento de datos y la ejecución de cálculos sobre esos datos.
 
@@ -47,7 +47,7 @@ Este tema describe el ecosistema Hadoop que admite HDInsight, los principales es
 
 -   [El ecosistema Hadoop en HDInsight][El ecosistema Hadoop en HDInsight]: HDInsight proporciona implementaciones de Pig, Hive, Sqoop, Oozie y Ambari y admite otras herramientas de BI como Excel, SQL Server Analysis Services y Reporting Services, que se integran con el almacenamiento de blobs o HDFS y el marco MapReduce mediante Power Query o Microsoft Hive ODBC Driver. En esta sección se describen los trabajos que pueden procesar estos programas en el ecosistema Hadoop.
 
--   [Escenarios de datos de gran tamaño en HDInsight][Escenarios de datos de gran tamaño en HDInsight]: Esta sección responde a la pregunta: ¿para qué tipos de trabajos es apropiada la tecnología HDInsight?
+-   [Escenarios de Big Data en HDInsight][Escenarios de Big Data en HDInsight]: Esta sección responde a la pregunta: ¿para qué tipos de trabajos es apropiada la tecnología HDInsight?
 
 -   [Recursos para HDInsight][Recursos para HDInsight]: Esta sección indica el lugar en el que se pueden encontrar recursos adecuados para obtener información adicional.
 
@@ -55,15 +55,15 @@ Este tema describe el ecosistema Hadoop que admite HDInsight, los principales es
 
 ### Introducción
 
-HDInsight ofrece un marco para implementar la solución basada en la nube de Microsoft para el tratamiento de datos de gran tamaño. Este ecosistema federado administra y analiza grandes cantidades de datos para explotar las capacidades de procesamiento en paralelo del modelo de programación MapReduce. Las tecnologías Hadoop compatibles con Apache que se pueden utilizar con HDInsight se presentan una a una y se describen brevemente en esta sección.
+HDInsight ofrece un marco para implementar la solución basada en la nube de Microsoft para el tratamiento de Big Data. Este ecosistema federado administra y analiza grandes cantidades de datos para explotar las capacidades de procesamiento en paralelo del modelo de programación MapReduce. Las tecnologías Hadoop compatibles con Apache que se pueden utilizar con HDInsight se presentan una a una y se describen brevemente en esta sección.
 
-HDInsight proporciona implementaciones de Hive y Pig para integrar el procesamiento de datos y las capacidades de almacenamiento. La solución para datos de gran tamaño de Microsoft se integra con las herramientas de BI de Microsoft, como SQL Server Analysis Services, Reporting Services, PowerPivot y Excel. De este modo es posible realizar un procesamiento de BI sencillo con los datos que almacena y administra HDInsight en el almacenamiento de blobs.
+HDInsight proporciona implementaciones de Hive y Pig para integrar el procesamiento de datos y las capacidades de almacenamiento. La solución para Big Data de Microsoft se integra con las herramientas de BI de Microsoft, como SQL Server Analysis Services, Reporting Services, PowerPivot y Excel. De este modo es posible realizar un procesamiento de BI sencillo con los datos que almacena y administra HDInsight en el almacenamiento de blobs.
 
 También se pueden descargar y utilizar con HDInsight otras tecnologías compatibles con Apache y tecnologías similares que forman parte del ecosistema Hadoop y que se han compilado para su ejecución sobre los clústeres de Hadoop. Entre ellas se incluyen tecnologías de código abierto, como Sqoop, que integra HDFS con el almacenamiento de datos relacionales.
 
 ### Pig
 
-Pig es una plataforma de alto nivel para el procesamiento de datos de gran tamaño en clústeres de Hadoop. Pig consta de un lenguaje de flujo de datos, denominado Pig Latin, compatible con la escritura de consultas en grandes conjuntos de datos y un entorno que ejecuta programas desde una consola. Los programas escritos en Pig Latin constan de una serie de transformaciones de conjuntos de datos que se convierten en una serie de programas MapReduce. Las abstracciones de Pig Latin proporcionan estructuras de datos más detalladas que las de MapReduce y hacen en Hadoop lo que SQL hace en los sistemas de administración de bases de datos relacionales (RDBMS). Pig Latin es completamente extensible. Las funciones definidas por el usuario (UDF), escritas en Java, Python, Ruby, C# o JavaScript, se pueden llamar para personalizar cada fase de ruta de procesamiento al elaborar el análisis. Para obtener información adicional, consulte la página de [presentación de Apache Pig][presentación de Apache Pig] (en inglés)
+Pig es una plataforma de alto nivel para el procesamiento de Big Data en clústeres de Hadoop. Pig consta de un lenguaje de flujo de datos, denominado Pig Latin, compatible con la escritura de consultas en grandes conjuntos de datos y un entorno que ejecuta programas desde una consola. Los programas escritos en Pig Latin constan de una serie de transformaciones de conjuntos de datos que se convierten en una serie de programas MapReduce. Las abstracciones de Pig Latin proporcionan estructuras de datos más detalladas que las de MapReduce y hacen en Hadoop lo que SQL hace en los sistemas de administración de bases de datos relacionales (RDBMS). Pig Latin es completamente extensible. Las funciones definidas por el usuario (UDF), escritas en Java, Python, Ruby, C# o JavaScript, se pueden llamar para personalizar cada fase de ruta de procesamiento al elaborar el análisis. Para obtener información adicional, consulte la página de [presentación de Apache Pig][presentación de Apache Pig] (en inglés)
 
 ### Hive
 
@@ -91,7 +91,7 @@ El formato de serialización de Apache Avro se utiliza de forma generalizada en 
 
 Las herramientas de Business Intelligence habituales (como Excel, PowerPivot, SQL Server Analysis Services y Reporting Services) recuperan, analizan y generan informes de datos integrados en HDInsight con el complemento Power Query o Microsoft Hive ODBC Driver.
 
--   Microsoft Power Query para Excel se puede descargar en [Microsoft Download Center][Microsoft Download Center].
+-   Microsoft Power Query para Excel se puede descargar en el [Centro de descargas de Microsoft][Centro de descargas de Microsoft].
 
 -   Microsoft Hive ODBC Driver se puede descargar en [este sitio de descarga][este sitio de descarga] (en inglés).
 
@@ -99,7 +99,7 @@ Las herramientas de Business Intelligence habituales (como Excel, PowerPivot, SQ
 
 -   Para obtener información sobre Reporting Services, consulte la página [SQL Server 2012 Reporting][SQL Server 2012 Reporting].
 
-## <a name="Scenarios"></a>Escenarios de datos de gran tamaño en HDInsight
+## <a name="Scenarios"></a>Escenarios de Big Data en HDInsight
 
 Un análisis puntual, por lotes, de un conjunto de datos no estructurado y completo que esté almacenado en nodos de Azure y que no requiera actualizarse periódicamente es un escenario ejemplar que ofrece un caso de aplicación de HDInsight.
 
@@ -119,7 +119,7 @@ Las tecnologías HDInsight (y las tecnologías Hadoop en general) son principalm
 
 -   [Run the HDInsight samples][Run the HDInsight samples]: Tutorial sobre la ejecución de ejemplos incluidos en HDInsight.
 
--   [Big data and Azure][Big data and Azure]: Escenarios de datos de gran tamaño que analizan lo que se puede compilar con Azure.
+-   [Big data and Azure][Big data and Azure]: Escenarios de Big Data que analizan lo que se puede compilar con Azure.
 
 -   [Azure HDInsight SDK][Azure HDInsight SDK]: Documentación de referencia de HDinsight SDK.
 
@@ -154,7 +154,7 @@ Las tecnologías HDInsight (y las tecnologías Hadoop en general) son principalm
 -   [MapReduce][MapReduce]: Obtenga más información acerca de este marco de programación para escribir aplicaciones de Hadoop con el fin de procesar enormes cantidades de datos, en paralelo, en grandes clústeres de nodos de proceso.
 
   [El ecosistema Hadoop en HDInsight]: #Ecosystem
-  [Escenarios de datos de gran tamaño en HDInsight]: #Scenarios
+  [Escenarios de Big Data en HDInsight]: #Scenarios
   [Recursos para HDInsight]: #Resources
   [presentación de Apache Pig]: http://pig.apache.org/
   [presentación de Apache Hive]: http://hive.apache.org/
@@ -164,7 +164,7 @@ Las tecnologías HDInsight (y las tecnologías Hadoop en general) son principalm
   [JSON]: http://www.json.org
   [Especificaciones de Apache Avro]: http://avro.apache.org/docs/current/spec.html
   [Serialización de datos con Microsoft Avro Library]: ../hdinsight-dotnet-avro-serialization/
-  [Microsoft Download Center]: http://go.microsoft.com/fwlink/?LinkID=286689
+  [Centro de descargas de Microsoft]: http://go.microsoft.com/fwlink/?LinkID=286689
   [este sitio de descarga]: http://go.microsoft.com/fwlink/?LinkID=286698
   [SQL Server 2012 Analysis Services]: http://www.microsoft.com/sqlserver/en/us/solutions-technologies/business-intelligence/SQL-Server-2012-analysis-services.aspx
   [SQL Server 2012 Reporting]: http://www.microsoft.com/es-es/sqlserver/solutions-technologies/business-intelligence/reporting.aspx

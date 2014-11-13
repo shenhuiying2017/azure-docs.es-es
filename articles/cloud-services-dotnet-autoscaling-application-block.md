@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-autoscaling" urlDisplayName="Autoscaling" pageTitle="Use the autoscaling application block (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="How to Use the Autoscaling Application Block" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Autoscaling" pageTitle="Uso del bloque de autoescala de la aplicaci&oacute;n (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Aprenda a utilizar la autoescala de la aplicaci&oacute;n en Azure. Los ejemplos de c&oacute;digo est&aacute;n escritos en C# y utilizan la API .NET." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Uso del bloque de autoescala de la aplicaci&oacute;n" authors="timlt" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
@@ -128,8 +128,8 @@ Después de instalar el Administrador de paquetes NuGet, para instalar el
 paquete de autoescala de NuGet en su aplicación, realice lo siguiente:
 
 1.  Abra la ventana **NuGet Package Manager Console**. En el menú **Tools**
-    , seleccione **Library Package Manager** y, a continuación, <strong>
-    Package Manager Console</strong>.
+    , seleccione **Library Package Manager** y, a continuación, **
+    Package Manager Console**.
 
 2.  Escriba el siguiente comando en la
     ventana NuGet Package Manager Console:
@@ -515,6 +515,7 @@ autoescala más complejos:
 -   [Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure][Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure]
 
   [Pasos siguientes]: #NextSteps
+  [¿Qué es el bloque de autoescala de la aplicación?]: #WhatIs
   [Conceptos]: #Concepts
   [Recopilación de datos del contador de rendimiento desde su aplicación de Azure de destino]: #PerfCounter
   [Instalación de una aplicación host para el bloque de autoescala de la aplicación]: #CreateHost

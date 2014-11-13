@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-howto-service-management-api" urlDisplayName="Service Management API" pageTitle="How to use the service management API for VMs - Azure" metaKeywords="" description="Learn how to use the Azure Service Management API for a Linux virtual machine." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Use the Service Management API" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Service Management API" pageTitle="Uso de la API de administraci&oacute;n de servicios para m&aacute;quinas virtuales - Azure" metaKeywords="" description="Aprenda a utilizar la API de administraci&oacute;n de servicios de Azure para una m&aacute;quina virtual de Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Uso de la API de administraci&oacute;n de servicios" authors="timlt" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timlt" />
 
@@ -81,7 +81,6 @@ Tenga en cuenta que, en algunos casos, la finalización indica simplemente que l
     -   Location
     -   RoleSize
 -   callback es un valor obligatorio. (Si imageOptions no se ha establecido, este puede ser el tercer parámetro).
-
 -   El objeto response contendrá propiedades de la imagen creada, si es correcto.
 
 **iaasClient.ListHostedServices(callback)**
@@ -99,6 +98,7 @@ Tenga en cuenta que, en algunos casos, la finalización indica simplemente que l
 
 -   serviceName es un nombre de cadena requerido del servicio hospedado.
 -   serviceOptions es un objeto opcional que puede contener las siguientes propiedades:
+
     -   Description: Tiene como valor predeterminado el host de servicio.
     -   Label: Si no tiene establecido un valor predeterminado, este será serviceName.
     -   Ubicación: La región en la que se creará el servicio
@@ -130,6 +130,7 @@ Tenga en cuenta que, en algunos casos, la finalización indica simplemente que l
 -   deploymentName es un nombre de cadena requerido de la implementación.
 -   VMRole es un objeto obligatorio que incluye las propiedades del rol que se va a crear para la implementación.
 -   deployOptions es un objeto opcional que puede contener las siguientes propiedades:
+
     -   DeploymentSlot: Tiene "Producción" como valor predeterminado.
     -   Label: Si no tiene establecido un valor predeterminado, este será deploymentName.
     -   UpgradeDomainCount: No tiene un valor predeterminado.
@@ -210,6 +211,7 @@ Tenga en cuenta que, en algunos casos, la finalización indica simplemente que l
 -   deploymentName es un nombre de cadena requerido de la implementación.
 -   roleInstance es un nombre de cadena requerido de la instancia del rol.
 -   captOptions es un objeto obligatorio que define las acciones de captura:
+
     -   PostCaptureActions
     -   ProvisioningConfiguration
     -   SupportsStatelessDeployment

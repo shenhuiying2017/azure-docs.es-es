@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-enablessl" urlDisplayName="Enable SSL" pageTitle="Configure SSL for a cloud service (Node.js) - Azure" metaKeywords="Node.js Azure SSL, Node.js Azure HTTPS" description="Learn how to specify an HTTPS endpoint for a Node.js web role and how to upload an SSL certificate to secure your application." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuring SSL for a Node.js Application in an Azure Web Role" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Enable SSL" pageTitle="Configuraci&oacute;n de SSL para un servicio en la nube (Node.js) - Azure" metaKeywords="Node.js Azure SSL, Node.js Azure HTTPS" description="Vea c&oacute;mo especificar un extremo HTTPS para un rol web de Node.js y c&oacute;mo cargar un certificado SSL para proteger su aplicaci&oacute;n." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuraci&oacute;n de SSL para una aplicaci&oacute;n Node.js en un rol web de Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Configuración de SSL para una aplicación Node.js en un rol web de Azure
 
@@ -9,8 +9,11 @@ los datos que se envían por Internet. Esta tarea común analiza cómo
 especificar un extremo HTTPS para una aplicación Node.js hospedada como un servicio en la nube de Azure en un rol web y
 cómo cargar un certificado SSL para proteger la aplicación.
 
-<div class="dev-callout">Nota:
-<p>Los pasos descritos en este art&iacute;culo solo se aplican a las aplicaciones de Node hospedadas como un servicio en la nube de Azure en un rol web; para los sitios web, consulte <a href="../web-sites-configure-ssl-certificate/">Configuraci&oacute;n de un certificado SSL para un sitio web de Azure</a>.</p>
+<div class="dev-callout">
+
+Nota:
+Los pasos descritos en este artículo solo se aplican a las aplicaciones de Node hospedadas como un servicio en la nube de Azure en un rol web; para los sitios web, consulte [Configuración de un certificado SSL para un sitio web de Azure][Configuración de un certificado SSL para un sitio web de Azure].
+
 </div>
 
 Esta tarea incluye los siguientes pasos:
@@ -37,7 +40,7 @@ world" que use Azure PowerShell siguiendo estos pasos:
 
 1.  Cree un proyecto de servicio nuevo usando el cmdlet **New-AzureServiceProject**.
 
-    ![][1]
+    ![][0]
 
 2.  Agregue un rol web al servicio usando el cmdlet **Add-AzureNodeWebRole**:
 
@@ -48,9 +51,11 @@ world" que use Azure PowerShell siguiendo estos pasos:
     ![][2]
 
     <div class="dev-callout">
-<strong>Nota:</strong>
-<p>Si no ha importado previamente la configuraci&oacute;n de publicaci&oacute;n para su suscripci&oacute;n de Azure, recibir&aacute; un error al intentar publicar. Para obtener informaci&oacute;n acerca de la descarga y la importaci&oacute;n de la configuraci&oacute;n de publicaci&oacute;n para su suscripci&oacute;n, consulte <a href="https://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">Uso de Azure PowerShell para Node.js</a></p>
-</div>
+
+    **Nota:**
+    Si no ha importado previamente la configuración de publicación para su suscripción de Azure, recibirá un error al intentar publicar. Para obtener información acerca de la descarga y la importación de la configuración de publicación para su suscripción, consulte [Uso de Azure PowerShell para Node.js][Uso de Azure PowerShell para Node.js]
+
+    </div>
 
 El valor **Dirección URL del sitio web creado** devuelto por el cmdlet **Publish-AzureServiceProject** contiene el nombre de dominio completo de la aplicación hospedada. Necesitará obtener un certificado SSL para este nombre de dominio completo específico e implementarlo en Azure.
 
@@ -78,8 +83,10 @@ certificados SSL en Azure:
 Una vez que cuenta con un certificado, instálelo en el almacén de certificados en el equipo de desarrollo. Este certificado se recuperará y cargará en Azure como parte del paquete de implementación de la aplicación basado en los cambios de configuración que realice en un paso posterior.
 
 <div class="dev-callout">
-<strong>Nota:</strong>
-<p>Los pasos utilizados en esta secci&oacute;n se basan en la versi&oacute;n de Windows 8 del Asistente para importaci&oacute;n de certificados. Si est&aacute; usando una versi&oacute;n anterior de Windows, los pasos aqu&iacute; descritos pueden no coincidir con el orden en el que aparecen en el asistente. Si este es el caso, lea completamente esta secci&oacute;n antes de usar al Asistente para importaci&oacute;n de certificados, de modo que comprenda las acciones globales que se deben realizar.</p>
+
+**Nota:**
+Los pasos utilizados en esta sección se basan en la versión de Windows 8 del Asistente para importación de certificados. Si está usando una versión anterior de Windows, los pasos aquí descritos pueden no coincidir con el orden en el que aparecen en el asistente. Si este es el caso, lea completamente esta sección antes de usar al Asistente para importación de certificados, de modo que comprenda las acciones globales que se deben realizar.
+
 </div>
 
 Para importar el certificado SSL, realice los siguientes pasos:
@@ -173,9 +180,11 @@ conectarse a ella con HTTPS.
     ![La dirección URL del sitio][La dirección URL del sitio]
 
     <div class="dev-callout">
-<strong>Nota:</strong>
-<p>Si la direcci&oacute;n URL del sitio que se muestra en el portal no especifica HTTPS, entonces debe escribir manualmente la direcci&oacute;n URL en el explorador usando HTTPS en lugar de HTTP.</p>
-</div>
+
+    **Nota:**
+    Si la dirección URL del sitio que se muestra en el portal no especifica HTTPS, entonces debe escribir manualmente la dirección URL en el explorador usando HTTPS en lugar de HTTP.
+
+    </div>
 
 3.  Se abrirá un nuevo explorador y aparecerá su sitio web.
 
@@ -194,16 +203,17 @@ certificado con un servicio]
 
 [Configurar un certificado SSL en un extremo HTTPS][Configurar un certificado SSL en un extremo HTTPS]
 
+  [Configuración de un certificado SSL para un sitio web de Azure]: ../web-sites-configure-ssl-certificate/
   [Paso 1: Cree un servicio Node.js y publíquelo en la nube]: #step1
   [Paso 2: Obtenga un certificado SSL]: #step2
   [Paso 3: Importar el certificado SSL]: #step3
   [Paso 4: Modificar la definición del servicio y los archivos de configuración]: #step4
   [Paso 5: Conéctese a la instancia de rol con HTTPS]: #step5
   [Icono de Azure PowerShell]: ./media/cloud-services-nodejs-configure-ssl-certificate/azure-powershell-start.png
-  [install-dev-tools]: ../includes/install-dev-tools.md
-
+  [0]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-01.png
   [1]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-02.png
   [2]: ./media/cloud-services-nodejs-configure-ssl-certificate/enable-ssl-03.png
+  [Uso de Azure PowerShell para Node.js]: https://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings
   [asistente para certificados]: ./media/cloud-services-nodejs-configure-ssl-certificate/certificateimport.png
   [protección de clave privada]: ./media/cloud-services-nodejs-configure-ssl-certificate/exportable.png
   [La dirección URL del sitio]: ./media/cloud-services-nodejs-configure-ssl-certificate/site-url.png

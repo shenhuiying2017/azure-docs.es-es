@@ -1,12 +1,10 @@
-<properties linkid="manage-services-how-to-scale-a-cloud-service" urlDisplayName="How to scale" pageTitle="How to scale a cloud service - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Learn how to scale a cloud service and linked resources in Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="jeffreyg" editor="mattshel" />
+<properties urlDisplayName="How to scale" pageTitle="Escalado de un servicio en la nube - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Vea c&oacute;mo escalar un servicio en la nube y recursos vinculados en Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="Escalado de una aplicaci&oacute;n" authors="davidmu" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="davidmu" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
 
 # Escalado de una aplicación
 
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
-
-En la página Scale del Portal de administración de Azure, puede escalar su aplicación manualmente o puede establecer parámetros para escalarla automáticamente . Puede escalar aplicaciones que ejecutan roles web, roles de trabajo o máquinas virtuales. Para escalar una aplicación que ejecuta instancias de roles web o roles de trabajo, agregue o quite instancias de roles para acomodar la carga de trabajo.
+En la página Scale del Portal de administración de Azure, puede escalar su aplicación manualmente o puede establecer parámetros para escalarla automáticamente. Puede escalar aplicaciones que ejecutan roles web, roles de trabajo o máquinas virtuales. Para escalar una aplicación que ejecuta instancias de roles web o roles de trabajo, agregue o quite instancias de roles para acomodar la carga de trabajo.
 
 Al escalar o reducir verticalmente una aplicación que ejecuta máquinas virtuales, no se crean nuevas máquinas ni se eliminan, sino que se activan o desactivan desde un conjunto de disponibilidad de máquinas que se crearon anteriormente. Puede especificar el escalado según el porcentaje promedio de uso de CPU o según la cantidad de mensajes en una cola.
 
@@ -192,7 +190,6 @@ Puede programar el escalado automático de su aplicación al configurar programa
 
 7.  Después de guardar las programaciones, aparecerán en la lista. Puede seleccionar la programación de tiempo que desea usar y luego modificar su configuración de escalado. La configuración de escalado solo se aplicará durante la programación que seleccionó. Puede editar las programaciones al hacer clic en **set up schedule times**.
 
-  [disclaimer]: ../includes/disclaimer.md
   [Administración de la disponibilidad de las máquinas virtuales]: http://www.windowsazure.com/es-es/manage/windows/common-tasks/manage-vm-availability/
   [Virtual Machine and Cloud Service Sizes for Azure]: http://msdn.microsoft.com/es-es/library/dn197896.aspx
   [Uso del servicio de almacenamiento en cola]: http://www.windowsazure.com/es-es/develop/net/how-to-guides/queue-service

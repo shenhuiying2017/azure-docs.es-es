@@ -4,19 +4,19 @@
 
 Cuando crea una máquina virtual, se crea automáticamente un servicio en la nube para dar cabida a esa máquina. Puede crear varias máquinas virtuales en el mismo servicio en la nube para permitir a las máquinas virtuales comunicarse entre sí, equilibrar la carga de tráfico de red entre las máquinas virtuales y mantener la alta disponibilidad de las máquinas.
 
-Para obtener más información sobre la realización del equilibrio de carga de las máquinas virtuales, consulte [Equilibrio de carga de máquinas virtuales][]. Para obtener más información sobre la administración de la disponibilidad de la aplicación, consulte [Administración de la disponibilidad de las máquinas virtuales][].
+Para obtener más información sobre la realización del equilibrio de carga de las máquinas virtuales, consulte [Equilibrio de carga de máquinas virtuales][Equilibrio de carga de máquinas virtuales]. Para obtener más información sobre la administración de la disponibilidad de la aplicación, consulte [Administración de la disponibilidad de las máquinas virtuales][Administración de la disponibilidad de las máquinas virtuales].
 
 Primero tendrá que crear una máquina virtual con un nuevo servicio en la nube y, a continuación, podrá conectar máquinas virtuales adicionales a la primera máquina virtual con el mismo servicio en la nube.
 
-1.  Cree una máquina virtual siguiendo los pasos de [Creación de una máquina virtual personalizada][].
+1.  Cree una máquina virtual siguiendo los pasos de [Creación de una máquina virtual personalizada][Creación de una máquina virtual personalizada].
 
-2.  Una vez que cree la primera máquina virtual personalizada, en la barra de comandos [Portal de administración][], haga clic en **New**.
+2.  Una vez que cree la primera máquina virtual personalizada, en la barra de comandos [Portal de administración][Portal de administración], haga clic en **New**.
 
-    ![Crear una máquina virtual][]
+    ![Crear una máquina virtual][Crear una máquina virtual]
 
 3.  Haga clic en **Máquina virtual** y, a continuación, haga clic en **From Gallery**.
 
-    ![Crear una máquina virtual personalizada][]
+    ![Crear una máquina virtual personalizada][Crear una máquina virtual personalizada]
 
     Aparece el cuadro de diálogo **Select the virtual machine operating system**.
 

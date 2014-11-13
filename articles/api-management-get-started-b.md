@@ -1,4 +1,6 @@
-<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+<properties pageTitle="Introducci&oacute;n a Administraci&oacute;n de API de Azure" metaKeywords="" description="Vea c&oacute;mo crear API, operaciones y comenzar a usar Administraci&oacute;n de API." metaCanonical="" services="api-management" documentationCenter="API Management" title="Introducci&oacute;n a Administraci&oacute;n de API de Azure" authors="sdanie" solutions="" manager="dwrede" editor="" />
+
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Introducción a Administración de API de Azure
 
@@ -47,7 +49,7 @@ Para crear **My Echo API**, haga clic en **API** en el menú **Administración d
 Para configurar la nueva API se usan los tres campos siguientes.
 
 -   Escriba **Mi API Eco** en el cuadro de texto **Título de la API web**. **Título de la API web** proporciona un nombre único y descriptivo para la API. Se muestra en el portal para desarrolladores y en el Portal de administración.
--   Escriba **<http://echoapi.cloudapp.net/api>** en **Dirección URL del servicio web**. **Dirección URL del servicio web** hace referencia al servicio HTTP que implementa la API. Administración de API envía las solicitudes a esta dirección.
+-   Escriba **http://echoapi.cloudapp.net/api** en **Dirección URL del servicio web**. **Dirección URL del servicio web** hace referencia al servicio HTTP que implementa la API. Administración de API envía las solicitudes a esta dirección.
 -   Escriba **mieco** en **Sufijo de dirección URL API web**. El **Sufijo de dirección URL API web** se anexa a la dirección URL base para el servicio Administración de API. Las API compartirán una dirección URL base común y se distinguirán por un sufijo único anexado después de la base.
 
 Haga clic en **Guardar** para crear la API. Una vez creada la nueva API, su página de resumen se mostrará en el Portal de administración.

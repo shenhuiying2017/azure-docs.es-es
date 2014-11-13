@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-media-assets" urlDisplayName="Delivering Media Assets" pageTitle="How to Deliver Media Assets - Azure" metaKeywords="" description="Learn about options for delivering media assets that have been uploaded to Media Services in Azure. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver an Asset by Download" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Delivering Media Assets" pageTitle="Entrega de recursos multimedia - Azure" metaKeywords="" description="Conozca las opciones para entregar recursos multimedia que se han cargado en Servicios multimedia en Azure. Los ejemplos de c&oacute;digo est&aacute;n escritos en C# y utilizan el SDK de Servicios multimedia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="Reproducci&oacute;n de un recurso mediante descarga" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
-# Entrega de un recurso mediante descarga
+# Reproducción de un recurso mediante descarga
 
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [Administración de recursos][].
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [Comprobación del recursos][Comprobación del recursos].
 
 En este tema se analizan las opciones para entregar recursos multimedia cargados en los Servicios multimedia. Puede entregar contenido de los Servicios multimedia en diversos escenarios de aplicaciones. Puede descargar recursos multimedia o tener acceso a ellos mediante un localizador. Puede enviar contenido multimedia a otra aplicación o a otro proveedor de contenido. Para mejorar el rendimiento y la escalabilidad, también puede entregar contenido si utiliza una Red de entrega de contenido (CDN), como el servicio CDN de Azure.
 
@@ -62,15 +62,15 @@ En este ejemplo se muestra cómo descargar recursos multimedia desde los Servici
 
 Para obtener más información acerca de la entrega de recursos, consulte:
 
--   [Entrega de recursos con los Servicios multimedia para .NET][]
--   [Entrega de recursos con la API de REST de Media Services][]
+-   [Entrega de recursos con los Servicios multimedia para .NET][Entrega de recursos con los Servicios multimedia para .NET]
+-   [Entrega de recursos con la API de REST de Media Services][Entrega de recursos con la API de REST de Media Services]
 
 </p>
 ## Pasos siguientes
 
-En este tema se explicó la descarga de un recurso desde el almacenamiento de Azure. Para obtener información sobre otras formas de entregar recursos, consulte el tema [Entrega de contenido de transmisiónn por secuencias][].
+En este tema se explicó la descarga de un recurso desde el almacenamiento de Azure. Para obtener información sobre otras formas de entregar recursos, consulte el tema [Entrega de contenido de transmisión por secuencias][Entrega de contenido de transmisión por secuencias].
 
-  [Administración de recursos]: http://go.microsoft.com/fwlink/?LinkID=301815&clcid=0x409
-  [Entrega de recursos con los Servicios multimedia para .NET]: http://msdn.microsoft.com/en-us/library/jj129575.aspx
-  [Entrega de recursos con la API de REST de Media Services]: http://msdn.microsoft.com/en-us/library/jj129578.aspx
-  [Entrega de contenido de transmisiónn por secuencias]: http://go.microsoft.com/fwlink/?LinkID=301942
+  [Comprobación del recursos]: ../media-services-manage-assets/
+  [Entrega de recursos con los Servicios multimedia para .NET]: http://msdn.microsoft.com/es-es/library/jj129575.aspx
+  [Entrega de recursos con la API de REST de Media Services]: http://msdn.microsoft.com/es-es/library/jj129578.aspx
+  [Entrega de contenido de transmisión por secuencias]: ../media-services-deliver-streaming-content/

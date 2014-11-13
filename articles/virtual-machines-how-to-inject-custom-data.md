@@ -1,6 +1,6 @@
-<properties title="virtual-machines-how-to-inject-custom-data" pageTitle="Injecting Custom Data into Azure Virtual Machines" description="This topic describes how to inject custom data into an Azure Virtual Machine when the instance is created and how to locate the custom data on either Windows or Linux." metaKeywords="Azure linux vm, linux vm, userdata vm, user data vm, custom data vm, windows custom data" services="virtual-machines" solutions="" documentationCenter="" authors="rasquill" manager="dongill" editor="tysonn" videoId="" scriptId="" />
+<properties title="virtual-machines-how-to-inject-custom-data" pageTitle="Inyecci&oacute;n de datos personalizados en m&aacute;quinas virtuales de Azure" description="Este tema describe c&oacute;mo inyectar datos personalizados en una m&aacute;quina virtual de Azure cuando la instancia se crea y c&oacute;mo localizar dichos datos en Windows o Linux." metaKeywords="Azure linux vm, linux vm, userdata vm, user data vm, custom data vm, windows custom data" services="virtual-machines" solutions="" documentationCenter="" authors="rasquill" manager="timlt" editor="tysonn" videoId="" scriptId="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="rasquill"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="rasquill" />
 
 # Inyección de datos personalizados en una máquina virtual de Azure
 

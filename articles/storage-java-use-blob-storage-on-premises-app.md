@@ -1,6 +1,6 @@
-<properties linkid="dev-java-how-to-on-premise-application-with-blob-storage" urlDisplayName="Image Gallery w/ Storage" pageTitle="On-premises application with blob storage (Java) | Microsoft Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" description="Learn how to create a console application that uploads an image to Azure, and then displays the image in your browser. Code samples in Java." metaCanonical="" services="storage" documentationCenter="Java" title="On-Premises Application with Blob Storage" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Image Gallery w/ Storage" pageTitle="Aplicaci&oacute;n local con almacenamiento de blobs (Java) | Microsoft Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" description="Aprenda a crear una aplicaci&oacute;n de consola que carga una imagen en Azure y, a continuaci&oacute;n, muestra la imagen en el explorador. Ejemplos de c&oacute;digo en Java." metaCanonical="" services="storage" documentationCenter="Java" title="Aplicaci&oacute;n local con almacenamiento de blobs" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Aplicación local con almacenamiento de blobs
 
@@ -11,9 +11,9 @@ HTML que muestra la imagen en su explorador.
 
 ## Tabla de contenido
 
--   [Requisitos previos][]
--   [Uso del almacenamiento de blobs de Azure para cargar un archivo][]
--   [Eliminación de un contenedor][]
+-   [Requisitos previos][Requisitos previos]
+-   [Uso del almacenamiento de blobs de Azure para cargar un archivo][Uso del almacenamiento de blobs de Azure para cargar un archivo]
+-   [Eliminación de un contenedor][Eliminación de un contenedor]
 
 ## <a name="bkmk_prerequisites"> </a>Requisitos previos
 
@@ -22,18 +22,19 @@ HTML que muestra la imagen en su explorador.
 3.  El archivo JAR de las Bibliotecas de Azure para Java, y cualquier JAR de dependencia
     correspondiente, instalado y en la ruta de acceso de compilación utilizada por el
     compilador de Java. Para obtener información acerca de la instalación de bibliotecas de Azure para Java, consulte [Descarga del
-    SDK de Azure para Java][].
+    SDK de Azure para Java][Descarga del
+    SDK de Azure para Java].
 4.  Una cuenta de almacenamiento configurada en Azure. El nombre y
     clave de la cuenta para la cuenta de almacenamiento serán utilizados por el siguiente código
-    . Consulte [Creación de una cuenta de almacenamiento][] para obtener información acerca de la creación de una cuenta de almacenamiento,
-    y [Administración de cuentas de almacenamiento][] para obtener información acerca de la recuperación de la
+    . Consulte [Creación de una cuenta de almacenamiento][Creación de una cuenta de almacenamiento] para obtener información acerca de la creación de una cuenta de almacenamiento,
+    y [Administración de cuentas de almacenamiento][Administración de cuentas de almacenamiento] para obtener información acerca de la recuperación de la
     clave de cuenta.
 5.  Un archivo de imagen local creado con nombre y almacenado en la ruta de acceso
     c:\\myimages\\image1.jpg. También puede modificar el constructor
     **FileInputStream** en el ejemplo para utilizar una ruta de acceso de imagen
     y un nombre de archivo diferentes.
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ## <a name="bkmk_uploadfile"> </a>Uso del almacenamiento de blobs de Azure para cargar un archivo
 
@@ -417,14 +418,12 @@ elimina el contenedor llamado **gettingstarted**.
         }
     }
 
-Para ver información general de otras clases y métodos de almacenamiento de blobs, consulte [Uso del servicio de almacenamiento de blobs desde Java][].
+Para ver información general de otras clases y métodos de almacenamiento de blobs, consulte [Uso del servicio
+de almacenamiento de blobs desde Java][Uso del servicio
+de almacenamiento de blobs desde Java].
 
   [Requisitos previos]: #bkmk_prerequisites
   [Uso del almacenamiento de blobs de Azure para cargar un archivo]: #bkmk_uploadfile
   [Eliminación de un contenedor]: #bkmk_deletecontainer
-  [Descarga del
-  SDK de Azure para Java]: http://www.windowsazure.com/en-us/develop/java/
-  [Creación de una cuenta de almacenamiento]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/
-  [Administración de cuentas de almacenamiento]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
-  [create-account-note]: ../includes/create-account-note.md
-  [Uso del servicio de almacenamiento de blobs desde Java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
+  [Creación de una cuenta de almacenamiento]: http://www.windowsazure.com/es-es/manage/services/storage/how-to-create-a-storage-account/
+  [Administración de cuentas de almacenamiento]: http://www.windowsazure.com/es-es/manage/services/storage/how-to-manage-a-storage-account/

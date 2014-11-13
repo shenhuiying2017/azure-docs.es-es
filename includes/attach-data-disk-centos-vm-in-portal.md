@@ -1,4 +1,4 @@
-1.  En el [Portal de administración de Azure][], haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual que acaba de crear (**testlinuxvm**).
+1.  En el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual que acaba de crear (**testlinuxvm**).
 
 2.  En la barra de comandos, haga clic en **Attach** y, a continuación, haga clic en **Attach Empty Disk**.
 
@@ -6,7 +6,7 @@
 
 3.  **Virtual Machine Name**, **Storage Location** y **File Name** ya están definidos. Solo tiene que especificar el tamaño que desea utilizar para el disco. Escriba **5** en el campo **Size**.
 
-    ![Acoplar disco vacío][]
+    ![Acoplar disco vacío][Acoplar disco vacío]
 
     **Nota:** Todos los discos se crean a partir de un archivo .vhd en el almacenamiento de Azure. Puede proporcionar un nombre para el archivo .vhd que se agregue al almacenamiento, pero Azure genera el nombre del disco automáticamente.
 
@@ -28,7 +28,7 @@ Inicie sesión en la máquina virtual para completar la configuración del disco
 
     Puede buscar el identificador del último disco de datos que se agregó en los mensajes que se muestran (**sdc**, en este ejemplo).
 
-    ![GREP][]
+    ![GREP][GREP]
 
 3.  En la ventana SSH o PuTTY, escriba el siguiente comando para crear una partición en el disco **/dev/sdc**:
 
@@ -36,7 +36,7 @@ Inicie sesión en la máquina virtual para completar la configuración del disco
 
 4.  Escriba **n** para crear una nueva partición.
 
-    ![FDISK][]
+    ![FDISK][FDISK]
 
 5.  Escriba **p** para que la partición sea la partición principal, escriba **1** para que la partición sea la primera partición y, a continuación, escriba Entrar para aceptar el valor predeterminado (1) para el cilindro.
 

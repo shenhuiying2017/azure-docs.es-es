@@ -1,6 +1,6 @@
-<properties linkid="develop-python-web-app-with-blob-storage" urlDisplayName="Web App with Blob Storage" pageTitle="Python web app with table storage | Microsoft Azure" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="A tutorial that teaches you how to create a Python web application using the Azure Client Libraries. Django is used as the web framework." metaCanonical="" services="storage" documentationCenter="Python" title="Python Web Application using Table Storage" authors="huvalo" solutions="" videoId="" scriptId="" manager="" editor="mollybos" />
+<properties urlDisplayName="Web App with Blob Storage" pageTitle="Aplicaci&oacute;n web Python con almacenamiento de tablas | Microsoft Azure" metaKeywords="Azure table storage Python, Azure Python application, Azure Python tutorial, Azure Python example" description="Un tutorial le ense&ntilde;a a crear una aplicaci&oacute;n web Python utilizando las bibliotecas de clientes de Azure. Se utiliza Django como marco web." metaCanonical="" services="storage" documentationCenter="Python" title="Aplicaci&oacute;n web de Python con almacenamiento de tablas" authors="huvalo" solutions="" videoId="" scriptId="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Aplicación web de Python con almacenamiento de tablas
 
@@ -17,7 +17,7 @@ Aprenderá a:
 
 A continuación se muestra una captura de pantalla con el aspecto que tendrá la aplicación completa (los elementos de tarea agregados serán diferentes):
 
-![](./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png)
+![][0]
 
 [WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
@@ -177,7 +177,5 @@ Ahora que está familiarizado con los aspectos básicos del servicio de almacena
 
   [Aplicación web Django Hello World]: http://windowsazure.com/es-es/documentation/articles/virtual-machines-python-django-web-app-windows-server
   [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
-  
-  [create-account-note]: ../includes/create-account-note.md
+  [0]: ./media/storage-python-use-table-storage-web-app/web-app-with-storage-Finaloutput-mac.png
   [guía de instalación de Python]: http://windowsazure.com/es-es/documentation/articles/python-how-to-install
-  [create-storage-account]: ../includes/create-storage-account.md

@@ -1,6 +1,6 @@
-<properties title="How to use the queue service (PHP) - Azure feature guide" pageTitle="How to use the queue service (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in PHP." documentationCenter="PHP" services="storage" authors="" />
+<properties title="Uso del servicio de cola (PHP) - Gu&iacute;a de caracter&iacute;sticas de Azure" pageTitle="Uso del servicio de cola (PHP) | Microsoft Azure" metaKeywords="Azure Queue Service messaging PHP" description="Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Los ejemplos est&aacute;n escritos en PHP." documentationCenter="PHP" services="storage" authors="tamram" manager="adinah" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Uso del servicio Cola de PHP
 
@@ -10,18 +10,18 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del servicio 
 
 -   [¿Qué es el almacenamiento en cola?][¿Qué es el almacenamiento en cola?]
 -   [Conceptos][Conceptos]
--   [Creación de una cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento de Azure]
+-   [Crear una cuenta de almacenamiento de Azure][Crear una cuenta de almacenamiento de Azure]
 -   [Creación de una aplicación PHP][Creación de una aplicación PHP]
 -   [Configuración de la aplicación para el servicio Cola][Configuración de la aplicación para el servicio Cola]
 -   [Configuración de una conexión de almacenamiento de Azure][Configuración de una conexión de almacenamiento de Azure]
--   [Creación de una cola][Creación de una cola]
--   [Incorporación de un mensaje a una cola][Incorporación de un mensaje a una cola]
--   [Inspección del siguiente mensaje][Inspección del siguiente mensaje]
--   [Extracción del siguiente mensaje de la cola][Extracción del siguiente mensaje de la cola]
--   [Cambio del contenido de un mensaje en cola][Cambio del contenido de un mensaje en cola]
+-   [Direccionamiento del de una cola][Direccionamiento del de una cola]
+-   [Direccionamiento del un mensaje a una cola][Direccionamiento del un mensaje a una cola]
+-   [Direccionamiento del siguiente mensaje][Direccionamiento del siguiente mensaje]
+-   [Direccionamiento del siguiente mensaje de la cola][Direccionamiento del siguiente mensaje de la cola]
+-   [Direccionamiento del contenido de un mensaje en cola][Direccionamiento del contenido de un mensaje en cola]
 -   [Opciones adicionales de los mensajes quitados de la cola][Opciones adicionales de los mensajes quitados de la cola]
--   [Obtención de la longitud de la cola][Obtención de la longitud de la cola]
--   [Eliminación de una cola][Eliminación de una cola]
+-   [Direccionamiento del la longitud de la cola][Direccionamiento del la longitud de la cola]
+-   [Direccionamiento del una cola][Direccionamiento del una cola]
 -   [Pasos siguientes][1]
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
@@ -85,7 +85,7 @@ En los ejemplos descritos aquí, la cadena de conexión se pasará directamente.
 
     $queueRestProxy = ServicesBuilder::getInstance()->createQueueService($connectionString);
 
-## <span id="create-queue"></span></a>Creación de una cola
+## <span id="create-queue"></span></a>Direccionamiento del una cola
 
 Un objeto **QueueRestProxy** le permite crear una cola con el método **createQueue**. Al crear una cola, puede establecer opciones en ella, aunque no es obligatorio. El ejemplo siguiente muestra cómo configurar metadatos en una cola.
 
@@ -119,7 +119,7 @@ Un objeto **QueueRestProxy** le permite crear una cola con el método **createQu
 > [WACOM.NOTE]
 > No debe confiar en la distinción entre minúsculas y mayúsculas para las claves de metadatos. Todas las claves se leen en el servicio en minúsculas.
 
-## <span id="add-message"></span></a>Incorporación de un mensaje a una cola
+## <span id="add-message"></span></a>Direccionamiento del un mensaje a una cola
 
 Para agregar un mensaje a una cola, use **QueueRestProxy-\>createMessage**. El método toma el nombre de la cola, el texto del mensaje y las opciones de mensaje (que son opcionales).
 
@@ -146,7 +146,7 @@ Para agregar un mensaje a una cola, use **QueueRestProxy-\>createMessage**. El m
         echo $code.": ".$error_message."<br />";
     }
 
-## <span id="peek-message"></span></a>Inspección del siguiente mensaje
+## <span id="peek-message"></span></a>Direccionamiento del siguiente mensaje
 
 Puede inspeccionar uno o varios mensajes en la parte delantera de una cola, sin quitarlos de la cola, mediante una llamada a **QueueRestProxy-\>peekMessages**. De forma predeterminada, el método **peekMessage** devuelve un único mensaje, pero puede cambiar el valor con el método **PeekMessagesOptions-\>setNumberOfMessages**.
 
@@ -191,7 +191,7 @@ Puede inspeccionar uno o varios mensajes en la parte delantera de una cola, sin 
         }
     }
 
-## <span id="dequeue-message"></span></a>Extracción del siguiente mensaje de la cola
+## <span id="dequeue-message"></span></a>Direccionamiento del siguiente mensaje de la cola
 
 El código borra un mensaje de una cola en dos pasos. Primero, llama a **QueueRestProxy-\>listMessages**, que hace que el mensaje sea invisible a cualquier otra lectura de código desde la cola. De forma predeterminada, este mensaje permanecerá invisible durante 30 segundos (si el mensaje no se elimina en este período, volverá a estar visible de nuevo en la cola). Para terminar de quitar el mensaje de la cola, debe llamar a **QueueRestProxy-\>deleteMessage**. Este proceso de extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. Su código llama a **deleteMessage** justo después de que se haya procesado el mensaje.
 
@@ -229,7 +229,7 @@ El código borra un mensaje de una cola en dos pasos. Primero, llama a **QueueRe
         echo $code.": ".$error_message."<br />";
     }
 
-## <span id="change-message"></span></a>Cambio del contenido de un mensaje en cola
+## <span id="change-message"></span></a>Direccionamiento del contenido de un mensaje en cola
 
 Puede cambiar el contenido de un mensaje local en la cola llamando a **QueueRestProxy-\>updateMessage**. Si el mensaje representa una tarea de trabajo, puede utilizar esta característica para actualizar el estado de la tarea de trabajo. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 60 segundos más. De este modo, se guarda el estado de trabajo asociado al mensaje y se le proporciona al cliente un minuto más para que siga elaborando el mensaje. Esta técnica se puede utilizar para realizar un seguimiento de los flujos de trabajo de varios pasos en los mensajes en cola, sin que sea necesario volver a empezar desde el principio si se produce un error en un paso del proceso a causa de un error de hardware o software. Normalmente, también mantendría un número de reintentos y, si el mensaje se intentara más de n veces, lo eliminaría. Esto proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
 
@@ -318,7 +318,7 @@ Hay dos formas de personalizar la recuperación de mensajes de una cola. En prim
         echo $code.": ".$error_message."<br />";
     }
 
-## <span id="get-queue-length"></span></a>Obtención de la longitud de la cola
+## <span id="get-queue-length"></span></a>Direccionamiento del longitud de la cola
 
 Puede obtener una estimación del número de mensajes existentes en una cola. El método **QueueRestProxy-\>getQueueMetadata** solicita al servicio de Cola devolver los metadatos sobre la cola. Si llama al método **getApproximateMessageCount** en el objeto devuelto, se ofrece un recuento de la cantidad de mensajes que hay en una cola. El recuento solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud.
 
@@ -346,7 +346,7 @@ Puede obtener una estimación del número de mensajes existentes en una cola. El
 
     echo $approx_msg_count;
 
-## <span id="delete-queue"></span></a>Eliminación de una cola
+## <span id="delete-queue"></span></a>Direccionamiento del una cola
 
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **QueueRestProxy-\>deleteQueue**.
 
@@ -379,21 +379,20 @@ Ahora que está familiarizado con los aspectos básicos del servicio Cola de Azu
 -   Obtenga acceso al blog del equipo de almacenamiento de Azure: <http://blogs.msdn.com/b/windowsazurestorage/>
 
   [Pasos siguientes]: #NextSteps
+  [¿Qué es el almacenamiento en cola?]: #what-is
   [Conceptos]: #concepts
-  [Creación de una cuenta de almacenamiento de Azure]: #create-account
+  [Crear una cuenta de almacenamiento de Azure]: #create-account
   [Creación de una aplicación PHP]: #create-app
   [Configuración de la aplicación para el servicio Cola]: #configure-app
   [Configuración de una conexión de almacenamiento de Azure]: #connection-string
-  [Creación de una cola]: #create-queue
-  [Incorporación de un mensaje a una cola]: #add-message
-  [Inspección del siguiente mensaje]: #peek-message
-  [Extracción del siguiente mensaje de la cola]: #dequeue-message
-  [Cambio del contenido de un mensaje en cola]: #change-message
+  [Direccionamiento del de una cola]: #create-queue
+  [Direccionamiento del un mensaje a una cola]: #add-message
+  [Direccionamiento del siguiente mensaje]: #peek-message
+  [Direccionamiento del siguiente mensaje de la cola]: #dequeue-message
+  [Direccionamiento del contenido de un mensaje en cola]: #change-message
   [Opciones adicionales de los mensajes quitados de la cola]: #additional-options
-  [Obtención de la longitud de la cola]: #get-queue-length
-  [Eliminación de una cola]: #delete-queue
+  [Direccionamiento del la longitud de la cola]: #get-queue-length
+  [Direccionamiento del una cola]: #delete-queue
   [1]: #next-steps
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [get-client-libraries]: ../includes/get-client-libraries.md
+  [require\_once]: http://www.php.net/manual/en/function.require-once.php
   [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx

@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-check-job-progress" urlDisplayName="Check Job Progress" pageTitle="How to Check Job Progress in Media Services - Azure" metaKeywords="" description="Learn how to use event handler code to track job progress and send status updates. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Check Job Progress" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Check Job Progress" pageTitle="Comprobaci&oacute;n del progreso del trabajo con Servicios multimedia - Azure" metaKeywords="" description="Aprenda a usar el c&oacute;digo del controlador de eventos para realizar el seguimiento del progreso del trabajo y enviar actualizaciones de estado. Los ejemplos de c&oacute;digo est&aacute;n escritos en C# y utilizan el SDK de Servicios multimedia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="Reproducci&oacute;n de progreso del trabajo" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
-# Comprobación del progreso del trabajo
+# Reproducción de progreso del trabajo
 
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [Codificación un recurso][].
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [Comprobación del un recurso][Comprobación del un recurso].
 
 Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento al progreso del trabajo. El siguiente ejemplo de código define el controlador de eventos StateChanged. Este controlador de eventos hace un seguimiento del progreso del trabajo y proporciona un estado actualizado, según el estado. El código define también el método LogJobStop. Este método auxiliar registra los detalles del error.
 
@@ -83,9 +83,9 @@ Al ejecutar trabajos, muchas veces se requiere una forma de hacer un seguimiento
         return jobID.Replace(":", "_");
     }
 
-# Pasos siguientes
+## Pasos siguientes
 
-Ahora que ya sabe cómo crear un trabajo y hacer un seguimiento de su progreso, el paso siguiente es proteger los recursos. Para obtener más información, consulte [Protección de un recurso con los Servicios multimedia de Azure][].
+Ahora que ya sabe cómo crear un trabajo y hacer un seguimiento de su progreso, el paso siguiente es proteger los recursos. Para obtener más información, consulte [Protección de un recurso con los Servicios multimedia de Azure][Protección de un recurso con los Servicios multimedia de Azure].
 
-  [Codificación un recurso]: http://go.microsoft.com/fwlink/?LinkID=301753&clcid=0x409
+  [Comprobación del un recurso]: http://go.microsoft.com/fwlink/?LinkID=301753&clcid=0x409
   [Protección de un recurso con los Servicios multimedia de Azure]: http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409

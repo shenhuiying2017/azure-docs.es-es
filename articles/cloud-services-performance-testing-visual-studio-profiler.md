@@ -1,4 +1,4 @@
-<properties linkid="dev-net-common-tasks-profiling-in-compute-emulator" urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Profiling a Cloud Service Locally in the Compute Emulator" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Testing the Performance of a Cloud Service Locally in the Azure Compute Emulator Using the Visual Studio Profiler" authors="ghogen" manager="douge" />
+<properties urldisplayname="Team Foundation Service" headerexpose="" pageTitle="Creaci&oacute;n del perfil de un servicio en la nube en modo local en el emulador de proceso" metakeywords="" footerexpose="" description="" umbraconavihide="0" disquscomments="1" title="Prueba del rendimiento de un servicio en la nube de manera local en el emulador de proceso de Azure con el generador de perfiles de Visual Studio" authors="ghogen" manager="douge" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
@@ -33,9 +33,9 @@ Puede ejecutar el generador de perfiles de manera local solo si tiene Visual Stu
 
 ## <a name="step1"> </a>Paso 1: Configuración de Visual Studio para la generación de perfiles
 
-Primero, existen unas pocas opciones de configuración de Visual Studio que podrían ser útiles para la generación de perfiles. Para que los informes de generación de perfiles tengan sentido, necesitará símbolos (archivos .pdb) para su aplicación y también símbolos para las bibliotecas del sistema. Necesitará asegurarse de que hace referencia a los servidores de símbolos disponibles. Para hacer esto, en el menú **Herramientas** en Visual Studio, seleccione **Opciones**, luego **Depuración** y, a continuación, **Símbolos**. Asegúrese de que los servidores de símbolos de Microsoft aparezcan en **Ubicaciones del archivo de símbolos (.pdb)**. Puede también hacer referencia a <http://referencesource.microsoft.com/symbols> el cual podría tener archivos de símbolo adicionales.
+Primero, existen unas pocas opciones de configuración de Visual Studio que podrían ser útiles para la generación de perfiles. Para que los informes de generación de perfiles tengan sentido, necesitará símbolos (archivos .pdb) para su aplicación y también símbolos para las bibliotecas del sistema. Necesitará asegurarse de que hace referencia a los servidores de símbolos disponibles. Para hacer esto, en el menú **Herramientas** en Visual Studio, seleccione **Opciones**, luego **Depuración** y, a continuación, **Símbolos**. Asegúrese de que los servidores de símbolos de Microsoft aparezcan en **Ubicaciones del archivo de símbolos (.pdb)**. Puede también hacer referencia a http://referencesource.microsoft.com/symbols, el cual podría tener archivos de símbolo adicionales.
 
-![][4]
+![][0]
 
 Si lo desea, puede simplificar los informes que genera el generador de perfiles al configurar Solo mi código. Si Solo mi código está habilitado, las pilas de llamadas de función se simplifican de modo que las llamadas que son completamente internas para las bibliotecas y el .NET Framework están ocultas de los informes. En el menú **Herramientas**, seleccione **Opciones**. A continuación, expanda el nodo **Herramientas de rendimiento** y seleccione **General**. Seleccione la casilla **Habilitar Solo mi código para informes del generador de perfiles**.
 
@@ -183,7 +183,7 @@ La instrumentación de binarios de Azure en el emulador no es compatible en el g
   [Paso 4: Realización de cambios y comparación del rendimiento]: #step4
   [Solución de problemas]: #troubleshooting
   [Pasos siguientes]: #nextSteps
- 
+  [0]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally09.png
   [1]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally08.png
   [2]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally10.png
   [3]: ./media/cloud-services-performance-testing-visual-studio-profiler/ProfilingLocally02.png

@@ -2,7 +2,7 @@
 
 # Configuración de extremos en una máquina virtual
 
-**Nota**: Si desea conectar las máquinas virtuales directamente por nombre de host o configurar conexiones entre locales, consulte [Información general sobre redes virtuales de Azure][].
+**Nota**: Si desea conectar las máquinas virtuales directamente por nombre de host o configurar conexiones entre locales, consulte [Información general sobre redes virtuales de Azure][Información general sobre redes virtuales de Azure].
 
 Todas las máquinas virtuales que se crean en Azure pueden comunicarse automáticamente mediante un canal de red privada con otras máquinas virtuales del mismo servicio en la nube o de la misma red virtual. Sin embargo, otros recursos en Internet u otras redes virtuales requieren extremos para administrar el tráfico de red entrante para la máquina virtual.
 
@@ -12,7 +12,7 @@ Cada extremo cuenta con un puerto público y uno privado:
 
 -   La máquina virtual usa de manera interna el puerto privado para escuchar el tráfico del extremo.
 
--   El equilibrador de carga de Azure usa el puerto público para comunicarse con la máquina virtual desde recursos externos. Una vez creado el extremo, puede usar la lista de control de acceso a la red (ACL) para definir reglas que ayuden a aislar y controlar el tráfico entrante en el puerto público. Para obtener más información, consulte [Acerca de las listas de control de acceso (ACL) de red][].
+-   El equilibrador de carga de Azure usa el puerto público para comunicarse con la máquina virtual desde recursos externos. Una vez creado el extremo, puede usar la lista de control de acceso a la red (ACL) para definir reglas que ayuden a aislar y controlar el tráfico entrante en el puerto público. Para obtener más información, consulte [Acerca de las listas de control de acceso (ACL) de red][Acerca de las listas de control de acceso (ACL) de red].
 
 Se proporcionan los valores predeterminados para los puertos y el protocolo de estos extremos cuando los extremos se crean a través del Portal de administración. Para los demás extremos, especifique los puertos y el protocolo cuando cree el extremo. Los recursos pueden conectarse a un extremo mediante un protocolo TCP o UDP. El protocolo TCP incluye la comunicación HTTP y HTTPS.
 
@@ -20,13 +20,13 @@ Se proporcionan los valores predeterminados para los puertos y el protocolo de e
 
 ### Creación de un extremo
 
-1.  Si no lo ha hecho todavía, inicie sesión en el [Portal de administración de Azure][].
+1.  Si no lo ha hecho todavía, inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual que desea configurar.
 
 3.  Haga clic en **Endpoints**. En la página Endpoints aparecen todos los extremos para la máquina virtual.
 
-    ![Extremos][]
+    ![Extremos][Extremos]
 
 4.  Haga clic en **Add**.
 
@@ -38,13 +38,13 @@ Se proporcionan los valores predeterminados para los puertos y el protocolo de e
 
 7.  En **Public Port** y **Private Port**, escriba los números de puerto que desee usar. Estos números de puerto pueden ser distintos. El puerto público es el punto de entrada para la comunicación desde fuera de Azure y lo usa el equilibrador de carga de Azure. Puede utilizar el puerto privado y las reglas de firewall en la máquina virtual para redirigir el tráfico de la manera más adecuada para su aplicación.
 
-8.  Haga clic en **Create a load-balancing set** si el extremo será el primero en un conjunto con equilibrio de carga. A continuación, en la página **Configure the load-balanced set**, especifique información sobre el sondeo, el protocolo y un nombre. Los conjuntos con equilibrio de carga requieren un sondeo para que se pueda supervisar el estado del conjunto. Para obtener más información, consulte [Equilibrio de carga de máquinas virtuales][].
+8.  Haga clic en **Create a load-balancing set** si el extremo será el primero en un conjunto con equilibrio de carga. A continuación, en la página **Configure the load-balanced set**, especifique información sobre el sondeo, el protocolo y un nombre. Los conjuntos con equilibrio de carga requieren un sondeo para que se pueda supervisar el estado del conjunto. Para obtener más información, consulte [Equilibrio de carga de máquinas virtuales][Equilibrio de carga de máquinas virtuales].
 
 9.  Haga clic en la marca de verificación para crear el extremo.
 
     Ahora verá el extremo en la página **Endpoints**.
 
-    ![Creación correcta del extremo][]
+    ![Creación correcta del extremo][Creación correcta del extremo]
 
 ### Administración de ACL en un extremo
 
@@ -52,13 +52,13 @@ Siga estos pasos para agregar, modificar o quitar una ACL en un extremo.
 
 **Nota**: si el extremo forma parte de un conjunto con equilibrio de carga, los cambios que realice en la ACL en un extremo se aplican a todos los extremos del conjunto.
 
-1.  Si no lo ha hecho todavía, inicie sesión en el [Portal de administración de Azure][].
+1.  Si no lo ha hecho todavía, inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual que desea configurar.
 
 3.  Haga clic en **Endpoints**. En la página Endpoints aparecen todos los extremos para la máquina virtual.
 
-    ![Lista de ACL][]
+    ![Lista de ACL][Lista de ACL]
 
 4.  Seleccione el extremo apropiado de la lista.
 
@@ -66,15 +66,15 @@ Siga estos pasos para agregar, modificar o quitar una ACL en un extremo.
 
     Aparecerá el cuadro de diálogo **Specify ACL details**.
 
-    ![Specify ACL details][]
+    ![Specify ACL details][Specify ACL details]
 
-6.  Use las filas de la lista para agregar, eliminar o editar reglas para una ACL. El valor Remote Subnet se corresponde con el intervalo de la dirección IP que puede permitir o denegar como regla. Las reglas se evalúan en orden, comenzando por la primera regla y terminando por la última. Esto significa que las reglas deben aparecer de menos restrictivas a más restrictivas. Para obtener ejemplos y más información, consulte [Acerca de las listas de control de acceso (ACL) de red][].
+6.  Use las filas de la lista para agregar, eliminar o editar reglas para una ACL. El valor Remote Subnet se corresponde con el intervalo de la dirección IP que puede permitir o denegar como regla. Las reglas se evalúan en orden, comenzando por la primera regla y terminando por la última. Esto significa que las reglas deben aparecer de menos restrictivas a más restrictivas. Para obtener ejemplos y más información, consulte [Acerca de las listas de control de acceso (ACL) de red][Acerca de las listas de control de acceso (ACL) de red].
 
   [Información general sobre redes virtuales de Azure]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [Acerca de las listas de control de acceso (ACL) de red]: http://go.microsoft.com/fwlink/p/?LinkId=303816
   [Portal de administración de Azure]: http://manage.windowsazure.com
   [Extremos]: ./media/howto-setup-endpoints/endpointswindows.png
-  [Equilibrio de carga de máquinas virtuales]: http://www.windowsazure.com/en-us/manage/windows/common-tasks/how-to-load-balance-virtual-machines/
+  [Equilibrio de carga de máquinas virtuales]: http://www.windowsazure.com/es-es/manage/windows/common-tasks/how-to-load-balance-virtual-machines/
   [Creación correcta del extremo]: ./media/howto-setup-endpoints/endpointwindowsnew.png
   [Lista de ACL]: ./media/howto-setup-endpoints/EndpointsShowsDefaultEndpointsForVM.PNG
   [Specify ACL details]: ./media/howto-setup-endpoints/EndpointACLdetails.PNG

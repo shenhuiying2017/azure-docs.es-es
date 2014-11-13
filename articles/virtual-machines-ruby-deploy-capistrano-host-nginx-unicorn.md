@@ -1,10 +1,10 @@
-<properties linkid="dev-ruby-web-app-with-linux-vm-capistrano" urlDisplayName="Ruby on Rails Azure VM Capistrano" pageTitle="Deploying a Ruby on Rails Web application to an Azure Virtual Machine using Capistrano - tutorial" metaKeywords="ruby on rails, ruby on rails azure, rails azure, rails vm, capistrano azure vm, capistrano azure rails, unicorn azure vm, unicorn azure rails, unicorn nginx capistrano, unicorn nginx capistrano azure, nginx azure" description="Learn how to deploy a Ruby on Rails application to an Azure Virtual Machine using Capistrano, Unicorn and Nginx." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Deploy a Ruby on Rails Web application to an Azure VM using Capistrano" authors="larryfr" />
+<properties urlDisplayName="Ruby on Rails Azure VM Capistrano" pageTitle="Implementaci&oacute;n de una aplicaci&oacute;n web de Ruby on Rails en una m&aacute;quina virtual de Azure con Capistrano - Tutorial" metaKeywords="ruby on rails, ruby on rails azure, rails azure, rails vm, capistrano azure vm, capistrano azure rails, unicorn azure vm, unicorn azure rails, unicorn nginx capistrano, unicorn nginx capistrano azure, nginx azure" description="Aprenda a implementar una aplicaci&oacute;n de Ruby on Rails en una m&aacute;quina virtual de Azure con Capistrano, Unicorn y Nginx." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Implementaci&oacute;n de una aplicaci&oacute;n web de Ruby on Rails en una m&aacute;quina virtual de Azure con Capistrano" authors="larryfr" manager="wpickett" />
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Implementación de una aplicación web de Ruby on Rails en una máquina virtual de Azure con Capistrano
 
-En este tutorial se describe cómo implementar un sitio web basado en Ruby on Rails en una máquina virtual de Azure con [Capistrano 3][]. Una vez implementado, usará [Nginx][] y [Unicorn][] para hospedar el sitio web. [PostgreSQL][] almacenará los datos de la aplicación implementada.
+En este tutorial se describe cómo implementar un sitio web basado en Ruby on Rails en una máquina virtual de Azure con [Capistrano 3][Capistrano 3]. Una vez implementado, usará [Nginx][Nginx] y [Unicorn][Unicorn] para hospedar el sitio web. [PostgreSQL][PostgreSQL] almacenará los datos de la aplicación implementada.
 
 En este tutorial se supone que no tiene experiencia previa con Azure, pero que está familiarizado con Ruby, Rails, Git y Linux. Al término de este tutorial, tendrá una aplicación basada en Ruby on Rails funcionando en la nube.
 
@@ -22,7 +22,7 @@ Aprenderá a:
 
 La siguiente es una captura de pantalla de la aplicación completa:
 
-![Explorador que muestra publicaciones de listas][]
+![Explorador que muestra publicaciones de listas][Explorador que muestra publicaciones de listas]
 
 > [WACOM.NOTE] La aplicación utilizada en este tutorial incluye componentes binarios nativos. Es posible que encuentre errores cuando la implemente en la máquina virtual si su entorno de desarrollo no está basado en Linux. El archivo Gemfile.lock utilizado durante la implementación contiene gemas específicas de la plataforma, que pueden no incluir entradas para las versiones nativas de Linux de las gemas que requiere la máquina virtual.
 >
@@ -30,33 +30,33 @@ La siguiente es una captura de pantalla de la aplicación completa:
 
 ## En este artículo
 
--   [Configuración de su entorno de desarrollo][]
+-   [Configuración de su entorno de desarrollo][Configuración de su entorno de desarrollo]
 
--   [Creación de una aplicación de Rails][]
+-   [Creación de una aplicación de Rails][Creación de una aplicación de Rails]
 
--   [Prueba de la aplicación][]
+-   [Prueba de la aplicación][Prueba de la aplicación]
 
--   [Creación de un repositorio de origen][]
+-   [Creación de un repositorio de origen][Creación de un repositorio de origen]
 
--   [Creación de una máquina virtual de Azure][]
+-   [Creación de una máquina virtual de Azure][Creación de una máquina virtual de Azure]
 
--   [Prueba de Nginx][]
+-   [Prueba de Nginx][Prueba de Nginx]
 
--   [Preparación de la implementación][]
+-   [Preparación de la implementación][Preparación de la implementación]
 
--   [Implementación][]
+-   [Implementación][Implementación]
 
--   [Pasos siguientes][]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <span id="setup"></span></a>Configuración de su entorno de desarrollo
 
 1.  Instale Ruby en su entorno de desarrollo. Los pasos pueden variar según el sistema operativo.
 
-    -   **Apple OS X**: Puede haber varias distribuciones de Ruby para OS X. Este tutorial se validó en OS X mediante [Homebrew][] para instalar **rbenv**, **ruby-build** y **Ruby 2.0.0-p451**. Puede encontrar información sobre la instalación en [][]<https://github.com/sstephenson/rbenv/></a>.
+    -   **Apple OS X**: Puede haber varias distribuciones de Ruby para OS X. Este tutorial se validó en OS X mediante [Homebrew][Homebrew] para instalar **rbenv**, **ruby-build** y **Ruby 2.0.0-p451**. Puede encontrar información sobre la instalación en <https://github.com/sstephenson/rbenv/>.
 
     -   **Linux**: Use su sistema de administración de paquetes de distribución. Este tutorial se validó en Ubuntu 12.10 usando **rbenv**, **ruby-build** y **Ruby 2.0.0-p451**.
 
-    -   **Windows**: Existen varias distribuciones de Ruby para Windows. Este tutorial se validó usando [RubyInstaller][] para instalar **Ruby 2.0.0-p451**. Los comandos se emitieron con la línea de comandos de **GitBash** disponible con [Git para Windows][].
+    -   **Windows**: Existen varias distribuciones de Ruby para Windows. Este tutorial se validó usando [RubyInstaller][RubyInstaller] para instalar **Ruby 2.0.0-p451**. Los comandos se emitieron con la línea de comandos de **GitBash** disponible con [Git para Windows][Git para Windows].
 
 2.  Abra una nueva línea de comandos o sesión de terminal y escriba el siguiente comando para instalar Ruby on Rails:
 
@@ -68,9 +68,9 @@ La siguiente es una captura de pantalla de la aplicación completa:
 
     > [WACOM.NOTE] Se usó la versión 4.0.4 de la gema Rails para este tutorial.
 
-3.  Debe instalar también un intérprete de JavaScript, que Rails usará para compilar los recursos de CoffeeScript que usó su aplicación de Rails. Se puede encontrar una lista de intérpretes compatibles en [][1]<https://github.com/sstephenson/execjs#readme></a>.
+3.  Debe instalar también un intérprete de JavaScript, que Rails usará para compilar los recursos de CoffeeScript que usó su aplicación de Rails. Se puede encontrar una lista de intérpretes compatibles en <https://github.com/sstephenson/execjs#readme>.
 
-    > [WACOM.NOTE] Se usó [Node.js](<http://nodejs.org/>) para este tutorial porque estaba disponible para los sistemas operativos OS X, Linux y Windows.
+    > [WACOM.NOTE] Se usó [Node.js](http://nodejs.org/) para este tutorial porque estaba disponible para los sistemas operativos OS X, Linux y Windows.
 
 ## <span id="create"></span></a>Creación de una aplicación de Rails
 
@@ -92,7 +92,7 @@ La siguiente es una captura de pantalla de la aplicación completa:
 
         rake db:migrate
 
-    Este comando creará el esquema de la base de datos para almacenar publicaciones usando el proveedor de base de datos predeterminado para Rails, que es [SQLite3 Database][].
+    Este comando creará el esquema de la base de datos para almacenar publicaciones usando el proveedor de base de datos predeterminado para Rails, que es [SQLite3 Database][SQLite3 Database].
 
 4.  Para mostrar un índice de publicaciones como página principal, modifique el archivo **config/routes.rb** y agregue lo siguiente después de la línea `resources :posts`.
 
@@ -116,19 +116,19 @@ La siguiente es una captura de pantalla de la aplicación completa:
         [2013-03-12 19:11:31] INFO  ruby 2.0.0 (2014-02-24) [x86_64-linux]
         [2013-03-12 19:11:31] INFO  WEBrick::HTTPServer#start: pid=9789 port=3000
 
-2.  Abra el explorador y navegue a http://localhost:3000/. Debe ver una página similar a la siguiente.
+2.  Abra el explorador y diríjase a http://localhost:3000/. Debe ver una página similar a la siguiente.
 
-    ![Página con lista de publicaciones][]
+    ![Página con lista de publicaciones][Página con lista de publicaciones]
 
     Para detener el proceso del servidor, escriba CTRL+C en la línea de comandos.
 
 ## <span id="repository"></span></a>Creación de un repositorio de origen
 
-Cuando implemente una aplicación usando Capistrano, los archivos se extraen de un repositorio. En este tutorial, usaremos [Git][] para el control de versiones y [GitHub][] para el repositorio.
+Cuando implemente una aplicación usando Capistrano, los archivos se extraen de un repositorio. En este tutorial, usaremos [Git][Git] para el control de versiones y [GitHub][GitHub] para el repositorio.
 
-1.  Creación de un repositorio en [GitHub][]. Si no tiene cuenta de GitHub, puede suscribirse para obtener una gratis. En los pasos siguientes se supone que el nombre del repositorio es **blog\_app**.
+1.  Creación de un repositorio en [GitHub][GitHub]. Si no tiene cuenta de GitHub, puede suscribirse para obtener una gratis. En los pasos siguientes se supone que el nombre del repositorio es **blog\_app**.
 
-    > [WACOM.NOTE] Para permitir implementaciones automatizadas de la aplicación, debe usar claves SSH para autenticarse en GitHub. Para obtener más información, consulte la documentación de GitHub en [Generación de claves SSH][].
+    > [WACOM.NOTE] Para permitir implementaciones automatizadas de la aplicación, debe usar claves SSH para autenticarse en GitHub. Para obtener más información, consulte la documentación de GitHub en [Generación de claves SSH][Generación de claves SSH].
 
 2.  Desde el símbolo del sistema, cambie los directorios al directorio **blog\_app** y ejecute los siguientes comandos para cargar la aplicación en el repositorio de GitHub. Reemplace **YourGitHubName** por el nombre de su cuenta de GitHub.
 
@@ -142,9 +142,9 @@ En la siguiente sección, creará la máquina virtual en la que se implementará
 
 ## <span id="createvm"></span></a>Creación de una máquina virtual de Azure
 
-Siga las instrucciones que se proporcionan [aquí][] para crear una máquina virtual de Azure que hospeda Linux.
+Siga las instrucciones que se proporcionan [aquí][aquí] para crear una máquina virtual de Azure que hospeda Linux.
 
-1.  Inicie sesión en el [Portal de administración][] de Azure. En la barra de comandos, haga clic en **Nuevo**.
+1.  Inicie sesión en el [Portal de administración][Portal de administración] de Azure. En la barra de comandos, haga clic en **Nuevo**.
 
 2.  Seleccione **Máquina virtual** y elija **De la galería**.
 
@@ -156,11 +156,11 @@ Siga las instrucciones que se proporcionan [aquí][] para crear una máquina vir
 
 5.  En **Nuevo nombre de usuario**, escriba el nombre de la cuenta de administrador para esta máquina.
 
-    > [WACOM.NOTE] Para este tutorial, se usará también la cuenta de administrador para implementar la aplicación. Para obtener información acerca de la creación de una cuenta diferente para la implementación, consulte la documentación de [Capistrano][].
+    > [WACOM.NOTE] Para este tutorial, se usará también la cuenta de administrador para implementar la aplicación. Para obtener información acerca de la creación de una cuenta diferente para la implementación, consulte la documentación de [Capistrano][Capistrano].
 
 6.  En **Autenticación**, seleccione **Cargar clave de SSH compatible para autenticación**, después busque y seleccione el archivo **.pem** que contiene el certificado. Finalmente, seleccione la flecha para continuar.
 
-    > [WACOM.NOTE] Si no está familiarizado con la generación o el uso de claves SSH, consulte [Uso de SSH con Linux en Azure][] para obtener instrucciones para la creación de claves SSH.
+    > [WACOM.NOTE] Si no está familiarizado con la generación o el uso de claves SSH, consulte [Uso de SSH con Linux en Azure][Uso de SSH con Linux en Azure] para obtener instrucciones para la creación de claves SSH.
     >
     > También puede habilitar la autenticación con contraseña. Sin embargo, debe proporcionarse también la clave SSH porque se usa para automatizar la implementación.
 
@@ -246,7 +246,7 @@ El extremo HTTP que se agregó durante la creación de la máquina virtual le pe
 
 2.  Navegue al nombre DNS de la máquina virtual para probar la aplicación. El sitio web que aparece debe ser similar al siguiente:
 
-    ![Página de bienvenida de Nginx][]
+    ![Página de bienvenida de Nginx][Página de bienvenida de Nginx]
 
     > [WACOM.NOTE] Los scripts de implementación que se usan más adelante en este tutorial convertirán blog\_app en el sitio web predeterminado que ofrece Nginx.
 
@@ -323,7 +323,7 @@ En su entorno de desarrollo, modifique la aplicación para que use el servidor w
 
     Cuando haya realizado estos cambios, guarde el archivo.
 
-5.  Edite el archivo **config/deploy.rb** y reemplace su contenido por el siguiente. Cambie **YourApplicationName** por el nombre de su aplicación y reemplace **<https://github.com/YourGitHubName/YourRepoName.git>** por la dirección URL del repositorio de GitHub para este proyecto.
+5.  Edite el archivo **config/deploy.rb** y reemplace su contenido por el siguiente. Cambie **YourApplicationName** por el nombre de su aplicación y reemplace **https://github.com/YourGitHubName/YourRepoName.git** por la dirección URL del repositorio de GitHub para este proyecto.
 
         lock '3.1.0'
         # application name and the github repository
@@ -422,31 +422,31 @@ La aplicación debe estar ya lista para implementarla.
 
     > [WACOM.NOTE] En algunos sistemas, puede verse en una situación donde el agente SSH no puede reenviar credenciales a la máquina virtual remota para la autenticación en GitHub. Si esto ocurre, puede solucionar el error modificando el archivo **config/deploy.rb** para cambiar la línea `set :repo_url` para que use HTTPS cuando se acceda a Github. Cuando se usa HTTPS, debe especificar su nombre de usuario y contraseña (o token autenticado) para GitHub como parte de la dirección URL. Por ejemplo:
     >
-    > \`set :repo\_url, '<https://you:yourpassword@github.com/You/yourrepository.git>'
+    > \`set :repo\_url, 'https://you:yourpassword@github.com/You/yourrepository.git'
     >
     > Si bien esto debería permitirle evitar el error y completar este tutorial, no es una solución recomendada para una implementación de producción, ya que almacena las credenciales de autenticación como texto sin codificar y como parte de la aplicación. Consulte la documentación del sistema operativo sobre el uso de reenvíos con el agente SSH
 
-En este punto, la aplicación de Ruby on Rails se debe estar ejecutando en la máquina virtual de Azure. Para comprobarlo, escriba el nombre DNS de su máquina virtual en el explorador web. Por ejemplo, <http://railsvm.cloudapp.net>. Debe aparecer el índice de publicaciones y debe poder crear, editar y eliminar publicaciones.
+En este punto, la aplicación de Ruby on Rails se debe estar ejecutando en la máquina virtual de Azure. Para comprobarlo, escriba el nombre DNS de su máquina virtual en el explorador web. Por ejemplo, http://railsvm.cloudapp.net. Debe aparecer el índice de publicaciones y debe poder crear, editar y eliminar publicaciones.
 
 ## <span id="next"></span></a>Pasos siguientes
 
 En este artículo ha aprendido a crear y publicar una aplicación básica de Rails en una máquina virtual de Azure con Capistrano. Trabajar con una aplicación básica como la de este artículo es solo una parte mínima de lo que se puede hacer con Capistrano para la implementación. Para obtener más información sobre el uso de Capistrano, consulte:
 
 -   [Capistranorb.com][Capistrano]: sitio de Capistrano.
--   [Azure, Ruby on Rails, Capistrano 3 y PostgreSQL][]: un método alternativo para la implementación en Azure que implica scripts de implementación personalizados.
--   [Tutorial de Capistrano 3][]: tutorial sobre cómo trabajar con Capistrano 3.
+-   [Azure, Ruby on Rails, Capistrano 3 y PostgreSQL][Azure, Ruby on Rails, Capistrano 3 y PostgreSQL]: un método alternativo para la implementación en Azure que implica scripts de implementación personalizados.
+-   [Tutorial de Capistrano 3][Tutorial de Capistrano 3]: tutorial sobre cómo trabajar con Capistrano 3.
 
-Para ver un ejemplo más básico de creación e implementación de una aplicación de Rails en una máquina virtual de Azure con solo SSH, consulte [Hospedaje de una aplicación web de Ruby o Rails mediante una máquina virtual Linux][].
+Para ver un ejemplo más básico de creación e implementación de una aplicación de Rails en una máquina virtual de Azure con solo SSH, consulte [Hospedaje de una aplicación web de Ruby o Rails mediante una máquina virtual Linux][Hospedaje de una aplicación web de Ruby o Rails mediante una máquina virtual Linux].
 
-Si desea obtener más información sobre Ruby on Rails, visite las [Guías de Ruby on Rails][] (en inglés).
+Si desea obtener más información sobre Ruby on Rails, visite las [Guías de Ruby on Rails][Guías de Ruby on Rails] (en inglés).
 
 Para obtener información sobre cómo usar el SDK de Azure para Ruby y así tener acceso a los servicios de Azure desde su aplicación de Ruby, consulte:
 
--   [Almacenamiento de datos no estructurados con blobs][]
+-   [Almacenamiento de datos no estructurados con blobs][Almacenamiento de datos no estructurados con blobs]
 
--   [Almacenamiento de pares clave/valor con tablas][]
+-   [Almacenamiento de pares clave/valor con tablas][Almacenamiento de pares clave/valor con tablas]
 
--   [Servicio de contenido con alto ancho de banda con la Red de entrega de contenido][]
+-   [Servicio de contenido con alto ancho de banda con la Red de entrega de contenido][Servicio de contenido con alto ancho de banda con la Red de entrega de contenido]
 
   [Capistrano 3]: https://github.com/capistrano/capistrano/
   [Nginx]: http://nginx.org/
@@ -463,24 +463,22 @@ Para obtener información sobre cómo usar el SDK de Azure para Ruby y así tene
   [Implementación]: #deploy
   [Pasos siguientes]: #next
   [Homebrew]: http://brew.sh/
-  []: https://github.com/sstephenson/rbenv/
   [RubyInstaller]: http://RubyInstaller.org/
   [Git para Windows]: http://git-scm.com/download/win
-  [1]: https://github.com/sstephenson/execjs#readme
   [SQLite3 Database]: http://www.sqlite.org/
   [Página con lista de publicaciones]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/blograilslocal.png
   [Git]: http://git-scm.com/
   [GitHub]: https://github.com/
   [Generación de claves SSH]: https://help.github.com/articles/generating-ssh-keys
-  [aquí]: /en-us/manage/linux/tutorials/virtual-machine-from-gallery/
+  [aquí]: /es-es/manage/linux/tutorials/virtual-machine-from-gallery/
   [Portal de administración]: https://manage.windowsazure.com/
   [Capistrano]: http://capistranorb.com
   [Uso de SSH con Linux en Azure]: http://azure.microsoft.com/es-es/documentation/articles/linux-use-ssh-key/
   [Página de bienvenida de Nginx]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/welcomenginx.png
   [Azure, Ruby on Rails, Capistrano 3 y PostgreSQL]: http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql
   [Tutorial de Capistrano 3]: http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/
-  [Hospedaje de una aplicación web de Ruby o Rails mediante una máquina virtual Linux]: /en-us/develop/ruby/tutorials/web-app-with-linux-vm/
+  [Hospedaje de una aplicación web de Ruby o Rails mediante una máquina virtual Linux]: /es-es/develop/ruby/tutorials/web-app-with-linux-vm/
   [Guías de Ruby on Rails]: http://guides.rubyonrails.org/
-  [Almacenamiento de datos no estructurados con blobs]: /en-us/develop/ruby/how-to-guides/blob-storage/
-  [Almacenamiento de pares clave/valor con tablas]: /en-us/develop/ruby/how-to-guides/table-service/
-  [Servicio de contenido con alto ancho de banda con la Red de entrega de contenido]: /en-us/develop/ruby/app-services/
+  [Almacenamiento de datos no estructurados con blobs]: /es-es/develop/ruby/how-to-guides/blob-storage/
+  [Almacenamiento de pares clave/valor con tablas]: /es-es/develop/ruby/how-to-guides/table-service/
+  [Servicio de contenido con alto ancho de banda con la Red de entrega de contenido]: /es-es/develop/ruby/app-services/

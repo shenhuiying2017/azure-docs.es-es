@@ -1,10 +1,8 @@
-<properties linkid="develop-net-tutorials-get-started-vs2013" pageTitle="Get started with Azure Websites for ASP.NET" metaKeywords="" description="This tutorial shows you how to create an ASP.NET web project in Visual Studio 2013 and deploy it to an Azure Website. In less than 15 minutes you'll have an app up and running in the cloud." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="Introducci&oacute;n a Sitios web Azure para ASP.NET" metaKeywords="" description="Este tutorial muestra c&oacute;mo crear un proyecto web de ASP.NET en Visual Studio 2013 e implementarlo en un sitio web de Azure. En menos de 15 minutos tendr&aacute; una aplicaci&oacute;n activa y en ejecuci&oacute;n en la nube." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Introducci&oacute;n a Sitios web Azure y ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="01/01/1900" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="09/24/2014" ms.author="tdykstra" />
 
 # Introducción a Sitios web Azure y ASP.NET
-
-<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/develop/net/tutorials/get-started/" title="Visual Studio 2013" class="current">Visual Studio 2013</a><a href="/es-es/develop/net/tutorials/get-started-vs2012/" title="Visual Studio 2012">Visual Studio 2012</a></div>
 
 Este tutorial muestra cómo crear una aplicación web ASP.NET e implementarla en un sitio web de Azure utilizando Visual Studio 2013 o Visual Studio Express 2013 for Web. En este tutorial se asume que no tiene ninguna experiencia previa con Azure o ASP.NET. Cuando acabe, tendrá una aplicación web sencilla ejecutándose en la nube.
 
@@ -19,7 +17,7 @@ Aprenderá a realizar los siguientes procedimientos:
 
 La siguiente ilustración muestra la aplicación completada:
 
-![Página principal del sitio web](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
+![Página principal del sitio web][Página principal del sitio web]
 
 <div class="wa-note">
   <span class="wa-icon-bulb"></span>
@@ -45,19 +43,19 @@ La siguiente ilustración muestra la aplicación completada:
 
 El primer paso es crear un proyecto de aplicación web. Visual Studio creará automáticamente el sitio web de Azure en el que implementará el proyecto más adelante. En el siguiente diagrama se muestra lo que sucede en estos dos pasos.
 
-![Diagrama que muestra los pasos de creación e implementación de un proyecto](./media/web-sites-dotnet-get-started-vs2013/createdeploydiagram.png)
+![Diagrama que muestra los pasos de creación e implementación de un proyecto][Diagrama que muestra los pasos de creación e implementación de un proyecto]
 
 1.  Abra Visual Studio 2013 o Visual Studio 2013 Express para Web.
 
 2.  En el menú **Archivo**, haga clic en **Nuevo proyecto**.
 
-3.  En el cuadro de diálogo **Nuevo proyecto**, haga clic en **C\#** \> **Web** \> **Aplicación web ASP.NET**. Si lo prefiere, puede elegir **Visual Basic**.
+3.  En el cuadro de diálogo **Nuevo proyecto**, haga clic en **C#** \> **Web** \> **Aplicación web ASP.NET**. Si lo prefiere, puede elegir **Visual Basic**.
 
 4.  Asegúrese de que **.NET Framework 4.5** sea el marco de trabajo de destino seleccionado.
 
 5.  Póngale a la aplicación el nombre **MyExample** y haga clic en **OK**.
 
-    ![Cuadro de diálogo Nuevo proyecto](./media/web-sites-dotnet-get-started-vs2013/GS13newprojdb.png)
+    ![Cuadro de diálogo Nuevo proyecto][Cuadro de diálogo Nuevo proyecto]
 
 6.  En el cuadro de diálogo **Nuevo proyecto de ASP.NET**, seleccione la plantilla **MVC**. Si prefiere trabajar con ASP.NET Web Forms, seleccione la plantilla **Web Forms**.
 
@@ -65,7 +63,7 @@ El primer paso es crear un proyecto de aplicación web. Visual Studio creará au
 
 7.  Haga clic en **Cambiar autenticación**.
 
-    ![Cuadro de diálogo New ASP.NET Project](./media/web-sites-dotnet-get-started-vs2013/GS13changeauth.png)
+    ![Cuadro de diálogo New ASP.NET Project][Cuadro de diálogo New ASP.NET Project]
 
 8.  En el cuadro de diálogo **Change Authentication**, haga clic en **Sin autenticación** y, a continuación, en **Aceptar**.
 
@@ -81,9 +79,9 @@ El primer paso es crear un proyecto de aplicación web. Visual Studio creará au
 
     El texto de la casilla puede ser **Host en la nube** o **Crear recursos remotos**. En cualquier caso, el resultado es el mismo.
 
-10. Si no ha iniciado sesión todavía en Azure, Visual Studio le indicará que lo haga. Haga clic en **Sign In**.
+10. Si no ha iniciado sesión todavía en Azure, Visual Studio le indicará que lo haga. Haga clic en **Iniciar sesión**.
 
-    ![Inicio de sesión en Azure](./media/web-sites-dotnet-get-started-vs2013/signin.png)
+    ![Inicio de sesión en Azure][Inicio de sesión en Azure]
 
 11. En el cuadro de diálogo **Iniciar sesión en Azure**, escriba el identificador y la contraseña de la cuenta que utiliza para administrar su suscripción a Azure.
 
@@ -109,21 +107,21 @@ El primer paso es crear un proyecto de aplicación web. Visual Studio creará au
 
     La ventana del **Explorador de soluciones** muestra los archivos y las carpetas del nuevo proyecto.
 
-    ![Explorador de soluciones](./media/web-sites-dotnet-get-started-vs2013/solutionexplorer.png)
+    ![Explorador de soluciones][Explorador de soluciones]
 
     La ventana **Web Publish Activity** muestra que el sitio se ha creado.
 
-    ![Sitio web creado](./media/web-sites-dotnet-get-started-vs2013/GS13sitecreated1.png)
+    ![Sitio web creado][Sitio web creado]
 
     Y puede ver el sitio en el Explorador de soluciones.
 
-    ![Sitio web creado](./media/web-sites-dotnet-get-started-vs2013/siteinse.png)
+    ![Sitio web creado][2]
 
 ## Implementación de la aplicación en Azure
 
 1.  En la ventana **Web Publish Activity** haga clic en **Publish MyExample to this site now**.
 
-    ![Sitio web creado](./media/web-sites-dotnet-get-started-vs2013/GS13sitecreated.png)
+    ![Sitio web creado][3]
 
     En unos segundos aparece el asistente para **publicación web**.
 
@@ -131,17 +129,17 @@ El primer paso es crear un proyecto de aplicación web. Visual Studio creará au
 
 2.  En la pestaña **Connection** del asistente para **publicación web**, haga clic en **Validate Connection** para asegurarse de que Visual Studio pueda conectar con Azure para implementar el proyecto web.
 
-    ![Validar conexión](./media/web-sites-dotnet-get-started-vs2013/GS13ValidateConnection.png)
+    ![Validar conexión][Validar conexión]
 
     Una vez que se valide la conexión, aparecerá una marca de verificación verde junto al botón **Validate Connection**.
 
 3.  Haga clic en **Next**.
 
-    ![Conexión validada correctamente](./media/web-sites-dotnet-get-started-vs2013/GS13ValidateConnectionSuccess.png)
+    ![Conexión validada correctamente][Conexión validada correctamente]
 
 4.  En la pestaña **Settings**, haga clic en **Next**.
 
-    ![Pestaña Settings](./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png)
+    ![Pestaña Settings][Pestaña Settings]
 
     Puede aceptar los valores predeterminados de **Configuración** y **Opciones de publicación de archivos**.
 
@@ -157,30 +155,30 @@ El primer paso es crear un proyecto de aplicación web. Visual Studio creará au
 
         Puede reducir el tiempo de preparación en la primera solicitud para sitios de gran envergadura.
 
-    -   Excluir archivos de la carpeta App_Data.
+    -   Excluir archivos de la carpeta App\_Data.
 
         Con fines de prueba, puede tener a veces un archivo de base de datos de SQL Server en App\_Data que luego no quiera implementar en el entorno de producción.
 
 5.  En la pestaña **Preview**, haga clic en **Start Preview**.
 
-    ![Botón StartPreview de la pestaña Preview ](./media/web-sites-dotnet-get-started-vs2013/GS13Preview.png)
+    ![Botón StartPreview de la pestaña Preview][Botón StartPreview de la pestaña Preview]
 
     En esta pestaña aparece la lista de archivos que se copiarán en el servidor. Para publicar la aplicación no es necesario mostrar la vista previa, pero se trata de una función útil que conviene conocer.
 
 6.  Haga clic en **Publicar**.
 
-    ![Salida de archivo StartPreview](./media/web-sites-dotnet-get-started-vs2013/GS13previewoutput.png)
+    ![Salida de archivo StartPreview][Salida de archivo StartPreview]
 
     Visual Studio comienza el proceso de copiar los archivos en el servidor de Azure.
 
     Las ventanas **Output** y **Web Publish Activity** muestran qué acciones de implementación se realizaron e informa de la correcta finalización de la implementación.
 
-    ![Ventana Resultado que informa de que la implementación se realizó correctamente](./media/web-sites-dotnet-get-started-vs2013/PublishOutput.png)
+    ![Ventana Resultado que informa de que la implementación se realizó correctamente][Ventana Resultado que informa de que la implementación se realizó correctamente]
 
     Una vez que la implementación se ha realizado correctamente, el explorador predeterminado abre automáticamente la dirección URL del sitio web implementado
     y la aplicación que ha creado se está ejecutando ya en la nube. La URL de la barra de direcciones del explorador muestra que el sitio se está cargando desde Internet.
 
-    ![Sitio web ejecutándose en Azure](./media/web-sites-dotnet-get-started-vs2013/GS13deployedsite.png)
+    ![Sitio web ejecutándose en Azure][Sitio web ejecutándose en Azure]
 
 7.  Cierre el explorador.
 
@@ -190,13 +188,13 @@ En esta sección del tutorial, va a cambiar el encabezado **h1** de la página p
 
 1.  Abra el archivo *Views/Home/Index.cshtml* o *.vbhtml* en el **Explorador de soluciones**, cambie el encabezado **h1** de "ASP.NET" a "ASP.NET and Azure" y guarde el archivo.
 
-    ![MVC index.cshtml](./media/web-sites-dotnet-get-started-vs2013/index.png)
+    ![MVC index.cshtml][MVC index.cshtml]
 
-    ![cambio en h1 de MVC](./media/web-sites-dotnet-get-started-vs2013/mvcandazure.png)
+    ![cambio en h1 de MVC][cambio en h1 de MVC]
 
 2.  Presione CTRL + F5 para ejecutar el sitio en su equipo local y ver el encabezado actualizado.
 
-    ![Sitio web ejecutándose de forma local](./media/web-sites-dotnet-get-started-vs2013/localandazure.png)
+    ![Sitio web ejecutándose de forma local][Sitio web ejecutándose de forma local]
 
     La dirección URL `http://localhost` muestra que se está ejecutando en su equipo local. De manera predeterminada, se ejecuta en IIS Express, que es una versión ligera de IIS diseñada para el desarrollo de aplicaciones web.
 
@@ -204,47 +202,47 @@ En esta sección del tutorial, va a cambiar el encabezado **h1** de la página p
 
 4.  En el **Explorador de soluciones**, haga clic con el botón secundario y seleccione **Publicar**.
 
-    ![Seleccionar Publicar](./media/web-sites-dotnet-get-started-vs2013/choosepublish.png)
+    ![Seleccionar Publicar][Seleccionar Publicar]
 
     En unos segundos aparece el asistente para **publicación web**. Si tuviera que cambiar alguna configuración de publicación podría elegir otra pestaña; sin embargo, ahora todo lo que desea es repetir la implementación con la misma configuración.
 
 5.  En el asistente para **publicación web**, haga clic en **Publicar**.
 
-    ![Haga clic en Publicar.](./media/web-sites-dotnet-get-started-vs2013/clickpublish.png)
+    ![Haga clic en Publicar.][Haga clic en Publicar.]
 
     Visual Studio implementa el proyecto en Azure y abre el sitio en el explorador predeterminado.
 
-    ![Implementación del sitio con cambios](./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png)
+    ![Implementación del sitio con cambios][Página principal del sitio web]
 
 **Sugerencia:** Habilite la barra de herramientas **Publicación web con un clic** para agilizar aún más la implementación. Haga clic en **Ver** \> **Barras de herramientas** y seleccione **Publicación web con un clic**. Esta barra de herramientas permite seleccionar un perfil, hacer clic en un botón para publicar o para abrir el asistente **Publicación web**.
 
-![Barra de herramientas Publicación en Web con un solo clic](./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png)
+![Barra de herramientas Publicación en Web con un solo clic][Barra de herramientas Publicación en Web con un solo clic]
 
 ## Supervisión y administración del sitio en el Portal de administración
 
 El [Portal de administración de Azure][Portal de administración de Azure] es una interfaz web que puede utilizar para administrar y supervisar todos los servicios de Azure, como el sitio web que acaba de crear. En esta sección del tutorial podrá ver algo de lo que puede hacer en el portal.
 
-1.  En el explorador, vaya a [http://manage.windowsazure.com]() e inicie sesión con sus credenciales de Azure.
+1.  En el explorador, vaya a [http://manage.windowsazure.com][http://manage.windowsazure.com] e inicie sesión con sus credenciales de Azure.
 
     El portal muestra una lista de los servicios de Azure.
 
 2.  Haga clic en el nombre del sitio web.
 
-    ![Página principal del portal con el nuevo sitio web destacado](./media/web-sites-dotnet-get-started-vs2013/portalhome.png)
+    ![Página principal del portal con el nuevo sitio web destacado][Página principal del portal con el nuevo sitio web destacado]
 
 3.  Haga clic en la pestaña **Panel**.
 
     La pestaña **Panel** muestra información general sobre las estadísticas de uso y vínculos a una serie de funciones de administración de sitios habituales. En **Vista rápida**, encontrará un vínculo a la página principal de su aplicación.
 
-    ![Pestaña Panel del sitio web en el portal](./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png)
+    ![Pestaña Panel del sitio web en el portal][Pestaña Panel del sitio web en el portal]
 
     En este momento, el sitio no ha tenido mucho tráfico aún y no puede mostrar nada en el gráfico. Si explora la aplicación, actualiza la página varias veces y después actualiza la página **Panel** del portal, verá que aparecen algunas estadísticas. Haga clic en la pestaña **Supervisar** para obtener más información.
 
-4.  Haga clic en la pestaña **Configure**.
+4.  Haga clic en la pestaña **Configurar**.
 
     La pestaña [Configurar][Configurar] permite controlar la versión de .NET Framework que se utiliza para el sitio, habilitar características como [WebSockets][WebSockets] y [registros de diagnóstico][registros de diagnóstico], establecer [valores de cadena de conexión][valores de cadena de conexión] y mucho más.
 
-    ![Pestaña Configurar del sitio web en el portal](./media/web-sites-dotnet-get-started-vs2013/portalconfigure.png)
+    ![Pestaña Configurar del sitio web en el portal][Pestaña Configurar del sitio web en el portal]
 
 5.  Haga clic en la pestaña **Scale**.
 
@@ -252,7 +250,7 @@ El [Portal de administración de Azure][Portal de administración de Azure] es u
 
     Puede escalar manualmente o configurar programaciones para escalado automático.
 
-    ![Pestaña Escalar del sitio web en el portal](./media/web-sites-dotnet-get-started-vs2013/portalscale.png)
+    ![Pestaña Escalar del sitio web en el portal][Pestaña Escalar del sitio web en el portal]
 
 Estas son solo algunas de las características del portal de administración. También puede crear sitios web nuevos, eliminar otros existentes, detener y reiniciar sitios, y administrar otros tipos de servicios de Azure, como bases de datos y máquinas virtuales.
 
@@ -286,7 +284,6 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
 
     -   [Configuración de un nombre de dominio personalizado para un sitio web de Azure][Configuración de un nombre de dominio personalizado para un sitio web de Azure].
     -   [Habilitación de HTTPS en un sitio web de Azure][Habilitación de HTTPS en un sitio web de Azure]
-
 -   Cómo evitar el tiempo de reactivación después de períodos de inactividad
 
     De forma predeterminada, los sitios web se descargan si han estado inactivos durante algún tiempo. La primera solicitud después de este tiempo de inactividad tiene que esperar para que el sitio se cargue de nuevo. Para evitar el tiempo de espera, puede habilitar la característica AlwaysOn. Para obtener más información, consulte las opciones de configuración en [Configuración de sitios web][Configuración de sitios web].
@@ -299,18 +296,13 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
 
     En Azure puede ejecutar aplicaciones web en Sitios web, como se muestra en este tutorial, o bien en Servicios en la nube o Máquinas virtuales. Para obtener más información, consulte [Modelos de ejecución de Azure][Modelos de ejecución de Azure] y [Sitios web, Servicios en la nube y Máquinas virtuales de Azure: cuándo usar cada uno][Sitios web, Servicios en la nube y Máquinas virtuales de Azure: cuándo usar cada uno].
 
-  [Visual Studio 2013]: /es-es/develop/net/tutorials/get-started/ "Visual Studio 2013"
-  [Visual Studio 2012]: /es-es/develop/net/tutorials/get-started-vs2012/ "Visual Studio 2012"
   [Página principal del sitio web]: ./media/web-sites-dotnet-get-started-vs2013/deployedandazure.png
-  [abrir una cuenta de Azure de manera gratuita]: /es-es/pricing/free-trial/?WT.mc_id=A261C142F
-  [activar las ventajas de suscriptor de MSDN]: /es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [Configuración del entorno de desarrollo]: #set-up-the-development-environment
   [Creación de una aplicación web ASP.NET en Visual Studio]: #create-an-aspnet-web-application
   [Implementación de la aplicación en Azure]: #deploy-the-application-to-azure
   [Realización de cambios y nueva implementación]: #make-a-change-and-redeploy
   [Supervisión y administración del sitio en el Portal de administración]: #monitor-and-manage-the-site-in-the-management-portal
   [Pasos siguientes]: #next-steps
-  [install-sdk-2013-only]: ../includes/install-sdk-2013-only.md
   [Diagrama que muestra los pasos de creación e implementación de un proyecto]: ./media/web-sites-dotnet-get-started-vs2013/createdeploydiagram.png
   [Cuadro de diálogo Nuevo proyecto]: ./media/web-sites-dotnet-get-started-vs2013/GS13newprojdb.png
   [MVC y Web Forms]: http://www.asp.net/get-started/websites
@@ -327,7 +319,7 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
   [Validar conexión]: ./media/web-sites-dotnet-get-started-vs2013/GS13ValidateConnection.png
   [Conexión validada correctamente]: ./media/web-sites-dotnet-get-started-vs2013/GS13ValidateConnectionSuccess.png
   [Pestaña Settings]: ./media/web-sites-dotnet-get-started-vs2013/GS13SettingsTab.png
-  [Botón StartPreview de la pestaña Preview ]: ./media/web-sites-dotnet-get-started-vs2013/GS13Preview.png
+  [Botón StartPreview de la pestaña Preview]: ./media/web-sites-dotnet-get-started-vs2013/GS13Preview.png
   [Salida de archivo StartPreview]: ./media/web-sites-dotnet-get-started-vs2013/GS13previewoutput.png
   [Ventana Resultado que informa de que la implementación se realizó correctamente]: ./media/web-sites-dotnet-get-started-vs2013/PublishOutput.png
   [Sitio web ejecutándose en Azure]: ./media/web-sites-dotnet-get-started-vs2013/GS13deployedsite.png
@@ -337,7 +329,8 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
   [Seleccionar Publicar]: ./media/web-sites-dotnet-get-started-vs2013/choosepublish.png
   [Haga clic en Publicar.]: ./media/web-sites-dotnet-get-started-vs2013/clickpublish.png
   [Barra de herramientas Publicación en Web con un solo clic]: ./media/web-sites-dotnet-get-started-vs2013/weboneclickpublish.png
-  [Portal de administración de Azure]: /es-es/services/management-portal/ 
+  [Portal de administración de Azure]: /es-es/services/management-portal/
+  [http://manage.windowsazure.com]: 
   [Página principal del portal con el nuevo sitio web destacado]: ./media/web-sites-dotnet-get-started-vs2013/portalhome.png
   [Pestaña Panel del sitio web en el portal]: ./media/web-sites-dotnet-get-started-vs2013/portaldashboard.png
   [Configurar]: /es-es/documentation/articles/web-sites-configure//

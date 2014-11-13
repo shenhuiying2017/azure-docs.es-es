@@ -1,10 +1,10 @@
-<properties pageTitle="Customizing the developer portal in Azure API Management" metaKeywords="" description="Customizing the developer portal in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="Customizing the developer portal in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+<properties pageTitle="Personalizaci&oacute;n del portal de desarrolladores en Administraci&oacute;n de API de Azure" metaKeywords="" description="Personalizaci&oacute;n del portal de desarrolladores en Administraci&oacute;n de API de Azure" metaCanonical="" services="api-management" documentationCenter="API Management" title="Personalizaci&oacute;n del portal de desarrolladores en Administraci&oacute;n de API de Azure" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Personalización del portal de desarrolladores en Administración de API de Azure
 
-En esta guía se muestra cómo modificar la apariencia del portal de desarrolladores en Administración de API (versión en vista previa) a fin de unificarlo con su imagen de marca.
+En esta guía se muestra cómo modificar la apariencia del portal de desarrolladores en Administración de API a fin de unificarlo con su imagen de marca.
 
 ## En este tema
 
@@ -47,7 +47,7 @@ Cada una de las reglas representa un propiedad de estilo del elemento selecciona
 
 > Si está familiarizado con [bootstrap][bootstrap], estas reglas son en realidad [variables LESS][variables LESS] del tema de bootstrap utilizado por el portal de desarrolladores.
 
-Ahora cambiaremos el color del texto del encabezado. Seleccione la entrada en el campo <**@headings-color*>\* y escriba \#000000. Este es el código hexadecimal para el color negro. Cuando esté haciendo esto verá que aparece un cuadrado indicador de color al final del cuadro de texto. Si hace clic en este indicador, un selector de colores le permitirá elegir un color.
+Ahora cambiaremos el color del texto del encabezado. Seleccione la entrada en el campo **@headings-color** y escriba \#000000. Este es el código hexadecimal para el color negro. Cuando esté haciendo esto verá que aparece un cuadrado indicador de color al final del cuadro de texto. Si hace clic en este indicador, un selector de colores le permitirá elegir un color.
 
 ![Color picker][Color picker]
 

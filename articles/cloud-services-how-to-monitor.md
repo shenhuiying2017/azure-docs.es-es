@@ -1,6 +1,6 @@
-<properties linkid="manage-services-how-to-monitor-a-cloud-service" urlDisplayName="How to monitor" pageTitle="How to monitor a cloud service - Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="Learn how to monitor cloud services by using the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Monitor Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="How to monitor" pageTitle="Supervisi&oacute;n de un servicio en la nube - Azure" metaKeywords="Azure monitoring cloud services, Azure Management Portal cloud services" description="Vea c&oacute;mo supervisar servicios en la nube usando el Portal de administraci&oacute;n de Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="Supervisi&oacute;n de servicios en la nube" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 
 # Supervisión de servicios en la nube
 
@@ -24,7 +24,7 @@ En el Portal de administración, puede configurar muchos parámetros de las visu
 De forma predeterminada, para un servicio en la nube nuevo, se proporciona la supervisión mínima con contadores de rendimiento recopilados del sistema operativo host para las instancias de los roles (máquinas virtuales). Las métricas mínimas se limitan a porcentaje de CPU, datos de entrada, datos de salida, rendimiento de lectura de disco y rendimiento de escritura de disco. Al configurar la supervisión detallada, puede recibir métricas adicionales en función de los datos de rendimiento de las máquinas virtuales (instancias de rol). Las métricas detalladas facilitan el análisis preciso de los problemas que se producen durante las operaciones de las aplicaciones.
 
 > [WACOM.NOTE]
-> Si utiliza la supervisión detallada, puede agregar más contadores de rendimiento en el inicio de la instancia de rol, a través de un archivo de configuración de diagnóstico, o de forma remota con la API de diagnóstico de Azure. Para poder supervisar estas métricas en el Portal de administración, debe agregar los contadores de rendimiento antes de configurar la supervisión detallada. Para obtener más información, consulte [Recopilar datos de registro mediante Diagnósticos de Azure][Recopilar datos de registro mediante Diagnósticos de Azure] y [Crear y utilizar contadores de rendimiento en una aplicación de Azure][Crear y utilizar contadores de rendimiento en una aplicación de Azure].
+> Si utiliza supervisión detallada, puede agregar más contadores de rendimiento en el inicio de la instancia de rol, a través de un archivo de configuración de diagnóstico. Para poder supervisar estas métricas en el Portal de administración, debe agregar los contadores de rendimiento antes de configurar la supervisión detallada. Para obtener más información, consulte [Habilitación de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure][Habilitación de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure].
 
 De forma predeterminada, los datos del contador de rendimiento de las instancias de los roles se muestrean y transfieren desde la instancia de rol en intervalos de 3 minutos. Al activar la supervisión detallada, los datos del contador de rendimiento se agregan para cada instancia de rol y entre las instancias de rol de cada rol en intervalos de 5 minutos, 1 hora y 12 horas. Los datos agregados se eliminan después de 10 días.
 
@@ -41,7 +41,7 @@ Utilice los siguientes procedimientos para configurar la supervisión detallada 
 -   Cree una cuenta de almacenamiento para almacenar los datos de supervisión. Puede utilizar cuentas de almacenamiento diferentes para roles diferentes. Para obtener más información, consulte la ayuda de **Cuentas de almacenamiento** o consulte [Creación de una cuenta de almacenamiento][Creación de una cuenta de almacenamiento].
 
 -   Active Diagnósticos de Azure en sus roles de servicios en la nube.
-    Debe actualizar el archivo de definiciones de los servicios en la nube (.csdef) y el archivo de configuración de los servicios en la nube (.cscfg). Para obtener más información, consulte [Configurar Diagnósticos de Azure][Configurar Diagnósticos de Azure].
+    Para obtener más información, consulte [Habilitación de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure][1].
 
 En el Portal de administración, puede agregar o modificar las cadenas de conexión de diagnósticos que Diagnósticos de Azure utiliza para tener acceso a las cuentas de almacenamiento que almacenan datos de supervisión detallada, y puede configurar el nivel de supervisión a detallado o mínimo. Dado que la supervisión detallada almacena los datos en una cuenta de almacenamiento, debe configurar las cadenas de conexión de diagnósticos antes de configurar la supervisión en un nivel detallado.
 
@@ -107,10 +107,12 @@ Puede recibir alertas basadas en las métricas de supervisión de los servicios 
 
     Puede visualizar hasta 50 métricas en la tabla de métricas.
 
-    <div class="dev-callout"> 
-<b>Consejo</b> 
-<p>En la supervisi&oacute;n detallada, la lista de m&eacute;tricas puede contener muchas m&eacute;tricas. Para mostrar una barra de desplazamiento, desplace el rat&oacute;n sobre el lado derecho del cuadro de di&aacute;logo. Para filtrar la lista, haga clic en el icono de b&uacute;squeda y escriba en texto en el cuadro de b&uacute;squeda como se muestra a continuaci&oacute;n.</p> 
-</div>
+    <div class="dev-callout">
+
+    **Consejo**
+    En la supervisión detallada, la lista de métricas puede contener muchas métricas. Para mostrar una barra de desplazamiento, desplace el ratón sobre el lado derecho del cuadro de diálogo. Para filtrar la lista, haga clic en el icono de búsqueda y escriba en texto en el cuadro de búsqueda como se muestra a continuación.
+
+    </div>
 
     ![Búsqueda de Agregar métricas][Búsqueda de Agregar métricas]
 
@@ -176,19 +178,17 @@ Por ejemplo, las tablas siguientes almacenarían datos de supervisión detallado
 
     WAD8b7c4233802442b494d0cc9eb9d8dd9fPT1HRITable (hourly aggregations for role instances)
 
-  [disclaimer]: ../includes/disclaimer.md
   [Conceptos]: #concepts
   [Direccionamiento del la supervisión para los servicios en la nube]: #verbose
   [Direccionamiento del alertas de las métricas de los servicios en la nube]: #receivealerts
   [Direccionamiento del métricas en la tabla de métricas]: #addmetrics
   [Direccionamiento del gráfico de métricas]: #customizechart
   [Direccionamiento del los datos de supervisión detallada fuera del Portal de administración]: #accessverbose
-  [Recopilar datos de registro mediante Diagnósticos de Azure]: http://msdn.microsoft.com/es-es/library/gg433048.aspx
-  [Crear y utilizar contadores de rendimiento en una aplicación de Azure]: http://msdn.microsoft.com/es-es/library/hh411542.aspx
+  [Habilitación de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure]: http://azure.microsoft.com/es-es/documentation/articles/cloud-services-dotnet-diagnostics/
   [Creación de una cuenta de almacenamiento]: /es-es/manage/services/storage/how-to-create-a-storage-account/
-  [Configurar Diagnósticos de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/dn186185.aspx
+  [1]: /es-es/documentation/articles/cloud-services-dotnet-diagnostics/
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  [Administración de servicios en la nube]: http://www.windowsazure.com/es-es/manage/services/cloud-services/how-to-manage-a-cloud-service/
+  [Administración de servicios en la nube]: /es-es/documentation/articles/cloud-services-how-to-manage/
   [Opciones de supervisión]: ./media/cloud-services-how-to-monitor/CloudServices_MonitoringOptions.png
   [Inserción de notificaciones de alerta y administración de reglas de alerta en Azure]: http://go.microsoft.com/fwlink/?LinkId=309356
   [Portal de administración]: http://manage.windowsazure.com/

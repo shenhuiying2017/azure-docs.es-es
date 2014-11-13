@@ -28,7 +28,7 @@ Siga estos pasos para instalar y ejecutar MongoDB en una máquina virtual con Ce
         $ sudo mkdir -p /srv/datadrive/data
         $ sudo chown `id -u` /srv/datadrive/data
 
-    Para obtener más información sobre la instalación de MongoDB en Linux, consulte [Quickstart Unix][].
+    Para obtener más información sobre la instalación de MongoDB en Linux, consulte [Quickstart Unix][Quickstart Unix].
 
 5.  Para iniciar la base de datos, ejecute:
 
@@ -52,7 +52,7 @@ Siga estos pasos para instalar y ejecutar MongoDB en una máquina virtual con Ce
 
 7.  Cuando MongoDB esté instalado, debe configurar un extremo para que pueda obtenerse acceso a MongoDB de manera remota. En el Portal de administración, haga clic en **Máquinas virtuales**, en el nombre de la nueva máquina virtual y, a continuación, en **Endpoints**.
 
-    ![Extremos][]
+    ![Extremos][Extremos]
 
 8.  Haga clic en **Add Endpoint** en la parte inferior de la página.
 
@@ -62,7 +62,6 @@ Siga estos pasos para instalar y ejecutar MongoDB en una máquina virtual con Ce
 
     ![Extremos][2]
 
-  [Security and Authentication]: http://www.mongodb.org/display/DOCS/Security+and+Authentication
   [Quickstart Unix]: http://www.mongodb.org/display/DOCS/Quickstart+Unix
   [Extremos]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint.png
   [1]: ./media/install-and-run-mongo-on-centos-vm/LinuxVmAddEndpoint2.png

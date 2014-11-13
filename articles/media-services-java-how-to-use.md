@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-how-to-guides-media-services-java" urlDisplayName="Media Services" pageTitle="How to use Media Services (Java) - Azure feature guide" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="Describes how to use Azure Media Services to perform common tasks including encoding, encrypting, and streaming resources." metaCanonical="" services="media-services" documentationCenter="Java" title="How to Use Media Services" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Media Services" pageTitle="Uso de Servicios multimedia (Java): gu&iacute;a de caracter&iacute;sticas de Azure" metaKeywords="Azure Media Services, Azure media, Azure streaming, azure media, azure streaming, azure encoding" description="Describe c&oacute;mo usar Servicios multimedia de Azure para realizar tareas comunes como codificaci&oacute;n, cifrado y recursos de streaming." metaCanonical="" services="media-services" documentationCenter="Java" title="Uso de Servicios multimedia" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Uso de Servicios multimedia
 
@@ -11,7 +11,7 @@ En esta guía se muestra cómo empezar a programar con Servicios multimedia de A
 -   [¿Qué son los Servicios multimedia?][¿Qué son los Servicios multimedia?]
 -   [Configuración de una cuenta de Azure para Servicios multimedia][Configuración de una cuenta de Azure para Servicios multimedia]
 -   [Configuración de la implementación de Servicios multimedia][Configuración de la implementación de Servicios multimedia]
--   [Uso de Servicios multimedia con Java][Uso de Servicios multimedia con Java]
+-   [Direccionamiento del Servicios multimedia con Java][Direccionamiento del Servicios multimedia con Java]
 -   [Recursos adicionales][Recursos adicionales]
 
 ## <a name="what-are"></a><span class="short header">¿Qué son los Servicios multimedia?</span>¿Qué son los Servicios multimedia?
@@ -28,10 +28,10 @@ La versión actual de Servicios multimedia ofrece el siguiente conjunto de carac
 
 -   **Introducción**. Las operaciones de introducción introducen los recursos en el sistema, por ejemplo mediante su carga y cifrado antes de que se coloquen en el servicio de almacenamiento de Azure. En la versión RTM, Servicios multimedia ofrecerá integración con los componentes de socios para proporcionar soluciones de carga de UDP (protocolo de datagramas de usuario).
 -   **Codificación**. Las operaciones de codificación incluyen la codificación, transformación y conversión de recursos multimedia. Puede ejecutar tareas de codificación en la nube usando el Codificador multimedia incluido en Servicios multimedia. Las opciones de codificación incluyen las siguientes:
-   - Use el codificador multimedia de Azure y trabaje con una amplia variedad de códecs y formatos estándar, incluidos la Transmisión por secuencias suave IIS líder del sector, MP4 y la conversión a Transmisión por secuencias en directo HTTP de Apple.
-   - Convierta bibliotecas enteras o archivos individuales con un control total sobre la entrada y la salida.
-   - Un conjunto grande de tipos de archivo, formatos y códecs compatibles (vea [Tipos de archivo compatibles para Servicios multimedia][Tipos de archivo compatibles para Servicios multimedia]).
-   - Conversiones de formato compatibles. Los Servicios multimedia le permiten convertir ISO MP4 (.mp4) a Formato de archivo de transmisión por secuencias suave (PIFF 1.3) (.ismv; .isma). También puede convertir Formato de archivo de transmisión por secuencias suave (PIFF) a Transmisión por secuencias en directo HTTP de Apple (.msu8, .ts).
+-   Use el codificador multimedia de Azure y trabaje con una amplia variedad de códecs y formatos estándar, incluidos la Transmisión por secuencias suave IIS líder del sector, MP4 y la conversión a Transmisión por secuencias en directo HTTP de Apple.
+-   Convierta bibliotecas enteras o archivos individuales con un control total sobre la entrada y la salida.
+-   Un conjunto grande de tipos de archivo, formatos y códecs compatibles (vea [Tipos de archivo compatibles para Servicios multimedia][Tipos de archivo compatibles para Servicios multimedia]).
+-   Conversiones de formato compatibles. Los Servicios multimedia le permiten convertir ISO MP4 (.mp4) a Formato de archivo de transmisión por secuencias suave (PIFF 1.3) (.ismv; .isma). También puede convertir Formato de archivo de transmisión por secuencias suave (PIFF) a Transmisión por secuencias en directo HTTP de Apple (.msu8, .ts).
 -   **Protección**. La protección de contenido implica el cifrado de la transmisión en directo o contenido bajo demanda de cara a la seguridad en la entrega, el almacenamiento y el transporte. Los Servicios multimedia ofrecen una solución independiente de la tecnología DRM para proteger el contenido. Las tecnologías DRM compatibles actualmente son la protección Microsoft PlayReady y cifrado común de MPEG. También habrá compatibilidad con tecnologías DRM adicionales.
 -   **Transmisión**. La transmisión de contenido implica el envío de este en directo o bajo demanda a los clientes, o puede recuperar o descargar archivos multimedia específicos desde la nube. Los Servicios multimedia ofrecen una solución independiente del formato para el contenido por secuencias. Los Servicios multimedia proporcionan compatibilidad con el origen de la transmisión en formatos MP4, Transmisión por secuencias en directo HTTP de Apple y Transmisión por secuencias suave. Se ofrecerá compatibilidad con formatos adicionales. También puede entregar directamente contenido por secuencias usando CDN de Azure o de terceros, que permite la opción de realizar una escalación a millones de usuarios.
 
@@ -498,7 +498,7 @@ Para obtener la documentación de Javadoc de Servicios multimedia, consulte [Doc
   [¿Qué son los Servicios multimedia?]: #what-are
   [Configuración de una cuenta de Azure para Servicios multimedia]: #setup-account
   [Configuración de la implementación de Servicios multimedia]: #setup-dev
-  [Uso de Servicios multimedia con Java]: #connect
+  [Direccionamiento del Servicios multimedia con Java]: #connect
   [Recursos adicionales]: #additional-resources
   [Arquitectura de Servicios multimedia]: ./media/media-services-dotnet-how-to-use/wams-01.png
   [Desarrollo de clientes de los Servicios multimedia]: http://msdn.microsoft.com/es-es/library/windowsazure/dn223283.aspx

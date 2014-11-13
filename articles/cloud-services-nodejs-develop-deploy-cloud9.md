@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-cloud9" urlDisplayName="Deploying with Cloud9" pageTitle="Node.js deploying with Cloud9 - Azure tutorial" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="Learn how to use Cloud9 IDE to develop, build, and deploy a Node.js application to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Deploying an Azure App from Cloud9" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Deploying with Cloud9" pageTitle="Implementaci&oacute;n de Node.js con Cloud9 - Tutorial de Azure" metaKeywords="Cloud9 IDE Azure, Azure node.js, Azure node apps" description="Aprenda a utilizar Cloud9 IDE para desarrollar, compilar e implementar una aplicaci&oacute;n Node.js en Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Implementaci&oacute;n de una aplicaci&oacute;n de Azure desde Cloud9" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Implementación de una aplicación de Azure desde Cloud9
 
@@ -46,13 +46,18 @@ proporciona más características. Para obtener más información, consulte [Clo
     ![Cuadro de diálogo de creación de proyecto nuevo en Cloud9][Cuadro de diálogo de creación de proyecto nuevo en Cloud9]
 
     <div class="dev-callout">
-<strong>Nota:</strong>
-<p>Algunas opciones requieren un plan de pago de Cloud9.</p>
-</div>
-   <div class="dev-callout">
-<strong>Nota:</strong>
-<p>No se utiliza el nombre del proyecto de su proyecto de Cloud9 cuando se implementa en Azure.</p>
-</div>
+
+    **Nota:**
+    Algunas opciones requieren un plan de pago de Cloud9.
+
+    </div>
+
+    <div class="dev-callout">
+
+    **Nota:**
+    No se utiliza el nombre del proyecto de su proyecto de Cloud9 cuando se implementa en Azure.
+
+    </div>
 
 3.  Después de que se haya creado el proyecto, haga clic en **Start Editing**. Si esta es la primera vez que utiliza Cloud9 IDE, se le ofrecerá la opción de realizar un recorrido por el servicio. Si desea omitir el recorrido y verlo después, seleccione **Just the editor,please**.
 
@@ -75,26 +80,32 @@ proporciona más características. Para obtener más información, consulte [Clo
         }).listen(port);
 
     <div class="dev-callout">
-<strong>Nota:</strong>
-<p>El uso de process.env.PORT asegura que la aplicaci&oacute;n seleccione el puerto correcto si se ejecuta en el depurador de Cloud9 o si se implementa en Azure.</p>
-</div>
+
+    **Nota:**
+    El uso de process.env.PORT asegura que la aplicación seleccione el puerto correcto si se ejecuta en el depurador de Cloud9 o si se implementa en Azure.
+
+    </div>
 
 6.  Para guardar el código, seleccione **File** y, a continuación, **Save as**. En el cuadro de diálogo
     **Guardar como**, escriba **server.js** como el nombre del archivo y
     haga clic en**Guardar**.
 
     <div class="dev-callout">
-<strong>Nota:</strong>
-<p>Es posible que vea un s&iacute;mbolo de advertencia que indica que la variable req no se ha usado. Puede ignorar esta advertencia de forma segura.</p>
-</div>
+
+    **Nota:**
+    Es posible que vea un símbolo de advertencia que indica que la variable req no se ha usado. Puede ignorar esta advertencia de forma segura.
+
+    </div>
 
     ![Guardar el archivo server.js][Guardar el archivo server.js]
 
 ## Ejecución de la aplicación
 
 <div class="dev-callout">
-<strong>Nota:</strong>
-<p>Aun cuando los pasos que se proporcionan en esta secci&oacute;n son suficientes para una aplicaci&oacute;n Hello World, es posible que para las aplicaciones que usan m&oacute;dulos externos tenga que seleccionar una versi&oacute;n espec&iacute;fica de Node.js para el entorno de depuraci&oacute;n. Para hacer esto, seleccione <strong>Configure...</strong> desde la ventana desplegable de depuraci&oacute;n y, a continuaci&oacute;n, seleccione la versi&oacute;n espec&iacute;fica de Node.js. Por ejemplo, es posible que reciba errores de autenticaci&oacute;n al usar el m&oacute;dulo &quot;azure&quot; si no selecciona Node.js 0.6.x.</p>
+
+**Nota:**
+Aun cuando los pasos que se proporcionan en esta sección son suficientes para una aplicación Hello World, es posible que para las aplicaciones que usan módulos externos tenga que seleccionar una versión específica de Node.js para el entorno de depuración. Para hacer esto, seleccione **Configure...** desde la ventana desplegable de depuración y, a continuación, seleccione la versión específica de Node.js. Por ejemplo, es posible que reciba errores de autenticación al usar el módulo "azure" si no selecciona Node.js 0.6.x.
+
 </div>
 
 1.  Haga clic en **Debug** para ejecutar la aplicación en el depurador de Cloud9.
@@ -152,14 +163,18 @@ mediante los siguientes pasos:
     ![Creación de un servicio hospedado][Creación de un servicio hospedado]
 
     <div class="dev-callout">
-<strong>Nota:</strong>
-<p>En el cuadro de di&aacute;logo <strong>Add a deploy target</strong>, todo servicio hospedado de Azure existente se mencionar&aacute; en la secci&oacute;n <strong>Choose existing deployment</strong>; la selecci&oacute;n de un servicio hospedado existente tiene como resultado que este proyecto se implemente en ese servicio.</p>
-</div>
 
- 
-<strong>Nota:</strong>
-<p>La selecci&oacute;n de <strong>Enable RDP</strong> y la especificaci&oacute;n de un nombre de usuario y contrase&ntilde;a habilitar&aacute; un escritorio remoto para su implementaci&oacute;n.</p>
-</div>
+    **Nota:**
+    En el cuadro de diálogo **Add a deploy target**, todo servicio hospedado de Azure existente se mencionará en la sección **Choose existing deployment**; la selección de un servicio hospedado existente tiene como resultado que este proyecto se implemente en ese servicio.
+
+    </div>
+
+    <div class="dev-callout">
+
+    **Nota:**
+    La selección de **Enable RDP** y la especificación de un nombre de usuario y contraseña habilitará un escritorio remoto para su implementación.
+
+    </div>
 
 ## Implementación en el entorno de producción de Azure
 
@@ -189,9 +204,11 @@ mediante los siguientes pasos:
     ![Estado de la implementación][Estado de la implementación]
 
     <div class="dev-callout">
-<strong>Nota:</strong>
-<p>A los proyectos que se implementan mediante Cloud 9 IDE se les asigna una GUID como nombre de implementaci&oacute;n en Azure.</p>
-</div>
+
+    **Nota:**
+    A los proyectos que se implementan mediante Cloud 9 IDE se les asigna una GUID como nombre de implementación en Azure.
+
+    </div>
 
 8.  El cuadro de diálogo de la implementación incluye un vínculo a la URL de producción. Cuando se complete la implementación, haga clic en la URL para dirigirse a su aplicación que se ejecuta en Azure.
 
@@ -270,9 +287,10 @@ Cuando haga clic en Connect, se le solicitará abrir o descargar un archivo .RDP
 instancia seleccionada.
 
 <div class="dev-callout">
-<strong>Nota:</strong>
-<p>El archivo .RDP para conectarse a la instancia hospedada de su aplicaci&oacute;n solo funcionar&aacute; con la aplicaci&oacute;n Escritorio remoto de
-Windows.</p>
+
+**Nota:**
+El archivo .RDP para conectarse a la instancia hospedada de su aplicación solo funcionará con la aplicación Escritorio remoto de Windows.
+
 </div>
 
 ## Detención y eliminación de la aplicación
@@ -309,7 +327,6 @@ Cloud9 se centra en proporcionar un IDE y no proporciona un método directo para
   [Ejecución en el depurador]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug.png
   [Ventana de salida]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_output.png
   [Aplicación que se ejecuta en el explorador]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_debug_browser.png
-  [create-azure-account]: ../includes/create-azure-account.md
   [Descarga de configuración de publicación]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_choosetypeandcert.png
   [Overview of Creating a Hosted Service for Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/jj155995.aspx
   [Creación de una implementación]: ./media/cloud-services-nodejs-develop-deploy-cloud9/cloud9_createdeployment.png

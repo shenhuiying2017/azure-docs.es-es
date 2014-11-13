@@ -1,12 +1,12 @@
-<properties linkid="python-hdinsight" urlDisplayName="Python with HDInsight" pageTitle="Use Python with Hive and Pig in Azure HDInsight" metaKeywords="" description="Learn how to use Python User Defined Functions (UDF) from Hive and Pig in Azure HDInsight." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Python with Hive and Pig in HDInsight" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Python with HDInsight" pageTitle="Uso de Python con Hive y Pig en HDInsight de Azure" metaKeywords="" description="Vea c&oacute;mo utilizar funciones definidas por el usuario (UDF) de Python desde Hive y Pig en HDInsight de Azure." metaCanonical="" services="hdinsight" documentationCenter="" title="Uso de Python con Hive y Pig en HDInsight" authors="larryfr" solutions="" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Uso de Python con Hive y Pig en HDInsight
 
 Hive y Pig resultan excelentes para trabajar con datos en HDInsight, pero en ocasiones se necesita un lenguaje con una finalidad más general. Tanto Hive como Pig le permiten crear funciones definidas por el usuario (UDF) mediante diversos lenguajes de programación. En este artículo, aprenderá a usar una UDF de Python desde Hive y Pig.
 
-> [WACOM.NOTE] Los pasos de este artículo se aplican a la vista previa de las versiones de clúster de HDInsight 2.1, 3.0 y 3.1.
+> [WACOM.NOTE] Los pasos de este artículo se aplican a las versiones de clúster de HDInsight 2.1, 3.0 y 3.1.
 
 ## Tabla de contenido
 
@@ -112,7 +112,7 @@ Este es el archivo **jython.py** usado en el ejemplo de Pig:
 
 Recuerde que anteriormente hemos definido la entrada **LINE** como una chararray porque no hay un esquema coherente para la entrada. Lo que hace **jython.py** es transformar los datos en un esquema coherente para la salida. Funciona de la siguiente manera:
 
-1.  La instrucción <**@outputSchema*>\* define el formato de los datos que se devolverán a Pig. En este caso es un **contenedor de datos**, que es un tipo de datos de Pig. El contenedor contiene los siguientes campos, los cuales son todos chararray (cadenas):
+1.  La instrucción **@outputSchema** define el formato de los datos que se devolverán a Pig. En este caso es un **contenedor de datos**, que es un tipo de datos de Pig. El contenedor contiene los siguientes campos, los cuales son todos chararray (cadenas):
 
     -   date: la fecha en la que se creó la entrada del registro
     -   time: la hora a la que se creó la entrada del registro
@@ -128,7 +128,7 @@ Recuerde que anteriormente hemos definido la entrada **LINE** como una chararray
 
 5.  Finalmente, los valores se devuelven a Pig.
 
-Es entonces cuando tendremos un esquema coherente tal y como se define en la instrucción <**@outputSchema*>\*.
+Es entonces cuando tendremos un esquema coherente tal y como se define en la instrucción **@outputSchema**.
 
 Consulte [Ejecución de los ejemplos][Ejecución de los ejemplos] para obtener información sobre cómo ejecutar este ejemplo en su clúster de HDInsight.
 
@@ -159,7 +159,7 @@ En los pasos que se indican a continuación se usa Windows Azure PowerShell. Si 
 
 ### Uso del panel de Hive (solo ejemplo de Hive)
 
-1.  Después de cargar el archivo, abra un explorador y vaya a <https://YourClusterName.azurehdinsight.net/>. Cuando se le pidan las credenciales, escriba el nombre de usuario y la contraseña de administración del clúster.
+1.  Después de cargar el archivo, abra un explorador y vaya a https://YourClusterName.azurehdinsight.net/. Cuando se le pidan las credenciales, escriba el nombre de usuario y la contraseña de administración del clúster.
 
     > [WACOM.NOTE] También puede usar el vínculo **Administrar clúster** en la parte inferior del **panel** de HDInsight en el Portal de administración de Azure para iniciar el panel de Hive.
 

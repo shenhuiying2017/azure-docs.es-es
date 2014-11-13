@@ -1,4 +1,4 @@
-<properties linkid="hdinsight-dotnet-avro-serialization" urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="Serialize data with the Microsoft .NET Library for Avro | Azure" metaKeywords="" description="Learn how Azure HDInsight uses Avro to serialize big data." metaCanonical="" services="hdinsight" documentationCenter="" title="Serialize data with the Microsoft .NET Library for Avro " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="HDInsight Microsoft .NET Library for Serialization with Avro" pageTitle="Serializaci&oacute;n de datos con la biblioteca de Microsoft .NET para Avro | Azure" metaKeywords="" description="Obtenga informaci&oacute;n sobre c&oacute;mo HDInsight de Azure usa Avro para serializar grandes vol&uacute;menes de datos." metaCanonical="" services="hdinsight" documentationCenter="" title="Serializaci&oacute;n de datos con la biblioteca de Microsoft .NET para Avro " authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
 
@@ -1304,12 +1304,22 @@ El ejemplo siguiente muestra cómo usar un códec de compresión personalizado p
 
   [JSON]: http://www.json.org
   [Especificaciones de Apache Avro]: http://avro.apache.org/docs/current/spec.html
+  [**AvroRecord**]: http://msdn.microsoft.com/es-es/library/microsoft.hadoop.avro.avrorecord.aspx
   [Microsoft .NET Framework 4.0]: http://www.microsoft.com/es-es/download/details.aspx?id=17851
   [Newtonsoft Json.NET]: http://james.newtonking.com/json
   [ejemplos de código de Azure]: http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-86055923
   [1]: http://code.msdn.microsoft.com/windowsazure/Serialize-data-with-the-67159111
+  [**Serialización mediante el uso de reflexión**]: #Scenario1
+  [**Serialización mediante el uso de un registro genérico**]: #Scenario2
+  [**Serialización mediante el uso de archivos contenedores de objetos con reflexión**]: #Scenario3
   [**Serialización mediante el uso de archivos contenedores de objetos con un registro genérico**]: #Scenario4
+  [**Serialización mediante el uso de archivos contenedores de objetos con un códec de compresión personalizado**]: #Scenario5
+  [**IAvroSeralizer<t>**]: http://msdn.microsoft.com/es-es/library/dn627341.aspx
+  [**AvroContainer**]: http://msdn.microsoft.com/es-es/library/microsoft.hadoop.avro.container.avrocontainer.aspx
+  [**SequentialWriter<sensordata>**]: http://msdn.microsoft.com/es-es/library/dn627340.aspx
+  [**Deflate**]: http://msdn.microsoft.com/es-es/library/system.io.compression.deflatestream(v=vs.100).aspx
   [2]: http://msdn.microsoft.com/es-es/library/system.io.compression.deflatestream(v=vs.110).aspx
+  [**Codex.Null**]: http://msdn.microsoft.com/es-es/library/microsoft.hadoop.avro.container.codec.null.aspx
   [Especificaciones de Avro]: http://avro.apache.org/docs/current/spec.html#Required+Codecs
   [3]: http://avro.apache.org/docs/current/spec.html#snappy
   [zlib]: http://zlib.net/

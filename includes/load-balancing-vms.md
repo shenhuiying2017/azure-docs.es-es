@@ -1,6 +1,6 @@
-<properties title="Load Balancing for Azure Infrastructure Services" pageTitle="Load Balancing for Azure Infrastructure Services" description="Describes the facilities to perform load balancing with Traffic Manager and load balancer." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt" />
+<properties title="Equilibrio de carga para Servicios de infraestructura de Azure" pageTitle="Equilibrio de carga para Servicios de infraestructura de Azure" description="Describe los recursos para conseguir el equilibrio de carga con el Administrador de tr&aacute;fico y el equilibrador de carga." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="cherylmc" videoId="" scriptId="" manager="adinah" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="josephd"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="cherylmc" />
 
 # Equilibrio de carga para Servicios de infraestructura de Azure
 
@@ -21,11 +21,11 @@ El Administrador de tráfico de Azure utiliza tres métodos de equilibrio de car
 -   **Rendimiento**: Utilice este método cuando tenga extremos en diferentes ubicaciones geográficas y desee solicitar a los clientes que usen el extremo “más cercano” en términos de la latencia más baja.
 -   **Round robin:** use este método cuando desee distribuir la carga entre un conjunto de servicios en la nube en el mismo centro de datos o entre servicios en la nube o sitios en diferentes centros de datos.
 
-Para obtener más información, consulte [Acerca de los métodos de equilibrio de carga del Administrador de tráfico][].
+Para obtener más información, consulte [Acerca de los métodos de equilibrio de carga del Administrador de tráfico][Acerca de los métodos de equilibrio de carga del Administrador de tráfico].
 
 En la figura siguiente se muestra un ejemplo del método de equilibrio de carga Round Robin para la distribución del tráfico entre diferentes servicios en la nube.
 
-![equilibrio de carga][]
+![equilibrio de carga][equilibrio de carga]
 
 El proceso básico es el siguiente:
 
@@ -34,7 +34,7 @@ El proceso básico es el siguiente:
 3.  El Administrador de tráfico devuelve el nombre DNS del servicio en la nube en la lista de Round Robin. El servidor DNS del cliente de Internet resuelve el nombre en una dirección IP y lo envía al cliente de Internet.
 4.  El cliente de Internet se conecta con el servicio en la nube elegido.
 
-Para obtener más información, consulte [Administrador de tráfico][].
+Para obtener más información, consulte [Administrador de tráfico][Administrador de tráfico].
 
 ## Equilibrio de carga de Azure para máquinas virtuales
 
@@ -46,7 +46,7 @@ En la siguiente imagen se muestra un extremo con equilibrio de carga para tráfi
 
 ![equilibrio de carga][1]
 
-Para obtener más información, consulte [Equilibrador de carga de Azure][]. Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un conjunto de carga equilibrada][].
+Para obtener más información, consulte [Equilibrador de carga de Azure][Equilibrador de carga de Azure]. Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un conjunto de carga equilibrada][Configurar un conjunto de carga equilibrada].
 
 Azure también puede equilibrar la carga en un servicio en la nube o una red virtual. Esto se conoce como equilibrio de carga interno y se puede usar de las siguientes maneras:
 
@@ -60,7 +60,7 @@ En la figura siguiente se muestra un ejemplo de un extremo con carga equilibrada
 
 ![equilibrio de carga][2]
 
-Para obtener más información, consulte [Equilibrio de carga interno][]. Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un equilibrio de carga interno establecido][].
+Para obtener más información, consulte [Equilibrio de carga interno][Equilibrio de carga interno]. Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un equilibrio de carga interno establecido][Configurar un equilibrio de carga interno establecido].
 
 <!-- LINKS -->
 

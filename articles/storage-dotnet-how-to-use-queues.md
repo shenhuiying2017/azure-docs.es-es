@@ -1,4 +1,4 @@
-<properties linkid="dev-net-how-to-queue-service" urlDisplayName="Queue Service" pageTitle="How to use queue storage from .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Learn how to use Microsoft Azure Queue storage to create and delete queues and insert, peek, get, and delete queue messages." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" />
+<properties urlDisplayName="Queue Service" pageTitle="Uso del almacenamiento de colas en .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Aprenda a usar el almacenamiento de colas de Microsoft Azure para crear y eliminar colas e insertar, inspeccionar, obtener y eliminar mensajes de cola." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="Uso de almacenamiento de colas de Microsoft Azure" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -19,15 +19,15 @@ la sección [Pasos siguientes][Pasos siguientes].
 -   [Conceptos][Conceptos]
 -   [Creación de una cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento de Azure]
 -   [Configuración de una cadena de conexión de almacenamiento de Azure][Configuración de una cadena de conexión de almacenamiento de Azure]
--   [Acceso al almacenamiento de cola mediante programación][Acceso al almacenamiento de cola mediante programación]
--   [Creación de una cola][Creación de una cola]
--   [Inserción de un mensaje en una cola][Inserción de un mensaje en una cola]
--   [Inspección del siguiente mensaje][Inspección del siguiente mensaje]
--   [Cambio del contenido de un mensaje en cola][Cambio del contenido de un mensaje en cola]
--   [Extracción del siguiente mensaje de la cola][Extracción del siguiente mensaje de la cola]
--   [Aprovechamiento de las opciones adicionales de los mensajes quitados de la cola][Aprovechamiento de las opciones adicionales de los mensajes quitados de la cola]
--   [Obtención de la longitud de la cola][Obtención de la longitud de la cola]
--   [Eliminación de una cola][Eliminación de una cola]
+-   [Direccionamiento del almacenamiento de cola mediante programación][Acceso al almacenamiento de cola mediante programación]
+-   [Direccionamiento del de una cola][Direccionamiento del de una cola]
+-   [Direccionamiento del un mensaje en una cola][Direccionamiento del un mensaje en una cola]
+-   [Direccionamiento del siguiente mensaje][Direccionamiento del siguiente mensaje]
+-   [Direccionamiento del contenido de un mensaje en cola][Direccionamiento del contenido de un mensaje en cola]
+-   [Direccionamiento del siguiente mensaje de la cola][Direccionamiento del siguiente mensaje de la cola]
+-   [Direccionamiento del las opciones adicionales de los mensajes quitados de la cola][Direccionamiento del las opciones adicionales de los mensajes quitados de la cola]
+-   [Direccionamiento del la longitud de la cola][Direccionamiento del la longitud de la cola]
+-   [Direccionamiento del una cola][Direccionamiento del una cola]
 -   [Pasos siguientes][Pasos siguientes]
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
@@ -52,7 +52,7 @@ la sección [Pasos siguientes][Pasos siguientes].
 
 Puede utilizar NuGet para obtener el ensamblado `Microsoft.WindowsAzure.Storage.dll`. Haga clic con el botón secundario en el proyecto, en el **Explorador de soluciones**, y elija **Manage NuGet Packages**. Busque "Azure.Storage" en línea y haga clic en **Install** para instalar el paquete y las dependencias de almacenamiento de Azure.
 
-`Microsoft.WindowsAzure.Storage.dll` también se incluye en el SDK de Azure para .NET, que se puede descargar en el [Centro de desarrolladores de .NET][Centro de desarrolladores de .NET]. El ensamblado se instala en el directorio `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
+`Microsoft.WindowsAzure.Storage.dll` también se incluye en el SDK de Azure para .NET, que se puede descargar en el [Centro de desarrolladores de .NET][Centro de desarrolladores de .NET]. El ensamblado se instala en el directorio `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`lt;sdk-version\>\\ref\\</code>.
 
 ### Declaraciones de espacio de nombres
 
@@ -314,20 +314,18 @@ para obtener más información acerca de cómo realizar tareas de almacenamiento
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
   [SDK de Azure para .NET]: /es-es/downloads/
   [Acceso al almacenamiento de cola mediante programación]: #configure-access
+  [¿Qué es el almacenamiento en cola?]: #what-is
   [Conceptos]: #concepts
   [Creación de una cuenta de almacenamiento de Azure]: #create-account
   [Configuración de una cadena de conexión de almacenamiento de Azure]: #setup-connection-string
-  [Creación de una cola]: #create-queue
-  [Inserción de un mensaje en una cola]: #insert-message
-  [Inspección del siguiente mensaje]: #peek-message
-  [Cambio del contenido de un mensaje en cola]: #change-contents
-  [Extracción del siguiente mensaje de la cola]: #get-message
-  [Aprovechamiento de las opciones adicionales de los mensajes quitados de la cola]: #advanced-get
-  [Obtención de la longitud de la cola]: #get-queue-length
-  [Eliminación de una cola]: #delete-queue
-  [howto-queue-storage]: ../includes/howto-queue-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [storage-configure-connection-string]: ../includes/storage-configure-connection-string.md
+  [Direccionamiento del de una cola]: #create-queue
+  [Direccionamiento del un mensaje en una cola]: #insert-message
+  [Direccionamiento del siguiente mensaje]: #peek-message
+  [Direccionamiento del contenido de un mensaje en cola]: #change-contents
+  [Direccionamiento del siguiente mensaje de la cola]: #get-message
+  [Direccionamiento del las opciones adicionales de los mensajes quitados de la cola]: #advanced-get
+  [Direccionamiento del la longitud de la cola]: #get-queue-length
+  [Direccionamiento del una cola]: #delete-queue
   [Centro de desarrolladores de .NET]: http://www.windowsazure.com/es-es/develop/net/#
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2

@@ -4,8 +4,8 @@ Una conexión común a Internet es la forma más fácil de conectarse a las apli
 
 ## Tabla de contenido
 
--   [Red virtual][]
--   [Administrador de tráfico de Azure][]
+-   [Red virtual][Red virtual]
+-   [Administrador de tráfico de Azure][Administrador de tráfico de Azure]
 
 <a name="Vnet"></a>
 
@@ -17,14 +17,14 @@ Existe una solución estándar para este tipo de problema, que consiste en crear
 
 <a name="Fig1"></a>
 
-![01\_Networking][]
+![01\_Networking][01\_Networking]
 
 **Ilustración 1: la Red virtual de Azure permite crear una red virtual en la nube conectada al centro de datos ubicado en las instalaciones de la empresa.**
 
 Como se muestra en la ilustración, la Red virtual de Azure le permite crear un límite lógico en torno a un grupo de VM, denominado *red virtual o VNET*, en un centro de datos de Azure. De esta forma, puede establecer posteriormente una conexión IPsec entre la VNET y la red local. Las VM de una VNET se pueden crear con la utilización de máquinas virtuales de Azure o de servicios en la nube de Azure, o bien con ambas opciones. En otras palabras, puede tratarse de VM creadas con la tecnología de la infraestructura como servicio (IaaS) de Azure o con su tecnología basada en la plataforma como servicio (PaaS).
 Independientemente de la opción que elija, para crear una conexión IPsec necesita un dispositivo de puerta de enlace de VPN, hardware especializado conectado a la red local y también los servicios del administrador de red. Tras haber establecido la conexión, parece como si las VM de Azure que se ejecutan en la VNET estuvieran integradas en la red de la organización.
 
-Como se refleja en la [ilustración 1][], asigna direcciones IP para las VM de Azure desde el mismo espacio de direcciones IP utilizado en su propia red. En el escenario que explicamos aquí, en el que se utilizan direcciones IP privadas, las VM de la nube no son más que otra subred IP. El software que se ejecuta en la red local considerará estas VM como si fueran locales, como sucede con las VPN tradicionales. Además, es importante destacar que, habida cuenta de que la conexión se establece a nivel de IP, las máquinas virtuales y físicas de ambos lados pueden ejecutar cualquier sistema operativo. Las VM de Azure que ejecutan Windows Server o Linux pueden interactuar con las máquinas locales que ejecutan Windows, Linux u otros sistemas. También se pueden utilizar herramientas de administración estándar, como System Center y otras, para administrar las VM en la nube y las aplicaciones que estas contienen.
+Como se refleja en la [ilustración 1][ilustración 1], asigna direcciones IP para las VM de Azure desde el mismo espacio de direcciones IP utilizado en su propia red. En el escenario que explicamos aquí, en el que se utilizan direcciones IP privadas, las VM de la nube no son más que otra subred IP. El software que se ejecuta en la red local considerará estas VM como si fueran locales, como sucede con las VPN tradicionales. Además, es importante destacar que, habida cuenta de que la conexión se establece a nivel de IP, las máquinas virtuales y físicas de ambos lados pueden ejecutar cualquier sistema operativo. Las VM de Azure que ejecutan Windows Server o Linux pueden interactuar con las máquinas locales que ejecutan Windows, Linux u otros sistemas. También se pueden utilizar herramientas de administración estándar, como System Center y otras, para administrar las VM en la nube y las aplicaciones que estas contienen.
 
 Resulta útil utilizar la Red virtual de Azure en muchas situaciones. Como bien se ha mencionado, este enfoque permite a los usuarios de entornos empresariales obtener un acceso más sencillo a las aplicaciones de la nube. Un aspecto importante de esta facilidad de uso es la capacidad de integrar las VM de Azure en un dominio de Active Directory local para asignar a los usuarios un inicio de sesión único para las aplicaciones que ejecutan. Si lo prefiere, también puede crear un dominio de Active Directory en la nube y conectarlo posteriormente a una red local.
 
@@ -42,7 +42,7 @@ El Administrador de tráfico de Azure está diseñado para resolver este problem
 
 <a name="Fig3"></a>
 
-![03\_TrafficManager][]
+![03\_TrafficManager][03\_TrafficManager]
 
 **Ilustración 2: el Administrador de tráfico de Azure distribuye de forma inteligente las solicitudes de los usuarios entre instancias de una aplicación que se ejecuta en diferentes centros de datos de Azure.**
 

@@ -1,6 +1,6 @@
-<properties linkid="manage-linux-howto-logon-linux-vm" urlDisplayName="Log on to a VM" pageTitle="Log on to a virtual machine running Linux in Azure" metaKeywords="Azure Linux vm, Linux SSH" description="Learn how to log on to an Azure virtual machine running Linux by using a Secure Shell (SSH) client." metaCanonical="" services="virtual-machines" documentationCenter="" title="How to Log on to a Virtual Machine Running Linux" authors="kathydav" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Log on to a VM" pageTitle="Inicio de sesi&oacute;n en una m&aacute;quina virtual que ejecuta Linux en Azure" metaKeywords="Azure Linux vm, Linux SSH" description="Aprenda a iniciar sesi&oacute;n en una m&aacute;quina virtual de Azure que ejecuta Linux utilizando un cliente Secure Shell (SSH)." metaCanonical="" services="virtual-machines" documentationCenter="" title="Inicio de sesi&oacute;n en una m&aacute;quina virtual con Linux" authors="kathydav" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
 # Inicio de sesión en una máquina virtual con Linux
 
@@ -8,28 +8,28 @@ Para una máquina virtual con el sistema operativo Linux, utilice un cliente Sec
 
 Debe instalar un cliente de SSH en el equipo que desea usar para iniciar sesión en la máquina virtual. Existen muchos programas cliente de SSH donde elegir. Las siguientes son algunas posibles opciones:
 
--   En un equipo que ejecute un sistema operativo Windows, quizás desee utilizar un cliente de SSH, como PuTTY. Para obtener más información, consulte la [página de descarga de PuTTY][] (en inglés).
--   En un equipo que ejecute un sistema operativo Linux, quizás desee utilizar un cliente de SSH, como OpenSSH. Para obtener más información, consulte [OpenSSH][].
+-   En un equipo que ejecute un sistema operativo Windows, quizás desee utilizar un cliente de SSH, como PuTTY. Para obtener más información, consulte la [página de descarga de PuTTY][página de descarga de PuTTY] (en inglés).
+-   En un equipo que ejecute un sistema operativo Linux, quizás desee utilizar un cliente de SSH, como OpenSSH. Para obtener más información, consulte [OpenSSH][OpenSSH].
 
-> [WACOM.NOTE] Para obtener más consejos acerca de los requisitos y la solución de problemas, vea [Conectar a una máquina virtual de Azure con RDP o SSH][].
+> [WACOM.NOTE] Para obtener más consejos acerca de los requisitos y la solución de problemas, vea [Conectar a una máquina virtual de Azure con RDP o SSH][Conectar a una máquina virtual de Azure con RDP o SSH].
 
 Este procedimiento le muestra cómo usar el programa PuTTY para tener acceso a la máquina virtual.
 
-1.  Busque el nombre de host (**Host Name**) y la información de puerto (**Port information**) en el [Portal de administración][]. Puede encontrar la información que necesita en el panel de la máquina virtual. Haga clic en el nombre de la máquina virtual y busque **SSH Details** en la sección **Quick Glance** del panel.
+1.  Busque el nombre de host (**Host Name**) y la información de puerto (**Port information**) en el [Portal de administración][Portal de administración]. Puede encontrar la información que necesita en el panel de la máquina virtual. Haga clic en el nombre de la máquina virtual y busque **SSH Details** en la sección **Quick Glance** del panel.
 
-    ![Obtener detalles de SSH][]
+    ![Obtener detalles de SSH][Obtener detalles de SSH]
 
 2.  Abra el programa PuTTY.
 
 3.  Escriba el nombre de host y la información de puerto que recopiló del panel y, a continuación, haga clic en **Open**.
 
-    ![Abrir PuTTY][]
+    ![Abrir PuTTY][Abrir PuTTY]
 
 4.  Inicie sesión en la máquina virtual usando la cuenta que especificó cuando se creó la máquina. De manera predeterminada el nombre de usuario es azureuser.
 
-    ![Iniciar sesión en la nueva máquina virtual][]
+    ![Iniciar sesión en la nueva máquina virtual][Iniciar sesión en la nueva máquina virtual]
 
-> [WACOM.NOTE] La extensión VMAccess le puede ayudar a restablecer la contraseña o clave de SSH si la ha olvidado. Si ha olvidado el nombre de usuario, puede utilizar la extensión para crear otro nuevo con autoridad sudo. Para obtener instrucciones, vea [Utilizar la extensión VMAccess para restablecer las credenciales de inicio de sesión para Linux VM][].
+> [WACOM.NOTE] La extensión VMAccess le puede ayudar a restablecer la contraseña o clave de SSH si la ha olvidado. Si ha olvidado el nombre de usuario, puede utilizar la extensión para crear otro nuevo con autoridad sudo. Para obtener instrucciones, vea [Utilizar la extensión VMAccess para restablecer las credenciales de inicio de sesión para Linux VM][Utilizar la extensión VMAccess para restablecer las credenciales de inicio de sesión para Linux VM].
 
 Ahora puede trabajar con la máquina virtual igual que hace con cualquier otro servidor.
 

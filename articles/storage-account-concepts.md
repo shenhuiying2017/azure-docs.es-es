@@ -1,6 +1,6 @@
-<properties umbracoNaviHide="0" pageTitle="Storage Account Concepts | Azure" metaKeywords="Azure storage, storage service, service, storage account, account, create storage account, create account" description="Learn about storage account concepts." linkid="manage-windows-how-to-guide-storage-accounts" urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Storage Account Concepts" services="storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties umbracoNaviHide="0" pageTitle="Conceptos de cuenta de almacenamiento | Azure" metaKeywords="Azure storage, storage service, service, storage account, account, create storage account, create account" description="Informaci&oacute;n acerca de los conceptos de cuenta de almacenamiento." urlDisplayName="How to: storage accounts" headerExpose="" footerExpose="" disqusComments="1" title="Conceptos de cuenta de almacenamiento" services="storage" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"></tags>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Conceptos de cuenta de almacenamiento
 
@@ -40,7 +40,6 @@ Para permitir el acceso a los recursos de almacenamiento sin proporcionar sus cl
 
 Un *grupo de afinidad* es un grupo geográfico de los servicios de Azure y máquinas virtuales con la cuenta de almacenamiento de Azure. Un grupo de afinidad puede mejorar el rendimiento del servicio al ubicar cargas de trabajo de equipos en el mismo centro de datos o cerca de la audiencia de usuarios de destino. Además, no se aplicarán costes de facturación en la salida cuando el acceso a los datos de una cuenta de almacenamiento tenga lugar desde otro servicio que forma parte del mismo grupo de afinidad.
 
-  [storage-replication-options]: ../includes/storage-replication-options.md
   [tutorial sobre firmas de acceso compartido]: ../storage-dotnet-shared-access-signature-part-1/
   [Storage Analytics Metrics Table Schema]: http://msdn.microsoft.com/es-es/library/windowsazure/hh343264.aspx
   [About Storage Analytics Metrics]: http://msdn.microsoft.com/es-es/library/windowsazure/hh343258.aspx

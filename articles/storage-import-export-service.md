@@ -1,6 +1,6 @@
-<properties linkid="manage-services-import-export" urlDisplayName="Azure Import/Export Service" pageTitle="Using import/export to transfer data to Blob Storage | Microsoft Azure" metaKeywords="" description="Learn how to create import and export jobs in the Azure Management Portal to transfer data to blob storage." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="Azure Import/Export Service" pageTitle="Uso de la importaci&oacute;n y exportaci&oacute;n para transferir datos al almacenamiento en blobs | Microsoft Azure" metaKeywords="" description="Aprenda a crear trabajos de importaci&oacute;n y exportaci&oacute;n en el Portal de administraci&oacute;n de Azure para transferir datos al almacenamiento en blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Uso del servicio de importaci&oacute;n y exportaci&oacute;n de Azure para transferir datos al almacenamiento en blobs" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Uso del servicio de importación y exportación de Microsoft Azure para transferir datos al almacenamiento en blobs
 
@@ -27,8 +27,10 @@ Cuando crea un trabajo, notifica al servicio de importación y exportación que 
 Para preparar la unidad que va a enviar para realizar un trabajo de importación, deberá ejecutar la **herramienta de importación y exportación de Microsoft Azure** , que facilita la copia de sus datos a la unidad mediante el cifrado de dichos datos en la unidad con BitLocker y genera los archivos de diario de la unidad, lo cual se describe a continuación.
 
 <div class="dev-callout">
-<strong>Nota:</strong>
-<p>Los datos de la unidad deben estar cifrados con BitLocker Drive Encryption. As&iacute; estar&aacute;n protegidos mientras se encuentren en tr&aacute;nsito. Para un trabajo de exportaci&oacute;n, el servicio de importaci&oacute;n y exportaci&oacute;n cifrar&aacute; sus datos antes de efectuar el env&iacute;o de vuelta de la unidad.</p>
+
+**Nota:**
+Los datos de la unidad deben estar cifrados con BitLocker Drive Encryption. Así estarán protegidos mientras se encuentren en tránsito. Para un trabajo de exportación, el servicio de importación y exportación cifrará sus datos antes de efectuar el envío de vuelta de la unidad.
+
 </div>
 
 Cuando cree un trabajo de importación o de exportación, deberá tener también el *identificador de la unidad*, que es el número de serie que asigna el fabricante de la unidad a un disco duro específico. El identificador de la unidad se muestra en el exterior de la misma.
@@ -101,50 +103,15 @@ Cree un trabajo de exportación para notificar al servicio de importación y exp
 
     La tabla muestra ejemplos de rutas de blob válidas:
 
-    <table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-    <tbody>
-        <tr>
-            <td><strong>Selector</strong></td>
-            <td><strong>Ruta del blob</strong></td>
-            <td><strong>Descripci&oacute;n</strong></td>
-        </tr>
-        <tr>
-            <td>Starts With</td>
-            <td>/</td>
-            <td>Exporta todos los blobs de la cuenta de almacenamiento.</td>
-        </tr>
-        <tr>
-            <td>Starts With</td>
-            <td>/$root/</td>
-            <td>Exporta todos los blobs del contenedor ra&iacute;z.</td>
-        </tr>
-        <tr>
-            <td>Starts With</td>
-            <td>/book</td>
-            <td>Exporta todos los blobs de cualquier contenedor que empiecen por el prefijo <strong>book</strong>.</td>
-        </tr>
-        <tr>
-            <td>Starts With</td>
-            <td>/music/</td>
-            <td>Exporta todos los blobs del contenedor <strong>music</strong>.</td>
-        </tr>
-        <tr>
-            <td>Starts With</td>
-            <td>/music/love</td>
-            <td>Exporta todos los blobs del contenedor <strong>music</strong> que empiecen por el prefijo <strong>love</strong>.</td>
-        </tr>
-        <tr>
-            <td>Equal To</td>
-            <td>$root/logo.bmp</td>
-            <td>Exporta el blob <strong>logo.bmp</strong> del contenedor ra&iacute;z.</td>
-        </tr>
-        <tr>
-            <td>Equal To</td>
-            <td>videos/story.mp4</td>
-            <td>Exporta el blob <strong>story.mp4</strong> del contenedor <strong>videos</strong>.</td>
-        </tr>
-    </tbody>
-</table> 
+    |--------------|-------------------|----------------------------------------------------------------------------------------|
+    | **Selector** | **Ruta del blob** | **Descripción**                                                                        |
+    | Starts With  | /                 | Exporta todos los blobs de la cuenta de almacenamiento.                                |
+    | Starts With  | /$root/           | Exporta todos los blobs del contenedor raíz.                                           |
+    | Starts With  | /book             | Exporta todos los blobs de cualquier contenedor que empiecen por el prefijo **book**.  |
+    | Starts With  | /music/           | Exporta todos los blobs del contenedor **music**.                                      |
+    | Starts With  | /music/love       | Exporta todos los blobs del contenedor **music** que empiecen por el prefijo **love**. |
+    | Equal To     | $root/logo.bmp    | Exporta el blob **logo.bmp** del contenedor raíz.                                      |
+    | Equal To     | videos/story.mp4  | Exporta el blob **story.mp4** del contenedor **videos**.                               |
 
 4.  En el paso 4, escriba un nombre descriptivo para el trabajo de exportación. El nombre que escriba solo puede contener letras minúsculas, números, guiones y caracteres de subrayado, debe empezar por una letra y no puede contener espacios.
 
@@ -166,34 +133,13 @@ Puede realizar el seguimiento del estado de sus trabajos de importación y expor
 
 La tabla describe lo que significa cada designación de estado del trabajo.
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-    <tbody>
-        <tr>
-            <td><strong>Estado del trabajo</strong></td>
-            <td><strong>Descripci&oacute;n</strong></td>
-        </tr>
-        <tr>
-            <td>Creating</td>
-            <td>El trabajo se ha creado pero todav&iacute;a no se ha proporcionado la informaci&oacute;n de env&iacute;o.</td>
-        </tr>
-        <tr>
-            <td>Env&iacute;o</td>
-            <td>El trabajo se ha creado y ya se ha proporcionado la informaci&oacute;n de env&iacute;o.</td>
-        </tr>
-        <tr>
-            <td>Transferring</td>
-            <td>Los datos se est&aacute;n transfiriendo desde su disco duro (para un trabajo de importaci&oacute;n) o a su disco duro (para un trabajo de exportaci&oacute;n).</td>
-        </tr>
-        <tr>
-            <td>Packaging</td>
-            <td>Se ha completado la transferencia de datos y se est&aacute; preparando su disco duro para el env&iacute;o de vuelta.</td>
-        </tr>
-        <tr>
-            <td>Complete</td>
-            <td>El disco duro ya se le ha enviado.</td>
-        </tr>
-    </tbody>
-</table>
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| **Estado del trabajo** | **Descripción**                                                                                                                           |
+| Creating               | El trabajo se ha creado pero todavía no se ha proporcionado la información de envío.                                                      |
+| Envío                  | El trabajo se ha creado y ya se ha proporcionado la información de envío.                                                                 |
+| Transferring           | Los datos se están transfiriendo desde su disco duro (para un trabajo de importación) o a su disco duro (para un trabajo de exportación). |
+| Packaging              | Se ha completado la transferencia de datos y se está preparando su disco duro para el envío de vuelta.                                    |
+| Complete               | El disco duro ya se le ha enviado.                                                                                                        |
 
 ## Visualización de claves de BitLocker de un trabajo de exportación
 
@@ -262,9 +208,11 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 -   Para las regiones de Asia, solo se admite [DHL][DHL]. Todos los paquetes se devolverán a través de DHL Express Worldwide.
 
     <div class="dev-callout">
-<strong>Importante</strong>
-<p>Debe proporcionar su n&uacute;mero de seguimiento al servicio de importaci&oacute;n y exportaci&oacute;n de Azure; de lo contrario, no se podr&aacute; procesar su trabajo.</p>
-</div>
+
+    **Importante**
+    Debe proporcionar su número de seguimiento al servicio de importación y exportación de Azure; de lo contrario, no se podrá procesar su trabajo.
+
+    </div>
 
 **¿Existe algún coste asociado al envío de devolución?**
 
@@ -287,9 +235,11 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 -   Se le proporcionará una dirección de envío del lugar de residencia de su cuenta de almacenamiento. Por ejemplo, si vive en EE. UU. y la cuenta de almacenamiento se encuentra en el centro de datos de Europa occidental, se le proporcionará una dirección de envío en Europa para enviar las unidades.
 
     <div class="dev-callout">
-<strong>Importante</strong>
-<p>Tenga en cuenta que es posible que los medios f&iacute;sicos que est&aacute; enviando deban cruzar alguna frontera internacional. Usted es el responsable de asegurar que los medios y datos f&iacute;sicos se importan o exportan de acuerdo con todas las normativas aplicables. Antes de enviar los medios f&iacute;sicos, pida asesoramiento para comprobar que los medios y datos se pueden enviar legalmente al centro de datos identificado. De este modo, se asegurar&aacute; de que llegan a Microsoft de manera puntual.</p>
-</div>
+
+    **Importante**
+    Tenga en cuenta que es posible que los medios físicos que está enviando deban cruzar alguna frontera internacional. Usted es el responsable de asegurar que los medios y datos físicos se importan o exportan de acuerdo con todas las normativas aplicables. Antes de enviar los medios físicos, pida asesoramiento para comprobar que los medios y datos se pueden enviar legalmente al centro de datos identificado. De este modo, se asegurará de que llegan a Microsoft de manera puntual.
+
+    </div>
 
 -   Al enviar los paquetes, debe seguir los términos establecidos en los [Términos de servicio de Microsoft Azure][Términos de servicio de Microsoft Azure].
 

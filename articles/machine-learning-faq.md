@@ -1,6 +1,6 @@
-<properties title="Microsoft Azure Machine Learning Frequently Asked Questions (FAQ)" pageTitle="Azure Machine Learning FAQ | Azure" description="Frequently asked questions about Microsoft Azure Machine Learning" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" videoId="" scriptId="" />
+<properties title="Preguntas m&aacute;s frecuentes (P+F) sobre el Aprendizaje autom&aacute;tico de Microsoft Azure" pageTitle="P+F sobre el Aprendizaje autom&aacute;tico de Microsoft Azure | Azure" description="Preguntas m&aacute;s frecuentes sobre el Aprendizaje autom&aacute;tico de Microsoft Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="pamehta"></tags>
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="pamehta" />
 
 # Preguntas más frecuentes (P+F) sobre el Aprendizaje automático de Microsoft Azure
 
@@ -18,11 +18,11 @@ El Estudio de aprendizaje automático de Azure es un entorno de trabajo al que s
 
 El servicio API de Aprendizaje automático le permite implementar modelos predictivos creados en el Estudio de aprendizaje automático como servicios web escalables con tolerancia a errores. Los servicios web creados con el servicio API de Aprendizaje automático son API REST que proporcionan una interfaz para la comunicación entre aplicaciones externas y el modelo de análisis predictivo. El servicio web ofrece una forma de comunicarse con un modelo predictivo en tiempo real para recibir los resultados de la predicción e incorporar dichos resultados en una aplicación cliente externa. El servicio API de Aprendizaje automático aprovecha Microsoft Azure para la implementación, hospedaje y administración de las API REST de Aprendizaje automático de Azure. Dos tipos de servicios se crean con el servicio API de Aprendizaje automático de Azure. El servicio de ejecución de lotes para el acceso por lotes asincrónico y el servicio de solicitud-respuesta para respuestas sincrónicas de baja latencia.
 
-Dentro del área de trabajo, un modelo predictivo se puede poner en fase de ensayo. El servicio API de Aprendizaje automático también genera páginas de ayuda para los servicios web. Estas páginas de ayuda proporcionan ejemplos de código para invocar el servicio web en C\#, R y Python. Puede probar su servicio web realizando llamadas interactivas al servicio. El servicio web provisional se puede poner luego en producción con tan solo unos clics. Una vez en producción, puede supervisar los servicios implementados, así como realizar el seguimiento del uso y los errores en el Portal de Azure. Actualizar los servicios web es tan sencillo como actualizar el modelo en el Estudio de aprendizaje automático y transferir los cambios al servicio provisional.
+Dentro del área de trabajo, un modelo predictivo se puede poner en fase de ensayo. El servicio API de Aprendizaje automático también genera páginas de ayuda para los servicios web. Estas páginas de ayuda proporcionan ejemplos de código para invocar el servicio web en C#, R y Python. Puede probar su servicio web realizando llamadas interactivas al servicio. El servicio web provisional se puede poner luego en producción con tan solo unos clics. Una vez en producción, puede supervisar los servicios implementados, así como realizar el seguimiento del uso y los errores en el Portal de Azure. Actualizar los servicios web es tan sencillo como actualizar el modelo en el Estudio de aprendizaje automático y transferir los cambios al servicio provisional.
 
 **4. ¿Cómo se accede al Aprendizaje automático de Microsoft Azure?**
 
-Para comenzar con el Aprendizaje automático de Azure, visite la [página de inicio][]. Visite el [Centro de Aprendizaje automático de Azure][] para obtener actualizaciones sobre el servicio, leer el contenido más reciente en el blog de equipo de Aprendizaje automático, participar en los foros de nuestra comunidad de Aprendizaje automático, acceder a la ayuda del producto, ver la galería de modelos y proporcionar comentarios sobre el servicio para que nos ayude a dar forma a la guía del producto.
+Para comenzar con el Aprendizaje automático de Azure, visite la [página de inicio][página de inicio]. Visite el [Centro de Aprendizaje automático de Azure][Centro de Aprendizaje automático de Azure] para obtener actualizaciones sobre el servicio, leer el contenido más reciente en el blog de equipo de Aprendizaje automático, participar en los foros de nuestra comunidad de Aprendizaje automático, acceder a la ayuda del producto, ver la galería de modelos y proporcionar comentarios sobre el servicio para que nos ayude a dar forma a la guía del producto.
 
 ### FACTURACIÓN
 
@@ -36,11 +36,11 @@ Los cargos se agregan por área de trabajo en su suscripción. Dentro de cada á
 -   Horas de predicción de servicio de API: este medidor incluye los cargos de proceso acumulados por los servicios web en el entorno de producción.
 -   Predicciones de servicio de API (en 1000): este medidor incluye los cargos acumulados por llamada al servicio web de producción.
 
-Para obtener más información sobre precios, visite [http://azure.microsoft.com/es-es/pricing/details/machine-learning/][].
+Para obtener más información sobre precios, visite [http://azure.microsoft.com/es-es/pricing/details/machine-learning/][http://azure.microsoft.com/es-es/pricing/details/machine-learning/].
 
 **6. ¿Dispone el Aprendizaje automático de Azure de una evaluación gratuita?**
 
-El Aprendizaje automático de Azure forma parte de la evaluación gratuita de Azure. Cuando se registra para una evaluación gratuita de Azure, puede probar cualquier servicio de Azure durante un mes. Para obtener más información sobre la evaluación gratuita de Azure, visite [http://azure.microsoft.com/es-es/pricing/free-trial-faq/][].
+El Aprendizaje automático de Azure forma parte de la evaluación gratuita de Azure. Cuando se registra para una evaluación gratuita de Azure, puede probar cualquier servicio de Azure durante un mes. Para obtener más información sobre la evaluación gratuita de Azure, visite [http://azure.microsoft.com/es-es/pricing/free-trial-faq/][http://azure.microsoft.com/es-es/pricing/free-trial-faq/].
 
 ### ESTUDIO DE APRENDIZAJE AUTOMÁTICO
 
@@ -62,7 +62,7 @@ El Estudio de aprendizaje automático ofrece modernos algoritmos de Aprendizaje 
 
 **10. El algoritmo de aprendizaje automático, el origen de datos, el formato de datos o la operación de transformación de datos que busco no está en el Estudio de aprendizaje automático de Azure. ¿Qué opciones tengo?**
 
-Puede visitar el [foro de comentarios de los usuarios][] para ver las solicitudes de características cuyo seguimiento estamos realizando. Agregue su voto a esta solicitud si la funcionalidad que busca ya se ha solicitado. Si la funcionalidad que busca no existe, cree una nueva solicitud. El estado de su solicitud puede verlo también en este foro. Seguimos muy de cerca esta lista y actualizamos el estado de la disponibilidad de las características con frecuencia.
+Puede visitar el [foro de comentarios de los usuarios][foro de comentarios de los usuarios] para ver las solicitudes de características cuyo seguimiento estamos realizando. Agregue su voto a esta solicitud si la funcionalidad que busca ya se ha solicitado. Si la funcionalidad que busca no existe, cree una nueva solicitud. El estado de su solicitud puede verlo también en este foro. Seguimos muy de cerca esta lista y actualizamos el estado de la disponibilidad de las características con frecuencia.
 
 **11. ¿Puedo usar mi código existente en el Estudio de aprendizaje automático?**
 
@@ -70,7 +70,7 @@ El Estudio de aprendizaje automático admite en la actualidad R, así que puede 
 
 **12. ¿Qué paquetes de R están disponibles en el Estudio de aprendizaje automático?**
 
-El Estudio de aprendizaje automático admite en la actualidad más de 350 paquetes de R, y la lista sigue creciendo. Consulte el tema de ayuda del Estudio de aprendizaje automático sobre la **extensibilidad con R** para saber cómo obtener una lista de paquetes de R compatibles. Si el paquete que desea no está en la lista, proporcione el nombre del paquete en el [foro de comentarios de los usuarios][].
+El Estudio de aprendizaje automático admite en la actualidad más de 350 paquetes de R, y la lista sigue creciendo. Consulte el tema de ayuda del Estudio de aprendizaje automático sobre la **extensibilidad con R** para saber cómo obtener una lista de paquetes de R compatibles. Si el paquete que desea no está en la lista, proporcione el nombre del paquete en el [foro de comentarios de los usuarios][foro de comentarios de los usuarios].
 
 ### SERVICIO DE API DE APRENDIZAJE AUTOMÁTICO
 
@@ -100,7 +100,7 @@ Cuando el modelo predictivo se ha puesto en producción, lo puede supervisar des
 
 **17. ¿Dónde puedo recibir entrenamiento para el Aprendizaje automático de Azure?**
 
-El [Centro de Aprendizaje automático de Azure][] contiene tutoriales de vídeo así como guías de procedimientos. Estas guías paso a paso proporcionan una introducción a los servicios y un recorrido por el ciclo de vida científico de los datos consistente en importar los datos, limpiarlos, construir modelos predictivos e implementarlos en producción con el Aprendizaje automático de Azure.
+El [Centro de Aprendizaje automático de Azure][Centro de Aprendizaje automático de Azure] contiene tutoriales de vídeo así como guías de procedimientos. Estas guías paso a paso proporcionan una introducción a los servicios y un recorrido por el ciclo de vida científico de los datos consistente en importar los datos, limpiarlos, construir modelos predictivos e implementarlos en producción con el Aprendizaje automático de Azure.
 
 Los tutoriales de vídeo ofrecen un recorrido visual por el Estudio de aprendizaje automático y el servicio API de Aprendizaje automático. En ellos se demuestra la amplitud del servicio, la entrada de los datos de uso más común, la limpieza y el procesamiento de los módulos, además de la creación e implementación de los modelos predictivos. Los tutoriales de vídeo cubren también tareas como el aprovisionamiento del área de trabajo y la implementación de los modelos provisionales en producción.
 
@@ -108,14 +108,14 @@ Iremos agregando continuamente nuevo material al Centro de Aprendizaje automáti
 
 **18. ¿Dónde puedo recibir soporte técnico para el Aprendizaje automático de Azure?**
 
-El Aprendizaje automático de Azure forma parte de la oferta de soporte técnico de Azure. Para recibir soporte técnico en el Aprendizaje automático de Azure, seleccione 'Aprendizaje automático' como servicio y se le mostrará una categoría de temas para presentar su incidencia de soporte técnico. Para obtener más información sobre la oferta de soporte técnico de Azure, visite <http://azure.microsoft.com/en-us/support/options/>
+El Aprendizaje automático de Azure forma parte de la oferta de soporte técnico de Azure. Para recibir soporte técnico en el Aprendizaje automático de Azure, seleccione 'Aprendizaje automático' como servicio y se le mostrará una categoría de temas para presentar su incidencia de soporte técnico. Para obtener más información sobre la oferta de soporte técnico de Azure, visite <http://azure.microsoft.com/es-es/support/options/>
 
-El Aprendizaje automático de Azure cuenta también con un foro de la comunidad en MSDN, donde puede plantear preguntas sobre el tema. El equipo de Aprendizaje automático de Azure es el encargado de supervisar el foro. Visite el [foro de Azure][].
+El Aprendizaje automático de Azure cuenta también con un foro de la comunidad en MSDN, donde puede plantear preguntas sobre el tema. El equipo de Aprendizaje automático de Azure es el encargado de supervisar el foro. Visite el [foro de Azure][foro de Azure].
 
   [página de inicio]: http://go.microsoft.com/fwlink/?LinkId=404226
   [Centro de Aprendizaje automático de Azure]: http://azure.microsoft.com/es-es/documentation/services/machine-learning/
-  [http://azure.microsoft.com/es-es/pricing/details/machine-learning/]: http://azure.microsoft.com/en-us/pricing/details/machine-learning/
-  [http://azure.microsoft.com/es-es/pricing/free-trial-faq/]: http://azure.microsoft.com/en-us/pricing/free-trial-faq/
+  [http://azure.microsoft.com/es-es/pricing/details/machine-learning/]: http://azure.microsoft.com/es-es/pricing/details/machine-learning/
+  [http://azure.microsoft.com/es-es/pricing/free-trial-faq/]: http://azure.microsoft.com/es-es/pricing/free-trial-faq/
   [foro de comentarios de los usuarios]: http://go.microsoft.com/fwlink/?LinkId=404231
   [1]: https://windowsazure.uservoice.com/forums/257792-machine-learning
   [foro de Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning

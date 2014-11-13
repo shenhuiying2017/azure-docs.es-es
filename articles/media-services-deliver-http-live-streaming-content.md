@@ -1,10 +1,10 @@
-<properties linkid="develop-media-services-how-to-guides-deliver-apple-live-streaming" urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="How to Deliver Apple HTTP Live Streaming (HLS) - Azure" metaKeywords="" description="Learn how to create a locator to Apple HTTP Live Stream (HLS) content on Media Services origin server. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="C&oacute;mo proporcionar HTTP Live Streaming (HLS) de Apple para Azure" metaKeywords="" description="Aprenda a crear un localizador para el contenido de HTTP Live Streaming (HLS) de Apple en un servidor de origen de Servicios multimedia. Los ejemplos de c&oacute;digo est&aacute;n escritos en C# y utilizan el SDK de Servicios multimedia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="Reproducci&oacute;n de contenido por secuencias HLS de Apple" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
-# Entrega de contenido por secuencias HLS de Apple
+# Reproducción de contenido por secuencias HLS de Apple
 
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [Entrega de contenido por secuencias][].
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [Comprobación del contenido por secuencias][Comprobación del contenido por secuencias].
 
 En este tema se explica cómo crear un localizador para el contenido por secuencias mediante HTTP Live Streaming (HLS) de Apple en un servidor de origen de Servicios multimedia. Use este enfoque para crear una dirección URL para el contenido HLS de Apple y proporciónela a los dispositivos iOS de Apple para la reproducción. El enfoque básico para generar la dirección URL del localizador es el mismo. Genere un localizador para la ruta de acceso del recurso de transmisión de HLS de Apple en un servidor de origen y, a continuación, genere una dirección URL completa que se vincule al manifiesto para el contenido de transmisión.
 
@@ -59,29 +59,29 @@ En el siguiente código se muestra cómo implementar los pasos:
 
 Para obtener más información acerca de la entrega de recursos, consulte:
 
--   [Entrega de recursos con los Servicios multimedia para .NET][]
--   [Entrega de recursos con la API de REST de Media Services][]
+-   [Entrega de recursos con los Servicios multimedia para .NET][Entrega de recursos con los Servicios multimedia para .NET]
+-   [Entrega de recursos con la API de REST de Media Services][Entrega de recursos con la API de REST de Media Services]
 
 </p>
 ## Pasos siguientes
 
 Con este tema concluyen los temas acerca del uso de los Servicios multimedia de Azure. Hemos tratado la configuración de la máquina para el desarrollo de Servicios multimedia y la realización de tareas de programación típicas. Para obtener más información acerca de la programación de Servicios multimedia, consulte los siguientes recursos:
 
--   [Media Services][]
--   [Guía de inicio rápido: Usar el SDK de Media Services para .NET][]
--   [Creación de aplicaciones con el SDK de Media Services para .NET][]
--   [Entrega de contenido][]
--   [Foro de Servicios multimedia][]
--   [Supervisión de una cuenta de Servicios multimedia][]
--   [Administración de contenido en Servicios multimedia][]
+-   [Media Services][Media Services]
+-   [Guía de inicio rápido: Usar el SDK de Media Services para .NET][Guía de inicio rápido: Usar el SDK de Media Services para .NET]
+-   [Creación de aplicaciones con el SDK de Media Services para .NET][Creación de aplicaciones con el SDK de Media Services para .NET]
+-   [Entrega de contenido][Entrega de contenido]
+-   [Foro de Servicios multimedia][Foro de Servicios multimedia]
+-   [Supervisión de una cuenta de Servicios multimedia][Supervisión de una cuenta de Servicios multimedia]
+-   [Administración de contenido en Servicios multimedia][Administración de contenido en Servicios multimedia]
 
-  [Entrega de contenido por secuencias]: http://go.microsoft.com/fwlink/?LinkID=301942&clcid=0x409
-  [Entrega de recursos con los Servicios multimedia para .NET]: http://msdn.microsoft.com/en-us/library/jj129575.aspx
-  [Entrega de recursos con la API de REST de Media Services]: http://msdn.microsoft.com/en-us/library/jj129578.aspx
+  [Comprobación del contenido por secuencias]: ../media-services-deliver-streaming-content/
+  [Entrega de recursos con los Servicios multimedia para .NET]: http://msdn.microsoft.com/es-es/library/jj129575.aspx
+  [Entrega de recursos con la API de REST de Media Services]: http://msdn.microsoft.com/es-es/library/jj129578.aspx
   [Media Services]: http://go.microsoft.com/fwlink/?linkid=245437
   [Guía de inicio rápido: Usar el SDK de Media Services para .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Creación de aplicaciones con el SDK de Media Services para .NET]: http://go.microsoft.com/fwlink/?linkid=247821
   [Entrega de contenido]: http://go.microsoft.com/fwlink/?linkid=252967
   [Foro de Servicios multimedia]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
-  [Supervisión de una cuenta de Servicios multimedia]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-monitor-a-media-services-account/
-  [Administración de contenido en Servicios multimedia]: http://www.windowsazure.com/en-us/manage/services/media-services/how-to-manage-content-in-media-services/
+  [Supervisión de una cuenta de Servicios multimedia]: ../media-services-monitor-services-account/
+  [Administración de contenido en Servicios multimedia]: ../media-services-manage-content/

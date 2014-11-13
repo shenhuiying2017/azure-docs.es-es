@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-tutorials-smooth-streaming-windows-store-app" urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Smooth Streaming Windows Store App - Azure .NET tutorials" metaKeywords="" description="Learn how to use Azure Media Services to create a C# Windows Store application with a XML MediaElement control to playback Smooth Stream content." metaCanonical="" services="media-services" documentationCenter="" title="How to Build a Smooth Streaming Windows Store Application" authors="Michael Greenn" solutions="" manager="" editor="" />
+<properties urlDisplayName="Smooth Streaming Windows Store App" pageTitle="Aplicaci&oacute;n de la Tienda Windows de Smooth Streaming - Tutoriales de .NET de Azure" metaKeywords="" description="Aprenda a usar los Servicios multimedia de Azure para crear una aplicaci&oacute;n de la Tienda Windows de C# con un control MediaElement de XML para reproducir contenido de Smooth Streaming." metaCanonical="" services="media-services" documentationCenter="" title="Generaci&oacute;n de una aplicaci&oacute;n de la Tienda Windows de Smooth Streaming" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Michael="" Greenn" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Generación de una aplicación de la Tienda Windows de Smooth Streaming
 
@@ -39,7 +39,7 @@ Esta lección contiene los procedimientos siguientes:
 
 **Para crear un proyecto de Tienda Windows**
 
-1.  Ejecute Visual Studio 2012.
+1.  Ejecute Visual Studio 2012 o posterior.
 2.  En el menú **ARCHIVO**, haga clic en **Nuevo** y, a continuación, en **Proyecto**.
 3.  En el diálogo Nuevo proyecto, escriba o seleccione los valores siguientes:
 
@@ -62,7 +62,7 @@ Esta lección contiene los procedimientos siguientes:
     | Nombre              | Valor                                                                                                                                 |
     |---------------------|---------------------------------------------------------------------------------------------------------------------------------------|
     | Grupo de referencia | Windows/Extensiones                                                                                                                   |
-    | Referencia          | Seleccione el SDK de cliente Smooth Streaming de Microsoft para Windows 8 y el paquete en tiempo de ejecución de Microsoft Visual C++ |
+    | de referencia       | Seleccione el SDK de cliente Smooth Streaming de Microsoft para Windows 8 y el paquete en tiempo de ejecución de Microsoft Visual C++ |
 
 3.  Haga clic en **OK**.
 
@@ -969,3 +969,5 @@ Ha terminado la lección 4. En esta lección ha agregado la funcionalidad para e
   [Ejemplo de aplicación de Tienda Windows de Smooth Streaming]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
   [Desarrollo de magníficas aplicaciones para Windows 8]: http://msdn.microsoft.com/es-es/windows/apps/br229512.aspx
   [Vista del código en Visual Studio de la aplicación de Tienda Windows de Smooth Streaming]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
+  [Creación de una aplicación JavaScript de Smooth Streaming para Windows 8 con características avanzadas (en inglés)]: http://blogs.iis.net/cenkd/archive/2012/08/10/how-to-build-a-smooth-streaming-windows-8-javascript-application-with-advanced-features.aspx
+  [Información técnica sobre Smooth Streaming (en inglés)]: http://www.iis.net/learn/media/on-demand-smooth-streaming/smooth-streaming-technical-overview

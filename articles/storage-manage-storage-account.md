@@ -1,16 +1,16 @@
-<properties linkid="manage-services-how-to-manage-a-storage-account" urlDisplayName="How to manage" pageTitle="How to manage storage accounts | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Learn how to manage storage accounts in Azure by using the Management Portal." metaCanonical="" services="storage" documentationCenter="" title="How To Manage Storage Accounts" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="How to manage" pageTitle="C&oacute;mo administrar cuentas de almacenamiento | Microsoft Azure" metaKeywords="Azure manage storage accounts, storage account management portal, storage account geo-replication, Azure geo-replication, Azure access keys" description="Aprenda a administrar cuentas de almacenamiento en Azure usando el Portal de administraci&oacute;n de Azure." metaCanonical="" services="storage" documentationCenter="" title="Administraci&oacute;n de cuentas de almacenamiento" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # <span id="managestorageaccounts"></span></a>Administración de cuentas de almacenamiento
 
 ## Tabla de contenido
 
--   [Administración de replicación de cuenta de almacenamiento][Administración de replicación de cuenta de almacenamiento]
--   [Visualización, copiado y regeneración de claves de acceso de almacenamiento][Visualización, copiado y regeneración de claves de acceso de almacenamiento]
--   [Eliminación de una cuenta de almacenamiento][Eliminación de una cuenta de almacenamiento]
+-   [Direccionamiento del replicación de cuenta de almacenamiento][Direccionamiento del replicación de cuenta de almacenamiento]
+-   [Direccionamiento del copiado y regeneración de claves de acceso de almacenamiento][Direccionamiento del copiado y regeneración de claves de acceso de almacenamiento]
+-   [Direccionamiento del una cuenta de almacenamiento][Direccionamiento del una cuenta de almacenamiento]
 
-## <span id="georeplication"></span></a>Replicación de los datos de la cuenta de almacenamiento para obtener durabilidad y alta disponibilidad
+## <span id="georeplication"></span></a>Direccionamiento del de los datos de la cuenta de almacenamiento para obtener durabilidad y alta disponibilidad
 
 [WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
@@ -24,7 +24,7 @@
 
 4.  Haga clic en **Save** y confirme su selección si se le solicita.
 
-## <span id="regeneratestoragekeys"></span></a>Visualización, copiado y regeneración de claves de acceso de almacenamiento
+## <span id="regeneratestoragekeys"></span></a>Direccionamiento del copiado y regeneración de claves de acceso de almacenamiento
 
 Al crear una cuenta de almacenamiento, Azure genera dos claves de acceso de almacenamiento de 512 bits que se usan para autenticación cuando se obtiene acceso a la cuenta de almacenamiento. Al brindar dos claves de acceso de almacenamiento, Azure le permite volver a generar las claves sin interrupción en su servicio de almacenamiento, o bien, tener acceso a ese servicio.
 
@@ -68,7 +68,7 @@ Debe cambiar las claves de acceso de su cuenta de almacenamiento periódicamente
 
 4.  Vuelva a generar la clave de acceso secundaria.
 
-## <span id="deletestorageaccount"></span></a>Eliminación de una cuenta de almacenamiento
+## <span id="deletestorageaccount"></span></a>Direccionamiento del una cuenta de almacenamiento
 
 Para quitar una cuenta de almacenamiento que ya no utiliza, use **Delete** en el panel o la página **Configure**. **Delete** elimina toda la cuenta de almacenamiento, incluidos todos los blobs, tablas y colas de la cuenta.
 
@@ -94,10 +94,9 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Delete** en el
 
 3.  Haga clic en **Yes** para confirmar que desea eliminar la cuenta de almacenamiento.
 
-  [Administración de replicación de cuenta de almacenamiento]: #georeplication
-  [Visualización, copiado y regeneración de claves de acceso de almacenamiento]: #regeneratestoragekeys
-  [Eliminación de una cuenta de almacenamiento]: #deletestorageaccount
-  [storage-replication-options]: ../includes/storage-replication-options.md
+  [Direccionamiento del replicación de cuenta de almacenamiento]: #georeplication
+  [Direccionamiento del copiado y regeneración de claves de acceso de almacenamiento]: #regeneratestoragekeys
+  [Direccionamiento del una cuenta de almacenamiento]: #deletestorageaccount
   [Portal de administración de Azure]: https://manage.windowsazure.com
   [Portal de administración]: http://manage.windowsazure.com
   [Configurar las cadenas de conexión de Windows Azure]: http://msdn.microsoft.com/es-es/library/ee758697.aspx

@@ -1,6 +1,6 @@
-<properties title="How to create a hybrid deployment of RemoteApp" pageTitle="How to create a hybrid deployment of RemoteApp" description="Learn how to create a deployment of RemoteApp that connects to your internal network." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo"  />
+<properties title="Creaci&oacute;n de una implementaci&oacute;n de RemoteApp en la nube" pageTitle="Creaci&oacute;n de una implementaci&oacute;n de RemoteApp en la nube" description="Aprenda a crear una implementaci&oacute;n de RemoteApp que guarda datos en la nube de Azure." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="elizapo" />
+<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/05/2014" ms.author="elizapo" ms.manager="kathyw" />
 
 # Creación de una implementación de RemoteApp en la nube
 
@@ -20,9 +20,10 @@ Este tutorial le guía en el proceso de creación de una implementación en la n
 
 Necesita llevar a cabo los pasos siguientes antes de crear el servicio:
 
--   Suscríbase a la vista previa de RemoteApp. Puede hacerlo en la dirección [][]<http://azure.microsoft.com/es-es/services/remoteapp/></a>.
--   Recopile información sobre los usuarios y grupos a los que desee conceder acceso. Esta información puede ser información de cuenta de Microsoft o información de cuenta de organización de Active Directory de usuarios o grupos.
+-   Suscríbase a la vista previa de RemoteApp. Puede hacerlo en la dirección <http://azure.microsoft.com/es-es/services/remoteapp/>.
+-   Recopile información sobre los usuarios y grupos a los que desee conceder acceso. Esta información puede ser información de cuenta de Microsoft o información de cuenta de trabajo de Active Directory de usuarios o grupos.
 -   En este procedimiento se supone que va a usar la imagen de plantilla que se proporciona con la suscripción o que ya ha cargado la imagen de plantilla que desea usar. Si tiene que cargar una imagen de plantilla diferente, puede hacerlo desde la página Imágenes de plantilla. Haga clic en **Cargar imagen de plantilla** y siga los pasos del asistente.
+-   ¿Desea proporcionar aplicaciones personalizadas o programas LOB? Cree una nueva [imagen de plantilla personalizada][imagen de plantilla personalizada] y utilícela en su implementación en la nube.
 
 ## **Paso 1: Creación de un servicio RemoteApp**
 
@@ -33,7 +34,7 @@ Necesita llevar a cabo los pasos siguientes antes de crear el servicio:
 4.  Elija la suscripción que desea usar para crear este servicio.
 5.  Elija la plantilla que va a usar para este servicio.
 
-    **Sugerencia:** La suscripción a RemoteApp incluye una imagen de plantilla que contiene programas de Office 2013, algunos publicados (como Word) y otros listos para publicarlos.
+    **Sugerencia:** La suscripción a RemoteApp incluye una imagen de plantilla que contiene programas de Office 2013, algunos publicados (como Word) y otros listos para publicarlos. También puede crear una nueva [imagen de plantilla personalizada][imagen de plantilla personalizada] y usarla en su implementación en la nube.
 
 6.  Haga clic en **Crear un servicio RemoteApp**.
 
@@ -58,17 +59,16 @@ Puede publicar varios programas en su servicio RemoteApp. Desde la página de pr
 Ahora que ha creado el servicio RemoteApp, necesita agregar los usuarios y grupos que desea que puedan usar los recursos remotos. Si usa Active Directory, los usuarios o grupos a los que proporcione acceso deben existir en el inquilino de Active Directory asociado con la suscripción que usó para crear este servicio RemoteApp.
 
 1.  Desde la página Inicio rápido, haga clic en **Configurar acceso de usuario**.
-2.  Escriba la cuenta organizativa o nombre de grupo (desde Active Directory) o la cuenta de Microsoft para la que desea conceder acceso.
+2.  Escriba la cuenta de trabajo o nombre de grupo (desde Active Directory) o la cuenta de Microsoft para la que desea conceder acceso.
 
-    Para los usuarios, asegúrese de que usa el formato “[usuario@dominio.com][usuario@dominio.com]”. Para los grupos, escriba el nombre de grupo.
+    Para los usuarios, asegúrese de que usa el formato “usuario@dominio.com”. Para los grupos, escriba el nombre de grupo.
 
 3.  Una vez que los usuarios o grupos se validen, haga clic en **Guardar**.
 
 ## Pasos siguientes
 
-Eso es todo, ha creado e implementado correctamente su implementación en la nube de RemoteApp. El paso siguiente es que los usuarios descarguen e instalen el cliente Escritorio remoto. Puede encontrar la dirección URL del cliente en la página Inicio rápido de RemoteApp. Después, indique a los usuarios que inicien sesión en Azure y accedan a los programas de RemoteApp publicados.
+Eso es todo, ha creado e implementado correctamente su implementación en la nube de RemoteApp. El paso siguiente es que los usuarios descarguen e instalen el cliente Escritorio remoto. Puede encontrar la dirección URL del cliente en la página Inicio rápido de RemoteApp. Después, indique a los usuarios que inicien sesión en el cliente y accedan a los programas de RemoteApp publicados.
 
-  []: http://azure.microsoft.com/es-es/services/remoteapp/
+  [imagen de plantilla personalizada]: http://azure.microsoft.com/es-es/documentation/articles/remoteapp-create-custom-image/
   [Portal de administración de Windows Azure]: http://manage.windowsazure.com
   [Guía de sincronización de directorios]: http://msdn.microsoft.com/es-es/library/azure/hh967642.aspx
-  [usuario@dominio.com]: mailto:user@domain.com

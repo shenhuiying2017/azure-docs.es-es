@@ -1,16 +1,16 @@
-<properties linkid="develop-media-services-how-to-guides-encrypt-assets" urlDisplayName="Encrypt Assets in Media Services" pageTitle="How to Encrypt Assets in Media Services - Azure" metaKeywords="" description="Learn how to use Microsoft PlayReady Protection to encrypt an asset in Media Services. Code samples are written in C# and use the Media Services SDK for .NET. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="Encrypt Assets in Media Services" pageTitle="Cifrado de activos en Servicios multimedia de Azure" metaKeywords="" description="Aprenda a usar la protecci&oacute;n de Microsoft PlayReady para cifrar un activo en Servicios multimedia. Los ejemplos de c&oacute;digo est&aacute;n escritos en C# y utilizan el SDK de Servicios multimedia para .NET. Los ejemplos de c&oacute;digo est&aacute;n escritos en C# y utilizan el SDK de Servicios multimedia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="Reproducci&oacute;n de un recurso con PlayReady" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
-# <a name="playready"></a>Protección de un recurso con PlayReady
+# <a name="playready"></a>Direccionamiento del un recurso con PlayReady
 
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [Comprobación del progreso del trabajo][].
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [Comprobación del progreso del trabajo][Comprobación del progreso del trabajo].
 
 En Servicios multimedia de Azure puede enviar un trabajo que integre la protección Microsoft PlayReady para cifrar un recurso. El código de esta sección utiliza varios archivos de transmisión de una carpeta de entrada, crea una tarea y los cifra con la protección PlayReady.
 
 En el siguiente ejemplo se muestra cómo crear un trabajo sencillo para proporcionar la protección PlayReady.
 
-1.  Recupere los datos de configuración. Puede obtener un archivo de configuración de ejemplo del tema [Valores preestablecidos de tarea para Azure Media Encryptor][].
+1.  Recupere los datos de configuración. Puede obtener un archivo de configuración de ejemplo del tema [Valores preestablecidos de tarea para Azure Media Encryptor][Valores preestablecidos de tarea para Azure Media Encryptor].
 2.  Cargue un archivo de entrada MP4.
 3.  Convierta el archivo MP4 en un recurso de Smooth Streaming.
 4.  Cifre el recurso con PlayReady.
@@ -32,7 +32,7 @@ En el siguiente ejemplo de código se muestra cómo implementar los pasos:
         string configMp4ToSmooth = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaPackager_MP4ToSmooth.xml"));
 
         // Get a media processor instance
-        IMediaProcessor processor = GetLatestMediaProcessorByName("Azure Media Packager");
+        IMediaProcessor processor = GetLatestMediaProcessorByName("Windows Azure Media Packager");
 
         // Create a task with the conversion details, using the configuration data 
         ITask task = job.Tasks.AddNew("My Mp4 to Smooth Task",
@@ -55,7 +55,7 @@ En el siguiente ejemplo de código se muestra cómo implementar los pasos:
         string configPlayReady = File.ReadAllText(Path.GetFullPath(configFilePath + @"\MediaEncryptor_PlayReadyProtection.xml"));
 
         // Get a media processor instance
-        IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Azure Media Encryptor");
+        IMediaProcessor playreadyProcessor = GetLatestMediaProcessorByName("Windows Azure Media Encryptor");
 
         // Create a second task, specifying a task name, the media processor, and configuration
         ITask playreadyTask = job.Tasks.AddNew("My PlayReady Task",
@@ -103,16 +103,16 @@ En el siguiente ejemplo de código se muestra cómo implementar los pasos:
 
 Para obtener más información acerca de la protección PlayReady, consulte:
 
--   [Proteger Smooth Stream y MPEG DASH con PlayReady][]
--   [Microsoft PlayReady][]
+-   [Proteger Smooth Stream y MPEG DASH con PlayReady][Proteger Smooth Stream y MPEG DASH con PlayReady]
+-   [Microsoft PlayReady][Microsoft PlayReady]
 
 </p>
 ## Pasos siguientes
 
-Ahora que sabe cómo proteger recursos con Servicios multimedia, diríjase al tema [Administración de recursos][].
+Ahora que sabe cómo proteger recursos con Servicios multimedia, diríjase al tema [Administración de recursos][Administración de recursos].
 
-  [Comprobación del progreso del trabajo]: http://go.microsoft.com/fwlink/?LinkID=301737&clcid=0x409
-  [Valores preestablecidos de tarea para Azure Media Encryptor]: http://msdn.microsoft.com/en-us/library/hh973610.aspx
-  [Proteger Smooth Stream y MPEG DASH con PlayReady]: http://msdn.microsoft.com/en-us/library/dn189154.aspx
+  [Comprobación del progreso del trabajo]: ../media-services-check-job-progress/
+  [Valores preestablecidos de tarea para Azure Media Encryptor]: http://msdn.microsoft.com/es-es/library/hh973610.aspx
+  [Proteger Smooth Stream y MPEG DASH con PlayReady]: http://msdn.microsoft.com/es-es/library/dn189154.aspx
   [Microsoft PlayReady]: http://www.microsoft.com/PlayReady/
-  [Administración de recursos]: http://go.microsoft.com/fwlink/?LinkID=301943&clcid=0x409
+  [Administración de recursos]: ../media-services-manage-assets/

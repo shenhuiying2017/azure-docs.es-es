@@ -1,6 +1,6 @@
-<properties linkid="develop-media-services-how-to-guides-ios-media-player-framework" urlDisplayName="iOS Media Player Framework" pageTitle="Use the iOS Media Player Framework with Azure Media Services" metaKeywords="" description="Learn how to use the Media Services iOS Media Player Framework library to create rich, dynamic apps.," metaCanonical="" services="media-services" documentationCenter="" title="How to use the Azure Media Services iOS Media Player Framework" authors="migree" solutions="" manager="" editor="" />
+<properties urlDisplayName="iOS Media Player Framework" pageTitle="Uso de iOS Media Player Framework con Servicios multimedia de Azure" metaKeywords="" description="Aprenda a usar la biblioteca iOS Media Player Framework de Servicios multimedia para crear aplicaciones enriquecidas y din&aacute;micas." metaCanonical="" services="media-services" documentationCenter="" title="Uso de iOS Media Player Framework de Servicios Multimedia de Azure" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="migree"></tags>
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
 
 # Uso de iOS Media Player Framework de Servicios Multimedia de Azure
 
@@ -31,7 +31,7 @@ Los siguientes pasos muestran cómo obtener la aplicación y proporcionan un rec
 
 3.  Aquí tiene la estructura del reproductor de ejemplo:
 
-![Estructura del código de ejemplo HLS][]
+![Estructura del código de ejemplo HLS][Estructura del código de ejemplo HLS]
 
 1.  En la carpeta iPad, hay dos archivos .xib: **SeekbarViewController** y **SamplePlayerViewController**. Se ocupan de crear el diseño de la interfaz de usuario de la aplicación para iPad. De la misma forma, existen dos archivos .xib en la carpeta iPhone que definen el controlador y la barra de búsqueda.
 
@@ -43,7 +43,7 @@ Existen dos archivos .xib que definen la interfaz del reproductor. En el ejemplo
 
 ### SamplePlayerViewController\_iPad.xib
 
-![Sample Player Address Bar][]
+![Sample Player Address Bar][Sample Player Address Bar]
 
 -   **Media URL** es la dirección URL usada para cargar una transmisión de medios. La aplicación cuenta con una lista previamente completada de direcciones URL multimedia que puede usar mediante los botones de selección de la dirección URL. También puede especificar su propia dirección URL de contenido de HTTP Live Streaming (HLS). Este contenido multimedia se usará como el primer contenido principal.
     **Nota: no deje esta dirección URL vacía.**
@@ -52,7 +52,7 @@ Existen dos archivos .xib que definen la interfaz del reproductor. En el ejemplo
 
 ### SeekbarViewController\_iPad.xib
 
-![Seek Bar Controller][]
+![Seek Bar Controller][Seek Bar Controller]
 
 -   Use el botón **Reproducir** para ejecutar y pausar la reproducción multimedia.
 
@@ -215,7 +215,7 @@ Existen algunos aspectos que debe tener en cuenta aquí:
 
 Como se muestra en el ejemplo del código anterior, si establece **deleteAfterPlay** en **YES**, este anuncio se reproduce solo una vez. Si estableció **deleteAfterPlay** en **NO**, este anuncio sigue reproduciéndose. Es lo que llamamos "anuncio persistente".
 
-### Consulte la página wiki [Azure Media Player Framework][] para obtener más información.
+### Consulte la página wiki [Azure Media Player Framework][Azure Media Player Framework] para obtener más información.
 
   [Estructura del código de ejemplo HLS]: http://mingfeiy.com/wp-content/uploads/2013/01/HLS-Structure.png
   [Sample Player Address Bar]: http://mingfeiy.com/wp-content/uploads/2013/01/addressbar.png

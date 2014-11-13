@@ -1,10 +1,8 @@
-<properties linkid="manage-services-how-to-manage-a-cloud-service" urlDisplayName="How to manage" pageTitle="How to manage a cloud service - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Learn how to manage cloud services in the Azure Management Portal." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Manage Cloud Services" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="How to manage" pageTitle="Administraci&oacute;n de un servicio en la nube - Azure" metaKeywords="Azure manage cloud services, Azure Management Portal cloud services" description="Vea c&oacute;mo administrar servicios en la nube en el Portal de administraci&oacute;n de Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="Administraci&oacute;n de servicios en la nube" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 
 # Administración de servicios en la nube
-
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 En el área **Servicios en la nube** del Portal de administración de Azure, puede actualizar un rol de servicio o una implementación, pasar su servicio en la nube de ensayo a producción, vincular recursos con su servicio en la nube de modo que pueda ver las dependencias de los recursos y escalar los recursos juntos, además de eliminar un servicio en la nube o una implementación.
 
@@ -21,27 +19,25 @@ Si necesita actualizar el código de la aplicación para su servicio en la nube,
 
 1.  En el [Portal de administración de Azure][Portal de administración de Azure], en el panel, en la página **Servicios en la nube** o **Instancias**, haga clic en **Actualizar**.
 
-    Se abre **Update Deployment**.
-
     ![Implementación de actualizaciones][Implementación de actualizaciones]
 
-2.  En **Etiqueta de implementación**, escriba un nombre para identificar la implementación (por ejemplo, mycloudservicev2). Encontrará el nombre de la implementación debajo de **quick start** en el panel.
+2.  En **Etiqueta de implementación**, escriba un nombre para identificar la implementación (por ejemplo, mycloudservice4). Encontrará la etiqueta de la implementación debajo de **Inicio rápido** en el panel.
 
-3.  En **Package file**, utilice **Browse** para cargar el archivo de paquete de servicio (.cspkg).
+3.  En **Archivo de paquete**, utilice **Examinar** para cargar el archivo de paquete del servicio (.cspkg).
 
-4.  En **Archivo de configuración**, utilice **Browse** para cargar el archivo de configuración (.cspkg).
+4.  En **Configuración**, utilice **Examinar** para cargar el archivo de configuración del servicio (.cspkg).
 
-5.  En **Rol**, seleccione **All** si desea actualizar todos los roles en el servicio en la nube. Para realizar la actualización de un rol, seleccione el rol que desea actualizar. Aunque seleccione un rol específico para actualizar, las actualizaciones en el archivo de configuración del servicio se aplican a todos los roles.
+5.  En **Rol**, seleccione **All** si desea actualizar todos los roles en el servicio en la nube. Para actualizar un rol, seleccione el rol que desea actualizar. Aunque seleccione un rol específico para actualizar, las actualizaciones en el archivo de configuración del servicio se aplican a todos los roles.
 
-6.  Si la actualización va a cambiar la cantidad de roles o el tamaño de cualquier rol, seleccione la casilla **Allow update if role sizes or number of roles changes** para permitir que la actualización continúe.
+6.  Si la actualización cambia el número de roles o el tamaño de algún rol, active la casilla **Permitir actualizar si cambian los tamaños de rol o el número de roles** para que la actualización continúe.
 
     Tenga presente que si cambia el tamaño de un rol (es decir, el tamaño de una máquina virtual que hospeda una instancia de rol) o la cantidad de roles, se debe volver a crear una imagen de la instancia de rol (máquina virtual) y se perderán todos los datos locales.
 
 7.  Si cualquier rol de servicio tiene solo una instancia de rol, seleccione la casilla **Update even if one or more role contain a single instance** para permitir que la actualización continúe.
 
-    Azure solo puede garantizar un 99,95 % de disponibilidad del servicio durante una actualización del servicio en la nube si cada rol tiene al menos dos instancias de rol (máquinas virtuales). Esto permite que una máquina virtual procese las solicitudes del cliente mientras la otra se actualiza.
+    Azure solo puede garantizar un 99,95 % de disponibilidad del servicio durante una actualización del servicio en la nube si cada rol tiene al menos dos instancias de rol (máquinas virtu\*\*ales). Esto permite que una máquina virtual procese las solicitudes del cliente mientras la otra se actualiza.
 
-8.  Haga clic en OK (marca de verificación) para iniciar la actualización del servicio.
+8.  Haga clic en **Aceptar** (marca de verificación) para iniciar la actualización del servicio.
 
 ## <span id="swap"></span></a>Direccionamiento del implementaciones para pasar un servicio en la nube de ensayo a producción
 
@@ -140,7 +136,6 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 > [WACOM.NOTE]
 > Si se configura una supervisión detallada para su servicio en la nube, Azure no elimina los datos de supervisión de la cuenta de almacenamiento al eliminar el servicio en la nube. Tendrá que eliminar los datos manualmente. Para obtener información sobre dónde buscar las tablas métricas, consulte "Acceso a los datos de supervisión detallada fuera del Portal de administración" en [Supervisión de servicios en la nube][Supervisión de servicios en la nube].
 
-  [disclaimer]: ../includes/disclaimer.md
   [Direccionamiento del rol de servicio en la nube o implementación]: #updaterole
   [Direccionamiento del implementaciones para pasar un servicio en la nube de ensayo a producción]: #swap
   [Direccionamiento del recurso a un servicio en la nube]: #linkresources

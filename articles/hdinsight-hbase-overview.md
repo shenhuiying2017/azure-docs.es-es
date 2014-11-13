@@ -1,6 +1,6 @@
-<properties linkid="manage-services-hdinsight-hbase-overview" urlDisplayName="HDInsight HBase overview" pageTitle="An overview of HBase in HDInsight | Azure" metaKeywords="" description="An introduction to HBase in HDInsight, use-cases and a comparison with other database solutions ." metaCanonical="" services="hdinsight" documentationCenter="" title="HDInsight HBase overview" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="HDInsight HBase overview" pageTitle="Informaci&oacute;n general sobre HBase en HDInsight | Azure" metaKeywords="" description="Introducci&oacute;n a HBase en HDInsight, casos de uso y comparaci&oacute;n con otras soluciones de base de datos." metaCanonical="" services="hdinsight" documentationCenter="" title="Informaci&oacute;n general de HBase de HDInsight" authors="bradsev" solutions="big-data" manager="paulettm" editor="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="bradsev"></tags>
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="bradsev" />
 
 # Información general de HBase de HDInsight
 
@@ -12,11 +12,11 @@ HBase es una base de datos NoSQL de código abierto Apache basada en Hadoop que 
 
 HBase de HDInsight se ofrece como clúster administrado integrado en el entorno de Azure. Los clústeres están configurados para almacenar datos directamente en el almacenamiento de blobs de Azure, que proporciona una latencia baja y una mayor elasticidad de las opciones de rendimiento o coste. Esto permite que los clientes creen sitios web interactivos que trabajen con grandes conjuntos de datos, creen servicios que almacenen datos del sensor y telemetría desde millones de extremos y analicen estos datos con trabajos de Hadoop. HBase y Hadoop son buenos puntos de partida para proyectos con datos de gran tamaño en Azure y, en concreto, pueden permitir aplicaciones en tiempo real para trabajar con grandes conjuntos de datos.
 
-La implementación de HDInsight aprovecha la arquitectura de escala de HBase para proporcionar particionamiento automático de tablas, una coherencia fuerte para lecturas y escrituras, y una conmutación automática por error. Se mejora el rendimiento mediante el almacenamiento en caché de memoria en una lectura y escritos de streaming de alto rendimiento. Asimismo, hay disponible un aprovisionamiento de redes virtuales para HBase de HDInsight. Para obtener detalles, consulte [Aprovisionamiento de clústeres de HDInsight en Red virtual de Azure][].
+La implementación de HDInsight aprovecha la arquitectura de escala de HBase para proporcionar particionamiento automático de tablas, una coherencia fuerte para lecturas y escrituras, y una conmutación automática por error. Se mejora el rendimiento mediante el almacenamiento en caché de memoria en una lectura y escritos de streaming de alto rendimiento. Asimismo, hay disponible un aprovisionamiento de redes virtuales para HBase de HDInsight. Para obtener detalles, consulte [Aprovisionamiento de clústeres de HDInsight en Red virtual de Azure][Aprovisionamiento de clústeres de HDInsight en Red virtual de Azure].
 
 ## ¿Cómo se administran los datos en HBase de HDInsight?
 
-Los datos pueden administrarse en HBase mediante los comandos `create` `get`, `put` y `scan` del shell de HBase. Los datos se escriben en la base de datos usando `put` y se leen con los comandos `get`. El comando `scan` se usa para obtener datos de varias filas de una tabla. Los datos también se pueden administrar usando la API de C# de HBase, que proporciona una biblioteca de cliente en la parte superior de la API de REST de HBase. Asimismo, una base de datos de HBase se puede consultar usando Hive. Para obtener una introducción a estos modelos de programación, consulte [Introducción al uso de HBase con Hadoop en HDInsight][]. También hay coprocesadores disponibles que permiten el procesamiento de datos en los nodos que hospedan la base de datos.
+Los datos pueden administrarse en HBase mediante los comandos `create` `get`, `put` y `scan` del shell de HBase. Los datos se escriben en la base de datos usando `put` y se leen con los comandos `get`. El comando `scan` se usa para obtener datos de varias filas de una tabla. Los datos también se pueden administrar usando la API de C# de HBase, que proporciona una biblioteca de cliente en la parte superior de la API de REST de HBase. Asimismo, una base de datos de HBase se puede consultar usando Hive. Para obtener una introducción a estos modelos de programación, consulte [Introducción al uso de HBase con Hadoop en HDInsight][Introducción al uso de HBase con Hadoop en HDInsight]. También hay coprocesadores disponibles que permiten el procesamiento de datos en los nodos que hospedan la base de datos.
 
 ## Escenarios: ¿Cuáles son los casos de uso de HBase?
 
@@ -33,7 +33,7 @@ y la base de datos de series temporales abierta (OpenTSDB), que almacena y propo
 
 ### Caso de uso n.º 3: consulta en tiempo real
 
-[Phoenix][] es un motor de consulta de SQL para HBase Apache. Se obtiene acceso a él como controlador de JDBC y permite consultar y administrar tablas de HBase usando SQL.
+[Phoenix][Phoenix] es un motor de consulta de SQL para HBase Apache. Se obtiene acceso a él como controlador de JDBC y permite consultar y administrar tablas de HBase usando SQL.
 
 ### Caso de uso n.º 4: HBase como plataforma
 
@@ -41,27 +41,27 @@ Las aplicaciones pueden ejecutarse en la parte superior de HBase usándolo como 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Introducción al uso de HBase con Hadoop en HDInsight][]
+[Introducción al uso de HBase con Hadoop en HDInsight][Introducción al uso de HBase con Hadoop en HDInsight]
 
-[Aprovisionamiento de clústeres de HDInsight en Red virtual de Azure][]
+[Aprovisionamiento de clústeres de HDInsight en Red virtual de Azure][Aprovisionamiento de clústeres de HDInsight en Red virtual de Azure]
 
-[Análisis del espíritu de Twitter con HBase en HDInsight][]
+[Análisis del espíritu de Twitter con HBase en HDInsight][Análisis del espíritu de Twitter con HBase en HDInsight]
 
-[Uso de Maven para crear aplicaciones Java que utilicen HBase con HDInsight (Hadoop)][]
+[Uso de Maven para crear aplicaciones Java que utilicen HBase con HDInsight (Hadoop)][Uso de Maven para crear aplicaciones Java que utilicen HBase con HDInsight (Hadoop)]
 
-[SDK de HBase de C\#][]
+[SDK de HBase de C#][SDK de HBase de C#]
 
 ## <a name="see-also"></a>Otras referencias
 
-[HBase Apache][]
+[HBase Apache][HBase Apache]
 
-[Bigtable: un sistema de almacenamiento distribuido para datos estructurados][]
+[Bigtable: un sistema de almacenamiento distribuido para datos estructurados][Bigtable: un sistema de almacenamiento distribuido para datos estructurados]
 
   [Aprovisionamiento de clústeres de HDInsight en Red virtual de Azure]: ../hdinsight-hbase-provision-vnet/
   [Introducción al uso de HBase con Hadoop en HDInsight]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-hbase-get-started/
   [Phoenix]: http://phoenix.apache.org/
   [Análisis del espíritu de Twitter con HBase en HDInsight]: ../hdinsight-hbase-analyze-twitter-sentiment/
   [Uso de Maven para crear aplicaciones Java que utilicen HBase con HDInsight (Hadoop)]: ../hdinsight-hbase-build-java-maven/
-  [SDK de HBase de C\#]: https://github.com/hdinsight/hbase-sdk-for-net
+  [SDK de HBase de C#]: https://github.com/hdinsight/hbase-sdk-for-net
   [HBase Apache]: https://hbase.apache.org/
   [Bigtable: un sistema de almacenamiento distribuido para datos estructurados]: http://research.google.com/archive/bigtable.html

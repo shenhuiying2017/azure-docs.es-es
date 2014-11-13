@@ -1,6 +1,6 @@
-<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="How to use blob storage (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs. Code samples are written in PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="robmcm" manager="wpickett" editor="mollybos" />
+<properties title="Uso del almacenamiento de blobs (PHP) - Gu&iacute;a de caracter&iacute;sticas de Azure" pageTitle="Uso del almacenamiento de blobs (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Aprenda a utilizar el servicio BLOB de Azure para cargar, incluir en un listado, descargar y eliminar blobs. Los ejemplos de c&oacute;digo est&aacute;n escritos en PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="robmcm" manager="adinah" editor="mollybos" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="robmcm" />
 
 # Uso del servicio BLOB de PHP
 
@@ -10,16 +10,16 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del servicio 
 
 -   [Qué es el almacenamiento de blobs][Qué es el almacenamiento de blobs]
 -   [Conceptos][Conceptos]
--   [Creación de una cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento de Azure]
+-   [Crear una cuenta de almacenamiento de Azure][Crear una cuenta de almacenamiento de Azure]
 -   [Creación de una aplicación PHP][Creación de una aplicación PHP]
 -   [Configuración de la aplicación para obtener acceso al servicio BLOB][Configuración de la aplicación para obtener acceso al servicio BLOB]
 -   [Configuración de una conexión de almacenamiento de Azure][Configuración de una conexión de almacenamiento de Azure]
--   [Creación de un contenedor][Creación de un contenedor]
--   [Carga de un blob en un contenedor][Carga de un blob en un contenedor]
--   [Enumeración de los blobs de un contenedor][Enumeración de los blobs de un contenedor]
--   [Descarga de un blob][Descarga de un blob]
--   [Eliminación de un blob][Eliminación de un blob]
--   [Eliminación de un contenedor de blobs][Eliminación de un contenedor de blobs]
+-   [Direccionamiento del un contenedor][Direccionamiento del un contenedor]
+-   [Direccionamiento del un blob en un contenedor][Direccionamiento del un blob en un contenedor]
+-   [Direccionamiento del los blobs de un contenedor][Direccionamiento del los blobs de un contenedor]
+-   [Direccionamiento del un blob][Direccionamiento del un blob]
+-   [Direccionamiento del un blob][1]
+-   [Direccionamiento del un contenedor de blobs][Direccionamiento del un contenedor de blobs]
 -   [Pasos siguientes][Pasos siguientes]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
@@ -83,7 +83,7 @@ En los ejemplos descritos aquí, la cadena de conexión se pasará directamente.
 
     $blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-## <span id="CreateContainer"></span></a>Creación de un contenedor
+## <span id="CreateContainer"></span></a>Direccionamiento del Creación de un contenedor
 
 Los objetos **BlobRestProxy** le permiten crear un contenedor de blobs mediante el método **createContainer**. Al crear un contenedor, puede establecer opciones en él, aunque no es obligatorio. (El ejemplo que aparece a continuación muestra cómo establecer la ACL y los metadatos del contenedor).
 
@@ -139,7 +139,7 @@ Si llama a **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)**, los dat
 
 Para obtener más información acerca de los códigos de error del servicio BLOB, consulte [Blob Service Error Codes][Blob Service Error Codes].
 
-## <span id="UploadBlob"></span></a>Carga de un blob en un contenedor
+## <span id="UploadBlob"></span></a>Direccionamiento del un blob en un contenedor
 
 Para cargar un archivo en forma de blob, utilice el método **BlobRestProxy-\>createBlockBlob**. De este modo, se creará el blob si no existe, o bien se sobrescribirá si ya existe. En el ejemplo de código que aparece a continuación, se asume que el contenedor ya se creó y se utiliza [fopen][fopen] para abrir el archivo como secuencia.
 
@@ -170,7 +170,7 @@ Para cargar un archivo en forma de blob, utilice el método **BlobRestProxy-\>cr
 
 Observe que en el ejemplo anterior se carga un blob en forma de secuencia. Sin embargo, también es posible cargar un blob en forma de cadena utilizando, por ejemplo, la función [file\_get\_contents][file\_get\_contents]. Para hacer esto, seleccione `$content = fopen("c:\myfile.txt", "r");` en el ejemplo anterior por `$content = file_get_contents("c:\myfile.txt");`.
 
-## <span id="ListBlobs"></span></a>Enumeración de los blobs de un contenedor
+## <span id="ListBlobs"></span></a>Direccionamiento del los blobs de un contenedor
 
 Para enumerar los blobs de un contenedor, utilice el método **BlobRestProxy-\>listBlobs** aplicando un bucle **foreach** al resultado. El código siguiente permite obtener en el explorador el nombre y el URI de cada uno de los blobs de un contenedor.
 
@@ -202,7 +202,7 @@ Para enumerar los blobs de un contenedor, utilice el método **BlobRestProxy-\>l
         echo $code.": ".$error_message."<br />";
     }
 
-## <span id="DownloadBlob"></span></a>Descarga de un blob
+## <span id="DownloadBlob"></span></a>Direccionamiento del un blob
 
 Para descargar un blob, llame al método **BlobRestProxy-\>getBlob** y, a continuación, al método **getContentStream** en el objeto **GetBlobResult** resultante.
 
@@ -231,7 +231,7 @@ Para descargar un blob, llame al método **BlobRestProxy-\>getBlob** y, a contin
 
 Observe que en el ejemplo anterior se obtiene un blob en forma de recurso de secuencia (opción predeterminada). Sin embargo, es posible utilizar la función [stream\_get\_contents][stream\_get\_contents] para convertir la secuencia en una cadena.
 
-## <span id="DeleteBlob"></span></a>Eliminación de un blob
+## <span id="DeleteBlob"></span></a>Direccionamiento del un blob
 
 Para eliminar un blob, pase el nombre del contenedor y del blob a **BlobRestProxy-\>deleteBlob**.
 
@@ -257,7 +257,7 @@ Para eliminar un blob, pase el nombre del contenedor y del blob a **BlobRestProx
         echo $code.": ".$error_message."<br />";
     }
 
-## <span id="DeleteContainer"></span></a>Eliminación de un contenedor de blobs
+## <span id="DeleteContainer"></span></a>Direccionamiento del un contenedor de blobs
 
 Finalmente, para eliminar un contenedor de blobs, pase el nombre del contenedor a **BlobRestProxy-\>deleteContainer**.
 
@@ -296,19 +296,20 @@ Ahora que está familiarizado con los aspectos básicos del servicio BLOB de Azu
   [Pasos siguientes]: #NextSteps
   [Qué es el almacenamiento de blobs]: #what-is
   [Conceptos]: #concepts
-  [Creación de una cuenta de almacenamiento de Azure]: #CreateAccount
+  [Crear una cuenta de almacenamiento de Azure]: #CreateAccount
   [Creación de una aplicación PHP]: #CreateApplication
   [Configuración de la aplicación para obtener acceso al servicio BLOB]: #ConfigureStorage
   [Configuración de una conexión de almacenamiento de Azure]: #ConnectionString
-  [Creación de un contenedor]: #CreateContainer
-  [Carga de un blob en un contenedor]: #UploadBlob
-  [Enumeración de los blobs de un contenedor]: #ListBlobs
-  [Descarga de un blob]: #DownloadBlob
-  [Eliminación de un blob]: #DeleteBlob
-  [Eliminación de un contenedor de blobs]: #DeleteContainer
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
-  [get-client-libraries]: ../includes/get-client-libraries.md
+  [Direccionamiento del un contenedor]: #CreateContainer
+  [Direccionamiento del un blob en un contenedor]: #UploadBlob
+  [Direccionamiento del los blobs de un contenedor]: #ListBlobs
+  [Direccionamiento del un blob]: #DownloadBlob
+  [1]: #DeleteBlob
+  [Direccionamiento del un contenedor de blobs]: #DeleteContainer
+  [require\_once]: http://php.net/require_once
+  [Set Container ACL (REST API)]: http://msdn.microsoft.com/es-es/library/windowsazure/dd179391.aspx
   [Blob Service Error Codes]: http://msdn.microsoft.com/es-es/library/windowsazure/dd179439.aspx
   [fopen]: http://www.php.net/fopen
+  [file\_get\_contents]: http://php.net/file_get_contents
+  [stream\_get\_contents]: http://www.php.net/stream_get_contents
   [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx

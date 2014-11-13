@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-upload-data-for-hadoop-jobs-in-hdinsight" urlDisplayName="Upload Data" pageTitle="Upload data for Hadoop jobs in HDInsight | Azure" metaKeywords="" description="Learn how to upload and access data in HDInsight using Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Upload data for Hadoop jobs in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Upload Data" pageTitle="Carga de datos para trabajos de Hadoop en HDInsight | Azure" metaKeywords="" description="Aprenda a cargar datos en HDInsight y obtener acceso a ellos con el Explorador de almacenamiento de Azure, Azure PowerShell, la l&iacute;nea de comandos de Hadoop o Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Carga de datos para trabajos de Hadoop en HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -77,7 +77,7 @@ Al usar las herramientas de Azure Explorer, puede que vea algunos archivos de 0 
 
 ## <span id="storageexplorer"></span></a>Carga de datos en el almacenamiento de blobs usando el explorador de almacenamiento de Azure
 
-El *explorador de almacenamiento de Azure* es una herramienta útil para inspeccionar y modificar los datos de su almacenamiento de Azure. Se trata de una herramienta gratuita que se puede descargar de [][]<http://azurestorageexplorer.codeplex.com/></a>.
+El *explorador de almacenamiento de Azure* es una herramienta útil para inspeccionar y modificar los datos de su almacenamiento de Azure. Se trata de una herramienta gratuita que se puede descargar de <http://azurestorageexplorer.codeplex.com/>.
 
 Antes de usar la herramienta, debe saber el nombre y la clave de la cuenta de almacenamiento de Azure. Para obtener instrucciones acerca de cómo conseguir esta información, consulte la sección "Visualización, copia y generación de claves de acceso al almacenamiento" de [Administración de cuentas de almacenamiento][Administración de cuentas de almacenamiento].
 
@@ -198,7 +198,6 @@ Ahora que ya sabe cómo enviar datos a HDInsight, use los artículos siguientes 
   [Importación de datos desde una base de datos SQL de Azure en el almacenamiento de blobs usando Sqoop]: #sqoop
   [Descarga de AzCopy]: http://aka.ms/WaCopy
   [Instalación y configuración de Azure PowerShell]: ../install-configure-powershell/
-  []: http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer"
   [Administración de cuentas de almacenamiento]: ../storage-manage-storage-account/
   [HDI.AzureStorageExplorer]: ./media/hdinsight-upload-data/HDI.AzureStorageExplorer.png
   [HDI.ASEAddAccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png

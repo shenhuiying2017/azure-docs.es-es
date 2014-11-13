@@ -1,6 +1,6 @@
-<properties linkid="dev-net-how-to-use-blog-storage-service-java" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use Blob Storage from Java" authors="" solutions="" manager="" editor="" />
+<properties urlDisplayName="Blob Service" pageTitle="Uso de almacenamiento de blobs (Java) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Java" description="Aprenda a utilizar el servicio BLOB de Azure para cargar, descargar, incluir en un listado y eliminar contenido de blobs. Ejemplos escritos en Java." metaCanonical="" services="storage" documentationCenter="Java" title="Uso del almacenamiento de blobs en Java" authors="tamram" solutions="" manager="adinah" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Uso del almacenamiento de blobs en Java
 
@@ -12,16 +12,16 @@ Nota: hay un SDK disponible para los desarrolladores que usen el almacenamiento 
 
 -   [Qué es el almacenamiento de blobs][Qué es el almacenamiento de blobs]
 -   [Conceptos][Conceptos]
--   [Creación de una cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento de Azure]
+-   [Crear una cuenta de almacenamiento de Azure][Crear una cuenta de almacenamiento de Azure]
 -   [Creación de una aplicación Java][Creación de una aplicación Java]
 -   [Configuración de su aplicación para obtener acceso al almacenamiento de blobs][Configuración de su aplicación para obtener acceso al almacenamiento de blobs]
 -   [Configuración de una cadena de conexión de almacenamiento de Azure][Configuración de una cadena de conexión de almacenamiento de Azure]
--   [Creación de un contenedor][Creación de un contenedor]
--   [Carga de un blob en un contenedor][Carga de un blob en un contenedor]
--   [Enumeración de los blobs de un contenedor][Enumeración de los blobs de un contenedor]
--   [Descarga de un blob][Descarga de un blob]
--   [Eliminación de un blob][Eliminación de un blob]
--   [Eliminación de un contenedor de blobs][Eliminación de un contenedor de blobs]
+-   [Direccionamiento del un contenedor][Direccionamiento del un contenedor]
+-   [Direccionamiento del un blob en un contenedor][Direccionamiento del un blob en un contenedor]
+-   [Direccionamiento del los blobs de un contenedor][Direccionamiento del los blobs de un contenedor]
+-   [Direccionamiento del un blob][Direccionamiento del un blob]
+-   [Direccionamiento del un blob][1]
+-   [Direccionamiento del un contenedor de blobs][Direccionamiento del un contenedor de blobs]
 -   [Pasos siguientes][Pasos siguientes]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
@@ -63,7 +63,7 @@ En una aplicación que se esté ejecutando en un rol de Microsoft Azure, esta ca
 
 En los ejemplos siguientes se supone que ha usado uno de estos dos métodos para obtener la cadena de conexión de almacenamiento.
 
-## <a name="CreateContainer"> </a>Creación de un contenedor
+## <a name="CreateContainer"> </a>Direccionamiento del Creación de un contenedor
 
 Los objetos CloudBlobClient le permiten obtener objetos de referencia para los contenedores y los blobs. El siguiente código crea un objeto **CloudBlobClient**. (Nota: existen otras maneras de crear objetos **CloudStorageAccount**; para obtener más información, consulte **CloudStorageAccount** en la [Referencia del SDK del cliente de almacenamiento de Azure][Referencia del SDK del cliente de almacenamiento de Azure]).
 
@@ -103,7 +103,7 @@ Los permisos de un contenedor están configurados para acceso privado de forma p
     // Set the permissions on the container.
     container.uploadPermissions(containerPermissions);
 
-## <a name="UploadBlob"> </a>Carga de un blob en un contenedor
+## <a name="UploadBlob"> </a>Direccionamiento del un blob en un contenedor
 
 Para cargar un archivo en un blob, obtenga una referencia de contenedor y utilícela para obtener una referencia de blob. Una vez tenga una referencia de blob, puede cargar cualquier flujo mediante una llamada de carga en la referencia del blob. De este modo, se creará el blob si no existe, o bien se sobrescribirá si ya existe. El siguiente ejemplo de código muestra esto y presupone que ya se ha creado el contenedor.
 
@@ -132,7 +132,7 @@ Para cargar un archivo en un blob, obtenga una referencia de contenedor y utilí
         e.printStackTrace();
     }
 
-## <a name="ListBlobs"> </a>Enumeración de los blobs de un contenedor
+## <a name="ListBlobs"> </a>Direccionamiento del los blobs de un contenedor
 
 Para enumerar los blobs de un contenedor, obtenga primero una referencia del contenedor del mismo modo que al cargar un blob. Puede utilizar el método **listBlobs** del contenedor con un bucle **for**. El código siguiente ofrece el Uri de todos los blobs de un contenedor a la consola.
 
@@ -167,7 +167,7 @@ parámetro **useFlatBlobListing** establecido en true. De este modo, se devuelve
 con independencia del directorio. Para obtener
 más información, consulte **CloudBlobContainer.listBlobs** en la [Documentación de referencia del SDK de cliente de Almacenamiento de Azure][Referencia del SDK del cliente de almacenamiento de Azure].
 
-## <a name="DownloadBlob"> </a>Descarga de un blob
+## <a name="DownloadBlob"> </a>Direccionamiento del Descarga de un blob
 
 Para descargar blobs, siga los mismos pasos que realizó para cargar un blob con el fin de obtener una referencia de blob. En el ejemplo de carga, llamó a la función upload en el objeto del blob. En el siguiente ejemplo, llame a la función download para transferir los contenidos del blob a un objeto de secuencia como un **FileOutputStream** que puede utilizar para conservar el blob en un archivo local.
 
@@ -198,7 +198,7 @@ Para descargar blobs, siga los mismos pasos que realizó para cargar un blob con
         e.printStackTrace();
     }
 
-## <a name="DeleteBlob"> </a>Eliminación de un blob
+## <a name="DeleteBlob"> </a>Direccionamiento del Eliminación de un blob
 
 Para eliminar un blob, obtenga una referencia del blob y llame a la función **deleteIfExist**.
 
@@ -225,7 +225,7 @@ Para eliminar un blob, obtenga una referencia del blob y llame a la función **d
         e.printStackTrace();
     }
 
-## <a name="DeleteContainer"> </a>Eliminación de un contenedor de blobs
+## <a name="DeleteContainer"> </a>Direccionamiento del un contenedor de blobs
 
 Finalmente, para eliminar un contenedor de blobs, obtenga una referencia
 del contenedor de blobs y llame a la función **deleteIfExists**.
@@ -264,18 +264,16 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
   [SDK de almacenamiento de Azure para Android]: https://github.com/azure/azure-storage-android
   [Qué es el almacenamiento de blobs]: #what-is
   [Conceptos]: #Concepts
-  [Creación de una cuenta de almacenamiento de Azure]: #CreateAccount
+  [Crear una cuenta de almacenamiento de Azure]: #CreateAccount
   [Creación de una aplicación Java]: #CreateApplication
   [Configuración de su aplicación para obtener acceso al almacenamiento de blobs]: #ConfigureStorage
   [Configuración de una cadena de conexión de almacenamiento de Azure]: #ConnectionString
-  [Creación de un contenedor]: #CreateContainer
-  [Carga de un blob en un contenedor]: #UploadBlob
-  [Enumeración de los blobs de un contenedor]: #ListBlobs
-  [Descarga de un blob]: #DownloadBlob
-  [Eliminación de un blob]: #DeleteBlob
-  [Eliminación de un contenedor de blobs]: #DeleteContainer
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
+  [Direccionamiento del un contenedor]: #CreateContainer
+  [Direccionamiento del un blob en un contenedor]: #UploadBlob
+  [Direccionamiento del los blobs de un contenedor]: #ListBlobs
+  [Direccionamiento del un blob]: #DownloadBlob
+  [1]: #DeleteBlob
+  [Direccionamiento del un contenedor de blobs]: #DeleteContainer
   [Referencia del SDK del cliente de almacenamiento de Azure]: http://dl.windowsazure.com/storage/javadoc/
   [API REST de almacenamiento de Azure]: http://msdn.microsoft.com/es-es/library/azure/gg433040.aspx
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/

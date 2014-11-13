@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-howto-social-data" urlDisplayName="Analyze Twitter data with HDInsight Hadoop" pageTitle="Analyze Twitter data with Hadoop in HDInsight | Azure" metaKeywords="" description="Learn how to use Hive to analyze Twitter data on Hadoop in HDInsight to find the usage frequency of a particular word." metaCanonical="" services="HDInsight" documentationCenter="" title="Analyze Twitter data with Hadoop in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Analyze Twitter data with HDInsight Hadoop" pageTitle="An&aacute;lisis de datos de Twitter con Hadoop en HDInsight | Azure" metaKeywords="" description="Vea c&oacute;mo utilizar Hive para analizar datos de Twitter con Hadoop en HDInsight para saber la frecuencia de uso de una palabra determinada." metaCanonical="" services="HDInsight" documentationCenter="" title="An&aacute;lisis de datos de Twitter con Hadoop en HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -78,7 +78,7 @@ HDInsight usa el almacenamiento de blobs de Azure para el almacenamiento de dato
 
 Cuando aprovisiona un clúster de HDInsight, se designa un contenedor de almacenamiento de blobs como sistema de archivos predeterminado, al igual que en HDFS. Además de este contenedor, puede agregar más contenedores desde la misma cuenta de almacenamiento de Azure o desde otras diferentes durante el proceso de aprovisionamiento. Para obtener instrucciones acerca de cómo agregar más cuentas de almacenamiento, consulte [Aprovisionamiento de clústeres de HDInsight][Aprovisionamiento de clústeres de HDInsight].
 
-Para simplificar el script de PowerShell que se utiliza en este tutorial, todos los archivos se almacenan en el contenedor del sistema de archivos predeterminado, ubicado en */tutorials/twitter*. De forma predeterminada, este contenedor tiene el mismo nombre que el del clúster de HDInsight.
+> [WACOM.NOTE] Para simplificar el script de PowerShell que se utiliza en este tutorial, todos los archivos se almacenan en el contenedor del sistema de archivos predeterminado, ubicado en */tutorials/twitter*. De forma predeterminada, este contenedor tiene el mismo nombre que el del clúster de HDInsight. Si decide utilizar un contenedor diferente para almacenar estos archivos, actualice el script en consecuencia.
 
 La sintaxis de WASB es la siguiente:
 
@@ -119,7 +119,7 @@ El primer paso es utilizar OAuth para crear una aplicación nueva en el sitio de
 
 **Para crear una aplicación de Twitter**
 
-1.  Inicie sesión en [][]<https://apps.twitter.com/></a>. Haga clic en el vínculo **Regístrese ahora** si no tiene una cuenta de Twitter.
+1.  Inicie sesión en <https://apps.twitter.com/>. Haga clic en el vínculo **Regístrese ahora** si no tiene una cuenta de Twitter.
 2.  Haga clic en **Create New App**.
 3.  Escriba **Nombre**, **Descripción**, **Sitio web**. Puede conformar una dirección URL para el campo de sitio web. La siguiente tabla muestra algunos valores de ejemplo para utilizar:
 
@@ -521,7 +521,7 @@ En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estr
   [Limpieza del tutorial]: #cleanup
   [Pasos siguientes]: #nextsteps
   [Instalación y configuración de Azure PowerShell]: ../install-configure-powershell
-  [Running Windows PowerShell scripts]: http://technet.microsoft.com/es-es/library/ee176949.aspx
+  [Running Windows PowerShell scripts]: http://technet.microsoft.com/es-es/library/ee176961.aspx
   [Introducción al uso de HDInsight de Azure]: ../hdinsight-get-started/
   [Aprovisionamiento de clústeres de HDInsight]: ../hdinsight-provision-clusters/
   [Uso del almacenamiento de blobs de Azure con HDInsight]: ../hdinsight-use-blob-storage/
@@ -530,7 +530,7 @@ En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estr
   [datos de tweets]: https://dev.twitter.com/docs/platform-objects/tweets
   [oauth.net]: http://oauth.net/
   [Beginner's Guide to OAuth]: http://hueniverse.com/oauth/
-  []: https://apps.twitter.com/
+  [*Curl*]: http://curl.haxx.se
   [aquí]: http://curl.haxx.se/download.html
   [Start Windows PowerShell on Windows 8 and Windows]: http://technet.microsoft.com/es-es/library/hh847889.aspx
   [Uso de almacenamiento de blobs con HDInsight]: ../hdinsight-use-blob-storage/#powershell

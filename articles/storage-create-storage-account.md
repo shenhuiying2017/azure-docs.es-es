@@ -1,4 +1,4 @@
-<properties linkid="manage-services-how-to-create-a-storage-account" urlDisplayName="How to create" pageTitle="How to create a storage account | Azure" metaKeywords="" description="Learn how to create a storage account in the Azure management portal." metaCanonical="" services="storage" documentationCenter="" title="How To Create a Storage Account" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="How to create" pageTitle="Creaci&oacute;n de una cuenta de almacenamiento | Azure" metaKeywords="" description="Aprenda a crear una cuenta de almacenamiento en el Portal de administraci&oacute;n de Azure." metaCanonical="" services="storage" documentationCenter="" title="Creaci&oacute;n de una cuenta de almacenamiento" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
@@ -12,10 +12,10 @@ Para obtener más información acerca de la capacidad y el rendimiento de la cue
 
 ## Tabla de contenido
 
--   [Creación de una cuenta de almacenamiento][Creación de una cuenta de almacenamiento]
+-   [Direccionamiento del una cuenta de almacenamiento][Direccionamiento del una cuenta de almacenamiento]
 -   [Pasos siguientes][Pasos siguientes]
 
-## <span id="create"></span></a>Creación de una cuenta de almacenamiento
+## <span id="create"></span></a>Direccionamiento del Crear una cuenta de almacenamiento
 
 1.  Inicie sesión en el [Portal de administración][Portal de administración].
 
@@ -23,7 +23,7 @@ Para obtener más información acerca de la capacidad y el rendimiento de la cue
 
     ![Nueva cuenta de almacenamiento][Nueva cuenta de almacenamiento]
 
-3.  En **URL**, escriba el nombre de subdominio que vaya usar en la URL para la cuenta de almacenamiento. Para tener acceso a un objeto en almacenamiento, anexará la ubicación del objeto al extremo. Por ejemplo, la dirección URL para obtener acceso a un blob podría ser http://*myaccount*.blob.core.windows.net/*mycontainer*/*myblob\*.
+3.  En **URL**, escriba el nombre de subdominio que vaya usar en la URL para la cuenta de almacenamiento. Para tener acceso a un objeto en almacenamiento, anexará la ubicación del objeto al extremo. Por ejemplo, la dirección URL para obtener acceso a un blob podría ser http://*myaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
 4.  En **Region/Affinity Group**, seleccione una región o un grupo de afinidad para el almacenamiento. Seleccione un grupo de afinidad en lugar de una región si desea que sus servicios de almacenamiento estén en el mismo centro de datos con otros servicios de Azure que utilice. Con esto se puede mejorar el rendimiento y no se generan cargos por concepto de salida.
 
@@ -48,12 +48,11 @@ Para obtener más información acerca de la capacidad y el rendimiento de la cue
 -   Visite el [blog del equipo de almacenamiento de Azure][blog del equipo de almacenamiento de Azure] (en inglés).
 
   [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure]: http://msdn.microsoft.com/es-es/library/dn249410.aspx
-  [Creación de una cuenta de almacenamiento]: #create
+  [Direccionamiento del una cuenta de almacenamiento]: #create
   [Pasos siguientes]: #next
   [Portal de administración]: https://manage.windowsazure.com
   [Nueva cuenta de almacenamiento]: ./media/storage-create-storage-account/storage_NewStorageAccount.png
   [Operaciones en grupos de afinidad]: http://msdn.microsoft.com/es-es/library/windowsazure/ee460798.aspx
-  [storage-replication-options]: ../includes/storage-replication-options.md
   [Página de almacenamiento]: ./media/storage-create-storage-account/Storage_StoragePage.png
   [azure.com]: http://azure.microsoft.com/es-es/documentation/services/storage/
   [MSDN]: http://msdn.microsoft.com/es-es/library/gg433040.aspx

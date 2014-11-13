@@ -4,17 +4,17 @@
 
 Use el método **Quick Create** para crear rápidamente una máquina virtual en el Portal de administración. Cuando cree esa máquina, use un cuadro de diálogo para proporcionar la información de la configuración.
 
-**Nota**: en este artículo se crea una máquina virtual que no está conectada a una red virtual. Si desea que la máquina virtual use una red virtual, utilice el método **From Gallery** y especifique la red virtual cuando cree la máquina virtual. Para obtener más información acerca de redes virtuales, consulte [Información general sobre redes virtuales de Azure][].
+**Nota**: en este artículo se crea una máquina virtual que no está conectada a una red virtual. Si desea que la máquina virtual use una red virtual, utilice el método **From Gallery** y especifique la red virtual cuando cree la máquina virtual. Para obtener más información acerca de redes virtuales, consulte [Información general sobre redes virtuales de Azure][Información general sobre redes virtuales de Azure].
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  En la barra de comandos, haga clic en **New**.
 
-    ![una máquina virtual][]
+    ![Crear una máquina virtual][Crear una máquina virtual]
 
 3.  Haga clic en **Máquinas virtuales** y, a continuación, haga clic en **Quick Create**.
 
-    ![Creación rápida de una máquina virtual][]
+    ![Creación rápida de una máquina virtual][Creación rápida de una máquina virtual]
 
     Aparecerá el cuadro de diálogo **Create a New Virtual Machine**.
 
@@ -32,10 +32,10 @@ Use el método **Quick Create** para crear rápidamente una máquina virtual en 
 
     Verá la nueva máquina virtual en la página **Máquinas virtuales**.
 
-    ![Creación correcta de la máquina virtual][]
+    ![Creación correcta de la máquina virtual][Creación correcta de la máquina virtual]
 
   [Información general sobre redes virtuales de Azure]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [Portal de administración de Azure]: http://manage.windowsazure.com
-  [una máquina virtual]: ./media/howto-quick-create-vm/create.png
+  [Crear una máquina virtual]: ./media/howto-quick-create-vm/create.png
   [Creación rápida de una máquina virtual]: ./media/howto-quick-create-vm/createquick.png
   [Creación correcta de la máquina virtual]: ./media/howto-quick-create-vm/vmsuccesswindows.png

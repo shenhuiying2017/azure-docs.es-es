@@ -1,6 +1,6 @@
-<properties linkid="develop-python-table-service" urlDisplayName="Table Service" pageTitle="How to use table storage (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Learn how to use the Table service from Python to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Uso del almacenamiento de tablas (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Aprenda a utilizar el servicio Tabla de Azure de Python para crear y eliminar una tabla e insertar, eliminar y consultar la tabla." metaCanonical="" services="storage" documentationCenter="Python" title="Uso del servicio de almacenamiento de tablas desde Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
 
 # Uso del servicio de almacenamiento de tablas desde Python
 
@@ -8,19 +8,31 @@ Esta guía le indicará cómo actuar en situaciones habituales usando el servici
 Azure. Los ejemplos están escritos usando la API
 Python. Entre los escenarios descritos se incluyen la **creación y eliminación de una
 tabla, la inserción y la consulta de entidades en una tabla**. Para obtener más
-información acerca de las tablas, consulte la sección [Pasos siguientes][].
+información acerca de las tablas, consulte la sección [Pasos siguientes][Pasos siguientes].
 
 ## Tabla de contenido
 
-<p><a href="#what-is">&iquest;Qu&eacute; es el servicio Tabla?</a><br /> <a href="#concepts">Conceptos</a><br /> <a href="#create-account">Creaci&oacute;n de una cuenta de almacenamiento de Azure</a><br /> <a href="#create-table">Creaci&oacute;n de una tabla</a><br /> <a href="#add-entity">Incorporaci&oacute;n de una entidad a una tabla</a><br /> <a href="#update-entity">Actualizaci&oacute;n de una entidad</a><br /> <a href="#change-entities">Cambio de un grupo de entidades</a><br /> <a href="#query-for-entity">Consulta de una entidad</a><br /> <a href="#query-set-entities">Consulta de un conjunto de entidades</a><br /> <a href="#query-entity-properties">Consulta de un subconjunto de propiedades de las entidades</a><br /> <a href="#delete-entity">Eliminaci&oacute;n de una entidad</a><br /> <a href="#delete-table">Eliminaci&oacute;n de una tabla</a><br /> <a href="#next-steps">Pasos siguientes</a></p>
+[¿Qué es el servicio Tabla?][¿Qué es el servicio Tabla?]
+ [Conceptos][Conceptos]
+ [Creación de una cuenta de almacenamiento de Azure][Creación de una cuenta de almacenamiento de Azure]
+ [Creación de una tabla][Creación de una tabla]
+ [Incorporación de una entidad a una tabla][Incorporación de una entidad a una tabla]
+ [Actualización de una entidad][Actualización de una entidad]
+ [Cambio de un grupo de entidades][Cambio de un grupo de entidades]
+ [Consulta de una entidad][Consulta de una entidad]
+ [Consulta de un conjunto de entidades][Consulta de un conjunto de entidades]
+ [Consulta de un subconjunto de propiedades de las entidades][Consulta de un subconjunto de propiedades de las entidades]
+ [Eliminación de una entidad][Eliminación de una entidad]
+ [Eliminación de una tabla][Eliminación de una tabla]
+ [Pasos siguientes][Pasos siguientes]
 
-[WACOM.INCLUDE [howto-table-storage][]]
+[WACOM.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <a name="create-account"> </a>Creación de una cuenta de almacenamiento de Azure
 
-[WACOM.INCLUDE [create-storage-account][]]
+[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
-**Nota:** Si necesita instalar Python o las bibliotecas de clientes, consulte la [guía de instalación de Python][] (en inglés).
+**Nota:** Si necesita instalar Python o las bibliotecas de clientes, consulte la [guía de instalación de Python][guía de instalación de Python] (en inglés).
 
 ## <a name="create-table"> </a>Creación de una tabla
 
@@ -28,7 +40,7 @@ El objeto **TableService** le permite trabajar con servicios de tabla. El
 código siguiente crea un objeto **TableService**. Agregue lo siguiente cerca
 de la parte superior de todo archivo Python en el que desee obtener acceso al almacenamiento de Azure mediante programación:
 
-    from azure.storage import *
+    from azure.storage import TableService, Entity
 
 El código siguiente crea un objeto **TableService** utilizando el nombre de la cuenta de almacenamiento y la clave de la cuenta: sustituya "myaccount" y "mykey" por la cuenta real y la clave.
 
@@ -151,8 +163,8 @@ El código siguiente elimina una tabla de la cuenta de almacenamiento.
 Ahora que está familiarizado con los aspectos básicos del almacenamiento de tablas, utilice estos vínculos
 para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][]
--   [Visite el blog del equipo de almacenamiento de Azure][]
+-   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][Almacenamiento de datos y acceso a los mismos en Azure]
+-   [Visite el blog del equipo de almacenamiento de Azure][Visite el blog del equipo de almacenamiento de Azure]
 
   [Pasos siguientes]: #next-steps
   [¿Qué es el servicio Tabla?]: #what-is
@@ -167,8 +179,6 @@ para obtener más información acerca de cómo realizar tareas de almacenamiento
   [Consulta de un subconjunto de propiedades de las entidades]: #query-entity-properties
   [Eliminación de una entidad]: #delete-entity
   [Eliminación de una tabla]: #delete-table
-  [howto-table-storage]: ../includes/howto-table-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
   [guía de instalación de Python]: ../python-how-to-install/
-  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
+  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
   [Visite el blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/

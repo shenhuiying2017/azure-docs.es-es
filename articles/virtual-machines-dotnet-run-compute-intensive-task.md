@@ -1,4 +1,4 @@
-<properties linkid="develop-net-tutorials-compute-intensive-task-on-a-virtual-machine" urlDisplayName="Compute Intensive .NET Task" pageTitle="Compute intensive .NET task on a virtual machine - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Learn how to deploy and run a compute-intensive .NET app on an Azure virtual machine and use Service Bus queues to monitor progress remotely." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="How to run a compute-intensive task in .NET on an Azure virtual machine" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="Compute Intensive .NET Task" pageTitle="Tarea .NET de proceso intensivo en una m&aacute;quina virtual - Azure" metaKeywords="deploying compute .NET application, vm .NET application, Service Bus queue monitoring, remote monitoring" description="Aprenda a implementar y ejecutar una aplicaci&oacute;n .NET de proceso intensivo en una m&aacute;quina virtual de Azure y a usar colas de Bus de servicio para supervisar el progreso remotamente." metaCanonical="" services="virtual-machines" documentationCenter=".NET" title="Ejecuci&oacute;n de una tarea de proceso intensivo en .NET en una m&aacute;quina virtual de Azure" authors="wpickett" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
@@ -68,7 +68,12 @@ Para crear un nombre de espacio de servicio:
     ![Creación de un cuadro de diálogo de espacio de nombres][Creación de un cuadro de diálogo de espacio de nombres]
 
 5.  Tras asegurarse de que el espacio de nombres está disponible, elija la región en la que se debe alojar su espacio de nombres (asegúrese de que utiliza la misma región en la que se aloja su máquina virtual).
-    <div class="dev-callout"><br /><strong>Importante</strong><br /><p>Seleccione la <strong>misma regi&oacute;n</strong> que use o vaya a usar para la m&aacute;quina virtual. Con esto conseguir&aacute; el m&aacute;ximo rendimiento.</p><br /></div>
+    <div class="dev-callout">
+
+    **Importante**
+    Seleccione la **misma región** que use o vaya a usar para la máquina virtual. Con esto conseguirá el máximo rendimiento.
+
+    </div>
 
 6.  Si dispone de más de una suscripción a Azure para la cuenta con la que ha iniciado sesión, seleccione la suscripción que desea usar para el espacio de nombres. Si cuenta solo con una suscripción para la cuenta con la que inicia sesión, no verá una lista desplegable que contenga las suscripciones.
 7.  Haga clic en la marca de verificación. El sistema crea ahora el espacio de nombres del servicio y lo habilita. Es posible que tenga que esperar algunos minutos mientras el sistema realiza el aprovisionamiento de los recursos para la cuenta.
@@ -545,7 +550,6 @@ En lugar de usar TSPSolver para crear o eliminar la cola, puede crear o eliminar
 
   [Solucionador del problema del viajante]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPSolver.png
   [Cliente del problema del viajante]: ./media/virtual-machines-dotnet-run-compute-intensive-task/WA_dotNetTSPClient.png
-  [create-account-and-vms-note]: ../includes/create-account-and-vms-note.md
   [Portal de administración de Azure]: https://manage.windowsazure.com
   [Creación de un nuevo bus de servicio]: ./media/virtual-machines-dotnet-run-compute-intensive-task/ServiceBusCreateNew.png
   [Creación de un cuadro de diálogo de espacio de nombres]: ./media/virtual-machines-dotnet-run-compute-intensive-task/CreateNameSpaceDialog.png

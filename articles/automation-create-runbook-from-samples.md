@@ -1,4 +1,4 @@
-<properties linkid="automation-create-runbook-from-samples" urlDisplayName="Get Started with Azure Automation" pageTitle="Get Started with Azure Automation" metaKeywords="" description="Learn how to import and run an automation job in Azure." metaCanonical="" services="automation" documentationCenter="" title="Get Started with Azure Automation" authors="bwren" solutions="" manager="stevenka" editor="" />
+<properties urlDisplayName="Get Started with Azure Automation" pageTitle="Introducci&oacute;n a la automatizaci&oacute;n de Azure" metaKeywords="" description="Vea c&oacute;mo importar y ejecutar un trabajo de automatizaci&oacute;n en Azure." metaCanonical="" services="automation" documentationCenter="" title="Introducci&oacute;n a la automatizaci&oacute;n de Azure" authors="bwren" solutions="" manager="stevenka" editor="" />
 
 <tags ms.service="automation" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bwren" />
 
@@ -18,11 +18,11 @@ El equipo de automatización también ha creado runbooks de utilidad que puede u
 
 > [WACOM.NOTE] Es una práctica recomendada escribir runbooks reutilizables, modulares y pequeños. También recomendamos encarecidamente que cree sus propios runbooks de utilidades para escenarios usados frecuentemente después de que se haya familiarizado con la automatización.
 
-Puede ver y descargar los runbooks de utilidades y ejemplos del equipo de automatización en [Recursos de script para profesionales de TI][Recursos de script para profesionales de TI].
+Puede ver y descargar los runbooks de utilidades y ejemplos del equipo de automatización en [Recursos de script para profesionales de TI][Recursos de script para profesionales de TI] o importarlos directamente desde la [Galería de runbooks][Galería de runbooks].
 
 ## Comunidad de automatización y comentarios
 
-Los runbooks de la comunidad y de otros equipos de Microsoft también se publican en [Recursos de script para profesionales de TI][1].
+Los runbooks de la comunidad y de otros equipos de Microsoft también se publican en [Recursos de script para profesionales de TI][1] y en la [Galería de runbooks][Galería de runbooks].
 
 **Envíenos sus comentarios.** Si está buscando una solución de runbook o módulo de integración de Automatización, envíe una solicitud de script en el centro de scripts. Si tiene alguna idea de alguna característica nueva para la automatización, publíquela en [User Voice][User Voice].
 
@@ -31,8 +31,9 @@ Los runbooks de la comunidad y de otros equipos de Microsoft también se publica
 ## Pasos de alto nivel para este tutorial
 
 1.  [Suscribirse a la vista previa de Automatización][Suscribirse a la vista previa de Automatización]
-2.  [Descarga de un runbook de ejemplo][Descarga de un runbook de ejemplo]
-3.  [Importación, ejecución y visualización de la salida del runbook de ejemplo][Importación, ejecución y visualización de la salida del runbook de ejemplo]
+2.  [Importación de un runbook de la Galería de runbooks][Importación de un runbook de la Galería de runbooks]
+3.  [Publicación del runbook][Publicación del runbook]
+4.  [Inicio del runbook][Inicio del runbook]
 
 ## <a name="preview"></a>Suscribirse a la versión preliminar de Automatización de Azure
 
@@ -42,13 +43,7 @@ Para comenzar a usar Automatización, necesitará una suscripción a Azure activ
 
     ![Habilitar vista previa][Habilitar vista previa]
 
-## <a name="download-sample"></a>Descarga de un runbook de ejemplo desde el centro de scripts
-
-1.  Diríjase a [Recursos de script para profesionales de TI][Recursos de script para profesionales de TI] y, a continuación, haga clic en **Hello World for Azure Automation**.
-
-2.  Haga clic en el nombre de archivo, **Write-HelloWorld.ps1**, junto a **Download** y, a continuación, guarde el archivo en su equipo.
-
-## <a name="import-sample"></a>Importación, ejecución y visualización de la salida del runbook de ejemplo en Automatización de Azure
+## <a name="automationaccount"></a>Creación de una cuenta de Azure
 
 1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
@@ -62,53 +57,67 @@ Para comenzar a usar Automatización, necesitará una suscripción a Azure activ
 
     ![Incorporación de una nueva cuenta][Incorporación de una nueva cuenta]
 
-4.  En la página **Automation**, haga clic en la nueva cuenta que acaba de crear.
+## <a name="importrunbook"></a>Importación de un runbook de la Galería de runbooks
+
+1.  En la página **Automation**, haga clic en la nueva cuenta que acaba de crear.
 
     ![Nueva cuenta][Nueva cuenta]
 
-5.  Haga clic en **RUNBOOKS**.
+2.  Haga clic en **RUNBOOKS**.
 
     ![Pestaña Runbooks][Pestaña Runbooks]
 
-6.  Haga clic en **IMPORT**.
+3.  Haga clic en **Nuevo** \> **Runbook** \> **De la galería**.
 
-    ![Importación][Importación]
+    ![Galería de runbooks][2]
 
-7.  Diríjase al script **Write-HelloWorld.ps1** que descargó y, a continuación, haga clic en la marca de verificación.
+4.  Seleccione la categoría **Tutorial** y después **Hello World for Azure Automation**. Haga clic en el botón de flecha derecha.
 
-    ![Examinar][Examinar]
+    ![Importación del runbook][Importación del runbook]
 
-8.  Haga clic en **Write-HelloWorld**.
+5.  Revise el contenido del runbook y haga clic en el botón de flecha derecha.
+
+    ![Definición del runbook][Definición del runbook]
+
+6.  Revise el contenido del runbook y haga clic en el botón de marca de verificación.
+
+    ![Detalles del runbook][Detalles del runbook]
+
+## <a name="publishrunbook"></a>Publicación del runbook
+
+1.  Cuando se haya importado el runbook, haga clic en **Write-HelloWorld**.
 
     ![Runbook importado][Runbook importado]
 
-9.  Haga clic en **AUTHOR** y, a continuación, haga clic en **DRAFT**. Para este runbook, no tiene que realizar modificaciones.
+2.  Haga clic en **AUTHOR** y, a continuación, haga clic en **DRAFT**.
 
-    Ahora puede ver el contenido de **Write-HelloWorld.ps1**. Puede modificar el contenido de un runbook en el modo borrador.
+    Puede modificar el contenido de un runbook en el modo borrador. Para este runbook, no tiene que realizar modificaciones.
 
     ![Borrador de autor][Borrador de autor]
 
-10. Haga clic en **PUBLISH** para promocionar el runbook de modo que esté listo para el uso de producción.
+3.  Haga clic en **PUBLISH** para promocionar el runbook de modo que esté listo para el uso de producción.
 
     ![Publicar][Publicar]
 
-11. Cuando se le solicite guardar y publicar el runbook, haga clic en **Yes**.
+4.  Cuando se le solicite guardar y publicar el runbook, haga clic en **Yes**.
 
     ![Solicitud de guardado y publicación][Solicitud de guardado y publicación]
 
-12. Haga clic en **PUBLISHED** y, a continuación, haga clic en **START**.
+## <a name="startrunbook"></a>Inicio del runbook
+
+1.  Con el runbook **Write-HelloWorld** abierto, haga clic en **INICIO**.
 
     ![Publicado][Publicado]
 
-13. En la página **Specify the runbook parameter values**, escriba un valor para **Name** que se utilizará como parámetro de entrada para el script Write-HelloWorld.ps1 y, a continuación, haga clic en la marca de verificación.
+2.  En la página **Specify the runbook parameter values**, escriba un valor para **Name** que se utilizará como parámetro de entrada para el script Write-HelloWorld.ps1 y, a continuación, haga clic en la marca de verificación.
 
     ![Parámetros de runbook][Parámetros de runbook]
 
-14. Haga clic en **JOBS** para comprobar el estado del trabajo de runbook que acaba de iniciar y, a continuación, haga clic en la marca de tiempo en la columna **JOB START** para ver el resumen de trabajos.
+3.  Haga clic en **JOBS** para comprobar el estado del trabajo de runbook que acaba de iniciar y, a continuación, haga clic en la marca de tiempo en la columna **JOB START** para ver el resumen de trabajos.
 
     ![Estado de runbook][Estado de runbook]
 
-15. En la página **SUMMARY** puede ver el resumen, los parámetros de entrada y el resultado del trabajo.
+4.  En la página **SUMMARY** puede ver el resumen, los parámetros de entrada y el resultado del trabajo.
 
     ![Resumen de Runbook][Resumen de Runbook]
 
@@ -127,20 +136,23 @@ En el ejemplo anterior se muestra un runbook sencillo que no administra los Serv
   [cmdlet PowerShell de Azure]: http://msdn.microsoft.com/es-es/library/jj156055.aspx
   [Automatización de Azure: autenticación en Azure mediante Azure Active Directory]: http://azure.microsoft.com/blog/2014/08/27/azure-automation-authenticating-to-azure-using-azure-active-directory/
   [Recursos de script para profesionales de TI]: http://go.microsoft.com/fwlink/p/?LinkId=393029
+  [Galería de runbooks]: http://aka.ms/runbookgallery
   [1]: http://go.microsoft.com/fwlink/?LinkID=391681
   [User Voice]: http://feedback.windowsazure.com/forums/34192--general-feedback
-  [create-account-note]: ../includes/create-account-note.md
-  [Suscribirse a la vista previa de Automatización]: #preview
-  [Descarga de un runbook de ejemplo]: #download-sample
-  [Importación, ejecución y visualización de la salida del runbook de ejemplo]: #import-sample
+  [Suscribirse a la vista previa de Automatización]: #automationaccount
+  [Importación de un runbook de la Galería de runbooks]: #importrunbook
+  [Publicación del runbook]: #publishrunbook
+  [Inicio del runbook]: #startrunbook
   [Habilitar vista previa]: ./media/automation/automation_00_EnablePreview.png
   [Portal de administración de Azure]: http://manage.windowsazure.com
   [Creación de cuenta]: ./media/automation/automation_01_CreateAccount.png
   [Incorporación de una nueva cuenta]: ./media/automation/automation_02_addnewautoacct.png
   [Nueva cuenta]: ./media/automation/automation_03_NewAutoAcct.png
   [Pestaña Runbooks]: ./media/automation/automation_04_RunbooksTab.png
-  [Importación]: ./media/automation/automation_05_Import.png
-  [Examinar]: ./media/automation/automation_06_Browse.png
+  [2]: ./media/automation/automation_05_ImportGallery.png
+  [Importación del runbook]: ./media/automation/automation_06_ImportRunbook.png
+  [Definición del runbook]: ./media/automation/automation_07_RunbookDefinition.png
+  [Detalles del runbook]: ./media/automation/automation_08_RunbookDetails.png
   [Runbook importado]: ./media/automation/automation_07_ImportedRunbook.png
   [Borrador de autor]: ./media/automation/automation_08_AuthorDraft.png
   [Publicar]: ./media/automation/automation_085_Publish.png

@@ -1,4 +1,4 @@
-<properties linkid="dev-net-common-tasks-publishing-with-vso" urlDisplayName="Publishing with Visual Studio Online" pageTitle="Continuous delivery with Visual Studio Online in Azure" metaKeywords="" description="Learn how to configure your Visual Studio Online team projects to automatically build and deploy to Azure websites or cloud services." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
+<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="Entrega continua con Visual Studio Online en Azure" metaKeywords="" description="Aprenda a configurar los proyectos de equipo de Visual Studio Online para que se compilen y se implementen autom&aacute;ticamente en los sitios web de Azure o en los servicios en la nube." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Entrega continua a Azure con Visual Studio Online" authors="ghogen" solutions="" manager="douge" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
 
@@ -114,19 +114,83 @@ Siga las instrucciones que aparecen [aquí][1] para crear su proyecto de equipo 
     Especifique los valores para las propiedades si desea que sean diferentes de los predeterminados. Las propiedades de publicación de Azure están en la sección Implementación.
     En la tabla siguiente se muestran las propiedades disponibles en la sección Implementación:
 
-<table>
-<tr><td><b>Propiedad</b></td><td><b>Valor predeterminado</b></td></tr>
-<tr><td>Permitir certificados que no son de confianza</td><td>Si el valor es false, los certificados SSL deben estar firmados por una entidad de certificación raíz.</td></tr>
-<tr><td>Permitir actualización</td><td>Permite actualizar una implementación existente en lugar de crear una nueva. Conserva la dirección IP.</td></tr>
-<tr><td>No eliminar</td><td>Si el valor es true, no sobrescriba una implementación no relacionada existente (la actualización está permitida).</td></tr>
-<tr><td>Ruta de acceso a la configuración de implementación</td><td>La ruta de acceso al archivo .pubxml de un sitio web, en relación con la carpeta raíz del repositorio. Se ignora para los servicios en la nube.</td></tr>
-<tr><td>Entorno de implementación de SharePoint</td><td>La misma que el nombre de servicio</td></tr>
-<tr><td>Entorno de implementación de Windows Azure</td><td>Nombre del sitio web del servicio en la nube</td></tr>
-</table>
+    <table>
+
+    <tr>
+    <td>
+    **Propiedad**
+
+    </td>
+    <td>
+    **Valor predeterminado**
+
+    </td>
+    </tr>
+    </p>
+    > <tr>
+    > <td>
+    > Permitir certificados que no son de confianza
+    >
+    > </td>
+    > <td>
+    > Si el valor es false, los certificados SSL deben estar firmados por una entidad de certificación raíz.
+    >
+    > </td>
+    > </tr>
+    > <tr>
+    > <td>
+    > Permitir actualización
+    >
+    > </td>
+    > <td>
+    > Permite actualizar una implementación existente en lugar de crear una nueva. Conserva la dirección IP.
+    >
+    > </td>
+    > </tr>
+    > <tr>
+    > <td>
+    > No eliminar
+    >
+    > </td>
+    > <td>
+    > Si el valor es true, no sobrescriba una implementación no relacionada existente (la actualización está permitida).
+    >
+    > </td>
+    > </tr>
+    > <tr>
+    > <td>
+    > Ruta de acceso a la configuración de implementación
+    >
+    > </td>
+    > <td>
+    > La ruta de acceso al archivo .pubxml de un sitio web, en relación con la carpeta raíz del repositorio. Se ignora para los servicios en la nube.
+    >
+    > </td>
+    > </tr>
+    > <tr>
+    > <td>
+    > Entorno de implementación de SharePoint
+    >
+    > </td>
+    > <td>
+    > La misma que el nombre de servicio
+    >
+    > </td>
+    > </tr>
+    > <tr>
+    > <td>
+    > Entorno de implementación de Windows Azure
+    >
+    > </td>
+    > <td>
+    > Nombre del sitio web del servicio en la nube
+    >
+    > </td>
+    > </tr>
+    > </table>
 
 Si usa varias configuraciones de servicio (archivos .cscfg), puede especificar la configuración de servicio que desee en el valor **Compilación, Avanzada, Argumentos de MSBuild**. Por ejemplo, para usar ServiceConfiguration.Test.cscfg, establezca la opción /p:TargetProfile=Test de la línea de argumentos de MSBuild.
-
-   ![][23]
+![][23]
 
 1.  Llegados a este punto, la compilación debería haber finalizado correctamente.
     ![][24]
@@ -148,14 +212,12 @@ Si usa varias configuraciones de servicio (archivos .cscfg), puede especificar l
 ## <a name="step5"> </a><span class="short-header">Reimplementación de una compilación anterior</span>Paso 5: Vuelva a implementar una compilación anterior
 
 Este paso se aplica a los servicios en la nube y es opcional. En el Portal de administración, seleccione una implementación anterior y haga clic en el botón **Volver a implementar** para que su sitio vuelva a un registro anterior. Tenga en cuenta que esto desencadenará una nueva compilación en TFS y se creará una nueva entrada en el historial de implementación.
-
-   ![][30]
+![][30]
 
 ## <a name="step6"> </a><span class="short-header">Cambio de la implementación de producción</span>Paso 6: Cambie la implementación de producción
 
 Este paso solo se aplica a los servicios en la nube, no a los sitios web. Cuando esté preparado, puede promover el entorno de ensayo al de producción haciendo clic en el botón Intercambiar del Portal de administración. El entorno de ensayo recién implementado se promueve a Producción y el anterior entorno de Producción, si lo hubiera, pasa a entorno de ensayo. La implementación activa puede ser diferente para los entornos de producción y ensayo, pero el historial de implementación de las compilaciones recientes es el mismo independientemente del entorno.
-
-  ![][31]
+![][31]
 
 ## <a name="step7"> </a><span class="short-header">Ejecutar pruebas unitarias</span>Paso 7: Ejecutar pruebas unitarias
 
@@ -230,6 +292,9 @@ Para obtener más información, consulte [Visual Studio Online][Visual Studio On
   [Paso 2: Registre un proyecto para el control de código fuente]: #step2
   [Paso 3: Conecte el proyecto a Azure]: #step3
   [Paso 4: Realice cambios, desencadene una recompilación y vuelva a implementar]: #step4
+  [Paso 5: Vuelva a implementar una compilación anterior (opcional)]: #step5
+  [Paso 6: Cambie la implementación de producción (solo servicios en la nube)]: #step6
+  [Paso 7: Ejecutar pruebas unitarias (opcional)]: #step7
   [1]: http://go.microsoft.com/fwlink/?LinkId=512980
   [la versión de Git de este tutorial]: http://go.microsoft.com/fwlink/p/?LinkId=397358
   [Introducción a Azure y ASP.NET]: http://www.windowsazure.com/es-es/documentation/articles/web-sites-dotnet-get-started/

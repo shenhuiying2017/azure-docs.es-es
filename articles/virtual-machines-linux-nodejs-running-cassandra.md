@@ -1,4 +1,4 @@
-<properties linkid="services-linux-cassandra-with-linux" urlDisplayName="Cassandra with Linux" pageTitle="Run Cassandra with Linux on Azure" metaKeywords="" description="Explains how to run a Cassandra cluster on Linux in Azure Virtual Machines." metaCanonical="" services="virtual-machines" documentationCenter="nodejs" title="Running Cassandra with Linux on Azure and Accessing it from Node.js" authors="hanuk" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Cassandra with Linux" pageTitle="Ejecuci&oacute;n de Cassandra con Linux en Azure" metaKeywords="" description="Explica c&oacute;mo ejecutar un cl&uacute;ster de Cassandra en Linux en m&aacute;quinas virtuales de Azure." metaCanonical="" services="virtual-machines" documentationCenter="nodejs" title="Ejecuci&oacute;n de Cassandra con Linux en Azure y acceso desde Node.js" authors="hanuk" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="hanuk" />
 
@@ -251,7 +251,7 @@ Cassandra requiere Máquina virtual Java y, por tanto, debe instalar la versión
 
 1.  Inicie sesión con SSH en la instancia de máquina virtual de Linux (Ubuntu).
 
-2.  Utilice wget para descargar bits de Cassandra desde el espejo sugerido en (<http://cassandra.apache.org/download/>)[<http://cassandra.apache.org/download/>] al directorio "~/downloads" como apache-cassandra-bin.tar.gz. Observe que el número de versión no está incluido en el archivo descargado para asegurarse de que la publicación se mantenga independiente de la versión.
+2.  Utilice wget para descargar bits de Cassandra desde el espejo sugerido en (http://cassandra.apache.org/download/)[http://cassandra.apache.org/download/] al directorio "~/downloads" como apache-cassandra-bin.tar.gz. Observe que el número de versión no está incluido en el archivo descargado para asegurarse de que la publicación se mantenga independiente de la versión.
 
 3.  Ejecute el siguiente comando para descomprimir el archivo en el directorio de inicio de sesión predeterminado:
 
@@ -302,7 +302,7 @@ Edite "conf/cassandra.yaml" para cambiar los valores **listen\_address** y **rpc
 
 Repita los pasos 1 a 5 para todos los nodos en el clúster.
 
-Ahora que todas las máquinas virtuales individuales cuentan con el software necesario, es momento de establecer comunicación entre los nodos a través de la configuración de inicialización. Revise la información que se encuentra en [][]<http://wiki.apache.org/cassandra/MultinodeCluster></a> para obtener detalles sobre la configuración de clúster de varios nodos.
+Ahora que todas las máquinas virtuales individuales cuentan con el software necesario, es momento de establecer comunicación entre los nodos a través de la configuración de inicialización. Revise la información que se encuentra en <http://wiki.apache.org/cassandra/MultinodeCluster> para obtener detalles sobre la configuración de clúster de varios nodos.
 
 **Paso 6: Configuración de clúster de varios nodos**
 
@@ -317,7 +317,7 @@ El nombre de clúster predeterminado está definido en "Test Cluster"; cámbielo
 Los nodos nuevos utilizarán las direcciones IP especificadas aquí para aprender acerca de la topología en anillo. Defina los nodos más confiables como sus valores de inicialización en un formato separado por comas: "*host1*,*host2*" . Ejemplo de configuración: "hk-ub1,hk-ub2".
 
 Aceptaremos los tokens predeterminados que proporcionan los servidores de inicialización, porque este no es nuestro foco en este ejercicio. Si desea conocer la generación óptima de tokens, consulte el script python ubicado en:
-[][1]<http://wiki.apache.org/cassandra/GettingStarted></a>.
+<http://wiki.apache.org/cassandra/GettingStarted>.
 
 Reinicie Cassandra en todos los nodos para aplicar los cambios anteriores.
 
@@ -368,7 +368,7 @@ Si la configuración es correcta, debe mostrar la información tal como aparece 
 <td align="left">Up</td>
 <td align="left">Normal</td>
 <td align="left">15,69 KB</td>
-<td align="left">25,98%</td>
+<td align="left">25.98%</td>
 <td align="left">114445918355431753244435008039926455424</td>
 </tr>
 <tr class="even">
@@ -378,7 +378,7 @@ Si la configuración es correcta, debe mostrar la información tal como aparece 
 <td align="left">Up</td>
 <td align="left">Normal</td>
 <td align="left">15,69 KB</td>
-<td align="left">53,44%</td>
+<td align="left">53.44%</td>
 <td align="left">70239176883275351288292106998553981501</td>
 </tr>
 <tr class="odd">
@@ -388,7 +388,7 @@ Si la configuración es correcta, debe mostrar la información tal como aparece 
 <td align="left">Up</td>
 <td align="left">Normal</td>
 <td align="left">18,35 KB</td>
-<td align="left">25,98%</td>
+<td align="left">25.98%</td>
 <td align="left">149463697837832744402916220269706844972</td>
 </tr>
 </tbody>
@@ -585,7 +585,6 @@ La funcionalidad de Máquinas virtuales de Azure permite la creación de máquin
   [Generación de par de claves SSH para implementación de máquinas virtuales de Linux en Azure]: http://blogs.msdn.com/b/hanuk/archive/2012/06/07/generating-ssh-key-pair-for-linux-vm-deployment-on-windows-azure.aspx
   [Creación de una máquina virtual que ejecuta Linux]: http://www.windowsazure.com/es-es/manage/linux/tutorials/virtual-machine-from-gallery/
   [Captura de una imagen de una máquina virtual que ejecuta Linux]: https://www.windowsazure.com/es-es/manage/linux/how-to-guides/capture-an-image/
-  []: http://wiki.apache.org/cassandra/MultinodeCluster
-  [1]: http://wiki.apache.org/cassandra/GettingStarted
   [cassandra-client]: https://github.com/racker/node-cassandra-client
   [Filas y columnas]: ./media/virtual-machines-linux-nodejs-running-cassandra/cassandra-linux3.png
+  [Cassandra Query Language (CQL)]: http://cassandra.apache.org/doc/cql/CQL.html

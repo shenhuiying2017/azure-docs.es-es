@@ -1,6 +1,6 @@
-<properties linkid="dev-net-how-to-file-storage" urlDisplayName="File Service" pageTitle="How to use Azure File storage | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Learn how to use Microsoft Azure File storage to create file shares and manage file content. Samples are written in PowerShell and C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure File storage in .NET" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="File Service" pageTitle="Uso de Almacenamiento de archivos de Azure | Microsoft Azure" metaKeywords="Get started Azure file  Azure file share  Azure file shares  Azure file   Azure file storage   Azure file .NET   Azure file C#   Azure file PowerShell" description="Aprenda a usar el Almacenamiento de archivos de Microsoft Azure para crear recursos compartidos de archivos y administrar contenido de archivos. Los ejemplos est&aacute;n escritos en PowerShell y C#." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="Uso de Almacenamiento de archivos de Microsoft Azure en .NET" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Uso de Almacenamiento de archivos de Azure
 
@@ -53,8 +53,9 @@ Almacenamiento de archivos contiene los siguientes componentes:
 
 -   **Archivo:** se trata de un archivo del recurso compartido. Un archivo puede tener un tamaño de hasta 1 TB.
 
--   **Formato de dirección URL:** es posible dirigir los archivos con el siguiente formato de dirección URL:
-    `https://<storage account>.file.core.windows.net/<share>/<directory/directories>/<file>`
+-   **Formato de dirección URL:** es posible dirigir los archivos con el siguiente formato de dirección URL
+    :
+    https://`<storage account>`.file.core.windows.net/`<share>`/`<directory/directories>`/`<file>`
 
     En el diagrama anterior se utilizó la siguiente dirección URL de ejemplo
     para dirigir uno de los archivos:
@@ -250,6 +251,7 @@ archivos, siga estos vínculos para obtener información más detallada.
 </p>
 
   [NuGet]: https://www.nuget.org/packages/WindowsAzure.Storage/
+  [¿Qué es Almacenamiento de archivos?]: #what-is-file-storage
   [Conceptos de Almacenamiento de archivos]: #file-storage-concepts
   [Crear una cuenta de almacenamiento de Azure]: #create-account
   [Uso de PowerShell para crear un recurso compartido de archivos]: #use-cmdlets
@@ -260,7 +262,6 @@ archivos, siga estos vínculos para obtener información más detallada.
   [Azure Storage Scalability and Performance Targets]: http://msdn.microsoft.com/es-es/library/dn249410.aspx
   [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos]: http://msdn.microsoft.com/es-es/library/azure/dn167011.aspx
   [página de vista previa de Microsoft Azure]: /es-es/services/preview/
-  [create-storage-account]: ../includes/create-storage-account.md
   [Instalación y configuración de Azure PowerShell]: /es-es/documentation/articles/install-configure-powershell/
   [Creación de una máquina virtual que ejecuta Windows Server]: /es-es/documentation/articles/virtual-machines-windows-tutorial/
   [Inicio de sesión en una máquina virtual con Windows Server]: /es-es/documentation/articles/virtual-machines-log-on-windows-server/

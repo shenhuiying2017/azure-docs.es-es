@@ -1,4 +1,4 @@
-<properties linkid="manage-linux-howto-custom-create-vm" urlDisplayName="Create a custom VM" pageTitle=" Create a custom virtual machine running Linux in Azure" metaKeywords="Azure custom vm, creating custom vm" description="Learn how to create a custom virtual machine in Azure." metaCanonical="http://www.windowsazure.com/es-es/manage/windows/how-to-guides/custom-create-a-vm/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="dongill" editor="tysonn" />
+<properties urlDisplayName="Create a custom VM" pageTitle=" Creaci&oacute;n de una m&aacute;quina virtual personalizada que ejecuta Linux en Azure" metaKeywords="Azure custom vm, creating custom vm" description="Aprenda a crear una m&aacute;quina virtual personalizada en Azure." metaCanonical="http://www.windowsazure.com/es-es/manage/windows/how-to-guides/custom-create-a-vm/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="kathydav" />
 
@@ -17,4 +17,3 @@ Una máquina virtual *custom* significa una máquina virtual creada con la opci�
 [WACOM.INCLUDE [virtual-machines-create-WindowsVM](../includes/virtual-machines-create-WindowsVM.md)]
 
   [Información general sobre redes virtuales de Azure]: http://go.microsoft.com/fwlink/p/?LinkID=294063
-  [virtual-machines-create-WindowsVM]: ../includes/virtual-machines-create-WindowsVM.md

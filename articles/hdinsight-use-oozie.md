@@ -1,4 +1,4 @@
-<properties linkid="hdinsight-use-hadoop-oozie-in-hdinsight" urlDisplayName="Use Hadoop Oozie in HDInsight" pageTitle="Use Hadoop Oozie in HDInsight | Azure" metaKeywords="" description="Use Hadoop Oozie in HDInsight, a big data solution. Learn how to define an Oozie workflow, and submit an Oozie job." metaCanonical="" services="hdinsight" documentationCenter="" title="Use Hadop Oozie in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Use Hadoop Oozie in HDInsight" pageTitle="Uso de Oozie con Hadoop en HDInsight | Azure" metaKeywords="" description="Use Oozie con Hadoop en HDInsight, una soluci&oacute;n para grandes vol&uacute;menes de datos. Aprenda a definir un flujo de trabajo de Oozie y env&iacute;e un trabajo de Oozie." metaCanonical="" services="hdinsight" documentationCenter="" title="Uso de Oozie con Hadoop en HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -10,7 +10,7 @@ Aprenda a definir un flujo de trabajo y a ejecutarlo en HDInsight. Para conocer 
 
 ## En este artículo
 
-1.  [¿Qué es Oozie?](¿Qué es Oozie?)
+1.  [¿Qué es Oozie?][¿Qué es Oozie?]
 2.  [Requisitos previos][Requisitos previos]
 3.  [Definición del archivo de flujo de trabajo de Oozie][Definición del archivo de flujo de trabajo de Oozie]
 4.  [Implementación del proyecto de Oozie y preparación del tutorial][Implementación del proyecto de Oozie y preparación del tutorial]
@@ -634,6 +634,7 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 -   [Desarrollo de programas MapReduce de Java para HDInsight][Desarrollo de programas MapReduce de Java para HDInsight]
 
   [Uso del coordinador de Oozie de tiempo con HDInsight]: ../hdinsight-use-oozie-coordinator-time/
+  [¿Qué es Oozie?]: #whatisoozie
   [Requisitos previos]: #prerequisites
   [Definición del archivo de flujo de trabajo de Oozie]: #defineworkflow
   [Implementación del proyecto de Oozie y preparación del tutorial]: #deploy

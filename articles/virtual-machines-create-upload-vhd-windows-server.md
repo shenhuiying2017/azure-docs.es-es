@@ -1,4 +1,4 @@
-<properties linkid="manage-windows-common-task-upload-vhd" urlDisplayName="Upload a VHD" pageTitle="Create and upload a Windows Server VHD to Azure" metaKeywords="Azure VHD, uploading VHD" description="Learn to create and upload a virtual hard disk (VHD) in Azure that has the Windows Server operating system." metaCanonical="" services="virtual-machines" documentationCenter="" title="Create and upload a Windows Server VHD to Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
+<properties urlDisplayName="Upload a VHD" pageTitle="Crear y cargar un VHD de Windows Server a Azure" metaKeywords="Azure VHD, uploading VHD" description="Aprenda a crear y cargar un disco duro virtual (VHD) en Azure que tiene el sistema operativo Windows Server." metaCanonical="" services="virtual-machines" documentationCenter="" title="Crear y cargar un VHD de Windows Server a Azure" authors="kathydav" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="kathydav" />
 
@@ -193,7 +193,7 @@ Una cuenta de almacenamiento representa el más alto nivel del espacio de nombre
 
 4.  Escriba un **Nombre** para el contenedor y seleccione la **Directiva de acceso**.
 
-    ![Nombre de contenedor][Nombre de contenedor]
+    ![Nombre del contenedor][Nombre del contenedor]
 
     > [WACOM.NOTE] De manera predeterminada, el contenedor es privado y solo puede acceder a él el propietario de la cuenta. Para permitir al público tener acceso de lectura a los blobs en el contenedor, pero no a las propiedades y metadatos del contenedor, utilice la opción de "Public Blob". Para permitir el acceso de lectura público completo del contenedor y de los blobs, utilice la opción de "Public Container".
 
@@ -316,7 +316,7 @@ Después de crear una máquina virtual, intente crear una máquina virtual de SQ
   [Cuenta de almacenamiento creada correctamente]: ./media/virtual-machines-create-upload-vhd-windows-server/Storagenewaccount.png
   [Detalles de la cuenta de almacenamiento]: ./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_detail.png
   [2]: ./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_container.png
-  [Nombre de contenedor]: ./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png
+  [Nombre del contenedor]: ./media/virtual-machines-create-upload-vhd-windows-server/storageaccount_containervalues.png
   [Instalación de Microsoft Azure PowerShell]: #Install
   [Ventana de PowerShell]: ./media/virtual-machines-create-upload-vhd-windows-server/add_azureaccount.png
   [Página de descarga del explorador]: ./media/virtual-machines-create-upload-vhd-windows-server/Browser_download_GetPublishSettingsFile.png

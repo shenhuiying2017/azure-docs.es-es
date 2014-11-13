@@ -1,6 +1,6 @@
-<properties title="Develop a predictive solution with Azure Machine Learning" pageTitle="Develop a predictive solution with Machine Learning | Azure" description="Walkthrough of how to create a predictive analytics experiment in Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+<properties title="Desarrollo de una soluci&oacute;n predictiva con Aprendizaje autom&aacute;tico de Azure." pageTitle="Desarrollo de una soluci&oacute;n predictiva con Aprendizaje autom&aacute;tico | Azure" description="Tutorial sobre la creaci&oacute;n de un experimento de an&aacute;lisis predictivo en Estudio de aprendizaje autom&aacute;tico de Microsoft Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 
 # Desarrollo de una solución predictiva con Aprendizaje automático de Azure.
 
@@ -12,15 +12,15 @@ En este tutorial, seguiremos el proceso de desarrollo de un modelo de análisis 
 
 Seguiremos estos pasos:
 
-1.  [Creación de un área de trabajo de Aprendizaje automático][]
-2.  [Carga de los datos existentes][]
-3.  [Creación de un nuevo experimento][]
-4.  [Entrenamiento y evaluación de los modelos][]
-5.  [Publicación del servicio web][]
-6.  [Acceso al servicio web][]
+1.  [Creación de un área de trabajo de Aprendizaje automático][Creación de un área de trabajo de Aprendizaje automático]
+2.  [Carga de los datos existentes][Carga de los datos existentes]
+3.  [Creación de un nuevo experimento][Creación de un nuevo experimento]
+4.  [Entrenamiento y evaluación de los modelos][Entrenamiento y evaluación de los modelos]
+5.  [Publicación del servicio web][Publicación del servicio web]
+6.  [Acceso al servicio web][Acceso al servicio web]
 
 Este tutorial se basa en una versión simplificada del
-[experimento de ejemplo de predicción de riesgo de crédito][] que se incluye en el Estudio de aprendizaje automático.
+[experimento de ejemplo de predicción de riesgo de crédito][experimento de ejemplo de predicción de riesgo de crédito] que se incluye en el Estudio de aprendizaje automático.
 
   [Creación de un área de trabajo de Aprendizaje automático]: ../machine-learning-walkthrough-1-create-ml-workspace/
   [Carga de los datos existentes]: ../machine-learning-walkthrough-2-upload-data/

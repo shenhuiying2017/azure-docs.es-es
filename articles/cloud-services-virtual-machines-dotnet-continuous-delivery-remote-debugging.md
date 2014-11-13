@@ -1,12 +1,12 @@
-<properties linkid="cloud-services-virtual-machines-dotnet-continuous-delivery-remote-debugging" urlDisplayName="Enable remote debugging with continuous delivery" pageTitle="Enable remote debugging with continuous delivery" metaKeywords="" description="Learn how to enable remote debugging when using continuous delivery to deploy to Azure." metaCanonical="" services="cloud-services,virtual machines" documentationCenter=".NET" title="Enable remote debugging when using continuous delivery to publish to Azure" authors="ghogen" solutions="" manager="" editor="" />
+<properties urlDisplayName="Enable remote debugging with continuous delivery" pageTitle="Habilitaci&oacute;n de la depuraci&oacute;n remota con entrega continua" metaKeywords="" description="Vea c&oacute;mo habilitar la depuraci&oacute;n remota cuando se usa entrega continua para implementar en Azure." metaCanonical="" services="cloud-services,virtual machines" documentationCenter=".NET" title="Habilitaci&oacute;n de la depuraci&oacute;n remota al usar la entrega continua para publicar en Azure" authors="kempb" solutions="" manager="douge" editor="" />
 
-<tags ms.service="multiple" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen"></tags>
+<tags ms.service="multiple" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="kempb" />
 
 # Habilitación de la depuración remota al usar la entrega continua para publicar en Azure
 
 Puede habilitar la depuración remota en Azure cuando usa la [entrega continua][entrega continua] para publicar en Azure; para ello, siga estos pasos.
 
-En este tema, se tratarán los siguientes aspectos:
+En este tema:
 
 [Habilitación de la depuración remota para los servicios en la nube][Habilitación de la depuración remota para los servicios en la nube]
 
@@ -30,7 +30,7 @@ En este tema, se tratarán los siguientes aspectos:
 2.  En la [página del portal de Azure][página del portal de Azure], examine el panel de máquinas virtuales para ver la "Huella digital del certificado RDP" de la máquina virtual. Esta se usa como valor de ServerThumbprint en la configuración de extensiones.
 3.  Cree un certificado de cliente como se describe en [Crear un certificado del servicio para Azure][Crear un certificado del servicio para Azure] (mantenga la huella digital del certificado de .pfx y RDP).
 4.  Instale [Azure Powershell][Azure Powershell] (versión 0.7.4 o posterior) desde el Centro de descarga de Microsoft.
-5.  Ejecute el siguiente script para habilitar la extensión RemoteDebug. Sustituya los datos personales por los suyos propios, como el nombre de la suscripción, el nombre de servicio y la huella digital. (NOTA: este script está configurado para Visual Studio 2013. Si utiliza Visual Studio 2012, use "RemoteDebugVS2013" para ReferenceName y ExtensionName.)
+5.  Ejecute el siguiente script para habilitar la extensión RemoteDebug. Sustituya los datos personales por los suyos propios, como el nombre de la suscripción, el nombre de servicio y la huella digital. (NOTA: Este script está configurado para Visual Studio 2013. Si utiliza Visual Studio 2012, use "RemoteDebugVS2013" para ReferenceName y ExtensionName.)
 
         Add-AzureAccount
 

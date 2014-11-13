@@ -1,6 +1,6 @@
-<properties pageTitle="Build Reliable and Elastic Cloud Apps with Messaging" metaKeywords="Service Bus, Cloud, elastic" description="Learn how to build reliable and elastic cloud applications with messaging in Microsoft Azure." services="service-bus" title="Build Reliable and Elastic Cloud Apps with Messaging" authors="sethm" solutions="" manager="dwrede" editor="dwrede" />
+<properties pageTitle="Creaci&oacute;n de aplicaciones en la nube fiables y el&aacute;sticas con mensajer&iacute;a" metaKeywords="Service Bus, Cloud, elastic" description="Aprenda a crear aplicaciones en la nube fiables y el&aacute;sticas con mensajer&iacute;a en Microsoft Azure." services="service-bus" title="Creaci&oacute;n de aplicaciones en la nube fiables y el&aacute;sticas con mensajer&iacute;a" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"/>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Crear aplicaciones en la nube fiables y elásticas con mensajería
 
@@ -20,7 +20,7 @@ La demanda dinámica es una realidad para las aplicaciones de hoy en día. Desde
 -   [Utilización de las colas de Bus de servicio][Utilización de las colas de Bus de servicio]
 -   [Problemas de entrega en mensajería asíncrona de Bus de servicio (publicación en el blog el 21 de octubre de 2011)][Problemas de entrega en mensajería asíncrona de Bus de servicio (publicación en el blog el 21 de octubre de 2011)]
 -   [Procedimientos recomendados para aislar aplicaciones de Bus de servicio contra interrupciones y desastres de Bus de servicio][Procedimientos recomendados para aislar aplicaciones de Bus de servicio contra interrupciones y desastres de Bus de servicio]
--   [Mensajería asíncrona: solicitar respuesta][Mensajería asíncrona: solicitar respuesta]
+-   [Mensajería asíncrona: Solicitud/respuesta][Mensajería asíncrona: Solicitud/respuesta]
 -   [Aplicación de niveles múltiples con Bus de servicio de Azure][Aplicación de niveles múltiples con Bus de servicio de Azure]
 
 ## Popular
@@ -40,7 +40,7 @@ La demanda dinámica es una realidad para las aplicaciones de hoy en día. Desde
   [Utilización de las colas de Bus de servicio]: http://azure.microsoft.com/es-es/documentation/articles/service-bus-dotnet-how-to-use-queues/
   [Problemas de entrega en mensajería asíncrona de Bus de servicio (publicación en el blog el 21 de octubre de 2011)]: http://geekswithblogs.net/asmith/articles/147398.aspx
   [Procedimientos recomendados para aislar aplicaciones de Bus de servicio contra interrupciones y desastres de Bus de servicio]: http://sandboxmsdnstage.redmond.corp.microsoft.com/es-es/library/azure/jj554355.aspx
-  [Mensajería asíncrona: solicitar respuesta]: http://code.msdn.microsoft.com/windowsazure/Brokered-Messaging-Request-2b4ff5d8
+  [Mensajería asíncrona: Solicitud/respuesta]: http://code.msdn.microsoft.com/windowsazure/Brokered-Messaging-Request-2b4ff5d8
   [Aplicación de niveles múltiples con Bus de servicio de Azure]: http://azure.microsoft.com/es-es/documentation/articles/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/
   [Colas de Azure y Colas de Bus de servicio de Azure: comparación y diferencias]: http://msdn.microsoft.com/es-es/library/azure/hh767287.aspx
   [Referencia de la API de REST de Bus de servicio]: http://msdn.microsoft.com/es-es/library/azure/hh780717.aspx

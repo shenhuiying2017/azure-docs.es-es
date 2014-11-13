@@ -1,6 +1,6 @@
-<properties linkid="manage-services-storage-net-shared-access-signature-part-2" urlDisplayName="" pageTitle="Create and use a SAS with the Blob Service | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Explore generating and using shared access signatures with the Blob service" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="" pageTitle="Creaci&oacute;n y uso de una firma de acceso compartido con el servicio BLOB | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Exploraci&oacute;n de la generaci&oacute;n y uso de firmas de acceso compartido con el servicio BLOB" metaCanonical="" services="storage" documentationCenter="" title="Parte 2: Creaci&oacute;n y uso de una firma de acceso compartido con el servicio BLOB" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Firmas de acceso compartido, parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB
 
@@ -91,7 +91,7 @@ Agregue las líneas siguientes en la parte inferior del método **Main()**, ante
 
 Compile y ejecute para generar el URI de la firma de acceso compartido para el nuevo contenedor, que será similar al siguiente:
 
-<https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D>
+https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
 
 Una vez que se ejecute el código, la firma de acceso compartido creada en el contenedor será válida durante las cuatro horas siguientes. Dicha firma concede permiso al cliente para enumerar los blobs en el contenedor y escribir un nuevo blob en este.
 
@@ -139,7 +139,7 @@ En la parte inferior del método **Main()**, agregue las líneas siguientes para
 
 Compile y ejecute para generar el URI de la firma de acceso compartido para el nuevo blob, que será similar al siguiente:
 
-<https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D>
+https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
 
 ## Creación de una directiva de acceso almacenada en el contenedor
 
@@ -527,4 +527,5 @@ Ejecute la aplicación de consola y observe el resultado para ver qué operacion
   [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
   [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
   [Administración del acceso a los recursos de almacenamiento de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/ee393343.aspx
+  [Delegación de acceso con una firma de acceso compartido (API de REST)]: http://msdn.microsoft.com/es-es/library/windowsazure/ee395415.aspx
   [Introducción a las firmas de acceso compartido de tabla y cola]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx

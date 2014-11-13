@@ -59,9 +59,9 @@
 
         quit
 
-11. Cuando MySQL esté instalado, debe configurar un extremo para que pueda obtenerse acceso a MySQL de manera remota. Inicie sesión en el [Portal de administración de Azure][]. En el portal de Azure, haga clic en **Máquinas virtuales**, en el nombre de la nueva máquina virtual y, a continuación, en **Endpoints**.
+11. Cuando MySQL esté instalado, debe configurar un extremo para que pueda obtenerse acceso a MySQL de manera remota. Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure]. En el portal de Azure, haga clic en **Máquinas virtuales**, en el nombre de la nueva máquina virtual y, a continuación, en **Endpoints**.
 
-    ![Extremos][]
+    ![Extremos][Extremos]
 
 12. Haga clic en **Agregar extremo** en la parte inferior de la página.
     ![Extremos][1]
@@ -77,7 +77,7 @@
 
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
-15. Ha configurado MySQL y ha creado una base de datos y un nuevo usuario correctamente. Para obtener más información sobre MySQL, consulte [MySQL Documentation][].
+15. Ha configurado MySQL y ha creado una base de datos y un nuevo usuario correctamente. Para obtener más información sobre MySQL, consulte [MySQL Documentation][MySQL Documentation].
 
   [Portal de administración de Azure]: http://manage.windowsazure.com
   [Extremos]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpoint.png

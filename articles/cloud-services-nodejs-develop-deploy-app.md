@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-getting-started" urlDisplayName="Cloud Service" pageTitle="Node.js Getting Started Guide - Azure Tutorial" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="An end-to-end tutorial that helps you develop a simple Node.js web application and deploy it to Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Cloud Service" pageTitle="Gu&iacute;a de introducci&oacute;n a Node.js - Tutorial de Azure" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="Un tutorial completo que le ayuda a desarrollar una sencilla aplicaci&oacute;n web Node.js e implementarla en Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Compilaci&oacute;n e implementaci&oacute;n de una aplicaci&oacute;n Node.js en un Servicio en la nube de Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure
 
@@ -12,8 +12,11 @@ proporcionan una máquina virtual dedicada y robusta para hospedar los roles de 
 
 Para obtener más información sobre los Servicios en la nube y sobre su comparación con Sitios web Azure y Maquinas virtuales, consulte [Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales][Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales].
 
-<div class="dev-callout"><strong>&iquest;Desea compilar un sitio web sencillo?</strong>
-<p>Si su escenario tan solo requiere un sitio web front-end sencillo, considere <a href="/es-es/documentation/articles/web-sites-nodejs-develop-deploy-mac/">usar un Sitio web Azure ligero</a>. Puede actualizar a un Servicio en la nube m&aacute;s adelante, cuando su sitio web sea m&aacute;s grande y sus requisitos cambien.</p>
+<div class="dev-callout">
+
+**¿Desea compilar un sitio web sencillo?**
+Si su escenario tan solo requiere un sitio web front-end sencillo, considere [usar un Sitio web Azure ligero][usar un Sitio web Azure ligero]. Puede actualizar a un Servicio en la nube más adelante, cuando su sitio web sea más grande y sus requisitos cambien.
+
 </div>
 
 Siguiendo este tutorial, podrá compilar una aplicación web sencilla hospedada en un rol web. Usará
@@ -22,7 +25,7 @@ implementará con las herramientas de línea de comandos de PowerShell.
 
 A continuación se muestra una captura de pantalla de la aplicación completada:
 
-![Ventana del explorador que muestra la página Hello World. La URL indica que la página está hospedada en Azure.](https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png)
+![Ventana del explorador que muestra la página Hello World. La URL indica que la página está hospedada en Azure.][Ventana del explorador que muestra la página Hello World. La URL indica que la página está hospedada en Azure.]
 
 ## Creación de una nueva aplicación Node
 
@@ -73,9 +76,11 @@ Realice las siguientes tareas para crear un nuevo proyecto de Servicio en la nub
     El cmdlet **Add-AzureNodeWebRole** crea un nuevo directorio para su aplicación y genera scaffolding para una aplicación Node.js básica. También modifica los archivos **ServiceConfiguration.Cloud.csfg**, **ServiceConfiguration.Local.csfg** y **ServiceDefinition.csdef** creados en el paso anterior para agregar entradas de configuración para el nuevo rol.
 
     <div class="dev-callout">
-<b>Nota:</b>
-<p>De forma predeterminada, si no proporciona un nombre de rol, se crear&aacute; uno autom&aacute;ticamente. Puede proporcionar un nombre como primer par&aacute;metro para <b>Add-AzureNodeWebRole</b>. Por ejemplo, <code data-inline="1">Add-AzureNodeWebRole MyRole</code></p>
-</div>
+
+    **Nota:**
+    De forma predeterminada, si no proporciona un nombre de rol, se creará uno automáticamente. Puede proporcionar un nombre como primer parámetro para **Add-AzureNodeWebRole**. Por ejemplo, `Add-AzureNodeWebRole MyRole`.
+
+    </div>
 
 5.  Utilice los siguientes comandos para navegar hasta el directorio **WebRole1** y, a continuación, abra el archivo **server.js** en el Bloc de notas.
 
@@ -131,9 +136,11 @@ Con el fin de implementar su aplicación en Azure, debe descargar primero la con
         PS C:\node\helloworld\WebRole1> Import-AzurePublishSettingsFile [path to file]
 
     <div class="dev-callout">
-<b>Nota:</b>
-<p>Despu&eacute;s de importar la configuraci&oacute;n de publicaci&oacute;n, podr&iacute;a ser conveniente eliminar el archivo .publishSettings descargado dado que contiene informaci&oacute;n que otros usuarios podr&iacute;an emplear para tener acceso a su cuenta.</p>
-</div>
+
+    **Nota:**
+    Después de importar la configuración de publicación, podría ser conveniente eliminar el archivo .publishSettings descargado dado que contiene información que otros usuarios podrían emplear para tener acceso a su cuenta.
+
+    </div>
 
 ### Publicación de la aplicación
 
@@ -194,16 +201,16 @@ Después de implementar su aplicación, es posible que desee deshabilitarla para
     ![Estado del comando Remove-AzureService][Estado del comando Remove-AzureService]
 
     <div class="dev-callout">
-<strong>Nota:</strong>
-<p>La eliminaci&oacute;n del servicio no elimina la cuenta de almacenamiento que se cre&oacute; al publicar por primera vez el servicio, por lo que se le seguir&aacute; facturando por el almacenamiento utilizado. Para obtener m&aacute;s informaci&oacute;n sobre
-la eliminaci&oacute;n de una cuenta de almacenamiento, consulte <a href="http://msdn.microsoft.com/es-es/library/windowsazure/hh531562.aspx">Eliminar una cuenta de almacenamiento de una suscripci&oacute;n de Azure</a>.</p>
-</div>
+
+    **Nota:**
+    La eliminación del servicio no elimina la cuenta de almacenamiento que se creó al publicar por primera vez el servicio, por lo que se le seguirá facturando por el almacenamiento utilizado. Para obtener más información sobre la eliminación de una cuenta de almacenamiento, consulte [Eliminar una cuenta de almacenamiento de una suscripción de Azure][Eliminar una cuenta de almacenamiento de una suscripción de Azure].
+
+    </div>
 
   [Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales]: http://azure.microsoft.com/es-es/documentation/articles/choose-web-site-cloud-service-vm/
+  [usar un Sitio web Azure ligero]: /es-es/documentation/articles/web-sites-nodejs-develop-deploy-mac/
   [Ventana del explorador que muestra la página Hello World. La URL indica que la página está hospedada en Azure.]: https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png
   [Icono de Azure PowerShell]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
-  [install-dev-tools]: ../includes/install-dev-tools.md
-  [Un símbolo del sistema que muestra los comandos "mkdir c:\\node" y "cd node".]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
   [Resultado del comando New-AzureService helloworld]: ./media/cloud-services-nodejs-develop-deploy-app/node9.png
   [Información general para crear un Servicio hospedado para Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/jj155995.aspx
   [Salida del comando Add-AzureNodeWebRole.]: ./media/cloud-services-nodejs-develop-deploy-app/node11.png
@@ -214,3 +221,4 @@ la eliminaci&oacute;n de una cuenta de almacenamiento, consulte <a href="http://
   [1]: ./media/cloud-services-nodejs-develop-deploy-app/node21.png
   [Estado del comando Stop-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node48.png
   [Estado del comando Remove-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node49.png
+  [Eliminar una cuenta de almacenamiento de una suscripción de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/hh531562.aspx

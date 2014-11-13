@@ -1,4 +1,4 @@
-<properties pageTitle="Get Started with Azure Mobile Services for HTML 5 apps" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for HTML development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+<properties pageTitle="Introducci&oacute;n a Servicios m&oacute;viles de Azure para aplicaciones HTML 5" metaKeywords="" description="Siga este tutorial para introducirse en el uso de Servicios m&oacute;viles de Azure para el desarrollo de HTML. " metaCanonical="" services="" documentationCenter="Mobile" title="Introducci&oacute;n a los Servicios m&oacute;viles" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
 
@@ -7,11 +7,18 @@
 [WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
+
 <div class="dev-onpage-left-content">
-<p>En este tutorial se indica c&oacute;mo agregar un servicio back-end basado en la nube a una aplicaci&oacute;n HTML mediante los Servicios m&oacute;viles de Azure. Con este tutorial crear&aacute; tanto un servicio m&oacute;vil nuevo como una aplicaci&oacute;n simple de <em>Lista de pendientes</em> que almacena datos de la aplicaci&oacute;n en el servicio m&oacute;vil nuevo. Puede ver la versi&oacute;n en v&iacute;deo de este tutorial haciendo clic en el clip de la derecha.</p>
+
+En este tutorial se indica cómo agregar un servicio back-end basado en la nube a una aplicación HTML mediante los Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de *Lista de pendientes* que almacena datos de la aplicación en el servicio móvil nuevo. Puede ver la versión en vídeo de este tutorial haciendo clic en el clip de la derecha.
+
 </div>
 
-<div class="dev-onpage-video-wrapper"><a href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="label">Ver el tutorial (en ingl&eacute;s)</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-html-get-started-180x120.png') !important;" href="http://go.microsoft.com/fwlink/?LinkId=287040" target="_blank" class="dev-onpage-video"><span class="icon">Reproducir v&iacute;deo (en ingl&eacute;s)</span></a> <span class="time">3:51:00</span></div>
+<div class="dev-onpage-video-wrapper">
+
+[Ver el tutorial (en inglés)][Ver el tutorial (en inglés)] [<span class="icon">Reproducir vídeo (en inglés)</span>][Ver el tutorial (en inglés)] <span class="time">3:51:00</span>
+
+</div>
 
 </div>
 
@@ -21,7 +28,12 @@ La siguiente captura de pantalla muestra la aplicación final:
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Servicios móviles para aplicaciones HTML.
 
-<div class="dev-callout"><strong>Nota:</strong> <p>para completar este tutorial, deber&aacute; tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluaci&oacute;n gratuita en tan solo unos minutos. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F" target="_blank">Evaluaci&oacute;n gratuita de Azure</a>.</p></div>
+<div class="dev-callout">
+
+**Nota:**
+para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][Evaluación gratuita de Azure].
+
+</div>
 
 ### Requisitos adicionales
 
@@ -68,9 +80,12 @@ En esta sección, creará una aplicación de HTML que se conecta al servicio mó
 
     ![][3]
 
-    <div class="dev-callout"><b>Nota:</b>
-    <p>Si implementa la aplicaci&oacute;n de inicio r&aacute;pido en un servidor web que no sea localhost, debe agregar el nombre de host del servidor web a la lista <strong>Permitir solicitudes de nombres de host</strong>. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://msdn.microsoft.com/es-es/library/windowsazure/dn155871.aspx" target="_blank">Uso compartido de recursos entre or&iacute;genes</a>.</p>
-</div>
+    <div class="dev-callout">
+
+    **Nota:**
+    Si implementa la aplicación de inicio rápido en un servidor web que no sea localhost, debe agregar el nombre de host del servidor web a la lista **Permitir solicitudes de nombres de host**. Para obtener más información, consulte [Uso compartido de recursos entre orígenes][Uso compartido de recursos entre orígenes].
+
+    </div>
 
 ## Hospedaje y ejecución de su aplicación HTML
 
@@ -82,9 +97,12 @@ La etapa final de este tutorial consiste en hospedar y ejecutar la aplicación n
     -   **launch-mac.command** (equipos con Mac OS X)
     -   **launch-linux.sh** (equipos con Linux)
 
-    <div class="dev-callout"><b>Nota:</b>
-    <p>En un equipo con Windows, escriba &quot;R&quot; cuando PowerShell le pida que confirme que desea ejecutar el script. Su explorador web podr&iacute;a advertirle de no ejecutar el script porque se ha descargado de Internet. Cuando esto ocurra, debe solicitar que el explorador contin&uacute;e con la carga del script.</p>
-</div>
+    <div class="dev-callout">
+
+    **Nota:**
+    En un equipo con Windows, escriba "R" cuando PowerShell le pida que confirme que desea ejecutar el script. Su explorador web podría advertirle de no ejecutar el script porque se ha descargado de Internet. Cuando esto ocurra, debe solicitar que el explorador continúe con la carga del script.
+
+    </div>
 
     De este modo se inicia un servidor web en su equipo local para hospedar la nueva aplicación.
 
@@ -96,10 +114,12 @@ La etapa final de este tutorial consiste en hospedar y ejecutar la aplicación n
 
     Esta acción envía una solicitud POST al nuevo servicio móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y se muestran los datos en la segunda columna de la aplicación.
 
-    <div class="dev-callout"> 
-<b>Nota:</b> 
-<p>Puede revisar el c&oacute;digo de acceso al servicio m&oacute;vil para consultar e insertar datos; este se encuentra en el archivo app.js.</p> 
-</div>
+    <div class="dev-callout">
+
+    **Nota:**
+    Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo app.js.
+
+    </div>
 
 4.  Nuevamente en el Portal de administración, haga clic en la pestaña **Data** y, a continuación, en la tabla **TodoItems**.
 
@@ -114,33 +134,28 @@ La etapa final de este tutorial consiste en hospedar y ejecutar la aplicación n
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
 
 -   **[Introducción a los datos][Introducción a los datos]**
-    
-	Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
+    Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
 -   **[Llamada a una API personalizada desde una aplicación HTML][Llamada a una API personalizada desde una aplicación HTML]**
-    
-	Conéctese a su aplicación HTML mediante una API personalizada hospedada en Servicios móviles.
+    Conéctese a su aplicación HTML mediante una API personalizada hospedada en Servicios móviles.
 
 -   **[Introducción a la autenticación][Introducción a la autenticación]**
-    
-	Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
+    Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
 -   **[Referencia conceptual de Servicios móviles con HTML/JavaScript][Referencia conceptual de Servicios móviles con HTML/JavaScript]**
-    
-	Obtenga más información acerca de cómo utilizar los Servicios móviles con HTML/JavaScript.
+    Obtenga más información acerca de cómo utilizar los Servicios móviles con HTML/JavaScript.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+<!-- Anchors. --> <!-- Images. --> <!-- URLs. -->
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+  [Ver el tutorial (en inglés)]: http://go.microsoft.com/fwlink/?LinkId=287040
   [0]: ./media/mobile-services-html-get-started/mobile-quickstart-completed-html.png
+  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-html%2F
   [Instalador de plataforma web de Microsoft]: http://go.microsoft.com/fwlink/p/?LinkId=286333
   [última versión de Python]: http://go.microsoft.com/fwlink/p/?LinkId=286342
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-html-get-started/mobile-portal-quickstart-html.png
   [2]: ./media/mobile-services-html-get-started/mobile-quickstart-steps-html.png
   [3]: ./media/mobile-services-html-get-started/mobile-services-set-cors-localhost.png
+  [Uso compartido de recursos entre orígenes]: http://msdn.microsoft.com/es-es/library/windowsazure/dn155871.aspx
   [4]: ./media/mobile-services-html-get-started/mobile-quickstart-startup-html.png
   [5]: ./media/mobile-services-html-get-started/mobile-data-tab.png
   [6]: ./media/mobile-services-html-get-started/mobile-data-browse.png

@@ -1,6 +1,6 @@
-<properties linkid="services-linux-user-names" urlDisplayName="User Names in Linux" pageTitle="Selecting User Names for Linux on Azure" metaKeywords="" description="Learn how to select user names for a Linux virtual machine in Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecting User Names for Linux on Azure" authors="szark" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="User Names in Linux" pageTitle="Selecci&oacute;n de nombres de usuario para Linux en Azure" metaKeywords="" description="Aprenda a seleccionar nombres de usuario para una m&aacute;quina virtual de Linux en Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Selecci&oacute;n de nombres de usuario para Linux en Azure" authors="szark" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="szark" />
 
 # Selección de nombres de usuario para Linux en Azure
 
@@ -8,7 +8,7 @@ Al crear una instancia de máquina virtual de Linux en Azure, tiene la posibilid
 
 **Sin embargo**, Linux define un conjunto de nombres de usuario que no se deben utilizar al crear usuarios nuevos. El proceso de aprovisionamiento **fallará** si intenta aprovisionar una máquina virtual de Linux con un usuario existente del sistema, que se define como un usuario con UID 0-99. Un ejemplo habitual es el usuario `root`, que tiene UID 0.
 
--   Consulte también: [Base estándar de Linux - Intervalos de identificadores de usuarios][]
+-   Consulte también: [Base estándar de Linux - Intervalos de identificadores de usuarios][Base estándar de Linux - Intervalos de identificadores de usuarios]
 
 Las siguientes listas contienen nombres de usuario que debería evitar al realizar el aprovisionamiento de una máquina virtual de Linux. Para una mayor seguridad, se recomienda que **no utilice estos nombres de usuario** al realizar el aprovisionamiento de una máquina virtual de Linux, ya que de lo contrario es posible que el proceso falle.
 

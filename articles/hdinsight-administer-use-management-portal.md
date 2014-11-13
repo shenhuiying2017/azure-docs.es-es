@@ -1,4 +1,4 @@
-<properties linkid="manage-services-hdinsight-howto-administer-hdinsight" urlDisplayName="Administration" pageTitle="Manage Hadoop clusters in HDInsight using Azure Portal | Azure" metaKeywords="" description="Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console." metaCanonical="" services="hdinsight" documentationCenter="" title="Manage Hadoop clusters in HDInsight using the Azure Management Portal" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties urlDisplayName="Administration" pageTitle="Administraci&oacute;n de cl&uacute;steres de Hadoop en HDInsight usando el portal de Azure | Azure" metaKeywords="" description="Vea c&oacute;mo administrar el servicio HDInsight. Cree un cl&uacute;ster de HDInsight, abra la consola interactiva de JavaScript y la consola de comandos de Hadoop." metaCanonical="" services="hdinsight" documentationCenter="" title="Administraci&oacute;n de cl&uacute;steres de Hadoop en HDInsight mediante el Portal de administraci&oacute;n de Azure" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="jgao" />
 
@@ -22,6 +22,7 @@ Antes de empezar este artículo, debe tener lo siguiente:
 -   [Personalización de clústeres de HDInsight][Personalización de clústeres de HDInsight]
 -   [Cambio de nombre de usuario y contraseña del clúster de HDInsight][Cambio de nombre de usuario y contraseña del clúster de HDInsight]
 -   [Conexión a los clústeres de HDInsight con RDP][Conexión a los clústeres de HDInsight con RDP]
+-   [Creación de un certificado autofirmado][Creación de un certificado autofirmado]
 -   [Concesión/Revocación del acceso a los servicios de HTTP][Concesión/Revocación del acceso a los servicios de HTTP]
 -   [Apertura de la línea de comandos de Hadoop][Apertura de la línea de comandos de Hadoop]
 -   [Pasos siguientes][Pasos siguientes]
@@ -117,6 +118,20 @@ Las credenciales para el clúster que proporcionó en su creación dan acceso a 
 4.  Desde la parte superior de la página, haga clic en **CONFIGURATION**.
 5.  Haga clic en **CONNECT** y siga las instrucciones.
 
+## <span id="cert"></span></a>Creación de un certificado autofirmado
+
+Si desea realizar operaciones en el clúster usando el SDK de .NET, debe crear un certificado autofirmado en la estación de trabajo y cargarlo en la suscripción de Azure. Esta tarea solo se realiza una vez. Puede instalar el mismo certificado en otras máquinas, siempre y cuando el certificado sea válido.
+
+**Para crear un certificado autofirmado**
+
+1.  Cree el certificado autofirmado que se usa para autentica las solicitudes. Puede usar IIS o [makecert][makecert] para crear el certificado.
+
+2.  Busque la ubicación del certificado, haga clic con el botón secundario en él, después haga clic en **Instalar certificado** y, por último, instale el certificado en la tienda personal del equipo. Edite las propiedades del certificado para asignarle un nombre descriptivo.
+
+3.  Importe el certificado en el Portal de administración de Azure. Desde el portal, haga clic en **Configuración** en la parte inferior izquierda de la página y después haga clic en **Certificados de administración**. En la parte inferior de la página, haga clic en **Cargar** y siga las instrucciones para cargar el archivo .cer que creó en el paso anterior.
+
+    ![HDI.ClusterCreate.UploadCert][HDI.ClusterCreate.UploadCert]
+
 ## <span id="httpservice"></span></a> Concesión/Revocación del acceso a los servicios de HTTP
 
 Los clústeres de HDInsight tienen los siguientes servicios web HTTP (todos estos servicios tienen extremos RESTful):
@@ -196,6 +211,7 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
   [Personalización de clústeres de HDInsight]: #customize
   [Cambio de nombre de usuario y contraseña del clúster de HDInsight]: #password
   [Conexión a los clústeres de HDInsight con RDP]: #rdp
+  [Creación de un certificado autofirmado]: #cert
   [Concesión/Revocación del acceso a los servicios de HTTP]: #httpservice
   [Apertura de la línea de comandos de Hadoop]: #hadoopcmd
   [Pasos siguientes]: #nextsteps
@@ -205,10 +221,13 @@ En este artículo, ha aprendido a crear un clúster de HDInsight mediante el Por
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [HDI.QuickCreate]: ./media/hdinsight-administer-use-management-portal/HDI.QuickCreateCluster.png
   [HDI.ClusterLanding]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterLanding.PNG "Cluster landing page"
+  [¿Qué versión de Hadoop tiene HDInsight de Azure?]: ../hdinsight-component-versioning/
   [Envío de trabajos de Hadoop mediante programación]: ../hdinsight-submit-hadoop-jobs-programmatically/
   [Soporte técnico de Microsoft]: http://azure.microsoft.com/es-es/support/options/
   [Habilitación de escritorio remoto]: #enablerdp
   [HDI.UsuarioCrearRDP]: ./media/hdinsight-administer-use-management-portal/HDI.CreateRDPUser.png
+  [makecert]: http://msdn.microsoft.com/es-es/library/bfsktky3(v=vs.110).aspx
+  [HDI.ClusterCreate.UploadCert]: ./media/hdinsight-administer-use-management-portal/HDI.ClusterCreate.UploadCert.png
   [HDI.HadoopCommandLine]: ./media/hdinsight-administer-use-management-portal/HDI.HadoopCommandLine.PNG "Hadoop command line"
   [Hadoop commands reference]: http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html
   [Introducción a HDInsight de Azure]: ../hdinsight-get-started/

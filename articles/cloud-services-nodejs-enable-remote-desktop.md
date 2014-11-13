@@ -1,6 +1,6 @@
-<properties linkid="dev-node-remotedesktop" urlDisplayName="Enable Remote Desktop" pageTitle="Enable remote desktop for cloud services (Node.js)" metaKeywords="Azure Node.js remote access, Azure Node.js remote connection, Azure Node.js VM access, Azure Node.js virtual machine access" description="Learn how to enable remote-desktop access for the virtual machines hosting your Azure Node.js application. " metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Enabling Remote Desktop in Azure" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Enable Remote Desktop" pageTitle="Habilitaci&oacute;n de Escritorio remoto para servicios en la nube (Node.js)" metaKeywords="Azure Node.js remote access, Azure Node.js remote connection, Azure Node.js VM access, Azure Node.js virtual machine access" description="Vea c&oacute;mo habilitar el acceso mediante Escritorio remoto para las m&aacute;quinas virtuales que hospedan su aplicaci&oacute;n Node.js de Azure. " metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Habilitaci&oacute;n de Escritorio remoto en Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
 # Habilitación de Escritorio remoto en Azure
 
@@ -108,8 +108,6 @@ de rol en la nube, deshabilite el acceso de Escritorio remoto mediante [Azure Po
 
   [Paso 1: Configuración del servicio para el acceso de Escritorio remoto mediante Azure PowerShell]: #step1
   [Paso 2: Conexión a la instancia de rol]: #step2
-  [Paso 3: Configuración del servicio para deshabilitar el acceso de Escritorio remoto
-  mediante Azure PowerShell]: #step3
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9790229&clcid=0x409
   [Entrada Azure PowerShell del menú Inicio]: ./media/cloud-services-nodejs-enable-remote-desktop/azure-powershell-menu.png
   [enable-azureserviceprojectremotedesktop]: ./media/cloud-services-nodejs-enable-remote-desktop/enable-rdp.png

@@ -1,6 +1,6 @@
-<properties linkid="dev-nodejs-how-to-blob-storage" urlDisplayName="Blob Service" pageTitle="How to use blob storage (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Learn how to use the Azure blob service to upload, download, list, and delete blob content. Samples written in Node.js." metaCanonical="" services="storage" documentationCenter="Node.js" title="How to Use the Blob Service from Node.js" authors="larryfr" solutions="" manager="" editor="" />
+<properties urlDisplayName="Blob Service" pageTitle="Uso de almacenamiento de blobs (Node.js) | Microsoft Azure" metaKeywords="Get started Azure blob, Azure unstructured data, Azure unstructured storage, Azure blob, Azure blob storage, Azure blob Node.js" description="Aprenda a utilizar el servicio BLOB de Azure para cargar, descargar, incluir en un listado y eliminar contenido de blobs. Ejemplos escritos en Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="Uso del servicio BLOB desde Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="01/01/1900" ms.author="larryfr"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Uso del servicio BLOB desde Node.js
 
@@ -18,13 +18,13 @@ consulte la sección [Pasos siguientes][Pasos siguientes].
 -   [Creación de una aplicación Node.js][Creación de una aplicación Node.js]
 -   [Configuración de su aplicación para obtener acceso al almacenamiento][Configuración de su aplicación para obtener acceso al almacenamiento]
 -   [Configuración de una cadena de conexión de almacenamiento de Azure][Configuración de una cadena de conexión de almacenamiento de Azure]
--   [Creación de un contenedor][Creación de un contenedor]
--   [Carga de un blob en un contenedor][Carga de un blob en un contenedor]
--   [Enumeración de los blobs de un contenedor][Enumeración de los blobs de un contenedor]
--   [Descarga de blobs][Descarga de blobs]
+-   [Eliminación de un contenedor][Eliminación de un contenedor]
+-   [Eliminación de un blob en un contenedor][Eliminación de un blob en un contenedor]
+-   [Eliminación de de los blobs de un contenedor][Eliminación de de los blobs de un contenedor]
+-   [Eliminación de blobs][Eliminación de blobs]
 -   [Eliminación de un blob][Eliminación de un blob]
--   [Acceso simultáneo][Acceso simultáneo]
--   [Trabajo con firmas de acceso compartido][Trabajo con firmas de acceso compartido]
+-   [Eliminación de simultáneo][Eliminación de simultáneo]
+-   [Eliminación de firmas de acceso compartido][Eliminación de firmas de acceso compartido]
 -   [Pasos siguientes][Pasos siguientes]
 
 [WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
@@ -77,7 +77,7 @@ El módulo azure leerá las variables de entorno AZURE\_STORAGE\_ACCOUNT, AZURE\
 
 Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento][Aplicación web de Node.js con almacenamiento].
 
-## <a name="create-container"> </a>Creación de un contenedor
+## <a name="create-container"> </a>Direccionamiento del un contenedor
 
 El objeto **BlobService** le permite trabajar con contenedores y blobs. El
 código siguiente crea un objeto **BlobService**. Agregue lo siguiente cerca
@@ -142,7 +142,7 @@ Se incluyen dos filtros que implementan la lógica de reintento con el SDK de Az
     var retryOperations = new azure.ExponentialRetryPolicyFilter();
     var blobSvc = azure.createBlobService().withFilter(retryOperations);
 
-## <a name="upload-blob"> </a>Carga de un blob en un contenedor
+## <a name="upload-blob"> </a>Direccionamiento del un blob en un contenedor
 
 Un blob se puede basar en un bloque o en una página. Los blobs en bloques le permiten cargar datos de gran tamaño con una mayor eficiencia, mientras que los blobs en páginas están optimizados para operaciones de lectura/escritura. Para obtener más información, consulte [Introducción a los blobs en bloques y a los blobs en páginas][Introducción a los blobs en bloques y a los blobs en páginas].
 
@@ -174,7 +174,7 @@ Para cargar datos en un blob en página, use lo siguiente:
 
 -   **createPageBlob**: crea un nuevo blob en página de una longitud especificada.
 
--   **createPageBlobFromFile**: crea un nuevo blob en página y carga el contenido de un archivo.
+-   **createPageBlobFromLocalFile**: crea un nuevo blob en página y carga el contenido de un archivo.
 
 -   **createPageBlobFromStream**: crea un nuevo blob en página y carga el contenido de una secuencia.
 
@@ -184,7 +184,7 @@ Para cargar datos en un blob en página, use lo siguiente:
 
 En el siguiente ejemplo se carga el contenido del archivo **test.txt** en **mypageblob**.
 
-    blobSvc.createPageBlobFromFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
+    blobSvc.createPageBlobFromLocalFile('mycontainer', 'mypageblob', 'test.txt', function(error, result, response){
       if(!error){
         // file uploaded
       }
@@ -192,7 +192,7 @@ En el siguiente ejemplo se carga el contenido del archivo **test.txt** en **mypa
 
 > [WACOM.NOTE] Los blobs en páginas constan de 'páginas' de 512 bytes. Puede que al cargar datos con un tamaño que no es múltiplo de 512 reciba un error.
 
-## <a name="list-blob"> </a>Enumeración de los blobs de un contenedor
+## <a name="list-blob"> </a>Direccionamiento del los blobs de un contenedor
 
 Para enumerar los blobs de un contenedor, use el método **listBlobsSegmented**. Si desea devolver blobs con un prefijo determinado, use **listBlobsSegmentedWithPrefix**.
 
@@ -204,7 +204,7 @@ Para enumerar los blobs de un contenedor, use el método **listBlobsSegmented**.
 
 El `result` contendrá una colección de `entries`, que es una matriz de objetos que describen cada blob. Si todos los blobs no se pueden devolver, `result` proporcionará también un `continuationToken`, que se puede usar como el segundo parámetro para recuperar entradas adicionales.
 
-## <a name="download-blob"> </a>Descarga de blobs
+## <a name="download-blob"> </a>Direccionamiento del blobs
 
 Para descargar datos de un blob, use lo siguiente:
 
@@ -227,7 +227,7 @@ En el ejemplo siguiente se demuestra cómo usar **getBlobToStream** para descarg
 
 El `result` contendrá información acerca del blob, lo que incluye información de **ETag**.
 
-## <a name="delete-blob"> </a>Eliminación de un blob
+## <a name="delete-blob"> </a>Direccionamiento del un blob
 
 Finalmente, para eliminar un blob, llame a **deleteBlob**. En el ejemplo siguiente se elimina el blob llamado **myblob**.
 
@@ -237,7 +237,7 @@ Finalmente, para eliminar un blob, llame a **deleteBlob**. En el ejemplo siguien
       }
     });
 
-## <a name="concurrent-access"></a>Acceso simultáneo
+## <a name="concurrent-access"></a>Direccionamiento del simultáneo
 
 Para permitir el acceso simultáneo a un blob desde varios clientes o varias instancias de proceso, puede usar etiquetas **ETag** o **concesiones**.
 
@@ -281,7 +281,7 @@ Las sucesivas operaciones sobre **myblob** deben proporcionar el parámetro `opt
 
 Para eliminar una concesión, use **releaseLease**. Para interrumpir una concesión, pero impedir que otros obtengan una nueva concesión hasta que expire la duración original, use **breakLease**.
 
-## <a name="sas"></a>Trabajo con firmas de acceso compartido
+## <a name="sas"></a>Direccionamiento del firmas de acceso compartido
 
 Las firmas de acceso compartido (SAS) constituyen una manera segura de ofrecer acceso granular a blobs y contenedores sin proporcionar el nombre o las claves de su cuenta de almacenamiento. Las SAS se usan con frecuencia para proporcionar acceso limitado a sus datos, por ejemplo, para permitir que una aplicación móvil acceda a los blobs.
 
@@ -373,20 +373,19 @@ vínculos para obtener más información acerca de cómo realizar tareas de alma
 -   Visite el repositorio del [SDK de almacenamiento de Azure para Node.js][SDK de almacenamiento de Azure para Node.js] en GitHub.
 
   [Pasos siguientes]: #next-steps
+  [¿Qué es el servicio BLOB?]: #what-is
   [Conceptos]: #concepts
   [Creación de una cuenta de almacenamiento de Azure]: #create-account
   [Creación de una aplicación Node.js]: #create-app
   [Configuración de su aplicación para obtener acceso al almacenamiento]: #configure-access
   [Configuración de una cadena de conexión de almacenamiento de Azure]: #setup-connection-string
-  [Creación de un contenedor]: #create-container
-  [Carga de un blob en un contenedor]: #upload-blob
-  [Enumeración de los blobs de un contenedor]: #list-blob
-  [Descarga de blobs]: #download-blobs
+  [Eliminación de un contenedor]: #create-container
+  [Eliminación de un blob en un contenedor]: #upload-blob
+  [Eliminación de de los blobs de un contenedor]: #list-blob
+  [Eliminación de blobs]: #download-blobs
   [Eliminación de un blob]: #delete-blobs
-  [Acceso simultáneo]: #concurrent-access
-  [Trabajo con firmas de acceso compartido]: #sas
-  [howto-blob-storage]: ../includes/howto-blob-storage.md
-  [create-storage-account]: ../includes/create-storage-account.md
+  [Eliminación de simultáneo]: #concurrent-access
+  [Eliminación de firmas de acceso compartido]: #sas
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: /es-es/develop/nodejs/tutorials/create-a-website-(mac)/
   [Servicio en la nube Node.js]: /es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Sitio web con WebMatrix]: /es-es/documentation/articles/web-sites-nodejs-use-webmatrix/

@@ -1,6 +1,6 @@
-<properties linkid="develop-php-common-tasks-create-web-and-worker-roles" urlDisplayName="Create Web and Worker Roles" pageTitle="Create Web and Worker Roles" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors="bswan" solutions="" manager="paulettm" editor="mollybos" />
+<properties urlDisplayName="Create Web and Worker Roles" pageTitle="Creaci&oacute;n de roles web y de trabajo" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="Creaci&oacute;n de roles de trabajo y web de PHP" authors="bswan" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="bswan"></tags>
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="bswan" />
 
 # Creación de roles de trabajo y web de PHP
 
@@ -132,7 +132,7 @@ Para configurar un rol web para usar un tiempo de ejecución de PHP proporcionad
 
 5.  Agregue los archivos de la aplicación al directorio raíz del rol web. Será el directorio raíz del servidor web.
 
-6.  Publique la aplicación según lo descrito en la sección [Publicación de la aplicación][Direccionamiento del de la aplicación] siguiente.
+6.  Publique la aplicación según lo descrito en la sección [Publicación de la aplicación][Direccionamiento del de la aplicación] a continuación.
 
 <div class="dev-callout"> 
 <b>Nota:</b> 
@@ -178,11 +178,11 @@ Para configurar un rol de trabajo para usar un tiempo de ejecución de PHP propi
 
 5.  Agregue los archivos de la aplicación al directorio raíz del rol de trabajo.
 
-6.  Publique la aplicación según lo descrito en la sección [Publicación de la aplicación][Direccionamiento del de la aplicación] siguiente.
+6.  Publique la aplicación según lo descrito en la sección [Publicación de la aplicación][Direccionamiento del de la aplicación] a continuación.
 
 ## <a name="Emulators"></a>Direccionamiento del de la aplicación en los emuladores de proceso y almacenamiento
 
-Los emuladores de proceso y almacenamiento de Azure ofrecen un entorno local en que puede probar la aplicación de Azure antes de implementarla en la nube. Existen algunas diferencias entre los emuladores y el entorno de Azure. Para entenderlo mejor, consulte [Diferencias entre el emulador de proceso y Azure][Diferencias entre el emulador de proceso y Azure] y [Differences Between the Storage Emulator and Azure Storage Services][Differences Between the Storage Emulator and Azure Storage Services].
+Los emuladores de proceso y almacenamiento de Azure ofrecen un entorno local en el que puede probar la aplicación de Azure antes de implementarla en la nube. Existen algunas diferencias entre los emuladores y el entorno de Azure. Para entenderlo mejor, consulte [Diferencias entre el emulador de proceso y Azure][Diferencias entre el emulador de proceso y Azure] y [Differences Between the Storage Emulator and Azure Storage Services][Differences Between the Storage Emulator and Azure Storage Services].
 
 Tenga en cuenta que debe tener instalado PHP localmente para usar el emulador de proceso. El emulador de proceso usará la instalación de PHP local para ejecutar la aplicación.
 

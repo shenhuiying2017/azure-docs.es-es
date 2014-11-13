@@ -1,6 +1,6 @@
-<properties title="SharePoint Server Farm Configuration Details" pageTitle="SharePoint Server Farm Configuration Details" description="Describes the default configuration of SharePoint farms" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" />
+<properties title="Detalles de configuraci&oacute;n de una granja de servidores de SharePoint" pageTitle="Detalles de configuraci&oacute;n de una granja de servidores de SharePoint" description="Describe la configuraci&oacute;n predeterminada de las granjas de SharePoint." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="josephd"></tags>
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="josephd" />
 
 # Detalles de configuración de una granja de servidores de SharePoint
 

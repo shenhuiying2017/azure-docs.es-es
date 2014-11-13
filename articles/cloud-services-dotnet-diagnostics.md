@@ -1,6 +1,6 @@
-<properties linkid="dev-net-commons-tasks-diagnostics" urlDisplayName="Diagnostics" pageTitle="How to use diagnostics (.NET) - Azure feature guide" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Learn how to use diagnostic data in Azure for debugging, measuring performance, monitoring, traffic analysis, and more." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Diagnostics" pageTitle="Uso del diagn&oacute;stico (.NET) - Gu&iacute;a de caracter&iacute;sticas de Azure" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Aprenda a utilizar datos de diagn&oacute;stico en Azure para realizar tareas de depuraci&oacute;n, medici&oacute;n de rendimiento, supervisi&oacute;n, an&aacute;lisis de tr&aacute;fico y m&aacute;s." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Habilitaci&oacute;n de Diagn&oacute;sticos en Azure" authors="ryanwi" solutions="" manager="timlt" editor="" />
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ryanwi" />
+<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/23/2014" ms.author="ryanwi" />
 
 # Habilitación de diagnósticos en Servicios en la nube y Máquinas virtuales de Azure
 
@@ -31,50 +31,17 @@ Para obtener una comparación más detallada, vea [Comparación entre Diagnósti
 
 Diagnósticos de Azure puede recopilar los tipos de telemetría siguientes:
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-		<td style="width: 100px;"><strong>Origen de datos</strong></td>
-		<td><strong>Descripción</strong></td>
-	</tr>
-	<tr>
-		<td>Registros IIS</td>
-		<td>Información sobre los sitios web de IIS.</td>            
-	</tr>
-	<tr>
-		<td>Registros de infraestructura de diagnóstico de Azure</td>
-		<td>Información sobre los propios Diagnósticos.</td>            
-	</tr>
-	<tr>
-		<td>Registros de solicitudes con error de IIS</td>
-		<td>Información sobre las solicitudes erróneas a un sitio o aplicación de IIS.</td>            
-	</tr>
-	<tr>
-		<td>Registros de eventos de Windows</td>
-		<td>Información enviada al sistema de registro de eventos de Windows.</td>            
-	</tr>
-	<tr>
-		<td>Contadores de rendimiento</td>
-		<td>Sistema operativo y contadores de rendimiento personalizados.</td>            
-	</tr>
-	<tr>
-		<td>Volcados de memoria</td>
-		<td>Información sobre el estado del proceso en caso de bloqueo de una aplicación.</td>            
-	</tr>
-	<tr>
-		<td>Registros de errores personalizados</td>
-		<td>Archivos creados por su aplicación o servicio.</td>            
-	</tr>
-	<tr>
-		<td>.NET EventSource</td>
-		<td>Eventos generados por su código con la [clase EventSource][clase EventSource]de .NET.</td>            
-	</tr>
-	<tr>
-		<td>ETW basado en manifiesto</td>
-		<td>Eventos de ETW generados por cualquier proceso.</td>            
-	</tr>	
-</tbody>
-</table>
+|------------------------------------------------------|-------------------------------------------------------------------------------|
+| **Origen de datos**                                  | **Descripción**                                                               |
+| Registros IIS                                        | Información sobre los sitios web de IIS.                                      |
+| Registros de infraestructura de diagnóstico de Azure | Información sobre los propios Diagnósticos.                                   |
+| Registros de solicitudes con error de IIS            | Información sobre las solicitudes erróneas a un sitio o aplicación de IIS.    |
+| Registros de eventos de Windows                      | Información enviada al sistema de registro de eventos de Windows.             |
+| Contadores de rendimiento                            | Sistema operativo y contadores de rendimiento personalizados.                 |
+| Volcados de memoria                                  | Información sobre el estado del proceso en caso de bloqueo de una aplicación. |
+| Registros de errores personalizados                  | Archivos creados por su aplicación o servicio.                                |
+| .NET EventSource                                     | Eventos generados por su código con la [clase EventSource][clase EventSource]de .NET.          |
+| ETW basado en manifiesto                             | Eventos de ETW generados por cualquier proceso.                               |
 
 ## <a name="worker-role"></a><span class="short-header">Habilitar Diagnósticos en un rol de trabajo</span>Cómo habilitar diagnósticos en un rol de trabajo
 
@@ -188,7 +155,7 @@ Reemplace el contenido de WorkerRole.cs por el código siguiente. La clase Sampl
 ### Paso 4: Creación del archivo de configuración de Diagnósticos e instalación de la extensión
 
 1.  Descargue la definición del esquema del archivo de configuración público ejecutando el comando de PowerShell siguiente:
-           (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
+2.  (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
 3.  Agregue un archivo XML al proyecto **WorkerRole1** haciendo clic con el botón secundario en el proyecto **WorkerRole1** y seleccione **Agregar** -\> **Nuevo elemento…** -\> **Elementos de Visual C#** -\> **Datos** -\> **Archivo XML**. Asigne al archivo el nombre “WadExample.xml”.
 
@@ -341,7 +308,7 @@ En este tutorial se supone que tiene una suscripción a Azure y usa Visual Studi
 
 1.  Descargue la definición del esquema del archivo de configuración público en su equipo de desarrollo ejecutando el comando de PowerShell siguiente:
 
-		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
+        (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
 2.  Abra un nuevo archivo XML en Visual Studio, ya sea en un proyecto que ya tenga abierto o en una instancia de Visual Studio sin proyectos abiertos. En Visual Studio, seleccione **Agregar** -\> **Nuevo elemento…** -\> **Elementos de Visual C#** -\> **Datos** -\> **Archivo XML**. Asigne al archivo el nombre “WadExample.xml”
 3.  Asocie WadConfig.xsd al archivo de configuración. Asegúrese de que la ventana del editor de WadExample es la ventana activa. Presione **F4** para abrir la ventana **Propiedades**. Haga clic en la propiedad **Esquemas** de la ventana **Propiedades**. Haga clic en **...** en la propiedad **Esquemas**. Haga clic en el botón **Agregar...** y vaya a la ubicación en la que ha guardado el archivo XSD y seleccione el archivo WadConfig.xsd. Haga clic en **Aceptar**.
@@ -400,7 +367,7 @@ El archivo de configuración de Diagnósticos define valores que se usan para in
 
 Diagnósticos está formado por dos componentes: Un complemento del agente invitado y el agente de supervisión. Los archivos de registro para el complemento del agente invitado se ubican en el archivo:
 
-		*%SystemDrive%\\ WindowsAzure\\Logs\\Plugins\\Microsoft.Azure.Diagnostics.PaaSDiagnostics\\<diagnosticsversion>*\\CommandExecution.log
+*%SystemDrive%\\ WindowsAzure\\Logs\\Plugins\\Microsoft.Azure.Diagnostics.PaaSDiagnostics\\<diagnosticsversion>*\\CommandExecution.log
 
 El complemento devuelve los códigos de error siguientes:
 
@@ -623,146 +590,29 @@ WADdest2
 
 En la tabla siguiente se comparan las características que admiten las versiones 1.0 y 1.1/1.2 de Diagnósticos de Azure:
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-			<td style="width: 100px;"><strong>Tipos de roles admitidos</strong></td>
-			<td><strong>Diagnósticos 1.0</strong></td>
-			<td><strong>Diagnósticos 1.1/1.2</strong></td>
-	</tr>
+|------------------------------|----------------------|--------------------------|
+| **Tipos de roles admitidos** | **Diagnósticos 1.0** | **Diagnósticos 1.1/1.2** |
+| Rol web                      | Sí                   | Sí                       |
+| Rol de trabajo               | Sí                   | Sí                       |
+| IaaS                         | No                   | Sí                       |
 
-	<tr>
-			<td>Rol web</td>
-			<td>Sí</td>
-			<td>Sí</td>
-	</tr>
-	<tr>
-			<td>Rol de trabajo</td>
-			<td>Sí</td>
-			<td>Sí</td>
-	</tr>
-	<tr>
-			<td>IaaS</td>
-			<td>No</td>
-			<td>Sí</td>
-	</tr>
-</tbody>
-</table>
+|--------------------------------------------------------------------------------------------------------------|----------------------|--------------------------|
+| **Configuración e implementación**                                                                           | **Diagnósticos 1.0** | **Diagnósticos 1.1/1.2** |
+| Integración con Visual Studio: integrado en la experiencia de desarrollo de web/trabajo de Azure.            | Sí                   | No                       |
+| Scripts de PowerShell: scripts para administrar la instalación y la configuración de Diagnósticos en el rol. | Sí                   | Sí                       |
 
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-			<td style="width: 100px;"><strong>Configuración e implementación</strong></td>
-			<td><strong>Diagnósticos 1.0</strong></td>
-			<td><strong>Diagnósticos 1.1/1.2</strong></td>
-	</tr>
-
-	<tr>
-			<td>Integración con Visual Studio: integrado en la experiencia de desarrollo de web/trabajo de Azure.</td>
-			<td>Sí</td>
-			<td>No</td>
-	</tr>
-	<tr>
-			<td>Scripts de PowerShell: scripts para administrar la instalación y la configuración de Diagnósticos en el rol.</td>
-			<td>Sí</td>
-			<td>Sí</td>
-	</tr>
-	
-</tbody>
-</table>
-
-<table border="1" cellspacing="0" cellpadding="5" style="border: 1px solid #000000;">
-<tbody>
-	<tr>
-			<td style="width: 100px;"><strong>Origen de datos</strong></td>
-			<td><strong>Recopilación predeterminada</strong></td>
-			<td><strong>Formato</strong></td>
-			<td><strong>Descripción</strong></td>
-			<td><strong>Diagnósticos 1.0</strong></td>
-			<td><strong>Diagnósticos 1.1/1.2</strong></td>
-	</tr>
-	<tr>
-			<td>Registros System.Diagnostics.Trace</td>
-			<td>Sí</td>
-			<td>Tabla</td>
-			<td>Registra mensajes de seguimiento enviados desde el código el agente de escucha de seguimiento (se debe agregar un agente de escucha de seguimiento al archivo web.config o app.config). Los datos de registro se transferirán según el intervalo de transferencia scheduledTransferPeriod a la tabla de almacenamiento WADLogsTable.</td>
-			<td>Sí</td>
-			<td>No (Use EventSource)</td>
-	</tr>
-	<tr>
-			<td>Registros IIS</td>
-			<td>Sí</td>
-			<td>Blob</td>
-			<td>Registra información sobre los sitios de IIS. Los datos de registro se transferirán según el intervalo de transferencia scheduledTransferPeriod al contenedor que especifique.</td>
-			<td>Sí</td>
-			<td>Sí</td>
-	</tr>
-	<tr>
-			<td>Registros de infraestructura de diagnóstico de Azure</td>
-			<td>Sí</td>
-			<td>Tabla</td>
-			<td>Registra información sobre la infraestructura de diagnóstico, el módulo RemoteAccess y el módulo RemoteForwarder. Los datos de registro se transferirán según el intervalo scheduledTransferPeriodtransfer a la tabla de almacenamiento WADDiagnosticInfrastructureLogsTable.</td>
-			<td>Sí</td>
-			<td>Sí</td>
-	</tr>
-	<tr>
-			<td>Registros de solicitudes con error de IIS</td>
-			<td>No</td>
-			<td>Blob</td>
-			<td>Registra información sobre las solicitudes erróneas a un sitio o aplicación de IIS. También debe realizar la habilitación estableciendo opciones de seguimiento bajo system.WebServer en Web.config. Los datos de registro se transferirán según el intervalo de transferencia scheduledTransferPeriod al contenedor que especifique.</td>
-			<td>Sí</td>
-			<td>Sí</td>
-	</tr>
-	<tr>
-			<td>Registros de eventos de Windows</td>
-			<td>No</td>
-			<td>Tabla</td>
-			<td>Registra información acerca del funcionamiento del sistema operativo, la aplicación o el controlador. Los contadores de rendimiento deben especificarse explícitamente. Cuando se agregan, los datos de los contadores de rendimiento se transferirán según el intervalo de transferencia scheduledTransferPeriod a la tabla de almacenamiento WADPerformanceCountersTable.</td>
-			<td>Sí</td>
-			<td>Sí</td>
-	</tr>
-	<tr>
-			<td>Contadores de rendimiento</td>
-			<td>No</td>
-			<td>Tabla</td>
-			<td>Registra información acerca del funcionamiento del sistema operativo, la aplicación o el controlador. Los contadores de rendimiento deben especificarse explícitamente. Cuando se agregan, los datos de los contadores de rendimiento se transferirán según el intervalo de transferencia scheduledTransferPeriod a la tabla de almacenamiento WADPerformanceCountersTable.</td>
-			<td>Sí</td>
-			<td>Sí</td>
-	</tr>
-	<tr>
-			<td>Volcados de memoria</td>
-			<td>No</td>
-			<td>Blob</td>
-			<td>Registra información sobre el estado del sistema operativo en caso de que se produzca un error del sistema. Los minivolcados de memoria se recopilan localmente. Se pueden habilitar los volcados completos. Los datos de registro se transferirán según el intervalo de transferencia scheduledTransferPeriod al contenedor que especifique. Puesto que ASP.NET controla la mayoría de las excepciones, normalmente solo es útil para un rol de trabajo o una máquina virtual.</td>
-			<td>Sí</td>
-			<td>Sí</td>
-	</tr>
-	<tr>
-			<td>Registros de errores personalizados</td>
-			<td>No</td>
-			<td>Blob</td>
-			<td>Cuando se usan recursos de almacenamiento local, se pueden registrar y transferir inmediatamente datos personalizados al contenedor especificado.</td>
-			<td>Sí</td>
-			<td>Sí</td>
-	</tr>
-	<tr>
-			<td>EventSource</td>
-			<td>No</td>
-			<td>Tabla</td>
-			<td>Registra eventos generados por su código con la clase EventSourcede de .NET.</td>
-			<td>No</td>
-			<td>Sí</td>
-	</tr>
-	<tr>
-			<td>ETW basado en manifiesto</td>
-			<td>No</td>
-			<td>Tabla</td>
-			<td>Eventos de ETW generados por cualquier proceso.</td>
-			<td>No</td>
-			<td>Sí</td>
-	</tr>
-</tbody>
-</table>
+|------------------------------------------------------|---------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------|--------------------------|
+| **Origen de datos**                                  | **Recopilación predeterminada** | **Formato** | **Descripción**                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | **Diagnósticos 1.0** | **Diagnósticos 1.1/1.2** |
+| Registros System.Diagnostics.Trace                   | Sí                              | Tabla       | Registra mensajes de seguimiento enviados desde el código el agente de escucha de seguimiento (se debe agregar un agente de escucha de seguimiento al archivo web.config o app.config). Los datos de registro se transferirán según el intervalo de transferencia scheduledTransferPeriod a la tabla de almacenamiento WADLogsTable.                                                                                                                                            | Sí                   | No (use EventSource)     |
+| Registros IIS                                        | Sí                              | Blob        | Registra información sobre los sitios de IIS. Los datos de registro se transferirán según el intervalo de transferencia scheduledTransferPeriod al contenedor que especifique.                                                                                                                                                                                                                                                                                                  | Sí                   | Sí                       |
+| Registros de infraestructura de diagnóstico de Azure | Sí                              | Tabla       | Registra información sobre la infraestructura de diagnóstico, el módulo RemoteAccess y el módulo RemoteForwarder. Los datos de registro se transferirán según el intervalo scheduledTransferPeriodtransfer a la tabla de almacenamiento WADDiagnosticInfrastructureLogsTable.                                                                                                                                                                                                   | Sí                   | Sí                       |
+| Registros de solicitudes con error de IIS            | No                              | Blob        | Registra información sobre las solicitudes erróneas a un sitio o aplicación de IIS. También debe realizar la habilitación estableciendo opciones de seguimiento bajo system.WebServer en Web.config. Los datos de registro se transferirán según el intervalo de transferencia scheduledTransferPeriod al contenedor que especifique.                                                                                                                                           | Sí                   | Sí                       |
+| Registros de eventos de Windows                      | No                              | Tabla       | Registra información acerca del funcionamiento del sistema operativo, la aplicación o el controlador. Los contadores de rendimiento deben especificarse explícitamente. Cuando se agregan, los datos de los contadores de rendimiento se transferirán según el intervalo de transferencia scheduledTransferPeriod a la tabla de almacenamiento WADPerformanceCountersTable.                                                                                                     | Sí                   | Sí                       |
+| Contadores de rendimiento                            | No                              | Tabla       | Registra información acerca del funcionamiento del sistema operativo, la aplicación o el controlador. Los contadores de rendimiento deben especificarse explícitamente. Cuando se agregan, los datos de los contadores de rendimiento se transferirán según el intervalo de transferencia scheduledTransferPeriod a la tabla de almacenamiento WADPerformanceCountersTable.                                                                                                     | Sí                   | Sí                       |
+| Volcados de memoria                                  | No                              | Blob        | Registra información sobre el estado del sistema operativo en caso de que se produzca un error del sistema. Los minivolcados de memoria se recopilan localmente. Se pueden habilitar los volcados completos. Los datos de registro se transferirán según el intervalo de transferencia scheduledTransferPeriod al contenedor que especifique. Puesto que ASP.NET controla la mayoría de las excepciones, normalmente solo es útil para un rol de trabajo o una máquina virtual. | Sí                   | Sí                       |
+| Registros de errores personalizados                  | No                              | Blob        | Cuando se usan recursos de almacenamiento local, se pueden registrar y transferir inmediatamente datos personalizados al contenedor especificado.                                                                                                                                                                                                                                                                                                                               | Sí                   | Sí                       |
+| EventSource                                          | No                              | Tabla       | Registra eventos generados por su código con la clase EventSourcede de .NET.                                                                                                                                                                                                                                                                                                                                                                                                    | No                   | Sí                       |
+| ETW basado en manifiesto                             | No                              | Tabla       | Eventos de ETW generados por cualquier proceso.                                                                                                                                                                                                                                                                                                                                                                                                                                 | No                   | Sí                       |
 
 ## <a name="additional"></a><span class="short-header">Recursos adicionales</span>Recursos adicionales
 
@@ -783,6 +633,10 @@ En la tabla siguiente se comparan las características que admiten las versiones
   [clase EventSource]: http://msdn.microsoft.com/es-es/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
   [prueba gratuita]: http://azure.microsoft.com/es-es/pricing/free-trial/
   [instalar y configurar la versión 0.8.7 o una versión posterior de Azure PowerShell]: http://azure.microsoft.com/es-es/documentation/articles/install-configure-powershell/
+  [CloudServices\_diag\_add\_xml]: ./media/cloud-services-dotnet-diagnostics/AddXmlFile.png
+  [CloudServices\_diag\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleTables.png
+  [CloudServices\_diag\_new\_project]: ./media/cloud-services-dotnet-diagnostics/NewProject.png
+  [CloudServices\_diag\_wadexamplevm\_tables]: ./media/cloud-services-dotnet-diagnostics/WadExampleVMTables.png
   [Esquema de configuración de Diagnósticos de Azure 1.2]: http://msdn.microsoft.com/es-es/library/azure/dn782207.aspx
   [Recopilar datos de registro mediante Diagnósticos de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433048.aspx
   [Depurar servicios en la nube]: http://msdn.microsoft.com/es-es/library/windowsazure/ee405479.aspx

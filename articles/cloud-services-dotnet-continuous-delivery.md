@@ -1,4 +1,4 @@
-<properties linkid="dev-net-common-tasks-continuous-delivery" urlDisplayName="Continuous Delivery" pageTitle="Continuous delivery for cloud services with TFS in Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="ghogen" solutions="" manager="" editor="" />
+<properties urlDisplayName="Continuous Delivery" pageTitle="Entrega continua para servicios en la nube con TFS en Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Aprenda a configurar la entrega continua para las aplicaciones en la nube de Azure. Ejemplos de c&oacute;digo para las instrucciones de l&iacute;nea de comandos de MSBuild y scripts PowerShell." metaCanonical="" services="" documentationCenter="" title="Entrega continua para Servicios en la nube de Azure" authors="ghogen" solutions="" manager="douge" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ghogen" />
 
@@ -305,7 +305,7 @@ procesos en Visual Studio TFS Team Build.
     privada y cargar los certificados en cada servicio en la nube objetivo mediante el
     Portal de administración de Azure. Lea el siguiente artículo para obtener
     más información:
-    [<http://msdn.microsoft.com/es-es/library/windowsazure/gg443832.aspx>][<http://msdn.microsoft.com/es-es/library/windowsazure/gg443832.aspx>].
+    [http://msdn.microsoft.com/es-es/library/windowsazure/gg443832.aspx][http://msdn.microsoft.com/es-es/library/windowsazure/gg443832.aspx].
 
     **Actualizar implementación frente a Eliminar implementación -\> Nueva implementación**
 
@@ -777,7 +777,9 @@ Para habilitar la depuración remota al usar la entrega continua, vea [estas ins
   [Entrega continua a Azure con Visual Studio Online]: ../cloud-services-continuous-delivery-use-vso/
   [Paso 1: Configurar el servidor de compilación]: #step1
   [Paso 2: Compilar un paquete con los comandos de MSBuild]: #step2
+  [Paso 3: Compilar un paquete con TFS Team Build (opcional)]: #step3
   [Paso 4: Publicar un paquete con un script de PowerShell]: #step4
+  [Paso 5: Publicar un paquete con TFS Team Build (opcional)]: #step5
   [Configurar el Servicio de Team Foundation Build]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
   [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484

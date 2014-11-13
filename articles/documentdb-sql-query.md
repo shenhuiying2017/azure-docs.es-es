@@ -1,6 +1,6 @@
-<properties title="Query with DocumentDB SQL" pageTitle="Query with DocumentDB SQL | Azure" description="DocumentDB supports querying of documents using SQL-like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes." metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Consulta con SQL de Base de datos de documentos" pageTitle="Consulta con SQL de Base de datos de documentos | Azure" description="Base de datos de documentos permite consultar documentos usando una gram&aacute;tica similar a la de SQL en documentos JSON jer&aacute;rquicos sin necesidad de una esquema expl&iacute;cito ni la creaci&oacute;n de &iacute;ndices secundarios." metaKeywords="" services="documentdb"  documentationCenter="" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
 
 # Base de datos de documentos de consulta
 
@@ -70,7 +70,7 @@ Aquí se muestra un segundo documento con una sutil diferencia: se usan `givenNa
 
 Ahora realicemos algunas consultas con estos datos para entender algunos aspectos clave de SQL de Base de datos de documentos. Por ejemplo, la consulta siguiente devolverá los documentos en los que el campo id coincida con `AndersenFamily`. Puesto que es `SELECT *`, el resultado de la consulta es el documento JSON completo:
 
-**Consulta**
+**Query**
 
     SELECT * 
     FROM Families f 
@@ -97,7 +97,7 @@ Ahora realicemos algunas consultas con estos datos para entender algunos aspecto
 
 Ahora preste atención al caso donde debemos cambiar el formato al resultado JSON con otra forma. Esta consulta proyecta un nuevo objeto JSON con dos campos seleccionados, Nombre y Ciudad, cuando la ciudad de la dirección tiene el mismo nombre que el estado. En este caso, "NY, NY" coincide.
 
-**Consulta**
+**Query**
 
     SELECT {"Name":f.id, "City":f.address.city} AS Family 
     FROM Families f 
@@ -114,7 +114,7 @@ Ahora preste atención al caso donde debemos cambiar el formato al resultado JSO
 
 La consulta siguiente devuelve todos los nombres proporcionados de los niños de la familia cuyo identificador coincida con `WakefieldFamily`.
 
-**Consulta**
+**Query**
 
     SELECT c.givenName 
     FROM Families f 
@@ -132,7 +132,7 @@ Nos gustaría llamar la atención sobre algunos aspectos destacados del lenguaje
 
 -   Como SQL de Base de datos de documentos trabaja en valores JSON, trata entidades en forma de árbol en lugar de filas y columnas. Por consiguiente, el lenguaje permite que se haga referencia a los nodos del árbol a cualquier profundidad arbitraria, como `Node1.Node2.Node3…..Nodem`, similar al lenguaje SQL relacional que hace alusión a la referencia de dos partes de `<table>.<column>`.
 -   El lenguaje trabaja con datos sin esquemas. Por lo tanto, es necesario que el sistema de tipo se enlace dinámicamente. La misma expresión podría producir diversos tipos en distintos documentos. El resultado de una consulta es un valor JSON válido, pero no se garantiza que sea de un esquema fijo.
--   Base de datos de documentos solo admite documentos JSON estrictos. Esto significa que el sistema de tipo y las expresiones se restringen para tratar únicamente tipos JSON. Consulte [JSON specification] (<http://www.json.org/>) para obtener más detalles.
+-   Base de datos de documentos solo admite documentos JSON estrictos. Esto significa que el sistema de tipo y las expresiones se restringen para tratar únicamente tipos JSON. Consulte [JSON specification] (http://www.json.org/) para obtener más detalles.
 -   Una recopilación de Base de datos de documentos es un contenedor sin esquemas de documentos JSON. Las relaciones de las entidades de datos en todos los documentos de una recopilación se capturan implícitamente por contención y no por relaciones entre PK y FK. Se trata de un aspecto importante que merece la pena señalar teniendo en cuenta las combinaciones internas descritas posteriormente en este documento.
 
 # Índices de Base de datos de documentos
@@ -153,7 +153,7 @@ Por consiguiente, cuando diseñamos el subsistema de índices de Base de datos d
 
 -   Almacenamiento eficaz: para obtener rentabilidad, se enlaza la sobrecarga de almacenamiento en el disco del índice y es predecible. Esto es fundamental porque Base de datos de documentos permite que el desarrollador haga concesiones basadas en el coste entre la sobrecarga de índices y el rendimiento de las consultas.
 
-Consulte [DocumentDB samples] (<http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content>) en MSDN para obtener información sobre cómo configurar la directiva de índices de una recopilación. Adentrémonos ahora en los detalles del lenguaje SQL de Base de datos de documentos.
+Consulte [DocumentDB samples] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af\#content) en MSDN para obtener información sobre cómo configurar la directiva de índices de una recopilación. Adentrémonos ahora en los detalles del lenguaje SQL de Base de datos de documentos.
 
 # Aspectos básicos de la consulta de Base de datos de documentos
 
@@ -180,7 +180,7 @@ Las reglas de enlace que se imponen por consulta son las siguientes:
 
 El origen también se puede reducir a un subconjunto más pequeño. Por ejemplo, si a alguien le interesa solo enumerar un subárbol en cada documento, la subraíz podría convertirse en el origen, como en el ejemplo siguiente.
 
-**Consulta**
+**Query**
 
     SELECT * 
     FROM Families.children
@@ -218,7 +218,7 @@ El origen también se puede reducir a un subconjunto más pequeño. Por ejemplo,
 
 Aunque en el ejemplo anterior se usó una matriz como origen, también podría usarse un objeto como origen como se muestra en el ejemplo siguiente. Cualquier valor JSON válido (que no sea Undefined) que se pueda encontrar en el origen se tendrá en cuenta para su inclusión en el resultado de la consulta. Si algunas familias no tienen un valor `address.state`, se excluirán en el resultado de la consulta.
 
-**Consulta**
+**Query**
 
     SELECT * 
     FROM Families.address.state
@@ -236,7 +236,7 @@ La cláusula WHERE (**`WHERE <filter_condition>`**) es opcional. Especifica las 
 
 En la consulta siguiente se solicitan documentos que contienen una propiedad de nombre y que el valor de la propiedad es `AndersenFamily`. Cualquier otro documento que no tenga una propiedad de nombre o en el que no coincida el valor `AndersenFamily`, se excluirá.
 
-**Consulta**
+**Query**
 
     SELECT f.address
     FROM Families f 
@@ -832,7 +832,7 @@ La cláusula SELECT (**`SELECT <select_list>`**) es obligatoria y especifica los
 
 En el siguiente ejemplo se muestra una consulta SELECT típica:
 
-**Consulta**
+**Query**
 
     SELECT f.address
     FROM Families f 
@@ -852,7 +852,7 @@ En el siguiente ejemplo se muestra una consulta SELECT típica:
 
 En el ejemplo siguiente, proyectamos dos propiedades anidadas `f.address.state` y `f.address.city`:
 
-**Consulta**
+**Query**
 
     SELECT f.address.state, f.address.city
     FROM Families f 
@@ -867,7 +867,7 @@ En el ejemplo siguiente, proyectamos dos propiedades anidadas `f.address.state` 
 
 La proyección también admite experiencias JSON, como se muestra en el siguiente ejemplo.
 
-**Consulta**
+**Query**
 
     SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
     FROM Families f 
@@ -885,7 +885,7 @@ La proyección también admite experiencias JSON, como se muestra en el siguient
 
 Analicemos el rol de `$1` aquí. La cláusula `SELECT` debe crear un objeto JSON y, como no se proporciona ninguna clave, usamos nombres de las variables de argumentos implícitos que empiezan por `$1`. Por ejemplo, esta consulta devuelve dos variables de argumentos implícitos, etiquetadas como `$1` y `$2`.
 
-**Consulta**
+**Query**
 
     SELECT { "state": f.address.state, "city": f.address.city }, 
            { "name": f.id }
@@ -910,7 +910,7 @@ Ampliemos ahora el ejemplo anterior con un establecimiento de alias explícito p
 
 En caso de que una consulta tenga dos propiedades con el mismo nombre, el establecimiento de alias debe usarse para cambiar el nombre de las propiedades de modo que se elimine su ambigüedad en el resultado proyectado.
 
-**Consulta**
+**Query**
 
     SELECT 
            { "state": f.address.state, "city": f.address.city } AS AddressInfo, 
@@ -934,7 +934,7 @@ En caso de que una consulta tenga dos propiedades con el mismo nombre, el establ
 
 Además de las referencias de propiedad, la cláusula **SELECT** también admite expresiones escalares como constantes, expresiones aritméticas, expresiones lógicas, etc. Por ejemplo, aquí hay una sencilla consulta "Hola mundo".
 
-**Consulta**
+**Query**
 
     SELECT "Hello World"
 
@@ -946,7 +946,7 @@ Además de las referencias de propiedad, la cláusula **SELECT** también admite
 
 A continuación se muestra un ejemplo más complejo que usa una expresión escalar:
 
-**Consulta**
+**Query**
 
     SELECT ((2 + 11 % 7)-2)/3   
 
@@ -958,7 +958,7 @@ A continuación se muestra un ejemplo más complejo que usa una expresión escal
 
 En el ejemplo siguiente, el resultado de la expresión escalar es un valor booleano.
 
-**Consulta**
+**Query**
 
     SELECT f.address.city = f.address.state AS AreFromSameCityState
     FROM Families f 
@@ -978,7 +978,7 @@ En el ejemplo siguiente, el resultado de la expresión escalar es un valor boole
 
 Otra característica clave del lenguaje SQL de Base de datos de documentos es la creación de matrices u objetos. En el ejemplo anterior, observe que creamos un nuevo objeto JSON. Del mismo modo, también se pueden construir matrices como se muestra a continuación.
 
-**Consulta**
+**Query**
 
     SELECT [f.address.city, f.address.state] AS CityState 
     FROM Families f 
@@ -1004,7 +1004,7 @@ Otra característica clave del lenguaje SQL de Base de datos de documentos es la
 
 La palabra clave **VALUE** proporciona una forma de devolver un valor JSON. Por ejemplo, la consulta que se muestra a continuación devuelve la expresión escalar `"Hello World"` en lugar de `{$1: "Hello World"}`.
 
-**Consulta**
+**Query**
 
     SELECT VALUE "Hello World"
 
@@ -1016,7 +1016,7 @@ La palabra clave **VALUE** proporciona una forma de devolver un valor JSON. Por 
 
 La siguiente consulta devuelve el valor JSON sin la etiqueta `"address"` en los resultados.
 
-**Consulta**
+**Query**
 
     SELECT VALUE f.address
     FROM Families f 
@@ -1038,7 +1038,7 @@ La siguiente consulta devuelve el valor JSON sin la etiqueta `"address"` en los 
 
 En el ejemplo siguiente se amplía esto para mostrar cómo devolver valores primitivos JSON, es decir, en el nivel de hoja del árbol JSON.
 
-**Consulta**
+**Query**
 
     SELECT VALUE f.address.state
     FROM Families f 
@@ -1054,7 +1054,7 @@ En el ejemplo siguiente se amplía esto para mostrar cómo devolver valores prim
 
 Admitimos el operador especial (\*) para proyectar el documento tal cual. Al usarse, debe ser el único campo proyectado. Mientras que una consulta como `SELECT * FROM Families f` es válida, `SELECT VALUE * FROM Families f` y `SELECT *, f.id FROM Families f` no lo son.
 
-**Consulta**
+**Query**
 
     SELECT * 
     FROM Families f 
@@ -1085,7 +1085,7 @@ Admitimos el operador especial (\*) para proyectar el documento tal cual. Al usa
 
 Agregamos una nueva construcción mediante la palabra clave **IN** en el lenguaje SQL de Base de datos de documentos para que sea compatible con la iteración sobre matrices JSON. El origen FROM proporciona compatibilidad con la iteración. Empecemos con el ejemplo siguiente:
 
-**Consulta**
+**Query**
 
     SELECT * 
     FROM Families.children
@@ -1119,7 +1119,7 @@ Agregamos una nueva construcción mediante la palabra clave **IN** en el lenguaj
 
 Analicemos ahora otra consulta que realice una iteración sobre elementos secundarios de la recopilación. Observe la diferencia en la matriz de salida. En este ejemplo se divide `children` y se quita el formato de los resultados, convirtiéndose en una sola matriz.
 
-**Consulta**
+**Query**
 
     SELECT * 
     FROM c IN Families.children
@@ -1149,7 +1149,7 @@ Analicemos ahora otra consulta que realice una iteración sobre elementos secund
 
 Esto puede usarse más veces para filtrar por cada entrada individual de la matriz como en el ejemplo siguiente.
 
-**Consulta**
+**Query**
 
     SELECT c.givenName
     FROM c IN Families.children
@@ -1169,7 +1169,7 @@ La sintaxis que se admite en el lenguaje es <from_source1> JOIN <from_source2> J
 
 En los ejemplos siguientes se muestra cómo funcionan JOIN. En el ejemplo que vemos a continuación, el resultado está vacío porque el producto cruzado de cada documento del origen y un conjunto vacío está vacío.
 
-**Consulta**
+**Query**
 
     SELECT f.id
     FROM Families f
@@ -1182,7 +1182,7 @@ En los ejemplos siguientes se muestra cómo funcionan JOIN. En el ejemplo que ve
 
 En el ejemplo siguiente, la combinación está entre la raíz del documento y la subraíz `children`. Es un producto cruzado entre dos objetos JSON. El hecho de que los elementos secundarios sean una matriz no funciona en JOIN porque abordamos una sola raíz que es la matriz secundaria. Así pues, en el resultado se incluyen únicamente dos resultados, pues el producto cruzado de cada documento con la matriz produce exactamente solo un documento.
 
-**Consulta**
+**Query**
 
     SELECT f.id
     FROM Families f
@@ -1201,7 +1201,7 @@ En el ejemplo siguiente, la combinación está entre la raíz del documento y la
 
 El ejemplo siguiente es una combinación más convencional:
 
-**Consulta**
+**Query**
 
     SELECT f.id
     FROM Families f
@@ -1231,7 +1231,7 @@ El primer documento (`AndersenFamily`) incluye únicamente un elemento secundari
 
 La utilidad real de JOIN es la formación de tuplas a partir del producto cruzado con una forma que de otro modo es difícil de proyectar. Además, como veremos en el siguiente ejemplo, podría filtrarse por la combinación de una tupla que permite que el usuario elija una condición satisfecha por las tuplas en general.
 
-**Consulta**
+**Query**
 
     SELECT 
         f.id AS familyName,
@@ -1282,7 +1282,7 @@ Este ejemplo es una ampliación natural del anterior y realiza una combinación 
 
 En el ejemplo siguiente, hay un filtro adicional por `pet`. Este excluye todas las tuplas donde el nombre de mascota no sea "Shadow". Tenga en cuenta que podemos crear tuplas a partir de matrices, filtrar por cualquiera de los elementos de la tupla y proyectar cualquier combinación de los elementos.
 
-**Consulta**
+**Query**
 
     SELECT 
         f.id AS familyName,
@@ -1321,7 +1321,7 @@ A continuación, vemos un ejemplo de cómo puede registrarse una UDF en la base 
 
        UserDefinedFunction sqrtUdf = new UserDefinedFunction
        {
-           Name = "SQRT",
+           Id = "SQRT",
            Body = @"function(number) { 
                        return Math.sqrt(number);
                    };",
@@ -1335,7 +1335,7 @@ El ejemplo anterior crea una UDF cuyo nombre es `SQRT`. Acepta un solo valor `nu
 
 Ahora podemos usar esta UDF en una consulta de una proyección.
 
-**Consulta**
+**Query**
 
     SELECT SQRT(c.grade)
     FROM c IN Families.children
@@ -1356,7 +1356,7 @@ Ahora podemos usar esta UDF en una consulta de una proyección.
 
 La UDF también puede usarse en un filtro como se muestra en el ejemplo siguiente:
 
-**Consulta**
+**Query**
 
     SELECT c.grade
     FROM c IN Familes.children
@@ -1374,7 +1374,7 @@ Para expandir el poder de las UDF, echemos un vistazo a otro ejemplo con lógica
 
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
        {
-           Name = "SEALEVEL",
+           Id = "SEALEVEL",
            Body = @"function(city) {
                 switch (city) {
                     case 'seattle':
@@ -1392,7 +1392,7 @@ Para expandir el poder de las UDF, echemos un vistazo a otro ejemplo con lógica
 
 A continuación se muestra un ejemplo que ejerce la UDF.
 
-**Consulta**
+**Query**
 
     SELECT f.address.city, SEALEVEL(f.address.city) AS seaLevel
     FROM Families f 
@@ -1432,13 +1432,13 @@ LINQ es un modelo de programación de .NET que expresa cálculos como consultas 
 
 En la imagen que se muestra a continuación vemos la arquitectura de consultas compatibles con LINQ que usa Base de datos de documentos. Al usar el cliente de Base de datos de documentos, los desarrolladores pueden crear un objeto **IQueryable** que dirigiría la consulta al proveedor de consulta de Base de datos de documentos que, a continuación, traduce la consulta de LINQ como una consulta de Base de datos de documentos. La consulta pasa entonces al servidor de Base de datos de documentos para recuperar un conjunto de resultados en formato JSON. Los resultados devueltos se deserializan en una secuencia de objetos .NET en el cliente.
 
-![][]
+![][0]
 
 ## Asignación de .NET y JSON
 
 La asignación entre objetos .NET y documentos JSON es natural (cada campo del miembro de datos se asigna a un objeto JSON, donde el nombre del campo se asigna a la parte "clave" del objeto y la parte de "valor" se asigna de forma recursiva a la parte de valor del objeto. Tenga en cuenta el ejemplo siguiente. El objeto Familia creado se asigna al documento JSON como se muestra a continuación. Viceversa, el documento JSON se reasigna a un objeto .NET.
 
-**Clase de C\#**
+**Clase de C#**
 
     public class Family
     {
@@ -1844,7 +1844,7 @@ En el segundo ejemplo se muestra una consulta más compleja que devuelve varios 
 
 Si los resultados de una consulta no concuerdan en una sola página de resultados, la API de REST devuelve un token de continuación a través del encabezado de respuesta `x-ms-continuation-token`. Los clientes pueden paginar los resultados incluyendo el encabezado en resultados posteriores. El número de resultados por página también se puede controlar a través del encabezado de número `x-ms-max-item-count`.
 
-Para administrar la directiva de coherencia de datos para consultas, use el encabezado `x-ms-consistency-level` como todas las solicitudes de la API de REST. Para que la sesión sea coherente, también es necesario enviar el último encabezado de cookie `x-ms-session-token` de la solicitud de la consulta. Tenga en cuenta que la directiva de índices de la recopilación consultada también puede afectar a la coherencia de los resultados de la consulta. En el caso de las recopilaciones, con la configuración de la directiva de índices predeterminada, el índice siempre es actual con el contenido del documento y los resultados de la consulta coincidirán con la coherencia elegida para los datos. Si la directiva de índices se suaviza para los perezosos, las consultas pueden devolver resultados obsoletos. Para obtener más información, consulte [Niveles de coherencia de Base de datos de documentos][].
+Para administrar la directiva de coherencia de datos para consultas, use el encabezado `x-ms-consistency-level` como todas las solicitudes de la API de REST. Para que la sesión sea coherente, también es necesario enviar el último encabezado de cookie `x-ms-session-token` de la solicitud de la consulta. Tenga en cuenta que la directiva de índices de la recopilación consultada también puede afectar a la coherencia de los resultados de la consulta. En el caso de las recopilaciones, con la configuración de la directiva de índices predeterminada, el índice siempre es actual con el contenido del documento y los resultados de la consulta coincidirán con la coherencia elegida para los datos. Si la directiva de índices se suaviza para los perezosos, las consultas pueden devolver resultados obsoletos. Para obtener más información, consulte [Niveles de coherencia de Base de datos de documentos][Niveles de coherencia de Base de datos de documentos].
 
 Si la directiva de índices configurada de la recopilación no puede admitir la consulta especificada, el servidor de Base de datos de documentos devuelve 400 de "solicitud incorrecta". Esto se devuelve para las consultas por rango en rutas de acceso configuradas para búsquedas hash (igualdad) y rutas de acceso excluidas de forma explícita de los índices. El encabezado `x-ms-documentdb-query-enable-scan` puede especificarse para permitir que la consulta realice un análisis si no está disponible un índice.
 
@@ -1925,7 +1925,7 @@ El cliente de .NET se itera automáticamente a través de todas las páginas de 
 
 Los desarrolladores también pueden controlar de forma explícita la paginación creando `IDocumentQueryable` con el objeto `IQueryable` y, a continuación, leyendo los valores `ResponseContinuationToken` y pasándolos de nuevo como `RequestContinuationToken` en `FeedOptions`. `EnableScanInQuery` puede establecerse para permitir análisis si la directiva de índices configurada no puede admitir la consulta.
 
-Consulte [DocumentDB .NET samples] (<http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content>) para obtener más ejemplos sobre consultas.
+Consulte [DocumentDB .NET samples] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af\#content) para obtener más ejemplos sobre consultas.
 
 ## API del servidor de JavaScript
 
@@ -1965,25 +1965,21 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 
 # Referencias
 
-1.  [Introducción a Base de datos de documentos de Azure][]
-2.  [DocumentDB SQL Language specification] (<http://go.microsoft.com/fwlink/p/?LinkID=510612>)
-3.  [DocumentDB .NET samples] (<http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content>)
-4.  [Niveles de coherencia de Base de datos de documentos][]
-5.  SQL ANSI 2011: [][]<http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681></a>
-6.  JSON [][1]<http://json.org/></a>
-7.  Especificación de JavaScript [][2]<http://www.ecma-international.org/publications/standards/Ecma-262.htm></a>
-8.  LINQ [][3][http://msdn.microsoft.com/es-es/library/bb308959.aspx][3]</a>
-9.  Técnicas de evaluación de consultas para bases de datos de gran tamaño [][4]<http://dl.acm.org/citation.cfm?id=152611></a>
+1.  [Introducción a Base de datos de documentos de Azure][Introducción a Base de datos de documentos de Azure]
+2.  [DocumentDB SQL Language specification] (http://go.microsoft.com/fwlink/p/?LinkID=510612)
+3.  [DocumentDB .NET samples] (http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af\#content)
+4.  [Niveles de coherencia de Base de datos de documentos][Niveles de coherencia de Base de datos de documentos]
+5.  SQL ANSI 2011: <http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681>
+6.  JSON <http://json.org/>
+7.  Especificación de JavaScript <http://www.ecma-international.org/publications/standards/Ecma-262.htm>
+8.  LINQ [http://msdn.microsoft.com/es-es/library/bb308959.aspx][http://msdn.microsoft.com/es-es/library/bb308959.aspx]
+9.  Técnicas de evaluación de consultas para bases de datos de gran tamaño <http://dl.acm.org/citation.cfm?id=152611>
 10. Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11. Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13. G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 
-  []: ./media/documentdb-sql-query/sql-query1.png
+  [0]: ./media/documentdb-sql-query/sql-query1.png
   [Niveles de coherencia de Base de datos de documentos]: ../documentdb-consistency-levels
   [Introducción a Base de datos de documentos de Azure]: ../documentdb-introduction
-  []: http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681
-  [1]: http://json.org/
-  [2]: http://www.ecma-international.org/publications/standards/Ecma-262.htm
-  [3]: http://msdn.microsoft.com/en-us/library/bb308959.aspx
-  [4]: http://dl.acm.org/citation.cfm?id=152611
+  [http://msdn.microsoft.com/es-es/library/bb308959.aspx]: http://msdn.microsoft.com/es-es/library/bb308959.aspx

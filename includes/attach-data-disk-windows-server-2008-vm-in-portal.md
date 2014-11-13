@@ -1,6 +1,6 @@
 Siga estos pasos para acoplar un disco de datos:
 
-1.  En el [Portal de administración de Azure][], haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual que acaba de crear (**testwinvm**).
+1.  En el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual que acaba de crear (**testwinvm**).
 
 2.  En la barra de comandos, haga clic en **Attach** y, a continuación, haga clic en **Attach Empty Disk**.
 
@@ -8,7 +8,7 @@ Siga estos pasos para acoplar un disco de datos:
 
 3.  **Virtual Machine Name**, **Storage Location** y **File Name** ya están definidos. Solo tiene que especificar el tamaño que desea utilizar para el disco. Escriba **5** en el campo **Size**.
 
-    ![Acoplar disco vacío][]
+    ![Acoplar disco vacío][Acoplar disco vacío]
 
     **Nota:** todos los discos se crean a partir de un archivo VHD en el almacenamiento de Azure. Puede proporcionar un nombre para el archivo VHD que se agregue al almacenamiento, pero Azure genera el nombre del disco automáticamente.
 
@@ -32,19 +32,19 @@ Siga estos pasos para acoplar un disco de datos:
 
 4.  Después de iniciar sesión en la máquina virtual, abra el **Server Manager**. En el panel izquierdo, expanda **Almacenamiento** y, a continuación, haga clic en **Disk Management**.
 
-    ![Administrador de servidores][]
+    ![Administrador de servidores][Administrador de servidores]
 
 5.  Aparece la ventana **Initalize Disk**. Haga clic en **OK**.
 
-    ![Inicializar disco][]
+    ![Inicializar disco][Inicializar disco]
 
 6.  Haga clic con el botón secundario en el área de asignación de espacio para el Disco 2, haga clic en **New Simple Volume** y, a continuación, finalice el asistente con los valores predeterminados.
 
-    ![Nuevo volumen simple][]
+    ![Nuevo volumen simple][Nuevo volumen simple]
 
     El disco está ahora en línea y listo para usarse con una nueva letra de unidad.
 
-    ![La inicialización se ha realizado correctamente.][]
+    ![La inicialización se ha realizado correctamente.][La inicialización se ha realizado correctamente.]
 
   [Portal de administración de Azure]: http://manage.windowsazure.com
   [Acoplar disco vacío]: ./media/attach-data-disk-windows-server-2008-vm-in-portal/AttachDataDiskWinVM2.png

@@ -1,6 +1,6 @@
-<properties linkid="manage-services-what-is-a-storage-account" urlDisplayName="What is a Storage Account" pageTitle="What is a storage account? | Microsoft Azure" metaKeywords="" description="Learn about the different types of storage accounts available in Azure, and get definitions for key storage terms." metaCanonical="" services="storage" documentationCenter="" title="What is a Storage Account?" authors="tamram" solutions="" manager="mbaldwin" editor="cgronlun" />
+<properties urlDisplayName="What is a Storage Account" pageTitle="&iquest;Qu&eacute; es una cuenta de almacenamiento? | Microsoft Azure" metaKeywords="" description="Conozca los diferentes tipos de cuentas de almacenamiento disponibles en Azure y las definiciones de t&eacute;rminos clave relacionados con el almacenamiento." metaCanonical="" services="storage" documentationCenter="" title="&iquest;Qu&eacute; es una cuenta de almacenamiento?" authors="tamram" solutions="" manager="adinah" editor="cgronlun" />
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram"/>
+<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # ¿Qué es una cuenta de almacenamiento?
 
@@ -24,15 +24,15 @@ La página [Detalles de precios de Storage][Detalles de precios de Storage] prop
 
 Los *extremos* de una cuenta de almacenamiento representan el nivel más alto del espacio de nombres para el acceso a blobs, tablas, colas o archivos. Los extremos predeterminados para una cuenta de almacenamiento tienen los siguientes formatos:
 
--   Servicio BLOB: http://*mystorageaccount\*.blob.core.windows.net
+-   Servicio BLOB: http://*mystorageaccount*.blob.core.windows.net
 
--   Servicio Tabla: http://*mystorageaccount\*.table.core.windows.net
+-   Servicio Tabla: http://*mystorageaccount*.table.core.windows.net
 
--   Servicio Cola: http://*mystorageaccount\*.queue.core.windows.net
+-   Servicio Cola: http://*mystorageaccount*.queue.core.windows.net
 
--   Servicio de archivos: http://*mystorageaccount\*.file.core.windows.net
+-   Servicio de archivos: http://*mystorageaccount*.file.core.windows.net
 
-La dirección URL para el acceso a un objeto en una cuenta de almacenamiento se crea anexando la ubicación del objeto en la cuenta de almacenamiento al extremo. Por ejemplo, una dirección de blob podría tener el siguiente formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob\*.
+La dirección URL para el acceso a un objeto en una cuenta de almacenamiento se crea anexando la ubicación del objeto en la cuenta de almacenamiento al extremo. Por ejemplo, una dirección de blob podría tener el siguiente formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
 ### Seguridad de la cuenta de almacenamiento
 
@@ -55,7 +55,6 @@ Un *grupo de afinidad* es un grupo geográfico de los servicios de Azure y máqu
   [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure]: http://msdn.microsoft.com/es-es/library/dn249410.aspx
   [Detalles de precios de Storage]: http://www.windowsazure.com/es-es/pricing/details/#storage
   [Detalles de precios de Transferencias de datos]: http://www.windowsazure.com/es-es/pricing/details/data-transfers/
-  [storage-replication-options]: ../includes/storage-replication-options.md
   [tutorial sobre firmas de acceso compartido]: ../storage-dotnet-shared-access-signature-part-1/
   [Storage Analytics Metrics Table Schema]: http://msdn.microsoft.com/es-es/library/windowsazure/hh343264.aspx
   [About Storage Analytics Metrics]: http://msdn.microsoft.com/es-es/library/windowsazure/hh343258.aspx

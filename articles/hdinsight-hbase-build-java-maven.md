@@ -1,4 +1,4 @@
-<properties title="Build an HBase application using Maven" pageTitle="Build an HBase application using Maven" description="Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to Azure HDInsight" metaKeywords="Maven hbase hadoop, hbase hadoop, maven java hbase, maven java hbase hadoop, maven java hadoop, hbase hdinsight, hbase java hdinsight, maven hdinsight, maven java hdinsight, hadoop database, hdinsight database" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" />
+<properties title="Compilaci&oacute;n de una aplicaci&oacute;n de HBase con Maven" pageTitle="Compilaci&oacute;n de una aplicaci&oacute;n de HBase con Maven" description="Vea c&oacute;mo usar Apache Maven para compilar una aplicaci&oacute;n de Apache HBase basada en Java e implementarla despu&eacute;s en HDInsight de Azure" metaKeywords="Maven hbase hadoop, hbase hadoop, maven java hbase, maven java hbase hadoop, maven java hadoop, hbase hdinsight, hbase java hdinsight, maven hdinsight, maven java hdinsight, hadoop database, hdinsight database" services="hdinsight" solutions="big-data" documentationCenter="" authors="larryfr" videoId="" scriptId="" manager="paulettm" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/21/2014" ms.author="larryfr" />
 
@@ -116,14 +116,18 @@ Aprenda a crear y a compilar una aplicación [Apache HBase][Apache HBase] en Jav
          */
         -->
         <configuration>
+          <property>
             <name>hbase.cluster.distributed</name>
             <value>true</value>
           </property>
           <property>
             <name>hbase.zookeeper.quorum</name>
-            <value>zookeepernode0:2181 zookeepernode1:2181 zookeepernode2:2181</value>
+            <value>zookeeper0,zookeeper1,zookeeper2</value>
           </property>
-
+          <property>
+            <name>hbase.zookeeper.property.clientPort</name>
+            <value>2181</value>
+          </property>
         </configuration>
 
     Este archivo se usará para cargar la configuración de HBase de un clúster de HDInsight.
