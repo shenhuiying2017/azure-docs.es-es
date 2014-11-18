@@ -1,21 +1,11 @@
-<properties urlDisplayName="HDInsight Emulator release notes" pageTitle="Notas de la versi&oacute;n Emulador de Microsoft HDInsight para Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Obtenga informaci&oacute;n de &uacute;ltima hora sobre las versiones m&aacute;s recientes del emulador de HDInsight Hadoop." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Notas de la versi&oacute;n Emulador de Microsoft HDInsight para Azure" authors="jgao" />
+<properties linkid="hdinsight-emulator-release-notes" urlDisplayName="HDInsight Emulator release notes" pageTitle="Release notes: Microsoft HDInsight Emulator for Azure | Azure" metaKeywords="hdinsight, Azure hdinsight, hdinsight azure, get started hdinsight, emulator, hdinsight emulator" description="Get late-breaking information about the most recent releases of the HDInsight Hadoop Emulator." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" title="Release notes: Microsoft HDInsight Emulator for Azure" authors="cgronlun" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/03/2014" ms.author="jgao" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cgronlun" />
 
 # Notas de la versión Emulador de Microsoft HDInsight para Azure
 
 > [WACOM.NOTE]
 > La forma más sencilla de comprobar el número de versión es mirar en Agregar o quitar programas, en la entrada "Emulador de Microsoft HDInsight para Azure" (para la versión 1.0.0.0 o posterior) o "Microsoft HDInsight Developer Preview" (para versiones anteriores a 1.0.0.0).
-
-## v2.0.0.0, publicada el 29/08/14
-
--   En esta versión se actualiza el emulador de HDInsight para dirigirse al mismo conjunto de proyectos de Hadoop actualmente activos en la versión 3.1 del servicio.
-
--   Como ocurre con las versiones preliminares de este producto, esta versión continúa dirigiéndose a escenarios para el desarrollador y solo estos son compatibles con implementaciones de un solo nodo.
-
-### Novedades
-
--   [Versiones de componentes de Hadoop actualizadas][Versiones de componentes de Hadoop actualizadas] correspondientes a la versión 3.1 del servicio. Esta versión incluye compatibilidad con Tez y Hive 0.13.
 
 ## v1.0.0.0, publicada el 28/10/2013
 
@@ -73,7 +63,7 @@
 
 -   Conexión a varios clústeres, incluida la instalación local y aquellos que se ejecutan remotamente con el servicio HDInsight de Azure.
 
--   Para obtener más información sobre el servicio HDInsight, consulte <http://azure.microsoft.com/es-es/documentation/services/hdinsight/>.
+-   Para obtener más información sobre el servicio HDInsight, consulte [][]<http://azure.microsoft.com/es-es/documentation/services/hdinsight/></a>.
 
 -   Configuración de WASB en el clúster local.
 
@@ -143,7 +133,7 @@ Números de puerto
 
             %HADOOP_NODE%\stop-onebox.cmd && %HADOOP_NODE%\start-onebox.cmd
 
-    3.  Obtenga acceso a cualquier archivo en la cuenta con el URI completo: asv://{container}@{account}/{path} (o asvs:// si desea usar HTTPS para obtener acceso a los datos). Ejemplo:
+    3.  Obtenga acceso a cualquier archivo en la cuenta con el URI completo: asv://{container}@{account}/{path} (o asvs:// si desea utilizar HTTPS para acceder a los datos). Ejemplo:
 
             hadoop fs -lsr 
             asvs://MyHadoopOnAzureContainerName@MyHadoopOnAzureAccountName/example/data/
@@ -188,7 +178,7 @@ Números de puerto
 
 -   Se produce un error al cargar la consola JavaScript.
 
-    -   En algunas instalaciones, se producirá un error en la consola JavaScript y se mostrará un error HTTP 404 en la página. Para solucionar esto, diríjase directamente a http://localhost:8080 para usar la consola.
+    -   En algunas instalaciones, se producirá un error en la consola JavaScript y se mostrará un error HTTP 404 en la página. Para solucionar esto, navegue directamente a http://localhost:8080 para usar la consola.
 -   Si se desplaza al panel de HDInsight, se realizará una solicitud de inicio de sesión.
 
     -   Disponemos de varios informes que indican que se muestra un cuadro de diálogo de inicio de sesión al desplazarse al panel de HDInsight. En ese caso, puede proporcionar la información de inicio de sesión para el usuario actual y debe poder desplazarse al panel.
@@ -255,5 +245,5 @@ Números de puerto
 
 -   [Introducción al emulador de HDInsight][Introducción al emulador de HDInsight]
 
-  [Versiones de componentes de Hadoop actualizadas]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-component-versioning/
+  []: http://azure.microsoft.com/es-es/documentation/services/hdinsight/
   [Introducción al emulador de HDInsight]: ../hdinsight-get-started-emulator/
