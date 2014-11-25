@@ -2,15 +2,15 @@ El primer paso consiste en crear una nueva cuenta para utilizar en el tutorial. 
 
 ### Para registrarse y obtener una cuenta Pusher
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  En el panel inferior del portal de administración, haga clic en **New**.
 
-    ![command-bar-new][]
+    ![command-bar-new][command-bar-new]
 
 3.  Haga clic en **Store**.
 
-    ![pusher-store][]
+    ![pusher-store][pusher-store]
 
 4.  En el cuadro de diálogo **Choose an Add-on**, seleccione **Pusher** y haga clic en la flecha derecha.
 
@@ -18,7 +18,7 @@ El primer paso consiste en crear una nueva cuenta para utilizar en el tutorial. 
 
 6.  Introduzca un nombre para identificar el servicio **Pusher** en la configuración de Azure o utilice el valor predeterminado de **Pusher**. Los nombres deben tener de 1 a 100 caracteres y contener únicamente caracteres alfanuméricos, guiones, puntos y caracteres de subrayado. El nombre debe ser único en la lista de elementos de la Tienda de Azure.
 
-    ![store-screen-1][]
+    ![store-screen-1][store-screen-1]
 
 7.  Elija un valor para la región; por ejemplo, Oeste de EE. UU.
 
@@ -26,17 +26,17 @@ El primer paso consiste en crear una nueva cuenta para utilizar en el tutorial. 
 
 9.  En la pestaña **Review Purchase**, revise la información del plan y de precios, y consulte los términos legales. Si acepta los términos, haga clic en la marca de verificación. Después de hacer clic en la marca de verificación, la cuenta Pusher comenzará el proceso de aprovisionamiento.
 
-    ![store-screen-2][]
+    ![store-screen-2][store-screen-2]
 
 10. Después de confirmar la compra, se le redirigirá al panel de complementos, donde verá el mensaje **Purchasing Pusher**.
 
-    ![store-screen-3][]
+    ![store-screen-3][store-screen-3]
 
 Su cuenta Pusher se aprovisiona inmediatamente y verá el mensaje **Successfully purchased Add-On Pusher**. La cuenta se ha creado y ahora ya está preparado para utilizar el servicio Pusher.
 
 Para modificar el plan de suscripción o ver la configuración de contacto de Pusher, haga clic en el nombre de su servicio Pusher para abrir el panel de complementos Pusher.
 
-![pusher-add-on-dashboard][]
+![pusher-add-on-dashboard][pusher-add-on-dashboard]
 
 Cuando se utiliza Pusher, tendrá que proporcionar la configuración de conexión de la aplicación Pusher.
 
@@ -44,13 +44,13 @@ Cuando se utiliza Pusher, tendrá que proporcionar la configuración de conexió
 
 1.  Haga clic en **Connection Info**.
 
-    ![pusher-connection-info-button][]
+    ![pusher-connection-info-button][pusher-connection-info-button]
 
 2.  En el cuadro de diálogo *Connection info*, verá el ID de aplicación, la clave y el secreto. Copie estos valores, ya que los usará más adelante en este tutorial.
 
-    ![pusher-connection-info][]
+    ![pusher-connection-info][pusher-connection-info]
 
-Para obtener más información acerca de cómo comenzar con Pusher, consulte [Understanding Pusher][].
+Para obtener más información acerca de cómo comenzar con Pusher, consulte [Understanding Pusher][Understanding Pusher].
 
 <!--images--> <!--Links-->
 

@@ -1,6 +1,6 @@
 <properties title="Introducci&oacute;n a Almacenamiento de Azure" pageTitle="Introducci&oacute;n a Almacenamiento de Azure" metaKeywords="Azure, Getting Started, Storage" description="" services="storage" documentationCenter="" authors="ghogen, kempb" />
 
-<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb"></tags>
+<tags ms.service="storage" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/10/2014" ms.author="ghogen, kempb" />
 
 > [AZURE.SELECTOR]
 >
@@ -39,4 +39,3 @@ Antes de realizar cualquier acción con un blob, tendrá que obtener la cadena d
   [Colas]: /documentation/articles/vs-storage-cloud-services-getting-started-queues/
   [Tablas]: /documentation/articles/vs-storage-cloud-services-getting-started-tables/
   [Uso del almacenamiento de blobs en .NET]: http://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-how-to-use-blobs/ "Uso del almacenamiento de blobs en .NET"
-  [vs-storage-getting-started-blobs-include]: ../includes/vs-storage-getting-started-blobs-include.md

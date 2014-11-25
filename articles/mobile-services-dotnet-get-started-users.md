@@ -173,13 +173,13 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
 En el siguiente tutorial, [Autorización de usuarios con scripts](/es-es/develop/mobile/tutorials/authorize-users-in-scripts-dotnet), usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. Obtenga más información sobre cómo usar Servicios móviles con .NET en [Referencia conceptual de Servicios móviles con.NET](/es-es/develop/mobile/how-to-guides/work-with-net-client-library).
 
-<!-- Anchors. -->
+
 [Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
 [Restricción de los permisos de tabla a usuarios autenticados]: #permissions
 [Incorporación de autenticación a la aplicación]: #add-authentication
 [Pasos siguientes]:#next-steps
 
-<!-- Images. -->
+
 
 [4]: ./media/mobile-services-dotnet-get-started-users/mobile-services-selection.png
 [5]: ./media/mobile-services-dotnet-get-started-users/mobile-service-uri.png
@@ -190,7 +190,7 @@ En el siguiente tutorial, [Autorización de usuarios con scripts](/es-es/develop
 [15]: ./media/mobile-services-dotnet-get-started-users/mobile-portal-change-table-perms.png
 
 
-<!-- URLs. -->
+
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253

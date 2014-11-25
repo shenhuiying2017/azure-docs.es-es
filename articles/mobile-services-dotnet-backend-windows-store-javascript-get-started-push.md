@@ -90,11 +90,10 @@ Considere la posibilidad de profundizar más en los siguientes temas sobre Servi
     
 	Obtenga más información acerca de cómo utilizar los Servicios móviles con aplicaciones JavaScript.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
+
+
+
   [versión de la aplicación universal de Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-universal-javascript-get-started-push
   [Registro de la aplicación con WNS y configuración de Servicios móviles]: #register
   [Actualización de la aplicación para registrarse a fin de recibir notificaciones]: #update-app
@@ -103,11 +102,7 @@ Considere la posibilidad de profundizar más en los siguientes temas sobre Servi
   [Inserción de datos para recibir notificaciones de inserción]: #test
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data
-  [mobile-services-notification-hubs-register-windows-store-app]: ../includes/mobile-services-notification-hubs-register-windows-store-app.md
   [0]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/enable-toast.png
-  [mobile-services-dotnet-backend-update-server-push]: ../includes/mobile-services-dotnet-backend-update-server-push.md
-  [mobile-services-dotnet-backend-configure-local-push]: ../includes/mobile-services-dotnet-backend-configure-local-push.md
-  [mobile-services-windows-store-test-push]: ../includes/mobile-services-windows-store-test-push.md
   [Enviar notificaciones de inserción a los usuarios autenticados]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users/
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users
   [Referencia conceptual de Servicios móviles con HTML/JavaScript]: /es-es/documentation/articles/mobile-services-html-how-to-use-client-library

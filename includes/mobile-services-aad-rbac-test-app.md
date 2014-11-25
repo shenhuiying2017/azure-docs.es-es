@@ -1,6 +1,6 @@
 1.  En Visual Studio, ejecute la aplicación de cliente para tratar de autenticar con la cuenta de usuario que creamos con el nombre de David.
 
-    ![][]
+    ![][0]
 
 2.  David no pertenece al grupo de ventas. Por tanto, la comprobación de acceso basada en rol denegará el acceso a las operaciones de tabla. Cierre la aplicación de cliente.
 
@@ -14,7 +14,7 @@
 
     ![][3]
 
-  []: ./media/mobile-services-aad-rbac-test-app/dave-login.png
+  [0]: ./media/mobile-services-aad-rbac-test-app/dave-login.png
   [1]: ./media/mobile-services-aad-rbac-test-app/unauthorized.png
   [2]: ./media/mobile-services-aad-rbac-test-app/bob-login.png
   [3]: ./media/mobile-services-aad-rbac-test-app/success.png

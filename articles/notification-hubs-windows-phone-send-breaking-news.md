@@ -220,7 +220,6 @@ Ha completado este tema.
   [Envío de notificaciones desde su back-end]: #send
   [Ejecución de la aplicación y generación de notificaciones]: #test-app
   [Introducción a los Centros de notificaciones]: /es-es/manage/services/notification-hubs/get-started-notification-hubs-wp8/
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [0]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
   [2]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-registration.png
   [3]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-toast.png

@@ -6,7 +6,7 @@ Para poder generar una SAS para cargar imágenes en el almacenamiento de blobs, 
 
 2.  En el panel izquierdo, seleccione la categoría **En línea** y después **Solo estable**, busque **WindowsAzure.Storage**, haga clic en **Instalar** en el paquete **Almacenamiento de Azure** y, a continuación, acepte el contrato de licencia.
 
-    ![][]
+    ![][0]
 
     Con esto se agrega la biblioteca de clientes para servicios de almacenamiento de Azure al proyecto de servicio móvil.
 
@@ -25,13 +25,13 @@ La clase TodoItem define el objeto de datos, y tiene que agregar las mismas prop
 
     Estas propiedades se utilizan para generar la SAS y para almacenar información de imagen. Tenga en cuenta que el uso de mayúsculas y minúsculas en estas propiedades coincide con la versión de back-end de JavaScript.
 
-    > [WACOM.NOTE] Al usar el inicializador de base de datos predeterminado, Entity Framework eliminará la base de datos y la volverá a crear siempre que detecte un cambio del modelo de datos en la definición de Code First. Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe utilizar Migraciones de Code First. El inicializador predeterminado no se puede usar con una base de datos SQL en Azure. Para obtener más información, consulte [Uso de Migraciones de Code First para actualizar el modelo de datos][].
+    > [WACOM.NOTE] Al usar el inicializador de base de datos predeterminado, Entity Framework eliminará la base de datos y la volverá a crear siempre que detecte un cambio del modelo de datos en la definición de Code First. Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe utilizar Migraciones de Code First. El inicializador predeterminado no se puede usar con una base de datos SQL en Azure. Para obtener más información, consulte [Uso de Migraciones de Code First para actualizar el modelo de datos][Uso de Migraciones de Code First para actualizar el modelo de datos].
 
 ## <a name="update-scripts"></a>Actualización del controlador TodoItem para generar una firma de acceso compartido
 
 El elemento **TodoItemController** existente se actualiza de manera que el método **PostTodoItem** genera una SAS cuando se inserta un nuevo TodoItem. También puede
 
-1.  Si todavía no ha creado su cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento][].
+1.  Si todavía no ha creado su cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento][Creación de una cuenta de almacenamiento].
 
 2.  En el Portal de administración, haga clic en **Almacenamiento**, haga clic en la cuenta de almacenamiento y, a continuación, haga clic en **Manage Keys**.
 
@@ -48,7 +48,7 @@ El elemento **TodoItemController** existente se actualiza de manera que el méto
 
     ![][3]
 
-    La clave de acceso de la cuenta de almacenamiento se almacena cifrada en la configuración de aplicaciones. Puede tener acceso a esta clave desde cualquier script de servidor en tiempo de ejecución. Para obtener más información, consulte [Configuración de aplicación][].
+    La clave de acceso de la cuenta de almacenamiento se almacena cifrada en la configuración de aplicaciones. Puede tener acceso a esta clave desde cualquier script de servidor en tiempo de ejecución. Para obtener más información, consulte [Configuración de aplicación][Configuración de aplicación].
 
 5.  En el Explorador de soluciones de Visual Studio, abra el archivo Web.config para el proyecto de servicios móviles y agregue la siguiente nueva configuración de aplicaciones reemplazando los marcadores de posición por el nombre de la cuenta de almacenamiento y la clave de acceso que acaba de establecer en el portal:
 
@@ -123,7 +123,7 @@ El elemento **TodoItemController** existente se actualiza de manera que el méto
 
     Este método POST genera ahora una SAS nueva para el elemento insertado, válida por 5 minutos, y asigna el valor de la SAS generada a la propiedad `sasQueryString` del elemento devuelto. La propiedad `imageUri` se establece también para la ruta de acceso del recurso del BLOB nuevo a fin de habilitar la visualización de imágenes durante el enlace en la interfaz de usuario de cliente.
 
-    > [WACOM.NOTE] Este código crea una SAS para un BLOB individual. Si necesita cargar varios blobs en un contenedor utilizando la misma SAS, puede llamar al [método generateSharedAccessSignature][] con un nombre de recurso de blob vacío, como este:
+    > [WACOM.NOTE] Este código crea una SAS para un BLOB individual. Si necesita cargar varios blobs en un contenedor utilizando la misma SAS, puede llamar al [método generateSharedAccessSignature][método generateSharedAccessSignature] con un nombre de recurso de blob vacío, como este:
     >
     >     blobService.generateSharedAccessSignature(containerName, '', sharedAccessPolicy);
     >
@@ -131,15 +131,15 @@ El elemento **TodoItemController** existente se actualiza de manera que el méto
 
 A continuación, actualizará la aplicación de inicio rápido para agregar la funcionalidad de carga de imágenes usando la SAS generada en la inserción.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
 
-  []: ./media/mobile-services-configure-blob-storage/mobile-add-storage-nuget-package-dotnet.png
+
+
+
+  [0]: ./media/mobile-services-configure-blob-storage/mobile-add-storage-nuget-package-dotnet.png
   [Uso de Migraciones de Code First para actualizar el modelo de datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
-  [Creación de una cuenta de almacenamiento]: /en-us/manage/services/storage/how-to-create-a-storage-account
+  [Creación de una cuenta de almacenamiento]: /es-es/manage/services/storage/how-to-create-a-storage-account
   [1]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account.png
   [2]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-account-keys.png
   [3]: ./media/mobile-services-configure-blob-storage/mobile-blob-storage-app-settings.png
-  [Configuración de aplicación]: http://msdn.microsoft.com/en-us/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+  [Configuración de aplicación]: http://msdn.microsoft.com/es-es/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
   [método generateSharedAccessSignature]: http://go.microsoft.com/fwlink/?LinkId=390455

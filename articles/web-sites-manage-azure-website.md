@@ -1,6 +1,6 @@
 <properties title="Manage an Azure website" pageTitle="Manage an Azure website" description="Links to resources for managing a Microsoft Azure website." services="web-sites" solutions="web" documentationCenter="" authors="mwasson" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson" />
 
 # Administrar un sitio web de Azure
 
@@ -78,7 +78,7 @@ Si usa Visual Studio Online, puede configurar una implementación continua desde
 -   [Usar el control de versiones de Team Foundation (TFVC)][Usar el control de versiones de Team Foundation (TFVC)]
 -   [Usar Git][Usar Git]
 
-<!-- Anchors. -->
+
 
   [Antes de implementar su sitio para la producción]: #before-you-deploy-your-site-to-production
   [Cuando el sitio está en funcionamiento]: #while-your-website-is-running

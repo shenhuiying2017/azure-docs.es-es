@@ -1,6 +1,6 @@
 <properties linkid="develop-python-install-python" urlDisplayName="Install Python" pageTitle="Install Python and the SDK - Azure" metaKeywords="Azure Python SDK" description="Learn how to install Python and the SDK to use with Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
 
 # Instalación de Python y el SDK
 
@@ -45,7 +45,7 @@ A menos que tenga una necesidad específica, recomendamos las dos primeras opcio
 
 ## Instalación en Windows
 
-Para Windows, puede usar el [instalador de WebPI][] proporcionado del Centro para desarrolladores para Python principal para mejorar la instalación (tomará CPython de www.python.org).
+Para Windows, puede usar el [instalador de WebPI][instalador de WebPI] proporcionado del Centro para desarrolladores para Python principal para mejorar la instalación (tomará CPython de www.python.org).
 
 **Nota:** En Windows Server, para descargar el instalador de WebPI es posible que tenga que configurar los ajustes ESC de IE (Inicio/Herramientas administrativas/Administrador del servidor, haga clic en **Configurar ESC de Internet Explorer** y establézcalo como Desactivado).
 
@@ -55,15 +55,15 @@ Puede elegir instalar Python 2.7 y/o Python 3.4 mediante WebPI.
 
 El instalador de WebPI proporciona todo lo que necesita para desarrollar aplicaciones de Azure para Python.
 
-![how-to-install-python-webpi-27-1][]
+![how-to-install-python-webpi-27-1][how-to-install-python-webpi-27-1]
 
 Una vez finalizado el proceso, debe ver esta pantalla de configuración de las opciones de instalación:
 
-![how-to-install-python-webpi-27-2][]
+![how-to-install-python-webpi-27-2][how-to-install-python-webpi-27-2]
 
 Una vez que se haya completado la instalación, escriba "python" cuando se le solicite para asegurarse de que el proceso se ha realizado sin interrupciones. Según la forma en la que haya realizado la instalación, es posible que tenga que establecer la variable "path" para buscar la versión correcta de Python:
 
-![how-to-install-python-win-run-27][]
+![how-to-install-python-win-run-27][how-to-install-python-win-run-27]
 
 Una vez completada la instalación, debe tener las bibliotecas de clientes y de Python disponibles en la ubicación predeterminada:
 
@@ -73,15 +73,15 @@ Una vez completada la instalación, debe tener las bibliotecas de clientes y de 
 
 El instalador de WebPI proporciona todo lo que necesita para desarrollar aplicaciones de Azure para Python.
 
-![how-to-install-python-webpi-34-1][]
+![how-to-install-python-webpi-34-1][how-to-install-python-webpi-34-1]
 
 Una vez finalizado el proceso, debe ver esta pantalla de configuración de las opciones de instalación:
 
-![how-to-install-python-webpi-34-2][]
+![how-to-install-python-webpi-34-2][how-to-install-python-webpi-34-2]
 
 Una vez que se haya completado la instalación, escriba "python" cuando se le solicite para asegurarse de que el proceso se ha realizado sin interrupciones. Según la forma en la que haya realizado la instalación, es posible que tenga que establecer la variable "path" para buscar la versión correcta de Python:
 
-![how-to-install-python-win-run-34][]
+![how-to-install-python-win-run-34][how-to-install-python-win-run-34]
 
 Una vez completada la instalación, debe tener las bibliotecas de clientes y de Python disponibles en la ubicación predeterminada:
 
@@ -89,19 +89,19 @@ Una vez completada la instalación, debe tener las bibliotecas de clientes y de 
 
 ### Instalación de otros paquetes
 
-Aunque esta versión se centra principalmente en las aplicaciones web, puede examinar el [índice de paquetes de Python (PyPI)][] (en inglés) para ver una abundante selección de otras soluciones de software. Si ha optado por instalar una distribución, ya dispondrá de los bits más interesantes para diversos escenarios que van desde el desarrollo web a la informática técnica.
+Aunque esta versión se centra principalmente en las aplicaciones web, puede examinar el [índice de paquetes de Python (PyPI)][índice de paquetes de Python (PyPI)] (en inglés) para ver una abundante selección de otras soluciones de software. Si ha optado por instalar una distribución, ya dispondrá de los bits más interesantes para diversos escenarios que van desde el desarrollo web a la informática técnica.
 
 ### Python Tools para Visual Studio
 
 Python Tools para Visual Studio (PTVS) es un complemento gratuito de OSS de Microsoft que convierte VS en un IDE de Python completo:
 
-![how-to-install-python-ptvs][]
+![how-to-install-python-ptvs][how-to-install-python-ptvs]
 
 El uso de PTVS es opcional, pero es recomendable, ya que le proporciona compatibilidad con soluciones o proyectos de Django y Python, depuración, creación de perfiles, ventana interactiva, edición de plantillas e IntelliSense.
 
-PTVS también simplifica la implementación en Microsoft Azure, con soporte para [la implementación en sitios web y servicios en la nube][].
+PTVS también simplifica la implementación en Microsoft Azure, con soporte para [la implementación en sitios web y servicios en la nube][la implementación en sitios web y servicios en la nube].
 
-PTVS funciona con su instalación de Visual Studio 2010, 2012 o 2013 existente. Para obtener más información y acceder a las descargas, consulte [Python Tools for Visual Studio on CodePlex][].
+PTVS funciona con su instalación de Visual Studio 2010, 2012 o 2013 existente. Para obtener más información y acceder a las descargas, consulte [Python Tools for Visual Studio on CodePlex][Python Tools for Visual Studio on CodePlex].
 
 ## Desinstalación en Windows
 
@@ -117,7 +117,7 @@ A continuación, vuelva a ejecuta WebPI.
 
 Lo más probable es que Python ya esté instalado en su equipo de desarrollo. Puede comprobarlo especificando:
 
-![how-to-install-python-linux-run][]
+![how-to-install-python-linux-run][how-to-install-python-linux-run]
 
 Aquí podemos ver que este servidor de Ubuntu 14.04 LTS VM que se ejecuta en Azure tiene CPython 2.7.6 instalado. Si necesita actualizar, siga las instrucciones recomendadas de actualización de paquetes del SO.
 
@@ -131,7 +131,7 @@ El comando anterior le solicitará de manera silenciosa la contraseña raíz. Es
 
 Ahora debe ver las bibliotecas de clientes instaladas en **site-packages**. En MacOS:
 
-![how-to-install-python-mac-site][]
+![how-to-install-python-mac-site][how-to-install-python-mac-site]
 
 Cuando se realiza el desarrollo desde Mac/Linux, existen dos escenarios principales compatibles:
 
@@ -141,21 +141,21 @@ Cuando se realiza el desarrollo desde Mac/Linux, existen dos escenarios principa
 
 El primer escenario le permite crear aplicaciones web enriquecidas que aprovechan las capacidades de PaaS de Azure como colas, almacenamiento de blobs, etc. a través de contenedores de Python para la API de REST de Azure. El funcionamiento es idéntico en Windows, Mac y Linux. Consulte los tutoriales y las guías de procedimientos para ver ejemplos. También puede usar estas bibliotecas de clientes desde dentro de una VM de Linux.
 
-En el escenario de VM, simplemente inicie la VM de Linux que elija (Ubuntu, CentOS y Suse) y ejecute o administre lo que desee. Por ejemplo, puede ejecutar el bloc de notas o el REPL de [IPython][] en la máquina de Windows/Mac/Linux y configurar el explorador para que apunte a una VM multiproceso de Linux o Windows que ejecute el motor de IPython en Azure. Para obtener más información sobre la instalación de IPython, consulte el tutorial.
+En el escenario de VM, simplemente inicie la VM de Linux que elija (Ubuntu, CentOS y Suse) y ejecute o administre lo que desee. Por ejemplo, puede ejecutar el bloc de notas o el REPL de [IPython][IPython] en la máquina de Windows/Mac/Linux y configurar el explorador para que apunte a una VM multiproceso de Linux o Windows que ejecute el motor de IPython en Azure. Para obtener más información sobre la instalación de IPython, consulte el tutorial.
 
-Para obtener información sobre cómo configurar una VM de Linux, consulte la sección de [administración de Linux][].
+Para obtener información sobre cómo configurar una VM de Linux, consulte la sección de [administración de Linux][administración de Linux].
 
 ## Recursos y software adicionales:
 
--   [Enthought Python Distribution][]
--   [ActiveState Python Distribution][]
--   [SciPy - A suite of Scientific Python libraries][]
--   [NumPy - A numerics library for Python][]
--   [Django Project - A mature web framework/CMS][]
+-   [Enthought Python Distribution][Enthought Python Distribution]
+-   [ActiveState Python Distribution][ActiveState Python Distribution]
+-   [SciPy - A suite of Scientific Python libraries][SciPy - A suite of Scientific Python libraries]
+-   [NumPy - A numerics library for Python][NumPy - A numerics library for Python]
+-   [Django Project - A mature web framework/CMS][Django Project - A mature web framework/CMS]
 -   [IPython - an advanced REPL/Notebook for Python][IPython]
--   [Bloc de notas de IPython en Azure][]
--   [Python Tools for Visual Studio on CodePlex][]
--   [Virtualenv][]
+-   [Bloc de notas de IPython en Azure][Bloc de notas de IPython en Azure]
+-   [Python Tools for Visual Studio on CodePlex][Python Tools for Visual Studio on CodePlex]
+-   [Virtualenv][Virtualenv]
 
   [instalador de WebPI]: http://go.microsoft.com/fwlink/?LinkId=254281&clcid=0x409
   [how-to-install-python-webpi-27-1]: ./media/python-how-to-install/how-to-install-python-webpi-27-1.png

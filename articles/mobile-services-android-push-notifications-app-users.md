@@ -236,9 +236,9 @@ Este es el último tutorial que muestra los aspectos básicos relacionados con e
 -   [Uso de la biblioteca de cliente Android para Servicios móviles][Uso de la biblioteca de cliente Android para Servicios móviles]
     Obtenga más información sobre cómo usar Servicios móviles con .NET.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [tutorial de notificaciones de inserción anterior]: /es-es/develop/mobile/tutorials/get-started-with-push-android
   [Creación de la tabla Registration]: #create-table

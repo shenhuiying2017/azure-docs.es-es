@@ -16,11 +16,10 @@ La autenticación administrada por clientes se puede usar para brindar una exper
 
 Una vez que haya registrado el paquete de la aplicación, recuerde suministrar un valor de **true** para *useSingleSignOn* cuando llama al método [LoginAsync][LoginAsync]. Con esto se ofrece a los usuarios una mejor experiencia de inicio de sesión cuando usan una cuenta Microsoft.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Quickstart: Incorporación de notificaciones de inserción para un servicio móvil]: http://go.microsoft.com/fwlink/p/?LinkId=309101
   [Autenticación de una aplicación de la Tienda Windows con el inicio de sesión único de Live Connect]: /es-es/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
   [LoginAsync]: http://go.microsoft.com/fwlink/p/?LinkId=311594

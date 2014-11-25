@@ -97,8 +97,8 @@
 
 4.  Haga clic en el botón **Complete All**.
 
-    ![][]
+    ![][0]
 
     Aparece un cuadro de diálogo de mensaje que indica el número de elementos marcados como completos y la consulta filtrada se vuelve a ejecutar, con lo que se borran todos los elementos de la lista.
 
-  []: ./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png
+  [0]: ./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png

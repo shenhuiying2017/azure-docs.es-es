@@ -1,6 +1,6 @@
 <properties linkid="develop-nodejs-common-tasks-specifying-a-node-version" urlDisplayName="Specifying a Node.js Version" pageTitle="Specifying a Node.js Version" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="nodejs" title="Specifying a Node.js version in an Azure application" authors="larryfr" solutions="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="na" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Especificación de una versión de Node.js en una aplicación Azure
 
@@ -49,7 +49,7 @@ A pesar de que Azure proporciona varias versiones predeterminadas de Node.js, es
 
     Con esto aparecerá la versión de Node.js que se utiliza cuando navega en el sitio web.
 
-2.  Cree un sitio web y anote el nombre del sitio. Por ejemplo, el ejemplo siguiente utiliza las [herramientas de línea de comandos de Azure][] para crear un sitio web de Azure llamado **mywebsite** y luego se habilita un repositorio Git para el sitio web.
+2.  Cree un sitio web y anote el nombre del sitio. Por ejemplo, el ejemplo siguiente utiliza las [herramientas de línea de comandos de Azure][herramientas de línea de comandos de Azure] para crear un sitio web de Azure llamado **mywebsite** y luego se habilita un repositorio Git para el sitio web.
 
         azure site create mywebsite --git
 
@@ -77,7 +77,7 @@ A pesar de que Azure proporciona varias versiones predeterminadas de Node.js, es
 
 ## Pasos siguientes
 
-Ahora que sabe cómo especificar la versión de Node.js que utiliza su aplicación, obtenga más información acerca del [funcionamiento con módulos][], la [compilación e implementación de un sitio web Node.js][] y el [Uso de las herramientas de línea de comandos de Azure para Mac y Linux][herramientas de línea de comandos de Azure].
+Ahora que sabe cómo especificar la versión de Node.js que utiliza su aplicación, obtenga más información acerca del [funcionamiento con módulos][funcionamiento con módulos], la [compilación e implementación de un sitio web Node.js][compilación e implementación de un sitio web Node.js] y el [Uso de las herramientas de línea de comandos de Azure para Mac y Linux][herramientas de línea de comandos de Azure].
 
   [herramientas de línea de comandos de Azure]: /es-es/documentation/articles/xplat-cli/
   [funcionamiento con módulos]: /es-es/documentation/articles/nodejs-use-node-modules-azure-apps/

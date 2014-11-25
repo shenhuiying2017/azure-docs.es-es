@@ -26,9 +26,9 @@ Este tema indica cómo registrar las aplicaciones para que puedan usar Azure Act
 
 De este modo ya estará listo para usar una cuenta Azure Active Directory para autenticarse en su aplicación proporcionando los valores de identificador de cliente y secreto de cliente a Servicios móviles.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-app-active-directory-login/mobile-services-live-connect-add-app.png

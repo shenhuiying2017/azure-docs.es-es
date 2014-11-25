@@ -14,11 +14,11 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 5.  Nuevamente en el Portal de administración, haga clic en la pestaña **Data** y, a continuación, en la tabla **TodoItems**.
 
-    ![][]
+    ![][0]
 
     Esto le permite examinar los datos que la aplicación inserta en la tabla.
 
     ![][1]
 
-  []: ./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png
+  [0]: ./media/mobile-services-javascript-backend-run-app/mobile-data-tab.png
   [1]: ./media/mobile-services-javascript-backend-run-app/mobile-data-browse.png

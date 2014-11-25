@@ -349,9 +349,9 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
     
 	Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Actualización de la aplicación para permitir actualizaciones]: #uiupdate
   [Habilitación de la detección de conflictos en la aplicación]: #enableOC
@@ -366,7 +366,7 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
   [Limitación de consultas con paginación]: /es-es/develop/mobile/tutorials/add-paging-to-data-dotnet
   [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-dotnet
   [Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-dotnet
-<!-- Images. -->
+
 [0]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
 [1]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package2.png
 [2]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app1.png 

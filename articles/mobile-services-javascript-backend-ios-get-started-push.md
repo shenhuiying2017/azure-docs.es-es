@@ -194,8 +194,8 @@ En este tutorial se muestran los conceptos básicos de la habilitación de una a
 
     Más información sobre el modo de implementar lógica empresarial en su servicio móvil.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
+ 
+ 
 <!-- URLs.   -->
 
   [Generación del archivo de solicitud de firma de certificado]: #certificates
@@ -208,8 +208,6 @@ En este tutorial se muestran los conceptos básicos de la habilitación de una a
   [SDK de iOS para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4,5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-ios-get-started
-  [Habilitación de notificaciones de inserción de Apple]: ../includes/enable-apple-push-notifications.md
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [objeto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333

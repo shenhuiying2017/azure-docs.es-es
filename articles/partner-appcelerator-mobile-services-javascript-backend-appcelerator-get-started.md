@@ -94,11 +94,9 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 -   [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción]
     Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
-<!-- Images. --> <!-- URLs. -->
+ 
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
   [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [aplicación Lista de tareas pendientes]: http://go.microsoft.com/fwlink/p/?LinkId=506859
   
   [1]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/image008.png

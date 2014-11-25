@@ -343,22 +343,13 @@ Si la aplicaci&oacute;n Android es capaz de registrarse correctamente con el cen
 
 4.  Para enviar una notificación de prueba cuando use la aplicación de consola .Net, simplemente presione la tecla F5 en Visual Studio para ejecutar la aplicación y se enviará una notificación que aparecerá en el área de notificaciones superior del dispositivo o emulador.
 
-<!-- Images. --> <!-- URLs. -->
+ 
 
-  [Windows Universal]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /es-es/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /es-es/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /es-es/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /es-es/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Nokia X]: /es-es/documentation/articles/notification-hubs-nokia-x-get-started/ "Nokia X"
-  [Xamarin.iOS]: /es-es/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /es-es/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [Configuración del servicio de notificaciones de Nokia]: #register
   [Configuración de su Centro de notificaciones]: #configure-hub
   [Conexión de su aplicación al Centro de notificaciones]: #connect-hub
   [Envío de una notificación a la aplicación]: #send
   [Prueba de la aplicación]: #test-app
-  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [estas]: http://developer.nokia.com/resources/library/nokia-x/getting-started/environment-setup.html
   [1]: http://developer.nokia.com/resources/library/nokia-x/getting-started/device-setup.html
   [aquí]: http://go.microsoft.com/fwlink/?linkid=389797&clcid=0x409

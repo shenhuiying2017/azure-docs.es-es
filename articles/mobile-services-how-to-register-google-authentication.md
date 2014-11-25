@@ -37,16 +37,16 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 De este modo ya estará listo para usar un inicio de sesión de Google para autenticarse en su aplicación proporcionando los valores de identificador de cliente y secreto de cliente a Servicios móviles.
 
-<!-- Anchors. -->
 
-<!-- Images. -->
+
+
 [1]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-developers.png
 [2]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client.png
 [3]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client2.png
 [4]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-create-client3.png
 [5]: ./media/mobile-services-how-to-register-google-authentication/mobile-services-google-app-details.png
 
-<!-- URLs. -->
+
 
 [Google apis]: http://go.microsoft.com/fwlink/p/?LinkId=268303
 [Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-dotnet/

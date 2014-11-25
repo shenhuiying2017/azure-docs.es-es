@@ -1,6 +1,6 @@
 Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin de almacenar elementos en Servicios móviles en lugar de en la colección local.
 
-1.  Si todavía no tiene el [SDK de Android para Servicios móviles][], descárguelo ya y expanda los archivos comprimidos.
+1.  Si todavía no tiene el [SDK de Android para Servicios móviles][SDK de Android para Servicios móviles], descárguelo ya y expanda los archivos comprimidos.
 
 2.  Copie los archivos `.jar` de la carpeta `mobileservices` del SDK en la carpeta `libs` del proyecto GetStartedWithData.
 
@@ -43,7 +43,7 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 
 11. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**, a continuación haga clic en **Administrar claves** y anote la **clave de la aplicación**.
 
-    ![][]
+    ![][0]
 
     Necesitará estos valores para obtener acceso al servicio móvil desde su código de aplicación.
 
@@ -124,7 +124,7 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 
     De este modo se consulta el servicio móvil y se devuelven todos los elementos que no se hayan marcado como completos. Los elementos se agregan al adaptador para enlace.
 
-<!-- URLs. -->
+
 
   [SDK de Android para Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkID=280126
-  []: ./media/download-android-sample-code/mobile-dashboard-tab.png
+  [0]: ./media/download-android-sample-code/mobile-dashboard-tab.png

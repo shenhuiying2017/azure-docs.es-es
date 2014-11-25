@@ -271,9 +271,9 @@ El trabajo debe registrarse en la pestaña **Programador** para que Servicios m�
 
 Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio móvil. Este trabajo se ejecutará como programado hasta que lo deshabilite o modifique.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Registro para obtener acceso a Twitter y almacenamiento de credenciales]: #get-oauth-credentials
   [Descarga e instalación de la biblioteca LINQ to Twitter]: #install-linq2twitter
@@ -282,7 +282,6 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
   [Prueba local del trabajo programado]: #run-job-locally
   [Publicación del servicio y registro del trabajo]: #register-job
   [proyecto de CodePlex de LINQ to Twitter]: http://linqtotwitter.codeplex.com/
-  [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
   [0]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-linq2twitter-nuget-package.png
   [1]: ./media/mobile-services-dotnet-backend-schedule-recurring-tasks/add-component-model-reference.png
   [Uso de Migraciones de Code First para actualizar el modelo de datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-use-code-first-migrations

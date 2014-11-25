@@ -48,7 +48,7 @@ También debe descargar el archivo actors.txt que se utiliza en este tutorial. R
 
 1.  Cree una carpeta C:\\Tutorials en el equipo local.
 
-2.  Descargue el archivo [actors.txt](http://www.microsoft.com/en-us/download/details.aspx?id=37003) y guárdelo en la carpeta C:\\Tutorials.
+2.  Descargue el archivo [actors.txt](http://www.microsoft.com/es-es/download/details.aspx?id=37003) y guárdelo en la carpeta C:\\Tutorials.
 
 Creación de la aplicación
 -------------------------

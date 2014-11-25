@@ -71,8 +71,8 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
 En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios móviles][Autorización en el servicio de usuarios de Servicios móviles], usará el valor del identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado y lo usará para filtrar los datos devueltos por Servicios móviles.
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
   [Restricción de los permisos de tabla a usuarios autenticados]: #permissions
@@ -81,8 +81,4 @@ En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-store-get-started/
   [Inicio de sesión único para aplicaciones de la Tienda Windows mediante Live Connect]: /es-es/documentation/articles/mobile-services-windows-store-javascript-single-sign-on
   [este artículo]: http://go.microsoft.com/fwlink/p/?LinkId=506605
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
-  [mobile-services-windows-store-javascript-authenticate-app]: ../includes/mobile-services-windows-store-javascript-authenticate-app.md
-  [mobile-services-windows-store-javascript-authenticate-app-with-token]: ../includes/mobile-services-windows-store-javascript-authenticate-app-with-token.md
   [Autorización en el servicio de usuarios de Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts

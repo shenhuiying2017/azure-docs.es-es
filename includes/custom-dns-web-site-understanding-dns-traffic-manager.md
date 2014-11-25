@@ -16,7 +16,7 @@ Un registro CNAME asigna un nombre DNS *específico*, como **mail.contoso.com** 
 
 Una vez que el tráfico llega al Administrador de tráfico, este enruta el tráfico al sitio web, utilizando el método de equilibrio de carga para el cual está configurado. Esto es completamente transparente para los visitantes del sitio web. Ellos solo verán el nombre de dominio personalizado en el explorador.
 
-> [WACOM.NOTE] Algunos registradores de dominio solo permiten asignar subdominios cuando se utiliza un registro CNAME, como **www.contoso.com** y no los nombres raíz, como **contoso.com**. Para obtener más información acerca de los registros CNAME, consulte la documentación que proporciona el registrador, [la entrada de Wikipedia sobre el registro CNAME][] o el documento [IETF Domain Names - Implementation and Specification][].
+> [WACOM.NOTE] Algunos registradores de dominio solo permiten asignar subdominios cuando se utiliza un registro CNAME, como **www.contoso.com** y no los nombres raíz, como **contoso.com**. Para obtener más información acerca de los registros CNAME, consulte la documentación que proporciona el registrador, [la entrada de Wikipedia sobre el registro CNAME][la entrada de Wikipedia sobre el registro CNAME] o el documento [IETF Domain Names - Implementation and Specification][IETF Domain Names - Implementation and Specification].
 
   [la entrada de Wikipedia sobre el registro CNAME]: http://en.wikipedia.org/wiki/CNAME_record
   [IETF Domain Names - Implementation and Specification]: http://tools.ietf.org/html/rfc1035

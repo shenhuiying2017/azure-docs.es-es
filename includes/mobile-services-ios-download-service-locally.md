@@ -1,12 +1,12 @@
-1. En el [Portal de administración de Azure][], haga clic en el nuevo servicio móvil o en la pestaña del icono de nube para ir a la página de información general.
+1. En el [Portal de administración de Azure][Portal de administración de Azure], haga clic en el nuevo servicio móvil o en la pestaña del icono de nube para ir a la página de información general.
 
-    ![][]
+    ![][0]
 
 2. Haga clic en la plataforma **iOS**. En la sección **Introducción**, expanda **Crear una nueva aplicación iOS**.
 
     ![][1]
 
-3. Si todavía no lo tiene, descargue e instale [Visual Studio Professional 2013][] o una versión posterior.
+3. Si todavía no lo tiene, descargue e instale [Visual Studio Professional 2013][Visual Studio Professional 2013] o una versión posterior.
 
 4. Haga clic en **Download** debajo de **Descargar y publicar el servicio en la nube**.
 
@@ -18,10 +18,10 @@
 
     ![][2]
 
-<!-- URLs. -->
+
 
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-ios-download-service-locally/mobile-portal-quickstart-ios.png
+  [0]: ./media/mobile-services-ios-download-service-locally/mobile-portal-quickstart-ios.png
   [1]: ./media/mobile-services-ios-download-service-locally/download-service-project.png
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=391934
   [2]: ./media/mobile-services-ios-download-service-locally/download-publish-profile.png

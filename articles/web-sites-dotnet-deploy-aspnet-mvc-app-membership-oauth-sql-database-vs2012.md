@@ -1,6 +1,6 @@
 <properties linkid="dev-net-tutorials-web-app-with-sql-azure" urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title=" OAuth" authors="riande" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="riande" />
 
 # Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL en un sitio web de Azure
 
@@ -703,11 +703,7 @@ Para obtener más información acerca de Entity Framework y las migraciones de C
 <!-- links from Tom's hopefully no collisions --> 
 <!-- images-->
 
-  [Visual Studio 2013]: /es-es/develop/net/tutorials/web-site-with-sql-database/ "Visual Studio 2013"
-  [Visual Studio 2012]: /es-es/develop/net/tutorials/web-site-with-sql-database-vs2012/ "Visual Studio 2012"
-  [versión más reciente de este tutorial]: /es-es/develop/net/tutorials/web-site-with-sql-database/
   [página de inicio de sesión]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxb.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Configuración del entorno de desarrollo]: #bkmk_setupdevenv
   [Configuración del entorno de Azure]: #bkmk_setupwindowsazure
   [Creación de una aplicación ASP.NET MVC 4]: #bkmk_createmvc4app
@@ -735,7 +731,6 @@ Para obtener más información acerca de Entity Framework y las migraciones de C
   [Aplicación de administrador de contactos en la pestaña Sitios web del Portal de administración]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-setup-azure-site-006.png
   [Pestaña de inicio rápido y botón de descarga de perfil de publicación]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-deploy1-download-profile.png
   [Almacenamiento del archivo .publishsettings]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/dntutmobile-deploy1-save-profile.png
-  [publishsettingsfilewarningchunk]: ../includes/publishsettingsfilewarningchunk.md
   [Opción Publicar del menú contextual del proyecto]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/PublishVSSolution.png
   [Importar configuración de publicación]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/ImportPublishSettings.png
   [Incorporación de sub a win az]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rzAddWAsub.png
@@ -761,7 +756,6 @@ Para obtener más información acerca de Entity Framework y las migraciones de C
   [Facebook]: http://developers.facebook.com/
   [Microsoft]: http://go.microsoft.com/fwlink/?LinkID=144070
   [Twitter]: http://dev.twitter.com/
-  []: https://developers.facebook.com/apps/
   [Creación de una nueva aplicación de Facebook]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBapp.png
   [Nueva aplicación de Facebook]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFB.png
   [Evaluadores de Facebook]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxFBt.png
@@ -779,8 +773,6 @@ Para obtener más información acerca de Entity Framework y las migraciones de C
   [6]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxNOT2.png
   [dbDacFx]: http://msdn.microsoft.com/es-es/library/dd394698.aspx
   [Centro de descarga de Microsoft SQL Server 2012 Express]: http://www.microsoft.com/es-es/download/details.aspx?id=29062
-  [ENU\\x64\\SQLManagementStudio\_x64\_ENU.exe]: http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe
-  [ENU\\x86\\SQLManagementStudio\_x86\_ENU.exe]: http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe
   [Instalación de SQL]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxSS.png
   [Conectarse al cuadro de diálogo del servidor]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxC2S.png
   [Generación de scripts]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2012/rxGenScripts.png

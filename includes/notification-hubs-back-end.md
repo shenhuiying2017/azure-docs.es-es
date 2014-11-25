@@ -1,19 +1,19 @@
 En esta sección se muestra cómo enviar notificaciones desde una aplicación de la consola .NET y cualquier otra.
-Si está utilizando Servicios móviles, consulte los tutoriales [Introducción a la inserción][]. Si desea utilizar Java o PHP, consulte [Uso de Centro de notificaciones desde Java/PHP][]. Puede enviar notificaciones desde cualquier back-end mediante la [API REST de notificaciones de inserción][].
+Si está utilizando Servicios móviles, consulte los tutoriales [Introducción a la inserción][Introducción a la inserción]. Si desea utilizar Java o PHP, consulte [Uso de Centro de notificaciones desde Java/PHP][Uso de Centro de notificaciones desde Java/PHP]. Puede enviar notificaciones desde cualquier back-end mediante la [API REST de notificaciones de inserción][API REST de notificaciones de inserción].
 
 El código siguiente envía notificaciones a dispositivos de la Tienda Windows, Windows Phone, iOS y Android.
 
-Si creó una aplicación de consola cuando realizó el tutorial [Introducción a los Centros de notificaciones][], omita los pasos del 1 al 3.
+Si creó una aplicación de consola cuando realizó el tutorial [Introducción a los Centros de notificaciones][Introducción a los Centros de notificaciones], omita los pasos del 1 al 3.
 
 1.  En Visual Studio, cree una aplicación de consola en Visual C\#:
 
-    ![][]
+    ![][0]
 
 2.  En el menú principal de Visual Studio, haga clic sucesivamente en **Herramientas**, **Library Package Manager** y **Consola del Administrador de paquetes**; a continuación, en la ventana de la consola, escriba lo siguiente y presione **Entrar**:
 
         Install-Package WindowsAzure.ServiceBus
 
-    Se agrega una referencia al SDK de Bus de servicio de Azure mediante [WindowsAzure.ServiceBus NuGet package][].
+    Se agrega una referencia al SDK de Bus de servicio de Azure mediante [WindowsAzure.ServiceBus NuGet package][WindowsAzure.ServiceBus NuGet package].
 
 3.  Abra el archivo Program.cs y agregue la siguiente instrucción `using`:
 
@@ -82,12 +82,12 @@ Si creó una aplicación de consola cuando realizó el tutorial [Introducción a
          Console.ReadLine();
 
 <!-- Anchors -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
 
   [Introducción a la inserción]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/
   [Uso de Centro de notificaciones desde Java/PHP]: /es-es/documentation/articles/notification-hubs-java-backend-how-to/
-  [API REST de notificaciones de inserción]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx
+  [API REST de notificaciones de inserción]: http://msdn.microsoft.com/es-es/library/windowsazure/dn223264.aspx
   [Introducción a los Centros de notificaciones]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-  []: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
+  [0]: ./media/notification-hubs-back-end/notification-hub-create-console-app.png
   [WindowsAzure.ServiceBus NuGet package]: http://nuget.org/packages/WindowsAzure.ServiceBus/

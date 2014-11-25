@@ -166,6 +166,5 @@ Para obtener más información acerca del uso de las plantillas, consulte [Notif
   [Envío de notificaciones desde su back-end]: #send
   [Información general acerca de los Centros de notificaciones de Azure]: http://msdn.microsoft.com/es-es/library/jj927170.aspx
   [procedimientos de los Centros de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/es-es/library/jj927172.aspx
-  [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
   [Notificación a los usuarios con los Centros de notificaciones: ASP.NET]: /es-es/manage/services/notification-hubs/notify-users-aspnet
   [Notificación a los usuarios con los Centros de notificaciones: Servicios móviles]: /es-es/manage/services/notification-hubs/notify-users

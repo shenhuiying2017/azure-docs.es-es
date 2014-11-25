@@ -50,7 +50,7 @@ El acceso a Servicios multimedia requiere dos cuentas asociadas:
 
     Además, puede ver el código que usa el SDK de Servicios multimedia de Azure para realizar las siguientes tareas: cargar, codificar y publicar vídeos. Puede hacer clic en uno de los vínculos en la sección WRITE SOME CODE, copiar el código y usarlo en su aplicación.
 
-<!-- Reusable paths. --> <!-- Anchors. --> <!-- URLs. -->
+<!-- Reusable paths. -->  
 
   [Conceptos]: #concepts
   [Direccionamiento del una cuenta de Servicios multimedia mediante Quick Create]: #quick

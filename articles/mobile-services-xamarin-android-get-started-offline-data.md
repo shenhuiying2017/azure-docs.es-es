@@ -156,9 +156,9 @@ Cuando queramos sincronizar el almacén local con el servidor, usaremos los mét
 
 -   [Uso del cliente del componente Xamarin para Servicios móviles de Azure][Uso del cliente del componente Xamarin para Servicios móviles de Azure]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
+
 
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/partner-xamarin-mobile-services-android-get-started/
   [Introducción a los datos]: /es-es/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/

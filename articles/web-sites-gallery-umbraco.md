@@ -1,6 +1,6 @@
 <properties title="Create an Umbraco website from the gallery in Microsoft Azure" pageTitle="Create an Umbraco website from the gallery in Microsoft Azure" description="required" metaKeywords="Azure, gallery, Umbraco, web site, website" services="web-sites" solutions="web" documentationCenter="" authors="timamm" manager="paulettm" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
 
 # Creación de un sitio web de Umbraco desde la galería en Microsoft Azure
 
@@ -43,7 +43,7 @@ En este tutorial, aprenderá a:
 
 Una vez completada la implementación, el panel de inicio del portal muestra que se ha creado el grupo de recursos para CMS de Umbraco, en este caso **UmbracoCMSgroup**. En la sección **Resumen**, haga clic en el nombre del sitio web (en este caso **umbracocmsgroup**) para ver las propiedades del mismo. Asimismo, en la sección **Resumen**, puede seleccionar el recurso de base de datos para ver las propiedades de la base de datos asociada.
 
-![][]
+![][0]
 
 ## Inicio y configuración del sitio web de CMS de Umbraco
 
@@ -104,7 +104,7 @@ Una vez completada la implementación, el panel de inicio del portal muestra que
   [Configure resources]: ./media/web-sites-gallery-umbraco/04AppSettings.PNG
   [Create a SQL Server on Azure]: ./media/web-sites-gallery-umbraco/05NewServer.PNG
   [1]: ./media/web-sites-gallery-umbraco/06UmbracoCMSGroup.PNG
-  []: ./media/web-sites-gallery-umbraco/07UmbracoCMSGroupBlade.PNG
+  [0]: ./media/web-sites-gallery-umbraco/07UmbracoCMSGroupBlade.PNG
   [Browse to your site]: ./media/web-sites-gallery-umbraco/08UmbracoCMSGroupRunning.PNG
   [Install Umbraco wizard]: ./media/web-sites-gallery-umbraco/09InstallUmbraco7.png
   [Configure your database]: ./media/web-sites-gallery-umbraco/10ConfigureYourDatabase.png

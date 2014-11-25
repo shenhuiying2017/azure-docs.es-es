@@ -33,12 +33,11 @@ Así concluye el conjunto de tutoriales que demuestra los aspectos básicos del 
     
 	Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/
-  [mobile-services-windows-dotnet-paging]: ../includes/mobile-services-windows-dotnet-paging.md
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-push/
   [Referencia conceptual de Servicios móviles con .NET]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library

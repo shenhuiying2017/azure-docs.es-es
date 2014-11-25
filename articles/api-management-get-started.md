@@ -1,6 +1,6 @@
 <properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Introducción a Administración de API de Azure
 
@@ -244,13 +244,11 @@ La sección **Análisis** consta de las cuatro pestañas siguientes.
   [Llamada a una operación desde el portal para desarrolladores]: #call-operation
   [Ver análisis]: #view-analytics
   [Pasos siguientes]: #next-steps
-  [Evaluación gratuita de Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/?WT.mc_id=api_management_hero_a
+  [Evaluación gratuita de Azure]: http://azure.microsoft.com/es-es/pricing/free-trial/?WT.mc_id=api_management_hero_a
   [Portal de administración]: https://manage.windowsazure.com/
   [API Management new instance]: ./media/api-management-get-started/api-management-create-instance-menu.png
   [New API Management service]: ./media/api-management-get-started/api-management-create-instance-step1.png
   [Configuración de notificaciones]: ../api-management-howto-configure-notifications
-  [1]: ./media/api-management-get-started/api-management-create-instance-step2.png
-  [2]: ./media/api-management-get-started/api-management-instance-created.png
   [New API Management console]: ./media/api-management-get-started/api-management-management-console.png
   [Create API]: ./media/api-management-get-started/api-management-create-api.png
   [Add new API]: ./media/api-management-get-started/api-management-add-new-api.png
@@ -259,20 +257,16 @@ La sección **Análisis** consta de las cuatro pestañas siguientes.
   [Operaciones]: ./media/api-management-get-started/api-management-myecho-operations.png
   [Operation signature]: ./media/api-management-get-started/api-management-operation-signature.png
   [Add response]: ./media/api-management-get-started/api-management-add-response.png
-  [3]: ./media/api-management-get-started/api-management-add-response-window.png
   [Respuestas]: ../api-management-howto-add-operations/#responses
   [Productos]: ./media/api-management-get-started/api-management-list-products.png
   [Add API]: ./media/api-management-get-started/api-management-add-api-to-product.png
-  [4]: ./media/api-management-get-started/api-management-add-myechoapi-to-product.png
   [API added]: ./media/api-management-get-started/api-management-api-added-to-product.png
   [Creación y publicación de un producto]: ../api-management-howto-add-products
   [Desarrolladores]: ./media/api-management-get-started/api-management-developers.png
   [Administración de cuentas de desarrollador en Administración de API de Azure]: ../api-management-howto-create-or-invite-developers/
   [Add subscription]: ./media/api-management-get-started/api-management-add-subscription.png
-  [5]: ./media/api-management-get-started/api-management-add-subscription-window.png
   [Subscription added]: ./media/api-management-get-started/api-management-subscription-added.png
   [Portal para desarrolladores]: ./media/api-management-get-started/api-management-developer-portal-menu.png
-  [6]: ./media/api-management-get-started/api-management-developer-portal-myecho-api.png
   [Operation console]: ./media/api-management-get-started/api-management-developer-portal-myecho-api-console.png
   [HTTP Get]: ./media/api-management-get-started/api-management-invoke-get.png
   [Response]: ./media/api-management-get-started/api-management-invoke-get-response.png

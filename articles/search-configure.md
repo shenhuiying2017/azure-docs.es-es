@@ -362,7 +362,6 @@ Si necesita un actualizador sobre dónde buscar las páginas de configuración, 
 
 <!--Anchors-->  
 
-  [Este artículo usa el portal de Azure en vista previa]: ../includes/preview-portal-note.md
   [Comienzo con el servicio gratuito]: #sub-1
   [Actualización a una búsqueda estándar]: #sub-2
   [Prueba de operaciones del servicio]: #sub-3

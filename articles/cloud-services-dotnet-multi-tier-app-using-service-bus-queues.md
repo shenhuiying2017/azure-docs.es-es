@@ -619,7 +619,6 @@ Para implementar la aplicación que ha creado en este tutorial como un proyecto 
 
 Para obtener información sobre cómo implementar el front-end en un sitio web de Azure, consulte [Implementación de una aplicación web ASP.NET a un sitio web de Azure][Implementación de una aplicación web ASP.NET a un sitio web de Azure]. Para obtener información sobre cómo implementar el back-end en un servicio en la nube de Azure, consulte [Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento][Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento].
 
-  [create-account-note]: ../includes/create-account-note.md
   [Pasos siguientes]: #nextsteps
   [0]: ./media/cloud-services-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-01.png
   [Colas de Windows Azure y Colas de Service Bus de Windows Azure: comparación y diferencias]: http://msdn.microsoft.com/es-es/library/windowsazure/hh767287.aspx

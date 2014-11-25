@@ -1,6 +1,6 @@
 <properties title="Interact with DocumentDB resources" pageTitle="Interact with DocumentDB resources | Azure" description="DocumentDB manages resources--uniquely identified by logical URIs--that developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Modelo de recursos y conceptos de la Base de datos de documentos
 
@@ -8,7 +8,7 @@ La Base de datos de documentos ofrece un modelo de programación RESTful sencill
 
 > [AZURE.NOTE] Además, también ofrece una protocolo de TCP altamente eficiente que también es RESTful en su modelo de comunicación que está disponible a través del SDK del cliente .NET.
 
-![][]
+![][0]
 
 **Modelo de recursos jerárquico en una cuenta de base de datos**
 
@@ -110,7 +110,7 @@ Puede crear y controlar las cuentas de base de datos de la Base de datos de docu
 </tbody>
 </table>
 
-Tenga en cuenta que además del aprovisionamiento, configuración y control de su cuenta de base de datos desde el portal de Azure, también puede crear y controlar de forma programática cuentas de base de datos de la Base de datos de documentos mediante [las API REST de la Base de datos de documentos de Azure][] así como los SDK de cliente.
+Tenga en cuenta que además del aprovisionamiento, configuración y control de su cuenta de base de datos desde el portal de Azure, también puede crear y controlar de forma programática cuentas de base de datos de la Base de datos de documentos mediante [las API REST de la Base de datos de documentos de Azure][las API REST de la Base de datos de documentos de Azure] así como los SDK de cliente.
 
  
 
@@ -419,9 +419,9 @@ La única forma de obtener una clave de recurso es creando un recurso de permiso
 
 Como con el resto de recursos, los permisos de la Base de datos de documentos se pueden crear, reemplazar, eliminar, leer o enumerar fácilmente mediante las API REST o con cualquier SDK de cliente. La Base de datos de documentos siempre proporciona una coherencia para leer o consultar los metadatos de un permiso.
 
-  []: ./media/documentdb-resources/resources1.png
+  [0]: ./media/documentdb-resources/resources1.png
   [1]: ./media/documentdb-resources/resources2.png
-  []: http://portal.azure.com/
+  [0]: http://portal.azure.com/
   [las API REST de la Base de datos de documentos de Azure]: http://go.microsoft.com/fwlink/p/?LinkID=402413
   [2]: ./media/documentdb-resources/resources3.png
   [3]: ./media/documentdb-resources/resources4.png

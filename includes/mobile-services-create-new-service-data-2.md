@@ -4,13 +4,13 @@ Para poder almacenar datos de aplicaciones en el nuevo servicio móvil, primero 
 
 2.  Haga clic en la pestaña **Data** y, a continuación, en **+Create**.
 
-    ![mobile-data-tab-empty][]
+    ![mobile-data-tab-empty][mobile-data-tab-empty]
 
     Esto muestra el cuadro de diálogo **Create new table**.
 
 3.  En **Table name**, escriba *TodoItem* y, a continuación, haga clic en el botón de comprobación.
 
-    ![mobile-create-todoitem-table][]
+    ![mobile-create-todoitem-table][mobile-create-todoitem-table]
 
 Se crea la nueva tabla de almacenamiento **TodoItem** con los permisos predeterminados definidos. Esto significa que cualquiera que tenga la clave de aplicación, que se distribuye con la aplicación, puede tener acceso a los datos de la tabla y modificarlos.
 

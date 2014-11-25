@@ -2,9 +2,9 @@
 
 En esta sección registrará su servicio móvil en Azure Active Directory y configurará permisos para permitir una suplantación de inicio de sesión único.
 
-1.  Registre su aplicación en Azure Active Directory siguiendo el tema [Registro en Azure Active Directory][].
+1.  Registre su aplicación en Azure Active Directory siguiendo el tema [Registro en Azure Active Directory][Registro en Azure Active Directory].
 
-2.  En el [Portal de administración de Azure][], vuelva a la extensión de Azure Active Directory y haga clic en su Active Directory.
+2.  En el [Portal de administración de Azure][Portal de administración de Azure], vuelva a la extensión de Azure Active Directory y haga clic en su Active Directory.
 
 3.  Haga clic en la pestaña **Aplicaciones** y, a continuación, haga clic en su aplicación.
 
@@ -41,7 +41,7 @@ En esta sección registrará su servicio móvil en Azure Active Directory y conf
 
 2.  En el Portal de administración de Azure, haga clic en **Administrar manifiesto** de nuevo para la aplicación y haga clic en **Cargar manifiesto**. Vaya a la ubicación del manifiesto de la aplicación que acaba de actualizar y cárguelo.
 
-<!-- URLs. -->
+
 
   [Registro en Azure Active Directory]: /es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
   [Portal de administración de Azure]: https://manage.windowsazure.com/

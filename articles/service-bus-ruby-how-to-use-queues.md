@@ -126,7 +126,6 @@ Para ver la comparación entre Colas del Bus de servicio de Azure de este artíc
   [Envío de mensajes a una cola]: #how-to-send-messages-to-a-queue
   [Recepción de mensajes de una cola]: #how-to-receive-messages-from-a-queue
   [Actuación ante errores de la aplicación y mensajes que no se pueden leer]: #how-to-handle-application-crashes-and-unreadable-messages
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Creación de una aplicación de Ruby en Azure]: /es-es/develop/ruby/tutorials/web-app-with-linux-vm/
   [Colas, temas y suscripciones del Service Bus]: http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx
   [SDK de Azure para Ruby]: https://github.com/WindowsAzure/azure-sdk-for-ruby

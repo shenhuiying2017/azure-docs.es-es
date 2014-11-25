@@ -111,9 +111,9 @@ A continuación, habilitará la supervisión de New Relic para el servicio móvi
 -   Para obtener información sobre el precio, consulte la [página de New Relic en la Tienda de Azure][página de New Relic en la Tienda de Azure].
 -   Para obtener más información sobre el uso de New Relic, consulte [Applications Overview][Applications Overview] en la documentación de New Relic.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Suscripción en New Relic mediante el uso de la Tienda de Azure]: #sign-up
   [Instalación del módulo New Relic]: #install-module

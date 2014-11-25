@@ -433,7 +433,7 @@ Ahora que ha completado este tema de referencia conceptual, conozca cómo realiz
 -   Autorización de usuarios con scripts ([Xamarin.iOS][18]/[Xamarin.Android][19])
     Conozca cómo usar el valor de identificador de usuario proporcionado por Servicios móviles según el usuario autenticado para filtrar los datos que devuelve Servicios móviles.
 
-<!-- Anchors. --> <!-- URLs. -->
+ 
 
   [Xamarin]: /es-es/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
   [Xamarin.iOS]: /es-es/develop/mobile/tutorials/get-started-xamarin-ios/
@@ -460,7 +460,6 @@ Ahora que ha completado este tema de referencia conceptual, conozca cómo realiz
   [Direccionamiento del datos sin tipo]: #untyped
   [Direccionamiento del pruebas unitarias]: #unit-testing
   [Pasos siguientes]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Crear una tabla]: http://go.microsoft.com/fwlink/?LinkId=298592
   [Esquema dinámico]: http://go.microsoft.com/fwlink/?LinkId=296271
   [GetTable]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554275.aspx

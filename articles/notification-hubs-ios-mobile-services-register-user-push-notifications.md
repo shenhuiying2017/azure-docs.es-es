@@ -99,12 +99,12 @@ This topic shows you how to request push notification registration with Azure No
 
 Now that the client app has been updated, return to the [Notify users with Notification Hubs] and update the mobile service to send notifications by using Notification Hubs.
 
-<!-- Anchors. -->
-
-<!-- Images. -->
 
 
-<!-- URLs. -->
+
+
+
+
 [Notify users with Notification Hubs]: /es-es/manage/services/notification-hubs/notify-users
 [Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-ios/
 

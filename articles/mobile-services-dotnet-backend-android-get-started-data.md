@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-data-android" urlDisplayName="Get Started with Data" pageTitle="Get started with data (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Android app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Introducción a los datos en Servicios móviles
 
@@ -114,17 +114,10 @@ Pruebe uno de estos otros tutoriales:
 -   [Referencia conceptual de Servicios móviles con .NET][Referencia conceptual de Servicios móviles con .NET]
     <br/>Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/ "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/ "JavaScript para Tienda Windows"
-  [Windows Phone]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/ "Windows Phone"
-  [iOS]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/ "iOS"
-  [Android]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Android"
-  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/ "Back-end de .NET"
-  [Back-end de JavaScript]: /es-es/develop/mobile/tutorials/get-started-with-data-android/ "Back-end de JavaScript"
+
+
+
   [versión back-end de JavaScript]: /es-es/develop/mobile/tutorials/get-started-with-data-android
   [Creación de un servicio móvil]: #create-service
   [Descarga del servicio móvil de manera local]: #download-the-service-locally
@@ -133,14 +126,6 @@ Pruebe uno de estos otros tutoriales:
   [Descarga del proyecto GetStartedWithData]: #download-app
   [Actualización de la aplicación para usar el servicio móvil para el acceso a datos]: #update-app
   [Prueba de la aplicación con el servicio móvil publicado]: #test-app
-  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
-  [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
-  [mobile-services-download-service-locally]: ../includes/mobile-services-download-service-locally.md
-  [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
-  [mobile-services-verify-android-sdk-version]: ../includes/mobile-services-verify-android-sdk-version.md
-  [mobile-services-android-run-sample-code]: ../includes/mobile-services-android-run-sample-code.md
-  [mobile-services-android-getting-started-with-data]: ../includes/mobile-services-android-getting-started-with-data.md
   [0]: ./media/mobile-services-dotnet-backend-android-get-started-data/manage-sql-azure-database.png
   [2]: ./media/mobile-services-dotnet-backend-android-get-started-data/sql-azure-query.png
   [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-android

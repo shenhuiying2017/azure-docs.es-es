@@ -6,7 +6,7 @@ los componentes de una aplicación distribuida no se comunican directamente entr
 ellos, sino que intercambian mensajes a través de un tema, que actúa como un
 intermediario.
 
-![TopicConcepts][]
+![TopicConcepts][TopicConcepts]
 
 A diferencia de las colas del Bus de servicio, en el que un solo destinatario
 procesa cada mensaje, los temas y las suscripciones proporcionan una forma de comunicación **uno a varios** mediante
@@ -34,13 +34,13 @@ la aplicación.
 
 Para crear un nombre de espacio de servicio:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  En el panel de navegación izquierdo del Portal de administración, haga clic en
     **Bus de servicio**.
 
 3.  En el panel inferior del Portal de administración, haga clic en **Crear**.
-    ![][]
+    ![][0]
 
 4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, especifique un nombre de espacio de nombres.
     El sistema realiza la comprobación de inmediato para ver si el nombre está disponible.
@@ -70,7 +70,7 @@ de administración para el espacio de nombres. Puede obtener estas credenciales 
 
 1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para
     ver la lista de espacios de nombres disponibles:
-    ![][]
+    ![][0]
 
 2.  Seleccione el espacio de nombres que acaba de crear en la lista que se muestra:
     ![][3]
@@ -82,7 +82,7 @@ de administración para el espacio de nombres. Puede obtener estas credenciales 
 
 ### Para obtener las credenciales de administración desde el Explorador de servidores
 
-Para obtener la información de conexión utilizando Visual Studio en vez del Portal de administración, siga el procedimiento descrito [aquí][], en la sección titulada **Para conectar a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Microsoft Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombre que ya haya creado. Haga clic con el botón secundario en cualquier espacio de nombre, a continuación haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio.
+Para obtener la información de conexión utilizando Visual Studio en vez del Portal de administración, siga el procedimiento descrito [aquí][aquí], en la sección titulada **Para conectar a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Microsoft Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombre que ya haya creado. Haga clic con el botón secundario en cualquier espacio de nombre, a continuación haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio.
 
 Anote el valor de **SharedAccessKey**, o cópielo en el Portapapeles:
 
@@ -90,10 +90,10 @@ Anote el valor de **SharedAccessKey**, o cópielo en el Portapapeles:
 
   [TopicConcepts]: ./media/howto-service-bus-topics/sb-topics-01.png
   [Portal de administración de Azure]: http://manage.windowsazure.com
-  []: ./media/howto-service-bus-topics/sb-queues-13.png
+  [0]: ./media/howto-service-bus-topics/sb-queues-13.png
   [1]: ./media/howto-service-bus-topics/sb-queues-04.png
   [2]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
   [3]: ./media/howto-service-bus-topics/sb-queues-09.png
   [4]: ./media/howto-service-bus-topics/sb-queues-06.png
-  [aquí]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [aquí]: http://http://msdn.microsoft.com/es-es/library/windowsazure/ff687127.aspx
   [5]: ./media/howto-service-bus-topics/VSProperties.png

@@ -250,7 +250,6 @@ vínculos para obtener más información.
   [Direccionamiento del mensajes de una suscripción]: #How_to_Receive_Messages_from_a_Subscription
   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer]: #How_to_Handle_Application_Crashes_and_Unreadable_Messages
   [Direccionamiento del de temas y suscripciones]: #How_to_Delete_Topics_and_Subscriptions
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [guía de instalación de Python]: ../python-how-to-install/
   [Colas, temas y suscripciones del bus de servicio]: http://msdn.microsoft.com/es-es/library/hh367516.aspx
   [Clase SqlFilter]: http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx

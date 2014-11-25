@@ -129,7 +129,7 @@ Este es un trabajo programado de ejemplo que elimina los registros que se actual
 
 Para obtener información sobre los trabajos programados con Servicios móviles para el back-end de JavaScript, consulte: [Programación de trabajos recurrente con Servicios móviles para el back-end de JavaScript][3].
 
-<!-- Anchors. --> <!-- Images --> <!-- URLs. -->
+ <!-- Images --> 
 
   [tipo de bit de SQL]: http://msdn.microsoft.com/es-es/library/ms177603.aspx
   [operación de consulta REST]: http://msdn.microsoft.com/es-es/library/azure/jj677199.aspx

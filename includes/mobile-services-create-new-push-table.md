@@ -1,6 +1,6 @@
-1.  Inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
 
-    ![][]
+    ![][0]
 
 2.  Haga clic en la pestaña **Data** y, a continuación, en **Create**.
 
@@ -19,6 +19,6 @@ Después, podrá modificar su aplicación para habilitar las notificaciones de i
 <!-- URLs -->
 
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-create-new-push-table/mobile-services-selection.png
+  [0]: ./media/mobile-services-create-new-push-table/mobile-services-selection.png
   [1]: ./media/mobile-services-create-new-push-table/mobile-create-table.png
   [2]: ./media/mobile-services-create-new-push-table/mobile-create-registrations-table.png

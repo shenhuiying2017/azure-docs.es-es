@@ -210,7 +210,6 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
   [Envío de notificaciones desde su back-end]: #send
   [Ejecución de la aplicación y generación de notificaciones]: #test-app
   [Introducción a los Centros de notificaciones]: /es-es/manage/services/notification-hubs/getting-started-windows-dotnet/
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [0]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
   [2]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
   [3]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png

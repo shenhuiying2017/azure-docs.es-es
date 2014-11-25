@@ -281,8 +281,6 @@ vínculos para obtener más información.
     bus de servicio].
 
   [Pasos siguientes]: #nextsteps
-  [create-account-note]: ../includes/create-account-note.md
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [0]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   [Colas, temas y suscripciones del bus de servicio]: http://msdn.microsoft.com/es-es/library/hh367516.aspx
   [Clase SqlFilter]: http://msdn.microsoft.com/es-es/library/microsoft.servicebus.messaging.sqlfilter.aspx

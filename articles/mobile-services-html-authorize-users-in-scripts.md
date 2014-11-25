@@ -82,9 +82,9 @@ Este es el último tutorial que muestra los aspectos básicos relacionados con e
     
 	Obtenga más información acerca de cómo utilizar los Servicios móviles con HTML/JavaScript.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-html
   [Portal de administración de Azure]: https://manage.windowsazure.com/

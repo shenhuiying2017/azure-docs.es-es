@@ -244,7 +244,6 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
   [Introducción a los Centros de notificaciones]: /es-es/manage/services/notification-hubs/get-started-notification-hubs-ios/
   [0]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
   [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios3.png
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
   [Uso de los Centros de notificaciones para difundir noticias de última hora localizadas]: /es-es/manage/services/notification-hubs/breaking-news-localized-dotnet/
   [Notificación a los usuarios con los Centros de notificaciones]: /es-es/manage/services/notification-hubs/notify-users/

@@ -12,11 +12,11 @@ Puede usar el Portal de administración de Base de datos SQL de Azure o la aplic
 
 En este tema se incluyen los pasos siguientes:
 
--   [Paso 1: Obtener SQL Server Management Studio][]
--   [Paso 2: Conectarse a Base de datos SQL][]
--   [Paso 3: Crear y administrar las bases de datos][]
--   [Paso 4: Crear y administrar los inicios de sesión][]
--   [Paso 5: Supervisar Base de datos SQL mediante las vistas de administración dinámica][]
+-   [Paso 1: Obtener SQL Server Management Studio][Paso 1: Obtener SQL Server Management Studio]
+-   [Paso 2: Conectarse a Base de datos SQL][Paso 2: Conectarse a Base de datos SQL]
+-   [Paso 3: Crear y administrar las bases de datos][Paso 3: Crear y administrar las bases de datos]
+-   [Paso 4: Crear y administrar los inicios de sesión][Paso 4: Crear y administrar los inicios de sesión]
+-   [Paso 5: Supervisar Base de datos SQL mediante las vistas de administración dinámica][Paso 5: Supervisar Base de datos SQL mediante las vistas de administración dinámica]
 
 ## <span id="Step1"></span> </a>Paso 1: Obtener Management Studio
 
@@ -26,7 +26,7 @@ bases de datos en Azure, puede usar la aplicación Management Studio instalada c
 la versión gratuita SQL Server 2012 Management Studio Express (SSMSE). A continuación describimos los pasos
 para instalar SSMSE.
 
-1.  En la página [Microsoft SQL Server 2012 Express][], seleccione la versión x86 de Management Studio si ejecuta un sistema operativo de 32 bits, o bien x64 si ejecuta un sistema operativo de 64 bits. Haga clic en **Descargar** y, cuando se le solicite, ejecute Instalación.
+1.  En la página [Microsoft SQL Server 2012 Express][Microsoft SQL Server 2012 Express], seleccione la versión x86 de Management Studio si ejecuta un sistema operativo de 32 bits, o bien x64 si ejecuta un sistema operativo de 64 bits. Haga clic en **Descargar** y, cuando se le solicite, ejecute Instalación.
 
 2.  Haga clic en **Nueva instalación independiente de SQL Server o agregar características a
     una instalación existente** y, a continuación, en **Aceptar**.
@@ -49,7 +49,7 @@ para instalar SSMSE.
 
 Para conectarse a Base de datos SQL, debe saber el nombre del servidor de Azure. Es necesario que inicie sesión en el portal para tener acceso a esta información.
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  En el panel izquierdo, haga clic en **Bases de datos SQL**.
 
@@ -86,7 +86,7 @@ Para conectarse a Base de datos SQL, debe saber el nombre del servidor de Azure.
 
 12. En el cuadro **Inicio de sesión**, escriba el inicio de sesión de administrador de SQL Server
     especificado en el portal cuando creó el servidor, con el formato
-    [\*iniciodesesión\*@\*NombreServidor\*][].
+    [\*iniciodesesión\*@\*NombreServidor\*][\*iniciodesesión\*@\*NombreServidor\*].
 
 13. En el cuadro **Contraseña**, escriba la contraseña especificada en
     el portal cuando creó el servidor.
@@ -103,7 +103,7 @@ no están disponibles para las bases de datos SQL en Azure, por lo que tendrá q
 usar las instrucciones de Transact-SQL para estos fines. En los pasos descritos a continuación
 se facilitan ejemplos de tales instrucciones. Para obtener más información acerca del uso de
 Transact-SQL con Base de datos SQL, incluidos los detalles sobre los comandos
-compatibles, consulte [Referencia de Transact-SQL (Base de datos SQL)][].
+compatibles, consulte [Referencia de Transact-SQL (Base de datos SQL)][Referencia de Transact-SQL (Base de datos SQL)].
 
 ## <span id="Step3"></span> </a>Paso 3: Crear y administrar las bases de datos
 
@@ -117,7 +117,7 @@ creó cuando creó el servidor.
 Para abrir una ventana de consulta en Management Studio, abra la carpeta Bases de datos, expanda la carpeta <b>Bases de datos del sistema</b> haga clic con el botón secundario en **maestra** y, a continuación, haga clic en **Nueva consulta**.
 
 -   Use la instrucción **CREATE DATABASE** para crear una base de datos nueva. Para
-    obtener más información, consulte [CREATE DATABASE (Base de datos SQL)][]. La instrucción siguiente crea una base de datos con nombre
+    obtener más información, consulte [CREATE DATABASE (Base de datos SQL)][CREATE DATABASE (Base de datos SQL)]. La instrucción siguiente crea una base de datos con nombre
     **myTestDB** y especifica que se trata de una base de datos Web Edition
     con un tamaño máximo de 1 GB.
 
@@ -129,7 +129,7 @@ Haga clic en **Ejecutar** para ejecutar la consulta.
 
 -   Use la instrucción **ALTER DATABASE** para modificar una base de datos
     existente, por ejemplo, si desea cambiar el nombre, el tamaño máximo o la edición
-    (business o web) de la base de datos. Para obtener más información, consulte [ALTER DATABASE (Base de datos SQL)][]. La
+    (business o web) de la base de datos. Para obtener más información, consulte [ALTER DATABASE (Base de datos SQL)][ALTER DATABASE (Base de datos SQL)]. La
     instrucción siguiente modifica la base de datos creada en el paso anterior
     para cambiar el tamaño máximo a 5 GB.
 
@@ -139,7 +139,7 @@ Haga clic en **Ejecutar** para ejecutar la consulta.
          EDITION='web');
 
 -   Use la instrucción **DROP DATABASE** para eliminar una base de datos existente.
-    Para obtener más información, consulte [DROP DATABASE (Base de datos SQL)][]. La instrucción siguiente elimina la base de datos **myTestDB**
+    Para obtener más información, consulte [DROP DATABASE (Base de datos SQL)][DROP DATABASE (Base de datos SQL)]. La instrucción siguiente elimina la base de datos **myTestDB**
     , pero no la anula ahora porque la usará para crear inicios de sesión en el paso siguiente.
 
         DROP DATABASE myTestBase;
@@ -172,10 +172,10 @@ conéctese a la base de datos **maestra** con el inicio de sesión
 principal a nivel de servidor creado cuando configuró el servidor. Puede usar las instrucciones
 **CREATE LOGIN**, **ALTER LOGIN** o **DROP LOGIN** para
 ejecutar consultas en la base de datos maestra que administrará los inicios
-de sesión en todo el servidor. Para obtener más información, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL][].
+de sesión en todo el servidor. Para obtener más información, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL][Administrar bases de datos e inicios de sesión en Base de datos SQL].
 
 -   Use la instrucción **CREATE LOGIN** para crear un
-    inicio de sesión nuevo a nivel de servidor. Para obtener más información, consulte [CREATE LOGIN (Base de datos SQL)][]. La instrucción siguiente crea un inicio de sesión nuevo
+    inicio de sesión nuevo a nivel de servidor. Para obtener más información, consulte [CREATE LOGIN (Base de datos SQL)][CREATE LOGIN (Base de datos SQL)]. La instrucción siguiente crea un inicio de sesión nuevo
     denominado **login1**. Reemplace **password1** por la contraseña que
     desee.
 
@@ -185,7 +185,7 @@ de sesión en todo el servidor. Para obtener más información, consulte [Admini
     de base de datos. Todos los inicios de sesión deben crearse en la base de datos **maestra**,
     pero para que un inicio de sesión se conecte a otra base de datos,
     debe concederle permisos a nivel de base de datos con el uso de la instrucción **CREATE USER**
-     en dicha base de datos. Para obtener más información, consulte [CREATE USER (Base de datos SQL)][].
+     en dicha base de datos. Para obtener más información, consulte [CREATE USER (Base de datos SQL)][CREATE USER (Base de datos SQL)].
 
 -   Para conceder permisos a login1
     para una base de datos llamada **myTestDB**, siga estos
@@ -193,7 +193,7 @@ de sesión en todo el servidor. Para obtener más información, consulte [Admini
 
 1.  Para actualizar el Explorador de objetos para ver la base de datos **myTestDB** que acaba de crear haga clic con el botón secundario en el nombre del servidor en el Explorador de objetos y a continuación haga clic en **Actualizar**.
 
-    Si ha cerrado la conexión, puede volver a establecerla si selecciona **Conectar Explorador de objetos** en el menú Archivo. Repita las instrucciones del [Paso 2: Conectarse a Base de datos SQL][] para conectarse a la base de datos.
+    Si ha cerrado la conexión, puede volver a establecerla si selecciona **Conectar Explorador de objetos** en el menú Archivo. Repita las instrucciones del [Paso 2: Conectarse a Base de datos SQL][Paso 2: Conectarse a Base de datos SQL] para conectarse a la base de datos.
 
 2.  Haga clic con el botón secundario en la base de datos **myTestDB** y seleccione **Nueva consulta**.
 
@@ -205,7 +205,7 @@ de sesión en todo el servidor. Para obtener más información, consulte [Admini
 
 -   Use el procedimiento almacenado **sp\_addrolemember** para conceder a la
     cuenta de usuario el nivel apropiado de permisos para la base de datos. Para obtener
-    más información, consulte [sp\_addrolemember (Transact-SQL)][]. La instrucción siguiente concede permisos de solo lectura **login1User**
+    más información, consulte [sp\_addrolemember (Transact-SQL)][sp\_addrolemember (Transact-SQL)]. La instrucción siguiente concede permisos de solo lectura **login1User**
      a la base de datos, para lo que se agrega **login1User** al
     rol **db\_datareader**.
 
@@ -213,7 +213,7 @@ de sesión en todo el servidor. Para obtener más información, consulte [Admini
 
 -   Use la instrucción **ALTER LOGIN** para modificar un inicio de sesión existente, por
     ejemplo, si desea cambiar la contraseña de inicio de sesión. Para
-    obtener más información, consulte [ALTER LOGIN (Base de datos SQL)][]. La instrucción **ALTER LOGIN** debe ejecutarse en la
+    obtener más información, consulte [ALTER LOGIN (Base de datos SQL)][ALTER LOGIN (Base de datos SQL)]. La instrucción **ALTER LOGIN** debe ejecutarse en la
     base de datos **maestra**. Vuelva a la ventana de consulta conectada a la base de datos.
 
     La instrucción siguiente modifica el inicio de sesión **login1** para restablecer la contraseña.
@@ -244,7 +244,7 @@ de sesión en todo el servidor. Para obtener más información, consulte [Admini
 Base de datos SQL admite varias vistas de administración dinámica que
 puede usar para supervisar una base de datos individual. A continuación se facilitan algunos ejemplos
 del tipo de datos de supervisión que puede recuperar en estas vistas. Para
-obtener todos los detalles y más ejemplos de uso, consulte [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica][].
+obtener todos los detalles y más ejemplos de uso, consulte [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica][Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica].
 
 -   Para consultar una vista de administración dinámica, es necesario disponer de los permisos **VER ESTADO DE BASE DE DATOS**
     . Para conceder el permiso **VER ESTADO DE BASE DE DATOS** a un
@@ -301,12 +301,12 @@ obtener todos los detalles y más ejemplos de uso, consulte [Supervisar Base de 
 
 ## Recursos adicionales
 
--   [Introducción a Base de datos de SQL][]
--   [Administrar bases de datos e inicios de sesión en Base de datos SQL][]
--   [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica][]
--   [Modelo de aprovisionamiento de Base de datos SQL][]
--   [Agregar usuarios a la Base de datos SQL][]
--   [Referencia de Transact-SQL (Base de datos SQL)][]
+-   [Introducción a Base de datos de SQL][Introducción a Base de datos de SQL]
+-   [Administrar bases de datos e inicios de sesión en Base de datos SQL][Administrar bases de datos e inicios de sesión en Base de datos SQL]
+-   [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica][Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica]
+-   [Modelo de aprovisionamiento de Base de datos SQL][Modelo de aprovisionamiento de Base de datos SQL]
+-   [Agregar usuarios a la Base de datos SQL][Agregar usuarios a la Base de datos SQL]
+-   [Referencia de Transact-SQL (Base de datos SQL)][Referencia de Transact-SQL (Base de datos SQL)]
 
   [Paso 1: Obtener SQL Server Management Studio]: #Step1
   [Paso 2: Conectarse a Base de datos SQL]: #Step2

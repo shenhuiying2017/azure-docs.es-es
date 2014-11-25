@@ -2,16 +2,15 @@ Para poder almacenar datos en su nuevo servicio móvil, debe crear antes una tab
 
 1.  En el Explorador de servidores, expanda **Servicios móviles de Azure**, haga clic con el botón secundario en el servicio móvil, haga clic en **Crear tabla** y, a continuación, escriba `TodoItem` en **Nombre de la tabla**.
 
-    ![crear tabla in VS 2013][]
+    ![crear tabla in VS 2013][crear tabla in VS 2013]
 
 2.  Expanda **Advanced**, verifique que los permisos de funcionamiento de la tabla estén establecidos de forma predeterminada en **Anybody with the Application Key** y, a continuación, haga clic en **Crear**.
 
-    ![crear tabla en VS 2013 parte 2][]
+    ![crear tabla en VS 2013 parte 2][crear tabla en VS 2013 parte 2]
 
     Esto crea la tabla TodoItem en el servidor, donde cualquiera que tenga la clave de aplicación puede tener acceso a los datos de la tabla y modificarlos sin necesidad de autenticarse antes.
 
-    <div class="dev-callout"><strong>Nota:</strong><p>La clave de aplicaci&oacute;n se distribuye con la aplicaci&oacute;n. Puesto que esta clave no se distribuye de forma segura, no se puede considerar un token de seguridad. Para proteger el acceso a los datos de su servicio m&oacute;vil, los usuarios se deben autenticar antes del acceso. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx">Permisos</a>.</p></div>
+    <div class="dev-callout"><strong>Nota:</strong><p>La clave de aplicaci&oacute;n se distribuye con la aplicaci&oacute;n. Puesto que esta clave no se distribuye de forma segura, no se puede considerar un token de seguridad. Para proteger el acceso a los datos de su servicio m&oacute;vil, los usuarios se deben autenticar antes del acceso. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://msdn.microsoft.com/es-es/library/windowsazure/jj193161.aspx">Permisos</a>.</p></div>
 
   [crear tabla in VS 2013]: ./media/mobile-services-create-new-table-vs2013/mobile-create-table-vs2013.png
   [crear tabla en VS 2013 parte 2]: ./media/mobile-services-create-new-table-vs2013/mobile-create-table-vs2013-2.png
-  [Permisos]: http://msdn.microsoft.com/en-us/library/windowsazure/jj193161.aspx

@@ -111,16 +111,13 @@ A continuación, actualizará la aplicación para permitir la autenticación ant
 
 En el siguiente tutorial, [Autorización de usuarios con scripts][Autorización de usuarios con scripts], usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. Encontrará más información acerca de cómo usar los Servicios móviles con HTML/JavaScript en [Referencia conceptual de Servicios móviles HTML/JavaScript][Referencia conceptual de Servicios móviles HTML/JavaScript]
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
+
   [Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
   [Restricción de los permisos de tabla a usuarios autenticados]: #permissions
   [Incorporación de autenticación a la aplicación]: #add-authentication
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-html-get-started
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [Autorización de usuarios con scripts]: /es-es/documentation/articles/mobile-services-html-authorize-users-in-scripts
   [Referencia conceptual de Servicios móviles HTML/JavaScript]: /es-es/documentation/articles/mobile-services-html-how-to-use-client-library

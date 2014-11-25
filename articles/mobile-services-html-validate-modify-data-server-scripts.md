@@ -190,9 +190,9 @@ Ahora que ha completado este tutorial, considere continuar con el tutorial final
 
 Para obtener más información, consulte [Uso de scripts del servidor][Uso de scripts del servidor] y [Referencia conceptual de Servicios móviles con HTML/JavaScript][Referencia conceptual de Servicios móviles con HTML/JavaScript].
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Incorporación de la validación de longitud de cadena]: #string-length-validation
   [Actualización del cliente para admitir la validación]: #update-client-validation

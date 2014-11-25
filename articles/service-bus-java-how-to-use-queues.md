@@ -257,5 +257,4 @@ el tema [Colas, temas y suscripciones][Colas, temas y suscripciones] de MSDN par
   [Direccionamiento del mensajes desde una cola]: #bkmk_HowToReceiveMsgs
   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer]: #bkmk_HowToHandleAppCrashes
   [Pasos siguientes]: #bkmk_NextSteps
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Colas, temas y suscripciones]: http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx

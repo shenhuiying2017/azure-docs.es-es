@@ -401,9 +401,9 @@ Para enviar una notificación usando un servicio móvil, siga la [Introducción 
 
 En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Android. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de Centros de notificaciones para insertar notificaciones en los usuarios][Uso de Centros de notificaciones para insertar notificaciones en los usuarios], mientras que, si desea segmentar sus usuarios por grupos de interés, puede leer [Uso de los Centros de notificaciones para enviar noticias de última hora][Uso de los Centros de notificaciones para enviar noticias de última hora]. Para obtener más información acerca del uso de los Centros de notificaciones, consulte la [orientación sobre los Centros de notificaciones][orientación sobre los Centros de notificaciones] y los [procedimientos de los Centros de notificaciones para Android][procedimientos de los Centros de notificaciones para Android] (en inglés).
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Xamarin.Android]: /es-es/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [aplicación NotificationHubs]: http://go.microsoft.com/fwlink/p/?LinkId=331329

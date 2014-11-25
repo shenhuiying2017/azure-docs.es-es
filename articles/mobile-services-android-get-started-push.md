@@ -247,8 +247,8 @@ Ha completado correctamente este tutorial.
 
 En este ejemplo simple, un usuario recibe una notificación de inserción con los datos que se acaban de insertar. El cliente en la solicitud suministra al servicio móvil el token de dispositivo que GCM utiliza. En el siguiente tutorial, [Notificaciones de inserción para usuarios de la aplicación][Notificaciones de inserción para usuarios de la aplicación], creará una tabla de dispositivos independiente en la que puede almacenar tokens de dispositivos y enviar una notificación de inserción a todos los canales almacenados cuando se produce una inserción.
 
-<!-- Images. -->
-<!-- URLs. -->
+
+
 
   [Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
   [Habilitación del servicio de mensajería en la nube de Google]: #register
@@ -258,11 +258,9 @@ En este ejemplo simple, un usuario recibe una notificación de inserción con lo
   [Inserción de datos para recibir notificaciones]: #test
   [SDK de Android para Servicios móviles]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
   [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-android
-  [Habilitación de GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
-  [Incorporación de Play Services]: ../includes/mobile-services-add-Google-play-services.md
   [Set Up Google Play Services SDK]: http://go.microsoft.com/fwlink/?LinkId=389801
   [2]: ./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png
   [3]: ./media/mobile-services-android-get-started-push/mobile-portal-data-tables.png

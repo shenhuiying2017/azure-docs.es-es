@@ -169,7 +169,6 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 
 4.  En la interfaz de usuario de la aplicación **NotifyUserWindowsPhone**, haga clic en **Log in and register**. Después, haga clic en **Send push**.
 
-  [notification-hubs-aspnet-backend-securepush]: ../includes/notification-hubs-aspnet-backend-securepush.md
   
   [1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
   [2]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png

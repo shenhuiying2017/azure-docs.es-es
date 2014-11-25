@@ -297,7 +297,7 @@ modo, todos los blobs aparecerían como **CloudBlockBlob**, con independencia de
     Block blob of length 505623: https://<a ccountname>.blob.core.windows.net/photos/photo1.jpg
 
  Para obtener más información, consulte
-[CloudBlobContainer.ListBlobs][].
+[CloudBlobContainer.ListBlobs][CloudBlobContainer.ListBlobs].
 
 ## <a name="download-blobs"> </a><span  class="short-header">Descarga de blobs</span>Descarga de blobs
 

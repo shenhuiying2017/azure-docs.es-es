@@ -36,9 +36,9 @@ Este tema indica cómo registrar su aplicación para que pueda usar Live Connect
 
 De este modo ya estará listo para usar una cuenta Microsoft para autenticarse en su aplicación proporcionando los valores de Id. de cliente y secreto de cliente a Servicios móviles.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft]: /es-es/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
   [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039

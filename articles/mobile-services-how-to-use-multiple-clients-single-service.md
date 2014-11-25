@@ -4,11 +4,11 @@
 
 Uno de los principales beneficios de usar Servicios móviles de Azure en el desarrollo de aplicaciones móviles es la capacidad de usar un servicio back-end único que admita su aplicación en varias plataformas de cliente. La solución Servicios móviles proporciona bibliotecas de cliente nativas para todas las plataformas de dispositivos importantes, lo que facilita el desarrollo de aplicaciones mediante un solo servicio back-end y el uso de herramientas de desarrollador de varias plataformas. En este tema se tratan las siguientes consideraciones para el funcionamiento de su aplicación en varias plataformas de cliente mientras se usa un único back-end de servicios móviles:
 
--   [Notificaciones de inserción multiplataforma][]
--   [Desarrollo de aplicaciones multiplataforma][]
--   [Uso compartido de código en proyectos de Visual Studio][]
+-   [Notificaciones de inserción multiplataforma][Notificaciones de inserción multiplataforma]
+-   [Desarrollo de aplicaciones multiplataforma][Desarrollo de aplicaciones multiplataforma]
+-   [Uso compartido de código en proyectos de Visual Studio][Uso compartido de código en proyectos de Visual Studio]
 
-Para obtener información general acerca de Servicios móviles, consulte el [Centro para desarrolladores de Servicios móviles][].
+Para obtener información general acerca de Servicios móviles, consulte el [Centro para desarrolladores de Servicios móviles][Centro para desarrolladores de Servicios móviles].
 
 ## <span id="push"></span></a>Notificaciones de inserción multiplataforma
 
@@ -21,7 +21,7 @@ La solución Servicios móviles usa Centros de notificaciones de Azure para envi
 
 > [WACOM.NOTE]Actualmente, Centros de notificaciones no admite el uso de WNS para enviar notificaciones de inserción a las aplicaciones Silverlight de Windows Phone 8.1. Debe usar MPNS para enviar notificaciones a aplicaciones Silverlight y de Windows Phone 8.0 y 7.0.
 
-Para obtener más información, consulte [Centros de notificaciones de Azure][].
+Para obtener más información, consulte [Centros de notificaciones de Azure][Centros de notificaciones de Azure].
 
 Los registros de cliente se crean al usar la función de registro de la biblioteca de clientes de Servicios móviles específica de la plataforma o al usar las API de REST de Servicios móviles. Centros de notificaciones admite dos tipos de registros de dispositivo:
 
@@ -29,7 +29,7 @@ Los registros de cliente se crean al usar la función de registro de la bibliote
     Los registros nativos se adaptan al servicio de inserción específico de la plataforma. Al enviar notificaciones a dispositivos registrados mediante registros nativos, deberá llamar a API específicas de la plataforma en el servicio móvil. Para enviar una notificación a dispositivos en varias plataformas, se requieren varias llamadas específicas de la plataforma.
 
 -   **Registro de plantilla**
-    Centros de notificaciones también admite registros de plantilla específicos de la plataforma. Al usar registros de plantillas puede emplear una llamada de la API para enviar una notificación a la aplicación que se ejecuta en cualquier plataforma registrada. Para obtener más información, consulte [Envío de notificaciones entre plataformas a los usuarios][].
+    Centros de notificaciones también admite registros de plantilla específicos de la plataforma. Al usar registros de plantillas puede emplear una llamada de la API para enviar una notificación a la aplicación que se ejecuta en cualquier plataforma registrada. Para obtener más información, consulte [Envío de notificaciones entre plataformas a los usuarios][Envío de notificaciones entre plataformas a los usuarios].
 
 > [WACOM.NOTE] Se produce un error cuando se intenta enviar un mensaje a una plataforma de dispositivos nativa para la que no existe ningún registro de dispositivo. Este error no se produce cuando se envían notificaciones de plantilla.
 
@@ -37,11 +37,11 @@ Las tablas en las siguientes secciones se vinculan a los tutoriales de cliente e
 
 ### Back-end de .NET
 
-En un servicio móvil back-end de .NET, las notificaciones se envían al llamar al método [SendAsync][] en el objeto [PushClient][] que se obtiene de la propiedad [ApiServices.Push][]. La notificación de inserción enviada (nativa o de plantilla) depende del objeto derivado de [IPushMessage][]que se pasa al método [SendAsync][], tal como se muestra en la tabla siguiente:
+En un servicio móvil back-end de .NET, las notificaciones se envían al llamar al método [SendAsync][SendAsync] en el objeto [PushClient][PushClient] que se obtiene de la propiedad [ApiServices.Push][ApiServices.Push]. La notificación de inserción enviada (nativa o de plantilla) depende del objeto derivado de [IPushMessage][IPushMessage]que se pasa al método [SendAsync][SendAsync], tal como se muestra en la tabla siguiente:
 
-| Plataforma | [APNS][]             | [GCM][]               | [WNS][]                | [MPNS][]            |
+| Plataforma | [APNS][APNS]             | [GCM][GCM]               | [WNS][WNS]                | [MPNS][MPNS]            |
 |------------|----------------------|-----------------------|------------------------|---------------------|
-| Nativa     | [ApplePushMessage][] | [GooglePushMessage][] | [WindowsPushMessage][] | [MpnsPushMessage][] |
+| Nativa     | [ApplePushMessage][ApplePushMessage] | [GooglePushMessage][GooglePushMessage] | [WindowsPushMessage][WindowsPushMessage] | [MpnsPushMessage][MpnsPushMessage] |
 
 El siguiente código envía una notificación desde un servicio back-en de .NET a todos los registros de dispositivo iOS y de la Tienda Windows:
 
@@ -61,7 +61,7 @@ El siguiente código envía una notificación desde un servicio back-en de .NET 
 
 Para obtener ejemplos de cómo enviar notificaciones de inserción a otras plataformas de cliente nativo, haga clic en los vínculos de plataforma del encabezado de la tabla anterior.
 
-Cuando usa registros de cliente de plantilla en lugar de registros de cliente nativo, puede enviar la misma notificación con una única llamada a [SendAsync][], proporcionando un objeto [TemplatePushMessage][], tal como se indica a continuación:
+Cuando usa registros de cliente de plantilla en lugar de registros de cliente nativo, puede enviar la misma notificación con una única llamada a [SendAsync][SendAsync], proporcionando un objeto [TemplatePushMessage][TemplatePushMessage], tal como se indica a continuación:
 
     // Create a new template message and add the 'message' parameter.    
     var templatePayload = new TemplatePushMessage();
@@ -72,11 +72,11 @@ Cuando usa registros de cliente de plantilla en lugar de registros de cliente na
 
 ### Back-end de JavaScript
 
-En un servicio móvil back-end de .NET, las notificaciones se envían al llamar al método **send** en el objeto en el objeto específico de la plataforma que se obtiene del [objeto de inserción][] global, tal como se indica en la tabla siguiente:
+En un servicio móvil back-end de .NET, las notificaciones se envían al llamar al método **send** en el objeto en el objeto específico de la plataforma que se obtiene del [objeto de inserción][objeto de inserción] global, tal como se indica en la tabla siguiente:
 
 | Plataforma | [APNS][1]        | [GCM][2]        | [WNS][3]        | [MPNS][4]        |
 |------------|------------------|-----------------|-----------------|------------------|
-| Nativa     | [apns, objeto][] | [gcm, objeto][] | [wns, objeto][] | [mpns, objeto][] |
+| Nativa     | [apns, objeto][apns, objeto] | [gcm, objeto][gcm, objeto] | [wns, objeto][wns, objeto] | [mpns, objeto][mpns, objeto] |
 
 El código siguiente envía notificaciones de inserción a todos los registros de Android y Windows Phone:
 
@@ -110,7 +110,7 @@ El código siguiente envía notificaciones de inserción a todos los registros d
 
 Para obtener ejemplos de cómo enviar notificaciones de inserción a otras plataformas de cliente nativo, haga clic en los vínculos de plataforma del encabezado de la tabla anterior.
 
-Cuando usa registros de cliente de plantilla en lugar de registros de cliente nativo, puede enviar la misma notificación con una única llamada a la función **send** en el [objeto de inserción][] global, proporcionando una carga de mensaje de plantilla, tal como se indica a continuación:
+Cuando usa registros de cliente de plantilla en lugar de registros de cliente nativo, puede enviar la misma notificación con una única llamada a la función **send** en el [objeto de inserción][objeto de inserción] global, proporcionando una carga de mensaje de plantilla, tal como se indica a continuación:
 
     // Create a new template message with the 'message' parameter.    
     var templatePayload = { "message": item.text };
@@ -131,51 +131,51 @@ El desarrollo de aplicaciones de dispositivo móvil nativo para todas las princi
 
 Hay herramientas multiplataforma disponibles que ofrecen una experiencia nativa más completa en un dispositivo móvil, a la vez que siguen compartiendo una única base de código, normalmente JavaScript. La solución Servicios móviles facilita la creación y administración de servicios back-end para las plataformas de desarrollo de aplicaciones multiplataforma al proporcionar tutoriales de inicio rápido para las siguientes plataformas de desarrollo:
 
--   [**Appcelerator**][]
-    Appcelerator le permite usar JavaScript para desarrollar una única aplicación que se compila para ejecutarse como nativa en todas las plataformas de dispositivos móviles. Esto proporciona una experiencia de usuario enriquecida en la interfaz de usuario, acceso a todos los recursos de dispositivo nativo y rendimiento de aplicación nativa. Para obtener más información, consulte el [tutorial de Appcelerator][].
+-   [**Appcelerator**][**Appcelerator**]
+    Appcelerator le permite usar JavaScript para desarrollar una única aplicación que se compila para ejecutarse como nativa en todas las plataformas de dispositivos móviles. Esto proporciona una experiencia de usuario enriquecida en la interfaz de usuario, acceso a todos los recursos de dispositivo nativo y rendimiento de aplicación nativa. Para obtener más información, consulte el [tutorial de Appcelerator][tutorial de Appcelerator].
 
--   [**PhoneGap**][]**/**[**Cordova**][]
-    PhoneGap (una distribución del proyecto Apache Cordova) es un marco gratuito de código abierto que le permite usar API web estandarizadas, HTML y JavaScript para desarrollar una única aplicación que se ejecute en dispositivos Android, iOS y Windows. PhoneGap ofrece una interfaz de usuario de vista web, con una experiencia de usuario mejorada mediante el acceso a los recursos nativos del dispositivo, tal como notificaciones de inserción, acelerómetro, cámara, almacenamiento, geoubicación y el explorador en aplicación. Para obtener más información, consulte el [tutorial de inicio rápido de PhoneGap][].
+-   [**PhoneGap**][**PhoneGap**]**/**[**Cordova**][**Cordova**]
+    PhoneGap (una distribución del proyecto Apache Cordova) es un marco gratuito de código abierto que le permite usar API web estandarizadas, HTML y JavaScript para desarrollar una única aplicación que se ejecute en dispositivos Android, iOS y Windows. PhoneGap ofrece una interfaz de usuario de vista web, con una experiencia de usuario mejorada mediante el acceso a los recursos nativos del dispositivo, tal como notificaciones de inserción, acelerómetro, cámara, almacenamiento, geoubicación y el explorador en aplicación. Para obtener más información, consulte el [tutorial de inicio rápido de PhoneGap][tutorial de inicio rápido de PhoneGap].
 
-    Ahora, Visual Studio también le permite crear aplicaciones Cordova multiplataforma mediante la extensión de aplicación híbrida multidispositivo para Visual Studio, un software disponible en versión preliminar. Para obtener más información, consulte [Introducción a las aplicaciones híbridas multidispositivo mediante HTML y JavaScript][].
+    Ahora, Visual Studio también le permite crear aplicaciones Cordova multiplataforma mediante la extensión de aplicación híbrida multidispositivo para Visual Studio, un software disponible en versión preliminar. Para obtener más información, consulte [Introducción a las aplicaciones híbridas multidispositivo mediante HTML y JavaScript][Introducción a las aplicaciones híbridas multidispositivo mediante HTML y JavaScript].
 
--   [**Sencha Touch**][]
-    Sencha Touch proporciona un conjunto de controles, optimizados para pantallas táctiles, que ofrecen una experiencia tipo nativa en una variedad de dispositivos móviles desde una única base de código HTML y JavaScript. Sencha Touch se puede usar con las bibliotecas de PhoneGap o Cordova para proporcionar a los usuarios acceso a los recursos de dispositivo nativos. Para obtener más información, consulte el [tutorial de inicio rápido de Sencha][].
+-   [**Sencha Touch**][**Sencha Touch**]
+    Sencha Touch proporciona un conjunto de controles, optimizados para pantallas táctiles, que ofrecen una experiencia tipo nativa en una variedad de dispositivos móviles desde una única base de código HTML y JavaScript. Sencha Touch se puede usar con las bibliotecas de PhoneGap o Cordova para proporcionar a los usuarios acceso a los recursos de dispositivo nativos. Para obtener más información, consulte el [tutorial de inicio rápido de Sencha][tutorial de inicio rápido de Sencha].
 
--   [**Xamarin**][]
-    Xamarin le permite crear aplicaciones completamente nativas para dispositivos iOS y Android, con una interfaz de usuario completamente nativa y acceso a todos los recursos de dispositivo. Las aplicaciones Xamarin se codifican en C# en lugar de Objective-C y Java. De este modo, los desarrolladores de .NET pueden publicar aplicaciones en iOS y Android, y compartir código desde los proyectos de Windows. Xamarin ofrece una experiencia de usuario completamente nativa en dispositivos iOS y Android a partir del código C#. Esto permite reutilizar parte del código de Servicios móviles desde las aplicaciones de Windows en dispositivos iOS y Android. Para obtener más información, consulte [Desarrollo de Xamarin][] a continuación.
+-   [**Xamarin**][**Xamarin**]
+    Xamarin le permite crear aplicaciones completamente nativas para dispositivos iOS y Android, con una interfaz de usuario completamente nativa y acceso a todos los recursos de dispositivo. Las aplicaciones Xamarin se codifican en C# en lugar de Objective-C y Java. De este modo, los desarrolladores de .NET pueden publicar aplicaciones en iOS y Android, y compartir código desde los proyectos de Windows. Xamarin ofrece una experiencia de usuario completamente nativa en dispositivos iOS y Android a partir del código C#. Esto permite reutilizar parte del código de Servicios móviles desde las aplicaciones de Windows en dispositivos iOS y Android. Para obtener más información, consulte [Desarrollo de Xamarin][Desarrollo de Xamarin] a continuación.
 
-    Puede crear aplicaciones Xamarin mediante Xamarin Studio o Visual Studio 2013. Para obtener más información, consulte [Desarrollo multiplataforma en Visual Studio][].
+    Puede crear aplicaciones Xamarin mediante Xamarin Studio o Visual Studio 2013. Para obtener más información, consulte [Desarrollo multiplataforma en Visual Studio][Desarrollo multiplataforma en Visual Studio].
 
 ## <span id="shared-vs"></span></a>Uso compartido y reutilización de código en proyectos de Visual Studio
 
-La solución Servicios móviles incluye una biblioteca de clientes de .NET, que es una biblioteca de clases portable de .NET Framework (PCL) que admite el desarrollo en todas las plataformas Windows. Para obtener más información, consulte [Cómo usar un cliente de .NET con Servicios móviles][]. Esto facilita la reutilización del mismo código de Servicios móviles, tal como el código para el acceso o la autenticación, en varios proyectos sw C#.
+La solución Servicios móviles incluye una biblioteca de clientes de .NET, que es una biblioteca de clases portable de .NET Framework (PCL) que admite el desarrollo en todas las plataformas Windows. Para obtener más información, consulte [Cómo usar un cliente de .NET con Servicios móviles][Cómo usar un cliente de .NET con Servicios móviles]. Esto facilita la reutilización del mismo código de Servicios móviles, tal como el código para el acceso o la autenticación, en varios proyectos sw C#.
 
-Un método general para el uso compartido y la reutilización del código C# entre proyectos es implementar el patrón modelo-vista-vista-modelo (MVVM) y compartir ensamblados entre plataformas. Puede implementar las clases de modelo de visualización y modelo en un proyecto de biblioteca de clases portable en Visual Studio y, a continuación, crear vistas que estén personalizadas para distintas plataformas. El código de modelo, común entre plataformas, puede (como ejemplo) recuperar los datos desde un origen, tal como un servicio móvil, independientemente de la plataforma. MSDN Library proporciona [información general y un ejemplo][], un análisis de las [diferencias de API][], un ejemplo del [uso de bibliotecas de clases portables para implementar el patrón MVVM][], [recomendaciones][] adicionales e información acerca de la [administración de recursos][] en proyectos de bibliotecas de clases portables.
+Un método general para el uso compartido y la reutilización del código C# entre proyectos es implementar el patrón modelo-vista-vista-modelo (MVVM) y compartir ensamblados entre plataformas. Puede implementar las clases de modelo de visualización y modelo en un proyecto de biblioteca de clases portable en Visual Studio y, a continuación, crear vistas que estén personalizadas para distintas plataformas. El código de modelo, común entre plataformas, puede (como ejemplo) recuperar los datos desde un origen, tal como un servicio móvil, independientemente de la plataforma. MSDN Library proporciona [información general y un ejemplo][información general y un ejemplo], un análisis de las [diferencias de API][diferencias de API], un ejemplo del [uso de bibliotecas de clases portables para implementar el patrón MVVM][uso de bibliotecas de clases portables para implementar el patrón MVVM], [recomendaciones][recomendaciones] adicionales e información acerca de la [administración de recursos][administración de recursos] en proyectos de bibliotecas de clases portables.
 
-Además de esta asistencia general, Visual Studio también proporciona funciones específicas para reutilizar el código de servicios móviles entre varios proyectos de aplicaciones cliente y que se describen en las secciones siguientes. Para obtener más información general sobre cómo utilizar Visual Studio 2013 para crear aplicaciones multiplataforma, consulte [Desarrollo multiplataforma en Visual Studio][].
+Además de esta asistencia general, Visual Studio también proporciona funciones específicas para reutilizar el código de servicios móviles entre varios proyectos de aplicaciones cliente y que se describen en las secciones siguientes. Para obtener más información general sobre cómo utilizar Visual Studio 2013 para crear aplicaciones multiplataforma, consulte [Desarrollo multiplataforma en Visual Studio][Desarrollo multiplataforma en Visual Studio].
 
 ### Aplicaciones universales de Windows
 
-La actualización 2 de Visual Studio 2013 agrega compatibilidad con los proyectos de aplicación universal de Windows. Las aplicaciones universales son soluciones que incluyen proyectos de aplicaciones de la Tienda Windows 8.1 y la Tienda Windows Phone 8.1, junto con un proyecto de código compartido. En este tipo de proyecto, el código compartido se trata como si fuera parte de los proyectos tanto de la Tienda Windows y como de Windows Phone. Para obtener más información, consulte [Creación de aplicaciones universales de Windows para cualquier dispositivo de Windows][]. Las aplicaciones universales de Windows pueden escribirse tanto en C#/XAML como en JavaScript/HTML.
+La actualización 2 de Visual Studio 2013 agrega compatibilidad con los proyectos de aplicación universal de Windows. Las aplicaciones universales son soluciones que incluyen proyectos de aplicaciones de la Tienda Windows 8.1 y la Tienda Windows Phone 8.1, junto con un proyecto de código compartido. En este tipo de proyecto, el código compartido se trata como si fuera parte de los proyectos tanto de la Tienda Windows y como de Windows Phone. Para obtener más información, consulte [Creación de aplicaciones universales de Windows para cualquier dispositivo de Windows][Creación de aplicaciones universales de Windows para cualquier dispositivo de Windows]. Las aplicaciones universales de Windows pueden escribirse tanto en C#/XAML como en JavaScript/HTML.
 
-De manera predeterminada, para que pueda comenzar la pestaña de inicio rápido de Servicios móviles en el [portal de administración de Azure][] genera una versión de la aplicación universal de Windows de la aplicación de ejemplo TodoList. Tiene la opción de descargar una versión C#/XAML o una versión JavaScript/HTML del proyecto. Para obtener más información, consulte [Introducción a Servicios móviles][].
+De manera predeterminada, para que pueda comenzar la pestaña de inicio rápido de Servicios móviles en el [portal de administración de Azure][portal de administración de Azure] genera una versión de la aplicación universal de Windows de la aplicación de ejemplo TodoList. Tiene la opción de descargar una versión C#/XAML o una versión JavaScript/HTML del proyecto. Para obtener más información, consulte [Introducción a Servicios móviles][Introducción a Servicios móviles].
 
-> [WACOM.NOTE] La versión en C# del proyecto de aplicación de inicio rápido disponible en el portal comparte la página de código subyacente MainPage.xaml.cs, pero no usa un modelo de vista. Para obtener un ejemplo de la aplicación TodoList como proyecto de aplicación universal de Windows en C# que usa MVVM, consulte [Proyecto de aplicación universal de Windows para Servicios móviles de Azure mediante MVVM][].
+> [WACOM.NOTE] La versión en C# del proyecto de aplicación de inicio rápido disponible en el portal comparte la página de código subyacente MainPage.xaml.cs, pero no usa un modelo de vista. Para obtener un ejemplo de la aplicación TodoList como proyecto de aplicación universal de Windows en C# que usa MVVM, consulte [Proyecto de aplicación universal de Windows para Servicios móviles de Azure mediante MVVM][Proyecto de aplicación universal de Windows para Servicios móviles de Azure mediante MVVM].
 
 ### <span id="xamarin"></span></a>Desarrollo en Xamarin
 
-Puede sacar provecho de su experiencia de desarrollo en Visual Studio y C# mediante el uso de Xamarin y Visual Studio o Xamarin Studio con el fin de desarrollar aplicaciones para iOS y Android. Xamarin usa una implementación multiplataforma de .NET Framework que le permite usar código C# para desarrollar aplicaciones iOS y Android. Al usar Xamarin, puede aprovechar el código existente de los proyectos Windows y que usa la biblioteca de clientes de .NET de Servicios móviles para acceder al servicio móvil. Para obtener más información, consulte [Desarrollo multiplataforma en Visual Studio][].
+Puede sacar provecho de su experiencia de desarrollo en Visual Studio y C# mediante el uso de Xamarin y Visual Studio o Xamarin Studio con el fin de desarrollar aplicaciones para iOS y Android. Xamarin usa una implementación multiplataforma de .NET Framework que le permite usar código C# para desarrollar aplicaciones iOS y Android. Al usar Xamarin, puede aprovechar el código existente de los proyectos Windows y que usa la biblioteca de clientes de .NET de Servicios móviles para acceder al servicio móvil. Para obtener más información, consulte [Desarrollo multiplataforma en Visual Studio][Desarrollo multiplataforma en Visual Studio].
 
-Para comenzar a crear aplicaciones Xamarin que usan Servicios móviles, consulte los tutoriales de inicio rápido de Xamarin ([iOS][] / [Android][]).
+Para comenzar a crear aplicaciones Xamarin que usan Servicios móviles, consulte los tutoriales de inicio rápido de Xamarin ([iOS][iOS] / [Android][Android]).
 
 ### Aplicaciones Silverlight de la Tienda Windows y Windows Phone
 
-En Windows Phone 8.1, tiene la opción de usar XAML anterior basado en Silverlight o XAML basado en Windows en tiempo de ejecución, que permite el desarrollo de aplicaciones universales de Windows. Para obtener más información sobre las aplicaciones Silverlight de Windows Phone 8.1 y las aplicaciones de la Tienda Windows Phone 8.1, consulte [Pasos siguientes para los desarrolladores de Windows Phone 8][].
+En Windows Phone 8.1, tiene la opción de usar XAML anterior basado en Silverlight o XAML basado en Windows en tiempo de ejecución, que permite el desarrollo de aplicaciones universales de Windows. Para obtener más información sobre las aplicaciones Silverlight de Windows Phone 8.1 y las aplicaciones de la Tienda Windows Phone 8.1, consulte [Pasos siguientes para los desarrolladores de Windows Phone 8][Pasos siguientes para los desarrolladores de Windows Phone 8].
 
 La biblioteca de clientes de .NET de Servicios móviles admite aplicaciones de la Tienda Windows Phone 8.1 y aplicaciones Silverlight de Windows Phone 8.1. Dado que no es posible crear aplicaciones de Windows en tiempo de ejecución y aplicaciones Silverlight de Windows Phone a partir del mismo proyecto, debería considerar el empleo de una estrategia de reutilización de código, tal como PCL y MVVM que se describen anteriormente.
 
-> [WACOM.NOTE] A fin de usar la autenticación de cliente de inicio de sesión único con la cuenta Microsoft en aplicaciones de Windows en tiempo de ejecución y aplicaciones Silverlight de Windows Phone, primero debe registrar la aplicación de Windows en tiempo de ejecución el panel de la Tienda Windows. Esto se debe a que una vez que crea un registro de Live Connect para Windows Phone, no puede crear uno para la Tienda Windows. Si desea obtener más información acerca de cómo hacerlo, lea el tema **Autenticación de una aplicación de la Tienda Windows con el inicio de sesión único de Live Connect** ([Tienda Windows][]/[Windows Phone][]).
+> [WACOM.NOTE] A fin de usar la autenticación de cliente de inicio de sesión único con la cuenta Microsoft en aplicaciones de Windows en tiempo de ejecución y aplicaciones Silverlight de Windows Phone, primero debe registrar la aplicación de Windows en tiempo de ejecución el panel de la Tienda Windows. Esto se debe a que una vez que crea un registro de Live Connect para Windows Phone, no puede crear uno para la Tienda Windows. Si desea obtener más información acerca de cómo hacerlo, lea el tema **Autenticación de una aplicación de la Tienda Windows con el inicio de sesión único de Live Connect** ([Tienda Windows][Tienda Windows]/[Windows Phone][Windows Phone]).
 
 <!-- URLs -->
 

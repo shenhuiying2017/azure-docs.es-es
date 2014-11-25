@@ -250,8 +250,6 @@ el tema [Colas, temas y suscripciones][Colas, temas y suscripciones] de MSDN par
   [Recepción de mensajes de una cola]: #ReceiveMessages
   [Actuación ante errores de la aplicación y mensajes que no se pueden leer]: #HandleCrashes
   [Pasos siguientes]: #NextSteps
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [extensión OpenSSL]: http://php.net/openssl
-  [get-client-libraries]: ../includes/get-client-libraries.md
   
   [Colas, temas y suscripciones]: http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx

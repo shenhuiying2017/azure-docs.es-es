@@ -1,6 +1,6 @@
-1.  Si aún no ha registrado su aplicación, vaya a la [página Enviar una aplicación][] en el Centro de desarrollo de aplicaciones de la Tienda Windows, inicie sesión en su cuenta de Microsoft y, a continuación, haga clic en **App name**.
+1.  Si aún no ha registrado su aplicación, vaya a la [página Enviar una aplicación][página Enviar una aplicación] en el Centro de desarrollo de aplicaciones de la Tienda Windows, inicie sesión en su cuenta de Microsoft y, a continuación, haga clic en **App name**.
 
-    ![][]
+    ![][0]
 
 2.  Escriba el nombre de la aplicación en **App name**, haga clic en **Reserve app name** y, a continuación, haga clic en **Save**.
 
@@ -8,7 +8,7 @@
 
     Se crea un nuevo registro de la Tienda Windows para su aplicación.
 
-3.  En Visual Studio, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles][].
+3.  En Visual Studio, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
 4.  En el Explorador de soluciones, haga clic con el botón secundario en el proyecto, haga clic en **Store** y, a continuación, haga clic en **Associate App with the Store...**.
 
@@ -44,7 +44,7 @@
 
     Esto habilita la autenticación de la cuenta Microsoft de la aplicación.
 
-11. Inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, haga clic en su aplicación.
+11. Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en su aplicación.
 
     ![][8]
 
@@ -58,12 +58,12 @@
 
 De este modo ya estará listo para usar una cuenta Microsoft para autenticarse en su aplicación.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-  []: ./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png
+  [0]: ./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png
   [1]: ./media/mobile-services-register-windows-store-app/mobile-services-win8-app-name.png
   [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
   [2]: ./media/mobile-services-register-windows-store-app/mobile-services-store-association.png

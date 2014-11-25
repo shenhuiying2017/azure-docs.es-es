@@ -103,12 +103,9 @@ En el siguiente tutorial, [Autorización de usuarios con scripts][Autorización 
 
 
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
   [Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
   [Restricción de los permisos de tabla a usuarios autenticados]: #permissions
   [Incorporación de autenticación a la aplicación]: #add-authentication
   [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-xamarin-android
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331328
   [Autorización de usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android

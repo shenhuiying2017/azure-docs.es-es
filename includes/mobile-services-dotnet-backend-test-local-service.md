@@ -4,8 +4,8 @@ El proyecto de servicio móvil descargado le permite ejecutar el nuevo servicio 
 
 2. Presione la tecla **F5** para recompilar el proyecto e iniciar el servicio móvil de manera local.
 
-    ![][]
+    ![][0]
 
 	Una vez que se inicia el servicio móvil correctamente, aparece una página web.
 
-  []: ./media/mobile-services-dotnet-backend-test-local-service/mobile-service-startup.png
+  [0]: ./media/mobile-services-dotnet-backend-test-local-service/mobile-service-startup.png

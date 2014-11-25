@@ -47,18 +47,12 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
 En el tutorial siguiente, [Autorización en el servicio de usuarios de Servicios móviles][Autorización en el servicio de usuarios de Servicios móviles], usará el valor del identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado y lo usará para filtrar los datos devueltos por Servicios móviles.
 
-<!-- Anchors. -->
-<!-- URLs. -->
 
-  [mobile-services-selector-get-started-users]: ../includes/mobile-services-selector-get-started-users.md
+
+
   [Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
   [Restricción de los permisos de tabla a usuarios autenticados]: #permissions
   [Incorporación de autenticación a la aplicación]: #add-authentication
   [Almacenamiento de tokens de autenticación en la aplicación]: #store-authentication
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started/
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-dotnet-backend-aad-server-extension]: ../includes/mobile-services-dotnet-backend-aad-server-extension.md
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
-  [mobile-services-ios-authenticate-app]: ../includes/mobile-services-ios-authenticate-app.md
-  [mobile-services-ios-authenticate-app-with-token]: ../includes/mobile-services-ios-authenticate-app-with-token.md
   [Autorización en el servicio de usuarios de Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-authorize-users-in-scripts

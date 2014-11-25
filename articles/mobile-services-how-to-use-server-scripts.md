@@ -866,8 +866,8 @@ Tenga en cuenta que se usa la cadena `%j` como marcador de posición para un obj
 
 Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas a console.log() que no sean necesarias para la producción.
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [Introducción]: #intro
   [Operaciones de tabla]: #table-scripts

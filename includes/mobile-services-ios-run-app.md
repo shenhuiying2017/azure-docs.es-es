@@ -2,7 +2,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 1.  Vaya a la ubicación donde guardó los archivos comprimidos del proyecto, expándalos en su equipo y abra el archivo de proyecto utilizando Xcode.
 
-    ![][]
+    ![][0]
 
 2.  Presione el botón **Run** para crear el proyecto e iniciar la aplicación en el emulador de iPhone, que es la solución predeterminada para este proyecto.
 
@@ -17,5 +17,5 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
     > </div>
     > </p>
 
-  []: ./media/mobile-services-ios-run-app/mobile-xcode-project.png
+  [0]: ./media/mobile-services-ios-run-app/mobile-xcode-project.png
   [1]: ./media/mobile-services-ios-run-app/mobile-quickstart-startup-ios.png

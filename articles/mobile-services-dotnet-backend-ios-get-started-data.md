@@ -124,9 +124,9 @@ Una vez que haya completado la serie de datos, pruebe con uno de estos otros tut
 
     Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [versión back-end de JavaScript]: /es-es/develop/mobile/tutorials/get-started-with-data-ios
   [Descarga del proyecto de la aplicación de iOS]: #download-app
@@ -142,11 +142,6 @@ Una vez que haya completado la serie de datos, pruebe con uno de estos otros tut
   [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F
   [aplicación GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
   [0]: ./media/mobile-services-dotnet-backend-ios-get-started-data/mobile-quickstart-startup-ios.png
-  [mobile-services-dotnet-backend-create-new-service]: ../includes/mobile-services-dotnet-backend-create-new-service.md
-  [mobile-services-ios-download-service-locally]: ../includes/mobile-services-ios-download-service-locally.md
-  [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
-  [mobile-services-ios-enable-mobile-service-access]: ../includes/mobile-services-ios-enable-mobile-service-access.md
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-dotnet-backend-ios-get-started-data/manage-sql-azure-database.png
   [2]: ./media/mobile-services-dotnet-backend-ios-get-started-data/sql-azure-query.png

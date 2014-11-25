@@ -198,8 +198,8 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
     Aprenda cómo funcionan los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas cliente.
 
 <!-- Anchors.  --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+
 
   [Generación del archivo de solicitud de firma de certificado]: #certificates
   [Registro de la aplicación y habilitación para las notificaciones de inserción]: #register
@@ -215,12 +215,6 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
   [SDK de iOS para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4,5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started
-  [Habilitación de notificaciones de inserción de Apple]: ../includes/enable-apple-push-notifications.md
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
-  [mobile-services-ios-download-service-locally]: ../includes/mobile-services-ios-download-service-locally.md
-  [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
-  [mobile-services-dotnet-backend-configure-local-push]: ../includes/mobile-services-dotnet-backend-configure-local-push.md
   [0]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push1-ios.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push2-ios.png
   [2]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png

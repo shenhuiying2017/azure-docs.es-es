@@ -449,7 +449,6 @@ Crear un sitio web en Azure es muy sencillo, especialmente porque Azure genera a
   [ConnectionInfoButton]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/button-connectioninfo.png
   [ConnectionInfoScreen]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab_connectioninfo.png
   [WebSiteConnectionStrings]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/focus-mongolab-websiteconnectionstring.png
-  [howto-provision-mongolab]: ../includes/howto-provision-mongolab.md
   [NewProject]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab-csharp-newproject.png
   [ProjectFramework]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/focus-dotNet-Framework4-mongolab.png
   [ProjectTemplate]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab-csharp-projecttemplate.png
@@ -459,8 +458,5 @@ Crear un sitio web en Azure es muy sencillo, especialmente porque Azure genera a
   [CreateSite]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/screen-mongolab-newwebsite.png
   [WebSiteDashboard]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/screen-mongolab-websitedashboard.png
   [DownloadPublishProfile]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/button-website-downloadpublishprofile.png
-  [howto-get-connectioninfo-mongolab]: ../includes/howto-get-connectioninfo-mongolab.md
-  [howto-save-connectioninfo-mongolab]: ../includes/howto-save-connectioninfo-mongolab.md
   [Publish]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/dialog-mongolab-vspublish.png
   [HelloMongoAzure]: ./media/partner-mongodb-web-sites-dotnet-use-mongolab/screen-mongolab-sampleapp.png
-  [howto-access-mongolab-ui]: ../includes/howto-access-mongolab-ui.md

@@ -1,6 +1,6 @@
 1.  Asegúrese de detener el servicio móvil si actualmente se está ejecutando en IIS Express. Haga clic con el botón secundario en el icono de bandeja de IIS Express y, a continuación, haga clic en la opción de **detener** el servicio móvil.
 
-    ![][]
+    ![][0]
 
 2.  En una ventana de símbolo del sistema, ejecute el comando **ipconfig** para buscar una dirección IP local válida para la estación de trabajo.
 
@@ -24,7 +24,7 @@
             </bindings>
         </site>
 
-5.  Abra la consola del Firewall de Windows y cree una nueva regla de puerto para permitir las conexiones al puerto. Para obtener más información acerca de cómo crear una nueva regla de puerto del Firewall de Windows, consulte [Para crear una regla de puerto en un equipo local][].
+5.  Abra la consola del Firewall de Windows y cree una nueva regla de puerto para permitir las conexiones al puerto. Para obtener más información acerca de cómo crear una nueva regla de puerto del Firewall de Windows, consulte [Para crear una regla de puerto en un equipo local][Para crear una regla de puerto en un equipo local].
 
     > [WACOM.NOTE] Si la máquina de pruebas está asociada a un dominio, es posible que las excepciones de firewall estén controladas por una directiva de dominio. En este caso, tendría que ponerse en contacto con el administrador del dominio para obtener una exención para el puerto en su máquina.
 
@@ -32,8 +32,8 @@
 
     > [WACOM.NOTE] Cuando acabe de probar el servicio localmente, debe eliminar la regla del Firewall de Windows que creó.
 
-<!-- URLs. -->
 
-  []: ./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png
+
+  [0]: ./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png
   [1]: ./media/mobile-services-how-to-configure-iis-express/ipconfig.png
   [Para crear una regla de puerto en un equipo local]: http://go.microsoft.com/fwlink/?LinkId=392240

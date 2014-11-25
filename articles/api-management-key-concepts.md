@@ -1,6 +1,6 @@
 <properties pageTitle="API Management key concepts" metaKeywords="" description="Learn about APIs, products, roles, groups, and other API Management key concepts." metaCanonical="" services="" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Conceptos clave de Administración de API
 
@@ -12,18 +12,18 @@ En este tema se proporciona información general de los conceptos clave de Admin
 
 ## En este tema
 
--   [API y operaciones][]
--   [Productos][]
--   [Grupos][]
--   [Desarrolladores][]
--   [Directivas][]
--   [Portal para desarrolladores][]
+-   [API y operaciones][API y operaciones]
+-   [Productos][Productos]
+-   [Grupos][Grupos]
+-   [Desarrolladores][Desarrolladores]
+-   [Directivas][Directivas]
+-   [Portal para desarrolladores][Portal para desarrolladores]
 
 ## <a name="apis"> </a>API y operaciones
 
 Las API son el fundamento de una instancia del servicio Administración de API. Cada API representa un conjunto de operaciones disponibles para los desarrolladores. Cada API contiene una referencia a un servicio back-end que implementa la API y sus operaciones se asignan a las operaciones implementadas por dicho servicio. Las operaciones de Administración de API son altamente configurables, con control sobre asignación de direcciones URL, parámetros de consulta y ruta de acceso, contenidos de solicitudes y respuestas y almacenamiento en caché de respuestas de operaciones. En la API o en el ámbito de operación individual, también se pueden implementar directivas de límite de tasa, cuotas y restricción de direcciones IP.
 
-Para obtener más información, vea [Creación de API][] y [Agregación de operaciones a una API][].
+Para obtener más información, vea [Creación de API][Creación de API] y [Agregación de operaciones a una API][Agregación de operaciones a una API].
 
 ## <a name="products"> </a> Productos
 
@@ -31,7 +31,7 @@ Los productos son la forma de presentar las API a los desarrolladores. Los produ
 
 Los grupos se usan para administrar la visibilidad de productos a los desarrolladores. Los productos conceden visibilidad a los grupos y los desarrolladores pueden ver los productos visibles a los grupos a los que pertenecen y suscribirse a ellos.
 
-Para obtener información, consulte [Creación y publicación de un producto][].
+Para obtener información, consulte [Creación y publicación de un producto][Creación y publicación de un producto].
 
 ## <a name="groups"> </a> Grupos
 
@@ -43,7 +43,7 @@ Los grupos se usan para administrar la visibilidad de productos a los desarrolla
 
 Además de estos grupos integrados, los administradores pueden crear grupos personalizados. Los grupos personalizados tienen los mismos privilegios que el grupo Desarrolladores integrado y se pueden usar para administrar varios grupos de desarrolladores. Por ejemplo, podría crear un grupo personalizado para desarrolladores que usarán las API de un producto y otro grupo para desarrolladores que usarán las API de otro producto.
 
-Para obtener más información, consulte [Creación y uso de grupos][].
+Para obtener más información, consulte [Creación y uso de grupos][Creación y uso de grupos].
 
 ## <a name="developers"> </a> Desarrolladores
 
@@ -51,13 +51,13 @@ Los desarrolladores representan las cuentas de usuario de una instancia del serv
 
 Cuando los desarrolladores se suscriben a un producto, se les concede la clave principal y secundaria para dicho producto. Esta clave se usa cuando se realizan llamadas en las API del producto.
 
-Para obtener más información, consulte [Creación de desarrolladores e invitación a los mismos][] y [Asociación de grupos a desarrolladores][].
+Para obtener más información, consulte [Creación de desarrolladores e invitación a los mismos][Creación de desarrolladores e invitación a los mismos] y [Asociación de grupos a desarrolladores][Asociación de grupos a desarrolladores].
 
 ## <a name="policies"> </a> Directivas
 
 Las directivas son una poderosa funcionalidad de Administración de API que permite al publicador cambiar el comportamiento de la API a través de la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Entre las declaraciones más usadas se encuentran la conversión de formato de XML a JSON y la limitación de tasa de llamadas para restringir la cantidad de llamadas entrantes de un desarrollador, pero también hay muchas otras directivas disponibles.
 
-Para obtener una lista completa de directivas de Administración de API, consulte [Referencia de directivas][]. Para obtener más información acerca del uso y configuración de directivas, consulte [Directivas de Administración de API][]. Para ver un tutorial sobre la creación de un producto con directivas del límite de tasa y cuota, consulte [Creación y definición de configuraciones de productos avanzadas][].
+Para obtener una lista completa de directivas de Administración de API, consulte [Referencia de directivas][Referencia de directivas]. Para obtener más información acerca del uso y configuración de directivas, consulte [Directivas de Administración de API][Directivas de Administración de API]. Para ver un tutorial sobre la creación de un producto con directivas del límite de tasa y cuota, consulte [Creación y definición de configuraciones de productos avanzadas][Creación y definición de configuraciones de productos avanzadas].
 
 ## <a name="developer-portal"> </a> Portal para desarrolladores
 

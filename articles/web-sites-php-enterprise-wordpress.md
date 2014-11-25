@@ -347,14 +347,6 @@ Después de crear o migrar el sitio de WordPress, use la siguiente información 
   [Tienda de Azure]: http://azure.microsoft.com/es-es/gallery/store/
   [an Azure Website, hosted in multiple regions, using CDBR High Availability router for MySQL, with Managed Cache, Blob storage, and CDN]: ./media/web-sites-enterprise-wordpress/performance-diagram.png
   [Red de entrega de contenido (CDN)]: http://azure.microsoft.com/es-es/documentation/articles/cdn-how-to-use/
-  [Complemento de WordPress para usar almacenamiento de blobs]: https://wordpress.org/plugins/windows-azure-storage/
-  [SendGrid]: http://azure.microsoft.com/es-es/gallery/store/sendgrid/sendgrid-azure/
-  [complemento de WordPress para usar SendGrid]: http://wordpress.org/plugins/sendgrid-email-delivery-simplified/
-  [Nombres de dominio personalizados con Sitios web Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-custom-domain-name/
-  [Compatibilidad con HTTPS en Sitios web Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-configure-ssl-certificate/
-  [Compatibilidad con la publicación de ensayo para Sitios web Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-staged-publishing/
-  [Registro de diagnósticos con Sitios web Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-enable-diagnostic-log/
-  [Supervisión de Sitios web Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-monitor/
   [Implementación de un sitio web de Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-deploy/
   [Copias de seguridad de Sitios web Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-backup/
   [Restauración de un sitio web de Azure]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-restore/
@@ -371,12 +363,6 @@ Después de crear o migrar el sitio de WordPress, use la siguiente información 
   [complemento Update URLs de Belvet Blues]: https://wordpress.org/plugins/velvet-blues-update-urls/
   [MySQL Workbench]: http://www.mysql.com/products/workbench/
   [script de búsqueda y reemplazo para bases de datos de WordPress]: http://interconnectit.com/124/search-and-replace-for-wordpress-databases/
-  [Introducción a WebJobs]: http://www.hanselman.com/blog/IntroducingWindowsAzureWebJobs.aspx
-  [Desactivación de la cookie ARR]: http://blogs.msdn.com/b/windowsazure/archive/2013/11/18/disabling-arr-s-instance-affinity-in-windows-azure-web-sites.aspx
-  [complemento de WordPress para caché de objetos en Redis]: https://wordpress.org/plugins/redis-object-cache/
-  [Hacer que WordPress sea más rápido con Wincache]: http://ruslany.net/2010/03/make-wordpress-faster-on-iis-with-wincache-1-1/
-  [Creación de una cuenta de almacenamiento de Azure]: http://azure.microsoft.com/es-es/documentation/articles/storage-create-storage-account/
-  [guía del usuario]: http://plugins.svn.wordpress.org/windows-azure-storage/trunk/UserGuide.docx
   []: resources
   [Optimización de WordPress]: http://codex.wordpress.org/WordPress_Optimization
   [Conversión de un sitio de WordPress en un multisitio]: http://azure.microsoft.com/es-es/documentation/articles/web-sites-php-convert-wordpress-multisite/

@@ -239,7 +239,7 @@ En los pasos siguientes se muestra cómo implementar el control de acceso basado
 
 [WACOM.INCLUDE [mobile-services-aad-rbac-test-app](../includes/mobile-services-aad-rbac-test-app.md)]
 
-<!-- Anchors. --> <!-- Images --> <!-- URLs. -->
+ <!-- Images --> 
 
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
@@ -249,12 +249,9 @@ En los pasos siguientes se muestra cómo implementar el control de acceso basado
   [Adición de comprobación del acceso basado en rol a las operaciones de base de datos]: #add-access-checking
   [Prueba del acceso del cliente]: #test-client
   [Almacenamiento de scripts de servidor]: /es-es/documentation/articles/mobile-services-store-scripts-source-control/
-  [mobile-services-aad-rbac-create-sales-group]: ../includes/mobile-services-aad-rbac-create-sales-group.md
   [Registro para usar un inicio de sesión de Azure Active Directory]: /es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [referencia de errores de la API Graph]: http://msdn.microsoft.com/es-es/library/azure/hh974480.aspx
   [IsMemberOf]: http://msdn.microsoft.com/es-es/library/azure/dn151601.aspx
   [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/table-perms.png
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/insert-table-op-view.png
-  [mobile-services-aad-rbac-test-app]: ../includes/mobile-services-aad-rbac-test-app.md

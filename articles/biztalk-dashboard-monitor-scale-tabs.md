@@ -1,6 +1,6 @@
 <properties linkid="manage-services-biztalk-services-dashboard-monitor-scale-tabs" urlDisplayName="Dashboard, Monitor, Scale, Configure and Hybrid Connections tabs" pageTitle="Dashboard, Monitor, and Scale in BizTalk Services | Azure" metaKeywords="BizTalk Services, Azure, dashboard, monitor, scale, wabs, mabs" description="Learn about the controls on the Management Portal tabs for BizTalk Services: Dashboard, Monitor, and Scale." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Monitor and Scale tabs" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia"></tags>
+<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 
 # Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas
 
@@ -348,12 +348,7 @@ Ahora que ya se ha familiarizado con las diferentes pestañas, puede obtener má
   [GrayedMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
   [EnabledMetric]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
 
-  [centro de aprendizaje]: http://azure.microsoft.com/es-es/documentation/services/biztalk-services/
-  [Configuración de los componentes para la mensajería EDI en el portal de los servicios de BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=303653
-  [Administración del espacio de nombres del ACS]: http://go.microsoft.com/fwlink/p/?LinkID=285670
 
-  [crear el servicio de BizTalk]: http://go.microsoft.com/fwlink/p/?LinkID=302280
-  [Servicios de BizTalk: Gráfico del estado de servicio]: http://go.microsoft.com/fwlink/p/?LinkID=329870
   [Seleccionar métricas adicionales]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_AddMetrics.png
   [La métrica Uso de CPU está en gris]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_GrayedMetric.png
   [La métrica Uso de CPU está habilitada]: ./media/biztalk-dashboard-monitor-scale-tabs/WABS_EnabledMetric.png
@@ -361,7 +356,6 @@ Ahora que ya se ha familiarizado con las diferentes pestañas, puede obtener má
   [Servicios de BizTalk: Copia de seguridad y restauración]: http://go.microsoft.com/fwlink/p/?LinkID=329873
   [Conexión híbrida: Conexión de un stio web de Azure a un recurso local]: http://go.microsoft.com/fwlink/p/?LinkId=397538
   [Servicios móviles de Azure y conexiones híbridas]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started
-  [2]: http://go.microsoft.com/fwlink/p/?LinkID=397274
   [Servicios de BizTalk: Limitaciones]: http://go.microsoft.com/fwlink/p/?LinkID=302282
   [Servicios de BizTalk: Nombre de emisor y clave de emisor]: http://go.microsoft.com/fwlink/p/?LinkID=303941
   [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?]: http://go.microsoft.com/fwlink/p/?LinkID=302335

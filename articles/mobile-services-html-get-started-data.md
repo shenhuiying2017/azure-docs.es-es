@@ -223,11 +223,10 @@ Este tutorial muestra los aspectos básicos de la habilitación de una aplicaci�
 
 Una vez que haya completado la serie de datos y aprendido a autenticar a los usuarios de su aplicación, pruebe uno de estos otros tutoriales al finalizar [Introducción a la autenticación][Introducción a la autenticación].
 
-<!-- Anchors. -->
-<!-- Images. --> 
-<!-- URLs. -->
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
+ 
+
+
   [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-html
   [Descarga del proyecto de la aplicación HTML]: #download-app
   [Creación del servicio móvil]: #create-service
@@ -236,7 +235,6 @@ Una vez que haya completado la serie de datos y aprendido a autenticar a los usu
   [Prueba de la aplicación en Servicios móviles]: #test-app
   [aplicación GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkID=286345
   [0]: ./media/mobile-services-html-get-started-data/mobile-quickstart-startup-html.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/mobile-services-html-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/mobile-services-html-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/mobile-services-html-get-started-data/mobile-services-set-cors-localhost.png

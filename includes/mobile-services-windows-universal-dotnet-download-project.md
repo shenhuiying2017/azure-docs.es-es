@@ -10,7 +10,7 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices][aplicaci�
 
 4.  En la aplicación, escriba algún texto en **Insert a TodoItem** y, a continuación, haga clic en **Save**.
 
-    ![][]
+    ![][0]
 
     Se muestra el texto guardado.
 
@@ -21,5 +21,5 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices][aplicaci�
 6.  Repita los pasos 3 y 4 para comprobar que la muestra se comporta del mismo modo.
 
   [aplicación GetStartedWithMobileServices]: http://go.microsoft.com/fwlink/p/?LinkID=510826
-  []: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
+  [0]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup.png
   [1]: ./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png

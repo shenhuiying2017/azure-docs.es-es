@@ -1,6 +1,6 @@
 <properties linkid="Install-Config-Windows-Azure-PowerShell" urlDisplayName="Azure PowerShell" pageTitle="How to install and configure Azure PowerShell" description="Learn how to install and configure Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="tysonn" manager="stevenka" documentationCenter="" services="" solutions="" authors="stevenka" title="How to install and configure Azure PowerShell" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka;juneb"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="powershell" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="stevenka;juneb" />
 
 # Instalación y configuración de Azure PowerShell
 
@@ -8,18 +8,18 @@
 
 Puede utilizar Windows PowerShell para realizar diversas tareas en Azure, tanto de manera interactiva en un símbolo del sistema como de manera automática mediante scripts. Azure PowerShell es un módulo que ofrece cmdlets para administrar Azure mediante Windows PowerShell. Puede utilizar los cmdlets para crear, probar, implementar y administrar soluciones y servicios ofrecidos a través de la plataforma de Azure. En la mayoría de los casos, puede utilizar los cmdlets para realizar las mismas tareas que se realizan a través del Portal de administración de Azure. Por ejemplo, puede crear y configurar servicios en la nube, máquinas virtuales, redes virtuales y sitios web.
 
-El módulo se distribuye en forma de archivo descargable y el código fuente se administra a través de un repositorio disponible públicamente. En las instrucciones de instalación que aparecen más adelante en este tema, se proporciona un enlace a los archivos descargables. Para obtener información acerca del código fuente, consulte [Azure PowerShell code repository][].
+El módulo se distribuye en forma de archivo descargable y el código fuente se administra a través de un repositorio disponible públicamente. En las instrucciones de instalación que aparecen más adelante en este tema, se proporciona un enlace a los archivos descargables. Para obtener información acerca del código fuente, consulte [Azure PowerShell code repository][Azure PowerShell code repository].
 
 Esta guía ofrece información básica acerca de la instalación y la configuración de Azure PowerShell para administrar la plataforma de Azure.
 
 ## Tabla de contenido
 
--   [Requisitos previos para utilizar Azure PowerShell][]
--   [Direccionamiento del Azure PowerShell][]
--   [Direccionamiento del su suscripción][]
--   [Ejemplo de uso de los cmdlets][]
--   [Ayuda][]
--   [Recursos adicionales][]
+-   [Requisitos previos para utilizar Azure PowerShell][Requisitos previos para utilizar Azure PowerShell]
+-   [Direccionamiento del Azure PowerShell][Direccionamiento del Azure PowerShell]
+-   [Direccionamiento del su suscripción][Direccionamiento del su suscripción]
+-   [Ejemplo de uso de los cmdlets][Ejemplo de uso de los cmdlets]
+-   [Ayuda][Ayuda]
+-   [Recursos adicionales][Recursos adicionales]
 
 ### <span id="Prereq"></span></a>Requisitos previos para utilizar Azure PowerShell
 
@@ -31,9 +31,9 @@ Al instalar el módulo, el instalador comprueba si el sistema contiene el softwa
 
 ## <span id="Install"></span></a>Direccionamiento del Azure PowerShell
 
-Puede descargar e instalar los módulos de Azure PowerShell ejecutando el [instalador de plataforma web de Microsoft][]. Cuando aparezca la opción, haga clic en **Run**. El instalador de plataforma web instala los módulos de Azure PowerShell y todas las dependencias. Siga las indicaciones para finalizar la instalación.
+Puede descargar e instalar los módulos de Azure PowerShell ejecutando el [instalador de plataforma web de Microsoft][instalador de plataforma web de Microsoft]. Cuando aparezca la opción, haga clic en **Run**. El instalador de plataforma web instala los módulos de Azure PowerShell y todas las dependencias. Siga las indicaciones para finalizar la instalación.
 
-Para obtener más información acerca de las herramientas de línea de comandos disponibles para Azure, consulte [Herramientas de línea de comandos][].
+Para obtener más información acerca de las herramientas de línea de comandos disponibles para Azure, consulte [Herramientas de línea de comandos][Herramientas de línea de comandos].
 
 Al instalar el módulo también se instala una consola personalizada para Azure PowerShell. Puede ejecutar los cmdlets desde la consola estándar de Windows PowerShell o desde la consola de Azure PowerShell.
 
@@ -45,7 +45,7 @@ El método que debe seguir para abrir cualquiera de estas consolas depende de la
 
 ## <span id="Connect"></span></a>Direccionamiento del su suscripción
 
-Para utilizar Azure es necesaria una suscripción. Si no la tiene, consulte [Introducción a Azure][].
+Para utilizar Azure es necesaria una suscripción. Si no la tiene, consulte [Introducción a Azure][Introducción a Azure].
 
 Los cmdlets necesitan la suscripción para que puedan administrar los servicios. Hay dos maneras de proporcionar a Windows PowerShell la información de su suscripción. Puede descargar y usar un certificado de administración que contenga dicha información, o bien iniciar sesión en Azure con su cuenta de Microsoft o una cuenta de la organización. Al iniciar sesión, Azure Active Directory (Azure AD) autentica las credenciales y devuelve un token de acceso que permite a Azure PowerShell administrar su cuenta.
 
@@ -54,7 +54,7 @@ Para elegir el método de autenticación más adecuado a sus necesidades, tenga 
 -   Azure AD es el método de autenticación recomendado, ya que facilita la administración del acceso a una suscripción. Con la versión 0.8.6 actualizada, permite el escenario de automatización con la autenticación de Azure AD, así como si se usa la cuenta profesional. Además, funciona con la API de Administrador de recursos de Azure.
 -   Si utiliza el método del certificado, la información de suscripción está disponible mientras la suscripción y el certificado son válidos. Sin embargo, este método dificulta la administración del acceso a las suscripciones compartidas, es decir, aquellas en las que hay más de una persona autorizada para obtener acceso a la cuenta. Adicionalmente, la API de Administrador de recursos de Azure no acepta la autenticación mediante certificados.
 
-Para obtener más información acerca de la administración de la autenticación y la suscripción en Azure, consulte [Administrar cuentas, suscripciones y roles administrativos][].
+Para obtener más información acerca de la administración de la autenticación y la suscripción en Azure, consulte [Administrar cuentas, suscripciones y roles administrativos][Administrar cuentas, suscripciones y roles administrativos].
 
 ### Uso del método de Azure AD
 
@@ -82,7 +82,7 @@ Para obtener más información acerca de la administración de la autenticación
 
     > [WACOM.NOTE] Este método de inicio de sesión no interactivo solo funciona con la cuentas profesionales. Una cuenta profesional es un usuario administrado por su organización y definido en su inquilino de Azure Active Directory de la organización. Si actualmente no tiene una cuenta profesional y usa una cuenta Microsoft para iniciar sesión en su suscripción de Azure, puede crear una fácilmente siguiendo los pasos que se indican a continuación.
     >
-    > 1.  Inicie sesión en el [Portal de administración de Azure][] y haga clic en **Active Directory**.
+    > 1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure] y haga clic en **Active Directory**.
     >
     > 2.  Si no hay ningún directorio, seleccione **Create your directory** y proporcione la información que se le pida.
     >
@@ -94,7 +94,7 @@ Para obtener más información acerca de la administración de la autenticación
     >
     > 5.  Finalmente, cierre sesión en el portal de Azure y, a continuación, vuelva a iniciarla usando la nueva cuenta profesional. Si es la primera vez que inicia sesión con esta cuenta, se le pedirá que cambie la contraseña.
     >
-    > Para obtener más información acerca de la cuenta profesional con Microsoft Azure, consulte [Inicio de sesión como organización en Microsoft Azure][].
+    > Para obtener más información acerca de la cuenta profesional con Microsoft Azure, consulte [Inicio de sesión como organización en Microsoft Azure][Inicio de sesión como organización en Microsoft Azure].
 
 ### Uso del método del certificado
 
@@ -142,7 +142,7 @@ acerca de sus suscripciones, puede obtenerla del <a href="http://manage.windowsa
 > [WACOM.NOTE] Si se le agrega a otras suscripciones como coadministrador tras importar la configuración de publicación, deberá repetir este
 > proceso para descargar un nuevo archivo .publishsettings y, a continuación, importar esa
 > configuración. Si desea obtener información acerca de cómo agregar coadministradores para ayudar a administrar los
-> servicios para una suscripción, consulte [Agregar y quitar coadministradores en las suscripciones de Azure][].
+> servicios para una suscripción, consulte [Agregar y quitar coadministradores en las suscripciones de Azure][Agregar y quitar coadministradores en las suscripciones de Azure].
 
 ### Visualización de los detalles de las cuentas y las suscripciones
 
@@ -244,29 +244,27 @@ Estos recursos ofrecen ayuda para cmdlets concretos:
     </tbody>
     </table>
 
--   En la biblioteca de Azure existe información de referencia acerca de los cmdlets de los módulos de Azure PowerShell. Para obtener información, consulte [Referencia de cmdlets de Azure][].
+-   En la biblioteca de Azure existe información de referencia acerca de los cmdlets de los módulos de Azure PowerShell. Para obtener información, consulte [Referencia de cmdlets de Azure][Referencia de cmdlets de Azure].
 
 Para obtener ayuda de la comunidad, utilice estos foros populares:
 
--   [Foro de Azure en MSDN (en inglés)][]
--   [Stackoverflow][]
+-   [Foro de Azure en MSDN (en inglés)][Foro de Azure en MSDN (en inglés)]
+-   [Stackoverflow][Stackoverflow]
 
 ## <span id="Resources"></span></a>Recursos adicionales
 
 A continuación, se indican algunos de los recursos que puede utilizar para aprender a utilizar Azure y Windows PowerShell.
 
--   Para enviar sus comentarios acerca de los cmdlets, informar de errores u obtener acceso al código fuente, consulte [Azure PowerShell code repository][].
+-   Para enviar sus comentarios acerca de los cmdlets, informar de errores u obtener acceso al código fuente, consulte [Azure PowerShell code repository][Azure PowerShell code repository].
 
--   Para obtener información acerca del entorno de línea de comandos y scripts de Windows PowerShell, consulte el [Centro de scripts de TechNet][].
+-   Para obtener información acerca del entorno de línea de comandos y scripts de Windows PowerShell, consulte el [Centro de scripts de TechNet][Centro de scripts de TechNet].
 
--   Para obtener información acerca de la instalación, aprendizaje, uso y personalización de Windows PowerShell, consulte [Windows PowerShell][].
+-   Para obtener información acerca de la instalación, aprendizaje, uso y personalización de Windows PowerShell, consulte [Windows PowerShell][Windows PowerShell].
 
--   Para obtener información acerca de qué son los scripts y cómo se ejecutan en Windows PowerShell, consulte [Compatibilidad con la creación de scripts][]. Este artículo incluye información básica acerca de la creación de scripts y la configuración del equipo para ejecutar scripts.
+-   Para obtener información acerca de qué son los scripts y cómo se ejecutan en Windows PowerShell, consulte [Compatibilidad con la creación de scripts][Compatibilidad con la creación de scripts]. Este artículo incluye información básica acerca de la creación de scripts y la configuración del equipo para ejecutar scripts.
 
--   Para obtener información acerca de los cmdlets de Azure AD, consulte [Administrar Azure AD mediante Windows PowerShell][].
+-   Para obtener información acerca de los cmdlets de Azure AD, consulte [Administrar Azure AD mediante Windows PowerShell][Administrar Azure AD mediante Windows PowerShell].
 
-  [PowerShell]: /es-es/manage/install-and-configure-windows-powershell/ "PowerShell"
-  [CLI entre plataformas]: /es-es/manage/install-and-configure-cli/ "CLI entre plataformas"
   [Azure PowerShell code repository]: https://github.com/WindowsAzure/azure-sdk-tools
   [Requisitos previos para utilizar Azure PowerShell]: #Prereq
   [Direccionamiento del Azure PowerShell]: #Install
@@ -280,9 +278,6 @@ A continuación, se indican algunos de los recursos que puede utilizar para apre
   [Administrar cuentas, suscripciones y roles administrativos]: http://go.microsoft.com/fwlink/?LinkId=324796
   [Portal de administración de Azure]: https://manage.windowsazure.com
   [Inicio de sesión como organización en Microsoft Azure]: http://azure.microsoft.com/es-es/documentation/articles/sign-up-organization/
-  [Cmdlets del administrador de recursos de Azure]: http://go.microsoft.com/fwlink/?LinkID=394765
-  [1]: http://manage.windowsazure.com/
-  [Portal del cliente de Microsoft Online Services (en inglés)]: http://go.microsoft.com/fwlink/p/?LinkId=324875
   [2]: http://manage.windowsazure.com
   [Agregar y quitar coadministradores en las suscripciones de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg456328.aspx
   [Referencia de cmdlets de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554330.aspx

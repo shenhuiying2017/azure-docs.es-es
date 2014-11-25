@@ -10,10 +10,9 @@ En este tema se muestra cómo habilitar una aplicación iOS para notificaciones 
 
 Ahora ya puede usar este certificado .p12 para habilitar servicios para que se puedan autenticar en APNS y enviar notificaciones de inserción en nombre de la aplicación.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
-  [Habilitación de notificaciones de inserción de Apple]: ../includes/enable-apple-push-notifications.md

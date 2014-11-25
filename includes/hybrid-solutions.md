@@ -4,18 +4,18 @@ Si el software se ejecuta en la nube o de manera local, tiene que interactuar a 
 
 ## Tabla de contenido
 
--   [Elementos fundamentales del bus de servicio][]
--   [Colas][]
--   [Temas][]
--   [Relés][]
+-   [Elementos fundamentales del bus de servicio][Elementos fundamentales del bus de servicio]
+-   [Colas][Colas]
+-   [Temas][Temas]
+-   [Relés][Relés]
 
 ## <a name="fundamentals"></a>Elementos fundamentales del bus de servicio
 
 Las distintas situaciones requieren distintos estilos de comunicación. A veces, permitir a las aplicaciones enviar y recibir mensajes mediante una simple cola es la mejor solución. En otras situaciones, una cola ordinaria no es suficiente y es mejor una cola con un mecanismo de publicación y suscripción. En otros casos, lo realmente necesario es una conexión entre las aplicaciones y no se requieren colas. El bus de servicio ofrece las tres opciones, por lo que sus aplicaciones pueden interactuar de varias maneras diferentes.
 
-El bus de servicio es un servicio en la nube multiinquilino, lo que significa que varios usuarios comparten el servicio. Cada usuario, como un desarrollador de aplicaciones, crea un *espacio de nombres* y, a continuación, define los mecanismos de comunicación que necesita dentro de ese espacio de nombres. La [ilustración 1][] muestra su apariencia.
+El bus de servicio es un servicio en la nube multiinquilino, lo que significa que varios usuarios comparten el servicio. Cada usuario, como un desarrollador de aplicaciones, crea un *espacio de nombres* y, a continuación, define los mecanismos de comunicación que necesita dentro de ese espacio de nombres. La [ilustración 1][ilustración 1] muestra su apariencia.
 
-<a name="Fig1"></a>![Diagrama del bus de servicio de Azure][]
+<a name="Fig1"></a>![Diagrama del bus de servicio de Azure][Diagrama del bus de servicio de Azure]
 
 **Ilustración 1: El bus de servicio proporciona un servicio multiinquilino para conectar aplicaciones a través de la nube.**
 
@@ -33,13 +33,13 @@ Es importante comprender que aunque el bus de servicio se ejecute en la nube (es
 
 ## <a name="queues"></a>Colas
 
-Supongamos que decide conectar dos aplicaciones con una cola de bus de servicio. La [ilustración 2][] muestra esa situación.
+Supongamos que decide conectar dos aplicaciones con una cola de bus de servicio. La [ilustración 2][ilustración 2] muestra esa situación.
 
-<a name="Fig2"></a>![Diagrama de las colas del bus de servicio][]
+<a name="Fig2"></a>![Diagrama de las colas del bus de servicio][Diagrama de las colas del bus de servicio]
 
 **Ilustración 2: Las colas del bus de servicio proporcionan una cola asincrónica unidireccional.**
 
-El proceso es simple: un usuario envía un mensaje a la cola del bus de servicio y un receptor recoge ese mensaje más tarde. Es posible que una cola tenga único receptor, como se muestra en la [ilustración 2][], o bien que varias aplicaciones puedan leer desde la misma cola. En esa última situación, los mensajes los lee normalmente solo un receptor; las colas no proporcionan un servicio multidifusión.
+El proceso es simple: un usuario envía un mensaje a la cola del bus de servicio y un receptor recoge ese mensaje más tarde. Es posible que una cola tenga único receptor, como se muestra en la [ilustración 2][ilustración 2], o bien que varias aplicaciones puedan leer desde la misma cola. En esa última situación, los mensajes los lee normalmente solo un receptor; las colas no proporcionan un servicio multidifusión.
 
 Cada mensaje dispone de dos partes: un conjunto de propiedades, cada una con un par clave-valor, y un cuerpo de mensaje binario. La forma en la que se usen depende de las tareas que intente realizar la aplicación. Por ejemplo, una aplicación que envía un mensaje sobre una venta reciente podría incluir las propiedades *Vendedor="Ava"* y *Cantidad=10.000*. El cuerpo del mensaje puede contener una imagen escaneada del contrato firmado de la venta o, si no la hubiera, puede aparecer vacío.
 
@@ -57,13 +57,13 @@ Las colas son útiles en determinadas situaciones. Permiten a las aplicaciones c
 
 ## <a name="topics"></a>Temas
 
-Aunque son útiles, las colas no siempre son la solución adecuada. A veces, los temas de bus de servicio son mejores. La [ilustración 3][] muestra esa perspectiva.
+Aunque son útiles, las colas no siempre son la solución adecuada. A veces, los temas de bus de servicio son mejores. La [ilustración 3][ilustración 3] muestra esa perspectiva.
 
-<a name="Fig3"></a>![Diagrama de las suscripciones y temas del bus de servicio][]
+<a name="Fig3"></a>![Diagrama de las suscripciones y temas del bus de servicio][Diagrama de las suscripciones y temas del bus de servicio]
 
 **Ilustración 3: Según el filtro que especifica una aplicación de suscripción, puede recibir algunos mensajes, o todos, enviados a un tema del bus de servicio.**
 
-Un tema es similar en muchos aspectos a una cola. Los remitentes envían mensajes a un tema de la misma forma en la que envían mensajes a una cola, y esos mensajes tienen la misma apariencia que las colas. La gran diferencia es que los temas permiten a cada aplicación de recepción crear su propia suscripción mediante la definición de un *filtro*. El suscriptor verá, por lo tanto, solo los mensajes que coincidan con ese filtro. Por ejemplo, la [ilustración 3][] muestra un remitente y un tema con tres suscriptores, cada uno con su propio filtro:
+Un tema es similar en muchos aspectos a una cola. Los remitentes envían mensajes a un tema de la misma forma en la que envían mensajes a una cola, y esos mensajes tienen la misma apariencia que las colas. La gran diferencia es que los temas permiten a cada aplicación de recepción crear su propia suscripción mediante la definición de un *filtro*. El suscriptor verá, por lo tanto, solo los mensajes que coincidan con ese filtro. Por ejemplo, la [ilustración 3][ilustración 3] muestra un remitente y un tema con tres suscriptores, cada uno con su propio filtro:
 
 -   El suscriptor 1 recibe solo mensajes que contienen la propiedad *Vendedor="Ava"*.
 -   El suscriptor 2 recibe mensajes que contienen la propiedad *Vendedor="Ruby"* o contienen una propiedad *Cantidad* cuyo valor es superior a 100.000. Quizás Ruby es la directora de ventas y por eso quiere ver sus propias ventas y todas las grandes ventas independientemente de quien las haya realizado.
@@ -73,9 +73,9 @@ Como ocurre con las colas, los suscriptores a un tema pueden leer los mensajes u
 
 ## <a name="relays"></a>Relés
 
-Tanto las colas como los temas proporcionan una comunicación asincrónica unidireccional a través de un agente. El tráfico fluye en una única dirección y no existe una conexión directa entre los remitentes y los receptores. Sin embargo, ¿qué ocurre si no es eso lo que quiere? Supongamos que sus aplicaciones necesitan enviar y recibir, o que quizás quiere un vínculo directo entre ellas y no dispone de sitio para almacenar los mensajes entre las dos. Para solucionar problemas como este, el bus de servicio proporciona relés, como se muestra en la [ilustración 4][].
+Tanto las colas como los temas proporcionan una comunicación asincrónica unidireccional a través de un agente. El tráfico fluye en una única dirección y no existe una conexión directa entre los remitentes y los receptores. Sin embargo, ¿qué ocurre si no es eso lo que quiere? Supongamos que sus aplicaciones necesitan enviar y recibir, o que quizás quiere un vínculo directo entre ellas y no dispone de sitio para almacenar los mensajes entre las dos. Para solucionar problemas como este, el bus de servicio proporciona relés, como se muestra en la [ilustración 4][ilustración 4].
 
-<a name="Fig4"></a>![Diagrama del relé del bus de servicio][]
+<a name="Fig4"></a>![Diagrama del relé del bus de servicio][Diagrama del relé del bus de servicio]
 
 **Ilustración 4: El relé del bus de servicio proporciona una comunicación sincrónica bidireccional entre aplicaciones.**
 

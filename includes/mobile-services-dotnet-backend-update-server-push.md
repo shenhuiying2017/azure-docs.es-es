@@ -27,7 +27,7 @@
 
     Este código envía una notificación de inserción (con el texto del elemento insertado) tras insertar un elemento todo. En caso de error, el código agregará una entrada al registro de errores que aparecerá en la pestaña **Registros** del servicio móvil en el Portal de administración.
 
-    > [WACOM.NOTE] Puede usar las notificaciones de plantilla para enviar una sola notificación de inserción a los clientes en varias plataformas. Para obtener más información, consulte [Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil][].
+    > [WACOM.NOTE] Puede usar las notificaciones de plantilla para enviar una sola notificación de inserción a los clientes en varias plataformas. Para obtener más información, consulte [Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil][Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil].
 
 2.  Vuelva a publicar el proyecto de servicio móvil en Azure.
 

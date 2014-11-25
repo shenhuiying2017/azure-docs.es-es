@@ -1,21 +1,21 @@
 <properties linkid="develop-net-common-tasks-diagnostics-logging-and-instrumentation" urlDisplayName="Enable diagnostic logging" pageTitle="Enable diagnostic logging - Azure Websites" metaKeywords="Azure diagnostics web sites, Azure Management Portal diagnostics, Azure diagnostics, web site diagnostics, web site debug" description="Learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Enable diagnostic logging for Azure Websites" authors="larryfr" solutions="" manager="" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Habilitación del registro de diagnóstico para Sitios web Azure
 
 Azure integra diagnósticos para ayudar a depurar una aplicación hospedada en Sitios web Azure. En este artículo se ofrece información acerca de cómo habilitar el registro de diagnósticos, agregar instrumentación a la aplicación y obtener acceso a la información registrada por Azure.
 
-> [WACOM.NOTE] En este artículo se describe el uso del Portal de administración de Azure, Azure PowerShell y la interfaz de la línea de comandos entre plataformas de Azure para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Sitios web Azure en Visual Studio][].
+> [WACOM.NOTE] En este artículo se describe el uso del Portal de administración de Azure, Azure PowerShell y la interfaz de la línea de comandos entre plataformas de Azure para trabajar con registros de diagnóstico. Para obtener información acerca de cómo trabajar con registros de diagnóstico mediante Visual Studio, consulte [Solución de problemas de Sitios web Azure en Visual Studio][Solución de problemas de Sitios web Azure en Visual Studio].
 
 ## Tabla de contenido
 
--   [¿Qué son los diagnósticos de sitios web?][]
--   [Direccionamiento del de diagnósticos][]
--   [Direccionamiento del registros][]
+-   [¿Qué son los diagnósticos de sitios web?][¿Qué son los diagnósticos de sitios web?]
+-   [Direccionamiento del de diagnósticos][Direccionamiento del de diagnósticos]
+-   [Direccionamiento del registros][Direccionamiento del registros]
 -   [Direccionamiento del registros][1]
--   [Direccionamiento del de los registros de diagnóstico][]
--   [Pasos siguientes][]
+-   [Direccionamiento del de los registros de diagnóstico][Direccionamiento del de los registros de diagnóstico]
+-   [Pasos siguientes][Pasos siguientes]
 
 <a name="whatisdiag"></a>
 
@@ -30,11 +30,11 @@ Los diagnósticos del sitio le permiten habilitar o deshabilitar lo siguiente:
 
 -   **Detailed Error Logging**: Registra información detallada de errores para códigos de estado HTTP que indican un problema (código de estado 400 o superior). Puede contener información que puede ayudar a determinar por qué el servidor ha devuelto el código de error.
 -   **Failed Request Tracing**: Registra información detallada acerca de las solicitudes con error, incluido un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente. Esto puede resultar útil si trata de aumentar el rendimiento del sitio o de aislar lo que causa la devolución de un error HTTP específico.
--   **Web Server Logging**: Registra todas las transacciones HTTP de un sitio web con el [formato de archivo de registro extendido W3C (en inglés)][]. Este informe resulta útil para determinar las métricas totales del sitio, como el número de solicitudes tramitadas o cuántas solicitudes proceden de una dirección IP específica.
+-   **Web Server Logging**: Registra todas las transacciones HTTP de un sitio web con el [formato de archivo de registro extendido W3C (en inglés)][formato de archivo de registro extendido W3C (en inglés)]. Este informe resulta útil para determinar las métricas totales del sitio, como el número de solicitudes tramitadas o cuántas solicitudes proceden de una dirección IP específica.
 
 ### Diagnósticos de aplicaciones
 
-El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace][] para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo:
+El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace][System.Diagnostics.Trace] para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -51,13 +51,13 @@ Sitios web Azure también registra información de implementación al publicar u
 ## Reproducción de de diagnósticos
 
 </p>
-Los diagnósticos se pueden habilitar en la página **Configure** del sitio web de Azure en el [Portal de administración de Azure][]. En la página **Configure**, use las secciones **Diagnóstico de aplicaciones** y **Site Diagnostics** para habilitar el registro.
+Los diagnósticos se pueden habilitar en la página **Configure** del sitio web de Azure en el [Portal de administración de Azure][Portal de administración de Azure]. En la página **Configure**, use las secciones **Diagnóstico de aplicaciones** y **Site Diagnostics** para habilitar el registro.
 
 Si habilita **Diagnóstico de aplicaciones**, también debe seleccionar el nivel de registro en **logging level** y si desea habilitar el registro para **file system**, **table storage** o **blob storage**. Si bien las tres ubicaciones de almacenamiento ofrecen la misma información básica de los eventos registrados, **table storage** y **blob storage** registran información adicional como el identificador de instancia, el identificador de subproceso y una marca de tiempo más pormenorizada (formato de marca de graduación) que el registro en **file system**.
 
 Si habilita **site diagnostics**, debe seleccionar **storage** o **file system** para **web server logging**. Si selecciona **storage**, tiene la opción de seleccionar una cuenta de almacenamiento y, a continuación, un contenedor de blob en el que se escribirán los registros. Todos los demás registros de **site diagnostics** se escriben solo en el sistema de archivos.
 
-> [WACOM.NOTE] Solo se puede obtener acceso a la información almacenada en **table storage** o **blob storage** mediante un cliente de almacenamiento o una aplicación que puedan funcionar directamente con estos sistemas de almacenamiento. Por ejemplo, Visual Studio 2013 contiene un Explorador de almacenamiento que se puede usar para explorar el almacenamiento de tabla o de blobs y HDInsight puede obtener acceso a los datos almacenados en el almacenamiento de blobs. También puede escribir una aplicación que obtiene acceso al servicio Almacenamiento de Azure mediante alguno de los [SDK de Azure][].
+> [WACOM.NOTE] Solo se puede obtener acceso a la información almacenada en **table storage** o **blob storage** mediante un cliente de almacenamiento o una aplicación que puedan funcionar directamente con estos sistemas de almacenamiento. Por ejemplo, Visual Studio 2013 contiene un Explorador de almacenamiento que se puede usar para explorar el almacenamiento de tabla o de blobs y HDInsight puede obtener acceso a los datos almacenados en el almacenamiento de blobs. También puede escribir una aplicación que obtiene acceso al servicio Almacenamiento de Azure mediante alguno de los [SDK de Azure][SDK de Azure].
 
 A continuación se indica la configuración disponible al habilitar **Diagnóstico de aplicaciones**:
 
@@ -69,7 +69,7 @@ A continuación se indica la configuración disponible al habilitar **Diagnósti
 
 > [WACOM.NOTE] Al mismo tiempo se puede habilitar cualquier combinación de sistema de archivos, almacenamiento de tabla o almacenamiento de blobs, y estas opciones tiene configuraciones individuales del nivel de registro. Por ejemplo, puede registrar errores y advertencias en el almacenamiento de blobs como una solución de registro a largo plazo, mientras habilita el registro en el sistema de archivos con un nivel detallado.
 
-> [WACOM.NOTE] El diagnóstico también se puede habilitar desde Azure PowerShell mediante el cmdlet **Set-AzureWebsite**. Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell][].
+> [WACOM.NOTE] El diagnóstico también se puede habilitar desde Azure PowerShell mediante el cmdlet **Set-AzureWebsite**. Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell][Uso de Azure PowerShell].
 
 <a name="download"></a>
 
@@ -86,7 +86,7 @@ La estructura de directorios en que se almacenan los registros es la siguiente:
 
 -   **Registros detallados de errores**: /LogFiles/DetailedErrors/. Esta carpeta contiene uno o varios archivos .htm con información amplia de todos los errores HTTP que se han producido.
 
--   **Registros de servidor web**: /LogFiles/http/RawLogs. Esta carpeta contiene uno o varios archivos de texto a los que se le aplica el [formato de archivo de registro extendido W3C (en inglés)][].
+-   **Registros de servidor web**: /LogFiles/http/RawLogs. Esta carpeta contiene uno o varios archivos de texto a los que se le aplica el [formato de archivo de registro extendido W3C (en inglés)][formato de archivo de registro extendido W3C (en inglés)].
 
 -   **Registros de implementaciones**: /LogFiles/Git. Esta carpeta contiene registros generados por los procesos de implementación internos usados por los sitios web de Azure, además de los registros de las implementaciones Git.
 
@@ -104,7 +104,7 @@ Para descargar los archivos de registro, inicie una nueva instancia de Azure Pow
 
 Este comando guardará los registros del sitio web especificados mediante el parámetro **-Name** en un archivo con nombre **logs.zip** en el directorio actual.
 
-> [WACOM.NOTE] Si no tiene instalado Azure PowerShell o lo ha configurado para usar la suscripción de Azure, consulte [Uso de Azure PowerShell][].
+> [WACOM.NOTE] Si no tiene instalado Azure PowerShell o lo ha configurado para usar la suscripción de Azure, consulte [Uso de Azure PowerShell][Uso de Azure PowerShell].
 
 ### Descarga con las herramientas de línea de comandos de Azure
 
@@ -114,7 +114,7 @@ Para descargar los archivos de registro mediante las herramientas de línea de c
 
 Este comando guardará los registros en el sitio web denominado "nombre del sitio web" en un archivo con nombre **diagnostics.zip** en el directorio actual.
 
-> [WACOM.NOTE] Si no tiene instaladas las herramientas de línea de comandos de Azure o las ha configurado para que usen la suscripción de Azure, consulte [Uso de las herramientas de línea de comandos de Azure][].
+> [WACOM.NOTE] Si no tiene instaladas las herramientas de línea de comandos de Azure o las ha configurado para que usen la suscripción de Azure, consulte [Uso de las herramientas de línea de comandos de Azure][Uso de las herramientas de línea de comandos de Azure].
 
 <a name="streamlogs"></a>
 
@@ -145,7 +145,7 @@ Para filtrar tipos de registros específicos, como HTTP, use el parámetro **-Pa
 
 Para ver una lista de rutas de acceso disponibles, use el parámetro -ListPath.
 
-> [WACOM.NOTE] Si no tiene instalado Azure PowerShell o lo ha configurado para usar la suscripción de Azure, consulte [Uso de Azure PowerShell][].
+> [WACOM.NOTE] Si no tiene instalado Azure PowerShell o lo ha configurado para usar la suscripción de Azure, consulte [Uso de Azure PowerShell][Uso de Azure PowerShell].
 
 ### Transmisión con las herramientas de línea de comandos de Azure
 
@@ -163,7 +163,7 @@ Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--P
 
     azure site log tail websitename --path http
 
-> [WACOM.NOTE] Si no tiene instaladas las herramientas de línea de comandos de Azure o las ha configurado para que usen la suscripción de Azure, consulte [Uso de las herramientas de línea de comandos de Azure][].
+> [WACOM.NOTE] Si no tiene instaladas las herramientas de línea de comandos de Azure o las ha configurado para que usen la suscripción de Azure, consulte [Uso de las herramientas de línea de comandos de Azure][Uso de las herramientas de línea de comandos de Azure].
 
 <a name="understandlogs"></a>
 
@@ -343,7 +343,7 @@ Los datos almacenados en un blob serían similares a los siguientes:
 
 El seguimiento de solicitudes con error se almacena en archivos XML con nombre **fr\#\#\#\#\#\#.xml**. Para facilitar la visualización de la información registrada, se facilita una hoja de estilo XSL con nombre **freb.xsl** en el mismo directorio que los archivos XML. Al abrir uno de los archivos XML en Internet Explorer, se usará la hoja de estilo XSL para ofrecer una visualización con formato de la información de seguimiento. El formato será similar al siguiente:
 
-![solicitud con error visualizada en el explorador][]
+![solicitud con error visualizada en el explorador][solicitud con error visualizada en el explorador]
 
 ### Registros de error detallados
 
@@ -351,7 +351,7 @@ Los registros de error detallados son documentos HTML que ofrecen información m
 
 ### Registros del servidor web
 
-A los registros del servidor web se les aplica el [formato de archivo de registro extendido W3C (en inglés)][]. Esta información se puede leer con un editor de texto o analizarse con utilidades como el [analizador del registro (en inglés)][].
+A los registros del servidor web se les aplica el [formato de archivo de registro extendido W3C (en inglés)][formato de archivo de registro extendido W3C (en inglés)]. Esta información se puede leer con un editor de texto o analizarse con utilidades como el [analizador del registro (en inglés)][analizador del registro (en inglés)].
 
 > [WACOM.NOTE] Los registros generados por sitios web de Azure no admiten los campos **s-computername**, **s-ip** o **cs-version**.
 
@@ -360,10 +360,10 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 ## Pasos siguientes
 
 </p>
--   [Supervisión de sitios web][]
--   [Tutorial - Solución de problemas de sitios web][]
--   [Solución de problemas de Sitios web Azure en Visual Studio][]
--   [Análisis de registros de sitios web en HDInsight][]
+-   [Supervisión de sitios web][Supervisión de sitios web]
+-   [Tutorial - Solución de problemas de sitios web][Tutorial - Solución de problemas de sitios web]
+-   [Solución de problemas de Sitios web Azure en Visual Studio][Solución de problemas de Sitios web Azure en Visual Studio]
+-   [Análisis de registros de sitios web en HDInsight][Análisis de registros de sitios web en HDInsight]
 
   [Solución de problemas de Sitios web Azure en Visual Studio]: /es-es/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
   [¿Qué son los diagnósticos de sitios web?]: #whatisdiag

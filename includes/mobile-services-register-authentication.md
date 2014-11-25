@@ -1,8 +1,8 @@
 Para poder autenticar usuarios, debe registrar la aplicación con un proveedor de identidades. A continuación, debe registrar el secreto de cliente generado por el proveedor con Servicios móviles.
 
-1.  Inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
 
-    ![][]
+    ![][0]
 
 2.  Haga clic en la pestaña **Panel** y anote el valor de **Mobile Service URL**.
 
@@ -12,11 +12,11 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
 
 3.  Seleccione un proveedor de identidades compatible en la lista siguiente y siga los pasos para registrar la aplicación con ese proveedor:
 
--   [Cuenta Microsoft][]
--   [Inicio de sesión en Facebook][]
--   [Inicio de sesión en Twitter][]
--   [Inicio de sesión en Google][]
--   [Azure Active Directory][]
+-   [Cuenta Microsoft][Cuenta Microsoft]
+-   [Inicio de sesión en Facebook][Inicio de sesión en Facebook]
+-   [Inicio de sesión en Twitter][Inicio de sesión en Twitter]
+-   [Inicio de sesión en Google][Inicio de sesión en Google]
+-   [Azure Active Directory][Azure Active Directory]
 
     Recuerde anotar los valores secretos y la identidad del cliente que genera el proveedor.
 
@@ -30,10 +30,10 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
 
     El servicio móvil y la aplicación están ahora configurados para que funcionen con el proveedor de autenticación seleccionado.
 
-<!-- URLs. -->
+
 
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  []: ./media/mobile-services-register-authentication/mobile-services-selection.png
+  [0]: ./media/mobile-services-register-authentication/mobile-services-selection.png
   [1]: ./media/mobile-services-register-authentication/mobile-service-uri.png
   [Cuenta Microsoft]: /es-es/documentation/articles/mobile-services-how-to-register-microsoft-authentication/
   [Inicio de sesión en Facebook]: /es-es/documentation/articles/mobile-services-how-to-register-facebook-authentication/

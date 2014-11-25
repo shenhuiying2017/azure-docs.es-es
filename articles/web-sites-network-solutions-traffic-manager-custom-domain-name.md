@@ -64,22 +64,15 @@ Para asociar el domino personalizado a un sitio web de Azure, debe agregar una n
 
 ## <a name="enabledomain"></a>Habilitación del Administrador de tráfico para el sitio web
 
-[WACOM.INCLUDE [modes][2]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
   [Network Solutions]: /es-es/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [1]: https://www.networksolutions.com
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Descripción de los registros DNS]: #understanding-records
   [Configuración de los sitios web para el modo estándar]: #bkmk_configsharedmode
   [Incorporación de un registro DNS para el dominio personalizado]: #bkmk_configurecname
   [Habilitación del Administrador de tráfico para el sitio web]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [Página de edición de DNS]: ./media/web-sites-custom-domain-name/ns-editdns.png
   [Página de nombres de dominio con edición de registros DNS avanzados resaltada]: ./media/web-sites-custom-domain-name/ns-editadvanced.png
   [Página de actualización de DNS avanzada]: ./media/web-sites-custom-domain-name/ns-updatecnameadvanced.png
   [Formulario CNAME]: ./media/web-sites-custom-domain-name/ns-cnametm.png
-  [2]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

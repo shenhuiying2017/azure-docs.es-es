@@ -175,11 +175,10 @@ Considere la posibilidad de profundizar más en los siguientes temas sobre Servi
 -   [Referencia conceptual de Servicios móviles con .NET][Referencia conceptual de Servicios móviles con .NET]
     Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
+
+
+
   [Actualización de la aplicación para registrarse a fin de recibir notificaciones]: #update-app
   [Actualización del servidor para enviar notificaciones de inserción]: #update-server
   [Habilitación de notificaciones de inserción para pruebas locales]: #local-testing
@@ -192,7 +191,6 @@ Considere la posibilidad de profundizar más en los siguientes temas sobre Servi
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-push-tab.png
   [Setting up an authenticated web service to send push notifications for Windows Phone]: http://msdn.microsoft.com/es-es/library/windowsphone/develop/ff941099(v=vs.105).aspx
-  [mobile-services-dotnet-backend-configure-local-push]: ../includes/mobile-services-dotnet-backend-configure-local-push.md
   [2]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push3-wp8.png
   [3]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-push/mobile-quickstart-push5-wp8.png
   [ShellToastNotificationReceived]: http://msdn.microsoft.com/library/windowsphone/develop/microsoft.phone.notification.httpnotificationchannel.shelltoastnotificationreceived.aspx

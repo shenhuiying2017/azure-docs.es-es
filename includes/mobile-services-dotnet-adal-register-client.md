@@ -1,6 +1,6 @@
 ## <a name="register-app-aad"></a>Registro de su aplicación cliente en Azure Active Directory
 
-1.  Diríjase a **Active Directory** en el [Portal de administración de Azure][] y haga clic en el directorio.
+1.  Diríjase a **Active Directory** en el [Portal de administración de Azure][Portal de administración de Azure] y haga clic en el directorio.
 
 	![][ ]
 

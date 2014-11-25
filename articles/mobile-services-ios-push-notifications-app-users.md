@@ -218,9 +218,9 @@ Este es el último tutorial que muestra los aspectos básicos relacionados con e
     
 	Obtenga más información acerca del registro y uso de scripts de servidor.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [tutorial de notificaciones de inserción anterior]: /es-es/develop/mobile/tutorials/get-started-with-push-ios
   [Creación de la tabla Devices]: #create-table

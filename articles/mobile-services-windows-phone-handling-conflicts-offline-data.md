@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-handle-conflcits-offline-data-dotnet" urlDisplayName="Handle Conflicts with Offline Data" pageTitle="Handle Conflicts with offline data in Mobile Services (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services handle conflicts when syncing offline data in your Windows phone application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling conflicts with offline data in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
 
 # Control de conflictos con la sincronización de datos sin conexión en Servicios móviles
 
@@ -11,29 +11,29 @@
 
 En este tema se explica cómo sincronizar los datos y controlar conflictos cuando se usan las capacidades sin conexión de Servicios móviles de Azure. En este tutorial, descargará una aplicación que admite datos sin conexión y con conexión, integrará el servicio móvil con la aplicación y, a continuación, iniciará sesión en el Portal de administración de Azure para ver y actualizar la base de datos cuando ejecute la aplicación.
 
-Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos sin conexión][]. Antes de comenzar este tutorial, primero debe completar [Introducción a los datos sin conexión][].
+Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos sin conexión][Introducción a los datos sin conexión]. Antes de comenzar este tutorial, primero debe completar [Introducción a los datos sin conexión][Introducción a los datos sin conexión].
 
 Este tutorial le guiará a través de estos pasos básicos:
 
-1.  [Descarga del proyecto de Windows Phone][]
-2.  [Incorporación de una columna de fecha de vencimiento para la base de datos][]
-  * [Actualización de la base de datos para servicios móviles back-end de .NET][]
-  * [Actualización de la base de datos para servicios móviles con JavaScript][]
-1.  [Prueba de la aplicación en un servicio móvil][]
-2.  [Actualización manual de los datos en el back-end para crear un conflicto][]
+1.  [Descarga del proyecto de Windows Phone][Descarga del proyecto de Windows Phone]
+2.  [Incorporación de una columna de fecha de vencimiento para la base de datos][Incorporación de una columna de fecha de vencimiento para la base de datos]
+  * [Actualización de la base de datos para servicios móviles back-end de .NET][Actualización de la base de datos para servicios móviles back-end de .NET]
+  * [Actualización de la base de datos para servicios móviles con JavaScript][Actualización de la base de datos para servicios móviles con JavaScript]
+1.  [Prueba de la aplicación en un servicio móvil][Prueba de la aplicación en un servicio móvil]
+2.  [Actualización manual de los datos en el back-end para crear un conflicto][Actualización manual de los datos en el back-end para crear un conflicto]
 
-Este tutorial requiere Visual Studio 2012 y el [SDK de Windows Phone 8][].
+Este tutorial requiere Visual Studio 2012 y el [SDK de Windows Phone 8][SDK de Windows Phone 8].
 
 ## <a name="download-app"></a>Descarga del proyecto de ejemplo
 
-Este tutorial se basa en el [código de ejemplo de control de conflictos][], que es un proyecto de Windows Phone 8 para Visual Studio 2012.
-La interfaz de usuario de esta aplicación es similar a la de la aplicación del tutorial [Introducción a los datos sin conexión][], salvo por el hecho de que hay una columna de fecha nueva para cada elemento TodoItem.
+Este tutorial se basa en el [código de ejemplo de control de conflictos][código de ejemplo de control de conflictos], que es un proyecto de Windows Phone 8 para Visual Studio 2012.
+La interfaz de usuario de esta aplicación es similar a la de la aplicación del tutorial [Introducción a los datos sin conexión][Introducción a los datos sin conexión], salvo por el hecho de que hay una columna de fecha nueva para cada elemento TodoItem.
 
-![][]
+![][0]
 
-1.  Descargue la versión para Windows Phone del [código de ejemplo de control de conflictos][].
+1.  Descargue la versión para Windows Phone del [código de ejemplo de control de conflictos][código de ejemplo de control de conflictos].
 
-2.  Instale [SQLite para Windows Phone 8][] si no se ha instalado.
+2.  Instale [SQLite para Windows Phone 8][SQLite para Windows Phone 8] si no se ha instalado.
 
 3.  En Visual Studio 2012, abra el proyecto descargado. Agregue una referencia a **SQLite para Windows Phone** en **Windows Phone** \> **Extensiones**.
 
@@ -71,7 +71,7 @@ Si usa el back-end de .NET para el servicio móvil, siga estos pasos para actual
 
     En el archivo WebApiConfig.cs, observe que la clase del inicializador de base de datos predeterminado procede de la clase `DropCreateDatabaseIfModelChanges` . Esto significa que cualquier cambio en el modelo tendrá como resultado la anulación y la recreación de la tabla para adaptarse al modelo nuevo. De esta manera, los datos de la tabla se pierden y la tabla se reinicializa. Modifique el método Seed del inicializador de base de datos para que la inicialización de `Seed()` funcione como sigue para inicializar la nueva columna DueDate. Guarde el archivo WebApiConfig.cs.
 
-    > [WACOM.NOTE] Al usar el inicializador de base de datos predeterminado, Entity Framework eliminará la base de datos y la volverá a crear siempre que detecte un cambio del modelo de datos en la definición del modelo de Code First. Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe utilizar Migraciones de Code First. Para obtener más información, consulte [Uso de Migraciones de Code First para actualizar el modelo de datos][].
+    > [WACOM.NOTE] Al usar el inicializador de base de datos predeterminado, Entity Framework eliminará la base de datos y la volverá a crear siempre que detecte un cambio del modelo de datos en la definición del modelo de Code First. Para realizar este cambio en el modelo de datos y mantener los datos existentes en la base de datos, debe utilizar Migraciones de Code First. Para obtener más información, consulte [Uso de Migraciones de Code First para actualizar el modelo de datos][Uso de Migraciones de Code First para actualizar el modelo de datos].
 
         new TodoItem { Id = "1", Text = "First item", Complete = false, DueDate = DateTime.Today },
         new TodoItem { Id = "2", Text = "Second item", Complete = false, DueDate = DateTime.Today },
@@ -86,7 +86,7 @@ Si usa el back-end de .NET para el servicio móvil, siga estos pasos para actual
 
 Para los servicios móviles back-end de JavaScript, agregará una nueva tabla llamada **TodoWithDate**. Para agregar la tabla **TodoWithDate** para los servicios móviles back-end de JavaScript, siga estos pasos.
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  Vaya a la pestaña **Data** del servicio móvil.
 
@@ -109,9 +109,9 @@ Ahora es el momento de probar la aplicación en los servicios móviles.
 
 4.  Como hiciera anteriormente, escriba texto en el cuadro de texto y luego haga clic en **Guardar** para guardar algunos de los nuevos elementos todo. De esta forma, los datos se guardan en la tabla de sincronización local, pero no en el servidor.
 
-    ![][]
+    ![][0]
 
-5.  Para ver el estado actual de la base de datos, inicie sesión en el [Portal de administración de Azure][], haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
+5.  Para ver el estado actual de la base de datos, inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
 
   * Si usa el back-end de JavaScript para el servicio móvil, haga clic en la pestaña **Data** y, a continuación, haga clic en la tabla **TodoWithDate**. Haga clic en **Examinar** para ver si la tabla aún está vacía, ya que no hemos insertado los cambios de la aplicación en el servidor.
 
@@ -190,12 +190,10 @@ Esto detendrá la operación de inserción actual, pero mantendrá todos los cam
 
 Cuando se cancele una inserción, `PushAsync` producirá una excepción `MobileServicePushFailedException`, y la propiedad de excepción `PushResult.Status` tendrá el valor `MobileServicePushStatus.CancelledByOperation`.
 
-<!-- Anchors. -->
+
 <!-- Images -->
 <!-- URLs -->
 
-  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-handling-conflicts-offline-data "C# para Tienda Windows"
-  [Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-handling-conflicts-offline-data "Windows Phone"
   [Introducción a los datos sin conexión]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-offline-data
   [Descarga del proyecto de Windows Phone]: #download-app
   [Incorporación de una columna de fecha de vencimiento para la base de datos]: #add-column
@@ -205,7 +203,7 @@ Cuando se cancele una inserción, `PushAsync` producirá una excepción `MobileS
   [Actualización manual de los datos en el back-end para crear un conflicto]: #handle-conflict
   [SDK de Windows Phone 8]: http://go.microsoft.com/fwlink/p/?linkid=268374
   [código de ejemplo de control de conflictos]: http://go.microsoft.com/fwlink/?LinkId=398257
-  []: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
+  [0]: ./media/mobile-services-windows-phone-handling-conflicts-offline-data/mobile-services-handling-conflicts-app-run1.png
   [SQLite para Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
   [Uso de Migraciones de Code First para actualizar el modelo de datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations
   [Portal de administración de Azure]: https://manage.windowsazure.com/

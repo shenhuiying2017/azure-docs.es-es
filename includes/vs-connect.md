@@ -11,6 +11,6 @@
     <div class="dev-callout"><strong>Nota de seguridad:</strong><br /> <p>Descargue el archivo de suscripci&oacute;n en una carpeta ajena a los directorios de c&oacute;digo fuente (por ejemplo, en la carpeta Descargas) y elim&iacute;nelo una vez que finalice la importaci&oacute;n. Si un usuario malintencionado obtuviera acceso al archivo de suscripci&oacute;n, podr&iacute;a editar, crear y eliminar servicios de Azure.</p></div>
 
 
-    Para obtener más información, consulte [Administrar cuentas, suscripciones y roles administrativos][].
+    Para obtener más información, consulte [Administrar cuentas, suscripciones y roles administrativos][Administrar cuentas, suscripciones y roles administrativos].
 
   [Administrar cuentas, suscripciones y roles administrativos]: http://go.microsoft.com/fwlink/?LinkId=324796

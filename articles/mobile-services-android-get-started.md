@@ -108,13 +108,11 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 -   [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción]
     Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
+
+
+
   [0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
   [1]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
   [2]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android.png
   [3]: ./media/mobile-services-android-get-started/mobile-services-import-android-workspace.png

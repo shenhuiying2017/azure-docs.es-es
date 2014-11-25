@@ -334,8 +334,6 @@ el tema [Colas, temas y suscripciones][Colas, temas y suscripciones] de MSDN par
   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer]: #HandleCrashes
   [Direccionamiento del de temas y suscripciones]: #DeleteTopicsAndSubscriptions
   [Pasos siguientes]: #NextSteps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [extensión OpenSSL]: http://php.net/openssl
-  [get-client-libraries]: ../includes/get-client-libraries.md
   [SqlExpression Propiedad]: http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Colas, temas y suscripciones]: http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx

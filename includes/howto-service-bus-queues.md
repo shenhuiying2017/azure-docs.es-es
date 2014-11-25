@@ -16,7 +16,7 @@ reciben y procesan los mensajes en el orden en el que se
 agregaron a la cola y solo un destinatario del mensaje recibe y procesa
 cada uno de los mensajes.
 
-![QueueConcepts][]
+![QueueConcepts][QueueConcepts]
 
 Las colas del Bus de servicio son una tecnología de uso general que puede utilizarse
 en una variedad de escenarios:
@@ -43,13 +43,13 @@ con un ámbito para el desvío de recursos del Bus de servicio en la aplicación
 
 Para crear un nombre de espacio de servicio:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  En el panel de navegación izquierdo del Portal de administración, haga clic en
     **Bus de servicio**.
 
 3.  En el panel inferior del Portal de administración, haga clic en **Crear**.
-    ![][]
+    ![][0]
 
 4.  En el cuadro de diálogo **Agregar un nuevo espacio de nombres**, especifique un nombre de espacio de nombres.
     El sistema realiza la comprobación de inmediato para ver si el nombre está disponible.
@@ -98,7 +98,7 @@ el espacio de nombres. Puede obtener estas credenciales en el Portal de administ
 
 ### Para obtener las credenciales de administración desde el Explorador de servidores
 
-Para obtener la información de conexión utilizando Visual Studio en vez del Portal de administración, siga el procedimiento descrito [aquí][], en la sección titulada **Para conectar a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Microsoft Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombre que ya haya creado. Haga clic con el botón secundario en cualquier espacio de nombre, a continuación haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio.
+Para obtener la información de conexión utilizando Visual Studio en vez del Portal de administración, siga el procedimiento descrito [aquí][aquí], en la sección titulada **Para conectar a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Microsoft Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombre que ya haya creado. Haga clic con el botón secundario en cualquier espacio de nombre, a continuación haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio.
 
 Anote el valor de **SharedAccessKey**, o cópielo en el Portapapeles:
 
@@ -106,11 +106,11 @@ Anote el valor de **SharedAccessKey**, o cópielo en el Portapapeles:
 
   [QueueConcepts]: ./media/howto-service-bus-queues/sb-queues-08.png
   [Portal de administración de Azure]: http://manage.windowsazure.com
-  []: ./media/howto-service-bus-queues/sb-queues-03.png
+  [0]: ./media/howto-service-bus-queues/sb-queues-03.png
   [1]: ./media/howto-service-bus-queues/sb-queues-04.png
   [2]: ./media/howto-service-bus-queues/getting-started-multi-tier-27.png
   [3]: ./media/howto-service-bus-queues/sb-queues-13.png
   [4]: ./media/howto-service-bus-queues/sb-queues-09.png
   [5]: ./media/howto-service-bus-queues/sb-queues-06.png
-  [aquí]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [aquí]: http://http://msdn.microsoft.com/es-es/library/windowsazure/ff687127.aspx
   [6]: ./media/howto-service-bus-queues/VSProperties.png

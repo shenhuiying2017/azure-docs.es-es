@@ -807,5 +807,5 @@ Pasos siguientes
 Ahora que está familiarizado con los aspectos básicos de la administración de Base de datos SQL, siga estos vínculos para obtener más información acerca de cómo realizar tareas administrativas más complejas.
 
 -   Consulte [Base de datos SQL](http://msdn.microsoft.com/es-es/library/windowsazure/gg619386) en MSDN.
--   Visite la [wiki de TechNet de Base de datos SQL](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-en-us.aspx) (en inglés).
+-   Visite la [wiki de TechNet de Base de datos SQL](http://social.technet.microsoft.com/wiki/contents/articles/2267.sql-azure-technet-wiki-articles-index-es-es.aspx) (en inglés).
 

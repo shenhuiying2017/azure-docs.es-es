@@ -10,15 +10,15 @@ modelo de aplicación de los servicios hospedados de Azure.<span id="compare"></
 
 ## Tabla de contenido<span id="_GoBack"></span></a>
 
--   [Beneficios del modelo de aplicación de Azure][]
--   [Conceptos básicos de los servicios hospedados][]
--   [Consideraciones acerca del diseño de servicios hospedados][]
--   [Diseño de aplicaciones para escala][]
--   [Definición y configuración de servicios hospedados][]
--   [Archivo de definición de servicio][]
--   [Archivo de configuración de servicio][]
--   [Creación e implementación de servicios hospedados][]
--   [Referencias][]
+-   [Beneficios del modelo de aplicación de Azure][Beneficios del modelo de aplicación de Azure]
+-   [Conceptos básicos de los servicios hospedados][Conceptos básicos de los servicios hospedados]
+-   [Consideraciones acerca del diseño de servicios hospedados][Consideraciones acerca del diseño de servicios hospedados]
+-   [Diseño de aplicaciones para escala][Diseño de aplicaciones para escala]
+-   [Definición y configuración de servicios hospedados][Definición y configuración de servicios hospedados]
+-   [Archivo de definición de servicio][Archivo de definición de servicio]
+-   [Archivo de configuración de servicio][Archivo de configuración de servicio]
+-   [Creación e implementación de servicios hospedados][Creación e implementación de servicios hospedados]
+-   [Referencias][Referencias]
 
 ## <span id="benefits"></span> </a>Beneficios del modelo de aplicación de Azure
 
@@ -82,7 +82,7 @@ roles e instancias de rol.
 
 ##### Ilustración 1: Un único rol con tres instancias (VM) que se ejecutan en un centro de datos de Azure
 
-![imagen][]
+![imagen][imagen]
 
 ##### Ilustración 2: Dos roles, cada uno de ellos con dos instancias (máquinas virtuales), que se ejecutan en un centro de datos de Azure
 
@@ -108,7 +108,7 @@ URL. Normalmente, la URL
 *prefijo*.cloudapp.net de Azure no se distribuye ni se publica. En su lugar, se compra un nombre DNS
 al registrador de DNS que desee y se configura para que redireccione las
 solicitudes de cliente a la URL de Azure. Para obtener más información, consulte
-[Configuración de un nombre de dominio personalizado en Azure][].
+[Configuración de un nombre de dominio personalizado en Azure][Configuración de un nombre de dominio personalizado en Azure].
 
 ## <span id="considerations"></span> </a>Consideraciones acerca del diseño de servicios hospedados
 
@@ -139,7 +139,7 @@ Para lograr una alta disponibilidad y escalabilidad, es muy importante que
 los datos de la aplicación se guarden en un repositorio central al que pueden tener acceso
 varias instancias de rol. Para ayudarle, Azure ofrece
 varias opciones de almacenamiento como blobs, tablas y Base de datos SQL. Para obtener más información acerca de estas tecnologías de almacenamiento, vea
-el artículo [Ofertas para el almacenamiento de datos en Azure][]
+el artículo [Ofertas para el almacenamiento de datos en Azure][Ofertas para el almacenamiento de datos en Azure]
 . En la ilustración siguiente se
 muestra la forma en que el equilibrador de carga del centro de datos de Azure distribuye las solicitudes de
 cliente a diferentes instancias de rol
@@ -231,7 +231,7 @@ instancias.
 Como ya se ha mencionado, el archivo de definición de servicio (CSDEF) es un archivo
 XML que describe los distintos roles que conforman toda la
 aplicación. Aquí se puede encontrar el esquema completo del archivo XML:
-[<http://msdn.microsoft.com/es-es/library/windowsazure/ee758711.aspx>][].
+[<http://msdn.microsoft.com/es-es/library/windowsazure/ee758711.aspx>][<http://msdn.microsoft.com/es-es/library/windowsazure/ee758711.aspx>].
 El archivo CSDEF contiene un elemento WebRole o WorkerRole
 para cada rol que desee en su aplicación. La implementación de un rol como rol de trabajo (mediante
 el elemento WorkerRole) significa que la instancia de rol tendrá
@@ -263,7 +263,7 @@ en la actualidad y los atributos de cada uno de ellos:
 Se cobra por horas cada VM que se usa como instancia de rol y también
 se cobran todos los datos que las instancias de rol envían fuera del
 centro de datos. No se cobra por los datos que entran en el centro de datos. Para obtener
-más información, vea [Precios de Azure][]. En general, se
+más información, vea [Precios de Azure][Precios de Azure]. En general, se
 aconseja utilizar muchas instancias de rol pequeñas, en lugar de pocas
 instancias grandes, con lo que la aplicación será más resistente ante errores. Después de
 todo, cuantas menos instancias de rol tenga, más perjudicial resulta un error en
@@ -278,7 +278,8 @@ más útiles que tiene a su disposición:
 -   **Certificados**. Los certificados se usan para cifrar datos o si
     un servicio web admite SSL. Todos los certificados tienen que cargarse en
     Azure. Para obtener más información, vea [Administrar certificados
-     en Azure][]. Esta configuración de XML instala
+     en Azure][Administrar certificados
+     en Azure]. Esta configuración de XML instala
     certificados cargados previamente en el almacén de certificados de la instancia de rol para
     que el código de aplicación pueda usarlos.
 
@@ -309,7 +310,7 @@ más útiles que tiene a su disposición:
 
 -   **Almacenamiento local**. Asigna un subdirectorio de la
     instancia de rol para que lo use su aplicación. Se describe con mayor detalle
-    en el artículo [Ofertas para el almacenamiento de datos en Azure][].
+    en el artículo [Ofertas para el almacenamiento de datos en Azure][Ofertas para el almacenamiento de datos en Azure].
 
 -   **Tareas de inicio**. Las tareas de inicio le proporcionan una forma de instalar los
     componentes necesarios en una instancia de rol cuando se arranca. Si se requiere, las tareas
@@ -339,7 +340,8 @@ CSCFG:
     describe en esta página web:
     [][5]<http://msdn.microsoft.com/es-es/library/hh560567.aspx></a>. Para más
     información sobre las versiones del SO invitado, consulte [Administrar las actualizaciones del
-    SO invitado de Azure][].
+    SO invitado de Azure][Administrar las actualizaciones del
+    SO invitado de Azure].
 
 -   **Instancias**. El valor de este elemento indica el número de instancias de
     rol que desea que se aprovisionen ejecutando el código para un rol
@@ -359,7 +361,7 @@ CSCFG:
 
 ## <span id="hostedservices"></span> </a>Creación e implementación de servicios hospedados
 
-La creación de un servicio hospedado requiere que, en primer lugar, vaya al [Portal de administración de Azure][] y aprovisione un servicio hospedado mediante la especificación de
+La creación de un servicio hospedado requiere que, en primer lugar, vaya al [Portal de administración de Azure][Portal de administración de Azure] y aprovisione un servicio hospedado mediante la especificación de
 un prefijo de DNS y el centro de datos en el que desea que se
 ejecute el código. A continuación, en su entorno de desarrollo, cree el archivo de
 definición de servicio (CSDEF), compile su código de aplicación y empaquete (comprima)
@@ -382,18 +384,18 @@ instancias del rol 2.
 ![imagen][6]
 
 Para obtener más información acerca de cómo implementar, actualizar y volver a configurar
-roles, consulte el artículo [Implementación y actualización de aplicaciones de Azure][]
+roles, consulte el artículo [Implementación y actualización de aplicaciones de Azure][Implementación y actualización de aplicaciones de Azure]
 .<span id="Ref"></span></a>
 
 ## <span id="references"></span> </a>Referencias
 
--   [Creating a Hosted Service for Azure][]
+-   [Creating a Hosted Service for Azure][Creating a Hosted Service for Azure]
 
--   [Managing Hosted Services in Azure][]
+-   [Managing Hosted Services in Azure][Managing Hosted Services in Azure]
 
--   [Migrating Applications to Azure][]
+-   [Migrating Applications to Azure][Migrating Applications to Azure]
 
--   [Configurar un proyecto de Azure][]
+-   [Configurar un proyecto de Azure][Configurar un proyecto de Azure]
 
 <div style="width: 700px; border-top: solid; margin-top: 5px; padding-top: 5px; border-top-width: 1px;">
 
@@ -418,12 +420,8 @@ roles, consulte el artículo [Implementación y actualización de aplicaciones d
   [3]: ./media/application-model/application-model-6.jpg
   [4]: ./media/application-model/application-model-7.jpg
   [Precios de Azure]: http://www.windowsazure.com/es-es/pricing/calculator/
-  [Administrar certificados
-   en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg981929.aspx
   []: http://msdn.microsoft.com/es-es/library/windowsazure/ee758710.aspx
   [5]: http://msdn.microsoft.com/es-es/library/hh560567.aspx
-  [Administrar las actualizaciones del
-  SO invitado de Azure]: http://msdn.microsoft.com/es-es/library/ee924680.aspx
   [Portal de administración de Azure]: http://manage.windowsazure.com/
   [6]: ./media/application-model/application-model-8.jpg
   [Implementación y actualización de aplicaciones de Azure]: http://www.windowsazure.com/es-es/develop/net/fundamentals/deploying-applications/

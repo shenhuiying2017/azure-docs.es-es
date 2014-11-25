@@ -67,8 +67,8 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 
 [WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
   [Actualización del servicio para que requiera autenticación para el registro]: #register
@@ -76,6 +76,3 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
   [Prueba de la aplicación]: #test
   [versión para la Tienda Windows de este tema]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-ios-get-started-users/
-  [mobile-services-javascript-backend-push-notifications-app-users]: ../includes/mobile-services-javascript-backend-push-notifications-app-users.md
-  [mobile-services-ios-push-notifications-app-users-login]: ../includes/mobile-services-ios-push-notifications-app-users-login.md
-  [mobile-services-ios-push-notifications-app-users-test-app]: ../includes/mobile-services-ios-push-notifications-app-users-test-app.md

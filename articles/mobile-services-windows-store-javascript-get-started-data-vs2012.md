@@ -186,9 +186,9 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
     
 	Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Descarga del proyecto de la aplicación de la Tienda Windows]: #download-app
   [Creación del servicio móvil]: #create-service
@@ -198,8 +198,6 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
   [aplicación GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkId=262308
   [0]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-data-sample-download-js.png
   [1]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-quickstart-startup.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
   [2]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-add-nuget-package-js.png
   [3]: ./media/mobile-services-windows-store-javascript-get-started-data-vs2012/mobile-dashboard-tab.png
   [Portal de administración]: https://manage.windowsazure.com/

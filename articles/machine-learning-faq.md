@@ -118,4 +118,4 @@ El Aprendizaje automático de Azure cuenta también con un foro de la comunidad 
   [http://azure.microsoft.com/es-es/pricing/free-trial-faq/]: http://azure.microsoft.com/es-es/pricing/free-trial-faq/
   [foro de comentarios de los usuarios]: http://go.microsoft.com/fwlink/?LinkId=404231
   [1]: https://windowsazure.uservoice.com/forums/257792-machine-learning
-  [foro de Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=MachineLearning
+  [foro de Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/es-es/home?forum=MachineLearning

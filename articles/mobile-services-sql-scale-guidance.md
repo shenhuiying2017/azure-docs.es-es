@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-sql-scale-guidance" urlDisplayName="Scale mobile services backed by Azure SQL Database" pageTitle="Scale mobile services backed by Azure SQL Database - Azure Mobile Services" metaKeywords="" description="Learn how to diagnose and fix scalability issues in your mobile services backed by SQL Database" metaCanonical="" services="" documentationCenter="Mobile" title="Scale mobile services backed by Azure SQL Database" authors="yavorg" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
 
 # Escalamiento de servicios móviles respaldados por Base de datos SQL de Azure
 
@@ -473,11 +473,11 @@ Para analizar el plan de consulta en el **Portal de administración de base de d
   [Arquitectura del servicio]: #Architecture
   [Solución avanzada de problemas]: #Advanced
   [Portal de administración de Azure]: http://manage.windowsazure.com
-  [Preguntas más frecuentes sobre la retirada de las ediciones Web y Business]: http://msdn.microsoft.com/en-US/library/azure/dn741330.aspx
+  [Preguntas más frecuentes sobre la retirada de las ediciones Web y Business]: http://msdn.microsoft.com/es-es/library/azure/dn741330.aspx
   [Características de vista previa]: https://account.windowsazure.com/previewfeatures
-  [Razones para usar los nuevos niveles de servicio]: http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Reasons
+  [Razones para usar los nuevos niveles de servicio]: http://msdn.microsoft.com/es-es/library/azure/dn369873.aspx#Reasons
   [Azure Management Portal - SQL Database Metrics]: ./media/mobile-services-sql-scale-guidance/3.png
-  [Descripción del uso de recursos]: http://msdn.microsoft.com/en-US/library/azure/dn369873.aspx#Resource
+  [Descripción del uso de recursos]: http://msdn.microsoft.com/es-es/library/azure/dn369873.aspx#Resource
   [Azure Management Portal - SQL Database Scale]: ./media/mobile-services-sql-scale-guidance/4.png
   [Azure Management Portal - SQL Alert]: ./media/mobile-services-sql-scale-guidance/5.png
   [Azure Management Portal - SQL Alert Name and Description]: ./media/mobile-services-sql-scale-guidance/6.png

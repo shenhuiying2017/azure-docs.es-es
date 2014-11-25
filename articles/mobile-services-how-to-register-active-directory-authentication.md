@@ -56,9 +56,9 @@ Este tema indica cómo registrar las aplicaciones para que puedan usar Azure Act
 
 Ahora está preparado para usar Azure Active Directory para realizar la autenticación en la aplicación.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
   [Portal de administración de Azure]: https://manage.windowsazure.com/

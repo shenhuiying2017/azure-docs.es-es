@@ -710,9 +710,9 @@ Ahora, cuando ejecuta la aplicación, se comunica con el servicio real.
 -   [Adición de notificaciones de inserción][Adición de notificaciones de inserción]; por ejemplo, cuando alguien agrega un jugador nuevo o actualiza una puntuación.
 -   [Introducción a la autenticación][Introducción a la autenticación]
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [ASP.NET Web API]: http://asp.net/web-api
   [Información general]: #overview

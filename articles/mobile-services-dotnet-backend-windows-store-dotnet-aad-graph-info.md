@@ -157,9 +157,9 @@ En esta sección, va a actualizar el método `AuthenticateAsync` que implementó
 
 En el próximo tutorial, [Control de acceso basado en roles en Servicios móviles y Azure Active Directory][Control de acceso basado en roles en Servicios móviles y Azure Active Directory], usará control de acceso basado en roles con Azure Active Directory (AAD) para comprobar la pertenencia a grupos antes de permitir el acceso.
 
-<!-- Anchors. --> 
+ 
 <!-- Images --> 
-<!-- URLs. -->
+
 
   [Graph Client Library]: http://go.microsoft.com/fwlink/?LinkId=510536
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/
@@ -169,8 +169,5 @@ En el próximo tutorial, [Control de acceso basado en roles en Servicios móvile
   [Prueba de la aplicación]: #test-app
   [Tutorial sobre API personalizadas]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-call-custom-api/
   [Registro para usar un inicio de sesión de Azure Active Directory]: /es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  [mobile-services-aad-graph-info-update-app]: ../includes/mobile-services-aad-graph-info-update-app.md
-  [mobile-services-aad-graph-info-test-app]: ../includes/mobile-services-aad-graph-info-test-app.md
   [Control de acceso basado en roles en Servicios móviles y Azure Active Directory]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-aad-rbac/

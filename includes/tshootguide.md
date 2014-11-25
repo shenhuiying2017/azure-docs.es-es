@@ -487,7 +487,7 @@ Para obtener más información acerca de los errores relacionados con las cuotas
 [3]: http://nuget.org/packages/Microsoft.Experience.CloudFx
 [4]: http://msdn.microsoft.com/es-es/magazine/ff714589.aspx
 [5]: http://www.microsoft.com/download/en/details.aspx?id=11324
-[6]: http://www.microsoft.com/en-us/server-cloud/system-center/operations-manager.aspx
+[6]: http://www.microsoft.com/es-es/server-cloud/system-center/operations-manager.aspx
 [7]: http://wapmmc.codeplex.com/
 [8]: http://cerebrata.com/Products/AzureDiagnosticsManager/
 [9]: http://cerebrata.com/Products/CloudStorageStudio/
@@ -498,7 +498,7 @@ Para obtener más información acerca de los errores relacionados con las cuotas
 [14]: http://pingdom.com/
 [15]: http://www.alertbot.com/products/website-monitoring/default.aspx
 [16]: http://www.apicasystem.com/integration-partners/
-[17]: http://www.microsoft.com/en-us/server-cloud/system-center/avicode.aspx
+[17]: http://www.microsoft.com/es-es/server-cloud/system-center/avicode.aspx
 [18]: http://msdn.microsoft.com/es-es/library/windowsazure/hh369930.aspx
 [19]: http://azurevmassist.codeplex.com/
 [20]: https://github.com/dannycoates/node-inspector
@@ -510,11 +510,11 @@ Para obtener más información acerca de los errores relacionados con las cuotas
 [26]: http://go.microsoft.com/fwlink/?LinkID=90561
 [27]: http://go.microsoft.com/fwlink/?LinkId=246619
 [28]: http://logparserplus.com/Examples
-[29]: http://technet.microsoft.com/en-us/library/ee692659.aspx
+[29]: http://technet.microsoft.com/es-es/library/ee692659.aspx
 [30]: http://www.microsoft.com/downloads/en/details.aspx?familyid=7287252C-402E-4F72-97A5-E0FD290D4B76&displaylang=enBlockquote
 [31]: http://logparserplus.com/article/2
 [32]: http://msdn.microsoft.com/es-es/library/7a50syb3%28v=vs.90%29.aspx
-[33]: http://technet.microsoft.com/en-us/edge/Video/hh867800
+[33]: http://technet.microsoft.com/es-es/edge/Video/hh867800
 [34]: https://www.suse.com/documentation/
 [35]: https://help.ubuntu.com/
 [36]: http://centos.org/
@@ -542,7 +542,7 @@ Para obtener más información acerca de los errores relacionados con las cuotas
 [58]: http://social.technet.microsoft.com/wiki/contents/articles/1104.troubleshoot-and-optimize-queries-with-sql-azure.aspx
 [59]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2011/DBI314
 [60]: http://blogs.msdn.com/b/sqlazure/archive/2010/07/27/10043069.aspx?PageIndex=2#comments
-[61]: http://www.microsoft.com/en-us/download/details.aspx?id=10631
+[61]: http://www.microsoft.com/es-es/download/details.aspx?id=10631
 [62]: http://go.microsoft.com/fwlink/p/?LinkId=166622
 [63]: http://social.technet.microsoft.com/wiki/contents/articles/4235.retry-logic-for-transient-failures-in-sql-azure.aspx
 [64]: http://code.msdn.microsoft.com/windowsazure/SQL-Azure-Retry-Logic-2d0a8401

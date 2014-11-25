@@ -112,11 +112,10 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
     
 	Obtenga más información sobre cómo implementar lógica empresarial al servicio móvil.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
+
   [versión de la aplicación universal de Windows]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data
   [Registro de la aplicación con WNS y configuración de Servicios móviles]: #register
   [Actualización de la aplicación para registrarse a fin de recibir notificaciones]: #update-app
@@ -125,10 +124,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-store-get-started
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
   [Introducción a las notificaciones de inserción en Servicios móviles]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push
-  [mobile-services-notification-hubs-register-windows-store-app]: ../includes/mobile-services-notification-hubs-register-windows-store-app.md
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-app-enable-toast-win8.png
-  [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
-  [mobile-services-windows-store-test-push]: ../includes/mobile-services-windows-store-test-push.md
   [Enviar notificaciones de inserción a los usuarios autenticados]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/
   [Enviar notificaciones de difusión a los suscriptores]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
   [Envío de notificaciones basadas en plantillas a los suscriptores]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/

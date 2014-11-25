@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-get-started-offline-data-wp8" urlDisplayName="Getting Started with Offline Data" pageTitle="Get started with offline data in Mobile Services (Windows Phone) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to cache and sync offline data in your Windows Phone application" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with offline data sync in Mobile Services" authors="wesmc" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
 
 # Introducción a la sincronización de datos sin conexión en Servicios móviles
 
@@ -14,27 +14,27 @@
 
 En este tema se muestra cómo usar las capacidades sin conexión de Servicios móviles de Azure. Las características sin conexión de Servicios móviles de Azure permiten interactuar con una base de datos local cuando el usuario se encuentra en un escenario sin conexión con su servicio móvil. Las características sin conexión le permiten sincronizar los cambios locales con el servicio móvil cuando vuelva a estar en línea.
 
-En este tutorial, actualizará la aplicación desde el tutorial [Introducción a los Servicios móviles][] o [Introducción a los datos][] para que admita las características sin conexión de Servicios móviles de Azure. A continuación, agregará datos en un escenario sin conexión desconectado, sincronizará dichos elementos con la base de datos en línea e iniciará sesión en el Portal de administración de Azure para ver los cambios efectuados en los datos al ejecutar la aplicación.
+En este tutorial, actualizará la aplicación desde el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles] o [Introducción a los datos][Introducción a los datos] para que admita las características sin conexión de Servicios móviles de Azure. A continuación, agregará datos en un escenario sin conexión desconectado, sincronizará dichos elementos con la base de datos en línea e iniciará sesión en el Portal de administración de Azure para ver los cambios efectuados en los datos al ejecutar la aplicación.
 
-> [WACOM.NOTE] Este tutorial está destinado a profundizar en el uso de Azure con los Servicios móviles para almacenar y recuperar datos en una aplicación de Windows Phone. Si esta es la primera vez que usa los Servicios móviles, considere la posibilidad de completar antes el tutorial [Introducción a los Servicios móviles][].
+> [WACOM.NOTE] Este tutorial está destinado a profundizar en el uso de Azure con los Servicios móviles para almacenar y recuperar datos en una aplicación de Windows Phone. Si esta es la primera vez que usa los Servicios móviles, considere la posibilidad de completar antes el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
 Este tutorial le guiará a través de estos pasos básicos:
 
-1.  [Actualización de la aplicación para que admita características sin conexión][]
-2.  [Prueba de la aplicación en un escenario sin conexión][]
-3.  [Actualización de la aplicación para volver a conectar el servicio móvil][]
-4.  [Prueba de la aplicación conectada al servicio móvil][]
+1.  [Actualización de la aplicación para que admita características sin conexión][Actualización de la aplicación para que admita características sin conexión]
+2.  [Prueba de la aplicación en un escenario sin conexión][Prueba de la aplicación en un escenario sin conexión]
+3.  [Actualización de la aplicación para volver a conectar el servicio móvil][Actualización de la aplicación para volver a conectar el servicio móvil]
+4.  [Prueba de la aplicación conectada al servicio móvil][Prueba de la aplicación conectada al servicio móvil]
 
 Este tutorial requiere lo siguiente:
 
 -   Visual Studio 2012
--   [SDK de Windows Phone 8 SDK][]
--   Finalización del tutorial [Introducción a los Servicios móviles][] o [Introducción a los datos][].
--   [SDK de Servicios móviles de Azure versión 1.3.0-alpha4 (o posterior)][]
--   [SDK de Servicios móviles de Azure SQLite Store versión 1.0.0-alpha4 (o posterior)][]
--   [SQLite para Windows Phone 8][]
+-   [SDK de Windows Phone 8 SDK][SDK de Windows Phone 8 SDK]
+-   Finalización del tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles] o [Introducción a los datos][Introducción a los datos].
+-   [SDK de Servicios móviles de Azure versión 1.3.0-alpha4 (o posterior)][SDK de Servicios móviles de Azure versión 1.3.0-alpha4 (o posterior)]
+-   [SDK de Servicios móviles de Azure SQLite Store versión 1.0.0-alpha4 (o posterior)][SDK de Servicios móviles de Azure SQLite Store versión 1.0.0-alpha4 (o posterior)]
+-   [SQLite para Windows Phone 8][SQLite para Windows Phone 8]
 
-> [WACOM.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
+> [WACOM.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][Evaluación gratuita de Azure].
 
 ## <a name="enable-offline-app"></a>Actualización de la aplicación para que admita características sin conexión
 
@@ -42,15 +42,15 @@ Las características sin conexión de Servicios móviles de Azure permiten inter
 
 En esta sección se utiliza SQLite como almacén local de las características sin conexión.
 
-> [WACOM.NOTE] Puede omitir esta sección y simplemente descargar una versión del proyecto de introducción que ya permite la funcionalidad sin conexión. Para descargar un proyecto que admita la característica sin conexión, consulte [Introducción a ejemplos sin conexión para Windows Phone][].
+> [WACOM.NOTE] Puede omitir esta sección y simplemente descargar una versión del proyecto de introducción que ya permite la funcionalidad sin conexión. Para descargar un proyecto que admita la característica sin conexión, consulte [Introducción a ejemplos sin conexión para Windows Phone][Introducción a ejemplos sin conexión para Windows Phone].
 
-1.  Instale SQLite para proyectos de Windows Phone 8. Puede instalarlo desde este vínculo, [SQLite para Windows Phone 8][].
+1.  Instale SQLite para proyectos de Windows Phone 8. Puede instalarlo desde este vínculo, [SQLite para Windows Phone 8][SQLite para Windows Phone 8].
 
     > [WACOM.NOTE] Si utiliza Internet Explorer, es posible que al hacer clic en el vínculo para instalar SQLite se le solicite que descargue .vsix como archivo .zip. Guarde el archivo en una ubicación del disco duro con la extensión .vsix en lugar de .zip. A continuación, haga doble clic en el archivo .vsix en el Explorador de Windows para ejecutar la instalación.
 
-2.  En Visual Studio, abra el proyecto que finalizó en el tutorial [Introducción a los Servicios móviles][] o [Introducción a los datos][]. En el Explorador de soluciones, haga clic con el botón secundario en **Referencias** en el proyecto y agregue una referencia a **SQLite para Windows Phone** en **Windows Phone**\>**Extensiones**.
+2.  En Visual Studio, abra el proyecto que finalizó en el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles] o [Introducción a los datos][Introducción a los datos]. En el Explorador de soluciones, haga clic con el botón secundario en **Referencias** en el proyecto y agregue una referencia a **SQLite para Windows Phone** en **Windows Phone**\>**Extensiones**.
 
-    ![][]
+    ![][0]
 
 3.  SQLite en tiempo de ejecución requiere que se cambie la arquitectura de procesador del proyecto que se compila a **x86**, **x64** o **ARM**. No se admite **cualquier CPU**. Cambie la arquitectura del procesador por una de las configuraciones admitidas que quiere probar.
 
@@ -235,21 +235,16 @@ Cuando queramos sincronizar el almacén local con el servidor, usaremos los mét
 
     También existen sobrecargas de **PullAsync()** que permiten especificar una consulta. Observe que en la versión preliminar de compatibilidad sin conexión con Servicios móviles, **PullAsync** leerá todas las filas de la tabla (o consulta) correspondiente: por ejemplo, no intenta leer solo las filas posteriores a la última sincronización. Si las filas ya existen en la tabla de sincronización local, permanecerán intactas.
 
--   Para descargar un proyecto que admita la característica sin conexión, consulte [Introducción a ejemplos sin conexión para Windows Phone][].
+-   Para descargar un proyecto que admita la característica sin conexión, consulte [Introducción a ejemplos sin conexión para Windows Phone][Introducción a ejemplos sin conexión para Windows Phone].
 
 ## Pasos siguientes
 
--   [Control de conflictos con compatibilidad sin conexión para Servicios móviles][]
+-   [Control de conflictos con compatibilidad sin conexión para Servicios móviles][Control de conflictos con compatibilidad sin conexión para Servicios móviles]
 
-<!-- Anchors. -->
+
 <!-- Images -->
-<!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data "C# para Tienda Windows"
-  [Windows Phone]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-offline-data "Windows Phone"
-  [iOS]: /es-es/documentation/articles/mobile-services-ios-get-started-offline-data "iOS"
-  [Xamarin.iOS]: /es-es/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data "Xamarin.iOS"
-  [Xamarin.Android]: /es-es/documentation/articles/mobile-services-xamarin-android-get-started-offline-data "Xamarin.Android"
+
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-phone-get-started/
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-data/
   [Actualización de la aplicación para que admita características sin conexión]: #enable-offline-app
@@ -260,9 +255,9 @@ Cuando queramos sincronizar el almacén local con el servidor, usaremos los mét
   [SDK de Servicios móviles de Azure versión 1.3.0-alpha4 (o posterior)]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-alpha4
   [SDK de Servicios móviles de Azure SQLite Store versión 1.0.0-alpha4 (o posterior)]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-alpha4
   [SQLite para Windows Phone 8]: http://go.microsoft.com/fwlink/?LinkId=397953
-  [Evaluación gratuita de Azure]: http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=AE564AB28
+  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28
   [Introducción a ejemplos sin conexión para Windows Phone]: http://go.microsoft.com/fwlink/?LinkId=397952
-  []: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
+  [0]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-add-reference-sqlite-dialog.png
   [1]: ./media/mobile-services-windows-phone-get-started-offline-data/vs-select-processor-architecture.png
   [2]: ./media/mobile-services-windows-phone-get-started-offline-data/mobile-services-sqlitestore-nuget.png
   [3]: ./media/mobile-services-windows-phone-get-started-offline-data/ui-screenshot.png

@@ -1,6 +1,6 @@
 <properties linkid="cdn-serve-content-from-cdn-in-your-web-application" urlDisplayName="Use Content from a CDN in Your Web Application" pageTitle="Use Content from a CDN in Your Web Application" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN" description="A tutorial that teaches you how to use content from a CDN to improve the performance of your Web application." metaCanonical="" services="cdn" documentationCenter=".NET" title="Use Content from a CDN in Your Web Application" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
 
-<tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Entrega de contenido desde la red CDN de Azure en su aplicación web
 
@@ -58,7 +58,7 @@ Vamos a verlo. Siga los pasos siguientes para comenzar a utilizar la red CDN de 
 1.  Para crear un extremo de la red CDN, inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 2.  Cree una cuenta de almacenamiento haciendo clic en **Nuevo \> Servicios de datos \> Almacenamiento \> Creación rápida**. Especifique una URL, una ubicación y haga clic en **Crear cuenta de almacenamiento**.
 
-    ![][]
+    ![][0]
 
     > [WACOM.NOTE] Tenga en cuenta que estoy usando Asia Oriental como región, ya que está lo suficientemente alejada para probar después mi red CDN desde Norteamérica.
 
@@ -272,10 +272,8 @@ Para obtener más información sobre la integración de la red CDN de Azure con 
   [cuenta de Microsoft Azure]: http://azure.microsoft.com/es-es/account/
   [Azure SDK]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
-  [abrir una cuenta de Azure de manera gratuita]: http://azure.microsoft.com/es-es/pricing/free-trial/?WT.mc_id=A261C142F
-  [activar las ventajas de suscriptor de MSDN]: http://azure.microsoft.com/es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
   [Portal de administración de Azure]: http://manage.windowsazure.com/
-  []: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
+  [0]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-1.PNG
   [1]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-2.PNG
   [2]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-fail.PNG
   [3]: media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-3-succeed.PNG

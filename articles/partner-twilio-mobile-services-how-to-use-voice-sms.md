@@ -225,4 +225,3 @@ Después de que haya configurado una manera de proporcionar respuestas de TwiML,
   []: http://www.twilio.com/docs/api/rest/making-calls
   [Inserción de respuestas de TwiML desde su propio sitio web]: #howto_provide_twiml_responses
   [1]: https://www.twilio.com/docs/api/twiml
-  [twilio_additional_services_and_next_steps]: ../includes/twilio_additional_services_and_next_steps.md

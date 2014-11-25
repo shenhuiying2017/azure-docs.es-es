@@ -1,6 +1,6 @@
 <properties pageTitle="Use Mobile Services to upload images to blob storage (Windows Store) | Mobile Services" metaKeywords="" description="Learn how to use Mobile Services to upload images to Azure Blob Storage." metaCanonical="" disqusComments="0" umbracoNaviHide="1" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" writer="glenga" services="mobile-services, storage" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 # Carga de imágenes en el almacenamiento de Azure mediante Servicios móviles
 
@@ -14,22 +14,22 @@ No puede distribuir de manera segura con la aplicación cliente las credenciales
 
 En este tutorial agregará funcionalidad a la aplicación de inicio rápido de Servicios móviles para tomar fotografías y cargar las imágenes a Azure a través de una SAS generada por Servicios móviles. Este tutorial le guiará a través de los siguientes pasos básicos para actualizar el inicio rápido de Servicios móviles para cargar imágenes al servicio de almacenamiento de blobs:
 
-1.  [Instalación de la biblioteca de clientes de almacenamiento][]
-2.  [Actualización de la aplicación cliente para capturar imágenes][]
-3.  [Instalación del cliente de almacenamiento en el proyecto de servicio móvil][]
-4.  [Actualización de la definición de TodoItem en el modelo de datos][]
-5.  [Actualización del controlador de tablas para generar una SAS][]
-6.  [Carga de imágenes para probar la aplicación][]
+1.  [Instalación de la biblioteca de clientes de almacenamiento][Instalación de la biblioteca de clientes de almacenamiento]
+2.  [Actualización de la aplicación cliente para capturar imágenes][Actualización de la aplicación cliente para capturar imágenes]
+3.  [Instalación del cliente de almacenamiento en el proyecto de servicio móvil][Instalación del cliente de almacenamiento en el proyecto de servicio móvil]
+4.  [Actualización de la definición de TodoItem en el modelo de datos][Actualización de la definición de TodoItem en el modelo de datos]
+5.  [Actualización del controlador de tablas para generar una SAS][Actualización del controlador de tablas para generar una SAS]
+6.  [Carga de imágenes para probar la aplicación][Carga de imágenes para probar la aplicación]
 
 Este tutorial requiere lo siguiente:
 
 -   Microsoft Visual Studio 2013 o una versión posterior.
 -   El Administrador de paquetes NuGet instalado para Microsoft Visual Studio.
--   [Cuenta de almacenamiento de Azure][]
+-   [Cuenta de almacenamiento de Azure][Cuenta de almacenamiento de Azure]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][].
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage][]]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-blob-storage](../includes/mobile-services-dotnet-backend-configure-blob-storage.md)]
 
 ## <a name="install-storage-client"></a>Instalación del cliente de almacenamiento para aplicaciones de la Tienda Windows
 
@@ -39,24 +39,20 @@ Para poder utilizar una SAS para cargar imágenes de su aplicación en el almace
 
 2.  En el panel izquierdo, seleccione la categoría **En línea** y después **Include Prerelease**, busque **WindowsAzure.Storage-Preview**, haga clic en **Instalar** en el paquete **Almacenamiento de Azure** y, a continuación, acepte el contrato de licencia.
 
-    ![][]
+    ![][0]
 
     Con esto se agrega la biblioteca de clientes para servicios de almacenamiento de Azure al proyecto.
 
 A continuación, actualizará la aplicación de inicio rápido para capturar y cargar imágenes.
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage][]]
+[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
 
-<!-- Anchors. -->
 
-<!-- Images. --> 
 
-<!-- URLs. -->
+ 
 
-  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "C# para Tienda Windows"
-  [Windows Phone]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-upload-data-blob-storage "Windows Phone"
-  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage "Back-end de .NET"
-  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-upload-data-blob-storage "Back-end de JavaScript"
+
+
   [Instalación de la biblioteca de clientes de almacenamiento]: #install-storage-client
   [Actualización de la aplicación cliente para capturar imágenes]: #add-select-images
   [Instalación del cliente de almacenamiento en el proyecto de servicio móvil]: #storage-client-server
@@ -65,6 +61,4 @@ A continuación, actualizará la aplicación de inicio rápido para capturar y c
   [Carga de imágenes para probar la aplicación]: #test
   [Cuenta de almacenamiento de Azure]: /es-es/documentation/articles/storage-create-storage-account/
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started
-  [mobile-services-dotnet-backend-configure-blob-storage]: ../includes/mobile-services-dotnet-backend-configure-blob-storage.md
-  []: ./media/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [mobile-services-windows-store-dotnet-upload-to-blob-storage]: ../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md
+  [0]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png

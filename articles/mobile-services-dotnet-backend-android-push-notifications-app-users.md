@@ -51,13 +51,10 @@ Nachdem Sie beide Lernprogramm abgeschlossen haben, können Sie verhindern, dass
 
 [WACOM.INCLUDE [mobile-services-android-test-push-users](../includes/mobile-services-android-test-push-users.md)]
 
-<!---## <a name="next-steps"> </a>Next steps  In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]--> <!-- Anchors. --> <!-- URLs. -->
+<!---## <a name="next-steps"> </a>Next steps  In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]-->  
 
   [Pushbenachrichtigung]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
   [Aktualisieren des Diensts, sodass für die Registrierung eine Authentifizierung benötigt wird]: #register
   [Aktualisieren der App zum Anmelden vor der Registrierung]: #update-app
   [Testen der App]: #test
   [Erste Schritte mit der Authentifizierung]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-  [mobile-services-dotnet-backend-push-notifications-app-users]: ../includes/mobile-services-dotnet-backend-push-notifications-app-users.md
-  [mobile-services-android-push-notifications-app-users]: ../includes/mobile-services-android-push-notifications-app-users.md
-  [mobile-services-android-test-push-users]: ../includes/mobile-services-android-test-push-users.md

@@ -1,6 +1,6 @@
 <properties linkid="web-sites-create-web-jobs" urlDisplayName="Use WebJobs to run background tasks in Microsoft Azure Websites" pageTitle="Use WebJobs to run background tasks in Microsoft Azure Websites" metaKeywords="Microsoft Azure Web Sites, Web Jobs, background tasks" description="Learn how to run background tasks in Microsoft Azure Websites." metaCanonical="" services="web-sites" documentationCenter="" title="Use WebJobs to run background tasks in Microsoft Azure Websites" authors="cephalin"  solutions="" writer="timamm" manager="wpickett" editor="mollybos"  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Uso de WebJobs para ejecutar tareas en segundo plano en Sitios web de Microsoft Azure
 
@@ -8,19 +8,19 @@ Sitios web Azure le permite ejecutar programas o scripts en el sitio web de una 
 
 ## Tabla de contenido
 
--   [Tipos de archivos aceptables para scripts][]
--   [Creación de una tarea a petición][]
--   [Creación de una tarea de ejecución continua][]
--   [Creación de una tarea programada][]
+-   [Tipos de archivos aceptables para scripts][Tipos de archivos aceptables para scripts]
+-   [Creación de una tarea a petición][Creación de una tarea a petición]
+-   [Creación de una tarea de ejecución continua][Creación de una tarea de ejecución continua]
+-   [Creación de una tarea programada][Creación de una tarea programada]
 
-    -   [Trabajos programados y Programador de Azure][]
--   [Visualización del historial de trabajos][]
--   [Notas][]
--   [Pasos siguientes][]
+    -   [Trabajos programados y Programador de Azure][Trabajos programados y Programador de Azure]
+-   [Visualización del historial de trabajos][Visualización del historial de trabajos]
+-   [Notas][Notas]
+-   [Pasos siguientes][Pasos siguientes]
 
-    -   [Hacer más con el SDK de WebJobs de Microsoft Azure][]
-    -   [Métodos alternativos de implementación][]
-    -   [Recursos adicionales][]
+    -   [Hacer más con el SDK de WebJobs de Microsoft Azure][Hacer más con el SDK de WebJobs de Microsoft Azure]
+    -   [Métodos alternativos de implementación][Métodos alternativos de implementación]
+    -   [Recursos adicionales][Recursos adicionales]
 
 <a name="acceptablefiles"></a>
 
@@ -46,7 +46,7 @@ Los siguientes tipos de archivos se aceptan como scripts ejecutables:
 
 1.  En la barra de comandos de la página **WebJobs**, haga clic en **Add**. Se muestra el cuadro de diálogo **New Job**.
 
-    ![Tarea a petición][]
+    ![Tarea a petición][Tarea a petición]
 
 2.  En **Name**, escriba un nombre para la tarea. El nombre debe comenzar con una letra o un número y no puede contener ningún carácter especial salvo "-" y "\_".
 
@@ -56,11 +56,11 @@ Los siguientes tipos de archivos se aceptan como scripts ejecutables:
 
 5.  Active la casilla de la parte inferior derecha del cuadro de diálogo para cargar el script en el sitio web. El nombre especificado para la tarea aparece en la lista:
 
-    ![Lista de tareas][]
+    ![Lista de tareas][Lista de tareas]
 
 6.  Para ejecutar el script, seleccione su nombre en la lista y haga clic en **Run Once** en la barra de comandos, situada en la parte inferior de la página del portal.
 
-    ![Ejecutar una vez][]
+    ![Ejecutar una vez][Ejecutar una vez]
 
 <a name="CreateContinuous"></a>
 
@@ -68,7 +68,7 @@ Los siguientes tipos de archivos se aceptan como scripts ejecutables:
 
 1.  Para crear una tarea de ejecución continua, siga los pasos descritos para crear una tarea que se ejecuta solo una vez, pero en el cuadro **How to Run**, elija **Run continuously**.
 
-    ![Nueva tarea continua][]
+    ![Nueva tarea continua][Nueva tarea continua]
 
 2.  Para iniciar o detener una tarea que se ejecuta continuamente, seleccione la tarea en la lista y haga clic en **Iniciar** o **Detener** en la barra de comandos.
 
@@ -83,21 +83,21 @@ Los siguientes tipos de archivos se aceptan como scripts ejecutables:
 
 1.  Para crear una tarea programada, siga los mismos pasos indicados más arriba pero, en el cuadro **How to Run**, elija **Run on a schedule**.
 
-    ![Nuevo trabajo programado][]
+    ![Nuevo trabajo programado][Nuevo trabajo programado]
 
 2.  Elija una región en la opción **Scheduler Region** para el trabajo y, a continuación, haga clic en la flecha de la parte inferior derecha del cuadro de diálogo para continuar a la pantalla siguiente.
 
 3.  En el cuadro de diálogo **Create Job**, elija el tipo de periodicidad que desea en la opción **Recurrence**: **One-time job** o **Recurring job**.
 
-    ![Periodicidad de la programación][]
+    ![Periodicidad de la programación][Periodicidad de la programación]
 
 4.  También, puede elegir una hora de inicio en **Starting**: **Now** o **At a specific time**.
 
-    ![Hora de inicio de la programación][]
+    ![Hora de inicio de la programación][Hora de inicio de la programación]
 
 5.  Si desea comenzar a una hora determinada, elija los valores de la hora de inicio en **Starting On**.
 
-    ![Inicio de la programación a una hora determinada][]
+    ![Inicio de la programación a una hora determinada][Inicio de la programación a una hora determinada]
 
 6.  Si elige un trabajo periódico, en la opción **Recur Every** podrá especificar la frecuencia de la periodicidad y en la opción **Ending On** podrá especificar una hora de finalización.
 
@@ -105,23 +105,23 @@ Los siguientes tipos de archivos se aceptan como scripts ejecutables:
 
 7.  Si elige **Weeks**, puede seleccionar la casilla **On a Particular Schedule** y especificar los días de la semana en los que desea que se ejecute el trabajo.
 
-    ![Días de la semana de la programación][]
+    ![Días de la semana de la programación][Días de la semana de la programación]
 
 8.  Si elige **Months** y selecciona la casilla **On a Particular Schedule**, podrá establecer que el trabajo se ejecute en un número de días determinado del mes seleccionándolos en la opción **Days**.
 
-    ![Fechas determinadas del mes de la programación][]
+    ![Fechas determinadas del mes de la programación][Fechas determinadas del mes de la programación]
 
 9.  Si elige **Week Days**, podrá seleccionar el día o días de la semana del mes en los que desea que se ejecute el trabajo.
 
-    ![Programación en días determinados de la semana de un mes][]
+    ![Programación en días determinados de la semana de un mes][Programación en días determinados de la semana de un mes]
 
 10. Finalmente, también puede utilizar la opción **Occurrences** para elegir en qué semana del mes (primera, segunda, tercera, etc.) desea que se ejecute el trabajo en los días de la semana especificados.
 
-    ![Programación en días de la semana específicos de semanas determinadas][]
+    ![Programación en días de la semana específicos de semanas determinadas][Programación en días de la semana específicos de semanas determinadas]
 
 11. Después de haber creado uno o varios trabajos, sus nombres aparecerán en la pestaña WebJobs con su estado, tipo de programación y otra información. Se conserva la información histórica de las últimas 30 tareas.
 
-    ![Lista de trabajos][]
+    ![Lista de trabajos][Lista de trabajos]
 
 <a name="Scheduler"></a>
 
@@ -131,15 +131,15 @@ Los trabajos programados se pueden configurar posteriormente en el portal del Pr
 
 1.  En la página WebJobs, haga clic en el vínculo **schedule** para desplazarse a la página del portal del Programador de Azure.
 
-    ![Vínculo al Programador de Azure][]
+    ![Vínculo al Programador de Azure][Vínculo al Programador de Azure]
 
 2.  En la página del Programador, haga clic en el trabajo.
 
-    ![Trabajo en la página del portal del Programador][]
+    ![Trabajo en la página del portal del Programador][Trabajo en la página del portal del Programador]
 
 3.  Se abre la página **Job Action**, donde puede configurar adicionalmente el trabajo.
 
-    ![Página de acción del trabajo en el Programador][]
+    ![Página de acción del trabajo en el Programador][Página de acción del trabajo en el Programador]
 
 <!-- ================ ViewJobHistory ================= -->
 
@@ -149,25 +149,25 @@ Los trabajos programados se pueden configurar posteriormente en el portal del Pr
 
 1.  Para ver el historial de ejecución de un trabajo, incluidos los trabajos creados con el SDK de WebJobs, haga clic en su vínculo correspondiente en la columna **Logs**. (Puede utilizar el icono del Portapapeles para copiar la dirección URL de la página de archivo de registro en el Portapapeles si lo desea).
 
-    ![Vínculo de registros][]
+    ![Vínculo de registros][Vínculo de registros]
 
 2.  Si hace clic en el vínculo, se abre la página de detalles de los trabajos web para la tarea. En esta página se muestra el nombre de la ejecución del comando, las últimas veces que se ha ejecutado y si se ha ejecutado correctamente o no. En **Recent job runs**, haga clic una vez para ver detalles adicionales.
 
-    ![Detalles del trabajo web][]
+    ![Detalles del trabajo web][Detalles del trabajo web]
 
 3.  Se muestra la página **WebJob Run Details**. Haga clic en **Toggle Output** para ver el texto del contenido del registro. El registro de resultados se muestra en formato de texto.
 
-    ![Detalles de ejecución del trabajo web][]
+    ![Detalles de ejecución del trabajo web][Detalles de ejecución del trabajo web]
 
 4.  Para ver el texto de salida en otra ventana del explorador, haga clic en el vínculo **download**. Para descargar el texto propiamente dicho, haga clic con el botón secundario en el vínculo y utilice las opciones del explorador para guardar el contenido del archivo.
 
-    ![Resultado del registro de descarga][]
+    ![Resultado del registro de descarga][Resultado del registro de descarga]
 
 5.  El vínculo **WebJobs** situado en la parte superior de la página ofrece una forma cómoda de obtener una lista de los trabajos web en el panel del historial.
 
-    ![Vínculo a la lista de trabajos web][]
+    ![Vínculo a la lista de trabajos web][Vínculo a la lista de trabajos web]
 
-    ![Lista de trabajos en el panel del historial][]
+    ![Lista de trabajos en el panel del historial][Lista de trabajos en el panel del historial]
 
     Al hacer clic en uno de estos vínculos, obtendrá acceso a la página de detalles de WebJob para el trabajo que ha seleccionado.
 
@@ -195,7 +195,7 @@ Los trabajos programados se pueden configurar posteriormente en el portal del Pr
 
 El SDK de WebJobs de Microsoft Azure simplifica la tarea de programar un WebJob que funciona con colas, blobs o tablas de Almacenamiento de Azure o con colas de Azure Service Bus. El panel, ahora integrado en el portal de Azure, ofrece una supervisión y un diagnóstico completos para los programas que escriba usando el SDK. Las características de supervisión y diagnóstico están incluidas en el SDK y no requieren que agregue ningún código especial en el programa.
 
-Para obtener más información, consulte el tutorial [Getting Started with Microsoft Azure WebJobs SDK][].
+Para obtener más información, consulte el tutorial [Getting Started with Microsoft Azure WebJobs SDK][Getting Started with Microsoft Azure WebJobs SDK].
 
 <!-- =========== Alternative Methods of Deployment ============= -->
 
@@ -203,27 +203,27 @@ Para obtener más información, consulte el tutorial [Getting Started with Micro
 
 ### Métodos alternativos de implementación
 
-Visual Studio 2013 incluye características que automatizan la implementación de los proyectos de la aplicación de consola como WebJobs. Para obtener más información, consulte [Implementación de WebJobs de Azure a Sitios web de Azure][].
+Visual Studio 2013 incluye características que automatizan la implementación de los proyectos de la aplicación de consola como WebJobs. Para obtener más información, consulte [Implementación de WebJobs de Azure a Sitios web de Azure][Implementación de WebJobs de Azure a Sitios web de Azure].
 
-También puede usar FTP, Git o Web Deploy para implementar WebJobs. Para obtener más información, consulte[Git que implementa una aplicación de consola de .NET a Azure mediante WebJobs][] e [Implementación de WebJobs de Windows Azure][].
+También puede usar FTP, Git o Web Deploy para implementar WebJobs. Para obtener más información, consulte[Git que implementa una aplicación de consola de .NET a Azure mediante WebJobs][Git que implementa una aplicación de consola de .NET a Azure mediante WebJobs] e [Implementación de WebJobs de Windows Azure][Implementación de WebJobs de Windows Azure].
 
 <a name="AdditionalResources"></a>
 
 ### Recursos adicionales
 
--   Para obtener una lista anotada de vínculos en la característica WebJobs, consulte [WebJobs Azure: recursos recomendados][].
+-   Para obtener una lista anotada de vínculos en la característica WebJobs, consulte [WebJobs Azure: recursos recomendados][WebJobs Azure: recursos recomendados].
 
 -   Vídeos relacionados con WebJobs:
 
-    [Azure WebJobs 101 - Basic WebJobs with Jamie Espinosa][]
+    [Azure WebJobs 101 - Basic WebJobs with Jamie Espinosa][Azure WebJobs 101 - Basic WebJobs with Jamie Espinosa]
 
-    [Azure WebJobs 102 - Scheduled WebJobs and the WebJobs Dashboard with Jamie Espinosa][]
+    [Azure WebJobs 102 - Scheduled WebJobs and the WebJobs Dashboard with Jamie Espinosa][Azure WebJobs 102 - Scheduled WebJobs and the WebJobs Dashboard with Jamie Espinosa]
 
-    [Azure Scheduler 101 - Kevin Lam explains how to schedule stuff][]
+    [Azure Scheduler 101 - Kevin Lam explains how to schedule stuff][Azure Scheduler 101 - Kevin Lam explains how to schedule stuff]
 
 ### Comience ahora
 
-Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure][].
+Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure][evaluación gratuita de Microsoft Azure].
 
 <!-- LINKS --> <!-- IMAGES -->
 

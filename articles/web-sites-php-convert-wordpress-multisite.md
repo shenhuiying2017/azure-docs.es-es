@@ -1,16 +1,16 @@
 <properties linkid="develop-php-tutorials-convert-wordpress-to-multisite" urlDisplayName="Convert a WordPress Site to a Multisite" pageTitle="Convert a WordPress Site to a Multisite" metaKeywords="WordPress, Multisite" description="Learn how to take an existing WordPress website created through the gallery in Azure and convert it to WordPress Multisite" metaCanonical="" services="web-sites" documentationCenter="PHP" title="Convert a WordPress Site to a Multisite" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
 # Conversión de un sitio de WordPress en un multisitio
 
-*Por [Ben Lobaugh][], [Microsoft Open Technologies Inc.][]*
+*Por [Ben Lobaugh][Ben Lobaugh], [Microsoft Open Technologies Inc.][Microsoft Open Technologies Inc.]*
 
 En este tutorial aprenderá a tomar un sitio web de WordPress existente creado a través de la galería en Azure y convertirlo en una instalación multisitio de WordPress. Adicionalmente, aprenderá a asignar un dominio personalizado a cada uno de los subsitios dentro de su instalación.
 
-Se supone que tiene una instalación existente de WordPress. De lo contrario, siga las instrucciones que se proporcionan en [Creación de un sitio web de WordPress desde la galería de Azure][].
+Se supone que tiene una instalación existente de WordPress. De lo contrario, siga las instrucciones que se proporcionan en [Creación de un sitio web de WordPress desde la galería de Azure][Creación de un sitio web de WordPress desde la galería de Azure].
 
-La conversión de la instalación de un único sitio de WordPress existente a multisitio es generalmente bastante simple y muchos de los pasos iniciales que se presentan aquí provienen directamente de la página de [creación de una red][] (en inglés) en [WordPress Codex][].
+La conversión de la instalación de un único sitio de WordPress existente a multisitio es generalmente bastante simple y muchos de los pasos iniciales que se presentan aquí provienen directamente de la página de [creación de una red][creación de una red] (en inglés) en [WordPress Codex][WordPress Codex].
 
 Comencemos.
 
@@ -18,9 +18,9 @@ Comencemos.
 
 Primero, necesita habilitar multisitio a través del archivo `wp-config.php` con la constante **WP\_ALLOW\_MULTISITE**. Existen dos métodos para editar sus archivos de sitio web: el primero es mediante FTP y el segundo mediante Git. Si no está familiarizado con la configuración de alguno de estos métodos, consulte los siguientes tutoriales:
 
--   [Sitio web PHP con MySQL y FTP][]
+-   [Sitio web PHP con MySQL y FTP][Sitio web PHP con MySQL y FTP]
 
--   [Sitio web PHP con MySQL y Git][]
+-   [Sitio web PHP con MySQL y Git][Sitio web PHP con MySQL y Git]
 
 Abra el archivo `wp-config.php`wp-config.php con el editor de su preferencia y agregue el siguiente código encima de la línea `/* That's all, stop editing! Happy blogging. */`.
 
@@ -34,11 +34,11 @@ Abra el archivo `wp-config.php`wp-config.php con el editor de su preferencia y a
 
 Inicie sesión en el área *wp-admin* de su sitio web; debería ver un elemento nuevo bajo el menú **Tools** llamado **Network Setup**. Haga clic en **Network Setup** y complete los detalles de su red.
 
-![Pantalla de configuración de la red][]
+![Pantalla de configuración de la red][Pantalla de configuración de la red]
 
 Este tutorial usa el esquema de sitios de *Subdirectorios* porque siempre funciona y más adelante en este tutorial vamos a configurar dominios personalizados para cada subsitio. Sin embargo, debería ser posible configurar una instalación de subdominio si asigna un dominio a través del Portal y configura correctamente un DNS con caracteres comodín correctamente.
 
-Para obtener más información sobre la configuración de subdominios frente a subdirectorios, consulte el artículo sobre[tipos de red multisitio][] (en inglés) en WordPress Codex.
+Para obtener más información sobre la configuración de subdominios frente a subdirectorios, consulte el artículo sobre[tipos de red multisitio][tipos de red multisitio] (en inglés) en WordPress Codex.
 
 ## Habilitación de la red
 
@@ -52,7 +52,7 @@ Debería aparecer ahora un menú adicional en la barra de administración con la
 
 # Incorporación de dominios personalizados
 
-El complemento [WordPress MU Domain Mapping][] facilita enormemente la incorporación de dominios personalizados a cualquier sitio de su red. Para que el complemento funcione correctamente, necesita realizar cierta configuración adicional en el Portal y también en el registrador de su dominio.
+El complemento [WordPress MU Domain Mapping][WordPress MU Domain Mapping] facilita enormemente la incorporación de dominios personalizados a cualquier sitio de su red. Para que el complemento funcione correctamente, necesita realizar cierta configuración adicional en el Portal y también en el registrador de su dominio.
 
 ## Habilitación de la asignación de dominios al sitio web
 
@@ -83,7 +83,7 @@ Regrese a su sitio web a través del Portal de Azure y, en esta ocasión, haga c
 
 Aparece la ventana emergente *Manage custom domains*. Aquí es donde introducirá todos los dominios que desea asignar a su sitio web. Si un dominio no aparece en este lugar, no estará disponible para asignarlo dentro de WordPress, sin considerar la configuración de DNS del dominio.
 
-![Cuadro de diálogo de administración de dominios personalizados][]
+![Cuadro de diálogo de administración de dominios personalizados][Cuadro de diálogo de administración de dominios personalizados]
 
 Después de escribir su dominio en el cuadro de texto, Azure verificará el registro CNAME de *awverify* que creó anteriormente. Si el DNS no se ha propagado completamente, aparecerá un indicador rojo. Si fue correcto, verá una marca de verificación verde.
 
@@ -99,7 +99,7 @@ Con la ayuda de la dirección IP del paso anterior, vuelva a su administrador de
 
 ## Instalación y configuración del complemento
 
-Multisitio de WordPress no dispone actualmente de un método integrado para asignar dominios personalizados. Sin embargo, hay un complemento llamado [WordPress MU Domain Mapping][] que agrega la funcionalidad por usted. Inicie sesión en la sección de Administrador de red de su sitio e instale el complemento **WordPress MU Domain Mapping**.
+Multisitio de WordPress no dispone actualmente de un método integrado para asignar dominios personalizados. Sin embargo, hay un complemento llamado [WordPress MU Domain Mapping][WordPress MU Domain Mapping] que agrega la funcionalidad por usted. Inicie sesión en la sección de Administrador de red de su sitio e instale el complemento **WordPress MU Domain Mapping**.
 
 Después de instalar y activar el complemento, visite **Settings** \> **Domain Mapping** para configurarlo. En el primer cuadro de texto, *Server IP Address*, introduzca la dirección IP que usó para configurar el registro A para el dominio. Establezca cualquier *opción de dominio* que desee (los valores predeterminados muchas veces son válidos) y haga clic en **Save**.
 

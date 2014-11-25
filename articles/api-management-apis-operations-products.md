@@ -1,6 +1,6 @@
 <properties pageTitle="How to create APIs, operations, and products in Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and products in API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to create APIs, operations, and products in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Creación de API, operaciones y productos en Administración de API de Azure
 
@@ -12,24 +12,24 @@ En Administración de API, una API representa un conjunto de operaciones que pue
 
 En este guía se muestra cómo crear y configurar una nueva API en Administración de API.
 
--   [Creación de API][]
+-   [Creación de API][Creación de API]
 
 ## <a name="add-operations"> </a>Incorporación de operaciones a una API
 
 Es necesario agregar operaciones para poder utilizar una API en Administración de API. En esta guía se muestra cómo agregar y configurar diferentes tipos de operaciones a una API en Administración de API.
 
--   [Incorporación de operaciones a una API][]
+-   [Incorporación de operaciones a una API][Incorporación de operaciones a una API]
 
 También es posible importar una API y sus operaciones en un paso, en formato WADL o Swagger.
 
--   [Importación de la definición de una API con operaciones][]
+-   [Importación de la definición de una API con operaciones][Importación de la definición de una API con operaciones]
 
 ## <a name="add-product"> </a>Creación y publicación de un producto
 
 En Administración de API, un producto contiene una o varias API, así como una cuota de uso y los términos de uso. Una vez publicado un producto, los desarrolladores pueden suscribirse a él y comenzar a utilizar sus API. Estos temas ofrecen orientaciones acerca de cómo crear un producto, agregarle una API y publicarlo para los desarrolladores.
 
--   [Incorporación y publicación de un producto][]
--   [Creación y ajuste de una configuración de producto avanzada][]
+-   [Incorporación y publicación de un producto][Incorporación y publicación de un producto]
+-   [Creación y ajuste de una configuración de producto avanzada][Creación y ajuste de una configuración de producto avanzada]
 
   [Creación de API]: ../api-management-howto-create-apis
   [Incorporación de operaciones a una API]: ../api-management-howto-add-operations

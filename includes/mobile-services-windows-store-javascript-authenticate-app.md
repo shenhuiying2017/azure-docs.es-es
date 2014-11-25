@@ -34,7 +34,7 @@
 
     De esta forma se crea una variable de miembro para el almacenamiento del usuario actual y un método para administrar el proceso de autenticación. El usuario se autentica mediante el inicio de sesión en Facebook. Si usa un proveedor de identidades que no sea Facebook, cambie el valor que ha pasado al método **login** anterior por uno de los siguientes: *microsoftaccount*, *twitter*, *google* o *windowsazureactivedirectory*.
 
-    > [WACOM.NOTE]Si registró la información del paquete de la aplicación de la Tienda Windows en Servicios móviles, debe llamar al método [login][] proporcionando un valor **true** para el parámetro *useSingleSignOn*. Si no realiza este procedimiento, los usuarios seguirán visualizando una solicitud de inicio de sesión cada vez que se llame al método de inicio de sesión.
+    > [WACOM.NOTE]Si registró la información del paquete de la aplicación de la Tienda Windows en Servicios móviles, debe llamar al método [login][login] proporcionando un valor **true** para el parámetro *useSingleSignOn*. Si no realiza este procedimiento, los usuarios seguirán visualizando una solicitud de inicio de sesión cada vez que se llame al método de inicio de sesión.
 
 2.  Presione la tecla F5 para ejecutar la aplicación e iniciar sesión en la aplicación con el proveedor de identidades seleccionado.
 

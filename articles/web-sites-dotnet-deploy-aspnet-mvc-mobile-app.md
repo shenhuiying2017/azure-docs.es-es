@@ -719,7 +719,6 @@ aplicaciones web para dispositivos móviles. Entre ellos se incluyen los siguien
 <!-- Internal Links --> <!-- External Links --> <!-- Images -->
 
   [Visual Studio Express 2013 para Web]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [proyecto inicial]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409
   [0]: ./media/web-sites-dotnet-deploy-aspnet-mvc-mobile-app/SessionsByTag-ASP.NET-Fixed.png
   [SDK de Azure para Visual Studio 2013]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409

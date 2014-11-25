@@ -587,4 +587,4 @@ Con este tutorial, tiene instalado un emulador de HDInsight y ha ejecutado algun
   [Introducción al uso de HDInsight de Azure]: ../hdinsight-get-started/
   [Desarrollo de programas MapReduce de Java para HDInsight]: ../hdinsight-develop-deploy-java-mapreduce/
   [Desarrollo de programas de MapReduce de streaming de Hadoop C# para HDInsight]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
-  [Foro de MSDN para el análisis de HDInsight (en inglés)]: http://social.msdn.microsoft.com/Forums/en-US/hdinsight
+  [Foro de MSDN para el análisis de HDInsight (en inglés)]: http://social.msdn.microsoft.com/Forums/es-es/hdinsight

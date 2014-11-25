@@ -120,9 +120,9 @@ Reemplace esto por el siguiente código:
             @"deviceToken" : delegate.deviceToken
         };
 
-    This adds a reference to the **QSAppDelegate** to obtain the device token and then modifies the request payload to include that device token.
+   De esta forma, se agrega una referencia a **QSAppDelegate** para obtener el token del dispositivo y, a continuación, se modifica la carga de la solicitud para incluir el token del dispositivo. 
 
-    > [WACOM.NOTE] You must add this code before to the call to the <strong>addItem</strong> method.
+   > [WACOM.NOTE] Debe agregar este código antes de llamar al método <strong>addItem</strong>.
 
 Ahora su aplicación está actualizada para que sea compatible con las notificaciones de inserción.
 
@@ -184,9 +184,6 @@ Ha completado correctamente este tutorial.
 
 En este ejemplo simple, un usuario recibe una notificación de inserción con los datos que se acaban de insertar. El cliente en la solicitud suministra al servicio móvil el token de dispositivo que APNS utiliza. En el siguiente tutorial, [Notificaciones de inserción para usuarios de la aplicación][Notificaciones de inserción para usuarios de la aplicación], creará una tabla de dispositivos independiente en la que puede almacenar tokens de dispositivos y enviar una notificación de inserción a todos los canales almacenados cuando se produce una inserción.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
 
   [Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
   [Generación del archivo de solicitud de firma de certificado]: #certificates
@@ -199,8 +196,6 @@ En este ejemplo simple, un usuario recibe una notificación de inserción con lo
   [SDK de iOS para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [Xcode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-ios
-  [Habilitar notificaciones de inserción de Apple]: ../includes/enable-apple-push-notifications.md
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [0]: ./media/mobile-services-ios-get-started-push/mobile-portal-data-tables.png
   [1]: ./media/mobile-services-ios-get-started-push/mobile-insert-script-push2.png
   [apns object]: http://go.microsoft.com/fwlink/p/?LinkId=272333

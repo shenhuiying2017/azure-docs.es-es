@@ -169,11 +169,10 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
     
 	Obtenga más información sobre cómo implementar lógica empresarial al servicio móvil.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-push-legacy]: ../includes/mobile-services-selector-get-started-push-legacy.md
+
   [Actualización de la aplicación para registrarse a fin de recibir notificaciones]: #update-app
   [Actualización de scripts del servidor para enviar notificaciones de inserción]: #update-scripts
   [Inserción de datos para recibir notificaciones de inserción]: #test

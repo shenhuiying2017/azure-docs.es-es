@@ -71,7 +71,6 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 
 
-  [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
   [Introducción a las notificaciones de inserción en Servicios móviles]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-phone-get-started-push
   [esta versión]: /es-es/documentation/articles/mobile-services-javscript-backend-windows-store-dotnet-get-started-push
   [Registrar la aplicación para las notificaciones de inserción]: #register
@@ -79,9 +78,6 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
   [Probar las notificaciones de inserción en su aplicación]: #test
   [cuenta de Microsoft Store]: http://go.microsoft.com/fwlink/p/?LinkId=280045
   [Visual Studio 2013 Express para Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [mobile-services-javascript-update-script-notification-hubs]: ../includes/mobile-services-javascript-update-script-notification-hubs.md
-  [mobile-services-javascript-backend-windows-universal-test-push]: ../includes/mobile-services-javascript-backend-windows-universal-test-push.md
   [enviar notificaciones de inserción a usuarios autenticados]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-users

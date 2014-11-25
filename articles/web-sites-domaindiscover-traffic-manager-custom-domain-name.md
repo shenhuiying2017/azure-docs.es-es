@@ -66,23 +66,16 @@ Para asociar el domino personalizado a un sitio web de Azure, debe agregar una n
 
 ## <a name="enabledomain"></a>Habilitación del Administrador de tráfico para el sitio web
 
-[WACOM.INCLUDE [modes][3]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [DomainDiscover.com]: https://domaindiscover.com
   [TierraNet]: https://www.tierra.net/
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Descripción de los registros DNS]: #understanding-records
   [Configuración de los sitios web para el modo estándar]: #bkmk_configsharedmode
   [Incorporación de un registro DNS para el dominio personalizado]: #bkmk_configurecname
   [Habilitación del Administrador de tráfico para el sitio web]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [Menú de inicio de sesión de DomainDiscover]: .\media\web-sites-domaindiscover-custom-domain-name\DomainDiscover_LoginMenu.png
   [Página de administración de dominios]: .\media\web-sites-domaindiscover-custom-domain-name\DomainDiscover_DomainManagement.png
   [Botón de edición de DNS]: .\media\web-sites-domaindiscover-custom-domain-name\DomainDiscover_DNSEditButton.png
   [1]: .\media\web-sites-domaindiscover-custom-domain-name\DomainDiscover_DNSAddRecords.png
   [2]: .\media\web-sites-domaindiscover-custom-domain-name\DomainDiscover_DNSRecords_TM.png
-  [3]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

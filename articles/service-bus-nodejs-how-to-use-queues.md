@@ -258,7 +258,6 @@ vínculos para obtener más información.
   [Direccionamiento del mensajes a una cola]: #send-messages
   [Direccionamiento del mensajes desde una cola]: #receive-messages
   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer]: #handle-crashes
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: /es-es/develop/nodejs/tutorials/create-a-website-(mac)/
   [Servicio en la nube Node.js]: /es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Sitio web con WebMatrix]: /es-es/develop/nodejs/tutorials/web-site-with-webmatrix/

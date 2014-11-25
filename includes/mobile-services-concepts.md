@@ -31,5 +31,5 @@ A continuación se presentan características y conceptos importantes en los Ser
 -   **Script de servidor:** código de lógica de negocios personalizado en un servicio móvil back-end de JavaScript. Este código se registra en una operación de tabla (leer, insertar, actualizar, eliminar), una API personalizada o un proyecto programado.
 -   **Tabla:** los datos de usuario se almacenan en tablas en una Base de datos SQL. Puede crear estas tablas en el Portal de administración.
 
-<!-- Images. -->
+
 

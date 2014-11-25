@@ -56,9 +56,9 @@ Ahora está preparado para integrar la autenticación a su aplicación mediante 
 
 -   Autenticación básica. Este método, que es compatible con diversos proveedores de autenticación, requiere que los usuarios inicien sesión cada vez que se inicia la aplicación. Para obtener más información, consulte [Introducción a la autenticación][Introducción a la autenticación].
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
   [0]: ./media/mobile-services-how-to-register-windows-live-connect-single-sign-on/mobile-services-submit-win8-app.png

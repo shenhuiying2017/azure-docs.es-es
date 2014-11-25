@@ -4,7 +4,7 @@ Para comenzar, configure el entorno de desarrollo mediante la instalación del S
 
 1.  Para instalar el SDK, haga clic en el vínculo siguiente. Este tutorial requiere Visual Studio 2012. Si no cuenta con Visual Studio instalado, se instalará Visual Studio Express para Web junto con el SDK.
 
-    -   [SDK de Azure para Visual Studio 2012][]
+    -   [SDK de Azure para Visual Studio 2012][SDK de Azure para Visual Studio 2012]
 
     **Nota:** según la cantidad de dependencias de SDK que tenga ya en la máquina, la instalación del SDK puede tardar un período largo, desde unos minutos a media hora o más.
 
@@ -12,7 +12,7 @@ Para comenzar, configure el entorno de desarrollo mediante la instalación del S
 
 3.  En la ventana del instalador de plataforma web, haga clic en **Install** y continúe con la instalación.
 
-    ![Instalador de plataforma web: SDK de Azure para .NET][]
+    ![Instalador de plataforma web: SDK de Azure para .NET][Instalador de plataforma web: SDK de Azure para .NET]
 
 Cuando la instalación se complete, dispondrá de todo lo necesario para iniciar el desarrollo.
 

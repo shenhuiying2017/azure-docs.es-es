@@ -1,6 +1,6 @@
 <properties pageTitle="Managing Role-Based Access Control with Azure Cross-Platform Command-Line Interface" metaKeywords="ResourceManager, Azure cross-platform command-line interface, Azure command-line, azure command-line, azure cli, RBAC" description="Managing role-based access control with cross-platform command-line interface" metaCanonical="" services="" documentationCenter="" title="Managing Role-Based Access Control with Cross-Platform Command-Line Interface" authors="guayan" solutions="" manager="terrylan" editor="mollybos" />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan"></tags>
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="command-line-interface" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="guayan" />
 
 # Administrar el control de acceso basado en roles con la interfaz de línea de comandos entre plataformas
 
@@ -133,8 +133,6 @@ Si quiere más información sobre cómo administrar el control de acceso basado 
 -   [Configuración del control de acceso basado en roles usando Windows PowerShell][Configuración del control de acceso basado en roles usando Windows PowerShell]
 -   [Solución de problemas del control de acceso basado en roles][Solución de problemas del control de acceso basado en roles]
 
-  [Windows PowerShell]: /es-es/documentation/articles/powershell-rbac.md "Windows PowerShell"
-  [CLI entre plataformas]: /es-es/documentation/articles/xplat-cli-rbac.md "CLI entre plataformas"
   [Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure]: http://azure.microsoft.com/es-es/documentation/articles/xplat-cli/
   [Uso de la interfaz de la línea de comandos entre plataformas de Azure con Resource Manager]: http://azure.microsoft.com/es-es/documentation/articles/xplat-cli-azure-resource-manager/
   [Conectarse a sus suscripciones]: #connect

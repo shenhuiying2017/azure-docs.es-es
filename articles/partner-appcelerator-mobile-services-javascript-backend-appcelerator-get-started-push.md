@@ -442,7 +442,7 @@ Ahora, la aplicación se habrá actualizado para admitir notificaciones de inser
 
 Esto registra un nuevo script de inserción, que usa el [objeto push de Servicios móviles][objeto push de Servicios móviles] para enviar una notificación de inserción (el texto insertado) al dispositivo indicado en la solicitud de inserción.
 
-<!-- Images. --> <!-- Anchors. --> <!-- URLs. -->
+  
 
   [Generación del archivo de solicitud de firma de certificado]: #certificates
   [Registro de la aplicación y habilitación para las notificaciones de inserción]: #register
@@ -454,9 +454,7 @@ Esto registra un nuevo script de inserción, que usa el [objeto push de Servicio
   [Actualización de scripts para enviar notificaciones de inserción]: #update-scripts
   [Inserción de datos para recibir notificaciones]: #test
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
-  [Habilitación de notificaciones de inserción para Apple]: ../includes/enable-apple-push-notifications.md
   [accounts.google.com]: http://go.microsoft.com/fwlink/p/?LinkId=268302
-  [Habilitación de GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [instalación de las herramientas de desarrollo de Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
   []: http://developer.android.com/sdk/ndk/index.html
   
@@ -464,7 +462,6 @@ Esto registra un nuevo script de inserción, que usa el [objeto push de Servicio
   [2]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0041.png
   [3]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image0061.png
   [uso de módulos de Titanium]: http://docs.appcelerator.com/titanium/latest/#!/guide/Using_Titanium_Modules
-  [mobile-services-apns-configure-push]: ../includes/mobile-services-apns-configure-push.md
   [4]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image062.png
   [5]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image064.png
   [6]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push/image066.png

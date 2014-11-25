@@ -102,7 +102,6 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
 
 
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [Generación de aplicaciones universales dirigidas a Windows y a Windows Phone]: http://msdn.microsoft.com/es-es/library/windows/apps/xaml/dn609832.aspx
   [Introducción a los datos en Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-phone-get-started-data
   [esta versión]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-data
@@ -114,13 +113,8 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
   [Ver los datos cargados en el Portal de administración de Azure]: #view-data
   [Evaluación gratuita de Azure]: http://azure.microsoft.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-universal-dotnet-get-started-data%2F
   [Visual Studio Express 2013 para Windows]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-  [mobile-services-windows-universal-dotnet-download-project]: ../includes/mobile-services-windows-universal-dotnet-download-project.md
-  [mobile-services-create-new-service-vs2013]: ../includes/mobile-services-create-new-service-vs2013.md
   [clase MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-  [mobile-services-create-new-table-vs2013]: ../includes/mobile-services-create-new-table-vs2013.md
   [Esquema dinámico]: http://msdn.microsoft.com/es-es/library/windowsazure/jj193175.aspx
-  [mobile-services-windows-dotnet-update-data-app]: ../includes/mobile-services-windows-dotnet-update-data-app.md
-  [mobile-services-windows-universal-test-app]: ../includes/mobile-services-windows-universal-test-app.md
   [Portal de administración]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data/mobile-todoitem-data-browse.png
   [Validación y modificación de datos con scripts]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts/

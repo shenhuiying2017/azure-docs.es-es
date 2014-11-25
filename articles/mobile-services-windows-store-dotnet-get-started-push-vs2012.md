@@ -184,9 +184,9 @@ Considere la posibilidad de profundizar más en los siguientes temas de Servicio
     
 	Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Registro de la aplicación para notificaciones de inserción y configuración de Servicios móviles]: #register
   [Creación de la tabla Registros]: #create-table
@@ -194,10 +194,7 @@ Considere la posibilidad de profundizar más en los siguientes temas de Servicio
   [Actualización de scripts para enviar notificaciones de inserción]: #update-scripts
   [Inserción de datos para recibir notificaciones]: #test
   [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-dotnet
-  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
-  [mobile-services-create-new-push-table]: ../includes/mobile-services-create-new-push-table.md
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-app-enable-toast-win8.png
-  [mobile-services-update-registrations-script]: ../includes/mobile-services-update-registrations-script.md
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-insert-script-push2.png
   [2]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-quickstart-push1.png
   [3]: ./media/mobile-services-windows-store-dotnet-get-started-push-vs2012/mobile-quickstart-push2.png

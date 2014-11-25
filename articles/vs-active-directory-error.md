@@ -1,6 +1,6 @@
 <properties title="Error durante la detecci&oacute;n de autenticaci&oacute;n" pageTitle="Error durante la detecci&oacute;n de autenticaci&oacute;n" metaKeywords="" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
 
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb"></tags>
+<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
 
 ### Error durante la detección de autenticación
 

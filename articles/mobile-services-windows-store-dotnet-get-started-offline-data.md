@@ -258,9 +258,9 @@ Cuando queramos sincronizar el almacén local con el servidor, usaremos los mét
 
 -   [Control de conflictos con compatibilidad sin conexión para Servicios móviles][Control de conflictos con compatibilidad sin conexión para Servicios móviles]
 
-<!-- Anchors. --> 
+ 
 <!-- Images --> 
-<!-- URLs. -->
+
 
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-store-get-started/
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/

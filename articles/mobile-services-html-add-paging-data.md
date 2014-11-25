@@ -66,9 +66,9 @@ Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial a
 
 Así concluye el conjunto de tutoriales que demuestra los aspectos básicos del trabajo con datos en Servicios móviles. A continuación, aprenda a autenticar usuarios de su aplicación en [Introducción a la autenticación][Introducción a la autenticación]. Encontrará más información acerca de cómo usar los Servicios móviles con HTML/JavaScript en [Referencia conceptual de Servicios móviles HTML/JavaScript][Referencia conceptual de Servicios móviles HTML/JavaScript]
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-html
   [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-html

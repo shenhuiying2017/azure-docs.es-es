@@ -1,6 +1,6 @@
 <properties urlDisplayName="" pageTitle="" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Get started with Azure Websites and ASP.NET" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="tdykstra" />
 
 
 
@@ -211,18 +211,12 @@ La mayoría de los sitios web de producción utilizan una base de datos y restri
 
 En algunos escenarios, es posible que desee ejecutar su aplicación en un servicio en la nube de Azure en lugar de un sitio web de Azure. Para obtener más información, consulte [Modelos de ejecución de Azure][Modelos de ejecución de Azure] y [Comparación entre Sitios web, Servicios en la nube y Máquinas virtuales de Azure][Comparación entre Sitios web, Servicios en la nube y Máquinas virtuales de Azure]. Si desea ver una serie de tutoriales que muestran cómo crear una aplicación web ASP.NET de niveles múltiples e implementarla en un Servicio en la nube, consulte [Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento][Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento].
 
-  [Visual Studio 2013]: /es-es/develop/net/tutorials/get-started/ "Visual Studio 2013"
-  [Visual Studio 2012]: /es-es/develop/net/tutorials/get-started-vs2012/ "Visual Studio 2012"
-  [versión más reciente de este tutorial]: /es-es/develop/net/tutorials/get-started/
   [Ejemplo de sitio web]: ./media/web-sites-dotnet-get-started-vs2012/DeployedWebSite.png
-  [activar los beneficios de suscripción a MSDN]: /es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F
-  [regístrese para obtener una evaluación gratuita]: /es-es/pricing/free-trial/?WT.mc_id=A261C142F
   [Configuración del entorno de desarrollo]: #setupdevenv
   [Creación de un sitio web en Azure]: #setupwindowsazure
   [Creación de una aplicación ASP.NET MVC 4]: #createmvc4app
   [Implementación de la aplicación en Azure]: #deploytowindowsazure
   [Pasos siguientes]: #nextsteps
-  [install-sdk-2012-only]: ../includes/install-sdk-2012-only.md
   [Portal de administración de Azure]: http://manage.windowsazure.com
   [Sitio web nuevo]: ./media/web-sites-dotnet-get-started-vs2012/WebSiteNew.png
   [Creación rápida]: ./media/web-sites-dotnet-get-started-vs2012/ClickQuickCreate.png

@@ -1,6 +1,6 @@
 <properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Azure Websites Web Hosting Plans In-Depth Overview - Windows Azure feature guide" description="Learn how Web Hosting Plans for Azure Websites work, and how they benefit your management experience." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Byron Tardif and Yochay Kiryaty"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Byron="" Tardif="" and="" Yochay="" Kiryaty" />
 </br>
 
 # Información detallada sobre planes de hospedaje web de Sitios web Azure
@@ -19,7 +19,7 @@ Un sitio web solamente se puede asociar a un plan de hospedaje web en un momento
 Puede tener varios planes de hospedaje web en un grupo de recursos y cada plan de hospedaje tendrá su propio conjunto de características y capacidades que utilizarán los sitios asociados. En la siguiente imagen se ilustra esta relación:
 </br>
 </br>
-![Resource Groups and Web Hosting Plans][]
+![Resource Groups and Web Hosting Plans][Resource Groups and Web Hosting Plans]
 </br>
 </br>
 La capacidad de tener varios planes de hospedaje web en un solo grupo de recursos permite asignar diferentes sitios a distintos recursos, principalmente máquinas virtuales que ejecutan sus sitios web. Por ejemplo, esta capacidad permite la separación de recursos entre sitios de desarrollo, prueba y producción, donde podría estar interesado en asignar un plan de hospedaje web con su propio conjunto de recursos dedicado para sus sitios de producción y un segundo plan de hospedaje web para sus sitios de desarrollo y prueba.
@@ -33,7 +33,7 @@ Al tener varios planes de hospedaje web en un solo grupo de recursos, puede defi
 Cuando cree un nuevo sitio web, debe pensar en crear un nuevo grupo de recursos cuando dicho sitio representa una nueva aplicación web. En este caso, crear un nuevo grupo de recursos, un plan de hospedaje web asociado y unos sitios web es la elección correcta. Cuando cree un nuevo sitio web de este tipo a través de la nueva vista previa del portal de Azure, utilizando la galería o la opción de nuevo sitio web + SQL, el portal creará un nuevo grupo de recursos y un plan de hospedaje web de forma predeterminada para su nuevo sitio. Si lo necesita, no obstante, puede sobrescribir esta opción predeterminada.
 </br>
 </br>
-![Creating a new Web Hosting Plan][]
+![Creating a new Web Hosting Plan][Creating a new Web Hosting Plan]
 </br>
 </br>
 Siempre puede agregar un nuevo sitio web o cualquier otro recurso a un grupo de recursos existente. Cuando cree un nuevo sitio web a partir del contexto de un grupo de recursos existente, el asistente para nuevo sitio web establecerá como predeterminado el recurso existente y el plan de hospedaje web. Aquí también puede sobrescribir estas opciones predeterminadas según estime oportuno. Cuando agregue un nuevo sitio web a un grupo de recursos existentes, podrá optar por agregar el sitio a un plan de hospedaje web existente (se trata de la opción predeterminada en la nueva vista previa del portal de Azure), o puede crear un nuevo plan de hospedaje web al que agregar el sitio.
@@ -51,13 +51,13 @@ Una cosa importante a tener en cuenta es que no puede mover planes de hospedaje 
 Si ya tiene sitios web existentes en Sitios web Azure, observará que todos nuestros sitios web se muestran en el portal de vista previa de Azure. Puede ver todo su sitio web como una lista sin formato haciendo clic en el botón **Examinar** situado en el panel de navegación de la izquierda y seleccionando **Sitios web**:
 </br>
 </br>
-![See all your website as a flat list][]
+![See all your website as a flat list][See all your website as a flat list]
 </br>
 </br>
 También puede ver todos los grupos de recursos que ha creado haciendo clic en el botón **Examinar** situado en el panel de navegación de la izquierda y seleccionando **Grupos de recursos**:
 </br>
 </br>
-![See all the resource groups that have been created][]
+![See all the resource groups that have been created][See all the resource groups that have been created]
 </br>
 </br>
 También observará que tiene un grupo de recursos predeterminado generado automáticamente en cada región en la que ya tiene sitios web. El nombre del grupo de recursos generado para sitios web es *Default-Web-<location name>* donde el nombre de ubicación representa una región de Azure (por ejemplo *Default-Web-WestUS*). En cada grupo de recursos encontrará todos los sitios existentes para la región del grupo. Cada sitio creado en el pasado y que se cree en el futuro en el portal de Azure completo o en el portal de vista previa de Azure, estará disponible en ambos portales.
@@ -84,18 +84,18 @@ Dado que cada sitio web tiene que asociarse a un plan de hospedaje web, hemos cr
     Para hacer esto usando la UI en la nueva **vista previa del portal de Azure** haga clic en **NUEVO** y seleccione **Sitio web**; se abrirá el cuadro de creación de sitios web. En la primera imagen que se muestra a continuación puede ver el icono **NUEVO** en la parte inferior izquierda y en la segunda imagen, el cuadro de creación **Sitio web**, el cuadro **Plan de hospedaje web** y el cuadro **Nivel de precios**:
     </br>
     </br>
-    ![Create a new website][]
+    ![Create a new website][Create a new website]
     </br>
     </br>
-    ![Website, Web Hosting Plan and pricing tier blades][]
+    ![Website, Web Hosting Plan and pricing tier blades][Website, Web Hosting Plan and pricing tier blades]
     </br>
     </br>
-    Para este ejemplo hemos optado por crear un nuevo sitio web llamado **contosomarketing** y colocarlo en el nuevo plan de hospedaje web llamado **contoso**. El nivel de precios seleccionado para este plan de hospedaje web es **Estándar pequeño**. Para obtener más detalles sobre los niveles de precios de los planes de hospedaje web así como de las características, precios y opciones de escala proporcionados en cada uno de ellos, visite [Especificaciones de planes de hospedaje web de Sitios web Azure][].
+    Para este ejemplo hemos optado por crear un nuevo sitio web llamado **contosomarketing** y colocarlo en el nuevo plan de hospedaje web llamado **contoso**. El nivel de precios seleccionado para este plan de hospedaje web es **Estándar pequeño**. Para obtener más detalles sobre los niveles de precios de los planes de hospedaje web así como de las características, precios y opciones de escala proporcionados en cada uno de ellos, visite [Especificaciones de planes de hospedaje web de Sitios web Azure][Especificaciones de planes de hospedaje web de Sitios web Azure].
     </br>
     Debe tenerse en cuenta que un plan de hospedaje web también se puede crear en el Portal de Azure existente. Esto se realiza como parte del asistente para **creación rápida** seleccionando **Crear nuevo plan de hospedaje web** en la lista desplegable **PLAN DE HOSPEDAJE WEB**:
     </br>
     </br>
-    ![Create new web hosting plan in the existing portal][]
+    ![Create new web hosting plan in the existing portal][Create new web hosting plan in the existing portal]
     </br>
     </br>
     Para este ejemplo hemos creado un nuevo sitio llamado **northwind** y hemos optado por crear un nuevo plan de hospedaje web. El resultado de esta operación será un nuevo plan de hospedaje web llamado **default0** que contiene el sitio web **northwind**. Todos los planes de hospedaje web creados a través de esta experiencia siguen esta convención de nomenclatura y no se puede cambiar el nombre de los planes de hospedaje web una vez creados. Asimismo, los planes de hospedaje web creados a través de este proceso se crearán en el nivel de precios **Gratis**.
@@ -111,13 +111,13 @@ Dado que cada sitio web tiene que asociarse a un plan de hospedaje web, hemos cr
     Después, en el cuadro de creación Sitio web, seleccione el plan de hospedaje:
     </br>
     </br>
-    ![Select a hosting plan][]
+    ![Select a hosting plan][Select a hosting plan]
     </br>
     </br>
     Un sitio también se puede crear en un plan de hospedaje web específico usando el Portal de Azure existente. Esto se lleva a cabo como parte del asistente para **creación rápida**. Después de escribir la dirección URL del sitio web, use la lista desplegable **PLAN DE HOSPEDAJE WEB** para seleccionar un plan al que agregar el sitio:
     </br>
     </br>
-    ![Select a hosting plan in the existing portal][]
+    ![Select a hosting plan in the existing portal][Select a hosting plan in the existing portal]
     </br>
     </br>
     **Pregunta**: ¿Cómo puedo mover un sitio a un plan de hospedaje web diferente?
@@ -127,7 +127,7 @@ Dado que cada sitio web tiene que asociarse a un plan de hospedaje web, hemos cr
     Para mover un sitio a otro plan, navegue al cuadro de sitio web del sitio que desea mover. Después haga clic en **Plan de hospedaje web**:
     </br>
     </br>
-    ![Choose a new or existing web hosting plan][]
+    ![Choose a new or existing web hosting plan][Choose a new or existing web hosting plan]
     </br>
     </br>
     Esta operación abrirá el cuadro Plan de hospedaje web. Llegados a este punto, puede elegir un plan de hospedaje web existente o crear uno nuevo. Los planes de una ubicación geográfica o grupo de recursos diferente se atenúan y no se pueden seleccionar.
@@ -142,13 +142,13 @@ Dado que cada sitio web tiene que asociarse a un plan de hospedaje web, hemos cr
     En la imagen siguiente puede ver los cuadros **Plan de hospedaje web** y **Nivel de precios**. Al hacer clic en la parte **Nivel de precios** del cuadro **Plan de hospedaje web** se expande el cuadro **Nivel de precios** mediante el que puede cambiar el nivel de precios para el plan de hospedaje web:
     </br>
     </br>
-    ![The Web Hosting Plan blade and the Pricing Tier][]
+    ![The Web Hosting Plan blade and the Pricing Tier][The Web Hosting Plan blade and the Pricing Tier]
     </br>
     </br>
     La segunda forma de escalar un plan es escalarlo horizontalmente aumentando el número de instancias del plan de hospedaje web. En la imagen siguiente puede ver los cuadros **Plan de hospedaje web** y **Escala**. Al hacer clic en el área Escala del cuadro **Plan de hospedaje web**, se expandirá y permitirá cambiar el recuento de instancias del plan:
     </br>
     </br>
-    ![Changing the instance count of a hosting plan][]
+    ![Changing the instance count of a hosting plan][Changing the instance count of a hosting plan]
     </br>
     </br>
     Dado que el plan de hospedaje web de la imagen anterior está configurado para utilizar el nivel de precios **Estándar**, la opción **Escalado automático** se habilita.
@@ -156,7 +156,7 @@ Dado que cada sitio web tiene que asociarse a un plan de hospedaje web, hemos cr
     Puede llevar a cabo todo esto en el portal de Azure completo en la pestaña **Escala**, tal y como se muestra a continuación:
     </br>
     </br>
-    ![Changing the instance count of a hosting plan in the existing portal][]
+    ![Changing the instance count of a hosting plan in the existing portal][Changing the instance count of a hosting plan in the existing portal]
     </br>
     </br>
     **Pregunta**: ¿Cómo puedo eliminar un plan de hospedaje web?
@@ -164,7 +164,7 @@ Dado que cada sitio web tiene que asociarse a un plan de hospedaje web, hemos cr
     **Respuesta**: Para eliminar un plan de hospedaje web, primero debe eliminar todos los sitios web asociados a él. Una vez eliminados todos los sitios web de un plan de hospedaje web, podrá eliminar dicho plan del cuadro Plan de hospedaje web:
     </br>
     </br>
-    ![Deleting a web hosting plan][]
+    ![Deleting a web hosting plan][Deleting a web hosting plan]
     </br>
     </br>
     En el portal de Azure completo, al eliminar el último sitio web de un plan de hospedaje web se eliminará el plan de hospedaje web asociado automáticamente.
@@ -174,13 +174,13 @@ Dado que cada sitio web tiene que asociarse a un plan de hospedaje web, hemos cr
     **Respuesta**: Los planes de hospedaje web se pueden supervisar usando las partes de supervisión del cuadro Plan de hospedaje web:
     </br>
     </br>
-    ![Monitoring a web hosting plan][]
+    ![Monitoring a web hosting plan][Monitoring a web hosting plan]
     </br>
     </br>
     Los controles de supervisión se pueden personalizar haciendo clic con el botón secundario en ellos y seleccionando **editar consulta**:
     </br>
     </br>
-    ![Editing the monitoring controls][]
+    ![Editing the monitoring controls][Editing the monitoring controls]
     </br>
     </br>
     Las métricas expuestas son:

@@ -1,27 +1,27 @@
 <properties linkid="manage-services-how-to-deploy-websites" pageTitle="How to deploy an Azure Website" metaKeywords="Azure deploy publish web site" description="Learn what methods are available for deploying content to an Azure Website." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Website" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/02/2014" ms.author="tdykstra"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/02/2014" ms.author="tdykstra" />
 
 # Implementación de un sitio web de Azure
 
 Existen varias opciones para implementar su propio contenido en un sitio web de Azure. En este tema se proporciona información general abreviada de cada opción y vínculos para obtener más información.
 
--   [Implementación desde un sistema de control de código fuente hospedado en la nube][]
+-   [Implementación desde un sistema de control de código fuente hospedado en la nube][Implementación desde un sistema de control de código fuente hospedado en la nube]
 
     -   Visual Studio Online (VSO)
     -   Sitios web de repositorio con Git
     -   Sitios web de repositorio con Mercurial
     -   Dropbox
--   [Implementación desde un IDE][]
+-   [Implementación desde un IDE][Implementación desde un IDE]
 
     -   Visual Studio
     -   WebMatrix
--   [Implementación mediante el uso de una utilidad de FTP][]
--   [Implementación desde un sistema de control de código fuente local][]
+-   [Implementación mediante el uso de una utilidad de FTP][Implementación mediante el uso de una utilidad de FTP]
+-   [Implementación desde un sistema de control de código fuente local][Implementación desde un sistema de control de código fuente local]
 
     -   Team Foundation Server (TFS)
     -   Repositorios locales de Git o Mercurial
--   [Uso de herramientas de línea de comandos y la API REST de administración de Azure][]
+-   [Uso de herramientas de línea de comandos y la API REST de administración de Azure][Uso de herramientas de línea de comandos y la API REST de administración de Azure]
 
     -   MSBuild
     -   Scripts de FTP
@@ -32,83 +32,83 @@ Existen varias opciones para implementar su propio contenido en un sitio web de 
 
 ## <a name="cloud"></a>Implementación desde un sistema de control de código fuente hospedado en la nube
 
-La mejor manera de implementar un sitio web es configurar un [flujo de trabajo de entrega continua][] integrado con el [sistema de control de código fuente][]. La automatización no solo permite que el proceso de implementación sea más eficaz, sino que también hace que los procesos de copia de seguridad y restauración sean más controlables y confiables.
+La mejor manera de implementar un sitio web es configurar un [flujo de trabajo de entrega continua][flujo de trabajo de entrega continua] integrado con el [sistema de control de código fuente][sistema de control de código fuente]. La automatización no solo permite que el proceso de implementación sea más eficaz, sino que también hace que los procesos de copia de seguridad y restauración sean más controlables y confiables.
 
 Si aún no tiene configurado el control de código fuente, la mejor manera de comenzar es usar un sistema de control de código fuente hospedado en la nube.
 
 ### <a name="vso"></a>Visual Studio Online (VSO)
 
-[Visual Studio Online][] (anteriormente, Team Foundation Service) es una solución de Microsoft basada en la nube para el control de código fuente y la colaboración en equipo. El servicio es gratuito para un equipo de hasta cinco desarrolladores. También puede configurar VSO para realizar la entrega continua a un sitio de web Azure; además, el repositorio puede utilizar [Git o TFVC][Visual Studio Online].
+[Visual Studio Online][Visual Studio Online] (anteriormente, Team Foundation Service) es una solución de Microsoft basada en la nube para el control de código fuente y la colaboración en equipo. El servicio es gratuito para un equipo de hasta cinco desarrolladores. También puede configurar VSO para realizar la entrega continua a un sitio de web Azure; además, el repositorio puede utilizar [Git o TFVC][Visual Studio Online].
 
 Para obtener más información, consulte los siguientes recursos:
 
--   [Entrega continua a Azure con VSO y TFVC][]. Breve tutorial paso a paso que muestra cómo configurar la entrega continua desde VSO a un sitio web de Azure, a través de TFVC. TFVC es la opción de control de código fuente centralizado de VSO, por oposición a Git, que es la opción de control de código fuente distribuido.
--   [Entrega continua a Azure mediante VSO y TFVC][]. Similar al tutorial anterior, pero este describe los pasos para registrarse en una cuenta VSO y proteger un proyecto en el control de recursos.
--   [Entrega continua a Azure con Visual Studio Online y Git][]. Similar al tutorial anterior, pero usa Git en lugar de TFVC.
+-   [Entrega continua a Azure con VSO y TFVC][Entrega continua a Azure con VSO y TFVC]. Breve tutorial paso a paso que muestra cómo configurar la entrega continua desde VSO a un sitio web de Azure, a través de TFVC. TFVC es la opción de control de código fuente centralizado de VSO, por oposición a Git, que es la opción de control de código fuente distribuido.
+-   [Entrega continua a Azure mediante VSO y TFVC][Entrega continua a Azure mediante VSO y TFVC]. Similar al tutorial anterior, pero este describe los pasos para registrarse en una cuenta VSO y proteger un proyecto en el control de recursos.
+-   [Entrega continua a Azure con Visual Studio Online y Git][Entrega continua a Azure con Visual Studio Online y Git]. Similar al tutorial anterior, pero usa Git en lugar de TFVC.
 
 ### <a name="git"></a>Sitios web de repositorio con Git
 
-[Git][Visual Studio Online] es un conocido sistema de control de código fuente distribuido. Azure cuenta con características integradas que facilitan la automatización de la implementación en un sitio web de Azure desde conocidos sitios de repositorio basados en web que almacenan repositorios Git, entre los que se incluyen [GitHub][], [CodePlex][] y [BitBucket][]. Una ventaja de usar Git para la implementación es que resulta relativamente fácil volver a una implementación anterior si alguna vez se requiere hacerlo.
+[Git][Visual Studio Online] es un conocido sistema de control de código fuente distribuido. Azure cuenta con características integradas que facilitan la automatización de la implementación en un sitio web de Azure desde conocidos sitios de repositorio basados en web que almacenan repositorios Git, entre los que se incluyen [GitHub][GitHub], [CodePlex][CodePlex] y [BitBucket][BitBucket]. Una ventaja de usar Git para la implementación es que resulta relativamente fácil volver a una implementación anterior si alguna vez se requiere hacerlo.
 
 Para obtener más información, consulte los siguientes recursos:
 
--   [Publicación en Sitios web Azure desde el control de código fuente][]. Uso de Git para publicar directamente desde su equipo local en un sitio web de Azure (en Azure, este método de publicación se denomina Git local). También muestra cómo habilitar la implementación continua de repositorios Git desde GitHub, CodePlex o BitBucket.
--   [Implementación en Sitios web con GitHub mediante Kudu][]. Vídeo de Scott Hanselman y David Ebbo que muestra cómo implementar un sitio web directamente desde GitHub a un sitio web de Azure.
--   [Foro de Azure sobre Git, Mercurial y Dropbox][].
+-   [Publicación en Sitios web Azure desde el control de código fuente][Publicación en Sitios web Azure desde el control de código fuente]. Uso de Git para publicar directamente desde su equipo local en un sitio web de Azure (en Azure, este método de publicación se denomina Git local). También muestra cómo habilitar la implementación continua de repositorios Git desde GitHub, CodePlex o BitBucket.
+-   [Implementación en Sitios web con GitHub mediante Kudu][Implementación en Sitios web con GitHub mediante Kudu]. Vídeo de Scott Hanselman y David Ebbo que muestra cómo implementar un sitio web directamente desde GitHub a un sitio web de Azure.
+-   [Foro de Azure sobre Git, Mercurial y Dropbox][Foro de Azure sobre Git, Mercurial y Dropbox].
 
 ### <a name="mercurial"></a>Sitios web de repositorio con Mercurial
 
-Si utiliza [Mercurial][] como sistema de control de código fuente y almacena el repositorio en [CodePlex][] o en [BitBucket][], puede utilizar características integradas en Sitios web Azure para implementar automáticamente el contenido.
+Si utiliza [Mercurial][Mercurial] como sistema de control de código fuente y almacena el repositorio en [CodePlex][CodePlex] o en [BitBucket][BitBucket], puede utilizar características integradas en Sitios web Azure para implementar automáticamente el contenido.
 
 Para obtener información acerca de la implementación con Mercurial, consulte los siguientes recursos:
 
--   [Publicación en Sitios web Azure desde el control de código fuente][]. A pesar de que este tutorial muestra cómo publicar un repositorio Git, el proceso para los repositorios de Mercurial hospedados en CodePlex o BitBucket es similar.
--   [Foro de Azure sobre Git, Mercurial y Dropbox][].
+-   [Publicación en Sitios web Azure desde el control de código fuente][Publicación en Sitios web Azure desde el control de código fuente]. A pesar de que este tutorial muestra cómo publicar un repositorio Git, el proceso para los repositorios de Mercurial hospedados en CodePlex o BitBucket es similar.
+-   [Foro de Azure sobre Git, Mercurial y Dropbox][Foro de Azure sobre Git, Mercurial y Dropbox].
 
 ### <a name="dropbox"></a>Dropbox
 
-[Dropbox][] no es un sistema de control de código fuente, pero si almacena el código fuente en Dropbox podrá automatizar la implementación desde su cuenta de Dropbox.
+[Dropbox][Dropbox] no es un sistema de control de código fuente, pero si almacena el código fuente en Dropbox podrá automatizar la implementación desde su cuenta de Dropbox.
 
--   [Implementación en Azure mediante Dropbox][]. Cómo usar el Portal de administración de Azure para configurar una implementación de Dropbox.
--   [Dropbox y Sitios web de Azure][]. Este vídeo le guiará en el proceso de conectar una carpeta de Dropbox a un sitio web de Azure y muestra la rapidez con que puede configurar y ejecutar un sitio web o mantenerlo gracias a una implementación simple a través de arrastrar y soltar.
--   [Foro de Azure sobre Git, Mercurial y Dropbox][].
+-   [Implementación en Azure mediante Dropbox][Implementación en Azure mediante Dropbox]. Cómo usar el Portal de administración de Azure para configurar una implementación de Dropbox.
+-   [Dropbox y Sitios web de Azure][Dropbox y Sitios web de Azure]. Este vídeo le guiará en el proceso de conectar una carpeta de Dropbox a un sitio web de Azure y muestra la rapidez con que puede configurar y ejecutar un sitio web o mantenerlo gracias a una implementación simple a través de arrastrar y soltar.
+-   [Foro de Azure sobre Git, Mercurial y Dropbox][Foro de Azure sobre Git, Mercurial y Dropbox].
 
 ## <a name="ide"></a>Implementación desde un IDE
 
-[Visual Studio][] y [WebMatrix][] son entornos de desarrollo integrado (IDE) de Microsoft que puede utilizar para el desarrollo web. Ambos proporcionan características integradas que facilitan la implementan en Sitios web Azure. Ambos pueden utilizar [Web Deploy][] para automatizar tareas adicionales relacionadas con la implementación, como implementación de base de datos y cambios en las cadenas de conexión. Ambos también pueden implementarse mediante el uso de [FTP o FTPS][]).
+[Visual Studio][Visual Studio] y [WebMatrix][WebMatrix] son entornos de desarrollo integrado (IDE) de Microsoft que puede utilizar para el desarrollo web. Ambos proporcionan características integradas que facilitan la implementan en Sitios web Azure. Ambos pueden utilizar [Web Deploy][Web Deploy] para automatizar tareas adicionales relacionadas con la implementación, como implementación de base de datos y cambios en las cadenas de conexión. Ambos también pueden implementarse mediante el uso de [FTP o FTPS][FTP o FTPS]).
 
-WebMatrix es rápido de instalar y fácil de entender, pero Visual Studio ofrece muchas más características para trabajar con Sitios web Azure. Desde el IDE de Visual Studio puede crear, detener, iniciar y eliminar sitios web de Azure, puede ver registros en tiempo real a medida que se crean, puede realizar una depuración remota, etc. Visual Studio también se integra con sistemas de control de código fuente como [Visual Studio Online][1], [Team Foundation Server][] y [repositorios Git][].
+WebMatrix es rápido de instalar y fácil de entender, pero Visual Studio ofrece muchas más características para trabajar con Sitios web Azure. Desde el IDE de Visual Studio puede crear, detener, iniciar y eliminar sitios web de Azure, puede ver registros en tiempo real a medida que se crean, puede realizar una depuración remota, etc. Visual Studio también se integra con sistemas de control de código fuente como [Visual Studio Online][1], [Team Foundation Server][Team Foundation Server] y [repositorios Git][repositorios Git].
 
 ### <a name="vs"></a>Visual Studio
 
 Para obtener información sobre la implementación en Sitios web Azure desde Visual Studio, consulte los siguientes recursos:
 
--   [Introducción a Azure y ASP.NET][]. Creación e implementación de un proyecto web ASP.NET MVC simple mediante Visual Studio y Web Deploy.
--   [Implementación de WebJobs de Azure a Sitios web de Azure][]. Configuración de proyectos de aplicación de consola para que se implementen como WebJobs.
--   [Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y Base de datos SQL en un sitio web de Azure][]. Creación e implementación de un proyecto web ASP.NET MVC con una base de datos SQL mediante Visual Studio, Web Deploy y migraciones de Entity Framework Code First .
--   [Información general sobre la implementación de proyectos de aplicación web para Visual Studio y ASP.NET][]. Una introducción básica a la implementación web con Visual Studio. Artículo antiguo, pero que incluye información que sigue siendo pertinente, incluida información general de las opciones para implementar una base de datos junto con la aplicación web, además de una lista de tareas adicionales de implementación que podría tener que hacer o configurar manualmente Visual Studio para que las haga. Este tema trata sobre implementación en general, no solo sobre implementación en Sitios web Azure.
--   [Implementación web de ASP.NET con Visual Studio][]. Una serie de 12 tutoriales que abarca un rango más completo de tareas de implementación que otros de esta lista.
--   [Deploying an ASP.NET Website to Azure in Visual Studio 2012 from a Git Repository directly][]. Explica cómo implementar un proyecto web de ASP.NET en Visual Studio, con el complemento Git para confirmar el código en Git y conectar Azure al repositorio Git.
+-   [Introducción a Azure y ASP.NET][Introducción a Azure y ASP.NET]. Creación e implementación de un proyecto web ASP.NET MVC simple mediante Visual Studio y Web Deploy.
+-   [Implementación de WebJobs de Azure a Sitios web de Azure][Implementación de WebJobs de Azure a Sitios web de Azure]. Configuración de proyectos de aplicación de consola para que se implementen como WebJobs.
+-   [Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y Base de datos SQL en un sitio web de Azure][Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y Base de datos SQL en un sitio web de Azure]. Creación e implementación de un proyecto web ASP.NET MVC con una base de datos SQL mediante Visual Studio, Web Deploy y migraciones de Entity Framework Code First .
+-   [Información general sobre la implementación de proyectos de aplicación web para Visual Studio y ASP.NET][Información general sobre la implementación de proyectos de aplicación web para Visual Studio y ASP.NET]. Una introducción básica a la implementación web con Visual Studio. Artículo antiguo, pero que incluye información que sigue siendo pertinente, incluida información general de las opciones para implementar una base de datos junto con la aplicación web, además de una lista de tareas adicionales de implementación que podría tener que hacer o configurar manualmente Visual Studio para que las haga. Este tema trata sobre implementación en general, no solo sobre implementación en Sitios web Azure.
+-   [Implementación web de ASP.NET con Visual Studio][Implementación web de ASP.NET con Visual Studio]. Una serie de 12 tutoriales que abarca un rango más completo de tareas de implementación que otros de esta lista.
+-   [Deploying an ASP.NET Website to Azure in Visual Studio 2012 from a Git Repository directly][Deploying an ASP.NET Website to Azure in Visual Studio 2012 from a Git Repository directly]. Explica cómo implementar un proyecto web de ASP.NET en Visual Studio, con el complemento Git para confirmar el código en Git y conectar Azure al repositorio Git.
 
 ### <a name="webmatrix"></a>WebMatrix
 
 Para obtener información sobre la implementación en Sitios web Azure desde WebMatrix, consulte los siguientes recursos:
 
--   [Desarrollo e implementación de un sitio web con Microsoft WebMatrix][]. Creación de un sitio web simple de ASP.NET con una plantilla de WebMatrix y su implementación en un sitio web de Azure mediante WebMatrix y Web Deploy.
--   [Compilación e implementación de un sitio web Node.js en Azure con WebMatrix][].
--   [Creación de un sitio web Azure de PHP-MySQL e implementación mediante WebMatrix][].
--   [WebMatrix 3: Integrated Git and Deployment to Azure][]. Uso de WebMatrix para implementar desde un repositorio de control de código fuente de Git.
+-   [Desarrollo e implementación de un sitio web con Microsoft WebMatrix][Desarrollo e implementación de un sitio web con Microsoft WebMatrix]. Creación de un sitio web simple de ASP.NET con una plantilla de WebMatrix y su implementación en un sitio web de Azure mediante WebMatrix y Web Deploy.
+-   [Compilación e implementación de un sitio web Node.js en Azure con WebMatrix][Compilación e implementación de un sitio web Node.js en Azure con WebMatrix].
+-   [Creación de un sitio web Azure de PHP-MySQL e implementación mediante WebMatrix][Creación de un sitio web Azure de PHP-MySQL e implementación mediante WebMatrix].
+-   [WebMatrix 3: Integrated Git and Deployment to Azure][WebMatrix 3: Integrated Git and Deployment to Azure]. Uso de WebMatrix para implementar desde un repositorio de control de código fuente de Git.
 
 ## <a name="ftp"></a>Implementación mediante el uso de una utilidad de FTP
 
-Independientemente del IDE que utilice, también puede implementar contenido en su sitio si usa [FTP][FTP o FTPS] para copiar archivos. Crear credenciales de FTP para un sitio web de Azure es una tarea sencilla y puede usarlas en cualquier aplicación que funcione con FTP, incluidos exploradores, como Internet Explorer, y utilidades gratuitas completas, como [FileZilla][]. Los sitios web de Azure también son compatibles con el protocolo FTPS, que es más seguro.
+Independientemente del IDE que utilice, también puede implementar contenido en su sitio si usa [FTP][FTP o FTPS] para copiar archivos. Crear credenciales de FTP para un sitio web de Azure es una tarea sencilla y puede usarlas en cualquier aplicación que funcione con FTP, incluidos exploradores, como Internet Explorer, y utilidades gratuitas completas, como [FileZilla][FileZilla]. Los sitios web de Azure también son compatibles con el protocolo FTPS, que es más seguro.
 
 A pesar de que es fácil copiar los archivos del sitio web en Azure con utilidades de FTP, no se ocupan automáticamente de tareas de implementación relacionadas, ni tampoco las coordinan, como la implementación de una base de datos o el cambio de las cadenas de conexión. Además, muchas herramientas de FTP no comparan archivos de origen y archivos de destino para omitir copiar archivos que no se han modificado. En el caso de sitios de gran tamaño, si siempre se copian todos los archivos, la implementación lleva demasiado tiempo incluso para actualizaciones pequeñas, debido a que siempre se copian todos los archivos.
 
 Para obtener más información, consulte los siguientes recursos:
 
--   [Creación de un sitio web PHP-MySQL de Azure e implementación mediante FTP][].
--   [Administración de sitios web][]. Incluye información adicional que no se encuentra en el tutorial de PHP sobre cómo definir credenciales de FTP.
+-   [Creación de un sitio web PHP-MySQL de Azure e implementación mediante FTP][Creación de un sitio web PHP-MySQL de Azure e implementación mediante FTP].
+-   [Administración de sitios web][Administración de sitios web]. Incluye información adicional que no se encuentra en el tutorial de PHP sobre cómo definir credenciales de FTP.
 
 ## <a name="onpremises"></a>Implementación desde un sistema de control de código fuente local
 
@@ -120,7 +120,7 @@ Team Foundation Server es la solución local de Microsoft para el control de có
 
 Para obtener más información, consulte el siguiente recurso:
 
--   [Entrega continua para Servicios en la nube de Azure][]. Este documento es para un servicio en la nube de Azure, pero parte del contenido también es relevante para los sitios web.
+-   [Entrega continua para Servicios en la nube de Azure][Entrega continua para Servicios en la nube de Azure]. Este documento es para un servicio en la nube de Azure, pero parte del contenido también es relevante para los sitios web.
 
 ### <a name="gitmercurial"></a>Repositorios locales de Git o Mercurial
 
@@ -128,10 +128,10 @@ En Azure puede escribir la dirección URL de cualquier repositorio que utilice G
 
 Para obtener más información, consulte los siguientes recursos:
 
--   [Publicación en Sitios web Azure desde el control de código fuente][]. Uso de Git para publicar directamente desde su equipo local en un sitio web de Azure (en Azure, este método de publicación se denomina Git local). También muestra cómo habilitar la implementación continua de repositorios Git desde GitHub, CodePlex o BitBucket.
--   [Publishing to Azure Web Sites from any git/hg repo][]. Blog de David Ebbo en que se explica la característica de "repositorio externo" en Sitios web Azure.
--   [Foro de Azure sobre Git, Mercurial y Dropbox][].
--   [Deploying TWO websites to Azure from one Git Repository][]. Publicación en el blog de Scott Hanselman.
+-   [Publicación en Sitios web Azure desde el control de código fuente][Publicación en Sitios web Azure desde el control de código fuente]. Uso de Git para publicar directamente desde su equipo local en un sitio web de Azure (en Azure, este método de publicación se denomina Git local). También muestra cómo habilitar la implementación continua de repositorios Git desde GitHub, CodePlex o BitBucket.
+-   [Publishing to Azure Web Sites from any git/hg repo][Publishing to Azure Web Sites from any git/hg repo]. Blog de David Ebbo en que se explica la característica de "repositorio externo" en Sitios web Azure.
+-   [Foro de Azure sobre Git, Mercurial y Dropbox][Foro de Azure sobre Git, Mercurial y Dropbox].
+-   [Deploying TWO websites to Azure from one Git Repository][Deploying TWO websites to Azure from one Git Repository]. Publicación en el blog de Scott Hanselman.
 
 ## <a name="commandline"></a> Uso de herramientas de línea de comandos y la API REST de administración de Azure
 
@@ -141,11 +141,11 @@ Azure simplifica las tareas de administración de sitios que probablemente tenga
 
 ### <a name="msbuild"></a>MSBuild
 
-Si usa el [IDE de Visual Studio][] para el desarrollo, puede utilizar [MSBuild][] para automatizar todo lo que pueda hacer en el IDE. Puede configurar MSBuild para utilizar [Web Deploy][2] o [FTP/FTPS][Implementación mediante el uso de una utilidad de FTP] para copiar archivos. Web Deploy también puede automatizar muchas otras tareas relacionadas con la implementación, como implementar bases de datos.
+Si usa el [IDE de Visual Studio][IDE de Visual Studio] para el desarrollo, puede utilizar [MSBuild][MSBuild] para automatizar todo lo que pueda hacer en el IDE. Puede configurar MSBuild para utilizar [Web Deploy][2] o [FTP/FTPS][Implementación mediante el uso de una utilidad de FTP] para copiar archivos. Web Deploy también puede automatizar muchas otras tareas relacionadas con la implementación, como implementar bases de datos.
 
 Para obtener más información acerca de la implementación de la línea de comandos con MSBuild, consulte los siguientes recursos:
 
--   [Implementación web de ASP.NET con Visual Studio: Command Line Deployment][]. El décimo tutorial de una serie sobre la implementación en Azure con Visual Studio. Muestra cómo usar la línea de comandos para la implementación después de haber configurado perfiles de publicación en Visual Studio.
+-   [Implementación web de ASP.NET con Visual Studio: Command Line Deployment][Implementación web de ASP.NET con Visual Studio: Command Line Deployment]. El décimo tutorial de una serie sobre la implementación en Azure con Visual Studio. Muestra cómo usar la línea de comandos para la implementación después de haber configurado perfiles de publicación en Visual Studio.
 -   [Inside the Microsoft Build Engine: Using MSBuild and Team Foundation Build][MSBuild]. Copia impresa de un libro que incluye capítulos sobre cómo usar MSBuild para la implementación.
 
 ### <a name="ftp2"></a>Scripts de FTP
@@ -154,15 +154,15 @@ Crear credenciales de [FTP/FTPS][FTP o FTPS] para un sitio web de Azure es senci
 
 Para obtener más información, consulte el siguiente recurso:
 
--   [Utilizar secuencias de comandos por lotes de FTP][].
+-   [Utilizar secuencias de comandos por lotes de FTP][Utilizar secuencias de comandos por lotes de FTP].
 
 ### <a name="powershell"></a>Windows PowerShell
 
-Puede realizar funciones de implementación MSBuild o FTP desde [Windows PowerShell][]. Si lo hace, también puede usar una recopilación de cmdlets de Windows PowerShell que hacen que sea fácil llamar a la API REST de administración de Azure.
+Puede realizar funciones de implementación MSBuild o FTP desde [Windows PowerShell][Windows PowerShell]. Si lo hace, también puede usar una recopilación de cmdlets de Windows PowerShell que hacen que sea fácil llamar a la API REST de administración de Azure.
 
 Para obtener más información, consulte el siguiente recurso:
 
--   [Building Real-World Cloud Apps with Azure - Automate Everything][]. Capítulo de un libro electrónico que explica cómo la aplicación de ejemplo que aparece en el libro electrónico usa scripts de Windows PowerShell para crear un entorno de prueba de Azure e implementar en él. Consulte la sección [Resources][] para ver vínculos a documentación adicional sobre Azure PowerShell.
+-   [Building Real-World Cloud Apps with Azure - Automate Everything][Building Real-World Cloud Apps with Azure - Automate Everything]. Capítulo de un libro electrónico que explica cómo la aplicación de ejemplo que aparece en el libro electrónico usa scripts de Windows PowerShell para crear un entorno de prueba de Azure e implementar en él. Consulte la sección [Resources][Resources] para ver vínculos a documentación adicional sobre Azure PowerShell.
 
 ### <a name="api"></a>API de administración de .NET
 
@@ -170,7 +170,7 @@ Puede escribir código de C# para realizar funciones de MSBuild o FTP para imple
 
 Para obtener más información, consulte el siguiente recurso:
 
--   [Automating everything with the Azure Management Libraries and .NET][]. Introducción a la API de administración .NET y vínculos a más documentación.
+-   [Automating everything with the Azure Management Libraries and .NET][Automating everything with the Azure Management Libraries and .NET]. Introducción a la API de administración .NET y vínculos a más documentación.
 
 ### <a name="cli"></a>Línea de comandos entre plataformas (xpat-cli)
 
@@ -178,26 +178,26 @@ Puede usar la línea de comandos en máquinas Mac o Linux para implementar media
 
 Para obtener más información, consulte el siguiente recurso:
 
--   [Herramientas de línea de comandos][]. Página de portal en WindowsAzure.com para obtener información sobre la herramienta de línea de comandos.
+-   [Herramientas de línea de comandos][Herramientas de línea de comandos]. Página de portal en WindowsAzure.com para obtener información sobre la herramienta de línea de comandos.
 
 ### <a name="webdeploy"></a>Línea de comandos de Web Deploy
 
-[Web Deploy][] es el software de Microsoft para la implementación en IIS que no solo ofrece características inteligentes de sincronización de archivos, sino que también puede realizar o coordinar muchas otras tareas relacionadas con la implementación que no se pueden automatizar cuando usa FTP. Por ejemplo, Web Deploy puede implementar una base de datos nueva o actualizaciones de base de datos junto con su sitio web. Web Deploy también puede minimizar el tiempo que se requiere para actualizar un sitio existente, dado que puede copiar de manera inteligente solo los archivos modificados. Microsoft WebMatrix, Visual Studio, Visual Studio Online y Team Foundation Server cuentan con compatibilidad integrada para Web Deploy, pero solo puede utilizar Web Deploy directamente desde la línea de comandos para automatizar la implementación. Los comandos de Web Deploy son muy poderosos, pero la curva de aprendizaje puede ser pronunciada.
+[Web Deploy][Web Deploy] es el software de Microsoft para la implementación en IIS que no solo ofrece características inteligentes de sincronización de archivos, sino que también puede realizar o coordinar muchas otras tareas relacionadas con la implementación que no se pueden automatizar cuando usa FTP. Por ejemplo, Web Deploy puede implementar una base de datos nueva o actualizaciones de base de datos junto con su sitio web. Web Deploy también puede minimizar el tiempo que se requiere para actualizar un sitio existente, dado que puede copiar de manera inteligente solo los archivos modificados. Microsoft WebMatrix, Visual Studio, Visual Studio Online y Team Foundation Server cuentan con compatibilidad integrada para Web Deploy, pero solo puede utilizar Web Deploy directamente desde la línea de comandos para automatizar la implementación. Los comandos de Web Deploy son muy poderosos, pero la curva de aprendizaje puede ser pronunciada.
 
 Para obtener más información, consulte el siguiente recurso:
 
--   [Web Deployment Tool][]. Documentación oficial sobre el sitio de Microsoft TechNet. Información antigua, pero sigue siendo un buen lugar para comenzar.
--   [Using Web Deploy][]. Documentación oficial sobre el sitio de Microsoft IIS.NET. También es información antigua, pero es un buen lugar para comenzar.
--   [StackOverflow][]. El mejor sitio para visitar y obtener información más actualizada sobre el uso de Web Deploy desde la línea de comandos.
--   [Implementación web de ASP.NET con Visual Studio: Command Line Deployment][]. MSBuild es el motor de compilación que emplea Visual Studio y que también se puede usar desde la línea de comandos para implementar aplicaciones web en sitios web de Azure. Este tutorial forma parte de una serie que se refiere principalmente a la implementación de Visual Studio.
+-   [Web Deployment Tool][Web Deployment Tool]. Documentación oficial sobre el sitio de Microsoft TechNet. Información antigua, pero sigue siendo un buen lugar para comenzar.
+-   [Using Web Deploy][Using Web Deploy]. Documentación oficial sobre el sitio de Microsoft IIS.NET. También es información antigua, pero es un buen lugar para comenzar.
+-   [StackOverflow][StackOverflow]. El mejor sitio para visitar y obtener información más actualizada sobre el uso de Web Deploy desde la línea de comandos.
+-   [Implementación web de ASP.NET con Visual Studio: Command Line Deployment][Implementación web de ASP.NET con Visual Studio: Command Line Deployment]. MSBuild es el motor de compilación que emplea Visual Studio y que también se puede usar desde la línea de comandos para implementar aplicaciones web en sitios web de Azure. Este tutorial forma parte de una serie que se refiere principalmente a la implementación de Visual Studio.
 
 ## <a name="nextsteps"></a>Pasos siguientes
 
-En algunos escenarios, es posible que desee poder cambiar fácilmente entre una versión de ensayo y versión una de producción de su sitio web. Puede hacer esto con la característica de implementación de ensayo de Sitios web de Azure. Para obtener más información, vea [Implementación de ensayo en sitios web de Microsoft Azure][].
+En algunos escenarios, es posible que desee poder cambiar fácilmente entre una versión de ensayo y versión una de producción de su sitio web. Puede hacer esto con la característica de implementación de ensayo de Sitios web de Azure. Para obtener más información, vea [Implementación de ensayo en sitios web de Microsoft Azure][Implementación de ensayo en sitios web de Microsoft Azure].
 
-Tener un plan de copia de seguridad y restauración es un elemento importante de cualquier flujo de trabajo de implementación. Para obtener información sobre la característica de copia de seguridad y restauración de Sitios web de Azure, consulte [Copias de seguridad de Sitios web Azure][].
+Tener un plan de copia de seguridad y restauración es un elemento importante de cualquier flujo de trabajo de implementación. Para obtener información sobre la característica de copia de seguridad y restauración de Sitios web de Azure, consulte [Copias de seguridad de Sitios web Azure][Copias de seguridad de Sitios web Azure].
 
-Para obtener más información sobre otros temas de implementación, consulte la sección sobre implementación en [Documentación sobre Sitios web de Azure][].
+Para obtener más información sobre otros temas de implementación, consulte la sección sobre implementación en [Documentación sobre Sitios web de Azure][Documentación sobre Sitios web de Azure].
 
   [Implementación desde un sistema de control de código fuente hospedado en la nube]: #cloud
   [Implementación desde un IDE]: #ide

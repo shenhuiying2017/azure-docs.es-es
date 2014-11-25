@@ -1,6 +1,6 @@
 <properties linkid="develop-mobile-tutorials-dotnet-backend-get-started-with-push-android" urlDisplayName="Get Started with Push" pageTitle="Get started with push (Android) | Mobile Dev Center" metaKeywords="" description="Learn how to use Azure Mobile Services to send push notifications to your Android .Net app." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Introducción a las notificaciones de inserción en Servicios móviles
 
@@ -159,17 +159,10 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 -   [Uso de la biblioteca de cliente Android para Servicios móviles][Uso de la biblioteca de cliente Android para Servicios móviles]
     <br/>Obtenga más información sobre cómo usar Servicios móviles con Android.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
 
-  [C# para Tienda Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/ "C# para Tienda Windows"
-  [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/ "JavaScript para Tienda Windows"
-  [Windows Phone]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/ "Windows Phone"
-  [iOS]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/ "iOS"
-  [Android]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Android"
-  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/ "Back-end de .NET"
-  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-javascript-backend-android-get-started-push/ "Back-end de JavaScript"
+
+
+
   [Habilitación del servicio de mensajería en la nube de Google]: #register
   [Configuración del servicio móvil para enviar solicitudes de inserción]: #configure
   [Actualización del servidor para enviar notificaciones de inserción]: #update-server
@@ -179,19 +172,11 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-data
   [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F
-  [Habilitación de GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-android-get-started-push/mobile-services-selection.png
   [1]: ./media/mobile-services-android-get-started-push/mobile-push-tab-android.png
-  [mobile-services-download-service-locally]: ../includes/mobile-services-download-service-locally.md
-  [mobile-services-dotnet-backend-test-local-service]: ../includes/mobile-services-dotnet-backend-test-local-service.md
-  [mobile-services-dotnet-backend-publish-service]: ../includes/mobile-services-dotnet-backend-publish-service.md
-  [mobile-services-verify-android-sdk-version]: ../includes/mobile-services-verify-android-sdk-version.md
-  [Incorporación de Play Services]: ../includes/mobile-services-add-Google-play-services.md
-  [mobile-services-android-getting-started-with-push]: ../includes/mobile-services-android-getting-started-with-push.md
   [2]: ./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager.png
   [3]: ./media/mobile-services-android-get-started-push/mobile-services-android-virtual-device-manager-edit.png
-  [mobile-services-dotnet-backend-configure-local-push]: ../includes/mobile-services-dotnet-backend-configure-local-push.md
   [4]: ./media/mobile-services-android-get-started-push/mobile-quickstart-push1-android.png
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-users
   [¿Qué son los Centros de notificaciones?]: /es-es/documentation/articles/notification-hubs-overview/

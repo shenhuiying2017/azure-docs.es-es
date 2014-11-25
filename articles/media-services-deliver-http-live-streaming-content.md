@@ -82,6 +82,6 @@ Con este tema concluyen los temas acerca del uso de los Servicios multimedia de 
   [Guía de inicio rápido: Usar el SDK de Media Services para .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Creación de aplicaciones con el SDK de Media Services para .NET]: http://go.microsoft.com/fwlink/?linkid=247821
   [Entrega de contenido]: http://go.microsoft.com/fwlink/?linkid=252967
-  [Foro de Servicios multimedia]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+  [Foro de Servicios multimedia]: http://social.msdn.microsoft.com/Forums/es-es/MediaServices/threads
   [Supervisión de una cuenta de Servicios multimedia]: ../media-services-monitor-services-account/
   [Administración de contenido en Servicios multimedia]: ../media-services-manage-content/

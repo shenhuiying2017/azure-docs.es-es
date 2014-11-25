@@ -73,7 +73,6 @@ Azure iniciará las operaciones de compilación e implementación. Durante la co
   [Orchard]: http://www.orchardproject.net/
   [descargar módulos y temas adicionales]: http://gallery.orchardproject.net/
   [Blog de Orchard]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Crear nuevo]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
   [Crear desde la galería]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png
   [Orchard desde la lista]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-03.png

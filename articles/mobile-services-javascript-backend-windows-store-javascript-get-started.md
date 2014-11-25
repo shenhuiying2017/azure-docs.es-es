@@ -1,6 +1,6 @@
 <properties pageTitle="Get Started with Mobile Services for Windows Store apps | Mobile Dev Center" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Windows Store development in C# or JavaScript. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="hero-article" ms.date="08/18/2014" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="hero-article" ms.date="08/18/2014" ms.author="glenga" />
 
 
 # <a name="getting-started"> </a>Introducción a los Servicios móviles
@@ -67,18 +67,14 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 
 Para obtener más información acerca de las aplicaciones universales de Windows, consulte [Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil][Compatibilidad de plataformas de varios dispositivos desde un único servicio móvil].
 
-<!-- Anchors. -->  
+  
 
-  [mobile-services-selector-get-started]: ../includes/mobile-services-selector-get-started.md
-  [mobile-services-windows-universal-get-started]: ../includes/mobile-services-windows-universal-get-started.md
   [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-javascript-backend-windows-store-javascript-get-started%2F
   [Visual Studio 2013 Express para Windows]: http://go.microsoft.com/fwlink/?LinkId=257546
-  [mobile-services-create-new-service]: ../includes/mobile-services-create-new-service.md
-<!-- Images. -->
+
   [0]: ./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-portal-quickstart.png
   [1]: ./media/mobile-services-javascript-backend-windows-store-javascript-get-started/mobile-quickstart-steps.png
-<!-- URLs. -->
-  [mobile-services-javascript-backend-run-app]: ../includes/mobile-services-javascript-backend-run-app.md
+
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-data
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-users
   [Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push

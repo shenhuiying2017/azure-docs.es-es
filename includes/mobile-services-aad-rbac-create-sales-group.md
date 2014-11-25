@@ -8,7 +8,7 @@ En esta sección agregará dos nuevos usuarios a su directorio junto con el nuev
 4.  Cree otro usuario llamado **David**. Anote la contraseña temporal de ese usuario.
 5.  Los nuevos usuarios tendrán un aspecto similar al que se muestra a continuación.
 
-    ![][]
+    ![][0]
 
 ### Creación del grupo de ventas
 
@@ -28,7 +28,7 @@ En esta sección agregará dos nuevos usuarios a su directorio junto con el nuev
 
     ![][3]
 
-  []: ./media/mobile-services-aad-rbac-create-sales-group/users.png
+  [0]: ./media/mobile-services-aad-rbac-create-sales-group/users.png
   [1]: ./media/mobile-services-aad-rbac-create-sales-group/sales-group.png
   [2]: ./media/mobile-services-aad-rbac-create-sales-group/group-membership.png
   [3]: ./media/mobile-services-aad-rbac-create-sales-group/sales-group-id.png

@@ -179,7 +179,6 @@ En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iO
   [Envío de notificaciones desde su backend]: #send
   [SDK de iOS para Servicios móviles]: http://go.microsoft.com/fwLink/?LinkID=266533
   [XCode 4,5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [Habilitar notificaciones de inserción de Apple]: ../includes/enable-apple-push-notifications.md
   [0]: ./media/notification-hubs-ios-get-started/mobile-services-ios-push-27.png
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [1]: ./media/notification-hubs-ios-get-started/notification-hub-create-from-portal.png

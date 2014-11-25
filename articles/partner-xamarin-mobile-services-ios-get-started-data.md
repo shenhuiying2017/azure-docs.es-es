@@ -201,9 +201,8 @@ Una vez que haya completado la serie de datos, pruebe con uno de estos otros tut
 -   [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción]
     Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs. TODO:: update download link, github link, and completed example project with new Xamarin.iOs projects -->
+  <!-- URLs. TODO:: update download link, github link, and completed example project with new Xamarin.iOs projects -->
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
   [Descarga del proyecto de la aplicación Xamarin.iOS]: http://go.microsoft.com/fwlink/p/?LinkId=331302
   [Creación del servicio móvil]: #create-service
   [Incorporación de una tabla de datos para almacenamiento]: #add-table
@@ -212,7 +211,6 @@ Una vez que haya completado la serie de datos, pruebe con uno de estos otros tut
   [componente Servicios móviles de Azure]: http://components.xamarin.com/view/azure-mobile-services/
   [XCode 5.0]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [0]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
   [1]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-data-tab-empty.png
   [2]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-create-todoitem-table.png
   [3]: ./media/partner-xamarin-mobile-services-ios-get-started-data/mobile-dashboard-tab.png

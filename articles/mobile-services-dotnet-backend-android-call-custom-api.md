@@ -37,16 +37,14 @@ Ahora que ha creado una API personalizada y la llamó desde su aplicación de An
 -   [Almacenamiento de scripts de servidor en control de código fuente][Almacenamiento de scripts de servidor en control de código fuente]
      Obtenga información sobre cómo usar la característica de control de código fuente para desarrollar y publicar de manera más fácil y segura código script de la API personalizada.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started/
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
   [Definición de la API personalizada]: #define-custom-api
   [Actualización de la aplicación para llamar a la API personalizada]: #update-app
   [Prueba de la aplicación]: #test-app
-  [mobile-services-dotnet-backend-create-custom-api]: ../includes/mobile-services-dotnet-backend-create-custom-api.md
-  [mobile-services-android-call-custom-api]: ../includes/mobile-services-android-call-custom-api.md
   [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
   [Almacenamiento de scripts de servidor en control de código fuente]: /es-es/documentation/articles/mobile-services-store-scripts-source-control

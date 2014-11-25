@@ -49,7 +49,7 @@ Si hace clic en el plan, aparece un cuadro que le permite administrar el plan de
 
 Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure][evaluación gratuita de Microsoft Azure].
 
-<!-- Images. -->
+
 
   [Vaya a este sitio]: http://go.microsoft.com/fwlink/?LinkID=394421
   [Obtenga más información acerca de la administración de planes de hospedaje web]: http://go.microsoft.com/fwlink/?LinkID=394411

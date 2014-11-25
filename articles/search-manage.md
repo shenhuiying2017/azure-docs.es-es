@@ -149,7 +149,6 @@ Con la interrupción o inicio del servicio no se desactiva la facturación. Debe
 
 
 <!--Anchors-->  
-  [Este artículo usa el portal de Azure en vista previa]: ../includes/preview-portal-note.md
   [Adición del servicio de búsqueda a su suscripción]: #sub-1
   [Tareas administrativas]: #sub-2
   [URL de servicio]: #sub-3

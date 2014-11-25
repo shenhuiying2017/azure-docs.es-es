@@ -194,7 +194,7 @@ Esto detendrá la operación de inserción actual, pero mantendrá todos los cam
 
 Cuando se cancele una inserción, `PushAsync` producirá una excepción `MobileServicePushFailedException`, y la propiedad de excepción `PushResult.Status` tendrá el valor `MobileServicePushStatus.CancelledByOperation`.
 
-<!-- Anchors. --> 
+ 
 <!-- Images --> 
 <!-- URLs -->
 

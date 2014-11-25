@@ -1,6 +1,6 @@
 <properties title="Manage DocumentDB capacity and performance" pageTitle="Manage DocumentDB capacity and performance | Azure" description="Learn how you can elastically scale DocumentDB to meet the performance and storage needs of your application." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Gestión de la capacidad y rendimiento de la Base de datos de documentos
 
@@ -58,7 +58,7 @@ Observe en la tabla que las unidades de solicitud consumidas por las operaciones
 
 Para obtener un número exacto de unidades de solicitud para su aplicación, puede utilizar la calculadora de unidades de solicitud para calcular las unidades de solicitud consumidas por las diferentes operaciones. También puede inspeccionar el encabezado de la respuesta x-ms-request-charge que incluye el número de unidades de solicitud incluido para una solicitud determinada.
 
-[Calculadora de unidades de solicitud][]
+[Calculadora de unidades de solicitud][Calculadora de unidades de solicitud]
 
 # Colecciones y capacidad de proceso aprovisionada
 
@@ -71,7 +71,7 @@ La selección del nivel de coherencia predeterminado tiene un impacto en la capa
 -   Los niveles de coherencia de Sesión y Ocasional proporcionan aproximadamente 2000 solicitudes de lectura y 500 inserciones/reemplazos/eliminaciones de documentos.
 -   Los niveles de coherencia Alto y Uso vinculado proporcionan aproximadamente 1200 solicitudes de lectura de documentos y aproximadamente 500 inserciones/reemplazos/eliminaciones de documentos. Las inserciones/reemplazos/eliminaciones con Uso vinculado son bastante más bajas en latencia que Alto.
 
-[Calculadora de unidades de solicitud][]
+[Calculadora de unidades de solicitud][Calculadora de unidades de solicitud]
 
 # Almacenamiento de documentos aprovisionado y sobrecarga de índice
 
@@ -79,6 +79,6 @@ Con cada CU adquirida su cuenta se aprovisiona con 10 GB de almacenamiento de do
 
 De forma predeterminada, la Base de datos de documentos indexa todos los documentos automáticamente. Sin embargo, en caso de que desee ajustar la sobrecarga de índice, puede elegir eliminar determinados documentos de la indexación en el momento de insertar o reemplazar un documento. Puede configurar una colección de la Base de datos de documentos para que excluya todos los documentos de la colección de la indexación. También puede configurar una colección de la Base de datos de documentos para indexar de forma selectiva solo determinadas propiedades o rutas con caracteres comodín de sus documentos JSON. Excluir propiedades o documentos también mejora la capacidad de proceso de escritura; lo que significa que consumirá menos unidades de solicitud.
 
-[Calculadora de unidades de solicitud][]
+[Calculadora de unidades de solicitud][Calculadora de unidades de solicitud]
 
   [Calculadora de unidades de solicitud]: http://go.microsoft.com/fwlink/?LinkID=510088

@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-xamarin-ios" urlDisplayName="Get Started" pageTitle="Get Started with Notification Hubs for Xamarin iOS apps" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications to a Xamarin iOS application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" services="mobile-services,notification-hubs" documentationCenter="" title="Get started with Notification Hubs" authors="donnam" manager="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="donnam" />
 
 # Introducción a los Centros de notificaciones
 
@@ -43,7 +43,7 @@ Primero debe generar el archivo de solicitud de firma de certificado (CSR) que A
 
 2.  Haga clic en **Acceso a llaves**, expanda **Certificate Assistant** y, a continuación, haga clic en **Request a Certificate from a Certificate Authority...**.
 
-    ![][]
+    ![][0]
 
 3.  Seleccione una dirección de correo electrónico de usuario en **User Email Address**, escriba un nombre común en **Common Name** y una dirección de correo electrónico en **CA Email Address**, asegúrese de que **Saved to disk** se encuentra seleccionado, y, a continuación, haga clic en **Continue**.
 
@@ -400,17 +400,11 @@ Para enviar una notificación usando un servicio móvil, siga la [Introducción 
 
 En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iOS. Para dirigirse a usuarios específicos, consulte el tutorial [Uso de Centros de notificaciones para insertar notificaciones en los usuarios][Uso de Centros de notificaciones para insertar notificaciones en los usuarios], mientras que, si desea segmentar sus usuarios por grupos de interés, puede leer [Uso de los Centros de notificaciones para enviar noticias de última hora][Uso de los Centros de notificaciones para enviar noticias de última hora]. Para obtener más información sobre el uso de los Centros de notificaciones, consulte la [información general acerca de los centros de notificaciones de Azure][información general acerca de los centros de notificaciones de Azure] y los [procedimientos de los Centros de notificaciones para iOS][procedimientos de los Centros de notificaciones para iOS] (en inglés).
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
 
-  [Windows Universal]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /es-es/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /es-es/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /es-es/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /es-es/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
+
+
+
   [Xamarin.iOS]: /es-es/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /es-es/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [aplicación NotificationHubs]: http://go.microsoft.com/fwlink/p/?LinkId=331329
   [Generación del archivo de solicitud de firma de certificado]: #certificates
   [Registro de la aplicación y habilitación para las notificaciones de inserción]: #register
@@ -421,9 +415,8 @@ En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iO
   [XCode 5.0]: https://go.microsoft.com/fwLink/p/?LinkID=266532
   [1]: http://xamarin.com/download
   [Componente de Servicios móviles de Azure]: http://components.xamarin.com/view/azure-mobile-services/
-  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A643EE910&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fmanage%2Fservices%2Fnotification-hubs%2Fgetting-started-xamarin-ios%2F
   [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-  []: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step5.png
+  [0]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step5.png
   [2]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step6.png
   [3]: ./media/partner-xamarin-notification-hubs-ios-get-started/mobile-services-ios-push-step7.png
   [portal de aprovisionamiento de iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456

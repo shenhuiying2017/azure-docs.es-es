@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-how-to-ios-client" urlDisplayName="iOS Client Library" pageTitle="How to use the iOS client library - Azure Mobile Services" metaKeywords="Azure Mobile Services, Mobile Service iOS client library, iOS client library" description="Learn how to use the iOS client library for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use the iOS client library for Mobile Services" authors="glenga" solutions="" manager="" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
 
 
 
@@ -462,17 +462,12 @@ For more information see, New topic about processing headers in the server-side.
 ## <a name="next-steps"></a>Next steps
 --> 
 
-<!-- Anchors. --> 
+ 
 
-<!-- Images. --> 
+ 
 
-<!-- URLs. -->
 
-  [.NET Framework]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library/ ".NET Framework"
-  [HTML/JavaScript]: /es-es/develop/mobile/how-to-guides/work-with-html-js-client/ "HTML/JavaScript"
-  [iOS]: /es-es/develop/mobile/how-to-guides/work-with-ios-client-library/ "iOS"
-  [Android]: /es-es/develop/mobile/how-to-guides/work-with-android-client-library/ "Android"
-  [Xamarin]: /es-es/develop/mobile/how-to-guides/work-with-xamarin-client-library/ "Xamarin"
+
   [SDK de Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [SDK de iOS]: https://developer.apple.com/xcode
   [guía de inicio rápido de Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-ios
@@ -490,7 +485,6 @@ For more information see, New topic about processing headers in the server-side.
   [Enlace de datos a la interfaz de usuario]: #binding
   [Autenticación de usuarios]: #authentication
   [Gestión de errores]: #errors
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Creación de una tabla]: http://msdn.microsoft.com/es-es/library/windowsazure/jj193162.aspx
   [**Link Binary With Libraries**]: https://developer.apple.com/library/ios/recipes/xcode_help-project_editor/Articles/AddingaLibrarytoaTarget.html
   [Devolución de datos en páginas]: #paging

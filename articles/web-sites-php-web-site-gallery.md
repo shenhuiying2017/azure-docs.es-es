@@ -13,6 +13,5 @@ Ha aprendido a crear e implementar un sitio web desde la galería. Para obtener 
 -   [Creación de un sitio web Azure de PHP-MySQL e implementación mediante Git][Creación de un sitio web Azure de PHP-MySQL e implementación mediante Git]: Cree un sitio web de PHP desde cero e impleméntelo en un sitio web de Azure mediante el uso de Git.
 -   [Más tutoriales de PHP][Más tutoriales de PHP]: Cree tipos de aplicaciones adicionales mediante PHP y Azure.
 
-  [website-from-gallery]: ../includes/website-from-gallery.md
   [Creación de un sitio web Azure de PHP-MySQL e implementación mediante Git]: /es-es/develop/php/tutorials/website-w-mysql-and-git/
   [Más tutoriales de PHP]: /es-es/develop/php/tutorials/

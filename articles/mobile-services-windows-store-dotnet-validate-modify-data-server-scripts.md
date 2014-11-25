@@ -218,9 +218,9 @@ Los scripts de servidor también se usan al autorizar usuarios y para enviar not
     
 	Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Incorporación de la validación de longitud de cadena]: #string-length-validation
   [Actualización del cliente para admitir la validación]: #update-client-validation

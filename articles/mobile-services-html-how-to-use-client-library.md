@@ -587,8 +587,8 @@ Ahora que ha completado este tema de referencia conceptual, conozca cómo realiz
     
 	Conozca cómo usar el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles.
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [Guía de inicio rápido de JavaScript para la Tienda Windows]: http://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started
   [Guía de inicio rápido de HTML]: http://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started-html
@@ -612,7 +612,6 @@ Ahora que ha completado este tema de referencia conceptual, conozca cómo realiz
   [Direccionamiento del de encabezados de solicitud]: #customizing
   [Direccionamiento del de recursos de origen cruzado]: #hostnames
   [Pasos siguientes]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Introducción a los datos en JavaScript de Tienda Windows]: http://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started-with-data-js
   [Introducción a los datos en HTML/JavaScript]: http://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started-with-data-html/
   [referencia de opciones de consulta del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502

@@ -1,6 +1,6 @@
 <properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Aplicación híbrida en la nube/local .NET mediante el relé del bus de servicio
 
@@ -583,7 +583,6 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
 -   [Procedimientos del bus de servicio][Procedimientos del bus de servicio]
 -   [Utilización de las colas del bus de servicio][Utilización de las colas del bus de servicio]
 
-  [create-account-note]: ../includes/create-account-note.md
   [0]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
   [1]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App2.png
   [Obtención de herramientas y de SDK]: http://go.microsoft.com/fwlink/?LinkId=271920

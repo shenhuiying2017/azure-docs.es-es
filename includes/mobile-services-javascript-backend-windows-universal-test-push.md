@@ -8,7 +8,7 @@
 
 3.  Vuelva a ejecutar la aplicación de la Tienda Windows, escriba texto en **Insertar un TodoItem** y haga clic en **Guardar**.
 
-    ![][]
+    ![][0]
 
     Después de hacer esto, las aplicaciones de la Tienda Windows y de Windows Phone recibirán una notificación push de WNS.
 
@@ -18,6 +18,6 @@
 
     ![][2]
 
-  []: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png
+  [0]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push2.png
   [2]: ./media/mobile-services-javascript-backend-windows-universal-test-push/mobile-quickstart-push5-wp8.png

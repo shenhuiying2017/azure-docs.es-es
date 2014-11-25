@@ -1,6 +1,6 @@
 <properties linkid="web-sites-hybrid-connection-getting-started" title="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website" pageTitle="Hybrid Connections Step-by-Step: Connect to on-premises SQL Server from an Azure website" description="Create a a website on Microsoft Azure and connect it to an on-premises SQL Server database" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="timamm" manager="paulettm" editor="mollybos" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="timamm" />
 
 # Conexión a un servidor SQL Server local desde un sitio web de Azure usando Conexiones híbridas
 
@@ -10,19 +10,19 @@ Conexiones híbridas puede conectar sitios web de Microsoft Azure con recursos l
 
 En este tutorial aprenderemos a crear un sitio web en el portal de vista previa de Azure, a conectar el sitio web a una base de datos de SQL Server local usando la nueva característica Conexiones híbridas, a crear una aplicación web ASP.NET simple que usará la conexión híbrida y a implementar la aplicación en el sitio web de Azure. El sitio web completado en Azure almacena credenciales de usuario en una base de datos de miembros de pertenencia local. En el tutorial se asume que no tiene ninguna experiencia anterior con Azure o ASP.NET.
 
-> [WACOM.NOTE] La parte de sitios web de la característica Conexiones híbridas solo está disponible en el [Portal de Azure en vista previa][]. Para crear una conexión en Servicios de BizTalk, consulte [Conexiones híbridas][].
+> [WACOM.NOTE] La parte de sitios web de la característica Conexiones híbridas solo está disponible en el [Portal de Azure en vista previa][Portal de Azure en vista previa]. Para crear una conexión en Servicios de BizTalk, consulte [Conexiones híbridas][Conexiones híbridas].
 
 ## Requisitos previos
 
 Para completar este tutorial, necesitará los siguientes productos. Todos están disponibles en versión gratuita, así que puede comenzar a desarrollar para Azure completamente gratis.
 
--   **Suscripción de Azure** - Para obtener información sobre una suscripción gratuita, vea [Evaluación gratuita de Azure][].
+-   **Suscripción de Azure** - Para obtener información sobre una suscripción gratuita, vea [Evaluación gratuita de Azure][Evaluación gratuita de Azure].
 
--   **Visual Studio 2013**: para descargar una versión de evaluación gratuita de Visual Studio 2013, consulte [Descargas de Visual Studio][]. Instale esta aplicación antes de continuar.
+-   **Visual Studio 2013**: para descargar una versión de evaluación gratuita de Visual Studio 2013, consulte [Descargas de Visual Studio][Descargas de Visual Studio]. Instale esta aplicación antes de continuar.
 
--   **Microsoft .NET Framework 3.5 Service Pack 1** - Si su sistema operativo es Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7 o Windows Server 2008 R2, puede habilitar este producto en Panel de control \> Programas y características \> Activar o desactivar las características de Windows. De lo contrario, puede descargarlo desde el [Centro de descarga de Microsoft][].
+-   **Microsoft .NET Framework 3.5 Service Pack 1** - Si su sistema operativo es Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7 o Windows Server 2008 R2, puede habilitar este producto en Panel de control \> Programas y características \> Activar o desactivar las características de Windows. De lo contrario, puede descargarlo desde el [Centro de descarga de Microsoft][Centro de descarga de Microsoft].
 
--   **SQL Server 2014 Express with Tools**: descargue Microsoft SQL Server Express de forma gratuita en la [página de bases de datos de Plataforma web de Microsoft][]. Elija la versión **Express** (no LocalDB). La versión **Express with Tools** incluye SQL Server Management Studio, que usará en este tutorial.
+-   **SQL Server 2014 Express with Tools**: descargue Microsoft SQL Server Express de forma gratuita en la [página de bases de datos de Plataforma web de Microsoft][página de bases de datos de Plataforma web de Microsoft]. Elija la versión **Express** (no LocalDB). La versión **Express with Tools** incluye SQL Server Management Studio, que usará en este tutorial.
 
 -   **SQL Server Management Studio Express** - Este producto se incluye en la descarga de SQL Server 2014 Express with Tools mencionada anteriormente, pero si lo instala por separado, puede descargarlo e instalarlo desde la [página de descarga de SQL Server Express][página de bases de datos de Plataforma web de Microsoft].
 
@@ -39,21 +39,21 @@ El equipo en el que instala el administrador de conexiones híbridas local:
 
 En estos pasos de este artículo se supone que usa el explorador del equipo que hospeda el agente de conexiones híbridas local.
 
-Si ya tiene SQL Server instalado en una configuración y en un entorno que cumple las condiciones descritas anteriormente, puede continuar y empezar con [Creación de una base de datos de SQL Server local][].
+Si ya tiene SQL Server instalado en una configuración y en un entorno que cumple las condiciones descritas anteriormente, puede continuar y empezar con [Creación de una base de datos de SQL Server local][Creación de una base de datos de SQL Server local].
 
 ## En este artículo
 
-[A. Instalación de SQL Server Express, habilitación de TCP/IP y creación de una base de datos de SQL Server local][]
+[A. Instalación de SQL Server Express, habilitación de TCP/IP y creación de una base de datos de SQL Server local][A. Instalación de SQL Server Express, habilitación de TCP/IP y creación de una base de datos de SQL Server local]
 
-[B. Creación de un sitio web en el portal de vista previa de Azure][]
+[B. Creación de un sitio web en el portal de vista previa de Azure][B. Creación de un sitio web en el portal de vista previa de Azure]
 
-[C. Creación de una conexión híbrida en un servicio de BizTalk][]
+[C. Creación de una conexión híbrida en un servicio de BizTalk][C. Creación de una conexión híbrida en un servicio de BizTalk]
 
-[D. Instalación del administrador de conexiones híbridas local para completar la conexión][]
+[D. Instalación del administrador de conexiones híbridas local para completar la conexión][D. Instalación del administrador de conexiones híbridas local para completar la conexión]
 
-[E. Creación de un proyecto ASP.NET básico, edición de la cadena de conexión de base de datos y ejecución del proyecto localmente][]
+[E. Creación de un proyecto ASP.NET básico, edición de la cadena de conexión de base de datos y ejecución del proyecto localmente][E. Creación de un proyecto ASP.NET básico, edición de la cadena de conexión de base de datos y ejecución del proyecto localmente]
 
-[F. Publicación de la aplicación web en Azure y prueba de la misma][]
+[F. Publicación de la aplicación web en Azure y prueba de la misma][F. Publicación de la aplicación web en Azure y prueba de la misma]
 
 <a name="InstallSQL"></a>
 
@@ -65,13 +65,13 @@ En esta sección se muestra cómo instalar SQL Server Express, habilitar TCP/IP 
 
 1.  Para instalar SQL Server Express, ejecute el archivo **SQLEXPRWT\_x64\_ENU.exe** o **SQLEXPR\_x86\_ENU.exe** que descargó. Aparecerá el asistente Centro de instalación de SQL Server.
 
-    ![SQL Server Install][]
+    ![SQL Server Install][SQL Server Install]
 
 2.  Elija **Nueva instalación independiente de SQL Server o agregar características a una instalación existente**. Siga las instrucciones, aceptando las elecciones y configuraciones predeterminadas, hasta llegar a la página **Configuración de instancia**.
 
 3.  En la página **Configuración de instancia**, elija **Instancia predeterminada**.
 
-    ![Choose Default Instance][]
+    ![Choose Default Instance][Choose Default Instance]
 
     De forma predeterminada, la instancia predeterminada de SQL Server escucha solicitudes de clientes de SQL Server en el puerto estático 1433, que es el que requiere la característica Conexiones híbridas. Las instancias con nombre usan puertos dinámicos y UDP, que Conexiones híbridas no admite.
 
@@ -79,7 +79,7 @@ En esta sección se muestra cómo instalar SQL Server Express, habilitar TCP/IP 
 
 5.  En la página **Configuración del Motor de base de datos**, bajo **Modo de autenticación**, elija **Modo mixto (autenticación de SQL Server y de Windows)** y proporcione una contraseña.
 
-    ![Choose Mixed Mode][]
+    ![Choose Mixed Mode][Choose Mixed Mode]
 
     En este tutorial se usará la autenticación de SQL Server. Asegúrese de recordar la contraseña proporcionada, ya que la necesitará más tarde.
 
@@ -87,7 +87,7 @@ En esta sección se muestra cómo instalar SQL Server Express, habilitar TCP/IP 
 
 ### Habilitar TCP/IP
 
-Para habilitar TCP/IP, usará el Administrador de configuración de SQL Server, que se instaló al instalar SQL Server Express. Siga los pasos que figuran en [Habilitar el protocolo de red TCP/IP para SQL Server][] antes de continuar.
+Para habilitar TCP/IP, usará el Administrador de configuración de SQL Server, que se instaló al instalar SQL Server Express. Siga los pasos que figuran en [Habilitar el protocolo de red TCP/IP para SQL Server][Habilitar el protocolo de red TCP/IP para SQL Server] antes de continuar.
 
 <a name="CreateSQLDB"></a>
 
@@ -96,23 +96,23 @@ Para habilitar TCP/IP, usará el Administrador de configuración de SQL Server, 
 La aplicación web de Visual Studio requiere una base de datos de pertenencia a la que pueda acceder Azure. Para ello, se necesita una base de datos de SQL Server o SQL Server Express (no la base de datos LocalDB que usa la plantilla MVC de forma predeterminada), por lo que seguidamente creará la base de datos de pertenencia.
 
 1.  En SQL Server Management Studio, conéctese al servidor SQL Server que acaba de instalar. (Si el cuadro de diálogo **Conectar con el servidor** no aparece automáticamente, navegue hasta **Explorador de objetos** en el panel izquierdo, haga clic en **Conectar** y después en **Motor de base de datos**.)
-    ![Connect to Server][]
+    ![Connect to Server][Connect to Server]
 
     En **Tipo de servidor**, elija **Motor de base de datos**. Para **Nombre de servidor**, puede usar **localhost** o el nombre del equipo que esté usando. Elija **Autenticación de SQL server** y después inicie sesión con el nombre de usuario sa y la contraseña que creó anteriormente.
 
 2.  Para crear una nueva base de datos usando SQL Server Management Studio, haga clic con el botón secundario en **Bases de datos** en el Explorador de objetos y después haga clic en **Nueva base de datos**.
 
-    ![Create new database][]
+    ![Create new database][Create new database]
 
 3.  En el cuadro de diálogo **Nueva base de datos**, escriba MembershipDB para el nombre de base de datos y después haga clic en **Aceptar**.
 
-    ![Provide database name][]
+    ![Provide database name][Provide database name]
 
     Tenga en cuenta que, llegados a este punto, no realiza ningún cambio en la base de datos. La aplicación web agregará más tarde la información de pertenencia automáticamente cuando se ejecute.
 
 4.  En el explorador de objetos, si expande **Bases de datos**, verá que se ha creado la base de datos de pertenencia.
 
-    ![MembershipDB created][]
+    ![MembershipDB created][MembershipDB created]
 
 <a name="CreateSite"></a>
 
@@ -120,25 +120,25 @@ La aplicación web de Visual Studio requiere una base de datos de pertenencia a 
 
 > [WACOM.NOTE] Si ya ha creado un sitio web en el portal de vista previa de Azure que desea usar para este tutorial, puede seguir con [Creación de una conexión híbrida en un servicio de BizTalk][C. Creación de una conexión híbrida en un servicio de BizTalk] y continuar a partir de ahí.
 
-1.  En la esquina inferior izquierda del [Portal de Azure en vista previa][], haga clic en **Nuevo** y elija **Sitio web**.
+1.  En la esquina inferior izquierda del [Portal de Azure en vista previa][Portal de Azure en vista previa], haga clic en **Nuevo** y elija **Sitio web**.
 
-    ![New button][]
+    ![New button][New button]
 
-    ![New website][]
+    ![New website][New website]
 
 2.  En el cuadro **Sitio web**, proporcione un nombre para el sitio web y haga clic en **Crear**.
 
-    ![Website name][]
+    ![Website name][Website name]
 
 3.  Transcurridos unos segundos, el sitio web se creará y aparecerá su cuadro de sitio web. El cuadro es un panel que se desplaza en vertical y que le permite administrar su sitio.
 
-    ![Website running][]
+    ![Website running][Website running]
 
 4.  Para comprobar que el sitio está activo, puede hacer clic en el icono **Examinar** para mostrar la página predeterminada.
 
-    ![Click browse to see your website][]
+    ![Click browse to see your website][Click browse to see your website]
 
-    ![Default website page][]
+    ![Default website page][Default website page]
 
 A continuación, creará una conexión híbrida y un servicio de BizTalk para el sitio web.
 
@@ -148,15 +148,15 @@ A continuación, creará una conexión híbrida y un servicio de BizTalk para el
 
 1.  De vuelta en el portal en vista previa, desplácese al cuadro de su sitio web y elija **Conexiones híbridas**.
 
-    ![Hybrid connections][]
+    ![Hybrid connections][Hybrid connections]
 
 2.  En el cuadro de conexiones híbridas, haga clic en **Agregar**.
 
-    ![Add a hybrid connnection][]
+    ![Add a hybrid connnection][Add a hybrid connnection]
 
 3.  Se abre el cuadro **Agregar una conexión híbrida**. Dado que esta es su primera conexión híbrida, la opción **Nueva conexión híbrida** aparece preseleccionada y se abre el cuadro **Crear conexión híbrida**.
 
-    ![Create a hybrid connection][]
+    ![Create a hybrid connection][Create a hybrid connection]
 
     En el cuadro **Crear conexión híbrida**, haga lo siguiente:
 
@@ -167,21 +167,21 @@ A continuación, creará una conexión híbrida y un servicio de BizTalk para el
 
 4.  Se abre el cuadro **Crear servicio de Biz Talk**. Escriba un nombre para el servicio de BizTalk y luego haga clic en **Aceptar**.
 
-    ![Create BizTalk service][]
+    ![Create BizTalk service][Create BizTalk service]
 
     El cuadro **Crear servicio de Biz Talk** se cierra y vuelve al cuadro **Crear conexión híbrida**.
 
 5.  En el cuadro Crear conexión híbrida, haga clic en **Aceptar**.
 
-    ![Click OK][]
+    ![Click OK][Click OK]
 
 6.  Al finalizar el proceso, el área Notificaciones del portal le informa de que la conexión se ha creado correctamente.
 
-    ![Success notification][]
+    ![Success notification][Success notification]
 
 7.  En el cuadro de sitio web, el icono de **Conexiones híbridas** ahora muestra que se ha creado 1 conexión híbrida.
 
-    ![One hybrid connection created][]
+    ![One hybrid connection created][One hybrid connection created]
 
 Llegados a este punto, ha completado una parte importante de la infraestructura de conexión híbrida en la nube. A continuación, creará la parte local correspondiente.
 
@@ -191,43 +191,43 @@ Llegados a este punto, ha completado una parte importante de la infraestructura 
 
 1.  En el cuadro de sitio web, haga clic en el icono de Conexiones híbridas.
 
-    ![Hybrid connections icon][]
+    ![Hybrid connections icon][Hybrid connections icon]
 
 2.  En el cuadro **Conexiones híbridas**, la columna **Estado** del extremo agregado recientemente muestra **No conectado**. Haga clic en la conexión para configurarla.
 
-    ![Not connected][]
+    ![Not connected][Not connected]
 
     Se abre el cuadro de la conexión híbrida.
 
-    ![NotConnectedBlade][]
+    ![NotConnectedBlade][NotConnectedBlade]
 
 3.  En el cuadro, haga clic en **Configuración del proceso de escucha**.
 
-    ![Click Listener Setup][]
+    ![Click Listener Setup][Click Listener Setup]
 
 4.  Se abre el cuadro **Propiedades de conexión híbrida**. En **Administrador de conexiones híbridas local**, elija **Haga clic aquí para instalar**.
 
-    ![Click here to install][]
+    ![Click here to install][Click here to install]
 
 5.  En el cuadro de diálogo de advertencia de seguridad Ejecución de la aplicación, elija **Ejecutar** para continuar.
 
-    ![Choose Run to continue][]
+    ![Choose Run to continue][Choose Run to continue]
 
 6.  En el cuadro de diálogo **Control de cuentas de usuario**, elija **Sí**.
 
-    ![Choose Yes][]
+    ![Choose Yes][Choose Yes]
 
 7.  El Administrador de conexiones híbridas se descarga y se instala.
 
-    ![Instalación][]
+    ![Instalación][Instalación]
 
 8.  Cuando finalice la instalación, haga clic en **Cerrar**.
 
-    ![Click Close][]
+    ![Click Close][Click Close]
 
     En el cuadro **Conexiones híbridas**, la columna **Estado** muestra ahora **Conectado**.
 
-    ![Connected Status][]
+    ![Connected Status][Connected Status]
 
 Ahora que la infraestructura de la conexión híbrida se ha completado, creará una aplicación web que la use.
 
@@ -239,19 +239,19 @@ Ahora que la infraestructura de la conexión híbrida se ha completado, creará 
 
 1.  En Visual Studio, en el menú **Archivo**, elija Nuevo proyecto:
 
-    ![New Visual Studio project][]
+    ![New Visual Studio project][New Visual Studio project]
 
 2.  En la sección **Plantillas** del cuadro de diálogo **Nuevo proyecto**, seleccione **Web**, elija **Aplicación web ASP.NET** y haga clic en **Aceptar**.
 
-    ![Choose ASP.NET Web Application][]
+    ![Choose ASP.NET Web Application][Choose ASP.NET Web Application]
 
 3.  En el cuadro de diálogo **Nuevo proyecto ASP.NET**, seleccione **MVC** y haga clic en **Aceptar**.
 
-    ![Choose MVC][]
+    ![Choose MVC][Choose MVC]
 
 4.  Cuando el proyecto se haya creado, aparecerá la página Léame de la aplicación. No ejecute el proyecto web todavía.
 
-    ![Readme page][]
+    ![Readme page][Readme page]
 
 ### Edición de la cadena de conexión de la base de datos para la aplicación
 
@@ -261,15 +261,15 @@ En este paso editará la cadena de conexión que indica a la aplicación dónde 
 
 1.  En el Explorador de soluciones, haga doble clic en el archivo Web.config.
 
-    ![Web.config][]
+    ![Web.config][Web.config]
 
 2.  Edite la sección **connectionStrings** para apuntar a la base de datos de SQL Server en la máquina local, siguiendo la sintaxis del ejemplo que se muestra continuación:
 
-    ![Cadena de conexión][]
+    ![Cadena de conexión][Cadena de conexión]
 
     Cuando escriba la cadena de conexión, tenga en cuenta lo siguiente:
 
-    -   Si se está conectando a una instancia con nombre en lugar de a una instancia predeterminada (por ejemplo SuServidor\\SQLEXPRESS), debe configurar su servidor SQL Server para usar puertos estáticos. Para obtener información sobre la configuración de puertos estáticos, vea [Cómo configurar SQL Server para que escuche en un puerto específico][]. De forma predeterminada, las instancias con nombre usan puertos dinámicos y UDP, que Conexiones híbridas no admite.
+    -   Si se está conectando a una instancia con nombre en lugar de a una instancia predeterminada (por ejemplo SuServidor\\SQLEXPRESS), debe configurar su servidor SQL Server para usar puertos estáticos. Para obtener información sobre la configuración de puertos estáticos, vea [Cómo configurar SQL Server para que escuche en un puerto específico][Cómo configurar SQL Server para que escuche en un puerto específico]. De forma predeterminada, las instancias con nombre usan puertos dinámicos y UDP, que Conexiones híbridas no admite.
 
     -   Es recomendable que especifique el puerto (1433 de forma predeterminada, como se muestra en el ejemplo) en la cadena de conexión de forma que pueda asegurarse de que su servidor SQL Server local tiene la funcionalidad TCP habilitada y usa el puerto correcto.
 
@@ -281,15 +281,15 @@ En este paso editará la cadena de conexión que indica a la aplicación dónde 
 
 1.  Ahora, ejecute el nuevo proyecto web localmente haciendo clic en el botón Examinar que se encuentra debajo de Depurar. En este ejemplo se usa Internet Explorer.
 
-    ![Run project][]
+    ![Run project][Run project]
 
 2.  En la parte superior derecha de la página web predeterminada, elija **Registrar** para registrar una nueva cuenta:
 
-    ![Register a new account][]
+    ![Register a new account][Register a new account]
 
 3.  Escriba un nombre de usuario y una contraseña:
 
-    ![Enter user name and password][]
+    ![Enter user name and password][Enter user name and password]
 
     Esta operación creará automáticamente una base de datos en su servidor SQL Server local que hospedará la información de pertenencia de la aplicación. Una de las tablas (**dbo.AspNetUsers**) hospeda las credenciales de usuario del sitio web como las que acaba de introducir. Verá esta tabla posteriormente en el tutorial.
 
@@ -307,27 +307,27 @@ Ahora publicará la aplicación en su sitio web en Azure y después la probará 
 
 1.  Puede descargar el perfil de publicación para el sitio web en el Portal de Azure. En el cuadro del sitio web, elija **Descargar perfil de publicación** y guarde el archivo en su PC.
 
-    ![Descargar archivo de publicación][]
+    ![Descargar archivo de publicación][Descargar archivo de publicación]
 
-    ![Publish profile in downloads folder][]
+    ![Publish profile in downloads folder][Publish profile in downloads folder]
 
     A continuación, importará este archivo en la aplicación web de Visual Studio.
 
 2.  En Visual Studio, haga clic con el botón secundario en el nombre del proyecto en el Explorador de soluciones y seleccione **Publicar**.
 
-    ![Select publish][]
+    ![Select publish][Select publish]
 
 3.  En el cuadro de diálogo **Publicación web**, en la pestaña **Perfil**, elija **Importar**.
 
-    ![Importación][]
+    ![Importación][Importación]
 
 4.  Busque su perfil descargado, selecciónelo y haga clic en **Aceptar**.
 
-    ![Browse to profile][]
+    ![Browse to profile][Browse to profile]
 
 5.  Su información de publicación se importará y mostrará en la pestaña **Conexión** del cuadro de diálogo.
 
-    ![Haga clic en Publicar.][]
+    ![Haga clic en Publicar.][Haga clic en Publicar.]
 
     Haga clic en **Publicar**.
 
@@ -339,23 +339,23 @@ A continuación, usará la aplicación web activa para ver su conexión híbrida
 
 1.  En la parte superior de la página web en Azure, elija **Iniciar sesión**.
 
-    ![Test log in][]
+    ![Test log in][Test log in]
 
 2.  El sitio web de Azure ahora estará conectado a la base de datos de pertenencia de la aplicación web en la máquina local. Para comprobarlo, inicie sesión con las mismas credenciales que introdujo en la base de datos local anteriormente.
 
-    ![Hello greeting][]
+    ![Hello greeting][Hello greeting]
 
 3.  Para seguir probando su nueva conexión híbrida, cierre la sesión de la aplicación web de Azure y regístrese como otro usuario. Proporcione un nuevo nombre de usuario y contraseña y haga clic en **Registrar**.
 
-    ![Test register another user][]
+    ![Test register another user][Test register another user]
 
 4.  Para comprobar que las credenciales del nuevo usuario se han almacenado en la base de datos local a través de la conexión híbrida, abra SQL Management Studio en el equipo local. En el Explorador de objetos, expanda la base de datos **MembershipDB** y expanda **Tablas**. Haga clic con el botón secundario en la tabla de pertenencia **dbo.AspNetUsers** y elija **Seleccionar las primeras 1000 filas** para ver los resultados.
 
-    ![View the results][]
+    ![View the results][View the results]
 
 5.  La tabla de pertenencia local ahora muestra ambas cuentas, la que creó localmente y la que creó en la nube de Azure. La que creó en la nube se ha guardado en la base de datos local a través de la característica Conexión híbrida de Azure.
 
-    ![Registered users in on-premises database][]
+    ![Registered users in on-premises database][Registered users in on-premises database]
 
 Ya ha creado e implementado una aplicación web ASP.NET que usa una conexión híbrida entre un sitio web y la nube de Azure y una base de datos de SQL Server local. ¡Enhorabuena!
 
@@ -363,25 +363,25 @@ Ya ha creado e implementado una aplicación web ASP.NET que usa una conexión h�
 
 [Introducción a las conexiones híbridas][Conexiones híbridas]
 
-[Josh Twist presenta las conexiones híbridas (vídeo de Channel 9)][]
+[Josh Twist presenta las conexiones híbridas (vídeo de Channel 9)][Josh Twist presenta las conexiones híbridas (vídeo de Channel 9)]
 
-[Sitio web de conexiones híbridas][]
+[Sitio web de conexiones híbridas][Sitio web de conexiones híbridas]
 
-[Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas][]
+[Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas][Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas]
 
-[Creación de una nube híbrida del mundo real con una perfecta portabilidad de aplicaciones (vídeo de Canal 9)][]
+[Creación de una nube híbrida del mundo real con una perfecta portabilidad de aplicaciones (vídeo de Canal 9)][Creación de una nube híbrida del mundo real con una perfecta portabilidad de aplicaciones (vídeo de Canal 9)]
 
-[Conexión a un SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas][]
+[Conexión a un SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas][Conexión a un SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas]
 
-[Conexión a un servidor SQL Server local desde Servicios móviles de Azure mediante conexiones híbridas (vídeo de Canal 9)][]
+[Conexión a un servidor SQL Server local desde Servicios móviles de Azure mediante conexiones híbridas (vídeo de Canal 9)][Conexión a un servidor SQL Server local desde Servicios móviles de Azure mediante conexiones híbridas (vídeo de Canal 9)]
 
-[Introducción a la identidad de ASP.NET][]
+[Introducción a la identidad de ASP.NET][Introducción a la identidad de ASP.NET]
 
 <!-- IMAGES -->
 
   [Portal de Azure en vista previa]: https://portal.azure.com
   [Conexiones híbridas]: http://go.microsoft.com/fwlink/p/?LinkID=397274
-  [Evaluación gratuita de Azure]: http://azure.microsoft.com/en-us/pricing/free-trial/
+  [Evaluación gratuita de Azure]: http://azure.microsoft.com/es-es/pricing/free-trial/
   [Descargas de Visual Studio]: http://www.visualstudio.com/downloads/download-visual-studio-vs
   [Centro de descarga de Microsoft]: http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=22
   [página de bases de datos de Plataforma web de Microsoft]: http://www.microsoft.com/web/platform/database.aspx
@@ -395,7 +395,7 @@ Ya ha creado e implementado una aplicación web ASP.NET que usa una conexión h�
   [SQL Server Install]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A01SQLServerInstall.png
   [Choose Default Instance]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A02ChooseDefaultInstance.png
   [Choose Mixed Mode]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A03ChooseMixedMode.png
-  [Habilitar el protocolo de red TCP/IP para SQL Server]: http://technet.microsoft.com/en-us/library/hh231672%28v=sql.110%29.aspx
+  [Habilitar el protocolo de red TCP/IP para SQL Server]: http://technet.microsoft.com/es-es/library/hh231672%28v=sql.110%29.aspx
   [Connect to Server]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A04SSMSConnectToServer.png
   [Create new database]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A05SSMScreateNewDBlh.png
   [Provide database name]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/A06SSMSprovideDBname.png
@@ -445,7 +445,7 @@ Ya ha creado e implementado una aplicación web ASP.NET que usa una conexión h�
   [View the results]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F10HCTestSSMSTree.png
   [Registered users in on-premises database]: ./media/web-sites-hybrid-connection-connect-on-premises-sql-server/F11HCTestShowMemberDb.png
   [Josh Twist presenta las conexiones híbridas (vídeo de Channel 9)]: http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections
-  [Sitio web de conexiones híbridas]: http://azure.microsoft.com/en-us/services/biztalk-services/
+  [Sitio web de conexiones híbridas]: http://azure.microsoft.com/es-es/services/biztalk-services/
   [Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas]: http://azure.microsoft.com/es-es/documentation/articles/biztalk-dashboard-monitor-scale-tabs/
   [Creación de una nube híbrida del mundo real con una perfecta portabilidad de aplicaciones (vídeo de Canal 9)]: http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=
   [Conexión a un SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/

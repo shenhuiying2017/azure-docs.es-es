@@ -1,6 +1,6 @@
 <properties linkid="mobile-services-dotnet-backend-how-to-use" urlDisplayName="Use the Mobile Services .NET Backend" pageTitle="Use the Mobile Services .NET Backend - Azure Mobile Services" metaKeywords="" description="Learn the details of the .NET Backend programming model for Azure Mobile Services, including how to work with table data, APIs, authentication, and scheduled jobs" metaCanonical="" services="" documentationCenter="Mobile" title="Use the Mobile Services .NET Backend" authors="yavorg" solutions="" manager="" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
 
 # Uso del backend .NET de Servicios móviles
 
@@ -21,8 +21,6 @@ El backend .NET de Servicios móviles proporciona una abstracción de "tabla" un
 
 En la raíz de este modelo de programación se encuentra la clase [**TableController<t>**][**TableController<t>**], que es simplemente un [**ApiController**][**ApiController**] normal de Web API que está personalizado para un modelo de acceso a datos basado en CRUD. El **TableController** puede usar una gran variedad de almacenes de datos, incluidos SQL (a través de [Entity Framework][Entity Framework]), [Almacenamiento de tablas de Azure][Almacenamiento de tablas de Azure], [MongoDB][MongoDB] o su propio almacén de datos.
 
-  [Back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-how-to-use/ "Back-end de .NET"
-  [Back-end de JavaScript]: /es-es/documentation/articles/mobile-services-how-to-use-server-scripts/ "Back-end de JavaScript"
   [Introducción]: #intro
   [Operaciones de tabla]: #table-scripts
   [ASP.NET Web API]: http://www.asp.net/web-api

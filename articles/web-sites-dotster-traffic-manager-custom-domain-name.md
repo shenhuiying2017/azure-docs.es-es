@@ -68,22 +68,15 @@ Para asociar el domino personalizado a un sitio web de Azure, debe agregar una n
 
 ## <a name="enabledomain"></a>Habilitación del Administrador de tráfico para el sitio web
 
-[WACOM.INCLUDE [modes][4]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes-traffic-manager.md)]
 
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro-traffic-manager.md
   [Dotster.com]: https://dotster.com
-  [tmwebsitefooter]: ../includes/custom-dns-web-site-traffic-manager-notes.md
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Descripción de los registros DNS]: #understanding-records
   [Configuración de los sitios web para el modo estándar]: #bkmk_configsharedmode
   [Incorporación de un registro DNS para el dominio personalizado]: #bkmk_configurecname
   [Habilitación del Administrador de tráfico para el sitio web]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-traffic-manager.md
-  [modes]: ../includes/custom-dns-web-site-modes-traffic-manager.md
   [Menú de central de dominios de Dotster]: .\media\web-sites-dotster-custom-domain-name\Dotster_DomainCentralMenu.png
   [Opciones de configuración de dominio de Dotster]: .\media\web-sites-dotster-custom-domain-name\Dotster_DomainMenu.png
   [1]: .\media\web-sites-dotster-custom-domain-name\Dotster_Nameservers.png
   [2]: .\media\web-sites-dotster-custom-domain-name\Dotster_DNS.png
   [3]: .\media\web-sites-dotster-custom-domain-name\Dotster_DNS_CNAME_TM.png
-  [4]: ../includes/custom-dns-web-site-enable-on-traffic-manager.md

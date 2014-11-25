@@ -1,6 +1,6 @@
 <properties title="Integrate your Azure Website with an Azure Virtual Network" pageTitle="Integrate Azure Website with Azure VNet" description="Shows you how to connect an Azure Website to a new or existing Azure virtual network" metaKeywords="" services="web-sites,virtual-network" solutions="web,integration,infrastructure" documentationCenter="" authors="cephalin" videoId="" scriptId="" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="cephalin"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="cephalin" />
 
 # Integración de su sitio web de Azure con una red virtual de Azure
 
@@ -93,11 +93,3 @@ Otra diferencia es que hay que instalar un agente de retransmisión para que Con
 Actualmente, también hay diferencias en los niveles de precios entre las dos funciones. Esto se debe a que en los niveles más baratos, la característica Conexiones híbridas es muy útil para escenarios de desarrollo y pruebas, y solo da acceso a un número reducido de extremos. La característica de redes virtuales le da acceso a todo lo que haya en la VNET o esté conectado a ella.
 
   []: ./media/web-sites-integrate-with-vnet/upgrade-to-standard.png
-  [1]: ./media/web-sites-integrate-with-vnet/how-it-works.png
-  [2]: ./media/web-sites-integrate-with-vnet/connect-to-existing-vnet.png
-  [3]: ./media/web-sites-integrate-with-vnet/create-new-vnet.png
-  [4]: ./media/web-sites-integrate-with-vnet/new-vnet-progress.png
-  [5]: ./media/web-sites-integrate-with-vnet/vnet-status-portal.png
-  [6]: ./media/web-sites-integrate-with-vnet/vpn-to-onpremise.png
-  [7]: ./media/web-sites-integrate-with-vnet/vpn-to-onpremise-certificate.png
-  [8]: ./media/web-sites-integrate-with-vnet/vnet-sync-connection.png

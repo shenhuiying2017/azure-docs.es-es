@@ -166,9 +166,9 @@ Los scripts de servidor también se usan al autorizar usuarios y para enviar not
 -   [Referencia conceptual de Servicios móviles con .NET][Referencia conceptual de Servicios móviles con .NET]
     Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Incorporación de la validación de longitud de cadena]: #string-length-validation
   [Actualización del cliente para admitir la validación]: #update-client-validation
@@ -177,10 +177,8 @@ Los scripts de servidor también se usan al autorizar usuarios y para enviar not
   [Actualización del cliente para mostrar el valor de CompleteDate]: #update-client-timestamp
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-  [mobile-services-dotnet-backend-add-validation]: ../includes/mobile-services-dotnet-backend-add-validation.md
   [0]: ./media/mobile-services-dotnet-backend-windows-phone-validate-modify-data/mobile-services-invalid-text-length.png
   [1]: ./media/mobile-services-dotnet-backend-windows-phone-validate-modify-data/mobile-services-invalid-text-length-exception-dialog.png
-  [mobile-services-dotnet-backend-add-completedate]: ../includes/mobile-services-dotnet-backend-add-completedate.md
   [Limitación de consultas con paginación]: /es-es/develop/mobile/tutorials/add-paging-to-data-dotnet
   [Autorización de servicios de usuarios]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-authorize-users-in-scripts/
   [Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/

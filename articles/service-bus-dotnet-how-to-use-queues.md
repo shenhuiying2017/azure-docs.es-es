@@ -293,7 +293,5 @@ vínculos para obtener más información.
     bus de servicio].
 
   [Pasos siguientes]: #next-steps
-  [create-account-note]: ../includes/create-account-note.md
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [0]: ./media/service-bus-dotnet-how-to-use-queues/getting-started-multi-tier-13.png
   [Colas, temas y suscripciones del bus de servicio]: http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx

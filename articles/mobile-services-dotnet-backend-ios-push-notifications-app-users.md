@@ -48,14 +48,11 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 
 [WACOM.INCLUDE [mobile-services-ios-push-notifications-app-users-test-app](../includes/mobile-services-ios-push-notifications-app-users-test-app.md)]
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [notificaciones de inserción]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-push/
   [Actualización del servicio para que requiera autenticación para el registro]: #register
   [Actualización de la aplicación para que inicie sesión antes del registro]: #update-app
   [Prueba de la aplicación]: #test
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users/
-  [mobile-services-dotnet-backend-push-notifications-app-users]: ../includes/mobile-services-dotnet-backend-push-notifications-app-users.md
-  [mobile-services-ios-push-notifications-app-users-login]: ../includes/mobile-services-ios-push-notifications-app-users-login.md
-  [mobile-services-ios-push-notifications-app-users-test-app]: ../includes/mobile-services-ios-push-notifications-app-users-test-app.md

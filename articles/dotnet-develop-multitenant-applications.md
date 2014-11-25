@@ -1,6 +1,6 @@
 <properties linkid="develop-net-architecture-multi-tenant-web-application" urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Multi-Tenant Web Application Pattern - Azure Architecture" metaKeywords="" description="Find architectural overviews and design patterns that describe how to implement a multi-tenant web application on Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="" solutions="" manager="" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="" />
 
 <div>
 <div class="left-nav">
@@ -56,7 +56,7 @@ Una aplicación multiempresa correctamente implementada ofrece los siguientes be
 
 En resumen, si bien hay muchas consideraciones que debe tener en cuenta para ofrecer un servicio de alta escalabilidad, también hay una serie de objetivos y requisitos comunes a muchas aplicaciones multiempresa. Algunos pueden no resultar pertinentes en escenarios específicos y la importancia de los objetivos y requisitos individuales variará en cada escenario. Como proveedor de la aplicación multiempresa, también tendrá objetivos y requisitos como satisfacer los requisitos y los objetivos de los inquilinos, rentabilidad, facturación, varios niveles de servicio, aprovisionamiento, mantenimiento, supervisión y automatización.
 
-Para obtener más información acerca de consideraciones de diseño adicionales de una aplicación multiempresa, consulte [Hosting a Multi-Tenant Application on Azure][].
+Para obtener más información acerca de consideraciones de diseño adicionales de una aplicación multiempresa, consulte [Hosting a Multi-Tenant Application on Azure][Hosting a Multi-Tenant Application on Azure].
 
 Azure ofrece muchas características que le permiten solucionar los principales problemas detectados al diseñar un sistema multiempresa.
 
@@ -108,16 +108,4 @@ Azure ofrece diferentes formas de aprovisionar nuevos inquilinos para la aplicac
 
 <!--links-->
 
-  [Proceso]: /es-es/develop/net/compute/
-  [Servicios de datos]: /es-es/develop/net/data/
-  [Servicios de aplicaciones]: /es-es/develop/net/app-services/
-  [Referencia]: /es-es/develop/net/reference/
-  [Guía]: /es-es/develop/net/guidance/
-  [Arquitectura]: /es-es/develop/net/architecture/
-  [Muestras]: /es-es/develop/net/samples/
-  [Tutoriales basados en escenarios]: /es-es/develop/net/end-to-end-Apps/
-  [Foros]: /es-es/support/forums/
-  [Información general sobre la arquitectura de la aplicación]: /es-es/develop/net/architecture/#overviews
-  [Patrón de aplicación: pruebas de carga]: /es-es/develop/net/architecture/load-testing-pattern/
-  [Patrones de diseño]: /es-es/develop/net/architecture/#designpatterns
   [Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/es-es/library/hh534480.aspx

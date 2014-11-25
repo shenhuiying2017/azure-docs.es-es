@@ -105,11 +105,10 @@ Cuando haya completado la serie de datos, pruebe estos otros tutoriales de Andro
 -   [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción]
     Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
+
+
+
   [Descarga del proyecto de la aplicación Android]: #download-app
   [Creación del servicio móvil]: #create-service
   [Incorporación de una tabla de datos para almacenamiento]: #add-table
@@ -117,12 +116,6 @@ Cuando haya completado la serie de datos, pruebe estos otros tutoriales de Andro
   [Prueba de la aplicación en Servicios móviles]: #test-app
   [SDK de Android para Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkID=280126
   [SDK de Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-  [download-android-sample-code]: ../includes/download-android-sample-code.md
-  [Verify SDK]: ../includes/mobile-services-verify-android-sdk-version.md
-  [mobile-services-android-run-sample-code]: ../includes/mobile-services-android-run-sample-code.md
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
-  [mobile-services-android-getting-started-with-data]: ../includes/mobile-services-android-getting-started-with-data.md
   [Portal de administración]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-android-get-started-data/mobile-todoitem-data-browse.png
   [Validación y modificación de datos con scripts]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet

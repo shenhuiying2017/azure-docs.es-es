@@ -93,7 +93,6 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 
 
-  [mobile-services-selector-get-started-push]: ../includes/mobile-services-selector-get-started-push.md
   [Introducción a las notificaciones de inserción en Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push
   [esta versión]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push
   [Registrar la aplicación para las notificaciones de inserción]: #register
@@ -102,11 +101,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
   [Probar las notificaciones de inserción en su aplicación]: #test
   [cuenta de Microsoft Store]: http://go.microsoft.com/fwlink/p/?LinkId=280045
   [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=391934
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
   [MobileServiceClient]: http://msdn.microsoft.com/es-es/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx
-  [mobile-services-dotnet-backend-update-server-push]: ../includes/mobile-services-dotnet-backend-update-server-push.md
-  [mobile-services-dotnet-backend-configure-local-push-vs2013]: ../includes/mobile-services-dotnet-backend-configure-local-push-vs2013.md
-  [mobile-services-dotnet-backend-windows-universal-test-push]: ../includes/mobile-services-dotnet-backend-windows-universal-test-push.md
   [enviar notificaciones de inserción a usuarios autenticados]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-users

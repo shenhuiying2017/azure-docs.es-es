@@ -70,9 +70,9 @@ Temas de referencia para utilizar scripts de servidor con la finalidad de ejecut
 
 Obtenga más información sobre el uso de Servicios móviles con .NET.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Instalación de la biblioteca de clientes de almacenamiento]: #install-storage-client
   [Actualización del script de inserción para generar una SAS]: #update-scripts
@@ -82,8 +82,6 @@ Obtenga más información sobre el uso de Servicios móviles con .NET.
   [Cuenta de almacenamiento de Azure]: /es-es/manage/services/storage/how-to-create-a-storage-account
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-phone-get-started
   [0]: ./media/mobile-services-windows-phone-upload-data-blob-storage/mobile-add-storage-nuget-package-dotnet.png
-  [mobile-services-configure-blob-storage]: ../includes/mobile-services-configure-blob-storage.md
-  [mobile-services-windows-phone-upload-to-blob-storage]: ../includes/mobile-services-windows-phone-upload-to-blob-storage.md
   [Envío de correo electrónico desde Servicios móviles con SendGrid]: /es-es/develop/mobile/tutorials/send-email-with-sendgrid/
   [Programación de trabajos de back-end en Servicios móviles]: /es-es/develop/mobile/tutorials/schedule-backend-tasks/
   [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=262293

@@ -10,10 +10,9 @@ En este tema se muestra cómo habilitar una aplicación Android para notificacio
 
 Ahora ya puede usar el valor de esta clave de API para habilitar servicios para que se puedan autenticar en GCM y enviar notificaciones de inserción en nombre de la aplicación.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
-  [Habilitación de GCM]: ../includes/mobile-services-enable-Google-cloud-messaging.md

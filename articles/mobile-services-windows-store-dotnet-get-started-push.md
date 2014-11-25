@@ -106,9 +106,9 @@ Considere la posibilidad de profundizar más en los siguientes temas de Servicio
     
 	Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push/
   [Registro de la aplicación para notificaciones de inserción y configuración de Servicios móviles]: #register
@@ -116,8 +116,6 @@ Considere la posibilidad de profundizar más en los siguientes temas de Servicio
   [Inserción de datos para recibir notificaciones]: #test
   [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/
   [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-dotnet/
-  [mobile-services-create-new-push-vs2013]: ../includes/mobile-services-create-new-push-vs2013.md
-  [mobile-services-create-new-push-vs2013-2]: ../includes/mobile-services-create-new-push-vs2013-2.md
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push1.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-push/mobile-quickstart-push2.png
   [Introducción a los Centros de notificaciones]: /es-es/manage/services/notification-hubs/getting-started-windows-dotnet/

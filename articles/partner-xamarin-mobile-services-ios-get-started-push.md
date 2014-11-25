@@ -328,7 +328,7 @@ Descargue el [proyecto de ejemplo completo](http://go.microsoft.com/fwlink/p/?Li
 
 En este ejemplo simple, un usuario recibe una notificación de inserción con los datos que se acaban de insertar. El cliente en la solicitud suministra al servicio móvil el token de dispositivo que APNS utiliza. En el siguiente tutorial, [Notificaciones de inserción para usuarios de la aplicación](/es-es/develop/mobile/tutorials/push-notifications-to-users-ios), creará una tabla de dispositivos independiente en la que puede almacenar tokens de dispositivos y enviar una notificación de inserción a todos los canales almacenados cuando se produce una inserción.
 
-<!-- Anchors. -->
+
 [Generate the certificate signing request]: #certificates
 [Register your app and enable push notifications]: #register
 [Create a provisioning profile for the app]: #profile
@@ -338,7 +338,7 @@ En este ejemplo simple, un usuario recibe una notificación de inserción con lo
 [Insert data to receive notifications]: #test
 [Next Steps]:#next-steps
 
-<!-- Images. -->
+
 
 
 

@@ -1,6 +1,6 @@
 <properties title="Learn how to configure an Azure website to use a domain name registered with DomainDiscover - TierraNet" pageTitle="Configure a DomainDiscover domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, DomainDiscover, TierraNet" description="Learn how to configure an Azure website to use a domain name registered with DomainDiscover - TierraNet" services="web-sites" documentationCenter="" authors="larryfr,jroth" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth" />
 
 # Configuración de un nombre de dominio personalizado para un sitio web de Azure (DomainDiscover / TierraNet)
 
@@ -8,28 +8,28 @@
 
 <div class="dev-center-tutorial-subselector"><a href="/es-es/documentation/articles/web-sites-domaindiscover-custom-domain-name/" title="Sitios web" class="current">Sitio web</a> | <a href="/es-es/documentation/articles/web-sites-domaindiscover-traffic-manager-custom-domain-name/" title="Sitio web mediante el Administrador de tr&aacute;fico">Sitio web mediante el Administrador de tr&aacute;fico</a></div>
 
-[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough][]]
+[WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
-[WACOM.INCLUDE [intro][]]
+[WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-Este artículo ofrece instrucciones acerca del uso de un nombre de dominio personalizado adquirido en [DomainDiscover.com][] con Sitios web Azure. DomainDiscover.com forma parte de TierraNet.
+Este artículo ofrece instrucciones acerca del uso de un nombre de dominio personalizado adquirido en [DomainDiscover.com][DomainDiscover.com] con Sitios web Azure. DomainDiscover.com forma parte de TierraNet.
 
-[WACOM.INCLUDE [introfooter][]]
+[WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 En este artículo:
 
--   [Descripción de los registros DNS][]
--   [Configuración de los sitios web para el modo básico, compartido o estándar][]
--   [Incorporación de un registro DNS para el dominio personalizado][]
--   [Habilitación del dominio en su sitio web][]
+-   [Descripción de los registros DNS][Descripción de los registros DNS]
+-   [Configuración de los sitios web para el modo básico, compartido o estándar][Configuración de los sitios web para el modo básico, compartido o estándar]
+-   [Incorporación de un registro DNS para el dominio personalizado][Incorporación de un registro DNS para el dominio personalizado]
+-   [Habilitación del dominio en su sitio web][Habilitación del dominio en su sitio web]
 
 ## <a name="understanding-records"></a>Descripción de los registros DNS
 
-[WACOM.INCLUDE [understandingdns][]]
+[WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
 ## <a name="bkmk_configsharedmode"></a>Configuración de los sitios web para el modo básico, compartido o estándar
 
-[WACOM.INCLUDE [modes][]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
 <a name="bkmk_configurecname"></a>
 
@@ -40,15 +40,15 @@ Para asociar el domino personalizado a un sitio web de Azure, debe agregar una n
 
 1.  Inicie sesión en su cuenta con DomainDiscover.com (TierraNet) seleccionando **Panel de control** en el menú **Inicio de sesión**.
 
-    ![Menú de inicio de sesión de DomainDiscover][]
+    ![Menú de inicio de sesión de DomainDiscover][Menú de inicio de sesión de DomainDiscover]
 
 2.  En la página **Domain Services**, seleccione el dominio que desee usar para el sitio web de Azure.
 
-    ![Página de administración de dominios][]
+    ![Página de administración de dominios][Página de administración de dominios]
 
 3.  En la configuración del dominio, haga clic en el botón **Edit** para **DNS Service**.
 
-    ![Botón de edición de DNS][]
+    ![Botón de edición de DNS][Botón de edición de DNS]
 
 4.  En la ventana **Manage DNS**, seleccione el tipo de registro DNS que haya que agregar en la lista **Add Records**. A continuación, haga clic en el botón **Add**.
 
@@ -76,32 +76,15 @@ Para asociar el domino personalizado a un sitio web de Azure, debe agregar una n
 
 ## <a name="enabledomain"></a>Habilitación del nombre de dominio en su sitio web
 
-[WACOM.INCLUDE [modes][3]]
+[WACOM.INCLUDE [modes](../includes/custom-dns-web-site-modes.md)]
 
-  [Dominio personalizado]: /es-es/documentation/articles/web-sites-custom-domain-name "Dominio personalizado"
-  [GoDaddy]: /es-es/documentation/articles/web-sites-godaddy-custom-domain-name "GoDaddy"
-  [Network Solutions]: /es-es/documentation/articles/web-sites-network-solutions-custom-domain-name "Network Solutions"
-  [Register.com]: /es-es/documentation/articles/web-sites-registerdotcom-custom-domain-name "Register.com"
-  [Enom]: /es-es/documentation/articles/web-sites-enom-custom-domain-name "Enom"
-  [Moniker]: /es-es/documentation/articles/web-sites-moniker-custom-domain-name "Moniker"
-  [Dotster]: /es-es/documentation/articles/web-sites-dotster-custom-domain-name "Dotster"
-  [DomainDiscover]: /es-es/documentation/articles/web-sites-domaindiscover-custom-domain-name "DomainDiscover"
-  [Directnic]: /es-es/documentation/articles/web-sites-directnic-custom-domain-name "Directnic"
-  [Sitio web]: /es-es/documentation/articles/web-sites-domaindiscover-custom-domain-name/ "Sitios web"
-  [Sitio web mediante el Administrador de tráfico]: /es-es/documentation/articles/web-sites-domaindiscover-traffic-manager-custom-domain-name/ "Sitio web mediante el Administrador de tráfico"
-  [websites-cloud-services-css-guided-walkthrough]: ../includes/websites-cloud-services-css-guided-walkthrough.md
-  [intro]: ../includes/custom-dns-web-site-intro.md
   [DomainDiscover.com]: https://domaindiscover.com
-  [introfooter]: ../includes/custom-dns-web-site-intro-notes.md
   [Descripción de los registros DNS]: #understanding-records
   [Configuración de los sitios web para el modo básico, compartido o estándar]: #bkmk_configsharedmode
   [Incorporación de un registro DNS para el dominio personalizado]: #bkmk_configurecname
   [Habilitación del dominio en su sitio web]: #enabledomain
-  [understandingdns]: ../includes/custom-dns-web-site-understanding-dns-raw.md
-  [modes]: ../includes/custom-dns-web-site-modes.md
   [Menú de inicio de sesión de DomainDiscover]: .\media\web-sites-domaindiscover-custom-domain-name\DomainDiscover_LoginMenu.png
   [Página de administración de dominios]: .\media\web-sites-domaindiscover-custom-domain-name\DomainDiscover_DomainManagement.png
   [Botón de edición de DNS]: .\media\web-sites-domaindiscover-custom-domain-name\DomainDiscover_DNSEditButton.png
   [1]: .\media\web-sites-domaindiscover-custom-domain-name\DomainDiscover_DNSAddRecords.png
   [2]: .\media\web-sites-domaindiscover-custom-domain-name\DomainDiscover_DNSRecords.png
-  [3]: ../includes/custom-dns-web-site-enable-on-web-site.md

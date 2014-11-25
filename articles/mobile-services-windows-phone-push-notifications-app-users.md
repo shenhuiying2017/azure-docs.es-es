@@ -193,7 +193,7 @@ Este es el último tutorial que muestra los aspectos básicos relacionados con e
 -   [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles]
     Obtenga más información acerca del registro y uso de scripts de servidor.
 
-<!-- anchors --> <!-- Images. --> <!-- URLs. -->
+<!-- anchors -->  
 
   [tutorial de notificaciones de inserción anterior]: /es-es/develop/mobile/tutorials/get-started-with-push-wp8
   [Creación de la tabla Channel]: #create-table

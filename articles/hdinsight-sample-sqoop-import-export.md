@@ -131,5 +131,5 @@ Si desea consultar tutoriales que ejecutan otras muestras y proporcionan instruc
 -   [Tutorial: Uso de Pig](/es-es/manage/services/hdinsight/using-pig-with-hdinsight/)
 -   [Tutorial: Uso de Hive](/es-es/manage/services/hdinsight/using-hive-with-hdinsight/)
 -   [Tutorial: Uso de MapReduce](/es-es/manage/services/hdinsight/using-mapreduce-with-hdinsight/)
--   [Documentación sobre el SDK de HDInsight de Azure](http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx)
+-   [Documentación sobre el SDK de HDInsight de Azure](http://msdnstage.redmond.corp.microsoft.com/es-es/library/dn479185.aspx)
 

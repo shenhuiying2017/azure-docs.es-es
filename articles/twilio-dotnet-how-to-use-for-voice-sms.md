@@ -1,6 +1,6 @@
 <properties linkid="develop-net-how-to-twilio-sms-service" urlDisplayName="Twilio Voice/SMS Service" pageTitle="How to Use Twilio for Voice and SMS (.NET) - Azure" metaKeywords="Azure Twilio, Azure phone calls, Azure phone calls, Azure twilio, Azure SMS, Azure SMS, Azure voice calls, azure voice calls, Azure text messages, Azure text messages" description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." metaCanonical="" services="" documentationCenter=".NET" title="How to use Twilio for voice and SMS capabilities from Azure" authors="MicrosoftHelp@twilio.com" solutions="" manager="" editor="" />
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com"></tags>
+<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="MicrosoftHelp@twilio.com" />
 
 
 
@@ -302,7 +302,7 @@ Después de que haya configurado una manera de proporcionar respuestas de TwiML,
 
 Para obtener información adicional sobre el uso de Twilio en Azure con ASP.NET, consulte los [pasos para realizar una llamada de teléfono usando Twilio en un rol web en Azure][pasos para realizar una llamada de teléfono usando Twilio en un rol web en Azure] (en inglés).
 
-[WACOM.INCLUDE [twilio\_additional\_services\_and\_next\_steps][twilio\_additional\_services\_and\_next\_steps]]
+[WACOM.INCLUDE [twilio\_additional\_services\_and\_next\_steps](../includes/twilio_additional_services_and_next_steps.md)]
 
   [Pasos siguientes]: #NextSteps
   [¿Qué es Twilio?]: #WhatIs
@@ -334,4 +334,3 @@ Para obtener información adicional sobre el uso de Twilio en Azure con ASP.NET,
   http://twimlets.com/message
   https://www.twilio.com/docs/api/twiml
   [pasos para realizar una llamada de teléfono usando Twilio en un rol web en Azure]: ../partner-twilio-cloud-services-dotnet-phone-call-web-role/
-  [twilio\_additional\_services\_and\_next\_steps]: ../includes/twilio_additional_services_and_next_steps.md

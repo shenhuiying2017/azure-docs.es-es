@@ -118,4 +118,4 @@ Para obtener más información acerca de la característica Escalado elástico, 
   [Elasticidad de particiones en el centro de scripts]: http://go.microsoft.com/?linkid=9862617
   [Anuncio de Escalado elástico]: http://go.microsoft.com/?linkid=9862608
   [1]: http://go.microsoft.com/?linkid=9862609
-  [Foro de Base de datos SQL de Azure]: http://social.msdn.microsoft.com/forums/azure/en-US/home?forum=ssdsgetstarted
+  [Foro de Base de datos SQL de Azure]: http://social.msdn.microsoft.com/forums/azure/es-es/home?forum=ssdsgetstarted

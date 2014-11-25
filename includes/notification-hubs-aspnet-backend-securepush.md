@@ -1,7 +1,7 @@
 ## Proyecto WebAPI
 
 1.  En Visual Studio, abra el proyecto **AppBackend** que creó en el tutorial **Notificación a usuarios**.
-2.  En Notifications.cs, sustituya toda la clase **Notifications** por el código siguiente. Asegúrese de sustituir los marcadores de posición por su cadena de conexión (con acceso total) para el centro de notificaciones y el nombre del centro. Puede obtener estos valores desde el [Portal de administración de Azure][]. Este módulo representa ahora las diferentes notificaciones seguras que se enviarán. En una implementación completa, las notificaciones se almacenarán en una base de datos; en este caso, vamos a almacenarlas en la memoria para simplificar el proceso.
+2.  En Notifications.cs, sustituya toda la clase **Notifications** por el código siguiente. Asegúrese de sustituir los marcadores de posición por su cadena de conexión (con acceso total) para el centro de notificaciones y el nombre del centro. Puede obtener estos valores desde el [Portal de administración de Azure][Portal de administración de Azure]. Este módulo representa ahora las diferentes notificaciones seguras que se enviarán. En una implementación completa, las notificaciones se almacenarán en una base de datos; en este caso, vamos a almacenarlas en la memoria para simplificar el proceso.
 
         public class Notification
         {

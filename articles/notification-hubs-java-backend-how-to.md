@@ -356,8 +356,6 @@ En este tema hemos mostrado cómo crear un simple cliente REST en Java para Cent
 -   Continuar aprendiendo sobre la característica de etiquetado de Centros de notificaciones en el [tutorial Noticias de última hora]
 -   Obtener más información sobre notificaciones de inserción para usuarios individuales en el [tutorial Notificar a los usuarios]
 
-  [Java]: /es-es/documentation/articles/notification-hubs-java-backend-how-to/ "Java"
-  [PHP]: /es-es/documentation/articles/notification-hubs-php-backend-how-to/ "PHP"
   [API de REST de Centros de notificaciones]: http://msdn.microsoft.com/es-es/library/dn223264.aspx
   [tutorial introductorio]: http://azure.microsoft.com/es-es/documentation/articles/notification-hubs-ios-get-started/
   [SDK de Centros de notificaciones .NET]: http://msdn.microsoft.com/es-es/library/jj933431.aspx

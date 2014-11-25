@@ -1,20 +1,20 @@
 # Configuración de un nombre de dominio personalizado para un sitio web de Azure.
 
-Cuando crea un sitio web, Azure proporciona un subdominio fácil de usar en el dominio azurewebsites.net para que los usuarios puedan obtener acceso a su sitio web mediante una URL como [http://\<mysite][]\>.azurewebsites.net. Sin embargo, si configura sitios web para el modo estándar o compartido, puede asignar su sitio web a su propio nombre de dominio.
+Cuando crea un sitio web, Azure proporciona un subdominio fácil de usar en el dominio azurewebsites.net para que los usuarios puedan obtener acceso a su sitio web mediante una URL como http://\<mysite\>.azurewebsites.net. Sin embargo, si configura sitios web para el modo estándar o compartido, puede asignar su sitio web a su propio nombre de dominio.
 
-También puede utilizar el Administrador de tráfico de Azure para equilibrar la carga del tráfico entrante en su sitio web. Para obtener más información acerca de cómo trabaja el Administrador de tráfico con Sitios web, consulte [Control del tráfico de Sitios web de Azure con el Administrador de tráfico de Azure][].
+También puede utilizar el Administrador de tráfico de Azure para equilibrar la carga del tráfico entrante en su sitio web. Para obtener más información acerca de cómo trabaja el Administrador de tráfico con Sitios web, consulte [Control del tráfico de Sitios web de Azure con el Administrador de tráfico de Azure][Control del tráfico de Sitios web de Azure con el Administrador de tráfico de Azure].
 
-> [WACOM.NOTE] Los procedimientos de esta tarea se aplican a los Sitios web de Azure; para los Servicios en la nube, consulte [Configuración de un nombre de dominio personalizado en Azure][].
+> [WACOM.NOTE] Los procedimientos de esta tarea se aplican a los Sitios web de Azure; para los Servicios en la nube, consulte [Configuración de un nombre de dominio personalizado en Azure][Configuración de un nombre de dominio personalizado en Azure].
 
-> [WACOM.NOTE] Los pasos de esta tarea requieren que configure sus sitios web para el modo estándar o compartido, que puede cambiar la cantidad que se le cobrará por su suscripción. Consulte [Detalles de precios][] para obtener más información.
+> [WACOM.NOTE] Los pasos de esta tarea requieren que configure sus sitios web para el modo estándar o compartido, que puede cambiar la cantidad que se le cobrará por su suscripción. Consulte [Detalles de precios][Detalles de precios] para obtener más información.
 
 En este artículo:
 
--   [Descripción de los registros D y CNAME][]
--   [Configuración de los sitios web para el modo compartido o estándar][]
--   [Incorporación de sus sitios web al Administrador de tráfico][]
--   [Incorporación de un CNAME para el dominio personalizado][]
--   [Incorporación de un registro D para el dominio personalizado][]
+-   [Descripción de los registros D y CNAME][Descripción de los registros D y CNAME]
+-   [Configuración de los sitios web para el modo compartido o estándar][Configuración de los sitios web para el modo compartido o estándar]
+-   [Incorporación de sus sitios web al Administrador de tráfico][Incorporación de sus sitios web al Administrador de tráfico]
+-   [Incorporación de un CNAME para el dominio personalizado][Incorporación de un CNAME para el dominio personalizado]
+-   [Incorporación de un registro D para el dominio personalizado][Incorporación de un registro D para el dominio personalizado]
 
 ## <a name="understanding-records"></a>Descripción de los registros D y CNAME
 
@@ -24,7 +24,7 @@ Los registros D y CNAME (o registros de alias) le permiten asociar un nombre de 
 
 Un registro CNAME asigna un dominio *específico*, como **contoso.com** o **www.contoso.com**, a un nombre de dominio canónico. En este caso, el nombre de dominio canónico es el nombre de dominio **\<myapp\>.azurewebsites.net** del sitio web Azure o el nombre de dominio **\<myapp\>.trafficmgr.com** de su perfil del Administrador de tráfico. Una vez creado, CNAME genera un alias para el nombre de dominio **\<myapp\>.azurewebsites.net** o **\<myapp\>.trafficmgr.com**. La entrada de CNAME se resolverá en la dirección IP del servicio del nombre de dominio **\<myapp\>.azurewebsites.net** o **\<myapp\>.trafficmgr.com** de manera automática, por lo que si la dirección IP del sitio web cambia, no tiene que realizar ninguna acción.
 
-> [WACOM.NOTE] Algunos registradores de dominios solo le permiten asignar subdominios cuando utilizan un registro CNAME (como www.contoso.com) y no nombres raíz (como contoso.com). Para obtener más información acerca de registros CNAME, consulte la documentación que proporciona su registrador, la [entrada de la Wikipedia sobre el registro CNAME][] o el documento [IETF Domain Names - Implementation and Specification][].
+> [WACOM.NOTE] Algunos registradores de dominios solo le permiten asignar subdominios cuando utilizan un registro CNAME (como www.contoso.com) y no nombres raíz (como contoso.com). Para obtener más información acerca de registros CNAME, consulte la documentación que proporciona su registrador, la [entrada de la Wikipedia sobre el registro CNAME][entrada de la Wikipedia sobre el registro CNAME] o el documento [IETF Domain Names - Implementation and Specification][IETF Domain Names - Implementation and Specification].
 
 ### Registro D
 
@@ -39,12 +39,12 @@ El registro D asigna un dominio, como **contoso.com** o **www.contoso.com**, *o 
 ## Configuración de los sitios web para el modo compartido o estándar
 
 </p>
-La configuración de un nombre de dominio personalizado en un sitio web solo está disponible para los modos estándar y compartido para los Sitios web Azure. Antes de cambiar un sitio web del modo gratuito al modo estándar o compartido, primero debe quitar los límites de gasto del sitio vigentes para la suscripción del sitio web. Para obtener más información acerca de los precios de los modos estándar y compartido, consulte la [Información sobre el precio][].
+La configuración de un nombre de dominio personalizado en un sitio web solo está disponible para los modos estándar y compartido para los Sitios web Azure. Antes de cambiar un sitio web del modo gratuito al modo estándar o compartido, primero debe quitar los límites de gasto del sitio vigentes para la suscripción del sitio web. Para obtener más información acerca de los precios de los modos estándar y compartido, consulte la [Información sobre el precio][Información sobre el precio].
 
-1.  En el explorador, abra el [Portal de administración][].
+1.  En el explorador, abra el [Portal de administración][Portal de administración].
 2.  En la pestaña **Sitios web**, haga clic en el nombre del sitio.
 
-    ![][]
+    ![][0]
 
 3.  Haga clic en la pestaña **SCALE**.
 
@@ -71,9 +71,9 @@ La configuración de un nombre de dominio personalizado en un sitio web solo est
 </p>
 Si desea utilizar su sitio web con el Administrador de tráfico, siga estos pasos.
 
-1.  Si todavía no tiene un perfil de Administrador de tráfico, utilice la información que se muestra en [Crear un perfil de Traffic Manager mediante Creación rápida][] para crear uno. Anote el nombre de dominio **.trafficmgr.com** asociado a su perfil del Administrador de tráfico. Se utilizará en otro paso más adelante.
+1.  Si todavía no tiene un perfil de Administrador de tráfico, utilice la información que se muestra en [Crear un perfil de Traffic Manager mediante Creación rápida][Crear un perfil de Traffic Manager mediante Creación rápida] para crear uno. Anote el nombre de dominio **.trafficmgr.com** asociado a su perfil del Administrador de tráfico. Se utilizará en otro paso más adelante.
 
-2.  Utilice la información de [Adición o eliminación de extremos][] para agregar su sitio web como un extremo en su perfil del Administrador de tráfico.
+2.  Utilice la información de [Adición o eliminación de extremos][Adición o eliminación de extremos] para agregar su sitio web como un extremo en su perfil del Administrador de tráfico.
 
     > [WACOM.NOTE] Si su sitio web no aparece en la lista al agregar un extremo, compruebe que está configurado en modo estándar. Si desea trabajar con el Administrador de tráfico, debe utilizar el modo estándar para su sitio web.
 
@@ -107,11 +107,11 @@ Para crear un registro CNAME, debe agregar una nueva entrada en la tabla DNS par
 
     -   Inicie sesión en el [Portal de administración de Azure][Portal de administración], seleccione su sitio web, seleccione **Panel** y, a continuación, busque la entrada **Dirección URL del sitio** en la sección **Quick glance**.
 
-    -   Instale y configure [Azure Powershell][] y, a continuación, use el siguiente comando:
+    -   Instale y configure [Azure Powershell][Azure Powershell] y, a continuación, use el siguiente comando:
 
             get-azurewebsite yoursitename | select hostnames
 
-    -   Instale y configure la [Interfaz de la línea de comandos entre plataformas de Azure][] y, a continuación, use el siguiente comando:
+    -   Instale y configure la [Interfaz de la línea de comandos entre plataformas de Azure][Interfaz de la línea de comandos entre plataformas de Azure] y, a continuación, use el siguiente comando:
 
             azure site domain list yoursitename
 
@@ -145,7 +145,7 @@ Una vez que se haya propagado el registro CNAME para el nombre de dominio, debe 
 
 **Para agregar un nombre de dominio con las herramientas de la línea de comandos**
 
-Instale y configure la [Interfaz de la línea de comandos entre plataformas de Azure][] y, a continuación, use el siguiente comando:
+Instale y configure la [Interfaz de la línea de comandos entre plataformas de Azure][Interfaz de la línea de comandos entre plataformas de Azure] y, a continuación, use el siguiente comando:
 
     azure site domain add customdomain yoursitename
 
@@ -230,7 +230,7 @@ Una vez que se haya propagado el registro CNAME de **awverify** para el nombre d
 
 **Para agregar un nombre de dominio con las herramientas de la línea de comandos**
 
-Instale y configure la [Interfaz de la línea de comandos entre plataformas de Azure][] y, a continuación, use el siguiente comando:
+Instale y configure la [Interfaz de la línea de comandos entre plataformas de Azure][Interfaz de la línea de comandos entre plataformas de Azure] y, a continuación, use el siguiente comando:
 
     azure site domain add customdomain yoursitename
 
@@ -264,13 +264,12 @@ Una vez completada la configuración, el nombre de dominio personalizado aparece
 
 ## Pasos siguientes
 
--   [Administración de sitios web][]
+-   [Administración de sitios web][Administración de sitios web]
 
--   [Configuración de un certificado SSL para Sitios web][]
+-   [Configuración de un certificado SSL para Sitios web][Configuración de un certificado SSL para Sitios web]
 
-<!-- Bookmarks --> <!-- Links --> <!-- images --> <!-- images -->
 
-  [http://\<mysite]: http://<mysite
+
   [Control del tráfico de Sitios web de Azure con el Administrador de tráfico de Azure]: /es-es/documentation/articles/web-sites-traffic-manager/
   [Configuración de un nombre de dominio personalizado en Azure]: /es-es/develop/net/common-tasks/custom-dns/
   [Detalles de precios]: /es-es/pricing/details/web-sites/
@@ -283,7 +282,7 @@ Una vez completada la configuración, el nombre de dominio personalizado aparece
   [IETF Domain Names - Implementation and Specification]: http://tools.ietf.org/html/rfc1035
   [Información sobre el precio]: /es-es/pricing/details/
   [Portal de administración]: http://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-1.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-1.png
   [1]: ./media/custom-dns-web-site/dncmntask-cname-2.png
   [2]: ./media/custom-dns-web-site/dncmntask-cname-3.png
   [Crear un perfil de Traffic Manager mediante Creación rápida]: http://msdn.microsoft.com/es-es/library/windowsazure/dn339012.aspx

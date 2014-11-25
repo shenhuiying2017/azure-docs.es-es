@@ -29,11 +29,10 @@ Así concluye el conjunto de tutoriales que demuestra los aspectos básicos del 
     
 	Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-  [mobile-services-javascript-paging]: ../includes/mobile-services-javascript-paging.md
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
   [Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-push/

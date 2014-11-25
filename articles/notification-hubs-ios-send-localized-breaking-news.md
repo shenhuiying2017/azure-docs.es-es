@@ -177,6 +177,5 @@ Puede encontrar una referencia para el lenguaje de la expresión de plantilla en
   [Información general acerca de los Centros de notificaciones de Azure]: http://msdn.microsoft.com/es-es/library/jj927170.aspx
   [0]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
   [1]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
-  [notification-hubs-localized-back-end]: ../includes/notification-hubs-localized-back-end.md
   [Notificación a los usuarios con los Centros de notificaciones: ASP.NET]: /es-es/manage/services/notification-hubs/notify-users-aspnet
   [Notificación a los usuarios con los Centros de notificaciones: Servicios móviles]: /es-es/manage/services/notification-hubs/notify-users

@@ -71,10 +71,4 @@ Im nächsten Lernprogramm [Dienstweite Autorisierung von Mobile Services-Benutze
   [Speichern von Authentifizierungstokens auf dem Client]: #cache-tokens
   [Aktualisieren abgelaufener Tokens]: #refresh-tokens
   [Erste Schritte mit Mobile Services]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started/
-  [mobile-services-register-authentication]: ../includes/mobile-services-register-authentication.md
-  [mobile-services-dotnet-backend-aad-server-extension]: ../includes/mobile-services-dotnet-backend-aad-server-extension.md
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
-  [mobile-services-android-authenticate-app]: ../includes/mobile-services-android-authenticate-app.md
-  [mobile-services-android-authenticate-app-with-token]: ../includes/mobile-services-android-authenticate-app-with-token.md
-  [mobile-services-android-authenticate-app-refresh-token]: ../includes/mobile-services-android-authenticate-app-refresh-token.md
   [Dienstweite Autorisierung von Mobile Services-Benutzern]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts

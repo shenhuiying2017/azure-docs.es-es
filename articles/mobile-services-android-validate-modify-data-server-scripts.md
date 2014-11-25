@@ -211,9 +211,9 @@ Los scripts de servidor también se usan al autorizar usuarios y para enviar not
 -   [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles]
     Obtenga más información acerca del registro y uso de scripts de servidor.
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [Incorporación de la validación de longitud de cadena]: #string-length-validation
   [Actualización del cliente para admitir la validación]: #update-client-validation

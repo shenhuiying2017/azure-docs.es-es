@@ -390,30 +390,3 @@ Este documento proporciona directrices sobre el modo de implementar una base de 
 </table>
 </p>
 
-  [Security Best Practices For Developing Azure Applications]: http://go.microsoft.com/?linkid=9751405
-  [Azure Security Overview]: http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf
-  [Single Sign-On from Active Directory to a Azure Application Whitepaper]: http://download.microsoft.com/download/F/2/6/F26E80C5-C43B-4913-99AB-F2E4DFBFCBBF/Single%20Sign-On%20from%20Active%20Directory%20to%20a%20Windows%20Azure%20Application%20Whitepaper-RTW.pdf
-  [Azure Table - Programming Table Storage]: http://go.microsoft.com/fwlink/?LinkId=153401
-  [A Developer's Guide to Service Bus for the Azure AppFabric]: http://go.microsoft.com/?linkid=9751403
-  [Azure Queue - Programming Queue Storage]: http://go.microsoft.com/fwlink/?LinkId=153402
-  [Azure Drive Whitepaper - Using a Durable Drive for your NTFS Cloud Applications]: http://go.microsoft.com/?linkid=9710117
-  [Introducing Azure]: http://go.microsoft.com/?linkid=9682907
-  [Azure Blob - Programming Blob Storage]: http://go.microsoft.com/fwlink/?LinkId=153400
-  [The Azure Programming Model]: http://go.microsoft.com/?linkid=9751501
-  [Windows HPC Server and Azure]: http://go.microsoft.com/?linkid=9752158
-  [Similarities and Differences - SQL Azure vs. SQL Server]: http://go.microsoft.com/?linkid=9692818
-  [IT as a Service]: http://go.microsoft.com/?linkid=9752188
-  [Security Guidelines for SQL Azure]: http://go.microsoft.com/?linkid=9736945
-  [An Introduction to Azure AppFabric for Developers]: http://download.microsoft.com/download/E/B/5/EB512F2E-7771-40A3-8025-0DC6D9429951/An%20Introduction%20to%20Windows%20Azure%20platform%20AppFabric%20for%20Developers.docx
-  [Azure and ISVs - A Guide for Decision Makers]: http://download.microsoft.com/download/F/9/E/F9EAD956-18D1-42D8-AB1C-7F119856ABBF/Windows%20Azure%20for%20ISVs,%20v1.2--Chappell.pdf
-  [Cloud Optimization - A framework for making business decisions about cloud computing]: http://go.microsoft.com/?linkid=9751401
-  [Azure AppFabric Overview]: http://download.microsoft.com/download/C/A/7/CA7A9801-736E-421E-A386-16B37C83FFE8/Windows-Azure-AppFabric-PDC10-Overview.docx
-  [Cloud Economics]: http://go.microsoft.com/?linkid=9752190
-  [System Integrator Whitepaper]: http://go.microsoft.com/?linkid=9696879
-  [Cloud Platforms for Business Leaders]: http://go.microsoft.com/?linkid=9761001
-  [Architecting Applications to Use Azure AppFabric Caching]: http://go.microsoft.com/?linkid=9776229
-  [Overview of Microsoft SQL Azure]: http://go.microsoft.com/?linkid=9686976
-  [Custom IIS Web/Microsoft SQL Server Application Migration Scenario]: http://go.microsoft.com/?linkid=9737837
-  [Custom Web (Rapid Scaling Focus) Application Migration Scenario]: http://go.microsoft.com/?linkid=9737839
-  [Custom E-Commerce (Elasticity Focus) Application Migration Scenario]: http://go.microsoft.com/?linkid=9737838
-  [Developing and Deploying with SQL Azure]: http://go.microsoft.com/?linkid=9736946

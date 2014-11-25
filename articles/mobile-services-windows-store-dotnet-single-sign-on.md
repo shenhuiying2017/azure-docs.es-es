@@ -123,9 +123,9 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
 En el siguiente tutorial, [Autorización de usuarios con scripts][Autorización de usuarios con scripts], usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. Para obtener información sobre cómo usar otros proveedores de identidades para la autenticación, consulte [Introducción a la autenticación][3]. Obtenga más información sobre cómo usar Servicios móviles con .NET en [Referencia conceptual de Servicios móviles con .NET][Referencia conceptual de Servicios móviles con .NET].
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
   [Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
@@ -133,8 +133,6 @@ En el siguiente tutorial, [Autorización de usuarios con scripts][Autorización 
   [Incorporación de autenticación a la aplicación]: #add-authentication
   [SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
   [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started
-  [mobile-services-register-windows-store-app]: ../includes/mobile-services-register-windows-store-app.md
-  [mobile-services-restrict-permissions-javascript-backend]: ../includes/mobile-services-restrict-permissions-javascript-backend.md
   [1]: /es-es/documentation/articles/mobile-services-windows-store-get-started
   [0]: ./media/mobile-services-windows-store-dotnet-single-sign-on/mobile-add-reference-live-dotnet.png
   [2]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/#tokens

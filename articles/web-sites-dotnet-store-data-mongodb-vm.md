@@ -484,7 +484,6 @@ Ha implementado correctamente la aplicación ASP.NET en un sitio web de Azure. P
 <!-- HYPERLINKS --> <!-- IMAGES --> <!-- TOC BOOKMARKS -->
 
   [MongoDB]: http://www.mongodb.org
-  [create-account-and-websites-and-vms-note]: ../includes/create-account-and-websites-and-vms-note.md
   [Creación de una máquina virtual e instalación de MongoDB]: #virtualmachine
   [Creación y ejecución de la aplicación My Task List ASP.NET en el equipo de desarrollo]: #createapp
   [Creación de un sitio web de Azure]: #createwebsite

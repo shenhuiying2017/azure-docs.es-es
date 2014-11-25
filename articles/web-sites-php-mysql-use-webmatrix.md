@@ -179,7 +179,6 @@ Ha aprendido a crear e implementar un sitio web de WebMatrix en Azure. Para obte
 
   [MySQL]: http://dev.mysql.com/doc/refman/5.6/en/installing.html
   [Sitio web PHP de Azure]: ./media/web-sites-php-mysql-use-webmatrix/tasklist_app_windows.png
-  [create-account-and-websites-note]: ../includes/create-account-and-websites-note.md
   [Descargue]: http://go.microsoft.com/fwlink/?LinkId=252506
   [Portal de administración]: https://manage.windowsazure.com
   [Crear un sitio web de Azure]: ./media/web-sites-php-mysql-use-webmatrix/NewWebSite1.jpg

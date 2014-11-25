@@ -50,14 +50,11 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 
 <!---## <a name="next-steps"> </a>Next steps  In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]--> 
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [notificaciones de inserción]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/
   [Actualización del servicio para que requiera autenticación para el registro]: #register
   [Actualización de la aplicación para que inicie sesión antes del registro]: #update-app
   [Prueba de la aplicación]: #test
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
-  [mobile-services-dotnet-backend-push-notifications-app-users]: ../includes/mobile-services-dotnet-backend-push-notifications-app-users.md
-  [mobile-services-windows-store-javascript-push-notifications-app-users]: ../includes/mobile-services-windows-store-javascript-push-notifications-app-users.md
-  [mobile-services-windows-test-push-users]: ../includes/mobile-services-windows-test-push-users.md

@@ -45,7 +45,7 @@ La incorporación de AMQP 1.0 implica que ahora puede sacar partido de las carac
 
 En el diagrama siguiente se muestra un desarrollo de ejemplo en el que clientes de Java que se ejecutan en Linux, escritos usando la API estándar Java Message Service (JMS), y clientes .NET que se ejecutan en Windows intercambian mensajes a través del Bus de servicio mediante AMQP 1.0.
 
-![][]
+![][0]
 
 **Ilustración 1: Escenario de implementación de ejemplos que muestran mensajes entre plataformas mediante el Bus de servicio y AMQP 1.0**
 
@@ -70,12 +70,12 @@ Para obtener más información sobre cómo obtener y usar estas bibliotecas con 
 
 ## Referencias
 
--   [Uso de AMQP 1.0 con la API .NET del bus de servicio][]
--   [Uso de la API de Java Message Service (JMS) con el bus de servicio y AMQP 1.0][]
--   [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][]
--   [OASIS Advanced Message Queuing Protocol (AMQP) Version 1.0 specification][]
+-   [Uso de AMQP 1.0 con la API .NET del bus de servicio][Uso de AMQP 1.0 con la API .NET del bus de servicio]
+-   [Uso de la API de Java Message Service (JMS) con el bus de servicio y AMQP 1.0][Uso de la API de Java Message Service (JMS) con el bus de servicio y AMQP 1.0]
+-   [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio][Guía para desarrolladores sobre AMQP 1.0 del bus de servicio]
+-   [OASIS Advanced Message Queuing Protocol (AMQP) Version 1.0 specification][OASIS Advanced Message Queuing Protocol (AMQP) Version 1.0 specification]
 
-  []: ./media/service-bus-amqp-overview/Example1.png
+  [0]: ./media/service-bus-amqp-overview/Example1.png
   [Uso de AMQP 1.0 con la API .NET del bus de servicio]: http://aka.ms/lym3vk
   [Uso de la API de Java Message Service (JMS) con el bus de servicio y AMQP 1.0]: http://aka.ms/ll1fm3
   [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio]: http://msdn.microsoft.com/es-es/library/windowsazure/jj841071.aspx

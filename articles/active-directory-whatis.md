@@ -1,10 +1,10 @@
 <properties linkid="manage-services-identity-what-is-windows-azure-AD" urlDisplayName="What is Azure AD?" pageTitle="What is Azure Active Directory?" metaKeywords="" description="Use Azure Active Directory to extend your existing on-premises identities into the cloud for an improved admin and end user experience while Microsoft keeps Active Directory running in the cloud with high scale, high availability, and integrated disaster recovery. Or, develop Azure AD integrated applications for your organization or for other organizations." metaCanonical="" services="active-directory" documentationCenter="" title="What is Azure Active Directory?" authors="justinha" solutions="" manager="terrylan" editor="" />
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="justinha"></tags>
+<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="justinha" />
 
 # ¿Qué es Azure Active Directory?
 
-Azure Active Directory es un servicio que proporciona funcionalidades de administración de identidad y acceso en la nube. En un proceso muy similar al que sigue Active Directory para permitir a los clientes administrar identidades en entornos locales a través del sistema operativo Windows Server, Azure Active Directory (Azure AD) es un servicio disponible a través de Azure para administrar identidades en la nube. [Más información][]
+Azure Active Directory es un servicio que proporciona funcionalidades de administración de identidad y acceso en la nube. En un proceso muy similar al que sigue Active Directory para permitir a los clientes administrar identidades en entornos locales a través del sistema operativo Windows Server, Azure Active Directory (Azure AD) es un servicio disponible a través de Azure para administrar identidades en la nube. [Más información][Más información]
 
 Debido a que es el directorio en la nube de su organización, usted es quien decide quiénes son sus usuarios, qué información desea mantener en la nube, quién puede usar la información o administrarla y qué aplicaciones o servicios pueden tener acceso a esa información.
 
@@ -21,9 +21,9 @@ Los desarrolladores de aplicaciones pueden integrar sus aplicaciones con Azure A
 
 **Recursos adicionales**
 
--   [Inicio de sesión en Azure como una organización][]
--   [Identidad de Azure][]
--   [Biblioteca de Azure AD en MSDN][]
+-   [Inicio de sesión en Azure como una organización][Inicio de sesión en Azure como una organización]
+-   [Identidad de Azure][Identidad de Azure]
+-   [Biblioteca de Azure AD en MSDN][Biblioteca de Azure AD en MSDN]
 
   [Más información]: http://msdn.microsoft.com/library/hh967611.aspx
   [1]: http://msdn.microsoft.com/library/jj573653

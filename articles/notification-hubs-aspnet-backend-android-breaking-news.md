@@ -292,7 +292,7 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 
     Conozca cómo insertar notificaciones para usuarios autenticados específicos. Esta es una buena solución para enviar notificaciones solo a usuarios específicos.
 
-<!-- Anchors. --> <!-- Images. --> <!-- URLs.-->
+  <!-- URLs.-->
 
   [Introducción a centros de notificaciones]: http://msdn.microsoft.com/es-es/library/jj927170.aspx
   [Incorporación de una selección de categorías a la aplicación]: #adding-categories
@@ -301,6 +301,5 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
   [Ejecución de la aplicación y generación de notificaciones]: #test-app
   [Introducción a los Centros de notificaciones]: /es-es/documentation/articles/notification-hubs-android-get-started/
    
-  [notification-hubs-back-end]: ../includes/notification-hubs-back-end.md
   [Uso de los Centros de notificaciones para difundir noticias de última hora localizadas]: /es-es/manage/services/notification-hubs/breaking-news-localized-dotnet/
   [Notificación a los usuarios con los Centros de notificaciones]: /es-es/manage/services/notification-hubs/notify-users

@@ -1,6 +1,6 @@
 <properties pageTitle="Calling SQL stored procedures with a JavaScript back end" metaKeywords="stored procedures, SQL, mobile devices, Azure" description="explains how to use SQL stored procedures in a mobile services JavaScript backed." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Calling SQL stored procedures with a JavaScript back end" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal"></tags>
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 
 # Llamada a procedimientos almacenados de SQL con un backend de JavaScript
 
@@ -145,8 +145,8 @@ Estos son otros escenarios que puede encontrar:
 
 También puede usar el Portal de administración de Azure para administrar y crear nuevos procedimientos almacenados.
 
-<!-- Anchors. --> 
-<!-- URLs. -->
+ 
+
 
   [Llamada a un procedimiento almacenado sencillo]: #simple
   [Llamada a un procedimiento almacenado con parámetros]: #parameters
@@ -160,7 +160,6 @@ También puede usar el Portal de administración de Azure para administrar y cre
   [iOS]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-ios-call-custom-api/
   [Android]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-android-call-custom-api/
   [HTML]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-html-call-custom-api/
-  [Cómo puedo hacer más de una operación de lectura con scripting]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/fccf4ae7-f43c-4c2d-8518-32e2df84a824/how-do-i-do-more-than-1-read-operation-by-scripting?forum=azuremobile
+  [Cómo puedo hacer más de una operación de lectura con scripting]: http://social.msdn.microsoft.com/Forums/windowsazure/es-es/fccf4ae7-f43c-4c2d-8518-32e2df84a824/how-do-i-do-more-than-1-read-operation-by-scripting?forum=azuremobile
   [Acceso a un procedimiento almacenado desde un esquema diferente]: http://blogs.msdn.com/b/jpsanders/archive/2013/05/02/windows-azure-mobile-services-accessing-a-stored-procedure-from-a-different-schema.aspx
-  [Trabajo con un servicio móvil back-end de JavaScript]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-how-to-use-server-scripts/
   [mssql object]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554212.aspx

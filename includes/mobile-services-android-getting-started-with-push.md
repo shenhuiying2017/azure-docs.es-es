@@ -19,7 +19,7 @@
             </intent-filter>
         </receiver>
 
-4.  Descargue y descomprima el [SDK de Android para Servicios móviles (en inglés)][], abra la carpeta **notificaciones**, copie el archivo **notifications-1.0.1.jar** en la carpeta *libs* del proyecto Eclipse y actualice la carpeta *libs*.
+4.  Descargue y descomprima el [SDK de Android para Servicios móviles (en inglés)][SDK de Android para Servicios móviles (en inglés)], abra la carpeta **notificaciones**, copie el archivo **notifications-1.0.1.jar** en la carpeta *libs* del proyecto Eclipse y actualice la carpeta *libs*.
 
     <div class="dev-callout"><b>Nota:</b>
 <p>Los n&uacute;meros que aparecen al final del nombre del archivo pueden cambiar en versiones de SDK posteriores.</p>
@@ -43,7 +43,7 @@
 
 9.  En **Nombre**, escriba `MyHandler`, en **Superclase** escriba `com.microsoft.windowsazure.notifications.NotificationsHandler` y, a continuación, haga clic en **Finalizar**.
 
-    ![][]
+    ![][0]
 
     Con esto se crea la clase MyHandler.
 
@@ -113,7 +113,7 @@
 
 Ahora su aplicación está actualizada para que sea compatible con las notificaciones de inserción.
 
-<!-- URLs. -->
+
 
   [SDK de Android para Servicios móviles (en inglés)]: http://go.microsoft.com/fwlink/p/?LinkID=280126
-  []: ./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png
+  [0]: ./media/mobile-services-android-get-started-push/mobile-services-android-create-class.png

@@ -622,7 +622,7 @@ Este tutorial ha demostrado una secuencia de tareas de programación para crear 
 -   [Uso de Servicios multimedia][Uso de Servicios multimedia]
 -   [Entrega de contenido][Entrega de contenido]
 
-<!-- Anchors. -->
+
 
   [Descargar]: http://go.microsoft.com/fwlink/?linkid=253275
   [Configuración de su proyecto]: #Step1

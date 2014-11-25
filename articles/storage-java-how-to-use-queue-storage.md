@@ -1,35 +1,35 @@
-<properties urlDisplayName="Queue Service" pageTitle="Uso del servicio de colas (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Ejemplos escritos en Java." metaCanonical="" services="storage" documentationCenter="Java" title="Uso del servicio de almacenamiento en cola en Java" authors="tamram" solutions="" manager="adinah" editor="" />
+﻿<properties urlDisplayName="Queue Service" pageTitle="Uso del servicio de colas (Java) | Microsoft Azure" metaKeywords="Azure Queue Service, Azure Queue storage service, queues peeking, queues insert messages, queues get messages, queues delete messages, create queues, delete queues, Queue service Java" description="Learn how to use the Azure Queue service to create and delete queues, and insert, get, and delete messages. Samples written in Java." metaCanonical="" services="storage" documentationCenter="Java" title="How to use the Queue storage service from Java" authors="tamram" solutions="" manager="adinah" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="tamram" />
 
 # Uso del almacenamiento de colas en Java
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Azure. Los ejemplos están escritos en Java y utilizan el [SDK de almacenamiento de Azure para Java][SDK de almacenamiento de Azure para Java]. Entre los escenarios descritos se incluyen la **inserción**, **inspección**, **obtención** y **eliminación** de los mensajes en cola, así como la **creación** y **eliminación** de colas. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][Pasos siguientes].
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Azure. Los ejemplos están escritos en Java y utilizan el [SDK de almacenamiento de Azure para Java][SDK de almacenamiento de Azure para Java]. Entre los escenarios descritos se incluyen la **inserción**, **inspección**, **obtención** y **eliminación** de los mensajes en cola, así como la **creación** y **eliminación** de colas. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes](#NextSteps).
 
-Nota: hay un SDK disponible para los desarrolladores que usen el almacenamiento de Azure en dispositivos Android. Para obtener más información, consulte el [SDK de almacenamiento de Azure para Android][SDK de almacenamiento de Azure para Android].
+Nota: hay un SDK disponible para los desarrolladores que usen el almacenamiento de Azure en dispositivos Android. Para obtener más información, consulte el [SDK de almacenamiento de Azure para Android][SDK de almacenamiento de Azure para Android]. 
 
 ## <a name="Contents"> </a>Tabla de contenido
 
--   [¿Qué es el almacenamiento en cola?][¿Qué es el almacenamiento en cola?]
--   [Conceptos][Conceptos]
--   [Crear una cuenta de almacenamiento de Azure][Crear una cuenta de almacenamiento de Azure]
--   [Creación de una aplicación Java][Creación de una aplicación Java]
--   [Configuración de la aplicación para obtener acceso al almacenamiento en cola][Configuración de la aplicación para obtener acceso al almacenamiento en cola]
--   [Configuración de una cadena de conexión de almacenamiento de Azure][Configuración de una cadena de conexión de almacenamiento de Azure]
--   [Direccionamiento del de una cola][Direccionamiento del de una cola]
--   [Direccionamiento del un mensaje a una cola][Direccionamiento del un mensaje a una cola]
--   [Direccionamiento del siguiente mensaje][Direccionamiento del siguiente mensaje]
--   [Direccionamiento del contenido de un mensaje en cola][Direccionamiento del contenido de un mensaje en cola]
--   [Direccionamiento del la longitud de la cola][Direccionamiento del la longitud de la cola]
--   [Direccionamiento del siguiente mensaje de la cola][Direccionamiento del siguiente mensaje de la cola]
--   [Opciones adicionales para quitar mensajes de la cola][Opciones adicionales para quitar mensajes de la cola]
--   [Direccionamiento del las colas][Direccionamiento del las colas]
--   [Direccionamiento del una cola][Direccionamiento del una cola]
--   [Pasos siguientes][Pasos siguientes]
+* [¿Qué es el almacenamiento en cola?](#what-is)
+* [Conceptos](#Concepts)
+* [Crear una cuenta de almacenamiento de Azure](#CreateAccount)
+* [Creación de una aplicación Java](#CreateApplication)
+* [Configuración de la aplicación para obtener acceso al almacenamiento en cola](#ConfigureStorage)
+* [Configuración de una cadena de conexión de almacenamiento de Azure](#ConnectionString)
+* [Direccionamiento del de una cola](#create-queue)
+* [Direccionamiento del un mensaje a una cola](#add-message)
+* [Direccionamiento del siguiente mensaje](#peek-message)
+* [Direccionamiento del contenido de un mensaje en cola](#change-message)
+* [Direccionamiento del la longitud de la cola](#get-queue-length)
+* [Direccionamiento del siguiente mensaje de la cola](#dequeue-message)
+* [Opciones adicionales para quitar mensajes de la cola](#additional-options)
+* [Direccionamiento del las colas](#list-queues)
+* [Direccionamiento del una cola](#delete-queue)
+* [Pasos siguientes](#NextSteps)
 
 [WACOM.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-## <span id="CreateAccount"></span></a>Creación de una cuenta de almacenamiento de Azure
+<h2><a id="CreateAccount"></a>Crear una cuenta de almacenamiento de Azure</h2>
 
 [WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
@@ -43,7 +43,7 @@ Para ello, deberá instalar el Kit de desarrollo de Java (JDK) y crear una cuent
 
 Agregue las siguientes instrucciones de importación en la parte superior del archivo Java en el que desea utilizar las API de almacenamiento de Azure para obtener acceso a las colas:
 
-    // Include the following imports to use queue APIs.
+    // Incluir las siguientes instrucciones de importación para utilizar las API de las colas.
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.queue.*;
 
@@ -51,7 +51,7 @@ Agregue las siguientes instrucciones de importación en la parte superior del ar
 
 Un cliente de almacenamiento de Azure utiliza una cadena de conexión de almacenamiento para almacenar extremos y credenciales con el fin de obtener acceso a los servicios de administración de datos. Al ejecutarse en una aplicación cliente, debe proporcionar la cadena de conexión de almacenamiento en el siguiente formato, utilizando el nombre de su cuenta de almacenamiento y la clave de acceso principal de la cuenta de almacenamiento que se muestra en el Portal de administración para los valores *AccountName* y *AccountKey*. En este ejemplo se muestra cómo puede declarar un campo estático para mantener la cadena de conexión:
 
-    // Define the connection-string with your values.
+    // Definir la cadena de conexión con sus valores.
     public static final String storageConnectionString = 
         "DefaultEndpointsProtocol=http;" + 
         "AccountName=your_storage_account;" + 
@@ -59,36 +59,36 @@ Un cliente de almacenamiento de Azure utiliza una cadena de conexión de almacen
 
 En una aplicación que se esté ejecutando en un rol de Microsoft Azure, esta cadena se puede almacenar en el archivo de configuración del servicio, *ServiceConfiguration.cscfg*, y se puede obtener acceso a él con una llamada al método **RoleEnvironment.getConfigurationSettings**. A continuación se muestra un ejemplo de cómo obtener la cadena de conexión desde un elemento de **configuración** denominado *StorageConnectionString* en el archivo de configuración del servicio:
 
-    // Retrieve storage account from connection-string.
+    // Recuperar la cuenta de almacenamiento de la cadena de conexión.
     String storageConnectionString = 
         RoleEnvironment.getConfigurationSettings().get("StorageConnectionString");
 
 En los ejemplos siguientes se supone que ha usado uno de estos dos métodos para obtener la cadena de conexión de almacenamiento.
 
-## <a name="create-queue"> </a>Direccionamiento del una cola
+## <a name="create-queue"> </a>Direccionamiento del de una cola
 
-Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. (Nota: existen otras maneras de crear objetos **CloudStorageAccount**; para obtener más información, consulte **CloudStorageAccount** en la [Referencia del SDK del cliente de almacenamiento de Azure][Referencia del SDK del cliente de almacenamiento de Azure]).
+Un objeto **CloudQueueClient** le permite obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. (Nota: existen otras maneras de crear objetos **CloudStorageAccount**; para obtener más información, consulte **CloudStorageAccount** en la [Referencia del SDK del cliente de almacenamiento de Azure]).
 
-Use el objeto **CloudQueueClient** para obtener una referencia a la cola que desea utilizar. En caso de que la cola no exista todavía, es posible crearla:
+Utilice el objeto **CloudQueueClient** para obtener una referencia a la cola que desea utilizar. En caso de que la cola no exista todavía, es posible crearla.
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Recuperar la cuenta de almacenamiento de la cadena de conexión.
+    	CloudStorageAccount storageAccount = 
+	       CloudStorageAccount.parse(storageConnectionString);
 
-       // Create the queue client.
-       CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+	   // Crear el cliente de cola.
+	   CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-       // Retrieve a reference to a queue.
-       CloudQueue queue = queueClient.getQueueReference("myqueue");
+	   // Recuperar una referencia a una cola.
+	   CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-       // Create the queue if it doesn't already exist.
-       queue.createIfNotExists();
+	   // Crear la cola si todavía no existe.
+	   queue.createIfNotExists();
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Consultar el seguimiento de la pila.
         e.printStackTrace();
     }
 
@@ -98,26 +98,26 @@ Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo **
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Recuperar la cuenta de almacenamiento de la cadena de conexión.
+    	CloudStorageAccount storageAccount = 
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
-        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+    	// Crear el cliente de cola.
+    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
-        CloudQueue queue = queueClient.getQueueReference("myqueue");
+    	// Recuperar una referencia a una cola.
+    	CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-        // Create the queue if it doesn't already exist.
-        queue.createIfNotExists();
+    	// Crear la cola si todavía no existe.
+    	queue.createIfNotExists();
 
-        // Create a message and add it to the queue.
-        CloudQueueMessage message = new CloudQueueMessage("Hello, World");
-        queue.addMessage(message);
+    	// Crear un mensaje y agregarlo a la cola.
+    	CloudQueueMessage message = new CloudQueueMessage("Hola, mundo");
+    	queue.addMessage(message);
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Consultar el seguimiento de la pila.
         e.printStackTrace();
     }
 
@@ -127,28 +127,28 @@ Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin qui
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Recuperar la cuenta de almacenamiento de la cadena de conexión.
+    	CloudStorageAccount storageAccount = 
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
-        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+    	// Crear el cliente de cola.
+    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
-        CloudQueue queue = queueClient.getQueueReference("myqueue");
-            
-        // Peek at the next message.
-        CloudQueueMessage peekedMessage = queue.peekMessage();
-            
-        // Output the message value.
-        if (peekedMessage != null)
-        {
-          System.out.println(peekedMessage.getMessageContentAsString());
-       }
+    	// Recuperar una referencia a una cola.
+    	CloudQueue queue = queueClient.getQueueReference("myqueue");
+			
+    	// Inspeccionar el siguiente mensaje.
+    	CloudQueueMessage peekedMessage = queue.peekMessage();
+			
+    	// Consultar el valor del mensaje
+    	if (peekedMessage != null)
+    	{
+		  System.out.println(peekedMessage.getMessageContentAsString());
+	   }
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Consultar el seguimiento de la pila.
         e.printStackTrace();
     }
 
@@ -156,36 +156,36 @@ Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin qui
 
 Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje representa una tarea de trabajo, puede utilizar esta característica para actualizar el estado de la tarea de trabajo. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 60 segundos más. De este modo, se guarda el estado de trabajo asociado al mensaje y se le proporciona al cliente un minuto más para que siga elaborando el mensaje. Esta técnica se puede utilizar para realizar un seguimiento de los flujos de trabajo de varios pasos en los mensajes en cola, sin que sea necesario volver a empezar desde el principio si se produce un error en un paso del proceso a causa de un error de hardware o software. Normalmente, también mantendría un número de reintentos y, si el mensaje se intentara más de *n* veces, lo eliminaría. Esto proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
 
-El siguiente código de ejemplo busca en la cola de mensajes, encuentra el primer mensaje cuyo contenido coincide con "Hola, mundo" y luego modifica el contenido del mensaje "Hola mundo" y se cierra.
+El siguiente código de ejemplo busca en la cola de mensajes, encuentra el primer mensaje cuyo contenido coincide con "Hola, mundo" y luego modifica el contenido del mensaje "Hola mundo" y se cierra. 
 
     try
     {
-        // Retrieve storage account from connection-string.
+        // Recuperar la cuenta de almacenamiento de la cadena de conexión.
         CloudStorageAccount storageAccount = 
             CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
-        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+    	// Crear el cliente de cola.
+    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
-        CloudQueue queue = queueClient.getQueueReference("myqueue");
+    	// Recuperar una referencia a una cola.
+    	CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-        // The maximum number of messages that can be retrieved is 32. 
+        // El número máximo de mensajes que se pueden recuperar es 32. 
         final int MAX_NUMBER_OF_MESSAGES_TO_PEEK = 32;
 
-        // Loop through the messages in the queue.
+        // Aplicar un bucle a través de los mensajes en la cola.
         for (CloudQueueMessage message : queue.retrieveMessages(MAX_NUMBER_OF_MESSAGES_TO_PEEK,1,null,null))
         {
-            // Check for a specific string.
-            if (message.getMessageContentAsString().equals("Hello, World"))
+            // Comprobar una cadena específica.
+            if (message.getMessageContentAsString().equals("Hola, mundo"))
             {
-                // Modify the content of the first matching message.
+                // Modifique el contenido del primer mensaje que coincida.
                 message.setMessageContent("Updated contents.");
-                // Set it to be visible in 30 seconds.
+                // Establecer que sea visible en 30 segundos.
                 EnumSet<MessageUpdateFields> updateFields = 
                     EnumSet.of(MessageUpdateFields.CONTENT,
                     MessageUpdateFields.VISIBILITY);
-                // Update the message.
+                // Actualizar el mensaje.
                 queue.updateMessage(message, 30, updateFields, null, null);
                 break;
             }
@@ -193,7 +193,7 @@ El siguiente código de ejemplo busca en la cola de mensajes, encuentra el prime
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Consultar el seguimiento de la pila.
         e.printStackTrace();
     }
 
@@ -201,65 +201,65 @@ Como alternativa, el siguiente código de ejemplo actualiza únicamente el prime
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Recuperar la cuenta de almacenamiento de la cadena de conexión.
+    	CloudStorageAccount storageAccount = 
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
-        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+    	// Crear el cliente de cola.
+    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
-        CloudQueue queue = queueClient.getQueueReference("myqueue");
+    	// Recuperar una referencia a una cola.
+    	CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-        // Retrieve the first visible message in the queue.
-        CloudQueueMessage message = queue.retrieveMessage();
-            
-        if (message != null)
-        {
-            // Modify the message content.
+    	// Recuperar el primer mensaje visible en la cola.
+    	CloudQueueMessage message = queue.retrieveMessage();
+			
+    	if (message != null)
+    	{
+            // Modificar el contenido del mensaje.
             message.setMessageContent("Updated contents.");
-            // Set it to be visible in 60 seconds.
+            // Establecer que sea visible en 60 segundos.
             EnumSet<MessageUpdateFields> updateFields = 
                 EnumSet.of(MessageUpdateFields.CONTENT,
                 MessageUpdateFields.VISIBILITY);
-            // Update the message.
+            // Actualizar el mensaje.
             queue.updateMessage(message, 60, updateFields, null, null);
-        }
+    	}
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Consultar el seguimiento de la pila.
         e.printStackTrace();
     }
 
 ## <a name="get-queue-length"> </a>Direccionamiento del la longitud de la cola
 
-Puede obtener una estimación del número de mensajes existentes en una cola. El método **downloadAttributes** pide al servicio de cola varios valores actuales, incluido un conteo de cuántos mensajes están en la cola. El recuento solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud. El método **getApproximateMethodCount** devuelve el último valor recuperado por la llamada a **downloadAttributes**, sin llamar al servicio de cola.
+Puede obtener una estimación del número de mensajes existentes en una cola. El método **downloadAttributes** pide al servicio de cola varios valores actuales, incluido un conteo de cuántos mensajes están en la cola. El recuento solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud. El método **getApproximateMessageCount** devuelve el último valor recuperado por la llamada a **downloadAttributes**, sin llamar al servicio de cola.
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
-           CloudStorageAccount.parse(storageConnectionString);
+    	// Recuperar la cuenta de almacenamiento de la cadena de conexión.
+    	CloudStorageAccount storageAccount = 
+	       CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
-        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+    	// Crear el cliente de cola.
+    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
-        CloudQueue queue = queueClient.getQueueReference("myqueue");
+    	// Recuperar una referencia a una cola.
+    	CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-       // Download the approximate message count from the server.
-        queue.downloadAttributes();
+	   // Descargar el recuento de mensajes aproximado del servidor.
+    	queue.downloadAttributes();
 
-        // Retrieve the newly cached approximate message count.
-        long cachedMessageCount = queue.getApproximateMessageCount();
-            
-        // Display the queue length.
-        System.out.println(String.format("Queue length: %d", cachedMessageCount));
+    	// Recuperar el número aproximado de mensajes recién colocados en caché.
+    	long cachedMessageCount = queue.getApproximateMessageCount();
+			
+    	// Mostrar la longitud de la cola.
+    	System.out.println(String.format("Longitud de la cola: %d", cachedMessageCount));
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Consultar el seguimiento de la pila.
         e.printStackTrace();
     }
 
@@ -269,86 +269,87 @@ El código extrae un mensaje de una cola en dos pasos. Si llama a **retrieveMess
 
     try
     {
-        // Retrieve storage account from connection-string.
-        CloudStorageAccount storageAccount = 
-            CloudStorageAccount.parse(storageConnectionString);
+    	// Recuperar la cuenta de almacenamiento de la cadena de conexión.
+    	CloudStorageAccount storageAccount = 
+    	    CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
-        CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
+    	// Crear el cliente de cola.
+    	CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
-        CloudQueue queue = queueClient.getQueueReference("myqueue");
+    	// Recuperar una referencia a una cola.
+    	CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-        // Retrieve the first visible message in the queue.
-        CloudQueueMessage retrievedMessage = queue.retrieveMessage();
-            
-        if (retrievedMessage != null)
-        {
-            // Process the message in less than 30 seconds, and then delete the message.
-            queue.deleteMessage(retrievedMessage);
-        }
+    	// Recuperar el primer mensaje visible en la cola.
+    	CloudQueueMessage retrievedMessage = queue.retrieveMessage();
+			
+    	if (retrievedMessage != null)
+    	{
+    		// Procesar el mensaje en menos de 30 segundos y, a continuación, eliminar el mensaje.
+    		queue.deleteMessage(retrievedMessage);
+    	}
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Consultar el seguimiento de la pila.
         e.printStackTrace();
     }
+
 
 ## <a name="additional-options"> </a>Opciones adicionales para quitar mensajes de la cola
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje.
 
-El siguiente ejemplo de código utiliza el método **retrieveMessage** para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle **for**. También establece el tiempo de espera de la invisibilidad en cinco minutos (300 segundos) para cada mensaje. Tenga en cuenta que los cinco minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que después de pasar los cinco minutos desde la llamada a **retrieveMessage**, todos los mensajes que no se han eliminado volverán a estar visibles.
+El siguiente ejemplo de código utiliza el método **retrieveMessages** para obtener 20 mensajes en una llamada. A continuación, procesa cada mensaje con un bucle **for**. También establece el tiempo de espera de la invisibilidad en cinco minutos (300 segundos) para cada mensaje. Tenga en cuenta que los cinco minutos empiezan a contar para todos los mensajes al mismo tiempo, por lo que después de pasar los cinco minutos desde la llamada a **retrieveMessages**, todos los mensajes que no se han eliminado volverán a estar visibles.
 
     try
     {
-        // Retrieve storage account from connection-string.
+        // Recuperar la cuenta de almacenamiento de la cadena de conexión.
         CloudStorageAccount storageAccount = 
             CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
+        // Crear el cliente de cola.
         CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
+        // Recuperar una referencia a una cola.
         CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-        // Retrieve 20 messages from the queue with a visibility timeout of 300 seconds.
+        // Recuperar 20 mensajes de la cola con un tiempo de espera de visibilidad de 300 segundos.
         for (CloudQueueMessage message : queue.retrieveMessages(20, 300, null, null)) {
-            // Do processing for all messages in less than 5 minutes, 
-            // deleting each message after processing.
+            // Realizar el procesamiento de todos los mensajes en menos de 5 minutos, 
+            // y eliminar cada mensaje después del procesamiento.
             queue.deleteMessage(message);
         }
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Consultar el seguimiento de la pila.
         e.printStackTrace();
     }
 
 ## <a name="list-queues"> </a>Direccionamiento del las colas
 
-Para obtener una lista de las colas actuales, llame al método **CloudQueueClient.listQueues()**, el cual devolverá una colección de objetos **CloudQueue**.
+Para obtener una lista de las colas actuales, llame al método **CloudQueueClient.listQueues()**, el cual devolverá una colección de objetos **CloudQueue**. 
 
     try
     {
-        // Retrieve storage account from connection-string.
+        // Recuperar la cuenta de almacenamiento de la cadena de conexión.
         CloudStorageAccount storageAccount =
             CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
+        // Crear el cliente de cola.
         CloudQueueClient queueClient =
             storageAccount.createCloudQueueClient();
 
-        // Loop through the collection of queues.
+        // Aplique un bucle a través de la colección de colas.
         for (CloudQueue queue : queueClient.listQueues())
         {
-            // Output each queue name.
+            // Consultar el nombre de cada cola.
             System.out.println(queue.getName());
         }
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Consultar el seguimiento de la pila.
         e.printStackTrace();
     }
 
@@ -358,22 +359,22 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
     try
     {
-        // Retrieve storage account from connection-string.
+        // Recuperar la cuenta de almacenamiento de la cadena de conexión.
         CloudStorageAccount storageAccount = 
             CloudStorageAccount.parse(storageConnectionString);
 
-        // Create the queue client.
+        // Crear el cliente de cola.
         CloudQueueClient queueClient = storageAccount.createCloudQueueClient();
 
-        // Retrieve a reference to a queue.
+        // Recuperar una referencia a una cola.
         CloudQueue queue = queueClient.getQueueReference("myqueue");
 
-        // Delete the queue if it exists.
+        // Eliminar la cola si existe.
         queue.deleteIfExists();
     }
     catch (Exception e)
     {
-        // Output the stack trace.
+        // Consultar el seguimiento de la pila.
         e.printStackTrace();
     }
 
@@ -381,29 +382,14 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 Ahora que está familiarizado con los aspectos básicos del almacenamiento en cola, utilice estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
 
--   [SDK de almacenamiento de Azure para Java][SDK de almacenamiento de Azure para Java]
--   [Referencia del SDK de cliente de almacenamiento de Azure][Referencia del SDK del cliente de almacenamiento de Azure]
--   [API REST de almacenamiento de Azure][API REST de almacenamiento de Azure]
--   [Blog del equipo de almacenamiento de Azure][Blog del equipo de almacenamiento de Azure]
+- [SDK de almacenamiento de Azure para Java]
+- [Referencia del SDK de cliente de almacenamiento de Azure]
+- [API REST de almacenamiento de Azure]
+- [Blog del equipo de almacenamiento de Azure]
 
-  [SDK de almacenamiento de Azure para Java]: https://github.com/azure/azure-storage-java
-  [Pasos siguientes]: #NextSteps
-  [SDK de almacenamiento de Azure para Android]: https://github.com/azure/azure-storage-android
-  [¿Qué es el almacenamiento en cola?]: #what-is
-  [Conceptos]: #Concepts
-  [Crear una cuenta de almacenamiento de Azure]: #CreateAccount
-  [Creación de una aplicación Java]: #CreateApplication
-  [Configuración de la aplicación para obtener acceso al almacenamiento en cola]: #ConfigureStorage
-  [Configuración de una cadena de conexión de almacenamiento de Azure]: #ConnectionString
-  [Direccionamiento del de una cola]: #create-queue
-  [Direccionamiento del un mensaje a una cola]: #add-message
-  [Direccionamiento del siguiente mensaje]: #peek-message
-  [Direccionamiento del contenido de un mensaje en cola]: #change-message
-  [Direccionamiento del la longitud de la cola]: #get-queue-length
-  [Direccionamiento del siguiente mensaje de la cola]: #dequeue-message
-  [Opciones adicionales para quitar mensajes de la cola]: #additional-options
-  [Direccionamiento del las colas]: #list-queues
-  [Direccionamiento del una cola]: #delete-queue
-  [Referencia del SDK del cliente de almacenamiento de Azure]: http://dl.windowsazure.com/storage/javadoc/
-  [API REST de almacenamiento de Azure]: http://msdn.microsoft.com/es-es/library/azure/gg433040.aspx
-  [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+[SDK de Azure para Java]: http://www.windowsazure.com/es-es/develop/java/
+[SDK de almacenamiento de Azure para Java]: https://github.com/azure/azure-storage-java
+[SDK de almacenamiento de Azure para Android]: https://github.com/azure/azure-storage-android
+[Referencia del SDK de cliente de almacenamiento de Azure]: http://dl.windowsazure.com/storage/javadoc/
+[API REST de almacenamiento de Azure]: http://msdn.microsoft.com/es-es/library/azure/gg433040.aspx
+[Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/

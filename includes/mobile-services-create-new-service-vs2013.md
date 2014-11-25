@@ -2,21 +2,21 @@ Los siguientes pasos permiten crear un servicio móvil en Azure y agregar al pro
 
 1.  En Visual Studio 2013, abra el Explorador de soluciones, haga clic con el botón secundario en el proyecto, haga clic en **Agregar** y, a continuación, en **Servicio conectado...**.
 
-    ![agregar servicio conectado][]
+    ![agregar servicio conectado][agregar servicio conectado]
 
 2.  En el cuadro de diálogo Administrador de servicios, haga clic en **Crear servicio...** y, en **Suscripción**, seleccione **Importar...** en el cuadro de diálogo Create Mobile Service.
 
-    ![crear un nuevo servicio móvil desde VS 2013][]
+    ![crear un nuevo servicio móvil desde VS 2013][crear un nuevo servicio móvil desde VS 2013]
 
 3.  En Import Azure Subscriptions, haga clic en **Descargar archivo de suscripción**, inicie sesión en su cuenta de Azure (si es necesario) y, cuando el explorador le solicite que guarde el archivo, haga clic en **Guardar**.
 
-    ![descargar archivo de suscripción en VS][]
+    ![descargar archivo de suscripción en VS][descargar archivo de suscripción en VS]
 
     <div class="dev-callout"><strong>Nota:</strong> <p>la ventana de inicio de sesi&oacute;n se muestra en el explorador, que puede encontrarse detr&aacute;s de la ventana de Visual Studio. No olvide anotar d&oacute;nde guarda el archivo .publishsettings descargado. Si el proyecto ya est&aacute; conectado a la suscripci&oacute;n de Azure, puede omitir este paso.</p></div>
 
 4.  Haga clic en **Examinar**, vaya a la ubicación en la que ha guardado el archivo .publishsettings, seleccione el archivo y, a continuación, haga clic en **Abrir** y en **Importar**.
 
-    ![importar suscripción en VS][]
+    ![importar suscripción en VS][importar suscripción en VS]
 
     Visual Studio importa los datos necesarios para conectar con su suscripción de Azure. Cuando su suscripción ya tiene uno o varios servicios móviles existentes, se muestran los nombres de los servicios.
 
@@ -28,7 +28,7 @@ Los siguientes pasos permiten crear un servicio móvil en Azure y agregar al pro
 
 6.  En **Database**, seleccione **\<Create a free SQL Database\>**, proporcione un nombre de usuario en **Server user name**, la contraseña en **Server password** y la confirmación de dicha contraseña en **Server password confirmation** y, a continuación, haga clic en **Create**.
 
-    ![crear servicio desde VS 2013 parte 2][]
+    ![crear servicio desde VS 2013 parte 2][crear servicio desde VS 2013 parte 2]
 
     > [WACOM.NOTE]
     > Como parte de este tutorial, va a crear una nueva instancia y un nuevo servidor de Base de datos SQL gratuitos. Puede reutilizar esta nueva base de datos y administrarla como lo haría con cualquier otra instancia de Base de datos SQL. Solo puede tener una instancia de base de datos libre. Si ya tiene una base de datos en la misma región que el nuevo servicio móvil, puede elegir en su lugar la base de datos existente. Cuando elija una base de datos existente, asegúrese de suministrar las credenciales de inicio de sesión correctas. En caso contrario, el servicio móvil se creará con un estado incorrecto.

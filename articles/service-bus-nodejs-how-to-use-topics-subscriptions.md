@@ -430,7 +430,6 @@ vínculos para obtener más información.
   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer]: #handle-crashes
   [Direccionamiento del de temas y suscripciones]: #delete
   [1]: #next-steps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: /es-es/develop/nodejs/tutorials/create-a-website-(mac)/
   [Servicio en la nube Node.js]: /es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/
   [Sitio web con WebMatrix]: /es-es/develop/nodejs/tutorials/web-site-with-webmatrix/

@@ -1,20 +1,21 @@
 <properties linkid="dev-nodejs-website-with-socketio" urlDisplayName="Website Using Socket.IO" pageTitle="Node.js Website using Socket.io - Azure tutorial" metaKeywords="Azure Node.js socket.io tutorial, Azure Node.js socket.io, Azure Node.js tutorial" description="A tutorial that demonstrates using socket.io in a node.js website hosted on Azure." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build a Node.js Chat Application with Socket.IO on an Azure Website" authors="larryfr" solutions="" videoId="" scriptId="" manager="paulettm" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
 # Creación de una aplicación de chat Node.js con Socket.IO en un sitio web de Azure
 
 Socket.IO proporciona comunicación en tiempo real entre su servidor node.js y los clientes con WebSockets. También es compatible con la reserva a otros transportes (como el sondeo largo) que funcionan con otros exploradores. Este tutorial le llevara por el hospedaje de una aplicación de chat basada en Socket.IO como un sitio web de Azure. Para obtener más información sobre Socket.IO, consulte [][]<http://socket.io/></a>.
 
-> [WACOM.NOTE] Los procedimientos de esta tarea se aplican a Sitios web Azure; para Servicios en la nube, consulte [Creación de una aplicación de chat Node.js con Socket.IO en un servicio en la nube de Azure][].
+> [WACOM.NOTE] Los procedimientos de esta tarea se aplican a Sitios web Azure; para Servicios en la nube, consulte [Creación de una aplicación de chat Node.js con Socket.IO en un servicio en la nube de Azure][Creación de una aplicación de chat Node.js con Socket.IO en un servicio en la nube de Azure].
 
 ## <span id="Download"></span></a>Descarga del ejemplo de chat
 
 Para este proyecto, usaremos el ejemplo de chat del [repositorio de
-Socket.IO GitHub][] (en inglés). Realice los siguientes pasos para descargar el ejemplo
+Socket.IO GitHub][repositorio de
+Socket.IO GitHub] (en inglés). Realice los siguientes pasos para descargar el ejemplo
 y agréguelo al proyecto que creó anteriormente.
 
-1.  Descargue una [versión archivada ZIP o GZ][] del proyecto Socket.IO (la versión 1.0.6 se ha utilizado para este documento)
+1.  Descargue una [versión archivada ZIP o GZ][versión archivada ZIP o GZ] del proyecto Socket.IO (la versión 1.0.6 se ha utilizado para este documento)
 
 2.  Extraiga el archivo y la copia del directorio **examples\\chat**
      a una ubicación nueva. Por ejemplo
@@ -76,7 +77,7 @@ para instalar los módulos necesarios:
 
 Siga estos pasos para crear un sitio web de Azure, habilite la publicación con Git y, a continuación, habilite la compatibilidad de WebSocket para el sitio web.
 
-> [WACOM.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][].
+> [WACOM.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure][Evaluación gratuita de Azure].
 
 1.  Desde la línea de comandos, cambie los directorios al directorio **\\node\\chat** y use el siguiente comando para crear un nuevo sitio web de Azure y habilitar un repositorio de Git para el sitio web y el directorio local. De esta manera se creará también un Git remoto llamado "azure".
 
@@ -106,9 +107,9 @@ Siga estos pasos para crear un sitio web de Azure, habilite la publicación con 
     > [WACOM.NOTE]
     > El comando 'azure site set -w' solo funcionará con la versión 0.7.4 o posterior de la Interfaz de línea de comandos entre plataformas de Azure. También puede habilitar el soporte para WebSocket usando el Portal de administración de Azure.
     >
-    > Para habilitar WebSockets con el [Portal de administración de Azure][], seleccione la página Configure de su sitio web, seleccione ON para la entrada de Web Sockets y, a continuación, haga clic en Save.
+    > Para habilitar WebSockets con el [Portal de administración de Azure][Portal de administración de Azure], seleccione la página Configure de su sitio web, seleccione ON para la entrada de Web Sockets y, a continuación, haga clic en Save.
     >
-    > ![websockets][]
+    > ![websockets][websockets]
 
 5.  Para ver el sitio web en Azure, use el siguiente comando para iniciar su explorador web y dirigirse hasta el sitio web hospedado:
 
@@ -117,17 +118,17 @@ Siga estos pasos para crear un sitio web de Azure, habilite la publicación con 
 Su aplicación se está ejecutando ahora en Azure y puede retransmitir los mensajes
 de chat entre los diferentes clientes que usan Socket.IO.
 
-> [WACOM.NOTE] Para fines de simplicidad, este ejemplo se limita a un chat entre los usuarios que están conectados en la misma instancia. Esto significa que si el servicio en la nube crea dos instancias de rol de trabajo, los usuarios solo podrán conversar con otros que estén conectados en la misma instancia de rol de trabajo. Para escalar la aplicación a fin de que funcione con varias instancias de rol, puede usar una tecnología como el Bus de servicio para compartir el estado de almacén de Socket.IO en todas las instancias. Para ver ejemplos, consulte los ejemplos de uso de Colas y Temas del Bus de servicio en el [repositorio de GitHub de SDK de Azure para Node.js][] (en inglés).
+> [WACOM.NOTE] Para fines de simplicidad, este ejemplo se limita a un chat entre los usuarios que están conectados en la misma instancia. Esto significa que si el servicio en la nube crea dos instancias de rol de trabajo, los usuarios solo podrán conversar con otros que estén conectados en la misma instancia de rol de trabajo. Para escalar la aplicación a fin de que funcione con varias instancias de rol, puede usar una tecnología como el Bus de servicio para compartir el estado de almacén de Socket.IO en todas las instancias. Para ver ejemplos, consulte los ejemplos de uso de Colas y Temas del Bus de servicio en el [repositorio de GitHub de SDK de Azure para Node.js][repositorio de GitHub de SDK de Azure para Node.js] (en inglés).
 
 ## Escalado horizontal
 
-Las aplicaciones Socket.IO se pueden escalar horizontalmente con un **adaptador** para distribuir mensajes y eventos entre varias instancias de aplicaciones. Aunque hay varios adaptadores disponibles, el adaptador [socket.io-redis][] se puede utilizar fácilmente con la característica de caché de Redis de Azure.
+Las aplicaciones Socket.IO se pueden escalar horizontalmente con un **adaptador** para distribuir mensajes y eventos entre varias instancias de aplicaciones. Aunque hay varios adaptadores disponibles, el adaptador [socket.io-redis][socket.io-redis] se puede utilizar fácilmente con la característica de caché de Redis de Azure.
 
-> [WACOM.NOTE] Un requisito adicional para el escalado horizontal de una solución Socket.IO es la compatibilidad con sesiones persistentes. Las sesiones persistentes se habilitan de manera predeterminada en los sitios web Azure con el enrutamiento de solicitudes de Azure. Para obtener más información, consulte [Instance Affinity in Azure Web Sites][]
+> [WACOM.NOTE] Un requisito adicional para el escalado horizontal de una solución Socket.IO es la compatibilidad con sesiones persistentes. Las sesiones persistentes se habilitan de manera predeterminada en los sitios web Azure con el enrutamiento de solicitudes de Azure. Para obtener más información, consulte [Instance Affinity in Azure Web Sites][Instance Affinity in Azure Web Sites]
 
 ### Crear una caché de Redis
 
-Realice los pases de [Create a cache in Azure Redis Cache][] para crear una caché nueva.
+Realice los pases de [Create a cache in Azure Redis Cache][Create a cache in Azure Redis Cache] para crear una caché nueva.
 
 > [WACOM.NOTE] Guarde el **Nombre de host** y la **Clave principal** de la caché, ya que los necesitará en los siguientes pasos.
 
@@ -177,7 +178,7 @@ Puede conectar a su sitio web desde varios exploradores o equipos para verificar
 
 ### Límites de conexión
 
-Sitios web de Azure está disponible en varios SKU, lo que determina los recursos disponibles en su sitio. Esto incluye el número permitido de conexiones WebSocket. Para obtener más información, consulte [Web Sites Pricing page][].
+Sitios web de Azure está disponible en varios SKU, lo que determina los recursos disponibles en su sitio. Esto incluye el número permitido de conexiones WebSocket. Para obtener más información, consulte [Web Sites Pricing page][Web Sites Pricing page].
 
 ### No se están enviando los mensajes con WebSockets
 
@@ -276,7 +277,6 @@ En este tutorial aprendió a crear una aplicación de chat hospedada en un sitio
 
   []: http://socket.io/
   [Creación de una aplicación de chat Node.js con Socket.IO en un servicio en la nube de Azure]: http://www.windowsazure.com/es-es/develop/nodejs/tutorials/app-using-socketio/
-  [repositorio de Socket.IO GitHub]: https://github.com/Automattic/socket.io
   [versión archivada ZIP o GZ]: https://github.com/Automattic/socket.io/releases
   [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A7171371E
   [Portal de administración de Azure]: https://manage.windowsazure.com

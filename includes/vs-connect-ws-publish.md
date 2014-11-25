@@ -10,6 +10,6 @@
 
 
 
-Para obtener más información, consulte [Administrar cuentas, suscripciones y roles administrativos][].
+Para obtener más información, consulte [Administrar cuentas, suscripciones y roles administrativos][Administrar cuentas, suscripciones y roles administrativos].
 
   [Administrar cuentas, suscripciones y roles administrativos]: http://go.microsoft.com/fwlink/?LinkId=324796

@@ -1,6 +1,6 @@
 <properties pageTitle="Streaming logs and console" description="Streaming logs and console overview" title="Streaming logs and console" authors="adamab" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
 
 ## Registros de transmisión y la consola
 
@@ -38,9 +38,9 @@ En una aplicación node.js, puede escribir este código para conseguir el mismo 
 
 ### Habilitación y visualización de registros de transmisión
 
-El diagnóstico se habilita según el sitio web. En el [portal][], haga clic en el botón **Browse** de la barra de menú izquierda y, a continuación, haga clic en **Websites** para obtener la lista de todos los sitios web.
+El diagnóstico se habilita según el sitio web. En el [portal][portal], haga clic en el botón **Browse** de la barra de menú izquierda y, a continuación, haga clic en **Websites** para obtener la lista de todos los sitios web.
 
-![][]
+![][0]
 
 Haga clic en el nombre del sitio web que desea configurar. A continuación, haga clic en la parte denominada **DIAGNOSTIC LOGS** y cambie **Application Logging (Filesystem)** a la configuración **ON**. Aparecerá la opción **Level**, que le permitirá cambiar el nivel de gravedad de los seguimientos que desea capturar. Debe configurar esto en **Verbose** si solo está intentando familiarizarse con la característica, ya que esto asegurará que se registran las instrucciones de seguimiento.
 
@@ -68,9 +68,9 @@ dir
 cd
 `````````````````````````
 
-<!-- Images. -->
+
 
   [portal]: https://portal.azure.com
-  []: ./media/web-sites-streaming-logs-and-console/browse-sites.png
+  [0]: ./media/web-sites-streaming-logs-and-console/browse-sites.png
   [1]: ./media/web-sites-streaming-logs-and-console/streaming-logs.png
   [2]: ./media/web-sites-streaming-logs-and-console/console.png

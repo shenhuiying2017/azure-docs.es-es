@@ -141,9 +141,9 @@ En esta sección, va a actualizar el método `AuthenticateAsync` que implementó
 
 En el próximo tutorial, [Control de acceso basado en roles en Servicios móviles y Azure Active Directory][Control de acceso basado en roles en Servicios móviles y Azure Active Directory], usará control de acceso basado en roles con Azure Active Directory (AAD) para comprobar la pertenencia a grupos antes de permitir el acceso.
 
-<!-- Anchors. --> 
+ 
 <!-- Images --> 
-<!-- URLs. -->
+
 
   [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-users/
@@ -153,11 +153,8 @@ En el próximo tutorial, [Control de acceso basado en roles en Servicios móvile
   [Prueba de la aplicación]: #test-app
   [Tutorial sobre API personalizadas]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-call-custom-api/
   [Registro para usar un inicio de sesión de Azure Active Directory]: /es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
-  [mobile-services-generate-aad-app-registration-access-key]: ../includes/mobile-services-generate-aad-app-registration-access-key.md
   [API REST Graph]: http://msdn.microsoft.com/es-es/library/azure/hh974478.aspx
   [Portal de administración de Aure]: https://manage.windowsazure.com/
   [0]: ./media/mobile-services-javascript-backend-windows-store-dotnet-aad-graph-info/create-getuserinfo.png
   [obtención de usuarios]: http://msdn.microsoft.com/es-es/library/azure/dn151678.aspx
-  [mobile-services-aad-graph-info-update-app]: ../includes/mobile-services-aad-graph-info-update-app.md
-  [mobile-services-aad-graph-info-test-app]: ../includes/mobile-services-aad-graph-info-test-app.md
   [Control de acceso basado en roles en Servicios móviles y Azure Active Directory]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/

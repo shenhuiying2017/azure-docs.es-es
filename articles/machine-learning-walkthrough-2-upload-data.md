@@ -1,15 +1,15 @@
 <properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Step 2: Upload data into a Machine Learning experiment | Azure" description="Step 2: Upload existing public data into Azure Machine Learning Studio" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye"></tags>
+<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
 
-Este es el segundo paso del tutorial [Desarrollo de una solución predictiva con el Aprendizaje automático de Azure][]:
+Este es el segundo paso del tutorial [Desarrollo de una solución predictiva con el Aprendizaje automático de Azure][Desarrollo de una solución predictiva con el Aprendizaje automático de Azure]:
 
-1.  [Creación de un área de trabajo de Aprendizaje automático][]
+1.  [Creación de un área de trabajo de Aprendizaje automático][Creación de un área de trabajo de Aprendizaje automático]
 2.  **Carga de los datos existentes**
-3.  [Creación de un nuevo experimento][]
-4.  [Entrenamiento y evaluación de los modelos][]
-5.  [Publicación del servicio web][]
-6.  [Acceso al servicio web][]
+3.  [Creación de un nuevo experimento][Creación de un nuevo experimento]
+4.  [Entrenamiento y evaluación de los modelos][Entrenamiento y evaluación de los modelos]
+5.  [Publicación del servicio web][Publicación del servicio web]
+6.  [Acceso al servicio web][Acceso al servicio web]
 
 ------------------------------------------------------------------------
 
@@ -52,7 +52,7 @@ Una vez que los datos se han convertido al formato CSV, debemos cargarlos en el 
 6.  Para el tipo de dato, seleccione "Generic CSV File With no header (.nh.csv)"
 7.  Agregue una descripción si así lo desea.
 8.  Haga clic en**Aceptar**
-    ![Upload the dataset][]
+    ![Upload the dataset][Upload the dataset]
 
 De esta manera los datos se cargan en un módulo de conjunto de datos que podemos usar en un experimento.
 

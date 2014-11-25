@@ -164,9 +164,9 @@ A continuación, actualizará la aplicación para autenticar a los usuarios con 
 
 En el siguiente tutorial, [Autorización de usuarios con scripts][Autorización de usuarios con scripts], usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. Para obtener información sobre cómo usar otros proveedores de identidades para la autenticación, consulte [Introducción a la autenticación][8].
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-wp8/
   [Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register

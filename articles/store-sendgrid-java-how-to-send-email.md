@@ -203,7 +203,6 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
   [Direccionamiento del servicios adicionales de SendGrid]: #bkmk_HowToUseAdditionalSvcs
   [servicio de correo electrónico basado en la nube]: http://sendgrid.com/solutions
   [entrega de correo electrónico transaccional]: http://sendgrid.com/transactional-email
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [Filter Settings]: http://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
   [documentación de las API de SendGrid]: http://sendgrid.com/docs/API_Reference/index.html
   [Envío de correo electrónico con SendGrid desde Java en una implementación de Azure]: ../store-sendgrid-java-how-to-send-email-example/

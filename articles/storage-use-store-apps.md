@@ -72,6 +72,6 @@ También puede agregar una referencia a Microsoft.WindowsAzure.Storage.Table.dll
   [Herramientas de servicios de datos WCF para aplicaciones de la Tienda Windows]: http://www.microsoft.com/es-es/download/details.aspx?id=30714
   [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
   [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
-  [async (Referencia de C#)]: http://msdn.microsoft.com/en-US/library/vstudio/hh156513.aspx
+  [async (Referencia de C#)]: http://msdn.microsoft.com/es-es/library/vstudio/hh156513.aspx
   [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
   [Administración de paquetes NuGet mediante el cuadro de diálogo]: http://docs.nuget.org/docs/start-here/Managing-NuGet-Packages-Using-The-Dialog

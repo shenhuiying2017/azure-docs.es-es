@@ -2,7 +2,7 @@
 
 ## Bibliotecas de clientes de Azure para Java: Descarga manual
 
-Las bibliotecas de Azure para Java se distribuyen bajo la licencia de [Apache License, Version 2.0][]. Haga clic [aquí][] para obtener un archivo ZIP de las bibliotecas y todas sus dependencias. Microsoft Open Technologies, Inc. es quien lo ofrece. Consulte los archivos license.txt y ThirdPartyNotices.txt que se encuentran dentro del ZIP para obtener información sobre la licencia y sobre otras cuestiones.
+Las bibliotecas de Azure para Java se distribuyen bajo la licencia de [Apache License, Version 2.0][Apache License, Version 2.0]. Haga clic [aquí][aquí] para obtener un archivo ZIP de las bibliotecas y todas sus dependencias. Microsoft Open Technologies, Inc. es quien lo ofrece. Consulte los archivos license.txt y ThirdPartyNotices.txt que se encuentran dentro del ZIP para obtener información sobre la licencia y sobre otras cuestiones.
 
 ## Bibliotecas de Azure para Java: Maven
 
@@ -54,7 +54,7 @@ Si su proyecto ya se ha configurado para usar Maven para la compilación, agregu
         <version>n.n.n</version>
     </dependency>
 
-En el elemento `<version>`, reemplace *n.n.n* por un número de versión válido, que puede obtenerse del [repositorio de bibliotecas de Azure en Maven (en inglés)][].
+En el elemento `<version>`, reemplace *n.n.n* por un número de versión válido, que puede obtenerse del [repositorio de bibliotecas de Azure en Maven (en inglés)][repositorio de bibliotecas de Azure en Maven (en inglés)].
 
   [Apache License, Version 2.0]: http://www.apache.org/licenses/LICENSE-2.0.html
   [aquí]: http://go.microsoft.com/fwlink/?LinkId=253887

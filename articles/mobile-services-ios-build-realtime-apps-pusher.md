@@ -377,9 +377,9 @@ Ahora que ha visto lo fácil que es usar el servicio Pusher con Servicios móvil
 
 Para obtener más información sobre el registro y uso de scripts de servidor, consulte [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles].
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Notificaciones de inserción para usuarios]: /es-es/develop/mobile/tutorials/push-notifications-to-users-ios
   [0]: http://pusher.com
@@ -388,7 +388,6 @@ Para obtener más información sobre el registro y uso de scripts de servidor, c
   [Instalación de los scripts de servidor]: #install-scripts
   [Prueba de la aplicación]: #test-app
   [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started
-  [pusher-sign-up]: ../includes/pusher-sign-up.md
   [libPusher]: http://go.microsoft.com/fwlink/p?LinkId=276999
   [desde aquí]: http://go.microsoft.com/fwlink/p/?LinkId=276998
   [0]: ./media/mobile-services-ios-build-realtime-apps-pusher/pusher-ios-add-files-to-group.png

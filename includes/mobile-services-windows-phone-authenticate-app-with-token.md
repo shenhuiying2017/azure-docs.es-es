@@ -86,7 +86,7 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
 
     En esta versión de **AuthenticateAsync**, la aplicación intenta usar las credenciales almacenadas cifradas en el almacenamiento local para acceder al servicio móvil. Se envía una consulta simple para verificar que el token almacenado no ha expirado. Cuando se devuelve un 401, se intenta llevar a cabo un inicio de sesión normal basado en proveedor. También se realiza un inicio de sesión normal cuando no hay ninguna credencial almacenada.
 
-    > [WACOM.NOTE]Esta aplicación comprueba si hay tokens expirados durante el inicio de sesión, pero la expiración del token puede ocurrir después de la autenticación cuando la aplicación está en uso. Para obtener una solución a los errores de gestión de autorizaciones relativas a la expiración de tokens, vea la publicación [Caching and handling expired tokens in Azure Mobile Services managed SDK][] (almacenamiento en caché y gestión de los tokens expirados en el SDK administrado de Servicios móviles de Azure).
+    > [WACOM.NOTE]Esta aplicación comprueba si hay tokens expirados durante el inicio de sesión, pero la expiración del token puede ocurrir después de la autenticación cuando la aplicación está en uso. Para obtener una solución a los errores de gestión de autorizaciones relativas a la expiración de tokens, vea la publicación [Caching and handling expired tokens in Azure Mobile Services managed SDK][Caching and handling expired tokens in Azure Mobile Services managed SDK] (almacenamiento en caché y gestión de los tokens expirados en el SDK administrado de Servicios móviles de Azure).
 
 3.  Reinicie la aplicación dos veces.
 

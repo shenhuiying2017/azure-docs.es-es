@@ -1,15 +1,15 @@
 # Uso de las herramientas de línea de comandos de Azure para Mac y Linux
 
-En esta guía se describe cómo usar las herramientas de línea de comandos de Azure para Mac y Linux a fin de crear y administrar servicios en Azure. Entre las tareas que se incluyen está la **instalación de herramientas**, la **importación de su configuración de publicación**, la **creación y administración de los Sitios web Azure** y la **creación y administración de las Máquinas virtuales de Azure**. Para obtener una documentación de referencia completa, consulte [Documentación de las herramientas de línea de comandos de Azure para Mac y Linux][].
+En esta guía se describe cómo usar las herramientas de línea de comandos de Azure para Mac y Linux a fin de crear y administrar servicios en Azure. Entre las tareas que se incluyen está la **instalación de herramientas**, la **importación de su configuración de publicación**, la **creación y administración de los Sitios web Azure** y la **creación y administración de las Máquinas virtuales de Azure**. Para obtener una documentación de referencia completa, consulte [Documentación de las herramientas de línea de comandos de Azure para Mac y Linux][Documentación de las herramientas de línea de comandos de Azure para Mac y Linux].
 
 ## Tabla de contenido
 
--   [Qué son las herramientas de línea de comandos de Azure para Mac y Linux][]
--   [Instalación de las herramientas de línea de comandos de Azure para Mac y Linux][]
--   [Creación de una cuenta de Azure][]
--   [Descarga e importación de la configuración de publicación][]
--   [Creación y administración de un Sitio web Azure][]
--   [Creación y administración de una Máquina virtual de Azure][]
+-   [Qué son las herramientas de línea de comandos de Azure para Mac y Linux][Qué son las herramientas de línea de comandos de Azure para Mac y Linux]
+-   [Instalación de las herramientas de línea de comandos de Azure para Mac y Linux][Instalación de las herramientas de línea de comandos de Azure para Mac y Linux]
+-   [Creación de una cuenta de Azure][Creación de una cuenta de Azure]
+-   [Descarga e importación de la configuración de publicación][Descarga e importación de la configuración de publicación]
+-   [Creación y administración de un Sitio web Azure][Creación y administración de un Sitio web Azure]
+-   [Creación y administración de una Máquina virtual de Azure][Creación y administración de una Máquina virtual de Azure]
 
 ## <span id="Overview"></span></a>Qué son las herramientas de línea de comandos de Azure para Mac y Linux
 
@@ -27,9 +27,9 @@ Para obtener una lista completa de los comandos admitidos, escriba `azure -help`
 
 La siguiente lista contiene información para instalar las herramientas de línea de comandos, según su sistema operativo:
 
--   **Mac**: Descargue el [Instalador de SDK de Azure][]. Abra el archivo .pkg descargado y complete los pasos de instalación a medida que se le solicita.
+-   **Mac**: Descargue el [Instalador de SDK de Azure][Instalador de SDK de Azure]. Abra el archivo .pkg descargado y complete los pasos de instalación a medida que se le solicita.
 
--   **Linux**: Instale la última versión de [Node.js][] (consulte [Install Node.js via Package Manager][]) y, a continuación, ejecute el siguiente comando:
+-   **Linux**: Instale la última versión de [Node.js][Node.js] (consulte [Install Node.js via Package Manager][Install Node.js via Package Manager]) y, a continuación, ejecute el siguiente comando:
 
         npm install azure-cli -g
 
@@ -37,7 +37,7 @@ La siguiente lista contiene información para instalar las herramientas de líne
 
         sudo npm install azure-cli -g
 
--   **Windows**: Ejecute el instalador de Windows (archivo .msi), que está disponible aquí: [Herramientas de línea de comandos de Azure][].
+-   **Windows**: Ejecute el instalador de Windows (archivo .msi), que está disponible aquí: [Herramientas de línea de comandos de Azure][Herramientas de línea de comandos de Azure].
 
 Para probar la instalación, escriba `azure` en el símbolo del sistema. Si la instalación fue correcta, verá una lista de los comandos `azure` disponibles.
 
@@ -45,9 +45,9 @@ Para probar la instalación, escriba `azure` en el símbolo del sistema. Si la i
 
 Para usar las Herramientas de línea de comandos de Azure para Mac y Linux, necesitará una cuenta de Azure.
 
-Abra un explorador web, diríjase a [][][http://azure.microsoft.com/es-es/][]</a> y haga clic en **free trial** en la esquina superior derecha.
+Abra un explorador web, diríjase a [http://azure.microsoft.com/es-es/](http://azure.microsoft.com/es-es/) y haga clic en **free trial** en la esquina superior derecha.
 
-![Sitio web de Azure][]
+![Sitio web de Azure][Sitio web de Azure]
 
 Siga las instrucciones para crear una cuenta.
 
@@ -176,7 +176,7 @@ Se crea una Máquina virtual de Azure a partir de una imagen de máquina virtual
 
 Puede aprovisionar e iniciar una máquina virtual desde una de las imágenes disponibles con el comando `vm create`. El ejemplo siguiente muestra cómo crear una máquina virtual Linux (de nombre `myVM`) desde una imagen en la Galería de imágenes (CentOS 6.2). El nombre de usuario raíz y la contraseña para la máquina virtual son `myusername` y `Mypassw0rd` respectivamente. (Tenga en cuenta que el parámetro `--location` especifica el centro de datos en el que se crea la máquina virtual. Si omite el parámetro `--location`, se le solicitará que elija una ubicación).
 
-    azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-en-us-30GB.vhd myusername --location "West US"
+    azure vm create myVM OpenLogic__OpenLogic-CentOS-62-20120509-es-es-30GB.vhd myusername --location "West US"
 
 Puede considerar pasar la marca `--ssh` (Linux) o la marca `--rdp` (Windows) a `vm create` para habilitar conexiones remotas para la máquina virtual recién creada.
 
@@ -228,5 +228,4 @@ Para conocer una lista completa de comandos para crear y administrar máquinas v
   [Node.js]: http://nodejs.org/
   [Install Node.js via Package Manager]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
   [Herramientas de línea de comandos de Azure]: http://go.microsoft.com/fwlink/?LinkID=275464
-  []: http://www.windowsazure.com
   [Sitio web de Azure]: ./media/crossplat-cmd-tools/freetrial.png

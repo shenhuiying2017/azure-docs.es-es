@@ -43,7 +43,5 @@ Ahora que ha creado una API personalizada y la llamó desde su aplicación de Wi
   [Definición de la API personalizada]: #define-custom-api
   [Actualización de la aplicación para llamar a la API personalizada]: #update-app
   [Prueba de la aplicación]: #test-app
-  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
-  [mobile-services-windows-phone-call-custom-api]: ../includes/mobile-services-windows-phone-call-custom-api.md
   [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
   [Almacenamiento de scripts de servidor en control de código fuente]: /es-es/documentation/articles/mobile-services-store-scripts-source-control

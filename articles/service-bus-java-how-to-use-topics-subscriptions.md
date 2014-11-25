@@ -337,5 +337,4 @@ MSDN [Colas, temas y suscripciones del Service Bus][Colas, temas y suscripciones
   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer]: #bkmk_HowToHandleAppCrash
   [Direccionamiento del de temas y suscripciones]: #bkmk_HowToDeleteTopics
   [Pasos siguientes]: #bkmk_NextSteps
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Colas, temas y suscripciones del Service Bus]: http://msdn.microsoft.com/library/windowsazure/hh367516.aspx

@@ -272,7 +272,6 @@ siga estos vínculos para obtener más información:
   [servicio de correo electrónico basado en la nube]: http://sendgrid.com/solutions
   [entrega de correo electrónico transaccional]: http://sendgrid.com/transactional-email
   []: http://sendgrid.com
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
   [SMTP vs. API Web]: http://docs.sendgrid.com/documentation/get-started/integrate/examples/smtp-vs-rest/
   [Filter Settings]: http://docs.sendgrid.com/documentation/api/smtp-api/filter-settings/

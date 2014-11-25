@@ -195,7 +195,6 @@ Ahora que conoce los fundamentos de los temas del bus de servicio, siga estos v�
   [Recepci처n de mensajes de una suscripci처n]: #how-to-receive-messages-from-a-subscription
   [Actuaci처n ante errores de la aplicaci처n y mensajes que no se pueden leer]: #how-to-handle-application-crashes-and-unreadable-messages
   [Eliminaci처n de temas y suscripciones]: #how-to-delete-topics-and-subscriptions
-  [howto-service-bus-topics]: ../includes/howto-service-bus-topics.md
   [Creaci처n de una aplicaci처n de Ruby en Azure]: /es-es/develop/ruby/tutorials/web-app-with-linux-vm/
   [SqlFilter.SqlExpression]: http://msdn.microsoft.com/es-es/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
   [Portal de administraci처n de Azure]: https://manage.windowsazure.com

@@ -292,9 +292,9 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
     
 	Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [C# para Tienda Windows]: /es-es/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/ "C# para Tienda Windows"
   [JavaScript para Tienda Windows]: /es-es/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/ "JavaScript para Tienda Windows"

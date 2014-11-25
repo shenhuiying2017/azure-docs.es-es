@@ -36,7 +36,7 @@ Ahora que ha creado una API personalizada y la llamó desde su aplicación de iO
 -   [Almacenamiento de scripts de servidor en control de código fuente][Almacenamiento de scripts de servidor en control de código fuente]
      Obtenga información sobre cómo usar la característica de control de código fuente para desarrollar y publicar de manera más fácil y segura código script de la API personalizada.
 
-<!-- Anchors. --> <!-- URLs. -->
+ 
 
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-ios-get-started/
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-ios-get-started-data/
@@ -45,7 +45,5 @@ Ahora que ha creado una API personalizada y la llamó desde su aplicación de iO
   [Prueba de la aplicación]: #test-app
   [SDK de iOS para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533
   [XCode 4.5]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-  [mobile-services-create-custom-api]: ../includes/mobile-services-create-custom-api.md
-  [mobile-services-ios-call-custom-api]: ../includes/mobile-services-ios-call-custom-api.md
   [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
   [Almacenamiento de scripts de servidor en control de código fuente]: /es-es/documentation/articles/mobile-services-store-scripts-source-control

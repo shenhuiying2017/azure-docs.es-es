@@ -1,4 +1,4 @@
-El servicio de notificaciones de inserción de Apple (APNS) usa certificados para autenticar su servicio móvil. Siga estas instrucciones para crear los certificados necesarios y cargarlos en su servicio móvil. Para consultar la documentación oficial de la característica APNS, consulte [Apple Push Notification Service][].
+El servicio de notificaciones de inserción de Apple (APNS) usa certificados para autenticar su servicio móvil. Siga estas instrucciones para crear los certificados necesarios y cargarlos en su servicio móvil. Para consultar la documentación oficial de la característica APNS, consulte [Apple Push Notification Service][Apple Push Notification Service].
 
 ## Generación del archivo de solicitud de firma de certificado
 
@@ -8,7 +8,7 @@ Primero debe generar el archivo de solicitud de firma de certificado (CSR) que A
 
 2.  Haga clic en **Acceso a llaves**, expanda **Certificate Assistant** y, a continuación, haga clic en **Request a Certificate from a Certificate Authority...**.
 
-    ![][]
+    ![][0]
 
 3.  Seleccione una dirección de correo electrónico de usuario en **User Email Address** y un nombre común en **Common Name**, asegúrese de que **Saved to disk** se encuentra seleccionado y, a continuación, haga clic en **Continue**. Deje el campo **CA Email Address** en blanco, ya que no es obligatorio.
 
@@ -26,7 +26,7 @@ A continuación, se registrará la aplicación en Apple, se habilitarán las not
 
 Para poder enviar notificaciones de inserción a una aplicación iOS desde servicios móviles, debe registrar su aplicación con Apple y también registrar las notificaciones de inserción.
 
-1.  Si aún no ha registrado su aplicación, diríjase al [portal de aprovisionamiento de iOS][] (en inglés) del Centro para desarrolladores de Apple, inicie sesión con su identificador de Apple, haga clic en **Identifiers** y, a continuación, en **App IDs**. Para finalizar, haga clic en el signo **+** para registrar una nueva aplicación.
+1.  Si aún no ha registrado su aplicación, diríjase al [portal de aprovisionamiento de iOS][portal de aprovisionamiento de iOS] (en inglés) del Centro para desarrolladores de Apple, inicie sesión con su identificador de Apple, haga clic en **Identifiers** y, a continuación, en **App IDs**. Para finalizar, haga clic en el signo **+** para registrar una nueva aplicación.
 
     ![][3]
 
@@ -86,7 +86,7 @@ A continuación, usará este certificado para generar un archivo .p12 y cargarlo
 
 ## Creación de un perfil de aprovisionamiento para la aplicación
 
-1.  Vuelva al [portal de aprovisionamiento de iOS][] (en inglés), seleccione **Provisioning Profiles**, seleccione **All** y, a continuación, haga clic en el botón **+** para crear un nuevo perfil. De esta forma, se iniciará el asistente de **Add iOS Provisiong Profile**.
+1.  Vuelva al [portal de aprovisionamiento de iOS][portal de aprovisionamiento de iOS] (en inglés), seleccione **Provisioning Profiles**, seleccione **All** y, a continuación, haga clic en el botón **+** para crear un nuevo perfil. De esta forma, se iniciará el asistente de **Add iOS Provisiong Profile**.
 
     ![][14]
 
@@ -123,7 +123,7 @@ A continuación, usará este certificado para generar un archivo .p12 y cargarlo
 De esta forma, se garantiza que el proyecto de Xcode usa el nuevo perfil para la firma de código. A continuación, debe cargar el certificado en Azure.
 
   [Apple Push Notification Service]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-  []: ./media/enable-apple-push-notifications/mobile-services-ios-push-step5.png
+  [0]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step5.png
   [1]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step6.png
   [2]: ./media/enable-apple-push-notifications/mobile-services-ios-push-step7.png
   [portal de aprovisionamiento de iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456

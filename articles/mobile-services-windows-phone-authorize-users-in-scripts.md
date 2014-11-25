@@ -89,9 +89,9 @@ Este es el último tutorial que muestra los aspectos básicos relacionados con e
     
 	Obtenga más información acerca del registro y uso de scripts de servidor.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-wp8
   [Portal de administración de Azure]: https://manage.windowsazure.com/

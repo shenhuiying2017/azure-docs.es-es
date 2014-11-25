@@ -292,9 +292,9 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
     
 	Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Actualización de la aplicación para permitir actualizaciones]: #uiupdate
   [Habilitación de la detección de conflictos en la aplicación]: #enableOC

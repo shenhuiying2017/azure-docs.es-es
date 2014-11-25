@@ -165,9 +165,9 @@ Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el
      
 	Muestra cómo usar las API personalizadas para admitir notificaciones periódicas que actualicen los iconos dinámicos en una aplicación de la Tienda Windows.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Habilitación del control de código fuente en el servicio móvil]: #enable-source-control
   [Instalación de Git y creación del repositorio local]: #clone-repo

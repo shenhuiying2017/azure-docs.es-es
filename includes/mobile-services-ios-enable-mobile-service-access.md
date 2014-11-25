@@ -1,6 +1,6 @@
 Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin de almacenar elementos en Servicios móviles en lugar de en la colección local.
 
-1. Si todavía no ha instalado el [SDK de iOS para Servicios móviles][], hágalo ahora.
+1. Si todavía no ha instalado el [SDK de iOS para Servicios móviles][SDK de iOS para Servicios móviles], hágalo ahora.
 
 2. En el Project Navigator en Xcode, abra los archivos TodoService.m y TodoService.h que se encuentran en la carpeta Quickstart y agregue la siguiente instrucción de importación:
 
@@ -30,7 +30,7 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 
 6. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**, a continuación haga clic en **Administrar claves** y anote la **clave de la aplicación**.
 
-    ![][]
+    ![][0]
 
     Necesitará estos valores para obtener acceso al servicio móvil desde su código de aplicación.
 
@@ -112,4 +112,4 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 Ahora que se ha actualizado la aplicación para utilizar Servicios móviles para almacenamiento back-end, es momento de probar la aplicación con Servicios móviles.
 
   [SDK de iOS para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-  []: ./media/mobile-services-ios-enable-mobile-service-access/mobile-dashboard-tab.png
+  [0]: ./media/mobile-services-ios-enable-mobile-service-access/mobile-dashboard-tab.png

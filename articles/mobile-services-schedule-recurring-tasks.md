@@ -164,14 +164,13 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 -   [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles]
     Obtenga más información acerca del registro y uso de scripts de servidor.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Registro para obtener acceso a Twitter y almacenamiento de credenciales]: #get-oauth-credentials
   [Creación de la nueva tabla de actualizaciones]: #create-table
   [Creación de un nuevo trabajo programado]: #add-job
-  [mobile-services-register-twitter-access]: ../includes/mobile-services-register-twitter-access.md
   [0]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
   [1]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
   [2]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png

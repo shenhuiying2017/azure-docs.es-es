@@ -1,6 +1,6 @@
 <properties linkid="manage-services-how-to-configure-websites" urlDisplayName="How to configure" pageTitle="How to configure websites - Azure service management" metaKeywords="Azure websites, configuring Azure websites, Azure SQL database, Azure MySQL" description="Learn how to configure websites in Azure, including how to configure a website to use a SQL Database or MySQL database." metaCanonical="" services="web-sites" documentationCenter="" title="How to Configure Websites" authors="mwasson" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson" />
 
 # Configuración de sitios web
 
@@ -8,12 +8,12 @@ En el Portal de administración de Azure puede cambiar las opciones de configura
 
 ## Tabla de contenido
 
--   [Direccionamiento del opciones de configuración para un sitio web][]
--   [Direccionamiento del sitio web para utilizar una base de datos SQL][]
--   [Direccionamiento del sitio web para utilizar una base de datos MySQL][]
--   [Direccionamiento del nombre de dominio personalizado][]
--   [Direccionamiento del sitio web para utilizar SSL][]
--   [Pasos siguientes][]
+-   [Direccionamiento del opciones de configuración para un sitio web][Direccionamiento del opciones de configuración para un sitio web]
+-   [Direccionamiento del sitio web para utilizar una base de datos SQL][Direccionamiento del sitio web para utilizar una base de datos SQL]
+-   [Direccionamiento del sitio web para utilizar una base de datos MySQL][Direccionamiento del sitio web para utilizar una base de datos MySQL]
+-   [Direccionamiento del nombre de dominio personalizado][Direccionamiento del nombre de dominio personalizado]
+-   [Direccionamiento del sitio web para utilizar SSL][Direccionamiento del sitio web para utilizar SSL]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="howtochangeconfig"></a>Direccionamiento del opciones de configuración para un sitio web
 
@@ -21,7 +21,7 @@ En el Portal de administración de Azure puede cambiar las opciones de configura
 
 Para definir las opciones de configuración de un sitio web:
 
-1.  En el [Portal de administración][], abra las páginas de administración del sitio web.
+1.  En el [Portal de administración][Portal de administración], abra las páginas de administración del sitio web.
 2.  Haga clic en la pestaña **Configurar**.
 
 La pestaña **Configurar** tiene las siguientes secciones:
@@ -38,11 +38,11 @@ La pestaña **Configurar** tiene las siguientes secciones:
 
 Por razones técnicas, si se habilita Java para el sitio web, se deshabilitan las opciones .NET, PHP y Python.
 
-**Modo de canalización administrado**. Configura el [modo de canalización][] IIS. Deje este conjunto en Integrated (el valor predeterminado) a no ser que tenga un sitio web heredado que requiera una versión anterior de IIS.
+**Modo de canalización administrado**. Configura el [modo de canalización][modo de canalización] IIS. Deje este conjunto en Integrated (el valor predeterminado) a no ser que tenga un sitio web heredado que requiera una versión anterior de IIS.
 
 **Plataforma**. Selecciona si su aplicación se ejecuta en un entorno de 32 o 64 bits. El entorno de 64 bits requiere el modo básico o estándar. Los modos libre y compartido siempre se ejecutan en un entorno de 32 bits.
 
-**Web Sockets**. Seleccione **ACTIVADO** para habilitar el protocolo WebSocket; por ejemplo, si el sitio web utiliza [ASP.NET SignalR][] o [socket.io][].
+**Web Sockets**. Seleccione **ACTIVADO** para habilitar el protocolo WebSocket; por ejemplo, si el sitio web utiliza [ASP.NET SignalR][ASP.NET SignalR] o [socket.io][socket.io].
 
 **Siempre disponible**. De forma predeterminada, los sitios web se descargan si están inactivos durante algún tiempo. Esto permite que el sistema conserve recursos. En el modo básico o estándar puede habilitar **Siempre disponible** para mantener el sitio cargado continuamente. Cuando tenga trabajos web continuos en ejecución en el sitio debe habilitar la opción **Siempre disponible** de lo contrario es posible que los trabajos no se realicen de manera fiable
 
@@ -52,17 +52,17 @@ Nota: Si habilita el control de código fuente, es posible que una implementaci�
 
 ### Certificados
 
-En modo básico o estándar puede cargar certificados SSL para un dominio personalizado. Para obtener más información, consulte [Enable HTTPS for an Azure website][].
+En modo básico o estándar puede cargar certificados SSL para un dominio personalizado. Para obtener más información, consulte [Enable HTTPS for an Azure website][Enable HTTPS for an Azure website].
 
 Aquí se enumeran los certificados que haya cargado. Después de cargar un certificado, puede asignarlo a cualquier sitio web de su suscripción y región. Los certificados comodín se pueden utilizar para cualquier sitio dentro del dominio para el cual es válido. Un certificado solo se puede eliminar si no tiene ningún vínculo activo.
 
 ### Nombres de dominio
 
-Vea o agregue nombres de dominio adicionales para el sitio web. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado para un Sitio web Azure][].
+Vea o agregue nombres de dominio adicionales para el sitio web. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado para un Sitio web Azure][Configuración de un nombre de dominio personalizado para un Sitio web Azure].
 
 ### Enlaces SSL
 
-Si carga certificados SSL puede vincularlos a nombres de dominios personalizados. Para obtener más información, consulte [Enable HTTPS for an Azure website][].
+Si carga certificados SSL puede vincularlos a nombres de dominios personalizados. Para obtener más información, consulte [Enable HTTPS for an Azure website][Enable HTTPS for an Azure website].
 
 ### Implementaciones
 
@@ -78,7 +78,7 @@ Para configurar la implementación desde el control de código fuente, en la pes
 
 Opciones escribir registros de diagnóstico de una aplicación web que admita el registro:
 
--   **Sistema de archivos**. Escribe registros en el sistema de archivos del sitio web. El registro del sistema de archivos dura 12 horas. Puede obtener acceso a los registros desde el recurso compartido de FTP del sitio web. (Consulte [Credenciales FTP][]).
+-   **Sistema de archivos**. Escribe registros en el sistema de archivos del sitio web. El registro del sistema de archivos dura 12 horas. Puede obtener acceso a los registros desde el recurso compartido de FTP del sitio web. (Consulte [Credenciales FTP][Credenciales FTP]).
 -   **Almacenamiento de tablas**. Escribe registros en el almacenamiento de Tabla de Azure. No tiene ningún límite de tiempo y permanece habilitado hasta que el usuario lo deshabilita.
 -   **Almacenamiento de blobs**. Escribe registros en el almacenamiento de blobs de Azure. No tiene ningún límite de tiempo y permanece habilitado hasta que el usuario lo deshabilita.
 
@@ -94,13 +94,13 @@ Opciones para recopilar la información de diagnóstico para el sitio web.
 
 **Registro del servidor web**. Habilita el registro de servidor web. Los registros se guardan con formato de archivo de registro W3C extendido. Puede guardar los registros en el almacenamiento de Azure o en el sistema de archivos del sitio web.
 
--   Si elige la opción **Sistema de archivos**, los registros se guardan en el sitio FTP que aparece en FTP Diagnostic Logs en la página del Panel. (Consulte [Credenciales FTP][]).
+-   Si elige la opción **Sistema de archivos**, los registros se guardan en el sitio FTP que aparece en FTP Diagnostic Logs en la página del Panel. (Consulte [Credenciales FTP][Credenciales FTP]).
 -   Si elige la opción **Sistema de archivos**, utilice la casilla **Cuota**, para definir la cantidad máxima de espacio en disco para los archivos de registro. El mínimo es de 25 MB y el máximo es de 100 MB. El valor predeterminado es de 35 MB. Cuando se alcanza la cuota, los archivos nuevos sobrescriben de manera sucesiva los archivos anteriores. Si necesita conservar un historial mayor de 100 MB, utilice el almacenamiento de Azure, que tiene una capacidad de almacenamiento mucho mayor.
 -   Opcionalmente haga clic en **Establecer retención** para eliminar archivos automáticamente tras un periodo de tiempo. De manera predeterminada, los registros nunca se eliminan.
 
-**Mensajes de error detallados**. Si la opción está habilitada, los mensajes de error detallados se guardan como archivos .htm. Para ver los archivos vaya al sitio FTP que aparece en "Registros de diagnóstico de FTP" en la página del Panel. Los archivos se guardan en /LogFiles/DetailedErrors en el sitio FTP. (Consulte [Credenciales FTP][]).
+**Mensajes de error detallados**. Si la opción está habilitada, los mensajes de error detallados se guardan como archivos .htm. Para ver los archivos vaya al sitio FTP que aparece en "Registros de diagnóstico de FTP" en la página del Panel. Los archivos se guardan en /LogFiles/DetailedErrors en el sitio FTP. (Consulte [Credenciales FTP][Credenciales FTP]).
 
-**Error del seguimiento de solicitudes**. Si se habilita esta opción, las solicitudes con errores se registran en los archivos XML. Para ver los archivos vaya al sitio FTP que aparece en "Registros de diagnóstico de FTP" en la página del Panel. (Consulte [Credenciales FTP][]). Los archivos se guardan en /LogFiles/W3SVC*xxx*, donde xxx es un identificador único. Esta carpeta contiene un archivo XSL y uno o varios archivos XML. Asegúrese de descargar el archivo XSL porque proporciona funcionalidad para dar formato y filtrar los contenidos de los archivos XML.
+**Error del seguimiento de solicitudes**. Si se habilita esta opción, las solicitudes con errores se registran en los archivos XML. Para ver los archivos vaya al sitio FTP que aparece en "Registros de diagnóstico de FTP" en la página del Panel. (Consulte [Credenciales FTP][Credenciales FTP]). Los archivos se guardan en /LogFiles/W3SVC*xxx*, donde xxx es un identificador único. Esta carpeta contiene un archivo XSL y uno o varios archivos XML. Asegúrese de descargar el archivo XSL porque proporciona funcionalidad para dar formato y filtrar los contenidos de los archivos XML.
 
 **Depuración remota** Habilita la depuración remota. Cuando esté habilitada, puede usar la depuración remota en Visual Studio para conectarse directamente a su sitio web de Azure. La depuración remota permanecerá habilitada durante 48 horas.
 
@@ -110,13 +110,13 @@ Opciones para recopilar la información de diagnóstico para el sitio web.
 
 En modo estándar, pruebe la disponibilidad de los extremos HTTP o HTTPS desde ubicaciones geodistribuidas. Una prueba de supervisión da error si el código de respuesta HTTP es un error (4xx o 5xx) o si la respuesta se retrasa más de 30 segundos. Un extremo se considera disponible si sus pruebas de supervisión se realizan correctamente desde todas las ubicaciones especificadas.
 
-Para obtener más información, consulte [Inserción de Supervisar el estado de los extremos web][].
+Para obtener más información, consulte [Inserción de Supervisar el estado de los extremos web][Inserción de Supervisar el estado de los extremos web].
 
 ### Análisis del desarrollador
 
 Seleccione **Complemento** para elegir un complemento de análisis de una lista o para ir a la tienda de Azure para elegir uno. Elija **Personalizado** para seleccionar un proveedor de análisis, como New Relic, de una lista. Si utiliza un proveedor personalizado, debe escribir la clave de licencia en el cuadro **Clave de proveedor**.
 
-Para obtener más información sobre el uso de New Relic con sitios web de Azure, consulte [Administración del rendimiento de la aplicación New Relic en Sitios web de Azure][].
+Para obtener más información sobre el uso de New Relic con sitios web de Azure, consulte [Administración del rendimiento de la aplicación New Relic en Sitios web de Azure][Administración del rendimiento de la aplicación New Relic en Sitios web de Azure].
 
 ### Configuración de aplicaciones
 
@@ -198,13 +198,13 @@ Para obtener información sobre la configuración del sitio web para que utilice
 
 ## <a name="howtoconfigSSL"></a>Direccionamiento del sitio web para utilizar SSL
 
-Para obtener información acerca de la configuración de SSL para un dominio personalizado en Azure, consulte [Habilitación de HTTPS para un sitio web de Azure][].
+Para obtener información acerca de la configuración de SSL para un dominio personalizado en Azure, consulte [Habilitación de HTTPS para un sitio web de Azure][Habilitación de HTTPS para un sitio web de Azure].
 
 ## <a name="next"></a>Pasos siguientes
 
--   [Escalación de sitios web][]
+-   [Escalación de sitios web][Escalación de sitios web]
 
--   [Supervisión de sitios web][]
+-   [Supervisión de sitios web][Supervisión de sitios web]
 
   [Direccionamiento del opciones de configuración para un sitio web]: #howtochangeconfig
   [Direccionamiento del sitio web para utilizar una base de datos SQL]: #howtoconfigSQL

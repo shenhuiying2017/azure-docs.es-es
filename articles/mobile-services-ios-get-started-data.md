@@ -97,11 +97,10 @@ Una vez que haya completado la serie de datos, pruebe con uno de estos otros tut
 -   [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción]
     Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-data]: ../includes/mobile-services-selector-get-started-data.md
+
   [Descarga del proyecto de la aplicación de iOS]: #download-app
   [Creación del servicio móvil]: #create-service
   [Incorporación de una tabla de datos para almacenamiento]: #add-table
@@ -112,9 +111,6 @@ Una vez que haya completado la serie de datos, pruebe con uno de estos otros tut
   [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A756A2826&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F
   [aplicación GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=268622
   [0]: ./media/mobile-services-ios-get-started-data/mobile-quickstart-startup-ios.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
-  [mobile-services-ios-enable-mobile-service-access]: ../includes/mobile-services-ios-enable-mobile-service-access.md
   [Portal de administración]: https://manage.windowsazure.com/
   [1]: ./media/mobile-services-ios-get-started-data/mobile-todoitem-data-browse.png
   [Validación y modificación de datos con scripts]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet

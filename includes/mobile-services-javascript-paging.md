@@ -23,7 +23,7 @@
 
     Observe que solo se muestran los tres primeros resultados de la tabla TodoItem.
 
-6.  (Opcional) Vea el URI de la solicitud que se ha enviado al servicio móvil mediante el software de inspección de mensajes, como las herramientas para desarrolladores del explorador o [Fiddler][].
+6.  (Opcional) Vea el URI de la solicitud que se ha enviado al servicio móvil mediante el software de inspección de mensajes, como las herramientas para desarrolladores del explorador o [Fiddler][Fiddler].
 
     Observe que el método **take(3)** se ha traducido en la opción de consulta **$top=3** en el URI de la consulta.
 

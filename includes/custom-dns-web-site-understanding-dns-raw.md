@@ -24,7 +24,7 @@ Las principales ventajas de un registro D sobre un registro CNAME son:
 
 Un registro CNAME asigna un nombre DNS *específico*, como **mail.contoso.com** o **www.contoso.com**, a otro nombre de dominio (canónico). En el caso de Sitios web Azure, el nombre de dominio canónico es el nombre de dominio **\<nombredesusitio\>.azurewebsites.net** de su sitio web. Una vez creado, el CNAME crea un alias para el nombre de dominio **\<nombredesusitio\>.azurewebsites.net**. La entrada de CNAME se resolverá en la dirección IP del servicio del nombre de dominio **\<nombredesusitio\>.azurewebsites.net** de manera automática, por lo que si la dirección IP del sitio web cambia, no tiene que realizar ninguna acción.
 
-> [WACOM.NOTE] Algunos registradores de dominio solo permiten asignar subdominios cuando se utiliza un registro CNAME, como **www.contoso.com** y no los nombres raíz, como **contoso.com**. Para obtener más información acerca de los registros CNAME, consulte la documentación que proporciona el registrador, [la entrada de Wikipedia sobre el registro CNAME][] o el documento [IETF Domain Names - Implementation and Specification][].
+> [WACOM.NOTE] Algunos registradores de dominio solo permiten asignar subdominios cuando se utiliza un registro CNAME, como **www.contoso.com** y no los nombres raíz, como **contoso.com**. Para obtener más información acerca de los registros CNAME, consulte la documentación que proporciona el registrador, [la entrada de Wikipedia sobre el registro CNAME][la entrada de Wikipedia sobre el registro CNAME] o el documento [IETF Domain Names - Implementation and Specification][IETF Domain Names - Implementation and Specification].
 
 ### Aspectos específicos de DNS de un sitio web Azure
 
@@ -38,13 +38,13 @@ Este registro CNAME se utiliza para verificar que se posee el dominio que está 
 
 Puede encontrar la dirección IP, así como el nombre **awverify** y los nombres **.azurewebsites.net** para el sitio web, siguiendo estos pasos:
 
-1.  En el explorador, abra el [Portal de administración de Azure][].
+1.  En el explorador, abra el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  En la pestaña **Sitios web**, haga clic en el nombre del sitio, seleccione **Panel** y, a continuación, seleccione **Administrar dominios** en la parte inferior de la página.
 
-    ![][]
+    ![][0]
 
-    > [WACOM.NOTE] Si **Administrar dominios** no está habilitado, está utilizando un sitio web gratuito. No puede utilizar nombres de dominio personalizados con un sitio web gratuito; por tanto, debe actualizar al modo Compartido, Básico o Estándar. Para obtener más información acerca de los modos de los sitios web, incluido cómo cambiar el modo de su sitio, consulte [Escalación de sitios web][].
+    > [WACOM.NOTE] Si **Administrar dominios** no está habilitado, está utilizando un sitio web gratuito. No puede utilizar nombres de dominio personalizados con un sitio web gratuito; por tanto, debe actualizar al modo Compartido, Básico o Estándar. Para obtener más información acerca de los modos de los sitios web, incluido cómo cambiar el modo de su sitio, consulte [Escalación de sitios web][Escalación de sitios web].
 
 3.  En el cuadro de diálogo **ADMINISTRAR DOMINIOS PERSONALIZADOS**, verá la información de **awverify**, el nombre de dominio **.azurewebsites.net** actualmente asignado y la dirección IP virtual. Guarde esta información, puesto que se utilizará al crear registros DNS.
 
@@ -53,6 +53,6 @@ Puede encontrar la dirección IP, así como el nombre **awverify** y los nombres
   [la entrada de Wikipedia sobre el registro CNAME]: http://en.wikipedia.org/wiki/CNAME_record
   [IETF Domain Names - Implementation and Specification]: http://tools.ietf.org/html/rfc1035
   [Portal de administración de Azure]: https://manage.windowsazure.com
-  []: ./media/custom-dns-web-site/dncmntask-cname-6.png
+  [0]: ./media/custom-dns-web-site/dncmntask-cname-6.png
   [Escalación de sitios web]: http://www.windowsazure.com/es-es/documentation/articles/web-sites-scale/
   [1]: ./media/custom-dns-web-site/managecustomdomains.png

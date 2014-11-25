@@ -2,7 +2,7 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 
 1.  Haga clic en **TodoItem**, en **Script** y seleccione **Insert**.
 
-    ![][]
+    ![][0]
 
 2.  Reemplace la función de inserción por el siguiente código y, a continuación, haga clic en **Save**:
 
@@ -31,4 +31,4 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 
     Este script de inserción envía una notificación de inserción (con el texto del elemento insertado) a todos los registros de aplicaciones de la Tienda Windows una vez que se realiza la inserción.
 
-  []: ./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png
+  [0]: ./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png

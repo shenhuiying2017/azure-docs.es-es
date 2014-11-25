@@ -150,6 +150,5 @@ vínculos para obtener más información.
   [Direccionamiento del mensajes a una cola]: #send-messages
   [Direccionamiento del mensajes desde una cola]: #receive-messages
   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer]: #handle-crashes
-  [howto-service-bus-queues]: ../includes/howto-service-bus-queues.md
   [guía de instalación de Python]: ../python-how-to-install/
   [Colas, temas y suscripciones del bus de servicio]: http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx

@@ -664,9 +664,9 @@ Ahora que ha completado este tema de referencia conceptual, conozca cómo realiz
     
 	Conozca cómo usar el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Tutorial de inicio rápido de Servicios móviles]: http://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started/
   [Tutorial de inicio rápido de Windows Phone]: http://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started-wp8/
@@ -697,7 +697,6 @@ Ahora que ha completado este tema de referencia conceptual, conozca cómo realiz
   [encabezados de solicitud]: #headers
   [serialización]: #serialization
   [Pasos siguientes]: #nextsteps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Crear una tabla]: http://go.microsoft.com/fwlink/?LinkId=298592
   [Esquema dinámico]: http://go.microsoft.com/fwlink/?LinkId=296271
   [GetTable]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554275.aspx

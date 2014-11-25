@@ -280,9 +280,9 @@ En la aplicación de cliente, deberá desarrollar una pantalla de inicio de sesi
 
     ![][4]
 
-<!-- Anchors. --> 
-<!-- Images. -->
-<!-- URLs. -->
+ 
+
+
 
   [Introducción a los usuarios]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
   [Configuración de la tabla de cuentas]: #table-setup
@@ -292,7 +292,6 @@ En la aplicación de cliente, deberá desarrollar una pantalla de inicio de sesi
   [Configuración del servicio móvil para exigir autenticación]: #require-authentication
   [Prueba del flujo de inicio de sesión con un cliente de prueba]: #test-login
   [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
-  [mobile-services-restrict-permissions-dotnet-backend]: ../includes/mobile-services-restrict-permissions-dotnet-backend.md
   [0]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-debug-start.png
   [1]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-try-out.png
   [2]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-test-client.png

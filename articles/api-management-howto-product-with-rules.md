@@ -1,6 +1,6 @@
 <properties pageTitle="How to create and configure advanced product settings in Azure API Management" metaKeywords="" description="Learn how to configure a product with quota and rate limit policies." metaCanonical="" services="" documentationCenter="API Management" title="How to create and configure advanced product settings in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie"></tags>
+<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
 
 # Creación y definición de configuraciones de productos avanzadas en Administración de API de Azure
 
@@ -10,13 +10,13 @@ En este tutorial creará un producto Prueba gratuita que permite 10 llamadas por
 
 ## En este tema
 
--   [Creación de un producto][]
--   [Agregar una API al producto][]
--   [Configuración de las directivas de límite de tasa de llamadas y de cuota][]
--   [Publicación del producto][]
--   [Suscripción de una cuenta de desarrollador al producto][]
--   [Llamada a una operación y prueba del límite de tasa][]
--   [Pasos siguientes][]
+-   [Creación de un producto][Creación de un producto]
+-   [Agregar una API al producto][Agregar una API al producto]
+-   [Configuración de las directivas de límite de tasa de llamadas y de cuota][Configuración de las directivas de límite de tasa de llamadas y de cuota]
+-   [Publicación del producto][Publicación del producto]
+-   [Suscripción de una cuenta de desarrollador al producto][Suscripción de una cuenta de desarrollador al producto]
+-   [Llamada a una operación y prueba del límite de tasa][Llamada a una operación y prueba del límite de tasa]
+-   [Pasos siguientes][Pasos siguientes]
 
 ## <a name="create-product"> </a>Creación de un producto
 
@@ -24,17 +24,17 @@ En este paso, creará un producto Prueba gratuita que no requiere aprobación de
 
 Para comenzar, haga clic en **Consola de administración** en el Portal de Azure para su servicio Administración de API. Esta operación le llevará al portal administrativo Administración de API.
 
-> Si todavía no ha creado una instancia de servicio Administración de API, consulte [Creación de una instancia de Administración de API][] en el tutorial [Introducción a la Administración de API de Azure][].
+> Si todavía no ha creado una instancia de servicio Administración de API, consulte [Creación de una instancia de Administración de API][Creación de una instancia de Administración de API] en el tutorial [Introducción a la Administración de API de Azure][Introducción a la Administración de API de Azure].
 
-![API Management console][]
+![API Management console][API Management console]
 
 Haga clic en **Productos** en el menú **Administración de API** a la izquierda para mostrar la página **Productos**.
 
-![Add product][]
+![Add product][Add product]
 
 Haga clic en **Agregar producto** para mostrar la ventana emergente **Agregar nuevo producto**.
 
-![Add new product][]
+![Add new product][Add new product]
 
 Escriba **Prueba gratuita** en el cuadro de texto **Título**.
 
@@ -44,13 +44,13 @@ Si desea que un administrador revise y acepte o rechace los intentos de suscripc
 
 Una vez especificados todos los valores, haga clic en **Guardar** para crear el producto.
 
-![Product added][]
+![Product added][Product added]
 
 De forma predeterminada, los usuarios pueden ver los nuevos productos en el grupo **Administradores**. Vamos a agregar el grupo **Desarrolladores**. Haga clic en **Prueba gratuita** y seleccione la pestaña **Visibilidad**.
 
-> En Administración de API, los grupos se usan para administrar la visibilidad de productos para los desarrolladores. Los productos conceden visibilidad a los grupos y los desarrolladores pueden ver los productos visibles a los grupos a los que pertenecen y suscribirse a ellos. Para obtener información, consulte [Creación y uso de grupos en Administración de API de Azure][].
+> En Administración de API, los grupos se usan para administrar la visibilidad de productos para los desarrolladores. Los productos conceden visibilidad a los grupos y los desarrolladores pueden ver los productos visibles a los grupos a los que pertenecen y suscribirse a ellos. Para obtener información, consulte [Creación y uso de grupos en Administración de API de Azure][Creación y uso de grupos en Administración de API de Azure].
 
-![Add developers group][]
+![Add developers group][Add developers group]
 
 Active el grupo **Desarrolladores** y haga clic en **Guardar**.
 
@@ -62,33 +62,33 @@ En este paso del tutorial, agregaremos la API Eco al nuevo producto Prueba gratu
 
 Haga clic en **Productos** en el menú **Administración de API** a la izquierda y luego haga clic en **Prueba gratuita** para configurar el producto.
 
-![Configure product][]
+![Configure product][Configure product]
 
 Haga clic en **Agregar API al producto**.
 
-![Add API to product][]
+![Add API to product][Add API to product]
 
 Active la casilla situada junto a **API Eco** y haga clic en **Guardar**.
 
-![Add Echo API][]
+![Add Echo API][Add Echo API]
 
 ## <a name="policies"> </a>Configuración de las directivas de límite de tasa de llamadas y de cuota
 
 Los límites de tasa y las cuotas se configuran en el editor de directivas. Haga clic en **Directivas** en el menú **Administración de API** a la izquierda y seleccione **Prueba gratuita** en la lista desplegable **Producto de ámbito de directiva**.
 
-![Product policy][]
+![Product policy][Product policy]
 
 Haga clic en **Agregar directiva** para importar la plantilla de directivas y comenzar a crear la directiva de límite de tasa y de cuota.
 
-![Add policy][]
+![Add policy][Add policy]
 
 Para insertar directivas, posicione el cursor en la sección **inbound** u **outbound** de la plantilla de directivas. Las directivas de límite de tasa y de cuota son directivas de entrada, por lo que debe posicionar el cursor en el elemento inbound.
 
-![Policy editor][]
+![Policy editor][Policy editor]
 
 Las dos directivas que estamos agregando en este tutorial son **Límite de tasa de llamadas** y **Establecer cuota de uso**.
 
-![Policy statements][]
+![Policy statements][Policy statements]
 
 Una vez posicionado el cursor en el elemento de directiva **inbound**, haga clic en la flecha situada junto a **Límite de tasa de llamadas** para insertar su plantilla de directiva.
 
@@ -153,17 +153,17 @@ Cuando haya terminado de configurar la directiva, debe coincidir con el siguient
 
 Una vez configuradas las directivas deseadas, haga clic en **Guardar**.
 
-![Save policy][]
+![Save policy][Save policy]
 
 ## <a name="publish-product"> </a> Publicación del producto
 
 Ahora que las API se han agregado y las directivas configurado, los desarrolladores pueden usar el producto. Antes de que los desarrolladores usen el producto, se debe publicar. Haga clic en **Productos** en el menú **Administración de API** a la izquierda y luego haga clic en **Prueba gratuita** para configurar el producto.
 
-![Configure product][]
+![Configure product][Configure product]
 
 Haga clic en **Publicar** y luego en **Sí, publicarlo** para confirmar la operación.
 
-![Publish product][]
+![Publish product][Publish product]
 
 ## <a name="subscribe-account"> </a>Suscripción de una cuenta de desarrollador al producto
 
@@ -173,11 +173,11 @@ Ahora que el producto se ha publicado, estará disponible para suscribirse a él
 
 Haga clic en **Desarrolladores** en el menú **Administración de API** a la izquierda y haga clic en el nombre de su cuenta de desarrollador. En este ejemplo utilizamos la cuenta del desarrollador **Clayton Gragg**.
 
-![Configure developer][]
+![Configure developer][Configure developer]
 
 Haga clic en **Agregar suscripción**.
 
-![Add subscription][]
+![Add subscription][Add subscription]
 
 Active la casilla situada junto a **Prueba gratuita** y haga clic en **Suscribirse**.
 
@@ -187,7 +187,7 @@ Active la casilla situada junto a **Prueba gratuita** y haga clic en **Suscribir
 
 Ahora que el producto Prueba gratuita está configurado y publicado, podemos llamar a algunas operaciones y probar la directiva de límite de tasa. Cambie al portal para desarrolladores haciendo clic en **Portal para desarrolladores** en el menú superior derecho.
 
-![Portal para desarrolladores][]
+![Portal para desarrolladores][Portal para desarrolladores]
 
 Haga clic en **API** en el menú superior y seleccione **API Eco**.
 
@@ -197,17 +197,17 @@ Haga clic en **API** en el menú superior y seleccione **API Eco**.
 
 Seleccione la operación **Recurso GET** y haga clic en **Abrir consola**.
 
-![Open console][]
+![Open console][Open console]
 
 Mantenga los valores predeterminados de los parámetros y seleccione la clave de suscripción para el producto **Prueba gratuita**.
 
-![Subscription key][]
+![Subscription key][Subscription key]
 
 > Si tiene varias suscripciones, asegúrese de seleccionar la clave para **Prueba gratuita** ya que, de lo contrario, las directivas configuradas en los pasos anteriores no entrarán en vigor.
 
 Haga clic en **Get HTTP** y vea la respuesta. Observe el **Estado de respuesta** de **200 OK**.
 
-![Operation results][]
+![Operation results][Operation results]
 
 Haga clic en **Get HTTP** en una tasa mayor que la directiva del límite de tasa de 10 llamadas por minuto. Una vez superada la directiva del límite de tasa, se devolverá un estado de respuesta de **429 Demasiadas solicitudes**.
 
@@ -219,7 +219,7 @@ Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
--   Consulte el resto de temas en el tutorial [Introducción a la configuración de API avanzada][].
+-   Consulte el resto de temas en el tutorial [Introducción a la configuración de API avanzada][Introducción a la configuración de API avanzada].
 
   [Creación de un producto]: #create-product
   [Agregar una API al producto]: #add-api

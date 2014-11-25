@@ -439,7 +439,7 @@ Luego, descubrió lo que pasa cuando hay un conflicto. Agregó compatibilidad co
 
 Por el camino, agregó una clase auxiliar **QSUIAlertViewWithBlock** para mostrar una alerta a los usuarios y, para finalizar, agregó código a **QSTodoListViewController** para pedir al usuario que concilie el conflicto de una de tres maneras.
 
-<!-- URLs. -->
+
 
   [Introducción a los datos sin conexión]: /es-es/documentation/articles/mobile-services-ios-get-started-offline-data/
   [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28

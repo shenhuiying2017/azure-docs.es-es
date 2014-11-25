@@ -1,6 +1,6 @@
 <properties linkid="manage-scenarios-how-to-manage-websites" urlDisplayName="How to manage" pageTitle="How to manage websites - Microsoft Azure service management" metaKeywords="Azure portal website management" description="A reference for the Portal website management pages in Microsoft Azure. Details are provided for each website management page." metaCanonical="" services="web-sites" documentationCenter="" title="How to Manage Websites" authors="cephalin"  solutions="" writer="mwasson" manager="wpickett" editor=""  />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson" />
 
 # <a name="howtomanage"></a>Administre sitios web a través del Portal de administración de Azure.
 
@@ -10,7 +10,7 @@ Los sitios web se administran en el portal de Azure con un conjunto de páginas 
 
 La página de administración **QuickStart** incluye las secciones siguientes:
 
--   **Obtener herramientas**: Proporciona vínculos para instalar [WebMatrix][] y el [SDK de Azure][].
+-   **Obtener herramientas**: Proporciona vínculos para instalar [WebMatrix][WebMatrix] y el [SDK de Azure][SDK de Azure].
 -   **Publish your app**: Proporciona vínculos para descargar el perfil de publicación del sitio web, restablecer las credenciales de implementación para el sitio web, agregar la ranura de la publicación preconfigurada (implementación) en un sitio no preconfigurado y obtener información acerca de la publicación preconfigurada.
 -   **Control de código fuente integrado**: Configuración y administración de implementaciones con las herramientas de control del código fuente o sitios web como TFS, CodePlex, GitHub, Dropbox, Bitbucket o Local Git.
 
@@ -26,9 +26,9 @@ Un gráfico que resume el uso del sitio web como medidas de determinadas métric
 -   **Errores del servidor HTTP**: Número de mensajes de HTTP "5xx Server Error" enviados.
 -   **Solicitudes**: Recuento de las solicitudes realizadas en el sitio web de todos los clientes.
 
-**Nota:** puede agregar métricas de rendimiento adicionales en la página de administración **Supervisar** seleccionando **Agregar métricas** en la parte inferior de la página. Para obtener más información, consulte [Supervisión de sitios web][].
+**Nota:** puede agregar métricas de rendimiento adicionales en la página de administración **Supervisar** seleccionando **Agregar métricas** en la parte inferior de la página. Para obtener más información, consulte [Supervisión de sitios web][Supervisión de sitios web].
 
-**Estado de extremo web**: Lista que incluye los extremos web configurados para la supervisión. Si no se han configurado extremos, haga clic en **Configurar supervisión de extremos web** y vaya a la sección **Supervisión** de la página de administración **Configurar**. Para obtener más información, consulte [Supervisión de sitios web][].
+**Estado de extremo web**: Lista que incluye los extremos web configurados para la supervisión. Si no se han configurado extremos, haga clic en **Configurar supervisión de extremos web** y vaya a la sección **Supervisión** de la página de administración **Configurar**. Para obtener más información, consulte [Supervisión de sitios web][Supervisión de sitios web].
 
 **Estado de escalado automático**: En modo estándar, puede escalar automáticamente sus recursos para emplear solo los necesarios. Para habilitar la autoescala, seleccione **Configurar escalado automático**, que le lleva a la página **Escalar**. Si su sitio web está en modo libre o compartido, tendrá que cambiarlo al modo estándar (puede hacerlo en la página **Escalar**) antes de configurar la autoescala. **Registros de operaciones de escalado automático** le lleva al portal **Servicios de administración** donde puede ver el historial de autoescala de su sitio web. La consulta predeterminada es de las últimas 24 horas, aunque se puede modificar.
 
@@ -41,7 +41,7 @@ Una sección **Vista rápida** que incluye la siguiente información resumida y 
 -   **Ver complementos aplicables**: Abre el cuadro de diálogo **Comprar en la Tienda**, donde puede elegir los complementos que desee comprar y que ofrecen una funcionalidad adicional para su sitio web. Algunos complementos podrían no estar disponibles en su región o entorno.
 -   **Ver cadenas de conexión**: Visualización de las cadenas de conexión de la base de datos de su sitio web.
 -   **Descargar el perfil de publicación**: Haga clic en este vínculo para descargar el perfil de publicación de su sitio web. El perfil de publicación contiene sus credenciales (nombre de usuario y contraseña) y las URL para cargar el contenido en su sitio web con FTP y Git. El archivo de perfil está en formato XML y se puede ver en un editor de texto.
--   **Configurar credenciales de implementación**: Haga clic para crear un nombre de usuario y una contraseña para cargar el contenido en su sitio web con FTP o Git. Puede usar estas credenciales para insertar contenido en cualquier sitio web de su suscripción. (Consulte [Credenciales FTP][]). **Nota**: no es posible autenticarse en un host FTP o en un repositorio Git usando las credenciales de la cuenta Microsoft (Live ID).
+-   **Configurar credenciales de implementación**: Haga clic para crear un nombre de usuario y una contraseña para cargar el contenido en su sitio web con FTP o Git. Puede usar estas credenciales para insertar contenido en cualquier sitio web de su suscripción. (Consulte [Credenciales FTP][Credenciales FTP]). **Nota**: no es posible autenticarse en un host FTP o en un repositorio Git usando las credenciales de la cuenta Microsoft (Live ID).
 -   **Restablecer las credenciales de su perfil de publicación**: Restablece el perfil de publicación de su sitio web. Dejarán de ser válidos los perfiles de publicación descargados anteriormente.
 -   **Configurar implementación desde control de código fuente**: Muestra un cuadro de diálogo donde puede configurar la publicación continua desde Team Foundation Service, CodePlex, GitHub, Dropbox, Bitbucket o Local Git.
 -   **Agregar un nuevo espacio de implementación**: En sitios en modo estándar, utilice esta característica para crear un espacio de ensayo para el sitio. El espacio de ensayo (sitio de ensayo) le permite validar el contenido y la configuración del sitio antes de que pase a producción. También puede usar la versión de ensayo del sitio para agregar gradualmente actualizaciones y, a continuación, pasar el sitio a producción cuando las actualizaciones se hayan completado en el espacio de ensayo. (No puede agregar un espacio a un sitio que ya está en ensayo).
@@ -52,7 +52,7 @@ Una sección **Vista rápida** que incluye la siguiente información resumida y 
 -   **Servicios de administración**: Haga clic en el vínculo **Registros de operaciones** para ver los registros de operaciones de su sitio web desde el Portal de servicios de administración de Microsoft Azure.
 -   **Dirección IP virtual**: Muestra la dirección IP virtual del sitio web si ha configurado un enlace SSL basado en IP para el sitio web en la sección **Enlaces SSL** de la pestaña **Configurar**.
 -   **Dirección URL del sitio**: Especifica la dirección de acceso público del sitio web en Internet.
--   **Modo de proceso**: Especifica si el sitio web se ejecuta en modo libre, compartido, básico o estándar. Para obtener más información acerca de los modos de grupo de escala web, consulte [Escalación de un sitio web][].
+-   **Modo de proceso**: Especifica si el sitio web se ejecuta en modo libre, compartido, básico o estándar. Para obtener más información acerca de los modos de grupo de escala web, consulte [Escalación de un sitio web][Escalación de un sitio web].
 -   **Nombre de host de FTP**: Especifica la URL que hay que usar al publicar en el sitio web por FTP (consulte [FTP Credentials][Credenciales FTP]).
 -   **Nombre de host de FTPS**: Especifica la URL que hay que usar al publicar en el sitio web por FTPS (consulte [FTP Credentials][Credenciales FTP]).
 -   **Usuario de implementación / FTP**: Indica la cuenta que se ha usado al implementar el sitio web en Microsoft Azure por FTP o Git (consulte [Credenciales de FTP][Credenciales FTP]).
@@ -68,17 +68,17 @@ Esta pestaña solo aparece si ha configurado la implementación desde el control
 
 ## Supervisar
 
-La página de administración **Supervisar** proporciona un gráfico que muestra la información de uso del sitio web. De forma predeterminada, este gráfico muestra las mismas métricas que el gráfico de la página **Panel**, como se ha indicado anteriormente en la sección Panel. El gráfico también se puede configurar para que muestre las métricas Operaciones correctas de HTTP, Redirecciones de HTTP, Errores HTTP 401, Errores HTTP 403, Errores HTTP 404 y Errores HTTP 406. Para obtener más información acerca de estas métricas, consulte [Supervisión de sitios web][].
+La página de administración **Supervisar** proporciona un gráfico que muestra la información de uso del sitio web. De forma predeterminada, este gráfico muestra las mismas métricas que el gráfico de la página **Panel**, como se ha indicado anteriormente en la sección Panel. El gráfico también se puede configurar para que muestre las métricas Operaciones correctas de HTTP, Redirecciones de HTTP, Errores HTTP 401, Errores HTTP 403, Errores HTTP 404 y Errores HTTP 406. Para obtener más información acerca de estas métricas, consulte [Supervisión de sitios web][Supervisión de sitios web].
 
 ## Trabajos web
 
-La página de administración Trabajos web le permite crear tareas bajo demanda, programadas o de ejecución continua para su sitio web. Para obtener más información, consulte [Utilización de la característica WebJobs en Sitios web Azure][].
+La página de administración Trabajos web le permite crear tareas bajo demanda, programadas o de ejecución continua para su sitio web. Para obtener más información, consulte [Utilización de la característica WebJobs en Sitios web Azure][Utilización de la característica WebJobs en Sitios web Azure].
 
 ## Configurar
 
 La página de administración **Configurar** se usa para configurar las opciones específicas de la aplicación.
 
-Para obtener más detalles, consulte [Configuración de Sitios web][].
+Para obtener más detalles, consulte [Configuración de Sitios web][Configuración de Sitios web].
 
 ## Escala
 
@@ -86,7 +86,7 @@ En la página de administración **Escala**, puede especificar el modo de grupo 
 
 En el modo **estándar**, también puede incrementar la cantidad de núcleos y la capacidad de memoria de cada instancia cambiando el valor del **tamaño de instancia**. Para conseguir una mayor rentabilidad, puede elegir la opción **Escalado automático** para que Microsoft Azure asigne recursos a su sitio web de forma dinámica.
 
-Para obtener más información acerca de cómo configurar las opciones de escala para un sitio web, consulte [Escalación de un sitio web][].
+Para obtener más información acerca de cómo configurar las opciones de escala para un sitio web, consulte [Escalación de un sitio web][Escalación de un sitio web].
 
 ## Recursos vinculados
 
@@ -94,7 +94,7 @@ La página de administración **Recursos vinculados** proporciona una lista de r
 
 ## Copias de seguridad
 
-La página de administración **Copias de seguridad** le permite crear copias de seguridad automatizadas o manuales de un sitio web, restaurar su sitio web a un estado previo o crear un sitio web basado en una de sus copias de seguridad. Para obtener más información, consulte [Copias de seguridad de sitios web de Microsoft Azure][] y [Restauración de un sitio web de Microsoft Azure][].
+La página de administración **Copias de seguridad** le permite crear copias de seguridad automatizadas o manuales de un sitio web, restaurar su sitio web a un estado previo o crear un sitio web basado en una de sus copias de seguridad. Para obtener más información, consulte [Copias de seguridad de sitios web de Microsoft Azure][Copias de seguridad de sitios web de Microsoft Azure] y [Restauración de un sitio web de Microsoft Azure][Restauración de un sitio web de Microsoft Azure].
 
 ## Iconos de la página de administración
 
@@ -190,7 +190,7 @@ Busque el perfil con `publishMethod="FTP"`. El nombre de usuario aparece en la l
 Para restablecer la contraseña haga clic en **Reset your publish profile credentials**. Para conseguir las nuevas credenciales, descargue el perfil de publicación otra vez. Las credenciales de implementación están asociadas con el sitio web. Cada sitio web tiene su propio perfil de publicación.
 
 <!-- LINKS -->
-<!-- Anchors. -->
+
 
   [WebMatrix]: http://go.microsoft.com/fwlink/?LinkID=226244
   [SDK de Azure]: http://go.microsoft.com/fwlink/?LinkId=246928

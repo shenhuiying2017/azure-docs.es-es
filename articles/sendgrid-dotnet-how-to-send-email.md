@@ -265,7 +265,6 @@ siga estos vínculos para obtener más información:
   [servicio de correo electrónico basado en la nube]: http://sendgrid.com/solutions
   [entrega de correo electrónico transaccional]: http://sendgrid.com/transactional-email
   []: http://sendgrid.com
-  [sendgrid-sign-up]: ../includes/sendgrid-sign-up.md
   [paquete NuGet de SendGrid]: https://www.nuget.org/packages/Sendgrid
   [Paquete NuGet de SendGrid]: ./media/sendgrid-dotnet-how-to-send-email/sendgrid01.png
   [sendgrid-csharp]: https://github.com/sendgrid/sendgrid-csharp

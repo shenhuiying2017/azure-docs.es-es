@@ -1,6 +1,6 @@
 <properties title="Monitor a DocumentDB Account" pageTitle="Monitor a DocumentDB account | Azure" description="Learn how to monitor your DocumentDB account for performance metrics (such as requests and server errors) and usage metrics (such as storage consumption)." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, monitor, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="brradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="brradsev" />
 
 # Supervisión de una cuenta de Base de datos de documentos
 
@@ -23,7 +23,7 @@ Puede supervisar sus cuentas de Base de datos de documentos en el [Portal de vis
     -   El total de solicitudes del día actual.
     -   La media de solicitudes por segundo del día actual.
 
-    ![][]
+    ![][0]
 
 3.  Al hacer clic en la parte **Total o promedio de solicitudes por segundo** se abre un cuadro de **Métrica** detallado.
 4.  El cuadro Métrica muestra los detalles de las métricas seleccionadas. En la parte superior del cuadro hay un gráfico y, debajo, una tabla que muestra valores de agregación de las métricas seleccionadas, como el promedio, el valor máximo y el mínimo. El cuadro Métrica muestra también la lista de alertas que se han definido, filtrada por las métricas que aparecen en el cuadro actual (de esta forma, si tiene un número de alertas, solo verá aquí las pertinentes).
@@ -111,7 +111,7 @@ El Portal de vista previa de Azure le permite crear gráficos de métricas paral
   [Visualización de métricas de uso para una cuenta de Base de datos de documentos]: #view
   [Configuración de alertas de métricas de rendimiento para una cuenta de Base de datos de documentos]: #setup
   [Pasos siguientes]: #next
-  []: http://i.imgur.com/y7pigTT.png
+  [0]: http://i.imgur.com/y7pigTT.png
   [1]: http://i.imgur.com/6rBNPBL.png
   [2]: http://i.imgur.com/tRZEHk1.png
   [3]: http://i.imgur.com/G4UTi5U.png

@@ -1,6 +1,6 @@
 <properties linkid="dev-net-tutorials-hybrid-solution" urlDisplayName="Hybrid Application" pageTitle="Hybrid On-Premises/ Cloud Application (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Learn how to create a .NET On-Premises/Cloud Hybrid Application Using the Azure Service Bus Relay." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="dwrede" editor="mattshel" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm"></tags>
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sethm" />
 
 # Aplicación híbrida en la nube/local .NET mediante el relé del bus de servicio
 
@@ -13,7 +13,7 @@ Aprenderá a:
 -   Crear o adaptar un servicio web existente para su consumo por una solución web.
 -   Utilizar el relé del bus de servicio de Azure para compartir datos entre una aplicación de Azure y un servicio web hospedado en otra parte.
 
-[WACOM.INCLUDE [create-account-note][]]
+[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 ### CÓMO AYUDA EL RELÉ DEL BUS DE SERVICIO CON SOLUCIONES HÍBRIDAS
 
@@ -27,7 +27,7 @@ El *relé del bus de servicio* está diseñado para el caso de uso de tomar los 
 
 En este tutorial, se creará un sitio web de ASP.NET MVC 4 que permitirá ver una lista de productos en la página del inventario de productos.
 
-![][]
+![][0]
 
 En este tutorial se asume que la información de los productos se encuentra en un sistema local y se usa el relé del bus de servicio para obtener acceso a dicho sistema. Esto lo simula un servicio web que se ejecuta en una aplicación de consola simple y el respaldo lo proporciona un conjunto de productos en memoria. Dicha aplicación de consola se puede ejecutar en el equipo propio y el rol web se puede implementar en Azure. Al hacerlo, observará que el rol web que se ejecuta en el centro de datos de Azure llamará a su equipo, aunque casi seguro que este residirá al menos detrás de un firewall y una capa de traducción de direcciones de red (NAT).
 
@@ -41,7 +41,7 @@ Antes de comenzar a desarrollar la aplicación de Azure, debe obtener las herram
 
 1.  Para instalar el SDK de Azure para .NET, haga clic en el botón siguiente:
 
-    [Obtención de herramientas y de SDK][]
+    [Obtención de herramientas y de SDK][Obtención de herramientas y de SDK]
 
 2.  Haga clic en **install the SDK**.
 
@@ -65,11 +65,11 @@ Antes de comenzar a desarrollar la aplicación de Azure, debe obtener las herram
 Para comenzar a usar las características del bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor
 con un ámbito para el desvío de recursos del Bus de servicio en la aplicación.
 
-Los espacios de nombres y las entidades de mensajería del bus de servicio se pueden administrar a través del [Portal de administración de Azure][] o del Explorador de servidores de Visual Studio, pero los espacios de nombres solo se pueden crear desde el portal.
+Los espacios de nombres y las entidades de mensajería del bus de servicio se pueden administrar a través del [Portal de administración de Azure][Portal de administración de Azure] o del Explorador de servidores de Visual Studio, pero los espacios de nombres solo se pueden crear desde el portal.
 
 ### Para crear un de espacio de nombres de servicio mediante el portal:
 
-1.  Inicie sesión en el [Portal de administración de Azure][].
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
 
 2.  En el panel de navegación izquierdo del Portal de administración, haga clic en
     **Bus de servicio**.
@@ -116,7 +116,7 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 
 ### Administración de espacios de nombres de servicio mediante el Explorador de servidores de Visual Studio:
 
-Para administrar un espacio de nombres y obtener la información de conexión utilizando Visual Studio en vez del Portal de administración, siga el procedimiento descrito [aquí][], en la sección titulada **Para conectarse a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Microsoft Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombre que ya haya creado. Haga clic con el botón secundario en cualquier espacio de nombre, a continuación haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio.
+Para administrar un espacio de nombres y obtener la información de conexión utilizando Visual Studio en vez del Portal de administración, siga el procedimiento descrito [aquí][aquí], en la sección titulada **Para conectarse a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Microsoft Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombre que ya haya creado. Haga clic con el botón secundario en cualquier espacio de nombre, a continuación haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio.
 
 ![][10]
 
@@ -126,7 +126,7 @@ Anote el valor de **SharedAccessKey** o cópielo en el Portapapeles.
 
 En primer lugar, cree un sistema de catálogo de productos local (ficticio). Será bastante simple; puede considerar que representa un sistema de catálogo de productos local real con una superficie de servicio completa que se intenta integrar.
 
-Este proyecto comenzará como una aplicación de consola de Visual Studio. El proyecto usa el paquete Service Bus NuGet para incluir las bibliotecas y los ajustes de configuración del bus de servicio. La extensión NuGet Visual Studio facilita la instalación y la actualización de las bibliotecas y las herramientas en Visual Studio y Visual Studio Express. El paquete NuGet del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio. Para obtener más información acerca del uso del paquete NuGet y del bus de servicio, consulte [Usar el paquete NuGet de Bus de servicio][].
+Este proyecto comenzará como una aplicación de consola de Visual Studio. El proyecto usa el paquete Service Bus NuGet para incluir las bibliotecas y los ajustes de configuración del bus de servicio. La extensión NuGet Visual Studio facilita la instalación y la actualización de las bibliotecas y las herramientas en Visual Studio y Visual Studio Express. El paquete NuGet del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio. Para obtener más información acerca del uso del paquete NuGet y del bus de servicio, consulte [Usar el paquete NuGet de Bus de servicio][Usar el paquete NuGet de Bus de servicio].
 
 ### CREACIÓN DEL PROYECTO
 
@@ -149,7 +149,7 @@ Este proyecto comenzará como una aplicación de consola de Visual Studio. El pr
 
     ![][13]
 
-7.  Si ya ha instalado el administrador del paquete NuGet para Visual Studio, vaya al paso siguiente. De lo contrario, visite [NuGet][] y haga clic en [Install NuGet][]. Siga las indicaciones para instalar el administrador del paquete NuGet y, a continuación, reinicie Visual Studio.
+7.  Si ya ha instalado el administrador del paquete NuGet para Visual Studio, vaya al paso siguiente. De lo contrario, visite [NuGet][NuGet] y haga clic en [Install NuGet][Install NuGet]. Siga las indicaciones para instalar el administrador del paquete NuGet y, a continuación, reinicie Visual Studio.
 
 8.  En el **Explorador de soluciones**, haga clic con el botón secundario en **References** y, a continuación, haga clic en
     **Manage NuGet Packages**...
@@ -412,7 +412,7 @@ Ejecute la aplicación para comprobar que funciona.
 
     ## <span class="short-header">IMPLEMENTACIÓN EN AZURE</span>PREPARACIÓN DE LA APLICACIÓN PARA QUE SE IMPLEMENTE EN AZURE
 
-    Cualquier aplicación se puede implementar en un servicio en la nube de Azure o en un sitio web de Azure. Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure][]. Para obtener información sobre cómo implementar la aplicación en un sitio web de Azure, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure][]. Esta sección contiene los pasos para implementar la aplicación en un servicio en la nube de Azure.
+    Cualquier aplicación se puede implementar en un servicio en la nube de Azure o en un sitio web de Azure. Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure][Modelos de ejecución de Azure]. Para obtener información sobre cómo implementar la aplicación en un sitio web de Azure, consulte [Implementación de una aplicación web ASP.NET en un sitio web de Azure][Implementación de una aplicación web ASP.NET en un sitio web de Azure]. Esta sección contiene los pasos para implementar la aplicación en un servicio en la nube de Azure.
 
     Para implementar una aplicación en un servicio en la nube, va a agregar a la solución un proyecto de implementación de un proyecto de servicio en la nube.
     El proyecto de implementación contiene información
@@ -556,7 +556,7 @@ Ejecute la aplicación para comprobar que funciona.
 
         ![][33]
 
-Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure][].
+Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure][Modelos de ejecución de Azure].
 
 ## <span class="short-header">ELIMINACIÓN DE LA APLICACIÓN</span>DETENCIÓN Y ELIMINACIÓN DE UNA APLICACIÓN
 
@@ -569,7 +569,7 @@ de tiempo de servidor de la máquina virtual para hospedar estas instancias de r
 
 Los siguientes pasos muestran cómo detener y eliminar su aplicación.
 
-1.  Inicie sesión en el [Portal de administración de Azure][], haga clic en Servicios en la nube y, a continuación, haga clic en el nombre del servicio.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en Servicios en la nube y, a continuación, haga clic en el nombre del servicio.
 
 2.  Haga clic en la pestaña **Panel** y, a continuación, en **Detener** para suspender temporalmente la aplicación. Para volver a iniciarla, haga clic en Iniciar. Haga clic en **Eliminar** para quitar la aplicación totalmente de Azure sin la posibilidad de restaurarla.
 
@@ -579,12 +579,11 @@ Los siguientes pasos muestran cómo detener y eliminar su aplicación.
 
 Para obtener más información sobre el bus de servicio, consulte los siguientes recursos:
 
--   [Service Bus][]
--   [Procedimientos del bus de servicio][]
--   [Utilización de las colas del bus de servicio][]
+-   [Service Bus][Service Bus]
+-   [Procedimientos del bus de servicio][Procedimientos del bus de servicio]
+-   [Utilización de las colas del bus de servicio][Utilización de las colas del bus de servicio]
 
-  [create-account-note]: ../includes/create-account-note.md
-  []: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
+  [0]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
   [1]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App2.png
   [Obtención de herramientas y de SDK]: http://go.microsoft.com/fwlink/?LinkId=271920
   [2]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-41.png
@@ -596,7 +595,7 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
   [7]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-27.png
   [8]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-09.png
   [9]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/sb-queues-06.png
-  [aquí]: http://http://msdn.microsoft.com/en-us/library/windowsazure/ff687127.aspx
+  [aquí]: http://http://msdn.microsoft.com/es-es/library/windowsazure/ff687127.aspx
   [10]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/VSProperties.png
   [Usar el paquete NuGet de Bus de servicio]: http://go.microsoft.com/fwlink/?LinkId=234589
   [11]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-1.png
@@ -613,8 +612,8 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
   [20]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
   [21]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-11.png
   [22]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/App1.png
-  [Modelos de ejecución de Azure]: http://www.windowsazure.com/en-us/develop/net/fundamentals/compute/
-  [Implementación de una aplicación web ASP.NET en un sitio web de Azure]: http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/
+  [Modelos de ejecución de Azure]: http://www.windowsazure.com/es-es/develop/net/fundamentals/compute/
+  [Implementación de una aplicación web ASP.NET en un sitio web de Azure]: http://www.windowsazure.com/es-es/develop/net/tutorials/get-started/
   [23]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-21.png
   [24]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-22.png
   [25]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-web-12.png
@@ -627,6 +626,6 @@ Para obtener más información sobre el bus de servicio, consulte los siguientes
   [32]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-41.png
   [33]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/hy-service1.png
   [34]: ./media/cloud-services-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-  [Service Bus]: http://msdn.microsoft.com/en-us/library/windowsazure/ee732537.aspx
+  [Service Bus]: http://msdn.microsoft.com/es-es/library/windowsazure/ee732537.aspx
   [Procedimientos del bus de servicio]: /es-es/documentation/services/service-bus/
-  [Utilización de las colas del bus de servicio]: /en-us/develop/net/how-to-guides/service-bus-queues/
+  [Utilización de las colas del bus de servicio]: /es-es/develop/net/how-to-guides/service-bus-queues/

@@ -1,31 +1,31 @@
 <properties linkid="migrating-drupal-to-azure-websites" urlDisplayName="Migrating Drupal to Azure Websites" pageTitle="Migrating Drupal to Azure Websites" metaKeywords="Drupal, PHP, Web Sites" description="Migrate a Drupal PHP site to Azure Websites." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Migrating Drupal to Azure Websites" authors="cephalin; jroth" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin; jroth"></tags>
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin; jroth" />
 
 # Migración de Drupal a Sitios web Azure
 
 Como Sitios web Azure admite tanto PHP como MySQL, es relativamente sencillo migrar un sitio de Drupal a Sitios web Azure. Además, como Drupal y PHP se pueden ejecutar en todas las plataformas, el proceso debería funcionar para mover Drupal a Sitios web Azure independientemente de la plataforma que use actualmente. Dicho esto, las instalaciones de Drupal pueden variar mucho, por lo que es posible que en el siguiente material queden sin tratar pasos exclusivos de migración. Tenga en cuenta que la herramienta Drush no se usa porque no es compatible con Sitios web Azure.
 
 > [WACOM.NOTE]
-> Si está tratando de mover una aplicación de Drupal grande y compleja, considere la opción de usar Servicios en la nube de Azure. Para obtener más información acerca de las diferencias entre Sitios web y Servicios en la nube, consulte [Sitios web, Servicios en la nube y Máquinas virtuales de Windows Azure: cuándo usar cada uno][]. Para recibir ayuda con el paso de Drupal a Servicios en la nube, consulte [Migración de un sitio de Drupal de LAMP a Azure][] (en inglés).
+> Si está tratando de mover una aplicación de Drupal grande y compleja, considere la opción de usar Servicios en la nube de Azure. Para obtener más información acerca de las diferencias entre Sitios web y Servicios en la nube, consulte [Sitios web, Servicios en la nube y Máquinas virtuales de Windows Azure: cuándo usar cada uno][Sitios web, Servicios en la nube y Máquinas virtuales de Windows Azure: cuándo usar cada uno]. Para recibir ayuda con el paso de Drupal a Servicios en la nube, consulte [Migración de un sitio de Drupal de LAMP a Azure][Migración de un sitio de Drupal de LAMP a Azure] (en inglés).
 
 ## Tabla de contenido
 
--   [Creación de un sitio web de Azure][]
--   [Copia de la base de datos][]
--   [Modificación de Settings.php][]
--   [Implementación del código de Drupal][]
--   [Información relacionada][]
+-   [Creación de un sitio web de Azure][Creación de un sitio web de Azure]
+-   [Copia de la base de datos][Copia de la base de datos]
+-   [Modificación de Settings.php][Modificación de Settings.php]
+-   [Implementación del código de Drupal][Implementación del código de Drupal]
+-   [Información relacionada][Información relacionada]
 
 ## <a name="create-siteanddb"></a><span class="short-header">Creación de un sitio web de Azure y una base de datos MySQL</span>1. Cree un sitio web de Azure y una base de datos MySQL
 
-En primer lugar, siga el tutorial de instrucciones para saber cómo crear un sitio web con MySQL: [Creación de un sitio web PHP-MySQL de Azure e implementación mediante Git][]. Si tiene previsto usar Git para publicar el sitio de Drupal, entonces siga los pasos del tutorial donde se explica cómo configurar un repositorio de Git. Asegúrese de seguir las instrucciones de la sección **Obtener la información de la conexión MySQL remota**, ya que necesitará dicha información más adelante. Puede ignorar el recordatorio del tutorial para la implementación del sitio de Drupal. No obstante, si no está familiarizado con Sitios web Azure (ni con Git), puede que le resulte útil leer lo siguiente.
+En primer lugar, siga el tutorial de instrucciones para saber cómo crear un sitio web con MySQL: [Creación de un sitio web PHP-MySQL de Azure e implementación mediante Git][Creación de un sitio web PHP-MySQL de Azure e implementación mediante Git]. Si tiene previsto usar Git para publicar el sitio de Drupal, entonces siga los pasos del tutorial donde se explica cómo configurar un repositorio de Git. Asegúrese de seguir las instrucciones de la sección **Obtener la información de la conexión MySQL remota**, ya que necesitará dicha información más adelante. Puede ignorar el recordatorio del tutorial para la implementación del sitio de Drupal. No obstante, si no está familiarizado con Sitios web Azure (ni con Git), puede que le resulte útil leer lo siguiente.
 
 Después de configurar un nuevo sitio web con una base de datos MySQL, tendrá la información de la conexión de la base de datos MySQL y un repositorio Git (opcional). El paso siguiente es copiar su base de datos a MySQL en Sitios web Azure.
 
 ## <a name="copy-database"></a><span class="short-header">Copia de la base de datos a MySQL en Sitios web Azure</span>2. Copie la base de datos a MySQL en Sitios web Azure
 
-Hay muchas formas de migrar una base de datos a Azure. Una de las que mejor funcionan con las bases de datos MySQL es usar la herramienta [MySqlDump][]. El comando siguiente proporciona un ejemplo de cómo copiar de un equipo local a Sitios web Azure:
+Hay muchas formas de migrar una base de datos a Azure. Una de las que mejor funcionan con las bases de datos MySQL es usar la herramienta [MySqlDump][MySqlDump]. El comando siguiente proporciona un ejemplo de cómo copiar de un equipo local a Sitios web Azure:
 
     mysqldump -u local_username --password=local_password  drupal | mysql -h remote_host -u remote_username --password=remote_password remote_db_name
 
@@ -76,11 +76,11 @@ Después de implementar Drupal en Sitios web Azure, puede continuar implementand
 
 Para obtener más información, consulte los temas y las publicaciones siguientes:
 
--   [Sitios web Azure: una perspectiva de PHP (en inglés)][]
--   [Sitios web, Servicios en la nube y Máquinas virtuales de Windows Azure: cuándo usar cada uno][].
--   [Configuración de PHP en Sitios web Azure con archivos .user.ini (en inglés)][]
--   [Módulo de integración de Azure][]
--   [Módulo de almacenamiento de blobs de Azure][]
+-   [Sitios web Azure: una perspectiva de PHP (en inglés)][Sitios web Azure: una perspectiva de PHP (en inglés)]
+-   [Sitios web, Servicios en la nube y Máquinas virtuales de Windows Azure: cuándo usar cada uno][Sitios web, Servicios en la nube y Máquinas virtuales de Windows Azure: cuándo usar cada uno].
+-   [Configuración de PHP en Sitios web Azure con archivos .user.ini (en inglés)][Configuración de PHP en Sitios web Azure con archivos .user.ini (en inglés)]
+-   [Módulo de integración de Azure][Módulo de integración de Azure]
+-   [Módulo de almacenamiento de blobs de Azure][Módulo de almacenamiento de blobs de Azure]
 
   [Sitios web, Servicios en la nube y Máquinas virtuales de Windows Azure: cuándo usar cada uno]: http://go.microsoft.com/fwlink/?LinkId=310123
   [Migración de un sitio de Drupal de LAMP a Azure]: http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx

@@ -1,6 +1,6 @@
 <properties title="Interact with DocumentDB resources" pageTitle="Interact with DocumentDB resources | Azure" description="DocumentDB manages resources--uniquely identified by logical URIs--that developers can interact with using HTTP verbs, request/response headers, and status codes." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev"></tags>
+<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="bradsev" />
 
 # Interacción con recursos de Base de datos de documentos
 
@@ -12,7 +12,7 @@ La Base de datos de documentos ofrece un modelo de programación RESTful sencill
 
 Las entidades que administra la Base de datos de documentos se consideran **recursos**, que se identifican de manera exclusiva mediante su URI lógico. Los desarrolladores pueden interactuar con los recursos mediante verbos HTTP estándar, encabezados de solicitud/respuesta y códigos de estado. Como se muestra en el siguiente diagrama, el **modelo de recursos** de la Base de datos de documentos consta de un conjunto de recursos en una cuenta de base de datos. Es posible dirigirse a cada uno de ellos mediante una URI lógica y estable. En este documento, al conjunto de recursos se le denomina **fuente**.
 
-![][]
+![][0]
 
 ## Modelo de recursos jerárquico en una cuenta de base de datos
 
@@ -283,14 +283,14 @@ La Base de datos de documentos expone un modelo de direccionamiento lógico dond
 -   Especificación JSON [][2]<http://-www.ietf.org/rfc/rfc4627.txt></a>
 -   Especificación HTTP [][3]<http://www.w3.org/Protocols/rfc2616/rfc2616.html></a>
 -   Etiquetas de entidad [][4]<http://en.wikipedia.org/wiki/HTTP_ETag></a>
--   [Base de datos de documentos de consulta][]
--   [Referencia SQL de Base de datos de documentos][]
--   [Programación de la Base de datos de documentos: procedimientos almacenados, desencadenadores y UDF][]
--   [Documentación de referencia de la Base de datos de documentos][]
+-   [Base de datos de documentos de consulta][Base de datos de documentos de consulta]
+-   [Referencia SQL de Base de datos de documentos][Referencia SQL de Base de datos de documentos]
+-   [Programación de la Base de datos de documentos: procedimientos almacenados, desencadenadores y UDF][Programación de la Base de datos de documentos: procedimientos almacenados, desencadenadores y UDF]
+-   [Documentación de referencia de la Base de datos de documentos][Documentación de referencia de la Base de datos de documentos]
 
-  []: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
+  [0]: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
   [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
-  []: http://en.wikipedia.org/wiki/Representational_state_transfer
+  [0]: http://en.wikipedia.org/wiki/Representational_state_transfer
   [2]: http://-www.ietf.org/rfc/rfc4627.txt
   [3]: http://www.w3.org/Protocols/rfc2616/rfc2616.html
   [4]: http://en.wikipedia.org/wiki/HTTP_ETag

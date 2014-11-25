@@ -81,9 +81,9 @@ Así concluye el conjunto de tutoriales que demuestra los aspectos básicos del 
 
 <!-- * [Get started with push notifications]    
 <br/>Learn how to send a very basic push notification to your app. --> 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-ios
   [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-ios

@@ -179,11 +179,10 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
     
 	Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
 
-  [mobile-services-selector-get-started-data-legacy]: ../includes/mobile-services-selector-get-started-data-legacy.md
+
   [Descarga del proyecto de la aplicación de Windows Phone 8]: #download-app
   [Creación del servicio móvil]: #create-service
   [Incorporación de una tabla de datos para almacenamiento]: #add-table
@@ -194,8 +193,6 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
   [aplicación GetStartedWithData]: http://go.microsoft.com/fwlink/p/?LinkId=271146
   [versión de la aplicación de Windows Phone]: http://go.microsoft.com/fwlink/p/?LinkId=397372
   [0]: ./media/mobile-services-windows-phone-get-started-data/mobile-quickstart-startup-wp8.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
   [1]: ./media/mobile-services-windows-phone-get-started-data/mobile-add-nuget-package-wp.png
   [2]: ./media/mobile-services-windows-phone-get-started-data/mobile-dashboard-tab.png
   [Portal de administración]: https://manage.windowsazure.com/

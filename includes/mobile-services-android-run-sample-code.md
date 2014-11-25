@@ -1,6 +1,6 @@
 1.  En el explorador de paquetes, expanda **GetStartedWithData**, **src** y **.com.example.GetStartedWithData** y, a continuación, examine el archivo ToDoActivity.java.
 
-    ![][]
+    ![][0]
 
     Tenga en cuenta que hay comentarios `//TODO` que especifican los pasos que debe realizar para que la aplicación funcione con su servicio móvil.
 
@@ -14,5 +14,5 @@
 
     Tenga en cuenta que el texto guardado se almacena en una colección de la memoria y se muestra en la lista de abajo.
 
-  []: ./media/download-android-sample-code/mobile-eclipse-project.png
+  [0]: ./media/download-android-sample-code/mobile-eclipse-project.png
   [1]: ./media/download-android-sample-code/mobile-quickstart-startup-android.png

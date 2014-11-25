@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-windowsphone" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="glenga" solutions="" manager="dwrede" editor="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="glenga" />
 
 # Introducción a los Centros de notificaciones
 
@@ -9,17 +9,17 @@
 En este tema se muestra cómo puede usar los Centros de notificaciones de Azure para enviar notificaciones de inserción a aplicaciones Silverlight de Windows Phone 8 o Windows Phone 8.1. Si está interesado en Windows Phone 8.1 (no Silverlight), consulte la versión [Windows Universal][1].
 Siguiendo este tutorial podrá crear una aplicación de Windows Phone 8 vacía que reciba notificaciones de inserción mediante el servicio de notificaciones de inserción de Microsoft (MPNS). Cuando haya finalizado, podrá difundir notificaciones de inserción a todos los dispositivos que ejecutan su aplicación usando su centro de notificaciones.
 
-> [AZURE.NOTE] El SDK de Windows Phone para Centros de notificaciones no soporta el uso de WNS con aplicaciones Silverlight de Windows Phone 8.1. Para usar WNS (en lugar de MPNS) con aplicaciones Silverlight de Windows Phone 8.1, tiene que configurar sus credenciales WNS como se muestra en [Get Started for Windows Universal][1] (Introducción a Windows Universal). Después, podrá registrarse desde el back-end, como se muestra en el tutorial [Notificación a usuarios][], o usar las [API de REST de Centros de notificaciones][].
+> [AZURE.NOTE] El SDK de Windows Phone para Centros de notificaciones no soporta el uso de WNS con aplicaciones Silverlight de Windows Phone 8.1. Para usar WNS (en lugar de MPNS) con aplicaciones Silverlight de Windows Phone 8.1, tiene que configurar sus credenciales WNS como se muestra en [Get Started for Windows Universal][1] (Introducción a Windows Universal). Después, podrá registrarse desde el back-end, como se muestra en el tutorial [Notificación a usuarios][Notificación a usuarios], o usar las [API de REST de Centros de notificaciones][API de REST de Centros de notificaciones].
 
 Este tutorial le guiará a través de los siguientes pasos para habilitar las notificaciones de inserción:
 
-1.  [Creación de su centro de notificaciones][]
-2.  [Conexión de su aplicación al centro de notificaciones][]
-3.  [Envío de notificaciones desde su backend][]
+1.  [Creación de su centro de notificaciones][Creación de su centro de notificaciones]
+2.  [Conexión de su aplicación al centro de notificaciones][Conexión de su aplicación al centro de notificaciones]
+3.  [Envío de notificaciones desde su backend][Envío de notificaciones desde su backend]
 
 En este tutorial se demuestra el escenario de difusión sencillo con centros de notificaciones. Asegúrese de seguirlo junto con el próximo tutorial para aprender a usar los centros de notificaciones para abordar usuarios y grupos de dispositivos específicos. Este tutorial requiere lo siguiente:
 
--   [Visual Studio 2012 Express para Windows Phone][], o una versión posterior.
+-   [Visual Studio 2012 Express para Windows Phone][Visual Studio 2012 Express para Windows Phone], o una versión posterior.
 
 Completar este tutorial es un requisito previo para todos los demás tutoriales de centros de notificaciones para aplicaciones de Windows Phone 8.
 
@@ -27,11 +27,11 @@ Completar este tutorial es un requisito previo para todos los demás tutoriales 
 
 ## <a name="configure-hub"></a>Creación de su centro de notificaciones
 
-1.  Inicie sesión en el [Portal de administración de Azure][] y, a continuación, haga clic en **+NEW** en la parte inferior de la pantalla.
+1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure] y, a continuación, haga clic en **+NEW** en la parte inferior de la pantalla.
 
 2.  Haga clic sucesivamente en **Servicios de aplicaciones**, **Bus de servicio**, **Centro de notificaciones** y finalmente en **Quick Create**.
 
-    ![][]
+    ![][0]
 
 3.  Escriba un nombre para su centro de notificaciones, seleccione la región deseada y, a continuación, haga clic en **Create a new Notification Hub**.
 
@@ -77,7 +77,7 @@ Ahora tiene las cadenas de conexión necesarias para registrar su aplicación de
 
     ![][9]
 
-    Esto descarga, instala y agrega una referencia a todos los proyectos de la biblioteca de Mensajería de Azure para Windows usando el [paquete de NuGet WindowsAzure.Messaging.Managed][].
+    Esto descarga, instala y agrega una referencia a todos los proyectos de la biblioteca de Mensajería de Azure para Windows usando el [paquete de NuGet WindowsAzure.Messaging.Managed][paquete de NuGet WindowsAzure.Messaging.Managed].
 
 4.  Abra el archivo App.xaml.cs y agregue las siguientes instrucciones `using`:
 
@@ -117,7 +117,7 @@ Ahora tiene las cadenas de conexión necesarias para registrar su aplicación de
 
 ## <a name="send"></a>Envíe notificaciones desde su backend
 
-Puede enviar notificaciones mediante los Centros de notificaciones desde cualquier back-end que use la [interfaz REST][]. En este tutorial puede enviar notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un backend de los Servicios móviles de Azure integrado en centros de notificaciones, vea **Introducción a las notificaciones de inserción en Servicios móviles** ([.NET backend][] | [JavaScript backend][.NET backend]). Para ver un ejemplo de cómo enviar notificaciones con REST API, vea **Uso de Centro de notificaciones desde Java/PHP** ([Java][] | [PHP][]).
+Puede enviar notificaciones mediante los Centros de notificaciones desde cualquier back-end que use la [interfaz REST][interfaz REST]. En este tutorial puede enviar notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un backend de los Servicios móviles de Azure integrado en centros de notificaciones, vea **Introducción a las notificaciones de inserción en Servicios móviles** ([.NET backend][.NET backend] | [JavaScript backend][.NET backend]). Para ver un ejemplo de cómo enviar notificaciones con REST API, vea **Uso de Centro de notificaciones desde Java/PHP** ([Java][Java] | [PHP][PHP]).
 
 1.  Haga clic con el botón secundario en la solución, seleccione **Agregar** y **Nuevo proyecto...**, a continuación en **Visual C#** haga clic en **Windows** y **Aplicación de consola** y haga clic en **OK**.
 
@@ -133,7 +133,7 @@ Puede enviar notificaciones mediante los Centros de notificaciones desde cualqui
 
         Install-Package WindowsAzure.ServiceBus
 
-    Esto agrega una referencia al SDK de Bus de servicio de Azure con el [paquete WindowsAzure.ServiceBus NuGet][].
+    Esto agrega una referencia al SDK de Bus de servicio de Azure con el [paquete WindowsAzure.ServiceBus NuGet][paquete WindowsAzure.ServiceBus NuGet].
 
 4.  Abra el archivo Program.cs y agregue la siguiente instrucción `using`:
 
@@ -167,20 +167,14 @@ Puede enviar notificaciones mediante los Centros de notificaciones desde cualqui
 
     Recibirá una notificación del sistema. Al pulsar en el mensaje emergente, se carga la aplicación.
 
-Puede encontrar todas las cargas posibles en el [catálogo de notificaciones del sistema][] y en los temas de [catálogo de iconos][] en MSDN.
+Puede encontrar todas las cargas posibles en el [catálogo de notificaciones del sistema][catálogo de notificaciones del sistema] y en los temas de [catálogo de iconos][catálogo de iconos] en MSDN.
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
-En este sencillo ejemplo, difunde notificaciones a todos los dispositivos con Windows Phone 8. Para abordar usuarios específicos, consulte el tutorial [Uso de Centros de notificaciones para insertar notificaciones en los usuarios][]. Si desea segmentar a sus usuarios por grupos de interés, puede leer [Uso de Centros de notificaciones para enviar noticias de último minuto][]. Obtenga más información sobre el uso de Centros de notificaciones en la [orientación sobre los Centros de notificaciones][] (en inglés).
+En este sencillo ejemplo, difunde notificaciones a todos los dispositivos con Windows Phone 8. Para abordar usuarios específicos, consulte el tutorial [Uso de Centros de notificaciones para insertar notificaciones en los usuarios][Uso de Centros de notificaciones para insertar notificaciones en los usuarios]. Si desea segmentar a sus usuarios por grupos de interés, puede leer [Uso de Centros de notificaciones para enviar noticias de último minuto][Uso de Centros de notificaciones para enviar noticias de último minuto]. Obtenga más información sobre el uso de Centros de notificaciones en la [orientación sobre los Centros de notificaciones][orientación sobre los Centros de notificaciones] (en inglés).
 
 
   [Windows Universal]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /es-es/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /es-es/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /es-es/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /es-es/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /es-es/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /es-es/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
   [1]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
   [Notificación a usuarios]: /es-es/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/
   [API de REST de Centros de notificaciones]: http://msdn.microsoft.com/es-es/library/dn223264.aspx
@@ -188,15 +182,13 @@ En este sencillo ejemplo, difunde notificaciones a todos los dispositivos con Wi
   [Conexión de su aplicación al centro de notificaciones]: #connecting-app
   [Envío de notificaciones desde su backend]: #send
   [Visual Studio 2012 Express para Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-  [Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F
   [Portal de administración de Azure]: https://manage.windowsazure.com/
-  []: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal.png
+  [0]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal.png
   [2]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal2.png
   [3]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal.png
   [4]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal2.png
   [5]: ./media/notification-hubs-windows-phone-get-started/notification-hub-connection-strings.png
   [6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-pushauth.png
-  [modo sin autenticar de MPNS]: http://msdn.microsoft.com/es-es/library/windowsphone/develop/ff941099(v=vs.105).aspx
   [7]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-app.png
   [8]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-silverlight-app.png
   [9]: ./media/notification-hubs-windows-phone-get-started/notification-hub-windows-universal-app-install-package.png

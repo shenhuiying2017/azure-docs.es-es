@@ -1,6 +1,6 @@
 1.  En el Portal de administración, haga clic en la pestaña **Data** y, a continuación, en la tabla **Registrations**.
 
-    ![][]
+    ![][0]
 
 2.  En **Registrations**, haga clic en la pestaña **Script** y seleccione **Insert**.
 
@@ -26,5 +26,5 @@
 
 De esta manera, se registra un nuevo script de inserción, que almacena la información de registro en la nueva tabla.
 
-  []: ./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png
+  [0]: ./media/mobile-services-update-registrations-script/mobile-portal-data-tables-registrations.png
   [1]: ./media/mobile-services-update-registrations-script/mobile-insert-script-registrations.png

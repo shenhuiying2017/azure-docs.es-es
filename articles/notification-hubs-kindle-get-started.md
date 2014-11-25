@@ -1,6 +1,6 @@
 <properties linkid="develop-notificationhubs-tutorials-get-started-kindle" urlDisplayName="Get Started" pageTitle="Get Started with Azure Notification Hubs" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="sethm" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-kindle" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-kindle" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Introducción a los Centros de notificaciones
 
@@ -11,14 +11,14 @@ En este tutorial, creará una aplicación Kindle que recibirá notificaciones de
 
 Este tutorial requiere lo siguiente:
 
--   El SDK de Android (se presupone que usará Eclipse), que puede descargarse desde [aquí][].
+-   El SDK de Android (se presupone que usará Eclipse), que puede descargarse desde [aquí][aquí].
 -   Siga los pasos descritos [aquí][1] para configurar el entorno de desarrollo para Kindle.
 
 ## Incorporación de una aplicación nueva al portal para desarrolladores
 
-1.  En primer lugar, cree una aplicación en el [portal de desarrolladores][].
+1.  En primer lugar, cree una aplicación en el [portal de desarrolladores][portal de desarrolladores].
 
-    ![][]
+    ![][0]
 
 2.  Copie la **clave de aplicación**.
 
@@ -63,7 +63,7 @@ En el portal, agregue el secreto de cliente y el identificador de cliente a la p
 
 Agregue las bibliotecas de ADM al proyecto Eclipse.
 
-1.  Para obtener la biblioteca de ADM, [descargue el SDK][]. Extraiga el archivo ZIP del SDK.
+1.  Para obtener la biblioteca de ADM, [descargue el SDK][descargue el SDK]. Extraiga el archivo ZIP del SDK.
 2.  En Eclipse, haga clic con el botón secundario en el proyecto y, a continuación, haga clic en **Properties**. Seleccione **Java Build Path** en la izquierda y, a continuación, seleccione la pestaña **Libraries** en la parte superior. Haga clic en **Add External Jar** y seleccione el archivo `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` en el directorio en que ha extraído el SDK de Amazon.
 3.  Descargue el SDK de Android NotificationHubs (vínculo).
 4.  Descomprima el paquete y arrastre el archivo `notification-hubs-sdk.jar` a la carpeta `libs` de Eclipse.
@@ -254,19 +254,12 @@ Para enviar un mensaje con .NET:
 
 ![][8]
 
-<!-- URLs. -->
 
-  [Windows Universal]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/ "Windows Universal"
-  [Windows Phone]: /es-es/documentation/articles/notification-hubs-windows-phone-get-started/ "Windows Phone"
-  [iOS]: /es-es/documentation/articles/notification-hubs-ios-get-started/ "iOS"
-  [Android]: /es-es/documentation/articles/notification-hubs-android-get-started/ "Android"
-  [Kindle]: /es-es/documentation/articles/notification-hubs-kindle-get-started/ "Kindle"
-  [Xamarin.iOS]: /es-es/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/ "Xamarin.iOS"
-  [Xamarin.Android]: /es-es/documentation/articles/partner-xamarin-notification-hubs-android-get-started/ "Xamarin.Android"
+
   [aquí]: http://go.microsoft.com/fwlink/?LinkId=389797
   [1]: https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment
   [portal de desarrolladores]: https://developer.amazon.com/home.html
-  []: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
+  [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
   [2]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png
   [3]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal3.png
   [4]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal4.png

@@ -126,9 +126,9 @@ Ahora que ha creado una notificación periódica, podría averiguar más informa
     
 	Obtenga más información sobre la creación de API personalizadas.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Introducción a las notificaciones periódicas]: http://msdn.microsoft.com/es-es/library/windows/apps/jj150587.aspx
   [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service

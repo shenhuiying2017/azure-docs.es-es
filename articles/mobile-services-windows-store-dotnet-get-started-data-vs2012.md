@@ -201,9 +201,9 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
     
 	Obtenga más información sobre cómo utilizar Servicios móviles con .NET.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Descarga del proyecto de la aplicación de la Tienda Windows]: #download-app
   [Creación del servicio móvil]: #create-service
@@ -213,8 +213,6 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
   [aplicación GetStartedWithData]: http://go.microsoft.com/fwlink/?LinkId=262308
   [0]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-data-sample-download-dotnet.png
   [1]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-quickstart-startup.png
-  [mobile-services-create-new-service-data]: ../includes/mobile-services-create-new-service-data.md
-  [mobile-services-create-new-service-data-2]: ../includes/mobile-services-create-new-service-data-2.md
   [2]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-add-nuget-package-dotnet.png
   [3]: ./media/mobile-services-windows-store-dotnet-get-started-data-vs2012/mobile-dashboard-tab.png
   [Portal de administración]: https://manage.windowsazure.com/

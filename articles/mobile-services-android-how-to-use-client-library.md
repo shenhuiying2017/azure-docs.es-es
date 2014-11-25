@@ -783,9 +783,9 @@ Este método general se puede usar siempre que tengamos un objeto complejo que n
 
 Encontrará la referencia de Javadocs para la API del cliente Android [][]<http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/package-summary.html></a>
 
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
+
+
+
 
   [guía de inicio rápido de Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-android/
   [SDK de Servicios móviles]: http://go.microsoft.com/fwlink/p/?linkid=280126
@@ -818,7 +818,6 @@ Encontrará la referencia de Javadocs para la API del cliente Android [][]<http:
   [encabezados de solicitud]: #headers
   [serialización]: #serialization
   [Pasos siguientes]: #next-steps
-  [mobile-services-concepts]: ../includes/mobile-services-concepts.md
   [Crear una tabla]: http://go.microsoft.com/fwlink/p/?LinkId=298592
   [Esquema dinámico]: http://go.microsoft.com/fwlink/p/?LinkId=296271
   [MobileServiceClient]: http://dl.windowsazure.com/androiddocs/com/microsoft/windowsazure/mobileservices/MobileServiceClient.html

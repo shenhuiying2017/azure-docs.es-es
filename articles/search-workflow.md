@@ -55,7 +55,6 @@ Para obtener más información sobre la creación de índices o documentos, cons
 
 <!--Anchors-->  
 
-  [Este artículo usa el portal de Azure en vista previa]: ../includes/preview-portal-note.md
   [Configuración de Búsqueda en el portal de vista previa de Azure]: ../search-configure/
   [Paso 1: creación del índice]: #sub-1
   [Paso 2: adición de documentos]: #sub-2

@@ -26,7 +26,6 @@ Debido a que es el directorio en la nube de su organización, usted es quien dec
 
 Si su organización ya usa Active Directory en un entorno local, puede utilizar las capacidades de integración de directorios de Azure AD, como la sincronización de directorios y el inicio de sesión único, para ampliar todavía más el alcance de las identidades locales existentes en la nube y conseguir una administración y una experiencia del usuario mejoradas. [Más información][3]
 
-  [disclaimer]: ../includes/disclaimer.md
   [Más información]: http://windows.microsoft.com/es-es/windows-live/sign-in-what-is-microsoft-account
   [1]: http://technet.microsoft.com/es-es/library/jj573650
   [2]: http://technet.microsoft.com/es-es/library/hh967619

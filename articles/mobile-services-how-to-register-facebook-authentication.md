@@ -54,9 +54,9 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
 Ahora ya puede habilitar el uso del inicio de sesión de Facebook para autenticarse en la aplicación facilitando el identificador y el secreto de la aplicación a Servicios móviles.
 
-<!-- Anchors. --> 
-<!-- Images. --> 
-<!-- URLs. -->
+ 
+ 
+
 
   [Servicios móviles de Azure]: http://azure.microsoft.com/es-es/services/mobile-services/
   [Introducción a la autenticación]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-ios-get-started-users/

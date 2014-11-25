@@ -75,4 +75,3 @@ Para obtener más información, consulte [Sitios web Azure][Sitios web Azure].
   [Direccionamiento del un Sitio web]: #deleteawebsite
   [Pasos siguientes]: #nextsteps
   [Portal de administración de Azure]: http://manage.windowsazure.com/
-  [website-from-gallery]: ../includes/website-from-gallery.md

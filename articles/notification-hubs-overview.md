@@ -1,6 +1,6 @@
 <properties linkid="dev-net-service-bus-amqp-overview" urlDisplayName="Azure Notification Hubs" pageTitle="Azure Notification Hubs" metaKeywords="Azure push notifications, Azure notification hubs, Azure messaging" description="Learn how to use push notifications in Azure. Code samples written in C# using the .NET API." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Azure Notification Hubs" authors="sethm" manager="dwrede" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm"></tags>
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
 # Centros de notificaciones de Azure
 
@@ -29,7 +29,7 @@ Sin embargo, en un alto nivel, todos los sistemas de notificación de plataforma
 3.  Para enviar una notificación de inserción, el back-end de la aplicación se pone en contacto con el PNS a través del identificador para dirigirse a una instancia de aplicación cliente específica.
 4.  El PNS reenvía la notificación al dispositivo que especifica el identificador.
 
-![][]
+![][0]
 
 ## <span class="short-header">Los desafíos de las notificaciones de inserción</span>Los desafíos de las notificaciones de inserción
 
@@ -62,18 +62,18 @@ Los centros de notificaciones usan una infraestructura completa de notificacione
 
 Obtenga más información acerca de los Centros de notificaciones en estos temas:
 
--   **[Cómo utilizan los clientes los Centros de notificaciones][]**
+-   **[Cómo utilizan los clientes los Centros de notificaciones][Cómo utilizan los clientes los Centros de notificaciones]**
 
--   **[Tutoriales y guías sobre los Centros de notificaciones][]**
+-   **[Tutoriales y guías sobre los Centros de notificaciones][Tutoriales y guías sobre los Centros de notificaciones]**
 
--   **Tutoriales de introducción a los Centros de notificaciones** ([iOS][], [Android][], [Windows Universal][], [Windows Phone][], [Kindle][], [Xamarin.iOS][], [Xamarin.Android][])
+-   **Tutoriales de introducción a los Centros de notificaciones** ([iOS][iOS], [Android][Android], [Windows Universal][Windows Universal], [Windows Phone][Windows Phone], [Kindle][Kindle], [Xamarin.iOS][Xamarin.iOS], [Xamarin.Android][Xamarin.Android])
 
 Las referencias pertinentes para la API administrada de .NET referidas a las notificaciones de inserción se pueden encontrar en los siguientes temas:
 
--   [Microsoft.WindowsAzure.Messaging.NotificationHub][]
--   [Microsoft.ServiceBus.Notifications][]
+-   [Microsoft.WindowsAzure.Messaging.NotificationHub][Microsoft.WindowsAzure.Messaging.NotificationHub]
+-   [Microsoft.ServiceBus.Notifications][Microsoft.ServiceBus.Notifications]
 
-  []: ./media/notification-hubs-overview/SBPushNotifications1.gif
+  [0]: ./media/notification-hubs-overview/SBPushNotifications1.gif
   [1]: ./media/notification-hubs-overview/SBPushNotifications2.gif
   [Cómo utilizan los clientes los Centros de notificaciones]: http://azure.microsoft.com/es-es/services/notification-hubs
   [Tutoriales y guías sobre los Centros de notificaciones]: http://azure.microsoft.com/es-es/documentation/services/notification-hubs
