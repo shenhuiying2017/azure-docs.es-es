@@ -52,7 +52,8 @@ Cuando se utiliza Pusher, tendrá que proporcionar la configuración de conexió
 
 Para obtener más información acerca de cómo comenzar con Pusher, consulte [Understanding Pusher][Understanding Pusher].
 
-<!--images--> <!--Links-->
+<!--images-->
+<!--Links-->
 
   [Portal de administración de Azure]: https://manage.windowsazure.com
   [command-bar-new]: ./media/pusher-sign-up/1-command-bar-new.png

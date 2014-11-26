@@ -80,7 +80,9 @@ Para obtener instrucciones más detalladas sobre el trabajo con la plantilla de 
 
 ![][5]
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->
+<!--Image references-->
+<!--Link references-->
 
   [suscríbase a la vista previa]: http://go.microsoft.com/fwlink/?LinkId=404163
   [Centro de confianza de Azure]: http://azure.microsoft.com/es-es/support/trust-center/compliance/

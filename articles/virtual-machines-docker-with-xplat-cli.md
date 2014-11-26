@@ -100,7 +100,9 @@ El demonio de Docker del host está configurado para que realice escuchas y aute
 
 Está preparado para ir a la [Guía del usuario de Docker][Guía del usuario de Docker] y usar su VM Docker. Para crear una máquina virtual con la funcionalidad Docker en el nuevo portal, consulte [Uso de la extensión de VM Docker con el portal][Uso de la extensión de VM Docker con el portal].
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->
+<!--Image references-->
+<!--Link references-->
 
   [Docker]: https://www.docker.com/
   [contenedores de Linux]: http://en.wikipedia.org/wiki/LXC

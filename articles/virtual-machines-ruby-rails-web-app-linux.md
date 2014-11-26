@@ -288,7 +288,9 @@ Para obtener información sobre cómo usar el SDK de Azure para Ruby y así tene
 
 -   [Servicio de contenido con alto ancho de banda con la Red de entrega de contenido][Servicio de contenido con alto ancho de banda con la Red de entrega de contenido]
 
-<!-- WA.com links --> <!-- External Links --> <!-- Images -->
+<!-- WA.com links -->
+<!-- External Links -->
+<!-- Images -->
 
   [Explorador que muestra publicaciones de listas]: ./media/virtual-machines-ruby-rails-web-app-linux/blograilscloud.png
   [Configuración de su entorno de desarrollo]: #setup

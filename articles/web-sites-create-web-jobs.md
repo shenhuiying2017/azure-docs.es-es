@@ -225,7 +225,6 @@ También puede usar FTP, Git o Web Deploy para implementar WebJobs. Para obtener
 
 Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure][evaluación gratuita de Microsoft Azure].
 
-<!-- LINKS --> <!-- IMAGES -->
 
   [Tipos de archivos aceptables para scripts]: #acceptablefiles
   [Creación de una tarea a petición]: #CreateOnDemand

@@ -679,7 +679,15 @@ Puede usar **UpdateMessage** para aumentar el tiempo de espera de invisibilidad 
 
 Para obtener más información, consulte [Cambio del contenido de un mensaje en cola][Cambio del contenido de un mensaje en cola].
 
-### \<a name=subheading45"\>\</a\>Arquitectura de la aplicación\</h3\> \<p\>Debe usar colas para hacer que la arquitectura de la aplicación sea escalable. A continuación se enumeran algunas formas de usar colas para hacer que la aplicación sea más escalable:\</p\> \<ul\> \<li\>Puede usar colas para crear trabajos pendientes para el procesamiento y aliviar las cargas de la aplicación. Por ejemplo, podría poner en cola solicitudes de usuarios para realizar un trabajo que requiere muchos recursos de procesador, como por ejemplo cambiar el tamaño de las imágenes cargadas.\</li\> \<li\>Puede usar colas para desacoplar partes de la aplicación para poder escalarlas por separado. Por ejemplo, un front-end web podría poner resultados de encuesta de usuarios en una cola para analizarlos y almacenarlos posteriormente. Podría agregar más instancias de rol de trabajo para procesar los datos de cola según sea necesario.\</li\> \</ul\> \<h2 id="conclusion"\>Conclusión\</h2\> \<p\>En este artículo se analizaron algunas de las prácticas probadas más comunes para optimizar el rendimiento cuando se usa Almacenamiento de Azure. Animamos a todos los desarrolladores de aplicaciones a que evalúen sus aplicaciones tomando como referencia todas las prácticas anteriores y que se planteen seguir las recomendaciones para obtener un magnífico rendimiento para aquellas de sus aplicaciones que usan Almacenamiento de Azure.\</p\>
+### <a name=subheading45"></a>Arquitectura de la aplicación
+
+</h3><p>Debe usar colas para hacer que la arquitectura de la aplicación sea escalable. A continuación se enumeran algunas formas de usar colas para hacer que la aplicación sea más escalable:</p>
+
+<ul\><li>Puede usar colas para crear trabajos pendientes para el procesamiento y aliviar las cargas de la aplicación. Por ejemplo, podría poner en cola solicitudes de usuarios para realizar un trabajo que requiere muchos recursos de procesador, como por ejemplo cambiar el tamaño de las imágenes cargadas.</li> 
+
+<li>Puede usar colas para desacoplar partes de la aplicación para poder escalarlas por separado. Por ejemplo, un front-end web podría poner resultados de encuesta de usuarios en una cola para analizarlos y almacenarlos posteriormente. Podría agregar más instancias de rol de trabajo para procesar los datos de cola según sea necesario.</li>
+</ul\> 
+<h2 id="conclusion">Conclusión</h2> <p>En este artículo se analizaron algunas de las prácticas probadas más comunes para optimizar el rendimiento cuando se usa Almacenamiento de Azure. Animamos a todos los desarrolladores de aplicaciones a que evalúen sus aplicaciones tomando como referencia todas las prácticas anteriores y que se planteen seguir las recomendaciones para obtener un magnífico rendimiento para aquellas de sus aplicaciones que usan Almacenamiento de Azure.</p>
 
   [¿Usa una directiva de reintentos de retroceso exponencial para errores de limitación y tiempos de espera?]: #subheading14
   [¿Permanece su aplicación dentro del ancho de banda o de los objetivos de escalabilidad de las operaciones para un solo blob?]: #subheading16

@@ -716,7 +716,9 @@ aplicaciones web para dispositivos móviles. Entre ellos se incluyen los siguien
 -   [Prácticas recomendadas y recomendaciones de W3C para aplicaciones web móviles][Prácticas recomendadas y recomendaciones de W3C para aplicaciones web móviles]
 -   [Recomendación de candidatos de W3C para consultas multimedia][Recomendación de candidatos de W3C para consultas multimedia]
 
-<!-- Internal Links --> <!-- External Links --> <!-- Images -->
+<!-- Internal Links -->
+<!-- External Links -->
+<!-- Images -->
 
   [Visual Studio Express 2013 para Web]: http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-web
   [proyecto inicial]: http://go.microsoft.com/fwlink/?LinkID=398780&clcid=0x409

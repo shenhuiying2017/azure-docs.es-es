@@ -24,7 +24,9 @@ Un área de trabajo de Aprendizaje automático de Microsoft Azure (área de trab
 
 ![][1]
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->
+<!--Image references-->
+<!--Link references-->
 
   [0]: ./media/machine-learning-create-workspace/cw1.png
   [1]: ./media/machine-learning-create-workspace/cw2.png

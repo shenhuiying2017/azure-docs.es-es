@@ -481,7 +481,9 @@ En esta sección implementará la aplicación My Task List mediante Git.
 
 Ha implementado correctamente la aplicación ASP.NET en un sitio web de Azure. Para ver el sitio, haga clic en el vínculo del campo **URL de sitio** de la página **Panel**. Para obtener más información sobre el desarrollo de aplicaciones C# en relación con MongoDB, consulte el [Centro de lenguaje CSharp][Centro de lenguaje CSharp] (en inglés).
 
-<!-- HYPERLINKS --> <!-- IMAGES --> <!-- TOC BOOKMARKS -->
+<!-- HYPERLINKS -->
+<!-- IMAGES -->
+<!-- TOC BOOKMARKS -->
 
   [MongoDB]: http://www.mongodb.org
   [Creación de una máquina virtual e instalación de MongoDB]: #virtualmachine

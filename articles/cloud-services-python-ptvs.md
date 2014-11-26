@@ -102,7 +102,8 @@ Para obtener más información sobre el uso de servicios de Azure desde roles we
 -   [Colas del Bus de servicio][Colas del Bus de servicio]
 -   [Temas de Bus de servicio][Temas de Bus de servicio]
 
-<!--Link references--> <!--External Link references-->
+<!--Link references-->
+<!--External Link references-->
 
   [Python Tools para Visual Studio]: http://pytools.codeplex.com
   [Requisitos previos]: #prerequisites

@@ -94,7 +94,8 @@ Para obtener más información acerca de la característica Escalado elástico, 
 -   Channel 9: [Información general de Escalado elástico][1]
 -   Foro de discusión: [Foro de Base de datos SQL de Azure][Foro de Base de datos SQL de Azure]
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->
+<!--Image references-->
 
   [Información general de Escalado elástico]: http://go.microsoft.com/?linkid=9862592
   [Mapa de documentación de escalado elástico]: ./sql-database-elastic-scale-documentation-map.md

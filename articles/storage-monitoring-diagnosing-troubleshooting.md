@@ -805,7 +805,8 @@ También puede usar la característica Application Insights para Visual Studio O
 
 Cuando se escribió este documento, Application Insights se encontraba en una versión preliminar. Puede ver más información en [Application Insights para Visual Studio Online en MSDN][Application Insights para Visual Studio Online en MSDN].
 
-<!--Anchors--> <!--Image references-->
+<!--Anchors-->
+<!--Image references-->
 
   [Introducción]: #introduction
   [Cómo está organizada esta guía]: #how-this-guide-is-organized

@@ -810,7 +810,9 @@ Este tutorial y la aplicación de ejemplo fueron desarrollados por [Rick Anderso
 
 Es importante que haga comentarios acerca de lo que le gustó o lo que le gustaría que mejorásemos, no solo en relación al tutorial en sí sino a los productos sobre los que trata. Sus comentarios nos ayudarán a clasificar las mejoras por orden de prioridad. Estamos especialmente interesados en averiguar el interés que despierta una mayor automatización para el proceso de configurar e implementar la base de datos de suscripciones.
 
-<!-- bookmarks --> <!-- links --> <!-- images-->
+<!-- bookmarks -->
+<!-- links -->
+<!-- images-->
 
   [Rick Anderson]: https://twitter.com/RickAndMSFT
   [versión anterior de este tutorial]: /es-es/develop/net/tutorials/get-started-vs2012/

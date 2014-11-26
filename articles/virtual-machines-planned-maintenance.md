@@ -47,7 +47,8 @@ Solamente para máquinas virtuales con una configuración de una sola instancia,
 
 ![][1]
 
-<!--Anchors--> <!--Link references-->
+<!--Anchors-->
+<!--Link references-->
 
   [Mantenimiento planeado frente a mantenimiento no planeado]: ../virtual-machines-manage-availability/#Understand-planned-versus-unplanned-maintenance/
   [Configuraciones de máquinas virtuales]: #virtual-machine-configurations

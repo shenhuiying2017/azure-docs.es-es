@@ -367,7 +367,9 @@ Si necesita un actualizador sobre dónde buscar las páginas de configuración, 
 
 -   [Descripción de la nube, episodio 152: Generación de un índice en Búsqueda de Azure][Descripción de la nube, episodio 152: Generación de un índice en Búsqueda de Azure]
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->
+<!--Image references-->
+<!--Link references-->
 
   [Supuestos y funciones de Búsqueda de Azure]: http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/
   [Comienzo con el servicio gratuito]: #sub-1

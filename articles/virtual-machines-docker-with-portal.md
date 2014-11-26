@@ -113,7 +113,9 @@ El resultado debe ser similar a esto:
 
 Está preparado para ir a la [Guía del usuario de Docker][Guía del usuario de Docker] y usar su VM Docker. Si desea comenzar a crear máquinas virtuales Docker rápida y repetidamente, vea [Uso de la extensión de VM Docker desde la interfaz entre plataformas de Azure (xplat-cli)][Uso de la extensión de VM Docker desde la interfaz entre plataformas de Azure (xplat-cli)].
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
+<!--Anchors-->
+<!--Image references-->
+<!--Link references-->
 
   [Docker]: https://www.docker.com/
   [contenedores de Linux]: http://en.wikipedia.org/wiki/LXC

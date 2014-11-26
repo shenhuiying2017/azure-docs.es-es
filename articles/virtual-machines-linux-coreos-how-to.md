@@ -2,7 +2,10 @@
 
 <tags ms.service="virtual-machines" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="vm-linux" ms.workload="infrastructure-services" ms.date="10/27/2014" ms.author="rasquill" />
 
-<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.--> <!--Properties section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20properties%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20values.aspx for details. --> <!-- Tags section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20tags%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20for%20reporting.aspx for details. --> <!--The next line, with one pound sign at the beginning, is the page title-->
+<!--This is a basic template that shows you how to use mark down to create a topic that includes a TOC, sections with subheadings, links to other azure.microsoft.com topics, links to other sites, bold text, italic text, numbered and bulleted lists, code snippets, and images. For fancier markdown, find a published topic and copy the markdown or HTML you want. For more details about using markdown, see http://sharepoint/sites/azurecontentguidance/wiki/Pages/Content%20Guidance%20Wiki%20Home.aspx.-->
+<!--Properties section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20properties%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20values.aspx for details. -->
+<!-- Tags section (above): this is required in all topics. Please fill it out! See http://sharepoint/sites/azurecontentguidance/wiki/Pages/Markdown%20tagging%20-%20add%20a%20tags%20section%20to%20your%20markdown%20file%20to%20specify%20metadata%20for%20reporting.aspx for details. -->
+<!--The next line, with one pound sign at the beginning, is the page title-->
 
 # Uso de CoreOS en Microsoft Azure
 
@@ -170,7 +173,6 @@ Los resultados deberían ser exactamente los mismos:
 
 Ahora debería tener un clúster de CoreOS de tres nodos ejecutándose en Azure. A partir de aquí, puede explorar cómo crear clústeres más complejos y utilizar Docker y crear aplicaciones más interesantes leyendo[el tutorial sobre CoreOS de Tim Park][el tutorial sobre CoreOS de Tim Park], [el tutorial sobre CoreOS de Patrick Chanezon][el tutorial sobre CoreOS de Patrick Chanezon], la documentación de [Docker][Docker] y la [información general sobre CoreOS][información general sobre CoreOS].
 
-<!--Anchors--> <!--Image references--> <!--Link references-->
 
   [CoreOS]: https://coreos.com/
   [CoreOS con Azure]: https://coreos.com/docs/running-coreos/cloud-providers/azure/
