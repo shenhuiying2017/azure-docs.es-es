@@ -129,7 +129,7 @@ Para que le resulte más fácil estimar el tamaño de diversos objetos de almace
 
 Debe supervisar la disponibilidad de los servicios de almacenamiento de la cuenta de almacenamiento. Para ello, supervise el valor de la columna **Availability** (Disponibilidad) en las tablas de métricas horarias o por minuto: **$MetricsHourPrimaryTransactionsBlob**, **$MetricsHourPrimaryTransactionsTable**, **$MetricsHourPrimaryTransactionsQueue**, **$MetricsMinutePrimaryTransactionsBlob**, **$MetricsMinutePrimaryTransactionsTable**, **$MetricsMinutePrimaryTransactionsQueue** y **$MetricsCapacityBlob**. La columna **Availability** (Disponibilidad) contiene un valor de porcentaje que indica la disponibilidad del servicio o de la operación de API representada por la fila (**RowKey** señala si la fila contiene métricas del servicio completo o de una operación de API específica).
 
-Si el valor es inferior al 100%, significa que algunas solicitudes de almacenamiento no se están realizando correctamente. Puede ver a qué se deben los errores examinando las demás columnas de los datos de métricas, que muestran el número de solicitudes con diferentes tipos de errores, como **ServerTimeoutError**. Normalmente, observará que la **disponibilidad** desciende temporalmente por debajo del 100% por motivos como, por ejemplo, que se agotA de forma transitoria el tiempo de espera del servidor mientras el servicio mueve las particiones para equilibrar mejor la carga de las solicitudes. La lógica de reintento de la aplicación cliente debería administrar estas condiciones intermitentes. La página [][] contiene una lista de los tipos de transacciones que incluyen las métricas de Almacenamiento en su cálculo de la **disponibilidad**.
+Si el valor es inferior al 100%, significa que algunas solicitudes de almacenamiento no se están realizando correctamente. Puede ver a qué se deben los errores examinando las demás columnas de los datos de métricas, que muestran el número de solicitudes con diferentes tipos de errores, como **ServerTimeoutError**. Normalmente, observará que la **disponibilidad** desciende temporalmente por debajo del 100% por motivos como, por ejemplo, que se agotA de forma transitoria el tiempo de espera del servidor mientras el servicio mueve las particiones para equilibrar mejor la carga de las solicitudes. La lógica de reintento de la aplicación cliente debería administrar estas condiciones intermitentes. La página <a href="http://msdn.microsoft.com/en-us/library/azure/hh343260.aspx" target="_blank"></a> contiene una lista de los tipos de transacciones que incluyen las métricas de Almacenamiento en su cálculo de la **disponibilidad**.
 
 En el Portal de Azure, en la página **Monitor** de la cuenta de almacenamiento, puede agregar reglas de alertas para que le notifiquen si la **disponibilidad** de un servicio desciende por debajo de un umbral que especifique.
 
@@ -452,22 +452,142 @@ El motivo más común de este error es que un cliente se desconecte antes de que
 
 Si la aplicación cliente inicia errores HTTP 403 (prohibido), uno de los motivos más probables es que el cliente esté usando una Firma de acceso compartido (SAS) expirada al enviar una solicitud de almacenamiento (aunque hay otras causas posibles, como un sesgo del reloj, que las claves no sean válidas o que los encabezados estén vacíos). Si el motivo es que la clave SAS expiró, no verá ninguna entrada en los datos de registro del registro de Almacenamiento del lado servidor. En la siguiente tabla, puede ver una muestra del registro del lado cliente generado por la biblioteca de cliente de Almacenamiento que ilustra este problema:
 
-|--------------------------------|----------------------|----------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Origen**                     | **Nivel de detalle** | **Nivel de detalle** | **Id. de solicitud de cliente** | **Texto de operación**                                                                                                                                                     |
-| Microsoft.WindowsAzure.Storage | Información          | 3                    | 85d077ab-…                      | Iniciando operación con ubicación Primary según modo de ubicación PrimaryOnly.                                                                                             |
-| Microsoft.WindowsAzure.Storage | Información          | 3                    | 85d077ab-…                      | Iniciando solicitud sincrónica a https://domemaildist.blob.core.windows.netazure                                                                                           
-                                                                                                                  imblobcontainer/blobCreatedViaSAS.txt?                                                                                                                                      
-                                                                                                                  sv=2014-02-14&sr=c&si=mypolicy                                                                                                                                              
-                                                                                                                  &sig=OFnd4Rd7z01fIvh%                                                                                                                                                       
-                                                                                                                  2BmcR6zbudIH2F5Ikm%                                                                                                                                                         
-                                                                                                                  2FyhNYZEmJNQ%3D&api-version=2014-02-14.                                                                                                                                     |
-| Microsoft.WindowsAzure.Storage | Información          | 3                    | 85d077ab-…                      |  Esperando respuesta.                                                                                                                                                      |
-| Microsoft.WindowsAzure.Storage | Advertencia          | 2                    | 85d077ab-…                      |  Se inició una excepción mientras se esperaba respuesta: El servidor remoto devolvió un error: (403) Prohibido..                                                           |
-| Microsoft.WindowsAzure.Storage | Información          | 3                    | 85d077ab-…                      |  Respuesta recibida. Código de estado = 403, Id. de solicitud = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = .                                             |
-| Microsoft.WindowsAzure.Storage | Advertencia          | 2                    | 85d077ab-…                      |  Se inició una excepción durante la operación: El servidor remoto devolvió un error: (403) Prohibido..                                                                     |
-| Microsoft.WindowsAzure.Storage | Información          | 3                    | 85d077ab-…                      | Comprobando si se debe reintentar la operación. Número de reintentos = 0, Código de estado HTTP = 403, Excepción = El servidor remoto devolvió un error: (403) Prohibido.. |
-| Microsoft.WindowsAzure.Storage | Información          | 3                    | 85d077ab-…                      | La siguiente ubicación se estableció como Primary, de acuerdo con el modo de ubicación.                                                                                    |
-| Microsoft.WindowsAzure.Storage | Error                | 1                    | 85d077ab-…                      |  La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: (403) Prohibido.                                                        |
+<table>
+ <tr>
+    <td><b>Origen</b></td>
+    <td><b>Nivel de detalle</b></td>
+    <td><b>Nivel de detalle</b></td>
+    <td><b>Id. de solicitud de cliente</b></td>
+    <td><b>Texto de operaci&oacute;n</b></td>
+ </tr>
+ <tr>
+    <td>Microsoft.WindowsAzure.Storage</td>
+    <td>Informaci&oacute;n</td>
+    <td>3</td>
+    <td>85d077ab-…</td>
+    <td>Iniciando operaci&oacute;n con ubicaci&oacute;n Primary seg&uacute;n modo de ubicaci&oacute;n PrimaryOnly.</td>
+ </tr>
+ <tr>
+    <td>Microsoft.WindowsAzure.Storage</td>
+    <td>Informaci&oacute;n</td>
+    <td>3</td>
+    <td>85d077ab-…</td>
+    <td>Iniciando solicitud sincr&oacute;nica a https://domemaildist.blob.core.windows.netazure<br>imblobcontainer/blobCreatedViaSAS.txt?
+	    <br>sv=2014-02-14&amp;sr=c&amp;si=mypolicy
+	    <br>&amp;sig=OFnd4Rd7z01fIvh%
+	    <br>2BmcR6zbudIH2F5Ikm%
+	    <br>2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14.</td>
+ </tr>
+ <tr>
+    <td>Microsoft.WindowsAzure.Storage</td>
+    <td>Informaci&oacute;n</td>
+    <td>3</td>
+    <td>85d077ab-…</td>
+    <td>Esperando respuesta.</td>
+ </tr>
+ <tr>
+  <td>
+  Microsoft.WindowsAzure.Storage 
+  </td>
+  <td>
+  Advertencia 
+  </td>
+  <td>
+  2 
+  </td>
+  <td>
+  85d077ab-… 
+  </td>
+  <td>
+  Se inici&oacute; una excepci&oacute;n mientras se esperaba respuesta: El servidor remoto devolvi&oacute; un error: (403) Prohibido.. 
+  </td>
+ </tr>
+ <tr>
+  <td>
+  Microsoft.WindowsAzure.Storage 
+  </td>
+  <td>
+  Informaci&oacute;n 
+  </td>
+  <td>
+  3 
+  </td>
+  <td>
+  85d077ab-… 
+  </td>
+  <td>
+  Respuesta recibida. C&oacute;digo de estado = 403, Id. de solicitud = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . 
+  </td>
+ </tr>
+ <tr>
+  <td>
+  Microsoft.WindowsAzure.Storage 
+  </td>
+  <td>
+  Advertencia 
+  </td>
+  <td>
+  2 
+  </td>
+  <td>
+  85d077ab-… 
+  </td>
+  <td>
+  Se inici&oacute; una excepci&oacute;n durante la operaci&oacute;n: El servidor remoto devolvi&oacute; un error: (403) Prohibido.. 
+  </td>
+ </tr>
+ <tr>
+  <td>
+  Microsoft.WindowsAzure.Storage 
+  </td>
+  <td>
+  Informaci&oacute;n 
+  </td>
+  <td>
+  3 
+  </td>
+  <td>
+  85d077ab-… 
+  </td>
+  <td>
+  Comprobando si se debe reintentar la operaci&oacute;n. N&uacute;mero de reintentos = 0, C&oacute;digo de estado HTTP = 403, Excepci&oacute;n = El servidor remoto devolvi&oacute; un error: (403) Prohibido.. 
+  </td>
+ </tr>
+ <tr>
+  <td>
+  Microsoft.WindowsAzure.Storage 
+  </td>
+  <td>
+  Informaci&oacute;n 
+  </td>
+  <td>
+  3 
+  </td>
+  <td>
+  85d077ab-… 
+  </td>
+  <td>
+  La siguiente ubicaci&oacute;n se estableci&oacute; como Primary, de acuerdo con el modo de ubicaci&oacute;n. 
+  </td>
+ </tr>
+ <tr>
+  <td>
+  Microsoft.WindowsAzure.Storage 
+  </td>
+  <td>
+  Error 
+  </td>
+  <td>
+  1 
+  </td>
+  <td>
+  85d077ab-… 
+  </td>
+  <td>
+  La directiva de reintentos no permiti&oacute; un reintento. Error: El servidor remoto devolvi&oacute; un error: (403) Prohibido. 
+  </td>
+ </tr>
+</table>
 
 En este escenario, debe investigar el motivo por el que el token de SAS expira antes de que el cliente envíe el token al servidor:
 
@@ -497,54 +617,207 @@ Puede usar el registro del lado cliente de la biblioteca de cliente de Almacenam
 
 El siguiente registro del lado cliente generado por la biblioteca de cliente de Almacenamiento ilustra el problema que aparece cuando el cliente no puede encontrar el contenedor del BLOB que está creando. Este registro incluye detalles de las siguientes operaciones de almacenamiento:
 
-|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Id. de solicitud** | **Operación**                                                                                                                                                                                                                        |
-| 07b26a5d-...         | Método **DeleteIfExists** para eliminar el contenedor de BLOB. Tenga en cuenta que esta operación incluye una solicitud **HEAD** para comprobar la existencia del contenedor.                                                        |
-| e2d06d78…            | Método **CreateIfNotExists** para crear el contenedor de BLOB. Tenga en cuenta que esta operación incluye una solicitud **HEAD** que comprueba la existencia del contenedor. Muestra **HEAD** devuelve un mensaje 404 pero continúa. |
-| de8b1c3c-...         | Método **UploadFromStream** para crear el BLOB. Muestra Se produce un error en la solicitud **PUT** con un mensaje 404.                                                                                                              |
+<table>
+  <tr>
+    <td>
+      <b>Id. de solicitud</b>
+    </td>
+    <td>
+      <b>Operaci&oacute;n</b>
+    </td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>
+    M&eacute;todo <b>DeleteIfExists</b> para eliminar el contenedor de BLOB. Tenga en cuenta que esta operaci&oacute;n incluye una 
+    solicitud <b>HEAD</b> para comprobar la existencia del contenedor.</td>
+  </tr>
+  <tr>
+    <td>e2d06d78…</td>
+    <td>
+    M&eacute;todo <b>CreateIfNotExists</b> para crear el contenedor de BLOB. Tenga en cuenta que esta operaci&oacute;n incluye una 
+    solicitud <b>HEAD</b> que comprueba la existencia del contenedor. La opci&oacute;n 
+    <b>HEAD</b> devuelve un mensaje 404 pero contin&uacute;a.</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>
+    M&eacute;todo <b>UploadFromStream</b> para crear el BLOB. La opci&oacute;n 
+    Se produce un error en la solicitud <b>PUT</b> con un mensaje 404.</td>
+  </tr>
+</table>
 
 Entradas del registro:
 
-|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Id. de solicitud** | **Texto de operación**                                                                                                                                                                                                                    |
-| 07b26a5d-...         |  Iniciando solicitud sincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.                                                                                                                                        |
-| 07b26a5d-...         |  StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.                                                 |
-| 07b26a5d-...         |  Esperando respuesta.                                                                                                                                                                                                                     |
-| 07b26a5d-...         |  Respuesta recibida. Código de estado = 200, Id. de solicitud = eeead849-...Content-MD5 = , ETag = "0x8D14D2DC63D059B".                                                                                                                   |
-| 07b26a5d-...         |  Los encabezados de respuesta se procesaron correctamente y se continuó con el resto de la operación.                                                                                                                                     |
-| 07b26a5d-...         |  Descargando el cuerpo de respuesta.                                                                                                                                                                                                      |
-| 07b26a5d-...         |  Operación completada correctamente.                                                                                                                                                                                                      |
-| 07b26a5d-...         |  Iniciando solicitud sincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.                                                                                                                                        |
-| 07b26a5d-...         |  StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.                                               |
-| 07b26a5d-...         |  Esperando respuesta.                                                                                                                                                                                                                     |
-| 07b26a5d-...         |  Respuesta recibida. Código de estado = 202, Id. de solicitud = 6ab2a4cf-..., Content-MD5 = , ETag = .                                                                                                                                    |
-| 07b26a5d-...         |  Los encabezados de respuesta se procesaron correctamente y se continuó con el resto de la operación.                                                                                                                                     |
-| 07b26a5d-...         |  Descargando el cuerpo de respuesta.                                                                                                                                                                                                      |
-| 07b26a5d-...         |  Operación completada correctamente.                                                                                                                                                                                                      |
-| e2d06d78-...         |  Iniciando solicitud asincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.                                                                                                                                       |
-| e2d06d78-...         |  StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.                                                 |
-| e2d06d78-...         |  Esperando respuesta.                                                                                                                                                                                                                     |
-| de8b1c3c-...         |  Iniciando solicitud sincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt.                                                                                                                        |
-| de8b1c3c-...         |  StringToSign = PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt. |
-| de8b1c3c-...         |  Preparándose para escribir datos de solicitud.                                                                                                                                                                                           |
-| e2d06d78-...         |  Se inició una excepción mientras se esperaba respuesta: El servidor remoto devolvió un error: (404) No encontrado..                                                                                                                      |
-| e2d06d78-...         |  Respuesta recibida. Código de estado = 404, Id. de solicitud = 353ae3bc-..., Content-MD5 = , ETag = .                                                                                                                                    |
-| e2d06d78-...         |  Los encabezados de respuesta se procesaron correctamente y se continuó con el resto de la operación.                                                                                                                                     |
-| e2d06d78-...         |  Descargando el cuerpo de respuesta.                                                                                                                                                                                                      |
-| e2d06d78-...         |  Operación completada correctamente.                                                                                                                                                                                                      |
-| e2d06d78-...         |  Iniciando solicitud asincrónica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.                                                                                                                                       |
-| e2d06d78-...         |  StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.                                                 |
-| e2d06d78-...         |  Esperando respuesta.                                                                                                                                                                                                                     |
-| de8b1c3c-...         |  Escribiendo datos de solicitud.                                                                                                                                                                                                          |
-| de8b1c3c-...         |  Esperando respuesta.                                                                                                                                                                                                                     |
-| e2d06d78-...         |  Se inició una excepción mientras se esperaba respuesta: El servidor remoto devolvió un error: (409) Conflicto..                                                                                                                          |
-| e2d06d78-...         |  Respuesta recibida. Código de estado = 409, Id. de solicitud = c27da20e-..., Content-MD5 = , ETag = .                                                                                                                                    |
-| e2d06d78-...         |  Descargando el cuerpo de respuesta del error.                                                                                                                                                                                            |
-| de8b1c3c-...         |  Se inició una excepción mientras se esperaba respuesta: El servidor remoto devolvió un error: (404) No encontrado..                                                                                                                      |
-| de8b1c3c-...         |  Respuesta recibida. Código de estado = 404, Id. de solicitud = 0eaeab3e-..., Content-MD5 = , ETag = .                                                                                                                                    |
-| de8b1c3c-...         |  Se inició una excepción durante la operación: El servidor remoto devolvió un error: (404) No encontrado..                                                                                                                                |
-| de8b1c3c-...         |  La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: (404) No encontrado..                                                                                                                  |
-| e2d06d78-...         |  La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: (409) Conflicto..                                                                                                                      |
+<table>
+  <tr>
+    <td>
+      <b>Id. de solicitud</b>
+    </td>
+    <td>
+      <b>Texto de operaci&oacute;n</b>
+    </td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;Iniciando solicitud sincr&oacute;nica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11
+    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;Esperando respuesta.</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;Respuesta recibida. C&oacute;digo de estado = 200, Id. de solicitud = eeead849-...Content-MD5 = , ETag =
+    &quot;0x8D14D2DC63D059B&quot;.</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;Los encabezados de respuesta se procesaron correctamente y se continu&oacute; con el resto de la operaci&oacute;n.</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;Descargando el cuerpo de respuesta.</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;Operaci&oacute;n completada correctamente.</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;Iniciando solicitud sincr&oacute;nica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12
+    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;Esperando respuesta.</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;Respuesta recibida. C&oacute;digo de estado = 202, Id. de solicitud = 6ab2a4cf-..., Content-MD5 = , ETag = .</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;Los encabezados de respuesta se procesaron correctamente y se continu&oacute; con el resto de la operaci&oacute;n.</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;Descargando el cuerpo de respuesta.</td>
+  </tr>
+  <tr>
+    <td>07b26a5d-...</td>
+    <td>&nbsp;Operaci&oacute;n completada correctamente.</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;Iniciando solicitud asincr&oacute;nica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;StringToSign = HEAD............x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12
+    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;Esperando respuesta.</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;Iniciando solicitud sincr&oacute;nica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer/blobCreated.txt.</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;StringToSign =
+    PUT...64.qCmF+TQLPhq/YYK50mP9ZQ==........x-ms-blob-type:BlockBlob.x-ms-client-request-id:de8b1c3c-....x-ms-date:Tue, 03 Jun
+    2014 10:33:12 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer/blobCreated.txt.</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;Prepar&aacute;ndose para escribir datos de solicitud.</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;Se inici&oacute; una excepci&oacute;n mientras se esperaba respuesta: El servidor remoto devolvi&oacute; un error: (404) No encontrado..</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;Respuesta recibida. C&oacute;digo de estado = 404, Id. de solicitud = 353ae3bc-..., Content-MD5 = , ETag = .</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;Los encabezados de respuesta se procesaron correctamente y se continu&oacute; con el resto de la operaci&oacute;n.</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;Descargando el cuerpo de respuesta.</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;Operaci&oacute;n completada correctamente.</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;Iniciando solicitud asincr&oacute;nica a https://domemaildist.blob.core.windows.net/azuremmblobcontainer.</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;StringToSign = PUT...0.........x-ms-client-request-id:e2d06d78-....x-ms-date:Tue, 03 Jun 2014 10:33:12
+    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container.</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;Esperando respuesta.</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;Escribiendo datos de solicitud.</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;Esperando respuesta.</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;Se inici&oacute; una excepci&oacute;n mientras se esperaba respuesta: El servidor remoto devolvi&oacute; un error: (409) Conflicto..</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;Respuesta recibida. C&oacute;digo de estado = 409, Id. de solicitud = c27da20e-..., Content-MD5 = , ETag = .</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;Descargando el cuerpo de respuesta del error.</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;Se inici&oacute; una excepci&oacute;n mientras se esperaba respuesta: El servidor remoto devolvi&oacute; un error: (404) No encontrado..</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;Respuesta recibida. C&oacute;digo de estado = 404, Id. de solicitud = 0eaeab3e-..., Content-MD5 = , ETag = .</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;Se inici&oacute; una excepci&oacute;n durante la operaci&oacute;n: El servidor remoto devolvi&oacute; un error: (404) No encontrado..</td>
+  </tr>
+  <tr>
+    <td>de8b1c3c-...</td>
+    <td>&nbsp;La directiva de reintentos no permiti&oacute; un reintento. Error: El servidor remoto devolvi&oacute; un error: (404) No encontrado..</td>
+  </tr>
+  <tr>
+    <td>e2d06d78-...</td>
+    <td>&nbsp;La directiva de reintentos no permiti&oacute; un reintento. Error: El servidor remoto devolvi&oacute; un error: (409) Conflicto..</td>
+  </tr>
+</table>
 
 En este ejemplo, el registro muestra que el cliente está intercalando las solicitudes del método **CreateIfNotExists** (identificador de solicitud e2d06d78…) con las solicitudes del método **UploadFromStream** (de8b1c3c-...). Esto sucede porque la aplicación cliente está invocando a estos métodos de forma asincrónica. Debe modificar el código asincrónico del cliente para que cree el contenedor antes de tratar de cargar datos en un BLOB de ese contenedor. Lo ideal es que cree todos los contenedores de antemano.
 
@@ -554,16 +827,45 @@ Si la aplicación cliente trata de usar una clave SAS que no incluye los permiso
 
 En la siguiente tabla, puede ver una muestra de un mensaje de registro del lado servidor del archivo de registro del registro de Almacenamiento:
 
-|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Hora de inicio de la solicitud | 2014-05-30T06:17:48.4473697Z                                                                                                                           |
-| Tipo de operación              | GetBlobProperties                                                                                                                                      |
-| Estado de la solicitud         | SASAuthorizationError                                                                                                                                  |
-| Código de estado HTTP          | 404                                                                                                                                                    |
-| Tipo de autenticación          | Sas                                                                                                                                                    |
-| Tipo de servicio               | Blob                                                                                                                                                   |
-| URL de la solicitud            | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&api-version=2014-02-14& |
-| Encabezado de id. de solicitud | a1f348d5-8032-4912-93ef-b393e5252a3b                                                                                                                   |
-| Id. de solicitud de cliente    | 2d064953-8436-4ee0-aa0c-65cb874f7929                                                                                                                   |
+<table>
+  <tr>
+    <td>Hora de inicio de la solicitud</td>
+    <td>2014-05-30T06:17:48.4473697Z</td>
+  </tr>
+  <tr>
+    <td>Tipo de operaci&oacute;n</td>
+    <td>GetBlobProperties</td>
+  </tr>
+  <tr>
+    <td>Estado de la solicitud</td>
+    <td>SASAuthorizationError</td>
+  </tr>
+  <tr>
+    <td>C&oacute;digo de estado HTTP</td>
+    <td>404</td>
+  </tr>
+  <tr>
+    <td>Tipo de autenticaci&oacute;n</td>
+    <td>Sas</td>
+  </tr>
+  <tr>
+    <td>Tipo de servicio</td>
+    <td>Blob</td>
+  </tr>
+  <tr>
+    <td>URL de la solicitud</td>
+    <td>
+    https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=XXXXX&amp;api-version=2014-02-14&amp;</td>
+  </tr>
+  <tr>
+    <td>Encabezado de id. de solicitud</td>
+    <td>a1f348d5-8032-4912-93ef-b393e5252a3b</td>
+  </tr>
+  <tr>
+    <td>Id. de solicitud de cliente</td>
+    <td>2d064953-8436-4ee0-aa0c-65cb874f7929</td>
+  </tr>
+</table>
 
 Debe investigar el motivo por el que la aplicación cliente está tratando de realizar una operación para la que no se le concedieron permisos.
 
@@ -612,12 +914,53 @@ Si este problema se produce a menudo, debe investigar por qué el cliente no rec
 
 La siguiente tabla muestra un extracto del registro del lado servidor de dos operaciones de cliente: **DeleteIfExists**, seguida inmediatamente de **CreateIfNotExists** con el mismo nombre de contenedor de BLOB. Cada operación de cliente hace que se envíen dos solicitudes al servidor: primero, una solicitud **GetContainerProperties** para comprobar si existe el contenedor y, luego, la solicitud **DeleteContainer** o **CreateContainer**.
 
-|------------------|------------------------|---------------|---------------------------|---------------------------------|
-| **Timestamp**    | **Operación**          | **Resultado** | **Nombre del contenedor** | **Id. de solicitud de cliente** |
-| 05:10:13.7167225 | GetContainerProperties | 200           | mmcont                    | c9f52c89-…                      |
-| 05:10:13.8167325 | DeleteContainer        | 202           | mmcont                    | c9f52c89-…                      |
-| 05:10:13.8987407 | GetContainerProperties | 404           | mmcont                    | bc881924-…                      |
-| 05:10:14.2147723 | CreateContainer        | 409           | mmcont                    | bc881924-…                      |
+<table>
+  <tr>
+    <td>
+      <b>Timestamp</b>
+    </td>
+    <td>
+      <b>Operaci&oacute;n</b>
+    </td>
+    <td>
+      <b>Resultado</b>
+    </td>
+    <td>
+      <b>Nombre del contenedor</b>
+    </td>
+    <td>
+      <b>Id. de solicitud de cliente</b>
+    </td>
+  </tr>
+  <tr>
+    <td>05:10:13.7167225</td>
+    <td>GetContainerProperties</td>
+    <td>200</td>
+    <td>mmcont</td>
+    <td>c9f52c89-…</td>
+  </tr>
+  <tr>
+    <td>05:10:13.8167325</td>
+    <td>DeleteContainer</td>
+    <td>202</td>
+    <td>mmcont</td>
+    <td>c9f52c89-…</td>
+  </tr>
+  <tr>
+    <td>05:10:13.8987407</td>
+    <td>GetContainerProperties</td>
+    <td>404</td>
+    <td>mmcont</td>
+    <td>bc881924-…</td>
+  </tr>
+  <tr>
+    <td>05:10:14.2147723</td>
+    <td>CreateContainer</td>
+    <td>409</td>
+    <td>mmcont</td>
+    <td>bc881924-…</td>
+  </tr>
+</table>
 
 El código de la aplicación cliente elimina un contenedor de BLOB y, justo después, vuelve a crearlo con el mismo nombre: el método **CreateIfNotExists** (identificador de solicitud de cliente bc881924-…), finalmente, experimenta el error HTTP 409 (conflicto). Cuando un cliente elimina contenedores de BLOB, tablas o colas, transcurre un breve período hasta que el nombre vuelve a estar disponible.
 
@@ -805,8 +1148,7 @@ También puede usar la característica Application Insights para Visual Studio O
 
 Cuando se escribió este documento, Application Insights se encontraba en una versión preliminar. Puede ver más información en [Application Insights para Visual Studio Online en MSDN][Application Insights para Visual Studio Online en MSDN].
 
-<!--Anchors-->
-<!--Image references-->
+
 
   [Introducción]: #introduction
   [Cómo está organizada esta guía]: #how-this-guide-is-organized

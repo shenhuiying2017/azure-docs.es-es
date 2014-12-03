@@ -28,12 +28,11 @@ En las aplicaciones en nube, la responsabilidad de diseñar, desarrollar y mante
 aplicaciones en nube con los máximos estándares de seguridad para mantener a raya a los
 atacantes recae sobre los desarrolladores.
 Considere el siguiente diagrama (extraído de [Azure Security
-Notes PDF][Azure Security
-Notes PDF] de J.D. Meier): observe cómo la parte de infraestructura la está abordando el proveedor de nube
+Notes PDF](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx) de J.D. Meier): observe cómo la parte de infraestructura la está abordando el proveedor de nube
 (en nuestro caso, Azure), dejando más trabajo de
 seguridad a los desarrolladores de aplicaciones:
 
-![Protección de la aplicación][Protección de la aplicación]
+![Protección de la aplicación](./media/SecurityRX/01_SecuringTheApplication.gif)
 
 La buena noticia es que todas las prácticas, principios y técnicas de desarrollo
 de seguridad con las que está familiarizado se
@@ -53,8 +52,7 @@ abordarse:
 
 Para obtener una lista completa de amenazas, ataques, vulnerabilidades y
 contramedidas, consulte [Cheat Sheet: Web
-Application Security Frame][Cheat Sheet: Web
-Application Security Frame] y [Security Guidance for Applications Index][Security Guidance for Applications Index].
+Application Security Frame](http://msdn.microsoft.com/es-es/library/ff649461.aspx) y [Security Guidance for Applications Index](http://msdn.microsoft.com/es-es/library/ff650760.aspx).
 
 En la nube, los mecanismos de autenticación y de control de acceso son muy
 diferentes de los que están disponibles en las aplicaciones locales. Hay muchas
@@ -93,11 +91,10 @@ interceptación en la red para capturar credenciales enviadas sin cifrar. Estos
 ataques pueden conducir a una amenaza de suplantación de identidad. Dicho simplemente,
 hay que considerar las amenazas, vulnerabilidades y ataques como algo perjudicial.
 Considere los diagramas siguientes como una vista panorámica
-de los aspectos negativos relacionados con una aplicación web implementada en Azure (extraído de [Azure Security Notes PDF][Azure Security
-Notes PDF]
+de los aspectos negativos relacionados con una aplicación web implementada en Azure (extraído de [Azure Security Notes PDF](http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx)
 de J.D. Meier):
 
-![Amenazas, vulnerabilidades y ataques][Amenazas, vulnerabilidades y ataques]
+![Amenazas, vulnerabilidades y ataques](./media/SecurityRX/02_ThreatsVulnerabilitiesandAttacks.gif)
 
 Usted, como desarrollador, tiene control sobre las vulnerabilidades. Cuantas menos
 vulnerabilidades se introduzcan, menos opciones tendrá el
@@ -144,8 +141,7 @@ siguientes proporcionan información detallada sobre WIF:
     Muestras de código para desarrollador de MSDN.
 -   [Windows Identity Foundation runtime (.Net 3.5/4.0)][Windows Identity Foundation runtime (.Net 3.5/4.0)] en MSDN.
 -   [Muestras de código de Windows Identity Foundation 3.5/4.0 y plantillas de Visual Studio
-    2008/2010][Muestras de código de Windows Identity Foundation 3.5/4.0 y plantillas de Visual Studio
-    2008/2010] en MSDN.
+    2008/2010](http://www.microsoft.com/es-es/download/details.aspx?displaylang=en&id=4451) en MSDN.
 
 **Servicio de control de acceso de Azure AD (anteriormente conocido como ACS)**.
 El servicio de control de acceso de Azure AD es un servicio en la nube que
@@ -466,7 +462,7 @@ Consulte los recursos siguientes para implementar este escenario:
 
 -   [Eliminación de Implementar control de acceso basado en roles (RBAC) en una aplicación ASP.NET compatible con notificaciones usando WIF y ACS][Eliminación de Implementar control de acceso basado en roles (RBAC) en una aplicación ASP.NET compatible con notificaciones usando WIF y ACS]
 -   [Eliminación de Implementar la lógica de transformación de tokens mediante reglas][Eliminación de Implementar la lógica de transformación de tokens mediante reglas]
--   [Authorization With RoleManager For Claims Aware (WIF) ASP.NET Web Applications][Authorization With RoleManager For Claims Aware (WIF) ASP.NET Web Applications]
+-   [Authorization With RoleManager For Claims Aware (WIF) ASP.NET Web Applications](http://blogs.msdn.com/b/alikl/archive/2010/11/18/authorization-with-rolemanager-for-claims-aware-wif-asp-net-web-applications.aspx)
 -   Ejemplo de código: Uso de notificaciones en IsInRole en [Windows Identity Foundation SDK][Windows Identity Foundation SDK]
 
 ### Autorización basada en notificaciones en aplicaciones y servicios para notificaciones
@@ -635,8 +631,7 @@ para estas tecnologías al diseñar e implementar su aplicación.
 
 A continuación se indican los principales mecanismos de seguridad de WIF. La información siguiente es un
 resumen extraído de [Consideraciones de diseño de WIF][Consideraciones de diseño de WIF] y [Windows Identity Foundation
-(WIF) Security for ASP.NET Web Applications - Threats & Countermeasures][Windows Identity Foundation
-(WIF) Security for ASP.NET Web Applications - Threats & Countermeasures]
+(WIF) Security for ASP.NET Web Applications - Threats & Countermeasures](http://blogs.msdn.com/b/alikl/archive/2010/12/02/windows-identity-foundation-wif-security-for-asp-net-web-applications-threats-amp-countermeasures.aspx)
 .
 
 -   **IssuerNameRegistry**. Especifica los servicios de token de seguridad de confianza
@@ -655,15 +650,13 @@ resumen extraído de [Consideraciones de diseño de WIF][Consideraciones de dise
 -   **requestValidation** y **httpRuntime requestValidationType**.
     Habilita/deshabilita la característica de validación ASP.NET. Consulte la información
     descrita en [Windows Identity Foundation (WIF): A Potentially
-    Dangerous Request.Form Value Was Detected from the Client][Windows Identity Foundation (WIF): A Potentially
-    Dangerous Request.Form Value Was Detected from the Client]
+    Dangerous Request.Form Value Was Detected from the Client](http://social.technet.microsoft.com/wiki/contents/articles/1725.windows-identity-foundation-wif-a-potentially-dangerous-request-form-value-was-detected-from-the-client-wresult-t-requestsecurityto.aspx)
 
 ### Control de acceso de Azure AD
 
 Considere los siguientes mecanismos de seguridad al implementar el servicio de control de acceso
 de Azure AD. La información siguiente es un resumen extraído de [Instrucciones
-de seguridad de ACS][Instrucciones
-de seguridad de ACS] e [Instrucciones de administración de certificados y claves][Instrucciones de administración de certificados y claves].
+de seguridad de ACS](http://msdn.microsoft.com/es-es/library/gg185962.aspx) e [Instrucciones de administración de certificados y claves](http://msdn.microsoft.com/es-es/library/hh204521.aspx).
 
 -   **Expiración de tokens de STS**. Utilice el portal de administración
     del servicio de control de acceso de Azure AD para establecer una expiración agresiva del token.
@@ -763,7 +756,6 @@ aplicación se hospeda en Máquinas virtuales de Azure.
 -   [Security Developer Center (MSDN)][Security Developer Center (MSDN)]
 
   [Azure Security Notes PDF]: http://blogs.msdn.com/b/jmeier/archive/2010/08/03/now-available-azure-security-notes-pdf.aspx
-  [Protección de la aplicación]: ./media SecurityRX/01_SecuringTheApplication.gif
   [Security Guidance for Applications Index]: http://msdn.microsoft.com/es-es/library/ff650760.aspx
   [Amenazas, vulnerabilidades y ataques]: ./media/SecurityRX/02_ThreatsVulnerabilitiesandAttacks.gif
   [Windows Identity Foundation 4.5 Samples]: http://code.msdn.microsoft.com/site/search?f%5B0%5D.Type=SearchText&f%5B0%5D.Value=wif&f%5B1%5D.Type=Topic&f%5B1%5D.Value=claims-based%20authentication
@@ -818,7 +810,7 @@ aplicación se hospeda en Máquinas virtuales de Azure.
 
   [4]: ./media/SecurityRX/13_ClaimsAuthorizationManager.gif
   [5]: ./media/SecurityRX/14_WindowsAzurestorage.gif
-  [6]: ./media SecurityRX/15_SQLAzureIdentityandAccessScenarios.gif
+  [6]:./media/SecurityRX/14_WindowsAzurestorage.gif
   [Instrucciones y limitaciones de seguridad (Base de datos SQL de Azure)]: http://msdn.microsoft.com/es-es/library/windowsazure/ff394108.aspx#authentication
   [Direccionamiento del Conectar con Base de datos SQL de Azure mediante sqlcmd]: http://msdn.microsoft.com/es-es/library/windowsazure/ee336280.aspx
   [Direccionamiento del Conectar con Base de datos SQL de Azure mediante ADO.NET]: http://msdn.microsoft.com/es-es/library/windowsazure/ee336243.aspx

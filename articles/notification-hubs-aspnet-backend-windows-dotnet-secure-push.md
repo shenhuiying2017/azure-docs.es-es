@@ -29,7 +29,7 @@ Es importante tener en cuenta que en el flujo anterior (y en este tutorial), asu
 
 Este tutorial Inserción segura muestra cómo enviar una notificación de inserción de forma segura. El tutorial se basa en el tutorial **Notificar a los usuarios**, por lo que debe completar los pasos de ese tutorial primero.
 
-> [AZURE.NOTE] Este tutorial asume que ha creado y configurado el centro de notificaciones tal y como se describe en [Introducción a los Centros de notificaciones (Tienda Windows)][Introducción a los Centros de notificaciones (Tienda Windows)].
+> [AZURE.NOTE] Este tutorial asume que ha creado y configurado el centro de notificaciones tal y como se describe en [Introducción a los Centros de notificaciones (Tienda Windows)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/).
 > Asimismo, tenga en cuenta que Windows Phone 8.1 requiere credenciales de Windows (no de Windows Phone) y que las tareas en segundo plano no funcionan en Windows Phone 8.0 o Silverlight 8.1. Para aplicaciones de la Tienda Windows, puede recibir notificaciones a través de una tarea en segundo plano solamente si la aplicación tiene la pantalla de bloqueo habilitada (haga clic en la casilla en el manifiesto de la aplicación).
 
 [WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
@@ -71,7 +71,7 @@ El paso siguiente es crear el componente de segundo plano de inserción.
 
 2.  Expanda **Aplicaciones de la Tienda**, haga clic en **Aplicaciones Windows Phone** y después en **Componente de Windows en tiempo de ejecución (Windows Phone)**. Asigne un nombre al proyecto **PushBackgroundComponent** y haga clic en **Aceptar** para crear el proyecto.
 
-    ![](/media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png)
+    ![][12]
 
 3.  En el Explorador de soluciones, haga clic con el botón secundario en el proyecto **PushBackgroundComponent (Windows Phone 8.1)**, después en **Agregar** y, por último, en **Clase**. Asigne un nombre a la nueva clase **PushBackgroundTask.cs**. Haga clic en **Agregar** para generar la clase.
 
@@ -172,3 +172,4 @@ Para ejecutar la aplicación, realice las siguientes tareas:
   
   [1]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push3.png
   [2]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push13.png
+  [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-secure-push/notification-hubs-secure-push12.png

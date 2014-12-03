@@ -2,26 +2,25 @@
 
 <tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
 
-# Entrega de contenido desde la red CDN de Azure en su aplicación web
-
+# Entrega de contenido desde la red CDN de Azure en su aplicación web #
 ***Actualizado el 23 de julio de 2014***
 
 Este tutorial le mostrará cómo sacar el máximo partido de la red CDN de Azure para mejorar el alcance y el rendimiento de su aplicación web. La red CDN de Azure puede ayudarle a mejorar el rendimiento de su aplicación web cuando::
 
--   Tiene varios vínculos a contenido estático o semiestático en las páginas.
--   La aplicación la utilizan los clientes globalmente.
--   Desea descargar tráfico desde el servicio web.
+- Tiene varios vínculos a contenido estático o semiestático en las páginas.
+- La aplicación la utilizan los clientes globalmente.
+- Desea descargar tráfico desde el servicio web.
 -   Desea reducir el número de conexiones de cliente simultáneas al servidor web (en [Unión y minificación][Unión y minificación] se habla de ello).
--   Si desea aumentar el tiempo de actualización/carga percibido en las páginas.
+- Si desea aumentar el tiempo de actualización/carga percibido en las páginas.
 
 ## Qué aprenderá
 
 En este tutorial, aprenderá los siguientes procedimientos:
 
--   [Entrega de contenido estático desde un extremo de la red CDN de Azure][Entrega de contenido estático desde un extremo de la red CDN de Azure]
--   [Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN][Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN]
--   [Configuración del caché de la red CDN para reflejar la actualización deseada del contenido][Configuración del caché de la red CDN para reflejar la actualización deseada del contenido]
--   [Entrega inmediata de contenido nuevo mediante cadenas de consulta][Entrega inmediata de contenido nuevo mediante cadenas de consulta]
+-   [Entrega de contenido estático desde un extremo de la red CDN de Azure](#deploy)
+-   [Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN](#upload)
+-   [Configuración del caché de la red CDN para reflejar la actualización deseada del contenido](#update)
+-   [Entrega inmediata de contenido nuevo mediante cadenas de consulta](#query)
 
 ## Qué necesita
 
@@ -60,13 +59,13 @@ Vamos a verlo. Siga los pasos siguientes para comenzar a utilizar la red CDN de 
 
     ![][0]
 
-    > [WACOM.NOTE] Tenga en cuenta que estoy usando Asia Oriental como región, ya que está lo suficientemente alejada para probar después mi red CDN desde Norteamérica.
+   > [WACOM.NOTE] Tenga en cuenta que estoy usando Asia Oriental como región, ya que está lo suficientemente alejada para probar después mi red CDN desde Norteamérica.
 
 3.  Cuando el nuevo estado de la cuenta de almacenamiento es **En línea**, cree un nuevo extremo de red CDN que esté vinculado a la cuenta de almacenamiento que ha creado. Haga clic en **Nuevo \> Servicios de aplicaciones \> CDN \> Creación rápida**. Seleccione la cuenta de almacenamiento que ha creado y haga clic en **Crear**.
 
     ![][1]
 
-    > [WACOM.NOTE] Una vez creada la red CDN, el portal de Azure le mostrará su URL y el dominio de origen al que está vinculada. Sin embargo, la configuración del extremo de red CDN puede tardar un poco en propagarse por completo a todas las ubicaciones del nodo.
+   > [WACOM.NOTE] Una vez creada la red CDN, el portal de Azure le mostrará su URL y el dominio de origen al que está vinculada. Sin embargo, la configuración del extremo de red CDN puede tardar un poco en propagarse por completo a todas las ubicaciones del nodo.
 
 4.  Pruebe el extremo de red CDN para asegurarse de que está en línea haciendo ping en él. Si el extremo de red CDN no se ha propagado en todos los nodos, verá un mensaje similar al siguiente.
 
@@ -90,7 +89,7 @@ Vamos a verlo. Siga los pasos siguientes para comenzar a utilizar la red CDN de 
 
     ![][6]
 
-    > [WACOM.NOTE] Aunque no es necesario habilitar la cadena de consulta para esta parte del tutorial, le conviene hacerlo lo antes posible para mayor comodidad ya que cualquier cambio va a tardar tiempo en propagarse al resto de lo nodos y no deseará que cualquier contenido no habilitado para cadenas de consulta atasque el caché de la red CDN (la actualización del contenido de la red CDN se tratará después). Averiguará cómo sacar partido de esto en [Entrega inmediata de contenido nuevo mediante cadenas de consulta][Entrega inmediata de contenido nuevo mediante cadenas de consulta].
+   > [WACOM.NOTE] Aunque no es necesario habilitar la cadena de consulta para esta parte del tutorial, le conviene hacerlo lo antes posible para mayor comodidad ya que cualquier cambio va a tardar tiempo en propagarse al resto de lo nodos y no deseará que cualquier contenido no habilitado para cadenas de consulta atasque el caché de la red CDN (la actualización del contenido de la red CDN se tratará después). Averiguará cómo sacar partido de esto en [Entrega inmediata de contenido nuevo mediante cadenas de consulta][Entrega inmediata de contenido nuevo mediante cadenas de consulta].
 
 8.  En Visual Studio 2013, en el Explorador de soluciones, haga clic en el botón **Conectar a Windows Azure**.
 
@@ -123,7 +122,7 @@ Vamos a verlo. Siga los pasos siguientes para comenzar a utilizar la red CDN de 
 
 16. Si puede ver el blob correctamente representado en el explorador, cambie la URL de `http://<yourStorageAccountName>.blob.core.windows.net` a la URL de la red CDN de Azure. En mi caso, para probar la primera imagen en mi extremo de red CDN, utilizo `http://az623979.vo.msecnd.net/cdn/cephas_lin.png`.
 
-    > [WACOM.NOTE] Puede encontrar la URL del extremo de red CDN en el portal de administración de Azure, en la pestaña CDN.
+   > [WACOM.NOTE] Puede encontrar la URL del extremo de red CDN en el portal de administración de Azure, en la pestaña CDN.
 
     Si compara el rendimiento del acceso directo de blobs y el acceso a la red CDN, puede ver la ganancia de rendimiento al utilizar la red CDN de Azure. A continuación se muestra la captura de pantalla de las herramientas de desarrollador F12 de Internet Explorer 11 para el acceso de la URL del blob de mi imagen:
 
@@ -153,7 +152,7 @@ Si desea cargar fácilmente todo el contenido estático a su aplicación web de 
 
         Import-AzurePublishSettingsFile "<yourDownloadedFilePath>"
 
-    > [WACOM.NOTE] Cuando haya importando el archivo de configuración de publicación, será la cuenta de Azure predeterminada la que se utilizará en todas las sesiones de Azure PowerShell. Esto significa que los pasos anteriores solo tienen que realizarse una vez.
+   > [WACOM.NOTE] Cuando haya importando el archivo de configuración de publicación, será la cuenta de Azure predeterminada la que se utilizará en todas las sesiones de Azure PowerShell. Esto significa que los pasos anteriores solo tienen que realizarse una vez.
 
 4.  Descargue el script en la [página de descargas]((<http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a>). Guárdelo en la carpeta de proyecto de la aplicación ASP.NET.
 5.  Haga clic con el botón secundario en el archivo descargado y haga clic en **Propiedades**.
@@ -237,12 +236,17 @@ Para un extremo de red de CDN con cadenas de consulta habilitadas, las dos URL s
 El truco aquí consiste en actualizar el número de versión de manera automática. En Visual Studio, esto es fácil de hacer. En un archivo .cshtml donde me gustaría usar el vínculo anterior, puedo especificar un número de versión en función del número de ensamblado.
 
 <pre class="prettyprint">
-@{ var cdnVersion = System.Reflection.Assembly.GetAssembly( typeof(MyMvcApp.Controllers.HomeController)) .GetName().Version.ToString();}
+@{
+    <mark>var cdnVersion = System.Reflection.Assembly.GetAssembly(
+        typeof(MyMvcApp.Controllers.HomeController))
+        .GetName().Version.ToString();</mark>
+}
+
 ...
+
 &lt;link href=&quot;http://az623979.vo.msecnd.net/MyMvcApp/Content/bootstrap.css?v=@cdnVersion&quot; rel=&quot;stylesheet&quot;/&gt;
 </pre>
 
-</p>
 Si cambia el número de ensamblado como parte de cada ciclo de publicación, puede asegurarse igualmente de obtener un número de versión único cada vez que publique su aplicación web, que permanecerá igual hasta el siguiente ciclo de publicación. O bien, puede hacer que Visual Studio incremente automáticamente el número de versión de ensamblado cada vez que la aplicación web se crea abriendo *Properties\\AssemblyInfo.cs* en su proyecto de Visual Studio y utilizar `*` en `AssemblyVersion`. Por ejemplo:
 
     [assembly: AssemblyVersion("1.0.0.*")]
@@ -260,15 +264,11 @@ Para obtener más información sobre la integración de la red CDN de Azure con 
 
 # Más información
 
--   [Información general de la red de entrega de contenido (CDN) de Azure][Información general de la red de entrega de contenido (CDN) de Azure]
--   [Integración de una aplicación en nube con la red CDN de Azure][16]
--   [Uso de la red CDN en Azure][Uso de la red CDN en Azure]
+-   [Información general de la red de entrega de contenido (CDN) de Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
+-   [Integración de una aplicación en nube con la red CDN de Azure](http://azure.microsoft.com/es-es/Documentation/Articles/cdn-cloud-service-with-cdn/)
+-   [Uso de la red CDN en Azure](http://azure.microsoft.com/es-es/documentation/articles/cdn-how-to-use/)
 
   [Unión y minificación]: http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification
-  [Entrega de contenido estático desde un extremo de la red CDN de Azure]: #deploy
-  [Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN]: #upload
-  [Configuración del caché de la red CDN para reflejar la actualización deseada del contenido]: #update
-  [Entrega inmediata de contenido nuevo mediante cadenas de consulta]: #query
   [cuenta de Microsoft Azure]: http://azure.microsoft.com/es-es/account/
   [Azure SDK]: http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409
   [Azure PowerShell]: http://go.microsoft.com/?linkid=9811175&clcid=0x409
@@ -296,6 +296,3 @@ Para obtener más información sobre la integración de la red CDN de Azure con 
   [Servicios en la nube de Azure]: http://azure.microsoft.com/es-es/services/cloud-services/
   [stackoverflow]: http://stackoverflow.com/a/13736433
   [Integración de una aplicación en nube con la red CDN de Azure]: http://azure.microsoft.com/es-es/documentation/articles/cloud-services-how-to-create-deploy/
-  [Información general de la red de entrega de contenido (CDN) de Azure]: http://msdn.microsoft.com/library/azure/ff919703.aspx
-  [16]: http://azure.microsoft.com/es-es/Documentation/Articles/cdn-cloud-service-with-cdn/
-  [Uso de la red CDN en Azure]: http://azure.microsoft.com/es-es/documentation/articles/cdn-how-to-use/

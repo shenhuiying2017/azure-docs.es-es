@@ -1,5 +1,4 @@
 > [AZURE.SELECTOR-LIST (Plataforma | Backend)]
-
 -   [(iOS | .NET)][(iOS | .NET)]
 -   [(iOS | JavaScript)][(iOS | JavaScript)]
 -   [(C# de Tienda Windows | .NET)][(C# de Tienda Windows | .NET)]

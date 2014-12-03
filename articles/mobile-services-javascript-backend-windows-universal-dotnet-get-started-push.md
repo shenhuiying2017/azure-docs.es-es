@@ -1,4 +1,4 @@
-<properties pagetitle="Get started with push notification using a JavaScript backend mobile service" metakeywords description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." metacanonical services="mobile-services,notification-hubs" documentationcenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor></properties>
+<properties pageTitle="Get started with push notification using a JavaScript backend mobile service" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/11/2014" ms.author="glenga" />
 
@@ -82,3 +82,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
   [Introducción a los datos]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data
   [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-users
   [Uso de un cliente .NET para Servicios móviles de Azure]: /es-es/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+  [¿Qué son los Centros de notificaciones?]: ./es-es/documentation/articles/notification-hubs-overview/

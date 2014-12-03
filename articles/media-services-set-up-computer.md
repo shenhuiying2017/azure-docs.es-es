@@ -59,7 +59,7 @@ Para obtener una referencia al contexto de servidor, cree una instancia nueva de
 
 Con frecuencia resulta útil definir una variable de nivel de módulo de tipo **CloudMediaContext** para mantener una referencia al contexto de servidor. Para obtener más información, consulte [Conectar con Media Services mediante el SDK de Media Services][Conectar con Media Services mediante el SDK de Media Services].
 
-El resto de los ejemplos de código en este tema usan una variable que se llama \*\*\_context\*\* para referirse al contexto de servidor.
+El resto de los ejemplos de código en este tema usan una variable que se llama \_**context** para referirse al contexto de servidor.
 
 ## Pasos siguientes
 

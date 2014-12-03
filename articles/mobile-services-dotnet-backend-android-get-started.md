@@ -12,7 +12,7 @@ La siguiente captura de pantalla muestra la aplicación final:
 
 ![][0]
 
-Para completar este tutorial se requieren las [herramientas para desarrolladores de Android (en inglés)][herramientas para desarrolladores de Android (en inglés)] (ADT), que incluyen el entorno de desarrollo integrado (IDE) Eclipse, el complemento para las ADT y la última plataforma Android. Se requiere Android 4.2 o versiones posteriores.
+Para completar este tutorial se requieren las [herramientas para desarrolladores de Android (en inglés)] (https://go.microsoft.com/fwLink/p/?LinkID=280125) (ADT), que incluyen el entorno de desarrollo integrado (IDE) Eclipse, el complemento para las ADT y la última plataforma Android. Se requiere Android 4.2 o versiones posteriores.
 
 El proyecto de inicio rápido descargado contiene el SDK de Servicios móviles para Android. Si bien este proyecto requiere Android 4.2 o versiones posteriores, el SDK mencionado tan solo requiere Android 2.2 o una versión posterior.
 

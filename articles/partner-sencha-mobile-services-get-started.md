@@ -651,7 +651,7 @@ La etapa final de este tutorial consiste en hospedar y ejecutar la aplicación n
 
     ![sencha web start][sencha web start]
 
-3.  Abra la dirección URL que aparece en el terminal en un explorador web para iniciar la aplicación (por ejemplo, <http://localhost:1841>).
+3.  Abra la dirección URL que aparece en el terminal en un explorador web para iniciar la aplicación (por ejemplo, http://localhost:1841).
 
 4.  En la aplicación, escriba un texto significativo, como "Realice el tutorial" y, a continuación, haga clic en **Add**.
 
@@ -691,7 +691,6 @@ El ejemplo descrito aquí se proporciona en el paquete de Sencha Touch Extension
 
 Para obtener información sobre las tareas iniciales de Sencha Touch, consulte el conjunto completo de [guías][guías] (en inglés).
 
-<!-- images -->
 
   [0]: ./media/partner-sencha-mobile-services-get-started/finished-app.png
   [Sencha Touch]: http://wwww.sencha.com/products/touch/download

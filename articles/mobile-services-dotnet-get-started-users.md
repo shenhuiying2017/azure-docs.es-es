@@ -40,18 +40,18 @@ móviles para autenticar usuarios mediante una serie de proveedores de identidad
 
 </div>
 
-<h2><a  name="register" ></a><span  class="short-header">Registro de la aplicación</span>Registro de la aplicación para la autenticación y configuración de Servicios móviles</h2>
+<h2><a  name="register"></a><span  class="short-header">Registro de la aplicación</span>Registro de la aplicación para la autenticación y configuración de Servicios móviles</h2>
 
 
 Para poder autenticar usuarios, debe registrar la aplicación con un proveedor de identidades. A continuación, debe registrar el secreto de cliente generado por el proveedor con Servicios móviles.
 
 1.  Inicie sesión en el [Portal de administración de Azure][3], haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
-    
-    ![][4]
+
+   	![][4]
 
 2.  Haga clic en la pestaña **Panel** y anote el valor de **Mobile Service URL**.
-    
-    ![][5]
+
+   	![][5]
     
     Es posible que tenga que proporcionar ese valor al proveedor de identidades cuando registre la aplicación.
 
@@ -92,7 +92,7 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
 
 El servicio móvil y la aplicación están ahora configurados para que funcionen con el proveedor de autenticación seleccionado.
 
-<h2><a  name="permissions" ></a><span  class="short-header">Restricción de permisos</span>Restricción de permisos a usuarios autenticados</h2>
+<h2><a  name="permissions"></a><span  class="short-header">Restricción de permisos</span>Restricción de permisos a usuarios autenticados</h2>
 
 
 1.  En el Portal de administración, haga clic en la pestaña **Data** y, a continuación, en la tabla **TodoItem**.
@@ -111,7 +111,7 @@ El servicio móvil y la aplicación están ahora configurados para que funcionen
 
 A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del servicio móvil.
 
-<h2><a  name="add-authentication" ></a><span  class="short-header">Incorporación de autenticación</span>Incorporación de autenticación a la aplicación</h2>
+<h2><a  name="add-authentication"></a><span  class="short-header">Incorporación de autenticación</span>Incorporación de autenticación a la aplicación</h2>
 
 
 1.  Abra el archivo de proyecto mainpage.xaml.cs y agregue la siguiente instrucción using:
@@ -183,14 +183,9 @@ En el siguiente tutorial, [Autorización de usuarios con scripts](/es-es/develop
 
 [4]: ./media/mobile-services-dotnet-get-started-users/mobile-services-selection.png
 [5]: ./media/mobile-services-dotnet-get-started-users/mobile-service-uri.png
-
-
 [13]: ./media/mobile-services-dotnet-get-started-users/mobile-identity-tab.png
 [14]: ./media/mobile-services-dotnet-get-started-users/mobile-portal-data-tables.png
 [15]: ./media/mobile-services-dotnet-get-started-users/mobile-portal-change-table-perms.png
-
-
-
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
@@ -201,7 +196,6 @@ En el siguiente tutorial, [Autorización de usuarios con scripts](/es-es/develop
 [Get started with push notifications]: /es-es/develop/mobile/tutorials/get-started-with-push-dotnet
 [Authorize users with scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [JavaScript and HTML]: /es-es/develop/mobile/tutorials/get-started-with-users-js
-
 [Azure Management Portal]: https://manage.windowsazure.com/
 [Mobile Services .NET How-to Conceptual Reference]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library
 [Register your Windows Store app package for Microsoft authentication]: /es-es/develop/mobile/how-to-guides/register-windows-store-app-package

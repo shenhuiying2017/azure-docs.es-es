@@ -649,29 +649,29 @@ Algunas veces, da la sensación de que los datos estructurados deben ir en tabla
 
 ## Colas
 
-### <a name="subheading39&quot;"></a>Scalability Limits
+### <a name="subheading39&quot;"></a>SLímite de escalabilidad
 
-A single queue can process approximately 2,000 messages (1KB each) per second (each AddMessage, GetMessage, and DeleteMessage count as a message here). If this is insufficient for your application, you should use multiple queues and spread the messages across them.
+Una sola cola puede procesar aproximadamente 2.000 mensajes (de 1 KB cada uno) por segundo (cada AddMessage, GetMessage y DeleteMessage cuenta en este caso como un mensaje). Si esto no es suficiente para su aplicación, debería utilizar varias colas y repartir los mensajes entre ellas.
 
-You can view the current scalability targets on the page [Azure Storage Scalability and Performance Targets][página de objetivos de escalabilidad] on MSDN.
+Puede ver los objetivos de escalabilidad en la página [página de objetivos de escalabilidad][página de objetivos de escalabilidad] en MSDN.
 
 ### <a name="subheading40&quot;"></a>Desactivación de Nagle
 
 Consulte la sección sobre la configuración de tablas que analiza el algoritmo de Nagle (el algoritmo de Nagle suele ser malo para el rendimiento de solicitudes de cola y debe deshabilitarlo).
 
-### <a name="subheading41&quot;"></a>Message Size
+### <a name="subheading41&quot;"></a>Tamaño de los mensajes
 
-Queue performance and scalability decreases as message size increases. You should place only the information the receiver needs in a message.
+El rendimiento y la escalabilidad de la cola disminuyen a medida que aumenta el tamaño del mensaje. Debería colocar solo la información que el destinatario necesite en un mensaje.
 
 ### <a name="subheading42&quot;"></a>Recuperación por lotes
 
 Puede recuperar hasta 32 mensajes de una cola en una sola operación. Esto puede reducir el número de recorridos de ida y vuelta de la aplicación cliente, lo cual es especialmente útil para entornos, como por ejemplo dispositivos móviles, con alta latencia.
 
-### <a name="subheading43&quot;"></a>Queue Polling Interval
+### <a name="subheading43&quot;"></a>Intervalo de sondeo en colas
 
-Most applications poll for messages from a queue, which can be one of the largest sources of transactions for that application. Select your polling interval wisely: polling too frequently could cause your application to approach the scalability targets for the queue. However, at 200,000 transactions for $0.01 (at the time of writing), a single processor polling once every second for a month would cost less than 15 cents so cost is not typically a factor that affects your choice of polling interval.
+La mayoría de aplicaciones sondean los mensajes de una cola, lo cual puede ser una de las mayores fuentes de transacciones para esa aplicación. Tenga cuidado al seleccionar el intervalo de sondeo: un sondeo demasiado frecuente podría provocar que la aplicación se acerque a los objetivos de escalabilidad de la cola. Sin embargo, con 200.000 transacciones por 0,01 USD (en el momento de escribir esto), un solo procesador que sondeara una vez cada segundo durante un mes conllevaría un coste inferior a 15 céntimos; así pues, el coste no suele ser un factor relevante a la hora de seleccionar el intervalo de sondeo.
 
-For up to date cost information, see [Storage Pricing Details][Storage Pricing Details].
+Si desea obtener información actualizada sobre los costes, consulte [Información sobre precios de Almacenamiento][Storage Pricing Details].
 
 ### <a name="subheading44&quot;"></a>UpdateMessage
 

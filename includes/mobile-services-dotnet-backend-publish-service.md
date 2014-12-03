@@ -2,7 +2,7 @@ Tras probar la aplicación cliente con el servicio móvil local, el paso final d
 
 1.  En el Explorador de soluciones, haga clic con el botón secundario en el proyecto de servicio móvil, haga clic en **Publicar** y, a continuación, en el cuadro de diálogo **Publicación web** haga clic en **Servicios móviles de Azure**.
 
-    ![][ ]
+    ![][0]
 
 2.  Inicie sesión con sus credenciales de cuenta de Azure, seleccione su servicio de **Servicios móviles existentes** y, a continuación, haga clic en **Aceptar**.
 
@@ -18,6 +18,6 @@ Tras probar la aplicación cliente con el servicio móvil local, el paso final d
 
     Una vez realizada la publicación, volverá a ver la página de confirmación de que el servicio móvil está en funcionamiento, aunque esta vez en Azure.
 
-  [ ]: ./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish.png
+  [0]: ./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish.png
   [1]: ./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-select-service.png
   [2]: ./media/mobile-services-dotnet-backend-publish-service/mobile-quickstart-publish-2.png

@@ -354,38 +354,15 @@ Las especificaciones de topologías se pueden enviar directamente a un clúster 
 
 SCP.NET ha agregado las siguientes funciones para definir la topología transaccional:
 
-| Nuevas funciones       | Parámetros    | Descripción                                                                                                                                     |
-|------------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| **tx-topolopy**        | topology-name 
-                           spout-map     
-                          bolt-map       | Permite definir una topología transaccional con el nombre de la topología, el mapa de definición de spouts y el mapa de definición de bolts.    |
-| **scp-tx-spout**       | exec-name     
-                          args           
-                          fields         | Permite definir un spout transaccional. Ejecutará la aplicación con ***exec-name*** usando ***args***.                                          
-                                          ***fields*** corresponde a los campos de salida del spout.                                                                                       |
-| **scp-tx-batch-bolt**  | exec-name     
-                          args           
-                          fields         | Permite definir un bolt de lote. Ejecutará la aplicación con ***exec-name*** usando ***args***.                                                 
-                                          Fields corresponde a los campos de salida del bolt.                                                                                              |
-| **scp-tx-commit-bolt** | exec-name     
-                          args           
-                          fields         | Permite definir un bolt de autor. Ejecutará la aplicación con ***exec-name*** usando args.                                                      
-                                          ***fields*** corresponde a los campos de salida del bolt.                                                                                        |
-| **nontx-topolopy**     | topology-name 
-                           spout-map     
-                          bolt-map       | Permite definir una topología no transaccional con el nombre de la topología, el mapa de definición de spouts y el mapa de definición de bolts. |
-| **scp-spout**          | exec-name     
-                          args           
-                          fields         
-                          parameters     | Permite definir un spout no transaccional. Ejecutará la aplicación con ***exec-name*** usando ***args***.                                       
-                                          ***fields*** corresponde a los campos de salida del spout                                                                                        
-                                          ***parameters*** es opcional, se usa para especificar algunos parámetros como, por ejemplo, "nontransactional.ack.enabled".                      |
-| **scp-bolt**           | exec-name     
-                          args           
-                          fields         
-                          parameters     | Permite definir un bolt no transaccional. Ejecutará la aplicación con ***exec-name*** usando ***args***.                                        
-                                          ***fields*** corresponde a los campos de salida del bolt                                                                                         
-                                          ***parameters*** es opcional, se usa para especificar algunos parámetros como, por ejemplo, "nontransactional.ack.enabled".                      |
+|Nuevas funciones|	Parámetros|	Descripción
+|-------------|-----------|-----------
+|**tx-topolopy**|	topology-name<br> spout-map<br> bolt-map|	 Permite definir una topología transaccional con el nombre de la topología, el mapa de definición de spouts y el mapa de definición de bolts
+|**scp-tx-spout**|	exec-name<br> args<br> fields|	Permite definir un spout transaccional. Ejecutará la aplicación con ***exec-name*** usando ***args***.<br><br>***fields*** corresponde a los campos de salida del spout
+|**scp-tx-batch-bolt**|	exec-name<br> args<br> fields| 	Permite definir un bolt de lote. Ejecutará la aplicación con ***exec-name*** usando ***args***.<br><br>Fields corresponde a los campos de salida del bolt.
+|**scp-tx-commit-bolt**|	exec-name<br>args<br>fields|	Permite definir un bolt de autor. Ejecutará la aplicación con ***exec-name*** usando args.<br><br>***fields*** corresponde a los campos de salida del bolt	
+|**nontx-topolopy**|	topology-name<br> spout-map<br>bolt-map|	Permite definir una topología no transaccional con el nombre de la topología, el mapa de definición de spouts y el mapa de definición de bolts
+|**scp-spout**|	exec-name<br>args<br>fields<br>parameters|	Permite definir un spout no transaccional. Ejecutará la aplicación con ***exec-name*** usando ***args***.<br><br>***fields*** corresponde a los campos de salida del spout<br><br>***parameters*** es opcional, se usa para especificar algunos parámetros como, por ejemplo, "nontransactional.ack.enabled".
+|**scp-bolt**|	exec-name<br>args<br>fields<br>parameters|	Permite definir un bolt no transaccional. Ejecutará la aplicación con ***exec-name*** usando ***args***.<br><br>***fields*** corresponde a los campos de salida del bolt<br><br>***parameters*** es opcional, se usa para especificar algunos parámetros como, por ejemplo, "nontransactional.ack.enabled".
 
 SCP.NET tiene definidas las siguientes palabras clave:
 
