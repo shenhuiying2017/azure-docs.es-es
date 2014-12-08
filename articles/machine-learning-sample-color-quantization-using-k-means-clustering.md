@@ -1,198 +1,166 @@
-<properties title="Azure Machine Learning Sample: Color quantization using K-Means clustering" pageTitle="Machine Learning Sample: Color quantization using K-Means clustering | Azure" description="A sample Azure Machine Learning experiment that evaluates using different K-Means clustering values for quantizing a color image." metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+﻿<properties title="Azure Machine Learning Sample: Color quantization using K-Means clustering" pageTitle="Ejemplo de aprendizaje automático: cuantificación del color usando la agrupación en clúster de K-Means | Azure" description="A sample Azure Machine Learning experiment that evaluates using different K-Means clustering values for quantizing a color image." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
 
-# Azure Machine Learning-Beispiel: Farbquantifizierung mit K-Means-Clustering
 
-*Sie finden das Beispielexperiment für dieses Modell in ML Studio im Bereich **EXPERIMENTE** unter der Registerkarte **BEISPIELE**. Der Name des Experiments lautet:*
+# Ejemplo de Aprendizaje automático de Azure: cuantificación del color usando la agrupación en clúster de K-Means
 
-    Sample Experiment - Color Based Image Compression using K-Means Clustering - Development
+>[AZURE.NOTE]
+>El [experimento de ejemplo] y el [conjunto de datos de ejemplo] asociado a este modelo están disponibles en Estudio de aprendizaje automático. Consulte la siguiente información para obtener más detalles.
+[Experimento de ejemplo]: #sample-experiment
+[Conjunto de datos de ejemplo]: #sample-dataset
 
-## Problembeschreibung
 
-[Farbquantifizierung][Farbquantifizierung] bezeichnet die Reduzierung der Anzahl unterschiedlicher Farben in einem Bild und somit eine Komprimierung. Normalerweise wird versucht, die Farbzusammensetzung des Bilds so gut wie möglich zu erhalten und gleichzeitig die Anzahl der Farben zu reduzieren, entweder um Speicher zu sparen oder um das Bild zu komprimieren.
+##Descripción del problema
 
-## Daten
+[Cuantificación del color](http://en.wikipedia.org/wiki/Color_quantization "Color quantization") es el proceso de reducir el número de colores distintos de una imagen comprimiéndolos. Normalmente, el intento de preservar la apariencia del color de la imagen lo más posible y reducir al mismo tiempo el número de colores, ya sea por limitaciones de memoria o por compresión. 
 
-In diesem Beispielexperiment nehmen wir an, dass jedes beliebige 24 Bit RGB-Bild 256 x 256 x 256 mögliche Farben hat. Wir können problemlos Standard-Farbhistogramme basierend auf diesen Intensitätswerten erstellen. Wir können das Bild jedoch auch quantifizieren und die Anzahl der Farben *reduzieren*, z. B. auf 16 oder 64. Auf diese Weise entsteht ein deutlich kleinerer Farbraum und (idealerweise) weniger Rauschen und Abweichungen. Dazu übergeben wir die Pixeldaten (jedes einzelne Pixel als Zeile im Dataset) an unser K-Means-Clusteringmodul.
+##Datos
 
-## Modell
+En este experimento de ejemplo, asumimos que cualquier imagen RGB dada de 24 bits tiene 256 x 256 x 256 colores posibles. Y seguro que podemos crear histogramas de colores estándar basados en estos valores de intensidad. Pero otro enfoque es cuantificar explícitamente la imagen y *reducir* el número de colores a, pongamos, 16 o 64. De esta forma se crea un espacio considerablemente más pequeño e (idealmente) menos ruido y varianza. Para ello, pasamos los datos de píxeles (cada píxel como una fila del conjunto de datos) a nuestro módulo de agrupación en clúster de K-Means. 
 
-Das Modell wird wie in der folgenden Abbildung gezeigt erstellt:
+##Modelo
 
-![Modell][Modell]
+El modelo se crea como se muestra en la siguiente imagen:
 
-Wir führen K-Means-Clustering mit K=10 bis 500 in 5 unterschiedlichen Verzweigungen aus. Zunächst berechnen wir die Cluster und aggregieren das Clustering auf den Mittelwert der Pixelfarben (mithilfe eines R-Skripts).
-Zuletzt ordnen wir jedes Pixel zur aggregierten Clusterfarbe zu und geben das neue Bild im CSV-Format aus. Außerdem berechnen wir die Abweichung des quadratischen Mittelwerts der neuen Pixelfarben zum Originalbild und zeigen diese Abweichung in einem R-Diagramm (wieder mit einem R-Skript).
+![Model][image1]
 
-## Ergebnisse
+Ejecutamos la agrupación en clústeres de K-Means con K=10 hasta 500 en 5 ramas diferentes. Primero calculamos los clústeres y, a continuación, agregamos la agrupación en clústeres a la media de los colores de píxeles (mediante un script R). 
+Finalmente, asociamos a cada píxel el color de clúster agregado y enviamos la nueva imagen en formato CSV. Mientras tanto, calculamos también la diferencia de la raíz cuadrada de los nuevos colores de píxeles con la imagen original y los mostramos en un gráfico R (mediante la opción para ejecutar el script R). 
 
-Wir haben die Ergebnisse mit unterschiedlichen Clusteranzahlen (Farben) getestet, wie Sie im folgenden Experimentmodell sehen. Mehr Cluster führen zu Bildern mit höherer Qualität und niedrigerer Komprimierung:
+##Resultados
 
-<table>
-<tr>
-<th>
-Original
+Probamos los resultados en diferentes números de clústeres (colores) como se muestra en el siguiente modelo de experimento. Como puede ver a continuación, cuanto más agrupación en clústeres haya, mayor será la calidad de las imágenes y menor será la compresión:
 
-</th>
-<td>
-![Original][Original]
+||
+------------ | ---------
+**Original** | ![Original][image2a]
+**K=10**     | ![K=10][image2b]
+**K=20**     | ![K=20][image2c]
+**K=50**     | ![K=50][image2d]
+**K=100**    | ![K=100][image2e]
+**K=500**    | ![K=500][image2f]
 
-</td>
-</tr>
-<tr>
-<th>
-K=10
 
-</th>
-<td>
-![K=10][K=10]
+También hemos medido la exactitud usando la diferencia de raíz cuadrada con los colores de la imagen original que se pueden ver desde el segundo puerto de salida del módulo de ejecución del script R:
 
-</td>
-</tr>
-<tr>
-<th>
-K=20
+![Output of Execute R Script module][image3]
 
-</th>
-<td>
-![K=20][K=20]
+Como se puede ver, cuantos más clústeres de colores, más colores coinciden con las imágenes originales (mejor calidad). 
 
-</td>
-</tr>
-<tr>
-<th>
-K=50
+##Código para convertir las imágenes en CSV y a la inversa
 
-</th>
-<td>
-![K=50][K=50]
+Para insertar las imágenes en Estudio de aprendizaje automático, escribimos un sencillo código de conversión que puede convertir los archivos de imágenes a un formato csv que se puede usar en Estudio de aprendizaje automático, y también uno que los convierte de nuevo en una imagen. Utilice el siguiente código libremente. En el futuro, estamos planeando agregar también un módulo para leer imágenes. 
 
-</td>
-</tr>
-<tr>
-<th>
-K=100
+	using System;
+	using System.Collections.Generic;
+	using System.Linq;
+	using System.Text;
+	using System.Threading.Tasks;
+	using System.Drawing;
+	using System.Drawing.Imaging;
+	using System.IO;
+	 
+	namespace Text2Image
+	{
+	    class Program
+	    {
+	        static void img2csv(string img_path)
+	        {
+	            FileInfo img_info = new FileInfo(img_path);
+	            string destination_file_directory = img_info.DirectoryName + "\\";
+	            string destination_file_name = img_info.Name.Remove(img_info.Name.LastIndexOf('.'), 4);
+	            string destination_file_path = destination_file_directory + destination_file_name + ".csv";
+	 
+	            // Read the image
+	            Bitmap img = new Bitmap(img_path);
+	 
+	            // Create the CSV File and write the header values
+	            System.IO.StreamWriter file = new System.IO.StreamWriter(destination_file_path);
+	            file.WriteLine("X,Y,R,G,B");
+	 
+	            // Write the Pixel values
+	            for (int x = 0; x < img.Width; x++)
+	                for (int y = 0; y < img.Height; y++)
+	                {
+	                    string line = x + "," + y + "," + img.GetPixel(x, y).R + "," + img.GetPixel(x, y).G + "," + img.GetPixel(x, y).B ;
+	                    file.WriteLine(line);
+	                }
+	 
+	            file.Close();
+	        }
+	 
+	        static void csv2img(string csv_path)
+	        {
+	            FileInfo csv_info = new FileInfo(csv_path);
+	            string destination_file_directory = csv_info.DirectoryName + "\\";
+	            string destination_file_name = csv_info.Name.Remove(csv_info.Name.LastIndexOf('.'), 4);
+	            string destination_file_path = destination_file_directory + destination_file_name + ".png";
+	            
+	            // Read all the lines in the CSV file
+	            string[] lines = System.IO.File.ReadAllLines(csv_path);
+	 
+	            // set a new bitmap image with the provided width and height in the header
+	            string[] wh = lines.Last().Split(new Char[] { ' ', ',', '.', ':', '\t', '{', '}' });
+	            int img_width = Convert.ToInt32(wh[0])+1;
+	            int img_height = Convert.ToInt32(wh[1])+1;
+	 
+	            Bitmap bmp_img = new Bitmap(img_width, img_height);
+	 
+	            for (int i = 1; i < lines.Length ;i++ )
+	            {
+	                string[] values = lines[i].Split(new Char[] { ' ', ',', '.', ':', '\t', '{', '}' });
+	                if (values.Length < 3)
+	                    continue;
+	 
+	                int x = Convert.ToInt16(values[0]);
+	                int y = Convert.ToInt32(values[1]);
+	                int r = Convert.ToInt32(values[2]);
+	                int g = Convert.ToInt32(values[3]);
+	                int b = Convert.ToInt32(values[4]);
+	 
+	                bmp_img.SetPixel(x, y, Color.FromArgb(r, g, b));
+	            }
+	 
+	            bmp_img.Save(destination_file_path);
+	        }
+	 
+	        static void Main(string[] args)
+	        {
+	            string source_path = args[1];
+	            FileInfo source_info = new FileInfo(source_path);
+	 
+	            if (source_info.Extension == ".csv")
+	                csv2img(source_path);
+	            else
+	                img2csv(source_path);
+	        }
+	    }
+	}
 
-</th>
-<td>
-![K=100][K=100]
 
-</td>
-</tr>
-<tr>
-<th>
-K=500
+## Experimento de ejemplo
 
-</th>
-<td>
-![K=500][K=500]
+Puede encontrar el siguiente experimento de ejemplo asociado a este modelo en Estudio de aprendizaje automático, en la sección **EXPERIMENTOS** bajo la pestaña **EJEMPLOS**.
 
-</td>
-</tr>
-</table>
-Außerdem haben wir die Genauigkeit über die Abweichung des quadratischen Mittelwerts zu den Farben des Originalbilds berechnet, wie Sie im zweiten Ausgabeport des Moduls "R-Skript ausführen" sehen können:
+> **Experimento de ejemplo - Compresión de imágenes basada en colores mediante agrupaciones en clústeres de K-Means - Desarrollo**
 
-![Ausgabe des Moduls "R-Skript ausführen"][Ausgabe des Moduls "R-Skript ausführen"]
 
-Das Ergebnis: Je mehr Farbcluster, desto besser stimmen die Farben mit dem Originalbild überein (bessere Qualität).
+## Conjunto de datos de ejemplo
 
-## Code zum Konvertieren von Bildern nach CSV und umgekehrt
+El siguiente conjunto de datos de ejemplo que se usa en este experimento está disponible en Estudio de aprendizaje automático en la paleta de módulos bajo **Conjuntos de datos guardados**.
 
-Um die Bilder in ML Studio verwenden zu können, haben wir einen einfachen Konvertierungscode geschrieben, der Bilddateien in ein für ML Studio lesbares CSV-Format konvertiert und umgekehrt. Sie können den folgenden Code gerne verwenden. Für zukünftige Versionen ist ein Modul zum Einlesen von Bildern geplant.
+###Imagen RGB de Bill Gates
+[AZURE.INCLUDE [machine-learning-sample-dataset-bill-gates-rgb-image](../includes/machine-learning-sample-dataset-bill-gates-rgb-image.md)]
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Drawing;
-    using System.Drawing.Imaging;
-    using System.IO;
-     
-    namespace Text2Image
-    {
-        class Program
-        {
-            static void img2csv(string img_path)
-            {
-                FileInfo img_info = new FileInfo(img_path);
-                string destination_file_directory = img_info.DirectoryName + "\\";
-                string destination_file_name = img_info.Name.Remove(img_info.Name.LastIndexOf('.'), 4);
-                string destination_file_path = destination_file_directory + destination_file_name + ".csv";
-     
-                // Read the image
-                Bitmap img = new Bitmap(img_path);
-     
-                // Create the CSV File and write the header values
-                System.IO.StreamWriter file = new System.IO.StreamWriter(destination_file_path);
-                file.WriteLine("X,Y,R,G,B");
-     
-                // Write the Pixel values
-                for (int x = 0; x < img.Width; x++)
-                    for (int y = 0; y < img.Height; y++)
-                    {
-                        string line = x + "," + y + "," + img.GetPixel(x, y).R + "," + img.GetPixel(x, y).G + "," + img.GetPixel(x, y).B ;
-                        file.WriteLine(line);
-                    }
-     
-                file.Close();
-            }
-     
-            static void csv2img(string csv_path)
-            {
-                FileInfo csv_info = new FileInfo(csv_path);
-                string destination_file_directory = csv_info.DirectoryName + "\\";
-                string destination_file_name = csv_info.Name.Remove(csv_info.Name.LastIndexOf('.'), 4);
-                string destination_file_path = destination_file_directory + destination_file_name + ".png";
-                
-                // Read all the lines in the CSV file
-                string[] lines = System.IO.File.ReadAllLines(csv_path);
-     
-                // set a new bitmap image with the provided width and height in the header
-                string[] wh = lines.Last().Split(new Char[] { ' ', ',', '.', ':', '\t', '{', '}' });
-                int img_width = Convert.ToInt32(wh[0])+1;
-                int img_height = Convert.ToInt32(wh[1])+1;
-     
-                Bitmap bmp_img = new Bitmap(img_width, img_height);
-     
-                for (int i = 1; i < lines.Length ;i++ )
-                {
-                    string[] values = lines[i].Split(new Char[] { ' ', ',', '.', ':', '\t', '{', '}' });
-                    if (values.Length < 3)
-                        continue;
-     
-                    int x = Convert.ToInt16(values[0]);
-                    int y = Convert.ToInt32(values[1]);
-                    int r = Convert.ToInt32(values[2]);
-                    int g = Convert.ToInt32(values[3]);
-                    int b = Convert.ToInt32(values[4]);
-     
-                    bmp_img.SetPixel(x, y, Color.FromArgb(r, g, b));
-                }
-     
-                bmp_img.Save(destination_file_path);
-            }
-     
-            static void Main(string[] args)
-            {
-                string source_path = args[1];
-                FileInfo source_info = new FileInfo(source_path);
-     
-                if (source_info.Extension == ".csv")
-                    csv2img(source_path);
-                else
-                    img2csv(source_path);
-            }
-        }
-    }
 
-  [Farbquantifizierung]: http://en.wikipedia.org/wiki/Color_quantization "Farbquantifizierung"
-  [Modell]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image1.png
-  [Original]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2a.jpg
-  [K=10]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2b.png
-  [K=20]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2c.png
-  [K=50]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2d.png
-  [K=100]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2e.png
-  [K=500]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2f.png
-  [Ausgabe des Moduls "R-Skript ausführen"]: ./media/machine-learning-sample-color-quantization-using-k-means-clustering/image3.png
+
+[image1]:./media/machine-learning-sample-color-quantization-using-k-means-clustering/image1.png
+[image2a]:./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2a.jpg
+[image2b]:./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2b.png
+[image2c]:./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2c.png
+[image2d]:./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2d.png
+[image2e]:./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2e.png
+[image2f]:./media/machine-learning-sample-color-quantization-using-k-means-clustering/image2f.png
+[image3]:./media/machine-learning-sample-color-quantization-using-k-means-clustering/image3.png
+

@@ -1,71 +1,82 @@
-<properties title="Publishing Azure ML Web Services to the Azure Marketplace" pageTitle="Publishing Azure ML Web Services to the Azure Marketplace | Azure" description="Publishing Azure ML Web Services to the Azure Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+﻿<properties title="Publishing Azure ML Web Services to the Azure Marketplace" pageTitle="Publicación de los servicios web de Aprendizaje automático de Azure en Azure Marketplace | Azure" description="Publishing Azure ML Web Services to the Azure Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/03/2014" ms.author="garye" />
 
-# Veröffentlichen von Azure ML-Webdiensten im Azure Marketplace
+# Publicación de los servicios web de Aprendizaje automático de Azure en Azure Marketplace 
 
-In diesem Dokument werden folgende Themen behandelt:
+Este documento incluye los siguientes temas:
 
--   [Einführung][Einführung]
--   [Der Veröffentlichungsprozess im Überblick][Der Veröffentlichungsprozess im Überblick]
--   [Leitfaden für die Veröffentlichung im Azure Marketplace][Leitfaden für die Veröffentlichung im Azure Marketplace]
--   [Spezielle Machine Learning-Optionen][Spezielle Machine Learning-Optionen]
+- [Introducción]
+- [Introducción al proceso de publicación]
+- [Directrices para publicar en Azure Marketplace]
+- [Opciones específicas de aprendizaje automático] 
 
 <!--Anchors-->
+[Introducción]: #introduction
+[Información general del proceso de publicación]: #overview-of-the-publishing-process
+[Directrices para la publicación en Azure Marketplace]: #guidelines-for-publishing-to-azure-marketplace
+[Opciones específicas de aprendizaje automático]: #machine-learning-specific-options 
 
-## Einführung
+## Introducción
 
-Im Azure Marketplace können Sie Azure Machine Learning-Webdienste als kostenlose oder zahlungspflichtige Dienste für externe Consumer veröffentlichen. Dieses Dokument beschreibt den Veröffentlichungsprozess und bietet Hinweise zu den ersten Schritten. Mit diesem Prozess können Sie Ihre Webdienste bereitstellen, sodass andere Entwickler diese in ihren Anwendungen verwenden können.
+Azure Marketplace ofrece la posibilidad de publicar servicios web de Aprendizaje automático de Azure como servicios gratuitos o de pago para su consumo por clientes externos. Este documento proporciona una introducción a ese proceso junto con vínculos a directrices para comenzar. Mediante este proceso, puede comenzar a poner a disposición de otros desarrolladores los servicios web para que los consuman en sus aplicaciones.
 
-## Der Veröffentlichungsprozess im Überblick
+## Introducción al proceso de publicación 
 
-Die Veröffentlichung eines Azure ML-Webdiensts im Azure Marketplace umfasst die folgenden Schritte:
+A continuación se muestran los pasos para publicar un servicio web de Aprendizaje automático de Azure en Azure Marketplace:
 
-1.  Erstellen und Veröffentlichen eines Azure ML-Webdiensts im RRS- (Request-Response Service, Antwort-/Anfrage-Dienst) oder BES-Format (Batch-Execution Service, Stapelausführungsdienst).
-2.  Stellen Sie den Dienst über das Azure-Verwaltungsportal in Ihrer Produktionsumgebung bereit.
-3.  Verwenden Sie die URL des veröffentlichten Webdiensts für die Veröffentlichung im Azure Marketplace.
-4.  Überblick über den Veröffentlichungsprozess: <http://msdn.microsoft.com/es-es/library/azure/hh580725.aspx>
-5.  Nach der Übermittlung wird Ihr Angebot geprüft und muss genehmigt werden, bevor Ihre Kunden das Angebot abonnieren können. Der Veröffentlichungsprozess kann einige Geschäftstage in Anspruch nehmen. Wir versuchen, diesen Prozess möglichst kurz zu halten und werden in den kommenden Ankündigungen ein Update hierzu veröffentlichen.
+1.	Cree y publique un servicio web RRS (servicio de solicitud-respuesta) de Aprendizaje automático de Azure.
+2.	Desde el Portal de administración de Azure, implemente el servicio en producción.
+3.	Use la URL del servicio web publicado para publicar en Azure Marketplace.
+4.	Introducción a la publicación: http://msdn.microsoft.com/es-es/library/azure/hh580725.aspx 
+5.	Una vez enviada la oferta, se revisa y es necesario aprobarla antes de que los clientes puedan comenzar a comprarla. El proceso de publicación puede tardar varios días laborables. Estamos trabajando en acortar este tiempo lo máximo posible, y proporcionaremos una actualización en próximas comunicaciones.
 
-## Leitfaden für die Veröffentlichung im Azure Marketplace
+## Directrices para publicar en Azure Marketplace
 
-1.  Sie müssen sich als Herausgeber registrieren. Weitere Informationen finden Sie unter: <http://msdn.microsoft.com/es-es/library/azure/hh563872.aspx>
-2.  Sie müssen Daten zu Ihrem Angebot liefern, inklusive einer Preisgestaltung. Legen Sie fest, ob Sie Ihren Dienst kostenlos oder zahlungspflichtig anbieten möchten. Weitere Informationen finden Sie unter: <http://msdn.microsoft.com/es-es/library/azure/hh563873.aspx>
-3.  Für zahlungspflichtige Dienste müssen Sie Bezahlungsinformationen wie z. B. Ihre Bank- und Steuerdaten angeben. Weitere Informationen finden Sie unter: <http://msdn.microsoft.com/es-es/library/azure/hh563873.aspx>
+1.	Deberá registrarse como anunciante. Para obtener información, consulte: <http://msdn.microsoft.com/es-es/library/azure/hh563872.aspx>
+2.	Deberá proporcionar información sobre su oferta, junto con un plan de precios. Decida si ofrecerá un servicio gratuito o de pago. Para obtener información, consulte: <http://msdn.microsoft.com/es-es/library/azure/hh563873.aspx> 
+3.	Para que le paguen, deberá proporcionar información de pago como su cuenta bancaria y datos fiscales. Para obtener información, consulte: <http://msdn.microsoft.com/es-es/library/azure/hh563873.aspx>
 
-## Spezielle Machine Learning-Optionen
+## Opciones específicas de aprendizaje automático
 
-1.  Wählen Sie zur Erstellung eines neuen Angebots die Option **Datendienst** aus und klicken Sie auf **Neuen Datendienst erstellen**.
 
-    ![Azure Marketplace][Azure Marketplace]
+1.	Cuando cree una nueva oferta, seleccione **Servicios de datos** y, a continuación, haga clic en **Crear un nuevo servicio de datos**. 
+ 
+	![Azure Marketplace][image1]
 
-2.  Wählen Sie in der Registerkarte **Datendienst** die Option **Webdienst** als Datenquelle aus.
+	<br />
 
-    ![Azure Marketplace][1]
+2. En la pestaña **Servicio de datos**, haga clic en **Servicio web** para el origen de datos.
 
-3.  Geben Sie unter **Dienst-URL** die URL Ihres Webdiensts ein:
+	![Azure Marketplace][image2]
 
-    -   Klicken Sie im linken Menü in Azure ML Studio auf **WEBDIENSTE**.
-    -   Klicken Sie auf den Webdienst, den Sie im Marketplace veröffentlichen möchten.
-    -   Klicken Sie auf der **Dashboard**-Seite auf **API-Hilfeseite** für den RRS-Dienst.
-    -   Kopieren Sie die OData-Endpunktadresse.
+3.	Obtenga la clave de API y la dirección URL del servicio web en el Portal de administración de Azure:
+	1.	Inicie sesión en el Portal de administración de Azure en una pestaña o ventana independiente del explorador ([https://manage.windowsazure.com](https://manage.windowsazure.com)). 
+	2.	Seleccione **Aprendizaje automático** en el menú izquierdo.
+	3.	Haga clic en **Servicios web** y, a continuación, haga clic en el servicio web que va a publicar.
+	4.	Copie la **clave de API** en una ubicación temporal (por ejemplo, el Bloc de notas).
+	5.	Haga clic en la **página de Ayuda de API** para el tipo de servicio de solicitud y respuesta.
+	6.	Copie la **dirección de extremo de OData** en la ubicación temporal.
 
-4.  Wählen Sie unter Authentifizierung die Option **Header** als **Authentifizierungsschema** aus.
+	<br />
 
-    -   Geben Sie "Authorization" unter **Headername** ein.
-    -   Unter **Headerwert**:
+3.	En el cuadro de diálogo de configuración Servicio de datos de Marketplace, pegue la dirección de extremo de OData en **Dirección URL del servicio**.
 
-        -   Kopieren Sie den **API-Schlüssel** auf der **Dashboard**-Seite für Ihren Webdienst in ML Studio.
-        -   Geben Sie im Feld **Headerwert** den Wert "Bearer" (ohne Anführungszeichen) ein, dann ein Leerzeichen, und anschließend den API-Schlüssel.
-    -   Markieren Sie das Kontrollkästchen **Dies ist ein OData-Dienst**.
+	<br />
 
-5.  Kategorien:
+4. En Autenticación, elija **Encabezado** como **Esquema de autenticación**.
 
-    -   Die Option **Machine Learning** muss markiert sein.
+	- Escriba "Autorización" en **Nombre de encabezado**
+	- En **Valor de encabezado**, escriba "Bearer" (sin comillas), seguido de espacio y, a continuación, pegue la clave de API.
+	- Marque la casilla **Este servicio es OData**.
+	- Haga clic en **Probar conexión** para probar la conexión.
 
-  [Einführung]: #introduction
-  [Der Veröffentlichungsprozess im Überblick]: #overview-of-the-publishing-process
-  [Leitfaden für die Veröffentlichung im Azure Marketplace]: #guidelines-for-publishing-to-azure-marketplace
-  [Spezielle Machine Learning-Optionen]: #machine-learning-specific-options
-  [Azure Marketplace]: ./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
-  [1]: ./media/machine-learning-publish-web-service-to-azure-marketplace/image2.png
+	<br />
+
+5.	En Categorías:
+	- Asegúrese de que la opción **Aprendizaje automático** está marcada.
+
+
+
+[image1]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
+[image2]:./media/machine-learning-publish-web-service-to-azure-marketplace/image2.png
