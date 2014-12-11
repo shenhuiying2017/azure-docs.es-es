@@ -1222,11 +1222,9 @@ En el [próximo tutorial][próximo tutorial], configurará y programará el rol 
 
 Podrá encontrar vínculos a recursos adicionales para trabajar con tablas, colas y blobs de Almacenamiento de Azure en el [último tutorial de la serie][último tutorial de la serie].
 
-<div>
+<div><div><a href="/es-es/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/" class="site-arrowboxcta download-cta">Tutorial 4</a></div>
 
-<div><a href="/es-es/develop/net/tutorials/multi-tier-web-site/4-worker-role-a/" class="site-arrowboxcta download-cta">Tutorial 4</a></div>
 
-</div>
 
   [primer tutorial de la serie]: /es-es/develop/net/tutorials/multi-tier-web-site/1-overview/
   [Creación de la solución de Visual Studio]: #cloudproject

@@ -385,7 +385,7 @@ Diríjase a la página <https://developers.facebook.com/apps></a> e inicie sesi�
 
 ![Creación de una nueva aplicación de Facebook][Creación de una nueva aplicación de Facebook]
 
-Especifique localhost para **App Domain** y <http://localhost/> para **Site URL**. Haga clic en **Enabled** para **Sandbox Mode** y, a continuación, en **Save Changes**.
+Especifique localhost para **App Domain** y http://localhost/ para **Site URL**. Haga clic en **Enabled** para **Sandbox Mode** y, a continuación, en **Save Changes**.
 
 Necesitará los valores **App ID** y **App Secret** para implementar OAuth en esta aplicación.
  ![Nueva aplicación de Facebook][Nueva aplicación de Facebook]
@@ -524,8 +524,8 @@ Este tutorial usará SQL Server Management Studio (SSMS) para crear scripts de i
 
 Instale SSMS desde el [Centro de descarga de Microsoft SQL Server 2012 Express][Centro de descarga de Microsoft SQL Server 2012 Express] (en inglés):
 
--   [ENU\x64\SQLManagementStudio\_x64\_ENU.exe][ENU\x64\SQLManagementStudio\_x64\_ENU.exe] para sistemas de 64 bits.
--   [ENU\x86\SQLManagementStudio\_x86\_ENU.exe][ENU\x86\SQLManagementStudio\_x86\_ENU.exe] para sistemas de 32 bits.
+-   [ENU\x64\SQLManagementStudio\_x64\_ENU.exe](http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x64/SQLManagementStudio_x64_ENU.exe) para sistemas de 64 bits.
+-   [ENU\x86\SQLManagementStudio\_x86\_ENU.exe](http://download.microsoft.com/download/8/D/D/8DD7BDBA-CEF7-4D8E-8C16-D9F69527F909/ENU/x86/SQLManagementStudio_x86_ENU.exe) para sistemas de 32 bits.
 
 Si selecciona el archivo incorrecto para su sistema, se producirá un error en la instalación y podrá probar el otro.
 

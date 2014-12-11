@@ -113,7 +113,7 @@ Ya ha creado un sitio web de Azure, pero todavía no hay contenido en él. El si
 
 1.  En el **Explorador de soluciones**, abra el archivo *Layout.cshtml* de la carpeta *Views\\Shared*.
 
-    ![\_Layout.cshtml en el Explorador de soluciones][\_Layout.cshtml en el Explorador de soluciones]
+    ![\_Layout.cshtml en el Explorador de soluciones][newapp004]
 
 2.  Reemplace las dos apariciones de “My ASP.NET MVC Application” por “ContactManager”.
 3.  Reemplace “Application name” por “CM Demo”.
@@ -771,3 +771,4 @@ Es importante que haga comentarios acerca de lo que le gustó o lo que le gustar
   [@RickAndMSFT]: https://twitter.com/RickAndMSFT
   [@blowdart]: https://twitter.com/blowdart
   [Show Me How With Code]: http://aspnet.uservoice.com/forums/228522-show-me-how-with-code
+  [newapp004]: ./media/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database-vs2013/dntutmobile-createapp-004.png
