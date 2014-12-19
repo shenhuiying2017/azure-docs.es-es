@@ -1,3 +1,4 @@
+
 El último paso opcional de este tutorial es comprobar en la Base de datos SQL asociada con el servicio móvil una revisión de los datos almacenados.
 
 1.  En el Portal de administración de Azure, haga clic en la opción Manage correspondiente a la base de datos asociada con el servicio móvil.
@@ -10,7 +11,7 @@ El último paso opcional de este tutorial es comprobar en la Base de datos SQL a
 
     ![consultar en la Base de datos SQL los elementos almacenados][consultar en la Base de datos SQL los elementos almacenados]
 
-    La tabla incluye las columnas Id, \_\_createdAt, \_\_updatedAt y \_\_version. Estas columnas admiten la sincronización de datos sin conexión y se implementan en la clase base [EntityData][EntityData]. Para más información, vea [Introducción a la sincronización de datos sin conexión].
+    La tabla incluye las columnas Id, __createdAt, __updatedAt y __version. Estas columnas admiten la sincronización de datos sin conexión y se implementan en la clase base [EntityData][EntityData]. Para más información, vea [Introducción a la sincronización de datos sin conexión].
 
   [iniciar sesión para administrar la Base de datos SQL]: ./media/mobile-services-dotnet-backend-view-sql-data/manage-sql-azure-database.png
   [consultar en la Base de datos SQL los elementos almacenados]: ./media/mobile-services-dotnet-backend-view-sql-data/sql-azure-query.png

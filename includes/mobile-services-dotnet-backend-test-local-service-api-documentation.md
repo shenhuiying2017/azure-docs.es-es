@@ -1,3 +1,4 @@
+
 1.  En el Explorador de soluciones de Visual Studio, haga clic con el botón secundario en el proyecto de servicio y haga clic en **Iniciar nueva instancia**, que está en el menú contextual **Depurar**.
 
     ![iniciar proyecto de servicio móvil localmente][iniciar proyecto de servicio móvil localmente]

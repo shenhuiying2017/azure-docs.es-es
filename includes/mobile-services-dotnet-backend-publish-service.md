@@ -1,3 +1,5 @@
+
+
 Tras probar la aplicación cliente con el servicio móvil local, el paso final de este tutorial consiste en publicar el servicio móvil en Azure y ejecutar la aplicación en el servicio en directo.
 
 1.  En el Explorador de soluciones, haga clic con el botón secundario en el proyecto de servicio móvil, haga clic en **Publicar** y, a continuación, en el cuadro de diálogo **Publicación web** haga clic en **Servicios móviles de Azure**.
@@ -10,7 +12,7 @@ Tras probar la aplicación cliente con el servicio móvil local, el paso final d
 
     Visual Studio descarga la configuración de publicación directamente desde Azure.
 
-    > [WACOM.NOTE]Visual Studio almacena sus credenciales de Azure hasta que cierre sesión explícitamente.
+    >[WACOM.NOTE]Visual Studio almacena sus credenciales de Azure hasta que cierre sesión explícitamente.
 
 3.  Haga clic en **Validate connection** para comprobar que la publicación esté bien configurada y, a continuación, en **Publicar**.
 

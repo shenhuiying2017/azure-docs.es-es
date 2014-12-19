@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Introducción a datos (Tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="Introducción a datos (Tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -14,13 +14,13 @@ El servicio móvil que se crea en este tutorial es un servicio móvil back-end .
 
 Este tutorial le guiará a través de estos pasos básicos:
 
-1. [Descargar el proyecto de la aplicación de la Tienda Windows]
-2. [Crear un servicio móvil nuevo desde Visual Studio]
-3. [Probar el proyecto de servicio móvil de forma local]
-4. [Actualizar la aplicación para usar el servicio móvil]
-5. [Publicar el servicio móvil en Azure]
-6. [Probar la aplicación con el servicio hospedado en Azure]
-7. [Ver los datos almacenados en la base de datos SQL]
+1. [Descargar el proyecto de la aplicación de la Tienda Windows](#download-app)
+2. [Crear un servicio móvil nuevo desde Visual Studio](#create-service)
+3. [Probar el proyecto de servicio móvil de forma local](#test-the-service-locally)
+4. [Actualizar la aplicación para usar el servicio móvil](#update-app)
+5. [Publicar el servicio móvil en Azure](#publish-mobile-service)
+6. [Probar la aplicación con el servicio hospedado en Azure](#test-azure-hosted)
+7. [Ver los datos almacenados en la base de datos SQL](#view-stored-data)
 
 Para completar este tutorial, necesitará lo siguiente:
 

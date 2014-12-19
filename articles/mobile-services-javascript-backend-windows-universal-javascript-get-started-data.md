@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Introducción a los datos (JavaScript para la Tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store JavaScript app." metaCanonical="https://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started-with-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="Introducción a los datos (JavaScript para la Tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store JavaScript app." metaCanonical="https://www.windowsazure.com/es-es/develop/mobile/tutorials/get-started-with-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
@@ -14,7 +14,7 @@ En este tutorial descargará un proyecto de Visual Studio 2013 para una aplicaci
 
 Este tutorial le guiará a través de estos pasos básicos:
 
-1. [Descarga del proyecto de aplicación de la Tienda Windows][Obtener la aplicación de la tienda Windows] 
+1. [Descarga del proyecto de aplicación de la Tienda Windows](#download-app) 
 2. [Crear el servicio móvil]
 3. [Agregar una tabla de datos para almacenamiento]
 4. [Actualizar la aplicación para usar Servicios móviles]
@@ -43,7 +43,7 @@ Para completar este tutorial, necesitará lo siguiente:
 	<p>Este código proporciona acceso a su nuevo servicio móvil en su aplicación mediante una variable global. El cliente se crea al suministrar el URI y la clave de aplicación del nuevo servicio móvil. Como se agregó una referencia a este script en el archivo default.html, esta variable está disponible para todos los archivos de script a los que también se hace referencia desde esta página.</p>
 </li>
 <li><p>Abra el archivo de proyecto default.html, busque la referencia al nuevo archivo de script service.js y asegúrese de que la ruta de acceso a la que se hace referencia es similar a la siguiente:</p>
-<pre><code><script src="/services/mobileServices/scripts/todolist.js"></script></code></pre>
+<pre><code>&lt;script src="/services/mobileServices/scripts/todolist.js"&gt;</script></code></pre>
 <p>Actualmente, se produce un error en Visual Studio que genera un nombre de carpeta incorrecto en la ruta de acceso.</p></li>
 <li><p>Haga clic con el botón secundario en el proyecto de aplicación de Windows Phone y con el botón primario en <strong>Add</strong>, elija <strong>Servicio conectado...</strong>, seleccione el servicio móvil que acaba de crear y haga clic en <strong>Aceptar</strong>. </p>
 <p>El mismo archivo de código nuevo se agrega al proyecto de aplicación de la Tienda de Windows Phone. Asegúrese de corregir también en este caso la ruta de acceso de referencia que se agrega al archivo default.html.</p></li>
@@ -125,3 +125,4 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
 [SDK de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Sitio de ejemplos de código para desarrolladores]:  http://go.microsoft.com/fwlink/p/?LinkID=510826
 [Documentación de referencia conceptual de Servicios móviles con HTML/JavaScript]: /es-es/documentation/articles/mobile-services-html-how-to-use-client-library/
+[Limitación de consultas con paginación]: /es-es/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/

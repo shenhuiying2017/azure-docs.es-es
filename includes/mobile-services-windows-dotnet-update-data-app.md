@@ -1,3 +1,4 @@
+
 1.  En el archivo MainPage.xaml.cs, agregue o quite la marca de comentario en las siguientes instrucciones Using:
 
         using Microsoft.WindowsAzure.MobileServices;

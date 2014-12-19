@@ -1,3 +1,4 @@
+
 Este tutorial se basa en la [aplicación GetStartedWithMobileServices][aplicación GetStartedWithMobileServices], que es un proyecto de aplicación universal de Windows en Visual Studio 2013. La interfaz de usuario de esta aplicación es idéntica a la aplicación generada por el inicio rápido de Servicios móviles, excepto en que los elementos agregados se almacenan localmente en la memoria.
 
 1.  Descargue la versión C# de la aplicación de muestra GetStartedWithMobileServices desde el [sitio de ejemplos de código para desarrolladores].

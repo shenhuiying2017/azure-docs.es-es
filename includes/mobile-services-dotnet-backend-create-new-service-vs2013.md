@@ -1,3 +1,5 @@
+
+
 Los siguientes pasos permiten crear un servicio móvil en Azure y agregar al proyecto un código que conecte su aplicación con este nuevo servicio. Visual Studio 2013 se conecta a Azure en su nombre para crear el nuevo servicio móvil usando las credenciales que usted facilita. Cuando se crea un servicio móvil, es necesario especificar una Base de datos SQL de Azure. Esta base de datos la utilizará el servicio móvil para almacenar los datos de aplicaciones.
 
 1.  En Visual Studio 2013, abra el Explorador de soluciones, haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows, haga clic en **Agregar** y luego en **Servicio conectado...**.
@@ -16,14 +18,14 @@ Los siguientes pasos permiten crear un servicio móvil en Azure y agregar al pro
 
 5.  En **Database**, seleccione **\<Create a free SQL Database\>**, proporcione un nombre de usuario en **Server user name**, la contraseña en **Server password** y la confirmación de dicha contraseña en **Server password confirmation** y, a continuación, haga clic en **Create**.
 
-    ![crear nuevo servicio móvil en VS 2013][crear nuevo servicio móvil en VS 2013]
+  	![crear nuevo servicio móvil en VS 2013][crear nuevo servicio móvil en VS 2013]
 
     > [WACOM.NOTE]
     > Como parte de este tutorial, va a crear una nueva instancia y un nuevo servidor de Base de datos SQL gratuitos. Puede reutilizar esta nueva base de datos y administrarla como lo haría con cualquier otra instancia de Base de datos SQL. Solo puede tener una instancia de base de datos libre. Si ya tiene una base de datos en la misma región que el nuevo servicio móvil, puede elegir en su lugar la base de datos existente. Cuando elija una base de datos existente, asegúrese de suministrar las credenciales de inicio de sesión correctas. En caso contrario, el servicio móvil se creará con un estado incorrecto.
 
 6.  Después de crear el servicio móvil, selecciónelo en la lista del Administrador de servicios y haga clic en **Aceptar**.
 
-    Cuando el asistente finalice, el proyecto de servicio móvil se agrega a su solución, los paquetes NuGet necesarios se instalan, se agrega al proyecto una referencia a la biblioteca cliente de servicios móviles y el código fuente de su proyecto se actualiza.
+   	Cuando el asistente finalice, el proyecto de servicio móvil se agrega a su solución, los paquetes NuGet necesarios se instalan, se agrega al proyecto una referencia a la biblioteca cliente de servicios móviles y el código fuente de su proyecto se actualiza.
 
   [crear servicio para administrar suscripciones]: ./media/mobile-services-dotnet-backend-create-new-service-vs2013/mobile-create-service-from-vs2013.png
   [crear nuevo servicio móvil en VS 2013]: ./media/mobile-services-dotnet-backend-create-new-service-vs2013/mobile-create-service-from-vs2013-2.png
