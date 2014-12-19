@@ -1,4 +1,4 @@
-<properties linkid="mobile-services-dotnet-backend-get-started-custom-authentication" urlDisplayName="Get started with custom authentication" pageTitle="Get started with custom authentication | Mobile Dev Center" metaKeywords="" description="Learn how to authenticate users with a username and password." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with custom authentication" authors="mahender" />
+﻿<properties urlDisplayName="Get started with custom authentication" pageTitle="Introducción a la autenticación personalizada | Centro de desarrollo móvil" metaKeywords="" description="Learn how to authenticate users with a username and password." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with custom authentication" authors="mahender" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
 
@@ -6,26 +6,27 @@
 
 En este tema se muestra cómo autenticar usuarios en el backend .NET de Servicios móviles de Azure emitiendo su propio token de autenticación para Servicios móviles. En este tutorial, agregará autenticación al proyecto de inicio rápido mediante un nombre de usuario y una contraseña personalizados para la aplicación.
 
-> [WACOM.NOTE] En este tutorial se muestra un método avanzado para autenticar sus servicios móviles con credenciales personalizadas. En muchas aplicaciones, sin embargo, será más adecuado usar los proveedores de identidades sociales integrados para permitir a los usuarios que inicien sesión a través de Facebook, Twitter, Google, una cuenta de Microsoft y Azure Active Directory. Si esta es la primera vez que usa autenticación en Servicios móviles, consulte el tutorial[Introducción a los usuarios][Introducción a los usuarios].
+>[WACOM.NOTE] En este tutorial se muestra un método avanzado para autenticar sus servicios móviles con credenciales personalizadas. En muchas aplicaciones, sin embargo, será más adecuado usar los proveedores de identidades sociales integrados para permitir a los usuarios que inicien sesión a través de Facebook, Twitter, Google, una cuenta de Microsoft y Azure Active Directory. Si es la primera vez que usa autenticación en Servicios móviles, consulte el tutorial[Introducción a los usuarios].
 
 En este tutorial se realiza un recorrido por los pasos básicos para habilitar la autenticación en su aplicación:
 
-1.  [Configuración de la tabla de cuentas][Configuración de la tabla de cuentas]
-2.  [Creación del extremo de registro][Creación del extremo de registro]
-3.  [Creación del proveedor de inicio de sesión][Creación del proveedor de inicio de sesión]
-4.  [Creación del extremo de inicio de sesión][Creación del extremo de inicio de sesión]
-5.  [Configuración del servicio móvil para exigir autenticación][Configuración del servicio móvil para exigir autenticación]
-6.  [Prueba del flujo de inicio de sesión con un cliente de prueba][Prueba del flujo de inicio de sesión con un cliente de prueba]
+1. [Configuración de la tabla de cuentas]
+2. [Creación del extremo de registro]
+3. [Creación del proveedor de inicio de sesión]
+4. [Creación del extremo de inicio de sesión]
+5. [Configuración del servicio móvil para exigir autenticación]
+6. [Prueba del flujo de inicio de sesión con un cliente de prueba]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles].
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a Servicios móviles]. 
 
-> [WACOM.NOTE] El objetivo de este tutorial es mostrar cómo se emite un token de autenticación para Servicios móviles. Esto no debe interpretarse como una guía de seguridad. A la hora de desarrollar una aplicación, debe ser consciente de las implicaciones de seguridad que conlleva el almacenamiento de contraseñas y debe disponer de una estrategia para controlar ataques por fuerza bruta.
+>[WACOM.NOTE] El objetivo de este tutorial es mostrar cómo se emite un token de autenticación para Servicios móviles. Esto no debe interpretarse como una guía de seguridad. A la hora de desarrollar una aplicación, debe ser consciente de las implicaciones de seguridad que conlleva el almacenamiento de contraseñas y debe disponer de una estrategia para controlar ataques por fuerza bruta.
+
 
 ## <a name="table-setup"></a>Configuración de la tabla de cuentas
 
-Puesto que va a usar autenticación personalizada y no otro proveedor de identidades, deberá almacenar la información de inicio de sesión de los usuarios. En esta sección, creará una tabla para las cuentas y configurará mecanismos de seguridad básicos. La tabla de cuentas contendrá los nombres de usuario y las contraseñas con sal y algoritmos hash. También puede incluir otros datos de los usuarios si es necesario.
+Puesto que autenticación personalizada y no depende de otro proveedor de identidades, deberá almacenar la información de inicio de sesión de los usuarios. En esta sección, creará una tabla para las cuentas y configurará mecanismos de seguridad básicos. La tabla de cuentas contendrá los nombres de usuario y las contraseñas con sal y algoritmos hash. También puede incluir otros datos de los usuarios si es necesario.
 
-1.  En la carpeta `DataObjects` del proyecto de backend, cree una nueva entidad denominada `Account`:
+1. En la carpeta `DataObjects` de su proyecto de backend, cree una nueva entidad denominada `Cuenta`:
 
             public class Account : EntityData
             {
@@ -33,14 +34,15 @@ Puesto que va a usar autenticación personalizada y no otro proveedor de identid
                 public byte[] Salt { get; set; }
                 public byte[] SaltedAndHashedPassword { get; set; }
             }
-
+    
     Esto constituirá una fila en nuestra tabla y contendrá el nombre de usuario, la sal de ese usuario y la contraseña almacenada de forma segura.
 
-2.  En la carpeta `Models`, encontrará una clase `DbContext` con el nombre de su servicio móvil. En el resto del tutorial, usará `todoContext` como ejemplo y deberá actualizar los fragmentos de código en consecuencia. Abra el contexto e incluya el código siguiente para agregar la tabla de cuentas al modelo de datos:
+2. En la carpeta `Models`, encontrará una clase `DbContext` con el nombre de su servicio móvil. En el resto del tutorial, usará `todoContext` como ejemplo y deberá actualizar los fragmentos de código en consecuencia. Abra el contexto e incluya el código siguiente para agregar la tabla de cuentas al modelo de datos:
 
         public DbSet<Account> Accounts { get; set; }
 
-3.  A continuación, va a configurar las funciones de seguridad para trabajar con estos datos. Necesitará un medio para generar una nueva sal larga, la capacidad para aplicar un algoritmo hash a una contraseña con sal y un modo seguro de comparar dos algoritmos hash. Cree una clase denominada `CustomLoginProviderUtils` y agréguele los métodos siguientes:
+3. A continuación, va a configurar las funciones de seguridad para trabajar con estos datos. Necesitará un medio para generar una nueva sal larga, la capacidad para aplicar un algoritmo hash a una contraseña con sal y un modo seguro de comparar dos algoritmos hash. Cree una clase denominada `CustomLoginProviderUtils` y agréguele los métodos siguientes:
+
 
         public static byte[] hash(string plaintext, byte[] salt)
         {
@@ -70,11 +72,12 @@ Puesto que va a usar autenticación personalizada y no otro proveedor de identid
             return diff == 0;
         }
 
+
 ## <a name="register-endpoint"></a>Creación del extremo de registro
 
 Llegado este punto, dispone de todo lo necesario para comenzar a crear cuentas de usuario. En esta sección, configurará un extremo de registro para administrar nuevas solicitudes de registro. Aquí es donde impondrá nuevas directivas de nombre de usuario y contraseña, y se asegurará de que el nombre de usuario no esté ya en uso. Después almacenará la información de usuario de forma segura en la base de datos.
 
-1.  Cree un objeto que represente un intento de registro entrante:
+1. Cree un objeto que represente un intento de registro entrante:
 
         public class RegistrationRequest
         {
@@ -84,7 +87,7 @@ Llegado este punto, dispone de todo lo necesario para comenzar a crear cuentas d
 
     Si desea recopilar otros datos en el momento del registro, puede incluirla aquí.
 
-2.  En el proyecto de backend de Servicios móviles, agregue un nuevo controlador personalizado denominado CustomRegistrationController y pegue el siguiente código en él:
+1. En el proyecto de backend de Servicios móviles, agregue un nuevo controlador personalizado denominado CustomRegistrationController y pegue el siguiente código en él:
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
         public class CustomRegistrationController : ApiController
@@ -132,9 +135,9 @@ Llegado este punto, dispone de todo lo necesario para comenzar a crear cuentas d
 
 ## <a name="login-provider"></a>Creación del proveedor de inicio de sesión
 
-Una de las construcciones básicas de la canalización de autenticación de Servicios móviles es `LoginProvider`. En esta sección, creará su propio `CustomLoginProvider`. No estará conectado a la canalización como los proveedores integrados, pero proporcionará una funcionalidad muy práctica.
+Una de las construcciones básicas de la canalización de autenticación de Servicios móviles es el `LoginProvider`. En esta sección, creará su propio `CustomLoginProvider`. No estará conectado a la canalización como los proveedores integrados, pero proporcionará una funcionalidad muy práctica.
 
-1.  Cree una clase nueva, `CustomLoginProvider`, que se derive de `LoginProvider`:
+1. Cree una nueva clase, `CustomLoginProvider`, que se deriva de `LoginProvider`:
 
         public class CustomLoginProvider : LoginProvider
         {
@@ -153,9 +156,9 @@ Una de las construcciones básicas de la canalización de autenticación de Serv
 
         }
 
-    `LoginProvider` tiene tres métodos abstractos que implementará más adelante.
+       `LoginProvider` has three other abstract methods which you will implement later.
 
-2.  Cree una clase nueva denominada `CustomLoginProviderCredentials`. Esta clase representa información acerca del usuario y estará disponible en el backend a través de `ServiceUser.getIdentitiesAsync()`. Si va a agregar notificaciones personalizadas, asegúrese de que se capturan en este objeto.
+2. Cree una clase denominada `CustomLoginProviderCredentials`. Esta clase representa información acerca del usuario y estará disponible en el backend a través de `ServiceUser.getIdentitiesAsync()`. Si va a agregar notificaciones personalizadas, asegúrese de que se capturan en este objeto.
 
         public class CustomLoginProviderCredentials : ProviderCredentials
         {
@@ -165,7 +168,7 @@ Una de las construcciones básicas de la canalización de autenticación de Serv
             }
         }
 
-3.  Agregue la siguiente implementación del método abstracto `ConfigureMiddleware` a `CustomLoginProvider`. Este método no está operativo aquí porque `CustomLoginProvider` no se integra en la canalización de autenticación.
+3. Agregue la siguiente implementación del método abstracto `ConfigureMiddleware` a `CustomLoginProvider`. Este método no está operativo aquí porque `CustomLoginProvider` no se integra en la canalización de autenticación.
 
         public override void ConfigureMiddleware(IAppBuilder appBuilder, ServiceSettingsDictionary settings)
         {
@@ -173,7 +176,7 @@ Una de las construcciones básicas de la canalización de autenticación de Serv
             return;
         }
 
-4.  Agregue la siguiente implementación del método abstracto `ParseCredentials` a `CustomLoginProvider`. Este método permitirá al backend deserializar información de usuario de un token de autenticación entrante.
+4. Agregue la siguiente implementación del método abstracto `ParseCredentials` a `CustomLoginProvider`. Este método permitirá al backend deserializar información de usuario de un token de autenticación entrante.
 
         public override ProviderCredentials ParseCredentials(JObject serialized)
         {
@@ -185,7 +188,8 @@ Una de las construcciones básicas de la canalización de autenticación de Serv
             return serialized.ToObject<CustomLoginProviderCredentials>();
         }
 
-5.  Agregue la siguiente implementación del método abstracto `CreateCredentials` a `CustomLoginProvider`. Este método convierte un elemento `ClaimsIdentity` en un objeto `ProviderCredentials` que se usa en la fase de emisión de tokens de autenticación. De nuevo, puede capturar aquí otras notificaciones adicionales.
+
+5. Agregue la siguiente implementación del método abstracto `CreateCredentials` a `CustomLoginProvider`. Este método convierte un elemento `ClaimsIdentity` en un objeto `ProviderCredentials` que se usa en la fase de emisión de tokens de autenticación. De nuevo, puede capturar aquí otras notificaciones adicionales.
 
         public override ProviderCredentials CreateCredentials(ClaimsIdentity claimsIdentity)
         {
@@ -207,7 +211,7 @@ Una de las construcciones básicas de la canalización de autenticación de Serv
 
 A continuación, creará un extremo para que los usuarios inicien sesión. El nombre de usuario y la contraseña que reciba se comprobarán con la base de datos. En primer lugar, se aplica la sal del usuario, después se aplica un algoritmo hash a la contraseña y se comprueba si el valor entrante coincide con el de la base de datos. Si coincide, puede crear un objeto `ClaimsIdentity` y pasarlo al `CustomLoginProvider`. La aplicación de cliente recibirá entonces un identificador de usuario y un token de autenticación para obtener acceso al servicio móvil.
 
-1.  En el proyecto de backend de Servicios móviles, cree un objeto para representar un intento de inicio de sesión entrante:
+1. En el proyecto de backend de Servicios móviles, cree un objeto para representar un intento de inicio de sesión entrante:
 
         public class LoginRequest
         {
@@ -215,7 +219,7 @@ A continuación, creará un extremo para que los usuarios inicien sesión. El no
             public String password { get; set; }
         }
 
-2.  Agregue un nuevo controlador personalizado denominado `CustomLoginController` y pegue el siguiente código en él:
+1. Agregue un nuevo controlador personalizado denominado `CustomLoginController` y pegue el siguiente código en él:
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
         public class CustomLoginController : ApiController
@@ -248,52 +252,57 @@ A continuación, creará un extremo para que los usuarios inicien sesión. El no
 
         [AuthorizeLevel(AuthorizationLevel.Anonymous)]
 
-> [WACOM.NOTE] El `CustomLoginController` que utilice en producción debe contener también una estrategia de detección de ataques por fuerza bruta. De lo contrario, la solución de inicio de sesión puede ser vulnerable a ataques.
+>[WACOM.NOTE] El `CustomLoginController` que utilice en producción debe contener también una estrategia de detección de ataques por fuerza bruta. De lo contrario, la solución de inicio de sesión puede ser vulnerable a ataques.
 
 ## <a name="require-authentication"></a>Configuración del servicio móvil para exigir autenticación
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
+
 ## <a name="test-login"></a>Prueba del flujo de inicio de sesión con un cliente de prueba
 
 En la aplicación de cliente, deberá desarrollar una pantalla de inicio de sesión personalizada que tome nombres de usuario y contraseñas y los envíe como carga JSON a los extremos de registro e inicio de sesión. Para completar este tutorial, usará únicamente el cliente de prueba integrado para el extremo .NET de Servicios móviles.
 
-> [WACOM.NOTE] Los SDK de Servicios móviles se comunicarán con el servicio mediante HTTPS. Si planea obtener acceso a este extremo con una llamada REST directa, debe asegurarse de utilizar HTTPS para llamar al servicio móvil, ya que las contraseñas se envían como texto no cifrado.
+>[WACOM.NOTE] Los SDK de Servicios móviles se comunicarán con el servicio mediante HTTPS. Si piensa obtener acceso a este extremo con una llamada REST directa, debe asegurarse de utilizar HTTPS para llamar al servicio móvil, ya que las contraseñas se envían como texto no cifrado.
 
-1.  En Visual Studio, inicie una nueva instancia de depuración del proyecto de backend de Servicios Móviles. Para ello, haga clic con el botón secundario en el proyecto y seleccione **Depurar -\> Iniciar nueva instancia**
+1. En Visual Studio, inicie una nueva instancia de depuración del proyecto de backend de Servicios Móviles. Para ello, haga clic con el botón secundario en el proyecto y seleccione**Depurar->Iniciar nueva instancia**
 
     ![][0]
 
-2.  Haga clic en **Probar**
+2. Haga clic en **Probarlo**
 
     ![][1]
 
-3.  Seleccione el extremo de registro. Puede ver alguna documentación básica para la API. Haga clic en **Probar**.
+3. Seleccione el extremo de registro. Puede ver alguna documentación básica para la API. Haga clic en **Probar esto**.
 
     ![][2]
 
-4.  En el cuerpo, reemplace las cadenas de ejemplo por un nombre de usuario y una contraseña que cumplan los criterios que especificó anteriormente. Después haga clic en **Enviar**. La respuesta debe ser **201/Creado**.
+4. En el cuerpo, reemplace las cadenas de ejemplo por un nombre de usuario y una contraseña que cumplan los criterios que especificó anteriormente. Después, haga clic en **Enviar**. La respuesta debe ser **201/Creado**.
 
     ![][3]
 
-5.  Repita este proceso para el extremo de inicio de sesión. Después de enviar el nombre de usuario y la contraseña que registró antes, debe recibir el identificador de usuario y un token de autenticación.
+5. Repita este proceso para el extremo de inicio de sesión. Después de enviar el nombre de usuario y la contraseña que registró antes, debe recibir el identificador de usuario y un token de autenticación.
 
     ![][4]
 
- 
+
+<!-- Anchors. -->
+[Configuración de la tabla de cuentas]: #table-setup
+[Creación del extremo de registro]: #register-endpoint
+[Creación del proveedor de inicio de sesión]: #login-provider
+[Creación del extremo de inicio de sesión]: #login-endpoint
+[Configuración del servicio móvil para exigir autenticación]: #require-authentication
+[Prueba del flujo de inicio de sesión con un cliente de prueba]: #test-login
 
 
+<!-- Images. -->
+[0]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-debug-start.png
+[1]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-try-out.png
+[2]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-test-client.png
+[3]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-send-register.png
+[4]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-login-result.png
 
-  [Introducción a los usuarios]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
-  [Configuración de la tabla de cuentas]: #table-setup
-  [Creación del extremo de registro]: #register-endpoint
-  [Creación del proveedor de inicio de sesión]: #login-provider
-  [Creación del extremo de inicio de sesión]: #login-endpoint
-  [Configuración del servicio móvil para exigir autenticación]: #require-authentication
-  [Prueba del flujo de inicio de sesión con un cliente de prueba]: #test-login
-  [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
-  [0]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-debug-start.png
-  [1]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-try-out.png
-  [2]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-test-client.png
-  [3]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-send-register.png
-  [4]: ./media/mobile-services-dotnet-backend-get-started-custom-authentication/mobile-services-dotnet-backend-custom-auth-login-result.png
+
+<!-- URLs. -->
+[Introducción a los usuarios]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
+[Introducción a Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started

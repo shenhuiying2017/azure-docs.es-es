@@ -1,74 +1,74 @@
-<properties pageTitle="Get started with authentication (Android) | Mobile Dev Center" metaKeywords="authentication, Facebook, Google, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="mahender" solutions="" manager="" editor="" />
+﻿<properties pageTitle="Introducción a la autenticación (Android) | Centro de desarrollo móvil" metaKeywords="authentication, Facebook, Google, Twitter, Microsoft Account, login" description="Learn how to use Mobile Services to authenticate users of your Windows Store app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="mahender" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/27/2014" ms.author="mahender" />
 
-# Erste Schritte bei der Authentifizierung in Mobile Services
+# Incorporación de autenticación a la aplicación de Servicios móviles
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users" title="Windows Store C#">Windows Store C#</a>
-<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users" title="Windows Store JavaScript">Windows Store JavaScript</a>
-<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users" title="Windows Phone">Windows Phone</a>
-<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-users" title="iOS" >iOS</a>
-<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-users" title="Android" class="current">Android</a>
-<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users" title="Xamarin.iOS">Xamarin.iOS</a>
-<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started-users" title="Xamarin.Android">Xamarin.Android</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-<div class="dev-center-tutorial-subselector">
-<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/" title=".NET-Backend" class="current">.NET-Backend</a> | <a href="/es-es/documentation/articles/mobile-services-android-get-started-users/"  title="JavaScript-Backend">JavaScript-Backend</a></div>
+En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde la aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que se haya realizado la autenticación y autorización correctamente en los Servicios móviles, se mostrará el valor de identificador de usuario.
 
-In diesem Thema erfahren Sie, wie Sie Benutzer in Azure Mobile Services über Ihre App authentifizieren. In diesem Lernprogramm fügen Sie eine Authentifizierung zu dem Schnellstartprojekt hinzu. Sie verwenden dazu einen Identitätsanbieter, der von Mobile Services unterstützt wird. Nach der erfolgreichen Authentifizierung und Autorisierung durch Mobile Services wird der Benutzer-ID-Wert angezeigt.
+En este tutorial se realiza un recorrido por los pasos básicos para habilitar la autenticación en su aplicación:
 
-Dieses Lernprogramm zeigt Ihnen die grundlegenden Schritte zur Aktivierung von Authentifizierung in Ihrer App:
+1. [Registro de la aplicación para la autenticación y configuración de Servicios móviles]
+2. [Restricción de los permisos de tabla a usuarios autenticados]
+3. [Incorporación de autenticación a la aplicación]
+4. [Almacenar tokens de autenticación en el cliente]
+5. [Actualización de los tokens expirados]
 
-1.  [Registrieren Ihrer App für Authentifizierung und Konfigurieren von Mobile Services][Registrieren Ihrer App für Authentifizierung und Konfigurieren von Mobile Services]
-2.  [Einschränken von Tabellenberechtigungen für authentifizierte Benutzer][Einschränken von Tabellenberechtigungen für authentifizierte Benutzer]
-3.  [Hinzufügen von Authentifizierung zur App][Hinzufügen von Authentifizierung zur App]
-4.  [Speichern von Authentifizierungstokens auf dem Client][Speichern von Authentifizierungstokens auf dem Client]
-5.  [Aktualisieren abgelaufener Tokens][Aktualisieren abgelaufener Tokens]
 
-Dieses Lernprogramm baut auf dem Mobile Services-Schnellstart auf. Sie müssen zunächst das Lernprogramm [Erste Schritte mit Mobile Services][Erste Schritte mit Mobile Services] abschließen.
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a Servicios móviles]. 
 
-## <a name="register"></a>Registrieren Ihrer App für Authentifizierung und Konfigurieren von Mobile Services
+##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)]
+[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)]
+[WACOM.INCLUDE [mobile-services-dotnet-backend-aad-server-extension](../includes/mobile-services-dotnet-backend-aad-server-extension.md)] 
 
-## <a name="permissions"></a>Einschränken von Berechtigungen für authentifizierte Benutzer
+##<a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
+[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)] 
 
-1.  Öffnen Sie in Eclipse das Projekt, das Sie im Lernprogramm [Erste Schritte mit mobilen Diensten][Erste Schritte mit Mobile Services] erstellt haben.
+3. En Eclipse, abra el proyecto que ha creado al completar el tutorial [Introducción a Servicios móviles]. 
 
-2.  Klicken Sie im Menü **Ausführen** auf **Ausführen**, um die App zu starten. Vergewissern Sie sich, dass nach dem Start der App ein Ausnahmefehler mit dem Statuscode 401 (nicht autorisiert) geworfen wird.
+4. En el menú **Run (Ejecutar)**, haga clic en **Run (Ejecutar)** para iniciar la aplicación y, a continuación, compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación. 
 
-    Dies liegt daran, dass die App als nicht authentifizierter Benutzer auf Mobile Services zugreift und die *TodoItem*-Tabelle nun eine Authentifizierung verlangt.
+	 Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla _TodoItem_ requiere ahora autenticación.
 
-Als Nächstes werden Sie die App aktualisieren, um Benutzer zu authentifizieren, bevor diese Ressourcen vom Mobile Service anfordern.
+A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del servicio móvil.
 
-## <a name="add-authentication"></a>Hinzufügen von Authentifizierung zur App
+##<a name="add-authentication"></a>Incorporación de autenticación a la aplicación
 
 [WACOM.INCLUDE [mobile-services-android-authenticate-app](../includes/mobile-services-android-authenticate-app.md)]
 
-## <a name="cache-tokens"></a>Cache-Authentifizierungstokens auf dem Client
+## <a name="cache-tokens"></a>Almacenamiento en caché de tokens de autenticación en el cliente
 
-[WACOM.INCLUDE [mobile-services-android-authenticate-app-with-token](../includes/mobile-services-android-authenticate-app-with-token.md)]
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-with-token](../includes/mobile-services-android-authenticate-app-with-token.md)] 
 
-## <a name="refresh-tokens"></a>Aktualisieren des Token-Caches
+## <a name="refresh-tokens"></a>Actualización de la memoria caché de los tokens
 
-[WACOM.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../includes/mobile-services-android-authenticate-app-refresh-token.md)]
+[WACOM.INCLUDE [mobile-services-android-authenticate-app-refresh-token](../includes/mobile-services-android-authenticate-app-refresh-token.md)] 
 
-## <a name="next-steps"></a>Nächste Schritte
+##<a name="next-steps"></a>Pasos siguientes
 
-Im nächsten Lernprogramm [Dienstweite Autorisierung von Mobile Services-Benutzern][Dienstweite Autorisierung von Mobile Services-Benutzern] werden Sie den von Mobile Services auf Basis eines authentifizierten Benutzers bereitgestellten Benutzer-ID-Wert verwenden, um von Mobile Services zurückgegebene Daten zu filtern.
+En el siguiente tutorial, [Autorización en el servicio de los usuarios de Servicios móviles][Autorización de usuarios con scripts], usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. 
 
 
+<!-- Anchors. -->
+[Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
+[Restricción de los permisos de tabla a usuarios autenticados]: #permissions
+[Incorporación de autenticación a la aplicación]: #add-authentication
+[Almacenamiento de los tokens de autenticación en el cliente]: #cache-tokens
+[Actualización de los tokens expirados]: #refresh-tokens
+[Pasos siguientes]:#next-steps
 
-  [Registrieren Ihrer App für Authentifizierung und Konfigurieren von Mobile Services]: #register
-  [Einschränken von Tabellenberechtigungen für authentifizierte Benutzer]: #permissions
-  [Hinzufügen von Authentifizierung zur App]: #add-authentication
-  [Speichern von Authentifizierungstokens auf dem Client]: #cache-tokens
-  [Aktualisieren abgelaufener Tokens]: #refresh-tokens
-  [Erste Schritte mit Mobile Services]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started/
-  [Dienstweite Autorisierung von Mobile Services-Benutzern]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
+<!-- URLs. -->
+[Introducción a Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started/
+[Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
+[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
+[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
+[Autorización de usuarios con scripts]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
+
+[Portal administración de Azure]: https://manage.windowsazure.com/
+[Referencia conceptual de Servicios móviles con .NET]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library
+[Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft]: /es-es/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication

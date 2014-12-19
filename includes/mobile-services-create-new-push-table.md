@@ -1,24 +1,21 @@
-1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
+﻿
+1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en su aplicación.
 
-    ![][0]
+	![](./media/mobile-services-create-new-push-table/mobile-services-selection.png)
 
-2.  Haga clic en la pestaña **Data** y, a continuación, en **Create**.
+2. Haga clic en la pestaña **Datos** y, a continuación, haga clic en **Crear**.
 
-    ![][1]
+	![](./media/mobile-services-create-new-push-table/mobile-create-table.png)
 
-    Esto muestra el cuadro de diálogo **Create new table**.
+	Esto muestra el cuadro de diálogo **Crear nueva tabla**.
 
-3.  Con la configuración predeterminada **Anybody with the application key** para todos los permisos, escriba *Registrations* en **Table name** y, a continuación, haga clic en el botón de comprobación.
+3. Con la configuración predeterminada **Cualquiera con la clave de aplicación** para todos los permisos, escriba _Registros_ en **Nombre de tabla** y, a continuación, haga clic en el botón de comprobación.
 
-    ![][2]
+	![](./media/mobile-services-create-new-push-table/mobile-create-registrations-table.png)
 
-Esto crea la tabla **Registrations**, la cual almacena los URI de canal que se usan para enviar notificaciones de inserción.
+  Esto crea la tabla **Registros**, la cual almacena los URI de canal que se usan para enviar notificaciones de inserción.
 
 Después, podrá modificar su aplicación para habilitar las notificaciones de inserción.
 
 <!-- URLs -->
-
-  [Portal de administración de Azure]: https://manage.windowsazure.com/
-  [0]: ./media/mobile-services-create-new-push-table/mobile-services-selection.png
-  [1]: ./media/mobile-services-create-new-push-table/mobile-create-table.png
-  [2]: ./media/mobile-services-create-new-push-table/mobile-create-registrations-table.png
+[Portal de administración de Azure]: https://manage.windowsazure.com/

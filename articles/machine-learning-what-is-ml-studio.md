@@ -1,71 +1,69 @@
-<properties title="What Is Azure Machine Learning Studio?" pageTitle="What Is Machine Learning Studio? | Azure" description="Overview of Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+﻿<properties title="What Is Azure Machine Learning Studio?" pageTitle="¿Qué es Estudio de aprendizaje automático? | Azure" description="Overview of Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/11/2014" ms.author="garye" />
 
-# Was ist Azure Machine Learning Studio?
+# ¿Qué es Estudio de aprendizaje automático de Microsoft Azure?
 
-Microsoft Azure Machine Learning Studio ist eine visuelle Entwicklungsumgebung für Zusammenarbeit, mit der Sie Lösungen für prädiktive Analysen erstellen, testen und bereitstellen können, die mit Ihren Daten arbeiten. Die Machine Learning-Dienst- und -Entwicklungsumgebung ist Cloud-basiert, ermöglicht Flexibilität bei Rechnerressourcen und Arbeitsspeicher und eliminiert das Kopfzerbrechen bei Einrichtung und Installation, denn Sie arbeiten über einen Webbrowser.
+Estudio de aprendizaje automático de Microsoft Azure es un entorno de desarrollo visual colaborativo que le permite crear, probar e implementar soluciones de análisis predictivo que operan sobre sus datos. El entorno de desarrollo y servicio de Aprendizaje automático se basa en la nube, ofrece recursos informáticos y flexibilidad de memoria y elimina las molestias relacionadas con la instalación y la configuración porque funciona a través del explorador web. 
 
-Bei ML Studio finden Datenwissenschaften, prädiktive Analysen, Cloudressourcen und Ihre Daten zusammen!
+Estudio de aprendizaje automático es el lugar en el que confluyen la ciencia de datos, el análisis predictivo, los recursos en la nube y sus datos.
 
-## Der interaktive Arbeitsbereich von ML Studio
+## El área de trabajo interactiva de Estudio de aprendizaje automático
 
-Für die Entwicklung eines prädiktiven Analysemodells verwendet man typischerweise Daten aus einer oder mehreren Quellen, transformiert und analysiert diese Daten mithilfe verschiedener Datenbearbeitungen und Statistikfunktionen und generiert einen Ergebnissatz. Das Entwickeln eines solchen Modells ist ein iterativer Prozess – Sie ändern die verschiedenen Funktionen und deren Parameter, und die Ergebnisse nähern sich an, bis Sie der Ansicht sind, dass sie ein trainiertes, effektives Modell erreicht haben.
+Para desarrollar un modelo de análisis predictivo, normalmente se utilizan datos de una o varias fuentes, se transforman y analizan los datos a través de diversas funciones estadísticas y de manipulación de datos y se genera un conjunto de resultados. El desarrollo de un modelo de este tipo es un proceso iterativo: a medida que se modifican las diversas funciones y sus parámetros, sus resultados convergen hasta que esté satisfecho con un modelo entrenado y efectivo.
 
-**ML Studio** gibt Ihnen einen interaktiven, visuellen Arbeitsbereich, in dem Sie einfach auf einem prädiktiven Analysemodell entwickeln, testen und iterieren können. Sie fügen per Drag & Drop ***Datasets*** und ***Analysemodule***
-in einen interaktiven ***Arbeitsbereich*** ein, verbinden sie, sodass sie ein ***Experiment*** bilden, das Sie dann an ML Studio zur Ausführung ***senden***. Für das Iterieren an Ihrem Modelldesign ***bearbeiten*** Sie das Experiment, ***speichern*** auf Wunsch eine Kopie und senden es erneut.
+**Estudio de aprendizaje automático** le proporciona un área de trabajo visual e interactiva para generar, probar e iterar con toda facilidad sobre un modelo de análisis predictivo. Se arrastran y colocan ***conjuntos de datos*** y ***módulos*** de análisis en un ***lienzo*** interactivo, conectándolos todos para formar un ***experimento*** que se ***ejecuta*** en Estudio de aprendizaje automático. Para iterar su diseño de modelo, se puede ***editar*** el experimento, ***guardar*** una copia si así se desea y ejecutarlo de nuevo. Cuando esté listo, puede ***publicar*** el experimento como un ***servicio web*** para que otros usuarios puedan tener acceso al modelo. 
 
-Es ist keine Programmierung erforderlich, sondern einfach nur das visuelle Verbinden von Datasets und Modulen zum Erstellen eines prädiktiven Analysemodells.
+No se requiere ningún tipo de programación, basta con conectar visualmente conjuntos de datos y módulos para construir el modelo de análisis predictivo.
 
-![ML Studio-Übersicht][ML Studio-Übersicht]
+![ML Studio Overview][ml-studio-overview]
 
-## Erste Schritte mit ML Studio
+## Introducción a Estudio de aprendizaje automático
 
-Wenn Sie ML Studio das erste Mal öffnen, sehen Sie links folgende Registerkarten:
+La primera vez que entre en Estudio de aprendizaje automático, verá las siguientes pestañas a la izquierda:
 
--   **EXPERIMENTE** – Experimente, die erstellt, ausgeführt und als Entwürfe gespeichert wurden
--   **WEBDIENSTE** – eine Liste der von Ihnen veröffentlichten Experimente
--   **MODULE** – eine Referenzliste der Analysemodule, die in ML Studio zur Verfügung stehen
--   **DATASETS** – eine Referenzliste der Datasets, die in ML Studio zur Verfügung stehen
--   **EINSTELLUNGEN** – eine Sammlung von Einstellungen, mit denen Sie Ihr Konto und Ihre Ressourcen konfigurieren
+- **Página principal de Studio**: un conjunto de vínculos a documentación y otros recursos.
+- **EXPERIMENTOS**: los experimentos que se han creado, ejecutado y guardado como borradores. 
+- **SERVICIOS WEB**: una lista de los experimentos publicados. 
+- **CONFIGURACIÓN**: una colección de ajustes que puede utilizar para configurar la cuenta y los recursos. 
 
-> [WACOM.NOTE] Die Liste der auf diesen Registerkarten angezeigten **Module** und **Datasets** dient nur als Referenz. Diese Listen enthalten weitere Informationen über Datasets und Module, darunter das Erstellungsdatum und die Versionsnummer.
-> Wenn Sie ein Experiment konstruieren, wird links neben dem Arbeitsbereich eine Arbeitsliste verfügbarer Datasets und Module angezeigt. Das ist die Liste der Komponenten, die Sie zum Erstellen Ihres Modells verwenden.
+>[WACOM.NOTE] Al crear un experimento, se muestra una lista de trabajo de los conjuntos de datos y módulos	disponibles a la izquierda del lienzo. Esta es la lista de componentes que se utiliza para construir el modelo.
 
-## Komponenten eines Experiments
+## Componentes de un experimento
 
-Ein Experiment besteht auf Datasets, die Daten für Analysemodule bereitstellen, die Sie miteinander verbinden und so ein Vorhersagemodell konstruieren. Ein gültiges Experiment hat spezifisch folgende Eigenschaften:
+Un experimento consta de conjuntos de datos que proporcionan datos a módulos analíticos, que se conectan en conjunto para construir un modelo de análisis predictivo. En concreto, un experimento válido tiene estas características:
 
--   Es besteht aus mindestens einem Dataset und einem Modul.
--   Datasets können nur mit Modulen verbunden sein.
--   Module können entweder mit Datasets oder Modulen verbunden sein.
--   Alle Eingangsports für Module müssen eine Verbindung zum Datenfluss haben.
--   Alle erforderlichen Parameter eines Moduls müssen festgelegt sein.
+- Tiene al menos un conjunto de datos y un módulo. 
+- Los conjuntos de datos pueden estar conectados solo a módulos. 
+- Los módulos pueden conectarse a conjuntos de datos o a otros módulos. 
+- Todos los puertos de entrada de los módulos deben tener alguna conexión al flujo de datos. 
+- Deben establecerse todos los parámetros requeridos para un módulo. 
 
-Ein Beispiel für das Erstellen eines einfachen Experiments finden Sie unter **Erstellen eines Beispielexperiments**.
-Eine umfassendere exemplarische Vorgehensweise beim Erstellen einer prädiktiven Analyselösung finden Sie unter **Erstellen und Iterieren eines Machine Learning-Experiments**.
+Para obtener un ejemplo de creación de un experimento simple, consulte [Creación de un experimento sencillo en el Estudio de aprendizaje automático de Azure](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-create-experiment/). 
+Para obtener un tutorial más completo de la creación de una solución de análisis predictivos, consulte [Desarrollo de una solución predictiva con Aprendizaje automático de Azure](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
 
-### Datasets
+### Conjuntos de datos
 
-Ein Dataset sind Daten, die in ML Studio hochgeladen wurden, sodass Sie im Modelierungsprozess verwendet werden können. Eine Reihe von Beispieldatasets sind in ML Studio enthalten, sodass Sie damit experimentieren können, und bei Bedarf lassen sich weitere Datasets hochladen. Hier einige Beispiele der enthaltenen Datasets:
+Un conjunto de datos son datos que se han cargado en Estudio de aprendizaje automático para utilizarse en el proceso de modelado.  Estudio de aprendizaje automático incluye varios conjuntos de datos de ejemplo con los que puede experimentar, y puede cargar más a medida que los necesite.  A continuación se muestran algunos ejemplos de los conjuntos de datos incluidos:
 
--   **MPG-Daten für verschiedene Autos** – MPG-Werte für Autos, die anhand der Anzahl von Zylindern, Motorleistung usw. aufgeführt sind
--   **Brustkrebsdaten** – Diagnostische Brustkrebsdaten
--   **Waldbranddaten** – Größe von Waldbränden im nordöstlichen Portugal
+- **Datos sobre consumo de combustible por distancia recorrida para varios automóviles**: valores sobre consumo de combustible por distancia recorrida para automóviles identificados por el número de cilindros, los caballos de potencia, etc. 
+- **Datos sobre cáncer de mama**: datos de diagnóstico de cáncer de mama. 
+- **Datos de incendios forestales**: magnitud de los incendios forestales en el noreste de Portugal. 
 
-Beim Erstellen eines Experiments ist die Arbeitsliste der Datasets links neben dem Arbeitsbereich verfügbar. Sie können auch die Liste der hochgeladenen Datasets anzeigen, indem Sie die Registerkarte **DATASETS** beim Start von ML Studio auswählen.
+A medida que genera un experimento, la lista de trabajo de conjuntos de datos está disponible a la izquierda del lienzo. 
 
-### Module
+### Módulos
 
-Ein Modul ist ein Algorithmus, den Sie auf Ihre Daten anwenden können. ML Studio hat eine Reihe von Modulen, die von Funktionen für die Dateneinspeisung bis zu Trainings-, Bewertungs- und Überprüfungsvorgängen reichen. Hier einige Beispiele der enthaltenen Module:
+Un módulo es un algoritmo que puede aplicar sobre sus datos.  Estudio de aprendizaje automático cuenta con diversos módulos que van desde las funciones de incorporación de datos hasta procesos de entrenamiento, puntuación y validación.  A continuación se muestran algunos ejemplos de los módulos incluidos:
 
--   **In ARFF konvertieren** – konvertiert ein .NET-serialisierter Datasets in das ARFF-Format
--   **Elementare Statistiken** – berechnet elementare Statistiken wie beispielsweise Mittelwert, Standardabweichung usw.
--   **Lineare Regression** – erstellt ein lineares Regressionsmodell, das auf einem Gradientenverfahren-Modell beruht
--   **Bewertungsmodell** – bewertet ein trainiertes Klassifzierungs- oder Regressionsmodell
+- **Convertir a ARFF**: convierte un conjunto de datos serializados de .NET a formato ARFF. 
+- **Estadísticas elementales**: calcula estadísticas elementales como la media, la desviación estándar, etc. 
+- **Regresión lineal**: crea un modelo de regresión lineal basado en un descenso de gradiente en línea. 
+- **Puntuar modelo**: puntúa un modelo entrenado de clasificación o regresión. 
 
-Beim Erstellen eines Experiments ist die Arbeitsliste der Module links neben dem Arbeitsbereich verfügbar. Sie können auch die Liste der enthaltenen Module anzeigen, indem Sie die Registerkarte **MODULE** beim Start von ML Studio auswählen.
+A medida que genera un experimento, la lista de trabajo de módulos está disponible a la izquierda del lienzo. 
 
-Ein Modul kann eine Reihe von Parametern haben, die Sie zum Konfigurieren der internen Algorithmen des Moduls einsetzen können. Wenn Sei ein Modul im Arbeitsbereich auswählen, werden dessen Parameter im Abschnitt rechts neben diesem angezeigt. Sie können die Parameter in diesem Bereich zur Abstimmung Ihres Modells verändern.
+Un módulo puede tener un conjunto de parámetros que puede utilizar para configurar los algoritmos internos del módulo. Al seleccionar un módulo en el lienzo,  los parámetros del módulo se muestran en el panel a la derecha del lienzo. Puede modificar los parámetros en ese panel para ajustar su modelo.
 
-  [ML Studio-Übersicht]: ./media/machine-learning-what-is-ml-studio/context.jpg
+
+[ml-studio-overview]:./media/machine-learning-what-is-ml-studio/context.jpg

@@ -1,154 +1,165 @@
-<properties linkid="develop-python-service-bus-queues" urlDisplayName="Service Bus Queues" pageTitle="How to use Service Bus queues (Python) - Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues Python" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="" editor="" />
+﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Uso de las colas del bus de servicio (Python) - Azure" metaKeywords="colas del bus de servicio de Azure, colas de Azure, mensajería de Azure, colas de Azure en Python" description="Learn how to use Service Bus queues in Azure. Code samples written in Python." metaCanonical="" services="service-bus" documentationCenter="Python" title="How to Use Service Bus Queues" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="01/01/1900" ms.author="huvalo" />
+<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="huvalo" />
+
+
+
 
 # Utilización de las colas del bus de servicio
-
 Esta guía le mostrará cómo usar las colas del bus de servicio. Los ejemplos están
-escritos en Python y usan el modelo de Azure para Python. Entre los escenarios
-proporcionados se incluyen los siguientes: **creación de colas, envío y recepción de mensajes** y
-**eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][Pasos siguientes].
+escritos en Python y utilizan el módulo de Azure para Python. Los escenarios
+cubiertos incluyen **creación de colas, envío y recepción de mensajes** y 
+**eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][].
 
 ## Tabla de contenido
 
--   [¿Qué son las colas del bus de servicio?][¿Qué son las colas del bus de servicio?]
--   [Creación de un espacio de nombres de servicio][Creación de un espacio de nombres de servicio]
--   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][Obtención de credenciales de administración predeterminadas para el espacio de nombres]
--   [Direccionamiento del una cola][Direccionamiento del una cola]
--   [Direccionamiento del mensajes a una cola][Direccionamiento del mensajes a una cola]
--   [Direccionamiento del mensajes desde una cola][Direccionamiento del mensajes desde una cola]
--   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer][Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer]
--   [Pasos siguientes][Pasos siguientes]
+-   [¿Qué son las colas del bus de servicio?][]
+-   [Creación de un espacio de nombres de servicio][]
+-   [Obtención de credenciales de administración predeterminadas para el espacio de nombres][]
+-   [Direccionamiento del una cola][]
+-   [Direccionamiento del mensajes a una cola][]
+-   [Direccionamiento del mensajes desde una cola][]
+-   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer][]
+-   [Pasos siguientes][]
 
 [WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-**Nota:** Si necesita instalar Python o las bibliotecas de clientes, consulte la [guía de instalación de Python][guía de instalación de Python] (en inglés).
+**Nota:** Si necesita instalar Python o las bibliotecas de clientes, consulte la [guía de instalación de Python](../python-how-to-install/).
+
 
 ## <a name="create-queue"> </a>Creación de una cola
 
 El objeto **ServiceBusService** le permite trabajar con colas. Agregue lo siguiente cerca de la parte superior de todo archivo Python en el que desee obtener acceso al bus de servicio de Azure mediante programación:
 
-    from azure.servicebus import *
+	from azure.servicebus import ServiceBusService, Message, Queue
 
 El siguiente código crea un objeto **ServiceBusService**. Reemplace "mynamespace", "sharedaccesskeyname" y "sharedaccesskey" por el espacio de nombres real, y el nombre clave y el valor de la firma de acceso compartido (SAS).
 
-    bus_service = ServiceBusService(
-        service_namespace='mynamespace',
-        shared_access_key_name='sharedaccesskeyname',
-        shared_access_key_value='sharedaccesskey')
+	bus_service = ServiceBusService(
+		service_namespace='mynamespace',
+		shared_access_key_name='sharedaccesskeyname',
+		shared_access_key_value='sharedaccesskey')
 
 Los valores para el nombre clave y el valor de la SAS pueden encontrarse en la información de conexión del Portal de Azure o en la ventana Propiedades de Visual Studio al seleccionar el espacio de nombres del bus de servicio en el Explorador de servidores (como se muestra en la sección anterior).
 
-    bus_service.create_queue('taskqueue')
+	bus_service.create_queue('taskqueue')
 
-**create\_queue** también admite opciones adicionales, lo que
-permite modificar la configuración predeterminada de las colas, como el período de vida de los mensajes
-o el tamaño máximo de la cola. En el siguiente ejemplo se muestra cómo establecer el
-tamaño máximo de las colas en 5 GB y el período de vida en 1 minuto:
+**create_queue** también admite opciones adicionales, que
+permiten sobrescribir la configuración de cola predeterminada como el tiempo que dura
+la transmisión de un mensaje o el tamaño máximo de la cola. En el ejemplo siguiente se muestra cómo establecer
+el tamaño máximo de la cola en 5 GB con un tiempo de transmisión de 1 minuto:
 
-    queue_options = Queue()
-    queue_options.max_size_in_megabytes = '5120'
-    queue_options.default_message_time_to_live = 'PT1M'
+	queue_options = Queue()
+	queue_options.max_size_in_megabytes = '5120'
+	queue_options.default_message_time_to_live = 'PT1M'
 
-    bus_service.create_queue('taskqueue', queue_options)
+	bus_service.create_queue('taskqueue', queue_options)
 
 ## <a name="send-messages"> </a>Envío de mensajes a una cola
 
-Para enviar un mensaje a una cola del bus de servicio, la aplicación debe utilizar el método
-**send\_queue\_message** del objeto **ServiceBusService**.
+Para enviar un mensaje a una cola de bus de servicio, la aplicación llamará al método
+**send\_queue\_message** en el objeto **ServiceBusService**.
 
-El siguiente ejemplo demuestra cómo se debe enviar un mensaje de prueba a la
-cola llamada *taskqueue con* **send\_queue\_message**:
+En el siguiente ejemplo se demuestra cómo enviar un mensaje de prueba a
+la cola llamada *taskqueue using* **send\_queue\_message**:
 
-    msg = Message('Test Message')
-    bus_service.send_queue_message('taskqueue', msg)
+	msg = Message(b'Test Message')
+	bus_service.send_queue_message('taskqueue', msg)
 
-Las colas del bus de servicio admiten mensajes con un tamaño máximo de 256 KB (el encabezado,
-que incluye las propiedades estándar y personalizadas de la aplicación, puede tener como máximo un
-tamaño de 64 KB). No hay límite para el número de mensajes que
-contiene una cola, pero hay un tope para el tamaño total de los mensajes
-contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un
-límite de 5 GB.
+Las colas de bus de servicio admiten un mensaje con un tamaño máximo de 256 KB (el encabezado,
+que incluye las propiedades de la aplicación estándar y personalizadas, puede tener
+un tamaño máximo de 64 KB). No hay ningún límite en el número de mensajes
+contenidos en una cola, pero sí hay un límite en el tamaño total de los mensajes
+que una cola contiene. El tamaño de esta cola se define en tiempo de creación, con un
+límite máximo de 5 GB.
 
 ## <a name="receive-messages"> </a>Recepción de mensajes de una cola
 
-Los mensajes se reciben de una cola utilizando el método **receive\_queue\_message**
- del objeto **ServiceBusService**.
+Los mensajes se reciben de una cola con la utilización del método **receive\_queue\_message**
+en el objeto **ServiceBusService**:
 
-    msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
-    print(msg.body)
+	msg = bus_service.receive_queue_message('taskqueue', peek_lock=False)
+	print(msg.body)
 
-Los mensajes se borran de la cola a medida que se leen cuando el parámetro
-**peek\_lock** está establecido como **False**. Puede leer y bloquear
-los mensajes sin eliminarlos de la cola si establece el parámetro opcional
-**peek\_lock** como **True**.
+Los mensajes se eliminan de la cola a medida que se leen cuando el parámetro
+**peek\_lock** está establecido en **False**. Puede leer (peek) y bloquear el
+mensaje sin eliminarlo de la cola si define el parámetro
+**peek\_lock** en **True**.
 
-El funcionamiento por el que los mensajes se eliminan tras
-leerlos como parte del proceso de recepción es el modelo más sencillo y el que mejor funciona en
-aquellas situaciones en las que una aplicación puede tolerar que no se procese un mensaje
-en caso de error. Para entenderlo mejor, pongamos una situación en la que un
-consumidor emite la solicitud de recepción que se bloquea antes de
-procesarla. Como el bus de servicio habrá marcado el mensaje como consumido,
-cuando la aplicación se reinicie y empiece a consumir mensajes de nuevo,
+El comportamiento de leer y eliminar el mensaje como parte de la
+operación de recepción es el modelo más sencillo y funciona mejor para los escenarios
+en que una aplicación puede tolerar no procesar un mensaje en caso
+de un error. Para comprender esto, considere un escenario en el que el
+consumidor emite la solicitud de recepción y, a continuación, se bloquea antes de
+procesarla. Dado que el Bus de servicio habrá marcado el mensaje como consumido,
+a continuación, cuando la aplicación se reinicia y comienza a consumir mensajes de nuevo,
 habrá perdido el mensaje que se consumió antes del bloqueo.
 
-Si el parámetro **peek\_lock** está establecido en **True**, el proceso de recepción se convierte en una
-operación en dos fases que hace posible admitir aplicaciones
-que no toleran la pérdida de mensajes. Cuando el bus de servicio recibe una solicitud, busca el siguiente mensaje
-que se va a consumir, lo bloquea para impedir que otros consumidores lo
-reciban y, a continuación,
-lo devuelve a la aplicación.
-Una vez que la aplicación termina de procesar el mensaje (o lo almacena de forma confiable para su
-futuro procesamiento), completa la segunda fase del proceso de recepción llamando al método **delete** en el objeto **Message**
-. El método **delete** marcará el mensaje como consumido
+
+Si el parámetro **peek\_lock** está establecido en **True**, la recepción
+se realiza en una operación en dos fases, lo que permite admitir aplicaciones
+que no pueden tolerar la pérdida de mensajes. Cuando el Bus de servicio recibe una
+solicitud, busca el siguiente mensaje que se va a consumir, lo bloquea para impedir que
+otros consumidores lo reciban y lo devuelve a la aplicación.
+Después de que la aplicación termina de procesar el mensaje (o lo almacena
+de forma confiable para su futuro procesamiento), completa la segunda fase del
+proceso de recepción al llamar al método **eliminar** en el objeto **Mensaje**
+. El método **eliminar** marcará el mensaje como consumido
 y lo eliminará de la cola.
 
-    msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
-    print(msg.body)
+	msg = bus_service.receive_queue_message('taskqueue', peek_lock=True)
+	print(msg.body)
 
-    msg.delete()
+	msg.delete()
 
 ## <a name="handle-crashes"> </a>Actuación ante errores de la aplicación y mensajes que no se pueden leer
 
-El bus de servicio proporciona una funcionalidad que le ayuda a superar sin problemas los
-errores de la aplicación o las dificultades para procesar un mensaje. Si por
-cualquier motivo una aplicación de recepción es incapaz de procesar el mensaje,
-entonces puede llamar al método **unlock** del objeto
-**Message**. Esto hará que el bus de servicio
-desbloquee el mensaje de la cola y esté disponible para que pueda volver a recibirse,
-ya sea por la misma aplicación que lo
-consume o por otra.
+El bus de servicio proporciona funcionalidad para ayudarle a recuperarse correctamente de
+errores de la aplicación o de las dificultades para procesar un mensaje. Si una
+aplicación de recepción es incapaz de procesar el mensaje por alguna razón,
+puede llamar al método **desbloquear** en el objeto
+**Mensaje**. Esto hará que el Bus de servicio desbloquee el
+mensaje de la cola y esté disponible para recibirlo de nuevo,
+por la misma aplicación que lo consume o por otra
+aplicación.
 
-También hay un tiempo de espera
-asociado con un mensaje bloqueado en la cola y, si la aplicación no puede procesar el
-mensaje antes de que finalice el tiempo de espera del bloqueo (por ejemplo, si la aplicación sufre un error), entonces el
-bus de servicio desbloquea el mensaje automáticamente y hace que esté disponible para que
-pueda volver a recibirse.
+También hay un tiempo de espera asociado con un mensaje bloqueado en la
+cola, y si la aplicación no puede procesar el mensaje antes del vencimiento
+del tiempo de espera (por ejemplo, si se bloquea la aplicación), el bus de servicio
+desbloquea el mensaje automáticamente y lo vuelve a poner a disposición
+para que se pueda volver a recibir.
 
-En caso de que la aplicación sufra un error después de procesar el mensaje y antes de
-llamar al método **delete**, entonces el mensaje se volverá a entregar a la
-aplicación cuando esta se reinicie. Habitualmente se denomina
-**At Least Once Processing**; es decir, cada mensaje se procesará al
-menos una vez; aunque en determinadas situaciones podría
-volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su
-aplicación para solucionar
-la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad
-**MessageId** del mensaje, que permanecerá constante en todos los
+En caso de que la aplicación se bloquee después de procesar el mensaje
+pero antes de llamar al método **eliminar**, el mensaje
+se volverá a entregar a la aplicación cuando se reinicie. Esto suele denominarse
+**Al menos un procesamiento**, es decir, que cada mensaje se procesará
+al menos una vez, pero en ciertas situaciones se puede volver a entregar
+el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado,
+los desarrolladores de aplicaciones deben agregar lógica adicional a su aplicación
+para controlar la entrega de mensajes duplicados. A menudo esto se consigue mediante la
+propiedad del mensaje **MessageId**, que permanecerá constante entre los
 intentos de entrega.
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
-Ahora que conoce los fundamentos de las colas del bus de servicio, siga estos
+Ahora que ha aprendido los conceptos básicos de las colas del bus de servicio, siga estos
 vínculos para obtener más información.
 
--   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio][Colas, temas y suscripciones del bus de servicio]
+-   Consulte la referencia de MSDN: [Colas, temas y suscripciones del bus de servicio][]
 
   [Pasos siguientes]: #next-steps
+  [¿Qué son las colas del bus de servicio?]: #what-are-service-bus-queues
   [Creación de un espacio de nombres de servicio]: #create-a-service-namespace
   [Obtención de credenciales de administración predeterminadas para el espacio de nombres]: #obtain-default-credentials
   [Direccionamiento del una cola]: #create-queue
   [Direccionamiento del mensajes a una cola]: #send-messages
   [Direccionamiento del mensajes desde una cola]: #receive-messages
   [Direccionamiento del ante errores de la aplicación y mensajes que no se pueden leer]: #handle-crashes
-  [guía de instalación de Python]: ../python-how-to-install/
+  [Conceptos de cola]: ../../../DevCenter/dotNet/Media/sb-queues-08.png
+  [Portal de administración de Azure]: http://manage.windowsazure.com
+  
+  
+  
+  
+  
   [Colas, temas y suscripciones del bus de servicio]: http://msdn.microsoft.com/es-es/library/windowsazure/hh367516.aspx

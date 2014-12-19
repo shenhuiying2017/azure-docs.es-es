@@ -1,13 +1,16 @@
-<properties linkid="mobile-services-dotnet-backend-get-started-settings-sync" urlDisplayName="Get started with cross-platform settings sync in Mobile Services" pageTitle="Get started with cross-platform settings sync in Mobile Services | Mobile Dev Center" metaKeywords="" description="Learn how to get started with cross-platform settings sync in Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with cross-platform settings sync in Mobile Services" authors="mahender" />
+﻿<properties urlDisplayName="Get started with cross-platform settings sync in Mobile Services" pageTitle="Introducción a la sincronización de configuración entre plataformas de Servicios móviles | Centro de desarrollo móvil" metaKeywords="" description="Learn how to get started with cross-platform settings sync in Mobile Services." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get started with cross-platform settings sync in Mobile Services" authors="mahender" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender" />
 
 # Introducción a la sincronización de configuración entre plataformas de Servicios móviles
 
-> [WACOM.NOTE] Parece que aún no tenemos este contenido listo, pero queríamos que lo conociera. Si está particularmente interesado en este asunto, cuéntenoslo mediante nuestro Twitter [@AzureMobile][@AzureMobile] o las publicaciones de los [Foros][Foros] o [UserVoice][UserVoice].
+
+>[WACOM.NOTE] Al parecer aún no tenemos este contenido listo, pero queríamos que lo conociera. Si está particularmente interesado en este tema, cuéntenoslo mediante nuestro Twitter [@AzureMobile] o las publicaciones de los [Foros] o [UserVoice].
 
 
 
-  [@AzureMobile]: https://twitter.com/AzureMobile
-  [Foros]: http://social.msdn.microsoft.com/Forums/windowsazure/es-es/home?forum=azuremobile
-  [UserVoice]: http://feedback.azure.com/forums/216254-mobile-services
+
+<!-- URLs. -->
+[@AzureMobile]: https://twitter.com/AzureMobile
+[Foros]: http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azuremobile
+[UserVoice]: http://feedback.azure.com/forums/216254-mobile-services

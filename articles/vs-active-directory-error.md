@@ -1,59 +1,80 @@
-<properties title="Error durante la detecci&oacute;n de autenticaci&oacute;n" pageTitle="Error durante la detecci&oacute;n de autenticaci&oacute;n" metaKeywords="" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+<properties title="Error During Authentication Detection" pageTitle="Error durante la detección de autenticación" metaKeywords="" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+  
+<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
 
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+###Error durante la detección de autenticación 
+Al detectar el código de autenticación anterior, el asistente detectó un tipo de autenticación incompatible.   
 
-### Error durante la detección de autenticación
+###¿Qué se está comprobando?
 
-Al detectar el código de autenticación anterior, el asistente detectó un tipo de autenticación incompatible.
+####Tipos de proyecto
 
-##### ¿Qué se está comprobando?
+El asistente comprueba el tipo de proyecto que esté desarrollando, por lo que puede insertar la lógica de autenticación correcta en el proyecto.  Si no hay ningún controlador que derive de `ApiController` en el proyecto, se considerará como un proyecto WebAPI.  Si hay solo controladores que derivan de `MVC.Controller` en el proyecto, se considerará un proyecto MVC.  El asistente considera todo lo demás como no compatible.  Actualmente no son compatibles los proyectos WebForms.
 
-El asistente trata de detectar versiones de código de autenticación que se hayan configurado con versiones anteriores de Visual Studio. Si recibió este error, significa el proyecto contiene un tipo de autenticación incompatible. El asistente detecta los siguientes tipos de autenticación de las versiones anteriores de Visual Studio:
+#####Código de autenticación compatible
 
--   Autenticación de Windows
--   Cuentas de usuario individuales
--   Cuentas organizativas
+El asistente también comprueba la configuración de autenticación que se ha configurado previamente con el asistente o que es compatible con el asistente.  Si todos los valores de configuración están presentes, se considera un caso reentrante y el asistente abrirá y mostrará la configuración.  Si solo algunos valores de configuración están presentes, se considera un caso de error.
+
+En un proyecto MVC, el asistente comprueba cualquiera de los siguientes valores de configuración, que se originan a partir de un uso anterior del asistente:
+
+	<add key="ida:ClientId" value="" />
+	<add key="ida:Tenant" value="" />
+	<add key="ida:AADInstance" value="" />
+	<add key="ida:PostLogoutRedirectUri" value="" />
+
+Además, el asistente comprueba los siguientes valores de configuración en el proyecto Web API, que se originan a partir del uso anterior del asistente:
+
+	<add key="ida:ClientId" value="" />
+	<add key="ida:Tenant" value="" />
+	<add key="ida:Audience" value="" />
+
+#####Código de autenticación incompatible
+
+Finalmente, el asistente trata de detectar versiones de código de autenticación que se hayan configurado con versiones anteriores de Visual Studio. Si recibió este error, significa el proyecto contiene un tipo de autenticación incompatible. El asistente detecta los siguientes tipos de autenticación de las versiones anteriores de Visual Studio:
+
+* Autenticación de Windows 
+* Cuentas de usuario individuales 
+* Cuentas organizativas 
+ 
 
 Para detectar la autenticación de Windows en un proyecto MVC, el asistente busca el elemento `authentication` en el archivo **web.config**.
 
-<pre class="prettyprint">
-    &lt;configuration&gt;
-        &lt;system.web&gt;
-            &lt;authentication mode=&quot;Windows&quot; /&gt;
-        &lt;/system.web&gt;
-    &lt;/configuration&gt;
+<PRE class="prettyprint">
+	&lt;configuration&gt;
+	    &lt;system.web&gt;
+	        <span style="background-color: yellow">&lt;authentication mode="Windows" /&gt;</span>
+	    &lt;/system.web&gt;
+	&lt;/configuration&gt;
 </pre>
 
-Para detectar la autenticación de Windows en un proyecto Web API, el asistente busca el elemento `IISExpressWindowsAuthentication` en el archivo **.csproj** del proyecto.
+Para detectar la autenticación de Windows en un proyecto Web API, el asistente busca el elemento `IISExpressWindowsAuthentication` en el archivo **.csproj** del proyecto:
 
-<pre class="prettyprint">
-    &lt;Project&gt;
-        &lt;PropertyGroup&gt;
-            &lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;
-        &lt;/PropertyGroup&gt;
-    &lt;/Project&gt;
-</pre>
+<PRE class="prettyprint">
+	&lt;Project&gt;
+	    &lt;PropertyGroup&gt;
+	        <span style="background-color: yellow">&lt;IISExpressWindowsAuthentication&gt;enabled&lt;/IISExpressWindowsAuthentication&gt;</span>
+	    &lt;/PropertyGroup>
+	&lt;/Project&gt;
+</PRE>
 
 Para detectar la autenticación de cuentas de usuario individuales, el asistente busca el elemento de paquete en el archivo **Packages.config**.
 
-<pre class="prettyprint">
-    &lt;packages&gt;
-        &lt;package id=&quot;Microsoft.AspNet.Identity.EntityFramework&quot; version=&quot;2.1.0&quot; targetFramework=&quot;net45&quot; /&gt;
-    &lt;/packages&gt;
-</pre>
+<PRE class="prettyprint">
+	&lt;packages&gt;
+	    <span style="background-color: yellow">&lt;package id="Microsoft.AspNet.Identity.EntityFramework" version="2.1.0" targetFramework="net45" /&gt;</span>
+	&lt;/packages&gt;
+</PRE>
 
 Para detectar una forma anterior de autenticación con la cuenta de una organización, el asistente busca el siguiente elemento en **web.config**:
 
-<pre class="prettyprint">
-    &lt;configuration*gt;
-        &lt;appSettings&gt;
-            &lt;add key=&quot;ida:Realm&quot; value=&quot;***&quot; /&gt;
-        &lt;/appSettings&gt;
-    &lt;/configuration&gt;
-</pre>
+<PRE class="prettyprint">
+	&lt;configuration*gt;
+	    &lt;appSettings&gt;
+	        <span style="background-color: yellow">&lt;add key="ida:Realm" value="***" /&gt;</span>
+	    &lt;/appSettings&gt;
+	&lt;/configuration&gt;
+</PRE>
 
 Para cambiar el tipo de autenticación, quite el tipo de autenticación incompatible y ejecute de nuevo el asistente.
 
-Para obtener más información, consulte [Escenarios de autenticación en Azure AD][Escenarios de autenticación en Azure AD].
-
-  [Escenarios de autenticación en Azure AD]: http://msdn.microsoft.com/library/azure/dn499820.aspx
+Para obtener más información, consulte [Escenarios de autenticación en Azure AD](http://msdn.microsoft.com/library/azure/dn499820.aspx).

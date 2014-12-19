@@ -1,6 +1,6 @@
-<properties linkid="mobile-services-dotnet-backend-use-existing-sql-database" urlDisplayName="Build a service using an existing SQL database with the Mobile Services .NET backend" pageTitle="Build a service using an existing SQL database with the Mobile Services .NET backend - Azure Mobile Services" metaKeywords="" description="Learn how to use an existing cloud or on-premises SQL database with your .NET based mobile service" metaCanonical="" services="mobile-services,biztalk-services" documentationCenter="Mobile" title="Build a service using an existing SQL database with the Mobile Services .NET backend" authors="yavorg" solutions="" manager="" editor="mollybos" />
+﻿<properties urlDisplayName="Build a service using an existing SQL database with the Mobile Services .NET backend" pageTitle="Creación de un servicio usando una base de datos SQL existente con el backend .NET de Servicios móviles - Servicios móviles de Azure" metaKeywords="" description="Learn how to use an existing cloud or on-premises SQL database with your .NET based mobile service" metaCanonical="" services="mobile-services,biztalk-services" documentationCenter="Mobile" title="Build a service using an existing SQL database with the Mobile Services .NET backend" authors="mahender" solutions="" manager="dwrede" editor="mollybos" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="yavorg" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/11/2014" ms.author="mahender" />
 
 # Creación de un servicio usando una base de datos SQL existente con el backend .NET de Servicios móviles
 
@@ -8,21 +8,20 @@ Con el backend .NET de Servicios móviles, es muy fácil aprovechar las ventajas
 
 Este tutorial consta de las siguientes secciones:
 
-1.  [Exploración del modelo de base de datos existente][Exploración del modelo de base de datos existente]
-2.  [Creación de objetos de transferencia de datos (DTO) para el servicio móvil][Creación de objetos de transferencia de datos (DTO) para el servicio móvil]
-3.  [Establecimiento de una asignación entre objetos DTO y el modelo][Establecimiento de una asignación entre objetos DTO y el modelo]
-4.  [Implementación de lógica específica del dominio][Implementación de lógica específica del dominio]
-5.  [Implementación de un elemento TableController con objetos DTO][Implementación de un elemento TableController con objetos DTO]
+1. [Exploración del modelo de base de datos existente](#ExistingModel)
+2. [Creación de objetos de transferencia de datos (DTO) para el servicio móvil](#DTOs)
+3. [Establecimiento de una asignación entre objetos DTO y el modelo](#Mapping)
+4. [Implementación de lógica específica del dominio](#DomainManager)
+5. [Implementación de un elemento TableController con objetos DTO](#Controller)
 
 <a name="ExistingModel"></a>
-
 ## Exploración del modelo de base de datos existente
 
-Para este tutorial, usaremos la base de datos que se creó con su servicio móvil, pero no usaremos el modelo predeterminado que se crea, sino que crearemos manualmente un modelo arbitrario que representará una aplicación existente que pueda tener. Para obtener todos los detalles de cómo conectarse a una base de datos local, consulte [Conexión a un servidor SQL Server local desde un servicio móvil de Azure mediante conexiones híbridas][Conexión a un servidor SQL Server local desde un servicio móvil de Azure mediante conexiones híbridas].
+Para este tutorial, usaremos la base de datos que se creó con su servicio móvil, pero no usaremos el modelo predeterminado que se crea, sino que crearemos manualmente un modelo arbitrario que representará una aplicación existente que pueda tener. Para obtener todos los detalles de cómo conectarse a una base de datos local, consulte [Conexión a un servidor SQL Server local desde un servicio móvil de Azure mediante conexiones híbridas](/es-es/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
 
-1.  Comience por crear un proyecto de servidor de Servicios móviles en **Visual Studio 2013 Update 2** o bien use el proyecto de inicio rápido que puede descargar en la ficha Servicios móviles para el servicio en el [Portal de administración de Azure][Portal de administración de Azure]. Para este tutorial, supondremos que el proyecto de servidor se denomina **ShoppingService**.
+1. Comience por crear un proyecto de servidor de Servicios móviles en **Visual Studio 2013 Update 2** o bien use el proyecto de inicio rápido que puede descargar en la ficha Servicios móviles para el servicio en el [Portal de administración de Azure](http://manage.windowsazure.com). Para este tutorial, supondremos que el proyecto de servidor se denomina **ShoppingService**.
 
-2.  Cree un archivo denominado **Customer.cs** en la carpeta **Models** y use la siguiente implementación. Deberá agregar al proyecto una referencia de ensamblado a **System.ComponentModel.DataAnnotations**.
+2. Cree un archivo denominado **Customer.cs** en la carpeta **Models** y use la siguiente implementación. Deberá agregar al proyecto una referencia de ensamblado a **System.ComponentModel.DataAnnotations**.
 
         using System.Collections.Generic;
         using System.ComponentModel.DataAnnotations;
@@ -33,7 +32,7 @@ Para este tutorial, usaremos la base de datos que se creó con su servicio móvi
             {
                 [Key]
                 public int CustomerId { get; set; }
-
+                
                 public string Name { get; set; }
 
                 public virtual ICollection<Order> Orders { get; set; }
@@ -41,8 +40,8 @@ Para este tutorial, usaremos la base de datos que se creó con su servicio móvi
             }
         }
 
-3.  Cree un archivo denominado **Order.cs** en la carpeta **Models** y use la siguiente implementación.
-
+3. Cree un archivo denominado **Order.cs** en la carpeta **Models** y use la siguiente implementación:
+    
         using System.ComponentModel.DataAnnotations;
 
         namespace ShoppingService.Models
@@ -59,7 +58,7 @@ Para este tutorial, usaremos la base de datos que se creó con su servicio móvi
                 public bool Completed { get; set; }
 
                 public int CustomerId { get; set; }
-
+              
                 public virtual Customer Customer { get; set; }
 
             }
@@ -67,7 +66,7 @@ Para este tutorial, usaremos la base de datos que se creó con su servicio móvi
 
     Verá que estas dos clases tienen una *relación*: cada**Order** está asociado con un solo **Customer** y un **Customer** puede estar asociado con varios **Orders**. Tener relaciones es habitual en los modelos de datos existentes.
 
-4.  Cree un archivo denominado **ExistingContext.cs** en la carpeta **Models** e impleméntelo del siguiente modo:
+4. Cree un archivo denominado **ExistingContext.cs** en la carpeta **Models** e impleméntelo del siguiente modo:
 
         using System.Data.Entity;
 
@@ -87,15 +86,14 @@ Para este tutorial, usaremos la base de datos que se creó con su servicio móvi
             }
         }
 
-Esta estructura es similar a un modelo de Entity Framework existente que quizá usa ya para alguna aplicación. Tenga en cuenta que el modelo aún no tiene conocimiento de Servicios móviles en esta etapa.
+Esta estructura es similar a un modelo de Entity Framework existente que quizá usa ya para alguna aplicación. Tenga en cuenta que el modelo aún no tiene conocimiento de Servicios móviles en esta etapa. 
 
 <a name="DTOs"></a>
-
 ## Creación de objetos de transferencia de datos (DTO) para el servicio móvil
 
 El modelo de datos que le gustaría usar con el servicio móvil puede ser arbitrariamente complejo; podría contener cientos de entidades con una gran variedad de relaciones entre ellas. Cuando se compila una aplicación móvil, es preferible simplificar el modelo de datos y eliminar relaciones (o controlarlas manualmente) para minimizar la carga que se intercambia entre la aplicación y el servicio. En esta sección, crearemos un conjunto de objetos simplificados (conocidos como "objetos de transferencia de datos" o "DTO"), que se asignan a los datos que tiene en su base de datos, pero contienen solo las propiedades mínimas necesarias para la aplicación móvil.
 
-1.  Cree el archivo **MobileCustomer.cs** en la carpeta **DataObjects** del proyecto de servicio y use la siguiente implementación:
+1. Cree el archivo **MobileCustomer.cs** en la carpeta **DataObjects** del proyecto de servicio y use la siguiente implementación:
 
         using Microsoft.WindowsAzure.Mobile.Service;
 
@@ -107,9 +105,9 @@ El modelo de datos que le gustaría usar con el servicio móvil puede ser arbitr
             }
         }
 
-    Observe que esta clase es similar a la clase **Customer** del modelo, solo que se ha quitado la propiedad de relación de **Order**. Para que un objeto funcione correctamente con la sincronización sin conexión de Servicios móviles, necesita un conjunto de *propiedades del sistema* para la simultaneidad optimista. Por eso, notará que el objeto DTO se hereda de [**EntityData**][**EntityData**], que contiene esas propiedades. La propiedad **CustomerId** basada en un valor int del modelo original se reemplaza por la propiedad **Id** basada en un valor de cadena de **EntityData**, que será el **Id** que usará Servicios móviles.
+    Observe que esta clase es similar a la clase **Customer** del modelo, solo que se ha quitado la propiedad de relación de **Order**. Para que un objeto funcione correctamente con la sincronización sin conexión de Servicios móviles, necesita un conjunto de *propiedades del sistema* para la simultaneidad optimista. Por eso, notará que el objeto DTO se hereda de [**EntityData**](http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx), que contiene esas propiedades. La propiedad **CustomerId** basada en un valor int del modelo original se reemplaza por la propiedad **Id** basada en un valor de cadena de **EntityData**, que será el **Id** que usará Servicios móviles.
 
-2.  Cree el archivo **MobileOrder.cs** en la carpeta **DataObjects** del proyecto de servicio.
+2. Cree el archivo **MobileOrder.cs** en la carpeta **DataObjects** del proyecto de servicio.
 
         using Microsoft.WindowsAzure.Mobile.Service;
         using Newtonsoft.Json;
@@ -136,10 +134,10 @@ El modelo de datos que le gustaría usar con el servicio móvil puede ser arbitr
             }
         }
 
-    La propiedad de relación de **Customer** se ha reemplazado por el nombre **Customer** y una propiedad **MobileCustomerId** que se puede usar para modelar manualmente la relación en el cliente. Por ahora, puede pasar por alto la propiedad **CustomerId**, solo se usa más adelante.
+    La propiedad de relación de **Customer** se ha reemplazado por el nombre **Customer** y una propiedad **MobileCustomerId** que se puede usar para modelar manualmente la relación en el cliente. Por ahora, puede pasar por alto la propiedad **CustomerId**, solo se usa más adelante. 
 
-3.  Quizá advierta que, al agregar las propiedades del sistema en la clase base **EntityData**, nuestros objetos DTO tienen ahora más propiedades que los tipos del modelo. Evidentemente, necesitamos un lugar para almacenar estas propiedades, por lo que agregaremos algunas columnas más a la base de datos original. Si bien esto modifica la base de datos, no interrumpe las aplicaciones existentes porque los cambios son meramente aditivos (se agregan nuevas columnas al esquema). Para ello, agregue las siguientes instrucciones al principio de **Customer.cs** y **Order.cs**:
-
+3. Quizá advierta que, al agregar las propiedades del sistema en la clase base **EntityData**, nuestros objetos DTO tienen ahora más propiedades que los tipos del modelo. Evidentemente, necesitamos un lugar para almacenar estas propiedades, por lo que agregaremos algunas columnas más a la base de datos original. Si bien esto modifica la base de datos, no interrumpe las aplicaciones existentes porque los cambios son meramente aditivos (se agregan nuevas columnas al esquema). Para ello, agregue las siguientes instrucciones al principio de **Customer.cs** y **Order.cs**:
+    
         using System.ComponentModel.DataAnnotations.Schema;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.ComponentModel.DataAnnotations;
@@ -148,7 +146,7 @@ El modelo de datos que le gustaría usar con el servicio móvil puede ser arbitr
     A continuación, agregue estas propiedades adicionales a cada una de las clases:
 
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Index(IsClustered = true)]
+        [Index]
         [TableColumn(TableColumnType.CreatedAt)]
         public DateTimeOffset? CreatedAt { get; set; }
 
@@ -168,13 +166,13 @@ El modelo de datos que le gustaría usar con el servicio móvil puede ser arbitr
         [Timestamp]
         public byte[] Version { get; set; }
 
-4.  Las propiedades del sistema recién agregadas tienen algunos comportamientos integrados (por ejemplo, la actualización automática de "creado/actualizado a las") que tienen lugar de forma transparente con las operaciones de la base de datos. Para habilitar estos comportamientos, debemos hacer un cambio en **ExistingContext.cs**. Al principio del archivo, agregue lo siguiente:
-
+4. Las propiedades del sistema recién agregadas tienen algunos comportamientos integrados (por ejemplo, la actualización automática de "creado/actualizado a las") que tienen lugar de forma transparente con las operaciones de la base de datos. Para habilitar estos comportamientos, debemos hacer un cambio en **ExistingContext.cs**. Al principio del archivo, agregue lo siguiente:
+    
         using System.Data.Entity.ModelConfiguration.Conventions;
         using Microsoft.WindowsAzure.Mobile.Service.Tables;
         using System.Linq;
 
-    Después, en el cuerpo de **ExistingContext**, invalide [**OnModelCreating**][**OnModelCreating**]:
+    Después, en el cuerpo de **ExistingContext**, invalide [**OnModelCreating**](http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx):
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -185,7 +183,7 @@ El modelo de datos que le gustaría usar con el servicio móvil puede ser arbitr
             base.OnModelCreating(modelBuilder);
         } 
 
-5.  Vamos a rellenar la base de datos con algunos datos de ejemplo. Abra el archivo **WebApiConfig.cs**. Cree un nuevo elemento [**IDatabaseInitializer**][**IDatabaseInitializer**] y configúrelo en el método **Register** como se indica a continuación.
+5. Vamos a rellenar la base de datos con algunos datos de ejemplo. Abra el archivo **WebApiConfig.cs**. Cree un nuevo elemento [**IDatabaseInitializer**](http://msdn.microsoft.com/library/gg696323.aspx) y configúrelo en el método **Register** como se indica a continuación.
 
         using Microsoft.WindowsAzure.Mobile.Service;
         using ShoppingService.Models;
@@ -241,17 +239,16 @@ El modelo de datos que le gustaría usar con el servicio móvil puede ser arbitr
         }
 
 <a name="Mapping"></a>
-
 ## Establecimiento de una asignación entre objetos DTO y el modelo
 
-Ahora tenemos los tipos de modelo **Customer** y **Order**, y los objetos DTO **MobileCustomer** y **MobileOrder**, pero necesitamos indicarle al backend que los transforme automáticamente entre sí. Aquí, Servicios móviles se basa en [**AutoMapper**][**AutoMapper**], un asignador relacional de objetos al que ya se hace referencia en el proyecto.
+Ahora tenemos los tipos de modelo **Customer** y **Order**, y los objetos DTO **MobileCustomer** y **MobileOrder**, pero necesitamos indicarle al backend que los transforme automáticamente entre sí. Aquí, Servicios móviles se basa en [**AutoMapper**](http://automapper.org/), un asignador relacional de objetos al que ya se hace referencia en el proyecto.
 
-1.  Agregue el siguiente código al principio de **WebApiConfig.cs**:
+1. Agregue el siguiente código al principio de **WebApiConfig.cs**:
 
         using AutoMapper;
         using ShoppingService.DataObjects;
 
-2.  Para definir la asignación, agregue el siguiente código al método **Register** de la clase **WebApiConfig**.
+2. Para definir la asignación, agregue el siguiente código al método **Register** de la clase **WebApiConfig**. 
 
         Mapper.Initialize(cfg =>
         {
@@ -267,12 +264,11 @@ Ahora tenemos los tipos de modelo **Customer** y **Order**, y los objetos DTO **
 AutoMapper asignará ahora los objetos entre sí. Todas las propiedades con nombres coincidentes se combinarán; por ejemplo, **MobileOrder.CustomerId** se asignará automáticamente a **Order.CustomerId**. De este mismo modo, se pueden configurar asignaciones personalizadas donde se asigna la propiedad **MobileCustomerName** a la propiedad **Name** de la propiedad de relación de **Customer**.
 
 <a name="DomainManager"></a>
-
 ## Implementación de lógica específica del dominio
 
-El siguiente paso es implementar un elemento [**MappedEntityDomainManager**][**MappedEntityDomainManager**], que actúa como capa de abstracción entre nuestro almacén de datos asignados y el controlador que atenderá el tráfico HTTP de nuestros clientes. Podremos escribir nuestro controlador en la sección siguiente puramente en términos de objetos DTO y el elemento **MappedEntityDomainManager** que agregamos aquí controlará la comunicación con el almacén de datos original, a la vez que nos proporciona un lugar para implementar cualquier lógica específica para él.
+El siguiente paso es implementar un elemento [**MappedEntityDomainManager**](http://msdn.microsoft.com/library/dn643300.aspx), que actúa como capa de abstracción entre nuestro almacén de datos asignados y el controlador que atenderá el tráfico HTTP de nuestros clientes. Podremos escribir nuestro controlador en la sección siguiente puramente en términos de objetos DTO y el elemento **MappedEntityDomainManager** que agregamos aquí controlará la comunicación con el almacén de datos original, a la vez que nos proporciona un lugar para implementar cualquier lógica específica para él.
 
-1.  Agregue un elemento **MobileCustomerDomainManager.cs** a la carpeta **Models** del proyecto. Pegue la siguiente implementación:
+1. Agregar una **MobileCustomerDomainManager.cs** a la carpeta **Models** del proyecto. Pegue la siguiente implementación:
 
         using AutoMapper;
         using Microsoft.WindowsAzure.Mobile.Service;
@@ -315,7 +311,7 @@ El siguiente paso es implementar un elemento [**MappedEntityDomainManager**][**M
                 {
                     return (T)(object)GetKey(mobileCustomerId, this.context.Customers, this.Request);
                 }
-
+                
                 public override SingleResult<MobileCustomer> Lookup(string mobileCustomerId)
                 {
                     int customerId = GetKey<int>(mobileCustomerId);
@@ -361,9 +357,9 @@ El siguiente paso es implementar un elemento [**MappedEntityDomainManager**][**M
             }
         }
 
-    Una parte importante de esta clase es el método **GetKey**, donde indicamos cómo ubicar la propiedad ID del objeto en el modelo de datos original.
+    Una parte importante de esta clase es el método **GetKey**, donde indicamos cómo ubicar la propiedad ID del objeto en el modelo de datos original. 
 
-2.  Agregue un elemento **MobileOrderDomainManager.cs** a la carpeta **Models** del proyecto:
+2. Agregue un **MobileCustomerDomainManager.cs** a la carpeta **Models** del proyecto.
 
         using AutoMapper;
         using Microsoft.WindowsAzure.Mobile.Service;
@@ -471,10 +467,9 @@ El siguiente paso es implementar un elemento [**MappedEntityDomainManager**][**M
 Ya estamos preparados para crear controladores para exponer nuestros objetos DTO a nuestros clientes.
 
 <a name="Controller"></a>
-
 ## Implementación de un elemento TableController con objetos DTO
 
-1.  En la carpeta **Controllers**, agregue el archivo **MobileCustomerController.cs**:
+1. En la carpeta **Controllers**, agregue el archivo **MobileCustomerController.cs**:
 
         using Microsoft.WindowsAzure.Mobile.Service;
         using Microsoft.WindowsAzure.Mobile.Service.Security;
@@ -527,9 +522,9 @@ Ya estamos preparados para crear controladores para exponer nuestros objetos DTO
             }
         }
 
-    Notará el uso del atributo AuthorizeLevel para restringir el acceso público a las operaciones Insert/Update/Delete en el controlador. Para este escenario, la lista de Customers será de solo lectura, pero permitiremos la creación de nuevos Orders y su asociación con Customers existentes.
+    Notará el uso del atributo AuthorizeLevel para restringir el acceso público a las operaciones Insert/Update/Delete en el controlador. Para este escenario, la lista de Customers será de solo lectura, pero permitiremos la creación de nuevos Orders y su asociación con Customers existentes. 
 
-2.  En la carpeta **Controllers**, agregue el archivo **MobileOrderController.cs**:
+2. En la carpeta **Controllers**, agregue el archivo **MobileOrderController.cs**:
 
         using Microsoft.WindowsAzure.Mobile.Service;
         using ShoppingService.DataObjects;
@@ -581,9 +576,9 @@ Ya estamos preparados para crear controladores para exponer nuestros objetos DTO
             }
         }
 
-3.  Ahora ya puede ejecutar el servicio. Presione **F5** y use el cliente de prueba integrado en la página de ayuda para modificar los datos.
+3. Ahora ya puede ejecutar el servicio. Presione **F5** y use el cliente de prueba integrado en la página de ayuda para modificar los datos.
 
-Observe que ambas implementaciones de controlador hacen un uso exclusivo de los objetos DTO **MobileCustomer** y **MobileOrder**, y que no tienen conocimiento del modelo subyacente. Estos DTO se serializan fácilmente en JSON y se pueden usar para intercambiar datos con el SDK de cliente de Servicios móviles en todas las plataformas. Por ejemplo, si se compilase una aplicación de la Tienda Windows, el tipo del lado cliente correspondiente tendría el siguiente aspecto. El tipo sería análogo en otras plataformas de cliente.
+Observe que ambas implementaciones de controlador hacen un uso exclusivo de los objetos DTO **MobileCustomer** y **MobileOrder**, y que no tienen conocimiento del modelo subyacente. Estos DTO se serializan fácilmente en JSON y se pueden usar para intercambiar datos con el SDK de cliente de Servicios móviles en todas las plataformas. Por ejemplo, si se compilase una aplicación de la Tienda Windows, el tipo del lado cliente correspondiente tendría el siguiente aspecto. El tipo sería análogo en otras plataformas de cliente. 
 
     using Microsoft.WindowsAzure.MobileServices;
     using System;
@@ -612,16 +607,3 @@ Observe que ambas implementaciones de controlador hacen un uso exclusivo de los 
     }
 
 Para continuar, ya puede compilar la aplicación de cliente para acceder al servicio.
-
-  [Exploración del modelo de base de datos existente]: #ExistingModel
-  [Creación de objetos de transferencia de datos (DTO) para el servicio móvil]: #DTOs
-  [Establecimiento de una asignación entre objetos DTO y el modelo]: #Mapping
-  [Implementación de lógica específica del dominio]: #DomainManager
-  [Implementación de un elemento TableController con objetos DTO]: #Controller
-  [Conexión a un servidor SQL Server local desde un servicio móvil de Azure mediante conexiones híbridas]: /es-es/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/
-  [Portal de administración de Azure]: http://manage.windowsazure.com
-  [**EntityData**]: http://msdn.microsoft.com/library/microsoft.windowsazure.mobile.service.entitydata.aspx
-  [**OnModelCreating**]: http://msdn.microsoft.com/library/system.data.entity.dbcontext.onmodelcreating.aspx
-  [**IDatabaseInitializer**]: http://msdn.microsoft.com/library/gg696323.aspx
-  [**AutoMapper**]: http://automapper.org/
-  [**MappedEntityDomainManager**]: http://msdn.microsoft.com/library/dn643300.aspx

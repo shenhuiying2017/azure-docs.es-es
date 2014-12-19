@@ -1,65 +1,84 @@
-<properties linkid="manage-services-how-to-configure-a-sqldb" urlDisplayName="How to configure" pageTitle="How to configure a SQL Database - Azure" metaKeywords="Azure creating SQL Server, Azure configuring SQL Server" description="Learn how to create and configure a logical server using SQL Server in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure SQL Database" authors="" solutions="" manager="" editor="" />
+﻿<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Creación y configuración de una base de datos SQL de Azure - Tutorial de Azure" metaKeywords="Creación de una base de datos SQL de Azure, Configuración de una base de datos SQL de Azure" description="How to create and configure an Azure SQL Database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
 
-Creación y configuración de una base de datos SQL
-=================================================
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sidneyh" />
 
-Este tema le llevará por los pasos para crear y configurar el servidor lógico. En el nuevo Portal de administración de Azure (Vista previa), los flujos de trabajo revisados le permiten crear primero una base de datos y, a continuación, crear un servidor.
+<h1><a id="configLogical"></a>Creación y configuración de una base de datos SQL de Azure</h1>
 
-Sin embargo, en este tema, creará primero el servidor. Es posible que prefiera este enfoque si dispone de bases de datos SQL Server existentes que quiera cargar.
+En este tema, deberá crear y configurar una base de datos SQL de Azure mediante el Portal de administración de Azure. En este flujo de trabajo, creará primero el servidor. Es posible que prefiera este enfoque si dispone de bases de datos SQL Server existentes que quiera cargar.
 
-Tabla de contenido
-------------------
+##Tabla de contenido##
+* [Creación de un servidor lógico](#createLogical)
+* [Configuración del firewall para el servidor lógico](#configFWLogical)
 
--   [Creación de un servidor lógico](#createLogical)
--   [Configuración del firewall para el servidor lógico](#configFWLogical)
+<h2><a id="createLogical"></a>Creación de un servidor lógico</h2>
 
-Creación de un servidor lógico
-------------------------------
+1. Inicie sesión en el [Portal de administración](http://manage.windowsazure.com).
 
-1.  Inicie sesión en el [Portal de administración](http://manage.windowsazure.com).
+2. En la parte inferior de la página, haga clic en **NUEVO**.
 
-2.  Haga clic en **Base de datos SQL** y, a continuación, en **SERVERS** en la página principal de Base de datos SQL.
+	![Click SQL Databases][1]
 
-3.  Haga clic en **Add** en la parte inferior de la página.
+3. Haga clic en **Servicios de datos**, en **Base de datos SQL** y, a continuación, en **Creación rápida**.
 
-4.  En Server Settings, especifique un nombre de administrador con una sola palabra sin espacios.
+	![Click New, Data Services, and Quick Create][2]
+	 
+5. En **Configuración del servidor de bases de datos SQL**, seleccione una suscripción.
 
-    Base de datos SQL usa la autenticación de SQL a través de una conexión cifrada. Se creará un nuevo inicio de sesión de autenticación de SQL Server asignado al rol del servidor fijo sysadmin con el nombre que proporcione.
+	![Select a subscription][3]
 
-    El inicio de sesión no puede ser una dirección de correo electrónico, una cuenta de usuario de Windows o un Windows Live ID. Las reclamaciones y la autenticación de Windows no son compatibles con Base de datos SQL.
+6. En **Configuración del servidor de bases de datos SQL**, escriba un nombre de inicio de sesión como una palabra sin espacios. 
 
-5.  Proporcione una contraseña segura con más de ocho caracteres que contenga una combinación de valores en mayúsculas y minúsculas, y un número o símbolo.
+	Base de datos SQL usa la autenticación de SQL a través de una conexión cifrada. Se creará un nuevo inicio de sesión de autenticación de SQL Server asignado al rol del servidor fijo sysadmin con el nombre que proporcione. 
 
-6.  Seleccione una región. La región determina la ubicación geográfica del servidor. Las regiones no pueden cambiarse fácilmente, por lo que debe seleccionar la apropiada para el servidor. Seleccione la ubicación que le sea más próxima. Si mantiene la base de datos y la aplicación de Azure en la misma región, evita que se produzcan costes relacionados con el ancho de banda y la latencia de datos.
+	El inicio de sesión no puede ser una dirección de correo electrónico, una cuenta de usuario de Windows o un Windows Live ID. Las reclamaciones y la autenticación de Windows no son compatibles con Base de datos SQL.
+	
+7. Proporcione una contraseña segura con más de ocho caracteres que contenga una combinación de valores en mayúsculas y minúsculas, y un número o símbolo.
 
-7.  Asegúrese de mantener la opción **Allow Services** seleccionada de manera que pueda conectarse a esta base de datos con el Portal de administración para Base de datos SQL, servicios de almacenamiento y otros servicios en Azure.
+7. Seleccione una región. La región determina la ubicación geográfica del servidor. Las regiones no pueden cambiarse fácilmente, por lo que debe seleccionar la apropiada para el servidor. Seleccione la ubicación que le sea más próxima. Si mantiene la base de datos y la aplicación de Azure en la misma región, evita que se produzcan costes relacionados con el ancho de banda y la latencia de datos.
 
-8.  Haga clic en la marca de verificación en la parte inferior de la página cuando haya finalizado.
+8. Asegúrese de mantener la opción **Permitir que los servicios de Windows Azure accedan al servidor** seleccionada de manera que pueda conectarse a esta base de datos con el Portal de administración, servicios de almacenamiento y otros servicios en Azure. 
+
+9. Haga clic en la marca de verificación en la parte inferior de la página cuando haya finalizado.
+
+###Nombre de servidor generado automáticamente
 
 Tenga en cuenta que no especificó un nombre de servidor. Base de datos SQL genera automáticamente el nombre del servidor para garantizar que no existen entradas DNS duplicadas. El nombre del servidor es una cadena alfanumérica de 10 caracteres. No puede cambiar el nombre del servidor de Base de datos SQL.
 
 En el próximo paso, configurará el firewall de manera que se permita el acceso a las conexiones de las aplicaciones que se ejecuten en la red.
 
-Configuración del firewall para el servidor lógico
---------------------------------------------------
+##Configuración del firewall para el servidor lógico
 
-1.  En el [Portal de administración](http://manage.windowsazure.com), haga clic en **Bases de datos SQL**, en **Servidores** y, a continuación, haga clic en el servidor que acaba de crear.
+1. En el [Portal de administración](http://manage.windowsazure.com), haga clic en **Bases de datos SQL** y, a continuación, en **Servidores**
 
-2.  Haga clic en **Configure**.
+	![Click Servers][4]
+2. En la lista, haga clic en el servidor que acaba de crear.
 
-3.  Copie la dirección IP del cliente actual. Si está conectado desde una red, esta es la dirección IP que está escuchando el servidor proxy o el enrutador. Base de datos SQL detecta la dirección IP que usa la conexión actual para que pueda crear una regla de firewall para aceptar solicitudes de conexión desde ese dispositivo.
+2. Haga clic en **Configurar**.
 
-4.  Pegue la dirección IP en el intervalo de inicio y finalización. Después, si se producen errores de conexión que indican que el intervalo es demasiado estrecho, puede editar la regla para ampliarlo.
+	![Click Configure][5]
 
-    Si los equipos cliente usan direcciones IP asignadas dinámicamente, debe especificar un intervalo que sea lo suficientemente amplio para que incluya direcciones IP asignadas a equipos en la red. Comience por un intervalo reducido y, a continuación, expándalo solo si lo necesita.
+3. En la sección **Dirección IP permitidas**, haga clic en **AGREGAR DIRECCIONES IP PERMITIDAS**. Esta es la dirección IP que está escuchando el servidor proxy o el router actualmente. Base de datos SQL detecta la dirección IP que usa la conexión actual y crea una regla de firewall para aceptar solicitudes de conexión desde ese dispositivo. 
+	![Click Add to the allowed IP addresses][6]
 
-5.  Especifique un nombre para la regla de firewall, como el nombre del equipo o la compañía.
+	Se genera un nombre predeterminado para la regla. Edite el nombre como desee. 
+	
 
-6.  Haga clic en la marca de verificación para guardar la regla.
+4. Cuando se conecta a la base de datos desde otro equipo, debe crear una nueva regla para permitir que su dirección IP pueda conectarse. Utilice los cuadros Inicio y Fin para crear un intervalo de direcciones IP.
 
-7.  Haga clic en **Save** en la parte inferior de la página para completar el paso. Si no consigue ver **Save**, actualice la página del explorador.
+	Si los equipos cliente usan direcciones IP asignadas dinámicamente, puede especificar un intervalo que sea lo suficientemente amplio para que incluya direcciones IP asignadas a equipos en la red. Comience por un intervalo reducido y, a continuación, expándalo solo si lo necesita.
 
-Ahora dispone de un servidor lógico, una regla de firewall que permite conexiones entrantes desde la dirección IP, y un inicio de sesión de administrador. En el siguiente paso, cambiará al equipo local para completar los pasos de configuración restantes.
+7. Haga clic en **Guardar** en la parte inferior de la página para completar el paso. 
 
-**Nota:** el servidor lógico que acaba de crear es transitorio y se hospedará dinámicamente en los servidores físicos de un centro de datos. Si elimina el servidor, debe saber antes que se trata de una acción irreversible. Asegúrese de realizar una copia de seguridad de las bases de datos que cargue posteriormente en el servidor.
+Ahora dispone de un servidor lógico, una regla de firewall que permite conexiones entrantes desde la dirección IP, y un inicio de sesión de administrador. 
+
+**Nota:** el servidor lógico que acaba de crear es virtual y se hospedará dinámicamente en los servidores físicos de un centro de datos. La eliminación del servidor es una acción irreversible. Asegúrese de realizar una copia de seguridad de las bases de datos que cargue posteriormente en el servidor. 
+
+
+<!--Image references-->
+[1]: ./media/sql-database-create-configure/click-new.png
+[2]: ./media/sql-database-create-configure/new-data-services-sql-storage-quick-create.png
+[3]: ./media/sql-database-create-configure/server-settings.png
+[4]: ./media/sql-database-create-configure/click-servers.png
+[5]: ./media/sql-database-create-configure/click-configure.png
+[6]: ./media/sql-database-create-configure/allowed-ip-addresses.png
 

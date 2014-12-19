@@ -1,22 +1,22 @@
-<properties linkid="notification-hubs-how-to-guides-howto-register-user-with-mobile-service-ios" urlDisplayName="Notify iOS app users by using Mobile Services" pageTitle="Register the current user for push notifications by using a mobile service - Notification Hubs" metaKeywords="Azure registering application, Notification Hubs, Azure push notifications, push notification iOS app" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by Azure Mobile Services." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Register the current user for push notifications by using a mobile service" authors="krisragh" solutions="" manager="" editor="" />
+﻿<properties urlDisplayName="Notify iOS app users by using Mobile Services" pageTitle="Registro del usuario actual para notificaciones de inserción mediante un servicio móvil - Centros de notificaciones "metaKeywords="registro de aplicación de Azure, Centros de notificaciones, notificaciones de inserción de Azure, aplicación iOS de notificaciones de inserción" description="Learn how to request push notification registration in an iOS app with Azure Notification Hubs when registeration is performed by Azure Mobile Services." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Register the current user for push notifications by using a mobile service" authors="yuaxu" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
 
-# Register the current user for push notifications by using a mobile service
+# Registro del usuario actual para notificaciones de inserción con un servicio móvil
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/es-es/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/es-es/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+    <a href="/es-es/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows Store C#">C# de Tienda Windows</a><a href="/es-es/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
-This topic shows you how to request push notification registration with Azure Notification Hubs when registration is performed by Azure Mobile Services. This topic extends the tutorial [Notify users with Notification Hubs]. You must have already completed the required steps in that tutorial to create the authenticated mobile service. For more information on the notify users scenario, see [Notify users with Notification Hubs].  
+Este tema muestra cómo solicitar un registro de notificación de inserción con Centros de notificaciones de Azure al realizar el registro mediante Servicios móviles de Azure. Este tema amplía el tutorial [Notificación a los usuarios con los Centros de notificaciones]. Debe haber completado ya los pasos necesarios de ese tutorial para crear el servicio móvil autenticado. Para obtener más información acerca del escenario de notificación a los usuarios, consulte [Notificación a los usuarios con los Centros de notificaciones].  
 
-1. In Xcode, open the QSTodoService.h file in the project that you created when you completed the prerequisite tutorial [Get started with authentication], and add the following **deviceToken** property:
+1. En Xcode, abra el archivo QSTodoService.h en el proyecto que creó cuando completó el tutorial de requisito previo [Introducción a la autenticación] y agregue la siguiente propiedad **deviceToken**:
 
 		@property (nonatomic) NSData* deviceToken;
 
- 	This property stores the device token.
+ 	Esta propiedad almacena el token de dispositivo.
 
-2. In the QSTodoService.m file, add the following **getDeviceTokenInHex** method: 
+2. En el archivo QSTodoService.m, agregue el siguiente método **getDeviceTokenInHex**:
 
 			- (NSString*)getDeviceTokenInHex {
 			    const unsigned *tokenBytes = [[self deviceToken] bytes];
@@ -27,28 +27,28 @@ This topic shows you how to request push notification registration with Azure No
 			    return hexToken;
 			}
 
-	This method converts the device token to a hex string value.
+	Este método convierte el token de dispositivo en un valor de cadena hexadecimal.
 
-3. In the QSAppDelegate.m file, add the following lines of code to the **didFinishLaunchingWithOptions** method:
+3. En el archivo QSAppDelegate.m, agregue las siguientes líneas de código al método **didFinishLaunchingWithOptions**:
 
 			[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
-	This enables push notifications in your app.
+	Con esto se habilitan las notificaciones de inserción en la aplicación.
 
-4. 	In the QSAppDelegate.m file, add the following method: 
-	
+4. 	En el archivo QSAppDelegate.m, agregue el siguiente método:
+
 			- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
 			    [QSTodoService defaultService].deviceToken = deviceToken;
 			}
 
-	This updates the **deviceToken** property.
+	Esta acción actualiza la propiedad **deviceToken**.
 
-	<div class="dev-callout"><b>Note</b>
-	<p>At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the <a href="/es-es/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">Get Started with Notification Hubs</a> tutorial, you must comment-out or remove that call.</p>
+	<div class="dev-callout"><b>Nota:</b>
+	<p>En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial <a href="/es-es/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">Introducción a los Centros de notificaciones</a>, debe convertir la llamada en comentario o borrarla.</p>
 	</div>
-	
-5.  (Optional) In the QSAppDelegate.m file, add the following handler method: 
-	
+
+5.  (Opcional) En el archivo QSAppDelegate.m, agregue el siguiente método de controlador:
+
 			- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
 			    NSLog(@"%@", userInfo);
 			    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Notification" message:
@@ -57,13 +57,13 @@ This topic shows you how to request push notification registration with Azure No
 			    [alert show];
 			}
 
- 	This method displays an alert in the UI when your app receives notifications while it is running.
+ 	Este método muestra una alerta en la interfaz de usuario cuando su aplicación recibe notificaciones durante su ejecución.
 
-6. In the QSTodoListViewController.m file, add the **registerForNotificationsWithBackEnd** method:
+6. En el archivo QSTodoListViewController.m, agregue el método **registerForNotificationsWithBackEnd**:
 
-			- (void)registerForNotificationsWithBackEnd {    
+			- (void)registerForNotificationsWithBackEnd {
 			    NSString* json = [NSString  stringWithFormat:@"{\"platform\":\"ios\", \"deviceToken\":\"%@\"}", [self.todoService getDeviceTokenInHex] ];
-			    
+
 			    [self.todoService.client invokeAPI:@"register_notifications" data:[json dataUsingEncoding:NSUTF8StringEncoding] HTTPMethod:@"POST" parameters:nil headers:nil completion:^(id result, NSHTTPURLResponse *response, NSError *error) {
 			        if (error != nil) {
 			            NSLog(@"Registration failed: %@", error);
@@ -75,38 +75,38 @@ This topic shows you how to request push notification registration with Azure No
 			    }];
 			}
 
-	This method constructs a json payload that contains the device token. It then calls the custom API in your Mobile Service to register for notification. This method creates a device token for push notifications and sends it, along with the device type, to the custom API method that creates a registration in Notification Hubs. This custom API was defined in [Notify users with Notification Hubs].
+	Este método construye una carga json que contiene el token de dispositivo. Luego llama a la API personalizada en el Servicio móvil para registrarse para notificación. Este método crea un token de dispositivo para notificaciones de inserción y lo envía, junto con el tipo de dispositivo, al método de API personalizada que crea un registro en los Centros de notificaciones. La API personalizada se definió en [Notificación a los usuarios con los Centros de notificaciones].
 
-7.	Finally, in the **viewDidAppear** method, add a call to this the new **registerForNotificationsWithBackEnd** method after the user successfully authenticates, as in the following example:
-	
+7.	Finalmente, en el método **viewDidAppear**, agregue una llamada a este nuevo método **registerForNotificationsWithBackEnd** una vez que el usuario se autentica correctamente, tal como aparece en el siguiente ejemplo:
+
 			- (void)viewDidAppear:(BOOL)animated
 			{
 			    MSClient *client = self.todoService.client;
-			
+
 			    if (client.currentUser != nil) {
 			        return;
 			    }
-			    
+
 			    [client loginWithProvider:@"microsoftaccount" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
 			        [self refresh];
 			        [self registerForNotificationsWithBackEnd];
 			    }];
 			}
-	
-	<div class="dev-callout"><b>Note</b>
-	<p>This makes sure that registration is requested every time that the page is loaded. In your app, you may only want to make this registration periodically to ensure that the registration is current.</p>
+
+	<div class="dev-callout"><b>Nota:</b>
+	<p>Esto garantiza que se solicitará registro cada vez que se cargue la página. En la aplicación, es posible que solo desee realizar este registro de manera periódica para asegurarse de que el registro esté actualizado.</p>
 	</div>
 
-Now that the client app has been updated, return to the [Notify users with Notification Hubs] and update the mobile service to send notifications by using Notification Hubs.
+Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación a los usuarios con los Centros de notificaciones] y actualice el servicio móvil para enviar notificaciones mediante Centros de notificaciones.
+
+<!-- Anchors. -->
+
+<!-- Images. -->
 
 
+<!-- URLs. -->
+[Notificación a los usuarios con los Centros de notificaciones]: /es-es/manage/services/notification-hubs/notify-users
+[Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-ios/
 
-
-
-
-
-[Notify users with Notification Hubs]: /es-es/manage/services/notification-hubs/notify-users
-[Get started with authentication]: /es-es/develop/mobile/tutorials/get-started-with-users-ios/
-
-[Azure Management Portal]: https://manage.windowsazure.com/
-[Get Started with Notification Hubs]: /es-es/manage/services/notification-hubs/get-started-notification-hubs-ios/
+[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Introducción a los Centros de notificaciones]: /es-es/manage/services/notification-hubs/get-started-notification-hubs-ios/

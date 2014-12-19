@@ -1,37 +1,38 @@
-<properties linkid="develop-mobile-tutorials-validate-modify-and-augment-data-ios" urlDisplayName="Validate Data" pageTitle="Use server scripts to validate and modify data (iOS) | Mobile Dev Center" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="" editor="" />
+﻿<properties urlDisplayName="Validate Data" pageTitle="Uso de scripts de servidor para validar y modificar datos (iOS) | Centro de desarrollo móvil" metaKeywords="" description="Learn how to validate and modify data sent using server scripts from your iOS app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="krisragh" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/01/1900" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
 
 # Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/documentation/articles/mobile-services-windows-store-dotnet-validate-modify-data-server-scripts" title="C# para Tienda Windows">C# para Tienda Windows</a><a href="/es-es/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts" title="JavaScript para Tienda Windows">JavaScript para Tienda Windows</a><a href="/es-es/documentation/articles/mobile-services-windows-phone-validate-modify-data-server-scripts" title="Windows Phone">Windows Phone</a><a href="/es-es/documentation/articles/mobile-services-ios-validate-modify-data-server-scripts" title="iOS" class="current">iOS</a><a href="/es-es/documentation/articles/mobile-services-android-validate-modify-data-server-scripts" title="Android" class="current">Android</a><a href="/es-es/documentation/articles/mobile-services-html-validate-modify-data-server-scripts" title="HTML" class="current">HTML</a><a href="/es-es/documentation/articles/partner-xamarin-mobile-services-ios-validate-modify-data-server-scripts" title="Xamarin.iOS" class="current">Xamarin.iOS</a><a href="/es-es/documentation/articles/partner-xamarin-mobile-services-android-validate-modify-data-server-scripts" title="Xamarin.Android" class="current">Xamarin.Android</a></div>
+[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-En este tema se muestra cómo aprovechar los scripts del servidor en Servicios móviles de Azure. Dichos scripts se registran en un servicio móvil y pueden usarse para realizar una gran variedad de operaciones en los datos que se han insertado y actualizado, incluidas la modificación y validación de los datos. En este tutorial, definirá y registrará scripts de servidor que sirven para validar y modificar datos. Dado que el comportamiento de los scripts del servidor suele afectar al cliente, también actualizará la aplicación iOS para que se beneficie de estos nuevos comportamientos.
+En este tema se muestra cómo aprovechar los scripts de servidor en Servicios móviles de Azure. Dichos scripts se registran en un servicio móvil y pueden usarse para realizar una gran variedad de operaciones en los datos que se han insertado y actualizado, incluidas la modificación y validación de los datos. En este tutorial, definirá y registrará scripts de servidor que sirven para validar y modificar datos. Dado que el comportamiento de los scripts del servidor suele afectar al cliente, también actualizará la aplicación iOS para que se beneficie de estos nuevos comportamientos.
 
 Este tutorial le guiará a través de estos pasos básicos:
 
-1.  [Incorporación de la validación de longitud de cadena][Incorporación de la validación de longitud de cadena]
-2.  [Actualización del cliente para admitir la validación][Actualización del cliente para admitir la validación]
+1. [Incorporación de la validación de longitud de cadena]
+2. [Actualización del cliente para admitir la validación]
 
-Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos][Introducción a los datos]. Antes de comenzar este tutorial, primero debe completar [Introducción a los datos][Introducción a los datos].
 
-## <a name="string-length-validation"></a>Incorporación de la validación
+Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos]. Antes de comenzar este tutorial, debe completar [Introducción a los datos].  
 
-Siempre es conveniente validar la longitud de los datos enviados por los usuarios. En primer lugar, registre un script que valide la longitud de los datos de cadena enviados al servicio móvil y que rechace las cadenas demasiado largas, en este caso con más de 10 caracteres.
+## <a name="string-length-validation"></a>Add validation
 
-1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su aplicación.
+It is always a good practice to validate the length of data that is submitted by users. First, you register a script that validates the length of string data sent to the mobile service and rejects strings that are too long, in this case longer than 10 characters.
 
-    ![][0]
+1. Log into the [Azure Management Portal], click **Mobile Services**, and then click your app.
 
-2.  Haga clic en la pestaña **Data** y, a continuación, haga clic en la tabla **TodoItem**.
+   	![][0]
 
-    ![][1]
+2. Click the **Data** tab, then click the **TodoItem** table.
 
-3.  Haga clic en **Script** y, a continuación, seleccione la operación **Insert**.
+   	![][1]
 
-    ![][2]
+3. Click **Script**, then select the **Insert** operation.
 
-4.  Sustituya el script existente por la siguiente función y, a continuación, haga clic en **Save**.
+   	![][2]
+
+4. Replace the existing script with the following function, and then click **Save**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -41,27 +42,27 @@ Siempre es conveniente validar la longitud de los datos enviados por los usuario
             }
         }
 
-    Este script comprueba la longitud de la propiedad **text** y envía una respuesta de error cuando esta sobrepasa los 10 caracteres. En caso de no sobrepasarlos, se llama al método **execute** para completar la inserción.
+    This script checks the length of the **text** property and sends an error response when the length exceeds 10 characters. Otherwise, the **execute** method is called to complete the insert.
 
-    <div class="dev-callout"> 
-<b>Nota:</b> 
-<p>Puede quitar un script registrado en la pesta&ntilde;a <strong>Script</strong> haciendo clic en <strong>Clear</strong> y, a continuaci&oacute;n, en <strong>Save</strong>.</p></div>
+    <div class="dev-callout">
+	<b>Note</b>
+	<p>You can remove a registered script on the <strong>Script</strong> tab by clicking <strong>Clear</strong> and then <strong>Save</strong>.</p></div>
 
-## <a name="update-client-validation"></a>Actualización del cliente
+## <a name="update-client-validation"></a>Update the client
 
-Ahora que el servicio móvil puede validar los datos y enviar respuestas de error, debe actualizar la aplicación para que pueda identificar los errores de la validación.
+Now that the mobile service is validating data and sending error responses, you need to update your app to be able to handle error responses from validation.
 
-1.  En Xcode, abra el proyecto que ha modificado al completar el tutorial [Introducción a los datos][Introducción a los datos].
+1. In Xcode, open the project that you modified when you completed the tutorial [Get started with data].
 
-2.  Presione el botón **Ejecutar** (Comando + R) para crear el proyecto e iniciar la aplicación y, a continuación, escriba un texto con más de 10 caracteres en el cuadro de texto y haga clic en el icono más (**+**).
+2. Press the **Run** button (Command + R) to build the project and start the app, then type text longer than 10 characters in the textbox and click the  plus (**+**) icon.
 
-    Observe que la aplicación produce un error no controlado como resultado de la respuesta 400 (solicitud incorrecta) devuelta por el servicio móvil.
+   	Notice that the app raises an unhandled error as a result of the 400 response (Bad Request) returned by the mobile service.
 
-3.  En el archivo QSTodoService.m, ubique la siguiente línea de código en el método **addItem**:
+3. In the QSTodoService.m file, locate the following line of code in the **addItem** method:
 
-        [self logErrorIfNotNil:error]; 
+        [self logErrorIfNotNil:error];
 
-    Después de esta línea de código, reemplace el recordatorio del bloque de finalización por el código siguiente:
+   	After this line of code, replace the remainder of the completion block with the following code:
 
         BOOL goodRequest = !((error) && (error.code == MSErrorMessageErrorCode));
 
@@ -92,47 +93,140 @@ Ahora que el servicio móvil puede validar los datos y enviar respuestas de erro
             }
         }
 
-    Esto registra el error en la ventana de salida y lo muestra al usuario.
+   	This logs the error to the output window and displays it to the user.
 
-4.  Recompile e inicie la aplicación.
+4. Rebuild and start the app.
 
-    ![][3]
+   	![][4]
 
-    Observe que el error está controlado y que el mensaje de error se muestra al usuario.
+  	Notice that error is handled and the error messaged is displayed to the user.
 
-<!--## <a name="add-timestamp"></a>Add a timestamp  The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.  1. In the **Scripts** tab in the [Management Portal], replace the current **Insert** script with the following function, and then click **Save**.          function insert(item, user, request) {             if (item.text.length > 10) {                 request.respond(statusCodes.BAD_REQUEST, 'Text length must be under 10');             } else {                 item.createdAt = new Date();                 request.execute();             }         }      This function augments the previous insert script by adding a new **createdAt** timestamp property to the object before it gets inserted by the call to **request**.**execute**.       <div class="dev-callout"><b>Note</b>     <p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.</p>     </div>  2. In Visual Studio, press the **F5** key to run the app, then type text (shorter than 10 characters) in **Insert a TodoItem** and click **Save**.      Notice that the new timestamp does not appear in the app UI.  3. Back in the Management Portal, click the **Browse** tab in the **todoitem** table.         Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.    Next, you need to update the iOS app to display this new column.  ## <a name="update-client-timestamp"></a>Update the client again  The Mobile Service client will ignore any data in a response that it cannot serialize into properties on the defined type. The final step is to update the client to display this new data.  1. In Visual Studio, open the file MainPage.xaml.cs, then replace the existing **TodoItem** class with the following definition:          public class TodoItem         {             public int Id { get; set; }                        [DataMember(Name="text")]             public string Text { get; set; }              [DataMember(Name="complete")]             public bool Complete { get; set; }                          [DataMember(Name="createdAt")]             public DateTime? CreatedAt { get; set; }         }          This new class definition includes the new timestamp property, as a nullable DateTime type.        <div class="dev-callout"><b>Note</b>     <p>The <strong>DataMemberAttribute</strong> tells the client to map the new <strong>CreatedAt</strong> property in the app to the <strong>createdAt</strong> column defined in the TodoItem table, which has a different casing. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database. Without this attribute, an error would occur because of the casing differences.</p>     </div>  5. Add the following XAML element just below the **CheckBoxComplete** element in the MainPage.xaml file:                    <TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>      This displays the new **CreatedAt** property in a text box.       6. Press the **F5** key to run the app.      Notice that the timestamp is only displayed for items inserted after you updated the insert script.  7. Replace the existing **RefreshTodoItems** method with the following code:           private void RefreshTodoItems()         {              // This query filters out completed TodoItems and              // items without a timestamp.              items = todoTable                .Where(todoItem => todoItem.Complete == false                    && todoItem.CreatedAt != null)                .ToCollectionView();              ListItems.ItemsSource = items;         }      This method updates the query to also filter out items that do not have a timestamp value.      8. Press the **F5** key to run the app.      Notice that all items created without timestamp value disappear from the UI.  You have completed this working with data tutorial.-->
+<!--## <a name="add-timestamp"></a>Add a timestamp
+
+The previous tasks validated an insert and either accepted or rejected it. Now, you will update inserted data by using a server script that adds a timestamp property to the object before it gets inserted.
+
+1. In the **Scripts** tab in the [Management Portal], replace the current **Insert** script with the following function, and then click **Save**.
+
+        function insert(item, user, request) {
+            if (item.text.length > 10) {
+                request.respond(statusCodes.BAD_REQUEST, 'Text length must be under 10');
+            } else {
+                item.createdAt = new Date();
+                request.execute();
+            }
+        }
+
+    This function augments the previous insert script by adding a new **createdAt** timestamp property to the object before it gets inserted by the call to **request**.**execute**.
+
+    <div class="dev-callout"><b>Note</b>
+	<p>Dynamic schema must be enabled the first time that this insert script runs. With dynamic schema enabled, Mobile Services automatically adds the <strong>createdAt</strong> column to the <strong>TodoItem</strong> table on the first execution. Dynamic schema is enabled by default for a new mobile service, and it should be disabled before the app is published.</p>
+    </div>
+
+2. In Visual Studio, press the **F5** key to run the app, then type text (shorter than 10 characters) in **Insert a TodoItem** and click **Save**.
+
+   	Notice that the new timestamp does not appear in the app UI.
+
+3. Back in the Management Portal, click the **Browse** tab in the **todoitem** table.
+
+   	Notice that there is now a **createdAt** column, and the new inserted item has a timestamp value.
+
+Next, you need to update the iOS app to display this new column.
+
+## <a name="update-client-timestamp"></a>Update the client again
+
+The Mobile Service client will ignore any data in a response that it cannot serialize into properties on the defined type. The final step is to update the client to display this new data.
+
+1. In Visual Studio, open the file MainPage.xaml.cs, then replace the existing **TodoItem** class with the following definition:
+
+	    public class TodoItem
+	    {
+	        public int Id { get; set; }
+
+            [DataMember(Name="text")]
+	        public string Text { get; set; }
+
+            [DataMember(Name="complete")]
+	        public bool Complete { get; set; }
+
+            [DataMember(Name="createdAt")]
+	        public DateTime? CreatedAt { get; set; }
+	    }
+
+    This new class definition includes the new timestamp property, as a nullable DateTime type.
+
+    <div class="dev-callout"><b>Note</b>
+	<p>The <strong>DataMemberAttribute</strong> tells the client to map the new <strong>CreatedAt</strong> property in the app to the <strong>createdAt</strong> column defined in the TodoItem table, which has a different casing. By using this attribute, your app can have property names on objects that differ from column names in the SQL Database. Without this attribute, an error would occur because of the casing differences.</p>
+    </div>
+
+5. Add the following XAML element just below the **CheckBoxComplete** element in the MainPage.xaml file:
+
+        <TextBlock Name="WhenCreated" Text="{Binding CreatedAt}" VerticalAlignment="Center"/>
+
+   	Esto muestra la nueva propiedad **CreatedAt** en un cuadro de texto.
+
+6. Presione la tecla **F5** para ejecutar la aplicación.
+
+   Observe que la marca de tiempo solo se muestra para los elementos insertados después de haber actualizado el script de inserción.
+
+7. Reemplace el método **RefreshTodoItems** por el siguiente código:
+
+        private void RefreshTodoItems()
+        {
+            // This query filters out completed TodoItems and
+            // items without a timestamp.
+            items = todoTable
+               .Where(todoItem => todoItem.Complete == false
+                   && todoItem.CreatedAt != null)
+               .ToCollectionView();
+
+            ListItems.ItemsSource = items;
+        }
+
+   	Este método actualiza la consulta de forma que se filtren también los elementos que no tengan un valor de marca de tiempo.
+
+8. Presione la tecla **F5** para ejecutar la aplicación.
+
+   	Observe que todos los elementos creados sin un valor de marca de tiempo desaparecen de la interfaz de usuario.
+
+Ha completado este tutorial de trabajo con datos.-->
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
-Ahora que ha completado este tutorial, considere continuar con el tutorial final de la serie de datos: [Limitación de consultas con paginación][Limitación de consultas con paginación].
+Ahora que ha completado este tutorial, considere continuar con el tutorial final de la serie de datos: [Limitación de consultas con paginación].
 
 Los scripts de servidor también se usan al autorizar usuarios y para enviar notificaciones de inserción. Para obtener más información, consulte los siguientes tutoriales:
 
--   [Autorización de usuarios con scripts][Autorización de usuarios con scripts]
-    
-	Aprenda a filtrar datos basándose en el identificador de un usuario autenticado.
+* [Autorización de usuarios con scripts]
+  <br/>Obtenga información acerca de cómo filtrar datos según el identificador de un usuario autenticado.
 
--   [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción]
-    
-	Aprenda a enviar una notificación de inserción muy básica a la aplicación.
+* [Introducción a las notificaciones de inserción]
+  <br/>Vea cómo enviar una notificación de inserción muy básica a su aplicación.
 
--   [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles]
-    
-	Obtenga más información acerca del registro y uso de scripts de servidor.
+* [Referencia del script del servidor de Servicios móviles]
+  <br/>Más información acerca del registro y uso de scripts de servidor.
 
- 
- 
+<!-- Anchors. -->
+[Incorporación de la validación de longitud de cadena]: #string-length-validation
+[Actualización del cliente para admitir la validación]: #update-client-validation
+[Incorporación de una marca de tiempo al insertar]: #add-timestamp
+[Actualización del cliente para mostrar la marca de tiempo]: #update-client-timestamp
+[Pasos siguientes]: #next-steps
 
+<!-- Images. -->
+[0]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
+[1]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-portal-data-tables.png
+[2]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-insert-script-users.png
 
-  [Incorporación de la validación de longitud de cadena]: #string-length-validation
-  [Actualización del cliente para admitir la validación]: #update-client-validation
-  [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-ios
-  [Portal de administración de Azure]: https://manage.windowsazure.com/
-  [0]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-services-selection.png
-  [1]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-portal-data-tables.png
-  [2]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-insert-script-users.png
-  [3]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-quickstart-data-error-ios.png
-  [Limitación de consultas con paginación]: /es-es/develop/mobile/tutorials/add-paging-to-data-ios
-  [Autorización de usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-ios
-  [Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-ios
-  [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+[4]: ./media/mobile-services-ios-validate-modify-data-server-scripts/mobile-quickstart-data-error-ios.png
+
+<!-- URLs. -->
+[Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Introducción a Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-ios
+[Autorización de usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Limitación de consultas con paginación]: /es-es/develop/mobile/tutorials/add-paging-to-data-ios
+[Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-ios
+[Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-ios
+[Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-ios
+
+[Portal de administración]: https://manage.windowsazure.com/
+[Portal de administración de Azure]: https://manage.windowsazure.com/

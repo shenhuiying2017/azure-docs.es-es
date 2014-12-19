@@ -1,23 +1,25 @@
-1.  En el Explorador de Soluciones de Visual Studio, haga clic con el botón secundario en la carpeta Controladores para el proyecto del servicio móvil, expanda **Add** y, a continuación, haga clic en **New Scaffolded Item**.
+﻿
 
-    Se mostrará el cuadro de diálogo Add Scaffold.
+1. En el Explorador de Soluciones de Visual Studio, haga clic con el botón secundario en la carpeta Controladores para el proyecto del servicio móvil, expanda **Agregar** y, a continuación, haga clic en **Nuevo elemento de scaffolding**.
 
-2.  Expanda **Servicios móviles de Azure** y haga clic en **Azure Mobile Services Custom Controller**. A continuación, haga clic en **Agregar**, proporcione un **nombre de controlador** de `CompleteAllController` y haga clic en **Agregar** de nuevo.
+	Se mostrará el cuadro de diálogo Add Scaffold.
 
-    ![Cuadro de diálogo Add Scaffold de la API web][Cuadro de diálogo Add Scaffold de la API web]
+2. Expanda **Servicios móviles de Azure** y haga clic en **Controlador personalizado de Servicios móviles de Azure** y, a continuación, en **Agregar**, facilite un **Nombre de controlador** de "CompleteAllController" y vuelva a hacer clic en **Agregar**.
 
-    De esta forma, se crea una nueva clase de controlador vacía llamada **CompleteAllController**.
+	![Web API Add Scaffold dialog](./media/mobile-services-dotnet-backend-create-custom-api/add-custom-api-controller.png)
 
-> [WACOM.NOTE]Si el cuadro de diálogo no dispone de scaffolding específico de Servicios móviles, cree una nueva clase para **Web API Controller - Empty**. En esta nueva clase de controlador, agregue una propiedad **Services** pública, que devuelve el tipo **ApiServices**. Esta propiedad se usa para obtener acceso a la configuración específica del servidor desde dentro del controlador.
+	De esta forma, se crea una nueva clase de controlador vacía llamada **CompleteAllController**.
 
-1.  En el nuevo archivo de proyecto CompleteAllController.cs, agregue las siguientes instrucciones **using**:
+>[WACOM.NOTE]Si el cuadro de diálogo no dispone de scaffolding específico de Servicios móviles, cree una nueva clase para **Controlador de Web API - Vacío**. En esta nueva clase de controlador, agregue una propiedad **Services** pública, que devuelve el tipo **ApiServices**. Esta propiedad se usa para obtener acceso a la configuración específica del servidor desde dentro del controlador.
 
-        using System.Threading.Tasks;
-        using todolistService.Models;
+3. En el nuevo archivo de proyecto CompleteAllController.cs, agregue las siguientes instrucciones **using**:
 
-    En el código anterior, reemplace `todolistService` por el espacio de nombres del proyecto de servicio móvil, que debe agregarse al nombre de servicio móvil con `Service`.
+		using System.Threading.Tasks;
+		using todolistService.Models;
 
-2.  En CompleteAllController.cs, agregue la siguiente definición de clase al espacio de nombres. La clase ajusta la respuesta que se envía al cliente.
+	En el código anterior, reemplace "todolistService" por el espacio de nombres del proyecto de servicio móvil, que debe agregarse al nombre de servicio móvil con "Servicio". 
+
+4. En CompleteAllController.cs, agregue la siguiente definición de clase al espacio de nombres. La clase ajusta la respuesta que se envía al cliente.
 
         // We use this class to keep parity with other Mobile Services
         // that use the JavaScript backend. This way the same client
@@ -27,9 +29,10 @@
             public Int32 count;
         }
 
-3.  Agregue el siguiente código al nuevo controlador:
 
-        // POST api/completeall        
+5. Agregue el siguiente código al nuevo controlador:
+
+	    // POST api/completeall        
         public async Task<MarkAllResult> Post()
         {
             using (todolistContext context = new todolistContext())
@@ -48,18 +51,16 @@
                 // Log the result.
                 Services.Log.Info(string.Format("{0} items set to 'complete'.", 
                     result.count.ToString()));
-
+                
                 return result;
             }
         }
 
-    En el código anterior, reemplace `todolistContext` por el nombre de DbContext del modelo de datos, que debe ser el nombre del servicio móvil agregado con `Context`. Además, reemplace el nombre de esquema de la instrucción UPDATE con el nombre del servicio móvil.
+	En el código anterior, reemplace "todolistContext" por el nombre de DbContext del modelo de datos, que debe ser el nombre del servicio móvil agregado con "Contexto". Además, reemplace el nombre de esquema de la instrucción UPDATE con el nombre del servicio móvil. 
 
-    Este código usa la [clase Database][clase Database] para obtener acceso a la tabla **TodoItems** directamente a fin de establecer la marca de completado en todos los elementos. Este método es compatible con una solicitud POST y el número de filas cambiadas se devuelve al cliente como un valor entero.
+	Este código usa la [clase Base de datos](http://msdn.microsoft.com/es-es/library/system.data.entity.database.aspx) para obtener acceso a la tabla **TodoItems** directamente para establecer la marca de completado en todos los elementos. Este método es compatible con una solicitud POST y el número de filas cambiadas se devuelve al cliente como un valor entero.
 
-    > [WACOM.NOTE] Los permisos predeterminados están establecidos, lo que significa que cualquier usuario de la aplicación puede llamar a la API personalizada. No obstante, la clave de la aplicación no se distribuye ni almacena de forma segura y no se puede considerar una credencial segura. Por ello, debe considerar restringir el acceso solo a los usuarios autenticados en las operaciones que modifican datos o afectan al servicio móvil.
+	> [WACOM.NOTE] Los permisos predeterminados están establecidos, lo que significa que cualquier usuario de la aplicación puede llamar a la API personalizada. No obstante, la clave de la aplicación no se distribuye ni almacena de forma segura y no se puede considerar una credencial segura. Por ello, debe considerar restringir el acceso solo a los usuarios autenticados en las operaciones que modifican datos o afectan al servicio móvil. 
 
 A continuación, podrá modificar la aplicación de inicio rápido para agregar un botón y código nuevos que llame de forma asincrónica a la nueva API personalizada.
 
-  [Cuadro de diálogo Add Scaffold de la API web]: ./media/mobile-services-dotnet-backend-create-custom-api/add-custom-api-controller.png
-  [clase Database]: http://msdn.microsoft.com/es-es/library/system.data.entity.database.aspx

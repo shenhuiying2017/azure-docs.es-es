@@ -1,60 +1,58 @@
-<properties linkid="/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users" pageTitle="Send push notifications to authenticated users" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Send push notifications to authenticated users" authors="wesmc" solutions="Mobile" manager="" editor="" />
+﻿<properties pageTitle="Envío de notificaciones de inserción a usuarios autenticados" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Learn how to send push notifications to specific " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Send push notifications to authenticated users" authors="wesmc" solutions="Mobile" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="01/01/1900" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc" />
 
-# Senden von Pushbenachrichtigungen an authentifizierte Benutzer
+# Envío de notificaciones de inserción a usuarios autenticados
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users" title="Windows Store C#">Windows Store C#</a>
-<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-push-notifications-app-users" title="Windows Store JavaScript">Windows Store JavaScript</a>
-<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-push-notifications-app-users" title="Windows Phone">Windows Phone</a>
-<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users" title="iOS">iOS</a>
-<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users" title="Android" class="current">Android</a>
-</div>
+[WACOM.INCLUDE [mobile-services-selector-push-users](../includes/mobile-services-selector-push-users.md)]
 
-<div class="dev-center-tutorial-subselector">
-<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-android-push-notifications-app-users/" title=".NET-Back-End" class="current">.NET-Back-End</a> | 
-<a href="/es-es/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/"  title="JavaScript-Back-End">JavaScript-Back-End</a>
-</div>
+En este tema se muestra cómo enviar notificaciones de inserción a un usuario autenticado en cualquier dispositivo registrado. A diferencia del tutorial anterior [notificaciones de inserción][Introducción a las notificaciones de inserción], en este tutorial se cambia el servicio móvil con el fin de que requiera que un usuario se autentique para que el cliente pueda registrarse en el Centro de notificaciones para el uso de notificaciones de inserción. También se modifica el registro para agregar una etiqueta basada en el identificador de usuario asignado. Por último, se actualiza el código del servidor para enviar la notificación solo al usuario autenticado en lugar de a todos los registros.
 
-In diesem Thema wird erläutert, wie Sie Pushbenachrichtigungen an einen authentifizierten Benutzer auf einem beliebigen registrierten Gerät senden. Anders als beim vorherigen Lernprogramm zur [Pushbenachrichtigung][Pushbenachrichtigung] ändern Sie hier Ihren mobilen Dienst dahingehend, dass sich ein Benutzer authentifizieren muss, ehe der Client sich am Benachrichtigungs-Hub für Pushbenachrichtungen registrieren kann. Die Registrierung wird ebenfalls geändert; es wird ein Tag auf Grundlage der zugewiesenen Benutzer-ID hinzugefügt. Schließlich wird der Servercode so geändert, dass die Benachrichtigung nur an den authentifizierten Benutzer statt an alle Registrierungen gesendet wird.
+Este tutorial le guiará en el siguiente proceso:
 
-In diesem Lernprogramm werden folgende Prozesse behandelt:
++ [Actualización del servicio para que requiera autenticación para el registro]
++ [Actualización de la aplicación para que inicie sesión antes del registro]
++ [Prueba de la aplicación]
+ 
+Este tutorial es válido para aplicaciones Android.
 
--   [Aktualisieren des Diensts, sodass für die Registrierung eine Authentifizierung benötigt wird][Aktualisieren des Diensts, sodass für die Registrierung eine Authentifizierung benötigt wird]
--   [Aktualisieren der App zum Anmelden vor der Registrierung][Aktualisieren der App zum Anmelden vor der Registrierung]
--   [Testen der App][Testen der App]
+##Requisitos previos 
 
-Dieses Lernprogramm unterstützt Android-Apps.
+Antes de comenzar este tutorial, debe haber realizado los siguientes tutoriales de Servicios móviles:
 
-## Voraussetzungen
++ [Introducción a la autenticación]<br/>Agrega un requisito de inicio de sesión a la aplicación de ejemplo TodoList.
 
-Bevor Sie mit diesem Lernprogramm beginnen, müssen Sie zunächst die folgenden Mobile Services-Lernprogramme abschließen:
++ [Introducción a las notificaciones de inserción]<br/>Configura la aplicación de ejemplo TodoList para notificaciones de inserción usando Centros de notificaciones. 
 
--   [Erste Schritte mit der Authentifizierung][Erste Schritte mit der Authentifizierung]
-    Fügt der To-Do-Listen-Beispielapp das Erfordernis einer Anmeldung hinzu.
+Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autorizados se registren para notificaciones de inserción desde su servicio móvil.
 
--   [Erste Schritte mit Pushbenachrichtigungen][Pushbenachrichtigung]
-    Konfiguriert die To-Do-Listen-Beispielapp für Pushbenachrichtigungen mithilfe von Benachrichtigungs-Hubs.
+##<a name="register"></a>Actualización del servicio para que requiera autenticación para el registro
 
-Nachdem Sie beide Lernprogramm abgeschlossen haben, können Sie verhindern, dass nicht authentifizierte Benutzer sich für Pushbenachrichtigung ihres mobilen Diensts registrieren.
+[WACOM.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)] 
 
-## <a name="register"></a>Aktualisieren des Diensts, sodass für die Registrierung eine Authentifizierung benötigt wird
+##<a name="update-app"></a>Actualización de la aplicación para que inicie sesión antes del registro
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-push-notifications-app-users](../includes/mobile-services-dotnet-backend-push-notifications-app-users.md)]
+[WACOM.INCLUDE [mobile-services-android-push-notifications-app-users](../includes/mobile-services-android-push-notifications-app-users.md)] 
 
-## <a name="update-app"></a>Aktualisieren der App zum Anmelden vor der Registrierung
+##<a name="test"></a>Prueba de la aplicación
 
-[WACOM.INCLUDE [mobile-services-android-push-notifications-app-users](../includes/mobile-services-android-push-notifications-app-users.md)]
+[WACOM.INCLUDE [mobile-services-android-test-push-users](../includes/mobile-services-android-test-push-users.md)] 
 
-## <a name="test"></a>Testen der App
 
-[WACOM.INCLUDE [mobile-services-android-test-push-users](../includes/mobile-services-android-test-push-users.md)]
+<!---## <a name="next-steps"> </a>Pasos siguientes
 
-<!---## <a name="next-steps"> </a>Next steps  In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. Learn more about how to use Mobile Services with .NET in [Mobile Services .NET How-to Conceptual Reference]-->  
+En el siguiente tutorial, [Autorización en el servicio de los usuarios de Servicios móviles][Autorización de usuarios con scripts], usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. Obtenga más información sobre el uso de Servicios móviles con .NET en [Referencia conceptual de Servicios móviles con .NET]-->
 
-  [Pushbenachrichtigung]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
-  [Aktualisieren des Diensts, sodass für die Registrierung eine Authentifizierung benötigt wird]: #register
-  [Aktualisieren der App zum Anmelden vor der Registrierung]: #update-app
-  [Testen der App]: #test
-  [Erste Schritte mit der Authentifizierung]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
+<!-- Anchors. -->
+[Actualización del servicio para que requiera autenticación para el registro]: #register
+[Actualización de la aplicación para que inicie sesión antes del registro]: #update-app
+[Prueba de la aplicación]: #test
+[Pasos siguientes]:#next-steps
+
+
+<!-- URLs. -->
+[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
+[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
+
+[Portal administración de Azure]: https://manage.windowsazure.com/
+[Referencia conceptual de Servicios móviles con .NET]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library

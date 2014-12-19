@@ -1,27 +1,24 @@
-<properties linkid="develop-mobile-tutorials-schedule-backend-tasks" urlDisplayName="Schedule Backend Tasks" pageTitle="Schedule Backend Tasks with Scheduler - Mobile Services" metaKeywords="" description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+﻿<properties urlDisplayName="Schedule Backend Tasks" pageTitle="Programación de tareas de back-end con el programador - Servicios móviles" metaKeywords="" description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
-# Programación de trabajos periódicos en Servicios móviles
+# Programación de trabajos periódicos en Servicios móviles 
 
 <div class="dev-center-tutorial-subselector">
-    <a href="/es-es/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title="Back-end de .NET">Back-end de .NET</a> | <a href="/es-es/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="Back-end de JavaScript" class="current">Back-end de JavaScript</a>
+	<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend">Back-end de .NET</a> | <a href="/es-es/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" class="current">Back-end de JavaScript</a>
 </div>
-
+ 
 Este tema le muestra cómo usar la funcionalidad del programador de trabajos en el Portal de administración para definir el código de script de servidor que se ejecuta según el programa que establezca. En este caso, se realiza una comprobación periódica del script con un servicio remoto (Twitter) y se almacenan los resultados en una nueva tabla. Entre las demás tareas periódicas que pueden programarse se incluyen las siguientes:
 
--   Archivado de registros de datos antiguos o duplicados.
--   Solicitud y almacenamiento de datos externos, como tweets, entradas RSS e información de ubicación.
--   Procesamiento o cambio de tamaño de imágenes almacenadas.
-
-<!-- // Removed because this shortcode b/c it's old and doesn't use the new Twitter v1.1. APIs >[AZURE.VIDEO Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler] -->
-<!-- // Original video HTML code for reference. <div class="dev-onpage-video-clear clearfix"> <div class="dev-onpage-left-content"> <p> </div> <div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler" target="_blank" class="label">watch the tutorial</a> <a style="background-image: url('/media/devcenter/mobile/videos/get-started-with-scheduler-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Windows-Store-app-Getting-Started-with-the-Windows-Azure-Mobile-Services-Scheduler" target="_blank" class="dev-onpage-video"><span class="icon">Play Video</span></a> <span class="time">5:22</span></div> </div>-->
++ Archivado de registros de datos antiguos o duplicados.
++ Solicitud y almacenamiento de datos externos, como tweets, entradas RSS e información de ubicación.
++ Procesamiento o cambio de tamaño de imágenes almacenadas.
 
 Este tutorial le guiará por los siguientes pasos relativos al uso del programador de trabajos para crear un trabajo programado que solicite datos de tweets de Twitter y almacene los tweets en una nueva tabla de actualizaciones:
 
--   [Registro para obtener acceso a Twitter y almacenamiento de credenciales][Registro para obtener acceso a Twitter y almacenamiento de credenciales]
--   [Creación de la nueva tabla de actualizaciones][Creación de la nueva tabla de actualizaciones]
--   [Creación de un nuevo trabajo programado][Creación de un nuevo trabajo programado]
++ [Registro para obtener acceso a Twitter y almacenamiento de credenciales]
++ [Creación de la nueva tabla de actualizaciones]
++ [Creación de un nuevo trabajo programado]
 
 ## <a name="get-oauth-credentials"></a>Registro para obtener acceso a las API de Twitter v1.1 y almacenamiento de credenciales
 
@@ -31,154 +28,165 @@ Este tutorial le guiará por los siguientes pasos relativos al uso del programad
 
 A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 
-1.  En el Portal de administración, haga clic en la pestaña **Data** para el servicio móvil y, a continuación, haga clic en **+Create**.
+2. En el Portal de administración, haga clic en la pestaña **Datos** para su servicio móvil y elija **+Crear**.
 
-    ![][0]
+   	![][2]
 
-    Esto muestra el cuadro de diálogo **Create new table**.
+   	Esto muestra el cuadro de diálogo **Crear nueva tabla**.
 
-2.  En **Table name**, escriba *Updates* y, a continuación, haga clic en el botón de comprobación.
+3. En **Nombre de tabla** escriba _Updates_ y haga clic en el botón de marca de verificación.
 
-    ![][1]
+   	![][3]
 
-    De esta forma, se creará una nueva tabla de almacenamiento **Updates**.
+  	De esta forma, se creará una nueva tabla de almacenamiento **Updates**. 
 
-## <a name="add-job"></a>Creación de un nuevo trabajo programado
+## <a name="add-job"></a>Creación de un nuevo trabajo programado  
 
 Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena los datos de tweets en la nueva tabla de actualizaciones.
 
-1.  Haga clic en la pestaña **Programador** y, a continuación, en **+Create**.
+2. Haga clic en la pestaña **Programador** y después en **+Crear**. 
 
-    ![][2]
+   	![][4]
 
-    > [WACOM.NOTE]Cuando ejecute el servicio móvil en el nivel *gratis*, solo podrá ejecutar un trabajo programado a la vez. En los niveles de pago, puede ejecutar hasta diez trabajos programados a la vez.
+    >[WACOM.NOTE]Cuando ejecute el servicio móvil en el nivel <em>Gratis</em>, solo podrá ejecutar un trabajo programado cada vez. En los niveles de pago, puede ejecutar hasta diez trabajos programados a la vez.
 
-2.  En el cuadro de diálogo del programador, especifique *getUpdates* para **Job Name**, establezca las unidades y el intervalo de programación y, a continuación, haga clic en el botón de comprobación.
+3. En el cuadro de diálogo del programador, especifique _getUpdates_ para **Nombre de trabajo**, establezca el intervalo de programación y las unidades, y haga clic en el botón de marca de verificación.    
+   
+   	![][5]
 
-    ![][3]
+   	De esta forma, se crea un nuevo trabajo con el nombre **getUpdates**. 
 
-    De esta forma, se crea un nuevo trabajo con el nombre **getUpdates**.
+4. Haga clic en el nuevo trabajo que acaba de crear y haga clic en la pestaña **Script**.
 
-3.  Haga clic en el nuevo trabajo que acaba de crear y haga clic en la pestaña **Script**.
+   	![][6] 
 
-    ![][4]
+5. Reemplace la función de marcador de posición **getUpdates** por el siguiente código:
 
-4.  Reemplace la función de marcador de posición **getUpdates** por el siguiente código:
+		var updatesTable = tables.getTable('Updates');
+		var request = require('request');
+		var twitterUrl = "https://api.twitter.com/1.1/search/tweets.json?q=%23mobileservices&result_type=recent";
 
-        var updatesTable = tables.getTable('Updates');
-        var request = require('request');
-        var twitterUrl = "https://api.twitter.com/1.1/search/tweets.json?q=%23mobileservices&result_type=recent";
+		// Get the service configuration module.
+		var config = require('mobileservice-config');
+		
+		// Get the stored Twitter consumer key and secret. 
+		var consumerKey = config.twitterConsumerKey,
+		    consumerSecret = config.twitterConsumerSecret
+		// Get the Twitter access token from app settings.    
+		var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
+		    accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
+		
+		function getUpdates() {   
+		    // Check what is the last tweet we stored when the job last ran
+		    // and ask Twitter to only give us more recent tweets
+		    appendLastTweetId(
+		        twitterUrl, 
+		        function twitterUrlReady(url){            
+		            // Create a new request with OAuth credentials.
+		            request.get({
+		                url: url,                
+		                oauth: {
+		                    consumer_key: consumerKey,
+		                    consumer_secret: consumerSecret,
+		                    token: accessToken,
+		                    token_secret: accessTokenSecret
+		                }},
+		                function (error, response, body) {
+		                if (!error && response.statusCode == 200) {
+		                    var results = JSON.parse(body).statuses;
+		                    if(results){
+		                        console.log('Fetched ' + results.length + ' new results from Twitter');                       
+		                        results.forEach(function (tweet){
+		                            if(!filterOutTweet(tweet)){
+		                                var update = {
+		                                    twitterId: tweet.id,
+		                                    text: tweet.text,
+		                                    author: tweet.user.screen_name,
+		                                    date: tweet.created_at
+		                                };
+		                                updatesTable.insert(update);
+		                            }
+		                        });
+		                    }            
+		                } else { 
+		                    console.error('Could not contact Twitter');
+		                }
+		            });
+		
+		        });
+		 }
+		// Find the largest (most recent) tweet ID we have already stored
+		// (if we have stored any) and ask Twitter to only return more
+		// recent ones
+		function appendLastTweetId(url, callback){
+		    updatesTable
+		    .orderByDescending('twitterId')
+		    .read({success: function readUpdates(updates){
+		        if(updates.length){
+		            callback(url + '&since_id=' + (updates[0].twitterId + 1));           
+		        } else {
+		            callback(url);
+		        }
+		    }});
+		}
+		
+		function filterOutTweet(tweet){
+		    // Remove retweets and replies
+		    return (tweet.text.indexOf('RT') === 0 || tweet.to_user_id);
+		}
 
-        // Get the service configuration module.
-        var config = require('mobileservice-config');
 
-        // Get the stored Twitter consumer key and secret. 
-        var consumerKey = config.twitterConsumerKey,
-            consumerSecret = config.twitterConsumerSecret
-        // Get the Twitter access token from app settings.    
-        var accessToken= config.appSettings.TWITTER_ACCESS_TOKEN,
-            accessTokenSecret = config.appSettings.TWITTER_ACCESS_TOKEN_SECRET;
+   	Este script llama a la API de consulta de Twitter mediante las credenciales almacenadas para solicitar los tweets recientes que contienen el hashtag `#mobileservices`. Las respuestas y tweets duplicados se quitan de los resultados antes de almacenarse en la tabla.
 
-        function getUpdates() {   
-            // Check what is the last tweet we stored when the job last ran
-            // and ask Twitter to only give us more recent tweets
-            appendLastTweetId(
-                twitterUrl, 
-                function twitterUrlReady(url){            
-                    // Create a new request with OAuth credentials.
-                    request.get({
-                        url: url,                
-                        oauth: {
-                            consumer_key: consumerKey,
-                            consumer_secret: consumerSecret,
-                            token: accessToken,
-                            token_secret: accessTokenSecret
-                        }},
-                        function (error, response, body) {
-                        if (!error && response.statusCode == 200) {
-                            var results = JSON.parse(body).statuses;
-                            if(results){
-                                console.log('Fetched ' + results.length + ' new results from Twitter');                       
-                                results.forEach(function (tweet){
-                                    if(!filterOutTweet(tweet)){
-                                        var update = {
-                                            twitterId: tweet.id,
-                                            text: tweet.text,
-                                            author: tweet.user.screen_name,
-                                            date: tweet.created_at
-                                        };
-                                        updatesTable.insert(update);
-                                    }
-                                });
-                            }            
-                        } else { 
-                            console.error('Could not contact Twitter');
-                        }
-                    });
+    >[WACOM.NOTE]En este ejemplo se presupone que solo se insertan algunas filas en la tabla durante cada ejecución programada. En los casos en los que se inserten muchas filas en un bucle, es posible que se agoten las conexiones con el nivel gratis. En ese caso, debe realizar inserciones en los lotes. Para obtener más información, consulte <a href="/es-es/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">Inserción de Inserciones en masa</a>.
 
-                });
-         }
-        // Find the largest (most recent) tweet ID we have already stored
-        // (if we have stored any) and ask Twitter to only return more
-        // recent ones
-        function appendLastTweetId(url, callback){
-            updatesTable
-            .orderByDescending('twitterId')
-            .read({success: function readUpdates(updates){
-                if(updates.length){
-                    callback(url + '&since_id=' + (updates[0].twitterId + 1));           
-                } else {
-                    callback(url);
-                }
-            }});
-        }
+6. Haga clic en **Ejecutar una vez** para probar el script. 
 
-        function filterOutTweet(tweet){
-            // Remove retweets and replies
-            return (tweet.text.indexOf('RT') === 0 || tweet.to_user_id);
-        }
+  	![][7]
+       
+   	De esta forma, se guarda y ejecuta el trabajo mientras se mantiene deshabilitado en el programador.
 
-    Este script llama a la API de consulta de Twitter mediante las credenciales almacenadas para solicitar los tweets recientes que contienen el hashtag `#mobileservices`. Las respuestas y tweets duplicados se quitan de los resultados antes de almacenarse en la tabla.
+7. Haga clic en el botón de retroceso, elija **Datos**, haga clic en la tabla **Updates**, elija **Examinar** y compruebe que se hayan insertado los datos de Twitter en la tabla.
 
-    > [WACOM.NOTE]En este ejemplo se presupone que solo se insertan algunas filas en la tabla durante cada ejecución programada. En los casos en los que se inserten muchas filas en un bucle, es posible que se agoten las conexiones con el nivel gratis. En ese caso, debe realizar inserciones en los lotes. Para obtener más información, consulte [Inserción de inserciones en masa][Inserción de inserciones en masa].
+   	![][8]
 
-5.  Haga clic en **Run Once** para probar el script.
+8. Haga clic en el botón de retroceso y en **Programador**, seleccione **getUpdates** y haga clic en **Habilitar**.
 
-    ![][5]
+   	![][9]
 
-    De esta forma, se guarda y ejecuta el trabajo mientras se mantiene deshabilitado en el programador.
-
-6.  Haga clic en el botón de retroceso, en **Data**, en la tabla **Updates** y en **Browse**, y compruebe que se hayan insertado los datos de Twitter en la tabla.
-
-    ![][6]
-
-7.  Haga clic en el botón de retroceso y en **Scheduler**, seleccione **getUpdates** y, a continuación, haga clic en **Enable**.
-
-    ![][7]
-
-    De esta forma, el trabajo se puede ejecutar según la programación especificada, en este caso cada hora.
+   	De esta forma, el trabajo se puede ejecutar según la programación especificada, en este caso cada hora.
 
 Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio móvil. Este trabajo se ejecutará como programado hasta que lo deshabilite o modifique.
 
 ## <a name="nextsteps"> </a>Pasos siguientes
 
--   [Referencia del script del servidor de Servicios móviles][Referencia del script del servidor de Servicios móviles]
-    Obtenga más información acerca del registro y uso de scripts de servidor.
+* [Referencia del script del servidor de Servicios móviles]
+  <br/>Más información acerca del registro y uso de scripts de servidor.
 
- 
- 
+<!-- Anchors. -->
+[Registro para obtener acceso a Twitter y almacenamiento de credenciales]: #get-oauth-credentials
+[Creación de la nueva tabla de actualizaciones]: #create-table
+[Creación de un nuevo trabajo programado]: #add-job
+[Pasos siguientes]: #next-steps
 
+<!-- Images. -->
+[0]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-my-apps.png
+[1]: ./media/mobile-services-schedule-recurring-tasks/mobile-twitter-app-secrets.png
+[2]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
+[3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
+[4]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
+[5]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png
+[6]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script-new.png
+[7]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script.png
+[8]: ./media/mobile-services-schedule-recurring-tasks/mobile-browse-updates-table.png
+[9]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-enabled.png
+[10]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-app-settings.png
+[11]: ./media/mobile-services-schedule-recurring-tasks/mobile-identity-tab-twitter-only.png
 
-  [Registro para obtener acceso a Twitter y almacenamiento de credenciales]: #get-oauth-credentials
-  [Creación de la nueva tabla de actualizaciones]: #create-table
-  [Creación de un nuevo trabajo programado]: #add-job
-  [0]: ./media/mobile-services-schedule-recurring-tasks/mobile-data-tab-empty-cli.png
-  [1]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-updates-table.png
-  [2]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-new-job-cli.png
-  [3]: ./media/mobile-services-schedule-recurring-tasks/mobile-create-job-dialog.png
-  [4]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script-new.png
-  [Inserción de inserciones en masa]: /es-es/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts
-  [5]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-script.png
-  [6]: ./media/mobile-services-schedule-recurring-tasks/mobile-browse-updates-table.png
-  [7]: ./media/mobile-services-schedule-recurring-tasks/mobile-schedule-job-enabled.png
-  [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+<!-- URLs. -->
+[Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+[WindowsAzure.com]: http://www.windowsazure.com/
+[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Registro de las aplicaciones para el inicio de sesión en Twitter con Servicios móviles]: /es-es/develop/mobile/how-to-guides/register-for-twitter-authentication
+[Desarrolladores de Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
+[Configuración de aplicaciones]: http://msdn.microsoft.com/es-es/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7

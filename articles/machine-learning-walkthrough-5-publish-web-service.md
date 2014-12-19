@@ -1,145 +1,146 @@
-<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="Step 5: Publish the Machine Learning web service | Azure" description="Step 5: Publish a scoring experiment in Azure Machine Learning Studio as an ML API web service" metaKeywords="" services="" solutions="" documentationCenter="" authors="garye" videoId="" scriptId="" />
+﻿<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="Paso 5: Publicación del servicio web de Aprendizaje automático | Azure" description="Step 5: Publish a scoring experiment in Azure Machine Learning Studio as an ML API web service" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="garye" />
+<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 
-Dies ist der fünfte Teil der exemplarischen Vorgehensweise [Entwickeln einer Vorhersagelösung mit Azure ML][Entwickeln einer Vorhersagelösung mit Azure ML]:
 
-1.  [Erstellen eines ML-Arbeitsbereichs][Erstellen eines ML-Arbeitsbereichs]
-2.  [Hochladen vorhandener Daten][Hochladen vorhandener Daten]
-3.  [Erstellen eines neuen Experiments][Erstellen eines neuen Experiments]
-4.  [Trainieren und Bewerten der Modelle][Trainieren und Bewerten der Modelle]
-5.  **Veröffentlichen des Webdiensts**
-6.  [Zugreifen auf den Webdienst][Zugreifen auf den Webdienst]
+Este es el quinto paso del tutorial [Desarrollo de una solución predictiva con el Aprendizaje automático de Azure][develop]:
 
-------------------------------------------------------------------------
+[develop]: ../machine-learning-walkthrough-develop-predictive-solution/
 
-# Schritt 5: Veröffentlichen des Azure Machine Learning-Webdiensts
 
-Damit das Vorhersagemodell für Dritte von Nutzen sein kann, wird es als Webdienst in Azure veröffentlicht. Ein Benutzer kann eine Reihe von Kreditantragsdaten an den Dienst senden, und der Dienst gibt die Vorhersage des Kreditrisikos zurück.
+1.	[Creación de un área de trabajo de Aprendizaje automático][create-workspace]
+2.	[Carga de los datos existentes][upload-data]
+3.	[Creación de un nuevo experimento][create-new]
+4.	[Entrenamiento y evaluación de los modelos][train-models]
+5.	**Publicación del servicio web**
+6.	[Acceso al servicio web][access-ws]
 
-Gehen Sie hierzu wie folgt vor:
+[create-workspace]: ../machine-learning-walkthrough-1-create-ml-workspace/
+[upload-data]: ../machine-learning-walkthrough-2-upload-data/
+[create-new]: ../machine-learning-walkthrough-3-create-new-experiment/
+[train-models]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
+[publish]: ../machine-learning-walkthrough-5-publish-web-service/
+[access-ws]: ../machine-learning-walkthrough-6-access-web-service/
 
--   Bereiten Sie das Experiment auf die Veröffentlichung vor.
--   Veröffentlichen Sie es auf einem Staging-Server, wo es getestet werden kann.
--   Stufen Sie es auf den Live-Server hoch, wenn es dafür bereit ist.
+----------
 
-Bevor Sie fortfahren, sollten Sie eine Kopie dieses Experiments erstellen, um sie zu bearbeiten. So können Sie jederzeit wieder zum Trainingsexperiment zurückkehren, wenn Sie weiter mit den Modellen arbeiten möchten.
+# Paso 5: Publicación del servicio web de Aprendizaje automático de Azure
 
-1.  Klicken Sie unter dem Bereich auf **Speichern unter**.
-2.  Geben Sie der Experimentkopie einen aussagekräftigen Namen. Standardmäßig wird dem Originalnamen des Experiments „- Kopie“ angehängt. Wählen Sie in diesem Beispiel den Namen „Kreditrisikovorhersage - Bewertungsexperiment“.
-3.  Klicken Sie auf **OK**.
+Para que este modelo predictivo pueda resultar útil a otros usuarios, lo publicaremos como servicio web en Azure. Un usuario podrá enviar al servicio un conjunto de datos de una aplicación de crédito y el servicio devolverá la predicción del riesgo de crédito.  
 
-Sie können jetzt sowohl das Originalexperiment als auch die Kopie in der Liste EXPERIMENTE von ML Studio anzeigen.
+Para ello, necesitamos lo siguiente:  
 
-![Liste der Experimente][Liste der Experimente]
+-	Preparar el experimento para que esté listo para su publicación
+-	Publicarlo en un servidor de ensayo donde podamos probarlo
+-	Promoverlo al servidor activo de acceso público cuando pensemos que está listo  
 
-## Vorbereiten des Bewertungsexperiments
+Antes de empezar, debería crear una copia de este experimento para su edición. De este modo, podrá volver a su experimento de entrenamiento siempre que necesite realizar alguna acción adicional sobre sus modelos.  
 
-Zwei Vorgänge sind nötig, um das Modell auf die Veröffentlichung als Webdienst vorzubereiten.
+1.	Haga clic en **Guardar como** debajo del lienzo.
+2.	Ponga un nombre que resulte útil a la copia del experimento. De manera predeterminada, se adjunta "- Copia" al nombre del experimento original. En este caso, vamos a ponerle el nombre "Predicción de riesgo de crédito: experimento de puntuación".
+3.	Haga clic en **Aceptar**.  
 
-Zuerst muss das Experiment von einem *Trainingsexperiment* in ein *Bewertungsexperiment* konvertiert werden. Bis zu diesem Zeitpunkt wurde mit dem Trainieren des Modells experimentiert. Der veröffentlichte Dienst hat jedoch nichts mehr mit Training zu tun – er bewertet die Benutzereingaben. Daher speichern wir eine Kopie des trainierten Modells und löschen dann alle Komponenten des Experiments, die mit dem Training zusammenhängen.
 
-Zweitens akzeptiert der Azure ML-Webdienst Eingaben des Benutzers und gibt ein Ergebnis zurück. Also müssen diese Eingabe- und Ausgabepunkte in unserem Experiment identifiziert werden.
+Ahora podrá ver el experimento original y su copia en la lista EXPERIMENTOS de Estudio de aprendizaje automático.  
 
-### Konvertieren von einem Trainingsexperiment in ein Bewertungsexperiment
+![Experiments list][1]
+ 
+##Preparación del experimento de puntuación
+Es necesario realizar dos acciones para que nuestro modelo esté listo para su publicación como servicio web.  
 
-In unserem Beispiel entscheiden wir, dass das Boosted Tree-Modell sich besser zur Verwendung eignet. Als erstes werden also die SVM-Trainingsmodelle entfernt.
+En primer lugar, hay que convertir el experimento de *experimento de entrenamiento* a *experimento de puntuación*. Hasta ahora hemos estado experimentando con el entrenamiento de nuestro modelo. Pero el servicio publicado ya no hará ningún tipo de entrenamiento, sino que puntuará las entradas del usuario. Por tanto, vamos a guardar una copia del modelo que hemos entrenado y, a continuación, eliminaremos todos los componentes de nuestro experimento dedicados al entrenamiento.  
 
-1.  Löschen Sie **Zweiklassige Support Vector Machine**.
-2.  Löschen Sie die damit verbundenen Module **Modell trainieren** und **Modell bewerten**.
-3.  Löschen Sie das Modul **Daten durch Skalierung transformieren**.
+En segundo lugar, el servicio web de Aprendizaje automático de Azure aceptará las entradas del usuario y devolverá un resultado; así pues, es necesario identificar esos puntos de entrada y salida en nuestro experimento.  
 
-Jetzt wird das trainierte Boosted Tree-Modell gespeichert. Anschließend können die verbleibenden Module im Experiment, die zum Trainieren verwendet wurden, gelöscht und mit dem trainierten Modell ersetzt werden.
+###Conversión de un experimento de entrenamiento a experimento de puntuación
+Pongamos que hayamos decidido que el modelo de árbol ampliado es el mejor en este caso. De ser así, lo primero que tenemos que hacer es quitar los módulos de entrenamiento de SVM.  
 
-1.  Klicken Sie mit der rechten Maustaste auf den Ausgabeport des verbleibenden Moduls **Modell trainieren**, und wählen Sie **Als trainiertes Modell speichern** aus.
-2.  Geben Sie einen Namen und eine Beschreibung für das trainierte Modell ein. In diesem Beispiel erhält es den Namen „Vorhersage des Kreditrisikos“.
+1.	Elimine la **Máquina de vectores de soporte de dos clases**
+2.	Elimine los módulos **Entrenar modelo** y **Puntuar modelo** conectados a ella.
+3.	Elimine el módulo **Transformar datos mediante escalado**.  
 
-    > **Hinweis**: Nach dem Speichern des trainierten Modells wird es in der Modulpalette angezeigt und steht für andere Experimente zur Verfügung.
+Ahora guardaremos el modelo de árbol ampliado que hemos entrenado. A continuación, podemos quitar los módulos restantes en el experimento que utilizamos para el entrenamiento y sustituirlos por el modelo entrenado.  
 
-3.  Suchen Sie dieses Modell in der Modulpalette, indem Sie „Kreditrisiko“ im Feld **Suche** eingeben, und ziehen Sie dann das trainierte Modell **Vorhersage des Kreditrisikos** in den Experimentbereich.
-4.  Löschen Sie die Module **Zweiklassiger Boosted Decision Tree** und **Modell trainieren**.
-5.  Verbinden Sie die Ausgabe des Modells **Vorhersage des Kreditrisikos** mit der linken Eingabe des Moduls **Modell bewerten**.
+1.	Haga clic con el botón secundario en el puerto de salida del módulo **Entrenar modelo** y seleccione **Guardar como modelo entrenado**.
+2.	Escriba un nombre y una descripción para el modelo entrenado. En este ejemplo, lo llamaremos "Predicción de riesgo de crédito".
 
-Jetzt liegt eine gespeicherte, trainierte Version des Modells in unserem Experiment anstelle der ursprünglichen Trainingsmodule vor.
+	>**Nota**: una vez que guardemos este modelo entrenado, aparecerá en la paleta de módulos y estará disponible para su uso en otros experimentos.
 
-Das Experiment enthält noch weitere Komponenten, die nur zu Trainigszwecken und zum Evaluieren der beiden Modellalgorithmen hinzugefügt wurden. Sie können ebenfalls entfernt werden:
+3.	Busque este modelo en la paleta de módulos escribiendo "riesgo de crédito" en el cuadro **Buscar** y, a continuación, arrastre el modelo entrenado **Predicción de riesgo de crédito** al lienzo del experimento.
+4.	Elimine los módulos **Árbol de decisión ampliado de dos clases** y **Entrenar modelo**.
+5.	Conecte la salida del modelo **Predicción de riesgo de crédito** a la entrada izquierda del módulo **Puntuar modelo**.   
 
--   **Aufteilen**
--   Beide Module **R-Skript ausführen**
--   **Modell evaluieren**
+Ahora tenemos la versión guardada y entrenada del modelo en nuestro experimento en lugar de los módulos de entrenamiento originales.  
 
-Noch etwas: Dies betrifft die Originalkreditkartendaten in der Spalte „Kreditrisiko“. Diese Spalte wurde durch das Modul **Modell trainieren** verarbeitet, um das Modell für die Vorhersage dieser Werte zu trainieren. Nachdem das Modell jetzt trainiert ist, soll diese Spalte aber nicht mehr verarbeitet werden – dieser Wert wird jetzt vom trainierten Modell vorhergesagt. Um die Spalte aus dem Datenfluss zu entfernen, wird das Modul **Projektspalte** verwendet.
+Hay más componentes en el experimento que hemos agregado solo para el entrenamiento y la evaluación de nuestros dos algoritmos de modelo. También podemos quitarlos:  
 
-1.  Ziehen Sie das Modul **Projektspalte** in den Bereich.
-2.  Verbinden Sie dieses Modul mit der Ausgabe des Moduls **Metadaten-Editor** (nachdem jetzt die Module **Aufteilen** und **R-Skript ausführen** entfernt wurden).
-3.  Wählen Sie das Modul **Projektspalten** aus und klicken Sie auf **Spaltenauswahl starten**.
-4.  Belassen Sie „Alle Spalten“ in der Dropdown-Liste.
-5.  Klicken Sie auf das Pluszeichen (+), um wird eine neue Dropdown-Zeile zu erstellen.
-6.  Wählen Sie in dieser neuen Dropdown-Liste die Option „Spaltennamen ausschließen“, und geben Sie „Kreditrisiko“ in das Textfeld ein (Sie können die Spalte auch durch ihre Spaltennummer, 21, angeben).
-7.  Klicken Sie auf **OK**.
+-	**Dividir**
+-	Ambos módulos **Ejecutar script R**
+-	**Evaluar modelo**  
 
-    > Tipp: Die Spaltenauswahl folgt der Logik der Dropdown-Listen in der Reihenfolge ihrer Anzeige. In diesem Fall wurde das Modul **Projektspalten** angewiesen, alle Spalten außer der Spalte „Kreditrisiko“ zu verarbeiten. Hätten wir die erste Dropdown-Liste ausgelassen, würde das Modul gar keine Spalte verarbeiten.
+Una cosa más: los datos de la tarjeta de crédito original incluidos en la columna del riesgo de crédito. Hemos pasado esta columna a través del módulo **Entrenar modelo** para que pudiera entrenar el modelo para predecir estos valores. Pero ahora que el modelo se ha entrenado, no deseamos seguir pasando esa columna por él; el modelo entrenado predirá ese valor en nuestro lugar. Para quitar esa columna del flujo de datos, utilizamos el módulo **Columnas de proyecto**.  
 
-8.  Verbinden Sie die Ausgabe des Moduls **Projektspalten** mit der rechten Eingabe des Moduls **Modell bewerten**.
+1.	Busque el módulo **Columnas de proyecto** y colóquelo en el lienzo.
+2.	Conecte este módulo a la salida del módulo **Editor de metadatos** module (ahora que se han quitado los módulos **Dividir** y **Ejecutar script R**).
+3.	Seleccione el módulo **Columnas de proyecto** y haga clic en **Iniciar el selector de columnas**.
+4.	Deje "All columns" en el desplegable.
+5.	Haga clic en el signo más (+) para crear una nuevo fila en el desplegable.
+6.	En este nuevo desplegable, seleccione "Exclude column names" y escriba "Credit risk" en el campo de texto (también puede especificar la columna por su número de columna, 21).
+7.	Haga clic en **Aceptar**.
 
-Unser Experiment sollte nun wie folgt aussehen:
+	>Sugerencia: el selector de columnas sigue la lógica de los desplegables en la secuencia en la que aparecen. En este caso, hemos dirigido el módulo **Columnas de proyecto** para "pasar por todas las columnas excepto la columna Credit risk". Si hubiéramos dejado el primer desplegable, el módulo no hubiera pasado por ninguna de las columnas.
 
-![Bewerten des trainierten Modells][Bewerten des trainierten Modells]
+8.	Conecte la salida del módulo **Columnas de proyecto** a la entrada derecha del módulo **Puntuar modelo**.  
 
-### Auswählen der Eingabe und Ausgabe des Diensts
+Nuestro experimento debería tener ahora un aspecto similar al siguiente:  
 
-Im Originalmodell wurden die zu bewertenden Daten am rechten Eingabeport („Dataset“) des Moduls **Modell bewerten** eingegeben, und das bewertete Ergebnis wurde am Ausgabeport angezeigt („Bewertetes Dataset“). Wenn der Dienst ausgeführt wird, sollen für die Benutzerdaten und die Ergebnisse die gleichen Ports verwendet werden..
+![Scoring the trained model][2]  
 
-1.  Klicken Sie mit der rechten Maustaste auf den rechten Eingabeport des Moduls **Modell bewerten**, und wählen Sie **Als Veröffentlichungseingabe festlegen** aus. Die Benutzerdaten müssen alle Daten des Funktionsvektors enthalten.
+###Selección de la entrada y la salida del servicio
+En el modelo original, los datos para puntuar pasaron por el puerto de entrada derecho ("Conjunto de datos") del módulo **Puntuar modelo**, y el resultado puntuado apareció en el puerto de salida ("Conjunto de datos puntuado"). Cuando el servicio está en ejecución, deseamos que los datos del usuario y los resultados utilicen estos mismos puertos.  
 
-    > **Tipp**: Wenn Sie die Benutzerdaten bearbeiten müssen, bevor sie in das Bewertungsmodul eingegeben werden (vergleichbar mit der Art und Weise, wie das Modul **Daten durch Skalierung transformieren** zum Vorbereiten der Daten für das SVM-Modell verwendet wurde), belassen Sie das Modul einfach im Webdienst, und legen Sie den Diensteingang auf den Eingangsport dieses Moduls fest.
+1.	Haga clic con el botón secundario en el puerto de salida del módulo **Puntuar modelo** y seleccione **Establecer como entrada de publicación**. Los datos de usuario tendrán que incluir todos los datos del vector de características.
 
-2.  Klicken Sie mit der rechten Maustaste auf den Ausgabeport, und wählen Sie **Als Veröffentlichungsausgabe festlegen** aus. Die Ausgabe des Moduls „Modell bewerten“ wird vom Dienst zurückgegeben. Dazu gehören der Funktionsvektor sowie die Kreditrisikovorhersage und der Bewertungswahrscheinlichkeitswert.
+	>**Sugerencia**: si tiene que manipular de alguna manera los datos del usuario antes de pasarlos al módulo de puntuación (utilizándolo de manera similar que el módulo **Transformar datos mediante escalado** para preparar los datos para el modelo SVM), simplemente deje el módulo en el servicio web y configure la entrada del servicio en el puerto de entrada de dicho módulo.
 
-    > **Tipp**: Wenn der Webdienst nur einen Teil dieser Daten zurückgeben soll – wenn Sie z. B. nicht den ganzen Funktionsvektor zurückgeben möchten - können Sie ein Modul **Projektspalten** nach dem Modul **Modell bewerten** hinzufügen, es so konfigurieren, dass die nicht gewünschten Spalten ausgeschlossen werden, und dann die Ausgabe des Moduls **Projektspalten** auf die Webdienstausgabe festlegen.
+2.	Haga clic con el botón secundario en el puerto de salida y seleccione **Establecer como salida de publicación**. El servicio devolverá la salida del módulo Puntuar modelo. Esto incluye el vector de características, además de la predicción del riesgo de crédito y el valor de probabilidad de puntuación.
 
-> **Hinweis**: Vielleicht fragen Sie sich, weshalb das Dataset „UCI German Credit Card Data“ und seine zugeordneten Module in Verbindung mit dem Modul **Modell bewerten** belassen haben. Der Dienst verwendet die Daten des Benutzers, nicht das Originaldataset. Weshalb also die Verbindung belassen?
+	>**Sugerencia**: si desea que el servicio web devuelva solo parte de estos datos (por ejemplo, si desea que devuelva todo el vector de características), puede agregar un módulo **Columnas de proyecto** después del módulo **Puntuar modelo**, configurarlo para excluir las columnas que no quiera y, a continuación, establecer la salida del módulo **Columnas de proyecto** como salida del servicio web.  
+  
 
-Es stimmt zwar, dass der Dienst die Originalkreditkartendaten nicht benötigt. Er benötigt aber das Schema für diese Daten, darunter Angaben zur Anzahl der vorhandenen Spalten, und welche Spalten numerisch sind. Diese Schemainformationen sind erforderlich, um die Benutzerdaten zu interpretieren. Wir lassen diese Komponenten verbunden, damit das Bewertungsmodul über das Datasetschema verfügt, wenn der Dienst ausgeführt wird. Es werden nicht die Daten verwendet, sondern nur das Schema.
+>**Nota:** se estará preguntando por qué hemos dejado el conjunto de datos "Datos de tarjeta de crédito alemana de UCI" y sus módulos asociados conectados al módulo **Puntuar modelo**. El servicio va a utilizar los datos del usuario, no el conjunto de datos original; entonces, ¿por qué los dejamos conectados?
 
-Führen Sie das Experiment ein letztes Mal aus (klicken Sie auf **AUSFÜHREN**). Wenn Sie überprüfen möchten, ob das Modell noch funktioniert, klicken Sie mit der rechten Maustaste auf die Ausgabe des Moduls **Modell bewerten**, und wählen Sie **Visualisieren** aus. Sie sehen, dass die Originaldaten zusammen mit dem Wert für das Kreditrisiko („Bewertete Beschriftungen“)' und dem Bewertungswahrscheinlichkeitswert („Bewertete Wahrscheinlichkeiten“) angezeigt werden.
+Es cierto que el servicio no necesita los datos originales de la tarjeta de crédito. Pero sí necesita el esquema para esos datos, que incluye información como la cantidad de columnas que hay y cuáles son numéricas. Esta información del esquema es necesaria a fin de interpretar los datos del usuario. Dejamos estos componentes conectados para que el módulo de puntuación tenga el esquema del conjunto de datos cuando el servicio se esté ejecutando. No se utilizan los datos, sino solamente el esquema.  
 
-## Veröffentlichen des Webdiensts
+Ejecute el experimento por última vez (haga clic en **EJECUTAR**). Si desea comprobar que el modelo sigue funcionando, haga clic con el botón secundario en la salida del módulo **Puntuar modelo** y seleccione **Visualizar**. Verá que aparecen los datos originales, junto con el valor de riesgo de crédito ("Etiquetas puntuadas") y el valor de probabilidad de la puntuación ("Probabilidades puntuadas").  
 
-Um einen aus dem Experiment abgeleiteten Webdienst zu veröffentlichen, klicken Sie auf **WEBDIENST VERÖFFENTLICHEN** unter dem Bereich, und klicken Sie bei Aufforderung auf **JA**. ML Studio veröffentlicht das Experiment als Webdienst auf dem ML-Staging-Server und führt Sie zum Dienst-Dashboard.
+##Publicación del servicio web
+Para publicar un servicio web derivado de nuestro experimento, haga clic en **PUBLICAR SERVICIO WEB** bajo el lienzo y haga clic en **SÍ** cuando se le solicite. Estudio de aprendizaje automático publica el experimento como servicio web en el servidor de ensayo de aprendizaje automático y le dirige al panel de servicios.   
 
-> **Tipp**: Sie können den Webdienst nach der Veröffentlichung aktualisieren. Wenn Sie zum Beispiel das Modell ändern möchten, bearbeiten Sie einfach das zuvor gespeicherte Trainingsexperiment, passen Sie die Modellparameter an und speichern Sie das trainierte Modell (wodurch das zuvor gespeicherte Modell überschrieben wird). Wenn Sie das Bewertungsexperiment noch einmal öffnen, wird ein Hinweis angezeigt, dass etwas geändert wurde (Ihr Trainingsmodell), und Sie können das Experiment aktualisieren. Wenn Sie das Experiment erneut veröffentlichen, wird der Webdienst ersetzt und das aktualisierte Modell verwendet.
+>**Sugerencia**: puede actualizar el servicio web después de haberlo publicado. Por ejemplo, si desea cambiar el modelo, simplemente modifique el experimento de entrenamiento guardado previamente, cambie los parámetros del modelo y guarde el modelo entrenado (sobrescribiendo el que guardó anteriormente). Cuando abra nuevamente el experimento de puntuación, verá un aviso que le indica que ha cambiado algo (que será su modelo entrenado) y podrá actualizar el experimento. Cuando publique el experimento de nuevo, sustituirá al servicio web, utilizando ahora el modelo actualizado.  
 
-Sie können den Dienst konfigurieren, indem Sie auf die Registerkarte **KONFIGURATION** klicken. Hier können Sie den Dienstnamen ändern (er erhält standardmäßig den Namen des Experiments) und eine Beschreibung hinzufügen. Sie können auch benutzerfreundlichere Beschriftungen für die Eingabe- und Ausgabespalten festlegen.
+Puede configurar el servicio haciendo clic en la pestaña **CONFIGURACIÓN**. Aquí puede modificar el nombre del servicio (recibe de manera predeterminada el nombre del experimento) y proporcionarle una descripción. También puede poner etiquetas más descriptivas para las columnas de entrada y salida.  
 
-Der Switch **BEREIT FÜR DIE PRODUKTION?** wird weiter unten besprochen.
+Trataremos el cambio **¿LISTO PARA PRODUCCIÓN?** un poco más adelante.  
 
-## Testen des Webdiensts
+##Prueba del servicio web
+En la página **PANEL**, haga clic en el vínculo **Probar** en **Servicios de ensayo**. Aparecerá un cuadro de diálogo que le pide los datos de entrada del servicio. Se trata de las mismas columnas que aparecieron en el conjunto de datos original de riesgo de crédito alemán.  
 
-Klicken Sie auf der Seite **DASHBOARD** auf den Link **Test** unter **Staging-Dienste**. Ein Dialogfeld wird geöffnet, das nach den Eingabedaten für den Dienst fragt. Dies sind die gleichen Spalten, die im Originaldataset „German Credit Risk“ angezeigt wurden.
+Escriba un conjunto de datos y, a continuación, haga clic en **Aceptar**.  
 
-Geben Sie eine Reihe von Daten ein, und klicken Sie auf **OK**.
+Los resultados generados por el servicio web se muestran en la parte inferior del panel. De este modo tendremos el servicio configurado; los resultados que vea están generados por el módulo de puntuación.   
 
-Die vom Webdienst generierten Ergebnisse werden jetzt unten im Dashboard angezeigt. So, wie der Dienst konfiguriert wurde, werden die angezeigten Ergebnisse vom Bewertungsmodul generiert.
+##Promoción del servicio web al servidor activo de acceso público
+Hasta este momento el servicio se ha estado ejecutando en el servidor de ensayo de aprendizaje automático. Cuando lo tenga listo, puede solicitar su promoción al servidor activo de acceso público.  
 
-## Hochstufen des Webdiensts auf den Live-Server
+En la pestaña **CONFIGURACIÓN**, haga clic en "SÍ" junto a **¿LISTO PARA PRODUCCIÓN?** Esto envía una aviso a su administrador de TI que le notifica que el servicio web está listo para su promoción a acceso público. En ese momento el administrador podrá promoverlo al servidor activo de acceso público.
 
-Bis jetzt wurde der Dienst auf dem ML-Staging-Server ausgeführt. Wenn er live gehen soll, können Sie anfordern, dass er auf den Live-Server hochgestuft wird.
+![Promoting the service to the live environment][3]  
 
-Klicken Sie auf der Registerkarte **KONFIGURATION** auf „JA“ neben **BEREIT FÜR DIE PRODUKTION?** Damit wird eine Benachrichtigung an den IT-Administrator gesendet, dass dieser Webdienst für den Live-Server bereit ist. Der Administrator kann ihn dann auf den Live-Server hochstufen.
+----------
 
-![Hochstufen des Diensts in die Live-Umgebung][Hochstufen des Diensts in die Live-Umgebung]
+**A continuación: [Acceso al servicio web][access-ws]**
 
-------------------------------------------------------------------------
-
-**Nächster Schritt: [Zugreifen auf den Webdienst][Zugreifen auf den Webdienst]**
-
-  [Entwickeln einer Vorhersagelösung mit Azure ML]: ../machine-learning-walkthrough-develop-predictive-solution/
-  [Erstellen eines ML-Arbeitsbereichs]: ../machine-learning-walkthrough-1-create-ml-workspace/
-  [Hochladen vorhandener Daten]: ../machine-learning-walkthrough-2-upload-data/
-  [Erstellen eines neuen Experiments]: ../machine-learning-walkthrough-3-create-new-experiment/
-  [Trainieren und Bewerten der Modelle]: ../machine-learning-walkthrough-4-train-and-evaluate-models/
-  [Zugreifen auf den Webdienst]: ../machine-learning-walkthrough-6-access-web-service/
-  [Liste der Experimente]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
-  [Bewerten des trainierten Modells]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
-  [Hochstufen des Diensts in die Live-Umgebung]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
+[1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
+[2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
+[3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png

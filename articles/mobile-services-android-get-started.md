@@ -1,126 +1,147 @@
-<properties pageTitle="Get Started with Azure Mobile Services for Android apps" metaKeywords="Azure android application, mobile service android, getting started Azure android, azure droid, getting started droid windows" description="Follow this tutorial to get started using Azure Mobile Services for Android development." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="" editor="" />
+﻿<properties pageTitle="Introducción a Servicios móviles de Azure para aplicaciones de Android" metaKeywords="Azure android application, mobile service android, getting started Azure android, azure droid, getting started droid windows" description="Follow this tutorial to get started using Azure Mobile Services for Android development." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="ricksal,glenga" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="hero-article" ms.date="01/01/1900" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="hero-article" ms.date="10/16/2014" ms.author="ricksal,glenga" />
 
-# <a name="getting-started"> </a>Introducción a los Servicios móviles
+# <a name="getting-started"> </a>Introducción a Servicios móviles
 
 [WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 <div class="dev-onpage-video-clear clearfix">
 <div class="dev-onpage-left-content">
-<p>En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación Android mediante los Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de <em>Lista de pendientes</em> que almacena datos de la aplicaci&oacute;n en el servicio m&oacute;vil nuevo.</p>
+<p>En este tutorial se muestra cómo agregar un servicio back-end basado en la nube a una aplicación Android mediante los Servicios móviles de Azure. Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de <em>Lista de pendientes</em> que almacena datos de la aplicación en el servicio móvil nuevo.</p>
 <p>La siguiente captura de pantalla muestra la aplicación final:</p>
 </div>
-
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">Ver el tutorial (en ingl&eacute;s)</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Reproducir v&iacute;deo (en ingl&eacute;s)</span></a><span class="time">7:26:00</span></div>
-
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="label">Ver el tutorial (en inglés)</a> <a style="background-image: url('/media/devcenter/mobile/videos/mobile-get-started-android-180x120.png') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Android-Support-in-Windows-Azure-Mobile-Services" target="_blank" class="dev-onpage-video"><span class="icon">Reproducir vídeo (en inglés)</span></a><span class="time">07:26:00</span></div>
 </div>
 
 ![][0]
 
-Para completar este tutorial se requieren las [herramientas para desarrolladores de Android (en inglés)][herramientas para desarrolladores de Android (en inglés)] (ADT), que incluyen el entorno de desarrollo integrado (IDE) Eclipse, el complemento para las ADT y la última plataforma Android. Se requiere Android 4.2 o versiones posteriores.
+Para completar este tutorial se requieren las [Herramientas para desarrolladores de Android ][SDK de Android], que incluyen el entorno de desarrollo integrado (IDE) Eclipse, el complemento para las ADT y la última plataforma Android. Se requiere Android 4.2 o versiones posteriores. 
 
 El proyecto de inicio rápido descargado contiene el SDK de Servicios móviles para Android. Si bien este proyecto requiere Android 4.2 o versiones posteriores, el SDK mencionado tan solo requiere Android 2.2 o una versión posterior.
 
-<div class="dev-callout"><strong>Nota:</strong> <p>para completar este tutorial, deber&aacute; tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluaci&oacute;n gratuita en tan solo unos minutos. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluaci&oacute;n gratuita de Azure</a>.</p></div>
+<div class="dev-callout"><strong>Nota</strong> <p>Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>.</p></div>
+
+>[AZURE.NOTE] Si desea ver el código fuente de la aplicación final, haga clic <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStarted/Android" target="_blank">aquí</a>.
 
 ## <a name="create-new-service"> </a>Creación de un servicio móvil
 
 [WACOM.INCLUDE [mobile-services-create-new-service](../includes/mobile-services-create-new-service.md)]
 
-## 
+## <h2>Creación de una aplicación Android</h2>
 
-## <span class="short-header">Creación de una nueva aplicación</span>Creación de una nueva aplicación Android
-
-</h2>
-Una vez que haya creado el servicio móvil, podrá seguir una introducción rápida en el Portal de administración para crear una nueva aplicación o modificar una ya existente a fin de conectarla a dicho servicio.
+Una vez que haya creado el servicio móvil, podrá seguir una introducción rápida en el Portal de administración para crear una nueva aplicación o modificar una ya existente a fin de conectarla a dicho servicio. 
 
 En esta sección se creará una nueva aplicación Android que se conecta al servicio móvil.
 
 1.  En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
 
-2.  En la pestaña de inicio rápido, haga clic en **Android** bajo **Choose platform** y expanda **Create a new Android app**.
+2. En la pestaña de inicio rápido, haga clic en **Android** en **Seleccionar plataforma** y expanda **Crear una nueva aplicación Android**.
 
-    ![][1]
+   	![][6]
 
-    Con esto se muestran los tres sencillos pasos requeridos para crear una aplicación Android conectada al servicio móvil.
+   	Con esto se muestran los tres sencillos pasos requeridos para crear una aplicación Android conectada al servicio móvil.
 
-    ![][2]
+  	![][7]
 
-3.  Si aún no lo ha hecho, descargue las [herramientas para desarrolladores de Android (en inglés)][herramientas para desarrolladores de Android (en inglés)] e instálelas en el equipo local o la máquina virtual.
+3. Si aún no lo ha hecho, descargue las [Herramientas para desarrolladores de Android][SDK de Android] e instálelas en el equipo local o la máquina virtual.
 
-4.  Haga clic en **Create TodoItem table** para crear una tabla donde almacenar datos de la aplicación.
+4. Haga clic en **Crear tabla TodoItem** para crear una tabla donde almacenar datos de la aplicación.
 
-5.  En **Download and run your app**, haga clic en **Download**.
 
-    De este modo se descarga el proyecto para la aplicación de *lista de pendientes* de muestra que está conectada al servicio móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
+5. Descargue ahora la aplicación:
+	- La versión más reciente de la aplicación utiliza el SDK de Android para Servicios móviles 2.0. Puede descargar esta versión <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures">aquí</a>. Haga clic en **Descargar ZIP**, descomprima el archivo, y el proyecto se encuentra en GettingStarted, dentro de la carpeta Android.
+	 
+	- Una versión anterior usa la versión previa del SDK. Para usarla, en **Descargar y ejecutar la aplicación**, haga clic en **Descargar**. De este modo se descarga el proyecto para la aplicación de _Lista de pendientes_ de muestra que está conectada al servicio móvil. Los archivos del proyecto están comprimidos, así que, vaya a su ubicación y expanda los archivos en el equipo.
+
 
 ## Ejecución de la aplicación Android
 
 La etapa final de este tutorial consiste en crear y ejecutar la aplicación nueva.
 
-1.  Desplácese a la ubicación donde se guardaron los archivos del proyecto comprimidos y expanda dichos archivos en el equipo.
+2. En Eclipse, haga clic en **Archivo** y, a continuación, en **Importar**, expanda **Android**, haga clic en **Código existente de Android en el área de trabajo** y, a continuación, en **Siguiente.** 
 
-2.  En Eclipse, haga clic en **File**, **Import**, expanda **Android**, haga clic en **Existing Android Code into Workspace** y, por último, en **Next.**
+ 	![][14]
 
-    ![][3]
+3. Haga clic en **Examinar**, vaya a la ubicación de los archivos de proyecto expandidos, haga clic en **Aceptar**, asegúrese de que el proyecto TodoActivity está marcado y, a continuación, haga clic en **Finalizar**. 
 
-3.  Haga clic en **Browse**, desplácese a la ubicación de los archivos de proyecto expandidos, haga clic en **OK**, asegúrese de que el proyecto TodoActivity esté marcado y, a continuación, haga clic en **Finish**.
+ 	![][15]
 
-    ![][4]
+	De esta forma se importan los archivos del proyecto en el área de trabajo actual.
 
-    De esta forma se importan los archivos del proyecto en el área de trabajo actual.
+   	![][8]
 
-    ![][5]
+4. Si ha descargado la versión 2.0 del SDK, deberá actualizar el código con la dirección URL y la clave del servicio móvil:
+	- 	Busque el método **OnCreate** en **TodoActivity.java** y localice el código que crea una instancia del cliente de Servicios móviles. El código se puede ver en la imagen anterior.
+	- 	Reemplace "MobileServiceUrl" con la dirección URL real del servicio móvil.
+	- 	Reemplace "AppKey" con la clave del servicio móvil.
+	- 	Para obtener más detalles, consulte el tutorial <a href="http://azure.microsoft.com/es-es/documentation/articles/mobile-services-android-get-started-data/">Incorporación de Servicios móviles a una aplicación existente</a>. 
 
-4.  Haga clic en la opción **Run** del menú **Run** para iniciar el proyecto en el emulador de Android.
 
-    <div class="dev-callout"><strong>Nota:</strong> <p>Para poder ejecutar el proyecto en el emulador de Android, debe definir al menos un dispositivo virtual de Android (AVD). Use el administrador AVD para crear y administrar estos dispositivos.</p></div>
 
-5.  En la aplicación, escriba un texto significativo, como *Realice el tutorial* y, a continuación, haga clic en **Add**.
+4. En el menú **Ejecutar**, haga clic en **Ejecutar** para iniciar el proyecto en el emulador de Android.
 
-    ![][6]
+	<div class="dev-callout"><strong>Nota</strong> <p>Para poder ejecutar el proyecto en el emulador de Android, debe definir al menos un dispositivo virtual de Android (AVD). Use el administrador AVD para crear y administrar estos dispositivos.</p></div>
 
-    Esta acción envía una solicitud POST al nuevo servicio móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
+5. En la aplicación, escriba un texto significativo, como _Realice el tutorial_ y, a continuación, haga clic en **Agregar**.
 
-    <div class="dev-callout"><strong>Nota:</strong> 
-<p>Puede revisar el c&oacute;digo de acceso al servicio m&oacute;vil para consultar e insertar datos; este se encuentra en el archivo ToDoActivity.java.</p>
-</div>
+   	![][10]
 
-6.  Nuevamente en el Portal de administración, haga clic en la pestaña **Data** y, a continuación, en la tabla **TodoItems**.
+   	Esta acción envía una solicitud POST al nuevo servicio móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
 
-    ![][7]
+	<div class="dev-callout"><strong>Nota:</strong> 
+   	<p>Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo ToDoActivity.java.</p>
+ 	</div>
 
-    Esto le permite examinar los datos que la aplicación inserta en la tabla.
+6. Nuevamente en el Portal de administración, haga clic en la pestaña **Datos** y, a continuación, haga clic en la tabla **TodoItems**.
 
-    ![][8]
+   	![][11]
+
+   	Esto le permite examinar los datos que la aplicación inserta en la tabla.
+
+   	![][12]
 
 ## <a name="next-steps"> </a>Pasos siguientes
+Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles: 
 
-Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles:
+* [Introducción a los datos]
+  <br/>Obtenga más información sobre el almacenamiento y la consulta de datos mediante Servicios móviles.
 
--   [Introducción a los datos][Introducción a los datos]
-    Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
+* [Introducción a la autenticación]
+  <br/>Obtenga información sobre cómo autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
--   [Introducción a la autenticación][Introducción a la autenticación]
-    Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
+* [Introducción a las notificaciones de inserción] 
+  <br/>Obtenga información sobre cómo enviar a la aplicación una notificación de inserción muy básica.
 
--   [Introducción a las notificaciones de inserción][Introducción a las notificaciones de inserción]
-    Aprenda a enviar una notificación de inserción muy básica a la aplicación.
+<!-- Anchors. -->
+[Introducción a Servicios móviles]:#getting-started
+[Creación de un servicio móvil nuevo]:#create-new-service
+[Definición de la instancia de servicio móvil]:#define-mobile-service-instance
+[Pasos siguientes]:#next-steps
+
+<!-- Images. -->
+[0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
 
 
 
 
 
-  [0]: ./media/mobile-services-android-get-started/mobile-quickstart-completed-android.png
-  [1]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
-  [2]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android.png
-  [3]: ./media/mobile-services-android-get-started/mobile-services-import-android-workspace.png
-  [4]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
-  [5]: ./media/mobile-services-android-get-started/mobile-eclipse-quickstart.png
-  [6]: ./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png
-  [7]: ./media/mobile-services-android-get-started/mobile-data-tab.png
-  [8]: ./media/mobile-services-android-get-started/mobile-data-browse.png
-  [Introducción a los datos]: /es-es/documentation/articles/mobile-services-android-get-started-data/
-  [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-android-get-started-users/
-  [Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[6]: ./media/mobile-services-android-get-started/mobile-portal-quickstart-android.png
+[7]: ./media/mobile-services-android-get-started/mobile-quickstart-steps-android.png
+[8]: ./media/mobile-services-android-get-started/mobile-eclipse-quickstart.png
+
+[10]: ./media/mobile-services-android-get-started/mobile-quickstart-startup-android.png
+[11]: ./media/mobile-services-android-get-started/mobile-data-tab.png
+[12]: ./media/mobile-services-android-get-started/mobile-data-browse.png
+
+[14]: ./media/mobile-services-android-get-started/mobile-services-import-android-workspace.png
+[15]: ./media/mobile-services-android-get-started/mobile-services-import-android-project.png
+
+<!-- URLs. -->
+[Introducción a los datos]: /es-es/documentation/articles/mobile-services-android-get-started-data/
+[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-android-get-started-users/
+[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[SDK de Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[SDK de Android para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533
+
+[Portal de administración]: https://manage.windowsazure.com/
