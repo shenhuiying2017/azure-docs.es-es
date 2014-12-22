@@ -1,61 +1,61 @@
-﻿<properties title="Split and Merge Service Tutorial" pageTitle="Tutorial del servicio de combinación y división de SQL de Azure" description="Splitting and Merging with Elastic Scale" metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Split and Merge Service Tutorial" pageTitle="Tutorial del servicio División y combinación SQL de Azure" description="Splitting and Merging with Elastic Scale" metaKeywords="sharding scaling, Azure SQL Database sharding, elastic scale, splitting and merging elastic scale" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
-#Tutorial del servicio de combinación y división de escalado elástico
+#Tutorial del servicio División y combinación de Escalado elástico
 
-## Descargue los paquetes de división-combinación 
-1. Descargue la versión más reciente de NuGet en [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). 
-2. Abra un símbolo del sistema y desplácese al directorio donde ha descargado nuget.exe. 
-3. Descargue el paquete de división-combinación más reciente en el directorio actual con el comando siguiente: 
-"nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge"  
+## Descarga de los paquetes de División y combinación 
+1. Descargue la versión más reciente de NuGet desde [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget). 
+2. Abra un símbolo del sistema y vaya al directorio al que descargó nuget.exe. 
+3. Descargue el paquete de División y combinación más reciente en el directorio actual con el comando que aparece a continuación: 
+`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge`  
 
-Los pasos anteriores permiten descargar los archivos de división-combinación en el directorio actual. Los archivos se colocan en un directorio llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**, donde *x.x.xxx.x* refleja el número de versión. Busque los archivos del servicio división-combinación en el subdirectorio **content\splitmerge\service** y los scripts de PowerShell división-combinación (y el cliente requerido .dlls) en el subdirectorio **content\splitmerge\powershell**.
+Los pasos anteriores descargan los archivos de División y combinación al directorio actual. Los archivos están ubicados en un directorio llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**, donde *x.x.xxx.x* refleja el número de la versión. Encuentre los archivos del servicio División y combinación en el subdirectorio **content\splitmerge\service** y los scripts de PowerShell de División y combinación (y los .dll de cliente requeridos) en el subdirectorio **content\splitmerge\powershell**.
 
 ##Requisitos previos 
 
-1. Cree una base de datos de Base de datos SQL de Azure que se usará como la base de datos de estado para división-combinación. Vaya al [Portal de administración de Azure](https://manage.windowsazure.com). En la parte inferior izquierda, haga clic en **Nuevo**, en **Servicios de datos** -> **Base de datos SQL** -> **Creación personalizada**. Rellene el nombre de la base de datos y cree un nuevo usuario y una contraseña. Asegúrese de que registra el nombre y la contraseña para su uso posterior.
+1. Cree una base de datos de Base de datos SQL de Azure que se usará como la base de datos de estado de División y combinación. Vaya al [Portal de administración de Azure](https://manage.windowsazure.com). En la parte inferior izquierda, haga clic en **Nuevo**, luego en **Servicios de datos** -> **Base de datos SQL** -> **Creación personalizada**. Rellene el nombre de la base de datos y cree un nuevo usuario y contraseña. Asegúrese de anotar el nombre y la contraseña para usarlos más adelante.
 
-2. Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Microsoft Azure se conecten a él. Vaya al [Portal de administración de Azure](https://manage.windowsazure.com) y, en el panel izquierdo, haga clic en **Bases de datos SQL**. A continuación, haga clic en **Servidores** en la cinta de opciones en la parte superior de la pantalla y seleccione el servidor. A continuación, haga clic en **Configurar** en la parte superior y asegúrese de que la configuración de **Servicios de Microsoft Azure** está establecida en **Sí**.
+2. Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Microsoft Azure se conecten a él. Vaya al [Portal de administración de Azure](https://manage.windowsazure.com); en el panel izquierdo, haga clic en **Bases de datos SQL**. Luego haga clic en **Servidores** en la cinta que aparece en la parte superior de la pantalla y seleccione el servidor. A continuación, haga clic en **Configurar** en la parte superior y asegúrese de que la configuración de los **Servicios de Microsoft Azure** esté definida en **Sí**.
 
     ![Allowed services][1]
 
-3. Cree una cuenta de Almacenamiento de Azure que se usará para resultados de diagnóstico. Vaya al [Portal de administración de Azure](https://manage.windowsazure.com). En la parte inferior izquierda, haga clic en **Nuevo**, **Servicios de datos**, **Almacenamiento** y **Creación rápida**. 
+3. Cree una cuenta de Almacenamiento de Azure que se usará para la salida de diagnóstico. Vaya al [Portal de administración de Azure](https://manage.windowsazure.com). En la parte inferior izquierda, haga clic en **Nuevo**, en **Servicios de datos**, **Almacenamiento** y, a continuación, en **Creación rápida**. 
 
-4. Cree un servicio de nube de Azure que contendrá el servicio de división-combinación.  Vaya al [Portal de administración de Azure](https://manage.windowsazure.com). En la parte inferior izquierda, haga clic en **Nuevo**, **Proceso**, **Servicio de nube** y **Creación rápida**. 
+4. Cree un servicio en la nube de Azure que contendrá el servicio División y combinación.  Vaya al [Portal de administración de Azure](https://manage.windowsazure.com). En la parte inferior izquierda, haga clic en **Nuevo**, en **Proceso**, **Servicio en la nube** y, a continuación, en **Creación rápida**. 
 
 
-## Configuración del servicio de división-combinación 
+## Configuración del servicio División y combinación 
 
-### Configuración del servicio de división-combinación 
+### Configuración del servicio División y combinación 
 
-1. En la carpeta en la que descargó los bits de División/Combinación, cree una copia del archivo **ServiceConfiguration.Template.cscfg** proporcionado con **SplitMergeService.cspkg** y asígnele el nombre **ServiceConfiguration.cscfg**.
+1. En la carpeta a la que descargó los bits de División y combinación, cree una copia del archivo **ServiceConfiguration.Template.cscfg** que acompañan a **SplitMergeService.cspkg** y póngale el nombre de **ServiceConfiguration.cscfg**.
 
-2. Abra ServiceConfiguration.cscfg en el editor de texto favorito. Se recomienda utilizar Visual Studio, ya que validará entradas como el formato de huellas digitales de certificados. 
+2. Abra ServiceConfiguration.cscfg en el editor de texto de su preferencia. Recomendamos usar Visual Studio, puesto que validará entradas como el formato de las huellas digitales del certificado. 
 
-3. Cree una nueva base de datos o elija una base de datos existente para actuar como la base de datos de estado para las operaciones división/combinación y recuperar la cadena de conexión de base de datos. Con Base de datos SQL de Azure, la cadena de conexión normalmente tiene el formato:
+3. Cree una base de datos nueva o elija una base de datos existente para que actúe como la base de datos de estado de las operaciones de División y combinación y recupere la cadena de conexión de esa base de datos. Con Base de datos SQL de Azure, la cadena de conexión normalmente tiene el siguiente formato:
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
-4.    Escriba esta cadena de conexión en el archivo en las secciones **SplitMergeWeb** y **SplitMergeWorker** de la configuración de ElasticScaleMetadata.
+4.    Escriba esta cadena de conexión en el archivo cscfg en las secciones de roles **SplitMergeWeb**  **SplitMergeWorker** en la configuración de ElasticScaleMetadata.
 
-5.    La configuración del destino para los registros de diagnóstico requiere una cuenta de Almacenamiento de Azure. La configuración de división/combinación requiere la cadena de conexión para la cuenta de Almacenamiento de Azure. La cadena de conexión debe tener el formato:
+5.    La configuración del destino de los registros de diagnóstico requiere una cuenta de almacenamiento en Azure. La configuración de División y combinación requiere la cadena de conexión a su cuenta de Almacenamiento de Azure. La cadena de conexión debe tener el siguiente formato:
 
         "DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccessKey" 
     
-Para determinar la clave de acceso, vaya al [Portal de administración de Azure](https://manage.windowsazure.com), haga clic en la pestaña **Almacenamiento** de la izquierda, seleccione el nombre correspondiente a la cuenta de almacenamiento y haga clic en **Administrar claves de acceso** en la parte inferior. Haga clic en el botón **copiar** para la **Clave de acceso primaria**.
+Para determinar la clave de acceso, vaya al [Portal de administración de Azure](https://manage.windowsazure.com), haga clic en la pestaña **Almacenamiento** que se encuentra a la izquierda, seleccione el nombre que corresponda a su cuenta de almacenamiento y haga clic en **Administrar claves de acceso** en la parte inferior. Haga clic en el botón **copiar** para la **Clave de acceso principal**.
 
 ![manage access keys][2]
 
-6.    Escriba el nombre de la cuenta de almacenamiento y una de las claves de acceso proporcionadas en los marcadores de posición en la cadena de conexión de almacenamiento. Esta cadena de conexión se usa en las secciones de rol **SplitMergeWeb** y **SplitMergeWorker** en la configuración de **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString**. Puede utilizar cuentas de almacenamiento potencialmente diferentes para roles diferentes. 
+6.    Escriba el nombre de la cuenta de almacenamiento y una de las claves de acceso proporcionada en los marcadores de posición en la cadena de conexión de almacenamiento. Esta cadena de conexión se usa en las secciones de roles **SplitMergeWeb** y **SplitMergeWorker** en la configuración de **Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString**. Puede utilizar cuentas de almacenamiento potencialmente diferentes para roles diferentes. 
 
 ### Configuración de seguridad 
-Para obtener instrucciones detalladas para configurar la seguridad del servicio, consulte [Configuraciones de seguridad de escalado elástico](./sql-database-elastic-scale-configure-security.md).
+Para obtener instrucciones detalladas de cómo configurar la seguridad del servicio, consulte las [Configuraciones de seguridad de Escalado elástico](./sql-database-elastic-scale-configure-security.md).
 
-Para los fines de una implementación de prueba sencilla apta para completar este tutorial, se ejecutarán los pasos de configuración mínimos para poner en marcha el servicio. Estos pasos permiten que solo el equipo/la cuenta que los ejecuta se comunique con el servicio.
+Para fines de una simple implementación de prueba adecuada para completar este tutorial, se realizará un conjunto mínimo de pasos de configuración para configurar y ejecutar el servicio. Estos pasos solo habilitan la máquina/cuenta que los ejecuta para comunicarse con el servicio.
 
 ### Creación de un certificado autofirmado 
 
-Cree un directorio nuevo y, desde ahí, ejecute el siguiente comando usando una ventana [Símbolo del sistema para desarrolladores de Visual Studio](http://msdn.microsoft.com/es-es/library/ms229859.aspx):
+Cree un directorio nuevo y desde este directorio ejecute el siguiente comando usando una ventana de [Símbolo del sistema para desarrolladores para Visual Studio](http://msdn.microsoft.com/es-es/library/ms229859.aspx):
 
     makecert ^
     -n "CN=*.cloudapp.net" ^
@@ -64,95 +64,95 @@ Cree un directorio nuevo y, desde ahí, ejecute el siguiente comando usando una 
     -sr currentuser -ss root ^
     -sv MyCert.pvk MyCert.cer
 
-Se le pedirá una contraseña para proteger la clave privada. Escriba una contraseña segura y confírmela. Después de este paso, se le pedirá la contraseña una vez más. Haga clic en **Sí** al final para importarla en el almacén raíz de las autoridades de certificación de confianza.
+Se le pedirá que escriba una contraseña para proteger la clave privada. Escriba una contraseña segura y confírmela. Luego se le pedirá que escriba nuevamente la contraseña. Haga clic en **Sí** al final para importarla al almacén Raíz de Entidades de certificación de confianza.
 
 ###    Creación de un archivo PFX 
 
-Ejecute el siguiente comando desde la misma ventana donde se ejecutó makecert; utilice la misma contraseña que usó para crear el certificado:
+Ejecute el siguiente comando desde la misma ventana donde se ejecutó makecert; use la misma contraseña que usó para crear el certificado:
 
     pvk2pfx -pvk MyCert.pvk -spc MyCert.cer -pfx MyCert.pfx -pi <password>
 
-### Importe el certificado de cliente en el almacén personal
+### Importación del certificado de cliente al almacén Personal
 1. En el Explorador de Windows, haga doble clic en **MyCert.pfx**.
-2. En el **Asistente para importación de certificados**, seleccione **Usuario actual** y haga clic en **Siguiente**.
-3. Confirme al ruta de acceso al archivo y haga clic en **Siguiente**.
-4. Escriba la contraseña, deje la opción **Incluir todas las propiedades extendidas** marcada y haga clic en **Siguiente**.
-5. Deje la opción **Seleccionar automáticamente el almacén de certificados[...]** marcada y haga clic en **Siguiente**.
+2. En el **asistente para importar certificados**, seleccione **Usuario actual** y haga clic en **Siguiente**.
+3. Confirme la ruta del archivo y haga clic en **Siguiente**.
+4. Escriba la contraseña, deje seleccionada la opción **Incluir todas las propiedades extendidas** y haga clic en **Siguiente**.
+5. Deje seleccionada la opción **Seleccionar automática el almacén de certificados[...]** y haga clic en **Siguiente**.
 6. Haga clic en **Finalizar** y, a continuación, en **Aceptar**.
 
-### Carga del archivo PFX en el servicio de nube
+### Carga del archivo PFX al servicio en la nube
 
 Vaya al [Portal de administración de Azure](https://manage.windowsazure.com).
 
 1. Seleccione **Servicios en la nube**.
-2. Seleccione el servicio de nube creado anteriormente para el servicio división/combinación.
+2. Seleccione el servicio en la nube que creó anteriormente para el servicio División y combinación.
 3. Haga clic en **Certificados** en el menú superior.
 4. Haga clic en **Cargar** en la barra inferior.
 5. Seleccione el archivo PFX y escriba la misma contraseña anterior.
-6. Una vez completado, copie la huella digital del certificado de la nueva entrada en la lista.
+6. Una vez realizado, copie la huella digital del certificado desde la entrada nueva en la lista.
 
-### Actualice el archivo de configuración de servicio
+### Actualización del archivo de configuración de servicio
 
-Pegue la huella digital del certificado copiada anteriormente en el atributo huella digital/valor de esta configuración:
+Pegue la huella digital del certificado copiada anteriormente en el atributo de huella digital/valor de esta configuración:
 
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
     <Setting name="AllowedClientCertificateThumbprints" value="" />
     <Certificate name="SSL" thumbprint="" thumbprintAlgorithm="sha1" />
     <Certificate name="CA" thumbprint="" thumbprintAlgorithm="sha1" />
 
-Tenga en cuenta que deben usarse certificados independientes de implementaciones de producción para entidades de certificación, el certificado del servidor y los certificados de clientes. Para obtener instrucciones al respecto, consulte [Configuración de seguridad](./sql-database-elastic-scale-configure-security.md).
+Tenga en cuenta que para las implementaciones de producción se deben usar certificados independientes para la CA, el certificado de servidor y los certificados de cliente. Para obtener instrucciones detalladas sobre esto, consulte [Configuración de seguridad](./sql-database-elastic-scale-configure-security.md).
 
-### Implementación del servicio división-combinación
+### Implementación del servicio División y combinación
 1. Vaya al [Portal de administración de Azure](https://manage.windowsazure.com).
-2. Haga clic en la pestaña **Servicios en la nube** a la izquierda y seleccione el servicio en la nube que ha creado anteriormente. 
+2. Haga clic en la pestaña **Servicios en la nube** que aparece a la izquierda y seleccione el servicio en la nube que creó anteriormente. 
 3. Haga clic en **Panel**. 
-4. Elija un entorno de ensayo y, a continuación, haga clic en **Cargue una nueva implementación de ensayo**.
+4. Elija el entorno de ensayo y, a continuación, haga clic en **Cargar una nueva implementación de ensayo**.
 
     ![Staging][3]
 
-5. En el cuadro de diálogo, escriba una etiqueta de implementación. Para "Paquete" y "Configuración", haga clic en "Desde local" y seleccione el archivo **SplitMergeService.cspkg** y el archivo .cscfg que ha configurado anteriormente.
-6. Asegúrese de que está activada la casilla **Implementar aunque uno o varios roles contengan una sola instancia**.
-7. Presione el botón de marca en la parte inferior derecha para iniciar la implementación. Espero unos minutos hasta que se complete el proceso.
+5. En el cuadro de diálogo, escriba una etiqueta de implementación. Para "Paquete" y "Configuración", haga clic en "Desde local" y elija el archivo **SplitMergeService.cspkg** y el archivo .cscfg que configuró anteriormente.
+6. Asegúrese de que la casilla etiquetada como **Implementar incluso si uno o más roles contienen una sola instancia** esté seleccionada.
+7. Presione el botón de verificación que aparece en la esquina inferior derecha para comenzar la implementación. Tenga en cuenta que puede demorar unos minutos en completarse.
 
 ![Upload][4]
 
 
 ## Solución de problemas de implementación
-Si no se puede poner en línea el rol web, probablemente se debe a un problema con la configuración de seguridad. Compruebe que la conexión SSL está configurada como se ha descrito anteriormente.
+Si el rol web no puede ponerse en línea, probablemente haya un problema con la configuración de seguridad. Compruebe que SSL esté configurado como se describió anteriormente.
 
-Si su rol de trabajo no se puede poner en línea, pero el rol web se realiza correctamente, probablemente se debe a un problema de conexión a la base de datos de estado que ha creado anteriormente. 
+Si el rol de trabajo no puede ponerse en línea, pero el rol web sí, probablemente se trate de un problema al conectarse a la base de datos de estado que creó anteriormente. 
 
-* Asegúrese de que la cadena de conexión del archivo .cscfg es precisa. 
-* Compruebe que el servidor y la base de datos existen y que el identificador de usuario y la contraseña son correctos.
-* Para Base de datos SQL de Azure, la cadena de conexión debe tener el formato: 
+* Asegúrese de que la cadena de conexión en el archivo .cscfg esté correcta. 
+* Compruebe que existan el servidor y la base de datos y de que el identificador de usuario y la contraseña estén correctos.
+* En el caso de Base de datos SQL de Azure, la cadena de conexión debe tener el formato: 
 
         "Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30" .
 
-* Asegúrese de que el nombre del servidor no empieza por **https://**.
-* Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Microsoft Azure se conecten a él. Para ello, abra https://manage.windowsazure.com, haga clic en "Bases de datos SQL" a la izquierda, haga clic en "Servidores" en la parte superior y seleccione el servidor. Haga clic en **Configurar** en la parte superior y asegúrese de que la opción **Servicios de Microsoft Azure** está establecida en "Sí". (Consulte la sección Requisitos previos al principio de este artículo).
+* Asegúrese de que el nombre del servidor no comience con **https://**.
+* Asegúrese de que el servidor de Base de datos SQL de Azure permite que los servicios de Microsoft Azure se conecten a él. Para ello, abra https://manage.windowsazure.com, haga clic en "Bases de datos SQL" a la izquierda, haga clic en "Servidores" en la parte superior y, a continuación, seleccione su servidor. Haga clic en **Configurar** en la parte superior para asegurarse de que la configuración de los **Servicios de Microsoft Azure** esté definida en "Sí". (Consulte la sección Requisitos previos al principio de este artículo).
 
-* Revise los registros de diagnósticos para la instancia de servicio de división/combinación. Abra una instancia de Visual Studio y, en la barra de menús, haga clic en **Ver** y en **Explorador de servidores**. Haga clic en el icono de **Microsoft Azure** para conectarse a la suscripción de Azure. Vaya a Microsoft Azure -> Almacenamiento -> <your storage account> -> Tablas -> WADLogsTable. Para obtener más información, consulte [Explorar recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/es-es/library/azure/ff683677.aspx) 
+* Revise los registros de diagnósticos para la instancia del servicio División y combinación. Abra una instancia de Visual Studio y en la barra de menú haga clic en **Ver** y, a continuación, en **Explorador de servidores**. Haga clic en el icono **Microsoft Azure** para conectarse a sus suscripción de Azure. Luego vaya a Microsoft Azure -> Almacenamiento -> <su cuenta de almacenamiento> -> Tablas -> WADLogsTable. Para obtener más información, consulte [Explorar recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/es-es/library/azure/ff683677.aspx) 
 
     ![][5]
 
     ![][6]
 
-## Pruebas de la implementación del servicio de división-combinación
+## Prueba de la implementación del servicio División y combinación
 ### Conexión con un explorador web
 
-Determine el extremo web del servicio de división-combinación. Puede encontrarlo en el Portal de administración de Azure; para ello, vaya al **Panel** del servicio en la nube y observe el campo **Dirección URL del sitio** en el lado derecho. Reemplace **http://** con **https://**, ya que la configuración de seguridad predeterminada deshabilita el extremo de HTTP. Cargue la página para esta dirección URL en el explorador.
+Determine el extremo web de su servicio División y combinación. Puede encontrarlo en el Portal de administración de Azure en el **panel** del servicio en la nube, bajo **Dirección URL del sitio** a la derecha. Reemplace **http://** por **https://**, dado que la configuración de seguridad predeterminada deshabilita el extremo HTTP. Cargue la página de esta dirección URL en el explorador.
 
 ### Pruebas con scripts de PowerShell
 
-La implementación y el entorno se pueden probar mediante la ejecución de los scripts de PowerShell de ejemplo incluidos.
+Puede probar la implementación y su entorno si ejecuta los scripts de PowerShell de ejemplo incluidos.
 
 Los archivos de script incluidos son:
 
-1. **SetupSampleSplitMergeEnvironment.ps1**: establece un nivel de datos de prueba para división/combinación (consulte la tabla siguiente para obtener una descripción detallada)
-2. **ExecuteSampleSplitMerge.ps1**: ejecuta operaciones de prueba en cada nivel de datos de prueba (consulte la tabla siguiente para obtener una descripción detallada)
-3. **GetMappings.ps1**: script de ejemplo de nivel superior que imprime el estado actual de las asignaciones de particiones.
-4. **ShardManagement.psm1**: script de la aplicación auxiliar que ajusta la API ShardManagement.
-5. **SqlDatabaseHelpers.psm1**: script de la aplicación auxiliar para crear y administrar bases de datos SQL.
+1. **SetupSampleSplitMergeEnvironment.ps1**: configura una capa de datos de prueba para División y combinación (consulte la tabla que aparece a continuación para ver una descripción detallada)
+2. **ExecuteSampleSplitMerge.ps1**: ejecuta operaciones de prueba en la capa de datos de prueba (consulte la tabla que aparece a continuación para ver una descripción detallada)
+3. **GetMappings.ps1**: script de muestra de nivel superior que imprime el estado actual de las asignaciones de particiones.
+4. **ShardManagement.psm1**: script auxiliar que encapsula la API ShardManagement
+5. **SqlDatabaseHelpers.psm1**: script auxiliar para crear y administrar bases de datos SQL
 
 <table style="width:100%">
   <tr>
@@ -161,19 +161,19 @@ Los archivos de script incluidos son:
   </tr>
   <tr>
     <th rowspan="5">SetupSampleSplitMergeEnvironment.ps1</th>
-    <td>1.    Crea una base de datos para administradores de asignaciones de particiones</td>
+    <td>1.    Crea una base de datos del administrador de mapa de particiones</td>
   </tr>
   <tr>
     <td>2.    Crea dos bases de datos de particiones. 
   </tr>
   <tr>
-    <td>3.    Crea un asignación de particiones para la base de datos (elimina las asignaciones de particiones existentes de las bases de datos). </td>
+    <td>3.    Crea un mapa de particiones para esas bases de datos (elimina todo mapa de particiones existente en esas bases de datos). </td>
   </tr>
   <tr>
-    <td>4.    Crea una tabla de ejemplo pequeña en las particiones y rellena la tabla en una de las particiones.</td>
+    <td>4.    Crea una pequeña tabla de ejemplo en las particiones y rellena la tabla en una de las particiones.</td>
   </tr>
   <tr>
-    <td>5.    Declara SchemaInfo para la tabla de particiones.</td>
+    <td>5.    Declara la SchemaInfo para la tabla particionada.</td>
   </tr>
 
 </table>
@@ -185,33 +185,33 @@ Los archivos de script incluidos son:
   </tr>
 <tr>
     <th rowspan="4">ExecuteSampleSplitMerge.ps1 </th>
-    <td>1.    Envía una solicitud de división al frontend web del servicio división-combinación, que divide la mitad de los datos entre la primera partición y la segunda.</td>
+    <td>1.    Envía una solicitud de división al front-end web del servicio División y combinación, que divide la mitad de los datos de la primera partición a la segunda partición.</td>
   </tr>
   <tr>
-    <td>2.    Sondea el frontend web para el estado de la solicitud de división y espera a que finalice la solicitud.</td>
+    <td>2.    Sondea el front-end web para ver el estado de la solicitud de división y espera hasta que se complete la solicitud.</td>
   </tr>
   <tr>
-    <td>3.    Envía una solicitud de combinación al frontend web del servicio división-combinación, que devuelve los datos de nuevo de la segunda partición a la primera.</td>
+    <td>3.    Envía una solicitud de combinación al front-end del servicio División y combinación, que mueve los datos desde la segunda partición de vuelta a la primera partición.</td>
   </tr>
   <tr>
-    <td>4.    Sondea el frontend web para el estado de la solicitud de combinación y espera a que finalice la solicitud.</td>
+    <td>4.    Sondea el front-end web para ver el estado de la solicitud de combinación y espera hasta que se complete la solicitud.</td>
   </tr>
 </table>
 
-##Uso de PowerShell para verificar la implementación
+##Uso de PowerShell para comprobar la implementación
 
-1.    Abra una nueva ventana de PowerShell y desplácese al directorio donde descargó el paquete de división-combinación y, a continuación, desplácese al directorio "powershell".
-2.    Cree un servidor de Base de datos SQL de Azure (o elija un servidor existente) donde se crearán el Administrador de asignación de particiones y las particiones. 
+1.    Abra una nueva ventana de PowerShell y vaya al directorio al que descargó el paquete División y combinación y, a continuación, vaya al directorio "powershell".
+2.    Cree un servidor de base de datos SQL de Azure (o elija un servidor existente) en el que se crearán las particiones y el administrador de mapa de particiones. 
 
-Nota: El script SetupSampleSplitMergeEnvironment.ps1 crea todas estas bases de datos en el mismo servidor de forma predeterminada para simplificar el script. No se trata de una restricción del servicio de división-combinación.
+Nota: el script SetupSampleSplitMergeEnvironment.ps1 crea todas estas bases de datos en el mismo servidor de manera predeterminada para que el script sea simple. Esta no es una restricción del servicio División y combinación mismo.
 
-    Necesitará un inicio de sesión de autenticación de SQL con acceso de lectura y escritura a las bases de datos para que el servicio de división-combinación pueda mover datos y actualizar la asignación de particiones. Habida cuenta de que el servicio de división-combinación se ejecuta en la nube, no admite actualmente la autenticación integrada.
+    Se requerirá un inicio de sesión de autenticación de SQL con acceso de lectura/escritura a las bases de datos para que el servicio División y combinación mueva los datos y actualice el mapa de particiones. Debido a que el servicio División y combinación se ejecuta en la nube, actualmente no es compatible con Autenticación integrada.
 
-    Asegúrese de que el servidor SQL de Azure está configurado para permitir el acceso desde la dirección IP del equipo que ejecuta estos scripts. Puede encontrar esta configuración en el servidor SQL de Azure / configuración / direcciones IP permitidas.
+    Asegúrese de que el servidor SQL de Azure esté configurado para permitir el acceso desde la dirección IP dela máquina que ejecuta estos scripts. Puede encontrar esta configuración en Servidor SQL de Azure / Configuración / Direcciones IP permitidas.
 
 3.    Ejecute el script SetupSampleSplitMergeEnvironment.ps1 para crear el entorno de ejemplo. 
 
-    La ejecución de este script limpiará cualquier estructura de datos de administración de asignaciones de particiones existente en la base de datos del administrador de asignación de particiones y las particiones. Puede ser útil volver a ejecutar el script si desea volver a inicializar la asignación de partición o las particiones.
+    Ejecutar este script eliminará toda estructura de datos de administrador del mapa de particiones existente en la base de datos del administrador de mapa de particiones y las particiones. Puede ser útil volver a ejecutar el script si desea volver a inicializar las particiones o el mapa de particiones.
 
     Línea de comandos de ejemplo:
 
@@ -227,7 +227,7 @@ Nota: El script SetupSampleSplitMergeEnvironment.ps1 crea todas estas bases de d
             -Password 'MySqlPassw0rd' `
             -ShardMapManagerServerName 'abcdefghij.database.windows.net'
 
-5.    Ejecute el script ExecuteSampleSplitMerge.ps1 para ejecutar una operación de división (mover la mitad de las datos de la primera partición a la segunda partición) y, a continuación, una operación de combinación (mover los datos de nuevo a la primera partición). Si configura SSL y deja el extremo de http deshabilitado, asegúrese de utilizar el extremo https://.
+5.    Ejecute el script ExecuteSampleSplitMerge.ps1 para ejecutar una operación de división (moviendo la mitad de los datos de la primera partición a la segunda partición) y luego una operación de combinación (moviendo los datos de vuelta a la primera partición). Si configuró SSL y dejó deshabilitado el extremo http, asegúrese de usar el extremo https://.
 
     Línea de comandos de ejemplo:
 
@@ -238,11 +238,11 @@ Nota: El script SetupSampleSplitMergeEnvironment.ps1 crea todas estas bases de d
             -SplitMergeServiceEndpoint 'https://mysplitmergeservice.cloudapp.net' `
             -CertificateThumbprint '0123456789abcdef0123456789abcdef01234567'
 
-    Si recibe el siguiente error, probablemente es un problema con el certificado del extremo web. Intente conectarse al extremo web con su explorador web favorito y comprobar si hay un error de certificado.
+    Si recibe el siguiente error, es muy probable que se trate de un problema con el certificado de su extremo web. Intente conectarse al extremo web con el explorador web de su preferencia y revise si hay un error en el certificado.
 
         Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.
 
-    Si se ha realizado correctamente, el resultado debería ser el siguiente:
+    Si está correcto, el resultado debiera verse de la siguiente manera:
 
         > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' -CertificateThumbprint 0123456789abcdef0123456789abcdef01234567
         Sending split request
@@ -276,33 +276,33 @@ Nota: El script SetupSampleSplitMergeEnvironment.ps1 crea todas estas bases de d
         Progress: 90% | Status: Completing | Details: [Informational] Deleting any temp tables that were created     while processing the request.
         Progress: 100% | Status: Succeeded | Details: [Informational] Successfully processed request.
 
-6.    Experimentar con otros tipos de datos. Todos estos scripts adoptan un parámetro opcional -ShardKeyType que permite especificar el tipo de clave. El valor predeterminado es Int32, pero también puede especificar Int64, Guid o binario. 
+6.    Experimente con otros tipos de datos. Todos estos scripts tienen un parámetro -ShardKeyType opcional que le permite especificar el tipo de clave. El valor predeterminado es Int32, pero también puede especificar Int64, Guid o Binary. 
 
 ## Creación de sus propias solicitudes 
 
-El servicio puede utilizarse mediante la interfaz de usuario web o importar y utilizar el módulo de PowerShell SplitMerge.psm1.
+Es posible usar el servicio ya sea usando la interfaz de usuario web o importando y usando el módulo SplitMerge.psm1 de PowerShell.
 
-El servicio de división-combinación puede mover datos en tablas de particiones y tablas de referencia. Una tabla de particiones tiene una columna de clave de partición y datos de fila diferentes en cada partición. Una tabla de referencia no está particionada, por lo que contiene los mismos datos de fila en cada partición. Las tablas de referencia son útiles para los datos que no cambian con frecuencia y se utilizan en combinación con tablas de particiones en las consultas.
+El servicio División y combinación puede mover los datos de las tablas particionadas y de las tablas de referencia. Una tabla particionada tiene una columna de clave de particionamiento y distintos datos de fila en cada partición. Una tabla de referencia no está particionada, por lo que contiene los mismos datos de fila en cada partición. Las tablas de referencia son útiles para los datos que no cambian con frecuencia y que se usan para UNIRSE con tablas particionadas en consultas.
 
-Para realizar una operación división-combinación, debe declarar las tablas de particiones y las tablas de referencia que desee mover. Esto se consigue con la API **SchemaInfo**. Esta API está en el espacio de nombres **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema**.
+Para realizar una operación de división y combinación, debe declarar las tablas particionadas y las tablas de referencia que desea mover. Esto se realiza con la API **SchemaInfo**. Esta API está en el espacio de nombres **Microsoft.Azure.SqlDatabase.ElasticScale.ShardManagement.Schema**.
 
-1.    Para cada tabla de particiones, cree un objeto **ShardedTableInfo** que describa el nombre del esquema principal de la tabla (opcional, con valores predeterminados "dbo"), el nombre de la tabla y el nombre de columna en dicha tabla que contenga la clave de partición.
-2.    Para cada tabla de referencia, cree un objeto **ReferenceTableInfo** que describa el nombre del esquema principal de la tabla (opcional, con valores predeterminados "dbo") y el nombre de la tabla.
-3.    Agregue los objetos anteriores TableInfo a un nuevo objeto **SchemaInfo**.
+1.    Para cada tabla particionada, cree un objeto **ShardedTableInfo** que describa el nombre del esquema principal de la tabla (opcional, se define de manera predeterminada en "dbo"), el nombre de la tabla y el nombre de la columna de esa tabla que contiene la clave de particionamiento.
+2.    Para cada tabla de referencia, cree un objeto **ReferenceTableInfo** que describa el nombre del esquema principal de la tabla (opcional, se define de manera predeterminada en "dbo") y el nombre de la tabla.
+3.    Agregue los objetos TableInfo anteriores a un objeto **SchemaInfo** nuevo.
 4.    Obtenga una referencia a un objeto **ShardMapManager** y llame a **GetSchemaInfoCollection**.
-5.    Agregue **SchemaInfo** a **SchemaInfoCollection**, proporcionando el nombre de la asignación de particiones.
+5.    Agregue la **SchemaInfo** a la **SchemaInfoCollection**, proporcionando el nombre del mapa de particiones.
 
-Un ejemplo de esto puede verse en el script SetupSampleSplitMergeEnvironment.ps1.
+Es posible ver un ejemplo de esto en el script SetupSampleSplitMergeEnvironment.ps1.
 
-Tenga en cuenta que el servicio de división-combinación no crea la base de datos de destino (o el esquema de tablas en la base de datos) por usted. Debe crearse previamente antes de enviar una solicitud al servicio.
+Tenga en cuenta que el servicio División y combinación no crea la base de datos de destino (o esquema para cualquier tabla de la base de datos) por usted. Deben crearse previamente antes de enviar una solicitud al servicio.
 
 
 ## Solución de problemas
-Es posible que vea el siguiente mensaje al ejecutar los scripts de powershell de ejemplo:
+Es posible que cuando ejecute los scripts de ejemplo de PowerShell vea el siguiente mensaje:
 
     Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
 
-Este error significa que el certificado SSL no está configurado correctamente. Siga las instrucciones de la sección "Conexión con un explorador web".
+Este error significa que el certificado SSL no está configurado correctamente. Siga las instrucciones que aparecen en la sección "Conexión con un explorador web".
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
  

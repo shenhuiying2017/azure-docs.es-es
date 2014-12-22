@@ -1,61 +1,66 @@
-<properties linkid="develop-node-create-a-website-mac" urlDisplayName="Website" pageTitle="Create a Node.js website on Mac - Azure tutorials" metaKeywords="Azure create website Node, Azure deploy website Node, website Node.js, Node website" description="Learn how to build and deploy a Node.js website in Azure. Sample code is written in Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="" editor="" />
+﻿<properties urlDisplayName="Website" pageTitle="Creación de un sitio web Node.js en Mac: tutoriales de Azure" metaKeywords="Azure crear sitio web de Node, Azure implementar sitio web de Node, sitio web Node.js, sitio web de Node" description="Learn how to build and deploy a Node.js website in Azure. Sample code is written in Java." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
+
+
+
+
+
 # Compilación e implementación de un sitio web Node.js en Azure
 
-Este tutorial muestra la forma de crear una aplicación [Node][Node] e implementarla en un sitio web de Azure con [Git][Git]. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Node.
+Este tutorial muestra la forma de crear una aplicación [Node] [nodejs.org] e implementarla en un sitio web de Azure con [Git]. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo que sea capaz de ejecutar Node.
 
 Si prefiere ver un vídeo, el clip que aparece a la derecha muestra los mismos pasos que este tutorial.
-
+ 
 A continuación se muestra una captura de pantalla de la aplicación completada:
 
-![Un explorador muestra el mensaje "Hello World".][Un explorador muestra el mensaje "Hello World".]
+![A browser displaying the 'Hello World' message.][helloworld-completed]
 
-## Creación de un sitio web de Azure y habilitación de la publicación Git
+##Creación de un sitio web de Azure y habilitación de la publicación Git
 
 Siga estos pasos para crear un sitio web de Azure y, a continuación, activar la publicación Git para el sitio web.
 
 <div class="dev-callout"><strong>Nota:</strong>
-<p>para completar este tutorial, deber&aacute; tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluaci&oacute;n gratuita en tan solo unos minutos. Para obtener m&aacute;s informaci&oacute;n, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Evaluaci&oacute;n gratuita de Azure</a>.</p>
+<p>Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Evaluación gratuita de Azure</a>.</p>
 </div>
 
-1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
+1. Inicie sesión en el [Portal de administración de Azure].
 
-2.  Haga clic en el icono **+ NEW**, situado en la parte inferior izquierda del portal.
+2. Haga clic en el icono **+ NUEVO**, situado en la parte inferior izquierda del portal.
 
-    ![Portal Azure con el vínculo + NEW resaltado.][Portal Azure con el vínculo + NEW resaltado.]
+    ![The Azure Portal with the +NEW link highlighted.][portal-new-website]
 
-3.  Haga clic en **SITIO WEB** y luego en **CREACIÓN RÁPIDA**. Escriba un valor de **URL** y seleccione el centro de datos de su sitio web en la lista desplegable **REGIÓN**. Haga clic en la marca de verificación de la parte inferior del cuadro de diálogo.
+3. Haga clic en **SITIO WEB** y luego en **CREACIÓN RÁPIDA**. Escriba un valor de **URL** y seleccione el centro de datos de su sitio web en la lista desplegable **REGIÓN**. Haga clic en la marca de verificación de la parte inferior del cuadro de diálogo.
 
-    ![Cuadro de diálogo Quick Create][Cuadro de diálogo Quick Create]
+    ![The Quick Create dialog][portal-quick-create]
 
-4.  Cuando el estado del sitio web cambie a **Running**, haga clic en el nombre del sitio web para obtener acceso al **Panel**.
+4. Cuando el estado del sitio web cambie a **En ejecución**, haga clic en el nombre del sitio web para obtener acceso al **Panel**.
 
-    ![Abrir el panel del sitio web][Abrir el panel del sitio web]
+	![Open web site dashboard][go-to-dashboard]
 
-5.  En la parte inferior derecha de la página de inicio rápido, seleccione **Set up a deployment from source control**.
+6. En la parte inferior derecha de la página de inicio rápido, seleccione **Configurar implementación desde control de código fuente**.
 
-    ![Configuración de la publicación Git][Configuración de la publicación Git]
+	![Set up Git publishing][setup-git-publishing]
 
-6.  Cuando se le pregunte "Where is your source code?" (¿Dónde está su código fuente?), seleccione **Local Git repository** y, a continuación, haga clic en la flecha.
+6. Cuando se le pregunte "Where is your source code?", seleccione **Repositorio de Git local** y, a continuación, haga clic en la flecha.
 
-    ![Dónde está su código fuente][Dónde está su código fuente]
+	![where is your source code][where-is-code]
 
-7.  Para habilitar la publicación Git, debe proporcionar un nombre de usuario y una contraseña. Si ya ha activado la publicación para un sitio web de Azure, no se le solicitará el nombre de usuario o la contraseña. En su lugar, se creará un repositorio Git con el nombre de usuario y la contraseña que ha especificado anteriormente. Anote el nombre de usuario y la contraseña, puesto que se usarán para la publicación Git en todos los sitios web de Azure que cree.
+7. Para habilitar la publicación Git, debe proporcionar un nombre de usuario y una contraseña. Si ya ha activado la publicación para un sitio web de Azure, no se le solicitará el nombre de usuario o la contraseña. En su lugar, se creará un repositorio Git con el nombre de usuario y la contraseña que ha especificado anteriormente. Anote el nombre de usuario y la contraseña, puesto que se usarán para la publicación Git en todos los sitios web de Azure que cree.
 
-    ![Cuadro de diálogo que solicita el nombre de usuario y la contraseña.][Cuadro de diálogo que solicita el nombre de usuario y la contraseña.]
+	![The dialog prompting for user name and password.][portal-git-username-password]
 
-8.  Una vez esté listo el repositorio Git, se le mostrarán las instrucciones sobre los comandos Git que debe utilizar para configurar un repositorio local y, a continuación, se insertarán los archivos en Azure.
+8. Una vez esté listo el repositorio Git, se le mostrarán las instrucciones sobre los comandos Git que debe utilizar para configurar un repositorio local y, a continuación, se insertarán los archivos en Azure.
 
-    ![Instrucciones de implementación Git devueltas después de crear un repositorio para el sitio web.][Instrucciones de implementación Git devueltas después de crear un repositorio para el sitio web.]
+	![Git deployment instructions returned after creating a repository for the website.][git-instructions]
 
-## Compilación y comprobación de la aplicación localmente
+##Compilación y comprobación de la aplicación localmente
 
-En esta sección, creará un archivo **server.js** que contiene el ejemplo 'hello world' de [nodejs.org][Node]. Este ejemplo se ha modificado a partir del ejemplo original agregando process.env.PORT como el puerto en el que se debe escuchar al ejecutarlo en un sitio web de Azure.
+En esta sección, creará un archivo **server.js** que contiene el ejemplo 'hello world' de [nodejs.org]. Este ejemplo se ha modificado a partir del ejemplo original agregando process.env.PORT como el puerto en el que se debe escuchar al ejecutarlo en un sitio web de Azure.
 
-1.  Mediante un editor de texto, cree un nuevo archivo con nombre **server.js** en el directorio **helloworld**. Si el directorio **helloworld** no existe, créelo.
-2.  Agregue lo siguiente como contenido del archivo **server.js** y, a continuación, guárdelo:
+1. Mediante un editor de texto, cree un nuevo archivo con nombre **server.js** en el directorio **helloworld**. Si el directorio **helloworld** no existe, créelo.
+2. Agregue lo siguiente como contenido del archivo **server.js** y, a continuación, guárdelo:
 
         var http = require('http')
         var port = process.env.PORT || 1337;
@@ -64,111 +69,116 @@ En esta sección, creará un archivo **server.js** que contiene el ejemplo 'hell
           res.end('Hello World\n');
         }).listen(port);
 
-3.  Abra la línea de comandos y utilice el siguiente comando para iniciar la página web localmente:
+3. Abra la línea de comandos y utilice el siguiente comando para iniciar la página web localmente:
 
         node server.js
 
-4.  Abra el explorador web y navegue a http://localhost:1337. Aparecerá una página web con el mensaje "Hello World", tal y como se muestra en la siguiente captura de pantalla:
+4. Abra su explorador web y navegue hasta http://localhost:1337. Aparecerá una página web con el mensaje "Hello World", tal y como se muestra en la siguiente captura de pantalla:
 
-    ![Un explorador muestra el mensaje "Hello World".][1]
+    ![A browser displaying the 'Hello World' message.][helloworld-localhost]
 
-## Publicación de la aplicación
+##Publicación de la aplicación
 
-1.  Desde la línea de comandos, cambie los directorios al directorio **helloworld** y escriba los siguientes comandos para inicializar el repositorio Git local.
+1. Desde la línea de comandos, cambie los directorios al directorio **helloworld** y escriba los siguientes comandos para inicializar el repositorio de Git local. 
 
-        git init
+		git init
 
-    <div class="dev-callout"><strong>&iquest;No est&aacute; disponible el comando Git?</strong>
-<p><a href="http://git-scm.com/" target="_blank">Git</a> es un sistema de control de versi&oacute;n distribuida que puede utilizar para implementar su sitio web de Azure. Para obtener instrucciones acerca de la instalaci&oacute;n en su plataforma, consulte la <a href="http://git-scm.com/download" target="_blank">p&aacute;gina de descargas de Git (en ingl&eacute;s)</a>.</p>
-</div>
+	<div class="dev-callout"><strong>¿No está disponible el comando Git?</strong>
+	<p><a href="http://git-scm.com/" target="_blank">Git</a> es un sistema de control de versión distribuida que puede utilizar para implementar su sitio web de Azure. Para obtener instrucciones acerca de la instalación en su plataforma, consulte la <a href="http://git-scm.com/download" target="_blank">página de descargas de Git</a>.</p>
+	</div>
 
-2.  Utilice los siguientes comandos para agregar archivos al repositorio:
+2. Utilice los siguientes comandos para agregar archivos al repositorio:
 
-        git add .
-        git commit -m "initial commit"
+		git add .
+		git commit -m "initial commit"
 
-3.  Agregue un Git remoto para enviar actualizaciones al sitio web de Azure que ha creado anteriormente con el siguiente comando:
+3. Agregue un Git remoto para enviar actualizaciones al sitio web de Azure que ha creado anteriormente con el siguiente comando:
 
-        git remote add azure [URL for remote repository]
+		git remote add azure [URL for remote repository]
 
-    ![Instrucciones de implementación Git devueltas después de crear un repositorio para el sitio web.][Instrucciones de implementación Git devueltas después de crear un repositorio para el sitio web.]
+    ![Git deployment instructions returned after creating a repository for the web site.][git-instructions]
+ 
+4. Envíe los cambios a Azure con el siguiente comando:
 
-4.  Envíe los cambios a Azure con el siguiente comando:
+		git push azure master
 
-        git push azure master
+	Se le solicitará la contraseña que ha creado anteriormente y visualizará lo siguiente:
 
-    Se le solicitará la contraseña que ha creado anteriormente y visualizará lo siguiente:
+		Password for 'testsite.scm.azurewebsites.net':
+		Counting objects: 3, done.
+		Delta compression using up to 8 threads.
+		Compressing objects: 100% (2/2), done.
+		Writing objects: 100% (3/3), 374 bytes, done.
+		Total 3 (delta 0), reused 0 (delta 0)
+		remote: New deployment received.
+		remote: Updating branch 'master'.
+		remote: Preparing deployment for commit id '5ebbe250c9'.
+		remote: Preparing files for deployment.
+		remote: Deploying Web.config to enable Node.js activation.
+		remote: Deployment successful.
+		To https://user@testsite.scm.azurewebsites.net/testsite.git
+		 * [new branch]      master -> master
+    
+	Si navega hasta la pestaña de implementaciones de su sitio web de Azure dentro del Portal de administración, visualizará su primera implementación en el historial de implementaciones:
 
-        Password for 'testsite.scm.azurewebsites.net':
-        Counting objects: 3, done.
-        Delta compression using up to 8 threads.
-        Compressing objects: 100% (2/2), done.
-        Writing objects: 100% (3/3), 374 bytes, done.
-        Total 3 (delta 0), reused 0 (delta 0)
-        remote: New deployment received.
-        remote: Updating branch 'master'.
-        remote: Preparing deployment for commit id '5ebbe250c9'.
-        remote: Preparing files for deployment.
-        remote: Deploying Web.config to enable Node.js activation.
-        remote: Deployment successful.
-        To https://user@testsite.scm.azurewebsites.net/testsite.git
-         * [new branch]      master -> master
+	![Git deployment status on the portal][git-deployments-first] 
 
-    Si navega hasta la pestaña de implementaciones de su sitio web de Azure dentro del Portal de administración, visualizará su primera implementación en el historial de implementaciones:
+5. Examine su sitio mediante el botón **Examinar** , situado en su página del sitio web de Azure, dentro del Portal de administración.
 
-    ![Estado de implementación Git en el portal][Estado de implementación Git en el portal]
+##Publicación de cambios de la aplicación
 
-5.  Examine su sitio mediante el botón **Browse**, situado en su página del sitio web de Azure, dentro del Portal de administración.
+1. Abra el archivo **server.js** en un editor de texto y cambie "Hello World\n" a "Hello Azure\n". Guarde el archivo.
+2. Desde la línea de comandos, cambie los directorios al directorio **helloworld** y ejecute los siguientes comandos:
 
-## Publicación de cambios de la aplicación
+		git add .
+		git commit -m "changing to hello azure"
+		git push azure master
 
-1.  Abra el archivo **server.js** en un editor de texto y cambie "Hello World\\n" a "Hello Azure\\n". Guarde el archivo.
-2.  Desde la línea de comandos, cambie los directorios al directorio **helloworld** y ejecute los siguientes comandos:
+	Se le solicitará la contraseña que ha creado anteriormente. Si navega hasta la pestaña de implementaciones de su sitio web de Azure dentro del portal de administración, visualizará su historial de implementaciones actualizado:
+	
+	![Git deployment status updated on the portal][git-deployments-second]
 
-        git add .
-        git commit -m "changing to hello azure"
-        git push azure master
+3. Examine su sitio mediante el botón **Examinar** y asegúrese de que las actualizaciones se hayan aplicado.
 
-    Se le solicitará la contraseña que ha creado anteriormente. Si navega hasta la pestaña de implementaciones de su sitio web de Azure dentro del portal de administración, visualizará su historial de implementaciones actualizado:
+	![A web page displaying 'Hello Azure'][helloworld-completed]
 
-    ![Estado de implementación Git actualizada en el Portal][Estado de implementación Git actualizada en el Portal]
+4. Puede deshacer la implementación anterior seleccionándola en la pestaña "Implementaciones" de su sitio web de Azure, dentro del Portal de administración y usando el botón **Volver a implementar**.
 
-3.  Examine su sitio mediante el botón **Browse** y asegúrese de que las actualizaciones se hayan aplicado.
+##Pasos siguientes
 
-    ![Página web que muestra "Hello Azure"][Un explorador muestra el mensaje "Hello World".]
+Si bien los pasos de este artículo utilizan el portal de Azure para crear un sitio web, también es posible utilizar las [herramientas de línea de comandos de Azure para Mac y Linux] para realizar las mismas operaciones.
 
-4.  Puede deshacer la implementación anterior seleccionándola en la pestaña "Deployments" de su sitio web de Azure, dentro del Portal de administración, y mediante el botón **Redeploy**.
+Node.js proporciona un abundante ecosistema de módulos que puede utilizar con sus aplicaciones. Para obtener información acerca del funcionamiento de los Sitios web Azure con los módulos, consulte [Uso de módulos Node.js con aplicaciones de Azure](/es-es/documentation/articles/nodejs-use-node-modules-azure-apps/).
 
-## Pasos siguientes
+Para obtener más información acerca de las versiones de Node.js que se proporcionan con Azure y la forma de especificar la versión que se debe utilizar con su aplicación, consulte [Especificación de una versión de Node.js en una aplicación Azure](/es-es/documentation/articles/nodejs-specify-node-version-azure-apps/).
 
-Si bien los pasos de este artículo utilizan el Portal Azure para crear un sitio web, también es posible utilizar las [herramientas de línea de comandos de Azure para Mac y Linux][herramientas de línea de comandos de Azure para Mac y Linux] para realizar las mismas operaciones.
+Si tiene problemas con su aplicación después de la implementación en Azure, consulte [Depuración de una aplicación Node.js en Sitios web Azure](/es-es/documentation/articles/web-sites-nodejs-debug/) para obtener información acerca del diagnóstico del problema.
 
-Node.js proporciona un abundante ecosistema de módulos que puede utilizar con sus aplicaciones. Para obtener información acerca del funcionamiento de los Sitios web Azure con los módulos, consulte [Uso de módulos Node.js con aplicaciones de Azure][Uso de módulos Node.js con aplicaciones de Azure].
 
-Para obtener más información acerca de las versiones de Node.js que se proporcionan con Azure y la forma de especificar la versión que se debe utilizar con su aplicación, consulte [Especificación de una versión de Node.js en una aplicación Azure][Especificación de una versión de Node.js en una aplicación Azure].
+##Recursos adicionales
 
-Si tiene problemas con su aplicación después de la implementación en Azure, consulte [Cómo depurar una aplicación Node.js en Sitios web Azure][Cómo depurar una aplicación Node.js en Sitios web Azure] para obtener información acerca del diagnóstico del problema.
+* [Azure PowerShell]
+* [Herramientas de línea de comandos de Azure para Mac y Linux]
 
-## Recursos adicionales
+[Azure PowerShell]: /es-es/documentation/articles/install-configure-powershell/
 
--   [Azure PowerShell][Azure PowerShell]
--   [Herramientas de línea de comandos de Azure para Mac y Linux][herramientas de línea de comandos de Azure para Mac y Linux]
+[nodejs.org]: http://nodejs.org
+[Git]: http://git-scm.com
 
-  [Node]: http://nodejs.org
-  [Git]: http://git-scm.com
-  [Un explorador muestra el mensaje "Hello World".]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
-  [Portal de administración de Azure]: http://manage.windowsazure.com
-  [Cuadro de diálogo Quick Create]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png
-  [Abrir el panel del sitio web]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
-  [Configuración de la publicación Git]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png
-  [Dónde está su código fuente]: ./media/web-sites-nodejs-develop-deploy-mac/where_is_code.png
-  [Cuadro de diálogo que solicita el nombre de usuario y la contraseña.]: ./media/web-sites-nodejs-develop-deploy-mac/git-deployment-credentials.png
-  [Instrucciones de implementación Git devueltas después de crear un repositorio para el sitio web.]: ./media/web-sites-nodejs-develop-deploy-mac/git-instructions.png
-  [1]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
-  [Estado de implementación Git en el portal]: ./media/web-sites-nodejs-develop-deploy-mac/git_deployments_first.png
-  [Estado de implementación Git actualizada en el Portal]: ./media/web-sites-nodejs-develop-deploy-mac/git_deployments_second.png
-  [herramientas de línea de comandos de Azure para Mac y Linux]: /es-es/documentation/articles/xplat-cli/
-  [Uso de módulos Node.js con aplicaciones de Azure]: /es-es/documentation/articles/nodejs-use-node-modules-azure-apps/
-  [Especificación de una versión de Node.js en una aplicación Azure]: /es-es/documentation/articles/nodejs-specify-node-version-azure-apps/
-  [Cómo depurar una aplicación Node.js en Sitios web Azure]: /es-es/documentation/articles/web-sites-nodejs-debug/
-  [Azure PowerShell]: /es-es/documentation/articles/install-configure-powershell/
+[Portal de administración de Azure]: http://manage.windowsazure.com
+[Herramientas de línea de comandos de Azure para Mac y Linux]: /es-es/documentation/articles/xplat-cli/
+
+[helloworld-completed]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
+[helloworld-localhost]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png
+[portal-new-website]: ./media/web-sites-nodejs-develop-deploy-mac/plus-new.png
+[portal-quick-create]: ./media/web-sites-nodejs-develop-deploy-mac/create-quick-website.png
+
+[portal-git-username-password]: ./media/web-sites-nodejs-develop-deploy-mac/git-deployment-credentials.png
+[git-instructions]: ./media/web-sites-nodejs-develop-deploy-mac/git-instructions.png
+
+[git-deployments-first]: ./media/web-sites-nodejs-develop-deploy-mac/git_deployments_first.png
+[git-deployments-second]: ./media/web-sites-nodejs-develop-deploy-mac/git_deployments_second.png
+
+[setup-git-publishing]: ./media/web-sites-nodejs-develop-deploy-mac/setup_git_publishing.png
+[go-to-dashboard]: ./media/web-sites-nodejs-develop-deploy-mac/go_to_dashboard.png
+[where-is-code]: ./media/web-sites-nodejs-develop-deploy-mac/where_is_code.png

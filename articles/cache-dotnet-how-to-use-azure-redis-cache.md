@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Uso de Caché en Redis de Azure" metaKeywords="" description="Learn how to create a use a cache in Azure Redis Cache" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Uso de Caché en Redis de Azure" metaKeywords="" description="Learn how to create a use a cache in Azure Redis Cache" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="sdanie" />
 
@@ -30,7 +30,7 @@ Caché en Redis de Microsoft Azure se basa en la conocida Caché en Redis de có
 Caché en Redis de Microsoft Azure está disponible en dos niveles:
 
 -	**Básico** - Nodo único. Varios tamaños de hasta 53 GB.
--	**Estándar** - Maestro/Esclavo de dos nodos. Varios tamaños de hasta 53 GB. Contrato de nivel de servicio del 99,9 %.
+-	**Estándar** - Principal/secundario de dos nodos. Varios tamaños de hasta 53 GB. Contrato de nivel de servicio del 99,9 %.
 
 Estos niveles difieren en las características y el precio. Las características se tratan más adelante en esta guía; por otro lado, para obtener más información acerca de los precios consulte [Detalles de precios de caché][].
 
@@ -61,7 +61,7 @@ En **Nombre DNS**, escriba un nombre de subdominio para usar el extremo de cach�
 Use **Nivel de precios** para seleccionar el tamaño y características de caché que desee. Caché en Redis está disponible en los dos siguientes niveles.
 
 -	**Básico** - Modo único, varios tamaños de hasta 53 GB.
--	**Estándar** - Maestro/Esclavo de dos nodos, contrato de nivel de servicio del 99,9 % y varios tamaños de hasta 53 GB.
+-	**Estándar** - Principal/secundario de dos nodos, contrato de nivel de servicio del 99,9 % y varios tamaños de hasta 53 GB.
 
 En **Suscripción**, seleccione la suscripción de Azure que desee utilizar para la memoria caché.
 
@@ -218,7 +218,7 @@ Escriba **RedisSessionStateProvider** en el cuadro de texto **Buscar en línea**
 
 El paquete de NuGet se descarga, agrega las referencias de ensamblado requeridas y agrega la siguiente sección en el archivo web.config que contiene la configuración requerida para que su aplicación ASP.NET use el proveedor del estado de sesión de caché Redis.
 
-  <sessionState mode="Custom" customProvider="MySessionStateStore">
+	<sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
         <!--
           <add name="MySessionStateStore" 

@@ -1,20 +1,20 @@
-## <span id="AdditionalServices"></span></a><span class="short-header">Uso de servicios Twilio adicionales</span>Uso de servicios Twilio adicionales
+﻿<h2><a id="AdditionalServices"></a>Direccionamiento del servicios Twilio adicionales</h2>
+Además de los ejemplos aquí mostrados, Twilio ofrece API basadas en web que puede utilizar para aprovechar las funciones adicionales de Twilio desde su aplicación de Azure. Para obtener los detalles completos, consulte la [documentación de API de Twilio] [twilio_api_documentation].
 
-Además de los ejemplos aquí mostrados, Twilio ofrece API basadas en Web que puede utilizar para aprovechar las funciones adicionales de Twilio desde su aplicación de Azure. Para obtener los detalles completos, consulte [Twilio API documentation][Twilio API documentation].
-
-## <span id="NextSteps"></span></a><span class="short-header">Pasos siguientes</span>Pasos siguientes
-
+<h2><a id="NextSteps"></a>Pasos siguientes</h2>
 Ahora que conoce los fundamentos del servicio Twilio, siga estos vínculos para obtener más información:
 
-* [Twilio Security Guidelines][Twilio Security Guidelines]
-* [Twilio HowTos and Example Code][Twilio HowTos and Example Code]
-* [Twilio Quickstart Tutorials][Twilio Quickstart Tutorials]
-* [Twilio on GitHub][Twilio on GitHub]
-* [Talk to Twilio Support][Talk to Twilio Support]
+* [Instrucciones de seguridad para Twilio] [twilio_security_guidelines]
+* [Procedimientos y código de ejemplo de Twilio] [twilio_howtos]
+* [Tutoriales de inicio rápido de Twilio][twilio_quickstarts] 
+* [Twilio en GitHub] [twilio_on_github]
+* [Hablar con soporte técnico de Twilio] [twilio_support]
 
-  [Twilio API documentation]: http://www.twilio.com/api
-  [Twilio Security Guidelines]: http://www.twilio.com/docs/security
-  [Twilio HowTos and Example Code]: http://www.twilio.com/docs/howto
-  [Twilio Quickstart Tutorials]: http://www.twilio.com/docs/quickstart
-  [Twilio on GitHub]: https://github.com/twilio
-  [Talk to Twilio Support]: http://www.twilio.com/help/contact
+[twilio_api_documentation]: http://www.twilio.com/api
+[twilio_security_guidelines]: http://www.twilio.com/docs/security
+[twilio_howtos]: http://www.twilio.com/docs/howto
+[twilio_on_github]: https://github.com/twilio
+[twilio_support]: http://www.twilio.com/help/contact
+[twilio_quickstarts]: http://www.twilio.com/docs/quickstart
+
+

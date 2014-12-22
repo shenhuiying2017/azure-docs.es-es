@@ -1,79 +1,71 @@
-<properties title="Learn how to configure an Azure website to use a domain name registered with GoDaddy" pageTitle="Configure a GoDaddy domain name for an Azure website" metaKeywords="Azure, Azure Web Sites, domain name" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" />
+﻿<properties title="Learn how to configure an Azure website to use a domain name registered with GoDaddy" pageTitle="Configuración de un nombre de dominio de GoDaddy para un sitio web de Azure "metaKeywords ="Azure, Sitios web Azure, nombre de dominio" description="" services="web-sites" documentationCenter="" authors="larryfr, jroth" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr, jroth" />
 
-# Configuración de un nombre de dominio personalizado para un sitio web de Azure (GoDaddy).
+#Configuración de un nombre de dominio personalizado para un sitio web de Azure (GoDaddy).
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/documentation/articles/web-sites-custom-domain-name" title="Dominio personalizado">Dominio personalizado</a><a href="/es-es/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy" class="current">GoDaddy</a><a href="/es-es/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions" class="current">Network Solutions</a><a href="/es-es/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com" class="current">Register.com</a><a href="/es-es/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/es-es/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker" class="current">Moniker</a><a href="/es-es/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster" class="current">Dotster</a><a href="/es-es/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover" class="current">DomainDiscover</a><a href="/es-es/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic" class="current">Directnic</a></div>
-
-<div class="dev-center-tutorial-subselector"><a href="/es-es/documentation/articles/web-sites-godaddy-custom-domain-name/" title="Sitios web" class="current">Sitio web</a> | <a href="/es-es/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/" title="Sitio web mediante el Administrador de tr&aacute;fico">Sitio web mediante el Administrador de tr&aacute;fico</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/documentation/articles/web-sites-custom-domain-name" title="Custom Domain">Dominio personalizado</a><a href="/es-es/documentation/articles/web-sites-godaddy-custom-domain-name" title="GoDaddy" class="current">GoDaddy</a><a href="/es-es/documentation/articles/web-sites-network-solutions-custom-domain-name" title="Network Solutions">Soluciones de red</a><a href="/es-es/documentation/articles/web-sites-registerdotcom-custom-domain-name" title="Register.com">Register.com</a><a href="/es-es/documentation/articles/web-sites-enom-custom-domain-name" title="Enom">Enom</a><a href="/es-es/documentation/articles/web-sites-moniker-custom-domain-name" title="Moniker">Moniker</a><a href="/es-es/documentation/articles/web-sites-dotster-custom-domain-name" title="Dotster">Dotster</a><a href="/es-es/documentation/articles/web-sites-domaindiscover-custom-domain-name" title="DomainDiscover">DomainDiscover</a><a href="/es-es/documentation/articles/web-sites-directnic-custom-domain-name" title="Directnic">Directnic</a></div>
+<div class="dev-center-tutorial-subselector"><a href="/es-es/documentation/articles/web-sites-godaddy-custom-domain-name/" title="Websites" class="current">Sitio web</a> | <a href="/es-es/documentation/articles/web-sites-godaddy-traffic-manager-custom-domain-name/" title="Website using Traffic Manager">Sitio Web mediante el Administrador de tráfico</a></div>
 
 [WACOM.INCLUDE [websites-cloud-services-css-guided-walkthrough](../includes/websites-cloud-services-css-guided-walkthrough.md)]
 
 [WACOM.INCLUDE [intro](../includes/custom-dns-web-site-intro.md)]
 
-Este artículo ofrece instrucciones acerca del uso de un nombre de dominio personalizado adquirido en [Go Daddy][Go Daddy] con Sitios web Azure.
+Este artículo ofrece instrucciones acerca del uso de un nombre de dominio personalizado adquirido en [Go Daddy](https://godaddy.com) con Sitios web Azure.
 
 [WACOM.INCLUDE [introfooter](../includes/custom-dns-web-site-intro-notes.md)]
 
 En este artículo:
 
--   [Descripción de los registros DNS][Descripción de los registros DNS]
--   [Incorporación de un registro DNS para el dominio personalizado][Incorporación de un registro DNS para el dominio personalizado]
--   [Habilitación del dominio en su sitio web][Habilitación del dominio en su sitio web]
+-   [Descripción de los registros DNS](#understanding-records)
+-   [Incorporación de un registro DNS para el dominio personalizado](#bkmk_configurecname)
+-   [Habilitación del dominio en su sitio web](#enabledomain)
 
-## <a name="understanding-records"></a>Descripción de los registros DNS
+<h2><a name="understanding-records"></a>Descripción de los registros DNS</h2>
 
 [WACOM.INCLUDE [understandingdns](../includes/custom-dns-web-site-understanding-dns-raw.md)]
 
-## <a name="bkmk_configurecname"></a>Incorporación de un registro DNS para el dominio personalizado
+
+<h2><a name="bkmk_configurecname"></a>Incorporación de un registro DNS para el dominio personalizado</h2>
 
 Para asociar el domino personalizado a un sitio web de Azure, debe agregar una nueva entrada en la tabla DNS para su dominio personalizado usando las herramientas proporcionadas por GoDaddy. Utilice los pasos siguientes para localizar las herramientas DNS de GoDaddy.com.
 
-1.  Inicie sesión en la cuenta con GoDaddy.com, seleccione **My Account** y, a continuación, **Manage my domains**. Finalmente, seleccione el nombre del dominio que desee usar con el sitio web de Azure en el menú desplegable y elija **Manage DNS**..
+1. Inicie sesión en la cuenta con GoDaddy.com, seleccione **My Account** y, a continuación, **Manage my domains**. Finalmente, seleccione el nombre del dominio que desee usar con el sitio web de Azure en el menú desplegable y elija **Manage DNS**.
 
-    ![Página de dominio personalizado para GoDaddy][Página de dominio personalizado para GoDaddy]
+	![custom domain page for GoDaddy](./media/web-sites-custom-domain-name/godaddy-customdomain.png)
 
-2.  En la página **Domain details**, desplácese hasta la pestaña **DNS Zone File**. Esta es la sección que se utiliza para agregar y modificar los registros DNS para el nombre de dominio.
+2. En la página **Domain details**, desplácese hasta la pestaña **DNS Zone File**. Esta es la sección que se utiliza para agregar y modificar los registros DNS para el nombre de dominio. 
 
-    ![Pestaña de archivo de zona DNS][Pestaña de archivo de zona DNS]
+	![DNS Zone File tab](./media/web-sites-custom-domain-name/godaddy-zonetab.png)
 
-    Seleccione **Add Record** para agregar un registro existente.
+	Seleccione **Add Record** para agregar un registro existente.
 
-    Seleccione el icono de lápiz y papel junto al registro para **editar** un registro existente.
+	Seleccione el icono de lápiz y papel junto al registro para **editar** un registro existente.
 
-    > [WACOM.NOTE] Antes de agregar registros nuevos, tenga en cuenta que GoDaddy ya ha creado registros DNS de subdominios populares (llamados **Host** en el editor), como **email**, **files**, **mail** y otros. Si el nombre que desea utilizar ya existe, modifique el registro actual en lugar de crear uno nuevo.
+	> [WACOM.NOTE] Antes de agregar nuevos registros, tenga en cuenta que GoDaddy ya ha creado registros DNS de subdominios populares (llamados **Host** en el editor), como **email**, **files**, **mail** y otros. Si el nombre que desea utilizar ya existe, modifique el registro actual en lugar de crear uno nuevo.
 
-3.  Al agregar un registro, primero debe seleccionar el tipo de registro.
+4. Al agregar un registro, primero debe seleccionar el tipo de registro.
 
-    ![seleccione el tipo de registro][seleccione el tipo de registro]
+	![select record type](./media/web-sites-custom-domain-name/godaddy-selectrecordtype.png)
 
-    A continuación, proporcione el **Host** (dominio o subdominio personalizado) y a qué **Points to**.
+	A continuación, proporcione el **Host** (dominio o subdominio personalizado) y a qué **Points to**.
 
-    ![agregue un registro de zona.][agregue un registro de zona.]
+	![add zone record](./media/web-sites-custom-domain-name/godaddy-addzonerecord.png)
 
-    -   Al agregar un registro **A (host)**, se debe establecer el campo **Host** en [@][@] (esto representa el nombre de dominio raíz, como **contoso.com**), \* (un comodín para que se corresponda con varios subdominios) o el subdominio que desea utilizar (por ejemplo, **www**). Debe establecer el campo **Points to** en la dirección IP de su sitio web de Azure.
+	* Al agregar un registro **A (host)**, se debe establecer el campo **Host** en **@** (esto representa el nombre de dominio raíz, como **contoso.com**), * (un comodín para que se corresponda con varios subdominios) o el subdominio que desea utilizar (por ejemplo, **www**). Debe establecer el campo **Points to** en la dirección IP de su sitio web de Azure.
+	
+		> [WACOM.NOTE] Si utiliza registros A (host), tiene que agregar también un registro CNAME con una de las configuraciones siguientes:
+		> 
+		> * Un valor **Host** de **awverify** que **apunta a** un valor de **awverify.&lt;sunombredesitioweb&gt;.azurewebsites.net**.
+		> 
+		> Azure utiliza este registro CNAME para comprobar que el dominio descrito por el registro D es efectivamente suyo.
 
-        > [WACOM.NOTE] Si utiliza registros A (host), tiene que agregar también un registro CNAME con una de las configuraciones siguientes:
-        >
-        > -   Un valor **Host** de **awverify** con un valor **Points to** de **awverify.\<yourwebsitename\>.azurewebsites.net**.
-        >
-        > Azure utiliza este registro CNAME para comprobar que el dominio descrito por el registro D es efectivamente suyo.
+	* Al agregar un **registro CNAME (alias)** debe configurar el campo **Host** con el subdominio que desee usar. Por ejemplo, **www**. Debe definir el campo **Points to** con el nombre de dominio **.azurewebsites.net** de su sitio web de Azure. Por ejemplo, **contoso.azurewebsites.net**.
 
-    -   Al agregar un **registro CNAME (alias)** debe configurar el campo **Host** con el subdominio que desee usar. Por ejemplo, **www**. Debe definir el campo **Points to** con el nombre de dominio **.azurewebsites.net** de su sitio web de Azure. Por ejemplo, **contoso.azurewebsites.net**.
 
-4.  Cuando haya terminado de agregar o modificar los registros, haga clic en **Finish** para guardar los cambios.
+5. Cuando haya terminado de agregar o modificar los registros, haga clic en **Finish** para guardar los cambios.
 
-## <a name="enabledomain"></a>Habilitación del nombre de dominio en su sitio web
+<h2><a name="enabledomain"></a>Habilitación del nombre de dominio en su sitio web</h2>
 
 [WACOM.INCLUDE [modes](../includes/custom-dns-web-site-enable-on-web-site.md)]
 
-  [Go Daddy]: https://godaddy.com
-  [Descripción de los registros DNS]: #understanding-records
-  [Incorporación de un registro DNS para el dominio personalizado]: #bkmk_configurecname
-  [Habilitación del dominio en su sitio web]: #enabledomain
-  [Página de dominio personalizado para GoDaddy]: ./media/web-sites-custom-domain-name/godaddy-customdomain.png
-  [Pestaña de archivo de zona DNS]: ./media/web-sites-custom-domain-name/godaddy-zonetab.png
-  [seleccione el tipo de registro]: ./media/web-sites-custom-domain-name/godaddy-selectrecordtype.png
-  [agregue un registro de zona.]: ./media/web-sites-custom-domain-name/godaddy-addzonerecord.png
-  [@]: mailto:**@*
