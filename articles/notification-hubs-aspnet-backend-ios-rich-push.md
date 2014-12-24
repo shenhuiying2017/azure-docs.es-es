@@ -364,4 +364,4 @@ Ahora que ha modificado el back-end de la aplicación para enviar solo el *id* d
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-1.png
 [IOS2]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-2.png
 [IOS3]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-3.png
-[IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.pngsss
+[IOS4]: ./media/notification-hubs-aspnet-backend-ios-rich-push/rich-push-ios-4.png

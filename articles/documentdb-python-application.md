@@ -1,108 +1,117 @@
-<properties title="Build a web application with Python and Flask (MVC) using DocumentDB" pageTitle="Build a web app with Python and Flask using DocumentDB | Azure" description="Learn how to use DocumentDB to store and access data from an Python and Flask (MVC) web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Build a web application with Python and Flask (MVC) using DocumentDB" pageTitle="Generación de una aplicación web con Python y Flask mediante la Base de datos de documentos | Azure" description="Learn how to use DocumentDB to store and access data from an Python and Flask (MVC) web application hosted on Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+
 
 <tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
 
-# <a name="_Toc395888515"></a><a name="_Toc395809324">Generación de una aplicación web con Python y Flask (MVC) mediante la Base de datos de documentos</a>
+<a name="_Toc395888515"></a><a name="_Toc395809324">Generación de una aplicación web con Python y Flask (MVC) mediante la Base de datos de documentos</a>
+===========================================================================================================================================
 
 <a name="_Toc395809324">
 
-# <a name="_Toc395888516"></a><a name="_Toc395809325"></a><a name="_Toc389865467"></a><a name="_Toc389828008">Información general</a>
+<a name="_Toc395888516"></a><a name="_Toc395809325"></a><a name="_Toc389865467"></a><a name="_Toc389828008">Información general</a>
+========================================================================================================================
 
-## <a name="_Toc395888517"></a><a name="_Toc395809326">Escenario</a>
+<a name="_Toc395888517"></a><a name="_Toc395809326">Escenario</a>
+----------------------------------------------------------------
 
-Para resaltar cómo los clientes pueden aprovechar la Base de datos de documentos de Azure para
+Para resaltar cómo los clientes pueden aprovechar eficazmente la Base de datos de documentos de Azure para
 almacenar y consultar documentos JSON, este documento proporciona un tutorial
-integral sobre la generación de una aplicación web para votaciones mediante la Base de datos de documentos de
-Azure.
+integral sobre la creación de una aplicación web para votaciones mediante la Base de datos de
+documentos de Azure.
 
-En este tutorial aprenderá a utilizar el servicio de Base de datos de documentos proporcionado por
-Azure para almacenar y acceder a datos desde cualquier aplicación web Phyton hospedada en
-Azure y presupone que tiene experiencia previa en el uso de los sitios web de Phyton y
-Azure.
+Este tutorial le mostrará cómo usar el servicio de Base de datos de documentos proporcionado por
+Azure para almacenar y tener acceso a datos desde una aplicación web de Phyton hospedada en
+Azure y presupone que tiene experiencia previa en el uso de los sitios web de
+Python y Azure.
 
 Aprenderá a:
 
-1. Crear y aprovisionar una cuenta de la Base de datos de documentos
+1\. Crear y aprovisionar una cuenta de la Base de datos de documentos
 
-2. Crear una aplicación Phyton MVC
+2\. Crear una aplicación Phyton MVC
 
-3. Conectarse y utilizar la Base de datos de documentos desde su aplicación web
+3\. Conectarse y utilizar la Base de datos de documentos desde su aplicación web
 
-4. Implementar la aplicación web en Sitios web de Azure
+4\. Implementar la aplicación web en Sitios web de Azure
 
-Siguiendo este tutorial, podrá compilar una aplicación
-de votación sencilla que le permita votar en un sondeo.
+Siguiendo este tutorial, podrá compilar una aplicación de
+votación simple que le permita votar en un sondeo.
 
-![Texto alternativo][Texto alternativo]
+![Alt text](./media/documentdb-python-application/image1.png)
 
 <a name="_Toc395888520"></a><a name="_Toc395809329">Requisitos previos</a>
 
-Antes de seguir las instrucciones del presente artículo, debe asegurarse
-de tener instalados los siguientes elementos:
 
-Visual Studio 2013 (o [Visual Studio Express][Visual Studio Express] que es la versión
+Antes de seguir las instrucciones que aparecen en este artículo, debe asegurarse de
+tener instalados los siguientes elementos:
+
+Visual Studio 2013 (o [Visual Studio Express][] que es la versión
 gratuita)
 
-Python Tools para Visual Studio desde [aquí][aquí]
+Python Tools para Visual Studio desde [aquí][]
 
-Azure SDK para Visual Studio 2013, versión 2.4 o superior disponible desde
+SDK de Azure para Visual Studio 2013, versión 2.4 o superior disponible desde
 [aquí][1]
 
-Herramientas de línea de comandos multiplataforma de Azure, disponible a través del [instalador de
-plataforma web de Microsoft][instalador de
-plataforma web de Microsoft]
+Herramientas de línea de comandos multiplataforma de Azure, disponible a través del [instalador de plataforma
+web de Microsoft][]
 
-# <a name="_Toc395888519"></a><a name="_Toc395809328">Creación de una cuenta de base de datos de la Base de datos de documentos</a>
+<a name="_Toc395888519"></a><a name="_Toc395809328">Creación de una cuenta de base de datos de la Base de datos de documentos</a>
+============================================================================================
 
-Para aprovisionar una cuenta de base de datos de la Base de datos de documentos en Azure, abra el Portal
-de administración de Azure y haga clic en el mosaico de la Galería de Azure de la
-página de inicio o haga clic en "+" en la esquina inferior izquierda de la pantalla.
+Para aprovisionar una cuenta de base de datos de la Base de datos de documentos en Azure, abra el
+Portal de administración de Azure y haga clic en el mosaico de la Galería de Azure de la
+página principal o haga clic en "+" en la esquina inferior izquierda de la pantalla.
 
-![Texto alternativo][2]
+![Alt text](./media/documentdb-python-application/image2.png)
 
-Esto abrirá la Galería de Azure, donde podrá seleccionar entre muchos
+
+Con esto se abrirá la Galería de Azure, donde podrá seleccionar entre muchos
 servicios de Azure disponibles. En la Galería, seleccione "Datos, almacenamiento y
 copia de seguridad" de la lista de categorías.
 
-![Texto alternativo][3]
+![Alt text](./media/documentdb-python-application/image3.png)
 
 Desde aquí, seleccione la opción de la Base de datos de documentos de Azure.
 
-![Texto alternativo][4]
+![Alt text](./media/documentdb-python-application/image4.png)
 
-A continuación, seleccione "Crear" en la parte inferior de la pantalla.
+A continuación, seleccione "Crear" en la parte inferior de la pantalla
 
-![Texto alternativo][5]
+![Alt text](./media/documentdb-python-application/image5.png)
 
 Esto abrirá el cuadro "Nueva Base de datos de documentos" donde puede especificar el
-nombre, región, escala, grupo de recursos y otras especificaciones de su nueva
+nombre, la región, la escala, el grupo de recursos y otra configuración de su nueva
 cuenta.
 
-![Texto alternativo][6]
+![Alt text](./media/documentdb-python-application/image6.png)
 
-Una vez que haya terminado de proporcionar los valores de la cuenta, haga clic en "Crear"
+Una vez que haya terminado de suministrar los valores de la cuenta, haga clic en "Crear"
 y el proceso de aprovisionamiento comenzará a crear su cuenta de base de datos.
 Una vez que se haya completado el proceso de aprovisionamiento debería ver una notificación
-en el área de notificaciones del portal y el icono de su
-pantalla de inicio (si ha seleccionado crear uno) cambiará para mostrar la
+en el área de notificaciones del portal y el mosaico en la
+pantalla de inicio (si seleccionó crear uno) cambiará para mostrar la
 acción completada.
 
-![Texto alternativo][7]
+![Alt text](./media/documentdb-python-application/image7.png)
 
-Una vez que se haya completado el aprovisionamiento, al hacer clic en el icono de la Base de datos de documentos de la
-pantalla inicio, se abrirá el cuadro principal para la cuenta de la
-Base de datos de documentos recién creada.
+Una vez que se haya completado el aprovisionamiento, al hacer clic en el mosaico de la Base de datos de documentos de
+la pantalla de inicio, se abrirá el cuadro principal para esta cuenta
+de la Base de datos de documentos recién creada.
 
-![Texto alternativo][8]
-![Texto alternativo][9]
+![Alt text](./media/documentdb-python-application/image8.png)
+![Alt text](./media/documentdb-python-application/image9.png)
 
-Mediante el botón "Claves", obtiene acceso a su URL de extremo y a la clave principal,
-cópielas en el portapapeles y consérvelas a mano ya que utilizaremos estos
+
+
+Use el botón "Claves" para tener acceso a su dirección URL de extremo y a la clave principal,
+cópielas en el portapapeles y manténgalas a mano ya que usaremos estos
 valores en la aplicación web que crearemos a continuación.
 
 </a>
 
-# <a name="_Toc395888520"></a><a name="_Toc395809329">Creación de una nueva aplicación web de Phyton Flask</a>
+<a name="_Toc395888520"></a><a name="_Toc395809329">Creación de una nueva aplicación web de Phyton Flask</a>
+=================================================================================================
 
 Abra Visual Studio, Archivo -\> Nuevo proyecto -\> Python -\>, Proyecto web
 Flask llamado **tutorial**. Se le preguntará si desea
@@ -110,16 +119,17 @@ instalar paquetes externos. Haga clic en Instalar en un entorno virtual
 y, a continuación, haga clic en Crear. Esto configurará el entorno virtual de Python
 requerido para su proyecto.
 
-Para aquellos nuevos en Flask, se trata de un marco web que nos ayuda a crear aplicaciones
-web en Python más rápido. [Haga clic aquí para obtener acceso a los tutoriales de Flask][Haga clic aquí para obtener acceso a los tutoriales de Flask].
+Para quienes son usuarios nuevos de Flask, se trata de un marco web que nos ayuda a crear aplicaciones
+web en Python más rápido. [Haga clic aquí para obtener acceso a los tutoriales de Flask][].
 
-![Texto alternativo][10]
+![Alt text](./media/documentdb-python-application/image10.png)
 
-# <a name="_Toc395888520"></a><a name="_Toc395809329">Adición de paquetes flask a su proyecto</a>
+<a name="_Toc395888520"></a><a name="_Toc395809329">Adición de paquetes flask a su proyecto</a>
+==================================
 
 Una vez que haya configurado el proyecto, debe agregar determinados paquetes flask que
-serán necesarios para nuestro proyecto; como formularios. Haga clic con el botón derecho en **env**
-y en **Instalar los siguientes paquetes Python (seguir esta orden es
+serán necesarios para nuestro proyecto, por ejemplo, formularios. Haga clic con el botón secundario en **env**
+y en **Instalar los siguientes paquetes de Python (seguir este orden es
 importante)**:
 
     flask==0.9
@@ -135,55 +145,59 @@ importante)**:
     flask-babel==0.8
     flup
 
-![Texto alternativo][11]
+![Alt text](./media/documentdb-python-application/image11.png)
 
 **Nota:** en casos excepcionales, es posible que aparezca un error en la ventana de resultados. Si
-esto ocurre, compruebe si el error está relacionado con la limpieza. En ocasiones la
-limpieza da error, pero la instalación se realiza correctamente (desplácese hacia arriba
-en la ventana de resultados para comprobarlo).
-<a name="verify-the-virtual-environment"></a> Si esto ocurre, puede
-continuar.
+esto sucede, revise si el error está relacionado con la limpieza. En algunas ocasiones, la
+limpieza puede dar error, pero la instalación se realizará correctamente (desplácese hacia arriba
+en la ventana de salida para comprobarlo).
+<a name="verify-the-virtual-environment"></a> Si esto ocurre, puede continuar.
 
 </h1>
-# <a name="_Toc395888522"></a><a name="_Toc395809331">Comprobación del entorno virtual</a>
+<a name="_Toc395888522"></a><a name="_Toc395809331">Comprobación del entorno virtual</a>
+======================================================================================
 
-Asegurémonos de que todo esté instalado correctamente. Inicie el sitio
-web haciendo clic en **F5**. De este modo se ejecutará el servidor de desarrollo flask
+
+Asegurémonos de que todo esté correctamente instalado. Inicie el sitio
+web haciendo clic en **F5** De este modo se iniciará el servidor de desarrollo flask
 y el explorador web. Verá la siguiente página:
 
-![Texto alternativo][12]
+![Alt text](./media/documentdb-python-application/image12.png)
 
-# <a name="_Toc395888523"></a><a name="_Toc395809332">Adición de una Base de datos de documentos a su proyecto</a>
+<a name="_Toc395888523"></a><a name="_Toc395809332">Adición de una Base de datos de documentos a su proyecto</a>
+=========================================================================================
 
 El SDK de Python de la Base de datos de documentos está hospedado en PyPi y se puede instalar con
 pip.
 
-Amplíe el nodo de Entornos Python en el Explorador de soluciones, haga clic con el botón derecho en
-su entorno y seleccione "Instalar paquete Python…".
+Amplíe el nodo de entornos Python en el Explorador de soluciones, haga clic con el botón secundario en
+su entorno y seleccione "Instalar paquete Python..."
 
-![Texto alternativo][13]
+![Alt text](./media/documentdb-python-application/image13.png)
 
-Inserte "--pre pydocumentdb" que es el nombre del paquete PyPi. También puede
-proporcionar una versión conocida si desea controlar qué versión le
-gustaría instalar, dejándolo sin versión se asegura de que se instala
-la última versión estable. Tenga en cuenta que es posible que tenga que especificar
-todo el nombre "--pre pydocumentdb".
+Escriba "--pre pydocumentdb", que es el nombre del paquete PyPi. De manera opcional,
+puede proporcionar una versión conocida si desea controlar qué versión
+le gustaría instalar; si lo deja sin versión se asegurará de que se instale
+la versión estable más reciente. Tenga en cuenta que tendrá que escribir el
+nombre completo "--pre pydocumentdb".
 
-![Texto alternativo][14]
+![Alt text](./media/documentdb-python-application/image14.png)
 
 Esto descargará e instalará el paquete de pydocumentdb en su
-entorno, una vez completado debería ver pydocumentdb en la lista como un
+entorno y una vez completado debería ver pydocumentdb en la lista como un
 módulo de su entorno.
 
 </h1>
-# <a name="_Toc395888524"></a><a name="_Toc395809333">Creación de definición de base de datos, colección y documento</a>
+<a name="_Toc395888524"></a><a name="_Toc395809333">Creación de definición de base de datos, colección y documento</a>
+============================================================================================================
 
-Agregue lo siguiente a un archivo de python – **forms.py** y agréguelo a la carpeta
-llamada tutorial en su Explorador de soluciones. Agregue el código siguiente a
+Agregue lo siguiente a un archivo de python - **forms.py** y agréguelo a la carpeta
+llamada tutorial en el Explorador de soluciones. Agregue el siguiente código a
 forms.py. Estamos creando nuestra aplicación de sondeo. Esto se hace
-creando tres campos booleanos que se alternarán dependiendo de lo que especifique el usuario.
+creando tres campos booleanos que se alternarán según lo especificado por el usuario.
 
 </h1>
+
     #forms.py
     from flask.ext.wtf import Form
     from wtforms import TextField, BooleanField
@@ -197,17 +211,19 @@ creando tres campos booleanos que se alternarán dependiendo de lo que especifiq
         remember_me1 = BooleanField('remember_me1', default = False)
         remember_me2 = BooleanField('remember_me2', default = False)
 
-# <a name="_Toc395888520"></a>
+<a name="_Toc395888520"></a>
+============================
 
 ### <a name="_Toc395809338">Creación de base de datos, colección y documento</a>
 
 \#Nota: se considera más seguro mantener sus credenciales de autenticación
-en un archivo de configuración en lugar de en la aplicación. Para que sea más sencillo, lo estamos
-colocando en código fuente. Cree una nueva función en views.py y llámela
-crear. Anexe lo siguiente a**views.py**. No elimine ningún código
-existente.
+en un archivo de configuración en lugar de en la aplicación. Para que sea más simple, lo
+ponemos en código fuente. Cree una nueva función en views.py y llámela
+crear. Adjunte lo siguiente a **views.py**. No elimine nada del
+código existente.
 
 </h1>
+
     @app.route('/create')
     def create():
         """Renders the contact page."""
@@ -232,14 +248,17 @@ existente.
         return render_template('create.html',title='Create Page',year=datetime.now().year,
         message='You just created a new database - sample database a collection - sample collection and a document - sample document that has your votes. Your old votes have been deleted')
 
-# <a name="_Toc395888529"></a><a name="_Toc395809338">Aceptación de las votaciones de los usuarios y actualización del documento</a>
+<a name="_Toc395888529"></a><a name="_Toc395809338">Aceptación de las votaciones de los usuarios y actualización del documento</a>
+=================================================================================================
 
 ### <a name="_Toc395809338">Adición de las importaciones requeridas
 
-# <a name="_Toc395888529"></a>
+<a name="_Toc395888529"></a>
+============================
 
-Agregue las siguientes instrucciones import a la parte superior de **views.py**. Esto
-importará los paquetes de PythonSDK y Flask de la Base de datos de documentos.
+Agregue las siguientes instrucciones import a la parte superior en **views.py**. Estas
+importarán los paquetes de PythonSDK y Flask de la Base de datos de documentos.
+
 
     from wtforms import Form, BooleanField, TextField, PasswordField, validators
     from forms import LoginForm
@@ -249,9 +268,9 @@ importará los paquetes de PythonSDK y Flask de la Base de datos de documentos.
 
 ### <a name="_Toc395809338">Lectura de base de datos y colección y documento</a>
 
-Agregue el siguiente código a **views.py**. Esto se encarga de configurar
-el formulario, leyendo la base de datos, colección y documento. No elimine
-ningún código existente en views.py. Simplemente anéxelo al final.
+Agregue el código siguiente a **views.py**. Esto se encarga de configurar
+el formulario, de leer la base de datos, la recopilación y el documento. No elimine
+nada del código existente en views.py. Simplemente adjúntelo al final.
 
     @app.route('/vote', methods=['GET', 'POST'])
     def vote(): 
@@ -267,8 +286,8 @@ ningún código existente en views.py. Simplemente anéxelo al final.
             coll =collections[0] #For simplicity we are assuming there is only one collection
             documents = client.ReadDocuments(coll['_self']).ToArray() #Read document
             doc = documents[0]   #For simplicity we are assuming there is only document
-
-### <a name="_Toc395809338">Registro del voto y modificación del documento</a>
+    
+### <a name="_Toc395809338">Registering the vote and modifying the document</a>
 
             replaced_document = doc
             if form.remember_me.data:
@@ -319,13 +338,14 @@ ningún código existente en views.py. Simplemente anéxelo al final.
             year=datetime.now().year,
             message='Your application description page.')
 
+
 ### <a name="_Toc395809338">Creación de los archivos html</a>
 
-En la carpeta plantillas, agregue los siguientes archivos html.
-create.html, results.html, vote.html
+En la carpeta plantillas, agregue los siguientes archivos html:
+create.html, results.html, vote.html.
 
 Agregue el siguiente código a **create.html**. Esto se encarga de mostrar
-el mensaje de que hemos creado una nueva base de datos, colección y documento.
+el mensaje de que hemos creado una nueva base de datos, recopilación y documento.
 
     {% extends "layout.html" %}
     {% block content %}
@@ -334,9 +354,9 @@ el mensaje de que hemos creado una nueva base de datos, colección y documento.
     <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Click here to Vote &raquo;</a></p>
     {% endblock %}
 
-Agregue el siguiente código a **results.html**. Se encarga de mostrar
+Agregue el siguiente código a **results.html**. Esto se encarga de mostrar
 los resultados del sondeo.
-
+    
     {% extends "layout.html" %}
     {% block content %}
     <h3>Results of the vote</h3>
@@ -344,10 +364,10 @@ los resultados del sondeo.
     <p><a href="{{ url_for('vote') }}" class="btn btn-primary btn-large">Vote Again &raquo;</a></p>
     {% endblock %}
 
-Agregue el siguiente código a **vote.html**. Se encarga de mostrar los
-resultados y aceptar los votos. Al registrar los votos, el control se pasa
-sobre views.py donde reconoceremos el voto emitido y
-se anexará al documento de forma correspondiente.
+Agregue el siguiente código a **vote.html**. Esto se encarga de mostrar el
+sondeo y de aceptar los votos. Al registrar los votos, el control
+se pasa sobre views.py donde reconoceremos el voto emitido y 
+adjuntaremos el documento como corresponda.
 
     {% extends "layout.html" %}
     {% block content %}
@@ -361,110 +381,99 @@ se anexará al documento de forma correspondiente.
         <p><input type="submit" value="Cast your vote"></p>
     </form>
     {% endblock %}
+    
+<a name="_Toc395888529"></a>
+============================
 
-# <a name="_Toc395888529"></a>
+Elimine el código de **layout.html** y reemplácelo con el siguiente. Esto
+se encarga de configurar la barra de exploración y las direcciones URL respectivas para el enrutamiento.
 
-Elimine el código de **layout.html** y sustitúyalo por el siguiente. Se
-encarga de configurar la barra de exploración y las URL respectivas para el enrutamiento
-
-Elimine el código de index.html y sustitúyalo por el siguiente. Esto
-sirve como la página de aterrizaje de la aplicación
+Elimine el código de index.html y reemplácelo con el siguiente. Esto
+sirve como la página de aterrizaje de la aplicación.
 
 </h1>
-## <a name="_Toc395888532"></a><a name="_Toc395809341">Adición de un archivo de configuración y modificación del \_\_init\_\_.py</a>.
+<a name="_Toc395888532"></a><a name="_Toc395809341">Adición de un archivo de configuración y modificación de \_\_init\_\_.py</a>.
+----------------------------------------------------------------------------------------------------------------
 
-Haga clic con el botón derecho en el tutorial del nombre del proyecto y agregue un archivo – **config.py**.
-Esta configuración es necesaria para los formularios en flask. También puede utilizarlo para proporcionar una
-clave secreta. Agregue el siguiente código a config.py
-
+Haga clic con el botón secundario en el tutorial del nombre del proyecto y agregue un archivo - **config.py**.
+Esta configuración es necesaria para los formularios en flask. También puede usarla para proporcionar una
+clave secreta. Agregue el siguiente código a config.py.
+    
     CSRF_ENABLED = True
     SECRET_KEY = 'you-will-never-guess'
     OPENID_PROVIDERS = [
        ]
 
-Del mismo modo, anexe el **archivo \_\_init\_\_.py**. Colóquelo en cada
-carpeta llamada tutorial. Reemplace el código original por el siguiente. Se
-encarga de la conexión entre las vistas y del archivo config.py.
+Del mismo modo, adjunte el **archivo \_\_init\_\_.py**. Colóquelo en la
+carpeta llamada tutorial. Reemplace el código original por el siguiente. Esto
+encarga de la conexión entre las vistas y el archivo config.py.
 
     from flask import Flask
     app = Flask(__name__)
     app.config.from_object('config')
     import tutorial.views
 
-Tras seguir los pasos antes mencionados, este es el aspecto que debería tener su explorador
-de soluciones.
+Tras seguir los pasos mencionados anteriormente, este es el aspecto que debería tener
+su explorador de soluciones.
 
-![Texto alternativo][15]
+![Alt text](./media/documentdb-python-application/image15.png)
 
-# <a name="_Toc395888534"></a><a name="_Toc395809343"></a><a name="_Toc395637774">Ejecución de la aplicación de forma local</a>
+<a name="_Toc395888534"></a><a name="_Toc395809343"></a><a name="_Toc395637774">Ejecución de la aplicación de forma local</a>
+============================
 
-Pulse F5 o el botón Run en Visual Studio y debería ver lo
-siguiente en la pantalla.
+Pulse F5 o el botón Ejecutar en Visual Studio y debiera ver
+lo siguiente en la pantalla.
 
-![Texto alternativo][16]
+![Alt text](./media/documentdb-python-application/image16.png)
 
 Haga clic en votar y seleccione su opción.
 
-![Texto alternativo][17]
+![Alt text](./media/documentdb-python-application/image17.png)
 
-Por cada voto que emita, se incrementará el contador correspondiente. Cuando
+Para cada voto que emita, se incrementará el contador correspondiente. Cuando
 vote la próxima vez, podrá ver los resultados.
 
-![Texto alternativo][18]
+![Alt text](./media/documentdb-python-application/image18.png)
 
 </h1>
-# <a name="_Toc395888534"></a><a name="_Toc395809343"></a><a name="_Toc395637774">Implementación de la aplicación en Sitios web de Azure</a>
+<a name="_Toc395888534"></a><a name="_Toc395809343"></a><a name="_Toc395637774">Implementación de la aplicación en Sitios web de Azure</a>
+========================================================================================================================
 
-Ahora que ya tiene la aplicación completa funcionando correctamente con la
-Base de datos de documentos, vamos a implementarla en los sitios web de Azure. Haga clic con el botón derecho en
-el Proyecto del Explorador de soluciones (asegúrese de que no se está ejecutando de forma
-local) y seleccione Publicar.
+Ahora que ya tiene toda la aplicación funcionando correctamente con la
+Base de datos de documentos, la implementaremos en los Sitios web Azure. Haga clic con el botón secundario en
+el proyecto en el Explorador de soluciones (asegúrese de que no se está ejecutando
+de forma local) y seleccione Publicar.
 
-![Texto alternativo][19]
+![Alt text](./media/documentdb-python-application/image19.png)
 
-Configure su sitio web de Azure proporcionando sus credenciales y creando
-un nuevo sitio web o reutilizando uno antiguo.
 
-![Texto alternativo][20]
+Configure su Sitio web Azure proporcionando sus credenciales y creando
+un sitio web nuevo o reusando un sitio web antiguo.
 
-En pocos segundos, Visual Studio terminará de publicar su aplicación
-web y ejecutará un explorador donde podrá ver su útil trabajo
+![Alt text](./media/documentdb-python-application/image20.png)
+
+
+En pocos segundos, Visual Studio terminará de publicar su
+aplicación web e iniciará un explorador donde podrá ver su trabajo útil
 ejecutándose en Azure.
 
 </h1>
-# <a name="_Toc395809338">Conclusión</a>
+<a name="_Toc395809338">Conclusión</a>
+==========
 
-¡Enhorabuena! Acaba de generar su primera aplicación Phyton mediante
-la Base de datos de documentos de Azure y publicarla en los sitios web de Azure.
+¡Enhorabuena! Acaba de crear su primera aplicación Python mediante la
+Base de datos de documentos de Azure y publicarla en los sitios web de Azure.
 
-Si desea la solución completa, [haga clic aquí][haga clic aquí]. (Nota: aún
-tiene que agregar el entorno virtual, instalar las herramientas y paquetes
-de python, como se indicaba anteriormente).
+Si desea la solución completa, [haga clic aquí][]. (Nota: todavía
+debe agregar el entorno virtual, instalar las herramientas y los paquetes de
+python, como se indicó anteriormente).
 
 </h1>
 
-  [Texto alternativo]: ./media/documentdb-python-application/image1.png
-  [Visual Studio Express]: http://www.visualstudio.com/es-es/products/visual-studio-express-vs.aspx
+  [haga clic aquí]: http://go.microsoft.com/fwlink/?LinkID=509840&clcid=0x409
+  [Haga clic aquí para tener acceso a tutoriales de Flask]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
+
+  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
   [aquí]: https://pytools.codeplex.com/releases/view/123624
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
-  [2]: ./media/documentdb-python-application/image2.png
-  [3]: ./media/documentdb-python-application/image3.png
-  [4]: ./media/documentdb-python-application/image4.png
-  [5]: ./media/documentdb-python-application/image5.png
-  [6]: ./media/documentdb-python-application/image6.png
-  [7]: ./media/documentdb-python-application/image7.png
-  [8]: ./media/documentdb-python-application/image8.png
-  [9]: ./media/documentdb-python-application/image9.png
-  [Haga clic aquí para obtener acceso a los tutoriales de Flask]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
-  [10]: ./media/documentdb-python-application/image10.png
-  [11]: ./media/documentdb-python-application/image11.png
-  [12]: ./media/documentdb-python-application/image12.png
-  [13]: ./media/documentdb-python-application/image13.png
-  [14]: ./media/documentdb-python-application/image14.png
-  [15]: ./media/documentdb-python-application/image15.png
-  [16]: ./media/documentdb-python-application/image16.png
-  [17]: ./media/documentdb-python-application/image17.png
-  [18]: ./media/documentdb-python-application/image18.png
-  [19]: ./media/documentdb-python-application/image19.png
-  [20]: ./media/documentdb-python-application/image20.png
-  [haga clic aquí]: http://go.microsoft.com/fwlink/?LinkID=509840&clcid=0x409
+  [Instalador de plataforma web de Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
