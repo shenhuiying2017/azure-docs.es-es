@@ -4,7 +4,7 @@
 
 # Limitación de consultas de Servicios móviles con paginación
 
-€
+[WACOM.INCLUDE [mobile-services-selector-add-paging-data](../includes/mobile-services-selector-add-paging-data.md)]
 
 En este tema se muestra cómo utilizar la paginación para administrar la cantidad de datos devueltos a la aplicación Android desde Servicios móviles de Azure. En este tutorial se utilizarán los métodos de consulta **top** y **skip** en el cliente para solicitar "páginas" específicas de datos.
 
