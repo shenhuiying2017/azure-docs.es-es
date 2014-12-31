@@ -1,6 +1,6 @@
-﻿<properties title="Federations Migration" pageTitle="Migración de federaciones" description="Outlines the steps to migrate an existing app built with Federations feature to Elastic Scale model." metaKeywords="sharding scaling, federations, Azure SQL DB sharding, Elastic Scale" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Federations Migration" pageTitle="Migración de federaciones" description="Describe los pasos para migrar una aplicación existente basada con la característica Federaciones al modelo de Escalado elástico." metaKeywords="sharding scaling, federations, Azure SQL DB sharding, Elastic Scale" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh"/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sidneyh" />
+<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="sidneyh" />
 
 #Migración de federaciones 
 
@@ -14,7 +14,7 @@ Hay tres pasos importantes para la migración de una aplicación de Federaciones
     
 
 ### La herramienta de migración de ejemplo
-Para ayudar en este proceso, se creó una [utilidad de Migración de federaciones](http://go.microsoft.com/?linkid=9862613). La utilidad realiza los pasos 1 y 3. 
+Para ayudar en este proceso, se creó una [utilidad de Migración de federaciones](http://go.microsoft.com/?linkid=9862613) . La utilidad realiza los pasos 1 y 3. 
 
 ## <a name="create-shard-map-manager"></a>Creación de un administrador de mapa de particiones desde una raíz de federación
 El primer paso para migrar una aplicación de Federaciones es clonar los metadatos de una raíz de federación a las construcciones de un administrador de mapa de particiones. 
@@ -23,7 +23,7 @@ El primer paso para migrar una aplicación de Federaciones es clonar los metadat
  
 Comience con una aplicación de Federaciones existente en un entorno de prueba.
  
-Use la **utilidad de Migración de federaciones** para clonar los metadatos de raíz de federación en las construcciones del [Administrador de mapa de particiones](http://go.microsoft.com/?linkid=9862595) de Escalado elástico. Análoga a una raíz de federación, la base de datos del Administrador de mapa de partición es una base de datos independiente que contiene los mapas de particiones (es decir, las federaciones), referencias a particiones (es decir, miembros de la federación) y las asignaciones de intervalos respectivas. 
+Use la **utilidad de Migración de federaciones** para clonar los metadatos de raíz de federación en las construcciones del [Administrador de mapas de particiones](http://go.microsoft.com/?linkid=9862595) de escalado elástico. Análoga a una raíz de federación, la base de datos del Administrador de mapa de partición es una base de datos independiente que contiene los mapas de particiones (es decir, las federaciones), referencias a particiones (es decir, miembros de la federación) y las asignaciones de intervalos respectivas. 
 
 La clonación de la raíz de federación en el Administrador de mapa de particiones es una copia y una traducción de los metadatos. En la raíz de federación no se altera ningún metadato. Tenga en cuenta que la clonación de la raíz de federación con la utilidad Migración de federaciones es una operación que se realiza en un momento específico y cualquier cambio en la raíz de federación o en los mapas de particiones no se reflejará en los demás almacenes de datos respectivos. Si se realizan cambios en la raíz de federación durante las pruebas de las nuevas API, es posible usar la utilidad Migración de federaciones para actualizar los mapas de particiones para que representen el estado actual. 
 
@@ -74,9 +74,9 @@ Los pasos de esta sección son necesarios, pero es probable que no aborden todos
 
 ![Switch out the federation members for the shards][3]
 
-Una vez que se ha modificado la aplicación con la inclusión de las API de Escalado elástico, el último paso de la migración de una aplicación de Federaciones es desactivar (**SWITCH OUT**) a los miembros de la federación (para obtener más información, consulte la referencia de MSDN para [ALTER FEDERATION (Base de datos SQL de Azure](http://msdn.microsoft.com/es-es/library/azure/hh597475.aspx)). El resultado final de emitir **SWITCH OUT** contra un miembro de federación determinado es la eliminación de todas las restricciones de la federación y los metadatos que presentan al miembro de la federación como una Base de datos SQL de Azure normal, no diferente de ninguna otra Base de datos SQL de Azure. 
+Una vez que se ha modificado la aplicación con la inclusión de las API de Escalado elástico, el último paso de la migración de una aplicación de Federaciones es desactivar (**SWITCH OUT**) a los miembros de la federación (para obtener más información, consulte la referencia de MSDN para [ALTER FEDERATION (Base de datos SQL de Azure](http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx)). El resultado final de emitir **SWITCH OUT** contra un miembro de federación determinado es la eliminación de todas las restricciones de la federación y los metadatos que presentan al miembro de la federación como una Base de datos SQL de Azure normal, no diferente de ninguna otra Base de datos SQL de Azure.  
 
-Observe que emitir **SWITCH OUT** contra un miembro de una federación es una operación unidireccional y no se puede deshacer. Una vez que se realiza, la base de datos resultante no se puede volver a agrear a una federación y los comandos USE FEDERATION dejarán de funcionar para esta base de datos. 
+Tenga en cuenta que emitir **SWITCH OUT** contra un miembro de federación es una operación unidireccional y no se puede deshacer. Una vez que se realiza, la base de datos resultante no se puede volver a agrear a una federación y los comandos USE FEDERATION dejarán de funcionar para esta base de datos. 
 
 Para realizar el cambio, se ha agregado un argumento adicional al comando ALTER FEDERATION para así poder emitir SWITCH OUT sobre un miembro de una federación.  A pesar de que el comando se puede emitir contra miembros individuales de la Federación, la utilidad Migración de federaciones proporciona la funcionalidad para iterar de manera programática a través de cada miembro de federación y realizar la operación de cambio. 
 
@@ -108,7 +108,7 @@ Produce el mismo resultado que:
 
 ## Consideraciones adicionales
 
-* La ediciones Web y Business, además de Federaciones, quedarán obsoletas en otoño de 2015. Como parte de la migración de una aplicación Federaciones, es altamente recomendable realizar pruebas de rendimiento en las ediciones Basic, Standard y Premium. 
+* La ediciones Web y Business, además de Federaciones, quedarán obsoletas en otoño de 2015.  Como parte de la migración de una aplicación Federaciones, es altamente recomendable realizar pruebas de rendimiento en las ediciones Basic, Standard y Premium. 
 
 * Realizar la instrucción SWITCH OUT sobre un miembro de la federación permite que la base de datos resultante aproveche todas las características de la base de datos SQL de Azure (es decir, ediciones nuevas, copia de seguridad, PITR, auditoría, etc.). 
 
@@ -124,3 +124,5 @@ Produce el mismo resultado que:
 [1]: ./media/sql-database-elastic-scale-federation-migration/migrate-1.png
 [2]: ./media/sql-database-elastic-scale-federation-migration/migrate-2.png
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
+
+<!--HONumber=35_1-->

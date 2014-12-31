@@ -1,27 +1,44 @@
-<properties urlDisplayName="Manage Assets in Media Services" pageTitle="Administraci&oacute;n de activos en Servicios multimedia de Azure" metaKeywords="" description="Aprenda a administrar activos en Servicios multimedia. Tambi&eacute;n puede administrar trabajos, tareas, directivas de acceso, localizadores y mucho m&aacute;s. Los ejemplos de c&oacute;digo est&aacute;n escritos en C# y utilizan el SDK de Servicios multimedia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="Reproducci&oacute;n de de recursos en el almacenamiento" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Manage Assets in Media Services" pageTitle="Administración de activos en Servicios multimedia de Azure" metaKeywords="" description="Learn how to manage assets on Media Services. You can also manage jobs, tasks, access policies, locators, and more. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Manage Assets in storage" authors="juliako" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 
-# Reproducción de de recursos en el almacenamiento
 
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [Comprobación del de un recurso][Comprobación del de un recurso].
+
+
+<h1>Reproducción de de recursos en el almacenamiento</h1>
+
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior era[ Protección de un recurso](../media-services-protect-asset/).
 
 Después de crear recursos multimedia y de cargarlos en Servicios multimedia, puede obtener acceso a los recursos y administrarlos en el servidor. También puede administrar otros objetos en el servidor que forman parte de Servicios multimedia, como trabajos, tareas, directivas de acceso, localizadores y otros objetos.
 
-El ejemplo siguiente muestra cómo realizar una consulta de un recurso con assetld.
+El ejemplo siguiente muestra cómo realizar una consulta de un recurso con assetld. 
+<pre><code>
+static IAsset GetAsset(string assetId)
+{
+    // Use a LINQ Select query to get an asset.
+    var assetInstance =
+        from a in _context.Assets
+        where a.Id == assetId
+        select a;
+    // Reference the asset as an IAsset.
+    IAsset asset = assetInstance.FirstOrDefault();
 
-    static IAsset GetAsset(string assetId){ // Use a LINQ Select query to get an asset. var assetInstance = from a in _context.Assets where a.Id == assetId select a; // Reference the asset as an IAsset. IAsset asset = assetInstance.FirstOrDefault();
     return asset;
-
-<p>
 }
-</code>
+</code></pre> 
 
-</pre>
-</p>
 Para mostrar todos los recursos disponibles en el servidor, puede usar el método siguiente que se itera a través de toda la colección de recursos, y muestra detalles de cada recurso.
+<pre><code> 
+static void ListAssets()
+{
+    string waitMessage = "Building the list. This may take a few "
+        + "seconds to a few minutes depending on how many assets "
+        + "you have."
+        + Environment.NewLine + Environment.NewLine
+        + "Please wait..."
+        + Environment.NewLine;
+    Console.Write(waitMessage);
 
-    static void ListAssets(){ string waitMessage = "Building the list. This may take a few " + "seconds to a few minutes depending on how many assets " + "you have." + Environment.NewLine + Environment.NewLine + "Please wait..." + Environment.NewLine; Console.Write(waitMessage);
     // Create a Stringbuilder to store the list that we build. 
     StringBuilder builder = new StringBuilder();
 
@@ -46,28 +63,23 @@ Para mostrar todos los recursos disponibles en el servidor, puede usar el métod
 
     // Display output in console.
     Console.Write(builder.ToString());
-
-<p>
 }
-</code>
-
-</pre>
+</code></pre>
 El siguiente fragmento de código elimina todos los recursos de la cuenta de Servicios multimedia.
+<pre><code>
+foreach (IAsset asset in _context.Assets)
+{
+    asset.Delete();
+}
+</code></pre>
 
-    foreach (IAsset asset in _context.Assets){ asset.Delete();}
-
-</p>
 Para obtener más información acerca de la administración de recursos, consulte:
+<ul>
+<li><a href="http://msdn.microsoft.com/en-us/library/jj129589.aspx">Administración de recursos con el SDK de Media Services para .NET</a></li>
+<li><a href="http://msdn.microsoft.com/en-us/library/jj129583.aspx">Administración de recursos con la API de REST de Media Services</a></li></ul>
 
--   [Administración de recursos con el SDK de Media Services para .NET][Administración de recursos con el SDK de Media Services para .NET]
--   [Administración de recursos con la API de REST de Media Services][Administración de recursos con la API de REST de Media Services]
 
-</p>
-## Pasos siguientes
+<h2>Pasos siguientes</h2>
+Ahora que sabe cómo administrar recursos, consulte el tema [Entrega de un recurso mediante descarga](../media-services-deliver-asset-download/) .
 
-Ahora que sabe cómo administrar recursos, consulte el tema [Entrega de un recurso mediante descarga][Entrega de un recurso mediante descarga].
-
-  [Comprobación del de un recurso]: ../media-services-protect-asset/
-  [Administración de recursos con el SDK de Media Services para .NET]: http://msdn.microsoft.com/es-es/library/jj129589.aspx
-  [Administración de recursos con la API de REST de Media Services]: http://msdn.microsoft.com/es-es/library/jj129583.aspx
-  [Entrega de un recurso mediante descarga]: ../media-services-deliver-asset-download/
+<!--HONumber=35_1-->

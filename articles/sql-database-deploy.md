@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="How to deploy" pageTitle="Implementación de una base de datos SQL - Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="Lori Clark" solutions="" manager="jeffreyg" editor="" />
+﻿<properties urlDisplayName="How to deploy" pageTitle="Implementación de una Base de datos SQL: Azure" metaKeywords="" description="Learn how to deploy a SQL Server database to Azure. You will use the Deploy Database to SQL Database wizard to upload a sample database." metaCanonical="" services="sql-database" documentationCenter="" title="How to Deploy a Database to Azure" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Lori Clark" />
+<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="jeffreyg" />
 
 
 
@@ -16,17 +16,17 @@ La base de datos de ejemplo School es muy sencilla; todos sus objetos son compat
 **Nota:** consulte la guía de migración de Base de datos SQL para obtener información detallada sobre cómo preparar una base de datos local para la migración a Azure. Considere también descargar el Kit de aprendizaje para Azure. El kit incluye un ejercicio práctico que muestra un enfoque alternativo para la migración de la base de datos local.
 
 ##Tabla de contenido##
-* [Direccionamiento del de la base de datos School en un servidor local](#schooldb)
-* [Direccionamiento del en Base de datos SQL](#deploydb)
-* [Direccionamiento del de la implementación de la base de datos](#verify)
+* [Creación de la base de datos School en un servidor local](#schooldb)
+* [Implementación en Base de datos SQL](#deploydb)
+* [Comprobación de la implementación de la base de datos](#verify)
 
-<h2><a id="schooldb"></a>Direccionamiento del de la base de datos School en un servidor local</h2>
+<h2><a id="schooldb"></a>Creación de la base de datos School en un servidor local</h2>
 
 Puede encontrar los scripts para la creación de esta base de datos en [Introducción a la administración de Base de datos SQL][]. En esta guía, ejecutará los scripts en Management Studio para crear una versión local de la base de datos School.
 
 1. En Management Studio, conéctese a un servidor local. Haga clic con el botón secundario en **Bases de datos**, haga clic en **Nueva base de datos** y escriba *school*.
 
-2. Haga clic con el botón secundario en *school* y, a continuación, haga clic en **Nueva consulta**. 
+2. Haga clic con el botón secundario en *school* y haga clic en **Nueva consulta**. 
 
 3. Copie y ejecute el script de creación de esquema del tutorial. 
 
@@ -525,37 +525,37 @@ A continuación, copie y ejecute el script de inserción de datos.
    Ahora dispone de una base de datos local que puede exportar a Azure. A continuación, ejecutará un asistente que crea un archivo .bacpac, lo carga en Azure y lo importa en Base de datos SQL.
 
 
-<h2><a id="deploydb"></a>Direccionamiento del en Base de datos SQL</h2>
+<h2><a id="deploydb"></a>Implementación en Base de datos SQL</h2>
 
 1. En Management Studio, conéctese a una instancia de SQL Server local que cuente con una base de datos que desee migrar.
 
 2. Haga clic con el botón secundario en la base de datos School que acaba de crear, seleccione **Tareas** y haga clic en **Implementar la base de datos para SQL Azure**.
 
-3. En Configuración de la implementación, especifique un nombre para la base de datos, como *school*. 
+3. En Configuración de implementación, escriba un nombre para la base de datos, como *school*. 
 
 4. Haga clic en **Conectar**.
 
 5. En Server name, especifique un nombre de servidor de 10 caracteres seguido de .database.windows.net.
 
-6. En Autenticación, seleccione **Autenticación de SQL Server**.
+6. En Autenticación, elija **Autenticación de SQL Server**.
 
 7. Especifique el nombre de inicio de sesión y la contraseña de administrador que aprovisionó al crear el servidor lógico de Base de datos SQL.
 
 8. Haga clic en **Opciones**.
 
-9. En Propiedades de conexión, en Conectar a base de datos, escriba **principal**.
+9. En Propiedades de conexión, en Conectar a base de datos, escriba **master**.
 
 10. Haga clic en **Conectar**. Con este paso se completa la especificación de la conexión y se le redirige al asistente.
 
 
-11. Haga clic en **Siguiente** y, a continuación, en **Finalizar** para ejecutar el asistente.
+11. Haga clic en **Siguiente** y luego en **Finalizar** para ejecutar el asistente.
 
 
-<h2><a id="verify"></a>Direccionamiento del de la implementación de la base de datos</h2>
+<h2><a id="verify"></a>Reproducción de Comprobación de la implementación de la base de datos</h2>
 
 1. En Management Studio, en Object Explorer, actualice las bases de datos para ver la nueva que acaba de crear.
 
-2. Expanda la carpeta Bases de datos. Debe ver la base de datos **school** en la lista.
+2. Expanda la carpeta Databases. Debe ver la base de datos **school** en la lista.
 
 3. Haga clic con el botón secundario en la base de datos School y haga clic en **Nueva consulta**.
 
@@ -581,5 +581,7 @@ A continuación, copie y ejecute el script de inserción de datos.
 		ON OnsiteCourse.CourseID = CourseInstructor.CourseID;
 </pre></div>
 
-[Introducción a la administración de Base de datos SQL]: /es-es/manage/services/sql-databases/getting-started-w-sql-databases/  
+[Introducción a Administración de Base de datos SQL]: /en-us/manage/services/sql-databases/getting-started-w-sql-databases/  
 
+
+<!--HONumber=35_1-->

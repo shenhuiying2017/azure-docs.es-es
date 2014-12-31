@@ -1,14 +1,14 @@
-﻿<properties pageTitle="Introducción a Servicios móviles de Azure para Appcelerator titanio"metaKeywords ="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introducción a Servicios móviles de Azure para Appcelerator Titanium" metaKeywords="" description="Follow this tutorial to get started using Azure Mobile Services for Appcelerator development. " metaCanonical="" services="" documentationCenter="Mobile" title="Get started with Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="Appcelerator team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
-# <a name="getting-started"> </a>Introducción a Servicios móviles
+# <a name="getting-started"> </a>Introducción a los Servicios móviles
 
 [WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
 Este tutorial le mostrará cómo aprovechar los Servicios móviles de Azure en las aplicaciones con Appcelerator integrado.
 
-En este tutorial, creará un nuevo servicio móvil y una aplicación sencilla de lista de tareas pendientes que almacene los datos de la aplicación en el nuevo servicio móvil. El servicio móvil que se creará usa JavaScript en la lógica de negocios de servidor.
+Con este tutorial, creará tanto un servicio móvil nuevo como una aplicación simple de _Lista de pendientes_ que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que se creará usa JavaScript para la lógica de negocios de servidor.
 
 Para completar este tutorial se necesita [Appcelerator Titanium].
 
@@ -26,23 +26,23 @@ Si compila para Android, también necesitará Android 4.3 o un SDK superior.
 
 2. Haga clic en **Agregar una tabla** y cree una nueva tabla llamada **TodoItem**.
 
-3. Descargue una nueva aplicación de lista de tareas pendientes de [Appcelerator] y descomprima el proyecto.
+3. Descargue una nueva [aplicación Todolist] de Appcelerator y descomprima el proyecto.
 
-4. Si todavía no lo tiene, descargue e instale [Appcelerator Titanium Studio][Appcelerator Titanium] y el SDK v3.2.1 o superior. También necesita Xcode (v 5.0 +) y/o el SDK de Android (v 4.3+) para ejecutar el proyecto.
+4. Si todavía no lo ha hecho, descargue e instale [Appcelerator Titanium Studio][Appcelerator Titanium] y el SDK v3.2.1 o superior. También necesita Xcode (v 5.0 +) y/o el SDK de Android (v 4.3+) para ejecutar el proyecto.
 
-5. Vuelva al portal de Servicios móviles y, bajo **Panel**, seleccione **Administrar claves** y copie la información de **Clave de aplicación**.
+5. Vuelva al portal de Servicios móviles y, en el **Panel**, seleccione **Administrar claves** y copie la información de **Clave de aplicación**.
 
-5. En index.js de la aplicación, sustituya `<---App Name---->` y `<------------APP KEY------------>` por los valores de su servicio móvil.
+5. En el archivo index.js de la aplicación, reepmplace `<---App Name---->` y `<------------APP KEY------------>` por los valores del servicio móvil.
 
 ## Ejecución de la nueva aplicación Appcelerator ##
 
 La etapa final de este tutorial consiste en crear y ejecutar la aplicación nueva.
 
-1. Abra Titanium Studio y vaya a **File -> Import** para importar el proyecto que descargó anteriormente.
+1. Abra Titanium Studio y vaya a **Archivo -> Importar** para importar el proyecto que descargó anteriormente.
 
     ![][0]
 
-2.	En la siguiente pantalla, seleccione **Existing Projects into Workspace** y haga clic en **Next**.
+2.	En la siguiente pantalla, seleccione **Proyectos existentes en área de trabajo** y haga clic en **Siguiente**.
 
     ![][1]
 
@@ -50,7 +50,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
     ![][2]
 
-4.	Por último, se mostrará el proyecto que ha seleccionado en la sección de proyectos. Opcionalmente, puede activar la opción &quot;Copy projects into workspace&quot;, que copiará el proyecto descargado en el área de trabajo. Por último, haga clic en Finish para abrir el proyecto en Titanium Studio.
+4.	Por último, se mostrará el proyecto que ha seleccionado en la sección de proyectos. Opcionalmente, puede activar la opción &quot;Copiar proyectos en área de trabajo&quot;, la que copiará el proyecto descargado en el área de trabajo. Por último, haga clic en Finish para abrir el proyecto en Titanium Studio.
 
     ![][3]
 
@@ -64,20 +64,20 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
     ![][5]
 
-8.	En la pantalla siguiente, haga clic en el icono del signo más (+), escriba un texto significativo, como por ejemplo &quot;Finalizar este tutorial&quot;, y haga clic en el botón Save (Guardar).<br />
+8.	En la pantalla siguiente, haga clic en el icono del signo más (+), escriba un texto significativo, como por ejemplo &quot;Finalizar este tutorial&quot;, y haga clic en el botón Guardar.<br />
 
     ![][6]
 
     ![][7]
 
-Esta acción envía una solicitud POST al nuevo servicio móvil hospedado en Microsoft Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
+Esta acción envía una solicitud POST al nuevo servicio móvil hospedado en Windows Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
 
 ![][8]
 
 
->[WACOM.NOTE] Puede revisar el código de acceso al servicio móvil para consultar e insertar datos; este se encuentra en el archivo TodoService.m.
+>[WACOM.NOTE] Puede revisar el código que tiene acceso a su servicio móvil para consultar e insertar datos, que se encuentra en el archivo TodoService.m.
 
-4. Nuevamente en el Portal de administración, haga clic en la pestaña **Datos** y, a continuación, haga clic en la tabla **TodoItems**.
+4. Nuevamente en el Portal de administración, haga clic en la pestaña **Datos** y, a continuación, en la tabla **TodoItems**.
 
    	![][9]
 
@@ -111,7 +111,9 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [10]: ./media/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/mobile-data-browse.png
 
 <!-- URLs. -->
-[Aplicación Todolist]: http://go.microsoft.com/fwlink/p/?LinkId=506859
+[Aplicación TodoList]: http://go.microsoft.com/fwlink/p/?LinkId=506859
 [Appcelerator Titanium]: http://go.microsoft.com/fwlink/p/?LinkID=509987
-[Introducción a la autenticación]: /es-es/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
-[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+[Introducción a la autenticación]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
+[Introducción a las notificaciones de inserción]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
+
+<!--HONumber=35_1-->

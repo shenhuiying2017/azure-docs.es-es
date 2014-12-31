@@ -1,12 +1,12 @@
 ﻿<properties pageTitle="Introducción a la autenticación (Appcelerator) | Centro de desarrollo móvil" metaKeywords="" description="Learn how to use Mobile Services to authenticate users of your iOS app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="Appcelerator team;mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
 # Introducción a la autenticación en Servicios móviles
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-En este tema se muestra cómo autenticar a los usuarios en los Servicios móviles de Microsoft Azure desde su aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que se haya realizado la autenticación y autorización correctamente en los Servicios móviles, se mostrará el valor de identificador de usuario.
+En este tema se muestra cómo autenticar usuarios en Servicios móviles de Windows Azure desde su aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
 En este tutorial se realiza un recorrido por los pasos básicos para habilitar la autenticación en su aplicación:
 
@@ -14,7 +14,7 @@ En este tutorial se realiza un recorrido por los pasos básicos para habilitar l
 2.  [Restricción de los permisos de tabla a usuarios autenticados]
 3.  [Incorporación de autenticación a la aplicación]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a Servicios móviles].
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles].
 
 Para finalizar este tutorial se necesita Appcelerator Titanium Studio 3.2.1 o posterior, iOS 7.0 y/o posterior y Android 4.3 o posterior.
 
@@ -26,9 +26,9 @@ Para finalizar este tutorial se necesita Appcelerator Titanium Studio 3.2.1 o po
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
-3.	En Appcelerator Titanium Studio, abra el proyecto que ha creado al completar el tutorial [Introducción a Servicios móviles].
+3.	En Appcelerator Titanium Studio, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles].
 
-4.	Presione el botón Run (Ejecutar) para compilar el proyecto e iniciar la aplicación en el emulador de iPhone. Compruebe que se produce una excepción no controlada con el código de estado 401 (No autorizado) después de iniciarse la aplicación.
+4.	Presione el botón Run para compilar el proyecto e iniciar la aplicación en el emulador de iPhone. Compruebe que se produce una excepción no controlada con el código de estado 401 (No autorizado) después de iniciarse la aplicación.
     
     Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla TodoItem requiere ahora autenticación.
 
@@ -96,4 +96,6 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 <!-- Images. -->
 
 <!-- URLs. -->
-[Introducción a Servicios móviles]: /es-es/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[Introducción a los Servicios móviles]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+
+<!--HONumber=35_1-->

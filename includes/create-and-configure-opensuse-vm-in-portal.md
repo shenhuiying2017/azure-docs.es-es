@@ -1,79 +1,63 @@
-<properties writer="kathydav" editor="tysonn" manager="jeffreyg" />
+﻿<properties writer="kathydav" editor="tysonn" manager="timlt" /> 
 
-**Importante**: si desea que su máquina virtual utilice una red virtual, asegúrese de especificar la red virtual cuando cree la máquina virtual. Puede configurarse una máquina virtual para que se una a una red virtual solo cuando se cree la máquina virtual. Para obtener más información acerca de redes virtuales, consulte [Información general sobre redes virtuales de Azure][Información general sobre redes virtuales de Azure].
+**Importante**: si desea que su máquina virtual utilice una red virtual, asegúrese de especificar la red virtual cuando cree la máquina virtual. Puede configurarse una máquina virtual para que se una a una red virtual solo cuando se cree la máquina virtual. Para obtener más información sobre las redes virtuales, consulte [Información general sobre redes virtuales de Azure](http://go.microsoft.com/fwlink/p/?LinkID=294063).
 
-1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure] con la cuenta de Azure.
 
-2.  En el Portal de administración, en la parte inferior izquierda de la página web, haga clic en **+New**, en **Máquina virtual** y, a continuación, en **From Gallery**.
+1. Inicie sesión en el [Portal de administración de Azure][AzurePreviewPortal] con la cuenta de Azure.
 
-    ![Crear una máquina virtual][Crear una máquina virtual]
+2. En el Portal de administración, en la parte inferior izquierda de la página web, haga clic en **+Nuevo**, en **Máquina virtual** y, a continuación, en **Desde la galería**.
 
-3.  Seleccione una imagen de máquina virtual OpenSUSE en **Platform Images** y, a continuación, haga clic en la flecha de avance de la parte inferior derecha de la página.
+	![Create a New Virtual Machine][Image1]
 
-4.  Proporcione la siguiente información en la página **Virtual machine configuration**:
+3. En el grupo **SUSE**, haga clic en una imagen de máquina virtual OpenSUSE y, a continuación, haga clic en la flecha de avance en la parte inferior derecha de la página.
 
-    -   Proporcione un nombre en el cuadro **Virtual machine name**, como "testlinuxvm".
-    -   Especifique un nuevo nombre de usuario en **New User Name**, como "newuser", que se agregará al archivo de lista de Sudoers.
-    -   En el cuadro **New Password**, escriba una [contraseña segura][contraseña segura].
-    -   En el cuadro **Confirm Password**, vuelva a escribir la contraseña.
-    -   Seleccione el tamaño correspondiente en la lista desplegable **Size**.
 
-    Haga clic en la flecha de avance para continuar.
+4. Rellene la primera página de **configuración de la máquina virtual** o verifique los ajustes:
 
-5.  Proporcione la siguiente información en la página **Virtual machine mode**:
+	- Escriba un **nombre de máquina virtual**, como "testlinuxvm".
+	- Verifique el **nivel** y seleccione un **tamaño**. El nivel determina los tamaños entre los que elegir.
+	- Escriba un **nombre de usuario nuevo**, como "newuser", que se agregará al archivo de lista de Sudoers.
+	- Decida qué tipo de **autenticación** desea usar. Para obtener instrucciones generales sobre contraseñas, consulte [Contraseñas seguras](http://msdn.microsoft.com/en-us/library/ms161962.aspx).
 
-    -   Seleccione **Standalone Virtual Machine**.
-    -   En el cuadro **DNS Name**, escriba una dirección DNS válida. Por ejemplo, "testlinuxvm".
-    -   En el cuadro **Region/Affinity Group/Virtual Network**, seleccione una región en la que se alojará la imagen virtual.
 
-Haga clic en la flecha de avance para continuar.
+5. Rellene la siguiente página de **configuración de la máquina virtual** o verifique los ajustes:
+	- Use el valor predeterminado de **Crear un nuevo servicio en la nube**.
+	- En el cuadro **Nombre DNS**, escriba un nombre DNS válido para utilizarlo como parte de la dirección, como "testlinuxvm".
+	- En el cuadro **Región/grupo de afinidad/red virtual**, seleccione una región donde se hospedará esta imagen virtual.
 
-1.  En la página **Virtual machine options**, seleccione **(none)** en el cuadro **Conjunto de disponibilidad**. Haga clic en la marca de verificación para continuar.
+6.	Haga clic en la flecha Siguiente para finalizar; espere mientras Azure prepara la máquina virtual hasta que la inicie.
 
-2.  Espere a que Azure prepare la máquina virtual.
+##Conexión a una máquina virtual
+Usará SSH o PuTTY para conectarse a la máquina virtual, en función del sistema operativo que ejecute en el equipo:
 
-## Configuración de extremos
+- Si usa Linux para conectarse en la máquina virtual, utilice SSH. En el símbolo del sistema, ejecute: 
 
-Una vez creada la máquina virtual, debe configurar los extremos para realizar la conexión remota.
+	`$ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180`
+	
+	Type the user's password.
 
-1.  En el Portal de administración, haga clic en **Máquinas virtuales**, en el nombre de la nueva máquina virtual y, a continuación, en **Endpoints**.
+- Si usa Windows para conectarse en la máquina virtual, utilice PuTTY. PuTTY puede descargarse desde la [página de descarga de PuTTY][PuTTYDownLoad]. 
 
-2.  Haga clic en **Edit Endpoint** en la parte inferior de la página y edite el extremo SSH de manera que **Public Port** sea 22.
+	Descargue y guarde **putty.exe** en un directorio del equipo. Abra un símbolo del sistema, vaya hasta la carpeta correspondiente y ejecute **putty.exe**.
 
-## Conexión a una máquina virtual
+	Escriba el nombre de host, como "testlinuxvm.cloudapp.net" y escriba "22" en **Puerto**.
 
-Una vez que se haya realizado el aprovisionamiento en la máquina virtual y los extremos se hayan configurado, puede proceder a la conexión mediante SSH o PuTTY.
+	![PuTTY Screen][Image6]  
 
-### Conexión mediante SSH
+##Actualización de la máquina virtual (opcional)
+1. Después de conectarse a la máquina virtual, tiene la opción de instalar revisiones y actualizaciones del sistema. Para ejecutar la actualización, ejecute:
 
-Si usa un equipo con Linux, conéctese a la máquina virtual mediante SSH. En el símbolo del sistema, ejecute:
+	`$ sudo zypper update`
 
-    $ ssh newuser@testlinuxvm.cloudapp.net -o ServerAliveInterval=180
+2. Seleccione **Software** y, a continuación, **Actualización en línea** para enumerar las actualizaciones disponibles. Seleccione **Aceptar** para iniciar la instalación y aplicar todas las revisiones nuevas disponibles (salvo las que son opcionales). 
 
-Especifique la contraseña del usuario.
+3. Una vez completada la instalación, seleccione **Finalizar**.  El sistema estará ahora actualizado.
 
-### Conexión mediante PuTTY
+[PuTTYDownload]: http://www.puttyssh.org/download.html
+[AzurePreviewPortal]: http://manage.windowsazure.com
 
-Si usa un equipo con Windows, conéctese a la máquina virtual mediante PuTTY. PuTTY puede descargarse desde la [página de descarga de PuTTY (en inglés)][página de descarga de PuTTY (en inglés)].
+[Image1]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
 
-1.  Descargue y guarde **putty.exe** en un directorio de su equipo. Abra una secuencia de comandos, diríjase a esa carpeta y ejecute **putty.exe**.
+[Image6]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
 
-2.  Especifique "testlinuxvm.cloudapp.net" en **Nombre de host** y "22" en **Puerto**.
-    ![Pantalla de PuTTY][Pantalla de PuTTY]
-
-## Actualización de la máquina virtual (opcional)
-
-1.  Una vez que se haya conectado a la máquina virtual, tiene la opción de instalar revisiones y actualizaciones del sistema. Ejecute:
-
-    `$ sudo zypper update`
-
-2.  Seleccione **Software** y, a continuación, **Online Update**. Aparecerá una lista de actualizaciones. Seleccione **Accept** para iniciar la instalación y aplicar todas las nuevas revisiones (excepto las opcionales) que estén disponibles actualmente para su sistema.
-
-3.  Una vez completada la instalación, seleccione **Finish**. El sistema estará ahora actualizado.
-
-  [Información general sobre redes virtuales de Azure]: http://go.microsoft.com/fwlink/p/?LinkID=294063
-  [Portal de administración de Azure]: http://manage.windowsazure.com
-  [Crear una máquina virtual]: ./media/create-and-configure-opensuse-vm-in-portal/CreateVM.png
-  [contraseña segura]: http://msdn.microsoft.com/es-es/library/ms161962.aspx
-  [página de descarga de PuTTY (en inglés)]: http://www.puttyssh.org/download.html
-  [Pantalla de PuTTY]: ./media/create-and-configure-opensuse-vm-in-portal/putty.png
+<!--HONumber=35_1-->

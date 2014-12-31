@@ -1,4 +1,4 @@
-﻿<properties title="Azure Elastic Scale Glossary" pageTitle="Glosario de Escalado elástico de Azure" description="Explanation of terms used for Elastic Scale feature of Azure SQL Database" metaKeywords="sharding,elastic scale, Azure SQL DB sharding" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties title="Azure Elastic Scale Glossary" pageTitle="Glosario de Escalado elástico de Azure" description="Explicación de los términos utilizados en la característica Escalado elástico de Base de datos SQL de Azure" metaKeywords="sharding,elastic scale, Azure SQL DB sharding" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
 
 <tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
 
@@ -11,15 +11,17 @@ Los siguientes términos se definen para la característica Escalado elástico d
 
 **Enrutamiento dependiente de datos**: La funcionalidad que permite que una aplicación se conecta a una partición dada una clave de partición específica. Comparar con **Consulta a través de particiones múltiples**.
 
-**Mapa de particiones global**: el conjunto de asignaciones entre claves de partición y sus respectivas particiones dentro de un **conjunto de particiones**. GSM está almacenado en el **administrador de mapa de particiones**. Comparar con **mapa de particiones local**.
+**Mapa de particiones global**: el conjunto de asignaciones entre las claves de particionamiento y sus respectivas particiones dentro de un **conjunto de particiones**. GSM está almacenado en el **administrador de mapa de particiones**. Comparar con **mapa de particiones local**.
 
-**Mapa de particiones de lista**: un mapa de particiones en el que las claves de particionamiento se asignan de manera individual. Comparar con **Mapa de particiones de intervalo**.   
+**Mapa de particiones global**: un mapa de particiones en el que las claves de particionamiento se asignan de manera individual. Comparar con **Mapa de particiones de intervalo**.   
 
 **Mapa de particiones local**: almacenado en una partición, el mapa de particiones local contiene asignaciones para los shardlets que residen en la partición.
 
-**Consulta a través de particiones múltiples**: la capacidad de emitir una consulta a través de varias particiones; los conjuntos de resultados se devuelven usando la semántica UNION ALL (conocida también como "consulta de distribución ramificada"). Comparar con **Enrutamiento dependiente de los datos**.
+
+**Consulta a través de particiones múltiples**: la capacidad de emitir una consulta a través de varias particiones; los conjuntos de resultados se devuelven usando la semántica UNION ALL (conocida también como "consulta de distribución ramificada"). Comparar con **Enrutamiento dependiente de datos**.
 
 **Mapa de particiones de intervalo**: un mapa de particiones en el que la estrategia de distribución de particiones se basa en varios intervalos de valores contiguos. 
+
 
 **Tablas de referencia**: tablas no particionadas, pero que se replican entre particiones. 
 
@@ -37,7 +39,9 @@ Los siguientes términos se definen para la característica Escalado elástico d
 
 **Mapa de particiones**: el conjunto de asignaciones entre las claves de particionamiento y sus respectivas particiones.
 
-**Administrador de mapa de particiones**: un almacén de datos y objetos de administración que contiene los mapas de particiones, ubicaciones de particiones y asignaciones para uno o más conjuntos de particiones.
+**Administrador de mapas de particiones**: un almacén de datos y objetos de administración que contiene los mapas de particiones, ubicaciones de particiones y asignaciones para uno o más conjuntos de particiones.
+
+![Mappings][2]
 
 
 ##Verbos
@@ -58,3 +62,8 @@ Los siguientes términos se definen para la característica Escalado elástico d
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-glossary/glossary.png
+[2]: ./media/sql-database-elastic-scale-glossary/mappings.png
+
+
+
+<!--HONumber=35_1-->

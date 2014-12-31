@@ -1,20 +1,20 @@
-﻿<properties urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Depuración de Hadoop en HDInsight: mensajes de error | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
+﻿c<properties urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Depuración de Hadoop en HDInsight: Mensajes de error | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="bradsev" />
+<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
 
 # Depuración de Hadoop en HDInsight: mensajes de error
 
 ##Introducción
-Con los mensajes de error incluidos en este tema pretendemos ayudar a los usuarios de Hadoop en HDInsight de Azure a comprender algunas situaciones de error con las que se pueden encontrar al administrar el servicio con Azure PowerShell, así como asesorarlos sobre los pasos que pueden seguir para recuperarse del error. 
+Con los mensajes de error incluidos en este tema pretendemos ayudar a los usuarios de Hadoop en HDInsight de Azure a comprender algunas situaciones de error con las que se pueden encontrar al administrar el servicio utilizando Azure PowerShell, así como asesorarlos sobre los pasos que pueden seguir para recuperarse del error. 
 
 Algunos de estos mensajes de error también podrían aparecer en el portal de Azure cuando se utiliza para administrar clústeres de HDInsight. Sin embargo, no es posible presentar de forma tan pormenorizada otros mensajes de error que pueden aparecer allí debido a las restricciones que afectan a las acciones de subsanación posibles en este contexto. Otros mensajes de error se asocian a los contextos en que la mitigación resulta obvia. Por ejemplo, si se infringen las restricciones de los parámetros, el mensaje emerge en el lado derecho del cuadro donde se escribió el valor. Se trata de un caso de solicitud de demasiados nodos de datos. La solución es reducir el número hasta un valor permitido, es decir, 22 o menos.
 
 ![HDI.Debugging.ErrorMessages.Portal][image-hdi-debugging-error-messages-portal]
 
-En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los errores que un usuario puede encontrarse en Azure PowerShell o en el portal de Azure, ordenados por orden alfabético según el nombre y vinculados a una entrada de la sección [Descripción y mitigación de los errores](#discription-mitigation-errors), donde se facilita la siguiente información sobre los mismos:
+Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de Azure se muestran ordenados alfabéticamente por nombre en la sección [Errores de HDInsight](#hdinsight-error-messages) donde están vinculados a una entrada de la sección [Descripción y mitigación de errores](#discription-mitigation-errors) que proporciona la información siguiente sobre el error:
  	
 - **Descripción**: El mensaje de error que ven los usuarios	
-- **Mitigación**: Pasos que se pueden seguir para recuperarse del error 
+- **Mitigación**: Pasos que se pueden seguir para recuperarse del error. 
 
 ###Errores de HDInsight
 
@@ -82,7 +82,7 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 - **Mitigación**: Vuelva a intentarlo. 
 
 <h3><a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord</h3>
-- **Descripción**: El nombre DNS del clúster *nombreDNS* no es válido. Asegúrese de que empiece y acabe con un carácter alfanumérico y de que no contenga ningún carácter especial aparte de '-'.
+- **Descripción**: El nombre DNS del clúster *nombreDNS* no es válido. Asegúrese de que empiece y acabe con un carácter alfanumérico y de que no contenga ningún carácter especial aparte de "-".  
 - **Mitigación**: Asegúrese de que utilizó un nombre DNS válido para el clúster que empiece y acabe con un carácter alfanumérico y que no contenga ningún carácter especial aparte del guión (-), y, a continuación, vuelva a intentarlo.
 
 <h3><a id="ClusterNameUnavailable"></a>ClusterNameUnavailable</h3>
@@ -99,7 +99,7 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 - **Mitigación**: Proporcione un nombre de usuario de clúster válido y vuelva a intentarlo.
 
 <h3><a id="ClusterUserNameInvalidReservedWord"></a>ClusterUserNameInvalidReservedWord</h3>
-- **Descripción**: El nombre DNS del clúster *nombreDNSdelclúster* no es válido. Asegúrese de que empiece y acabe con un carácter alfanumérico y de que no contenga ningún carácter especial aparte de '-'.
+- **Descripción**: El nombre DNS del clúster *nombreDNSdelclúster* no es válido. Asegúrese de que empiece y acabe con un carácter alfanumérico y de que no contenga ningún carácter especial aparte de "-".  
 - **Mitigación**: Proporcione un nombre de usuario de clúster DNS válido y vuelva a intentarlo.
 
 <h3><a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName</h3>
@@ -110,20 +110,20 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 - **Descripción**: Configuración de clúster no válida. No se puede encontrar ninguna definición de nodo de datos en el tamaño de nodo.  
 - **Mitigación**: Vuelva a intentarlo.
 
-<h3><a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure</h3>	
-- **Descripción**: Error al eliminar la implementación del clúster.
+<h3><a id="DeploymentDeletionFailure"></a>DeploymentDeletionFailure</h3> 	
+- **Descripción**: Error de eliminación de la implementación del clúster.  
 - **Mitigación**: Vuelva a intentar la eliminación.
 
-<h3><a id="DnsMappingNotFound"></a>DnsMappingNotFound</h3>	
+<h3><a id="DnsMappingNotFound"></a>DnsMappingNotFound</h3> 
 - **Descripción**: Error de configuración del servicio. Información de asignación de DNS requerida no encontrada.  
 - **Mitigación**: Elimine el clúster y cree uno nuevo.
 
 <h3><a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest</h3>
-- **Descripción**: Intento de duplicación de un contenedor de clúster. Existe un registro con el nombre *nombredelcontenedor*, pero las propiedades Etag no coinciden.   
+- **Descripción**: Intento de duplicación de un contenedor de clúster. Existe un registro con el nombre *nombredelcontenedor, pero las propiedades Etag no coinciden.   
 - **Mitigación**: Proporcione un nombre exclusivo para el contenedor y vuelva a intentarlo. 
 
 <h3><a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService</h3>
-- **Descripción**: El servicio hospedado *nombredelserviciohospedado* ya incluye un clúster. Los servicios hospedados no pueden contener varios clústeres.
+- **Descripción**: El servicio hospedado *nombredelserviciohospedado* ya incluye un clúster. Los servicios hospedados no pueden contener varios clústeres.  
 - **Mitigación**: Hospede el clúster en otro servicio hospedado. 
 
 <h3><a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus</h3>
@@ -147,7 +147,7 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 - **Mitigación**: Utilice un nombre de clúster diferente y vuelva a intentarlo.
 
 <h3><a id="HostedServiceNotFound"></a>HostedServiceNotFound</h3>
-- **Descripción**: No se encontró el servicio hospedado *nombredelserviciohospedado* del clúster.  
+- **Descripción**: No se encuentra el servicio hospedado *nombredelserviciohospedado* del clúster.  
 - **Mitigación**: Si el clúster se encuentra en estado de error, elimínelo y, a continuación, vuelva a intentarlo. 
 
 <h3><a id="HostedServiceWithNoDeployment"></a>HostedServiceWithNoDeployment</h3>
@@ -155,7 +155,7 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 - **Mitigación**: Si el clúster se encuentra en estado de error, elimínelo y, a continuación, vuelva a intentarlo. 
 
 <h3><a id="InsufficientResourcesCores"></a>InsufficientResourcesCores</h3>
-- **Descripción**: Al identificador de suscripción *identificadordelasuscripción* no le quedan recursos principales para crear el clúster *nombredelclúster*. Requeridos: *resourcesRequired*, Disponibles: *recursosdisponibles*.  
+- **Descripción**: Al identificador de suscripción *identificadordelasuscripción* no le quedan recursos principales para crear el clúster *nombredelclúster*. Requeridos: *recursosrequeridos*, disponibles: *recursosdisponibles*.  
 - **Mitigación**: Libere recursos en la suscripción o aumente la cantidad de recursos disponibles para la suscripción e intente crear el clúster de nuevo.
 
 <h3><a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices</h3>
@@ -179,7 +179,7 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 - **Mitigación**: Especifique el tamaño de nodo admitido para el nodo principal y vuelva a intentarlo.
 
 <h3><a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion</h3>
-- **Descripción**: El identificador de suscripción *identificadordelasuscripción* que se está utilizando no dispone de suficientes permisos para ejecutar la operación de eliminación del clúster *nombredelclúster*.  
+- **Descripción**: El identificador de suscripción *identificadordelasuscripción* que se está utilizando no dispone de suficientes permisos para ejecutar la operación de eliminación del clúster *nombredelclúster.  
 - **Mitigación**: Si el clúster se encuentra en estado de error, elimínelo y, a continuación, vuelva a intentarlo.  
 
 <h3><a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName</h3>
@@ -191,7 +191,7 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 - **Mitigación**: Especifique una clave secreta válida para la cuenta de almacenamiento y vuelva a intentarlo.
 
 <h3><a id="InvalidVersionHeaderFormat"></a>InvalidVersionHeaderFormat</h3>
-- **Descripción**: El encabezado de la versión *encabezadodelaversión* no presenta el formato válido aaaa-mm-dd.  
+- **Descripción**: El encabezado de la versión *encabezadodelaversión* no tiene el formato válido de aaaa-mm-dd.  
 - **Mitigación**: Especifique un formato válido para el encabezado de la versión y vuelva a intentarlo. 
 
 <h3><a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode</h3>
@@ -203,7 +203,7 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 - **Mitigación**: Vuelva a intentarlo. 
 
 <h3><a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty</h3>
-- **Descripción**: El parámetro *nombredelparámetro* no puede ser inexistente o estar vacío.  
+- **Descripción**: El parámetro *nombredelparámetro* no puede ser null ni estar vacío.  
 - **Mitigación**: Especifique un valor válido para el parámetro. 
 
 <h3><a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure</h3>
@@ -223,7 +223,7 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 - **Mitigación**: Vuelva a activar la suscripción u obtenga una nueva suscripción válida.
 
 <h3><a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound</h3>
-- **Descripción**: No se pudo encontrar el identificador de suscripción *identificadordelasuscripción*.  
+- **Descripción**: No se encuentra el identificador de suscripción *identificadordelasuscripción*.  
 - **Mitigación**: Compruebe que el identificador de la suscripción sea válido y vuelva a intentarlo. 
 
 <h3><a id="UnableToResolveDNS"></a>UnableToResolveDNS</h3>
@@ -252,9 +252,9 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 
 <h2><a id="resources"></a>Recursos adicionales de depuración</h2> 
 
-* [Documentación sobre el SDK de HDInsight de Azure][hdinsight-sdk-documentation]
+* [Documentación de SDK de Azure HDInsight][hdinsight-sdk-documentation]
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/es-es/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
@@ -263,3 +263,5 @@ En la sección [Errores de HDInsight](#hdinsight-error-messages) se enumeran los
 
 
 
+
+<!--HONumber=35_1-->

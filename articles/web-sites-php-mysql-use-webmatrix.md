@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Web w/ WebMatrix" pageTitle="Sitio web PHP con MySQL y WebMatrix: tutorial de Azure" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in MySQL." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Azure Website using WebMatrix" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties urlDisplayName="Web w/ WebMatrix" pageTitle="Sitio web PHP con MySQL y WebMatrix - Tutorial de Azure" metaKeywords="" description="A tutorial that demonstrates how to use the free WebMatrix IDE to create and deploy a PHP website that stores data in MySQL." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create and deploy a PHP-MySQL Azure Website using WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="01/01/1900" ms.author="cephalin" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
 
 
 
@@ -16,15 +16,18 @@ Una vez completada esta guía, tendrá un sitio web PHP-MySQL ejecutándose en A
  
 Aprenderá a:
 
-* Creación de un Sitio web Azure y una base de datos MySQL a través del Portal de administración. Dado que PHP está habilitado en Sitios web Azure de forma predeterminada, no existen requisitos especiales para ejecutar el código PHP.
+* Creación de un Sitio web Azure y una base de datos MySQL a través del Portal de administración de Azure. Dado que PHP está habilitado en Sitios web Azure de forma predeterminada, no existen requisitos especiales para ejecutar el código PHP.
 * Desarrollar una aplicación PHP con WebMatrix.
 * Publicar y volver a publicar la aplicación en Azure con WebMatrix.
  
-Mediante este tutorial, se compilará una aplicación web Tasklist sencilla en PHP. que se hospedará en un sitio web de Azure. A continuación se muestra una captura de pantalla de la aplicación en ejecución:
+Mediante este tutorial, se compilará una aplicación web Tasklist sencilla en PHP que se hospedará en un sitio web de Azure. A continuación se muestra una captura de pantalla de la aplicación en ejecución:
 
 ![Azure PHP Web Site][running-app]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+> [WACOM.NOTE]
+> para completar este tutorial, deberá tener una cuenta de Azure. Puede <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/">activar las ventajas de suscriptor de MSDN</a> o <a href="http://azure.microsoft.com/en-us/pricing/free-trial/">suscribirse a una prueba gratuita</a>.
+> 
+> Si desea obtener una introducción a Sitios web Azure antes de suscribirse a una cuenta, visite <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita un sitio básico de ASP.NET de corta duración en Sitios web Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ##Requisitos previos
 
@@ -38,7 +41,7 @@ Mediante este tutorial, se compilará una aplicación web Tasklist sencilla en P
 	* **markitemcomplete.php**: Cambia el estado de un elemento a completo.
 	* **taskmodel.php**: Contiene funciones que agregan, obtienen, actualizan y eliminan elementos de la base de datos.
 
-1. Cree una base de datos MySQL local que se llame `tasklist`. Puede hacerlo desde el área de trabajo Base de datos en WebMatrix (una vez que se haya instalado más adelante en el tutorial) o desde el símbolo del sistema MySQL con este comando:
+1. Cree una base de datos MySQL local que se llame "tasklist". Puede hacerlo desde el área de trabajo Base de datos en WebMatrix (una vez que se haya instalado más adelante en el tutorial) o desde el símbolo del sistema MySQL con este comando:
 
 		mysql> create database tasklist;
 
@@ -47,7 +50,7 @@ Mediante este tutorial, se compilará una aplicación web Tasklist sencilla en P
 <h2><a id="CreateWebsite"></a>Creación de un sitio web de Azure y base de datos MySQL</h2>
 
 1. Inicie sesión en el [Portal de administración][preview-portal].
-1. Haga clic en el icono **+ Nuevo**, situado en la parte inferior izquierda del portal.
+1. Haga clic en el icono **+ Nuevo** en la parte inferior izquierda del portal.
 
 	![Create New Azure Web Site][NewWebSite1]
 
@@ -62,11 +65,11 @@ Mediante este tutorial, se compilará una aplicación web Tasklist sencilla en P
 
 	![Fill in web site details][NewWebSite3]
 
-5. Escriba un valor para **NOMBRE** de la base de datos, seleccione el centro de datos de esta en la lista desplegable **REGIÓN** y active la casilla que indica que acepta las condiciones legales. Haga clic en la marca de verificación de la parte inferior del cuadro de diálogo.
+5. Escriba un valor para **NOMBRE** para la base de datos, seleccione el centro de datos de esta en la lista desplegable **REGIÓN** y active la casilla que indica que acepta las condiciones legales. Haga clic en la marca de verificación de la parte inferior del cuadro de diálogo.
 
 	![Create new MySQL database][NewWebSite4]
 
-	Una vez creado el sitio web, se mostrará el texto **Creación correcta del sitio web '[NOMBRE DEL SITIO]'**.
+	Una vez creado el sitio web, se mostrará el texto **la creación del sitio web "[NOMBRE DEL SITIO]" se ha realizado correctamente**.
 
 	A continuación, tendrá que obtener la información de conexión de MySQL.
 
@@ -79,7 +82,7 @@ Mediante este tutorial, se compilará una aplicación web Tasklist sencilla en P
 
 	![Configure tab][NewWebSite6]
 
-8. Desplácese a la sección **cadenas de conexión**. Los valores de `Database`, `Data Source`, `User Id` y `Password` son, respectivamente, el nombre de la base de datos, el nombre del servidor, el nombre de usuario y la contraseña del usuario. Tome nota de la información de conexión de la base de datos, la necesitará más adelante.
+8. Desplácese hacia abajo hasta la sección **Cadenas de conexión**. Los valores para "Database", "Data Source", "User Id" y "Password" son el nombre de la base de datos, el nombre del servidor, el nombre de usuario y la contraseña del usuario, respectivamente. Tome nota de la información de conexión de la base de datos, la necesitará más adelante.
 
 	![Connection string][ConnectionString]
 
@@ -115,9 +118,9 @@ Puede instalar WebMatrix desde el [Portal de administración][preview-portal].
 
 	![WebMatrix - Add existing files][edit_addexisting]
 
-	En el cuadro de diálogo que aparece, diríjase a los archivos que descargó antes, selecciónelos y haga clic en Abrir. Cuando se le solicite, elija reemplazar el archivo `index.php`. 
+	En el cuadro de diálogo que aparece, diríjase a los archivos que descargó antes, selecciónelos y haga clic en Open. Cuando se le solicite, elija reemplazar el archivo "index.php". 
 
-7. A continuación, debe agregar la información de conexión de la base de datos MySQL local al archivo `taskmodel.php`. Abra el archivo `taskmodel.php` haciendo doble clic en él y actualice la información de conexión de la base de datos en la función `connect`. (**Nota**: Diríjase a [Publicación de la aplicación](#Publish) si no desea probar localmente su aplicación y desea publicar directamente en Sitios web Azure).
+7. A continuación, debe agregar la información de conexión de la base de datos MySQL local al archivo "taskmodel.php". Abra el archivo "taskmodel.php" haciendo doble clic en él y actualice la información de conexión de la base de datos en la función "connect". (**Nota**: vaya a [Publicación de la aplicación](#Publish) si no desea probar localmente su aplicación y desea publicar directamente en Sitios web Azure).
 
 		// DB connection info
 		$host = "localhost";
@@ -125,20 +128,20 @@ Puede instalar WebMatrix desde el [Portal de administración][preview-portal].
 		$pwd = "your password";
 		$db = "tasklist";
 
-	Guarde el archivo `taskmodel.php`.
+	Guarde el archivo "taskmodel.php".
 
-8. Para que la aplicación se ejecute, tiene que crearse la tabla `items`. Haga clic con el botón derecho en el archivo `createtable.php` y seleccione **Iniciar en el explorador**. De esta forma, se iniciará `createtable.php` en el explorador y se ejecutará el código que crea la tabla `items` en la base de datos `tasklist`.
+8. Para que la aplicación se ejecute, tiene que crearse la tabla "items". Haga clic con el botón secundario en el archivo "createtable.php" y seleccione **Iniciar en el explorador**. De esta forma, se iniciará "createtable.php" en el explorador y se ejecutará el código que crea la tabla "items" en la base de datos "tasklist".
 
 	![WebMatrix - Launch createtable.php in browser][edit_run]
 
-9. Ahora puede realizar la prueba de la aplicación localmente. Haga clic con el botón derecho en el archivo `index.php` y seleccione **Iniciar en el explorador**. Realice la prueba de la aplicación agregando elementos, marcándolos como completos y eliminándolos.  
+9. Ahora puede realizar la prueba de la aplicación localmente. Haga clic con el botón secundario en el archivo "index.php" y seleccione **Iniciar en el explorador**. Realice la prueba de la aplicación agregando elementos, marcándolos como completos y eliminándolos.  
 
 
 <h2><a id="Publish"></a>Publicación de la aplicación</h2>
 
-Antes de publicar la aplicación en Sitios web Azure, la información de conexión de la base de datos en `taskmodel.php` tiene que actualizarse con la información de conexión obtenida anteriormente (en la sección [Creación de un sitio web de Azure y una base de datos MySQL](#CreateWebsite)).
+Antes de publicar la aplicación en Sitios web Azure, la información de conexión de la base de datos en "taskmodel.php" tiene que actualizarse con la información de conexión obtenida anteriormente (en la sección [Creación de un sitio web de Azure y una base de datos MySQL](#CreateWebsite) ).
 
-1. Abra el archivo `taskmodel.php` haciendo doble clic en él y actualice la información de conexión de la base de datos en la función `connect`.
+1. Abra el archivo "taskmodel.php" haciendo doble clic en él y actualice la información de conexión de la base de datos en la función "connect".
 
 		// DB connection info
 		$host = "value of Data Source";
@@ -146,27 +149,27 @@ Antes de publicar la aplicación en Sitios web Azure, la información de conexi�
 		$pwd = "value of Password";
 		$db = "value of Database";
 	
-	Guarde el archivo `taskmodel.php`.
+	Save the `taskmodel.php` file.
 
-2. Haga clic en**Publish** en WebMatrix y, a continuación, haga clic en **Continue** en el cuadro de diálogo **Publish Preview**.
+2. Haga clic en **Publicar** en WebMatrix y, a continuación, haga clic en **Continuar** en el cuadro de diálogo **Publicar vista previa**.
 
 	![WebMatrix - Publish][edit_publish]
 
-3. Diríjase a http://[nombre de su sitio web].azurewebsites.net/createtable.php para crear la tabla `items`.
+3. Diríjase a http://[nombre del sitio].azurewebsites.net/createtable.php para crear la tabla "items".
 
-4. Finalmente, diríjase a http://[nombre de su sitio web].azurewebsites.net/index.php para utilizar la aplicación.
+4. Por último, vaya a http://[nombre del sitio web].azurewebsites.net/index.php para usar la aplicación.
 	
 ##Modificación y nueva publicación de la aplicación
 
-Puede modificar fácilmente la aplicación si edita la copia local del sitio descargado anteriormente y vuelve a publicarla, o puede realizar la edición directamente en el modo remoto. En este caso, realizará un cambio simple en el título del archivo `index.php` y lo guardará directamente en el sitio activo.
+Puede modificar fácilmente la aplicación si edita la copia local del sitio descargado anteriormente y vuelve a publicarla, o puede realizar la edición directamente en el modo Remote. En este caso, realizará un cambio simple en el título del archivo "index.php" y lo guardará directamente en el sitio activo.
 
-1. Haga clic en la pestaña Remote del sitio en WebMatrix y seleccione **Open Remote View**. Se abrirá directamente el sitio remoto para la edición.
+1. Haga clic en la pestaña Remoto del sitio en WebMatrix y seleccione **Abrir vista remota**. Se abrirá directamente el sitio remoto para la edición.
 	 ![WebMatrix - Open Remote View][OpenRemoteView]
  
-2. Abra el archivo `index.php` haciendo doble clic en él.
+2. Abra el archivo "index.php" haciendo doble clic en él.
 	![WebMatrix - Open index file][Remote_editIndex]
 
-3. Cambie **My ToDo List** por **My Task List** en las etiquetas **title** y **h1** y guarde el archivo.
+3. Cambie **Mi lista de tareas pendientes** por **Mi lista de tareas** en las etiquetas **title** y **h1** y guarde el archivo.
 
 
 4. Cuando el proceso de guardado haya finalizado, haga clic en el botón Run para ver los cambios en el sitio activo.
@@ -177,9 +180,9 @@ Puede modificar fácilmente la aplicación si edita la copia local del sitio des
 
 Ha aprendido a crear e implementar un sitio web de WebMatrix en Azure. Para obtener más información sobre WebMatrix, consulte estos recursos:
 
-* [WebMatrix for Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
+* [WebMatrix para Azure](http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409)
 
-* [Sitio web de WebMatrix (en inglés)](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
+* [Sitio web de WebMatrix](http://www.microsoft.com/click/services/Redirect2.ashx?CR_CC=200106398)
 
 
 
@@ -232,3 +235,5 @@ Ha aprendido a crear e implementar un sitio web de WebMatrix en Azure. Para obte
 
 
 
+
+<!--HONumber=35_1-->

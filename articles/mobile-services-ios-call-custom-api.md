@@ -8,15 +8,15 @@
 
 En este tema se muestra cómo realizar una llamada a una API personalizada desde una aplicación de iOS. Una API personalizada le permite definir extremos personalizados que exponen la funcionalidad del servidor que no se asigna a una inserción, actualización, eliminación u operación de lectura. Al usar una API personalizada, puede tener más control sobre la mensajería, incluida la lectura y el establecimiento de encabezados de mensajes HTTP y la definición del formato del cuerpo de un mensaje diferente de JSON.
 
-La API personalizada que se creó en este tema le ofrece la posibilidad de enviar una sola consulta de POST que establece la marca completada en `true` para todos los elementos todo de la tabla. Sin esta API personalizada, el cliente tendría que enviar consultas individuales para actualizar la marca para cada elemento todo en la tabla.
+La API personalizada que se creó en este tema le ofrece la posibilidad de enviar una sola consulta de POST que establece la marca completada en "true" para todos los elementos todo en la tabla. Sin esta API personalizada, el cliente tendría que enviar consultas individuales para actualizar la marca para cada elemento todo en la tabla.
 
-Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el tutorial [Introducción a Servicios móviles] o [Introducción a los datos]. Para ello, debe completar los siguientes pasos:
+Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el tutorial [Introducción a los Servicios móviles] o [Introducción a los datos]. Para hacer esto, debe completar los siguientes pasos:
 
 1. [Definición de la API personalizada]
 2. [Actualización de la aplicación para llamar a la API personalizada]
 3. [Prueba de la aplicación]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a Servicios móviles]. Este tutorial requiere el [SDK de Servicios móviles para iOS](https://go.microsoft.com/fwLink/p/?LinkID=266533) y [XCode 4.5](https://go.microsoft.com/fwLink/p/?LinkID=266532), y iOS 5.0 o posterior.
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles]. Este tutorial requiere el [SDK de iOS para Servicios móviles](https://go.microsoft.com/fwLink/p/?LinkID=266533) , [XCode 4.5](https://go.microsoft.com/fwLink/p/?LinkID=266532) y iOS 5.0 o versiones posteriores.
 
 ## <a name="define-custom-api"></a>Definición de la API personalizada
 
@@ -29,10 +29,10 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 Ahora que ha creado una API personalizada y la llamó desde su aplicación de iOS, considere la posibilidad de profundizar más sobre los siguientes temas de servicios móviles:
 
 * [Referencia del script del servidor de Servicios móviles]
-  <br/>Más información acerca de cómo crear API personalizadas.
+  <br/>Obtenga más información acerca de la creación de API personalizadas.
 
 * [Almacenamiento de scripts de servidor en control de código fuente]
-  <br/> Aprenda a usar la característica de control de código fuente más fácil y segura, desarrollar y publicar código personalizado de secuencia de comandos de API.
+  <br/> Obtenga información sobre cómo usar la característica de control de código fuente para desarrollar y publicar de manera más fácil y segura código script de la API personalizada.
 
 <!-- Anchors. -->
 [Definición de la API personalizada]: #define-custom-api
@@ -44,9 +44,11 @@ Ahora que ha creado una API personalizada y la llamó desde su aplicación de iO
 [Notificaciones de inserción de Windows y Live Connect]: http://go.microsoft.com/fwlink/?LinkID=257677
 [Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Panel Mis aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Introducción a Servicios móviles]: /es-es/documentation/articles/mobile-services-ios-get-started/
-[Introducción a los datos]: /es-es/documentation/articles/mobile-services-ios-get-started-data/
-[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-ios-get-started-users/
-[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-ios-get-started-push/
-[Almacenamiento de scripts de servidor en control de código fuente]: /es-es/documentation/articles/mobile-services-store-scripts-source-control
+[Introducción a los Servicios móviles]: /en-us/documentation/articles/mobile-services-ios-get-started/
+[Introducción a los datos]: /en-us/documentation/articles/mobile-services-ios-get-started-data/
+[Introducción a la autenticación]: /en-us/documentation/articles/mobile-services-ios-get-started-users/
+[Introducción a las notificaciones de inserción]: /en-us/documentation/articles/mobile-services-ios-get-started-push/
+[Almacenamiento de scripts de servidor en control de código fuente]: /en-us/documentation/articles/mobile-services-store-scripts-source-control
 
+
+<!--HONumber=35_1-->

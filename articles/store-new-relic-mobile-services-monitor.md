@@ -1,135 +1,142 @@
-<properties linkid="mobile-services-monitor-new-relic" urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="Store server scripts in source control - Azure Mobile Services" metaKeywords="" description="Learn how to use the New Relic add-on to monitor your mobile service." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="dwrede" />
+﻿<properties urlDisplayName="Use New Relic to monitor Mobile Services" pageTitle="Almacenamiento de scripts de servidor en control de código fuente - Servicios móviles de Azure" metaKeywords="" description="Learn how to use the New Relic add-on to monitor your mobile service." metaCanonical="" disqusComments="1" umbracoNaviHide="0" documentationCenter="Mobile" title="Use New Relic to monitor Mobile Services" authors="new relic" manager="carolz" />
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="new="" relic" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
 
 # Uso de New Relic para supervisar Servicios móviles
 
-Este tema muestra cómo configurar el complemento New Relic de terceros para trabajar con Servicios móviles de Azure y proporcionar una supervisión mejorada del servicio móvil.
+Este tema muestra cómo configurar el complemento New Relic de terceros para trabajar con Servicios móviles de Azure y proporcionar una supervisión mejorada del servicio móvil. 
 
 El tutorial le guiará a través de los siguientes pasos:
 
-1.  [Suscripción en New Relic mediante el uso de la Tienda de Azure][Suscripción en New Relic mediante el uso de la Tienda de Azure]
-2.  [Instalación del módulo New Relic][Instalación del módulo New Relic]
-3.  [Habilitación del análisis del desarrollador de New Relic para el servicio móvil][Habilitación del análisis del desarrollador de New Relic para el servicio móvil]
-4.  [Supervisión del servicio móvil en el panel de New Relic][Supervisión del servicio móvil en el panel de New Relic]
+1. [Suscríbase a New Relic a través de la Tienda de Azure].
+2. [Instale el módulo New Relic].
+3. [Habilite el análisis del desarrollador de New Relic para el servicio móvil].
+4. [Supervise el servicio móvil en el panel de New Relic].
 
-Para completar este tutorial, ya debe haber creado un servicio móvil tras completar el tutorial [Introducción a los Servicios móviles][Introducción a los Servicios móviles] o [Introducción a los datos][Introducción a los datos].
+Para completar este tutorial, ya debe haber creado un servicio móvil tras completar el tutorial [Introducción a los Servicios móviles] o [Introducción a los datos] tutorial.
 
-## <a name="sign-up"></a>Suscripción en New Relic mediante el uso de la Tienda de Azure
+##<a name="sign-up"></a>Suscripción en New Relic mediante el uso de la Tienda de Azure
 
 El primer paso es comprar el servicio New Relic. Este tutorial le muestra cómo comprar este servicio desde la Tienda de Azure. Servicios móviles es compatible con las suscripciones de New Relic adquiridas fuera de la Tienda de Azure.
 
-1.  Inicie sesión en el [Portal de administración de Azure][Portal de administración de Azure].
+1. Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com).
 
-2.  En el panel inferior del portal de administración, haga clic en **New**.
+2. En el panel inferior del portal de administración, haga clic en **Nuevo**.
 
-3.  Haga clic en **Store**.
+3. Haga clic en **Tienda**.
 
-4.  En el cuadro de diálogo **Choose an Add-on**, seleccione **New Relic** y haga clic en **Next**.
+4. En el cuadro de diálogo **Elegir un complemento**, seleccione **New Relic** y haga clic en **Siguiente**.
 
-5.  En el cuadro de diálogo **Personalize Add-on**, seleccione el nuevo plan de New Relic que desee.
+5. En el cuadro de diálogo **Personalizar complemento**, seleccione el nuevo plan de New Relic que desee.
 
-6.  Indique el nombre que desea para el servicio de New Relic en la
-     configuración de Azure o utilice el valor predeterminado de **NewRelic**. El nombre debe ser único en
-     la lista de elementos suscritos de la Tienda de Azure.
+7. Indique el nombre que desea para el servicio de New Relic en la configuración de Azure o utilice el valor predeterminado de **NewRelic**. El nombre debe ser único en la lista de elementos suscritos de la Tienda de Azure.
 
-7.  Elija un valor para la región; por ejemplo, **Oeste de EE. UU.**
+8. Elija un valor para la región; por ejemplo, **Oeste de EE. UU.**.
 
-8.  Haga clic en **Next**.
+9. Haga clic en **Siguiente**.
 
-9.  En el cuadro de diálogo **Review Purchase**, revise la información del plan y de los precios,
-    y consulte los términos legales. Si acepta los términos, haga clic en **Purchase**.
+10. En el cuadro de diálogo **Revisar compra**, revise la información del plan y de los precios, y consulte los términos legales. Si acepta los términos, haga clic en **Adquirir**.
 
-10. Después de haber hecho clic en **Purchase**, comenzará el proceso de creación de la cuenta de New Relic. Puede supervisar el estado en el Portal de administración de Azure.
+11. Después de haber hecho clic en **Adquirir**, comenzará el proceso de creación de la cuenta de New Relic. Puede supervisar el estado en el Portal de administración de Azure.
 
-## <a name="install-module"></a>Instalación del módulo New Relic
+##<a name="install-module"></a>Instalación del módulo New Relic
 
 Una vez que se haya suscrito al servicio New Relic, tiene que instalar el módulo New Relic Node.js en el servicio móvil. Debe tener el control del código fuente habilitado para el servicio móvil a fin de cargar este módulo.
 
-1.  Si aún no lo ha hecho, siga los pasos del tutorial [Almacenamiento de scripts de servidor en control de código fuente][Almacenamiento de scripts de servidor en control de código fuente] para habilitar el control de código fuente para el servicio móvil, clone el repositorio e instale [Node Package Manager (NPM)][Node Package Manager (NPM)].
+1. Si aún no lo ha hecho, siga los pasos del tutorial [Almacenamiento de scripts de servidor en control de código fuente] para habilitar el control de código fuente para el servicio móvil, clone el repositorio e instale <a href="http://nodejs.org/" target="_blank">Node Package Manager (NPM)</a>.
 
-2.  Desplácese a la carpeta `.\service` del repositorio Git local y, a continuación, ejecute el siguiente comando desde el símbolo del sistema:
+2. Desplácese a la carpeta ".\service" del repositorio Git local y, a continuación, ejecute el siguiente comando desde el símbolo del sistema:
 
-        npm install newrelic
+		npm install newrelic
 
-    NPM instala el [New Relic module][New Relic module] (información en inglés) en el subdirectorio `\newrelic`.
+	NPM instala el [módulo New Relic][newrelic] en el subdirectorio "\newrelic". 
 
-3.  Abra una herramienta de línea de comandos Git, como **GitBash** (Windows) o **Bash** (Unix Shell) y escriba el siguiente comando en el símbolo del sistema de Git:
+3. Abra una herramienta de línea de comandos Git, como **GitBash** (Windows) o **Bash** (shell de Unix) y escriba el siguiente comando en el símbolo del sistema de Git: 
 
-        $ git add .
-        $ git commit -m "added newrelic module"
-        $ git push origin master
+		$ git add .
+		$ git commit -m "added newrelic module"
+		$ git push origin master
+		
+	De esta forma, se carga un nuevo módulo "newrelic" en el servicio móvil. 
 
-    De esta forma, se carga un nuevo módulo `newrelic` en el servicio móvil.
+A continuación, habilitará la supervisión de New Relic para el servicio móvil en el [Portal de administración][Azure Management Portal]. 
 
-A continuación, habilitará la supervisión de New Relic para el servicio móvil en el [Portal de administración][Portal de administración].
+##<a name="enable-service"></a>Habilitación del análisis del desarrollador de New Relic para el servicio móvil
 
-## <a name="enable-service"></a>Habilitación del análisis del desarrollador de New Relic para el servicio móvil
+1. En el [Portal de administración][Azure Management Portal], seleccione el servicio móvil y, a continuación, haga clic en la pestaña **Configurar**.
 
-1.  En el [Portal de administración][Portal de administración], seleccione el servicio móvil y, a continuación, haga clic en la pestaña **Configure**.
+	![][0]
 
-    ![][0]
+2. Desplácese a **Análisis del desarrollador** y realice uno de los procedimientos siguientes, según cómo haya efectuado la compra de la suscripción a New Relic:
 
-2.  Desplácese a **Developer analytics** y realice uno de los procedimientos siguientes, según cómo haya efectuado la compra de la suscripción a New Relic:
+	+ Compra en la Tienda de Azure:
 
-    -   Compra en la Tienda de Azure:
+		Haga clic en **Complemento**, seleccione el complemento New Relic en **Elegir complemento** y, a continuación, haga clic en **Guardar**.
 
-        Haga clic en **Add-on**, seleccione el complemento New Relic de **Choose add-on** y, a continuación, haga clic en **Save**.
+		![][1]
 
-        ![][1]
+	+ Compra directamente desde New Relic: 
 
-    -   Compra directamente desde New Relic:
+		Haga clic en **Personalizar**, seleccione New Relic en **Proveedor**, escriba la clave y, a continuación, haga clic en **Guardar**.
 
-        Haga clic en **Custom**, seleccione New Relic desde **Provider**, especifique la clave y, a continuación, haga clic en **Save**.
+		![][2]
 
-        ![][2]
+		La clave puede obtenerse desde el panel de New Relic.
 
-        La clave puede obtenerse desde el panel de New Relic.
+3. Una vez que se haya completado el registro, verá un nuevo valor en **Configuración de la aplicación**:
 
-3.  Una vez que se haya completado el registro, verá un nuevo valor en **App settings**:
+	![][3] 
 
-    ![][3]
+##<a name="monitor"></a>Supervisión del servicio móvil en el panel de New Relic
 
-## <a name="monitor"></a>Supervisión del servicio móvil en el panel de New Relic
+1. Ejecute la aplicación de cliente para generar solicitudes de lectura, creación, actualización y eliminación del servicio móvil.
 
-1.  Ejecute la aplicación de cliente para generar solicitudes de lectura, creación, actualización y eliminación del servicio móvil.
+2. Espere unos minutos para que se procesen los datos y, a continuación, desplácese al panel de New Relic.
 
-2.  Espere unos minutos para que se procesen los datos y, a continuación, desplácese al panel de New Relic.
+	Cuando se haya adquirido la suscripción a New Relic como complemento, selecciónela en el [Portal de administración][Azure Management Portal] y haga clic en **Administrar**.
 
-    Cuando se haya adquirido la suscripción a New Relic como complemento, selecciónela en el [Portal de administración][Portal de administración] y haga clic en **Manage**.
+3. En New Relic, haga clic en **Applications** (Aplicaciones) y, a continuación, haga clic en el servicio móvil correspondiente.
 
-3.  En New Relic, haga clic en **Applications** y, a continuación, en el servicio móvil.
+	![][4]
 
-    ![][4]
+4. Haga clic en **Web transactions** (Transacciones web) para ver las solicitudes recientes que acaba de realizar en el servicio móvil:
 
-4.  Haga clic en **Web transactions** para ver las solicitudes recientes que acaba de realizar en el servicio móvil:
+	![][5]
 
-    ![][5]
+##<a name="next-steps"> </a>Pasos siguientes
 
-## <a name="next-steps"> </a>Pasos siguientes
++ Para optimizar el rendimiento de la aplicación móvil **iOS**/**Android**, consulte [New Relic Mobile].
++ Para obtener información sobre el precio, consulte la [página de New Relic en la Tienda de Azure].
++ Para obtener más información sobre el uso de New Relic, consulte la [información general sobre aplicaciones] en la documentación de New Relic. 
 
--   Para obtener información sobre el precio, consulte la [página de New Relic en la Tienda de Azure][página de New Relic en la Tienda de Azure].
--   Para obtener más información sobre el uso de New Relic, consulte [Applications Overview][Applications Overview] en la documentación de New Relic.
+<!-- Anchors. -->
+[Suscripción a New Relic a través de la Tienda de Azure]: #sign-up
+[Instalación del módulo New Relic]: #install-module
+[Habilitación del análisis del desarrollador de New Relic para el servicio móvil]: #enable-service
+[Supervisión del servicio móvil en el panel de New Relic]: #monitor
+[Pasos siguientes]: #next-steps
 
- 
- 
+<!-- Images. -->
+[0]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-tab.png
+[1]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring.png
+[2]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring-custom.png
+[3]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring-complete.png
+[4]: ./media/store-new-relic-mobile-services-monitor/mobile-new-relic-dashboard.png
+[5]: ./media/store-new-relic-mobile-services-monitor/mobile-new-relic-dashboard-2.png
+
+<!-- URLs. -->
+[Control de código fuente]: http://msdn.microsoft.com/en-us/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Uso de scripts del servidor en Servicios móviles]: /en-us/develop/mobile/how-to-guides/work-with-server-scripts.md
+
+[Portal de administración de Azure]: https://manage.windowsazure.com/
+[Documentación sobre la API de Node.js: Módulos]: http://nodejs.org/api/modules.html
+[Almacenamiento de scripts de servidor en control de código fuente]: /en-us/develop/mobile/tutorials/store-scripts-in-source-control/
+[newrelic]: https://npmjs.org/package/newrelic
+[Página de New Relic en la Tienda de Azure]: /en-us/gallery/store/new-relic/new-relic/
+[Información general sobre aplicaciones]: https://docs.newrelic.com/docs/applications-dashboards/applications-overview
+[Introducción a los Servicios móviles]: /en-us/develop/mobile/tutorials/get-started/
+[Introducción a los datos]: /en-us/develop/mobile/tutorials/get-started-with-data-dotnet
+[New Relic Mobile]: http://newrelic.com/mobile-monitoring
 
 
-  [Suscripción en New Relic mediante el uso de la Tienda de Azure]: #sign-up
-  [Instalación del módulo New Relic]: #install-module
-  [Habilitación del análisis del desarrollador de New Relic para el servicio móvil]: #enable-service
-  [Supervisión del servicio móvil en el panel de New Relic]: #monitor
-  [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/
-  [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-dotnet
-  [Portal de administración de Azure]: https://manage.windowsazure.com
-  [Almacenamiento de scripts de servidor en control de código fuente]: /es-es/develop/mobile/tutorials/store-scripts-in-source-control/
-  [New Relic module]: https://npmjs.org/package/newrelic
-  [Portal de administración]: https://manage.windowsazure.com/
-  [0]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-tab.png
-  [1]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring.png
-  [2]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring-custom.png
-  [3]: ./media/store-new-relic-mobile-services-monitor/mobile-configure-new-relic-monitoring-complete.png
-  [4]: ./media/store-new-relic-mobile-services-monitor/mobile-new-relic-dashboard.png
-  [5]: ./media/store-new-relic-mobile-services-monitor/mobile-new-relic-dashboard-2.png
-  [página de New Relic en la Tienda de Azure]: /es-es/gallery/store/new-relic/new-relic/
-  [Applications Overview]: https://docs.newrelic.com/docs/applications-dashboards/applications-overview
+<!--HONumber=35_1-->

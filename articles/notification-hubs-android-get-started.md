@@ -1,9 +1,9 @@
 ﻿<properties urlDisplayName="Get Started" pageTitle="Introducción a los Centros de notificaciones de Azure" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
+<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal" />
 # Introducción a los Centros de notificaciones
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/es-es/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/es-es/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/es-es/documentation/articles/notification-hubs-android-get-started/" title="Android" class="current">Android</a><a href="/es-es/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/es-es/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/es-es/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/es-es/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/en-us/documentation/articles/notification-hubs-windows-store-dotnet-get-started/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-windows-phone-get-started/" title="Windows Phone">Windows Phone</a><a href="/en-us/documentation/articles/notification-hubs-ios-get-started/" title="iOS">iOS</a><a href="/en-us/documentation/articles/notification-hubs-android-get-started/" title="Android" class="current">Android</a><a href="/en-us/documentation/articles/notification-hubs-kindle-get-started/" title="Kindle">Kindle</a><a href="/en-us/documentation/articles/notification-hubs-baidu-get-started/" title="Baidu">Baidu</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-ios-get-started/" title="Xamarin.iOS">Xamarin.iOS</a><a href="/en-us/documentation/articles/partner-xamarin-notification-hubs-android-get-started/" title="Xamarin.Android">Xamarin.Android</a></div>
 
 Este tema muestra cómo puede usar Centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación de Android. 
 En este tutorial, puede crear una aplicación de Android en blanco que reciba notificaciones de inserción mediante el servicio de mensajería en la nube de Google (GCM). Cuando haya finalizado, podrá difundir notificaciones de inserción a todos los dispositivos que ejecutan su aplicación usando su centro de notificaciones.
@@ -21,11 +21,11 @@ En este tutorial se demuestra el escenario de difusión sencillo con centros de 
 Este tutorial requiere lo siguiente:
 
 + El SDK de Android (se presupone que usará Eclipse), que puede descargarse desde <a href="http://go.microsoft.com/fwlink/?LinkId=389797">aquí</a>
-+ El [SDK de Android para Servicios móviles]
++ el [SDK de Android para Servicios móviles]
 
-Completar este tutorial es un requisito previo para todos los demás tutoriales de Centros de notificaciones para aplicaciones Android. 
+Completar este tutorial es un requisito previo para todos los tutoriales de Centros de notificaciones para aplicaciones Android. 
 
-<div class="dev-callout"><strong>Nota</strong> <p>para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.</p></div>
+<div class="dev-callout"><strong>Nota:</strong> <p>para completar este tutorial, deberá tener una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fen-us%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.</p></div>
 
 ##<a id="register"></a>Habilitación del servicio de mensajería en la nube de Google
 
@@ -37,7 +37,7 @@ A continuación, utilizará este valor de clave de API para permitir que su cent
 
 1. Inicie sesión en el [Portal de administración de Azure] y, a continuación, haga clic en **+NUEVO** en la parte inferior de la pantalla.
 
-2. Haga clic en **Servicios de aplicaciones**, luego en **Bus de servicio** y, a continuación, en **Centro de notificaciones**, then **Quick Create**.
+2. Haga clic en **Servicios de aplicaciones**, **Bus de servicio**, **Centro de notificaciones** y, finalmente, en **Creación rápida**.
 
    	![][7]
 
@@ -53,7 +53,7 @@ A continuación, utilizará este valor de clave de API para permitir que su cent
 
    	![][10]
 
-6. Haga clic en la pestaña **Configurar** en la parte superior, escriba el valor de **clave de API** obtenido en la sección anterior y, a continuación, haga clic en **Guardar**.
+6. Haga clic en la pestaña **Configurar** que aparece en la parte superior, escriba el valor **Clave de API** que obtuvo en la sección anterior y, a continuación, haga clic en **Guardar**.
 
    	![][11]
 
@@ -70,7 +70,7 @@ Su centro de notificaciones está ahora configurado para funcionar con GCM y tie
 
    	![][13]
 
-2. Asegúrese de que **SDK mínimo requerido** esté establecido en *API 8: Android 2.2 (Froyo)* y que las próximas entradas del SDK se establezcan en la última versión disponible. Seleccione Next, y siga el asistente asegurándose de que **Create activity** se encuentra seleccionado para crear una actividad en blanco. Acepte el icono del selector predeterminado en la siguiente casilla y haga clic en **Finish** (Finalizar) en el último cuadro.
+2. Asegúrese de que **SDK mínimo requerido** esté definido en *API 8: Android 2.2 (Froyo)* y que las próximas entradas del SDK se establezcan en la última versión disponible. Seleccione Siguiente y siga el asistente, asegurándose de que **Crear actividad** se encuentre seleccionado para crear una actividad en blanco. Acepte el icono del selector predeterminado en la siguiente casilla y haga clic en **Finalizar** en la última.
 
    	![][14]
 
@@ -82,15 +82,15 @@ Su centro de notificaciones está ahora configurado para funcionar con GCM y tie
 
 1. Descargue el SDK para Android de Centros de notificaciones desde <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">aquí</a>. Extraiga el archivo .zip y copie el archivo notificationhubs\notification-hubs-0.1.jar en el directorio \libs del proyecto en el Explorador de paquetes.
 
-2. Descargue y descomprima el [SDK de Android para Servicios móviles], abra la carpeta de **notificaciones**, copie el archivo **notifications-1.0.1.jar** a la carpeta *libs* del proyecto Eclipse y actualice la carpeta *libs*.
+2. Descargue y descomprima el [SDK de Android para Servicio móviles], abra la carpeta **notificaciones**, copie el archivo **notifications-1.0.1.jar** en la carpeta *libs* del proyecto Eclipse y actualice la carpeta *libs*.
 
     <div class="dev-callout"><b>Nota:</b>
 	<p>Los números que aparecen al final del nombre del archivo pueden cambiar en versiones de SDK posteriores.</p>
     </div>
 
-	Ahora, configure la aplicación para obtener un valor de *registrationId" desde GCM y úselo para registrar la instancia de la aplicación en el centro de notificaciones.
+	Ahora, configure la aplicación para obtener un valor de *registrationId* desde GCM y úselo para registrar la instancia de la aplicación en el centro de notificaciones.
 
-3. En el archivo AndroidManifest.xml, agregue la siguiente línea justo debajo del elemento <uses-sdk/>. Asegúrese de reemplazar `<su paquete>` por el paquete seleccionado para la aplicación en el paso 1 (`com.yourCompany.wams_notificationhubs` en este ejemplo).
+3. En el archivo AndroidManifest.xml, agregue la siguiente línea justo debajo del elemento <uses-sdk/>. Asegúrese de reemplazar `<your package>` por el paquete seleccionado para la aplicación en el paso 1 (`com.yourCompany.wams_notificationhubs` de este ejemplo).
 
         <uses-permission android:name="android.permission.INTERNET"/>
 		<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
@@ -162,9 +162,9 @@ Su centro de notificaciones está ahora configurado para funcionar con GCM y tie
         </receiver>
 
 
-9. En el Explorador de paquetes, haga clic con el botón secundario en el paquete (bajo el nodo `src`), haga clic en **Nuevo** y después en **Clase**.
+9. En el Explorador de paquetes, haga clic con el botón secundario en el paquete (bajo el nodo "src"), haga clic en **Nuevo** y, a continuación, en **Clase**.
 
-10. En **Nombre**, escriba `MyHandler`, en **Superclase**, escriba `com.microsoft.windowsazure.notifications.NotificationsHandler` y haga clic en **Finalizar**
+10. En **Nombre**, escriba `MyHandler`, en **Superclase**, escriba `com.microsoft.windowsazure.notifications.NotificationsHandler` y luego haga clic en **Finalizar**
 
 	![][6]
 
@@ -218,15 +218,15 @@ Su centro de notificaciones está ahora configurado para funcionar con GCM y tie
 
 ##<a name="send"></a>Envío de una notificación a la aplicación
 
-Puede enviar notificaciones mediante los centros de notificaciones desde cualquier back-end que use la <a href="http://msdn.microsoft.com/es-es/library/windowsazure/dn223264.aspx">interfaz REST</a>. En este tutorial puede enviar notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un backend de los Servicios móviles de Azure integrado en centros de notificaciones, vea **Introducción a las notificaciones de inserción en Servicios móviles** ([.NET backend](/es-es/documentation/articles/mobile-services-javascript-backend-android-get-started-push/) | [JavaScript backend](/es-es/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)).  Para ver un ejemplo de cómo enviar notificaciones con API de REST, consulte **Uso de los Centros de notificaciones desde Java/PHP** ([Java](/es-es/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/es-es/documentation/articles/notification-hubs-php-backend-how-to/)).
+Puede enviar notificaciones mediante los Centros de notificaciones desde cualquier back-end que use la <a href="http://msdn.microsoft.com/en-us/library/windowsazure/dn223264.aspx">interfaz REST</a>. En este tutorial puede enviar notificaciones con una aplicación de consola .NET. Para ver un ejemplo de cómo enviar notificaciones desde un back-end de los Servicios móviles de Azure integrado en Centros de notificaciones, consulte **Introducción a las notificaciones de inserción en Servicios móviles** ([back-end .NET](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/) | [Back-end de JavaScript](/en-us/documentation/articles/mobile-services-javascript-backend-android-get-started-push/)).  Para ver un ejemplo de cómo enviar notificaciones con API de REST, consulte **Uso de los Centros de notificaciones desde Java/PHP** ([Java](/en-us/documentation/articles/notification-hubs-java-backend-how-to/) | [PHP](/en-us/documentation/articles/notification-hubs-php-backend-how-to/)).
 
-1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y luego **Proyecto...**, a continuación, en **Visual C#**, haga clic en **Windows** y en **Aplicación de la consola** y, a continuación, en **Aceptar**.  
+1. En Visual Studio, en el menú **Archivo**, seleccione **Nuevo** y, a continuación, **Proyecto...**; luego, en **Visual C#**, haga clic en **Windows** y en **Aplicación de consola**; finalmente, haga clic en **Aceptar**.  
 
    	![][20]
 
 	Esto crea un nuevo proyecto de aplicación de consola.
 
-2. En el menú **Herramientas**, haga clic en **Administrador de paquetes de biblioteca** y luego en **Consola del administrador de paquetes**. 
+2. En el menú **Herramientas**, haga clic en **Administrador de paquetes de biblioteca** y, a continuación, en **Consola del Administrador de paquetes**. 
 
 	Esto muestra la Consola del Administrador de paquetes.
 
@@ -234,9 +234,9 @@ Puede enviar notificaciones mediante los centros de notificaciones desde cualqui
 
         Install-Package WindowsAzure.ServiceBus
     
-	Esto agrega una referencia al SDK de Bus de servicio de Azure con el <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">paquete WindowsAzure.ServiceBus de NuGet</a>. 
+	Esto agrega una referencia al SDK de Bus de servicio de Azure con el <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">paquete NuGet WindowsAzure.ServiceBus</a>. 
 
-4. Abra el archivo Program.cs y agregue la siguiente instrucción `using`:
+4. Abra el archivo Program.cs y agregue la siguiente instrucción "using":
 
         using Microsoft.ServiceBus.Notifications;
 
@@ -248,11 +248,11 @@ Puede enviar notificaciones mediante los centros de notificaciones desde cualqui
             await hub.SendGcmNativeNotificationAsync("{ \"data\" : {\"msg\":\"Hello from Azure!\"}}");
         }
 
-   	Asegúrese de reemplazar el marcador de posición "nombre de centro" por el nombre del centro de notificaciones que aparece en el portal en la pestaña **Centros de notificaciones**. Sustituya también el marcador de la cadena de conexión por la cadena de conexión llamada **DefaultListenSharedAccessSignature** que obtuvo en la sección "Configurar el centro de notificaciones". 
+   	Asegúrese de reemplazar el marcador de posición "nombre de centro" por el nombre del centro de notificaciones que aparece en el portal en la pestaña **Centros de notificaciones**. Reemplace también el marcador de posición de la cadena de conexión por la cadena de conexión llamada **DefaultFullSharedAccessSignature** que obtuvo en la sección "Configuración del Centro de notificaciones". 
 
-	>[WACOM.NOTE]Asegúrese de utilizar la cadena de conexión con acceso **total**, no con acceso de **escucha**. La cadena de acceso de escucha no tiene permisos para enviar notificaciones.
+	>[WACOM.NOTE]Asegúrese de utilizar la cadena de conexión con acceso **Total**, no con acceso de **Escucha**. La cadena de acceso escuchar no tiene permisos para enviar notificaciones.
 
-5. Agregue las siguientes líneas al método **Principal**:
+5. Agregue las siguientes líneas al método **Main**:
 
          SendNotificationAsync();
 		 Console.ReadLine();
@@ -263,7 +263,7 @@ Antes de probar la aplicación en un emulador, necesitará completar estos pasos
 
 1. Asegúrese de que usa un dispositivo virtual de Android (AVD) que sea compatible con API de Google.
 
-2. En **Ventana**, haga clic en **Administrador de dispositivos virtuales de Android**, seleccione su dispositivo y, a continuación, haga clic en **Editar**.
+2. En **Window**, haga clic en **Administrador de dispositivos virtuales de Android**, seleccione su dispositivo y, a continuación, haga clic en **Editar**.
 
    	![][18]
 
@@ -271,14 +271,14 @@ Antes de probar la aplicación en un emulador, necesitará completar estos pasos
 
    	![][19]
 
-4. 	Para recibir notificaciones de inserción, debe configurar la cuenta de Google en el dispositivo virtual de Android (en el emulador, vaya a <strong>Settings</strong> (Configuración) y haga clic en <strong>Add Account</strong> (Agregar cuenta)). Además, asegúrese de que el emulador esté conectado a Internet.
+4. 	Para recibir notificaciones de inserción, debe configurar una cuenta de Google en su dispositivo virtual Android (en el emulador, vaya a <strong>Settings</strong> y haga clic en <strong>Add account</strong>). Además, asegúrese de que el emulador esté conectado a Internet.
 
 
 Siga estos pasos para ejecutar la aplicación en un dispositivo o en un emulador:
 
 1. En la barra de herramientas superior de Eclipse, haga clic en **Run** (Ejecutar) y, a continuación, seleccione la aplicación. 
  
-	Esto iniciará el emulador (si se utiliza uno) y cargará y ejecutará la aplicación. La aplicación recupera el valor de *registrationId* de GCM y se registra con el centro de notificaciones.
+	Esto iniciará el emulador (si se utiliza uno) y cargará y ejecutará la aplicación. La aplicación recupera el valor *registrationId* de GCM y se registra con el Centro de notificaciones.
 
 3. En Visual Studio, presione la tecla F5 para ejecutar la aplicación de consola. 
 
@@ -327,18 +327,20 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 [Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introducción a Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
-[Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-android
-[Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-android
-[Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-android
-[Notificaciones de inserción para usuarios de la aplicación]: /es-es/develop/mobile/tutorials/push-notifications-to-users-android
-[Autorización de usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-android
-[JavaScript y HTML]: /es-es/develop/mobile/tutorials/get-started-with-push-js
+[Introducción a los Servicios móviles]: /en-us/develop/mobile/tutorials/get-started/#create-new-service
+[Introducción a los datos]: /en-us/develop/mobile/tutorials/get-started-with-data-android
+[Introducción a la autenticación]: /en-us/develop/mobile/tutorials/get-started-with-users-android
+[Introducción a las notificaciones de inserción]: /en-us/develop/mobile/tutorials/get-started-with-push-android
+[Notificaciones de inserción para usuarios de la aplicación]: /en-us/develop/mobile/tutorials/push-notifications-to-users-android
+[Autorización de usuarios con scripts]: /en-us/develop/mobile/tutorials/authorize-users-in-scripts-android
+[JavaScript y HTML]: /en-us/develop/mobile/tutorials/get-started-with-push-js
 [Referencia a un proyecto de biblioteca]: http://go.microsoft.com/fwlink/?LinkId=389800
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[wns, objeto]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Información general acerca de los Centros de notificaciones de Azure]: http://msdn.microsoft.com/es-es/library/jj927170.aspx
+[objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Información general acerca de los Centros de notificaciones de Azure]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 
-[Uso de los Centros de notificaciones para las notificaciones de inserción a los usuarios]: /es-es/manage/services/notification-hubs/notify-users-aspnet
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: /es-es/manage/services/notification-hubs/breaking-news-dotnet
+[Uso de los Centros de notificaciones para insertar notificaciones en los usuarios]: /en-us/manage/services/notification-hubs/notify-users-aspnet
+[Uso de los Centros de notificaciones para enviar noticias de última hora]: /en-us/manage/services/notification-hubs/breaking-news-dotnet
 
+
+<!--HONumber=35_1-->
