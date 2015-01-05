@@ -166,4 +166,4 @@ Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [C
 [Comprobación del progreso del trabajo]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Valores predefinidos de tarea para Azure Media Packager]:http://msdn.microsoft.com/en-us/library/windowsazure/hh973635.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

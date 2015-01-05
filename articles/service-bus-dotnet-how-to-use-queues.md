@@ -238,4 +238,4 @@ vínculos para obtener más información.
   [Colas, temas y suscripciones.]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367516.aspx
   [Tutorial de .NET de mensajería con confianza establecida del bus de servicio]: http://msdn.microsoft.com/en-us/library/windowsazure/hh367512.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

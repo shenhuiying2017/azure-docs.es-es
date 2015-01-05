@@ -28,4 +28,4 @@ Desde hace tiempo, la tecnología relacional es el método dominante para trabaj
 
 **Descarga:** <a href="http://go.microsoft.com/fwlink/p/?LinkId=330292" target="_blank">archivo PDF "Información sobre NoSQL en Microsoft Azure"</a>
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

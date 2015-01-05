@@ -357,4 +357,4 @@ para obtener información sobre cómo hacer tareas de almacenamiento más comple
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
  [Sitio web con WebMatrix]: /en-us/documentation/articles/web-sites-nodejs-use-webmatrix/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

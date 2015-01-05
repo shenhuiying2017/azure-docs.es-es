@@ -236,4 +236,4 @@ Aunque Hive facilita la realización de las consultas de datos usando un lenguaj
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

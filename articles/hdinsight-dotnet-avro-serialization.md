@@ -1395,4 +1395,4 @@ Para limpiar el clúster, ejecute el comando siguiente:
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

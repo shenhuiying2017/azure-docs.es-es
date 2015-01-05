@@ -448,4 +448,4 @@ Para obtener la documentación de Javadoc de Servicios multimedia, consulte [Doc
   [Desarrollo de clientes de Servicios multimedia]: http://msdn.microsoft.com/en-us/library/windowsazure/dn223283.aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

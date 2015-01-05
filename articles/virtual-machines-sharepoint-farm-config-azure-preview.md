@@ -106,4 +106,4 @@ A continuación se indican los detalles de configuración:
 	-	Frase de contraseña de granja de SharePoint: se especifica durante la configuración inicial.
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

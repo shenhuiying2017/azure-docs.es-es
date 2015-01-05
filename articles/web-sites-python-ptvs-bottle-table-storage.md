@@ -209,4 +209,4 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [Almacenamiento de Azure]: http://azure.microsoft.com/en-us/documentation/services/storage/
 [SDK de Azure para Python]: https://github.com/Azure/azure-sdk-for-python
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

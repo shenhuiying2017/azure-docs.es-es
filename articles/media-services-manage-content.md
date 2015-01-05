@@ -102,4 +102,4 @@ Si el valor del tamaño del archivo no se actualiza después de que se detenga e
 [encoder]: ./media/media-services-manage-content/EncoderDialog2.png
 [branding]: ./media/branding-reporting.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

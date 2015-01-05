@@ -191,4 +191,4 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

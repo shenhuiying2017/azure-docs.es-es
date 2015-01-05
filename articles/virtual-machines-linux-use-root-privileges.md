@@ -33,4 +33,4 @@ Inicie sesión en la máquina virtual con Linux usando la autenticación de clav
 En este caso **no** se solicitará la contraseña al usuario. Después de presionar "<Entrar>", "sudo" ejecutará el comando con los privilegios "root".
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

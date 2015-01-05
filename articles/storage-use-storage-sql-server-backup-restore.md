@@ -73,4 +73,4 @@ Para obtener instrucciones detalladas acerca de cómo crear una credencial de SQ
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

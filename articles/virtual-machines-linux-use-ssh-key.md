@@ -137,4 +137,4 @@ El archivo **myCert.pem** es la clave pública que, a partir de entonces, se pue
 
 5.	Haga clic en **Abrir** para conectarse a su máquina virtual.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

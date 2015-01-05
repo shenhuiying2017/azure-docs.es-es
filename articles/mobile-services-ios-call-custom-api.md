@@ -51,4 +51,4 @@ Ahora que ha creado una API personalizada y la llamó desde su aplicación de iO
 [Almacenamiento de scripts de servidor en control de código fuente]: /en-us/documentation/articles/mobile-services-store-scripts-source-control
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -134,4 +134,4 @@ En Linux el kernel debe poner al disco de datos el nombre "/dev/sdc" y los usuar
  - Consulte también: [Configuración del software RAID en Linux](../virtual-machines-linux-configure-raid/)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

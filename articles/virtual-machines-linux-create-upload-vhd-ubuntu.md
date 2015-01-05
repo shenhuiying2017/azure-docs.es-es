@@ -110,4 +110,4 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

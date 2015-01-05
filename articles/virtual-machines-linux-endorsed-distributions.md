@@ -104,4 +104,4 @@ La tabla también incluye un vínculo a la [revisión de compatibilidad del kern
 </table>
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

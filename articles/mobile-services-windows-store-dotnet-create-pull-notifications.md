@@ -157,4 +157,4 @@ Ahora que ha creado una notificación periódica, podría averiguar más informa
 [Referencia conceptual de Servicios móviles con .NET]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

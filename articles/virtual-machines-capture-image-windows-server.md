@@ -74,4 +74,4 @@ La imagen está lista para ser utilizada como plantilla para crear máquinas vir
 [Captura correcta de la imagen]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Uso de la imagen capturada]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

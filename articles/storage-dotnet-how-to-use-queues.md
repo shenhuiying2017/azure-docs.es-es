@@ -289,4 +289,4 @@ para obtener información sobre cómo hacer tareas de almacenamiento más comple
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

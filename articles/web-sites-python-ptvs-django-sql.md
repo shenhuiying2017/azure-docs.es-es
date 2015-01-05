@@ -212,4 +212,4 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [Documentación sobre Django]: https://www.djangoproject.com/
 [Base de datos SQL]: /en-us/documentation/services/sql-database/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

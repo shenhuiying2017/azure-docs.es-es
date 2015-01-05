@@ -155,4 +155,4 @@ Para cada uno de los servicios de almacenamiento disponibles en su cuenta de alm
 
 Los registros de diagnóstico se guardan en un contenedor de blobs denominado $logs en su cuenta de almacenamiento. Para obtener más información acerca del acceso al contenedor $logs, consulte [Acerca del registro del análisis de almacenamiento](http://msdn.microsoft.com/en-us/library/windowsazure/hh343262.aspx).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

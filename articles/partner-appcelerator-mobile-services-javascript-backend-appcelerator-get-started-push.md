@@ -469,4 +469,4 @@ Esto registra un nuevo script de inserción, que usa el [objeto push de Servicio
 [Objeto push de Servicios móviles]: http://go.microsoft.com/fwlink/p/?linkid=272333&clcid=0x409
 [Instalación de las herramientas de desarrollo de Java]: http://docs.appcelerator.com/titanium/latest/#!/guide/Installing_the_Java_Development_Tools
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

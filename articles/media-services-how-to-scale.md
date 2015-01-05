@@ -93,4 +93,4 @@ Para abrir una incidencia de soporte técnico, haga lo siguiente:
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

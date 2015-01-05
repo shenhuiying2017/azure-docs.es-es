@@ -157,4 +157,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Referencia conceptual de Servicios móviles con .NET]: /en-us/develop/mobile/how-to-guides/work-with-net-client-library
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

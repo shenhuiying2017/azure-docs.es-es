@@ -645,4 +645,4 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 
   [89e2276a]: /en-us/documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

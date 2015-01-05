@@ -240,4 +240,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 [Referencia conceptual de Servicios móviles de Objective-C]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

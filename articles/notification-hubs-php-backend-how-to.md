@@ -245,4 +245,4 @@ En este tema hemos mostrado cómo crear un simple cliente REST en Java para Cent
 [Ejemplo de contenedor REST para PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
 [Tutorial introductorio]: http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

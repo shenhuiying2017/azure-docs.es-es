@@ -27,4 +27,4 @@ Después de haber creado una máquina virtual, es conveniente agregar un disco d
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

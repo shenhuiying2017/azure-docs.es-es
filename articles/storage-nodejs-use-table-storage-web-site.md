@@ -678,4 +678,4 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 
 [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: /en-us/documentation/articles/web-sites-nodejs-develop-deploy-mac/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

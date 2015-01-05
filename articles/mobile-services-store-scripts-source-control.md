@@ -168,4 +168,4 @@ Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el
 [Documentación sobre la API de Node.js: Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

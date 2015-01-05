@@ -42,4 +42,4 @@ Ahora que la autenticación es necesaria para obtener acceso a los datos en la t
 
 6. Vuelva a publicar el proyecto de servicio móvil en Azure.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -397,4 +397,4 @@ Los siguientes pasos muestran cómo detener y eliminar su aplicación.
   [Aplicación web Node.js]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
  
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

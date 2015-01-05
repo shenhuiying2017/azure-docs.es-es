@@ -206,4 +206,4 @@ Ahora debería tener un clúster de CoreOS de tres nodos ejecutándose en Azure.
 [Docker]: http://docker.io
 [YAML]: http://yaml.org/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

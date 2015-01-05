@@ -246,4 +246,4 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 [12]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push12.png
 [13]: ./media/notification-hubs-aspnet-backend-windows-dotnet-notify-users/notification-hubs-secure-push13.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

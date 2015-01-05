@@ -50,4 +50,4 @@ De este modo ya estará listo para usar una cuenta Microsoft para autenticarse e
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

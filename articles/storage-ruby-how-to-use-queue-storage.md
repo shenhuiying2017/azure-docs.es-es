@@ -161,4 +161,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento en co
 
 Para realizar una comparación entre el servicio de colas de Azure tratado en este artículo y las colas del Bus de servicio de Azure abordadas en el artículo [Utilización de las colas de Bus de servicio](/en-us/develop/ruby/how-to-guides/service-bus-queues/) , consulte [Colas de Azure y Colas de Bus de servicio de Azure: comparación y diferencias](http://msdn.microsoft.com/en-us/library/windowsazure/hh767287.aspx)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

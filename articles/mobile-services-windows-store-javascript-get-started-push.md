@@ -141,4 +141,4 @@ Considere la posibilidad de profundizar más en los siguientes temas de Servicio
 [Envío de notificaciones a los usuarios]: /en-us/manage/services/notification-hubs/notify-users/
 [Envío de notificaciones entre plataformas a los usuarios]: /en-us/manage/services/notification-hubs/notify-users-xplat-mobile-services/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

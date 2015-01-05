@@ -48,4 +48,4 @@ El disco permanece en el almacenamiento pero ya no está acoplado a una máquina
 [Acerca de discos e imágenes]:http://go.microsoft.com/fwlink/p/?LinkId=263439
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

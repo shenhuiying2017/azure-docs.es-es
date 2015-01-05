@@ -68,4 +68,4 @@ Para crear una granja de SharePoint con Granja de servidores SharePoint, realice
 Granja de servidores SharePoint utiliza el Administrador de recursos de Azure y scripts para crear automáticamente la infraestructura y las configuraciones de servidor para estas granjas de SharePoint. Para obtener más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/).
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

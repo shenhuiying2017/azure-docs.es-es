@@ -390,4 +390,4 @@ El complemento dinámico Smooth Streaming para OSMF es compatible con [Strobe Me
 
 Para obtener más información acerca del desarrollo de OSMF general, consulte la [página oficial de desarrollo de OSMF] (en inglés)(http://osmf.org/resources.html).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

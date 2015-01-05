@@ -401,4 +401,4 @@ Ahora que está familiarizado con los aspectos básicos del uso del bloque de au
   [Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure]: http://msdn.microsoft.com/en-us/library/jj838718(PandP.50).aspx
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -72,4 +72,4 @@ Siga estos pasos para agregar, modificar o quitar una ACL en un extremo.
 
 6. Use las filas de la lista para agregar, eliminar o editar reglas para una ACL. El valor Remote Subnet se corresponde con el intervalo de la dirección IP que puede permitir o denegar como regla. Las reglas se evalúan en orden, comenzando por la primera regla y terminando por la última. Esto significa que las reglas deben aparecer de menos restrictivas a más restrictivas. Para obtener ejemplos y más información, consulte [Acerca de las listas de control de acceso (ACL) de red](http://go.microsoft.com/fwlink/p/?LinkId=303816).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

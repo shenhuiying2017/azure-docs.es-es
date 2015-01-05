@@ -588,4 +588,4 @@ Para habilitar la depuración remota al usar la entrega continua, consulte [esta
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

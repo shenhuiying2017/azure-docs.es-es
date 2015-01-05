@@ -70,4 +70,4 @@ Ahora que ha configurado el equipo y creó una solución de Visual Studio para p
 [Creación de una cuenta de Servicios multimedia]: ../media-services-create-account/
 [Creación de un recurso cifrado y carga en el almacenamiento]: ../media-services-create-encrypted-asset-upload-storage/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

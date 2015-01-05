@@ -56,4 +56,4 @@ La imagen está lista para ser utilizada como plantilla para crear máquinas vir
 [Acoplamiento de un disco de datos a una máquina virtual]: ../storage-windows-attach-disk/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

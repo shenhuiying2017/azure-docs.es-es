@@ -134,4 +134,4 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Envío de notificaciones a los suscriptores]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
 [Envío de notificaciones basadas en plantillas a los suscriptores]: /en-us/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

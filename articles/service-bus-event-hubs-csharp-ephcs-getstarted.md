@@ -81,4 +81,4 @@ Ahora está preparado para ejecutar las aplicaciones.
 [Host de procesador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Información general de Centros de eventos]: http://msdn.microsoft.com/en-us/library/azure/dn836025.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

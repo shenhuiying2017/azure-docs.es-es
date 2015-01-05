@@ -130,4 +130,4 @@ Vaya al sitio web para probar la configuración correcta. Para este ejemplo, apa
 ![](./media/web-sites-python-configure/configure-python-result.png)
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

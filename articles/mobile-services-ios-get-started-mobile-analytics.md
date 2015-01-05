@@ -87,4 +87,4 @@ Puede obtener más información sobre lo que Capptain puede hacer por su aplicac
 [Capptain]: http://www.capptain.com
 [Nivel estándar de Servicios móviles]: /en-us/pricing/details/mobile-services/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

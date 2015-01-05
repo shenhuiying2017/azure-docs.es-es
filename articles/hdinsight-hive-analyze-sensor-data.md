@@ -37,4 +37,4 @@ En este ejemplo, usará Hive para procesar datos de historial producidos por sis
 
 3. Siga las instrucciones que se proporcionan en la página web para finalizar el ejemplo.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

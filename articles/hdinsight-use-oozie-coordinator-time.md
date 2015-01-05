@@ -736,4 +736,4 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie, un coordin
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

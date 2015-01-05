@@ -8,4 +8,4 @@ Ya no se admite este tema; un proyecto de inicio rápido de Windows Phone 8.0 ya
 
 Hay disponible una descarga del proyecto de inicio rápido para aplicaciones de Windows Phone Store 8.1 como parte de un proyecto universal de Windows. Para obtener más información, consulte [Introducción a Servicios móviles](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/). 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

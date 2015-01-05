@@ -565,4 +565,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
 [entrada de blog]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

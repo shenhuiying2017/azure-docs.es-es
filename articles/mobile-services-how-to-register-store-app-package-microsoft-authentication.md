@@ -24,4 +24,4 @@ Después de haber registrado el paquete de la aplicación, recuerde proporcionar
 [Introducción a usuarios de C#]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
 [Introducción a usuarios de JavaScript]: /en-us/develop/mobile/tutorials/get-started-with-users-js/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

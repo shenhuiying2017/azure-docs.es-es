@@ -78,4 +78,4 @@ Para obtener más información acerca de la entrega de recursos, consulte:
 <h2>Pasos siguientes</h2>
 Hasta el momento, hemos tratado la entrega de contenido multimedia mediante descarga desde la plataforma Almacenamiento de Azure y con el uso de Smooth Streaming. En el tema siguiente[Entrega de contenido HLS](../media-services-deliver-http-live-streaming-content/) se analiza la entrega de contenido de streaming usando Apple HTTP Live Streaming (HLS).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

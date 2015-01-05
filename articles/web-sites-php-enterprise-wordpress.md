@@ -270,4 +270,4 @@ Para hacer esto... | Use esto...
 [storesendgrid]: http://azure.microsoft.com/en-us/gallery/store/sendgrid/sendgrid-azure/
 [cdn]: http://azure.microsoft.com/en-us/documentation/articles/cdn-how-to-use/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

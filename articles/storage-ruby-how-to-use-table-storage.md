@@ -164,4 +164,4 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 * Visite el [blog del equipo de almacenamiento de Azure].(http://blogs.msdn.com/b/windowsazurestorage/)
 * Visite el repositorio del [SDK de Azure para Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -98,4 +98,4 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en 
 
 3. Haga clic en **Sí** para confirmar que desea eliminar la cuenta de almacenamiento.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

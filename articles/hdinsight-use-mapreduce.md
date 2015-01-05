@@ -233,4 +233,4 @@ Mientras MapReduce ofrece potentes capacidades de diagnóstico, puede ser un poc
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

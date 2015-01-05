@@ -235,4 +235,4 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

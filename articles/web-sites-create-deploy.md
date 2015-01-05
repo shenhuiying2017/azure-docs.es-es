@@ -52,4 +52,4 @@ Los sitios web se eliminan mediante el icono **Eliminar** del Portal de administ
 
 Para obtener más información, consulte [Sitios web Azure](/en-us/documentation/services/web-sites/).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

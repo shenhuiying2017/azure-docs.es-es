@@ -147,4 +147,4 @@ Use el siguiente procedimiento para eliminar una implementación o su servicio e
 > Si se configura una supervisión detallada para su servicio en la nube, Azure no elimina los datos de supervisión de la cuenta de almacenamiento al eliminar el servicio en la nube. Tendrá que eliminar los datos manualmente. Para obtener información sobre dónde buscar las tablas métricas, consulte "Acceso a los los datos de supervisión detallada fuera del Portal de administración" en <a href="http://azure.microsoft.com/en-us/documentation/articles/cloud-services-how-to-monitor/">Supervisión de servicios en la nube</a>.
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -387,4 +387,4 @@ Ahora que está familiarizado con los aspectos básicos del servicio Cola de Azu
 [Portal de administración de Azure]: http://manage.windowsazure.com/
 [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

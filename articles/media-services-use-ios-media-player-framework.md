@@ -205,4 +205,4 @@ Existen algunos aspectos que debe tener en cuenta aquí:
 Como se muestra en el ejemplo del código anterior, si establece **deleteAfterPlay** en **YES**, este anuncio se reproduce solo una vez. Si estableció **deleteAfterPlay** en **NO**, este anuncio sigue reproduciéndose. Es lo que llamamos "anuncio persistente".
 ### Consulte la página wiki [Azure Media Player Framework](https://github.com/WindowsAzure/azure-media-player-framework/wiki) para obtener más información.
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

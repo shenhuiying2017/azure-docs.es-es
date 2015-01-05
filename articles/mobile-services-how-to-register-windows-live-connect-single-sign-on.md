@@ -81,4 +81,4 @@ Ahora está preparado para integrar la autenticación a su aplicación mediante 
 [JavaScript y HTML]: /en-us/develop/mobile/tutorials/get-started-with-users-js/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

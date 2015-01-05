@@ -173,4 +173,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

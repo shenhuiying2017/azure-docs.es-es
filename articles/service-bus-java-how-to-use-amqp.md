@@ -349,4 +349,4 @@ También puede utilizar AMQP 1.0 del bus de servicio desde otros lenguajes, como
 * [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/en-us/library/windowsazure/jj841071.aspx)
 * [Utilización de las colas del bus de servicio](http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-queues/)
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

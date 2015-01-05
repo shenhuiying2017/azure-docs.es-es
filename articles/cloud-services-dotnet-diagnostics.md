@@ -767,4 +767,4 @@ En la tabla siguiente se comparan las características que admiten las versiones
 [Get-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/en-us/library/dn495145.aspx
 [Remove-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/en-us/library/dn495168.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

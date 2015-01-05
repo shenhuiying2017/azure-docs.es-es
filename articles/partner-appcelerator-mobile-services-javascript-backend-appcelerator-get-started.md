@@ -116,4 +116,4 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Introducción a la autenticación]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-users
 [Introducción a las notificaciones de inserción]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

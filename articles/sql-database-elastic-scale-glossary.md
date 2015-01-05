@@ -66,4 +66,4 @@ Los siguientes términos se definen para la característica Escalado elástico d
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

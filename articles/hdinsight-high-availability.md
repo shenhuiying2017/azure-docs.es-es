@@ -71,4 +71,4 @@ Para la SDK, la historia es similar. La creación y aprovisionamiento de un clú
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

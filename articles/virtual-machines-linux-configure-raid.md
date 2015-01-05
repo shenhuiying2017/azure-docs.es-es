@@ -159,4 +159,4 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 	Consulte la documentación sobre la distribución para obtener información acerca de cómo editar correctamente los parámetros de kernel. Por ejemplo, en muchas distribuciones (CentOS, Oracle Linux y SLES 11), estos parámetros pueden agregarse manualmente al archivo "`/boot/grub/menu.lst`".  En Ubuntu, este parámetro puede agregarse a la variable "GRUB_CMDLINE_LINUX_DEFAULT" en "/etc/default/grub".
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -142,4 +142,4 @@ Para obtener más información sobre MySQL, consulte la [documentasión sobre My
 [MySQLConfig10]: ./media/virtual-machines-mysql-windows-server-2008r2/MySQLConfig10.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

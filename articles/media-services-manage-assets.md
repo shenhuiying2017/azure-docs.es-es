@@ -82,4 +82,4 @@ Para obtener más información acerca de la administración de recursos, consult
 <h2>Pasos siguientes</h2>
 Ahora que sabe cómo administrar recursos, consulte el tema [Entrega de un recurso mediante descarga](../media-services-deliver-asset-download/) .
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -87,4 +87,4 @@ Con este tema concluyen los temas acerca del uso de los Servicios multimedia de 
 [Creación de aplicaciones con el SDK de Servicios multimedia para .NET]: http://go.microsoft.com/fwlink/?linkid=247821
 [Foro de Servicios multimedia]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

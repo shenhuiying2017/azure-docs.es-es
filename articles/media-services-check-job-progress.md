@@ -90,4 +90,4 @@ private static string JobIdAsFileName(string jobID)
 <h2>Pasos siguientes</h2>
 Ahora que ya sabe cómo crear un trabajo y hacer un seguimiento de su progreso, el paso siguiente es proteger los recursos. Para obtener más información, consulte [Protección de un recurso con los Servicios multimedia de Azure].(http://go.microsoft.com/fwlink/?LinkID=301813&clcid=0x409).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

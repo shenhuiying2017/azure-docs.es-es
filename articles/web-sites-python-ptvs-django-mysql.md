@@ -201,4 +201,4 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [Documentación sobre Django]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -57,4 +57,4 @@ Solamente para máquinas virtuales con una configuración de una sola instancia,
 [Administración de la disponibilidad de las máquinas virtuales]: ../virtual-machines-windows-tutorial/
 [Entender el mantenimiento planeado frente al no planeado]: ../virtual-machines-manage-availability/#Understand-planned-versus-unplanned-maintenance/ 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

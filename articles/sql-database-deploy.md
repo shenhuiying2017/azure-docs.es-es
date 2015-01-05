@@ -584,4 +584,4 @@ A continuación, copie y ejecute el script de inserción de datos.
 [Introducción a Administración de Base de datos SQL]: /en-us/manage/services/sql-databases/getting-started-w-sql-databases/  
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

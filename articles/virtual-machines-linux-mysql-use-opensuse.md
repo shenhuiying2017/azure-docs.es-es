@@ -29,4 +29,4 @@ En este tutorial ha obtenido información sobre cómo crear una máquina virtual
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

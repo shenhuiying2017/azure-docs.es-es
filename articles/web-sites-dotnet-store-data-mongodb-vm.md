@@ -516,4 +516,4 @@ Ha implementado correctamente la aplicación ASP.NET en un sitio web de Azure.  
 [Creación de un sitio web de Azure]: #createwebsite
 [Implementación de la aplicación ASP.NET en el sitio web con Git]: #deployapp
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

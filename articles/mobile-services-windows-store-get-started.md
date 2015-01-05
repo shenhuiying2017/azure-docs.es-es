@@ -9,4 +9,4 @@ Ya no se admite este tema; un proyecto independiente de la Tienda Windows ya no 
 
 Para obtener instrucciones sobre cómo agregar Servicios móviles a una aplicación de la Tienda Windows existente, consulte [Incorporación de Servicios móviles a una aplicación existente](/en-us/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

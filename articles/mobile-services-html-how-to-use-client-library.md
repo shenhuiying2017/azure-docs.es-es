@@ -645,4 +645,4 @@ Ahora que ha completado este tema de referencia conceptual, conozca cómo realiz
 [CLI para administrar tablas de Servicios móviles]: http://www.windowsazure.com/en-us/manage/linux/other-resources/command-line-tools/#Mobile_Tables
 [Referencia de opciones de consultas del sistema OData]: http://go.microsoft.com/fwlink/p/?LinkId=444502
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

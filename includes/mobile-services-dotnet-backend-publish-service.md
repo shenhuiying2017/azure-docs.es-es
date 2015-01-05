@@ -23,4 +23,4 @@ Tras probar la aplicación cliente con el servicio móvil local, el paso final d
 	Una vez realizada la publicación, volverá a ver la página de confirmación de que el servicio móvil está en funcionamiento, aunque esta vez en Azure.
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

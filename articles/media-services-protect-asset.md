@@ -116,4 +116,4 @@ Para obtener más información acerca de la protección PlayReady, consulte:
 <h2>Pasos siguientes</h2>
 Ahora que sabe cómo proteger recursos con Servicios multimedia, diríjase al tema [Administración de recursos](../media-services-manage-assets/) .
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

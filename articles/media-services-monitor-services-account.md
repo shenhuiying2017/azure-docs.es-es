@@ -51,4 +51,4 @@ Las métricas se almacenan en la cuenta de almacenamiento en cuatro tablas denom
 [storage_options_scoped]: ./media/media-services-monitor-services-account/storagemonitoringoptions_scoped.png
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

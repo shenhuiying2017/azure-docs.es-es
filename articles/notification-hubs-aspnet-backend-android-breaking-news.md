@@ -317,4 +317,4 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

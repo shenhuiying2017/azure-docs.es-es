@@ -9,4 +9,4 @@ Como se ha anunciado en TechEd 2014, pronto publicaremos el SDK de almacenamient
 
 [iOS y Servicios móviles y el almacenamiento de Microsoft Azure]: http://chrisrisner.com/iOS-and-Mobile-Services-and-Windows-Azure-Storage
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

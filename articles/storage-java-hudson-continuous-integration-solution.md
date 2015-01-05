@@ -172,4 +172,4 @@ A continuación se ofrece información general acerca de los componentes del ser
   [ms-open-tech]: http://msopentech.com
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -122,4 +122,4 @@ Ahora que ha cargado un recurso en los Servicios multimedia, vaya al tema [Obten
 
 [Obtención de un procesador de multimedia en Azure]: ../media-services-get-media-processor/
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

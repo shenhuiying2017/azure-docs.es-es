@@ -75,4 +75,4 @@ En este artículo y en los artículos sobre cada muestra ha obtenido informació
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

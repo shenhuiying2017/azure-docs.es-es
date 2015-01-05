@@ -16,4 +16,4 @@ Ha aprendido a crear e implementar un sitio web desde la galería. Para obtener 
 - [Más tutoriales de PHP](/en-us/develop/php/tutorials/) : cree tipos de aplicaciones adicionales mediante PHP y Azure.
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

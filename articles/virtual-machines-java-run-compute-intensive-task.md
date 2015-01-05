@@ -501,4 +501,4 @@ En ambas aplicaciones, el solucionador y el cliente, presione **Ctrl+C** para sa
 
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

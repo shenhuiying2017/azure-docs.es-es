@@ -99,4 +99,4 @@ Ahora que completó este tutorial, obtenga más información acerca de los centr
 [Plantillas]: http://go.microsoft.com/fwlink/p/?LinkId=317339
 [Procedimientos en los Centros de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/en-us/library/windowsazure/jj927172.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -523,4 +523,4 @@ La correcta implementación de SharePoint Server en Máquinas virtuales de Azure
 </ul>
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

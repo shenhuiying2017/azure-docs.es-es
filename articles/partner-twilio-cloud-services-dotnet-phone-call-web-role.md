@@ -188,4 +188,4 @@ Este código se proporciona para mostrar la funcionalidad básica del uso de Twi
 
 [azure_runtime_ref_dotnet]: http://msdn.microsoft.com/en-us/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

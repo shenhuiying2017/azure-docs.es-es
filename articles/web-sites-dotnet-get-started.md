@@ -303,4 +303,4 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
 
 	En Azure puede ejecutar aplicaciones web en Sitios web, como se muestra en este tutorial, o bien en Servicios en la nube o Máquinas virtuales. Para obtener más información, consulte [Modelos de ejecución de Azure](/en-us/develop/net/fundamentals/compute/) y [Sitios web Azure, Servicios en la nube y Máquinas virtuales: cuándo usar cada uno](/en-us/manage/services/web-sites/choose-web-app-service/).
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->

@@ -515,4 +515,4 @@ En este tutorial hemos visto cómo transformar un conjunto de datos JSON no estr
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 
 
-<!--HONumber=35_1-->
+<!--HONumber=35.1-->
