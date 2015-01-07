@@ -122,7 +122,8 @@ En esta sección se describen los pasos para construir un script de Windows Powe
 
 6.  Asegúrese de que haya cuentas de almacenamiento y de servicio en la nube válidas creadas en su suscripción que se puedan abordar mediante el script de publicación. Se usará la cuenta de almacenamiento (almacenamiento de blobs) para cargar y almacenar temporalmente el paquete de implementación y el archivo de configuración mientras se crea la implementación.
 
-    -   Para crear un servicio en la nube nuevo, puede llamar a este script o usar el Portal de administración de Azure. El nombre del servicio en la nube se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único. 
+    -   Para crear un servicio en la nube nuevo, puede llamar a este script o usar el Portal de administración de Azure. El nombre del servicio en la nube se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único.
+     
             New-AzureService -ServiceName "mytestcloudservice" -Location "North Central US" -Label "mytestcloudservice"
 
     -   Para crear una cuenta de almacenamiento nueva, puede llamar a este script o usar el Portal de administración de Azure. El nombre de la cuenta de almacenamiento se usará como prefijo en un nombre de dominio completo y, por este motivo, debe ser único. Puede intentar usar el mismo nombre que el servicio en la nube.
