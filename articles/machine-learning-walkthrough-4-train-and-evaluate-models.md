@@ -1,4 +1,4 @@
-﻿<properties title="Step 4: Train and evaluate the predictive analytic models" pageTitle="Paso 4: Entrenamiento y evaluación de los modelos de análisis predictivo | Azure" description="Step 4: Train, score, and evaluate multiple models in Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Step 4: Train and evaluate the predictive analytic models" pageTitle="Paso 4: Entrenamiento y evaluación de los modelos de análisis predictivo | Azure" description="Paso 4: entrenar, puntuar y evaluar varios modelos en Estudio de aprendizaje automático de Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="garye" />
 

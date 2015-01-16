@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Delivering Media Assets" pageTitle="Entrega de recursos multimedia - Azure" metaKeywords="" description="Learn about options for delivering media assets that have been uploaded to Media Services in Azure. Code samples are written in C# and use the Media Services SDK for .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver an Asset by Download" authors="juliako" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Delivering Media Assets" pageTitle="Entrega de recursos multimedia - Azure" metaKeywords="" description="Conozca las opciones para entregar recursos multimedia que se han cargado en Servicios multimedia en Azure. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver an Asset by Download" authors="juliako" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
 

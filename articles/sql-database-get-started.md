@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and provision" pageTitle="Introducción a Base de datos SQL de Azure" metaKeywords="" description="Get started creating and managing SQL Databases in Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
+﻿<properties urlDisplayName="How to create and provision" pageTitle="Introducción a Base de datos SQL de Azure" metaKeywords="" description="Aprenda a crear y administrar bases de datos SQL en Azure." metaCanonical="" services="sql-database" documentationCenter="" title="Getting Started with Azure SQL Database" authors="jeffryg"  solutions="" writer="" manager="jeffreyg" editor="tysonn"  />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jeffreyg" />
 
@@ -654,7 +654,7 @@ Existen otros métodos para mover una base de datos local a una Base de datos SQ
 
 * [Migración de bases de datos a Base de datos SQL](http://msdn.microsoft.com/en-us/library/windowsazure/ee730904.aspx)
 * [Copia de bases de datos en Base de datos SQL](http://msdn.microsoft.com/en-us/library/windowsazure/ff951624.aspx)
-* [Implementar una Base de datos SQL en una máquina virtual de Azure](http://msdn.microsoft.com/en-us/library/dn195938(v=sql.120).aspx)
+* [Implementar una Base de datos SQL en una máquina virtual de Azure](http://msdn.microsoft.com/en-us/library/dn195938.aspx)
 
 
 

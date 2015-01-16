@@ -1,4 +1,4 @@
-﻿<properties title="Monitor any web site's availability and responsiveness" pageTitle="Supervise la disponibilidad y capacidad de respuesta de cualquier sitio web" description="Set up web tests in Application Insights. Get alerts if a website becomes unavailable or responds slowly." metaKeywords="analytics web test availability" authors="awills"  manager="kamrani" />
+﻿<properties title="Monitor any web site's availability and responsiveness" pageTitle="Supervise la disponibilidad y capacidad de respuesta de cualquier sitio web" description="Configure pruebas web en Application Insights. Obtenga alertas si un sitio web deja de estar disponible o responde con lentitud." metaKeywords="analytics web test availability" authors="awills"  manager="kamrani" />
 
 <tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-30" ms.author="awills" />
  

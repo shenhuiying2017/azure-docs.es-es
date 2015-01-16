@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="Uso del almacenamiento de tablas (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Learn how to use the Table service from Python to create and delete a table, and insert, delete, and query the table." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Uso del almacenamiento de tablas (Python) | Microsoft Azure" metaKeywords="Azure table Python, creating table Azure, deleting table Azure, inserting table Azure, querying table Azure" description="Aprenda a utilizar el servicio Tabla de Azure de Python para crear y eliminar una tabla e insertar, eliminar y consultar la tabla." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Table Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
@@ -6,7 +6,8 @@
 
 
 
-# Uso del servicio de almacenamiento de tablas desde Python Esta guía le indicará cómo actuar en situaciones habituales usando el servicio de almacenamiento de tablas de Microsoft Azure. Los ejemplos están escritos usando la API Python. Entre los escenarios descritos se incluyen la **creación y eliminación de una tabla, la inserción y la consulta de entidades en una tabla**. Para obtener más información acerca de las tablas, consulte la sección [Pasos siguientes][].
+# Uso del servicio de almacenamiento de tablas desde Python 
+Esta guía le indicará cómo actuar en situaciones habituales usando el servicio de almacenamiento de tablas de Microsoft Azure. Los ejemplos están escritos usando la API Python. Entre los escenarios descritos se incluyen la **creación y eliminación de una tabla, la inserción y la consulta de entidades en una tabla**. Para obtener más información acerca de las tablas, consulte la sección [Pasos siguientes][].
 
 ## Tabla de contenido
 
@@ -152,9 +153,9 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
   [¿Qué es el servicio Tabla?]: #what-is
   [Conceptos]: #concepts
   [Creación de una cuenta de almacenamiento de Azure]: #create-account
-  [Cambio una tabla]: #create-table
-  [Cambio una entidad a una tabla]: #add-entity
-  [Cambio de una entidad]: #update-entity
+  [Carga una tabla]: #create-table
+  [Carga una entidad a una tabla]: #add-entity
+  [Carga de una entidad]: #update-entity
   [Cambio de un grupo de entidades]: #change-entities
   [Cambio una entidad]: #query-for-entity
   [Cambio un conjunto de entidades]: #query-set-entities

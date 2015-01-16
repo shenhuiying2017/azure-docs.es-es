@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SQL Database" pageTitle="Uso de SQL Azure (Java) - Guía de características de Azure" metaKeywords="" description="Learn how to use the Azure SQL Database from Java code. " metaCanonical="" services="sql-database" documentationCenter="Java" title="How to Use Azure SQL Database in Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties urlDisplayName="SQL Database" pageTitle="Uso de SQL Azure (Java) - Guía de características de Azure" metaKeywords="" description="Obtenga información acerca de cómo usar la base de datos SQL de Azure desde el código de Java. " metaCanonical="" services="sql-database" documentationCenter="Java" title="How to Use Azure SQL Database in Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 

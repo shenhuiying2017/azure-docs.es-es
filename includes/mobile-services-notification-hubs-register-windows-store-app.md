@@ -1,4 +1,4 @@
-﻿
+
 
 1. Si aún no ha registrado su aplicación, vaya a la [página Enviar una aplicación] en el Centro de desarrollo de aplicaciones de la Tienda Windows, inicie sesión en su cuenta de Microsoft y, a continuación, haga clic en **Nombre de aplicación**.
 
@@ -16,7 +16,7 @@
 
   	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-store-association.png)
 
-   	   	Se muestra el asistente **Asocie la aplicación con la Tienda Windows**.
+   	Se muestra el asistente **Asocie la aplicación con la Tienda Windows**.
 
 5. En el asistente, haga clic en **Iniciar sesión** y, a continuación, inicie sesión con su cuenta de Microsoft.
 
@@ -24,7 +24,7 @@
 
    	![](./media/mobile-services-notification-hubs-register-windows-store-app/mobile-services-select-app-name.png)
 
-   	   	Se agrega la información de registro necesaria de la Tienda Windows al manifiesto de aplicación.    
+   	Se agrega la información de registro necesaria de la Tienda Windows al manifiesto de aplicación.    
 
 7. (Opcional) Repita los pasos 4 a 6 para también registrar el proyecto de la aplicación de la Tienda de Windows Phone de una aplicación universal de Windows.
 
@@ -57,6 +57,6 @@
 	>[WACOM.NOTE]Al configurar las credenciales de WNS para las notificaciones de inserción mejoradas en la pestaña **Insertar** del portal, se comparten con los Centros de notificaciones para configurar el centro de notificaciones para la aplicación.
 
 <!-- URLs. -->
-[Introducción a Servicios móviles]w
+[Introducción a Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-store-get-started/
 [Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Portal de administración de Azure]: https://manage.windowsazure.com/

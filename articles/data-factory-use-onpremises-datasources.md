@@ -1,4 +1,4 @@
-﻿<properties title="Enable your pipelines to work with on-premises data" pageTitle="Habilitación de canalizaciones para trabajar con datos locales | Factoría de datos de Azure" description="Learn how to register an on-premises data source with an Azure data factory and copy data to/from the data source." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Enable your pipelines to work with on-premises data" pageTitle="Habilitación de canalizaciones para trabajar con datos locales | Factoría de datos de Azure" description="Obtenga información acerca de cómo registrar un origen de datos local con una factoría de datos de Azure y copiar datos en el origen de datos o desde él." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 

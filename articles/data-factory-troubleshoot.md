@@ -1,4 +1,4 @@
-﻿<properties title="Troubleshoot Azure Data Factory issues" pageTitle="Solución de problemas de la Factoría de datos de Azure" description="Learn how to troubleshoot issues with using Azure Data Factory." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Troubleshoot Azure Data Factory issues" pageTitle="Solución de problemas de la Factoría de datos de Azure" description="Obtenga información acerca de la solución de problemas relacionados con la factoría de datos de Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Continuous Delivery" pageTitle="Entrega continua para servicios en la nube con TFS en Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Learn how to set up continuous delivery for Azure cloud apps. Code samples for MSBuild command-line statements and PowerShell scripts." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="kempb" solutions="" manager="douge" editor="" />
+<properties urlDisplayName="Continuous Delivery" pageTitle="Entrega continua para servicios en la nube con TFS en Azure" metaKeywords="Azure continuous delivery, continuous delivery sample code, continuous delivery PowerShell" description="Aprenda a configurar la entrega continua para las aplicaciones en la nube de Azure. Ejemplos de código para las instrucciones de línea de comandos de MSBuild y scripts PowerShell." metaCanonical="" services="" documentationCenter="" title="Continuous Delivery for Cloud Services in Azure" authors="kempb" solutions="" manager="douge" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="12/3/2014" ms.author="kempb" />
 
@@ -116,7 +116,7 @@ En esta sección se describen los pasos para construir un script de Windows Powe
 
     De esta manera, podrá ver la información sobre su suscripción. Verifique que todo esté correcto.
 
-4.  Guarde la plantilla de script que se proporciona al [final de este artículo ][]en su carpeta de scripts como c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
+4.  Guarde la plantilla de script que se proporciona al [final de este artículo][] en su carpeta de scripts como c:\\scripts\\WindowsAzure\\**PublishCloudService.ps1**.
 
 5.  Revise la sección de parámetros del script. Agregue o modifique cualquiera de los valores predeterminados. Estos valores siempre pueden omitirse al pasar parámetros explícitos.
 
@@ -569,7 +569,7 @@ Para habilitar la depuración remota al usar la entrega continua, consulte [esta
   [Paso 5: Publicar un paquete con TFS Team Build (opcional)]: #step5
   [Servicio de Team Foundation Build]: http://go.microsoft.com/fwlink/p/?LinkId=239963
   [.NET Framework 4]: http://go.microsoft.com/fwlink/?LinkId=239538
-  [.NET Framework 4,5]: http://go.microsoft.com/fwlink/?LinkId=245484
+  [.NET Framework 4.5]: http://go.microsoft.com/fwlink/?LinkId=245484
   [.NET Framework 4.5.2]: http://go.microsoft.com/fwlink/?LinkId=521668
   [Herramientas de creación de Azure]: http://go.microsoft.com/fwlink/?LinkId=239600
   [Bibliotecas de Azure]: http://go.microsoft.com/fwlink/?LinkId=257862
@@ -582,11 +582,11 @@ Para habilitar la depuración remota al usar la entrega continua, consulte [esta
   [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
   [Cmdlets de Azure PowerShell]: http://go.microsoft.com/fwlink/?LinkId=256262
   [el archivo .publishsettings]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
-  [al final de este artículo]: #script
-  
+  [final de este artículo]: #script  
   [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png
   [4]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-04.png
   [5]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-05.png
   [6]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-06.png
+  [http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx]: http://msdn.microsoft.com/en-us/library/windowsazure/gg443832.aspx
 
 <!--HONumber=35.1-->

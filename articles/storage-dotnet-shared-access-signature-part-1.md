@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido (SAS) | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Learn about delegating access to blob, queue, and table resources with shared access signatures" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="adinah" />
+﻿<properties urlDisplayName="" pageTitle="Firmas de acceso compartido: Descripción del modelo de firmas de acceso compartido (SAS) | Microsoft Azure" metaKeywords="Azure blob, Azure table, Azure queue, shared access signatures" description="Aprenda a delegar el acceso a recursos de blob, cola y tabla con firmas de acceso compartido" metaCanonical="" services="storage" documentationCenter="" title="Part 1: Understanding the SAS Model" solutions="" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 

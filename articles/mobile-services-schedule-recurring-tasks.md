@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Schedule Backend Tasks" pageTitle="Programación de tareas de back-end con el programador - Servicios móviles" metaKeywords="" description="Use the Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Schedule Backend Tasks" pageTitle="Programación de tareas de back-end con el programador - Servicios móviles" metaKeywords="" description="Use el programador de Servicios móviles de Azure para programar trabajos para su aplicación móvil." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 

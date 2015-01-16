@@ -1,4 +1,4 @@
-﻿	<properties title="Web service: Forecasting - Autoregressive Integrated Moving Average (ARIMA)" pageTitle="Previsión - Media móvil integrada autorregresiva (ARIMA) | Azure" description="Forecasting - Autoregressive Integrated Moving Average (ARIMA)" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿	<properties title="Web service: Forecasting - Autoregressive Integrated Moving Average (ARIMA)" pageTitle="Previsión - Media móvil integrada autorregresiva (ARIMA) | Azure" description="Previsión - Media móvil integrada autorregresiva (ARIMA)" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
 

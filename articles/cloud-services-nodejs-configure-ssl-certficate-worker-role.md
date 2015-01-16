@@ -1,4 +1,4 @@
-<properties urlDisplayName="Enable SSL worker role" pageTitle="Configuraci&oacute;n de SSL para un rol de trabajo de un servicio en la nube (Node.js)" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuraci&oacute;n de SSL para una aplicaci&oacute;n Node.js en un rol de trabajo de Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Enable SSL worker role" pageTitle="Configuración de SSL para un rol de trabajo de un servicio en la nube (Node.js)" metaKeywords="Node.js Azure SSL, Node.js Azure, SSL worker role" description="" metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Configuración de SSL para una aplicación Node.js en un rol de trabajo de Azure" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
@@ -9,11 +9,9 @@ los datos que se envían por Internet. Esta tarea común trata cómo especificar
 un extremo HTTPS para una aplicación Node.js hospedada como servicio de nube de Azure en un rol de trabajo.
 
 <div class="dev-callout">
-
-**Nota:**
-Los pasos descritos en este artículo solo se aplican a las aplicaciones hospedadas como un servicio de nube de Azure en un rol de trabajo.
-
-</div>
+	<strong>Nota:</strong>
+	<p>Los pasos descritos en este artículo solo se aplican a las aplicaciones hospedadas como un servicio de nube de Azure en un rol de trabajo.</p>
+	</div>
 
 Esta tarea incluye los siguientes pasos:
 
@@ -45,11 +43,9 @@ world" que use Azure PowerShell siguiendo estos pasos:
     ![][2]
 
     <div class="dev-callout">
-
-    **Nota:**
-    Si no ha importado previamente la configuración de publicación para su suscripción de Azure, recibirá un error al intentar publicar. Para obtener información acerca de la descarga y la importación de la configuración de publicación para su suscripción, consulte [Uso de Azure PowerShell para Node.js][Uso de Azure PowerShell para Node.js]
-
-    </div>
+    <b>Nota:</b>
+    <p>Si no ha importado previamente la configuración de publicación para su suscripción de Azure, recibirá un error al intentar publicar. Para obtener información acerca de la descarga y la importación de la configuración de publicación para su suscripción, consulte <a href="https://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/#ImportPubSettings">Uso de Azure PowerShell para Node.js</a></p>
+	</div>
 
 El valor **Dirección URL del sitio web creado** devuelto por el cmdlet **Publish-AzureServiceProject** contiene el nombre de dominio completo de la aplicación hospedada. Necesitará obtener un certificado SSL para este nombre de dominio completo específico e implementarlo en Azure.
 
@@ -96,11 +92,10 @@ Cuando se implementa una aplicación Node.js en un rol de trabajo, Node.exe admi
         }).listen(port);
 
     <div class="dev-callout">
-
-    **Nota:**
-    debe reemplazar "certificate.pfx" por el nombre del archivo de certificado y "password" por la contraseña (si la hubiera) del archivo de certificado.
-
-    </div>
+    <b>Nota:</b>
+    <p>Nota:
+    debe reemplazar "certificate.pfx" por el nombre del archivo de certificado y "password" por la contraseña (si la hubiera) del archivo de certificado.</p>
+	</div>
 
 3.  Guarde el archivo **server.js**.
 
@@ -140,10 +135,8 @@ conectarse a ella con HTTPS.
     ![La dirección URL del sitio][La dirección URL del sitio]
 
     <div class="dev-callout">
-
-    **Nota:**
-    Si la dirección URL del sitio que se muestra en el portal no especifica HTTPS, entonces debe escribir manualmente la dirección URL en el explorador usando HTTPS en lugar de HTTP.
-
+    <b>Nota:</b>
+    <p>Si la dirección URL del sitio que se muestra en el portal no especifica HTTPS, entonces debe escribir manualmente la dirección URL en el explorador usando HTTPS en lugar de HTTP.</p>
     </div>
 
 3.  Se abrirá un nuevo explorador y aparecerá su sitio web.

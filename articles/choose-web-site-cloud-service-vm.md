@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Learn when to use Azure Websites, Cloud Services, and Virtual Machines for hosting web applications." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="Azure Websites, Cloud Services, and Virtual Machines comparison" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+<properties pageTitle="Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Aprenda cuándo utilizar Sitios web Azure, Servicios en la nube y Máquinas virtuales para hospedar aplicaciones web." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="Azure Websites, Cloud Services, and Virtual Machines comparison" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
 
@@ -341,7 +341,7 @@ Para conocer con mayor profundidad las opciones que ha elegido para su aplicaci�
 * [Máquinas virtuales de Azure](/en-us/documentation/services/virtual-machines/)
 
   [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
-  [Sitios web Azure]: http://go.microsoft.com/fwlink/?LinkId=306051
+  [Sitios web de Azure]: http://go.microsoft.com/fwlink/?LinkId=306051
   [Servicios en la nube]: http://go.microsoft.com/fwlink/?LinkId=306052
   [Máquinas virtuales]: http://go.microsoft.com/fwlink/?LinkID=306053
   [ClearDB]: http://www.cleardb.com/

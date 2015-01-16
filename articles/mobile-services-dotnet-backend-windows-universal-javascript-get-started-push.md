@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introducción a la notificación de inserción usando un servicio móvil de back-end .NET" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+<properties pageTitle="Introducción a la notificación de inserción usando un servicio móvil de back-end .NET" metaKeywords="" description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación universal de Windows." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="glenga" />
 
@@ -28,10 +28,10 @@ Para completar este tutorial, necesitará lo siguiente:
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 <ol start="6">
-<li><p>Vaya a la carpeta de proyecto <code>\services\mobileServices\scripts</code>, copie el archivo de script <<em>nombre_del_servicio</em>>.push.register.js generado en la carpeta compartida <code>\js</code> y elimínelo de los proyectos de aplicación individuales de Windows y Windows Phone.</p></li> 
+<li><p>Vaya a la carpeta de proyecto <code>\services\mobileServices\scripts</code>, copie el archivo de script &lt;<em>nombre_del_servicio</em>&gt;.push.register.js generado en la carpeta compartida <code>\js</code> y elimínelo de los proyectos de aplicación individuales de Windows y Windows Phone.</p></li> 
 <li><p>Abra el archivo de script en la carpeta de proyecto compartida <code>\js</code>, busque el código en la escucha de eventos <em>activated</em> que registra la URL de canal del dispositivo con el Centro de notificaciones y elimine la función de la promesa <strong>done</strong>.</p>
 <p>En este tutorial se envían notificaciones cuando se inserta un elemento nuevo y no cuando se llama a una API personalizada.</p></li>
-<li><p>En el proyecto de aplicación de Windows, abra el archivo default.html y cambie la ruta de acceso de la referencia del archivo de script por la carpeta de proyecto compartida <code>\js</code>, con un resultado similar al siguiente:</p><pre><code><script src="/js/your_service_name.push.register.js"></script></code></pre></li>
+<li><p>En el proyecto de aplicación de Windows, abra el archivo default.html y cambie la ruta de acceso de la referencia del archivo de script por la carpeta de proyecto compartida <code>\js</code>, con un resultado similar al siguiente:</p><pre><code>&lt;script src="/js/your_service_name.push.register.js"&gt;&lt;/script&gt;</code></pre></li>
 <li><p>Repita este paso para el proyecto de aplicación de Windows Phone.</p>
 <p>Ahora, los dos proyectos usan una versión compartida del script de registro de inserción.</p></li>
 </ol>
@@ -53,7 +53,7 @@ Los pasos pendientes de esta sección son opcionales. Permiten probar la aplicac
 >[WACOM.NOTE]Nunca use un servicio móvil de producción para probar y desarrollar el trabajo. Para probarlo, publique siempre el proyecto de servicio móvil en un servicio de almacenamiento provisional independiente.
 
 <ol start="5">
-<li><p>Vaya a la carpeta de proyecto <code>\services\mobileServices\settings</code>, copie el archivo de script <<em>nombre_del_servicio</em>>.js generado en la carpeta de proyecto compartida <code>\js</code> y elimínelo de los proyectos de aplicación individuales de Windows y Windows Phone. Elimínelo también de la carpeta <code>\services\mobileServices\scripts</code> en los distintos proyectos de aplicación (si contienen esta carpeta).</p></li> 
+<li><p>Vaya a la carpeta de proyecto <code>\services\mobileServices\settings</code>, copie el archivo de script &lt;<em>nombre_del_servicio</em>&gt;.js generado en la carpeta de proyecto compartida <code>\js</code> y elimínelo de los proyectos de aplicación individuales de Windows y Windows Phone. Elimínelo también de la carpeta <code>\services\mobileServices\scripts</code> en los distintos proyectos de aplicación (si contienen esta carpeta).</p></li> 
 <li><p>Abra el archivo de script en la carpeta de proyecto compartida <code>\js</code> y convierta en comentario el código existente que define el <a href="http://msdn.microsoft.com/es-es/library/azure/jj554219.aspx">objeto MobileServiceClient</a> con el que se accede al servicio móvil que se ejecuta en Azure.</p></li>
 <li><p>Agregue una nueva definición de objeto <strong>MobileServiceClient</strong> con el mismo nombre, pero con la URL del host local en el constructor. Algo similar a lo siguiente:</p>
 <pre><code>// This MobileServiceClient has been configured to communicate with your local

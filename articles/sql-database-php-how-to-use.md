@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SQL Database" pageTitle="Uso de la base de datos SQL (PHP) - Guías de Azure" metaKeywords ="PHP de Base de datos SQL de Azure, PHP de Base de datos SQL" description="Learn how to create and connect to an Azure SQL Database from PHP." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Azure SQL Database from PHP" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties urlDisplayName="SQL Database" pageTitle="Uso de la base de datos SQL (PHP) - Guías de Azure" metaKeywords ="PHP de Base de datos SQL de Azure, PHP de Base de datos SQL" description="Obtenga información acerca de cómo crear y conectarse a una base de datos SQL de Azure desde PHP." metaCanonical="" services="sql-database" documentationCenter="PHP" title="How to Access Azure SQL Database from PHP" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/29/2014" ms.author="tomfitz" />
 

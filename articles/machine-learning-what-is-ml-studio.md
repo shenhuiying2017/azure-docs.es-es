@@ -1,4 +1,4 @@
-﻿<properties title="What Is Azure Machine Learning Studio?" pageTitle="¿Qué es Estudio de aprendizaje automático? | Azure" description="Overview of Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="What Is Azure Machine Learning Studio?" pageTitle="¿Qué es Estudio de aprendizaje automático? | Azure" description="Información general de Estudio de aprendizaje automático de Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/11/2014" ms.author="garye" />
 

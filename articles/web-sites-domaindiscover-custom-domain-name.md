@@ -1,4 +1,4 @@
-﻿<properties title="Learn how to configure an Azure website to use a domain name registered with DomainDiscover - TierraNet" pageTitle="Configuración de un nombre de dominio de DomainDiscover para un sitio web de Azure" metaKeywords="Azure, Sitios web Azure, DomainDiscover, TierraNet" description="Learn how to configure an Azure website to use a domain name registered with DomainDiscover - TierraNet" services="web-sites" documentationCenter="" authors="larryfr,jroth" manager="wpickett" />
+﻿<properties title="Learn how to configure an Azure website to use a domain name registered with DomainDiscover - TierraNet" pageTitle="Configuración de un nombre de dominio de DomainDiscover para un sitio web de Azure" metaKeywords="Azure, Sitios web Azure, DomainDiscover, TierraNet" description="Obtenga información acerca de cómo configurar un sitio web de Azure para usar un nombre de dominio registrado con DomainDiscover - TierraNet" services="web-sites" documentationCenter="" authors="larryfr,jroth" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth" />
 

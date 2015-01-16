@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus AMQP" pageTitle="Uso de AMQP 1.0 con la API .NET del bus de servicio - Azure" metaKeywords="" description="Learn how to use Advanced Message Queuing Protodol (AMQP) 1.0 with the Azure .NET Service Bus API." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to use AMQP 1.0 with the Service Bus .NET API" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties urlDisplayName="Service Bus AMQP" pageTitle="Uso de AMQP 1.0 con la API .NET del bus de servicio - Azure" metaKeywords="" description="Obtenga información acerca de cómo usar Advanced Message Queuing Protocol (AMQP) 1.0 con la API del Service Bus de .NET de Azure." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to use AMQP 1.0 with the Service Bus .NET API" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 

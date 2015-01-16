@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Notification Hubs" pageTitle="Centros de notificaciones - Centro para desarrolladores de Node.js "metaKeywords="" description="Learn how to use Notification Hubs to send push notifications. Code samples are written for Node.js applications." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Notification Hubs" authors="larryfr" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Notification Hubs" pageTitle="Centros de notificaciones - Centro para desarrolladores de Node.js "metaKeywords="" description="Obtenga información acerca de cómo usar los centros de notificaciones para enviar notificaciones de inserción. Los ejemplos de código están escritos para aplicaciones Node.js." metaCanonical="" services="service-bus" documentationCenter="nodejs" title="How to Use Notification Hubs" authors="larryfr" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 

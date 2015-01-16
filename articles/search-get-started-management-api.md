@@ -1,4 +1,4 @@
-﻿<properties title="Get started with Azure Search Management REST API" pageTitle="Introducción a la API de REST de administración de búsqueda de Azure" description="Get started with Azure Search Management REST API" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties title="Get started with Azure Search Management REST API" pageTitle="Introducción a la API de REST de administración de búsqueda de Azure" description="Introducción a la API de REST de administración de búsqueda de Azure" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
 
 <tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/10/2014" ms.author="heidist" />
 # Introducción a la API de REST de administración de búsqueda de Azure #

@@ -1,4 +1,4 @@
-﻿<properties title="Learn how to configure an Azure website to use a domain name registered with Dotster" pageTitle="Configuración de un nombre de dominio de Dotster para un sitio web de Azure "metaKeywords ="Azure, Sitios web Azure, Dotster" description="Learn how to configure an Azure website to use a domain name registered with Dotster" services="web-sites" documentationCenter="" authors="larryfr,jroth" manager="wpickett" />
+﻿<properties title="Learn how to configure an Azure website to use a domain name registered with Dotster" pageTitle="Configuración de un nombre de dominio de Dotster para un sitio web de Azure "metaKeywords ="Azure, Sitios web Azure, Dotster" description="Obtenga información acerca de cómo configurar un sitio web de Azure para usar un nombre de dominio registrado con Dotster" services="web-sites" documentationCenter="" authors="larryfr,jroth" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth" />
 

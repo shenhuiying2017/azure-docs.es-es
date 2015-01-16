@@ -1,4 +1,4 @@
-﻿<properties  pageTitle="Programación de tareas de backend con el programador - Servicios móviles" metaKeywords="" description="Use the Windows Azure Mobile Services Scheduler to schedule jobs for your mobile app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="dwrede" editor=""  />
+<properties  pageTitle="Programación de tareas de backend con el programador - Servicios móviles" metaKeywords="" description="Use el programador de Servicios móviles de Windows Azure para programar trabajos para su aplicación móvil." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga"  solutions="mobile" writer="" manager="dwrede" editor=""  />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
 
@@ -8,22 +8,22 @@
 	<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend" class="current">backend .NET</a> | <a href="/es-es/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" >JavaScript backend</a>
 </div>
  
-This topic shows you how to use the job scheduler functionality in the Management Portal to define server script code that is executed based on a schedule that you define. In this case, the script periodically check with a remote service, in this case Twitter, and stores the results in a new table. Some other periodic tasks that can be scheduled include:
+Este tema le muestra cómo usar la funcionalidad del programador de trabajos en el Portal de administración para definir el código de script de servidor que se ejecuta según el programa que establezca. En este caso, se realiza una comprobación periódica del script con un servicio remoto (Twitter) y se almacenan los resultados en una nueva tabla. Entre las demás tareas periódicas que pueden programarse se incluyen las siguientes:
 
-+ Archiving old or duplicate data records.
-+ Requesting and storing external data, such as tweets, RSS entries, and location information.
-+ Processing or resizing stored images.
++ Archivado de registros de datos antiguos o duplicados.
++ Solicitud y almacenamiento de datos externos, como tweets, entradas RSS e información de ubicación.
++ Procesamiento o cambio de tamaño de imágenes almacenadas.
 
 This tutorial walks you through the following steps of how to use the job scheduler to create a scheduled job that requests tweet data from Twitter and stores the tweets in a new Updates table:
 
-+ [Register for Twitter access and store credentials]
-+ [Download and install the LINQ to Twitter library]
-+ [Create the new Updates table]
-+ [Create a new scheduled job]
-+ [Test the scheduled job locally]
-+ [Publish the service and register the job]
++ [Registro para obtener acceso a Twitter y almacenamiento de credenciales]
++ [Descarga e instalación de la biblioteca LINQ to Twitter]
++ [Creación de la nueva tabla de actualizaciones]
++ [Creación de un nuevo trabajo programado]
++ [Prueba local del trabajo programado]
++ [Publicación del servicio y registro del trabajo]
 
->[WACOM.NOTE]This tutorial uses the third-party LINQ to Twitter library to simplify OAuth 2.0 access to Twitter v1.1. APIs. You must download and install the LINQ to Twitter NuGet package to complete this tutorial. For more information, see the [LINQ to Twitter CodePlex project].
+>[WACOM.NOTE]Este tutorial usa la biblioteca de terceros LINQ to Twitter a fin de simplificar el acceso de OAuth 2.0 a las API de Twitter v1.1. Para completar el tutorial, debe descargar e instalar el paquete de NuGet LINQ to Twitter. Para obtener más información, consulte [LINQ para el proyecto CodePlex de Twitter].
 
 ##<a name="get-oauth-credentials"></a>Registro para obtener acceso a las API de Twitter v1.1 y almacenamiento de credenciales
 

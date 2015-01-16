@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="Supervisión de una base de datos SQL - Administración de servicios de Azure" metaKeywords="" description="Learn how to monitor a SQL Database using the Azure Management Portal." metaCanonical="" services="sql-database" documentationCenter="" title="How to Monitor Logical Servers and Database Instances" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
+﻿<properties urlDisplayName="How to monitor" pageTitle="Supervisión de una base de datos SQL - Administración de servicios de Azure" metaKeywords="" description="Obtenga información acerca de cómo supervisar una base de datos SQL con el Portal de administración de Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Monitor Logical Servers and Database Instances" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 

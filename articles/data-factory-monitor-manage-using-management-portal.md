@@ -1,4 +1,4 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure Preview Portal" pageTitle="Supervisión y administración de la Factoría de datos de Azure mediante el Portal de vista previa de Azure" description="Learn how to use Azure Management Portal to monitor and manage Azure data factories you have created." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Monitor and manage Azure Data Factory using Azure Preview Portal" pageTitle="Supervisión y administración de la Factoría de datos de Azure mediante el Portal de vista previa de Azure" description="Obtenga información acerca de cómo usar el Portal de administración de Azure para supervisar y administrar las factorías de datos de Azure que ha creado." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
 <tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
 

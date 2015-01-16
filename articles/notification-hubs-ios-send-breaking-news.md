@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Tutorial de noticias de última hora en los Centros de notificaciones: iOS" metaKeywords="" description="Learn how to use Azure Service Bus Notification Hubs to send breaking news notifications to iOS devices." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Tutorial de noticias de última hora en los Centros de notificaciones: iOS" metaKeywords="" description="Obtenga información acerca del uso de centros de notificaciones de Azure para enviar notificaciones de noticias de última hora en dispositivos iOS." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="yuaxu" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
 

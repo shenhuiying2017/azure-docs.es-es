@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Implementación de un sitio web de Azure" metaKeywords="implementar o publicar un sitio web de Azure" description="Learn what methods are available for deploying content to an Azure Website." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Website" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties pageTitle="Implementación de un sitio web de Azure" metaKeywords="implementar o publicar un sitio web de Azure" description="Obtenga información acerca de los métodos que están disponibles para implementar contenido en un sitio web de Azure." metaCanonical="" services="web-sites" documentationCenter="" title="How to Deploy an Azure Website" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/02/2014" ms.author="tdykstra" />
 

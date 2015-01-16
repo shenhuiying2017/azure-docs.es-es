@@ -1,5 +1,5 @@
 ﻿
-<properties urlDisplayName=".NET Client Library" pageTitle="Trabajo con la biblioteca de cliente de .NET para Servicios móviles" metaKeywords="Servicios móviles de Azure, cliente de .NET para Servicios móviles, cliente de .NET" description="Learn how to use an .NET client for Azure Mobile Services." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName=".NET Client Library" pageTitle="Trabajo con la biblioteca de cliente de .NET para Servicios móviles" metaKeywords="Servicios móviles de Azure, cliente de .NET para Servicios móviles, cliente de .NET" description="Obtenga información acerca de cómo usar un cliente de .NET para Servicios móviles de Azure." metaCanonical="" services="" documentationCenter="Mobile" title="How to use a .NET client for Azure Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/10/2014" ms.author="glenga" />
 

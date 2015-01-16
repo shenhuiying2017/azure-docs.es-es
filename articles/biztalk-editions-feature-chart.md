@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Editions chart" pageTitle="Obtenga información acerca de las características de las ediciones de servicios de BizTalk | Azure" metaKeywords="BizTalk Services, get started, Azure, editions" description="Compare the capabilities of the BizTalk Services editions: Free, Developer, Basic, Standard, and Premium." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Basic" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties urlDisplayName="Editions chart" pageTitle="Obtenga información acerca de las características de las ediciones de servicios de BizTalk | Azure" metaKeywords="BizTalk Services, get started, Azure, editions" description="Compare las capacidades de las ediciones de Servicios de BizTalk: Free, Developer, Basic, Standard y Premium." metaCanonical="" services="biztalk-services" documentationCenter="" title=" Basic" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
 
 <tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 

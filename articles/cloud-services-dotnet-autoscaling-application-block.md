@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Autoscaling" pageTitle="Uso del bloque de autoescala de la aplicación (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Learn how to use the Autoscaling Application for Azure. Code samples are written in C# and use the .NET API." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="How to Use the Autoscaling Application Block" authors="rasquill" solutions="" manager="timlt" editor="" />
+<properties urlDisplayName="Autoscaling" pageTitle="Uso del bloque de autoescala de la aplicación (.NET) - Azure" metaKeywords="Azure autoscaling, Azure autoscaling C#, Azure autoscaling .NET" description="Aprenda a utilizar la autoescala de la aplicación en Azure. Los ejemplos de código están escritos en C# y utilizan la API .NET." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="How to Use the Autoscaling Application Block" authors="rasquill" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/14/2014" ms.author="rasquill" />
 
@@ -18,7 +18,7 @@ En esta guía se demuestra cómo llevar a cabo supuestos comunes usando el bloqu
  [Conceptos][]   
  [Recopilación de datos del contador de rendimiento desde su aplicación de Azure de destino][]   
  [Instalación de una aplicación host para el bloque de autoescala de la aplicación][]   
- [Creación de una instancia y ejecución de la autoescala][] [ Definición de su modelo de servicio][]   
+ [Creación de una instancia y ejecución de la autoescala][] [Definición de su modelo de servicio][]   
  [Definición de sus reglas de autoescala][]   
  [Configuración del bloque de autoescala de la aplicación][]   
  [Pasos siguientes][]
@@ -373,14 +373,13 @@ Ahora que está familiarizado con los aspectos básicos del uso del bloque de au
 -   [Reducción de los costes de hospedaje de Azure debido a Sage con autoescala][]
 -   [Reducción de los costes de hospedaje de TechNet y MSDN y del impacto medioambiental con la autoescala en Azure][]
 
-  [Paquete de integración de Microsoft Enterprise Library 5.0 para Azure]:
-    http://go.microsoft.com/fwlink/?LinkID=235134
+  [Paquete de integración de Microsoft Enterprise Library 5.0 para Azure]: http://go.microsoft.com/fwlink/?LinkID=235134
   [Pasos siguientes]: #NextSteps
   [¿Qué es el bloque de autoescala de la aplicación?]: #WhatIs
   [Conceptos]: #Concepts
   [Recopilación de datos del contador de rendimiento desde su aplicación de Azure de destino]: #PerfCounter
   [Instalación de una aplicación host para el bloque de autoescala de la aplicación]: #CreateHost
-  [Generación de instancias y ejecución de la autoescala]: #Instantiate
+  [Creación de una instancia y ejecución de la autoescala]: #Instantiate
   [Definición de su modelo de servicio]: #DefineServiceModel
   [Definición de sus reglas de autoescala]: #DefineAutoscalingRules
   [Configuración del bloque de autoescala de la aplicación]: #Configure

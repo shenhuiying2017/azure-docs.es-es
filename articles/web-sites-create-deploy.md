@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create" pageTitle="Creación de sitios web - Administración de servicios de Azure" metaKeywords="Azure creating website, Azure deleting website" description="Learn how to create a website using the Azure Management Portal." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create and Deploy a Website" authors="cephalin" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="How to create" pageTitle="Creación de sitios web - Administración de servicios de Azure" metaKeywords="Azure creating website, Azure deleting website" description="Obtenga información sobre cómo crear un sitio web con el Portal de administración de Azure." metaCanonical="" services="web-sites" documentationCenter="" title="How to Create and Deploy a Website" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 

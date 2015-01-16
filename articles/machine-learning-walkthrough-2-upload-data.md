@@ -1,4 +1,4 @@
-﻿<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Paso 2: Carga de datos en un experimento de Aprendizaje automático | Azure" description="Step 2: Upload existing public data into Azure Machine Learning Studio" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+﻿<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Paso 2: Carga de datos en un experimento de Aprendizaje automático | Azure" description="Paso 2: carga de los datos públicos existentes en Estudio de aprendizaje automático de Azure" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
 
 <tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
 

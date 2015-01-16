@@ -1,4 +1,4 @@
-﻿<properties title="Get started with scoring profiles in Azure Search" pageTitle="Introducción a los perfiles de puntuación en la Búsqueda de Azure" description="Get started with scoring profiles in Azure Search" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties title="Get started with scoring profiles in Azure Search" pageTitle="Introducción a los perfiles de puntuación en la Búsqueda de Azure" description="Introducción a los perfiles de puntuación en la Búsqueda de Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
 
 <tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/16/2014" ms.author="heidist" />
 

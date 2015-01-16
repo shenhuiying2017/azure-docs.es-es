@@ -1,4 +1,4 @@
-﻿<properties title="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" pageTitle="Conexión híbrida: Conexión de un sitio web de Azure a un recurso local" description="Create a connection between an Azure website and an on-premises resource that uses a static TCP port" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties title="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" pageTitle="Conexión híbrida: Conexión de un sitio web de Azure a un recurso local" description="Crear una conexión entre un sitio web de Azure y un recurso local que usa un puerto TCP estático" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
@@ -168,11 +168,11 @@ Ahora que la infraestructura de conexión híbrida se ha completado, puede crear
 [Conexión a un servidor SQL Server local desde Servicios móviles de Azure mediante conexiones híbridas (vídeo de Canal 9)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 
 <!-- IMAGES -->
-[Nuevo]:./media/web-sites-hybrid-connection-get-started/B01New.png
+[New]:./media/web-sites-hybrid-connection-get-started/B01New.png
 [NewWebsite]:./media/web-sites-hybrid-connection-get-started/B02NewWebsite.png
 [WebsiteCreationBlade]:./media/web-sites-hybrid-connection-get-started/B03WebsiteCreationBlade.png
 [WebSiteRunningBlade]:./media/web-sites-hybrid-connection-get-started/B04WebSiteRunningBlade.png
-[Examinar]:./media/web-sites-hybrid-connection-get-started/B05Browse.png
+[Browse]:./media/web-sites-hybrid-connection-get-started/B05Browse.png
 [DefaultWebSitePage]:./media/web-sites-hybrid-connection-get-started/B06DefaultWebSitePage.png
 [CreateHCHCIcon]:./media/web-sites-hybrid-connection-get-started/C01CreateHCHCIcon.png
 [CreateHCAddHC]:./media/web-sites-hybrid-connection-get-started/C02CreateHCAddHC.png

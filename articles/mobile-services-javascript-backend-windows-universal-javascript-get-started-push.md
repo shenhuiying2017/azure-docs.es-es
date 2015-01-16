@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introducción a las notificaciones de inserción con un servicio móvil de back-end de JavaScript" metaKeywords="" description="Learn how to use Azure Mobile Services and Notification Hubs to send push notifications to your universal Windows app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile-services,notification-hubs" manager="dwrede" editor="" />
+<properties pageTitle="Introducción a las notificaciones de inserción con un servicio móvil de back-end de JavaScript" metaKeywords="" description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación universal de Windows." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="glenga" solutions="mobile-services,notification-hubs" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/15/2014" ms.author="glenga" />
 
@@ -27,10 +27,10 @@ Para completar este tutorial, necesitará lo siguiente:
 [WACOM.INCLUDE [mobile-services-create-new-push-vs2013](../includes/mobile-services-create-new-push-vs2013.md)]
 
 <ol start="6">
-<li><p>Vaya a la <code>\services\mobileServices\scripts</code> carpeta del proyecto, copie el archivo de script <<em>nombre_de_su_servicio</em>>.push.register.js generado en la carpeta compartida <code>\js</code> y elimínelo de los proyectos de aplicación individuales de Windows y Windows Phone.</p></li> 
+<li><p>Vaya a la <code>\services\mobileServices\scripts</code> carpeta del proyecto, copie el archivo de script &lt;<em>nombre_de_su_servicio</em>&gt;.push.register.js generado en la carpeta compartida <code>\js</code> y elimínelo de los proyectos de aplicación individuales de Windows y Windows Phone.</p></li> 
 <li><p>Abra el archivo de script en la carpeta de proyecto compartida <code>\js</code>, busque el código en la escucha de eventos <em>activated</em> que registra la dirección URL de canal del dispositivo en el centro de notificaciones y elimine la función de promesa <strong>done</strong>.</p>
 <p>En este tutorial se envían notificaciones cuando se inserta un elemento nuevo y no cuando se llama a una API personalizada.</p></li>
-<li><p>En el proyecto de aplicación de Windows, abra el archivo default.html y cambie la ruta de acceso de la referencia del archivo de script por la carpeta de proyecto compartida <code>\js</code>, con un resultado similar al siguiente:</p><pre><code><script src="/js/your_service_name.push.register.js"></script></code></pre></li>
+<li><p>En el proyecto de aplicación de Windows, abra el archivo default.html y cambie la ruta de acceso de la referencia del archivo de script por la carpeta de proyecto compartida <code>\js</code>, con un resultado similar al siguiente:</p><pre><code>&lt;script src="/js/your_service_name.push.register.js"&gt;&lt;/script&gt;</code></pre></li>
 <li><p>Repita este paso para el proyecto de aplicación de Windows Phone.</p>
 <p>Ahora, los dos proyectos usan una versión compartida del script de registro de inserción.</p></li>
 </ol>

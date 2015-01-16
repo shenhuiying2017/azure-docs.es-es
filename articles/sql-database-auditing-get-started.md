@@ -1,4 +1,4 @@
-﻿<properties title="Get started with SQL database auditing" pageTitle="Introducción a la auditoría de bases de datos SQL | Azure" description="Get started with SQL database auditing" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId="" manager="jeffreyg" />
+﻿<properties title="Get started with SQL database auditing" pageTitle="Introducción a la auditoría de bases de datos SQL | Azure" description="Introducción a la auditoría de bases de datos SQL" metaKeywords="" services="sql-database" solutions="data-management" documentationCenter="" authors="jeffreyg" videoId="" scriptId="" manager="jeffreyg" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
  

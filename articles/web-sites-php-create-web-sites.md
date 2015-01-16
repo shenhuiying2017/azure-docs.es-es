@@ -1,4 +1,4 @@
-﻿<properties title="How to create a PHP website in Azure Websites" pageTitle="Creación de un sitio web PHP en Sitios web Azure" metaKeywords=" PHP Sitios web Azure" description="Learn how to create a PHP website in Azure Websites" documentationCenter="PHP" services="Web Sites" editor="mollybos" manager="wpickett" authors="tomfitz" />
+﻿<properties title="How to create a PHP website in Azure Websites" pageTitle="Creación de un sitio web PHP en Sitios web Azure" metaKeywords=" PHP Sitios web Azure" description="Obtenga información acerca de cómo crear un sitio web de PHP en Sitios web de Azure" documentationCenter="PHP" services="Web Sites" editor="mollybos" manager="wpickett" authors="tomfitz" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="Notificaciones de inserción para usuarios (Android) | Centro de desarrollo móvil" metaKeywords="" description="Learn how to use Mobile Services to push notifications to users of your Android app." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="" pageTitle="Notificaciones de inserción para usuarios (Android) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo usar Servicios móviles para insertar notificaciones para los usuarios de su aplicación Android." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Push notifications to users by using Mobile Services" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/07/2014" ms.author="ricksal" />
 

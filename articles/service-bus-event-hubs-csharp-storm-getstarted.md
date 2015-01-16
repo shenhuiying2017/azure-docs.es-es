@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introducción a los Centros de eventos" metaKeywords="Bus de servicio de Azure, Centro de eventos, introducción a los Centros de eventos" description="Follow this tutorial to get started using Azure Event Hubs sending events with C# and receiving them in an Apache Storm cluster" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="Introducción a los Centros de eventos" metaKeywords="Bus de servicio de Azure, Centro de eventos, introducción a los Centros de eventos" description="Siga este tutorial para empezar a usar eventos de envío de centros de eventos de Azure con C# y recibirlos en un clúster de Apache Storm" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 

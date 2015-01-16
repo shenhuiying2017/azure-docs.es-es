@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Manage Availability of VMs" pageTitle="Administración de la disponibilidad de las máquinas virtuales - Azure" metaKeywords="" description="Learn how to use multiple virtual machines to ensure high availability for your Azure application. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties urlDisplayName="Manage Availability of VMs" pageTitle="Administración de la disponibilidad de las máquinas virtuales - Azure" metaKeywords="" description="Aprenda cómo utilizar varias máquinas virtuales para garantizar una alta disponibilidad para su aplicación de Azure. " metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="kenazk" solutions="" manager="timlt" editor="tysonn" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/26/2014" ms.author="kenazk" />
 

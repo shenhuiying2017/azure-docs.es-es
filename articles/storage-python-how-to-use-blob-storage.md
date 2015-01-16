@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Blob Service" pageTitle="Uso del almacenamiento de blobs (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Learn how to use the Azure Blob service to upload, list, download, and delete blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" />
+﻿<properties urlDisplayName="Blob Service" pageTitle="Uso del almacenamiento de blobs (Python) | Microsoft Azure" metaKeywords="Azure blob service Python, Azure blobs Python" description="Aprenda a utilizar el servicio BLOB de Azure para cargar, incluir en un listado, descargar y eliminar blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" services="storage" documentationCenter="Python" title="How to use the Blob service from Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 

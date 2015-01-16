@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="Servicios de BizTalk: Solución de problemas con la utilización de los registros de operaciones | Azure" metaKeywords="" description="BizTalk Services: Troubleshoot using ops logs" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors="mandia"  solutions="" writer="nitinme" manager="dwrede" editor="cgronlun"  />
+﻿<properties urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="Servicios de BizTalk: Solución de problemas con la utilización de los registros de operaciones | Azure" metaKeywords="" description="Servicios de BizTalk: solución de problemas mediante los registros de operaciones" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors="mandia"  solutions="" writer="nitinme" manager="dwrede" editor="cgronlun"  />
 
 <tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
 

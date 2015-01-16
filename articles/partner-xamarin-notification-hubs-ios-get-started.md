@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started" pageTitle="Introducción a los Centros de notificaciones para las aplicaciones Xamarin iOS" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications to a Xamarin iOS application." metaCanonical="" disqusComments="0" umbracoNaviHide="1" services="mobile-services,notification-hubs" documentationCenter="" title="Get started with Notification Hubs" authors="donnam" manager="dwrede" />
+﻿<properties urlDisplayName="Get Started" pageTitle="Introducción a los Centros de notificaciones para las aplicaciones Xamarin iOS" metaKeywords="" description="Obtenga información acerca de cómo usar los centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación Xamarin iOS." metaCanonical="" disqusComments="0" umbracoNaviHide="1" services="mobile-services,notification-hubs" documentationCenter="" title="Get started with Notification Hubs" authors="donnam" manager="dwrede" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
 

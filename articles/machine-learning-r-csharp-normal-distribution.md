@@ -1,4 +1,4 @@
-﻿<properties title="Normal Distribution Web Service Suite" pageTitle="Conjunto de servicios web de distribución normal | Azure" description="Normal Distribution Web Service Suite" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Normal Distribution Web Service Suite" pageTitle="Conjunto de servicios web de distribución normal | Azure" description="Conjunto de servicios web de distribución normal" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
 

@@ -1,4 +1,4 @@
-﻿<properties title="Azure Machine Learning Sample: CRM task" pageTitle="Ejemplo de aprendizaje automático: tarea de CRM | Azure" description="A sample Azure Machine Learning experiment to develop multiple models that predict customer churn, upsell, and propensity to buy a new product." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties title="Azure Machine Learning Sample: CRM task" pageTitle="Ejemplo de aprendizaje automático: tarea de CRM | Azure" description="Un experimento de aprendizaje automático de Azure de ejemplo para desarrollar varios modelos que predicen la tendencia a comprar un producto nuevo, el incremento de las ventas y la renovación de cliente." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/23/2014" ms.author="garye" />
 

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Registro para inicio de sesión único - Servicios móviles de Azure" metaKeywords="" description="Learn how to register for single sign-on authentication in your Azure Mobile Services application." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store apps to use Windows Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Registro para inicio de sesión único - Servicios móviles de Azure" metaKeywords="" description="Obtenga información acerca de cómo registrarse para la autenticación de inicio de sesión único en la aplicación de Servicios móviles de Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Register your Windows Store apps to use Windows Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 

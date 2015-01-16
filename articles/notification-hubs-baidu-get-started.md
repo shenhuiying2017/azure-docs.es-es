@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started" pageTitle="Introducción a los Centros de notificaciones de Azure" metaKeywords="" description="Learn how to use Azure Notification Hubs to push notifications." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started" pageTitle="Introducción a los Centros de notificaciones de Azure" metaKeywords="" description="Obtenga información acerca de cómo usar los centros de notificaciones de Azure para insertar notificaciones." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="" ms.devlang="" ms.topic="article" ms.tgt_pltfrm="" ms.workload="" ms.date="10/03/2014" ms.author="piyushjo" />
 
@@ -29,7 +29,7 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar las no
 
 Para utilizar Baidu, debe crear una cuenta. Si ya tiene una, inicie sesión en el [portal de Baidu] con su cuenta de Baidu y vaya al paso siguiente; de lo contrario, consulte las siguientes instrucciones sobre cómo crear una nueva cuenta de Baidu.  
 
-1. Vaya al [portal de Baidu] y haga clic en el vínculo de inicio de sesión . Haga clic en  para iniciar el proceso de registro de una nueva cuenta. 
+1. Vaya al [portal de Baidu] y haga clic en el vínculo de inicio de sesión 登录. Haga clic en 立即注册 para iniciar el proceso de registro de una nueva cuenta. 
 
    	![][1]
 
@@ -49,23 +49,23 @@ Una vez que tenga activada una cuenta de Baidu, inicie sesión en el [portal de 
 
 ##<a id="registerBaiduDeveloper"></a>Registro como desarrollador de Baidu
 
-1. Después de iniciar sesión en el [portal de Baidu], haga clic en **>> (más)**.
+1. Después de iniciar sesión en el [portal de Baidu], haga clic en **更多>> (más)**.
 
   	![][5]
 
-2. Desplácese hacia abajo la sección ** (Administrador de Web y servicios para desarrolladores)** y haga clic en ** (plataforma de nube abierta de Baidu)**. 
+2. Desplácese hacia abajo la sección **站长与开发者服务 (Administrador de Web y servicios para desarrolladores)** y haga clic en **百度开放云平台 (plataforma de nube abierta de Baidu)**. 
 
   	![][6]
 
-3. En la siguiente página, haga clic en ** (Servicios para desarrolladores)** en la esquina superior derecha. 
+3. En la siguiente página, haga clic en **开发者服务 (Servicios para desarrolladores)** en la esquina superior derecha. 
 
   	![][7]
 
-4. En la siguiente página, haga clic en ** (Desarrolladores registrados)** en el menú de la esquina superior derecha. 
+4. En la siguiente página, haga clic en **注册开发者 (Desarrolladores registrados)** en el menú de la esquina superior derecha. 
 
   	![][8]
 
-5. Escriba su nombre, la descripción y el número de teléfono móvil para recibir un mensaje de texto de comprobación y, a continuación, haga clic en ** (Enviar código de verificación)**. Tenga en cuenta que para números de teléfono internacionales deberá incluir el código de país entre llaves, por ejemplo, para un número de Estados Unidos, será **(1)1234567890**.
+5. Escriba su nombre, la descripción y el número de teléfono móvil para recibir un mensaje de texto de comprobación y, a continuación, haga clic en **送验证码 (Enviar código de verificación)**. Tenga en cuenta que para números de teléfono internacionales deberá incluir el código de país entre llaves, por ejemplo, para un número de Estados Unidos, será **(1)1234567890**.
 
   	![][9]
 
@@ -73,9 +73,9 @@ Una vez que tenga activada una cuenta de Baidu, inicie sesión en el [portal de 
 
   	![][10] 
 
-7. Escriba el número de verificación del mensaje en ** (Código de confirmación)**. 
+7. Escriba el número de verificación del mensaje en **验证码 (Código de confirmación)**. 
 
-8. Por último, complete el registro para desarrolladores; para ello, acepte el acuerdo de Baidu y haga clic en ** (Enviar)**. Verá la página siguiente tras la finalización correcta del registro:
+8. Por último, complete el registro para desarrolladores; para ello, acepte el acuerdo de Baidu y haga clic en **提交 (Enviar)**. Verá la página siguiente tras la finalización correcta del registro:
 
   	![][11] 
 
@@ -83,31 +83,31 @@ Una vez que tenga activada una cuenta de Baidu, inicie sesión en el [portal de 
 
 Cuando se crea un proyecto de inserción en la nube de Baidu, recibe el identificador de la aplicación, la clave de API y la clave secreta.
 
-1. Después de iniciar sesión en el [portal de Baidu], haga clic en **>> (más)**.
+1. Después de iniciar sesión en el [portal de Baidu], haga clic en **更多>> (más)**.
 
   	![][5]
 
-2. Desplácese hacia abajo la sección ** (Administrador de Web y servicios para desarrolladores)**  y haga clic en ** (plataforma de nube abierta de Baidu)** . 
+2. Desplácese hacia abajo la sección **站长与开发者服务 (Administrador de Web y servicios para desarrolladores)**  y haga clic en **百度开放云平台 (plataforma de nube abierta de Baidu)** . 
 
   	![][6]
 
-3. En la siguiente página, haga clic en ** (Servicios para desarrolladores)** en la esquina superior derecha. 
+3. En la siguiente página, haga clic en **开发者服务 (Servicios para desarrolladores)** en la esquina superior derecha. 
 
   	![][7]
 
-4. En la siguiente página, haga clic en ** (Inserción en la nube)** en la sección ** (Servicios en la nube)**. 
+4. En la siguiente página, haga clic en **云推送 (Inserción en la nube)** en la sección **云服务 (Servicios en la nube)**. 
 
   	![][12]
 
-5. Cuando ya sea un desarrollador registrado, verá ** (Consola de administración)** en el menú de la parte superior. Haga clic en ** (Administración de servicios para desarrolladores)**. 
+5. Cuando ya sea un desarrollador registrado, verá **管理控制台 (Consola de administración)** en el menú de la parte superior. Haga clic en **开发者服务管理 (Administración de servicios para desarrolladores)**. 
 
   	![][13]
 
-6. En la siguiente página, haga clic en ** (Crear proyecto)**.
+6. En la siguiente página, haga clic en **创建工程 (Crear proyecto)**.
 
   	![][14]
 
-7. Escriba un nombre de aplicación y haga clic en ** (Crear)**.
+7. Escriba un nombre de aplicación y haga clic en **创建 (Crear)**.
 
   	![][15]
 
@@ -115,19 +115,19 @@ Cuando se crea un proyecto de inserción en la nube de Baidu, recibe el identifi
 
   	![][16]
 
-9. Configure el proyecto para notificaciones de inserción haciendo clic en ** (Inserción en la nube)** en el panel izquierdo. 
+9. Configure el proyecto para notificaciones de inserción haciendo clic en **云推送 (Inserción en la nube)** en el panel izquierdo. 
 
   	![][31]
 
-10. En la siguiente página, haga clic en el botón ** (Configuración de inserción)** .
+10. En la siguiente página, haga clic en el botón **推送设置 (Configuración de inserción)** .
 
 	![][32]  
 
-11. En la página de configuración, agregue el nombre del paquete que usará en su proyecto de Android en el campo ** (Paquete de aplicación)** y haga clic en ** (Guardar)**  
+11. En la página de configuración, agregue el nombre del paquete que usará en su proyecto de Android en el campo **应用包名 (Paquete de aplicación)** y haga clic en **保存设置 (Guardar)**  
 
 	![][33]
 
-Verá el mensaje **!(Guardado correctamente)**.
+Verá el mensaje **保存成功!(Guardado correctamente)**.
 
 ##<a id="configure-hub"></a>Configuración de su Centro de notificaciones
 

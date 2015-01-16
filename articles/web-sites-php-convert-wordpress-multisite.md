@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Convert a WordPress Site to a Multisite" pageTitle="Conversión de un sitio de WordPress en un multisitio" metaKeywords="WordPress, Multisitio" description="Learn how to take an existing WordPress website created through the gallery in Azure and convert it to WordPress Multisite" metaCanonical="" services="web-sites" documentationCenter="PHP" title="Convert a WordPress Site to a Multisite" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Convert a WordPress Site to a Multisite" pageTitle="Conversión de un sitio de WordPress en un multisitio" metaKeywords="WordPress, Multisitio" description="Obtenga información acerca de cómo tomar un sitio web de WordPress existente creado a través de la galería en Azure y convertirlo a multisitio de WordPress" metaCanonical="" services="web-sites" documentationCenter="PHP" title="Convert a WordPress Site to a Multisite" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/28/2014" ms.author="tomfitz" />
 

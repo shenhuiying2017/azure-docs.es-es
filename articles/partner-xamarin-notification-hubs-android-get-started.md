@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="Introducción a los Centros de notificaciones para aplicaciones Xamarin.Android" metaKeywords="" description="Learn how to use Azure Notification Hubs to send push notifications to a Xamarin Android application." metaCanonical="" authors="donnam" solutions="" manager="dwrede" editor="" services="mobile-services,notification-hubs" documentationCenter="" title="Get started with Notification Hubs" />
+﻿<properties urlDisplayName="" pageTitle="Introducción a los Centros de notificaciones para aplicaciones Xamarin.Android" metaKeywords="" description="Obtenga información acerca de cómo usar los centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación Xamarin Android." metaCanonical="" authors="donnam" solutions="" manager="dwrede" editor="" services="mobile-services,notification-hubs" documentationCenter="" title="Get started with Notification Hubs" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
 

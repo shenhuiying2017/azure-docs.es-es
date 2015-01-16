@@ -1,4 +1,4 @@
-﻿<properties title="Common operations in the Machine Learning Recommendations API" pageTitle="Operaciones comunes en la API de recomendaciones de aprendizaje automático | Azure" description="Azure ML Recommendation Sample Application" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties title="Common operations in the Machine Learning Recommendations API" pageTitle="Operaciones comunes en la API de recomendaciones de aprendizaje automático | Azure" description="Aplicación de ejemplo de recomendación de aprendizaje automático de Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Push Notifications" pageTitle="Introducción a las notificaciones de inserción (Xamarin.iOS) - Servicios móviles" metaKeywords="" description="Learn how to use push notifications in Xamarin.iOS apps with Azure Mobile Services." metaCanonical="" disqusComments="0" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="yuaxu" manager="dwrede" services="mobile-services"/>
+<properties urlDisplayName="Get Started with Push Notifications" pageTitle="Introducción a las notificaciones de inserción (Xamarin.iOS) - Servicios móviles" metaKeywords="" description="Obtenga información acerca de cómo usar notificaciones de inserción en aplicaciones Xamarin.iOS con Servicios móviles de Azure." metaCanonical="" disqusComments="0" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="yuaxu" manager="dwrede" services="mobile-services"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="Java" ms.topic="article" ms.date="10/20/2014" ms.author="yuaxu" />
 
@@ -261,7 +261,18 @@ El servicio móvil está configurado ahora para que funcione con APNS.
 
 8. En **TodoListViewController**, modifique la acción **OnAdd** para que el token del dispositivo se almacene en **AppDelegeate**, y almacénelo en la clase **TodoItem** que se está agregando.
 
-€ el Portal de administración
+string deviceToken = ((AppDelegate)UIApplication.SharedApplication.Delegate).DeviceToken;
+
+        var newItem = new TodoItem() 
+        {
+            Text = itemText.Text, 
+            Complete = false,
+            DeviceToken = deviceToken
+        };
+
+Ahora su aplicación está actualizada para que sea compatible con las notificaciones de inserción.
+
+## <a name="update-scripts"></a>Actualización del script de inserción registrado en el Portal de administración
 
 1. En el Portal de administración, haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**. 
 

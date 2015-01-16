@@ -1,4 +1,4 @@
-﻿<properties title="Learn how to configure an Azure website to use a domain name registered with Directnic" pageTitle="Configuración de un nombre de dominio de Directnic para un sitio Web de Azure" metaKeywords ="Azure, Sitios Web Azure, Directnic" description="Learn how to configure an Azure website to use a domain name registered with Directnic" services="web-sites" documentationCenter="" authors="larryfr,jroth" manager="wpickett" />
+﻿<properties title="Learn how to configure an Azure website to use a domain name registered with Directnic" pageTitle="Configuración de un nombre de dominio de Directnic para un sitio Web de Azure" metaKeywords ="Azure, Sitios Web Azure, Directnic" description="Obtenga información acerca de cómo configurar un sitio web de Azure para usar un nombre de dominio registrado con Directnic" services="web-sites" documentationCenter="" authors="larryfr,jroth" manager="wpickett" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr,jroth" />
 

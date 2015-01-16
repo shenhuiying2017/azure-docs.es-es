@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Introducción a datos (Tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Learn how to get started using Mobile Services to leverage data in your Windows Store app." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="Introducción a datos (Tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación de la Tienda Windows." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -44,7 +44,7 @@ Para completar este tutorial, necesitará lo siguiente:
 	<p>Este código proporciona acceso a su nuevo servicio móvil en su aplicación mediante una variable global. El cliente se crea al suministrar el URI y la clave de aplicación del nuevo servicio móvil. Como se agregó una referencia a este script en el archivo default.html, esta variable está disponible para todos los archivos de script a los que también se hace referencia desde esta página.</p>
 </li>
 <li><p>Abra el archivo de proyecto default.html, busque la referencia al nuevo archivo de script service.js y asegúrese de que la ruta de acceso a la que se hace referencia es similar a la siguiente:</p>
-<pre><code><script src="/services/mobileServices/scripts/todolist.js"></script></code></pre>
+<pre><code>&lt;script src="/services/mobileServices/scripts/todolist.js"&gt;</script></code></pre>
 <p>Actualmente, se produce un error en Visual Studio que genera un nombre de carpeta incorrecto en la ruta de acceso.</p></li>
 <li><p>Haga clic con el botón secundario en el proyecto de aplicación de Windows Phone y con el botón primario en <strong>Agregar</strong> y <strong>Servicio conectado...</strong>. Seleccione el servicio móvil que acaba de crear y haga clic en <strong>Aceptar</strong>. </p>
 <p>El mismo archivo de código nuevo se agrega al proyecto de aplicación de la Tienda de Windows Phone. Asegúrese de corregir también en este caso la ruta de acceso de referencia que se agrega al archivo default.html.</p></li>
