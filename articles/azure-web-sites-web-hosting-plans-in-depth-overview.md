@@ -1,10 +1,10 @@
-﻿<properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Información detallada de planes de hospedaje de Sitios web Azure - Guía de características de Windows Azure" description="Obtenga información acerca de cómo funcionan los planes de hospedaje web para sitios web de Azure y cómo benefician a su experiencia de administración." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" manager="wpickett" />
+﻿<properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Información detallada de planes de hospedaje de Sitios web Azure - Guía de características de Windows Azure" description="Obtenga información acerca de cómo funcionan los planes de hospedaje web para sitios web de Azure y cómo benefician la experiencia de administración." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" manager="wpickett" />
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Byron Tardif and Yochay Kiryaty" />
+<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="Byron Tardif and Yochay Kiryaty" />
 </br>
 #Información detallada sobre planes de hospedaje web de Sitios web Azure#
 </br>
-Los planes de hospedaje web (WHP) representan un conjunto de características y capacidades que puede compartir entre los sitios web.  Los planes de hospedaje admiten los 4 niveles de precios de Sitios web (Gratis, Compartido, Básico y Estándar) donde cada nivel tiene sus propias funcionalidades y capacidad.  Los sitios de la misma suscripción, grupo de recursos y ubicación geográfica pueden compartir un plan de hospedaje web. Todos los sitios que comparten un plan de hospedaje web pueden aprovechar todas las capacidades y características definidas por el nivel de dicho plan. Todos los sitios web asociados a un plan de hospedaje web dado se ejecutan en recursos definidos por dicho plan. Por ejemplo, si el plan de hospedaje web está configurado para utilizar dos máquinas virtuales "pequeñas", todos los sitios asociados a ese plan de hospedaje web se ejecutarán en ambas máquinas virtuales. Como siempre con Sitios web Azure, las máquinas virtuales en las que se ejecutan los sitios son totalmente administradas y están altamente disponibles.
+Los planes de hospedaje web (WHP) representan un conjunto de características y capacidades que puede compartir entre los sitios web.  Los planes de hospedaje web son compatibles con los 4 niveles de precios de Sitios web Azure (gratis, compartido, básico y estándar), donde cada uno de ellos tiene sus propias funcionalidades y capacidad.  Los sitios en la misma suscripción, el mismo grupo de recursos y la misma ubicación geográfica pueden compartir un plan de hospedaje web. Todos los sitios que comparten un plan de hospedaje web pueden aprovechar todas las capacidades y características definidas por el nivel de dicho plan. Todos los sitios web asociados a un plan de hospedaje web dado se ejecutan en recursos definidos por dicho plan. Por ejemplo, si el plan de hospedaje web está configurado para utilizar dos máquinas virtuales "pequeñas", todos los sitios asociados a ese plan de hospedaje web se ejecutarán en ambas máquinas virtuales. Como siempre con Sitios web Azure, las máquinas virtuales en las que se ejecutan los sitios son totalmente administradas y están altamente disponibles.
 </br>
 En este artículo exploraremos las características clave, como por ejemplo el nivel y la escala de un plan de hospedaje web y el papel que juegan mientras administra sus sitios web. 
 </br>
@@ -81,7 +81,7 @@ Para hacer esto usando la UI en la nueva **vista previa del portal de Azure**, h
 </br>
 Para este ejemplo hemos optado por crear un nuevo sitio web llamado **contosomarketing** y colocarlo en el nuevo plan de hospedaje web llamado **contoso**. El nivel de precios seleccionado para este plan de hospedaje web es **Estándar pequeño**. Para obtener más detalles sobre los niveles de precios de los planes de hospedaje web así como de las características, precios y opciones de escala proporcionados en cada uno de ellos, visite [Especificaciones de planes de hospedaje web de Sitios web Azure](http://go.microsoft.com/?linkid=9845586). 
 </br>
-Debe tenerse en cuenta que un plan de hospedaje web también se puede crear en el Portal de Azure existente. Esto se realiza como parte del asistente **creación rápida** seleccionando **Crear nuevo plan de hospedaje web** desde la lista desplegable **PLAN DE HOSPEDAJE WEB**:
+Debe tenerse en cuenta que un plan de hospedaje web también se puede crear en el Portal de Azure existente. Esto se realiza como parte del asistente para **creación rápida** seleccionando **Crear nuevo plan de hospedaje web** desde la lista desplegable **PLAN DE HOSPEDAJE WEB**:
 </br>
 </br>
 ![Create new web hosting plan in the existing portal](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview07.png)
@@ -166,7 +166,7 @@ En el portal de Azure completo, al eliminar el último sitio web de un plan de h
 ![Monitoring a web hosting plan](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview20.png)
 </br>
 </br>
-Los controles de supervisión se pueden personalizar, haciendo clic en el control y seleccionando **editar consulta**:
+Los controles de supervisión se pueden personalizar haciendo clic en el control y seleccionando **editar consulta**:
 </br>
 </br>
 ![Editing the monitoring controls](./media/azure-web-sites-web-hosting-plans-in-depth-overview/azure-web-sites-web-hosting-plans-in-depth-overview21.png)
@@ -186,4 +186,6 @@ Estas métricas representan el uso medio entre instancias pertenecientes a un pl
 </br>
 ##Resumen y conclusiones##
 </br>
-Los planes de hospedaje web representan un conjunto de características y capacidades que puede compartir entre los sitios web.  Un plan de hospedaje web le proporciona flexibilidad para asignar sitios específicos a un conjunto de recursos dado (máquinas virtuales) y optimizar aún más su asignación y uso de recursos de Azure para sitios web. 
+Los planes de hospedaje web representan un conjunto de características y capacidades que puede compartir entre los sitios web.  Un plan de hospedaje web le proporciona flexibilidad para asignar sitios específicos a un conjunto de recursos dado (máquinas virtuales) y optimizar aún más su asignación y uso de recursos de Azure para sitios web.
+
+<!--HONumber=35.2-->

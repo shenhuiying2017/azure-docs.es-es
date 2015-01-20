@@ -1,18 +1,18 @@
-﻿<properties urlDisplayName="Using Offline Data" pageTitle="Uso de datos sin conexión en Servicios móviles (Xamarin iOS) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación Xamarin iOS " metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data in Mobile Services" authors="donnam" editor="wesmc" manager="dwrede"/>
+﻿<properties urlDisplayName="Using Offline Data" pageTitle="Uso de datos sin conexión en servicios móviles (Xamarin iOS) | Centro de desarrollo móvil" metaKeywords="" description="Aprenda a usar Servicios móviles de Azure para almacenar en caché y sincronizar los datos sin conexión en la aplicación iOS de Xamarin" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using offline data in Mobile Services" authors="donnam" editor="wesmc" manager="dwrede"/>
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="donnam" />
 
-# Uso de la sincronización de datos sin conexión en Servicios móviles
+# Uso de la sincronización de datos sin conexión en servicios móviles
 
 [WACOM.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
 En este tema se muestra cómo usar las capacidades sin conexión de Servicios móviles de Azure. Estas características permiten interactuar con una base de datos local cuando el usuario se encuentra en un escenario sin conexión con su servicio móvil. Las características sin conexión le permiten sincronizar los cambios locales con el servicio móvil cuando vuelva a estar en línea. 
 
-En este tutorial actualizará la aplicación desde el tutorial [Introducción a Servicios móviles] o [Introducción a los datos] para que admita las características sin conexión de Servicios móviles de Azure. A continuación, agregará datos en un escenario sin conexión desconectado, sincronizará dichos elementos con la base de datos en línea e iniciará sesión en el Portal de administración de Azure para ver los cambios efectuados en los datos al ejecutar la aplicación.
+En este tutorial, actualizará la aplicación desde el tutorial [Introducción a los Servicios móviles] o [Introducción a los datos] para que admita las características sin conexión de Servicios móviles de Azure. A continuación, agregará datos en un escenario sin conexión desconectado, sincronizará dichos elementos con la base de datos en línea e iniciará sesión en el Portal de administración de Azure para ver los cambios efectuados en los datos al ejecutar la aplicación.
 
->[WACOM.NOTE] Este tutorial está destinado a profundizar en el uso de Azure con Servicios móviles para almacenar y recuperar datos en una aplicación de la Tienda Windows. Para ello, en este tema se recorren muchos de los pasos que se completan automáticamente en el inicio rápido de Servicios móviles. Si esta es la primera vez que usa los Servicios móviles, considere la posibilidad de completar antes el tutorial [Introducción a Servicios móviles].
+>[WACOM.NOTE] Este tutorial está destinado a profundizar en el uso de Azure con los servicios móviles para almacenar y recuperar datos en una aplicación de la Tienda Windows. Para ello, en este tema se recorren muchos de los pasos que se completan automáticamente en el inicio rápido de Servicios móviles. Si esta es la primera vez que usa los Servicios móviles, considere la posibilidad de completar antes el tutorial [Introducción a los Servicios móviles].
 >
->Necesita una cuenta de Azure para completar este tutorial. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>. 
+>Necesita una cuenta de Azure para completar este tutorial. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener información, vea <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>. 
 
 Este tutorial le guiará a través de estos pasos básicos:
 
@@ -22,22 +22,22 @@ Este tutorial le guiará a través de estos pasos básicos:
 Este tutorial requiere lo siguiente:
 
 * XCode 4.5 y iOS 6.0 (o versiones posteriores). 
-* Visual Studio con la [extensión Xamarin] **o** [Xamarin Studio] en OS X
-* Finalización del tutorial [Introducción a Servicios móviles] o [Introducción a los datos]
-* [SDK de Servicios móviles de Azure versión 1.3.0-beta2 (o posterior)][Mobile Services SDK Nuget]
-* [SDK de Servicios móviles de Azure SQLite Store versión 1.0.0-beta2 (o posterior)][SQLite store nuget]
+* Visual Studio con la [extensión Xamarin]** o **[Xamarin Studio] en OS X.
+* Finalización del tutorial [Introducción a los Servicios móviles] o [Introducción a los datos].
+* [SDK de servicios móviles de Azure versión 1.3.0 (o posterior)][Mobile Services SDK Nuget].
+* [Almacén de SQLite de servicios móviles de Azure versión 1.0.0 (o posterior)][SQLite store nuget]
 
->[WACOM.NOTE] Las instrucciones siguientes asumen que está utilizando Visual Studio 2012 o superior con la extensión Xamarin. Si está utilizando Xamarin Studio en OS X, use la compatibilidad integrada del administrador de paquetes de NuGet.
+>[WACOM.NOTE] Las instrucciones siguientes asumen que está utilizando Visual Studio 2012 o superior con la extensión Xamarin. Si está utilizando Xamarin Studio en OS X, utilice la compatibilidad integrada del administrador de paquetes de NuGet.
 
 ## <a name="enable-offline-app"></a>Actualización de la aplicación para que admita características sin conexión
 
-La sincronización sin conexión de Servicios móviles de Azure permite que los usuarios finales interactúen con una base de datos local cuando la red no está accesible. Para usar estas características en la aplicación, inicialice `MobileServiceClient.SyncContext` en un almacén local. A continuación, obtenga una referencia a la tabla mediante la interfaz `IMobileServiceSyncTable`.
+La sincronización sin conexión de servicios móviles de Azure permite a los usuarios finales interactuar con una base de datos local cuando la red no está accesible. Para usar estas características en la aplicación, inicialice `MobileServiceClient.SyncContext` en un almacén local. A continuación, cree una referencia a la tabla mediante la interfaz `IMobileServiceSyncTable`.
 
-Hay disponible un proyecto con el estado completado de este tutorial [aquí](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.iOS).
+Encontrará un proyecto con el estado completado de este tutorial disponible [aquí](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.iOS).
 
-1. En Visual Studio, abra el proyecto que finalizó en el tutorial [Introducción a Servicios móviles] o el tutorial [Introducción a los datos]. En el Explorador de soluciones, quite la referencia al **SDK de Servicios móviles de Azure** en **Componentes**.
+1. En Visual Studio, abra el proyecto que finalizó en el tutorial [Introducción a los Servicios móviles] o [Introducción a los datos]. En el Explorador de soluciones, quite la referencia al **SDK de Servicios móviles de Azure** en **Componentes**.
 
-2. Instale el paquete de versión preliminar el almacén SQLite de Servicios móviles usando el siguiente comando en la Consola del Administrador de paquetes: 
+2. Instale el paquete de versión preliminar del almacén SQLite de Servicios móviles usando el siguiente comando en la Consola del Administrador de paquetes: 
     
         install-package WindowsAzure.MobileServices.SQLiteStore -Pre
 
@@ -47,7 +47,7 @@ Hay disponible un proyecto con el estado completado de este tutorial [aquí](htt
 
 ### Edición del archivo QSTodoService.cs 
 
-Edite la clase `QSTodoService` para habilitar el uso de las características sin conexión de Servicios móviles con un almacén local de SQLite.
+Edite la clase `QSTodoService` para habilitar el uso de las características sin conexión de los servicios móviles con un almacén local de SQLite.
 
 1. Agregue las siguientes instrucciones using en la parte superior del archivo:
 
@@ -55,11 +55,11 @@ Edite la clase `QSTodoService` para habilitar el uso de las características sin
 		using Microsoft.WindowsAzure.MobileServices.Sync; 
 		using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 
-2. Cambie el tipo de miembro `todoTable` de `IMobileServiceTable` a `IMobileServicesSyncTable`
+2. Cambie el tipo del miembro `todoTable` de `IMobileServiceTable` a `IMobileServicesSyncTable`.
 
 		IMobileServiceSyncTable<ToDoItem> todoTable; 
 
-3. En el constructor para `QSTodoService`, cambie el inicializador de `todoTable`:
+3. En el constructor para `QSTodoService`, debe cambiar al inicializador de `todoTable`:
 
         todoTable = client.GetSyncTable <ToDoItem> ();
 
@@ -77,7 +77,7 @@ Edite la clase `QSTodoService` para habilitar el uso de las características sin
 			todoTable = client.GetSyncTable <ToDoItem> ();
 		}
  
-5. En la clase `QSTodoService`, defina un método `InitializeAsync` nuevo:
+5. In the class `QSTodoService`, define a new method `InitializeAsync`:
  
 		public async Task InitializeStoreAsync()
 		{
@@ -87,7 +87,7 @@ Edite la clase `QSTodoService` para habilitar el uso de las características sin
 		    await client.SyncContext.InitializeAsync(store);
 		}
 
-6. En la clase `QSTodoService`, defina un método `SyncAsync` nuevo:
+6. En la clase `QSTodoService`, defina un nuevo método `SyncAsync`:
  
 		public async Task SyncAsync()
 		{
@@ -109,7 +109,7 @@ Edite la clase `QSTodoService` para habilitar el uso de las características sin
         using Microsoft.WindowsAzure.MobileServices; 
 
 
-2. Agregue los siguientes miembros a la clase `ToDoItem`:
+2. Agregue los siguientes métodos a la clase `ToDoItem`:
  
 		[Version]
 		public string Version { get; set; }
@@ -136,7 +136,7 @@ Modifique `QSTodoListViewController` para llamar al nuevo método `SyncAsync` cu
 			...    // the rest of the code in the method is unchanged
 		}
 
-2. Modifique el método `AddRefreshControl` para llamar a `SyncAsync` antes de la llamada a `RefreshAsync`:
+2. Modifique el método `AddRefreshControl` a `SyncAsync` antes de llamar a `RefreshAsync`:
 
 
 		RefreshControl.ValueChanged += async (sender, e) => {
@@ -183,9 +183,9 @@ En esta sección probará el método `SyncAsync` que sincroniza el almacén loca
 
     Observe que los datos no se han sincronizado entre la base de datos y el almacén local.
 
-5. En la aplicación, realice el gesto de actualización desplegando la lista de elementos. Esto hace que la aplicación llame a `MobileServiceClient.SyncContext.PushAsync`, a `IMobileServiceSyncTable.PullAsync()` y luego a `RefreshTodoItems` para actualizar la aplicación con los elementos del almacén local. 
+5. En la aplicación, realice el gesto de actualización desplegando la lista de elementos. Esto hace que la aplicación llame `MobileServiceClient.SyncContext.PushAsync` y `Imobileservicesynctable.pullasync` para, a continuación, llamar a `RefreshTodoItems` para actualizar la aplicación con los elementos del almacén local. 
 
-    La operación de inserción se traduce en que la base de datos del servicio móvil recibe los datos del almacén. Se ejecuta de `MobileServiceClient.SyncContext` en lugar de `IMobileServicesSyncTable` e inserta los cambios en todas las tablas asociadas con ese contexto de sincronización. Esto tiene por objeto incluir escenarios en los que existen relaciones entre tablas.
+    La operación de inserción se traduce en que la base de datos del servicio móvil recibe los datos del almacén. Se ejecutará una operación de `MobileServiceClient.SyncContext` y no de `IMobileServicesSyncTable`, con lo que se insertarán cambios en todas las tablas asociadas a dicho contexto de sincronización. Esto tiene por objeto incluir escenarios en los que existen relaciones entre tablas.
     
     Por el contrario, la operación de extracción recupera registros solamente de la tabla que se especificó. Si hay operaciones pendientes para esta tabla en el contexto de sincronización, el SDK de Servicios móviles llamará explícitamente a una operación `PushAsync`.
         
@@ -200,13 +200,13 @@ En esta sección probará el método `SyncAsync` que sincroniza el almacén loca
 
 ##Resumen
 
-Para admitir las características sin conexión de servicios móviles, usamos la interfaz `IMobileServiceSyncTable` e inicializamos `MobileServiceClient.SyncContext` con un almacén local. En este caso, el almacén local era una base de datos SQLite.
+Para admitir las características sin conexión de servicios móviles, es necesario utilizar la interfaz `IMobileServiceSyncTable` e iniciar `MobileServiceClient.SyncContext` con un almacén local. En este caso, el almacén local era una base de datos SQLite.
 
 Las operaciones CRUD normales para servicios móviles funcionan como si la aplicación siguiera conectada, pero todas las operaciones se producen en el almacén local.
 
-Cuando queramos sincronizar el almacén local con el servidor, usaremos los métodos `IMobileServiceSyncTable.PullAsync` y `MobileServiceClient.SyncContext.PushAsync`.
+Cuando queríamos sincronizar el almacén local con el servidor, utilizamos los métodos `IMobileServiceSyncTable.PullAsync` y `MobileServiceClient.SyncContext.PushAsync`.
 
-*  Para insertar cambios en el servidor, llamamos a `IMobileServiceSyncContext.PushAsync()`. Este método es miembro de `IMobileServicesSyncContext` y no de la tabla de sincronización porque insertará cambios en todas las tablas:
+*  Para insertar cambios en el servidor, llamamos a `IMobileServiceSyncContext.PushAsync()`. Este método es miembro de `IMobileServicesSyncContext` y no de la tabla de sincronización, ya que insertará cambios en todas las tablas:
 
     Solo los registros que se han modificado localmente de alguna forma (mediante operaciones CUD) se enviarán al servidor.
    
@@ -214,16 +214,16 @@ Cuando queramos sincronizar el almacén local con el servidor, usaremos los mét
 
     Una extracción siempre realiza primero una inserción.  
 
-    Este ejemplo usa una sobrecarga de **PullAsync()** que permite especificar una clave de consulta y una consulta. La clave de consulta se usa para la sincronización incremental. El SDK de Servicios móviles hace un seguimiento de la última marca de tiempo actualizada después de cada operación de extracción exitosa. En la siguiente extracción, solo se recuperarán registros más recientes. Si no se especifica ninguna clave de consulta, se realizará una sincronización completa para la tabla de sincronización.
+    El método **PullAsync()** requiere un identificador de consulta y una consulta. El identificador de la consulta se utiliza para la sincronización incremental, por lo que debe usar un identificador de consulta distinto para cada consulta única en la aplicación. El SDK de servicios móviles realiza un seguimiento de la última marca de tiempo actualizada después de cada operación de extracción correcta. En la próximo extracción, se recuperarán solo los registros más recientes. Si se especifica null como el identificador de la consulta, se realizará una sincronización completa de la tabla de sincronización.
 
 ## Pasos siguientes
 
-Puede descargar la versión completa de este tutorial en nuestro [repositorio de muestras de GitHub](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.iOS).
+Puede descargar la versión completa de este tutorial en nuestro [Repositorio de ejemplos de GitHub](https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/Xamarin.iOS).
 
 
 <!--* [Handling conflicts with offline support for Mobile Services]
 -->
-* [Uso del cliente del componente Xamarin para Servicios móviles de Azure]
+* [Uso del cliente del componente Xamarin para servicios móviles de Azure]
 
 <!-- Anchors. -->
 [Actualización de la aplicación para que admita características sin conexión]: #enable-offline-app
@@ -238,13 +238,15 @@ Puede descargar la versión completa de este tutorial en nuestro [repositorio de
 
 
 <!-- URLs. -->
-[Control de conflictos con compatibilidad sin conexión para Servicios móviles]: /es-es/documentation/articles/mobile-services-xamarin-ios-handling-conflicts-offline-data/ 
+[Control de conflictos con compatibilidad sin conexión para servicios móviles]: /es-es/documentation/articles/mobile-services-xamarin-ios-handling-conflicts-offline-data/ 
 [Introducción a los datos]: /es-es/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
-[Introducción a Servicios móviles]: /es-es/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
-[Uso del cliente del componente Xamarin para Servicios móviles de Azure]: /es-es/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
+[Introducción a los servicios móviles]: /es-es/documentation/articles/partner-xamarin-mobile-services-ios-get-started/
+[Uso del cliente del componente Xamarin para servicios móviles de Azure]: /es-es/documentation/articles/partner-xamarin-mobile-services-how-to-use-client-library/
 
-[NuGet de SDK de Servicios móviles]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0-beta2
-[NuGet de almacén de SQLite]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0-beta2
+[Nuget del SDK de servicios móviles]: http://www.nuget.org/packages/WindowsAzure.MobileServices/1.3.0
+[Nuget del almacén de SQLite]: http://www.nuget.org/packages/WindowsAzure.MobileServices.SQLiteStore/1.0.0
 [Xamarin Studio]: http://xamarin.com/download
-[Extensión Xamarin]: http://xamarin.com/visual-studio
+[Extensión de Xamarin]: http://xamarin.com/visual-studio
 [Complemento de NuGet para Xamarin]: https://github.com/mrward/monodevelop-nuget-addin
+
+<!--HONumber=35.2-->

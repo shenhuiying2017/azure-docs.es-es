@@ -1,11 +1,11 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Inserción segura de los Centros de notificaciones de Azure" metaKeywords="notificaciones de inserción de Azure, centros de notificaciones de Azure, inserción segura" description="Obtenga información acerca de cómo enviar notificaciones de inserción seguras a una aplicación iOS desde Azure. Ejemplos de código escritos en Objective-C y C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Inserción segura de los Centros de notificaciones de Azure" metaKeywords="Notificaciones de inserción de Azure, centros de notificaciones de Azure, inserción segura" description="Aprenda a enviar notificaciones push seguras a una aplicación iOS desde Azure. Los ejemplos de código están escritos en Objective C y C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
 
 #Inserción segura de los Centros de notificaciones de Azure
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/es-es/documentation/articles/notification-hubs-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
+    	<a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-secure-push/" title="Windows Universal">Windows Universal</a><a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/" title="iOS" class="current">iOS</a>
 		<a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-android-secure-push/" title="Android">Android</a>
 </div>
 
@@ -22,9 +22,9 @@ A un alto nivel, el flujo es el siguiente:
 	- El dispositivo entra en contacto con el back-end que solicita la carga segura.
 	- La aplicación puede mostrar la carga como una notificación en el dispositivo.
 
-Es importante tener en cuenta que en el flujo anterior (y en este tutorial), se supone que el dispositivo almacena un token de autenticación en el almacenamiento local, después de que el usuario inicia sesión. Esto garantiza una experiencia completamente transparente, dado que el dispositivo puede recuperar la carga segura de la notificación mediante este token. Si la aplicación no almacena tokens de autenticación en el dispositivo, o si estos tokens han expirado, la aplicación del dispositivo, al recibir la notificación, debe mostrar una notificación genérica pidiendo al usuario que inicie la aplicación. Después, la aplicación autentica al usuario y muestra la carga de la notificación.
+Es importante tener en cuenta que en el flujo anterior (y en este tutorial), se supone que el dispositivo almacena un token de autenticación en el almacenamiento local, después de que el usuario inicia sesión. Esto garantiza una experiencia completamente transparente, ya que el dispositivo puede recuperar la carga de seguridad de la notificación mediante este token. Si la aplicación no almacena tokens de autenticación en el dispositivo, o si estos tokens han expirado, la aplicación del dispositivo, al recibir la notificación, debe mostrar una notificación genérica pidiendo al usuario que inicie la aplicación. Después, la aplicación autentica al usuario y muestra la carga de la notificación.
 
-Este tutorial Inserción segura muestra cómo enviar una notificación de inserción de forma segura. El tutorial se basa en el tutorial **Notificación a los usuarios**, por lo que debe completar los pasos de ese tutorial primero.
+Este tutorial Inserción segura muestra cómo enviar una notificación de inserción de forma segura. El tutorial se basa en el tutorial **Notificar a los usuarios**, por lo que debe completar los pasos de ese tutorial primero.
 
 > [AZURE.NOTE] Este tutorial asume que ha creado y configurado el centro de notificaciones tal y como se describe en [Introducción a los Centros de notificaciones (iOS)](http://azure.microsoft.com/es-es/documentation/articles/notification-hubs-ios-get-started/).
 
@@ -32,11 +32,11 @@ Este tutorial Inserción segura muestra cómo enviar una notificación de inserc
 
 ## Modificación del proyecto iOS
 
-Ahora que modificó el back-end de la aplicación para enviar solamente el *identificador* de una notificación, tiene que cambiar la aplicación iOS para administrar esa notificación y devolver la llamada a su back-end para recuperar el mensaje seguro que se debe mostrar.
+Una vez modificado el back-end de la aplicación para enviar solamente el *id* de una notificación, deberá modificar la aplicación iOS para que administre dicha notificación y devuelva la llamada a su back-end para recuperar el mensaje seguro que se debe mostrar.
 
 Para lograr este objetivo, tenemos que escribir la lógica para recuperar el contenido seguro del back-end de la aplicación.
 
-1. En **AppDelegate.m**, asegúrese de que la aplicación se registra para las notificaciones silenciosas de modo que procese el identificador de notificaciones enviado desde el back-end. Agregue la opción **UIRemoteNotificationTypeNewsstandContentAvailability** en didFinishLaunchingWithOptions:
+1. En **AppDelegate.m**, asegúrese de que la aplicación se registra para notificaciones silenciosas de manera a procesar el identificador de notificación enviado desde el back-end. Agregue la opción **UIRemoteNotificationTypeNewsstandContentAvailability** en didFinishLaunchingWithOptions:
 
 		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeNewsstandContentAvailability];
 
@@ -46,7 +46,7 @@ Para lograr este objetivo, tenemos que escribir la lógica para recuperar el con
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
 		@end
 
-3. Después, en la sección de implementación, agregue el siguiente código, sustituyendo el marcador de posición `{extremo de backend}` por el extremo para el backend obtenido anteriormente:
+3. A continuación, agregue en la sección implementación el código siguiente, sustituyendo el marcador de posición `{back-end endpoint}` por el extremo para el back-end obtenido anteriormente:
 
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
@@ -95,14 +95,14 @@ Para lograr este objetivo, tenemos que escribir la lógica para recuperar el con
 
 	Este método llama al back-end de la aplicación para recuperar el contenido de la notificación usando las credenciales almacenadas en las preferencias compartidas.
 
-4. Ahora tenemos que administrar la notificación entrante y usar el método anterior para recuperar el contenido para mostrar. Primero, tenemos que habilitar la aplicación iOS para que se ejecute en segundo plano cuando reciba una notificación de inserción. En **XCode**, seleccione el proyecto de aplicación en el panel izquierdo y después haga clic en el destino de la aplicación principal en la sección **Targets** (Destinos) del panel central.
+4. Ahora tenemos que administrar la notificación entrante y usar el método anterior para recuperar el contenido para mostrar. Primero, tenemos que habilitar la aplicación iOS para que se ejecute en segundo plano cuando reciba una notificación de inserción. En **XCode**, seleccione el proyecto de aplicación en el panel izquierdo y, a continuación, haga clic en el destino de la aplicación principal en la sección **Targets** del panel central.
 
-5. Después, haga clic en la pestaña **Capabilities** (Capacidades) en la parte superior del panel central y active la casilla **Remote Notifications**(Notificaciones remotas).
+5. A continuación, haga clic en la pestaña **Capabilities** situada en la parte superior del panel central y active la casilla **Remote Notifications**.
 
 	![][IOS1]
 
 
-6. En **AppDelegate.m** agregue el siguiente método para administrar notificaciones de inserción:
+6. En **AppDelegate.m**, agregue el método siguiente para administrar las notificaciones de inserción:
 
 		-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 		{
@@ -125,7 +125,7 @@ Para lograr este objetivo, tenemos que escribir la lógica para recuperar el con
 
 		}
 
-	Tenga en cuenta que es preferible administrar los casos de propiedad de encabezado de autenticación ausente o rechazo por el backend. La administración específica de estos casos depende principalmente de la experiencia del usuario de destino. Una opción es mostrar una notificación con un mensaje genérico para el usuario con el fin de que se autentique para recuperar la notificación real.
+	Tenga en cuenta que es preferible administrar los casos de propiedad de encabezado de autenticación ausente o rechazo por el back-end. La administración específica de estos casos depende principalmente de la experiencia del usuario de destino. Una opción es mostrar una notificación con un mensaje genérico para el usuario con el fin de que se autentique para recuperar la notificación real.
 
 ## Ejecución de la aplicación
 
@@ -135,6 +135,8 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 
 2. En la interfaz de usuario de la aplicación iOS, escriba un nombre de usuario y contraseña. Esta información puede ser cualquier cadena, pero deben tener el mismo valor.
 
-3. En la interfaz de usuario de la aplicación iOS, haga clic en **Log in** (Iniciar sesión). Después, haga clic en **Send push**. Debe ver la notificación segura mostrada en el centro notificaciones.
+3. En la interfaz de usuario de la aplicación iOS, haga clic en **Log in**. A continuación, haga clic en **Send push**. Debe ver la notificación segura mostrada en el centro notificaciones.
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
+
+<!--HONumber=35.2-->

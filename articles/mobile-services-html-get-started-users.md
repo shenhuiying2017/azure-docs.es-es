@@ -1,12 +1,12 @@
-﻿<properties urlDisplayName="Get Started with Authentication (HTML5)" pageTitle="Introducción a la autenticación (HTML 5) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación HTML a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+﻿<properties urlDisplayName="Get Started with Authentication (HTML5)" pageTitle="Introducción a la autenticación (HTML 5) | Centro de desarrollo móvil" metaKeywords="" description="Aprenda a usar Servicios móviles para autenticar a los usuarios de la aplicación HTML a través de una variedad de proveedores de identidad, como Google, Facebook, Twitter y Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga" />
 
-# Incorporación de autenticación a la aplicación de Servicios móviles 
+# Agregar autenticación a la aplicación de Servicios móviles 
 
 [WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-Este tema muestra cómo autenticar usuarios en servicios móviles de Azure desde su aplicación HTML o PhoneGap.   En este tutorial, podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidad admitido por servicios móviles. Una vez que se haya realizado la autenticación y autorización correctamente en los Servicios móviles, se mostrará el valor de identificador de usuario.  
+En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde su aplicación HTML o PhoneGap.  En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.  
 
 En este tutorial se realiza un recorrido por los pasos básicos para habilitar la autenticación en su aplicación:
 
@@ -14,7 +14,7 @@ En este tutorial se realiza un recorrido por los pasos básicos para habilitar l
 2. [Restricción de los permisos de tabla a usuarios autenticados]
 3. [Incorporación de autenticación a la aplicación]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a Servicios móviles]. 
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles]. 
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles
 
@@ -31,11 +31,11 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Primero d
 	+ **launch-mac.command** (equipos con Mac OS X)
 	+ **launch-linux.sh** (equipos con Linux)
 
-	>[WACOM.NOTE]En un equipo con Windows, escriba `R` cuando PowerShell le pida que confirme que desea ejecutar el script. Su explorador web podría advertirle de no ejecutar el script porque se ha descargado de Internet. Cuando esto ocurra, debe solicitar que el explorador continúe con la carga del script.
+	>[WACOM.NOTE]En un equipo con Windows, escriba "R" cuando PowerShell le pida que confirme que desea ejecutar el script. Su explorador web podría advertirle de no ejecutar el script porque se ha descargado de Internet. Cuando esto ocurra, debe solicitar que el explorador continúe con la carga del script.
 
 	De este modo se inicia un servidor web en su equipo local para hospedar la nueva aplicación.
 
-2. Abra la dirección URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> en un explorador web para iniciar la aplicación. 
+2. Abra la URL <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> en un explorador web para iniciar la aplicación. 
 
 	No se pueden cargar los datos. Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla _TodoItem_ requiere ahora autenticación.
 
@@ -45,17 +45,17 @@ A continuación, actualizará la aplicación para permitir la autenticación ant
 
 ##<a name="add-authentication"></a>Incorporación de autenticación a la aplicación
 
->[WACOM.NOTE]Como el inicio de sesión se realiza en una ventana emergente, debería invocar el método <strong>login</strong> desde el evento Click de un botón. De lo contrario, muchos exploradores suprimirían la ventana de inicio de sesión.
+>[WACOM.NOTE]Dado que el inicio de sesión se realiza en un menú emergente, debería invocar el método <strong>inicio de sesión</strong> desde el evento click de un botón. Si no, muchos exploradores suprimirían la ventana de inicio de sesión.
 
 1. Abra el archivo del proyecto index.html, localice el elemento H1 y agregue el siguiente fragmento de código debajo de él:
 
 	    <div id="logged-in">
-            Ha iniciado sesión como <span id="login-name"></span>.
+            You are logged in as <span id="login-name"></span>.
             <button id="log-out">Log out</button>
         </div>
         <div id="logged-out">
-            No ha iniciado sesión.
-            <button>Iniciar sesión</button>
+            You are not logged in.
+            <button>Log in</button>
         </div>
 
 	Esto le permite iniciar sesión en los Servicios móviles desde la página.
@@ -93,7 +93,7 @@ A continuación, actualizará la aplicación para permitir la autenticación ant
 			$("#logged-in button").click(logOut);
 		});
 
-    De este modo se crea un conjunto de funciones para administrar el proceso de autenticación. El usuario se autentica mediante el inicio de sesión en Facebook. Si usa un proveedor de identidades que no sea Facebook, cambie el valor que ha pasado al método <strong>login</strong> anterior por uno de los siguientes: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em> o <em>aad</em>.
+    De este modo se crea un conjunto de funciones para administrar el proceso de autenticación. El usuario se autentica mediante el inicio de sesión en Facebook. Si usa un proveedor de identidades que no sea Facebook, cambie el valor que ha pasado al método de <strong>inicio de sesión</strong> método anterior a uno de los siguientes: <em>microsoftaccount</em>, <em>facebook</em>, <em>twitter</em>, <em>google</em>o <em>aad</em>.
 
 	>[WACOM.NOTE]En una aplicación de PhoneGap, también debe agregar los siguientes complementos al proyecto:
 	><ul><li><code>phonegap plugin add https://git-wip-us.apache.org/repos/asf/cordova-plugin-device.git</code></li>
@@ -103,7 +103,7 @@ A continuación, actualizará la aplicación para permitir la autenticación ant
 
 	   Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
 
-	>[WACOM.NOTE]Si usa Internet Explorer, podría recibir el error siguiente después de iniciar sesión: <code>Cannot reach window opener. It may be on a different Internet Explorer zone</code>. Esto sucede porque la ventana emergente se ejecuta en una zona de seguridad diferente (Internet) del localhost (intranet). Esto solo afecta a las aplicaciones durante el desarrollo que usan localhost. También puede abrir la pestaña <strong>Seguridad</strong> de <strong>Opciones de Internet</strong>, hacer clic en <strong>Intranet local</strong>, después en <strong>Sitios</strong> y deshabilitar <strong>Detectar redes intranet automáticamente</strong>. Acuérdese de volver a cambiar esta configuración cuando haya terminado la prueba.
+	>[WACOM.NOTE]Si usa Internet Explorer, podría recibir el error siguiente después de iniciar sesión: <code>Cannot reach window opener. Puede estar en una zona Internet Explorer diferente.</code>. Esto sucede porque la ventana emergente se ejecuta en una zona de seguridad diferente (Internet) del localhost (intranet). Esto solo afecta a las aplicaciones durante el desarrollo que usan localhost. Como solución, abra la pestaña <strong>Seguridad</strong> de <strong>Opciones de Internet</strong>, haga clic en <strong>Intranet local</strong>, haga clic en <strong>Sitios</strong>y deshabilite <strong>Detectar automáticamente la red de la Intranet</strong>. Acuérdese de volver a cambiar esta configuración cuando haya terminado la prueba.
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
@@ -124,9 +124,11 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-perms.png
 
 <!-- URLs. -->
-[Introducción a Servicios móviles]: /es-es/documentation/articles/mobile-services-html-get-started
+[Introducción a los servicios móviles]: /es-es/documentation/articles/mobile-services-html-get-started
 [Introducción a los datos]: /es-es/documentation/articles/mobile-services-html-get-started-data
-[Autorización de usuarios con scripts]: /es-es/documentation/articles/mobile-services-html-authorize-users-in-scripts
+[Autorizar a los usuarios con scripts]: /es-es/documentation/articles/mobile-services-html-authorize-users-in-scripts
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Documentación de referencia conceptual de Servicios móviles con HTML/JavaScript]: /es-es/documentation/articles/mobile-services-html-how-to-use-client-library
+[Referencia conceptual de Servicios móviles HTML/JavaScript]: /es-es/documentation/articles/mobile-services-html-how-to-use-client-library
+
+<!--HONumber=35.2-->

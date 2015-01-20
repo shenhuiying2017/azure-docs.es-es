@@ -1,11 +1,11 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="Supervisión y administración de la Factoría de datos de Azure mediante PowerShell de Azure" description="Obtenga información acerca de cómo usar PowerShell de Azure para supervisar y administrar las factorías de datos de Azure que ha creado." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="Supervisión y administración de la Factoría de datos de Azure mediante PowerShell de Azure" description="Aprenda a usar Azure PowerShell para supervisar y administrar las factorías de datos de Azure que ha creado." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Supervisión y administración de la Factoría de datos de Azure mediante PowerShell de Azure
 La siguiente tabla enumera los cmdlets que puede utilizar para supervisar y administrar las factorías de datos de Azure mediante el uso de PowerShell de Azure. 
 
-> [WACOM.NOTE] Consulte [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos. 
+> [WACOM.NOTE] Vea [Referencia de cmdlets de factoría de datos][cmdlet-reference] para obtener la documentación completa sobre los cmdlets de la factoría de datos. 
 
 
 - [Get-AzureDataFactory](#get-azuredatafactory)
@@ -189,7 +189,7 @@ Este comando obtiene todos los sectores de la tabla EmpSQLTable de la factoría 
 
 ## <a name="get-azuredatafactoryrun"></a> Get-AzureDataFactoryRun
 
-El cmdlet Get-AzureDataFactoryRun obtiene todas las ejecuciones de un segmento de datos de una tabla de una factoría de datos de Azure.  Una tabla de una factoría de datos de Azure se compone de segmentos sobre el eje de tiempo. El ancho de un segmento se determina por la programación: cada hora o diariamente. La ejecución es una unidad de procesamiento de un segmento. Podría haber una o varias ejecuciones de un segmento en caso de reintentos o si vuelve a ejecutar el segmento en caso de error. Un segmento se identifica mediante su hora de inicio. Por lo tanto, para el cmdlet Get-AzureDataFactoryRun, deberá pasar la hora de inicio del segmento de los resultados del cmdlet Get-AzureDataFactorySlice.
+El cmdlet Get-AzureDataFactoryRun obtiene todas las ejecuciones para un segmento de datos de una tabla en una factoría de datos de Azure.  Una tabla de una factoría de datos de Azure se compone de segmentos sobre el eje de tiempo. El ancho de un segmento se determina por la programación: cada hora o diariamente. La ejecución es una unidad de procesamiento de un segmento. Podría haber una o varias ejecuciones de un segmento en caso de reintentos o si vuelve a ejecutar el segmento en caso de error. Un segmento se identifica mediante su hora de inicio. Por lo tanto, para el cmdlet Get-AzureDataFactoryRun, deberá pasar la hora de inicio del segmento de los resultados del cmdlet Get-AzureDataFactorySlice.
 
 Por ejemplo, para obtener una ejecución para el siguiente segmento, utilice 2015-04-02T20:00:00. 
 
@@ -215,7 +215,7 @@ El cmdlet Save-AzureDataFactoryLog descarga los archivos de registro asociados c
 
 Si no especifica el parámetro **-DownloadLogs**, el cmdlet solo devuelve la ubicación de los archivos de registro. 
 
-Si especifica el parámetro **-DownloadLogs** sin especificar un directorio de salida (el parámetro **-Output **), los archivos de registro se descargan en la carpeta de **documentos** predeterminada. 
+Si especifica el parámetro **-DownloadLogs** sin especificar un directorio de salida (el parámetro **-Output**), los archivos de registro se descargan en la carpeta de **documentos** predeterminada. 
 
 Si especifica el parámetro **-DownloadLogs** junto con una carpeta de salida (**-Output**), los archivos de registro se descargan en la carpeta especificada. 
 
@@ -234,7 +234,7 @@ Este comando guarda los archivos de registro en la carpeta Documentos (predeterm
  
 
 ### Ejemplo 3
-Este comando devuelve la ubicación de los archivos de registro. Tenga en cuenta que no se especifica el parámetro - DownloadLogs. 
+Este comando devuelve la ubicación de los archivos de registro. Tenga en cuenta que no se especifica el parámetro -DownloadLogs. 
   
 	Save-AzureDataFactoryLog -ResourceGroupName "ADF" -DataFactoryName "LogProcessingFactory" -Id "841b77c9-d56c-48d1-99a3-8c16c3e77d39"
  
@@ -257,7 +257,7 @@ Este comando devuelve información sobre la puerta de enlace ADFTutorialGateway 
 ## <a name="set-azuredatafactorypipelineactiveperiod"></a> Set-AzureDataFactoryPipelineActivePeriod
 Este cmdlet establece el período activo de los segmentos de datos que son procesados por la canalización. Si utiliza Set-AzureDataFactorySliceStatus, asegúrese de que la fecha de inicio y de finalización del segmento se encuentran en el período activo de la canalización.
 
-Una vez creadas las canalizaciones, puede especificar la duración en la que se producirá el procesamiento de datos. Al especificar el período activo de un proceso, está definiendo el tiempo en el que se procesarán los segmentos de datos basándose en las propiedades de disponibilidad que se han definido para cada tabla ADF.
+Una vez creados los procesos, puede especificar la duración en la que se producirá el procesamiento de datos. Al especificar el período activo de un proceso, está definiendo el tiempo en el que se procesarán los segmentos de datos basándose en las propiedades de disponibilidad que se han definido para cada tabla ADF.
 
 ### Ejemplo
 
@@ -272,7 +272,7 @@ Establece el estado de un segmento de una tabla. La fecha de inicio y de finaliz
 Cada segmento de datos de una tabla pasa por diversas etapas. Estas etapas son ligeramente diferentes en función de si se especifican directivas de validación.
 
 
-- Si no se especifican  directivas de validación: PendingExecution -> InProgress -> Ready
+- Si no se especifican directivas de validación: PendingExecution -> InProgress -> Ready
 - Si se especifican directivas de validación: PendingExecution -> Pending Validation -> InProgress -> Ready
 
 En la tabla siguiente se proporcionan descripciones de los posibles estados de un segmento y se indica si el estado se puede establecer utilizando Set-AzureDataFactorySliceStatus o no.
@@ -391,14 +391,14 @@ Este comando reanuda la canalización ADFTutorialPipeline de la factoría de dat
 
 Artículo | Descripción
 ------ | ---------------
-[Supervisión y administración de la Factoría de datos de Azure mediante el Portal de vista previa de Azure][monitor-manage-using-portal] | Este artículo describe cómo supervisar y administrar una factoría de datos de Azure mediante el Portal de vista previa de Azure.
-[Habilitación de las canalizaciones para que funcionen con datos locales][use-onpremises-datasources] | Este artículo incluye un tutorial que muestra cómo copiar datos desde una base de datos SQL Server local hasta un blob de Azure.
-[Uso de Pig y Hive con la factoría de datos][use-pig-and-hive-with-data-factory] | Este artículo incluye un tutorial que muestra cómo usar la actividad de HDInsight para ejecutar un script de hive/pig con el fin de procesar datos de entrada para producir datos de salida. 
-[Tutorial: Movimiento y procesamiento de los archivos de registro mediante la factoría de datos][adf-tutorial] | Este artículo proporciona un completo tutorial que muestra cómo implementar un escenario en tiempo real mediante el uso de la Factoría de datos de Azure para transformar los datos de los archivos de registro en información.
-[Uso de actividades personalizadas en una factoría de datos][use-custom-activities] | Este artículo ofrece un tutorial con instrucciones paso a paso para crear una actividad personalizada y utilizarla en un proceso. 
-[Solución de problemas de la factoría de datos][troubleshoot] | Este artículo describe cómo solucionar los problemas de la Factoría de datos de Azure.
-[Referencia para desarrolladores de la Factoría de datos de Azure][developer-reference] | La referencia para desarrolladores incluye el contenido de referencia completo para cmdlets, scripts JSON, funciones, etc. 
-[Referencia de cmdlets de Factoría de datos de Azure][cmdlet-reference] | Este contenido de referencia incluye detalles acerca de todos los **cmdlets de la factoría de datos**.
+[Supervisar y administrar la factoría de datos de Azure mediante el Portal de vista previa de Azure][monitor-manage-using-portal]En este artículo se describe cómo supervisar y administrar una factoría de datos de Azure mediante el Portal de vista previa de Azure.
+[Habilitar las canalizaciones para trabajar con datos locales][use-onpremises-datasources] | Este artículo tiene un tutorial en el que se muestra cómo copiar datos de una base de datos de SQL Server local a un blob de Azure.
+[Usar Pig y Hive con la factoría de datos][use-pig-and-hive-with-data-factory] | Este artículo tiene un tutorial que muestra cómo utilizar la actividad de HDInsight para ejecutar un script de Hive y Pig para procesar los datos de entrada a fin de producir datos de salida.
+[Tutorial: Mover y procesar los archivos de registro mediante la factoría de datos][adf-tutorial] | Este artículo proporciona un tutorial completo en el que se muestra cómo implementar un escenario en tiempo real mediante el uso de la factoría de datos de Azure para transformar los datos de los archivos de registro en información.
+[Usar actividades personalizadas en una factoría de datos][use-custom-activities] | Este artículo ofrece un tutorial con instrucciones detalladas para crear una actividad personalizada y usarla en una canalización. 
+[Solución de problemas de la factoría de datos][troubleshoot]En este artículo se describe cómo solucionar problemas de la factoría de datos de Azure.
+[Referencia del desarrollador de la factoría de datos de Azure][developer-reference] | La Referencia del desarrollador tiene el contenido de referencia completo para cmdlets, scripts JSON, funciones, etc. 
+[Referencia de cmdlets de la factoría de datos de Azure][cmdlet-reference] | Este contenido de referencia tiene detalles acerca de todos los **cmdlets de la factoría de datos**.
 
 [use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
 [use-pig-and-hive-with-data-factory]: ../data-factory-pig-hive-activities
@@ -409,3 +409,5 @@ Artículo | Descripción
 [troubleshoot]: ../data-factory-troubleshoot
 [developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+
+<!--HONumber=35.2-->

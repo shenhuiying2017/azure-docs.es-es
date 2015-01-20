@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with WebMatrix" pageTitle="Sitio web de .NET con WebMatrix - Tutoriales de Azure" metaKeywords="WebMatrix Azure, WebMatrix Azure, sitio web de Azure WebMatrix, Azure sitio web WebMatrix, Web Matrix Azure, WebMatrix Azure" description="Obtenga información acerca de cómo desarrollar e implementar un sitio web de Azure con WebMatrix." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a website with Microsoft WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties urlDisplayName="Website with WebMatrix" pageTitle="Sitio web de .NET con WebMatrix: tutoriales de Azure"metaKeywords ="WebMatrix Azure, WebMatrix Azure, sitio web de WebMatrix Azure, sitio web de WebMatrix Azure, Web Matrix Azure, WebMatrix Azure" description="Aprenda a desarrollar e implementar un sitio web de Azure con WebMatrix." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a website with Microsoft WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/27/2014" ms.author="tomfitz" />
 
@@ -15,13 +15,14 @@ Aprenderá a:
 * Crear un sitio mediante una plantilla integrada con WebMatrix 
 * Implementar el sitio web personalizado directamente desde WebMatrix hasta Azure.
 
-
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+> [WACOM.NOTE]
+> para completar este tutorial, deberá tener una cuenta de Azure. De manera opcional, puede: <a href="http://azure.microsoft.com/es-es/pricing/member-offers/msdn-benefits-details/">activar los beneficios de suscriptor MSDN</a> o <a href="http://azure.microsoft.com/es-es/pricing/free-trial/">suscribirse para una prueba gratuita</a>.
+> Si desea empezar a trabajar con sitios web de Azure antes de contratar una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net,</a>donde puede crear inmediatamente un sitio de inicio ASP.NET en sitios web de Azure de forma gratuita. No se requiere ninguna tarjeta de crédito, sin compromisos.
 
 ## Inicio de sesión en Azure
 
 1. Inicie WebMatrix.
-2. Si esta es la primera vez que utiliza WebMatrix 3, se le solicitará que inicie sesión en Azure.  De lo contrario, puede hacer clic en el botón **Sign In** y seleccionar **Add Account**. Seleccione **Iniciar sesión** con su cuenta Microsoft.
+2. Si esta es la primera vez que utiliza WebMatrix 3, se le solicitará que inicie sesión en Azure.  De lo contrario, puede hacer clic en el botón **Sign In** y seleccionar **Add Account**.  Seleccione **Sign in** con su cuenta Microsoft.
 
 	![Add Account][addaccount]
 
@@ -32,11 +33,11 @@ Aprenderá a:
 
 ## Creación de un sitio con una plantilla integrada para Azure
 
-1. En la pantalla de inicio, haga clic en el botón **Nuevo** y seleccione **Galería de plantillas** para crear un sitio nuevo a partir de la Galería de plantillas:
+1. En la pantalla de inicio, haga clic en el botón **New** y seleccione **Template Gallery** para crear un sitio nuevo a partir de la Galería de plantillas:
 
 	![New site from Template Gallery][sitefromtemplate]
 
-2. La Galería de plantillas mostrará una lista de plantillas disponibles que se pueden ejecutar de manera local o en Azure.  Seleccione **Panadería** en la lista de plantillas, escriba **bakerysample** para **Nombre del sitio** y haga clic en **Siguiente**.
+2. La Galería de plantillas mostrará una lista de plantillas disponibles que se pueden ejecutar de manera local o en Azure.  Seleccione **Bakery** en la lista de plantillas, escriba **bakerysample** para **Site Name** y haga clic en **Next**.
 
 	![Create Site from Template][sitefromtemplatedetails]
 
@@ -48,13 +49,13 @@ Aprenderá a:
 
 	![WebMatrix IDE][howtowebmatrixide] 
 
-## Configuración del correo electrónico
+## Configurar el correo electrónico
 
-El ejemplo de panadería incluye un formulario de pedido simulado que envía un mensaje de correo electrónico con el producto pedido. Utilizará el servicio de correo electrónico SendGrid en Azure para enviar correos electrónicos desde su sitio.
+El ejemplo de la panadería incluye un formulario de pedido simulado que envía un mensaje de correo electrónico con el producto pedido. Utilizará el servicio de correo electrónico SendGrid en Azure para enviar correos electrónicos desde su sitio.
 
-1. Siga los pasos del tutorial [Envío de correos electrónicos usando SendGrid con Azure][sendgridexample] para configurar una cuenta de SendGrid y recuperar la información de conexión. No es necesario realizar el tutorial completo, solo hasta el punto de obtener la información de conexión.
+1. Siga los pasos del tutorial sobre [cómo enviar correo electrónico con SendGrid y Azure][sendgridexample] para configurar una cuenta de SendGrid y recuperar la información de conexión. No es necesario realizar el tutorial completo; solo hasta el punto para obtener información de conexión.
 
-2. Agregue el paquete NuGet de SendGrid al proyecto WebMatrix. En primer lugar, haga clic en el botón NuGet.
+2. Agregue el paquete NuGet de SendGrid al proyecto de WebMatrix. En primer lugar, haga clic en el botón de NuGet.
 
     ![Add SendGrid][addsendgrid]
 
@@ -62,7 +63,7 @@ El ejemplo de panadería incluye un formulario de pedido simulado que envía un 
 
     ![Install SendGrid][installsendgrid]
 
-    Después de que el paquete ha terminado de instalarse, tenga en cuenta que los ensamblados de SendGrid se han agregado a la papelera.
+    Una vez instalado el paquete, tenga en cuenta que los ensamblados de SendGrid se han agregado a la Papelera.
 
     ![SendGrid added][binsendgrid]
 
@@ -70,12 +71,12 @@ El ejemplo de panadería incluye un formulario de pedido simulado que envía un 
 
 	![][modify2]
 
-4. Al principio del archivo, agregue el siguiente código:
+4. Al principio del archivo, agregue el código siguiente:
 
         @using SendGrid;
         @using System.Net.Mail;
 
-4. Busque el comentario que dice //SMTP Configuration for Hotmail y elimine o comente todo el código para usar el correo electrónico Web.
+4. Busque el comentario que dice //Configuración SMTP para Hotmail y elimine o comente todo el código para usar el correo electrónico web.
 
         /*
         //SMTP Configuration for Hotmail
@@ -101,7 +102,7 @@ El ejemplo de panadería incluye un formulario de pedido simulado que envía un 
         }*/
 
 
-5. Agregue código para usar SendGrid para enviar correos electrónicos en lugar del correo electrónico web. Agregue el código siguiente en lugar del código que se eliminó en el paso anterior.
+5. Agregue código para usar SendGrid para enviar correos electrónicos en lugar de correo electrónico web. Agregue el código siguiente en lugar del código que ha eliminado en el paso anterior.
 
 		 if (email.IsEmpty()) {
             Response.Redirect("~/OrderSuccess?NoEmail=1");
@@ -130,22 +131,22 @@ El ejemplo de panadería incluye un formulario de pedido simulado que envía un 
         }
 
 
-6. En la cinta de WebMatrix, haga clic en **Ejecutar** para probar el sitio.
+6. En la cinta de WebMatrix, haga clic en **Run** para probar el sitio.
 
 	![][modify4]
 
-7. Haga clic en **Pedir ahora** en uno de los productos y envíese un pedido.
+7. Haga clic en **Order Now** en uno de los productos y envíese un pedido.
 
 8. Compruebe su correo electrónico y asegúrese de que recibió la confirmación del pedido. Si tiene dificultades para enviar correo electrónico, consulte la sección de [problemas con el envío de correo electrónico][sendmailissues] (en inglés) en la Guía de solución de problemas de las páginas web de ASP.NET (Razor).
  
 
 ## Implementación del sitio web personalizado de WebMatrix a Azure
 
-1. En WebMatrix, haga clic en **Publicar** desde la cinta **Página principal** para ver el cuadro de diálogo **Publicar vista previa** para el sitio web.
+1. En WebMatrix, haga clic en **Publish** desde la cinta **Home** para ver el cuadro de diálogo **Publish Preview** para el sitio web.
 
 	![WebMatrix Publish Preview][howtopublishpreview]
 
-2. Haga clic para activar la casilla junto a bakery.sdf y, a continuación, haga clic en **Continuar**.  Cuando se completa la publicación, la dirección URL del sitio web actualizado en Azure se muestra en la parte inferior del IDE de WebMatrix.  
+2. Haga clic para activar la casilla junto a bakery.sdf y, a continuación, haga clic en **Continue**.  Cuando se completa la publicación, la dirección URL del sitio web actualizado en Azure se muestra en la parte inferior del IDE de WebMatrix.  
 
 	![Publishing Complete][publishcomplete]
 
@@ -161,7 +162,7 @@ Puede usar WebMatrix para modificar el sitio y volver a publicarlo en su sitio w
 
 1. Abra la página *Order.cshtml*.
 
-2. Localice la definición de la forma de clase de "envío". Inserte el siguiente código justo después del bloque &lt;li&gt;.
+2. Localice la definición de la forma de clase de "envío". Inserte el siguiente código justo después del bloque <li>.
 		
 		<li class="gift">
 		    <div class="fieldcontainer" data-role="fieldcontain">
@@ -190,9 +191,9 @@ Puede usar WebMatrix para modificar el sitio y volver a publicarlo en su sitio w
 
 	![][modify7]
 
-6. Vuelva a publicar el sitio haciendo clic en **Publicar** en la cinta **Página principal**.
+6. Vuelva a publicar el sitio haciendo clic en **Publish** en la cinta **Home**.
 
-7. En el cuadro de diálogo **Publicar vista previa**, asegúrese de que ambos Order.cshtml estén marcados y haga clic para continuar.
+7. En el cuadro de diálogo **Publish Preview**, asegúrese de que ambos Order.cshtml estén marcados y haga clic para continuar.
 
 8. Haga clic en el vínculo para abrir el sitio web en su explorador y pruebe la actualización en su sitio web de Azure.
 
@@ -234,3 +235,5 @@ Ha aprendido a crear e implementar un sitio web de WebMatrix en Azure. Para obte
 
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/es-es/documentation/articles/sendgrid-dotnet-how-to-send-email/
+
+<!--HONumber=35.2-->

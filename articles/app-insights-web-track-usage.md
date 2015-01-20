@@ -1,6 +1,6 @@
 ﻿<properties title="Track usage in web applications with Application Insights" pageTitle="Seguir el uso en aplicaciones web" description="Registre las actividades del usuario." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
  
 # Seguir el uso de aplicaciones web
 
@@ -21,7 +21,7 @@ La telemetría se recopila desde el cliente y el servidor. Los datos de cliente 
 
 **Si está desarrollando una aplicación ASP.NET** y todavía no lo ha hecho, [agregue Application Insights al proyecto web][start]. 
 
-**Si su plataforma de sitio web no es ASP.NET:** Suscribirse a [Microsoft Azure](http://azure.com), vaya al [portal de vista previa](https://portal.azure.com) y agregue un recurso de Application Insights.
+**Si su plataforma de sitio web no es ASP.NET:** regístrese en [Microsoft Azure](http://azure.com), vaya al [Portal de vista previa](https://portal.azure.com) y agregue un recurso de Application Insights.
 
 ![](./media/appinsights/appinsights-11newApp.png)
 
@@ -35,7 +35,7 @@ En Inicio rápido, obtenga el script para páginas web.
 
 ![](./media/appinsights/appinsights-06webcode.png)
 
-Inserte el script justo antes de la etiqueta </head> de cada página que se desea seguir. Si su sitio web tiene una página maestra, puede colocar el script allí. Por ejemplo, en un proyecto de ASP.NET MVC, la colocaría en View\Shared\_Layout.cshtml
+Inserte el script justo antes de la etiqueta </head> de cada página que desea seguir. Si su sitio web tiene una página maestra, puede colocar el script allí. Por ejemplo, en un proyecto de ASP.NET MVC, la colocaría en View\Shared\_Layout.cshtml
 
 ## <a name="usage"></a>Análisis de uso
 
@@ -45,7 +45,7 @@ En la hoja de información general de la aplicación, aparecen estos mosaicos de
 
 ![](./media/appinsights/appinsights-47usage.png)
 
-*¿Todavía no hay datos? Haga clic en **Actualizar** en la parte superior de la página.*
+*¿Aún no hay datos? Haga clic en **Actualizar** en la parte superior de la página.*
 
 * **Sesiones por explorador**
 
@@ -57,13 +57,12 @@ En la hoja de información general de la aplicación, aparecen estos mosaicos de
 
     Muestra los recuentos totales de las últimas 24 horas.
 
-    Haga clic en el mosaico de vistas de página para obtener un historial más detallado.
+    Haga clic en el mosaico de vistas de página para obtener un historial más detallado. Para obtener un historial más largo, puede cambiar el intervalo de tiempo del informe.
 
 ![](./media/appinsights/appinsights-49usage.png)
 
-Haga clic en Intervalo de tiempo para ver un historial más extenso de hasta siete días.
 
-Haga clic en un gráfico para ver otras métricas que puede mostrar.
+Haga clic en un gráfico para ver otras métricas que se pueden mostrar o agregue un gráfico nuevo y seleccione las métricas que muestra.
 
 ![](./media/appinsights/appinsights-63usermetrics.png)
 
@@ -92,7 +91,7 @@ En la hoja Búsqueda de diagnóstico, establezca Filtros en Vista de página.
 
 Seleccione el evento que desea ver con mayor detalle.
 
-> [AZURE.NOTE] Si usa [Buscar][diagnostic], tenga en cuenta que deben coincidir las palabras completas. "Acerc" y "cerca" no coinciden con "Acerca", aunque "Acerc* " sí. Tampoco puede iniciar un término de búsqueda con un carácter comodín. Por ejemplo, "*cerc" no coincide con "Acerca". 
+> [AZURE.NOTE] Si desea usar [Buscar][diagnostic], tenga en cuenta que deben coincidir las palabras completas: "Acerc" y "cerca" no coinciden con "Acerca", aunque "Acerc* " sí. Tampoco puede iniciar un término de búsqueda con un carácter comodín. Por ejemplo, "*cerc" no coincide con "Acerca". 
 
 > [Más información sobre la búsqueda de diagnóstico][diagnostic]
 
@@ -100,13 +99,13 @@ Seleccione el evento que desea ver con mayor detalle.
 
 ¿Desea averiguar qué hacen los usuarios con su aplicación? Mediante la inserción de llamadas en el código de cliente y servidor, puede enviar su propia telemetría a Application Insights. Por ejemplo, podría averiguar el número de usuarios que crean pedidos sin completarlos o qué errores de validación aparecen con más frecuencia, o el promedio de puntuación en un juego.
 
-[Obtenga información acerca de la API de eventos y métricas personalizados][track].
+[Más información acerca de la API de eventos y métricas personalizados][track].
 
 ## <a name="video"></a> Vídeo: Seguimiento del uso
 
 > [AZURE.VIDEO tracking-usage-with-application-insights]
 
-## <a name="next"></a>Pasos siguientes
+## <a name="next"></a> Pasos siguientes
 
 [Seguimiento de uso con eventos y métricas personalizados][track]
 
@@ -117,3 +116,6 @@ Seleccione el evento que desea ver con mayor detalle.
 
 
 
+
+
+<!--HONumber=35.2-->

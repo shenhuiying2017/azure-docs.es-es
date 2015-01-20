@@ -1,88 +1,78 @@
-<properties linkid="Contact - Support" urlDisplayName="Caching" pageTitle="How to use In-Role Cache (.NET) - Azure feature guide" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Learn how to use Azure In-Role Cache. The samples are written in C# code and use the .NET API." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties urlDisplayName="Caching" pageTitle="Utilización de la característica de caché en rol (.NET) - Guía de características de Azure" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Aprenda a usar caché en rol de Azure. Los ejemplos se escriben en código C# y usan la API .NET." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+
+
+
+
+
 
 # Uso de la Caché en rol para Caché de Azure
 
-En esta guía se explica cómo comenzar a usar la
-**Caché en rol para Caché de Azure**. Los ejemplos se escriben en código C# y usan la API .NET. Entre los escenarios tratados se incluyen **la configuración de un clúster de caché**, **la configuración de clientes de caché**, **la incorporación y eliminación
-de objetos en la caché, el almacenamiento del estado de sesión ASP.NET en la caché**
- y **la activación de la caché de resultados de la página ASP.NET con el uso de la caché**. Para obtener más
-información acerca del uso de la caché en rol, consulte la sección [Pasos siguientes][Pasos siguientes].
+Esta guía muestra cómo empezar a usar 
+**Caché en rol para la caché de Azure**. Los ejemplos están escritos en código C# y usan la API .NET. Entre los escenarios tratados se incluyen **la configuración de un clúster de caché**, **la configuración de clientes de caché**, **la incorporación y eliminación de objetos en la caché, el almacenamiento del estado de sesión ASP.NET en la caché** y **la activación de la caché de resultados de la página ASP.NET con el uso de la caché**. Para obtener más información acerca del uso de la caché en rol, consulte la sección [Pasos siguientes][].
 
-> Si quiere que le guiemos a la hora de elegir la oferta de Caché de Azure que mejor se adapta a su aplicación, consulte [¿Cuál es la oferta de Caché de Azure más adecuada para mí?][¿Cuál es la oferta de Caché de Azure más adecuada para mí?].
+>Si quiere que le guiemos para elegir la oferta de Caché de Azure que mejor se adapta a su aplicación, consulte [¿Cuál es la oferta de Caché de Azure más adecuada para mí?][].
 
 ## Tabla de contenido
 
--   [¿Qué es la caché en rol?][¿Qué es la caché en rol?]
--   [Introducción a la caché en rol][Introducción a la caché en rol]
-
-    -   [Configuración del clúster de caché][Configuración del clúster de caché]
-    -   [Configuración de los clientes de caché][Configuración de los clientes de caché]
--   [Uso de cachés][Uso de cachés]
-
-    -   [Eliminación de un objeto DataCache][Eliminación de un objeto DataCache]
-    -   [Eliminación de y recuperación de un objeto de la caché][Eliminación de y recuperación de un objeto de la caché]
-    -   [Eliminación de de la expiración de un objeto de la caché][Eliminación de de la expiración de un objeto de la caché]
-    -   [Eliminación de del estado de la sesión de ASP.NET en la caché][Eliminación de del estado de la sesión de ASP.NET en la caché]
-    -   [Eliminación de de la caché de resultados de la página ASP.NET en la caché][Eliminación de de la caché de resultados de la página ASP.NET en la caché]
--   [Pasos siguientes][Pasos siguientes]
+-   [¿Qué es la caché en rol?][]
+-	[Introducción a la caché en rol]
+	-	[Configuración del clúster de caché][]
+	-	[Configuración de los clientes de caché][]
+-	[Uso de cachés][]
+	-	[ Creación de un objeto DataCache][]
+	-   [Adición y recuperación de un objeto de la caché][]
+	-   [Especificación de la expiración de un objeto de la caché][]
+	-   [Almacenamiento del estado de la sesión de ASP.NET en la caché][]
+	-   [Almacenamiento de la caché de resultados de la página ASP.NET en la caché][]
+-   [Pasos siguientes][]
 
 <a name="what-is"></a>
-
 ## ¿Qué es la caché en rol?
 
-La caché en rol proporciona una capa de almacenamiento en caché para las aplicaciones de Azure. El almacenamiento en caché aumenta el rendimiento gracias a que almacena temporalmente la
-información en memoria desde otras fuentes back-end y, además, puede reducir los costes asociados con
-las transacciones de base de datos en la nube. La caché en rol incluye las siguientes
-características:
+La caché en rol proporciona una capa de almacenamiento en caché para las aplicaciones de Azure. El almacenamiento en caché aumenta el rendimiento gracias a que almacena temporalmente la información en memoria desde otras fuentes back-end y, además, puede reducir los costes asociados con las transacciones de base de datos en la nube. La caché en rol incluye las siguientes características:
 
--   Proveedores de ASP.NET pregenerados para el almacenamiento en caché del estado
-    de la sesión y los resultados de la página, lo que permite acelerar las aplicaciones web sin
-    necesidad de modificar su código.
--   Almacenamiento en caché de cualquier objeto administrado serializable; por ejemplo: objetos CLR, filas, XML y
-    datos binarios.
--   Modelo de desarrollo coherente en Azure y Windows
-    Server AppFabric.
+-   Proveedores de ASP.NET previamente generados para el almacenamiento en caché del estado de la sesión y los resultados de la página, lo que permite acelerar las aplicaciones web sin necesidad de modificar su código.
+-   Almacenamiento en caché de cualquier objeto administrado serializable; por ejemplo: Objetos CLR, filas, XML y datos binarios.
+-   Modelo de desarrollo coherente en Azure y Windows Server AppFabric.
 
 La caché en rol presenta una nueva forma de ejecutar el almacenamiento en caché con la utilización de una parte de la memoria de las máquinas virtuales que hospedan las instancias de rol en los servicios en la nube de Azure (también conocidos como servicios hospedados). Si dispone de mayor flexibilidad en términos de opciones de implementación, las cachés pueden tener un gran tamaño y no presentar restricciones de cuota específicas de caché.
 
 El almacenamiento en caché de instancias de rol presenta las siguientes ventajas:
 
--   No se pagan cuotas premium por el almacenamiento en caché. Se paga únicamente por los recursos informáticos que hospedan la caché.
--   Se eliminan las cuotas de caché y la limitación de peticiones.
--   Se ofrece mayor control y aislamiento.
--   Se mejora el rendimiento.
--   Las cachés cambian de tamaño automáticamente cuando los roles se escalan vertical u horizontalmente. La memoria disponible para el almacenamiento en caché se aumenta o reduce vertical u horizontalmente de forma eficaz cuando se incorporan o eliminan instancias de rol.
--   Se ofrece una depuración del tiempo de desarrollo con total fidelidad.
--   Se admite el protocolo memcache.
+-	No se pagan cuotas premium por el almacenamiento en caché. Se paga únicamente por los recursos informáticos que hospedan la caché.
+-	Se eliminan las cuotas de caché y la limitación de peticiones.
+-	Se ofrece mayor control y aislamiento. 
+-	Se mejora el rendimiento.
+-	Las cachés cambian de tamaño automáticamente cuando los roles se escalan vertical u horizontalmente. La memoria disponible para el almacenamiento en caché se aumenta o reduce vertical u horizontalmente de forma eficaz cuando se incorporan o eliminan instancias de rol.
+-	Se ofrece una depuración del tiempo de desarrollo con total fidelidad. 
+-	Se admite el protocolo memcache.
 
 Además, el almacenamiento en caché de instancias de rol ofrece estas opciones de configuración:
 
--   Configuración de un rol dedicado para el almacenamiento en caché o almacenamiento en caché colocalizada en los roles existentes.
--   Disponibilidad de la caché para varios clientes en la misma implementación del servicio en la nube.
--   Creación de varias cachés con nombre con diferentes propiedades.
--   Configuración opcional de alta disponibilidad en cachés individuales.
--   Uso de capacidades expandidas de almacenamiento en caché, como regiones, etiquetado y notificaciones.
+-	Configuración de un rol dedicado para el almacenamiento en caché o almacenamiento en caché colocalizada en los roles existentes. 
+-	Disponibilidad de la caché para varios clientes en la misma implementación del servicio en la nube.
+-	Creación de varias cachés con nombre con diferentes propiedades.
+-	Configuración opcional de alta disponibilidad en cachés individuales.
+-	Uso de capacidades expandidas de almacenamiento en caché, como regiones, etiquetado y notificaciones.
 
-En esta guía se ofrece una introducción sobre cómo comenzar a usar la caché en rol. Para obtener información más detallada acerca de estas características, que van más allá del ámbito de esta guía de introducción, consulte [Información general acerca de la caché en rol][Información general acerca de la caché en rol].
+En esta guía se ofrece una introducción sobre cómo comenzar a usar la caché en rol. Para obtener información más detallada acerca de estas características, que van más allá del ámbito de esta guía de introducción, consulte [Información general acerca de la caché en rol][].
 
 <a name="getting-started-cache-role-instance"></a>
-
 ## Introducción a la caché en rol
 
 La caché en rol ofrece una forma de habilitar el almacenamiento en caché con el uso de la memoria que se encuentra en las máquinas virtuales que hospedan las instancias de rol. Las instancias de rol que hospedan las cachés constituyen lo que se conocen como un **clúster de caché**. Hay dos topologías de implementación para el almacenamiento en caché en instancias de rol:
 
--   Almacenamiento en caché de **rol dedicado**: las instancias de rol se usan exclusivamente para el almacenamiento en caché.
--   Almacenamiento en caché de **rol colocalizado**: la caché comparte los recursos de VM (ancho de banda, CPU y memoria) con la aplicación.
+-	Almacenamiento en caché de **rol dedicado**: las instancias de rol se usan exclusivamente para el almacenamiento en caché.
+-	Almacenamiento en caché de **rol colocalizado**: la caché comparte los recursos de VM (ancho de banda, CPU y memoria) con la aplicación.
 
 Para usar el almacenamiento en caché en instancias de rol, necesita configurar un clúster de caché y, a continuación, configurar los clientes de caché para que puedan tener acceso al clúster de caché.
 
--   [Configuración del clúster de caché][Configuración del clúster de caché]
--   [Configuración de los clientes de caché][Configuración de los clientes de caché]
+-	[Configuración del clúster de caché][]
+-	[Configuración de los clientes de caché][]
 
 <a name="enable-caching"></a>
-
 ## Configuración del clúster de caché
 
 Para configurar un clúster de caché de **rol colocalizado**, seleccione el rol en que desea hospedar el clúster de caché. Haga clic con el botón secundario en **Explorador de soluciones** y seleccione **Propiedades**.
@@ -105,11 +95,11 @@ Cuando el almacenamiento en caché está habilitado, se puede configurar la cuen
 
 ![RoleCache10][RoleCache10]
 
-> Si esta cuenta de almacenamiento no está configurada, los roles presentarán errores de inicio.
+>Si esta cuenta de almacenamiento no está configurada, los roles presentarán errores de inicio. 
 
 El tamaño de la caché lo determina una combinación del tamaño de VM del rol, el recuento de instancias del rol y si el clúster de caché está configurado como un clúster de caché de rol dedicado o un clúster de caché de rol colocalizado.
 
-> En esta sección se ofrece información general simplificada acerca de la configuración del tamaño de la caché. Para obtener más información acerca del tamaño de la caché y otras consideraciones sobre el planeamiento de capacidad, consulte [Consideraciones sobre el planeamiento de la capacidad para la caché en rol][Consideraciones sobre el planeamiento de la capacidad para la caché en rol].
+>En esta sección se ofrece información general simplificada acerca de la configuración del tamaño de la caché. Para obtener más información acerca del tamaño de la caché y otras consideraciones sobre el planeamiento de capacidad, consulte [Consideraciones sobre el planeamiento de la capacidad para la caché en rol][].
 
 Para configurar el tamaño de la máquina virtual y el número de instancias de rol, haga clic con el botón secundario en las propiedades del rol en el **Explorador de soluciones** y seleccione **Propiedades**.
 
@@ -119,38 +109,38 @@ Cambie a la pestaña **Configuración**. El **Recuento de instancias** predeterm
 
 ![RoleCache3][RoleCache3]
 
-La memoria total para los tamaños de VM es la siguiente:
+La memoria total para los tamaños de VM es la siguiente: 
 
--   **Pequeña**: 1,75 GB
--   **Mediana**: 3,5 GB
--   **Grande**: 7 GB
--   **Extra grande**: 14 GB
+-	**Pequeña**: 1,75 GB
+-	**Mediana**: 3,5 GB
+-	**Grande**: 7 GB
+-	**Extra grande**: 14 GB
 
-> Estos tamaños de memoria representan la cantidad total de memoria disponible para la VM compartida entre el SO, el proceso de caché, los datos de caché y la aplicación. Para obtener más información acerca de cómo configurar los tamaños de la máquina virtual, consulte [Configuración de tamaños de la máquina virtual][Configuración de tamaños de la máquina virtual]. Tenga en cuenta que la caché no es compatible con el tamaño **Extra grande** de la VM.
 
-Si se especifica el almacenamiento en caché de **Rol colocalizado**, el tamaño de la caché se determina mediante el porcentaje especificado de memoria de la máquina virtual. En cambio, si se especifica el almacenamiento en caché de **Rol dedicado**, se utiliza toda la memoria disponible de la máquina virtual para el almacenamiento en caché. Si se configuran dos instancias de rol, se usa la memoria combinada de las máquinas virtuales. Esto forma un clúster de caché donde la memoria de caché disponible se distribuye entre varias instancias de rol, pero se presenta a los clientes de la caché como un único recurso. La configuración de instancias de rol adicionales aumenta el tamaño de la caché de la misma manera. Para determinar la configuración necesaria para aprovisionar una caché con el tamaño deseado, puede usar la hoja de cálculo de planeamiento de la capacidad que se trata en [Consideraciones sobre el planeamiento de la capacidad para la caché en rol][Consideraciones sobre el planeamiento de la capacidad para la caché en rol].
+> Estos tamaños de memoria representan la cantidad total de memoria disponible para la VM compartida entre el SO, el proceso de caché, los datos de caché y la aplicación. Para obtener más información acerca de cómo configurar los tamaños de la máquina virtual, consulte [Configuración de tamaños de la máquina virtual][]. Tenga en cuenta que la caché no es compatible con el tamaño **Extra grande** de la VM.
+
+Si se especifica el almacenamiento en caché de **Rol colocalizado**, el tamaño de la caché se determina mediante el porcentaje especificado de memoria de la máquina virtual. En cambio, si se especifica el almacenamiento en caché de **Rol dedicado**, se utiliza toda la memoria disponible de la máquina virtual para el almacenamiento en caché. Si se configuran dos instancias de rol, se usa la memoria combinada de las máquinas virtuales. Esto forma un clúster de caché donde la memoria de caché disponible se distribuye entre varias instancias de rol, pero se presenta a los clientes de la caché como un único recurso. La configuración de instancias de rol adicionales aumenta el tamaño de la caché de la misma manera. Para determinar la configuración necesaria para aprovisionar una caché con el tamaño deseado, puede usar la hoja de cálculo de planeamiento de la capacidad que se trata en [Consideraciones sobre el planeamiento de la capacidad para la caché en rol][].
 
 Cuando el clúster de caché está configurado, puede configurar los clientes de caché a fin de que puedan tener acceso a la caché.
 
 <a name="NuGet"></a>
-
 ## Configuración de los clientes de caché
 
-Para obtener acceso a la caché en rol, los clientes deben estar en la misma implementación. Si el clúster de caché es de rol dedicado, entonces los clientes son otros roles de la implementación. Si el clúster de caché es un rol colocalizado, entonces los clientes pueden ser los otros roles de la implementación o los propios roles que hospedan el clúster de caché. Se ofrece un paquete de NuGet que se puede usar para configurar cada rol de cliente que tiene acceso a la caché. Para configurar un rol a fin de que tenga acceso a un clúster de caché con la utilización del paquete de NuGet para el almacenamiento en caché, haga clic con el botón secundario en el proyecto de rol en el **Explorador de soluciones** y seleccione **Manage NuGet Packages**.
+Para obtener acceso a la caché en rol, los clientes deben estar en la misma implementación. Si el clúster de caché es de rol dedicado, entonces los clientes son otros roles de la implementación. Si el clúster de caché es un rol colocalizado, entonces los clientes pueden ser los otros roles de la implementación o los propios roles que hospedan el clúster de caché. Se ofrece un paquete de NuGet que se puede usar para configurar cada rol de cliente que tiene acceso a la caché. Para configurar un rol a fin de que tenga acceso a un clúster de caché con la utilización del paquete de NuGet para el almacenamiento en caché, haga clic con el botón secundario en el proyecto de rol en el **Explorador de soluciones** y seleccione **Manage NuGet Packages**. 
 
 ![RoleCache4][RoleCache4]
 
 Seleccione **Caché en rol**, haga clic en **Install** y, a continuación, en **I Accept**.
 
-> Si **Caché en rol** no aparece en la lista, escriba **WindowsAzure.Caching** en el cuadro de texto **Search Online** y seleccione la opción en los resultados.
+>Si **Caché en rol** no aparece en la lista, escriba **WindowsAzure.Caching** en el cuadro de texto **Search Online** y seleccione la opción en los resultados.
 
 ![RoleCache5][RoleCache5]
 
-El paquete de NuGet cumple varias funciones: incorpora la configuración necesaria al archivo config del rol, incorpora una configuración de nivel de diagnóstico del cliente de caché al archivo ServiceConfiguration.cscfg de la aplicación de Azure e incorpora las referencias de ensamblado necesarias.
+El paquete NuGet realiza varias acciones: incorpora la configuración necesaria al archivo config del rol, incorpora una configuración de nivel de diagnóstico del cliente de caché al archivo ServiceConfiguration.cscfg de la aplicación de Azure e incorpora las referencias de ensamblado necesarias.
 
-> Para los roles web de ASP.NET, el paquete de NuGet para el almacenamiento en caché también incorpora las dos secciones comentadas al archivo web.config. La primera sección permite que el estado de sesión se almacene en la caché y la segunda sección habilita la caché de resultados de la página ASP.NET. Para obtener más información, consulte [Almacenamiento del estado de sesión ASP.NET en la caché][Eliminación de del estado de la sesión de ASP.NET en la caché] y [Almacenamiento de la caché de resultados de la página ASP.NET en la caché][Eliminación de de la caché de resultados de la página ASP.NET en la caché].
+>Para los roles de web ASP.NET, el paquete NuGet de almacenamiento en caché también agrega dos secciones comentadas al archivo web.config. La primera sección permite almacenar el estado de sesión en la memoria caché y la segunda sección permite almacenar en la caché los resultados de la página ASP.NET. Para obtener más información, consulte [Almacenamiento del estado de sesión ASP.NET en la caché] y [Almacenamiento de la caché de resultados de la página ASP.NET en la caché][].
 
-El paquete de NuGet incorpora los siguientes elementos de configuración en los archivos web.config o app.config del rol. Se incorporan las secciones **dataCacheClients** y **cacheDiagnostics** en el elemento **configSections**. Si no existe el elemento **configSections**, se crea uno como elemento secundario del elemento **configuration**.
+El paquete NuGet agrega los siguientes elementos de configuración a los archivos web.config o app.config de su rol. Las secciones **dataCacheClients** y **cacheDiagnostics** se agregan bajo el elemento **configSections**. Si no existe el elemento **configSections**, se crea uno como elemento secundario del elemento **configuration**.
 
     <configSections>
       <!-- Existing sections omitted for clarity. -->
@@ -159,14 +149,14 @@ El paquete de NuGet incorpora los siguientes elementos de configuración en los 
                type="Microsoft.ApplicationServer.Caching.DataCacheClientsSection, Microsoft.ApplicationServer.Caching.Core" 
                allowLocation="true" 
                allowDefinition="Everywhere" />
-
+    
       <section name="cacheDiagnostics" 
                type="Microsoft.ApplicationServer.Caching.AzureCommon.DiagnosticsConfigurationSection, Microsoft.ApplicationServer.Caching.AzureCommon" 
                allowLocation="true" 
                allowDefinition="Everywhere" />
     </configSections>
 
-Estas nuevas secciones incluyen referencias a un elemento **dataCacheClients** y a un elemento **cacheDiagnostics**. Estos elementos también se incorporan al elemento **configuration**.
+These new sections include references to a **dataCacheClients** element and a **cacheDiagnostics** element. These elements are also added to the **configuration** element.
 
     <dataCacheClients>
       <dataCacheClient name="default">
@@ -178,11 +168,11 @@ Estas nuevas secciones incluyen referencias a un elemento **dataCacheClients** y
       <crashDump dumpLevel="Off" dumpStorageQuotaInMB="100" />
     </cacheDiagnostics>
 
-Después de agregar la configuración, reemplace **[cache cluster role name]** por el nombre del rol que hospeda el clúster de caché.
+After the configuration is added, replace **[cache cluster role name]** with the name of the role that hosts the cache cluster.
 
-> Si **[cache cluster role name]** no se reemplaza por el nombre del rol que hospeda el clúster de caché, se producirá la excepción **TargetInvocationException** cuando se obtenga acceso a una excepción **DatacacheException** interna con el mensaje "No such role exists".
+>Si el **[nombre de rol de clúster de la caché]** no se reemplaza por el nombre del rol que hospeda el clúster de caché, se producirá la excepción **TargetInvocationException** cuando se obtenga acceso a la caché con una excepción interna **DatacacheException** con el mensaje "Este rol no existe".
 
-El paquete de NuGet también incorpora una configuración **ClientDiagnosticLevel** para la opción **ConfigurationSettings** del rol de cliente de caché de ServiceConfiguration.cscfg. El siguiente ejemplo es la sección **WebRole1** de un archivo ServiceConfiguration.cscfg con una configuración de 1 para **ClientDiagnosticLevel**, que es la opción predeterminada para **ClientDiagnosticLevel**.
+El paquete de NuGet también agrega el parámetro **ClientDiagnosticLevel** al valor **ConfigurationSettings** del rol de cliente de caché en ServiceConfiguration.cscfg. El ejemplo siguiente es la sección **WebRole1** del archivo ServiceConfiguration.cscfg con el parámetro **ClientDiagnosticLevel** de 1, que es el valor predeterminado de **ClientDiagnosticLevel**.
 
     <Role name="WebRole1">
       <Instances count="1" />
@@ -193,7 +183,7 @@ El paquete de NuGet también incorpora una configuración **ClientDiagnosticLeve
       </ConfigurationSettings>
     </Role>
 
-> La caché en rol ofrece un servidor de caché y un nivel de diagnóstico de cliente de caché. El nivel de diagnóstico es una configuración única que configura el nivel de información de diagnóstico recopilada para el almacenamiento en caché. Para obtener más información, consulte [Diagnóstico y solución de problemas de In-Role Cache][Diagnóstico y solución de problemas de In-Role Cache]
+>La caché en rol ofrece un servidor de caché y un nivel de diagnóstico de cliente de caché. El nivel de diagnóstico es una configuración única que configura el nivel de información de diagnóstico recopilada para el almacenamiento en caché. Para obtener más información, consulte [Diagnóstico y solución de problemas de In-Role Cache][]
 
 El paquete de NuGet también agrega referencias a los siguientes ensamblados:
 
@@ -206,36 +196,34 @@ El paquete de NuGet también agrega referencias a los siguientes ensamblados:
 
 Si se trata de un rol web de ASP.NET, también se incorpora la siguiente referencia de ensamblado:
 
--   Microsoft.Web.DistributedCache.dll.
+-	Microsoft.Web.DistributedCache.dll.
 
-> Estos ensamblados se encuentran en la carpeta C:\\Archivos de programa\\Microsoft SDKs\\Windows Azure\\.NET SDK\\2012-10\\ref\\Caching\\.
+>Estos ensamblados se encuentran en la carpeta C:\\Program Files\\Microsoft SDKs\\Windows Azure\\.NET SDK\\2012-10\\ref\\Caching\\.
 
 Cuando el proyecto de cliente ya está configurado para el almacenamiento en caché, puede usar las técnicas descritas en las siguientes secciones para trabajar con la caché.
 
 <a name="working-with-caches"></a>
-
 ## Trabajo con cachés
 
 En los pasos de esta sección se describe cómo ejecutar tareas comunes con el almacenamiento en caché.
 
--   [Eliminación de un objeto DataCache][Eliminación de un objeto DataCache]
--   [Eliminación de y recuperación de un objeto de la caché][Eliminación de y recuperación de un objeto de la caché]
--   [Eliminación de de la expiración de un objeto de la caché][Eliminación de de la expiración de un objeto de la caché]
--   [Eliminación de del estado de la sesión de ASP.NET en la caché][Eliminación de del estado de la sesión de ASP.NET en la caché]
--   [Eliminación de de la caché de resultados de la página ASP.NET en la caché][Eliminación de de la caché de resultados de la página ASP.NET en la caché]
+-	[Creación de un objeto DataCache][]
+-   [Adición y recuperación de un objeto de la caché][]
+-   [Especificación de la expiración de un objeto de la caché][]
+-   [Almacenamiento del estado de la sesión de ASP.NET en la caché][]
+-   [Almacenamiento de la caché de resultados de la página ASP.NET en la caché][]
 
 <a name="create-cache-object"></a>
+## Creación de un objeto DataCache
 
-## Deshabilitación o habilitación un objeto DataCache
-
-Para trabajar con una caché mediante programación, necesita una referencia a la misma. Incorpore lo siguiente en la parte superior de cualquier archivo desde el que desea usar la
-caché en rol:
+Para trabajar con una caché mediante programación, necesita una referencia a la misma. Agregue lo siguiente en la parte superior de cualquier archivo que desee utilizar la
+Caché en rol:
 
     using Microsoft.ApplicationServer.Caching;
 
-> Si Visual Studio no reconoce los tipos de la instrucción using incluso
-> después de instalar el paquete de NuGet para el almacenamiento en caché, que incorpora las referencias necesarias, asegúrese de
-> que el perfil de destino del proyecto es .NET Framework 4.0 o posterior y de que selecciona uno de los perfiles que no especifican el **perfil de cliente**. Para obtener instrucciones acerca de la configuración de los clientes de caché, consulte [Configuración de los clientes de caché][Configuración de los clientes de caché].
+>Si Visual Studio no reconoce los tipos en
+la instrucción de uso incluso después de instalar el paquete NuGet de caché, que agrega las referencias necesarias, asegúrese de que el perfil de destino
+del proyecto es .NET Framework 4.0 o posterior y asegúrese de seleccionar uno de los perfiles que no especifique **Client Profile**. Para obtener instrucciones acerca de la configuración de los clientes de caché, consulte [Configuración de los clientes de caché][].
 
 Un objeto **DataCache** se puede crear de dos formas. La primera consiste sencillamente en crear un objeto **DataCache**, para lo que es necesario reemplazar el nombre de la caché deseada.
 
@@ -249,28 +237,22 @@ La segunda forma se basa en crear un nuevo objeto **DataCacheFactory** en la apl
     DataCacheFactory cacheFactory = new DataCacheFactory();
     DataCache cache = cacheFactory.GetDefaultCache();
     // Or DataCache cache = cacheFactory.GetCache("MyCache");
-    // cache can now be used to add and retrieve items. 
+    // cache can now be used to add and retrieve items.	
 
 <a name="add-object"></a>
+## Creación de y recuperación de un objeto de la caché
 
-## Deshabilitación o habilitación y recuperación de un objeto de la caché
-
-Para incorporar un elemento a la memoria caché, se puede usar el método **Add** o **Put**
-. El método **Add** incorpora el objeto especificado a la caché, cuya clave se corresponde con el
-valor del parámetro clave.
+Para incorporar un elemento a la caché, se puede usar el método **Add** o **Put**. El método **Add** incorpora el objeto especificado a la caché, cuya clave se corresponde con el valor del parámetro clave.
 
     // Add the string "value" to the cache, keyed by "item"
     cache.Add("item", "value");
 
-Si un objeto con la misma clave ya se encuentra en la caché, se producirá una excepción
-**DataCacheException** con el mensaje siguiente:
+Si un objeto con la misma clave ya se encuentra en la caché, se producirá una excepción **DataCacheException** con el mensaje siguiente:
 
-> ErrorCode:SubStatus: An attempt is being made to create an object with
-> a Key that already exists in the cache. Caching will only accept
-> unique Key values for objects.
+> ErrorCode:SubStatus: Se está realizando un intento de crear un objeto con > una clave que ya existe en la memoria caché. El almacenamiento en caché solo aceptará
+> valores de clave únicos para los objetos.
 
-Para recuperar un objeto con una clave específica, se puede usar el método **Get**. Si el objeto existe, este se
-devuelve, y si no existe, se devuelve null.
+Para recuperar un objeto con una clave específica, se puede usar el método **Get**. Si el objeto existe, este se devuelve, y si no existe, se devuelve null.
 
     // Add the string "value" to the cache, keyed by "key"
     object result = cache.Get("Item");
@@ -286,16 +268,14 @@ devuelve, y si no existe, se devuelve null.
         // "Item" is in cache, cast result to correct type.
     }
 
-El método **Put** agrega el objeto con la clave especificada a la caché si no existe, o
-bien reemplaza el objeto en caso de que exista.
+El método **Put** agrega el objeto con la clave especificada a la caché si no existe, o bien reemplaza el objeto en caso de que exista.
 
     // Add the string "value" to the cache, keyed by "item". If it exists,
     // replace it.
     cache.Put("item", "value");
 
 <a name="specify-expiration"></a>
-
-## Deshabilitación o habilitación de la expiración de un objeto de la caché
+## Creación de de la expiración de un objeto de la caché
 
 De forma predeterminada, los elementos de la caché expiran 10 minutos después de colocarlos en la caché. Este valor se puede configurar en **Time to Live (min)** en las propiedades del rol que hospeda el clúster de caché.
 
@@ -303,18 +283,12 @@ De forma predeterminada, los elementos de la caché expiran 10 minutos después 
 
 Se ofrecen tres opciones en **Expiration Type**: **None**, **Absolute** y **Sliding Window**. Estas opciones configuran cómo se usa **Time to Live (min)** para determinar la expiración. El valor de **Expiration Type** predeterminado es **Absolute**, que significa que el temporizador de cuenta regresiva de la expiración de un elemento comienza cuando el elemento se coloca en la caché. Cuando ha transcurrido la cantidad de tiempo especificada para un elemento, este expira. Si se especifica **Sliding Window**, la cuenta regresiva para la expiración de un elemento se restablece cada vez que se obtiene acceso al elemento en la caché, y el elemento no expirará hasta que haya transcurrido la cantidad de tiempo especificada desde el último acceso. Si se especifica **None**, la opción **Time to Live (min)** debe establecerse en **0**, y los elementos no expirarán y serán válidos mientras estén en la caché.
 
-Si se desea un intervalo de tiempo de expiración más largo o más corto que el que se ha configurado en las propiedades del rol, se puede definir una duración específica cuando se incorpora o actualiza un elemento en la caché mediante la utilización de la
-sobrecarga de **Add** y **Put** que consideran un parámetro **TimeSpan**. En el
-siguiente ejemplo, la cadena **value** se incorpora a la caché, con la clave de
-**item** y con un tiempo de expiración de 30 minutos.
+Si se desea un intervalo de tiempo de expiración más largo o más corto que el que se ha configurado en las propiedades del rol, se puede definir una duración específica cuando se incorpora o actualiza un elemento en la caché mediante la utilización de la sobrecarga de **Add** y **Put** que consideran un parámetro **TimeSpan**. En el siguiente ejemplo, la cadena **value** se incorpora a la caché, con la clave de **item** y con un tiempo de expiración de 30 minutos.
 
     // Add the string "value" to the cache, keyed by "item"
     cache.Add("item", "value", TimeSpan.FromMinutes(30));
 
-Para ver el intervalo de tiempo de expiración restante de un elemento de la caché, se puede usar el método
-**GetCacheItem** para recuperar un objeto **DataCacheItem**
- que contiene información acerca del elemento de la caché, incluido el
-intervalo de tiempo de expiración restante.
+Para ver el intervalo de tiempo de expiración restante de un elemento de la caché, se puede usar el método **GetCacheItem** para recuperar un objeto **DataCacheItem** que contiene información acerca del elemento de la caché, incluido el intervalo de tiempo de expiración restante.
 
     // Get a DataCacheItem object that contains information about
     // "item" in the cache. If there is no object keyed by "item" null
@@ -323,14 +297,9 @@ intervalo de tiempo de expiración restante.
     TimeSpan timeRemaining = item.Timeout;
 
 <a name="store-session"></a>
+## Creación de del estado de la sesión de ASP.NET en la caché
 
-## Deshabilitación o habilitación del estado de la sesión de ASP.NET en la caché
-
-El proveedor del estado de sesión de la caché en rol es un mecanismo de
-almacenamiento fuera de proceso para las aplicaciones ASP.NET. Este proveedor le
-permite almacenar el estado de sesión en una caché de Azure en lugar
-de en la memoria o en una base de datos de SQL Server. Para usar el proveedor del estado de sesión del
-almacenamiento en caché, primero configure el clúster de caché y, a continuación, configure la aplicación ASP.NET para el almacenamiento en caché con la utilización del paquete de NuGet para el almacenamiento en caché, según se describe en [Introducción a la caché en rol][Introducción a la caché en rol]. Cuando el paquete de NuGet para el almacenamiento en caché está instalado, incorpora una sección comentada en web.config que contiene la configuración necesaria para que la aplicación ASP.NET use el proveedor del estado de sesión para la caché en rol.
+El proveedor del estado de sesión de la caché en rol es un mecanismo de almacenamiento fuera de proceso para las aplicaciones ASP.NET. Este proveedor le permite almacenar el estado de sesión en una caché de Azure en lugar de en la memoria o en una base de datos de SQL Server. Para usar el proveedor del estado de sesión del almacenamiento en caché, primero configure el clúster de caché y, a continuación, configure la aplicación ASP.NET para el almacenamiento en caché con la utilización del paquete de NuGet para el almacenamiento en caché, según se describe en [Introducción a la caché en rol][]. Cuando el paquete de NuGet para el almacenamiento en caché está instalado, incorpora una sección comentada en web.config que contiene la configuración necesaria para que la aplicación ASP.NET use el proveedor del estado de sesión para la caché en rol.
 
     <!--Uncomment this section to use In-Role Cache for session state caching
     <system.web>
@@ -345,21 +314,16 @@ almacenamiento en caché, primero configure el clúster de caché y, a continuac
       </sessionState>
     </system.web>-->
 
-> Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para el almacenamiento en caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página de [instalación de NuGet Package Manager][instalación de NuGet Package Manager] (en inglés) y, a continuación, desinstale el paquete y vuelva a instalarlo.
+>Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para el almacenamiento en caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página de [instalación de NuGet Package Manager][] (en inglés) y, a continuación, desinstale el paquete y vuelva a instalarlo.
 
 Para habilitar el proveedor del estado de sesión para la caché en rol, quite el comentario de la sección especificada. La caché predeterminada se especifica en el fragmento proporcionado. Para usar una caché diferente, especifique la que desee en el atributo **cacheName**.
 
-Para obtener más información acerca del uso del proveedor del estado de sesión del servicio
-de almacenamiento en caché, consulte [Proveedor del estado de sesión para la caché en rol][Proveedor del estado de sesión para la caché en rol].
+Para obtener más información acerca del uso del proveedor del estado de sesión del servicio de almacenamiento en caché, consulte [Proveedor del estado de sesión para la caché en rol][].
 
 <a name="store-page"></a>
+## Creación de de la caché de resultados de la página ASP.NET en la caché
 
-## Deshabilitación o habilitación de la caché de resultados de la página ASP.NET en la caché
-
-El proveedor de la caché de resultados para la caché en rol es un mecanismo de almacenamiento fuera de proceso para los datos de la caché de resultados. Estos datos corresponden específicamente a respuestas
-HTTP completas (almacenamiento en caché de los resultados de la página). El proveedor se conecta al nuevo
-punto de extensibilidad del proveedor de la caché de resultados introducido en ASP.NET 4.
-Para usar el proveedor de la caché de resultados, primero configure el clúster de caché y, a continuación, configure la aplicación ASP.NET para el almacenamiento en caché con el uso del paquete de NuGet para el almacenamiento en caché, según se describe en [Introducción a la caché en rol][Introducción a la caché en rol]. Cuando el paquete de NuGet para el almacenamiento en caché está instalado, incorpora la siguiente sección comentada en web.config que contiene la configuración necesaria para que la aplicación ASP.NET use el proveedor de la caché de resultados para la caché en rol.
+El proveedor de la caché de resultados para la caché en rol es un mecanismo de almacenamiento fuera de proceso para los datos de la caché de resultados. Estos datos resultan necesarios específicamente para respuestas HTTP completas (caché de resultados de la página). El proveedor se conecta al nuevo punto de extensibilidad del proveedor de caché de salida que se introdujo en ASP.NET 4. Para utilizar el proveedor de caché de resultados, primero configure el clúster de caché y, a continuación, configure la aplicación de ASP.NET para el almacenamiento en caché con el paquete NuGet de almacenamiento en caché, tal como se describe en [Introducción a la caché en rol][]. Cuando el paquete de NuGet para el almacenamiento en caché está instalado, incorpora la siguiente sección comentada en web.config que contiene la configuración necesaria para que la aplicación ASP.NET use el proveedor de la caché de resultados para la caché en rol.
 
     <!--Uncomment this section to use In-Role Cache for output caching
     <caching>
@@ -374,7 +338,7 @@ Para usar el proveedor de la caché de resultados, primero configure el clúster
       </outputCache>
     </caching>-->
 
-> Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para el almacenamiento en caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página de [instalación de NuGet Package Manager][instalación de NuGet Package Manager] (en inglés) y, a continuación, desinstale el paquete y vuelva a instalarlo.
+>Si el archivo web.config no contiene esta sección comentada después de instalar el paquete de NuGet para el almacenamiento en caché, asegúrese de que el último administrador del paquete de NuGet se ha instalado desde la página de [instalación de NuGet Package Manager][] (en inglés) y, a continuación, desinstale el paquete y vuelva a instalarlo.
 
 Para habilitar el proveedor de la caché de resultados para la caché en rol, quite el comentario de la sección especificada. La caché predeterminada se especifica en el fragmento proporcionado. Para usar una caché diferente, especifique la que desee en el atributo **cacheName**.
 
@@ -382,54 +346,74 @@ Incorpore una directiva **OutputCache** a cada página cuyos resultados desea al
 
     <%@ OutputCache Duration="60" VaryByParam="*" %>
 
-En este ejemplo, los datos de la página almacenados en la caché permanecerán ahí durante 60 segundos y se almacenará en la caché una versión diferente de la página para cada combinación de parámetros. Para obtener más información acerca de las opciones disponibles, consulte [directiva OutputCache][directiva OutputCache].
+En este ejemplo, los datos de la página almacenados en la caché permanecerán ahí durante 60 segundos y se almacenará en la caché una versión diferente de la página para cada combinación de parámetros. Para obtener más información acerca de las opciones disponibles, consulte [directiva OutputCache][].
 
-Para obtener más información acerca del uso del proveedor de la caché de resultados para la caché en rol, consulte [Proveedor de caché de resultados para la caché en rol][Proveedor de caché de resultados para la caché en rol].
+Para obtener más información acerca del uso del proveedor de la caché de resultados para la caché en rol, consulte [Proveedor de caché de resultados para la caché en rol][].
 
 <a name="next-steps"></a>
-
 ## Pasos siguientes
 
-Ahora que está familiarizado con los aspectos básicos de la caché en rol, utilice estos
-enlaces para obtener más información acerca de cómo realizar tareas de almacenamiento en caché más complejas.
+Ahora que ha aprendido los conceptos básicos de la característica de caché en rol,
+siga estos vínculos para obtener información sobre cómo realizar tareas de almacenamiento en caché más complejas.
 
--   Consulte la referencia de MSDN: [Caché en rol][Caché en rol]
--   Obtenga información acerca de cómo migrar a la caché en rol: [Migrar a In-Role Cache][Migrar a In-Role Cache]
--   Consulte los ejemplos: [Ejemplos de In-Role Cache][Ejemplos de In-Role Cache]
--   Vea la sesión [Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching][Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching] de TechEd 2013 sobre la caché en rol
+-   Consulte la referencia de MSDN: [Caché en rol][]
+-   Obtenga información acerca de cómo migrar a la caché en rol: [Migración a la caché en rol][]
+-   Consulte los ejemplos: [Ejemplos de caché en rol][]
+-	Vea la sesión [Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching][] de TechEd 2013 sobre la caché en rol
 
 <!-- INTRA-TOPIC LINKS -->
-<!-- IMAGES -->
+[Pasos siguientes]: #next-steps
+[¿Qué es la caché en rol?] #what-is
+[Creación de una caché de Azure]: #create-cache
+[¿Qué tipo de almacenamiento en caché es el adecuada para mí?] #choosing-cache
+[Introducción al servicio de caché en rol]: #getting-started-cache-service
+[Preparación del proyecto de Visual Studio para el uso de la caché en rol]: #prepare-vs
+[Configuración de su aplicación para usar el almacenamiento en caché]: #configure-app
+[Introducción a la caché en rol]: #getting-started-cache-role-instance
+[Configuración del clúster de caché]: #enable-caching
+[Configuración del tamaño de caché deseado]: #cache-size
+[Configuración de los clientes de caché]: #NuGet
+[Uso de cachés]: #working-with-caches
+[Creación de un objeto DataCache]: #create-cache-object
+[Adición y recuperación de un objeto de la caché]: #add-object
+[Especificación de la expiración de un objeto de la caché]: #specify-expiration
+[Almacenamiento del estado de la sesión de ASP.NET en la caché]: #store-session
+[Almacenamiento de la caché de resultados de la página ASP.NET en la caché]: #store-page
+[Adaptación de perfiles de .NET Framework compatibles]: #prepare-vs-target-net
+ 
+<!-- IMAGES --> 
+[RoleCache1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
+[RoleCache2]: ./media/cache-dotnet-how-to-use-in-role/cache9.png
+[RoleCache3]: ./media/cache-dotnet-how-to-use-in-role/cache10.png
+[RoleCache4]: ./media/cache-dotnet-how-to-use-in-role/cache11.png
+[RoleCache5]: ./media/cache-dotnet-how-to-use-in-role/cache12.png
+[RoleCache6]: ./media/cache-dotnet-how-to-use-in-role/cache13.png
+[RoleCache7]: ./media/cache-dotnet-how-to-use-in-role/cache14.png
+[RoleCache8]: ./media/cache-dotnet-how-to-use-in-role/cache15.png
+[RoleCache10]: ./media/cache-dotnet-how-to-use-in-role/cache17.png
+  
 <!-- LINKS -->
+[Configuración de tamaños de máquina virtual]: http://go.microsoft.com/fwlink/?LinkId=164387
+[Configuración de clientes de caché mediante programación]: http://msdn.microsoft.com/es-es/library/windowsazure/gg618003.aspx
+[Establecimiento de la capacidad de almacenamiento en caché de una página mediante programación]: http://msdn.microsoft.com/es-es/library/z852zf6b.aspx
+[Establecimiento de la capacidad de almacenamiento en caché de una página de ASP.NET mediante declaraciones]: http://msdn.microsoft.com/es-es/library/zd1ysf1y.aspx
+[Consideraciones de planeación de la capacidad de caché en rol]: http://go.microsoft.com/fwlink/?LinkId=252651
+[Ejemplos de caché en rol]: http://msdn.microsoft.com/es-es/library/jj189876.aspx
+[Caché en rol]: http://go.microsoft.com/fwlink/?LinkId=252658
+[Caché en rol]: http://www.microsoft.com/es-es/showcase/Search.aspx?phrase=azure+caching
+[Rendimiento máximo: Agilización de las aplicaciones de servicios de nube con el almacenamiento en caché de Azure]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
+[Migración a la caché en rol]: http://msdn.microsoft.com/es-es/library/hh914163.aspx
+[Instalación del Administrador de paquetes de NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
+[Proveedor de caché de salida para la caché en rol]: http://msdn.microsoft.com/es-es/library/windowsazure/gg185662.aspx
+[Directiva OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
+[Información general de la caché en rol]: http://go.microsoft.com/fwlink/?LinkId=254172
+[Proveedor del estado de sesión de la caché en rol]: http://msdn.microsoft.com/es-es/library/windowsazure/gg185668.aspx
+[Blog del equipo]: http://blogs.msdn.com/b/windowsazure/
+[Solución de problemas y diagnósticos de la caché en rol]: http://msdn.microsoft.com/es-es/library/windowsazure/hh914135.aspx
+[Caché de Azure AppFabric: Estado de sesión de almacenamiento en caché]: http://www.microsoft.com/es-es/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
+[Portal de administración de Azure]: http://windows.azure.com/
+[Almacenamiento en caché compartido de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg278356.aspx
 
-  [Pasos siguientes]: #next-steps
-  [Introducción a la caché en rol]: #getting-started-cache-role-instance
-  [Configuración del clúster de caché]: #enable-caching
-  [Configuración de los clientes de caché]: #NuGet
-  [Uso de cachés]: #working-with-caches
-  [Eliminación de un objeto DataCache]: #create-cache-object
-  [Eliminación de y recuperación de un objeto de la caché]: #add-object
-  [Eliminación de de la expiración de un objeto de la caché]: #specify-expiration
-  [Eliminación de del estado de la sesión de ASP.NET en la caché]: #store-session
-  [Eliminación de de la caché de resultados de la página ASP.NET en la caché]: #store-page
-  [Información general acerca de la caché en rol]: http://go.microsoft.com/fwlink/?LinkId=254172
-  [RoleCache1]: ./media/cache-dotnet-how-to-use-in-role/cache8.png
-  [RoleCache2]: ./media/cache-dotnet-how-to-use-in-role/cache9.png
-  [RoleCache7]: ./media/cache-dotnet-how-to-use-in-role/cache14.png
-  [RoleCache8]: ./media/cache-dotnet-how-to-use-in-role/cache15.png
-  [RoleCache10]: ./media/cache-dotnet-how-to-use-in-role/cache17.png
-  [Consideraciones sobre el planeamiento de la capacidad para la caché en rol]: http://go.microsoft.com/fwlink/?LinkId=252651
-  [RoleCache3]: ./media/cache-dotnet-how-to-use-in-role/cache10.png
-  [Configuración de tamaños de la máquina virtual]: http://go.microsoft.com/fwlink/?LinkId=164387
-  [RoleCache4]: ./media/cache-dotnet-how-to-use-in-role/cache11.png
-  [RoleCache5]: ./media/cache-dotnet-how-to-use-in-role/cache12.png
-  [Diagnóstico y solución de problemas de In-Role Cache]: http://msdn.microsoft.com/es-es/library/windowsazure/hh914135.aspx
-  [RoleCache6]: ./media/cache-dotnet-how-to-use-in-role/cache13.png
-  [instalación de NuGet Package Manager]: http://go.microsoft.com/fwlink/?LinkId=240311
-  [Proveedor del estado de sesión para la caché en rol]: http://msdn.microsoft.com/es-es/library/windowsazure/gg185668.aspx
-  [directiva OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
-  [Proveedor de caché de resultados para la caché en rol]: http://msdn.microsoft.com/es-es/library/windowsazure/gg185662.aspx
-  [Caché en rol]: http://www.microsoft.com/es-es/showcase/Search.aspx?phrase=azure+caching
-  [Migrar a In-Role Cache]: http://msdn.microsoft.com/es-es/library/hh914163.aspx
-  [Ejemplos de In-Role Cache]: http://msdn.microsoft.com/es-es/library/jj189876.aspx
-  [Maximum Performance: Accelerate Your Cloud Services Applications with Azure Caching]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
+[¿Qué oferta de caché de Azure es adecuada para mí?] http://msdn.microsoft.com/es-es/library/azure/dn766201.aspx
+
+<!--HONumber=35.2-->

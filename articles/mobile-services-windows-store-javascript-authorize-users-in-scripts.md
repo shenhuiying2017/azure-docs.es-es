@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Autorización en el servicio (Tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo autorizar a los usuarios en el back-end de JavaScript de de Servicios móviles de Azure." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Autorización del servicio (Tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información sobre cómo autorizar a los usuarios en el back-end de JavaScript de Servicios móviles de Azure." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 
@@ -17,7 +17,7 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
 
    	![][0]
 
-2. Haga clic en la pestaña **Datos** y, a continuación, en la tabla **TodoItem**.
+2. Haga clic en la pestaña **Data** y, a continuación, haga clic en la tabla **TodoItem**.
 
    	![][1]
 
@@ -25,16 +25,16 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
 
    	![][2]
 
-4. Reemplace el script existente por la siguiente función y, a continuación, haga clic en **Guardar**.
+4. Sustituya el script existente por la siguiente función y, a continuación, haga clic en **Save**.
 
         function insert(item, user, request) {
           item.userId = user.userId;    
           request.execute();
         }
 
-    Este script agrega un valor userID al elemento, que es el identificador de usuario del usuario autenticado, antes de que se inserte en la tabla TodoItem. 
+    Este script agrega un valor userId al elemento, que es el identificador de usuario del usuario autenticado, antes de que se inserte en la tabla TodoItem. 
 
-    <div class="dev-callout"><b>Nota:</b>
+    <div class="dev-callout"><b>Nota</b>
 	<p>El esquema dinámico debe habilitarse la primera vez que se ejecute este script de inserción. Al tener habilitado dicho esquema, Servicios móviles agrega automáticamente la columna <strong>userId</strong> a la tabla <strong>TodoItem</strong> en la primera ejecución. El esquema dinámico está habilitado de forma predeterminada para un nuevo servicio móvil y debe deshabilitarse antes de publicar la aplicación en la Tienda Windows.</p>
     </div>
 
@@ -56,7 +56,7 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
 
    	Tenga en cuenta que esta vez, aunque existan elementos ya en la tabla TodoItem de tutoriales anteriores, no se devuelven elementos. Esto ocurre porque se insertaron elementos anteriores sin la columna userID y ahora cuentan con valores nulos.
 
-3. En la aplicación, escriba un texto en **Insertar un TodoItem** y, a continuación, haga clic en **Guardar**.
+3. En la aplicación, escriba un texto en **Insert a TodoItem** y, a continuación, haga clic en **Save**.
 
    	![][3]
 
@@ -71,16 +71,16 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
 Este es el último tutorial que muestra los aspectos básicos relacionados con el uso de la autenticación. Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
 * [Introducción a los datos]
-  <br/>Más información sobre cómo almacenar y consultar datos con Servicios móviles.
+  <br/>Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
-* [Introducción a las notificaciones de inserción] 
+* [Introducción a las notificaciones de inserción]
   <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
-* [Referencia del script del servidor de Servicios móviles]
-  <br/>Obtener más información acerca del registro y uso de scripts de servidor.
+* [Referencia del script de servidor de Servicios móviles]
+  <br/>Obtenga más información acerca del registro y del uso de scripts de servidor.
 
 <!-- Anchors. -->
-[Registro de scripts de servidor]: #register-scripts
+[Registrar scripts de servidor]: #register-scripts
 [Pasos siguientes]:#next-steps
 
 <!-- Images. -->
@@ -90,13 +90,15 @@ Este es el último tutorial que muestra los aspectos básicos relacionados con e
 [3]: ./media/mobile-services-windows-store-javascript-authorize-users-in-scripts/mobile-quickstart-startup.png
 
 <!-- URLs. -->
-[Notificaciones de inserción de Windows y Live Connect]: http://go.microsoft.com/fwlink/p/?LinkID=257677
-[Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[Notificaciones de inserción de Windows y de Live Connect]: http://go.microsoft.com/fwlink/p/?LinkID=257677
+[Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [Panel Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Introducción a Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
+[Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
 [Introducción a los datos]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
 [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-js
 [Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-js
 [JavaScript y HTML]: mobile-services-win8-javascript/
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
+
+<!--HONumber=35.2-->

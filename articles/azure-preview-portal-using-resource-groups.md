@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="" pageTitle="Uso del grupo de recursos para administrar los recursos de Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="terrylan" editor=""  />
+﻿<properties urlDisplayName="" pageTitle="Uso de grupos de recursos para administrar los recursos de Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using Resource groups to manage your Azure resources" authors="Nafisa Bhojawala"  solutions="" writer="" manager="timlt" editor=""  />
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="Nafisa Bhojawala" />
+<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="12/02/2014" ms.author="davidmu" />
 
 
 # Uso de grupos de recursos para administrar los recursos de Azure
@@ -22,7 +22,7 @@ Cuando se crea un recurso en el portal de vista previa, siempre se crea dentro d
 ![](http://i.imgur.com/USKkQdW.png)
 
 <br><br />
- Cuando se crea una aplicación que consta de algunos recursos que funcionan juntos (por ejemplo, sitio web + base de datos), siempre se crea en su propio grupo de recursos, por lo que puede administrar el ciclo de vida de todos los recursos relacionados utilizando dicho grupo de recursos. Puede agregar o quitar recursos adicionales del grupo de recursos a medida que evoluciona la aplicación. 
+Cuando se crea una aplicación que consta de algunos recursos que funcionan juntos (por ejemplo, sitio web + base de datos), siempre se crea en su propio grupo de recursos, por lo que puede administrar el ciclo de vida de todos los recursos relacionados utilizando dicho grupo de recursos. Puede agregar o quitar recursos adicionales del grupo de recursos a medida que evoluciona la aplicación. 
 
 ![](http://i.imgur.com/Me0jbio.png)
 
@@ -70,3 +70,5 @@ Nota: no es recomendable poner el proyecto de equipo en el mismo grupo de recurs
 Puesto que los grupos de recursos le permiten administrar el ciclo de vida de todos los recursos contenidos, la eliminación de un grupo de recursos provocará que se eliminen todos los recursos que alberga. También puede eliminar recursos individuales de un grupo de recursos. Debe prestar atención cuando elimine un grupo de recursos, ya que puede haber otros recursos vinculados a él. Puede ver los recursos vinculados en la asignación de recursos y seguir los pasos necesarios para evitar consecuencias no deseadas cuando elimine los grupos de recursos. 
 
 ![](http://i.imgur.com/ZTXoISb.png)
+
+<!--HONumber=35.2-->

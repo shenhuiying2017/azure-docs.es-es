@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Envío de notificaciones de inserción a usuarios autenticados" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
+<properties pageTitle="Envío de notificaciones de inserción a usuarios autenticados" metaKeywords="push notifications, authentication, users, Notification Hubs, Mobile Services" description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos " metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="glenga" solutions="Mobile" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
 
@@ -32,7 +32,7 @@ Una vez que haya realizado ambos tutoriales, puede impedir que usuarios no autor
 
 ##<a name="update-app"></a>Actualización de la aplicación para que inicie sesión antes del registro
 
-[WACOM.INCLUDE [mobile-services-windows-phone-push-notifications-app- md)] users](../includes/mobile-services-windows-phone-push-notifications-app-users.
+[WACOM.INCLUDE [mobile-services-windows-phone-push-notifications-app-users](../includes/mobile-services-windows-phone-push-notifications-app-users.md)]
 
 
 ##<a name="test"></a>Prueba de la aplicación
@@ -56,3 +56,5 @@ En el siguiente tutorial, [Autorización en el servicio de los usuarios de Servi
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Referencia conceptual de Servicios móviles con .NET]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library
+
+<!--HONumber=35.2-->

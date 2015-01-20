@@ -1,6 +1,6 @@
-﻿<properties title="Monitor your app's health and usage with Application Insights" pageTitle="Supervisar el estado y el uso de su aplicación con Application Insights" description="Introducción a Application Insights. Analice el uso, la disponibilidad y el rendimiento de sus aplicaciones web de Microsoft Azure o local." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+﻿<properties title="Monitor your app's health and usage with Application Insights" pageTitle="Supervisar el estado y el uso de su aplicación con Application Insights" description="Introducción a Application Insights. Analice el uso, la disponibilidad y el rendimiento de las aplicaciones de Microsoft Azure o locales." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
  
 # Supervisar el rendimiento de aplicaciones web
 
@@ -11,8 +11,8 @@ Asegúrese de que la aplicación tendrá un rendimiento correcto y descubra ráp
 
 Application Insights puede supervisar aplicaciones web ASP.NET hospedadas en máquinas virtuales o locales, o en sitios web de Microsoft Azure. 
 
-* [Configurar la supervisión de rendimiento](#setup)
-* [Consultar los datos](#view)
+* [Configuración de la supervisión de rendimiento](#setup)
+* [Consulta de los datos](#view)
 * [¿Qué significa todo esto?](#metrics)
 * [Problemas de diagnóstico](#diagnosis)
 * [Pasos siguientes](#next)
@@ -23,7 +23,7 @@ Si todavía no ha agregado Application Insights a un proyecto (es decir, si no d
 
 * [Agregar Application Insights a un proyecto de aplicación en Visual Studio][greenbrown]: opción recomendada. Puede realizar una supervisión pasiva del rendimiento, insertar el registro de diagnósticos y seguir el uso.
 * [Supervisar el rendimiento de un sitio web activo ahora][redfield]: este procedimiento no precisa actualizar el proyecto de aplicación ni volver a implementar el sitio web.
-* [Para un sitio web de Microsoft Azure](../insights-how-to-customize-monitoring/)  ya puede ver las métricas en el modo Supervisión de dicho sitio. 
+* [Para un sitio web de Microsoft Azure](../insights-how-to-customize-monitoring/)  ya puede ver las métricas en la supervisión del sitio web. 
 
 
 ## <a name="view"></a>Ver informes
@@ -55,7 +55,7 @@ Haga clic en un mosaico para ver su contenido con mayor detalle y los resultados
 
 ![Click through to more data and select a time range](./media/appinsights/appinsights-48metrics.png)
 
-Haga clic en un gráfico para elegir las métricas que deben mostrarse:
+Haga clic en un gráfico para elegir las métricas mostradas o para agregar un nuevo gráfico y seleccionar sus métricas:
 
 ![Click a graph to choose metrics](./media/appinsights/appinsights-61perfchoices.png)
 
@@ -112,14 +112,25 @@ Si desea ver las demás métricas que puede mostrar, haga clic en un gráfico y 
 ![Deselect all metrics to see the whole set](./media/appinsights/appinsights-62allchoices.png)
 
 
-Cuando se selecciona una métrica, se ocultan las otras métricas que no pueden aparecer en su mismo gráfico.
+Si selecciona una métrica, se deshabilitarán las demás que no pueden aparecer en el mismo gráfico.
 
+## Establecer alertas
+
+Para recibir notificaciones por correo electrónico de los valores no habituales de cualquier métrica, agregue una alerta. Puede decidir si se debe enviar un mensaje de correo electrónico a los administradores de cuentas o a direcciones de correo electrónico específicas.
+
+![](./media/appinsights/appinsights-413setMetricAlert.png)
+
+Establezca el recurso antes de las demás propiedades. No elija los recursos de la prueba web si desea establecer alertas en las métricas de rendimiento o de uso.
+
+Asegúrese de tener en cuenta las unidades en las que se le pide que escriba el valor de umbral.
+
+*No puedo ver el botón Agregar alerta.* - Probablemente se deba a que tiene acceso de solo lectura. 
 
 ## <a name="diagnosis"></a>Problemas de diagnóstico
 
 Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 
-* Configure [pruebas web][availability] para recibir una alerta si el sitio web deja de funcionar, o si responde incorrecta o lentamente. 
+* Configure las [pruebas web][availability] para recibir una alerta si el sitio web deja de funcionar o si responde de forma incorrecta o más lento de lo debido. 
 * Compare el recuento de Solicitudes con otras métricas para ver si la lentitud de respuesta o los errores se encuentran relacionados con la carga.
 * [Inserte y busque instrucciones de seguimiento][diagnostic] en el código para facilitar la identificación de los problemas.
 
@@ -131,7 +142,7 @@ Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 
 [Seguimiento de uso][usage]: averigüe cuántas personas usan una aplicación.
 
-[Solución de problemas][qna]: y preguntas y respuestas.
+[Solución de problemas][qna]: preguntas y respuestas.
 
 
 
@@ -139,3 +150,5 @@ Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 
 
 
+
+<!--HONumber=35.2-->

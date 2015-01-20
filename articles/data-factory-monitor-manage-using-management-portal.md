@@ -1,6 +1,6 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure Preview Portal" pageTitle="Supervisión y administración de la Factoría de datos de Azure mediante el Portal de vista previa de Azure" description="Obtenga información acerca de cómo usar el Portal de administración de Azure para supervisar y administrar las factorías de datos de Azure que ha creado." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties title="Monitor and manage Azure Data Factory using Azure Preview Portal" pageTitle="Supervisión y administración de la Factoría de datos de Azure mediante el Portal de vista previa de Azure" description="Aprenda a usar el Portal de administración de Azure para supervisar y administrar las factorías de datos de Azure que ha creado." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
 
 # Supervisión de la Factoría de datos de Azure mediante el Portal de vista previa de Azure
 
@@ -21,7 +21,7 @@
 ## <a name="AllDataFactories"></a> Vista de todas las factorías de datos de una suscripción de Azure
 
 - Inicie sesión en el [Portal de vista previa de Azure][azure-preview-portal].
-- Haga clic en el centro **EXAMINAR** de la izquierda y haga clic en **Factorías de datos**.  
+- Haga clic en el centro **EXAMINAR** de la izquierda y haga clic en **Factorías de datos.**  
 
 	![BROWSE hub -> Data Factories][image-data-factory-browse-datafactories]
 
@@ -29,7 +29,7 @@
 
 	![BROWSE hub -> Everything] [image-data-factory-browse-everything]
 
-- Verá todas las factorías de datos en la hoja **Factorías de datos**.
+- Debería ver todas las factorías de datos en la hoja **Factorías de datos**.
 
 	![Data factories blade][image-data-factory-datafactories-blade]
 
@@ -40,7 +40,7 @@ Para ver los detalles sobre una factoría de datos, realice una de las acciones 
 
 
 - Haga clic en una factoría de datos en la hoja **Factorías de datos** mostrada anteriormente.
-- Haga clic en el vínculo de la factoría de datos en el **Panel de inicio**. **Panel de inicio** es la hoja que ve cuando inicia sesión en el Portal de vista previa de Azure. Si había seleccionado **Agregar al Panel de inicio** al crear una factoría de datos (opción predeterminada), verá el vínculo de factoría de datos en el Panel de inicio como se muestra en la siguiente imagen. En este ejemplo, los vínculos a las factorías de datos **ADFTutorialDataFactory**, **ADFTutorialDataFactoryDF** y **LogProcessingFactory** están disponibles en el **Panel de inicio**.
+- Haga clic en el vínculo de la factoría de datos en el **Panel de inicio**. **Panel de inicio** es la hoja que ve cuando inicia sesión en el Portal de vista previa de Azure. Si había seleccionado **Agregar al Panel de inicio** al crear una factoría de datos (opción predeterminada), debería ver el vínculo de factoría de datos en el Panel de inicio como se muestra en la siguiente imagen. En este ejemplo, los vínculos a las factorías de datos **ADFTutorialDataFactory****, ADFTutorialDataFactoryDF** y **LogProcessingFactory** están disponibles en el **Panel de inicio**.
 
 
 ![Data factory from the Startboard][image-data-factory-datafactory-from-startboard]
@@ -71,19 +71,63 @@ En la hoja **FACTORÍA DE DATOS** de la factoría de datos, haga clic en el icon
 ![Data Sets Blade][image-data-factory-datasets] 
 
 ## <a name="DataFactoryDataset"></a>  Vista de detalles acerca de un conjunto de datos
-Haga clic en el conjunto de datos de la lista de conjuntos de datos en la hoja CONJUNTOS DE DATOS para ver detalles sobre el conjunto de datos. Tenga en cuenta que una tabla es un conjunto de datos rectangular que tiene un esquema. Es el único tipo de conjunto de datos que se admite en este momento. 
+Haga clic en el conjunto de datos de la lista de conjuntos de datos en la hoja CONJUNTOS DE DATOS para ver detalles sobre el conjunto de datos. Tenga en cuenta que una tabla es un conjunto de datos rectangular que tiene un esquema. Es el único tipo de conjunto de datos admitido en este momento. 
 
 ![Table Blade][image-data-factory-table]
 
-En la hoja **TABLA** anterior, verá los **segmentos recientes** así como los **segmentos con problemas**. Haga clic en **... (puntos suspensivos)** para ver todos los segmentos. 
+En la hoja **TABLA** anterior, verá los **Segmentos recientes** así como los **Segmentos con problemas**. Haga clic en **... (puntos suspensivos)** para ver todos los segmentos. 
 
 ![All Slices of a Table][image-data-factory-all-slices]
 
-En la hoja **Segmentos de datos**, puede usar un filtro para ver los segmentos específicos que desea revisar.
+En la tabla **Segmentos de datos**, haga clic en el botón de filtro para ver la hoja de filtro que le permite **filtrar** segmentos para ver los segmentos específicos que desea revisar.
+
+![Filter Blade][image-data-factory-filter-blade]
+
+
+Al iniciar la hoja de **filtro**, el campo **Para** se establecerá automáticamente en la hora más reciente (redondeada) para limitar el número de registros devueltos. El campo **De** campo se establece también automáticamente. Puede cambiar la fecha **Desde** haciendo clic en el botón **Calendario**. La fecha **Hasta** se cambia automáticamente al cambiar la fecha **Desde**. 
+
+Puede hacer clic en los botones **Anterior**/**Siguiente** para ver segmentos en el período anterior o siguiente. El intervalo de tiempo para los botones **Anterior** y **Siguiente** se establece en el intervalo y la frecuencia de segmentos como se muestra en la tabla siguiente.
+
+Frecuencia | Rango de valores de intervalo | Fragmento de tiempo resultante
+----------| -------------------- | --------------------
+Minuto | 1-4 | 6 horas
+Minuto | 5-29 | 1 día
+Minuto | 30-180 | 7 días
+Minuto | 180 + | 28 días (aproximado, mes del calendario)
+Hora | 1-3 | 7 días
+Hora | 4-11 | 28 días (aproximado, mes del calendario)
+Hora | 12-72 | 182 días (aproximado, 6 meses)
+Hora | 73 + | 1 año
+Día | 1-6 | 1 año
+Día | 7-20 | 5 años
+Día | más de 21 | 10 años
+Semana | 1-3 | 5 años
+Semana | 4 + | 10 años
+Mes | cualquiera | 10 años
+ 
+Por ejemplo, si define la **frecuencia** como **Hora** y el **intervalo** de **2**, haga clic en los botones **Siguiente**/**Anterior** para mover el intervalo de tiempo **7 días** en cualquier dirección. Esta lógica se aplica a la hoja de filtro si está viendo todos los segmentos, los segmentos recientes o los segmentos de problemas.
+
+La hoja de **filtro** le permite filtrar en función de sus **estados**. En la tabla siguiente se describen los estados del segmento y su descripción.
+ 
+Estado del segmento | Descripción
+------------ | ------------
+PendingExecution | El procesamiento de datos no se ha iniciado todavía.
+InProgress | El procesamiento de datos está en curso.
+Ready | Se ha completado el procesamiento de datos y el segmento de datos está listo.
+Failed | Error en la ejecución que genera el segmento.
+Omitir | Omita el procesamiento del segmento.
+Reintentar | Reintentando la ejecución que produce el segmento.
+Tiempo de espera agotado | Se agotó el tiempo de espera del procesamiento de datos del segmento.
+PendingValidation | El segmento de datos está esperando la validación frente a las directivas de validación antes de procesarse.
+RetryValidation | Reintentando la validación del segmento.
+FailedValidation | Error en la validación del segmento.
+LongRetry | Habrá un segmento en este estado si se especifica LongRetry en la tabla JSON y se ha producido un error en los reintentos periódicos del segmento.
+ValidationInProgress | Se está realizando la validación del segmento (según las directivas definidas en la tabla JSON).
+
 
 
 ## <a name="DataFactorySlice"></a> Vista de detalles acerca de un sector
-Haga clic en un segmento en la lista de segmentos en la hoja **TABLA** o la hoja **Segmentos de datos** para ver detalles sobre ese segmento. 
+Haga clic en un segmento de la lista de segmentos en la hoja **TABLA** o la hoja **Segmentos de datos** para ver detalles acerca de ese segmento. 
 
 ![Data Slice][image-data-factory-dataslice]
 
@@ -92,7 +136,7 @@ Haga clic en un segmento en la lista de segmentos en la hoja **TABLA** o la hoja
 Para un segmento, puede haber más de una ejecución. Por ejemplo, cuando un segmento da error, el servicio puede realizar algunos reintentos. También puede volver a ejecutar un segmento que ha dado error en todos los reintentos. Puede ver todas las ejecuciones de actividad en la hoja** Segmento de datos** de la lista de la parte inferior. 
 
 ## <a name="DataFactoryActivtyRunDetails"></a>  Vista de detalles acerca de una ejecución de actividad
-Haga clic en una ejecución de actividad de la lista de ejecuciones en la hoja **Segmento de datos** para ver los detalles sobre la ejecución de actividad. 
+Haga clic en una ejecución de actividad de la lista de ejecuciones de la hoja **Segmento de datos** para ver los detalles acerca de la ejecución de actividad. 
 
 ![Activity Run Details][image-data-factory-activity-run-details]
 
@@ -106,14 +150,14 @@ En la hoja **FACTORÍA DE DATOS** (o la página principal) de la factoría de da
 
 Artículo | Descripción
 ------ | ---------------
-[Supervisión y administración de la Factoría de datos de Azure mediante PowerShell][monitor-manage-using-powershell] | Este artículo describe cómo supervisar una factoría de datos de Azure mediante cmdlets de PowerShell de Azure. 
-[Habilitación de las canalizaciones para que funcionen con datos locales][use-onpremises-datasources] | Este artículo incluye un tutorial que muestra cómo copiar datos de una base de datos SQL Server local en un blob de Azure.
-[Uso de Pig y Hive con la factoría de datos][use-pig-and-hive-with-data-factory] | Este artículo incluye un tutorial que muestra cómo usar la actividad de HDInsight para ejecutar un script de hive/pig con el fin de procesar datos de entrada para producir datos de salida. 
-[Tutorial: Movimiento y procesamiento de los archivos de registro mediante la factoría de datos][adf-tutorial] | Este artículo proporciona un completo tutorial que muestra cómo implementar un escenario en tiempo real mediante el uso de la Factoría de datos de Azure para transformar los datos de los archivos de registro en información.
-[Uso de actividades personalizadas en una factoría de datos][use-custom-activities] | Este artículo proporciona un tutorial con instrucciones paso a paso para la creación de una actividad personalizada y su uso en una canalización. 
-[Solución de problemas de la factoría de datos][troubleshoot] | Este artículo describe cómo solucionar los problemas de la Factoría de datos de Azure.
-[Referencia para desarrolladores de la Factoría de datos de Azure][developer-reference] | La referencia para desarrolladores incluye el contenido de referencia completo para cmdlets, scripts JSON, funciones, etc. 
-[Referencia de cmdlets de la Fábrica de datos de Azure][cmdlet-reference] | Este contenido de referencia incluye detalles acerca de todos los **cmdlets de la factoría de datos**.
+[Supervisión y administración de la factoría de datos de Azure con PowerShell][monitor-manage-using-powershell] | En este artículo se describe cómo supervisar una factoría de datos de Azure mediante cmdlets de Azure PowerShell. 
+[Habilitar las canalizaciones para trabajar con datos locales][use-onpremises-datasources] | Este artículo tiene un tutorial en el que se muestra cómo copiar datos de una base de datos de SQL Server local a un blob de Azure.
+[Usar Pig y Hive con la factoría de datos][use-pig-and-hive-with-data-factory] | Este artículo tiene un tutorial que muestra cómo utilizar la actividad de HDInsight para ejecutar un script de Hive y Pig para procesar los datos de entrada a fin de producir datos de salida.
+[Tutorial: Mover y procesar los archivos de registro mediante la factoría de datos][adf-tutorial] | Este artículo proporciona un tutorial completo en el que se muestra cómo implementar un escenario en tiempo real mediante el uso de la factoría de datos de Azure para transformar los datos de los archivos de registro en información.
+[Usar actividades personalizadas en una factoría de datos][use-custom-activities] | Este artículo ofrece un tutorial con instrucciones detalladas para crear una actividad personalizada y usarla en una canalización. 
+[Solución de problemas de la factoría de datos][troubleshoot] | En este artículo se describe cómo solucionar problemas de la factoría de datos de Azure.
+[Referencia del desarrollador de la factoría de datos de Azure][developer-reference] | La Referencia del desarrollador tiene el contenido de referencia completo para cmdlets, scripts JSON, funciones, etc. 
+[Referencia de cmdlets de la factoría de datos de Azure][cmdlet-reference] | Este contenido de referencia tiene detalles acerca de todos los **cmdlets de la factoría de datos**.
 
 
 [use-onpremises-datasources]: ../data-factory-use-onpremises-datasources
@@ -126,6 +170,8 @@ Artículo | Descripción
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 [azure-preview-portal]: http://portal.azure.com/
+
+[image-data-factory-filter-blade]: ./media/data-factory-monitor-manage-using-management-portal/FilterBlade.png
 
 [image-data-factory-browse-everything]: ./media/data-factory-monitor-manage-using-management-portal/BrowseEverything.png
 
@@ -156,3 +202,5 @@ Artículo | Descripción
 [image-data-factory-activity-run-details]: ./media/data-factory-monitor-manage-using-management-portal/ActivityRunDetails.png
 
 [image-data-factory-events]: ./media/data-factory-monitor-manage-using-management-portal/Events.png
+
+<!--HONumber=35.2-->

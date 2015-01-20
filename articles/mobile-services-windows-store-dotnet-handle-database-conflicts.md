@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Optimistic concurrency" pageTitle="Control de conflictos de escritura de base de datos con la simultaneidad optimista (Tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo controlar conflictos de escritura de base de datos tanto en el servidor como en su aplicación de la Tienda Windows." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conflicts" authors="wesmc" manager="dwrede" />
+﻿<properties urlDisplayName="Optimistic concurrency" pageTitle="Controlar conflictos de escritura de base de datos con la simultaneidad optimista (Tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Aprenda a controlar conflictos de escritura de base de datos en el servidor y en la aplicación de la Tienda Windows." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conflicts" authors="wesmc" manager="dwrede" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -23,14 +23,14 @@ En este tutorial agregará funcionalidad a la aplicación de inicio rápido para
 Este tutorial requiere lo siguiente:
 
 + Microsoft Visual Studio 2012 Express para Windows o posterior.
-+ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar  [Introducción a Servicios móviles]. 
++ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles]. 
 + [Cuenta de Azure]
 + Paquete de NuGet de Servicios móviles de Azure 1.1.0 o posterior. Para obtener la última versión, siga los pasos a continuación:
-	1. En Visual Studio, abra el proyecto y haga clic con el botón secundario en el proyecto en el Explorador de soluciones y, a continuación, haga clic en  **Administrar paquetes de NuGet**. 
+	1. En Visual Studio, abra el proyecto y haga clic con el botón secundario en el proyecto en el Explorador de soluciones y, a continuación, haga clic en **Administrar paquetes de NuGet**. 
 
 		![][19]
 
-	2. Expanda **En línea** y haga clic en **Microsoft y .NET**. En el cuadro de texto de búsqueda, escriba **Servicios móviles de Azure**. Haga clic en **Instalar** en el **paquete NuGet de** Servicios móviles de Azure.
+	2. Expanda **En línea** y haga clic en **Microsoft and .NET**. En el cuadro de texto de búsqueda, escriba **Servicios móviles de Azure**. Haga clic en **Instalar** en el paquete de NuGet de **Servicios móviles de Azure**.
 
 		![][20]
 
@@ -39,11 +39,11 @@ Este tutorial requiere lo siguiente:
 
 <h2><a name="uiupdate"></a>Actualización de la aplicación para permitir actualizaciones</h2>
 
-En esta sección, actualizará la interfaz de usuario TodoList para permitir la actualización del texto de cada elemento en un control ListBox. ListBox contendrá un control de CheckBox y TextBox para cada elemento en la tabla de la base de datos. Podrá actualizar el campo de texto de TodoItem. La aplicación controlará el evento `LostFocus` desde ese TextBox para actualizar el elemento en la base de datos.
+En esta sección, actualizará la interfaz de usuario TodoList para permitir la actualización del texto de cada elemento en un control ListBox. ListBox contendrá un control de CheckBox y TextBox para cada elemento en la tabla de la base de datos. Podrá actualizar el campo de texto de TodoItem. La aplicación controlará el evento `LostFocus` desde TextBox para actualizar el elemento en la base de datos.
 
 
-1. En Visual Studio, abra el proyecto TodoList que descargó en el tutorial [Introducción a Servicios móviles] .
-2. En el Explorador de soluciones de Visual Studio, abra MainPage.xaml y reemplace la definición `ListView` por `ListView` que aparece a continuación y guarde el cambio.
+1. En Visual Studio, abra el proyecto TodoList que descargó en el tutorial [Introducción a los Servicios móviles].
+2. En el Explorador de soluciones de Visual Studio, abra MainPage.xaml y reemplace la definición `ListView` por la `ListView` que se muestra a continuación y guarde el cambio.
 
 		<ListView Name="ListItems" Margin="62,10,0,0" Grid.Row="1">
 			<ListView.ItemTemplate>
@@ -62,7 +62,7 @@ En esta sección, actualizará la interfaz de usuario TodoList para permitir la 
 		using System.Threading.Tasks;
 
 
-4. En el Explorador de soluciones de Visual Studio, abra MainPage.xaml.cs. Agregue el controlador de eventos a la MainPage para el evento `LostFocus` de TextBox como se muestra a continuación.
+4. En el Explorador de soluciones de Visual Studio, abra MainPage.xaml.cs. Agregue el controlador de eventos a la MainPage para el evento 'LostFocus' de TextBox como se muestra a continuación.
 
 
         private async void ToDoText_LostFocus(object sender, RoutedEventArgs e)
@@ -77,7 +77,7 @@ En esta sección, actualizará la interfaz de usuario TodoList para permitir la 
             }
         }
 
-4. En MainPage.xaml.cs, agregue la definición para el método `UpdateToDoItem()` de MainPage con referencia en el controlador de eventos, como se muestra a continuación.
+4. En MainPage.xaml.cs, agregue la definición para el método `UpdateToDoItem()` de MainPage al que se hace referencia en el controlador de eventos como se muestra a continuación.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -101,9 +101,9 @@ Ahora la aplicación escribe los cambios del texto en cada elemento devuelto a l
 
 <h2><a name="enableOC"></a>Habilitación de la detección de conflictos en la aplicación</h2>
 
-En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. [El control de simultaneidad optimista] asume que cada transacción puede confirmarse y, por lo tanto, no usa ningún bloqueo de recursos. Antes de confirmar una transacción, el control de simultaneidad optimista comprueba que ninguna otra transacción haya modificado los datos. Si los datos se han modificado, la transacción de confirmación se desecha. Servicios móviles de Azure es compatible con el control de simultaneidad optimista mediante el seguimiento de cambios en cada elemento con la columna de propiedades del sistema `__version` que se agrega en cada tabla. En esta sección, activaremos la aplicación para detectar estos conflictos de escritura a través de la propiedad del sistema `__version`. La aplicación recibirá una notificación mediante una excepción `MobileServicePreconditionFailedException` durante un intento de actualización si el registro ha cambiado desde la última consulta. Entonces podrá elegir si confirmar el cambio realizado en la base de datos o dejar intacto el último cambio realizado en la base de datos. Para obtener más información acerca de las propiedades del sistema para Servicios móviles, consulte las [propiedades del sistema].
+En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. El [control de simultaneidad optimista] asume que cada transacción puede confirmarse y, por lo tanto, no usa ningún bloqueo de recursos. Antes de confirmar una transacción, el control de simultaneidad optimista comprueba que ninguna otra transacción haya modificado los datos. Si los datos se han modificado, la transacción de confirmación se desecha. Servicios móviles de Azure es compatible con el control de simultaneidad optimista mediante el seguimiento de cambios en cada elemento con la columna de propiedades del sistema `__version` que se agrega a cada tabla. En esta sección, habilitaremos la aplicación para detectar estos conflictos de escritura a través de la propiedad del sistema `__version`. La aplicación recibirá una notificación mediante una excepción `MobileServicePreconditionFailedException` durante un intento de actualización si el registro ha cambiado desde la última consulta. Entonces podrá elegir si confirmar el cambio realizado en la base de datos o dejar intacto el último cambio realizado en la base de datos. Para obtener más información acerca de las propiedades del sistema para Servicios móviles, consulte las [propiedades del sistema].
 
-1. En MainPage.xaml.cs, actualice la definición de clase de **TodoItem** con el siguiente código para incluir la propiedad del sistema **__version** que permite la compatibilidad para la detección de conflictos de escritura.
+1. En MainPage.xaml.cs, actualice la definición de clase de **TodoItem** con el siguiente código para incluir la propiedad del sistema **__version** y activar el soporte para la detección de conflictos de escritura.
 
 		public class TodoItem
 		{
@@ -158,7 +158,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
         }
 
 
-3. En MainPage.xaml.cs, agregue la definición para el método `ResolveConflict()` con referencia en `UpdateToDoItem()`. Tenga en cuenta que, para resolver el conflicto, debe configurar la versión local del elemento a la versión actualizada desde el servidor antes de confirmar la decisión del usuario. De lo contrario, experimentará continuamente el conflicto.
+3. En MainPage.xaml.cs, agregue la definición para el método 'ResolveConflict()' al que se hace referencia en `UpdateToDoItem()`. Tenga en cuenta que, para resolver el conflicto, debe configurar la versión local del elemento a la versión actualizada desde el servidor antes de confirmar la decisión del usuario. De lo contrario, experimentará continuamente el conflicto.
 
 
         private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)
@@ -195,11 +195,11 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 En esta sección, compilará un paquete de aplicación de la Tienda Windows para instalar la aplicación en un segundo equipo o en una máquina virtual. A continuación ejecutará la aplicación en los dos equipos con el objetivo de generar un conflicto de escritura para probar el código. Las dos instancias de la aplicación intentarán actualizar la misma propiedad `text` del elemento, lo cual exigirá que el usuario resuelva el conflicto.
 
 
-1. Cree un paquete de aplicación de la Tienda Windows para instalarlo en un segundo equipo o máquina virtual. Para ello, haga clic en **Proyecto**->**Tienda**->**Crear paquetes de aplicaciones** en Visual Studio.
+1. Cree un paquete de la aplicación de la Tienda Windows para instalarlo en un segundo equipo o en una máquina virtual. Para ello, haga clic en **Proyecto**->**Tienda**->**Crear paquetes de aplicaciones** en Visual Studio.
 
 	![][0]
 
-2. En la pantalla Crear paquetes, haga clic en **No** para que este paquete no se cargue a la Tienda Windows. A continuación, haga clic en **Siguiente**.
+2. En la pantalla Crear paquetes, haga clic en **No** para que este paquete no se cargue en la Tienda Windows. A continuación, haga clic en **Siguiente**.
 
 	![][1]
 
@@ -211,7 +211,7 @@ En esta sección, compilará un paquete de aplicación de la Tienda Windows para
 
    	![][11]
 
-5. Copie la carpeta del paquete, "todolist_1.0.0.0_AnyCPU_Debug_Test", a la segunda máquina. En ese equipo, abra la carpeta del paquete y haga clic con el botón secundario en el script de PowerShell **Add-AppDevPackage.ps1** y haga clic en **Run with PowerShell** como se muestra a continuación. Siga las indicaciones para instalar la aplicación.
+5. Copie la carpeta del paquete, "todolist_1.0.0.0_AnyCPU_Debug_Test", en el segundo equipo. En ese equipo, abra la carpeta del paquete y haga clic con el botón secundario en el script de PowerShell **Add-AppDevPackage.ps1** y haga clic en **Run with PowerShell** como se muestra a continuación. Siga las indicaciones para instalar la aplicación.
 
 	![][12]
   
@@ -224,7 +224,7 @@ En esta sección, compilará un paquete de aplicación de la Tienda Windows para
 	![][2]
 
 
-6. En la instancia 1 de la aplicación, actualice el texto del último elemento a **Test Write 1** y, a continuación, haga clic en otro cuadro de texto para que el controlador del evento "LostFocus" actualice la base de datos. La siguiente captura de pantalla muestra un ejemplo.
+6. En la instancia 1 de la aplicación, actualice el texto del último elemento a **Test Write 1** y, a continuación, haga clic en otro cuadro de texto para que el controlador del evento `LostFocus` actualice la base de datos. La siguiente captura de pantalla muestra un ejemplo.
 	
 	Instancia 1 de la aplicación	
 	![][3]
@@ -232,7 +232,7 @@ En esta sección, compilará un paquete de aplicación de la Tienda Windows para
 	Instancia 2 de la aplicación	
 	![][2]
 
-7. En este punto, el elemento correspondiente en la instancia 2 de la aplicación tiene una versión anterior del elemento. En la instancia de la aplicación, escriba **Test Write 2** para la propiedad `text`. A continuación, haga clic en otro cuadro de texto para que el controlador de eventos `LostFocus` intente actualizar la base de datos con la propiedad `_version` anterior.
+7. En este punto, el elemento correspondiente en la instancia 2 de la aplicación tiene una versión anterior del elemento. En la instancia de la aplicación, escriba **Test Write 2** para la propiedad `text`. A continuación, haga clic en otro cuadro de texto para que el controlador del evento `LostFocus` intente actualizar la base de datos con la propiedad `_version` anterior.
 
 	Instancia 1 de la aplicación	
 	![][4]
@@ -240,7 +240,7 @@ En esta sección, compilará un paquete de aplicación de la Tienda Windows para
 	Instancia 2 de la aplicación	
 	![][5]
 
-8. Puesto que el valor `__version` utilizado con el intento de actualización no coincidió con el valor del servidor `__version`, el SDK de Servicios móviles lanza una excepción `MobileServicePreconditionFailedException` para permitir que la aplicación resuelva este conflicto. Para resolver el conflicto, puede hacer clic en **Commit Local Text** para confirmar los valores desde la instancia 2. Alternativamente, haga clic en **Leave Server Text** para descartar los valores en la instancia 2, dejando así confirmados los valores de la instancia 1 de la aplicación. 
+8. Puesto que el valor `__version` utilizado con el intento de actualización no coincidió con el valor del servidor `__version`, el SDK de Servicios móviles lanza una excepción `MobileServicePreconditionFailedException` para permitir que la aplicación resuelva este conflicto. Para resolver el conflicto, puede hacer clic en **Confirmar texto local** para confirmar los valores de la instancia 2. También puede hacer clic en **Dejar texto de servidor** para descartar los valores de la instancia 2, dejando así confirmados los valores de la instancia 1 de la aplicación confirmados. 
 
 	Instancia 1 de la aplicación	
 	![][4]
@@ -254,8 +254,8 @@ En esta sección, compilará un paquete de aplicación de la Tienda Windows para
 
 Puede detectar y resolver conflictos de escritura en los scripts del servidor. Es una buena idea si puede utilizar la lógica de los scripts en lugar de la interacción del usuario para resolver el conflicto. En esta sección, agregará un script del servidor a la tabla TodoItem para la aplicación. La lógica que este script utilizará para resolver conflictos es la siguiente:
 
-+  Si el campo `  complete` de TodoItem está establecido en true, se considerará completado y el `texto` no se podrá modificar.
-+  Si el campo `  complete` de TodoItem sigue siendo false, tratará de actualizarse y el `texto` se confirmará.
++  Si el campo ` complete` de TodoItem está establecido en true, se considerará completado y `text` no se podrá modificar.
++  Si el campo `complete` de TodoItem aún es false, tratará de actualizarse y `text` se confirmará.
 
 Los siguientes pasos describen la incorporación del script de actualización del servidor y su prueba.
 
@@ -263,7 +263,7 @@ Los siguientes pasos describen la incorporación del script de actualización de
 
    	![][7]
 
-2. Haga clic en la pestaña **Datos** y, a continuación, en la tabla **TodoItem**.
+2. Haga clic en la pestaña **Data** y, a continuación, haga clic en la tabla **TodoItem**.
 
    	![][8]
 
@@ -271,7 +271,7 @@ Los siguientes pasos describen la incorporación del script de actualización de
 
    	![][9]
 
-4. Reemplace el script existente por la siguiente función y, a continuación, haga clic en **Guardar**.
+4. Sustituya el script existente por la siguiente función y, a continuación, haga clic en **Save**.
 
 		function update(item, user, request) { 
 			request.execute({ 
@@ -288,7 +288,7 @@ Los siguientes pasos describen la incorporación del script de actualización de
 				}
 			}); 
 		}   
-5. Ejecute la aplicación **todolist** en ambas máquinas. Cambie la propiedad `text` de TodoItem del último elemento en la instancia 2. A continuación, haga clic en otro cuadro de texto para que el controlador de eventos `LostFocus` actualice la base de datos.
+5. Ejecute la aplicación **todolist** en los dos equipos. Cambie el `text` de TodoItem por el último elemento de la instancia 2. Luego haga clic en otro cuadro de texto para que el controlador de eventos `LostFocus` actualice la base de datos.
 
 	Instancia 1 de la aplicación	
 	![][4]
@@ -296,7 +296,7 @@ Los siguientes pasos describen la incorporación del script de actualización de
 	Instancia 2 de la aplicación	
 	![][5]
 
-6. En la instancia 1 de la aplicación, escriba un valor distinto para la última propiedad de texto. A continuación, haga clic en otro cuadro de texto para que el controlador de eventos `LostFocus` intente actualizar la base de datos con una propiedad `__version` incorrecta.
+6. En la instancia 1 de la aplicación, escriba un valor diferente para la última propiedad del texto. A continuación, haga clic en otro cuadro de texto para que el controlador del evento `LostFocus` intente actualizar la base de datos con una propiedad `__version` incorrecta.
 
 	Instancia 1 de la aplicación	
 	![][13]
@@ -304,7 +304,7 @@ Los siguientes pasos describen la incorporación del script de actualización de
 	Instancia 2 de la aplicación	
 	![][14]
 
-7. Observe que no se ha producido ninguna excepción en la aplicación desde que el script del servidor resolvió el conflicto, permitiendo así la actualización, dado que el elemento no está marcado como completo. Para comprobar que la actualización fue realmente satisfactoria, haga clic en **Actualizar** en la instancia 2 para volver a consultar la base de datos.
+7. Observe que no se ha producido ninguna excepción en la aplicación desde que el script del servidor resolvió el conflicto, permitiendo así la actualización dado que el elemento no está marcado como completado. Para comprobar que la actualización fue realmente satisfactoria, haga clic en **Refresh** en la instancia 2 para volver a consultar la base de datos.
 
 	Instancia 1 de la aplicación	
 	![][15]
@@ -328,30 +328,30 @@ Los siguientes pasos describen la incorporación del script de actualización de
 	Instancia 2 de la aplicación	
 	![][18]
 
-## <a name="next-steps"> </a>Pasos siguientes
+## <a name="next-steps"> </a>Next steps
 
 Este tutorial le ha mostrado cómo habilitar la aplicación de Tienda Windows para controlar los conflictos de escritura al trabajar con datos en Servicios móviles. A continuación, plantéese completar uno de los siguientes tutoriales en nuestra serie de datos:
 
-* [Validar y modificar los datos con scripts]
-  <br/>Más información sobre el uso de scripts de servidor en Servicios móviles para validar y cambiar los datos enviados desde su aplicación.
+* [Validar y modificar datos con scripts]
+  <br/>Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
 
 * [Limitación de consultas con paginación]
-  <br/>Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se controlan en una única solicitud.
+  <br/>Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se manejan en una única solicitud.
 
 Una vez que haya completado la serie de datos, también puede probar uno de los siguientes tutoriales de la Tienda Windows:
 
 * [Introducción a la autenticación] 
-  <br/>Aprenda a autenticar usuarios de su aplicación.
+  <br/>Aprenda la manera de autenticar a los usuarios de la aplicación.
 
 * [Introducción a las notificaciones de inserción] 
-  <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
+  <br/>Aprenda la manera de enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
  
 <!-- Anchors. -->
 [Actualización de la aplicación para permitir actualizaciones]: #uiupdate
 [Habilitación de la detección de conflictos en la aplicación]: #enableOC
 [Prueba de conflictos de escritura de bases de datos en la aplicación]: #test-app
 [Control automático de la resolución de conflictos en los scripts del servidor]: #scriptsexample
-[Pasos siguientes]:#next-steps
+[Pasos siguientes]: #next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
@@ -378,18 +378,20 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
 
 <!-- URLs. -->
 [Control de concurrencia optimista]: http://go.microsoft.com/fwlink/?LinkId=330935
-[Introducción a Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
+[Introducción a los servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
 [Cuenta de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/
-[Validar y modificar los datos con scripts]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Validar y modificar datos con scripts]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [Limitación de consultas con paginación]: /es-es/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Introducción a Servicios móviles]: /es-es/develop/mobile/tutorials/get-started
+[Introducción a los servicios móviles]: /es-es/develop/mobile/tutorials/get-started
 [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-dotnet
 [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-dotnet
 [Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-dotnet
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Portal de administración]: https://manage.windowsazure.com/
-[SDK de Windows Phone 8 SDK]: http://go.microsoft.com/fwlink/p/?LinkID=268374
-[SDK de Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkID=268375
+[SDK de Windows Phone 8]: http://go.microsoft.com/fwlink/p/?LinkID=268374
+[SDK de servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkID=268375
 [Sitio de ejemplos de código para desarrolladores]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Propiedades del sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
+
+<!--HONumber=35.2-->

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Debug Websites (Node)" pageTitle="Depuración de Sitios web Azure en Node.js" metaKeywords="depurar sitio web azure, depuración de azure, solución de problemas de sitio web de azure, solucionar problemas de nodo de sitio web de azure" description="Obtenga información acerca de cómo depurar un sitio web de Azure en Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Debug Websites (Node)" pageTitle="Cómo depurar sitios web de Azure en Node.js"metaKeywords ="debug website azure, debugging azure, troubleshooting azure web site, troubleshoot azure website node" description="Obtenga información sobre cómo depurar un sitio web de Azure en Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
 
@@ -8,9 +8,9 @@
 
 #Depuración de una aplicación Node.js en Sitios web Azure
 
-Azure proporciona diagnósticos integrados para ayudar a depurar aplicaciones Node.js hospedadas en Sitios web Azure. En este artículo aprenderá a habilitar el registro de stdout y stderr, mostrar información de error en el explorador y descargar y ver los archivos de registro.
+Azure proporciona diagnósticos integrados para ayudar a depurar aplicaciones Node.js hospedadas en Sitios web Azure. En este artículo aprenderá a habilitar el registro de stdout y stderr, mostrar información de error en el explorador y a descargar y ver los archivos de registro.
 
-El diagnóstico de las aplicaciones Node.js hospedadas en Azure lo proporciona [IISNode]. Si bien este artículo analiza la configuración más común para recopilar información de diagnóstico, no proporciona una referencia completa para trabajar con IISNode. Para obtener más información sobre el trabajo con IISNode, consulte el [archivo léame de IISNode] en GitHub.
+El diagnóstico de las aplicaciones Node.js hospedadas en Azure lo proporciona [IISNode]. Si bien este artículo analiza la configuración más común para recopilar información de diagnóstico, no proporciona una referencia completa para trabajar con IISNode. Para obtener más información sobre el trabajo con IISNode, consulte el [archivo léame de IISNode] (en inglés) en GitHub.
 
 ##<a id="enablelogging"></a>Habilitación del registro
 
@@ -37,10 +37,10 @@ Si el archivo **IISNode.yml** no existía ya en su aplicación, debe reiniciar s
 
 <div class="dev-callout">
 <strong>Nota:</strong>
-<p>Si su sitio web se creó usando las herramientas de línea de comandos de Azure o los cmdlets de Azure PowerShell, automáticamente se crea un archivo predeterminado <strong>IISNode.yml</strong>.</p>
+<p>Si su sitio web se creó mediante las herramientas de línea de comandos de Azure o los cmdlets de PowerShell de Azure, el archivo predeterminado <strong>IISNode.yml</strong> se crea automáticamente.</p>
 </div>
 
-Puede reiniciar el sitio web si selecciona el sitio desde el [Portal de administración de Azure] y, a continuación, selecciona el botón **REINICIAR**:
+Puede reiniciar el sitio web si selecciona el sitio desde el [Portal de administración de Azure] y, a continuación, selecciona el botón **RESTART**:
 
 ![restart button][restart-button]
 
@@ -50,12 +50,12 @@ Si las herramientas de línea de comandos de Azure están instaladas en su entor
 
 <div class="dev-callout">
 <strong>Nota:</strong>
-<p>Si bien loggingEnabled y devErrorsEnabled son las opciones de configuración de IISNode.yml de uso más común para capturar información de diagnóstico, se puede usar IISNode.yml para configurar diversas opciones para su entorno de hospedaje. Para obtener una lista completa de las opciones de configuración, consulte el archivo <a href="https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml">iisnode_schema.xml</a>.</p>
+<p>Si bien loggingEnabled y devErrorsEnabled son las opciones de configuración de IISNode.yml de uso más común para capturar información de diagnóstico, se puede usar IISNode.yml para configurar diversas opciones para su entorno de hospedaje. Para obtener una lista completa de las opciones de configuración, consulte el archivo <a href="https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml">iisnode_schema.Xml</a> .</p>
 </div>
 
 ##<a id="viewlogs"></a>Acceso a los registros
 
-Se puede tener acceso a los registros de diagnósticos de tres formas; mediante el protocolo de transferencia de archivos (FTP), descargando un archivo Zip o como una secuencia en directo actualizada del registro (lo que se conoce también como cola). La descarga del archivo Zip de los archivos de registro o la visualización de la secuencia en directo requieren las herramientas de línea de comandos de Azure. Estas se pueden instalar usando el siguiente comando:
+Se puede tener acceso a los registros de diagnósticos de tres formas; mediante el protocolo de transferencia de archivos (FTP), la descarga de un archivo Zip o como una secuencia en directo actualizada del registro (lo que se conoce también como cola). La descarga del archivo Zip de los archivos de registro o la visualización de la secuencia en directo requieren las herramientas de línea de comandos de Azure. Estas se pueden instalar usando el siguiente comando:
 
 	npm install azure-cli -g
 
@@ -63,16 +63,16 @@ Una vez instaladas, se puede tener acceso a ellas mediante el comando 'azure'. L
 
 ###FTP
 
-Para tener acceso a la información de diagnóstico a través de FTP, visite el [Portal de Azure], seleccione su sitio web y, a continuación, seleccione el **PANEL**. En la sección **vínculos rápidos**, los vínculos **REGISTROS DE DIAGNÓSTICO** y **REGISTROS DE DIAGNÓSTICO FTPS** proporcionan acceso a los registros usando el protocolo FTP.
+Para tener acceso a la información de diagnóstico a través de FTP, visite el [portal de Azure], seleccione su sitio web y, a continuación, seleccione el **PANEL**. En la sección **vínculos rápidos**, los vínculos **FTP DIAGNOSTIC LOGS** y **FTPS DIAGNOSTIC LOGS** proporcionan acceso a los registros usando el protocolo FTP.
 
 <div class="dev-callout">
 <strong>Nota:</strong>
-<p>Si no ha configurado antes el nombre de usuario y la contraseña de FTP o la implementación, puede hacerlo desde la página de administración <strong>Inicio rápido</strong> al seleccionar <strong>Configurar las credenciales de implementación</strong>.</p>
+<p>Si no configuró previamente el nombre de usuario ni la contraseña de FTP o la implementación, puede hacerlo desde la página de administración <strong>QuickStart</strong> seleccionando <strong>Configurar credenciales de implementación</strong>.</p>
 </div>
 
 La URL de FTP devuelta en el panel es para el directorio **LogFiles**, que contendrá los siguientes subdirectorios:
 
-* [Método de implementación]: si usa un método de implementación como Git, se creará un directorio del mismo nombre que contendrá información relacionada con las implementaciones.
+* [Deployment Method]: Si usa un método de implementación como Git, se creará un directorio del mismo nombre que contendrá información relacionada con las implementaciones.
 
 * nodejs: La información de Stdout y stderr capturada desde todas las instancias de su aplicación (cuando loggingEnabled es verdadero).
 
@@ -88,7 +88,7 @@ De esta manera se descargará un archivo **diagnostics.zip** en el directorio ac
 
 * LogFiles
 
-	* [Método de implementación]: si usa un método de implementación como Git, se creará un directorio del mismo nombre que contendrá información relacionada con las implementaciones.
+	* [Deployment Method]: si usa un método de implementación como Git, se creará un directorio del mismo nombre que contendrá información relacionada con las implementaciones.
 
 	* nodejs: La información de Stdout y stderr capturada desde todas las instancias de su aplicación (cuando loggingEnabled es verdadero).
 
@@ -102,7 +102,7 @@ De esta manera se devolverá una secuencia de eventos de registro que se actuali
 
 ##<a id="nextsteps"></a>Pasos siguientes
 
-En este artículo ha aprendido a habilitar y la información de diagnóstico y a tener acceso a ella en Azure. Si bien esta información es útil para comprender los problemas que se producen con su aplicación, puede indicar un problema con un módulo que está usando o que la versión de Node.js que usan los Sitios web Azure es diferente a la usada en su entorno de implementación.
+En este artículo aprendió a habilitar y a tener acceso a información de diagnóstico en Azure. Si bien esta información es útil para comprender los problemas que se producen con su aplicación, puede indicar un problema con un módulo que está usando o que la versión de Node.js que usan los Sitios web Azure es diferente a la usada en su entorno de implementación.
 
 Para obtener información sobre el trabajo con módulos en Azure, consulte [Uso de módulos Node.js con aplicaciones de Azure].
 
@@ -110,9 +110,11 @@ Para obtener información sobre la especificación de una versión de Node.js pa
 
 [IISNode]: https://github.com/tjanczuk/iisnode
 [Léame de IISNode]: https://github.com/tjanczuk/iisnode#readme
-[Uso de las herramientas de línea de comandos de Azure]: /es-es/documentation/articles/xplat-cli/
+[Cómo utilizar las herramientas de línea de comandos de Azure]: /es-es/documentation/articles/xplat-cli/
 [Uso de módulos Node.js con aplicaciones de Azure]: /es-es/documentation/articles/nodejs-use-node-modules-azure-apps/
 [Especificación de una versión de Node.js en una aplicación Azure]: /es-es/documentation/articles/nodejs-specify-node-version-azure-apps/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
+
+<!--HONumber=35.2-->
