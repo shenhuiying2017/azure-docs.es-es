@@ -48,7 +48,7 @@ Si el equilibrador de carga no está configurado para equilibrar el tráfico ent
 ### Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad
 Evite dejar una máquina virtual de instancia única sola en un conjunto de disponibilidad. Las máquinas virtuales en esta configuración no tienen derecho a la garantía de los contratos de nivel de servicio.  Además, si implementa una instancia de máquina virtual individual en un conjunto de disponibilidad, no recibirá ninguna advertencia ni notificación por adelantado acerca del mantenimiento de la plataforma. En esta configuración, la instancia de máquina virtual individual se puede reiniciar y lo hará sin advertencia previa cuando se produzca el mantenimiento de la plataforma.
 
-[Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia]: #configure-multiple-virtual-machines-in-an-availability-set-for-redundancy 
+[Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia]: #Configure-varias-máquinas virtuales-en-un-conjunto-de-disponibilidad-para-la-redundancia 
 [Configure cada nivel de aplicación en conjuntos separados de disponibilidad]: #configure-each-application-tier-into-separate-availability-sets 
 [Combine el equilibrador de carga con los conjuntos de disponibilidad]: #combine-the-load-balancer-with-availability-sets 
 [Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad]: #avoid-single-instance-virtual-machines-in-availability-sets 
