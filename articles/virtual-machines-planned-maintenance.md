@@ -10,13 +10,13 @@
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
-* [Configuraciones de maquinas virtuales]  
+* [Virtual Machine Configurations]  
 * [Configuraciones de máquinas virtuales]  
 * [Actualización de instancias múltiples]
 * [Actualización de una sola instancia]
 * [Notificación por correo electrónico]
 
-## Configuraciones de maquinas virtuales
+## Virtual Machine Configurations
 ## Configuraciones de máquinas virtuales
 Hay dos tipos de configuraciones de máquinas virtuales: instancias múltiples y una sola instancia.  Las máquinas virtuales de una sola instancia se configuran colocando máquinas virtuales idénticas en el conjunto de disponibilidad. La configuración de instancias múltiples proporciona redundancia y se recomienda para garantizar la disponibilidad de la aplicación. Todas las máquinas virtuales del conjunto de disponibilidad deben ser prácticamente idénticas y prestar el mismo servicio a la aplicación. Para obtener más informacións sobre la configuración de las máquinas virtuales para alta disponibilidad, consulte<a href="http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-manage-availability/">"Administración de la disponibilidad de las máquinas virtuales</a>". 
 
@@ -46,7 +46,7 @@ Solamente para máquinas virtuales con una configuración de una sola instancia,
 
 <!--Anchors-->
 [Por qué Azure realiza mantenimiento planeado]: #why-azure-performs-planned-maintenance
-[Configuraciones de maquinas virtuales]: #configuraciones-demaquinas-virtualess
+[Virtual Machine Configurations]: #virtual-machine-configurations
 [Configuraciones de máquinas virtuales]: #virtual-machine-configurations
 [Actualización de instancias múltiples]: #multi-instance-update
 [Actualización de una sola instancia]: #single-instance-update
