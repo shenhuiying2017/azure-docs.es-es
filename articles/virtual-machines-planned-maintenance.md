@@ -46,7 +46,7 @@ Solamente para máquinas virtuales con una configuración de una sola instancia,
 
 <!--Anchors-->
 [Por qué Azure realiza mantenimiento planeado]: #why-azure-performs-planned-maintenance
-[Virtual Máchine Configurations]: #virtual-máchine-configurations
+[Virtual Máchine Configurations]: #virtual-machine-configurations
 [Configuraciones de máquinas virtuales]: #virtual-machine-configurations
 [Actualización de instancias múltiples]: #multi-instance-update
 [Actualización de una sola instancia]: #single-instance-update
