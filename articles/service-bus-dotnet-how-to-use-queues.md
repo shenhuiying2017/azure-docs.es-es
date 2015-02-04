@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Queues" pageTitle="Utilización de las colas del bus de servicio (.NET): Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en C# con la API de .NET." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Service Bus Queues" pageTitle="Utilización de las colas del bus de servicio (.NET): Azure" metaKeywords="Azure Service Bus queues, Azure queues, Azure messaging, Azure queues C#, Azure queues .NET" description="Obtenga información acerca de cómo usar las colas del Bus de servicio en Azure. Ejemplos de código escritos en C# con la API de .NET." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Queues" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -14,13 +14,13 @@
 
 [WACOM.INCLUDE [howto-service-bus-queues](../includes/howto-service-bus-queues.md)]
 
-##Configuración de la aplicación para usar el bus de servicio
+## Configuración de la aplicación para usar el bus de servicio
 
 Cuando crea una aplicación que usa el bus de servicio, debe
 agregar una referencia al ensamblado del bus de servicio e incluir los
 espacios de nombres correspondientes.
 
-##Obtención del paquete NuGet del bus de servicio
+## Obtención del paquete NuGet del bus de servicio
 
 El paquete **NuGet** del bus de servicio es la forma más sencilla de obtener la API del bus de servicio y configurar su aplicación con todas las dependencias del bus de servicio. La extensión NuGet Visual Studio facilita la instalación y la actualización de las bibliotecas y las herramientas en Visual Studio y Visual Studio Express 2012 para Web.
 
@@ -34,7 +34,7 @@ Realice los pasos siguientes para instalar el paquete NuGet en su aplicación:
 De este modo ya estará listo para escribir código en el bus de servicio.
 
 
-##Configuración de una cadena de conexión del bus de servicio
+## Configuración de una cadena de conexión del bus de servicio
 
 El bus de servicio usa una cadena de conexión para almacenar extremos y credenciales. Puede poner la cadena de conexión en un archivo de configuración en vez de codificarla de forma rígida:
 
@@ -85,7 +85,7 @@ Al usar Sitios web o Máquinas virtuales, es recomendable que utilice el sistema
 
 Utilice el emisor y los valores clave recuperados del Portal de administración como se indica en la sección anterior.
 
-##Creación de una cola
+## Creación de una cola
 
 Puede realizar operaciones de administración para las colas del bus de servicio a través de la clase **NamespaceManager**. La clase **NamespaceManager** proporciona métodos para crear, enumerar y eliminar colas. 
 
@@ -128,7 +128,7 @@ Hay sobrecargas del método **CreateQueue** que le permiten ajustar las propieda
 
 **Nota:** puede usar el método **QueueExists** en los objetos **NamespaceManager** para comprobar si ya existe una cola con un nombre especificado en un espacio de nombres de servicio.
 
-##Envío de mensajes a una cola
+## Envío de mensajes a una cola
 
 Para enviar un mensaje a una cola del bus de servicio, la aplicación crea un objeto **QueueClient** mediante la cadena de conexión.
 
@@ -160,7 +160,7 @@ Los mensajes enviados a las colas del bus de servicio y recibidos en ellas son i
 
 Las colas del bus de servicio admiten un tamaño máximo del mensaje de 256 Kb (el encabezado, que incluye las propiedades estándar y personalizadas de la aplicación, puede tener un tamaño máximo de 64 Kb). No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB.
 
-##Recepción de mensajes de una cola
+## Recepción de mensajes de una cola
 
 La forma más sencilla de recibir mensajes desde una cola es usar un objeto **QueueClient**. Estos objetos pueden funcionar de dos formas distintas: **ReceiveAndDelete** y **PeekLock**.
 
@@ -197,7 +197,7 @@ En el ejemplo que aparece a continuación, se indica cómo se pueden procesar y 
        }
     } 
 
-##Actuación ante errores de la aplicación y mensajes que no se pueden leer
+## Actuación ante errores de la aplicación y mensajes que no se pueden leer
 
 El bus de servicio proporciona la funcionalidad que le ayuda a recuperarse correctamente de los errores de la aplicación o de las dificultades para procesar un mensaje. Si por cualquier motivo una aplicación de recepción no puede procesar el mensaje, entonces realice la llamada al método **Abandon** del mensaje recibido (en lugar del método **Complete**). Esto hará que el bus de servicio desbloquee el mensaje de la cola y esté disponible para que pueda volver a recibirse, ya sea por la misma aplicación que lo consume o por otra.
 
@@ -205,7 +205,7 @@ También hay otro tiempo de espera asociado con un mensaje bloqueado en la cola 
 
 En caso de que la aplicación se bloquee después de procesar el mensaje y antes de emitir la solicitud **Complete**, entonces el mensaje se volverá a entregar a la aplicación cuando esta se reinicie. Habitualmente se denomina **Al menos un procesamiento**, es decir, cada mensaje se procesará al menos una vez, aunque en determinadas situaciones podría volver a entregarse el mismo mensaje. Si el escenario no puede tolerar el procesamiento duplicado, entonces los desarrolladores de la aplicación deberían agregar lógica adicional a su aplicación para solucionar la entrega de mensajes duplicados. A menudo, esto se consigue usando la propiedad **MessageId** del mensaje, que permanecerá constante en todos los intentos de entrega.
 
-##Pasos siguientes
+## Pasos siguientes
 
 Ahora que conoce los fundamentos de las colas del bus de servicio, siga estos
 vínculos para obtener más información.

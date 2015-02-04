@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Queue Service" pageTitle="Uso del almacenamiento de colas en .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Aprenda a usar el almacenamiento de colas de Microsoft Azure para crear y eliminar colas e insertar, inspeccionar, obtener y eliminar mensajes de cola." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" manager="adinah" />
+<properties urlDisplayName="Queue Service" pageTitle="Uso del almacenamiento de colas en .NET | Microsoft Azure" metaKeywords="Get started Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage   Azure queue .NET   Azure queue storage .NET   Azure queue C#   Azure queue storage C#" description="Aprenda a usar el almacenamiento de colas de Microsoft Azure para crear y eliminar colas e insertar, inspeccionar, obtener y eliminar mensajes de cola." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter=".NET" title="How to use Microsoft Azure Queue Storage" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
 
@@ -81,8 +81,7 @@ para obtener información detallada.
     // Create the queue client
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-Use the **queueClient** object to get a reference to the queue you want
-to use. You can create the queue if it doesn't exist.
+Utilice el objeto **queueClient**  para obtener una referencia a la cola que desea utilizar. En caso de que la cola no exista todavía, es posible crearla.
 
     // Retrieve a reference to a queue
     CloudQueue queue = queueClient.GetQueueReference("myqueue");
@@ -273,9 +272,9 @@ para obtener información sobre cómo hacer tareas de almacenamiento más comple
   [Creación de una cola]: #create-queue
   [Inserción de un mensaje en una cola]: #insert-message
   [Inspección del siguiente mensaje]: #peek-message
-  [Cambio de contenido de un mensaje en cola]: #change-contents
+  [Cambio del contenido de un mensaje en cola]: #change-contents
   [Quitar el siguiente mensaje de la cola]: #get-message
-  [Uso de opciones adicionales para quitar mensajes de la cola]: #advanced-get
+  [Usar opciones adicionales para quitar mensajes de la cola]: #advanced-get
   [Obtención de la longitud de la cola]: #get-queue-length
   [Eliminación de una cola]: #delete-queue
   [Descargar e instalar el SDK de Azure para .NET]: /en-us/develop/net/

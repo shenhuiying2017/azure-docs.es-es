@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Hybrid Application" pageTitle="Aplicación híbrida en la nube/local (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Obtenga información acerca de cómo crear una aplicación híbrida en la nube o local de .NET con la retransmisión del Bus de servicio de Azure." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Hybrid Application" pageTitle="Aplicación híbrida en la nube/local (.NET) - Azure" metaKeywords="Azure Service Bus tutorial,hybrid .NET" description="Obtenga información acerca de cómo crear una aplicación híbrida en la nube o local de .NET con la retransmisión del Bus de servicio de Azure." metaCanonical="" services="service-bus" documentationCenter=".NET" title=".NET On-Premises/Cloud Hybrid Application Using Service Bus Relay" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/15/2014" ms.author="sethm" />
 
@@ -152,15 +152,12 @@ espacio de nombres.
 1.  En la ventana principal, haga clic en el nombre del espacio de nombres de servicio.   
 
 	![][39]
-  
 
 2.  Haga clic en **Connection Information**.   
 
 	![][40]
 
-
 3.  En el panel **Access connection information**, busque las entradas **Default Issuer** y **Default Key**.   
-    
 
 4.  Anote la clave o cópiela en el Portapapeles.
 
@@ -413,8 +410,8 @@ los datos recuperados del servicio de producto.
             }
         }
 
-2.  In the HomeController.cs file in Visual Studio, replace the existing
-    namespace definition with the following code:
+2.  En el archivo HomeController.cs en Visual Studio, sustituya la
+    definición del espacio de nombres existente por el código siguiente:
 
         namespace ProductsWeb.Controllers
         {
@@ -646,7 +643,7 @@ Ejecute la aplicación para comprobar que funciona.
 
     <h2>IMPLEMENTACIÓN DE LA APLICACIÓN EN AZURE</h2>
 
-    1.  Haga doble clic en el proyecto **ProductsPortal** en el **Explorador
+    1.  Haga clic con el botón secundario en el proyecto **ProductsPortal** en el **Explorador
         de soluciones** haga clic en **Publicación en Azure**.
 
     2.  Para ver todas sus suscripciones, es posible que tenga que iniciar sesión.
@@ -657,8 +654,7 @@ Ejecute la aplicación para comprobar que funciona.
 
     3.  Inicie sesión con su cuenta de Microsoft.
 
-
-    8.  Haga clic en **Next**. Si la suscripción no contiene todavía servicios
+    4.  Haga clic en **Next**. Si la suscripción no contiene todavía servicios
         hospedado, se le pedirá que cree uno. El servicio hospedado
         actúa como contenedor para su aplicación en la suscripción de
         Azure. Escriba un nombre que identifique su

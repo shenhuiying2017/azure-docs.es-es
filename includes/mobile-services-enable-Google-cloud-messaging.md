@@ -1,8 +1,11 @@
+
+
+
 1. Diríjase al sitio web [Google Cloud Console][Google Cloud Console], inicie sesión con las credenciales de su cuenta de Google y, a continuación, haga clic en **CREATE PROJECT**.
 
     ![][0]
 
-	> [WACOM.NOTE]Si dispone ya de un proyecto existente, se le dirigirá a la página **Projects** después de iniciar sesión. Para crear un nuevo proyecto desde el panel, expanda **API Project**, haga clic en **Create...** bajo **Other projects** y, a continuación, escriba un nombre de proyecto y haga clic en **Create project**.
+	>[WACOM.NOTE]Si dispone ya de un proyecto existente, se le dirigirá a la página **Projects** después de iniciar sesión. Para crear un nuevo proyecto desde el panel, expanda **API Project**, haga clic en **Create...** bajo **Other projects** y, a continuación, escriba un nombre de proyecto y haga clic en **Create project**.
 
 2. Escriba un nombre de proyecto, acepte los términos del servicio y haga clic en **Create**. Lleve a cabo la comprobación por SMS solicitada y haga clic de nuevo en **Create**.
 
@@ -12,7 +15,7 @@
 
 4. En la columna de la izquierda, haga clic en **APIs & auth**, a continuación desplácese hacia abajo, haga clic en el botón de alternancia para habilitar **Google Cloud Messaging for Android** y acepte los términos del servicio.
 
-    ![][1]
+	![][1]
 
 5. Haga clic en **Credentials** y, a continuación, en **CREATE NEW KEY**.
 

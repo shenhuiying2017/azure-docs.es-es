@@ -25,8 +25,8 @@ El servicio Tabla contiene los siguientes componentes:
 ![Tabla1][Tabla1]
 
 -   **Formato de dirección URL:** El código se desvía a las tablas en una cuenta con este
-    formato de dirección:
-    http://`<storage account>`.table.core.windows.net/`<table>`
+    formato de dirección:   
+    http://`<storage account>`.table.core.windows.net/`<table>`  
 
     Puede desviar las tablas de Azure directamente mediante esta dirección con el
     protocolo OData. Para obtener más información, consulte [OData.org][OData.org].

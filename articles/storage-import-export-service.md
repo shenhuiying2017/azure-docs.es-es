@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Azure Import/Export Service" pageTitle="Uso de la importación y exportación para transferir datos al almacenamiento en blobs | Microsoft Azure" metaKeywords="" description="Aprenda a crear trabajos de importación y exportación en el Portal de administración de Azure para transferir datos al almacenamiento en blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
+<properties urlDisplayName="Azure Import/Export Service" pageTitle="Uso de la importación y exportación para transferir datos al almacenamiento en blobs | Microsoft Azure" metaKeywords="" description="Aprenda a crear trabajos de importación y exportación en el Portal de administración de Azure para transferir datos al almacenamiento en blobs." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="Using the Azure Import/Export Service to Transfer Data to Blob Storage" authors="tamram" manager="adinah" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/25/2014" ms.author="tamram" />
 
@@ -156,7 +156,7 @@ Cree un trabajo de exportación para notificar al servicio de importación y exp
 
 	Si tiene un número de seguimiento, seleccione en la lista el transportista para la entrega y, a continuación, escriba el número de seguimiento. 
 
-	Si todavía no tiene un número de seguimiento, elija <strong>Facilitaré mi información de envío para este trabajo de exportación cuando haya enviado mi paquete</strong>y, a continuación, finalice el proceso de exportación.
+	Si todavía no tiene un número de seguimiento, elija <strong>Facilitaré mi información de envío para este trabajo de exportación cuando haya enviado mi paquete</strong> y, a continuación, finalice el proceso de exportación.
 
 6. Para escribir el número de seguimiento después de haber enviado el paquete, vuelva a la página **Importación/Exportación** de su cuenta de almacenamiento en el Portal de administración, seleccione el trabajo en la lista y elija **Información de envío**. Navegue por el asistente y escriba el número de seguimiento en el paso 2.
 
@@ -264,8 +264,8 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 - Para las regiones de Asia, solo se admite [DHL](http://www.dhl-welcome.com/Tutorial/) . Todos los paquetes se devolverán a través de DHL Express Worldwide.
 
 	<div class="dev-callout">
-	<strong>Important</strong>
-	<p>You must provide your tracking number to the Azure Import/Export service; otherwise your job cannot be processed.</p>
+	<strong>Importante</strong>
+	<p>Debe proporcionar su número de seguimiento al servicio de importación y exportación de Azure; de lo contrario, no se podrá procesar su trabajo.</p>
 	</div>
 
 **¿Existe algún coste asociado al envío de devolución?**

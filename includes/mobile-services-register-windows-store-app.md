@@ -1,4 +1,4 @@
-﻿
+
 1. Si aún no ha registrado su aplicación, vaya a la [página Enviar una aplicación] en el Centro de desarrollo de aplicaciones de la Tienda Windows, inicie sesión en su cuenta de Microsoft y, a continuación, haga clic en **Nombre de aplicación**.
 
    	![](./media/mobile-services-register-windows-store-app/mobile-services-submit-win8-app.png)
@@ -15,7 +15,7 @@
 
   	![](./media/mobile-services-register-windows-store-app/mobile-services-store-association.png)
 
-   	   	Se muestra el asistente **Asocie la aplicación con la Tienda Windows**.
+   	Se muestra el asistente **Asocie la aplicación con la Tienda Windows**.
 
 5. En el asistente, haga clic en **Iniciar sesión** y, a continuación, inicie sesión con su cuenta de Microsoft.
 
@@ -39,7 +39,7 @@
 
     >[WACOM.NOTE]El secreto de cliente y el SID del paquete son credenciales de seguridad importantes. No comparta esta información con nadie ni la distribuya con su aplicación.
 
-10. (Opcional) Haga clic en **Configuración de API**, habilite **Seguridad de redireccionamiento mejorada**, proporcione un valor de "https://<mobile_service>.azure-mobile.net/login/microsoftaccount" en **Dirección URL de redireccionamiento** y, a continuación, haga clic en **Guardar**.
+10. (Opcional) Haga clic en **Configuración de API**, habilite **Seguridad de redireccionamiento mejorada**, proporcione un valor de `https://<mobile_service>.azure-mobile.net/login/microsoftaccount` en **Dirección URL de redireccionamiento** y, a continuación, haga clic en **Guardar**.
 
 	![](./media/mobile-services-register-windows-store-app/mobile-services-win8-app-push-auth-2.png)
 

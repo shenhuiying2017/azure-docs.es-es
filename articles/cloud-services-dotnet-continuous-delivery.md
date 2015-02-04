@@ -22,7 +22,7 @@ Esta tarea incluye los siguientes pasos:
 
 Antes de crear un paquete de Azure con MSBuild, debe instalar el software y las herramientas necesarias en el servidor de compilación.
 
-No es necesario instalar Visual Studio en el servidor de compilación. Si desea usar el servicio de Team Foundation Build para administrar el servidor de compilación, siga las instrucciones que aparecen en el documento [Configurar el Servicio de Team Foundation Build][].
+No es necesario instalar Visual Studio en el servidor de compilación. Si desea usar el servicio de Team Foundation Build para administrar el servidor de compilación, siga las instrucciones que aparecen en el documento [Servicio de Team Foundation Build][].
 
 1.  En el servidor de compilación, instale [.NET Framework 4][], [.NET Framework 4.5][] o [.NET Framework 4.5.2][], que incluye MSBuild.
 2.  Instale las [herramientas de creación de Azure][] (busque WindowsAzureAuthoringTools-x86.msi o WindowsAzureAuthoringTools-x64.msi, según el procesador del servidor de compilación). Es posible que las versiones más antiguas de los archivos tenga WindowsAzure en el nombre de archivo.
@@ -48,7 +48,7 @@ En esta sección se describe cómo construir un comando de MSBuild que compila u
 
     Esta opción se puede abreviar como /t:Publish. La opción /t:Publish en MSBuild no debe confundirse con los comandos de publicación disponibles en Visual Studio cuando tiene instalado el SDK de Azure. La opción /t:Publish solo compila los paquetes de Azure. No implementa los paquetes como lo hacen los comandos de publicación en Visual Studio.
 
-    De manera opcional, puede especificar el nombre del proyecto como un parámetro de MSBuild. Si no se especifica, se utiliza el directorio actual. Para obtener más información acerca de las opciones de línea de comandos de MSBuild, consulte Referencia de la línea de comandos de MSBuild][1].
+    De manera opcional, puede especificar el nombre del proyecto como un parámetro de MSBuild. Si no se especifica, se utiliza el directorio actual. Para obtener más información acerca de las opciones de línea de comandos de MSBuild, consulte [Referencia de la línea de comandos de MSBuild][1].
 
 4.  Busque el resultado. De manera predeterminada, este comando crea un directorio en relación con la carpeta raíz para el proyecto, como por ejemplo *ProjectDir*\\bin\\*Configuration*\\app.publish\\. Al compilar un proyecto de Azure, se generan dos archivos: el archivo del paquete mismo y el archivo de configuración que lo acompaña:
 
@@ -69,7 +69,7 @@ En esta sección se describe cómo construir un comando de MSBuild que compila u
 
 <h2> <a name="step3"> </a>Paso 3: Compilar un paquete con TFS Team Build (opcional)</h2>
 
-Si tiene Team Foundation Server (TFS) configurado como un controlador de compilación y el servidor de compilación configurado como una máquina de compilación de TFS, entonces puede configurar una compilación automatizada para su paquete de Azure. Para obtener información acerca de como configurar y usar el servidor de Team Foundation como un sistema de compilación, consulte [Información sobre el sistema de compilación de Team Foundation][]. En particular, el procedimiento siguiente asume que ha configurado el servidor de compilación, tal como se ha descrito en [Configuración de una máquina de compilación][] y que ha creado un proyecto de equipo y un proyecto de servicio en la nube en el proyecto en equipo.
+Si tiene Team Foundation Server (TFS) configurado como un controlador de compilación y el servidor de compilación configurado como una máquina de compilación de TFS, entonces puede configurar una compilación automatizada para su paquete de Azure. Para obtener información acerca de como configurar y usar el servidor de Team Foundation como un sistema de compilación, consulte [Información sobre el sistema de Team Foundation Build][]. En particular, el procedimiento siguiente asume que ha configurado el servidor de compilación, tal como se ha descrito en [Configuración de una máquina de compilación][] y que ha creado un proyecto de equipo y un proyecto de servicio en la nube en el proyecto en equipo.
 
 Para configurar TFS a fin de compilar paquetes de Azure, realice los siguientes pasos:
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Web App with Storage" pageTitle="Aplicación web con almacenamiento de tablas (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="Un tutorial que se agrega a la aplicación web con el tutorial Express añadiendo servicios Almacenamiento de Azure y el módulo de Azure." metaCanonical="" services="cloud-services,storage" documentationCenter="nodejs" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Web App with Storage" pageTitle="Aplicación web con almacenamiento de tablas (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="Un tutorial que se agrega a la aplicación web con el tutorial Express añadiendo servicios Almacenamiento de Azure y el módulo de Azure." metaCanonical="" services="cloud-services,storage" documentationCenter="nodejs" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
 
@@ -13,8 +13,7 @@ En este tutorial, podrá ampliar la aplicación creada en el tutorial [Aplicaci�
 
 Los elementos de tarea se almacenan en el almacenamiento de Azure. El almacenamiento de Azure ofrece almacenamiento de datos no estructurados que es tolerante a errores y tiene una alta disponibilidad. El almacenamiento de Azure incluye varias estructuras de datos donde puede almacenar datos y tener acceso a ellos, además de aprovechar los servicios de almacenamiento de las API que se incluyen en el SDK de Azure para Node.js o mediante las API de REST. Para obtener más información, consulte [Almacenamiento de datos y acceso a los mismos en Azure].
 
-En este tutorial se asume que ha completado los tutoriales [Aplicación web
-Node.js] y [Node.js con Express][Node.js Web Application using Express].
+En este tutorial se asume que ha completado los tutoriales [Aplicación web Node.js] y [Aplicación web Node.js con Express].
 
 Aprenderá a:
 
@@ -70,7 +69,7 @@ Siga estos pasos para recuperar las credenciales de la cuenta de almacenamiento 
 
 		PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
-	The output of this command should appear similar to the following:
+	El resultado de este comando debe ser similar al siguiente:
 
 		node-uuid@1.4.1 node_modules\node-uuid
 

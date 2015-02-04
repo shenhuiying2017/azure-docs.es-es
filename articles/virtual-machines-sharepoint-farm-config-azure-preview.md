@@ -1,9 +1,9 @@
-﻿<properties title="SharePoint Server Farm Configuration Details" pageTitle="Detalles de configuración de una granja de servidores de SharePoint" description="Describe la configuración predeterminada de las granjas de SharePoint." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+<properties title="SharePoint Server Farm Configuration Details" pageTitle="Detalles de configuración de una granja de servidores de SharePoint" description="Describe la configuración predeterminada de las granjas de SharePoint." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
 
 
-#Detalles de configuración de una granja de servidores de SharePoint#
+# Detalles de configuración de una granja de servidores de SharePoint#
 
 Granja de servidores de SharePoint es una característica del Portal de vista previa de Microsoft Azure que crea automáticamente una granja de SharePoint Server 2013. Hay dos configuraciones de granja:
 
@@ -14,7 +14,7 @@ En las siguientes secciones se proporcionan detalles de configuración de cada g
 
 Para obtener información adicional, consulte [Granja de servidores de SharePoint](../virtual-machines-sharepoint-farm-azure-preview/).
 
-##Granja básica de SharePoint##
+## Granja básica de SharePoint##
 
 La granja básica de SharePoint consta de tres máquinas virtuales con la siguiente configuración:
 
@@ -57,7 +57,7 @@ A continuación se indican los detalles de configuración:
 	-	Frase de contraseña de granja de SharePoint: se especifica durante la configuración inicial.
 
 
-##Alta disponibilidad##
+## Alta disponibilidad##
 
 La granja de SharePoint de alta disponibilidad consta de nueve máquinas virtuales con la siguiente configuración:
 

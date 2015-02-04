@@ -16,11 +16,11 @@ Siga los pasos siguientes para crear un servicio móvil nuevo.
 
     ![][2]
 
-    Se muestra la página **Specify database settings**.
+   	Se muestra la página **Specify database settings**.
 
     <div class="dev-callout">
 	<b>Nota:</b> 
-	<p>Como parte de este tutorial, va a crear una instancia y un nuevo servidor de Base de datos SQL. Puede reutilizar esta nueva base de datos y administrarla como lo haría con cualquier otra instancia de Base de datos SQL. Si ya tiene una base de datos en la misma región que el nuevo servicio móvil, también puede elegir **Use existing Database** y, a continuación, seleccionar esa base de datos. No se recomienda el uso de una base de datos en una región diferente debido a los costes adicionales de ancho de banda y las elevadas latencias.</p></div>	
+	<p>Como parte de este tutorial, va a crear una instancia y un nuevo servidor de Base de datos SQL. Puede reutilizar esta nueva base de datos y administrarla como lo haría con cualquier otra instancia de Base de datos SQL. Si ya tiene una base de datos en la misma región que el nuevo servicio móvil, también puede elegir <strong>Use existing Database</strong> y, a continuación, seleccionar esa base de datos. No se recomienda el uso de una base de datos en una región diferente debido a los costes adicionales de ancho de banda y las elevadas latencias.</p></div>	
 
 5.  En **Name**, escriba el nombre de la base de datos nueva, luego escriba el **Login name**, que es el nombre de inicio de sesión de administrador para el nuevo servidor de Base de datos SQL, escriba y confirme la contraseña y haga clic en el botón de comprobación para completar el proceso.
 

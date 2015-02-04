@@ -1,12 +1,12 @@
-﻿<properties title="Getting started using Storm with Hadoop in HDInsight" pageTitle="Introducción a Apache Storm con Microsoft Azure HDInsight (Hadoop)" description="Aprenda a usar Apache Storm para procesar datos en tiempo real con HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Getting started using Storm with Hadoop in HDInsight" pageTitle="Introducción a Apache Storm con Microsoft Azure HDInsight (Hadoop)" description="Aprenda a usar Apache Storm para procesar datos en tiempo real con HDInsight (Hadoop)" metaKeywords="Azure hdinsight storm, Azure hdinsight realtime, azure hadoop storm, azure hadoop realtime, azure hadoop real-time, azure hdinsight real-time" services="hdinsight" solutions="" documentationCenter="big-data" authors="larryfr" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/30/2014" ms.author="larryfr" />
 
-#Introducción al uso de Storm con HDInsight (Hadoop)
+# Introducción al uso de Storm con HDInsight (Hadoop)
 
 Apache Storm es un sistema de cálculo distribuido, escalable, con tolerancia a errores y en tiempo real para el procesamiento de secuencias de datos. Con Azure HDInsight, puede crear un clúster de Hadoop basado en la nube que realice análisis en tiempo real de los datos con Storm.
 
-##En este tutorial, aprenderá a:
+## En este tutorial, aprenderá a:
 
 * [Aprovisionar un clúster de Storm en HDInsight](#provision)
 
@@ -20,7 +20,7 @@ Apache Storm es un sistema de cálculo distribuido, escalable, con tolerancia a 
 
 * [Pasos siguientes](#next)
 
-##Antes de empezar
+## Antes de empezar
 
 Debe cumplir los siguientes requisitos previos antes de realizar este tutorial.
 
@@ -30,7 +30,7 @@ Debe cumplir los siguientes requisitos previos antes de realizar este tutorial.
 
 * Si no está familiarizado con Apache Storm, primero debe leer el artículo [Introducción a Storm de HHDInsight](/en-us/documentation/articles/hdinsight-storm-overview) .
 
-##<a id="provision"></a>Aprovisionamiento de un clúster de Storm en el portal de Azure
+## <a id="provision"></a>Aprovisionamiento de un clúster de Storm en el portal de Azure
 
 [WACOM.INCLUDE [provisioningnote](../includes/hdinsight-provisioning.md)]
 
@@ -58,11 +58,11 @@ Debe cumplir los siguientes requisitos previos antes de realizar este tutorial.
 
 	![storage account](./media/hdinsight-storm-getting-started/wizard4.png)
 
-##Uso de Storm en HDInsight
+## Uso de Storm en HDInsight
 
 En la versión anterior de Storm en HDInsight, debe conectarse al clúster mediante Escritorio remoto para trabajar con Storm. Use los siguientes pasos para conectarse al clúster de HDInsight y usar el comando Storm.
 
-###<a id="connect"></a>Conexión al clúster
+### <a id="connect"></a>Conexión al clúster
 
 1. Habilite la conectividad de Escritorio remoto al clúster de HDInsight mediante el [Portal de administración de Azure][management]. En el portal, seleccione el clúster de HDInsight y luego seleccione __Habilitar de forma remota__ en la parte inferior de la página __Configuración__.
 
@@ -90,7 +90,7 @@ En la versión anterior de Storm en HDInsight, debe conectarse al clúster media
 
 El clúster de HDInsight incluye varios ejemplos de topologías de Storm. La muestra **WordcountTopology** se usa en los siguientes pasos. Para obtener más información sobre los ejemplos proporcionados con Storm en HDInsight, consulte [Pasos siguientes](#next).
 
-###<a id="run"></a>Ejecución de una topología de Storm
+### <a id="run"></a>Ejecución de una topología de Storm
 
 Para ejecutar **WordCountTopology**, use los siguientes comandos.
 
@@ -102,7 +102,7 @@ Con esto se indica a Storm que queremos ejecutar la topología **wordcount** des
 
 Observe que no se devuelve ningún resultado al insertar el comando. **Una topología de Storm, una vez que se inicia, se ejecuta hasta que la detiene.** La topología WordCountTopology generará instrucciones aleatorias y mantendrá un recuento del número de veces que encuentra cada palabra hasta que la detenga.
 
-###<a id="monitor"></a>Supervisión del estado de una topología de Storm
+### <a id="monitor"></a>Supervisión del estado de una topología de Storm
 
 La muestra WordCountTopology no escribe resultados en un directorio, pero podemos usar las páginas web de UI de Storm para ver el estado de la topología, así como el resultado.
 
@@ -143,7 +143,7 @@ La muestra WordCountTopology no escribe resultados en un directorio, pero podemo
 
 	En este fragmento de código, puede ver que el spout emitió 'snow white and the seven dwarfs', que se dividió en palabras individuales. Además, se está manteniendo un recuento de cuántas veces ha procesado la topología cada palabra desde que se iniciara. Por ejemplo, el spout había emitido la palabra 'dwarfs' 8360 cuando se vio el resultado anterior.
 
-###<a id="stop"></a>Detención de una topología de Storm
+### <a id="stop"></a>Detención de una topología de Storm
 
 La muestra **WordCountTopology** se seguirá ejecutando hasta que la detenga. Para detenerla, use el siguiente comando.
 
@@ -151,7 +151,7 @@ La muestra **WordCountTopology** se seguirá ejecutando hasta que la detenga. Pa
 
 Si ve la página web de la UI de Storm inmediatamente después de este comando, observará que el estado de **wordcount** en el **resumen de la topología** ha cambiado a KILLED. Al cabo de unos segundos, la topología ya no se mostrará en la sección de **resumen de la topología**.
 
-##<a id="next"></a>Pasos siguientes
+## <a id="next"></a>Pasos siguientes
 
 * **Archivos de muestra**: el clúster de Storm en HDInsight proporciona varios ejemplos en el directorio **%storm_home%\contrib**. Cada ejemplo debe contener lo siguiente:
 

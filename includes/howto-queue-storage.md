@@ -18,17 +18,17 @@ El servicio Cola contiene los siguientes componentes:
 
 ![Cola1][Cola1]
 
--   **Formato de dirección URL:** Es posible dirigir las colas con el siguiente formato de dirección URL:
+- **Formato de dirección URL:** Es posible dirigir las colas con el siguiente formato de dirección URL:   
     http://`<storage account>`.queue.core.windows.net/`<queue>`
 
-Las siguientes direcciones URL desvían una de las colas del diagrama:
- http://myaccount.queue.core.windows.net/imagesToDownload
+Las siguientes direcciones URL desvían una de las colas del diagrama:  
+	http://myaccount.queue.core.windows.net/imagesToDownload
 
 -**Cuenta de almacenamiento:** Todo el acceso a Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Consulte [Azure Storage Scalability and Performance Targets][Azure Storage Scalability and Performance Targets] para obtener información sobre la capacidad de la cuenta de almacenamiento.
 
--   **Cola:** Una cola contiene un conjunto de mensajes. Todos los mensajes deben encontrarse en una cola.
+- **Cola:** Una cola contiene un conjunto de mensajes. Todos los mensajes deben encontrarse en una cola.
 
--   **Mensaje:** Un mensaje, en cualquier formato, de hasta 64 KB.
+- **Mensaje:** Un mensaje, en cualquier formato, de hasta 64 KB.
 
   [Azure Storage Scalability and Performance Targets]: http://msdn.microsoft.com/es-es/library/dn249410.aspx
   [Cola1]: ./media/howto-queue-storage/queue1.png

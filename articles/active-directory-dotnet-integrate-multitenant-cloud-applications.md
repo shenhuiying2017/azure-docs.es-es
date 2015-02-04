@@ -57,7 +57,7 @@ Para generar un Id. y un secreto de cliente, tendrá que especificar las siguien
 
 **App Domain**: El nombre de host de la aplicación, por ejemplo "contoso.com". Esta propiedad no puede contener números de puerto. Durante el desarrollo, esta propiedad debe configurarse como "localhost".
 
-**App Redirect URL**: Dirección URL de redireccionamiento a la que Azure AD enviará una respuesta después de que el usuario inicie sesión y cuando una organización haya autorizado la aplicación, por ejemplo: "<https://contoso.com/>." Durante el desarrollo, esta propiedad debe establecerse en "<https://localhost>:\<número de puerto\>"
+**App Redirect URL**: Dirección URL de redireccionamiento a la que Azure AD enviará una respuesta después de que el usuario inicie sesión y cuando una organización haya autorizado la aplicación, por ejemplo: "https://contoso.com/." Durante el desarrollo, esta propiedad debe establecerse en "https://localhost:&#60;número de puerto&#62;"
 
 ### Paso 3: Configurar la aplicación para que use el Id. y el secreto de cliente
 

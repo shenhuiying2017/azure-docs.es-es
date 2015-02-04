@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introducción a los Centros de eventos" metaKeywords="Bus de servicio de Azure, Centro de eventos, introducción a los Centros de eventos" description="Siga este tutorial para empezar a usar eventos de envío de centros de eventos de Azure con C y recibirlos en un clúster de Apache Storm" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Introducción a los Centros de eventos" metaKeywords="Bus de servicio de Azure, Centro de eventos, introducción a los Centros de eventos" description="Siga este tutorial para empezar a usar eventos de envío de centros de eventos de Azure con C y recibirlos en un clúster de Apache Storm" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="c" ms.devlang="java" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
@@ -70,8 +70,8 @@ Ahora está listo para ejecutar las aplicaciones.
 ## Pasos siguientes
 Los siguientes recursos están disponibles para desarrollar aplicaciones que integran Centros de eventos y Storm.
 
-- [Análisis de los datos de sensor con Storm y HBase en HDInsight] es un escenario integral donde se usan Centros de eventos, Storm y HBase para introducir datos de sensores en un clúster de Hadoop.
-- [Desarrollo de aplicaciones de procesamiento de datos de streaming con SCP.NET y C# en Storm de HDInsight] es un tutorial donde se describe cómo escribir procesos de Storm con C#.
+- [Análisis de los datos de sensor con Storm y HDInsight] es un escenario integral donde se usan Centros de eventos, Storm y HBase para introducir datos de sensores en un clúster de Hadoop.
+- [Desarrollo de aplicaciones de procesamiento de datos de streaming con SCP.NET y C# en Storm y HDInsight] es un tutorial donde se describe cómo escribir procesos de Storm con C#.
 
 <!-- Images. -->
 [1]: ./media/service-bus-event-hubs-getstarted/create-event-hub1.png

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Authenticate with single sign-on" pageTitle="Autenticación de la aplicación con Live Connect (JavaScript)" metaKeywords="Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso, Azure JavaScript SSO" description="Obtenga información acerca de cómo usar el inicio de sesión único de Live Connect en Servicios móviles de Azure desde una aplicación de la Tienda Windows." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Store app with Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Authenticate with single sign-on" pageTitle="Autenticación de la aplicación con Live Connect (JavaScript)" metaKeywords="Azure Live Connect, Azure SSO, SSO Live Connect, mobile services sso, Windows Store app sso, Azure JavaScript SSO" description="Obtenga información acerca de cómo usar el inicio de sesión único de Live Connect en Servicios móviles de Azure desde una aplicación de la Tienda Windows." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Authenticate your Windows Store app with Live Connect single sign-on" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 
@@ -24,13 +24,13 @@ Este tutorial requiere lo siguiente:
 + Microsoft Visual Studio 2012 Express para Windows 8 RC o una versión posterior.
 + Primero debe completar el tutorial [Incorporación de servicios móviles a una aplicación existente].
 
-##<a name="register"></a>Registro de la aplicación para la Tienda Windows
+## <a name="register"></a>Registro de la aplicación para la Tienda Windows
 
 Para poder autenticar a los usuarios, debe enviar la aplicación a la Tienda Windows. A continuación, debe registrar el secreto de cliente para integrar Live Connect en Servicios móviles.
 
 [WACOM.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
-##<a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
+## <a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 
 [WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
@@ -43,7 +43,7 @@ Para poder autenticar a los usuarios, debe enviar la aplicación a la Tienda Win
 
 A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del servicio móvil.
 
-##<a name="add-authentication"></a>Incorporación de autenticación a la aplicación
+## <a name="add-authentication"></a>Incorporación de autenticación a la aplicación
 
 1. Descargue e instale el [SDK de Live para Windows].
 

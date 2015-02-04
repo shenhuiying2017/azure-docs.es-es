@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Table Service" pageTitle="Uso del almacenamiento de tablas (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Aprenda a usar el servicio de almacenamiento de tablas en Azure. Los ejemplos de código están escritos usando la API Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Table Service" pageTitle="Uso del almacenamiento de tablas (Node.js) | Microsoft Azure" metaKeywords="Azure table storage service, Azure table service Node.js, table storage Node.js" description="Aprenda a usar el servicio de almacenamiento de tablas en Azure. Los ejemplos de código están escritos usando la API Node.js." metaCanonical="" services="storage" documentationCenter="nodejs" title="How to Use the Table Service from Node.js" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
 
@@ -33,7 +33,7 @@ Esta guía le indicará cómo actuar en situaciones habituales usando el servici
 
 ## <a name="create-app"> </a>Creación de una aplicación Node.js
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube Node.js][Node.js Cloud Service] (usando Windows PowerShell) o [Sitio web con WebMatrix].
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube de Node.js][Servicio en la nube de Node.js] (usando Windows PowerShell) o [Sitio web con WebMatrix].
 
 ## <a name="configure-access"> </a>Configuración de su aplicación para obtener acceso al almacenamiento
 
@@ -68,7 +68,7 @@ Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte su
 
 El módulo azure leerá las variables de AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING para obtener la información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no configura estas variables de entorno, debe especificar la información de la cuenta al llamar a **TableService**.
 
-Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento]
+Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web Node.js con almacenamiento].
 
 ## <a name="create-table"> </a>Creación de una tabla
 
@@ -186,7 +186,7 @@ El "resultado" de las operaciones de actualización correctas contendrá la etiq
 ## <a name="change-entities"> </a>Trabajo con grupos de entidades
 A veces resulta útil enviar varias operaciones juntas en un lote a fin de garantizar el procesamiento atómico por parte del servidor. Para realizar esto, se usa la clase **TableBatch** para crear un lote y luego el método **executeBatch** de **TableService** para realizar las operaciones por lotes.
 
- The following example demonstrates submitting two entities in a batch:
+ El ejemplo siguiente demuestra cómo enviar dos entidades en un lote:
 
     var task1 = { 
 	  PartitionKey: {'_':'hometasks'},
@@ -406,7 +406,7 @@ para obtener información sobre cómo hacer tareas de almacenamiento más comple
 -   [Visite el Blog del equipo de almacenamiento de Azure][].
 -   Visite el repositorio del [SDK de almacenamiento de Azure para Node.js][] en GitHub.
 
-  [SDK de almacenamiento de Azure para Node]: https://github.com/Azure/azure-storage-node
+  [SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node
   [Pasos siguientes]: #next-steps
   [¿Qué es el servicio Tabla?]: #what-is
   [Conceptos]: #concepts

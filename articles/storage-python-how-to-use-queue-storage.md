@@ -1,10 +1,11 @@
-﻿<properties urlDisplayName="Queue Service" pageTitle="Uso del servicio de cola (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Los ejemplos están escritos en Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Queue Service" pageTitle="Uso del servicio de cola (Python) | Microsoft Azure" metaKeywords="Azure Queue Service messaging Python" description="Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Los ejemplos están escritos en Python." metaCanonical="" services="storage" documentationCenter="Python" title="How to Use the Queue Storage Service from Python" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="09/19/2014" ms.author="robmcm" />
 
 
 
-# Uso del servicio de almacenamiento en cola desde Python Esta guía le indicará cómo actuar en situaciones habituales usando el servicio de almacenamiento en cola de Microsoft Azure. Los ejemplos están escritos usando la API Python. Entre los escenarios descritos se incluyen la **inserción**, **inspección**, **obtención** y **eliminación** de mensajes de la cola, así como la **creación y eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][].
+# Uso del servicio de almacenamiento en cola desde Python 
+Esta guía le indicará cómo actuar en situaciones habituales usando el servicio de almacenamiento en cola de Microsoft Azure. Los ejemplos están escritos usando la API Python. Entre los escenarios descritos se incluyen la **inserción**, **inspección**, **obtención** y **eliminación** de mensajes de la cola, así como la **creación y eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][].
 
 ## Tabla de contenido
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to monitor" pageTitle="Supervisión de sitios web - Administración de servicios de Azure" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Obtenga información acerca de cómo supervisar sitios web de Azure mediante la página Monitor en el Portal de administración." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="How to monitor" pageTitle="Supervisión de sitios web - Administración de servicios de Azure" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Obtenga información acerca de cómo supervisar sitios web de Azure mediante la página Monitor en el Portal de administración." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
@@ -86,9 +86,9 @@ Para obtener más información acerca de las cuentas de almacenamiento de Azure,
 
 <div class="dev-callout"on> 
 <b>Note</b> 
-<p>Application logging to table or blob storage is only supported for .NET applications.</p> </div>
+<p>El registro de aplicaciones en almacenamiento de tablas o blobs solo es compatible con aplicaciones .NET.</p> </div>
 
-Since application logging to storage requires using a storage client to view the log data, it is most useful when you plan on using a service or application that understands how to read and process the data directly from Azure Table or Blob Storage. Logging to the file system produces files that can be downloaded to your local computer using FTP or other utilities as described later in this section.
+Como el registro de aplicaciones en almacenamiento requiere utilizar un cliente de almacenamiento para ver los datos de registro, resulta más útil cuando planea utilizar un servicio o aplicación que comprenda cómo leer y procesar los datos directamente desde el almacenamiento de tablas o blobs de Azure. El registro en el sistema de archivos genera archivos que se pueden descargar en el equipo local a través de FTP u otras utilidades, según se describe más adelante en esta sección.
 
 <div class="dev-callout"> 
 	<b>Nota:</b> 
@@ -211,19 +211,19 @@ Los archivos de registro que se generan después de habilitar el registro o el s
 
 **Tipo de archivo de registro: Registro de la aplicación**
 
-- Ubicación /LogFiles/Application/. Esta carpeta contiene uno o varios archivos de texto con información generada por el registro de aplicaciones. La información registrada incluye la fecha y la hora, el identificador del proceso (PID) de la aplicación y el valor que produce la instrumentación de la aplicación.
+- Ubicación: /LogFiles/Application/. Esta carpeta contiene uno o varios archivos de texto con información generada por el registro de aplicaciones. La información registrada incluye la fecha y la hora, el identificador del proceso (PID) de la aplicación y el valor que produce la instrumentación de la aplicación.
 
 - Lea los archivos con: Un editor de texto o un analizador que comprenda los valores que genera su aplicación
 
 **Tipo de archivo de registro: Seguimiento de solicitudes con error**
 
-- Location          : /LogFiles/W3SVC#########/. Esta carpeta contiene un archivo XSL y uno o varios archivos XML. Asegúrese de descargar el archivo XSL en el mismo directorio de los archivos XML, porque el archivo XSL proporciona funcionalidad para dar formato y filtrar los contenidos de los archivos XML cuando se visualizan en Internet Explorer. 
+- Ubicación: /LogFiles/W3SVC#########/. Esta carpeta contiene un archivo XSL y uno o varios archivos XML. Asegúrese de descargar el archivo XSL en el mismo directorio de los archivos XML, porque el archivo XSL proporciona funcionalidad para dar formato y filtrar los contenidos de los archivos XML cuando se visualizan en Internet Explorer. 
 
 - Lea los archivos con: Internet Explorer
 
 **Tipo de archivo de registro: Registro detallado de errores**
 
-- Location          : /LogFiles/DetailedErrors/. La carpeta /LogFiles/DetailedErrors/ contiene uno o más archivos .htm que proporcionan una amplia información para cualquier error HTTP que se haya generado. 
+- Ubicación: /LogFiles/DetailedErrors/. La carpeta /LogFiles/DetailedErrors/ contiene uno o más archivos .htm que proporcionan una amplia información para cualquier error HTTP que se haya generado. 
 
 - Lea los archivos con: Explorador web
 
@@ -239,7 +239,7 @@ Los archivos .htm incluyen las siguientes opciones:
 
 **Tipo de archivo de registro: Registro del servidor web**
 
-- Location          : /LogFiles/http/RawLogs. El formato de la información almacenada en los archivos se aplica con [formato de registro W3C extendido](http://go.microsoft.com/fwlink/?LinkID=90561). Sitios web Azure no utiliza los campos s-computername, s-ip y cs-version.
+- Ubicación: /LogFiles/http/RawLogs. El formato de la información almacenada en los archivos se aplica con [formato de registro W3C extendido](http://go.microsoft.com/fwlink/?LinkID=90561). Sitios web Azure no utiliza los campos s-computername, s-ip y cs-version.
 
 - Lea los archivos con: Analizador de registro. Se usa para analizar y consultar archivos de registro de IIS. El Analizador de registro 2.2 está disponible en el Centro de descarga de Microsoft en <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a>.
 

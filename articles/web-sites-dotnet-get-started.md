@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introducción a Sitios web Azure para ASP.NET" metaKeywords="" description="Este tutorial muestra cómo crear un proyecto web de ASP.NET en Visual Studio 2013 e implementarlo en un sitio web de Azure. En menos de 15 minutos tendrá una aplicación activa y en ejecución en la nube." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
+<properties pageTitle="Introducción a Sitios web Azure para ASP.NET" metaKeywords="" description="Este tutorial muestra cómo crear un proyecto web de ASP.NET en Visual Studio 2013 e implementarlo en un sitio web de Azure. En menos de 15 minutos tendrá una aplicación activa y en ejecución en la nube." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Get started with Azure Websites and ASP.NET" authors="tdykstra"  solutions="" manager="wpickett" editor="mollybos"  />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/12/2014" ms.author="tdykstra" />
 
@@ -101,9 +101,9 @@ El primer paso es crear un proyecto de aplicación web. Visual Studio creará au
 
 	Este valor especifica el centro de datos de Azure en el que se ejecutará el sitio web. Para este tutorial, puede seleccionar cualquier región y no habrá una diferencia notable, pero, para un sitio de producción, lo normal es que quiera tener el servidor web lo más cercano posible a los exploradores que accederán al sitio para minimizar la [latencia](http://www.bing.com/search?q=web%20latency%20introduction&qs=n&form=QBRE&pq=web%20latency%20introduction&sc=1-24&sp=-1&sk=&cvid=eefff99dfc864d25a75a83740f1e0090).
 
-5. No modifique los campos de la base de datos,
+5. No modifique los campos de la base de datos, ya que en este tutorial no se utiliza una base de datos. 
 
-	ya que en este tutorial no se utiliza una base de datos. En la sección [Pasos siguientes](#next-steps) al final de este documento encontrará un enlace a un tutorial que muestra cómo utilizar una base de datos.
+	En la sección [Pasos siguientes](#next-steps) al final de este documento encontrará un enlace a un tutorial que muestra cómo utilizar una base de datos.
 
 6. Haga clic en **Aceptar**.
 
@@ -270,11 +270,11 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
 
 	En este tutorial hemos visto el método más rápido de crear un sitio e implementarlo en una sola operación. Para obtener información general sobre las formas de realizar implementaciones, mediante Visual Studio o con la [implementación automática](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/continuous-integration-and-continuous-delivery) desde un [sistema de control de código fuente](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/source-control), consulte [Implementación de un sitio web de Azure](/en-us/documentation/articles/web-sites-deploy/"). 
 
-	Visual Studio can also generate Windows PowerShell scripts that enable you to automate deployment. For more information, see [Automate Everything (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
+	Visual Studio puede generar también scripts de Windows PowerShell que permiten automatizar la implementación. Para obtener más información, consulte [Automate Everything (Building Real-World Cloud Apps with Azure)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything).
 
-* How to manage a website in Visual Studio
+* Administración de un sitio web en Visual Studio
 
-	For information about site management functions that you can do in **Server Explorer**, see [Troubleshooting Azure Websites in Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+	Para obtener información acerca de las funciones de administración de sitios que puede usar en el **Explorador de servidores**, consulte [Solución de problemas de Sitios web Azure en Visual Studio](/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 * Solución de problemas de un sitio web
 

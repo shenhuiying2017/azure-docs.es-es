@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Install SQL Server" pageTitle="Aprovisionamiento de una máquina virtual de SQL Server en Azure " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="Un tutorial que le enseña cómo crear y configurar una máquina virtual de SQL Server en Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Provisioning a SQL Server Virtual Machine on Azure" authors="selcint" solutions="" manager="jhubbard" editor="tyson" />
+<properties urlDisplayName="Install SQL Server" pageTitle="Aprovisionamiento de una máquina virtual de SQL Server en Azure " metaKeywords="Azure tutorial creating SQL Server, SQL Server vm, configuring SQL Server" description="Un tutorial que le enseña cómo crear y configurar una máquina virtual de SQL Server en Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Provisioning a SQL Server Virtual Machine on Azure" authors="selcint" solutions="" manager="jhubbard" editor="tyson" />
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="" />
 
@@ -69,7 +69,7 @@ En este tutorial, aprenderá lo siguiente:
 8. Espere a que Azure prepare la máquina virtual. Espere el estado de la máquina virtual para continuar:
 
 	- Inicio (aprovisionamiento)
-	- Stopped
+	- Detenido
 	- Inicio (aprovisionamiento)
 	- Ejecución (aprovisionamiento)
 	- Ejecución
@@ -333,7 +333,7 @@ Ha visto cómo crear y configurar SQL Server en una máquina virtual de Azure me
 - Tutorial: Configuración del agente de escucha de los Grupos de disponibilidad AlwaysOn
 - Tutorial: Asistente para agregar una réplica de Azure
 - Tutorial: Creación de reflejo de la base de datos para la recuperación ante desastres en Azure
-- Tutorial: Database Mirroring for Disaster Recovery in Hybrid IT 
+- Tutorial: Creación de reflejo de la base de datos para la recuperación ante desastres en entornos informáticos híbridos 
 - Tutorial: Creación de reflejo de la base de datos para alta disponibilidad en Azure
 - Tutorial: Trasvase de registros para la recuperación ante desastres en entornos informáticos híbridos 
 - Solucionar problemas de agente de escucha del grupo de disponibilidad de Azure

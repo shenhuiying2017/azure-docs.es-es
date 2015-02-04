@@ -18,7 +18,7 @@
 
     El atributo **JsonPropertyAttribute** se usa para definir la asignación entre los nombres de propiedad en el tipo de cliente y los nombres de columna en la tabla de datos subyacente.
 
-    > [WACOM.NOTE] En un proyecto de aplicación universal de Windows, la clase TodoItem se define en un archivo de código independiente en la carpeta compartida DataModel.
+    >[WACOM.NOTE] En un proyecto de aplicación universal de Windows, la clase TodoItem se define en un archivo de código independiente en la carpeta compartida DataModel.
 
 3.  En MainPage.xaml.cs, elimine o convierta en comentario la línea que define la colección de elementos existente y luego quite la marca de comentario o agregue las siguientes líneas y reemplace *\<suCliente\>* por el campo `MobileServiceClient` que se agregó al archivo App.xaml.cs cuando conectó su proyecto al servicio móvil:
 

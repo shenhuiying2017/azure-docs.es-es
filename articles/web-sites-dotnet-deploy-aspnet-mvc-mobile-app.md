@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle="Sitio web móvil .NET ASP.NET MVC 5 - Tutoriales de Azure" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="Un tutorial que le enseña cómo implementar una aplicación web en un sitio web de Azure mediante las características móviles en la aplicación web MVC 5 de  de ASP.NET." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="ASP.NET MVC 5 mobile website" pageTitle="Sitio web móvil .NET ASP.NET MVC 5 - Tutoriales de Azure" metaKeywords="Azure tutorial, Azure web app tutorial, Azure mobile app, Azure ASP.NET MVC 5,,ASP.NET MVC" description="Un tutorial que le enseña cómo implementar una aplicación web en un sitio web de Azure mediante las características móviles en la aplicación web MVC 5 de  de ASP.NET." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Deploy an ASP.NET MVC Mobile Web Application on Azure Websites" authors="cephalin,riande" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="cephalin,riande" />
 
@@ -170,8 +170,7 @@ En cada llamada de "Html.ActionLink" de la barra de navegación, que "Explorar p
     </ul>
 
 Copie el archivo *Views\\Home\\AllTags.cshtml* a
-*Views\\Home\\AllTags.Mobile.cshtml*. Abra el archivo nuevo y cambie el elemento
-`<h2>` de "Tags" a "Tags (M)":
+*Views\\Home\\AllTags.Mobile.cshtml*. Abra el archivo nuevo y cambie el elemento `<h2>` de "Tags" a "Tags (M)":
 
     <h2>Tags (M)</h2>
 
@@ -200,7 +199,7 @@ Este código define un nuevo modo de visualización llamado "iPhone" que se comp
 
 >[WACOM.NOTE] Al agregar modos de visualización específica de explorador móvil, tal como para iPhone y Android, asegúrese de establecer el primer argumento en "0" (insértelo al principio de la lista) para que el modo específico de explorador tenga prioridad sobre la plantilla móvil (*.Mobile.cshtml). Si la plantilla móvil está al principio de la lista, se seleccionará sobre el modo de visualización esperado (la primera coincidencia tiene prioridad y la plantilla móvil coincide con todos los exploradores móviles). 
 
-En el código, haga clic con el botón secundario en "DefaultDisplayMode", seleccione**Resolver** y, a continuación, elija "using System.Web.WebPages;". De este modo, se agrega una referencia al espacio de nombres "System.Web.WebPages", que es donde se definen los tipos "DisplayModeProvider" y "DefaultDisplayMode".
+En el código, haga clic con el botón secundario en "DefaultDisplayMode", seleccione **Resolver** y, a continuación, elija "using System.Web.WebPages;". De este modo, se agrega una referencia al espacio de nombres "System.Web.WebPages", que es donde se definen los tipos "DisplayModeProvider" y "DefaultDisplayMode".
 
 ![][ResolveDefaultDisplayMode]
 
@@ -210,7 +209,7 @@ Como alternativa, puede agregar manualmente la siguiente línea a la sección "u
 
 Guarde los cambios. Copie el archivo *Views\\Shared\\\_Layout.Mobile.cshtml* a *Views\\Shared\\\_Layout.iPhone.cshtml*. Abra el archivo nuevo y cambie el título "Aplicación MVC5 (Móvil)" a "Aplicación MVC5 (iPhone)".
 
-Copie el archivo *Views\\Home\\AllTags.Mobile.cshtml* a *Views\\Home\\AllTags.iPhone.cshtml*. En el archivo nuevo, cambie el elemento "<h2>" de "Tags (M)" a "Tags (iPhone)".
+Copie el archivo *Views\\Home\\AllTags.Mobile.cshtml* a *Views\\Home\\AllTags.iPhone.cshtml*. En el archivo nuevo, cambie el elemento `<h2>` de "Tags (M)" a "Tags (iPhone)".
 
 Ejecute la aplicación. Ejecute el emulador de explorador móvil, asegúrese de que su agente de usuario esté establecido en "iPhone" y diríjase a la vista *AllTags*. Si usa el emulador en las herramientas para desarrollador de Internet Explorer 11 F12,configure la emulación según se indica a continuación:
 

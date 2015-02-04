@@ -47,18 +47,9 @@ El código siguiente crea un objeto **TableService** utilizando el nombre de la 
 
 ## <a name="add-entity"> </a>Incorporación de una entidad a una tabla
 
-Para agregar una entidad, primero cree un diccionario que defina los
-valores y nombres de las propiedades de la entidad. Tenga en cuenta que para cada entidad debe
-especificar un valor para **PartitionKey** y **RowKey**. Se trata de los identificadores exclusivos
-de las entidades, que son valores que se pueden consultar con mucha más rapidez
-que otras propiedades. El sistema usa **PartitionKey** para
-distribuir automáticamente las entidades de tabla entre muchos nodos de almacenamiento.
-Las entidades con la misma **PartitionKey** se almacenan en el mismo nodo. El valor
-**RowKey** es el identificador exclusivo de la entidad de la partición a la que
-pertenece.
+Para agregar una entidad, primero cree un diccionario que defina los valores y nombres de las propiedades de la entidad. Tenga en cuenta que para cada entidad debe especificar un valor para **PartitionKey** y **RowKey**. Se trata de los identificadores exclusivos de las entidades, que son valores que se pueden consultar con mucha más rapidez que otras propiedades. El sistema usa **PartitionKey** para distribuir automáticamente las entidades de tabla entre muchos nodos de almacenamiento. Las entidades con la misma **PartitionKey** se almacenan en el mismo nodo. El valor **RowKey** es el identificador exclusivo de la entidad de la partición a la que pertenece.
 
-Para agregar una entidad a su tabla, pase un objeto de diccionario
-al método **insert\_entity**.
+Para agregar una entidad a su tabla, pase un objeto de diccionario al método **insert\_entity**.
 
 	task = {'PartitionKey': 'tasksSeattle', 'RowKey': '1', 'description' : 'Take out the trash', 'priority' : 200}
 	table_service.insert_entity('tasktable', task)
@@ -74,8 +65,7 @@ También puede pasar una instancia de la clase **Entity** al método **insert\_e
 
 ## <a name="update-entity"> </a>Actualización de una entidad
 
-Este código muestra cómo reemplazar la versión anterior de una entidad existente
-con una versión actualizada.
+Este código muestra cómo reemplazar la versión anterior de una entidad existente con una versión actualizada.
 
 	task = {'description' : 'Take out the garbage', 'priority' : 250}
 	table_service.update_entity('tasktable', 'tasksSeattle', '1', task)
@@ -101,8 +91,7 @@ A veces resulta útil enviar varias operaciones juntas en un lote a fin de garan
 
 ## <a name="query-for-entity"> </a>Consulta de una entidad
 
-Para consultar una entidad en una tabla, use el método **get\_entity**; para ello, pase
-los valores **PartitionKey** y **RowKey**.
+Para consultar una entidad en una tabla, use el método **get\_entity**; para ello, pase los valores **PartitionKey** y **RowKey**.
 
 	task = table_service.get_entity('tasktable', 'tasksSeattle', '1')
 	print(task.description)

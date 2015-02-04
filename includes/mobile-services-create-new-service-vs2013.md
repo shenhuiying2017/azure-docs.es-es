@@ -1,4 +1,4 @@
-﻿
+
 
 Los siguientes pasos permiten crear un servicio móvil en Azure y agregar al proyecto un código que conecte su aplicación con este nuevo servicio. Visual Studio 2013 se conecta a Azure en su nombre para crear el nuevo servicio móvil usando las credenciales que usted facilita. Cuando se crea un servicio móvil, es necesario especificar una Base de datos SQL de Azure. Esta base de datos la utilizará el servicio móvil para almacenar los datos de aplicaciones. 
 
@@ -21,9 +21,8 @@ Los siguientes pasos permiten crear un servicio móvil en Azure y agregar al pro
 
   	![create new mobile service in VS 2013](./media/mobile-services-create-new-service-vs2013/mobile-create-service-from-vs2013-2.png)
 
-
-	> [WACOM.NOTE]
-	> Como parte de este tutorial, va a crear una nueva instancia y un nuevo servidor de Base de datos SQL libre. Puede reutilizar esta nueva base de datos y administrarla como lo haría con cualquier otra instancia de Base de datos SQL. Solo puede tener una instancia de base de datos libre. Si ya tiene una base de datos en la misma región que el nuevo servicio móvil, puede elegir en su lugar la base de datos existente. Cuando elija una base de datos existente, asegúrese de suministrar las credenciales de inicio de sesión correctas. En caso contrario, el servicio móvil se creará con un estado incorrecto.
+   > [WACOM.NOTE]
+   > Como parte de este tutorial, va a crear una nueva instancia y un nuevo servidor de Base de datos SQL libre. Puede reutilizar esta nueva base de datos y administrarla como lo haría con cualquier otra instancia de Base de datos SQL. Solo puede tener una instancia de base de datos libre. Si ya tiene una base de datos en la misma región que el nuevo servicio móvil, puede elegir en su lugar la base de datos existente. Cuando elija una base de datos existente, asegúrese de suministrar las credenciales de inicio de sesión correctas. En caso contrario, el servicio móvil se creará con un estado incorrecto.
 
 7. Después de crear el servicio móvil, selecciónelo en la lista del Administrador de servicios y haga clic en **Aceptar**.
 

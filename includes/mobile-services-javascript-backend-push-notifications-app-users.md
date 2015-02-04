@@ -1,11 +1,11 @@
-﻿
+
 1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
 
-   	![](./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png)
+ ![](./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-selection.png)
 
 2. Haga clic en la pestaña **Insertar**, seleccione **Solo usuarios autenticados** para **Permisos** y, a continuación, haga clic en **Editar script**.
 
-   	![](./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-push-registration-endpoint.png)
+ ![](./media/mobile-services-javascript-backend-push-notifications-app-users/mobile-services-push-registration-endpoint.png)
 	
 	Esto permite personalizar la función de devolución de llamada de registro de la notificación de inserción. Si usa Git para editar el código de origen, esta misma función de registro se encuentra en ".\service\extensions\push.js".
 

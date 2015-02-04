@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introducción a los Servicios móviles con PhoneGap | Centro de desarrollo móvil" metaKeywords="" description="Siga este tutorial para empezar a usar Servicios móviles de Azure para el desarrollo de PhoneGap para iOS, Android y Windows Phone." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Introducción a los Servicios móviles con PhoneGap | Centro de desarrollo móvil" metaKeywords="" description="Siga este tutorial para empezar a usar Servicios móviles de Azure para el desarrollo de PhoneGap para iOS, Android y Windows Phone." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-phonegap" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga" />
 
@@ -154,7 +154,7 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Introducción a los datos]: /en-us/documentation/articles/mobile-services-html-get-started-data
 [Introducción a la autenticación]: /en-us/documentation/articles/mobile-services-html-get-started-users
 [Introducción a las notificaciones de inserción]: /en-us/develop/mobile/tutorials/mobile-services-html-get-started-push
-[SDK de Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
+[Android SDK]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 [Portal de administración]: https://manage.windowsazure.com/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio 2012 Express para Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374

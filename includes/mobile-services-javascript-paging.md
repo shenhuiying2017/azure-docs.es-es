@@ -1,4 +1,4 @@
-﻿
+
 
 1. En Visual Studio, abra el proyecto que ha modificado al completar el tutorial **Introducción a los datos**.
 
@@ -44,7 +44,7 @@
                 });
         };
 
-Esta consulta omite los tres primeros resultados y devuelve los tres siguientes. Esa es realmente la segunda página de datos en la que el tamaño de página cuenta con tres elementos.
+   	Esta consulta omite los tres primeros resultados y devuelve los tres siguientes. Esa es realmente la segunda página de datos en la que el tamaño de página cuenta con tres elementos.
 
     <div class="dev-callout"><b>Nota:</b>
     <p>Este tutorial usa un escenario simplificado para pasar valores de paginación codificados de forma rígida a los métodos <strong>Take</strong> y <strong>Skip</strong>. En una aplicación en tiempo real, puede usar consultas similares a las anteriores con un control de paginación o interfaz de usuario comparable para permitir a los usuarios desplazarse a las páginas anteriores y posteriores.  También puede llamar al método <strong>includeTotalCount</strong> para obtener el recuento total de elementos disponibles en el servidor, junto con los datos paginados.</p>
@@ -52,7 +52,7 @@ Esta consulta omite los tres primeros resultados y devuelve los tres siguientes.
 
 6. (Opcional) Vea de nuevo el URI de la solicitud enviada al servicio móvil. 
 
-Observe que el método **skip(3)** se ha traducido en la opción de consulta **$skip=3** en el URI de la consulta.
+   	Observe que el método **skip(3)** se ha traducido en la opción de consulta **$skip=3** en el URI de la consulta.
 
 <!-- URLs -->
 [Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412

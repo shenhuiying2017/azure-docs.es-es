@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Create Web and Worker Roles" pageTitle="Creación de roles web y de trabajo" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Create Web and Worker Roles" pageTitle="Creación de roles web y de trabajo" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="PHP" title="How to create PHP web and worker roles" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="10/28/2014" ms.author="tomfitz" />
 
@@ -204,19 +204,19 @@ Para detener los emuladores, ejecute este comando:
 
 Para publicar la aplicación, primero tiene que importar la configuración de la publicación con el cmdlet **Import-PublishSettingsFile** y, a continuación, puede publicar la aplicación con el cmdlet **Publish-AzureServiceProject**. Puede encontrar información detallada acerca del uso de cada uno de estos cmdlets en [Importación de la configuración de publicación] e [Implementación de un servicio en la nube en Azure], respectivamente.
 
-[execution model-web sites]: /en-us/develop/net/fundamentals/compute/#WebSites
-[execution model-vms]: /en-us/develop/net/fundamentals/compute/#VMachine
-[execution model-cloud services]: /en-us/develop/net/fundamentals/compute/#CloudServices
-[Azure SDK para PHP]: /en-us/develop/php/common-tasks/download-php-sdk/
+[execution model-web sites]: /es-es/develop/net/fundamentals/compute/#WebSites
+[execution model-vms]: /es-es/develop/net/fundamentals/compute/#VMachine
+[execution model-cloud services]: /es-es/develop/net/fundamentals/compute/#CloudServices
+[SDK de Azure para PHP]: /es-es/develop/php/common-tasks/download-php-sdk/
 [install ps and emulators]: http://go.microsoft.com/fwlink/?LinkId=253447&clcid=0x409
-[¿Qué es un servicio en la nube?]: /en-us/manage/services/cloud-services/what-is-a-cloud-service/
-[service definition (.csdef)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx
-[service configuration (.cscfg)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
+[¿Qué es un servicio en la nube?]: /es-es/manage/services/cloud-services/what-is-a-cloud-service/
+[definición de servicio (.csdef)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758711.aspx
+[configuración del servicio (.cscfg)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
 [sql native client]: http://msdn.microsoft.com/en-us/sqlserver/aa937733.aspx
-[controladores de sqlsrv]: http://php.net/sqlsrv
+[sqlsrv drivers]: http://php.net/sqlsrv
 [instalador sqlncli.msi x64]: http://go.microsoft.com/fwlink/?LinkID=239648
-[Importación de configuración de publicación].: /en-us/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
-[Implementación de un servicio en la nube en Azure]: /en-us/develop/php/how-to-guides/powershell-cmdlets/#Deploy
+[Importación de la configuración de publicación]: /es-es/develop/php/how-to-guides/powershell-cmdlets/#ImportPubSettings
+[Implementación de un servicio en la nube en Azure]: /es-es/develop/php/how-to-guides/powershell-cmdlets/#Deploy
 
 <!--HONumber=35.1-->

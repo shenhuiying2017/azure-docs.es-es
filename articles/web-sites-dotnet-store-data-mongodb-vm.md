@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Website with MongoDB VM" pageTitle="Sitio web .NET con MongoDB en una máquina virtual - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="Un tutorial que le enseña a usar Git para implementar una aplicación ASP.NET en un sitio web de Azure conectado a MongoDB en una máquina virtual." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Website with MongoDB VM" pageTitle="Sitio web .NET con MongoDB en una máquina virtual - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="Un tutorial que le enseña a usar Git para implementar una aplicación ASP.NET en un sitio web de Azure conectado a MongoDB en una máquina virtual." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
 
@@ -359,7 +359,7 @@ Para configurar el menú Task List, abra el archivo *\Views\Home\Index.cshtml* y
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-To add the ability to create a new task, right-click the *Views\Home\\* folder and **Add** a **View**.  Name the view *Create*. Replace the code with the following:
+Para agregar la capacidad de crear una nueva tarea, haga clic con el botón secundario en la carpeta *Views\Home\\* y utilice la opción **Add** para agregar una vista en **View**.  Póngale a la vista el nombre *Create*. Reemplace el código por lo siguiente:
 
 	@model MyTaskListApp.Models.MyTask
 	

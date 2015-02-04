@@ -1,4 +1,4 @@
-﻿# Publicación de Sitios web de Azure con Git
+# Publicación de Sitios web de Azure con Git
 
 Los Sitios web de Azure admiten el desarrollo continuo desde el control de código fuente y herramientas de repositorio como BitBucket, CodePlex, Dropbox, Git, GitHub, Mercurial y TFS. Puede utilizar estas herramientas para mantener el contenido y el código de su sitio web y, después, insertar los cambios de forma rápida y fácil en el sitio cuando lo desee.
 
@@ -247,7 +247,7 @@ A continuación se indican los errores o problemas que se suelen encontrar al ut
 
 ****
 
-**Síntoma**: No se pudo acceder a "[siteURL]": Error de conexión a [scmAddress]
+**Síntoma**: Unable to access '[siteURL]':Failed to connect to [scmAddress]
 
 **Causa**: Este error puede ocurrir si el sitio web no está en línea y en ejecución.
 
@@ -256,7 +256,7 @@ A continuación se indican los errores o problemas que se suelen encontrar al ut
 
 ****
 
-**Síntoma**: No se pudo resolver el host "nombre de host".
+**Síntoma**: Couldn't resolve host 'hostname'
 
 **Causa**: Este error puede ocurrir si la información de dirección introducida al crear el repositorio remoto "azure" era incorrecta.
 
@@ -264,7 +264,7 @@ A continuación se indican los errores o problemas que se suelen encontrar al ut
 
 ****
 
-**Síntoma**: No hay referencias en común y no se ha especificado nada; sin hacer nada. Quizá hay que especificar una rama como "principal".
+**Síntoma**: No refs in common and none specified; doing nothing. Perhaps you should specify a branch such as 'master'.
 
 **Causa**: Este error puede ocurrir si no especifica una rama al realizar una operación de inserción en Git y no hay establecido el valor push.default utilizado por Git.
 
@@ -274,7 +274,7 @@ A continuación se indican los errores o problemas que se suelen encontrar al ut
 
 ****
 
-**Síntoma**: src refspec [nombre rama] no coincide con nada.
+**Síntoma**: src refspec [branchname] does not match any.
 
 **Causa**: Este error puede tener lugar si intenta insertar una rama que no es la principal en el repositorio remoto "azure".
 
@@ -284,7 +284,7 @@ A continuación se indican los errores o problemas que se suelen encontrar al ut
 
 ****
 
-**Síntoma**: Error: los cambios se han confirmado en el repositorio remoto pero el sitio web no se ha actualizado.
+**Síntoma**: Error - Changes commited to remote repository but your website not updated.
 
 **Causa**: Este error puede ocurrir si está implementando una aplicación Node.js que contiene un archivo package.json que especifica módulos requeridos adicionales.
 

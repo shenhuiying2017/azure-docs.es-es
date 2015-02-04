@@ -122,31 +122,31 @@ en la carpeta de salida. Para ello, siga estos pasos:
 
 	El siguiente ejemplo de código muestra un modelo de servicio de ejemplo en un archivo **services.xml**:
 
-    <?xml version="1.0" encoding="utf-8" ?>
-    <serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
-      <subscriptions>
-        <subscription name="[subscriptionname]"
-                      certificateThumbprint="[managementcertificatethumbprint]"
-                      subscriptionId="[subscriptionid]"
-                      certificateStoreLocation="CurrentUser"
-                      certificateStoreName="My">
-          <services>
-            <service dnsPrefix="[hostedservicednsprefix]" slot="Staging">
-              <roles>
-                <role alias="AutoscalingApplicationRole"
-                      roleName="[targetrolename]"
-                      wadStorageAccountName="targetstorage"/>
-              </roles>
-            </service>
-          </services>
-          <storageAccounts>
-            <storageAccount alias="targetstorage"
-              connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
-            </storageAccount>
-          </storageAccounts>
-        </subscription>
-      </subscriptions>
-    </serviceModel>
+    	<?xml version="1.0" encoding="utf-8" ?>
+    	<serviceModel xmlns="http://schemas.microsoft.com/practices/2011/entlib/autoscaling/serviceModel">
+      	<subscriptions>
+        	<subscription name="[subscriptionname]"
+                      	certificateThumbprint="[managementcertificatethumbprint]"
+                      	subscriptionId="[subscriptionid]"
+                      	certificateStoreLocation="CurrentUser"
+                      	certificateStoreName="My">
+          	<services>
+            	<service dnsPrefix="[hostedservicednsprefix]" slot="Staging">
+              	<roles>
+                	<role alias="AutoscalingApplicationRole"
+                      	roleName="[targetrolename]"
+                      	wadStorageAccountName="targetstorage"/>
+              	</roles>
+            	</service>
+          	</services>
+          	<storageAccounts>
+            	<storageAccount alias="targetstorage"
+              	connectionString="DefaultEndpointsProtocol=https;AccountName=[storageaccountname];AccountKey=[storageaccountkey]">
+            	</storageAccount>
+          	</storageAccounts>
+        	</subscription>
+      	</subscriptions>
+    	</serviceModel>
 
 Debe reemplazar los valores de los corchetes por valores específicos para
 su entorno y aplicación de destino. Para encontrar esos valores,

@@ -1,4 +1,4 @@
-﻿## Envío de mensajes a Centros de eventos
+## Envío de mensajes a Centros de eventos
 En esta sección se escribirá una aplicación C para enviar eventos al centro de eventos. Utilizaremos la biblioteca Proton AMQP del [proyecto Apache Qpid](http://qpid.apache.org/). Esto es parecido a usar temas y colas de Bus de servicio con AMQP a través de C como se muestra [aquí](https://code.msdn.microsoft.com/windowsazure/Using-Apache-Qpid-Proton-C-afd76504). Para obtener más información, consulte la [documentación de Qpid Proton](http://qpid.apache.org/proton/index.html).
 
 1. En la [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html), haga clic en el vínculo **Installing Qpid Proton** (Instalación de Qpid Proton) y siga las instrucciones aplicables a su entorno. Suponemos un entorno de Linux, por ejemplo, una [VM de Linux de Azure](http://azure.microsoft.com/es-es/documentation/articles/virtual-machines-linux-tutorial/) con Ubuntu 14.04.
@@ -104,4 +104,4 @@ En esta sección se escribirá una aplicación C para enviar eventos al centro d
 
 		gcc sender.c -o sender -lqpid-proton
 
-	 En el código anterior, utilizamos una ventana de salida de 1 para forzar que los mensajes salgan tan pronto como sea posible. En general la aplicación debe probar con los mensajes por lotes para aumentar el rendimiento. Consulte la [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) para obtener más información sobre cómo utilizar la biblioteca de Qpid Proton en este y otros entornos y desde las plataformas para las que se proporcionan enlaces (actualmente, Perl, PHP, Python y Ruby).
+> [AZURE.NOTE] En el código anterior, utilizamos una ventana de salida de 1 para forzar que los mensajes salgan tan pronto como sea posible. En general la aplicación debe probar con los mensajes por lotes para aumentar el rendimiento. Consulte la [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) para obtener más información sobre cómo utilizar la biblioteca de Qpid Proton en este y otros entornos y desde las plataformas para las que se proporcionan enlaces (actualmente, Perl, PHP, Python y Ruby).

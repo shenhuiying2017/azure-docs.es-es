@@ -1,3 +1,5 @@
+
+
 De manera predeterminada, todas las solicitudes a recursos de servicios móviles están restringidas a clientes que presentan la clave de aplicación, lo que no protege estrictamente el acceso a los recursos. Para proteger los recursos, debe restringir el acceso únicamente a los clientes autenticados.
 
 1.  En Visual Studio, abra el proyecto que contiene el servicio móvil.
@@ -16,7 +18,7 @@ De manera predeterminada, todas las solicitudes a recursos de servicios móviles
 
     De esta forma, se garantiza que todas las operaciones en la tabla **TodoItem** requieren un usuario autenticado.
 
-    > [WACOM.NOTE]Aplique el atributo AuthorizeLevel a métodos individuales para establecer los niveles de autorización específicos en los métodos expuestos por el controlador.
+    >[WACOM.NOTE]Aplique el atributo AuthorizeLevel a métodos individuales para establecer los niveles de autorización específicos en los métodos expuestos por el controlador.
 
 5.  Si desea depurar la autenticación localmente, expanda la carpeta App\_Start, abra el archivo de proyecto WebApiConfig.cs y, a continuación, agregue el código siguiente al método **Register**:
 

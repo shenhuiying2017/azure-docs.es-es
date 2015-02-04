@@ -1,8 +1,8 @@
-﻿<properties title="SharePoint Server Farm" pageTitle="Granja de servidores SharePoint" description="Describe la nueva característica Granja de servidores de SharePoint disponible en el Portal de vista previa de Azure." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+<properties title="SharePoint Server Farm" pageTitle="Granja de servidores SharePoint" description="Describe la nueva característica Granja de servidores de SharePoint disponible en el Portal de vista previa de Azure." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
 
 <tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
 
-#Granja de servidores SharePoint#
+# Granja de servidores SharePoint#
 
 Con Granja de servidores SharePoint, el portal de Microsoft Azure en vista previa crea automáticamente una granja de servidores SharePoint Server 2013 preconfigurados. Esto puede suponer un importante ahorro de tiempo si necesita una granja de SharePoint básica o de alta disponibilidad para un entorno de desarrollo y pruebas, o si va a evaluar SharePoint Server 2013 como solución de colaboración para su organización.
 
@@ -47,7 +47,7 @@ Notas:
 - El portal de Azure en vista previa crea los dos tipos de granja en una red virtual solo en la nube con presencia web orientada a Internet. No hay una conexión VPN de sitio a sitio con la red de su organización. 
 - Puede administrar estos servidores a través de conexiones de Escritorio remoto.
 
-##Configuración paso a paso##
+## Configuración paso a paso##
 
 Para crear una granja de SharePoint con Granja de servidores SharePoint, realice lo siguiente:
 
@@ -63,7 +63,7 @@ Para crear una granja de SharePoint con Granja de servidores SharePoint, realice
 10. Para especificar la ubicación (región), haga clic en la flecha.
 11. Cuando haya terminado, haga clic en **Crear**.
 
-##Administrador de recursos de Azure##
+## Administrador de recursos de Azure##
 
 Granja de servidores SharePoint utiliza el Administrador de recursos de Azure y scripts para crear automáticamente la infraestructura y las configuraciones de servidor para estas granjas de SharePoint. Para obtener más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](http://azure.microsoft.com/en-us/documentation/articles/powershell-azure-resource-manager/).
 

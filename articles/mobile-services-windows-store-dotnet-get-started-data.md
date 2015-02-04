@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Introducción a los datos (Tiendas Windows) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información sobre cómo empezar a usar Servicios móviles para aprovechar los datos en la aplicación de la Tienda Windows." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started with Data" pageTitle="Introducción a los datos (Tiendas Windows) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información sobre cómo empezar a usar Servicios móviles para aprovechar los datos en la aplicación de la Tienda Windows." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga" />
 
@@ -27,10 +27,10 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, vea [Evaluación gratuita de Azure].(http://azure.microsoft.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-dotnet-get-started-data%2F)
+* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, vea [Evaluación gratuita de Azure](http://azure.microsoft.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-dotnet-get-started-data%2F).
 * Visual Studio 2013, con lo que es más fácil conectar su aplicación de la Tienda Windows con Servicios móviles. 
 
-##<a name="download-app"></a>Descargar el proyecto GetStartedWithData
+## <a name="download-app"></a>Descargar el proyecto GetStartedWithData
 
 Este tutorial se basa en la [aplicación GetStartedWithMobileServices][Developer Code Samples site], que es un proyecto de aplicación de la Tienda Windows en Visual Studio 2013. La interfaz de usuario de esta aplicación es idéntica a la de la aplicación generada por el inicio rápido de Servicios móviles, con la excepción de que los elementos agregados se almacenan localmente en la memoria. 
 
@@ -48,7 +48,7 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices][Developer
 
    	Observe que el texto guardado se muestra en la segunda columna debajo de **Consultar y actualizar datos**.
 
-##<a name="create-service"></a>Crear un servicio móvil nuevo desde Visual Studio
+## <a name="create-service"></a>Crear un servicio móvil nuevo desde Visual Studio
 
 [WACOM.INCLUDE [mobile-services-create-new-service-vs2013](../includes/mobile-services-create-new-service-vs2013.md)]
 
@@ -64,17 +64,17 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices][Developer
 </li>
 </ol>
 
-##<a name="add-table"></a>Incorporación de una tabla nueva para el almacenamiento de datos
+## <a name="add-table"></a>Incorporación de una tabla nueva para el almacenamiento de datos
 
 [WACOM.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
 >[WACOM.NOTE]Las tablas nuevas se crean con las columnas Id, __createdAt, __updatedAt y __version. Cuando está habilitado el esquema dinámico, Servicios móviles genera automáticamente columnas nuevas basadas en el objeto JSON en la solicitud de inserción o actualización. Para obtener más información, vea [Esquema dinámico](http://msdn.microsoft.com/es-es/library/windowsazure/jj193175.aspx).
 
-#<a name="update-app"></a>Actualizar la aplicación para usar el servicio móvil
+# <a name="update-app"></a>Actualizar la aplicación para usar el servicio móvil
 
 [WACOM.INCLUDE [mobile-services-windows-dotnet-update-data-app](../includes/mobile-services-windows-dotnet-update-data-app.md)]
 
-##<a name="test-app"></a>Prueba de la aplicación con su servicio móvil nuevo
+## <a name="test-app"></a>Prueba de la aplicación con su servicio móvil nuevo
 
 1. En Visual Studio, presione la tecla F5 para ejecutar la aplicación.
 
@@ -135,6 +135,7 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
   
 <!-- Anchors. -->
 
+[Get the Windows Store app]: #download-app
 [Obtener la aplicación de la Tienda Windows]: #download-app
 [Crear el servicio móvil desde Visual Studio]: #create-service
 [Agregar una tabla de datos para almacenamiento]: #add-table
@@ -161,7 +162,7 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Portal de administración]: https://manage.windowsazure.com/
 [SDK de servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=257545
-[Sitio de ejemplos de código para desarrolladores]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
+[sitio de Muestras de código para desarrollador (en inglés)]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
 
 [Clase MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 

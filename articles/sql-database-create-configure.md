@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Creación y configuración de una base de datos SQL de Azure - Tutorial de Azure" metaKeywords="Creación de una base de datos SQL de Azure, Configuración de una base de datos SQL de Azure" description="Creación y configuración de una base de datos SQL de Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
+<properties urlDisplayName="How to create and configure an Azure SQL DB" pageTitle="Creación y configuración de una base de datos SQL de Azure - Tutorial de Azure" metaKeywords="Creación de una base de datos SQL de Azure, Configuración de una base de datos SQL de Azure" description="Creación y configuración de una base de datos SQL de Azure." metaCanonical="" services="sql-database" documentationCenter="" title="How to Create and Configure an Azure SQL Database" authors="sidneyh" solutions="" manager="jhubbard" editor="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sidneyh" />
 
@@ -6,7 +6,7 @@
 
 En este tema, deberá crear y configurar una base de datos SQL de Azure mediante el Portal de administración de Azure. En este flujo de trabajo, creará primero el servidor. Es posible que prefiera este enfoque si dispone de bases de datos SQL Server existentes que quiera cargar.
 
-##Tabla de contenido##
+## Tabla de contenido##
 * [Creación de un servidor lógico](#createLogical)
 * [Configuración del firewall para el servidor lógico](#configFWLogical)
 
@@ -40,13 +40,13 @@ En este tema, deberá crear y configurar una base de datos SQL de Azure mediante
 
 9. Haga clic en la marca de verificación en la parte inferior de la página cuando haya finalizado.
 
-###Nombre de servidor generado automáticamente
+### Nombre de servidor generado automáticamente
 
 Tenga en cuenta que no especificó un nombre de servidor. Base de datos SQL genera automáticamente el nombre del servidor para garantizar que no existen entradas DNS duplicadas. El nombre del servidor es una cadena alfanumérica de 10 caracteres. No puede cambiar el nombre del servidor de Base de datos SQL.
 
 En el próximo paso, configurará el firewall de manera que se permita el acceso a las conexiones de las aplicaciones que se ejecuten en la red.
 
-##Configuración del firewall para el servidor lógico
+## Configuración del firewall para el servidor lógico
 
 1. En el [Portal de administración](http://manage.windowsazure.com), haga clic en **Bases de datos SQL** y, a continuación, en **Servidores**
 

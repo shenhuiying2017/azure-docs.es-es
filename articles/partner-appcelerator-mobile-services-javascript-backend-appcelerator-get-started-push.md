@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introducción a las notificaciones de inserción (Appcelerator) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación Appcelerator." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Introducción a las notificaciones de inserción (Appcelerator) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación Appcelerator." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
 
@@ -358,11 +358,11 @@ Su servicio móvil ahora está configurado para trabajar tanto con APNS como con
 
 5.	Para Android, reemplace el código anterior por el siguiente:
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'handle' : Alloy.Globals.tempRegId
-    }; 
+           var request = {
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false,
+    	    'handle' : Alloy.Globals.tempRegId
+            }; 
     
     
 
@@ -377,11 +377,11 @@ Su servicio móvil ahora está configurado para trabajar tanto con APNS como con
 
 7.	Para iOS, reemplace el código anterior por el siguiente:
 
-       var request = {
-    	'text' : alertTextField.getValue(),
-    	'complete' : false,
-    	'deviceToken' : Alloy.Globals.tempRegId
-    };
+           var request = {
+    	    'text' : alertTextField.getValue(),
+    	    'complete' : false,
+    	    'deviceToken' : Alloy.Globals.tempRegId
+            };
     
  
 Ahora, la aplicación se habrá actualizado para admitir notificaciones de inserción tanto en la plataforma iOS como en la plataforma Android.

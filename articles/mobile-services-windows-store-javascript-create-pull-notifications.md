@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Definición de una API personalizada que admita notificaciones periódicas: Servicios móviles de Azure" metaKeywords="" description="Obtenga información acerca de cómo definir una API personalizada que admita notificaciones periódicas en las aplicaciones de la Tienda Windows que usan Servicios móviles de Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Define a custom API that supports pull notifications" pageTitle="Definición de una API personalizada que admita notificaciones periódicas: Servicios móviles de Azure" metaKeywords="" description="Obtenga información acerca de cómo definir una API personalizada que admita notificaciones periódicas en las aplicaciones de la Tienda Windows que usan Servicios móviles de Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Define a custom API that supports periodic notifications" authors="glenga" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="11/22/2014" ms.author="glenga" />
 # Definición de una API personalizada que admita notificaciones periódicas
@@ -66,7 +66,7 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 		    }
 		};
 
-	This code returns the top 3 uncompleted items from the TodoItem table, then loads them into a JSON object passed to the **wns**.**createTileSquareText01** function. This function returns the following tile template XML:
+	Este código devuelve los 3 elementos superiores incompletos de la tabla TodoItem y, a continuación, los carga en un objeto JSON que se pasa a la función **wns**.**createTileSquareText01**. Esta función devuelve el siguiente XML de plantilla de icono:
 
 		<tile>
 			<visual>

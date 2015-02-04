@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Diagnostics" pageTitle="Uso del diagnóstico (.NET) - Guía de características de Azure" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Aprenda a utilizar datos de diagnóstico en Azure para realizar tareas de depuración, medición de rendimiento, supervisión, análisis de tráfico y más." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
+<properties urlDisplayName="Diagnostics" pageTitle="Uso del diagnóstico (.NET) - Guía de características de Azure" metaKeywords="Azure diagnostics monitoring,logs crash dumps C#" description="Aprenda a utilizar datos de diagnóstico en Azure para realizar tareas de depuración, medición de rendimiento, supervisión, análisis de tráfico y más." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Enabling Diagnostics in Azure" authors="raynew" solutions="" manager="johndaw" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/23/2014" ms.author="raynew" />
 
@@ -84,7 +84,7 @@ Diagnósticos de Azure puede recopilar los tipos de telemetría siguientes:
 En este tutorial se describe cómo implementar un rol de trabajo de Azure que emite datos de telemetría con la clase EventSource de .NET. Diagnósticos de Azure se usa para recopilar datos de telemetría y almacenarla en una cuenta de almacenamiento de Azure. Al crear un rol de trabajo, Visual Studio habilita automáticamente Diagnósticos 1.0 como parte de la solución. En las instrucciones siguientes se describe el proceso para crear el rol de trabajo, deshabilitar Diagnósticos 1.0 de la solución e implementar Diagnósticos 1.2 en el rol de trabajo.
 
 <h3>Requisitos previos</h3>
-En este artículo se supone que tiene una suscripción a Azure y usa Visual Studio 2013 con el SDK de Azure. Si no dispone de una suscripción de Azure, puede registrarse para la[ prueba gratuita][]. Asegúrese de [instalar y configurar la versión 0.8.7 o una versión posterior de Azure PowerShell][].
+En este artículo se supone que tiene una suscripción a Azure y usa Visual Studio 2013 con el SDK de Azure. Si no dispone de una suscripción de Azure, puede registrarse para la [prueba gratuita][]. Asegúrese de [instalar y configurar la versión 0.8.7 o una versión posterior de Azure PowerShell][].
 
 <h3>Paso 1: Creación de roles de trabajo</h3>
 1.	Inicie **Visual Studio 2013**.
@@ -187,7 +187,7 @@ Reemplace el contenido de WorkerRole.cs por el código siguiente. La clase Sampl
 
 <h3>Paso 4: Creación del archivo de configuración de Diagnósticos e instalación de la extensión</h3>
 1.	Descargue la definición del esquema del archivo de configuración público ejecutando el comando de PowerShell siguiente:
-2.	
+
 		(Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd' 
 
 2.	Agregue un archivo XML al proyecto **WorkerRole1** haciendo clic con el botón secundario en el proyecto **WorkerRole1** y seleccione **Agregar** -> **Nuevo elemento...** -> **Elementos de Visual C#** -> **Datos** -> **Archivo XML**. Asigne al archivo el nombre "WadExample.xml".
@@ -241,7 +241,7 @@ En el **Explorador de servidores de Visual Studio**, vaya a la cuenta de almacen
 En este tutorial se describe cómo instalar Diagnósticos de forma remota en una máquina virtual de Azure desde un equipo de desarrollo. También aprenderá a implementar una aplicación que se ejecuta en esa máquina virtual de Azure y emite datos de telemetría con la [clase EventSource][] de .NET. Diagnósticos de Azure se usa para recopilar la telemetría y almacenarla en una cuenta de almacenamiento de Azure.
 
 <h3>Requisitos previos</h3>
-En este tutorial se supone que tiene una suscripción a Azure y usa Visual Studio 2013 con el SDK de Azure. Si no dispone de una suscripción de Azure, puede registrarse para la[ prueba gratuita][]. Asegúrese de [instalar y configurar la versión 0.8.7 o una versión posterior de Azure PowerShell][].
+En este tutorial se supone que tiene una suscripción a Azure y usa Visual Studio 2013 con el SDK de Azure. Si no dispone de una suscripción de Azure, puede registrarse para la [prueba gratuita][]. Asegúrese de [instalar y configurar la versión 0.8.7 o una versión posterior de Azure PowerShell][].
 
 <h3>Paso 1: Creación de máquinas virtuales</h3>
 1.	En el equipo del desarrollador, inicie Visual Studio 2013.
@@ -754,13 +754,13 @@ En la tabla siguiente se comparan las características que admiten las versiones
 [Preguntas más frecuentes]: #faq
 [Comparación entre Diagnósticos de Azure 1.0 y 1.2]: #comparing
 [Recursos adicionales]: #additional
-[EventSource de .NET.]: http://msdn.microsoft.com/en-us/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
+[clase EventSource]: http://msdn.microsoft.com/en-us/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
   
 [Configurar Diagnósticos de Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/dn186185.aspx
 [Depurar servicios en la nube]: http://msdn.microsoft.com/en-us/library/windowsazure/ee405479.aspx   
 [Recopilar datos de registro mediante Diagnósticos de Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433048.aspx
 [Procedimientos recomendados de solución de problemas para desarrollar aplicaciones de Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh771389.aspx
-[Prueba gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
+[prueba gratuita]: http://azure.microsoft.com/en-us/pricing/free-trial/
 [Instalar y configurar la versión 0.8.7 o una versión posterior de Azure PowerShell]: http://azure.microsoft.com/en-us/documentation/articles/install-configure-powershell/
 [Esquema de configuración de Diagnósticos de Azure 1.2]: http://msdn.microsoft.com/en-us/library/azure/dn782207.aspx
 [Set-AzureServiceDiagnosticsExtension]: http://msdn.microsoft.com/en-us/library/dn495270.aspx

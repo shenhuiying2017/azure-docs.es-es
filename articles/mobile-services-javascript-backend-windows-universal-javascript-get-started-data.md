@@ -98,7 +98,7 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
 
 <!-- Anchors. -->
 
-[Obtención de una aplicación de la Tienda Windows]: #download-app
+[Obtener la aplicación de la tienda Windows]: #download-app
 [Crear el servicio móvil]: #create-service
 [Agregar una tabla de datos para almacenamiento]: #add-table
 [Actualizar la aplicación para usar Servicios móviles]: #update-app
@@ -114,7 +114,7 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
 
 <!-- URLs. -->
 [Validación y modificación de datos con scripts]: /es-es/documentation/articles/mobile-services-windows-store-javascript-validate-modify-data-server-scripts/
-[Limitación de consultas con paginación.]: /es-es/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
+[Limitación de consultas con paginación]: /es-es/documentation/articles/mobile-services-windows-store-javascript-add-paging-data/
 [Introducción a Servicios móviles]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started/
 [Introducción a los datos]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
 [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
