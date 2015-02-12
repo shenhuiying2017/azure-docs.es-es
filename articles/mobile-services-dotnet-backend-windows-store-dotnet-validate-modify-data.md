@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="Uso del back-end .Net para validar y modificar datos (Tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo validar, modificar y aumentar los datos para su aplicación de la Tienda Windows con back-end de .Net de Servicios móviles de Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate and Modify Data" pageTitle="Uso del back-end .Net para validar y modificar datos (Tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo validar, modificar y aumentar los datos para su aplicación de la Tienda Windows con back-end de .Net de Servicios móviles de Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
 
@@ -18,12 +18,12 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 Este tutorial se basa en los pasos y en el código de ejemplo del tutorial anterior [Introducción] o [Introducción a los datos]. Antes de comenzar este tutorial, primero debe completar el tutorial [Introducción a Servicios móviles] o [Introducción a los datos].  
 
-## <a name="string-length-validation"></a>Add validation
+## <a name="string-length-validation"></a>Incorporación de la validación
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-validation](../includes/mobile-services-dotnet-backend-add-validation.md)]
 
 
-## <a name="update-client-validation"></a>Update the client
+## <a name="update-client-validation"></a>Actualización del cliente
 
 Ahora que el servicio móvil está configurado para validar los datos y enviar respuestas de error para una longitud de texto no válida, debe actualizar la aplicación para que pueda identificar las respuestas de error de la validación. El error se detectará como `MobileServiceInvalidOperationException` en la llamada de la aplicación cliente a `IMobileServiceTable<TodoItem].InsertAsync()`.
 
@@ -74,14 +74,14 @@ Ahora que el servicio móvil está configurado para validar los datos y enviar r
 
     ![][2]
 
-## <a name="add-timestamp"></a>Add a timestamp field for CompleteDate
+## <a name="add-timestamp"></a>Incorporación de un campo de marca de tiempo para CompleteDate
 
 [WACOM.INCLUDE [mobile-services-dotnet-backend-add-completedate](../includes/mobile-services-dotnet-backend-add-completedate.md)]
 
 
 
 
-## <a name="update-client-timestamp"></a>Update the client to display the CompleteDate
+## <a name="update-client-timestamp"></a>Actualización del cliente para mostrar el valor de completeDate
 
 El paso final consiste en actualizar el cliente para que muestre los nuevos datos **CompleteDate*. 
 

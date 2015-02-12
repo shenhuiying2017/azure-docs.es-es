@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Validate and Modify Data" pageTitle="Uso del back-end .Net para validar y modificar datos (Tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo validar, modificar y aumentar los datos para su aplicación Javascript de la Tienda Windows con back-end de .Net de Servicios móviles de Microsoft Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Validate and Modify Data" pageTitle="Uso del back-end .Net para validar y modificar datos (Tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo validar, modificar y aumentar los datos para su aplicación Javascript de la Tienda Windows con back-end de .Net de Servicios móviles de Microsoft Azure." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using the .Net backend" authors="wesmc" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="wesmc" />
 
@@ -142,11 +142,11 @@ Los scripts de servidor también se usan al autorizar usuarios y para enviar not
   <br/>Obtenga más información sobre el uso de Servicios móviles con .NET.
 
 <!-- Anchors. -->
-[Agregue la cadena de validación]: #string-length-validation
+[Incorporación de la validación de longitud de cadena]: #string-length-validation
 [Actualización del cliente para admitir la validación]: #update-client-validation
-[Prueba de validación de longitud]: #test-length-validation
+[Prueba de validación de la longitud]: #test-length-validation
 [Incorporación de un campo de marca de tiempo para CompleteDate]: #add-timestamp
-[Actualización del cliente para mostrar CompleteDate]: #update-client-timestamp
+[Actualización del cliente para mostrar el valor de CompleteDate]: #update-client-timestamp
 [Pasos siguientes]: #next-steps
 
 <!-- Images. -->

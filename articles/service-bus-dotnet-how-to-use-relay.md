@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Service Bus Relay" pageTitle="Cómo usar el relé del bus de servicio (.NET) - Azure" metaKeywords ="empezar a trabajar con el relé del bus de servicio de Azure C# " description="Aprenda a usar el servicio de relé del Bus de servicio de Azure para conectar dos aplicaciones hospedadas en diferentes ubicaciones." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+<properties urlDisplayName="Service Bus Relay" pageTitle="Cómo usar el relé del bus de servicio (.NET) - Azure" metaKeywords="empezar a trabajar con el relé del bus de servicio de Azure C# " description="Aprenda a usar el servicio de relé del Bus de servicio de Azure para conectar dos aplicaciones hospedadas en diferentes ubicaciones." metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use the Service Bus Relay Service" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
 
 <tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -262,7 +262,7 @@ siga estos vínculos para obtener más información.
   [Portal de administración de Azure]: http://manage.windowsazure.com
   [Autenticación con firma de acceso compartido en Service Bus]: http://msdn.microsoft.com/es-es/library/dn170477.aspx
   [Creación de un servicio de bus de servicio]: http://msdn.microsoft.com/es-es/library/windowsazure/ee173564.aspx
-  [Generación de una aplicación de Service Bus Client].: http://msdn.microsoft.com/es-es/library/windowsazure/ee173543.aspx
+  [Generación de una aplicación de Service Bus Client]: http://msdn.microsoft.com/es-es/library/windowsazure/ee173543.aspx
   [Ejemplos de Azure]: http://code.msdn.microsoft.com/windowsazure
 
 <!--HONumber=35.2-->
