@@ -36,17 +36,15 @@
 
 	De este modo se crea un método para administrar el proceso de autenticación. El usuario se autentica mediante el inicio de sesión en Google. Aparecerá un diálogo que muestra el identificador del usuario autenticado. No puede continuar sin una autenticación positiva.
 
-    <div class="dev-callout"><b>Nota:</b>
-	<p>Si usa un proveedor de identidades que no sea Google, cambie el valor que ha pasado al método <strong>login</strong> anterior por uno de los siguientes: <em>MicrosoftAccount</em>, <em>Facebook</em>, <em>Twitter</em> o <em>windowsazureactivedirectory</em>.</p>
-    </div>
+    > [AZURE.NOTE] Si usa un proveedor de identidades que no sea Google, cambie el valor que ha pasado al método **login** anterior por uno de los siguientes: _MicrosoftAccount_, _Facebook_, _Twitter_ o _windowsazureactivedirectory_.
 
-3. En el método **onCreate**, agregue la línea de código siguiente después del código que crea instancias en el objeto "MobileServiceClient".
+3. En el método **onCreate**, agregue la línea de código siguiente después del código que crea instancias en el objeto  `MobileServiceClient`.
 
 		authenticate();
 
 	De este modo se llama al proceso de autenticación.
 
-4. Mueva el código restante situado detrás de "authenticate();" del método **onCreate** a un nuevo método **createTable** cuyo aspecto es el siguiente:
+4. Mueva el código restante situado detrás de `authenticate();` del método **onCreate** a un nuevo método **createTable** cuyo aspecto es el siguiente:
 
 		private void createTable() {
 	
@@ -64,6 +62,6 @@
 			refreshItemsFromTable();
 		}
 
-9. En el menú **Run** (Ejecutar), haga clic en **Run** (Ejecutar) para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido. 
+9. En el menú **Run (Ejecutar)**, haga clic en **Run (Ejecutar)** para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido. 
 
-   	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
+   	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.<!--HONumber=42-->

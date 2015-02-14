@@ -6,7 +6,8 @@ Las instrucciones y capturas de pantalla siguientes se aplican a las pruebas de 
 
     ![](./media/mobile-services-aad-graph-info-test-app/bob-login.png)
 
-2. La API personalizada se ejecuta devolviendo la información del directorio del usuario en un saludo personalizado. En este ejemplo, el usuario necesita la *calle*, la *ciudad*, el *estado* y el *código postal* para mostrar la dirección del usuario.
+2. La API personalizada se ejecuta devolviendo la información del directorio del usuario en un saludo personalizado. En este ejemplo, el usuario debe tener  *streetAddress*,  *city*,  *state* y  *postalCode* para mostrar la dirección del usuario.
 
     ![](./media/mobile-services-aad-graph-info-test-app/custom-greeting.png)
 
+<!--HONumber=42-->

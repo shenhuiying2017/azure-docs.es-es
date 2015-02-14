@@ -1,11 +1,25 @@
-﻿<properties urlDisplayName="Run Hadoop Samples in HDInsight" pageTitle="Ejecución de ejemplos de Hadoop en HDInsight | Azure" metaKeywords="hdinsight, hdinsight sample,  hadoop, mapreduce" description="Introducción al uso del servicio HDInsight de Azure con los ejemplos que se proporcionan. Use scripts de PowerShell que ejecutan programas MapReduce en clústeres de datos." metaCanonical="" services="hdinsight" documentationCenter="" title="Run the Hadoop samples in HDInsight" authors="bradsev" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Ejecución de ejemplos de Hadoop en HDInsight | Azure" 
+	description="Introducción al uso del servicio HDInsight de Azure con los ejemplos que se proporcionan. Use scripts de PowerShell que ejecutan programas MapReduce en clústeres de datos." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 
 
 
-#Ejecución de ejemplos de Hadoop en HDInsight
+# Ejecución de ejemplos de Hadoop en HDInsight
 
 Se proporciona un conjunto de muestras para ayudarle a empezar a ejecutar trabajos de MapReduce en clústeres de Hadoop con HDInsight de Azure. Estas muestras se habilitan en cada uno de los clústeres administrados de HDInsight que se crean. La ejecución de estas muestras le permitirá familiarizarse con el uso de cmdlets de HDInsight de Azure PowerShell para ejecutar trabajos en clústeres de Hadoop.
 
@@ -20,9 +34,9 @@ En la Web se encuentra disponible mucha documentación adicional sobre las tecno
 
 **Requisitos previos**:	
 
-- Debe tener una cuenta de Azure. Para conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure](http://azure.microsoft.com/en-us/pricing/free-trial/) .
+- Debe tener una cuenta de Azure. Si desea conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure](http://azure.microsoft.com/es-es/pricing/free-trial/).
 
-- Debe aprovisionar un clúster de HDInsight. Para obtener instrucciones acerca de varias formas de creación de dichos clústeres, consulte [Aprovisionamiento de clústeres de HDInsight](../hdinsight-provision-clusters/)
+- Debe haber aprovisionado un clúster de HDInsight. Para obtener instrucciones acerca de varias formas de creación de dichos clústeres, consulte [Aprovisionamiento de clústeres de HDInsight](../hdinsight-provision-clusters/)
 
 - Debe tener instalado Azure PowerShell y haber configurado los clústeres para utilizarlos con su cuenta. Para obtener instrucciones acerca de cómo hacerlo, consulte [Instalación y configuración de Azure PowerShell][powershell-install-configure].
 
@@ -32,7 +46,7 @@ HDInsight incluye las siguientes muestras.
 
 - [**La muestra del estimador de Pi**][hdinsight-sample-pi-estimator] En este tutorial se explica cómo ejecutar un programa de MapReduce con HDInsight que usa un método estadístico (quasi-Monte Carlo) para estimar el valor de Pi.
 - [**La muestra de WordCount**][hdinsight-sample-wordcount] En este tutorial se explica cómo usar un clúster de HDInsight para ejecutar un programa de MapReduce que cuenta las ocurrencias de palabras en un archivo de texto.
-- [**La muestra de Graysort de 10 GB**][hdinsight-sample-10gb-graysort] En este tutorial se explica cómo ejecutar una muestra de GraySort de uso general en un archivo de 10 GB con la utilización de HDInsight. Hay tres trabajos para ejecutar: Teragen para genera los datos, Terasort para ordenar los datos y Teravalidate para confirmar que los datos se han ordenado correctamente.
+- [**La muestra de Graysort de 10 GB**][hdinsight-sample-10gb-graysort] En este tutorial se explica cómo ejecutar una muestra de GraySort de uso general en un archivo de 10 GB mediante HDInsight. Hay tres trabajos para ejecutar: Teragen para genera los datos, Terasort para ordenar los datos y Teravalidate para confirmar que los datos se han ordenado correctamente.
 - [**La muestra de transmisión de C#**][hdinsight-sample-csharp-streaming] En este tutorial se explica cómo usar C# para escribir un programa de MapReduce que usa la interfaz de transmisión de Hadoop. 
 
 
@@ -40,7 +54,7 @@ HDInsight incluye las siguientes muestras.
 
 Las muestras se pueden ejecutar con Azure PowerShell. Las instrucciones sobre cómo hacerlo se ofrecen para cada una de las muestras en las páginas a las que remiten los vínculos anteriores.
 
-##Pasos siguientes ##
+## Pasos siguientes ##
 
 En este artículo y en los artículos sobre cada muestra ha obtenido información acerca de cómo ejecutar las muestras incluidas en los clústeres de HDInsight con la utilización de Azure PowerShell. Para obtener acceso a tutoriales acerca de cómo usar Pig, Hive y MapReduce con HDInsight, consulte los siguientes temas:
 
@@ -49,12 +63,12 @@ En este artículo y en los artículos sobre cada muestra ha obtenido informació
 * [Uso de Hive con HDInsight][hdinsight-use-hive]
 * [Envío de trabajos de Hadoop mediante programación][hdinsight-submit-jobs]
 * [Documentación del SDK de HDInsight de Azure][hdinsight-sdk-documentation]
-* [Depuración de HDInsight: Mensajes de error][hdinsight-errors]
+* [Depuración de HDInsight: mensajes de error][hdinsight-errors]
 
 
 [hdinsight-errors]: ../hdinsight-debug-jobs/
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/es-es/library/dn479185.aspx
 
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
 [hdinsight-introduction]: ../hdinsight-hadoop-introduction/
@@ -74,5 +88,4 @@ En este artículo y en los artículos sobre cada muestra ha obtenido informació
 [hdinsight-use-hive]: ../hdinsight-use-hive/
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

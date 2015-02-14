@@ -1,157 +1,159 @@
-## <span id="logon"></span> </a>Inicio de sesión en una máquina virtual después de su creación
+﻿
+
+## <a id="logon"> </a>Inicio de sesión en una máquina virtual después de su creación ##
 
 Para administrar la configuración de la máquina virtual y las aplicaciones que se ejecutan en la máquina, puede usar un cliente SSH. Para ello, debe instalar un cliente de SSH en el equipo que desea usar para tener acceso a la máquina virtual. Existen muchos programas cliente de SSH donde elegir. Las siguientes son algunas posibles opciones:
 
--   Si va a usar un equipo que está ejecutando un sistema operativo Windows, es posible que desee usar un cliente de SSH, como por ejemplo PuTTY. Para obtener más información, consulte [Descarga de PuTTY][Descarga de PuTTY].
--   Si va a usar un equipo que está ejecutando un sistema operativo Linux, es posible que desee usar un cliente de SSH, como por ejemplo OpenSSH. Para obtener más información, consulte [OpenSSH][OpenSSH].
+- Si va a usar un equipo que está ejecutando un sistema operativo Windows, es posible que desee usar un cliente de SSH, como por ejemplo PuTTY. Para obtener más información, consulte [Descarga de PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+- Si va a usar un equipo que está ejecutando un sistema operativo Linux, es posible que desee usar un cliente de SSH, como por ejemplo OpenSSH. Para obtener más información, consulte [OpenSSH](http://www.openssh.org/).
 
 Este tutorial le muestra cómo usar el programa PuTTY para tener acceso a la máquina virtual.
 
-1.  Busque el nombre de host (**Host Name**) y la información de puerto (**Port information**) en el Portal de administración. Puede encontrar la información que necesita en el panel de la máquina virtual. Haga clic en el nombre de la máquina virtual y busque **SSH Details** en la sección **Quick Glance** del panel.
+1. Busque el nombre de host (**Host Name**) y la información de puerto (**Port information**) en el Portal de administración. Puede encontrar la información que necesita en el panel de la máquina virtual. Haga clic en el nombre de la máquina virtual y busque **SSH Details** (Detalles de SSH)  en la sección **Quick Glance** (Vista rápida) del panel.
 
-    ![Buscar detalles de SSH][Buscar detalles de SSH]
+	![Find SSH details](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/SSHdetails.png)
 
-2.  Abra el programa PuTTY.
+2. Abra el programa PuTTY.
 
-3.  Escriba los valores en **Host Name** y **Port information** que recopiló en el panel y, a continuación, haga clic en **Open**.
+3. Escriba el nombre de host y la información de puerto que recopiló del panel y, a continuación, haga clic en **Open** (Abrir).
 
-    ![Escribir el nombre de host y la información de puerto][Escribir el nombre de host y la información de puerto]
+	![Enter the host name and port information](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/putty.png)
 
-4.  Inicie sesión en la máquina virtual usando la cuenta NewUser1 que se agregó cuando creó la máquina virtual.
+4. Inicie sesión en la máquina virtual usando la cuenta NewUser1 que se agregó cuando creó la máquina virtual.
 
-    ![Iniciar sesión en la nueva máquina virtual][Iniciar sesión en la nueva máquina virtual]
+	![Log on to the new virtual machine](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/sshlogin.png)
 
-    Ahora puede trabajar con la máquina virtual igual que hace con cualquier otro servidor.
+	Ahora puede trabajar con la máquina virtual igual que hace con cualquier otro servidor.
 
-## <span id="attachdisk"></span> </a>Acoplamiento de un disco de datos a la nueva máquina virtual
+
+## <a id="attachdisk"> </a>Acoplamiento de un disco de datos a la nueva máquina virtual ##
 
 Es posible que su aplicación necesite almacenar datos. Para hacerlo posible, adjunta un disco de datos a la máquina virtual que creó anteriormente. La manera más fácil de hacerlo es adjuntar un disco de datos vacío a la máquina.
 
-En Linux, el disco de recursos se administra generalmente mediante el Agente de Linux de Azure y se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Por otra parte, en Linux el kernel debe poner al disco de datos el nombre `/dev/sdc` y los usuarios tendrán que particionar ese recurso, darle formato y montarlo. Consulte la [Guía de usuario del Agente de Linux de Azure][Guía de usuario del Agente de Linux de Azure] para obtener más información.
+En Linux, el disco de recursos se administra generalmente mediante el Agente de Linux de Azure y se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Por otro lado, en Linux el kernel podría denominar al disco de datos como  `/dev/sdc`, y los usuarios necesitarán crear particiones, dar formato y montar ese recurso. Consulte la [Guía de usuario del Agente de Linux de Azure](http://www.windowsazure.com/es-es/manage/linux/how-to-guides/linux-agent-guide/) para obtener más información.
 
-> [WACOM.NOTE] No almacene datos en el disco de recursos. Este disco proporciona almacenamiento temporal para aplicaciones y procesos y se utiliza para almacenar datos que no tiene que conservar, como archivos de intercambio. Los discos de datos residen en Almacenamiento de Azure como archivos .vhd en blobs de páginas y ofrecen redundancia de almacenamiento para proteger sus datos. Para obtener más información, consulte [Administrar discos e imágenes en Azure][Administrar discos e imágenes en Azure].
+>[AZURE.NOTE] No almacene datos en el disco de recursos. Este disco proporciona almacenamiento temporal para aplicaciones y procesos y se utiliza para almacenar datos que no tiene que conservar, como archivos de intercambio. Los discos de datos residen en Almacenamiento de Azure como archivos .vhd en blobs de páginas y ofrecen redundancia de almacenamiento para proteger sus datos. Para obtener más información, consulte [Acerca de discos e imágenes en Azure](http://msdn.microsoft.com/es-es/library/jj672979.aspx).
 
-1.  Si no lo ha hecho todavía, inicie sesión en el Portal de administración de Azure.
+1. Si no lo ha hecho todavía, inicie sesión en el Portal de administración de Azure.
 
-2.  Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual **MyTestVM1** que creó anteriormente.
+2. Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual **MyTestVM1** que creó anteriormente.
 
-3.  En la barra de comandos, haga clic en **Attach** y, a continuación, haga clic en **Attach Empty Disk**.
+3. En la barra de comandos, haga clic en **Conectar** y luego en **Conectar un disco vacío**.
+	
+	Aparece el cuadro de diálogo **Conectar disco vacío**.
 
-    Aparece el cuadro de diálogo **Attach Empty Disk**.
+	![Definir detalles de disco](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachnewdisklinux.png)
 
-    ![Definir los detalles del disco][Definir los detalles del disco]
+4. El **nombre de máquina virtual**, la **ubicación de almacenamiento** y el **nombre de archivo** ya están definidos. Solo tiene que especificar el tamaño que desea utilizar para el disco. Escriba **5** en el campo **Size** (Tamaño).
 
-4.  **Virtual Machine Name**, **Storage Location** y **File Name** ya están definidos. Solo tiene que especificar el tamaño que desea utilizar para el disco. Escriba **5** en el campo **Size**.
+	**Nota:** todos los discos se crean a partir de un archivo VHD en el almacenamiento de Azure. Puede proporcionar un nombre para el archivo VHD que se agrega al almacenamiento, pero se genera automáticamente el nombre del disco.
 
-    **Nota:** todos los discos se crean a partir de un archivo VHD en el almacenamiento de Azure. Puede proporcionar un nombre para el archivo VHD que se agregue al almacenamiento, pero el nombre del disco se general automáticamente.
+5. Haga clic en la marca de verificación para acoplar el disco de datos a la máquina virtual.
 
-5.  Haga clic en la marca de verificación para acoplar el disco de datos a la máquina virtual.
+6. Puede verificar que el disco de datos se haya adjuntado correctamente a la máquina virtual si observa el panel. Haga clic en el nombre de la máquina virtual para ver el panel.
 
-6.  Puede verificar que el disco de datos se haya adjuntado correctamente a la máquina virtual si observa el panel. Haga clic en el nombre de la máquina virtual para ver el panel.
+	La cantidad de discos ahora es 2 para la máquina virtual, y el disco que adjuntó se enumera en la tabla **Discos**.
 
-    La cantidad de discos ahora es 2 para la máquina virtual y el disco que adjuntó se enumera en la tabla **Discos**.
+	![Attach disk success](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachemptysuccess.png)
 
-    ![Disco adjuntado correctamente][Disco adjuntado correctamente]
 
 El disco de datos que acaba de adjuntar a la máquina virtual permanecerá desconectado y no inicializado después de haberlo agregado. Debe iniciar sesión en la máquina virtual e inicializar el disco para usarlo para almacenar datos.
 
-1.  Conéctese a la máquina virtual siguiendo los pasos que se mencionaron anteriormente en **Inicio de sesión en una máquina virtual después de su creación**.
+1. Conéctese a la máquina virtual siguiendo los pasos que se mencionaron anteriormente en **Inicio de sesión en una máquina virtual después de su creación**.
 
-2.  En la ventana SSH, escriba el siguiente comando y, a continuación, la contraseña de la cuenta:
 
-    `sudo grep SCSI /var/log/messages`
+2. En la ventana SSH, escriba el siguiente comando y, a continuación, la contraseña de la cuenta:
 
-    Puede buscar el identificador del último disco de datos conectado en los mensajes que se muestran.
+	`sudo grep SCSI /var/log/messages`
 
-    ![Identificar disco][Identificar disco]
+	Puede buscar el identificador del último disco de datos conectado en los mensajes que se muestran.
 
-3.  En la ventana SSH, escriba el siguiente comando para crear un nuevo dispositivo y, a continuación, especifique la contraseña de la cuenta:
+	![Identify disk](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskmessages.png)
 
-    `sudo fdisk /dev/sdc`
 
-    > [WACOM.NOTE] En este ejemplo, es posible que tenga que utilizar `sudo -i` en algunas distribuciones si /sbin o /usr/sbin no se encuentran en su `$PATH`.
+3. En la ventana SSH, escriba el siguiente comando para crear un nuevo dispositivo y, a continuación, especifique la contraseña de la cuenta:
 
-4.  Escriba **n** para crear una nueva partición.
+	`sudo fdisk /dev/sdc`
 
-    ![Crear un dispositivo nuevo][Crear un dispositivo nuevo]
+	>[AZURE.NOTE] En este ejemplo es posible que tenga que utilizar  `sudo -i` en algunas distribuciones si /sbin o/usr/sbin no está en su '$PATH'.
 
-5.  Escriba **p** para que la partición sea la partición principal, escriba **1** para que sea la primera partición y, a continuación, escriba "enter" para aceptar el valor predeterminado para el cilindro.
 
-    ![Crear partición][Crear partición]
+4. Escriba **n** para crear una nueva partición.
 
-6.  Escriba **p** para ver los detalles del disco en el que se va a crear la partición.
+	![Create new device](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskpartition.png)
 
-    ![Enumerar la información del disco][Enumerar la información del disco]
 
-7.  Escriba **w** para escribir la configuración del disco.
+5. Escriba **p** para que la partición sea la partición principal, escriba **1** para que sea la primera partición y, a continuación, escriba "enter" para aceptar el valor predeterminado para el cilindro.
 
-    ![Escribir los cambios del disco][Escribir los cambios del disco]
+	![Create partition](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskcylinder.png)
 
-8.  Debe crear el sistema de archivos en la partición nueva. Como ejemplo, escriba el siguiente comando para crear el sistema de archivos y, a continuación, especifique la contraseña de la cuenta:
 
-    `sudo mkfs -t ext4 /dev/sdc1`
+6. Escriba **p** para ver los detalles del disco en el que se va a crear la partición.
 
-    ![Crear sistema de archivos][Crear sistema de archivos]
+	![List disk information](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskinfo.png)
 
-    > [WACOM.NOTE] Tenga en cuenta que los sistemas SUSE Linux Enterprise 11 ofrecen únicamente acceso de solo lectura a sistemas de archivos ext4. Para estos sistemas, es recomendable dar formato al nuevo sistema de archivos como ext3 en vez de ext4.
 
-9.  Cree un directorio para montar el nuevo sistema de archivos. Como ejemplo, escriba el siguiente comando y, a continuación, especifique la contraseña de la cuenta:
+7. Escriba **w** para escribir la configuración del disco.
 
-    `sudo mkdir /datadrive`
+	![Write the disk changes](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskwrite.png)
+
+
+8. Debe crear el sistema de archivos en la partición nueva. Como ejemplo, escriba el siguiente comando para crear el sistema de archivos y, a continuación, especifique la contraseña de la cuenta:
+
+	`sudo mkfs -t ext4 /dev/sdc1`
+
+	![Create file system](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskfilesystem.png)
+
+	>[AZURE.NOTE] Tenga en cuenta que los sistemas SUSE Linux Enterprise 11 ofrecen únicamente acceso de solo lectura a sistemas de archivos ext4. Para estos sistemas, es recomendable dar formato al nuevo sistema de archivos como ext3 en vez de ext4.
+
+
+9. Cree un directorio para montar el nuevo sistema de archivos. Como ejemplo, escriba el siguiente comando y, a continuación, especifique la contraseña de la cuenta:
+
+	`sudo mkdir /datadrive`
+
 
 10. Escriba el siguiente comando para montar la unidad:
 
-    `sudo mount /dev/sdc1 /datadrive`
+	`sudo mount /dev/sdc1 /datadrive`
 
-    El disco de datos está ahora listo para usarse como **/datadrive**.
+	El disco de datos está ahora listo para usarse como **/datadrive**.
+
 
 11. Agregue la nueva unidad a /etc/fstab:
 
-    Para asegurarse de que la unidad se vuelve a montar automáticamente después de reiniciar, debe agregarse al archivo /etc/fstab. Además, se recomienda encarecidamente que se use el UUID (identificador único global) en /etc/fstab para hacer referencia a la unidad en lugar de solo el nombre del dispositivo (es decir, /dev/sdc1). Para buscar el UUID de la unidad nueva, puede usar la utilidad **blkid**:
+	Para asegurarse de que la unidad se vuelve a montar automáticamente después de reiniciar, debe agregarse al archivo /etc/fstab. Además, se recomienda encarecidamente que se use el UUID (identificador único global) en /etc/fstab para hacer referencia a la unidad en lugar de solo el nombre del dispositivo (es decir, /dev/sdc1). Para buscar el UUID de la unidad nueva, puede usar la utilidad **blkid**:
+	
+		`sudo -i blkid`
 
-        `sudo -i blkid`
+	El resultado será similar al siguiente:
 
-    El resultado será similar al siguiente:
+		`/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"`
+		`/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
+		`/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
 
-        `/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"`
-        `/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
-        `/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
+	>[AZURE.NOTE] Es posible que blkid no requiera acceso sudo en todos los casos. Sin embargo, puede que sea más sencillo ejecutar  `sudo -i` en algunas distribuciones si /sbin o /usr/sbin no se encuentran en su `$PATH`.
 
-    > [WACOM.NOTE] Es posible que blkid no requiera acceso sudo en todos los casos. Sin embargo, puede que sea más sencillo ejecutar `sudo -i` en algunas distribuciones si /sbin o /usr/sbin no se encuentran en su `$PATH`.
+	**Precaución:** la edición incorrecta del archivo/etc/fstab podría provocar un reinicio del sistema. Si no está seguro, consulte la documentación de distribución para obtener información sobre cómo editar correctamente este archivo. También se recomienda que se crea una copia de seguridad del archivo/etc/fstab antes de la edición.
 
-    **Precaución:** la edición incorrecta del archivo /etc/fstab puede tener como resultado un sistema que no se pueda arrancar. Si no está seguro, consulte la documentación de distribución para obtener información sobre cómo editar correctamente ese archivo. También se recomienda realizar una copia de seguridad del archivo /etc/fstab antes de editarlo.
+	Use un editor de texto para especificar la información sobre el nuevo sistema de archivos al final del archivo /etc/fstab.  En este ejemplo usaremos el valor de UUID para el nuevo dispositivo **/dev/sdc1** que se creó en los pasos anteriores y el punto de montaje **/datadrive**:
 
-    Use un editor de texto para especificar la información sobre el nuevo sistema de archivos al final del archivo /etc/fstab. En este ejemplo usaremos el valor de UUID para el nuevo dispositivo **/dev/sdc1** que se creó en los pasos anteriores y el punto de montaje **/datadrive**:
+		`UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2`
 
-        `UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults   1   2`
+	O bien, en sistemas basados en SUSE Linux, es posible que tenga que utilizar un formato diferente:
 
-    O bien, en sistemas basados en SUSE Linux, es posible que tenga que utilizar un formato diferente:
+		`/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2`
 
-        `/dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /   ext3   defaults   1   2`
+	Si se crean particiones o unidades de datos adicionales, tendrá que especificarlas también en /etc/fstab por separado.
 
-    Si se crean particiones o unidades de datos adicionales, tendrá que especificarlas también en /etc/fstab por separado.
+	Ahora puede probar que el sistema de archivos está correctamente montado con solo desmontar y volver a montar el sistema de archivos, es decir, usando el punto de montaje de ejemplo  `/datadrive` que se creó en los pasos anteriores: 
 
-    Ahora puede probar que el sistema de archivos está correctamente montado con solo desmontar y volver a montar el sistema de archivos, es decir, usando el punto de montaje de ejemplo `/datadrive` que se creó en los pasos anteriores:
+		`sudo umount /datadrive`
+		`sudo mount /datadrive`
 
-        `sudo umount /datadrive`
-        `sudo mount /datadrive`
+	Si el segundo comando genera un error, compruebe la sintaxis correcta del archivo /etc/fstab.
 
-    Si el segundo comando genera un error, compruebe la sintaxis correcta del archivo /etc/fstab.
 
-    > [WACOM.NOTE] Posteriormente, la eliminación de un disco de datos sin editar fstab podría provocar un error en el inicio de la máquina virtual. Si ocurre habitualmente, la mayoría de distribuciones proporcionan las opciones de fstab `nofail` y/o `nobootwait` que permitirán que el sistema se inicie incluso si el disco no está presente. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
+	>[AZURE.NOTE] Posteriormente, la eliminación de un disco de datos sin editar fstab podría provocar un error en el inicio de la máquina virtual. Si ocurre habitualmente, la mayoría de distribuciones proporcionan las opciones de fstab  `nofail` o  `nobootwait` que permitirán que el sistema se inicie incluso si el disco no está presente. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
 
-  [Descarga de PuTTY]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
-  [OpenSSH]: http://www.openssh.org/
-  [Buscar detalles de SSH]: ./media/virtual-machines-Linux-tutorial-log-on-attach-disk/SSHdetails.png
-  [Escribir el nombre de host y la información de puerto]: ./media/virtual-machines-Linux-tutorial-log-on-attach-disk/putty.png
-  [Iniciar sesión en la nueva máquina virtual]: ./media/virtual-machines-Linux-tutorial-log-on-attach-disk/sshlogin.png
-  [Guía de usuario del Agente de Linux de Azure]: http://www.windowsazure.com/es-es/manage/linux/how-to-guides/linux-agent-guide/
-  [Administrar discos e imágenes en Azure]: http://msdn.microsoft.com/es-es/library/jj672979.aspx
-  [Definir los detalles del disco]: ./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachnewdisklinux.png
-  [Disco adjuntado correctamente]: ./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachemptysuccess.png
-  [Identificar disco]: ./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskmessages.png
-  [Crear un dispositivo nuevo]: ./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskpartition.png
-  [Crear partición]: ./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskcylinder.png
-  [Enumerar la información del disco]: ./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskinfo.png
-  [Escribir los cambios del disco]: ./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskwrite.png
-  [Crear sistema de archivos]: ./media/virtual-machines-Linux-tutorial-log-on-attach-disk/diskfilesystem.png
+
+<!--HONumber=42-->

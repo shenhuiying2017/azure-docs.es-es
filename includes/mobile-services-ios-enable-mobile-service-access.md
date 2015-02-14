@@ -1,7 +1,7 @@
 ﻿
 Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin de almacenar elementos en Servicios móviles en lugar de en la colección local.
 
-1. Si todavía no ha instalado el [SDK de iOS para Servicios móviles](https://go.microsoft.com/fwLink/p/?LinkID=266533), hágalo ahora. Una vez instalado, copie el directorio WindowsAzureMobileServices.framework y sobrescriba el directorio  WindowsAzureMobileServices.framework incluido en el proyecto descargado. De este modo, utiliza el último SDK de Servicios móviles de Azure.
+1. Si todavía no ha instalado el [SDK de iOS para Servicios móviles](https://go.microsoft.com/fwLink/p/?LinkID=266533), hágalo ahora. Una vez instalado, copie el directorio WindowsAzureMobileServices.framework y sobrescriba el directorio WindowsAzureMobileServices.framework incluido en el proyecto descargado. De este modo, utiliza el último SDK de Servicios móviles de Azure.
 
 2. En el archivo TodoService.h, localice la siguiente línea de código comentada:
 
@@ -25,7 +25,7 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 
 4. En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
 
-5. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**; a continuación, haga clic en **Administrar claves** y anote la **clave de la aplicación**.
+5. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**, a continuación haga clic en **Administrar claves** y anote la **clave de la aplicación**.
 
    	![](./media/mobile-services-ios-enable-mobile-service-access/mobile-dashboard-tab.png)
 
@@ -41,7 +41,7 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 
     Esto crea una instancia del cliente de Servicios móviles.
 
-7. 	Reemplace los valores **APPURL** y **APPKEY** en este código con la URL y la clave de aplicación del servicio móvil que adquirió en el paso 6.
+7. Reemplace los valores **APPURL** y **APPKEY** en este código con la URL y la clave de aplicación del servicio móvil que adquirió en el paso 6.
 
 8. Localice la siguiente línea de código comentada:
 
@@ -75,7 +75,7 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
            completion();
         }];
 
-11. Localice el método **addItem** y reemplace el cuerpo del método por el siguiente código:
+11. Localice el método **addItem**y reemplace el cuerpo del método por el siguiente código:
 
         // Insert the item into the TodoItem table and add to the items array on completion
         [self.table insert:item completion:^(NSDictionary *result, NSError *error) {
@@ -131,3 +131,4 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 
 
 Ahora que se ha actualizado la aplicación para utilizar Servicios móviles para almacenamiento back-end, es momento de probar la aplicación con Servicios móviles.
+<!--HONumber=42-->

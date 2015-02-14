@@ -1,10 +1,10 @@
-﻿Debido al desarrollo en curso, la versión del SDK de Android instalada en Eclipse puede no coincidir con la versión en el código. El SDK de Android al que se hace referencia en este tutorial es la versión 21, la última en el momento de la escritura. El número de versión puede aumentar a medida que aparezcan nuevas versiones del SDK, de modo que se recomienda usar la última versión disponible.
+Debido al desarrollo en curso, la versión del SDK de Android instalada en Eclipse puede no coincidir con la versión en el código. El SDK de Android al que se hace referencia en este tutorial es la versión 21, la última en el momento de la escritura. El número de versión puede aumentar a medida que aparezcan nuevas versiones del SDK, de modo que se recomienda usar la última versión disponible.
 
 Dos síntomas de error de coincidencia de la versión son los siguientes:
 
 1. Mire en la consola de Eclipse en el panel inferior. Es posible que vea los mensajes de error del tipo "**No se puede resolver el destino 'android-n'**".
 
-2. Los objetos de Android estándar del código que deben resolverse según las instrucciones "import" pueden generar mensajes de error.
+2. Los objetos de Android estándar del código que deben resolverse según las instrucciones  `import` pueden generar mensajes de error.
 
 Si observa alguna de estas señales, es posible que la versión del SDK de Android instalado en Eclipse no coincida con el destino del SDK del proyecto descargado.  Para comprobar la versión, realice los siguientes cambios:
 
@@ -17,6 +17,4 @@ Si observa alguna de estas señales, es posible que la versión del SDK de Andro
 	 	        android:minSdkVersion="8"
 	 	        android:targetSdkVersion="21" />
 	
-3. En el Explorador de paquetes de Eclipse, haga clic con el botón secundario en el nodo de proyecto, seleccione **Properties** (Propiedades) y, en la columna izquierda, seleccione **Android**. Asegúrese de que **Destino de compilación de proyecto** se haya establecido en la misma versión de SDK que **targetSdkVersion**.
-
-<!--HONumber=35.1-->
+3. En el Explorador de paquetes de Eclipse, haga clic con el botón secundario en el nodo de proyecto, seleccione**Properties** (Propiedades) y, en la columna izquierda, seleccione **Android**. Asegúrese de que **Destino de compilación de proyecto** se haya establecido en la misma versión de SDK que **targetSdkVersion**.<!--HONumber=42-->

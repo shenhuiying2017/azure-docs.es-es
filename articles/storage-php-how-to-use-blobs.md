@@ -1,10 +1,24 @@
-﻿<properties title="How to use blob storage (PHP) - Azure feature guide" pageTitle="Uso del almacenamiento de blobs (PHP) | Microsoft Azure" metaKeywords="Azure blob service PHP, Azure blobs PHP" description="Aprenda a utilizar el servicio BLOB de Azure para cargar, incluir en un listado, descargar y eliminar blobs. Los ejemplos de código están escritos en PHP." documentationCenter="PHP" services="storage" videoId="" scriptId="" solutions="" authors="tomfitz" manager="wpickett" editor="mollybos" />
+<properties 
+	pageTitle="Uso del almacenamiento de blobs (PHP) | Microsoft Azure" 
+	description="Aprenda a utilizar el servicio BLOB de Azure para cargar, incluir en un listado, descargar y eliminar blobs. Los ejemplos de código están escritos en PHP." 
+	documentationCenter="php" 
+	services="storage" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/24/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="tomfitz"/>
 
 #Uso del servicio BLOB de PHP
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio BLOB de Azure. Los ejemplos están escritos en PHP y utilizan el [SDK de Azure para PHP] [descargar]. Los escenarios cubiertos incluyen **cargar**, **escuchar**, **descargar** y **eliminar** blobs. Para obtener más información acerca de los blobs, consulte la sección [Pasos siguientes](#NextSteps) .
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio BLOB de Azure. Los ejemplos están escritos en PHP y usan el [SDK de Azure para PHP][download]. Entre los escenarios descritos se incluyen la **carga**, **enumeración**, **descarga** y **eliminación** de blobs. Para obtener más información acerca de los blobs, consulte la sección [Pasos siguientes](#NextSteps).
 
 ##Tabla de contenido
 
@@ -14,19 +28,19 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del servicio 
 * [Creación de una aplicación PHP](#CreateApplication)
 * [Configuración de la aplicación para obtener acceso al servicio BLOB](#ConfigureStorage)
 * [Configuración de una conexión de almacenamiento de Azure](#ConnectionString)
-* [Recuperación de de un contenedor](#CreateContainer)
-* [Recuperación de de un blob en un contenedor](#UploadBlob)
-* [Escucha de los blobs de un contenedor](#ListBlobs)
-* [Descarga de un blob](#DownloadBlob)
-* [Descarga de un blob](#DeleteBlob)
-* [Eliminación de un contenedor de blobs](#DeleteContainer)
+* [Establecimiento un contenedor](#CreateContainer)
+* [Uso de un blob en un contenedor](#UploadBlob)
+* [Uso de los blobs de un contenedor](#ListBlobs)
+* [Uso de un blob](#DownloadBlob)
+* [Establecimiento un blob](#DeleteBlob)
+* [Establecimiento un contenedor de blobs](#DeleteContainer)
 * [Pasos siguientes](#NextSteps)
 
-[WACOM.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
 
-<h2><a id="CreateAccount"></a>Crear una cuenta de almacenamiento de Azure</h2>
+<h2><a id="CreateAccount"></a>Creación de una cuenta de almacenamiento de Azure</h2>
 
-[WACOM.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
 
 <h2><a id="CreateApplication"></a>Creación de una aplicación PHP</h2>
 
@@ -34,27 +48,27 @@ El único requisito a la hora de crear una aplicación PHP para obtener acceso a
 
 En esta guía, utilizará funciones del servicio a las que se puede llamar desde una aplicación PHP localmente o bien mediante código a través de un rol web, rol de trabajo o sitio web de Azure.
 
-<h2><a id="GetClientLibrary"></a>Obtención de las bibliotecas de clientes de Azure</h2>
+<h2><a id="GetClientLibrary"></a>Obtención de las bibliotecas de cliente de Azure</h2>
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
-<h2><a id="ConfigureStorage"></a>Configuración de la aplicación para obtener acceso al servicio BLOB</h2>
+<h2><a id="ConfigureStorage"></a>Configuración de la aplicación para acceder al servicio Blob</h2>
 
 Para utilizar las API del servicio BLOB de Azure, necesita:
 
-1. Hacer referencia al archivo autocargador mediante la instrucción [require_once][require_once] y
+1. Hacer referencia al archivo autocargador mediante la instrucción[require_once][require_once]y
 2. Hacer referencia a todas las clases que utilice.
 
 En el siguiente ejemplo se muestra cómo incluir el archivo autocargador y hacer referencia a la clase **ServicesBuilder**.
 
-> [WACOM.NOTE]
->  En este ejemplo (así como en otros ejemplos de este artículo), se asume que ya instaló las bibliotecas de clientes PHP para Azure utilizando el compositor. Si las instaló manualmente o como paquete PEAR, deberá hacer referencia al archivo autocargador "WindowsAzure.php".
+> [AZURE.NOTE]
+> En este ejemplo (así como en otros ejemplos de este artículo), se asume que ya instaló las bibliotecas de clientes PHP para Azure utilizando el compositor. Si las instaló manualmente o como paquete PEAR, deberá hacer referencia al `WindowsAzure.php` archivo autocargador.
 
 	require_once 'vendor\autoload.php';
 	use WindowsAzure\Common\ServicesBuilder;
 
 
-En los ejemplos que aparecen a continuación, la instrucción "require_once" aparecerá siempre, pero solo se hará referencia a las clases necesarias para la ejecución del ejemplo.
+En los ejemplos que aparecen a continuación, la instrucción  `require_once` aparecerá siempre, pero solo se hará referencia a las clases necesarias para la ejecución del ejemplo.
 
 <h2><a id="ConnectionString"></a>Configuración de una conexión de almacenamiento de Azure</h2>
 
@@ -72,9 +86,9 @@ Para obtener acceso al emulador de almacenamiento:
 Para crear un cliente de cualquier servicio de Azure necesario para utilizar la clase **ServicesBuilder**. puede:
 
 * pasarle directamente la cadena de conexión, o bien
-* utilizar el **Administrador de configuración de nube (CCM)** (CloudConfigurationManager) para buscar la cadena de conexión en varios orígenes externos:
-	* De manera predeterminada, admite un origen externo: variables de entorno.
-	* Puede agregar nuevos orígenes ampliando la clase **ConnectionStringSource**
+* utilizar el**Administrador de configuración de nube (CCM)** (CloudConfigurationManager) para buscar la cadena de conexión en varios orígenes externos:
+	* de manera predeterminada, admite un origen externo - variables de entorno
+	* para agregar nuevos orígenes, amplíe la clase **ConnectionStringSource**
 
 En los ejemplos descritos aquí, la cadena de conexión se pasará directamente.
 
@@ -84,7 +98,7 @@ En los ejemplos descritos aquí, la cadena de conexión se pasará directamente.
 
 	$blobRestProxy = ServicesBuilder::getInstance()->createBlobService($connectionString);
 
-<h2><a id="CreateContainer"></a>Reproducción de Creación de un contenedor</h2>
+<h2><a id="CreateContainer"></a>Procedimiento: de un contenedor</h2>
 
 Un objeto **BlobRestProxy** le permiten crear un contenedor de blobs mediante el método **createContainer**. Al crear un contenedor, puede establecer opciones en él, aunque no es obligatorio. (El ejemplo que aparece a continuación muestra cómo establecer la ACL y los metadatos del contenedor).
 
@@ -130,7 +144,7 @@ Un objeto **BlobRestProxy** le permiten crear un contenedor de blobs mediante el
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/es-es/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -140,7 +154,7 @@ Si llama a **setPublicAccess(PublicAccessType::CONTAINER\_AND\_BLOBS)**, los dat
 
 Para obtener más información acerca de los códigos de error del servicio BLOB, consulte [Códigos de error del servicio BLOB][error-codes].
 
-<h2><a id="UploadBlob"></a>Reproducción de un blob en un contenedor</h2>
+<h2><a id="UploadBlob"></a>Procedimiento: un blob en un contenedor</h2>
 
 Para cargar un archivo en forma de blob, utilice el método **BlobRestProxy->createBlockBlob**. De este modo, se creará el blob si no existe, o bien se sobrescribirá si ya existe. En el ejemplo de código que aparece a continuación, se asume que el contenedor ya se creó y se utiliza [fopen][fopen] para abrir el archivo como secuencia.
 
@@ -163,7 +177,7 @@ Para cargar un archivo en forma de blob, utilice el método **BlobRestProxy->cre
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/es-es/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -171,7 +185,7 @@ Para cargar un archivo en forma de blob, utilice el método **BlobRestProxy->cre
 
 Observe que en el ejemplo anterior se carga un blob en forma de secuencia. Sin embargo, también es posible cargar un blob en forma de cadena utilizando, por ejemplo, la función [file\_get\_contents][file_get_contents]. Para hacerlo, cambie "$content = fopen("c:\myfile.txt", "r");" en el ejemplo anterior por "$content = file_get_contents("c:\myfile.txt");".
 
-<h2><a id="ListBlobs"></a>Reproducción de los blobs de un contenedor</h2>
+<h2><a id="ListBlobs"></a>Procedimiento: los blobs de un contenedor</h2>
 
 Para enumerar los blobs de un contenedor, utilice el método **BlobRestProxy->listBlobs** aplicando un bucle **foreach** al resultado. El código siguiente permite obtener en el explorador el nombre y el URI de cada uno de los blobs de un contenedor.
 
@@ -197,14 +211,14 @@ Para enumerar los blobs de un contenedor, utilice el método **BlobRestProxy->li
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/es-es/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
 
-<h2><a id="DownloadBlob"></a>Descarga de un blob</h2>
+<h2><a id="DownloadBlob"></a>Procedimiento de descarga de blobs</h2>
 
 Para descargar un blob, llame al método **BlobRestProxy->getBlob** y, a continuación, al método **getContentStream** en el objeto **GetBlobResult** resultante.
 
@@ -225,7 +239,7 @@ Para descargar un blob, llame al método **BlobRestProxy->getBlob** y, a continu
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/es-es/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -233,7 +247,7 @@ Para descargar un blob, llame al método **BlobRestProxy->getBlob** y, a continu
 
 Observe que en el ejemplo anterior se obtiene un blob en forma de recurso de secuencia (opción predeterminada). Sin embargo, es posible utilizar la función [stream\_get\_contents][stream-get-contents] para convertir la secuencia en una cadena.
 
-<h2><a id="DeleteBlob"></a>Reproducción de un blob</h2>
+<h2><a id="DeleteBlob"></a>Procedimiento: de un blob</h2>
 
 Para eliminar un blob, pase el nombre del contenedor y del blob a **BlobRestProxy->deleteBlob**. 
 
@@ -253,13 +267,13 @@ Para eliminar un blob, pase el nombre del contenedor y del blob a **BlobRestProx
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/es-es/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-<h2><a id="DeleteContainer"></a>Reproducción de un contenedor de blobs</h2>
+<h2><a id="DeleteContainer"></a>Procedimiento: de un contenedor de blobs</h2>
 
 Finalmente, para eliminar un contenedor de blobs, pase el nombre del contenedor a **BlobRestProxy->deleteContainer**.
 
@@ -279,7 +293,7 @@ Finalmente, para eliminar un contenedor de blobs, pase el nombre del contenedor 
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+		// http://msdn.microsoft.com/es-es/library/windowsazure/dd179439.aspx
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -295,12 +309,11 @@ Ahora que está familiarizado con los aspectos básicos del servicio BLOB de Azu
 - Consulte el ejemplo de blob en páginas PHP en <https://github.com/WindowsAzure/azure-sdk-for-php-samples/blob/master/storage/PageBlobExample.php>
 
 [download]: http://go.microsoft.com/fwlink/?LinkID=252473
-[Storing and Accessing Data in Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-[container-acl]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179391.aspx
-[error-codes]: http://msdn.microsoft.com/en-us/library/windowsazure/dd179439.aspx
+[Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
+[container-acl]: http://msdn.microsoft.com/es-es/library/windowsazure/dd179391.aspx
+[error-codes]: http://msdn.microsoft.com/es-es/library/windowsazure/dd179439.aspx
 [file_get_contents]: http://php.net/file_get_contents
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

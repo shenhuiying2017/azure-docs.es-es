@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Hadoop Samples in HDInsight" pageTitle="El ejemplo de GraySort de 10 GB | Azure" metaKeywords="hdinsight, hadoop, hdinsight administration, hdinsight administration azure" description="Vea cómo ejecutar un GraySort de fines generales en Hadoop con HDInsight usando Azure PowerShell." umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" services="hdinsight" documentationCenter="" title="The 10GB GraySort sample" authors="bradsev" />
+<properties 
+	pageTitle="El ejemplo de GraySort de 10 GB | Azure" 
+	description="Aprenda a ejecutar una muestra de GraySort de uso general para grandes volúmenes de datos (normalmente un mínimo de 100 TB) en Hadoop con HDInsight mediante Azure PowerShell." 
+	editor="cgronlun" 
+	manager="paulettm" 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="bradsev"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 # Muestra de Hadoop para GraySort de 10 GB en HDInsight
  
@@ -10,27 +24,27 @@ Este ejemplo utiliza solo 10 GB de datos, para así poder ejecutarlo relativamen
 
 Este ejemplo utiliza tres conjuntos de programas de MapReduce:	
  
-1. **TeraGen** es un programa de MapReduce que puede utilizar para generar las filas de datos que se van a ordenar.
-2. **TeraSort** toma una muestra de los datos de entrada y utiliza MapReduce para ordenar los datos de manera absoluta. TeraSort es un ordenamiento estándar de funciones de MapReduce, con la excepción de un particionador personalizado que utiliza una lista ordenada de N-1 claves de muestra que definen el rango de claves para cada reducción. En particular, todas las claves, como[i-1] <= key < sample[i] se envían a reducción de i. Con esto se garantiza que la salida de reducción de i es menor que la salida de reducción i+1.
+1. **TeraGen** es un programa de MapReduce que puede utilizarse para generar las filas de datos que se van a ordenar.
+2. **TeraSort** toma una muestra de los datos de entrada y usa MapReduce para ordenar los datos de manera absoluta. TeraSort es un ordenamiento estándar de funciones de MapReduce, con la excepción de un particionador personalizado que utiliza una lista ordenada de N-1 claves de muestra que definen el rango de claves para cada reducción. En particular, todas las claves, como sample[i-1] <= key < sample[i], se envían a reducción de i. Con esto se garantiza que la salida de reducción de i es menor que la salida de reducción de i+1.
 3. **TeraValidate** es un programa de MapReduce que valida que la salida se ordene de manera global. Crea una asignación por archivo en el directorio de salida y cada asignación asegura que cada clave es menor o igual que la anterior. La función de asignación también genera registros de la primera y la última clave de cada archivo y la función de reducción garantiza que la primera clave del archivo i es mayor que la última clave de archivo i-1. Los problemas se notifican como salida de la reducción con las claves que no están en orden.
 
 El formato de entrada y salida, que utilizan las tres aplicaciones, lee y escribe los archivos de texto en el formato correcto. La salida de la reducción tiene la replicación definida en 1, en lugar del valor predeterminado 3, porque el concurso de estándar de comparación no requiere que los datos de salida se repliquen en varios nodos.
 
  
 **Aprenderá a:**		
-* Utilizar Azure PowerShell para ejecutar una serie de programas de MapReduce en HDInsight de Azure.		
-* El aspecto de un programa de MapReduce escrito en Java.
+*Utilizar Azure PowerShell para ejecutar una serie de programas de MapReduce en HDInsight de Azure*.	
+ El aspecto de un programa de MapReduce escrito en Java.
 
 
-**Requisitos previos**:	
+**Requisitos previos**	
 
-- Debe tener una cuenta de Azure. Para conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure](http://azure.microsoft.com/en-us/pricing/free-trial/) .
+- Debe tener una cuenta de Azure. Si desea conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure](http://azure.microsoft.com/es-es/pricing/free-trial/).
 
-- Debe aprovisionar un clúster de HDInsight. Para obtener instrucciones acerca de varias formas de creación de dichos clústeres, consulte [Aprovisionamiento de clústeres de HDInsight](../hdinsight-provision-clusters/)
+- Debe haber aprovisionado un clúster de HDInsight. Para obtener instrucciones acerca de varias formas de creación de dichos clústeres, consulte [Aprovisionamiento de clústeres de HDInsight](../hdinsight-provision-clusters/)
 
 - Debe tener instalado Azure PowerShell y haber configurado los clústeres para utilizarlos con su cuenta. Para obtener instrucciones acerca de cómo hacerlo, consulte [Instalación y configuración de Azure PowerShell][powershell-install-configure].
 
-##En este artículo
+## En este artículo
 En este tema se muestra cómo ejecutar la serie de programas de MapReduce que conforman el ejemplo, se presenta el código Java del programa de MapReduce, se resume todo lo que ha aprendido y se esbozan los pasos siguientes. Tiene las siguientes secciones.
 	
 1. [Ejecución de la muestra con Azure PowerShell](#run-sample)	
@@ -44,7 +58,7 @@ El ejemplo requiere tres tareas, cada una de las cuales corresponde a uno de los
 
 1. Ejecute el trabajo de MapReduce **TeraGen** para generar los datos que se van a ordenar.	
 2. Ejecute el trabajo de MapReduce **TeraSort** para ordenar los datos.		
-3. Ejecute el trabajo de MapReduce **TeraValidate** para confirmar que los datos se ordenen correctamente.	
+3. Ejecute el trabajo de MapReduce **TeraValidate** para confirmar que los datos se han ordenado correctamente.	
 
 
 **Para ejecutar el programa TeraGen, siga estos pasos:**	
@@ -56,16 +70,16 @@ El ejemplo requiere tres tareas, cada una de las cuales corresponde a uno de los
 		$subscriptionName = "myAzureSubscriptionName"   
 		$clusterName = "myClusterName"
                  
-4. Ejecute el siguiente comando para crear una definición del trabajo de MapReduce":
+3. Ejecute el siguiente comando para crear una definición del trabajo de MapReduce":
 
 		# Create a MapReduce job definition for the TeraGen MapReduce program
 		$teragen = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "teragen" -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input" 
 
-	> [WACOM.NOTE] *hadoop-examples.jar* viene con la versión 2.1 de clústeres de HDInsight. Se cambió el nombre del archivo a *hadoop-mapreduce.jar* en la versión 3.0 de clústeres de HDInsight.
+	> [AZURE.NOTE] *hadoop-examples.jar* incluye los clústeres de HDInsight versión 2.1. Se cambió el nombre del archivo a  *hadoop-mapreduce.jar* en la versión 3.0 de los clústeres de HDInsight.
 	
-	El argumento *"-Dmapred.map.tasks=50"* especifica que se crearán 50 asignaciones para ejecutar el trabajo. El argumento *100000000* especifica la cantidad de datos que se van a generar. El argumento final, */example/data/10GB-sort-input*, especifica el directorio de salida en el que se guardarán los resultados (que contiene la entrada para la siguiente fase de ordenación).
+	El argumento *"-Dmapred.map.tasks=50"* especifica que se crearán 50 asignaciones para ejecutar el trabajo. El argumento *100000000* especifica la cantidad de datos que se van a generar. El argumento final,  */example/data/10GB-sort-input*, especifica el directorio de salida en el que se guardarán los resultados (que contiene la entrada para la siguiente fase de ordenación).
 
-5. Ejecute los siguientes comandos para iniciar el trabajo, espere a que se complete e imprima el error estándar:
+4. Ejecute los siguientes comandos para iniciar el trabajo, espere a que se complete e imprima el error estándar:
 
 		# Run the TeraGen MapReduce job.
 		# Wait for the job to complete.
@@ -113,7 +127,7 @@ El ejemplo requiere tres tareas, cada una de las cuales corresponde a uno de los
 		#	Create a MapReduce job definition for the TeraValidate MapReduce program
 		$teravalidate = New-AzureHDInsightMapReduceJobDefinition -JarFile "/example/jars/hadoop-examples.jar" -ClassName "teravalidate" -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-output", "/example/data/10GB-sort-validate" 
 
-	El argumento *"-Dmapred.map.tasks=50"* especifica que se crearán 50 asignaciones para ejecutar el trabajo. El argumento *"-Dmapred.reduce.tasks=25"* especifica también que se crearán 25 tareas de reducción para ejecutar el trabajo. Los últimos dos especifican los directorios de entrada y salida.  
+	El argumento *"-Dmapred.map.tasks=50"* especifica que se crearán 50 asignaciones para ejecutar el trabajo. El argumento *"-Dmapred.reduce.tasks=25"* especifica que se crearán 25 tareas de reducción para ejecutar el trabajo. Los últimos dos especifican los directorios de entrada y salida.  
  
 
 4. Ejecute los siguientes comandos para iniciar el trabajo de MapReduce, espere a que se complete e imprima el error estándar:
@@ -404,15 +418,15 @@ Este ejemplo ha demostrado cómo ejecutar una serie de trabajos de MapReduce con
 
 Para ver tutoriales que ejecutan otras muestras y proporcionan instrucciones sobre el uso de Pig, Hive y los trabajos de MapReduce en HDInsight de Azure con Azure PowerShell, consulte los siguientes temas:
 
-* [Introducción a Azure HDInsight][hdinsight-get-started]
-* [Muestra: Estimador de Pi][hdinsight-sample-pi-estimator]
+* [Introducción a HDInsight de Azure][hdinsight-get-started]
+* [Muestra: estimador de Pi][hdinsight-sample-pi-estimator]
 * [Muestra: Wordcount][hdinsight-sample-wordcount]
-* [Muestra: C# Steaming][hdinsight-sample-csharp-streaming]
+* [Muestra: Streaming de C#][hdinsight-sample-csharp-streaming]
 * [Uso de Pig con HDInsight][hdinsight-use-pig]
 * [Uso de Hive con HDInsight][hdinsight-use-hive]
 * [Documentación del SDK de HDInsight de Azure][hdinsight-sdk-documentation]
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/es-es/library/dn479185.aspx
 
 
 [Powershell-install-configure]: ../install-configure-powershell/
@@ -429,5 +443,4 @@ Para ver tutoriales que ejecutan otras muestras y proporcionan instrucciones sob
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,9 +1,5 @@
-<div class="wa-note">
-  <span class="wa-icon-bulb"></span>
-  <h5><a name="note"></a>Para completar este tutorial, deber&aacute; tener una cuenta de Azure:</h5>
-  <ul>
-    <li>Puede <a href="/es-es/pricing/free-trial/?WT.mc_id=A261C142F">abrir una cuenta de Azure de manera gratuita</a> - Obtiene cr&eacute;dito que puede utilizar para probar los servicios de Azure de pago, e incluso una vez agotado este podr&aacute; mantener la cuenta y utilizar servicios gratuitos de Azure, como Sitios web. Nunca se la har&aacute; ning&uacute;n cargo en la tarjeta de cr&eacute;dito, a menos que cambie expl&iacute;citamente la configuraci&oacute;n y pida que se le realice alg&uacute;n cargo.</li>
-    <li>Puede <a href="/es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activar las ventajas de suscriptor de MSDN</a> - Su suscripci&oacute;n a MSDN le proporciona cr&eacute;dito todos los meses que puede utilizar para servicios de Azure de pago.</li>
-  <ul>
-</div>
-
+﻿> [AZURE.NOTE] <h5><a name="note"></a>Para completar este tutorial, deberá tener una cuenta de Azure:</h5>
+  > + Puede [abrir una cuenta de Azure de forma gratuita](/es-es/pricing/free-trial/?WT.mc_id=A261C142F): Recibirá créditos que puede usar para probar servicios de Azure de pago y, una vez que se agoten, podrá mantener la cuenta y usar servicios gratuitos de Azure, como sitios web. Nunca se la hará ningún cargo en la tarjeta de crédito, a menos que cambie explícitamente la configuración y pida que se le realice algún cargo.
+  >
+  > + Puede [activar los beneficios de suscriptores de MSDN](/es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F): Su suscripción a MSDN le proporciona créditos todos los meses que puede usar para servicios de Azure de pago.
+<!--HONumber=42-->

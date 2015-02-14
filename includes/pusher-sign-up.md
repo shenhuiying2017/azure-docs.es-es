@@ -4,19 +4,19 @@
 
 1. Inicie sesión en el [Portal de administración de Azure][].
 
-2. En el panel inferior del Portal de administración, haga clic en **Nuevo**.
+2. En el panel inferior del portal de administración, haga clic en **New**.
 
 	![command-bar-new][command-bar-new]
 
-3. Haga clic en **Tienda**.
+3. Haga clic en **Store**.
 
 	![pusher-store][pusher-store]
 
 4. En el cuadro de diálogo **Elegir un complemento**, seleccione **Pusher** y haga clic en la flecha derecha.
 
-5. En el cuadro de diálogo **Personalizar complemento**, seleccione el plan **Pusher** al que desea suscribirse.
+5. En el cuadro de diálogo **Personalizar complemento**, seleccione el plan de **Pusher** al que desea suscribirse.
 
-6. Escriba un nombre para identificar el servicio **Pusher** en la configuración de Azure o utilice el valor predeterminado de **Pusher**. Los nombres deben tener de 1 a 100 caracteres y contener únicamente caracteres alfanuméricos, guiones, puntos y caracteres de subrayado. El nombre debe ser único en la lista de elementos de la Tienda de Azure.
+6. Escriba un nombre para identificar el servicio de **Pusher** en la configuración de Azure o use el valor predeterminado de **Pusher**. Los nombres deben tener de 1 a 100 caracteres y contener únicamente caracteres alfanuméricos, guiones, puntos y caracteres de subrayado. El nombre debe ser único en la lista de elementos de la Tienda de Azure.
 
 	![store-screen-1][store-screen-1]
 
@@ -32,7 +32,7 @@
 
 	![store-screen-3][store-screen-3]
 
-Su cuenta Pusher se aprovisiona inmediatamente y verá el mensaje **Se ha comprado correctamente el complemento Pusher**. La cuenta se ha creado y ahora ya está preparado para utilizar el servicio Pusher.
+Su cuenta Pusher se aprovisiona inmediatamente y verá el mensaje **La compra del complemento Pusher se realizó correctamente**. La cuenta se ha creado y ahora ya está preparado para utilizar el servicio Pusher.
 
 Para modificar el plan de suscripción o ver la configuración de contacto de Pusher, haga clic en el nombre de su servicio Pusher para abrir el panel de complementos Pusher.
 
@@ -42,15 +42,15 @@ Cuando se utiliza Pusher, tendrá que proporcionar la configuración de conexió
 
 ### Para encontrar la configuración de conexión de Pusher ###
 
-1. Haga clic en **Información de conexión**.
+1. Haga clic en **Información de la conexión**.
 
 	![pusher-connection-info-button][pusher-connection-info-button]
 
-2. En el cuadro de diálogo *Información de conexión* verá el identificador de aplicación, la clave y el secreto. Copie estos valores, ya que los usará más adelante en este tutorial.
+2. En el cuadro de diálogo  *Connection info*, verá el identificador de aplicación, la clave y el secreto Copie estos valores, ya que los usará más adelante en este tutorial.
 
 	![pusher-connection-info][pusher-connection-info]
 
-Para obtener más información acerca de cómo comenzar con Pusher, consulte [Understanding Pusher][].
+Para obtener más información sobre cómo comenzar con Pusher, consulte [Descripción de Pusher][].
 
 <!--images-->
 
@@ -66,6 +66,6 @@ Para obtener más información acerca de cómo comenzar con Pusher, consulte [Un
 <!--Links-->
 
 [Portal de administración de Azure]: https://manage.windowsazure.com
-[Understanding Pusher]: http://pusher.com/docs
+[Descripción de Pusher]: http://pusher.com/docs
 
-
+<!--HONumber=42-->

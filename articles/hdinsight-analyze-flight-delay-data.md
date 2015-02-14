@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Analyze flight delay data with Hadoop in HDInsight" pageTitle="Análisis de datos de retraso de vuelos con Hadoop en HDInsight | Azure" metaKeywords="" description="Obtenga información acerca de cómo usar un script de PowerShell para aprovisionar el clúster de HDInsight, ejecutar el trabajo de Hive, ejecutar el trabajo de Sqool y eliminar el clúster." metaCanonical="" services="hdinsight" documentationCenter="" title="Analyze flight delay data using Hadoop in HDInsight " authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+<properties 
+	pageTitle="Análisis de datos de retraso de vuelos con Hadoop en HDInsight | Azure" 
+	description="Obtenga información acerca de cómo usar un script de PowerShell para aprovisionar el clúster de HDInsight, ejecutar el trabajo de Hive, ejecutar el trabajo de Sqool y eliminar el clúster." 
+	services="hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/04/2014" 
+	ms.author="jgao"/>
 
 #Análisis de datos de retraso de vuelos con Hadoop en HDInsight
 
@@ -41,13 +55,13 @@ En los apéndices, puede encontrar instrucciones para cargar los datos del retra
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * Una estación de trabajo con Azure PowerShell instalado y configurado. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell][powershell-install-configure].
-* Una suscripción de Azure. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][azure-purchase-options], [Ofertas para miembros][azure-member-offers] o [Evaluación gratuita][azure-free-trial].
+* Una suscripción de Azure. Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra][azure-purchase-options], [Ofertas para miembros][azure-member-offers] o [Prueba gratuita][azure-free-trial].
 
 ###Descripción del almacenamiento de HDInsight
 
-Los clústeres de Hadoop en HDInsight usan el almacenamiento de blobs de Azure para el almacenamiento de datos.  Se llama *WASB* o *Almacenamiento de Azure - Blob*. WASB es la implementación del sistema de archivos distribuido de Hadoop (*HDFS) de Microsoft en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][hdinsight-storage]. 
+Los clústeres de Hadoop en HDInsight usan el almacenamiento de blobs de Azure para el almacenamiento de datos.  Se denomina *WASB* o *Azure Storage - Blob*. WASB es la implementación de Microsoft de  *HDFS* en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][hdinsight-storage]. 
 
-Cuando aprovisiona un clúster de HDInsight, se designa un contenedor de almacenamiento de blobs de una cuenta de almacenamiento de Azure como sistema de archivos predeterminado, al igual que en HDFS. Esta cuenta de almacenamiento se conoce como cuenta de almacenamiento predeterminada y el contenedor de blobs se conoce como contenedor de blobs predeterminado o contenedor predeterminado. La cuenta de almacenamiento predeterminada debe colocarse en el mismo centro de datos que el clúster de HDInsight. Al eliminar un clúster de HDInsight no se elimina el contenedor predeterminado ni la cuenta de almacenamiento predeterminada.
+Cuando aprovisiona un clúster de HDInsight, se designa un contenedor de almacenamiento de blobs de una cuenta de almacenamiento de Azure como sistema de archivos predeterminado, al igual que en HDFS. Esta cuenta de almacenamiento se conoce como el *default storage account*, y el contenedor de Blob se conoce como el *default Blob container* o *default container*. La cuenta de almacenamiento predeterminada debe colocarse en el mismo centro de datos que el clúster de HDInsight. Al eliminar un clúster de HDInsight no se elimina el contenedor predeterminado ni la cuenta de almacenamiento predeterminada.
 
 Además de la cuenta de almacenamiento predeterminada, se pueden enlazar otras cuentas de almacenamiento de Azure a un clúster de HDInsight durante el proceso de aprovisionamiento. El enlace consiste en agregar la cuenta de almacenamiento y su clave al archivo de configuración. De este modo, el clúster puede obtener acceso a esas cuentas de almacenamiento en tiempo de ejecución. Para obtener instrucciones sobre cómo agregar otras cuentas de almacenamiento, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight][hdinsight-provision]. 
 
@@ -55,7 +69,7 @@ La sintaxis de WASB es la siguiente:
 
 	wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
->[WACOM.NOTE] La ruta de acceso WASB es la ruta de acceso virtual.  Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][hdinsight-storage]. 
+>[AZURE.NOTE] La ruta de acceso WASB es la ruta de acceso virtual.  Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][hdinsight-storage]. 
 
 Para archivos almacenados en el contenedor predeterminado, se puede obtener acceso desde HDInsight con cualquiera de los URI siguientes (se usa flightdelays.hql como ejemplo):
 
@@ -95,9 +109,9 @@ Existen determinados aspectos que debe conocer en relación con la tabla interna
 - El comando CREATE EXTERNAL TABLE no mueve el archivo de datos.
 - El comando CREATE EXTERNAL TABLE no permite ninguna carpeta en LOCATION. Este es el motivo por el que el tutorial hace una copia del archivo sample.log.
 
-Para obtener más información, consulte [HDInsight: Introducción a las tablas externas e internas de Hive][cindygross-hive-tables].
+Para obtener más información, consulte [HDInsight: Introducción a tablas internas y externas de Hive][cindygross-hive-tables].
 
-> [WACOM.NOTE] Una de las instrucciones de HiveQL crea una tabla externa de Hive. La tabla externa de Hive conserva el archivo de datos en la ubicación original. La tabla interna de Hive mueve el archivo de datos a hive\warehouse. La tabla interna de Hive requiere que el archivo de datos se encuentre en el contenedor predeterminado. Para datos almacenados fuera del contenedor de blobs predeterminado, debe usar tablas externas de Hive.
+> [AZURE.NOTE] Una de las instrucciones de HiveQL crea una tabla externa de Hive. La tabla externa de Hive conserva el archivo de datos en la ubicación original. La tabla interna de Hive mueve el archivo de datos a hive\warehouse. La tabla interna de Hive requiere que el archivo de datos se encuentre en el contenedor predeterminado. Para datos almacenados fuera del contenedor de blobs predeterminado, debe usar tablas externas de Hive.
 
 
 
@@ -109,7 +123,7 @@ Para obtener más información, consulte [HDInsight: Introducción a las tablas 
 
 ##<a id="runjob"></a>Aprovisionamiento de clústeres de HDInsight y ejecución de trabajos de Hive/Sqoop 
 
-Hadoop MapReduce se está procesando por lotes. La forma más rentable de ejecutar un trabajo de Hive es aprovisionar un clúster para el trabajo y eliminar el trabajo una vez completado. El siguiente script cubre todo el proceso. Para obtener más información sobre el aprovisionamiento del clúster de HDInsight y la ejecución de trabajos de Hive, consulte[Aprovisionamiento de clústeres de Hadoop en HDInsight][hdinsight-provision] y [Uso de Hive con HDInsight][hdinsight-use-hive]. 
+Hadoop MapReduce se está procesando por lotes. La forma más rentable de ejecutar un trabajo de Hive es aprovisionar un clúster para el trabajo y eliminar el trabajo una vez completado. El siguiente script cubre todo el proceso. Para obtener más información sobre el aprovisionamiento del clúster de HDInsight y la ejecución de trabajos de Hive, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight][hdinsight-provision] y  [Uso de Hive con HDInsight][hdinsight-use-hive]. 
 
 **Para ejecutar las consultas de Hive usando PowerShell**
 
@@ -368,11 +382,11 @@ Hadoop MapReduce se está procesando por lotes. La forma más rentable de ejecut
 		Write-Host "End of the PowerShell script" -ForegroundColor Green
 		Write-Host "`tCurrent system time: " (get-date) -ForegroundColor Yellow
 
-4. Presione **F5** para ejecutar el script. La salida debe ser similar a:
+4. Presione **F5** para ejecutar el script: La salida debe ser similar a:
 
 	![HDI.FlightDelays.RunHiveJob.output][img-hdi-flightdelays-run-hive-job-output]
 		
-5. Conéctese a la Base de datos SQL y consulte los retrasos promedio de los vuelos por ciudad en la tabla *AvgDelays*:
+5. Conéctese a la Base de datos SQL y consulte los retrasos promedio de los vuelos por ciudad en la tabla  *AvgDelays*:
 
 	![HDI.FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
 
@@ -380,28 +394,28 @@ Hadoop MapReduce se está procesando por lotes. La forma más rentable de ejecut
 
 ---
 ##<a id="appendix-a"></a>Apéndice A: Carga de datos de retraso de vuelos en el almacenamiento de blobs de Azure
-Antes de cargar el archivo de datos y los archivos de script de HiveQL (consulte [Apéndice B],(#appendix-b)se requiere cierta planificación. La idea es almacenar los archivos de datos y el archivo HiveQL antes de aprovisionar un clúster de HDInsight y ejecutar el trabajo de Hive.  Dispone de dos opciones:
+Antes de cargar el archivo de datos y los archivos de script de HiveQL (consulte [Apéndice B](#appendix-b) se requiere cierta planificación. La idea es almacenar los archivos de datos y el archivo HiveQL antes de aprovisionar un clúster de HDInsight y ejecutar el trabajo de Hive.  Dispone de dos opciones:
 
-- **Utilice la misma cuenta de almacenamiento de Azure que usará el clúster HDInsight como sistema de archivos predeterminado.** Como el clúster de HDInsight tendrá la clave de acceso de la cuenta de almacenamiento, no es preciso realizar cambios adicionales.
-- **Utilice una cuenta de almacenamiento de Azure diferente desde el sistema de archivos predeterminado del clúster de HDInsight.** Si este es el caso, debe modificar la parte de aprovisionamiento del script PowerShell que se encuentra en [Aprovisionamiento de clústeres de HDInsight y ejecución de trabajos de Hive/Sqoop](#runjob) para incluir la cuenta de almacenamiento como una cuenta de almacenamiento adicional. Para obtener instrucciones, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight][hdinsight-provision]. De esta manera, el clúster HDInsight conoce la clave de acceso de la cuenta de almacenamiento.
+- **Utilice la misma cuenta de almacenamiento de Azure que usará el clúster de HDInsight como sistema de archivos predeterminado.** Debido a que el clúster de HDInsight tiene la clave de acceso de la cuenta de almacenamiento, no es necesario realizar ningún cambio adicional.
+- **Usar una cuenta de almacenamiento de Azure diferente del sistema de archivos predeterminado de clúster de HDInsight.** Si este es el caso, debe modificar la parte de aprovisionamiento de la secuencia de comandos de PowerShell que encuentra en [Aprovisionamiento de clústeres de HDInsight y ejecución de trabajos de Hive/Sqoop](#runjob) para incluir la cuenta de almacenamiento como una cuenta de almacenamiento adicional. Para obtener instrucciones, consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight][hdinsight-provision]. De esta manera, el clúster HDInsight conoce la clave de acceso de la cuenta de almacenamiento.
 
->[WACOM.NOTE] La ruta WASB para el archivo de datos está codificado de forma rígida en el archivo de script de HiveQL. Debe actualizarse en consecuencia.
+>[AZURE.NOTE] La ruta WASB para el archivo de datos está codificado de forma rígida en el archivo de script de HiveQL. Debe actualizarse en consecuencia.
 
 **Para descargar los datos de vuelo**
 
-1. Diríjase a [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA).
+1. Diríjase a [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website] (RITA)
 2. En la página, seleccione los siguientes valores:
 
 	<table border="1">
 	<tr><th>Nombre</th><th>Valor</th></tr>
 	<tr><td>Filter Year</td><td>2013 </td></tr>
 	<tr><td>Filter Period</td><td>January</td></tr>
-	<tr><td>Fields:</td><td>*Year*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (borrar todos los demás campos)</td></tr>
+	<tr><td>Fields:</td><td>*Año*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Origin*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*, *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*, *LateAircraftDelay* (borrar todos los demás campos)</td></tr>
 	</table>
 
-3. Haga clic en **Descargar**. 
+3. Haga clic en **Download**. 
 4. Descomprima el archivo en la carpeta **C:\Tutorials\FlightDelays\Data**.  Cada archivo es un archivo CSV y tiene un tamaño aproximado de 60 GB.
-5.	Cambie el nombre del archivo al nombre del mes que contiene los datos. Por ejemplo, el archivo que contiene los datos de enero se llamaría *Enero.csv*.
+5.	Cambie el nombre del archivo al nombre del mes que contiene los datos. Por ejemplo, el archivo que contiene los datos de enero se llamaría  *January.csv*.
 6. Repita el paso 2 y 5 para descargar un archivo para cada uno de los 12 meses de 2013. Necesitará como mínimo un archivo para ejecutar el tutorial.  
 
 **Para cargar los datos de retraso de vuelos en el almacenamiento de blobs de Azure**
@@ -478,15 +492,15 @@ Antes de cargar el archivo de datos y los archivos de script de HiveQL (consulte
 		Get-AzureStorageBlob -Container $blobContainerName  -Context $storageContext -Prefix $destFolder
 		#EndRegion
 
-3. Presione **F5** para ejecutar el script.
+3. Presione **F5** para ejecutar el script:
 
-Si decide utilizar un método diferente para cargar los archivos, asegúrese de que la ruta de acceso del archivo sea *tutorials/flightdelays/data*. La sintaxis para tener acceso a los archivos es:
+Si decide utilizar un método diferente para cargar los archivos, asegúrese de que la ruta de acceso del archivo es *tutorials/flightdelays/data*. La sintaxis para tener acceso a los archivos es:
 
 	wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelays/data
 
 *tutorials/flightdelays/data* es la carpeta virtual creada cuando se cargan los archivos. Compruebe que haya 12 archivos, uno para cada mes.
 
->[WACOM.NOTE] Debe actualizar la consulta de Hive para leer desde la nueva ubicación.
+>[AZURE.NOTE] Debe actualizar la consulta de Hive para leer desde la nueva ubicación.
 
 > Debe configurar el permisos de acceso del contenedor para que sea público o enlazar la cuenta de almacenamiento con el clúster de HDInsight.  En caso contrario, la cadena de consulta de Hive no podrá acceder a los archivos de datos. 
 
@@ -498,10 +512,10 @@ Con Azure PowerShell, puede ejecutar varias instrucciones HiveQL a la vez, o emp
 El script de HiveQL realizará lo siguiente:
 
 1. **Anular la tabla delays_raw**, en caso de que la tabla ya exista.
-2. **Crear la tabla externa de Hive delays_raw,** que apunta a la ubicación de WASB con los archivos de retraso de los vuelos. Esta consulta especifica que los campos están delimitados por "," y que las líneas terminan en "\n". Esto plantea un problema cuando los valores de campo contienen comas porque Hive no puede distinguir entre una coma que es un delimitador de campo y una que es parte de un valor de campo (que es el caso de los valores de campo de ORIGIN\_CITY\_NAME y DEST\_CITY\_NAME). Para solucionar este problema, la consulta crea columnas TEMP para contener datos que se dividen incorrectamente en columnas.  
-3. **Anular la tabla de retrasos,** en caso de que la tabla ya exista.
-4. **Crear la tabla de retrasos**. Es útil realizar una limpieza de los datos antes de realizar un procesamiento adicional. Esta consulta crea una tabla nueva, *delays*, a partir de la tabla *delays_raw*. Tenga en cuenta que las columnas TEMP no se copian (como se mencionó anteriormente) y que la función *substring* se utiliza para quitar las comillas de los datos. 
-5. **Procesa el retraso promedio a causa del tiempo y agrupa los resultados por nombre de la ciudad.** También producirá los resultados en WASB. Tenga en cuenta que la consulta eliminará los apóstrofes de los datos y excluirá las filas donde el valor de *weather_dealy* es *null*, lo que es necesario porque Sqoop, que se utiliza más adelante en este tutorial, no controla correctamente esos valores de manera predeterminada.
+2. **Crear la tabla externa de Hive delays_raw** que apunta a la ubicación de WASB con los archivos de retraso de los vuelos. Esta consulta especifica que los campos están delimitados por "," y que las líneas terminan en "\n". Esto plantea un problema cuando los valores de campo  *contain* comas porque Hive no puede distinguir entre una coma que es un delimitador de campo y una que es parte de un valor de campo (que es el caso de los valores de campo de ORIGIN\_CITY\_NAME y DEST\_CITY\_NAME). Para solucionar este problema, la consulta crea columnas TEMP para contener datos que se dividen incorrectamente en columnas.  
+3. **Anular la tabla de retrasos**, en caso de que la tabla ya exista.
+4. **Crear la tabla de retrasos**. Es útil realizar una limpieza de los datos antes de realizar un procesamiento adicional. Esta consulta crea una tabla nueva, *delays* desde la tabla  *delays_raw*. Tenga en cuenta que las columnas TEMP no se copian (como se mencionó anteriormente) y que la función  *substring* se utiliza para quitar las comillas de los datos. 
+5. **Calcula el retraso de tiempo promedio y agrupa los resultados por nombre de la ciudad.** También mostrará los resultados en WASB. Tenga en cuenta que la consulta eliminará los apóstrofes de los datos y excluirá las filas donde el valor de *weather_deal*y es *null*, que es necesario porque Sqoop, que se utilizan más adelante en este tutorial, no controla estos valores correctamente de forma predeterminada.
 
 Para obtener una lista completa de los comandos de HiveQL, consulte [Lenguaje de definición de datos de Hive][hadoop-hiveql]. Cada comando de HiveQL debe terminar con un punto y coma.
 
@@ -818,16 +832,16 @@ Para obtener una lista completa de los comandos de HiveQL, consulte [Lenguaje de
 		
 		Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
 
-	>[WACOM.NOTE] El script utiliza un servicio REST, http://bot.whatismyipaddress.com, para recuperar la dirección IP externa. Esta dirección IP se usa para crear una regla de firewall para el servidor de Base de datos SQL.  
+	>[AZURE.NOTE] El script utiliza un servicio REST, http://bot.whatismyipaddress.com, para recuperar la dirección IP externa. Esta dirección IP se usa para crear una regla de firewall para el servidor de Base de datos SQL.  
 
 	Estas son algunas de las variables que se usan en el script:
 
-	- **$ipAddressRestService**: El valor predeterminado es <u>http://bot.whatismyipaddress.com</u>. Es un servicio REST de direcciones IP públicas para obtener la dirección IP externa. Puede usar los servicios que desee. La dirección IP externa recuperada con el servicio se usará para crear una regla de firewall para el servidor de Base de datos SQL de Azure, de forma que pueda acceder a la base de datos desde su estación de trabajo (usando el script de PowerShell).
+	- **$ipAddressRestService**: el valor predeterminado es <u>http://bot.whatismyipaddress.com</u>. Es un servicio REST de direcciones IP públicas para obtener la dirección IP externa. Puede usar los servicios que desee. La dirección IP externa recuperada con el servicio se usará para crear una regla de firewall para el servidor de Base de datos SQL de Azure, de forma que pueda acceder a la base de datos desde su estación de trabajo (usando el script de PowerShell).
 	- **$fireWallRuleName**: este es el nombre de la regla de firewall del servidor de Base de datos SQL de Azure. El nombre predeterminado es <u>FlightDelay</u>. Puede cambiarlo si lo desea.
-	- **$sqlDatabaseMaxSizeGB**: este valor se usa solo cuando se crea un nuevo servidor de Base de datos SQL de Azure. El valor predeterminado es <u>10GB</u>. 10 GB es suficiente para este tutorial.
+	- **$sqlDatabaseMaxSizeGB**: este valor se usa solo cuando se crea un nuevo servidor de Base de datos SQL de Azure. El valor predeterminado es <u>10 GB</u>. 10 GB es suficiente para este tutorial.
 	- **$sqlDatabaseName**: este valor se usa solo cuando se crea una nueva base de datos SQL de Azure. El valor predeterminado es <u>HDISqoop</u>. Si cambia el nombre, debe actualizar el script de PowerShell de Sqoop en consecuencia. 
 
-4. Presione **F5** para ejecutar el script. 
+4. Presione **F5** para ejecutar el script: 
 5. Valide la salida del script. Asegúrese de que el script se ejecutó correctamente.	
 
 ##<a id="nextsteps"></a> Pasos siguientes
@@ -843,9 +857,9 @@ Ahora sabe cómo cargar archivos al almacenamiento de blobs, cómo rellenar una 
 
 
 
-[azure-purchase-options]: http://azure.microsoft.com/en-us/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/en-us/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/en-us/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/es-es/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/es-es/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/es-es/pricing/free-trial/
 
 
 [rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
@@ -872,5 +886,4 @@ Ahora sabe cómo cargar archivos al almacenamiento de blobs, cómo rellenar una 
 [img-hdi-flightdelays-run-hive-job-output]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.RunHiveJob.Output.png
 [img-hdi-flightdelays-flow]: ./media/hdinsight-analyze-flight-delay-data/HDI.FlightDelays.Flow.png
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

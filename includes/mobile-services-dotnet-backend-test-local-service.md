@@ -1,4 +1,4 @@
-
+﻿
 
 El proyecto de servicio móvil descargado le permite ejecutar el nuevo servicio móvil en el equipo o máquina virtual local. De este modo, resulta sencillo depurar el código del servicio antes de publicarlo en Azure.
 
@@ -8,4 +8,4 @@ El proyecto de servicio móvil descargado le permite ejecutar el nuevo servicio 
 
 	![](./media/mobile-services-dotnet-backend-test-local-service/mobile-service-startup.png)
 
-	Una vez que se inicia el servicio móvil correctamente, aparece una página web.
+	Una vez que se inicia el servicio móvil correctamente, aparece una página web.<!--HONumber=42-->

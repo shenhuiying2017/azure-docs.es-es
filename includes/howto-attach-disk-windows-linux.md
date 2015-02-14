@@ -1,58 +1,63 @@
-Para obtener más información sobre discos en máquinas virtuales de Azure, consulte [Acerca de discos de máquina virtual en Azure][Acerca de discos de máquina virtual en Azure].
+﻿
+Para obtener más información sobre los discos, consulte [Acerca de los discos de máquina virtual en Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
 
-## <span id="attachempty"></span></a>Direccionamiento del Acoplar un disco vacío
-
+##<a id="attachempty"></a>Procedimiento: Conectar un disco vacío
 El acoplamiento de un disco vacío supone el método más sencillo de agregar un disco de datos, porque Azure crea el archivo .vhd en su lugar y lo almacena en la cuenta de almacenamiento.
 
-1.  Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual correspondiente.
+1. Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual correspondiente.
 
-2.  En la barra de comandos, haga clic en **Attach** y, a continuación, seleccione **Attach Empty Disk**.
+2. En la barra de comandos, haga clic en **Conectar** y luego en **Conectar un disco vacío**.
 
-    ![Acoplar un disco vacío][Acoplar un disco vacío]
 
-    Aparece el cuadro de diálogo **Attach Empty Disk**.
+	![Conectar un disco vacío](./media/howto-attach-disk-window-linux/AttachEmptyDisk.png)
 
-    ![Conectar un nuevo disco vacío][Conectar un nuevo disco vacío]
+3.	Aparecerá el cuadro de diálogo **Conectar un disco vacío**.
 
-3.  En **Nombre de archivo**, acepte el nombre generado automáticamente o escriba un nombre descriptivo. El disco de datos que se crea a partir del archivo .vhd siempre usará el nombre generado automáticamente.
 
-4.  En **Size**, especifique el tamaño del disco de datos.
+	![Conectar un disco vacío nuevo](./media/howto-attach-disk-window-linux/AttachEmptyDetail.png)
 
-5.  Haga clic en la casilla de verificación para conectar un disco de datos vacío.
+ 
+	Haga lo siguiente:
 
-    El disco de datos aparecerá ahora en el panel de la máquina virtual.
+	- En **Nombre de archivo**, acepte el nombre predeterminado o escriba otro para el archivo .vhd, que se usa para el disco. El disco de datos usa un nombre generado automáticamente, incluso si escribe otro nombre para el archivo .vhd
 
-    ![Disco de datos vacío conectado correctamente][Disco de datos vacío conectado correctamente]
+	- Escriba el **Tamaño (GB)** del disco de datos. 
 
-## <span id="attachexisting"></span></a>Direccionamiento del un disco existente
+	- Haga clic en la marca de verificación para continuar.
 
-El acoplamiento de un disco existente requiere que disponga de un .vhd disponible en la cuenta de almacenamiento. Use el cmdlet [Add-AzureVhd][Add-AzureVhd] para cargar el archivo .vhd a la cuenta de almacenamiento. Una vez que haya creado y cargado el archivo .vhd, puede acoplarlo a una máquina virtual.
+4.	Una vez creado y conectado el disco de datos, este aparece en el panel de la máquina virtual.
 
-1.  Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual correspondiente.
+	![Disco de datos vacío conectado correctamente](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
 
-2.  En la barra de comandos, haga clic en **Attach** y, a continuación, seleccione **Attach Disk**.
+##<a id="attachexisting"></a>Procedimiento: Conectar un disco existente
 
-    ![Acoplar disco de datos][Acoplar disco de datos]
+El acoplamiento de un disco existente requiere que disponga de un .vhd disponible en la cuenta de almacenamiento. Use el cmdlet [Add-AzureVhd](http://go.microsoft.com/FWLink/p/?LinkID=391684) para cargar el archivo .vhd en la cuenta de almacenamiento. Una vez que haya creado y cargado el archivo .vhd, puede acoplarlo a una máquina virtual. 
 
-    Aparecerá el cuadro de diálogo **Attach Disk**.
+1. Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual correspondiente.
 
-    ![Especificar la información del disco de datos][Especificar la información del disco de datos]
+2. En la barra de comandos, haga clic en **Conectar** y luego elija **Conectar disco**.
 
-3.  Seleccione el disco de datos que desee acoplar a la máquina virtual.
-4.  Haga clic en la marca de verificación para acoplar el disco de datos a la máquina virtual.
 
-    El disco de datos aparecerá ahora en el panel de la máquina virtual.
+	![Conectar un disco de datos](./media/howto-attach-disk-window-linux/AttachExistingDisk.png)
 
-    ![Disco de datos conectado correctamente][Disco de datos conectado correctamente]
+	Aparecerá el cuadro de diálogo **Conectar disco**.
 
-> [WACOM.NOTE]
-> Después de agregar un disco de datos, tendrá que iniciar sesión en la máquina virtual e inicializar el disco para que la máquina virtual pueda usar dicho disco para el almacenamiento.
 
-  [Acerca de discos de máquina virtual en Azure]: http://go.microsoft.com/fwlink/p/?LinkId=403697
-  [Acoplar un disco vacío]: ./media/howto-attach-disk-window-linux/AttachDiskWindows.png
-  [Conectar un nuevo disco vacío]: ./media/howto-attach-disk-window-linux/AttachNewDiskWindows.png
-  [Disco de datos vacío conectado correctamente]: ./media/howto-attach-disk-window-linux/AttachEmptySuccess.png
-  [Add-AzureVhd]: http://go.microsoft.com/FWLink/p/?LinkID=391684
-  [Acoplar disco de datos]: ./media/howto-attach-disk-window-linux/AttachExistingDiskWindows.png
-  [Especificar la información del disco de datos]: ./media/howto-attach-disk-window-linux/AttachExistingDisk.png
-  [Disco de datos conectado correctamente]: ./media/howto-attach-disk-window-linux/AttachSuccess.png
+
+	![Especificar la información del disco de datos](./media/howto-attach-disk-window-linux/AttachExistingDetail.png)
+
+3. Seleccione el disco de datos que desee acoplar a la máquina virtual.
+
+4. Haga clic en la marca de verificación para acoplar el disco de datos a la máquina virtual.
+ 
+5.	Una vez conectado el disco de datos, este aparece en el panel de la máquina virtual.
+
+
+	![Disco de datos conectado correctamente](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
+
+> [AZURE.NOTE] 
+> Después de conectar un disco de datos, tendrá que iniciar sesión en la máquina virtual e inicializar el disco para que la máquina virtual pueda usar el disco para el almacenamiento.
+
+
+
+<!--HONumber=42-->

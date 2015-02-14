@@ -5,11 +5,11 @@ Las instrucciones y capturas de pantalla siguientes se aplican a las pruebas de 
 
     ![](./media/mobile-services-aad-rbac-test-app/dave-login.png)
 
-2. David no pertenece al grupo de ventas. Por tanto, la comprobación de acceso basada en rol denegará el acceso a las operaciones de tabla. Cierre la aplicación cliente.
+2. David no pertenece al grupo de ventas. Por tanto, la comprobación de acceso basada en rol denegará el acceso a las operaciones de tabla. Cierre la aplicación de cliente.
 
     ![](./media/mobile-services-aad-rbac-test-app/unauthorized.png)
 
-3. En Visual Studio, ejecute de nuevo la aplicación cliente. Esta vez autenticaremos con la cuenta de usuario que creamos con el nombre de Roberto.
+3. En Visual Studio, ejecute de nuevo la aplicación de cliente. Esta vez autenticaremos con la cuenta de usuario que creamos con el nombre de Roberto.
 
     ![](./media/mobile-services-aad-rbac-test-app/bob-login.png)
 
@@ -19,3 +19,4 @@ Las instrucciones y capturas de pantalla siguientes se aplican a las pruebas de 
 
 
 
+<!--HONumber=42-->

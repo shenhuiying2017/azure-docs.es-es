@@ -4,27 +4,27 @@
 
 Para obtener más información sobre los patrones de recepción de los Centros de eventos, consulte [Información general de los Centros de eventos].
 
-Este tutorial utiliza una instalación de [HDInsight Storm], que integra el emisor de Centros de eventos que ya se encuentra disponible.
+Este tutorial usa una instalación de [HDInsight Storm], que integra el emisor de Centros de eventos que ya se encuentra disponible.
 
-1. Siga el procedimiento descrito en [Introducción a HDInsight Storm](http://azure.microsoft.com/es-es/documentation/articles/hdinsight-storm-getting-started/) para crear un clúster nuevo de HDInsight y conectarlo a través de Escritorio remoto.
+1. Siga el procedimiento descrito en [Introducción a HDInsight Storm](http://azure.microsoft.com/es-es/documentation/articles/hdinsight-storm-getting-started/) para crear un clúster nuevo de HDInsight y conectarlo a través del Escritorio remoto.
 
-2. Copie el archivo "%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar" en su entorno de desarrollo local. Contiene events-storm-spout.
+2. Copie el archivo  `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` en su entorno de desarrollo local. Contiene events-storm-spout.
 
 3. Utilice el comando siguiente para instalar el paquete en el almacén Maven local. Esto permite agregarlo como referencia en el proyecto de Storm en un paso posterior.
 
 		mvn install:install-file -Dfile=target\eventhubs-storm-spout-0.9-jar-with-dependencies.jar -DgroupId=com.microsoft.eventhubs -DartifactId=eventhubs-storm-spout -Dversion=0.9 -Dpackaging=jar
 
-4. En Eclipse, cree un nuevo proyecto Maven (haga clic en **Archivo**, **Nuevo** y **Proyecto**).
+4. En Eclipse,  cree un nuevo proyecto (haga clic en **File** (Archivo), **New** (Nuevo) y **Project** (Proyecto)).
 
    	![][12]
 
-5. Seleccione **Usar la ubicación del área de trabajo predeterminada** y, a continuación, haga clic en **Siguiente**
+5. Seleccione **Use default Workspace location** (Usar ubicación del área de trabajo predeterminada) y haga clic en **Next** (Siguiente).
 
-6. Seleccione el prototipo **maven-archetype-quickstart** y, a continuación, haga clic en **Siguiente**
+6. Seleccione el prototipo **maven-archetype-quickstart** y haga clic en **Next** (Siguiente).
 
-7. Inserte los elementos **GroupId** y **ArtifactId** y, a continuación, haga clic en **Finalizar**
+7. Escriba un **GroupId** (Id. de  grupo) y **ArtifactId** (Id. de artefacto) y luego haga clic en **Finish** (Finalizar).
 
-8. En **pom.xml**, agregue las siguientes dependencias en el nodo "<dependency>".
+8. En **pom.xml**, agregue las siguientes dependencias al nodo `<dependency>`.
 		
 		<dependency>
 			<groupId>org.apache.storm</groupId>
@@ -54,7 +54,7 @@ Este tutorial utiliza una instalación de [HDInsight Storm], que integra el emis
 			<scope>provided</scope>
 		</dependency>
 
-9. En la carpeta **src**, cree un archivo llamado **Config.properties** y copie el contenido siguiente, sustituyendo los valores siguientes:
+9. En la carpeta **src**, cree un archivo llamado **Config.properties** y copie el contenido siguiente, sustituyendo estos valores:
 
 		eventhubspout.username = ReceiveRule
 		
@@ -73,9 +73,9 @@ Este tutorial utiliza una instalación de [HDInsight Storm], que integra el emis
 		
 		eventhub.receiver.credits = 10
 
-	El valor de **eventhub.receiver.credits** determina cuántos eventos se procesan por lotes antes de liberarlos para la canalización de Storm. Por simplicidad, este ejemplo establece este valor en 10. En producción, se debe normalmente establecer en valores más altos; por ejemplo, 1024.
+	El valor de **eventhub.receiver.credits** determina cuántos eventos se procesan por lotes antes de liberarlos a la canalización de Storm. Por simplicidad, este ejemplo establece el valor en 10. En producción, se debe normalmente establecer en valores más altos; Por ejemplo, 1024.
 
-10. Cree una clase nueva denominada **LoggerBolt** con el siguiente código:
+10. Cree una clase nueva denominada **LoggerBolt** con el código siguiente:
 
 		import java.util.Map;
 		import org.slf4j.Logger;
@@ -114,7 +114,7 @@ Este tutorial utiliza una instalación de [HDInsight Storm], que integra el emis
 
 	Este elemento de Storm registra el contenido de los eventos recibidos. Esto se puede ampliar fácilmente para almacenar las tuplas en un servicio de almacenamiento. El [tutorial de análisis de sensores de HDInsight] usa este mismo enfoque para almacenar datos en HBase.
 
-11. Cree una clase denominada **LogTopology** con el siguiente código:
+11. Cree una clase denominada **LogTopology** con el código siguiente:
 
 		import java.io.FileReader;
 		import java.util.Properties;
@@ -228,4 +228,4 @@ Este tutorial utiliza una instalación de [HDInsight Storm], que integra el emis
 
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
+[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png<!--HONumber=42-->

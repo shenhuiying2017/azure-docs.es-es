@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Debug HDInsight Hadoop Errors" pageTitle="Depuración de Hadoop en HDInsight: Mensajes de error | Azure" metaKeywords="hdinsight, hdinsight service, hdinsight azure, debug, error messages, errors" description="Conozca los mensajes de error que puede recibir cuando administre HDInsight con PowerShell, así como los pasos que debe seguir para la recuperación." services="hdinsight" title="Debug Hadoop in HDInsight: Error messages" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" authors="bradsev" />
+﻿<properties 
+	pageTitle="Depuración de Hadoop en HDInsight: Mensajes de error | Azure" 
+	description="Conozca los mensajes de error que puede recibir cuando administre HDInsight con PowerShell, así como los pasos que debe seguir para la recuperación." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="bradsev" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 # Depuración de Hadoop en HDInsight: mensajes de error
 
@@ -74,7 +88,7 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 - **Mitigación**: El usuario debe facilitar una tienda de metadatos de Azure SQL válida y volver a enviar la solicitud.  
 
 <h3><a id="AzureRegionNotSupported"></a>AzureRegionNotSupported</h3>
-- **Descripción**: No se pudo crear un clúster en la región *nombredelaregión*. Utilice una región de HDInsight válida y vuelva a enviar la solicitud.   
+- **Descripción**: No se pudo crear el clúster en la región *nameOfYourRegion*. Utilice una región de HDInsight válida y vuelva a enviar la solicitud.   
 - **Mitigación**: El cliente debe crear el clúster en una región que actualmente lo admita: Sudeste asiático, Europa occidental, norte de Europa, este de Estados Unidos u oeste de Estados Unidos.  
 
 <h3><a id="ClusterContainerRecordNotFound"></a>ClusterContainerRecordNotFound</h3>
@@ -82,11 +96,11 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 - **Mitigación**: Vuelva a intentarlo. 
 
 <h3><a id="ClusterDnsNameInvalidReservedWord"></a>ClusterDnsNameInvalidReservedWord</h3>
-- **Descripción**: El nombre DNS del clúster *nombreDNS* no es válido. Asegúrese de que empiece y acabe con un carácter alfanumérico y de que no contenga ningún carácter especial aparte de "-".  
+- **Descripción**: El nombre DNS del clúster *yourDnsName* no es válido. Asegúrese de que empiece y acabe con un carácter alfanumérico y de que no contenga ningún carácter especial aparte de "-".  
 - **Mitigación**: Asegúrese de que utilizó un nombre DNS válido para el clúster que empiece y acabe con un carácter alfanumérico y que no contenga ningún carácter especial aparte del guión (-), y, a continuación, vuelva a intentarlo.
 
 <h3><a id="ClusterNameUnavailable"></a>ClusterNameUnavailable</h3>
-- **Descripción**: El nombre de clúster *nombredeclúster* no está disponible. Elija otro nombre.  
+- **Descripción**: El nombre de clúster *yourClusterName* no está disponible. Elija otro nombre.  
 - **Mitigación**: El usuario debe especificar un nombre de clúster que sea único y que no esté ya en uso, y, a continuación, volver a intentarlo. Si el usuario está utilizando el portal, la IU le informará durante los pasos de creación si el nombre de clúster ya está en uso. 
  
 
@@ -99,11 +113,11 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 - **Mitigación**: Proporcione un nombre de usuario de clúster válido y vuelva a intentarlo.
 
 <h3><a id="ClusterUserNameInvalidReservedWord"></a>ClusterUserNameInvalidReservedWord</h3>
-- **Descripción**: El nombre DNS del clúster *nombreDNSdelclúster* no es válido. Asegúrese de que empiece y acabe con un carácter alfanumérico y de que no contenga ningún carácter especial aparte de "-".  
+- **Descripción**: El nombre DNS del clúster *yourDnsClusterName* no es válido. Asegúrese de que empiece y acabe con un carácter alfanumérico y de que no contenga ningún carácter especial aparte de "-".  
 - **Mitigación**: Proporcione un nombre de usuario de clúster DNS válido y vuelva a intentarlo.
 
 <h3><a id="ContainerNameMisMatchWithDnsName"></a>ContainerNameMisMatchWithDnsName</h3>
-- **Descripción**: El nombre de contenedor del URI *URIdecontenedor* y el nombre DNS *nombreDNS* del cuerpo de la solicitud deben coincidir.  
+- **Descripción**: El nombre del contenedor en URI *yourcontainerURI* y el nombre DNS *yourDnsName* en el cuerpo de la solicitud debe ser el mismo.  
 - **Mitigación**: Asegúrese de que el nombre del contenedor y el nombre DNS coincidan y vuelva a intentarlo.
 
 <h3><a id="DataNodeDefinitionNotFound"></a>DataNodeDefinitionNotFound</h3>
@@ -119,11 +133,11 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 - **Mitigación**: Elimine el clúster y cree uno nuevo.
 
 <h3><a id="DuplicateClusterContainerRequest"></a>DuplicateClusterContainerRequest</h3>
-- **Descripción**: Intento de duplicación de un contenedor de clúster. Existe un registro con el nombre *nombredelcontenedor, pero las propiedades Etag no coinciden.   
+- **Descripción**: Intento de duplicación de un contenedor de clúster. Existe un registro con el nombre  *nameOfYourContainer*, pero las propiedades Etag no coinciden.   
 - **Mitigación**: Proporcione un nombre exclusivo para el contenedor y vuelva a intentarlo. 
 
 <h3><a id="DuplicateClusterInHostedService"></a>DuplicateClusterInHostedService</h3>
-- **Descripción**: El servicio hospedado *nombredelserviciohospedado* ya incluye un clúster. Los servicios hospedados no pueden contener varios clústeres.  
+- **Descripción**: El servicio hospedado *nameOfYourHostedService* ya contiene un clúster. Los servicios hospedados no pueden contener varios clústeres.  
 - **Mitigación**: Hospede el clúster en otro servicio hospedado. 
 
 <h3><a id="FailureToUpdateDeploymentStatus"></a>FailureToUpdateDeploymentStatus</h3>
@@ -131,7 +145,7 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 - **Mitigación**: Vuelva a intentarlo. Si esto ocurre varias veces, póngase en contacto con CSS. 
 
 <h3><a id="HdiRestoreClusterAltered"></a>HdiRestoreClusterAltered</h3>
-- **Descripción**: El clúster *nombredelclúster* se eliminó durante el mantenimiento. Vuelva a crearlo.     
+- **Descripción**: El clúster *yourClusterName* se eliminó durante el mantenimiento. Vuelva a crearlo.     
 - **Mitigación**: Vuelva a crear el clúster.
 
 <h3><a id="HeadNodeConfigNotFound"></a>HeadNodeConfigNotFound</h3>
@@ -139,27 +153,27 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 - **Mitigación**: Vuelva a intentarlo.
 
 <h3><a id="HostedServiceCreationFailure"></a>HostedServiceCreationFailure</h3>
-- **Descripción**: No se puede crear el servicio hospedado *nombredelserviciohospedado*. Vuelva a intentarlo.  
+- **Descripción**: No se puede crear el servicio hospedado *nameOfYourHostedService*. Vuelva a intentarlo.  
 - **Mitigación**: Vuelva a intentarlo.
 
 <h3><a id="HostedServiceHasProductionDeployment"></a>HostedServiceHasProductionDeployment</h3>
-- **Descripción**: El servicio hospedado *nombredelserviciohospedado* ya incluye una implementación de producción. Los servicios hospedados no pueden contener varias implementaciones de producción. Vuelva a intentarlo con un nombre de clúster diferente.   
+- **Descripción**: El servicio hospedado *nameOfYourHostedService* ya incluye una implementación de producción. Los servicios hospedados no pueden contener varias implementaciones de producción. Vuelva a intentarlo con un nombre de clúster diferente.   
 - **Mitigación**: Utilice un nombre de clúster diferente y vuelva a intentarlo.
 
 <h3><a id="HostedServiceNotFound"></a>HostedServiceNotFound</h3>
-- **Descripción**: No se encuentra el servicio hospedado *nombredelserviciohospedado* del clúster.  
+- **Descripción**: No se encuentra el servicio hospedado *nameOfYourHostedService* del clúster.  
 - **Mitigación**: Si el clúster se encuentra en estado de error, elimínelo y, a continuación, vuelva a intentarlo. 
 
 <h3><a id="HostedServiceWithNoDeployment"></a>HostedServiceWithNoDeployment</h3>
-- **Descripción**: El servicio hospedado *nombredelserviciohospedado* no tiene asociada ninguna implementación.  
+- **Descripción**: El servicio hospedado *nameOfYourHostedService* no tiene asociada ninguna implementación.  
 - **Mitigación**: Si el clúster se encuentra en estado de error, elimínelo y, a continuación, vuelva a intentarlo. 
 
 <h3><a id="InsufficientResourcesCores"></a>InsufficientResourcesCores</h3>
-- **Descripción**: Al identificador de suscripción *identificadordelasuscripción* no le quedan recursos principales para crear el clúster *nombredelclúster*. Requeridos: *recursosrequeridos*, disponibles: *recursosdisponibles*.  
+- **Descripción**: Al identificador de suscripción *yourSubscriptionId* no le quedan recursos principales para crear el clúster *yourClusterName*. Requerido: *resourcesRequired*, Disponible: *resourcesAvailable*.  
 - **Mitigación**: Libere recursos en la suscripción o aumente la cantidad de recursos disponibles para la suscripción e intente crear el clúster de nuevo.
 
 <h3><a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices</h3>
-- **Descripción**: El identificador de suscripción *identificadordelasuscripción* no tiene cuota para un nuevo servicio hospedado y, por tanto, no puede crear el clúster *nombredelclúster*.  
+- **Descripción**: El identificador de suscripción *yourSubscriptionId* no tiene cuota para un nuevo servicio hospedado y, por tanto, no puede crear el clúster *yourClusterName*.  
 - **Mitigación**: Libere recursos en la suscripción o aumente la cantidad de recursos disponibles para la suscripción e intente crear el clúster de nuevo.
 
 <h3><a id="InternalErrorRetryRequest"></a>InternalErrorRetryRequest</h3>
@@ -167,7 +181,7 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 - **Mitigación**: Vuelva a intentarlo. 
 
 <h3><a id="InvalidAzureStorageLocation"></a>InvalidAzureStorageLocation</h3>
-- **Descripción**: La ubicación de almacenamiento de Azure *nombrederegióndedatos* no es válida. Asegúrese de que la región sea correcta y vuelva a intentarlo.   
+- **Descripción**: La ubicación de almacenamiento de Azure *dataRegionName* no es válida. Asegúrese de que la región sea correcta y vuelva a intentarlo.   
 - **Mitigación**: Seleccione una ubicación de almacenamiento compatible con HDInsight, compruebe que el clúster esté colocalizado y vuelva a intentarlo. 
 
 <h3><a id="InvalidNodeSizeForDataNode"></a>InvalidNodeSizeForDataNode</h3>
@@ -179,19 +193,19 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 - **Mitigación**: Especifique el tamaño de nodo admitido para el nodo principal y vuelva a intentarlo.
 
 <h3><a id="InvalidRightsForDeploymentDeletion"></a>InvalidRightsForDeploymentDeletion</h3>
-- **Descripción**: El identificador de suscripción *identificadordelasuscripción* que se está utilizando no dispone de suficientes permisos para ejecutar la operación de eliminación del clúster *nombredelclúster.  
+- **Descripción**: El identificador de suscripción *yourSubscriptionId* que se está utilizando no dispone de suficientes permisos para ejecutar la operación de eliminación del clúster *yourClusterName*.  
 - **Mitigación**: Si el clúster se encuentra en estado de error, elimínelo y, a continuación, vuelva a intentarlo.  
 
 <h3><a id="InvalidStorageAccountBlobContainerName"></a>InvalidStorageAccountBlobContainerName</h3>
-- **Descripción**: El nombre del contenedor de blobs de la cuenta de almacenamiento externa *nombredelcontenedor* no es válido. Asegúrese de que el nombre comience con una letra y solo contenga minúsculas, números y guiones.  
+- **Descripción**: El nombre del contenedor de blobs de la cuenta de almacenamiento externa *yourContainerName* no es válido. Asegúrese de que el nombre comience con una letra y solo contenga minúsculas, números y guiones.  
 - **Mitigación**: Especifique un nombre de contenedor de blobs de cuenta de almacenamiento válido y vuelva a intentarlo.
 
 <h3><a id="InvalidStorageAccountConfigurationSecretKey"></a>InvalidStorageAccountConfigurationSecretKey</h3>
-- **Descripción**: Para configurar la cuenta de almacenamiento externa *nombredelacuentadealmacenamiento* es necesario establecer primero los datos de la clave secreta.  
+- **Descripción**: Para configurar la cuenta de almacenamiento externa *yourStorageAccountName* es necesario establecer primero los datos de la clave secreta.  
 - **Mitigación**: Especifique una clave secreta válida para la cuenta de almacenamiento y vuelva a intentarlo.
 
 <h3><a id="InvalidVersionHeaderFormat"></a>InvalidVersionHeaderFormat</h3>
-- **Descripción**: El encabezado de la versión *encabezadodelaversión* no tiene el formato válido de aaaa-mm-dd.  
+- **Descripción**: El encabezado de la versión *yourVersionHeader* no presenta el formato válido aaaa-mm-dd.  
 - **Mitigación**: Especifique un formato válido para el encabezado de la versión y vuelva a intentarlo. 
 
 <h3><a id="MoreThanOneHeadNode"></a>MoreThanOneHeadNode</h3>
@@ -203,7 +217,7 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 - **Mitigación**: Vuelva a intentarlo. 
 
 <h3><a id="ParameterNullOrEmpty"></a>ParameterNullOrEmpty</h3>
-- **Descripción**: El parámetro *nombredelparámetro* no puede ser null ni estar vacío.  
+- **Descripción**: El parámetro *yourParameterName* no puede ser nulo ni estar vacío.  
 - **Mitigación**: Especifique un valor válido para el parámetro. 
 
 <h3><a id="PreClusterCreationValidationFailure"></a>PreClusterCreationValidationFailure</h3>
@@ -211,23 +225,23 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 - **Mitigación**: Asegúrese de que los valores escritos sean correctos y vuelva a intentarlo. 
 
 <h3><a id="RegionCapabilityNotAvailable"></a>RegionCapabilityNotAvailable</h3>
-- **Descripción**: La funcionalidad de región no está disponible para la región *nombredelaregión* y el identificador de suscripción *identificadordelasuscripción*.  
+- **Descripción**: La funcionalidad de región no está disponible para la región *yourRegionName* y el identificador de suscripción *yourSubscriptionId*.  
 - **Mitigación**: Especifique una región compatible con los clústeres de HDInsight. Las regiones admitidas públicamente son: Sudeste asiático, Europa occidental, norte de Europa, este de Estados Unidos u oeste de Estados Unidos. 
 
 <h3><a id="StorageAccountNotColocated"></a>StorageAccountNotColocated</h3>
-- **Descripción**: La cuenta de almacenamiento *nombredelacuentadealmacenamiento* se encuentra en la región *nombredelaregiónactual*. Debería coincidir con la región del clúster *nombredelaregióndelclúster*.  
+- **Descripción**: La cuenta de almacenamiento *yourStorageAccountName* está en la región *currentRegionName*. Debería coincidir con la región del clúster *yourClusterRegionName*.  
 - **Mitigación**: Especifique una cuenta de almacenamiento situada en la misma región que el clúster, o bien, si la cuenta de almacenamiento ya contiene datos, cree un nuevo clúster en la misma región que la cuenta de almacenamiento existente. Si está utilizando el portal, la IU le informará de este problema con antelación. 
 
 <h3><a id="SubscriptionIdNotActive"></a>SubscriptionIdNotActive</h3>
-- **Descripción**: El identificador de suscripción proporcionado *identificadordelasuscripción* no está activo.  
+- **Descripción**: El identificador de suscripción proporcionado *yourSubscriptionId* no está activo.  
 - **Mitigación**: Vuelva a activar la suscripción u obtenga una nueva suscripción válida.
 
 <h3><a id="SubscriptionIdNotFound"></a>SubscriptionIdNotFound</h3>
-- **Descripción**: No se encuentra el identificador de suscripción *identificadordelasuscripción*.  
+- **Descripción**: No se encuentra el identificador de suscripción *yourSubscriptionId*.  
 - **Mitigación**: Compruebe que el identificador de la suscripción sea válido y vuelva a intentarlo. 
 
 <h3><a id="UnableToResolveDNS"></a>UnableToResolveDNS</h3>
-- **Descripción**: No se puede resolver el DNS *URLdelDNS*. Asegúrese de facilitar la dirección URL completa del extremo del blob.  
+- **Descripción**: No se puede resolver el DNS *yourDnsUrl*. Asegúrese de facilitar la dirección URL completa del extremo del blob.  
 - **Mitigación**: Proporcione una URL de blob válida. La dirección URL DEBE ser totalmente válida, entre otras cosas debe empezar por *http://* y acabar en *.com*. La dirección URL completa suele encontrarse en la pestaña de almacenamiento del Portal de administración de Azure.  
 
 <h3><a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource</h3>
@@ -235,15 +249,15 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 - **Mitigación**: Proporcione una URL de blob válida. La dirección URL DEBE ser totalmente válida, entre otras cosas debe empezar por *http://* y acabar en *.com*. La dirección URL completa suele encontrarse en la pestaña de almacenamiento del Portal de administración de Azure. 
 
 <h3><a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable</h3>
-- **Descripción**: La funcionalidad de versión no está disponible para la versión *versiónespecificada* y el identificador de suscripción *identificadordelasuscripción*.  
+- **Descripción**: La funcionalidad de versión no está disponible para la versión *specifiedVersion* y el identificador de suscripción *yourSubscriptionId*.  
 - **Mitigación**: Elija una versión disponible y vuelva a intentarlo. 
 
 <h3><a id="VersionNotSupported"></a>VersionNotSupported</h3>
-- **Descripción**: La versión *versiónespecificada* no es compatible.   
+- **Descripción**: La versión *specifiedVersion* no se admite.   
 - **Mitigación**: Elija una versión compatible y vuelva a intentarlo.
 
 <h3><a id="VersionNotSupportedInRegion"></a>VersionNotSupportedInRegion</h3>
-- **Descripción**: La versión *versiónespecificada* no está disponible en la región de Azure *regiónespecificada*.  
+- **Descripción**: La versión *specifiedVersion* no está disponible en la región de Azure *specifiedRegion*.  
 - **Mitigación**: Elija una versión admitida en la región y vuelva a intentarlo. 
 
 <h3><a id="WasbAccountConfigNotFound"></a>WasbAccountConfigNotFound</h3>
@@ -252,9 +266,9 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 
 <h2><a id="resources"></a>Recursos adicionales de depuración</h2> 
 
-* [Documentación de SDK de Azure HDInsight][hdinsight-sdk-documentation]
+* [Documentación de SDK de HDInsight de Azure][hdinsight-sdk-documentation]
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/en-us/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/es-es/library/dn479185.aspx
 
 [image-hdi-debugging-error-messages-portal]: ./media/hdinsight-debug-jobs/hdi-debug-errormessages-portal.png
 
@@ -263,5 +277,4 @@ Los errores que puede encontrar el usuario en Azure PowerShell o en el portal de
 
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

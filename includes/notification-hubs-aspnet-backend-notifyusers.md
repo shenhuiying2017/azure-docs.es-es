@@ -1,6 +1,6 @@
 ﻿## Creación del proyecto WebAPI
 
-Siga estos pasos para crear un nuevo modelo de WebAPI de ASP.NET para autenticar a clientes y generar notificaciones o modificar un back-end existente de proyectos anteriores o el consulte el tutorial [Envío de notificaciones de inserción a usuarios autenticados](http://azure.microsoft.com/es-es/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/).
+Siga estos pasos para crear un nuevo modelo de WebAPI de ASP.NET para autenticar a clientes y generar notificaciones o modificar un back-end existente de proyectos anteriores o consulte el tutorial [Envío de notificaciones de inserción a usuarios autenticados](http://azure.microsoft.com/es-es/documentation/articles/mobile-services-dotnet-backend-ios-push-notifications-app-users/).
 
 > [AZURE.NOTE] **Importante**: antes de iniciar este tutorial, asegúrese de que tiene instalada la versión más reciente del Administrador de paquetes de NuGet. Para comprobarlo, inicie Visual Studio. En el menú **Herramientas**, haga clic en **Extensiones y actualizaciones**. Busque **Administrador de paquetes de NuGet para Visual Studio 2013** y asegúrese de que tiene la versión 2.8.50313.46 o posterior. Si no es así, desinstale e instale de nuevo el Administrador de paquetes de NuGet.
 > 
@@ -9,35 +9,35 @@ Siga estos pasos para crear un nuevo modelo de WebAPI de ASP.NET para autenticar
 > [AZURE.NOTE] Asegúrese de que ha instalado el [SDK de Azure](http://azure.microsoft.com/es-es/downloads/) para Visual Studio para la implementación de sitios web.
 
 1. Inicie Visual Studio o Visual Studio Express.
-2. En Visual Studio, haga clic en **Archivo**, **Nuevo**, **Proyecto**, expanda **Plantillas**, **Visual C#**, a continuación haga clic en **Web** y **Aplicación web ASP.NET **, escriba el nombre **AppBackend** y, a continuación, haga clic en **Aceptar**. 
+2. En Visual Studio, haga clic en **Archivo** y, a continuación, haga clic en **Nuevo** y en **Proyecto**, expanda **Plantillas**, **Visual C#** y, a continuación, haga clic en **Web** y **Aplicación web ASP.NET**, escriba el nombre **AppBackend**y, a continuación, haga clic en **Aceptar**. 
 	
 	![][1]
 
-3. En el cuadro de diálogo **Nuevo proyecto ASP.NET**, haga clic en **Web API** y, a continuación, en **Aceptar**.
+3. En el cuadro de diálogo **Nuevo proyecto ASP.NET**, haga clic en **API web** y, a continuación, en **Aceptar**.
 
 	![][2]
 
-4. En el cuadro de diálogo **Configurar sitio de Azure**, seleccione una suscripción, una región y una base de datos para utilizarlas con este proyecto. A continuación, haga clic en **Aceptar** para crear el proyecto.
+4. En el cuadro de diálogo **Configurar sitio de Azure**, seleccione una suscripción, una región y una base de datos para usarlas con este proyecto. A continuación, haga clic en **Aceptar** para crear el proyecto.
 
 	![][5]
 
-5. En el Explorador de soluciones, haga clic con el botón secundario en el proyecto **AppBackend** y, a continuación, haga clic en **Administrar paquetes de NuGet**.
+5. En el Explorador de soluciones, haga clic con el botón secundario en el proyecto **AppBackend** y, a continuación, seleccione **Administrar paquetes de NuGet**.
 
-6. En el lado izquierdo, haga clic en **En línea** y busque **servicebus** en el cuadro **Buscar**.
+6. En el lado izquierdo, haga clic en **En línea** y busque **servicebus** en el cuadro **Búsqueda**.
 
-7. En la lista de resultados, haga clic en **Bus de servicio de Windows Azure** y, a continuación, haga clic en **Instalar**. Complete la instalación y, a continuación, cierre la ventana del administrador de paquetes de NuGet.
+7. En la lista de resultados, haga clic en **Bus de servicio de Microsoft Azure** y, a continuación, haga clic en **Instalar**. Complete la instalación y, a continuación, cierre la ventana del administrador de paquetes de NuGet.
 
 	![][14]
 
-8. Ahora crearemos una nueva clase **Notifications.cs**. En el Explorador de soluciones, haga clic con el botón secundario en la carpeta **Modelos**, haga clic en **Agregar** y, a continuación, en **Clase**. Después de asignar nombres a la nueva clase **Notifications.cs**, haga clic en **Agregar** para generar la clase. Este módulo representa las diferentes notificaciones seguras que se enviarán. En una implementación completa, las notificaciones se almacenan en una base de datos. Por simplicidad, este tutorial las almacena en memoria.
+8. Ahora crearemos una nueva clase **Notifications.cs**. Vaya al Explorador de soluciones, haga clic en la carpeta **Modelos**, haga clic en **Agregar** y, a continuación, en **Clase**. Después de asignar el nombre a la nueva clase **Notifications.cs**, haga clic en **Agregar** para generar la clase. Este módulo representa las diferentes notificaciones seguras que se enviarán. En una implementación completa, las notificaciones se almacenan en una base de datos. Por simplicidad, este tutorial las almacena en memoria.
 
 	![][6]
 
-9. En Notifications.cs, agregue la siguiente instrucción "using" en la parte superior del archivo:
+9. En Notifications.cs, agregue la siguiente instrucción  `using` en la parte superior del archivo:
 
         using Microsoft.ServiceBus.Notifications;
 
-10. A continuación, reemplace la definición de clase "Notificaciones" por lo siguiente y asegúrese de reemplazar los dos marcadores de posición con la cadena de conexión (con acceso total) para el centro de notificaciones y y el nombre del centro (disponible en el [Portal de administración de Azure](http://manage.windowsazure.com)):
+10.  continuación, reemplace la definición de clase  `Notifications` por lo siguiente y asegúrese de reemplazar los dos marcadores de posición con la cadena de conexión (con acceso total) para el centro de notificaciones y y el nombre del centro (disponible en el [Portal de administración de Azure](http://manage.windowsazure.com)):
 
 		public class Notifications
         {
@@ -50,9 +50,9 @@ Siga estos pasos para crear un nuevo modelo de WebAPI de ASP.NET para autenticar
             }
         }
 
-11. Ahora crearemos una nueva clase **AuthenticationTestHandler.cs**. En el Explorador de soluciones, haga clic con el botón secundario en el proyecto **AppBackend**, haga clic en **Agregar** y, a continuación, haga clic en **Clase**. Asigne a la nueva clase el nombre **AuthenticationTestHandler.cs** y haga clic en **Agregar** para generar la clase. Esta clase se utiliza para autenticar a los usuarios de la *Autenticación básica*. Tenga en cuenta que su aplicación puede utilizar cualquier esquema de autenticación.
+11. Ahora crearemos una nueva clase **AuthenticationTestHandler.cs**. En el Explorador de soluciones, haga clic en el proyecto **AppBackend**, haga clic en **Agregar** y, a continuación, haga clic en **Clase**. Asigne a la nueva clase el nombre **AuthenticationTestHandler.cs** y haga clic en **Agregar** para generar la clase. Esta clase se usa para autenticar usuarios mediante  *Basic Authentication*. Tenga en cuenta que su aplicación puede utilizar cualquier esquema de autenticación.
 
-12. En AuthenticationTestHandler.cs, agregue las siguientes instrucciones "using":
+12. En AuthenticationTestHandler.cs, agregue las siguientes instrucciones  `using`:
 
         using System.Net.Http;
         using System.Threading.Tasks;
@@ -61,7 +61,7 @@ Siga estos pasos para crear un nuevo modelo de WebAPI de ASP.NET para autenticar
         using System.Security.Principal;
         using System.Net;
 
-13. En AuthenticationTestHandler.cs, reemplace la definición de clase "AuthenticationTestHandler" con lo siguiente:
+13. En AuthenticationTestHandler.cs, reemplace la definición de clase  `AuthenticationTestHandler` con lo siguiente:
 
 		public class AuthenticationTestHandler : DelegatingHandler
 	    {
@@ -110,19 +110,19 @@ Siga estos pasos para crear un nuevo modelo de WebAPI de ASP.NET para autenticar
 	        }
 	    }
 
-	> [AZURE.NOTE] **Nota de seguridad**: La clase "AuthenticationTestHandler" no proporciona una autenticación verdadera. Se utiliza únicamente para simular una autenticación básica y no es segura. Debe implementar un mecanismo de autenticación seguro en las aplicaciones y servicios de producción.				
+	> [AZURE.NOTE] **Nota de seguridad**: La clase  `AuthenticationTestHandler` no proporciona una autenticación verdadera. Se utiliza únicamente para simular una autenticación básica y no es segura. Debe implementar un mecanismo de autenticación seguro en las aplicaciones y servicios de producción.				
 
-14. Agregue el siguiente código al final del método "Registrar" en la clase **App_Start/WebApiConfig.cs**:
+14. Agregue el siguiente código al final del método  `Register` en la clase **App_Start/WebApiConfig.cs**:
 
 		config.MessageHandlers.Add(new AuthenticationTestHandler());
 
-15. A continuación, creamos un nuevo controlador **RegisterController**. En el Explorador de soluciones, haga clic con el botón secundario en la carpeta **Controladores**, a continuación en **Agregar** y, por último, en **Controlador**. Haga clic en **Controlador Web API 2 - Vacío** y, a continuación, haga clic en **Agregar**. Asigne a la nueva clase el nombre **RegisterController** y, a continuación, haga clic en **Agregar** de nuevo para generar el controlador.
+15. A continuación, creamos un nuevo controlador **RegisterController**. En el Explorador de soluciones, haga clic con el botón secundario en la carpeta **Controladores**, a continuación en **Agregar** y, por último, en **Controlador**. Haga clic en el elemento **Controlador Web API 2 - Vacío** y, a continuación, en **Agregar**. Asigne a la nueva clase el nombre **RegisterController**, y vuelva a hacer clic en **Agregar** para generar el controlador.
 
 	![][7]
 
 	![][8]
 
-16. En RegiterController.cs, agregue las siguientes instrucciones "using":
+16. En RegiterController.cs, agregue las siguientes instrucciones  `using`:
 
         using Microsoft.ServiceBus.Notifications;
         using AppBackend.Models;
@@ -130,7 +130,7 @@ Siga estos pasos para crear un nuevo modelo de WebAPI de ASP.NET para autenticar
         using Microsoft.ServiceBus.Messaging;
         using System.Web;
 
-17. Agregue el siguiente código a la definición de clase "RegisterController". Observe que, en este código, agregamos la etiqueta de usuario al usuario autenticado por el controlador. También puede realizar comprobaciones opcionales para comprobar que el usuario puede registrarse para las etiquetas solicitadas.
+17. Agregue el siguiente código a la definición de clase  `RegisterController`. Observe que, en este código, agregamos la etiqueta de usuario al usuario autenticado por el controlador. También puede realizar comprobaciones opcionales para comprobar que el usuario puede registrarse para las etiquetas solicitadas.
 
 		private NotificationHubClient hub;
 
@@ -235,9 +235,9 @@ Siga estos pasos para crear un nuevo modelo de WebAPI de ASP.NET para autenticar
             }
         }
 
-18. Cree un controlador nuevo **NotificationsController**, de la misma manera con que hemos creado **RegisterController**. Este componente expone una forma para que el dispositivo recupere de forma segura la notificación y proporciona una forma para que un usuario active una inserción segura en los dispositivos. Tenga en cuenta que al enviar la notificación al Centro de notificaciones, enviamos una notificación sin procesar solo con el identificador de la notificación (no el mensaje real).
+18. Cree un controlador nuevo **NotificationsController**, de la misma manera que hemos creado **RegisterController**. Este componente expone una forma para que el dispositivo recupere de forma segura la notificación y proporciona una forma para que un usuario active una inserción segura en los dispositivos. Tenga en cuenta que al enviar la notificación al Centro de notificaciones, enviamos una notificación sin procesar solo con el identificador de la notificación (no el mensaje real).
 
-19. En NotificationsController.cs, agregue las siguientes instrucciones "using":
+19. En NotificationsController.cs, agregue las siguientes instrucciones  `using`:
 
         using AppBackend.Models;
         using System.Threading.Tasks;
@@ -271,7 +271,7 @@ Siga estos pasos para crear un nuevo modelo de WebAPI de ASP.NET para autenticar
 
 21. Presione **F5** para ejecutar la aplicación y comprobar que hasta ahora todo es correcto. La aplicación debería iniciar un explorador web y mostrar la página principal de ASP.NET. 
 
-22. Ahora implementaremos esta aplicación en un sitio web de Azure a fin de que sea accesible para todos los dispositivos. Haga clic con el botón secundario en el proyecto **AppBackend** y seleccione **Publicar**.
+22. Ahora implementaremos esta aplicación en un sitio web de Azure a fin de que sea accesible para todos los dispositivos. Haga clic con el botón secundario en el proyecto **AppBackend** y, a continuación, seleccione **Publicar**.
 
 23. Seleccione Sitio web Azure como destino de publicación.
 
@@ -281,7 +281,7 @@ Siga estos pasos para crear un nuevo modelo de WebAPI de ASP.NET para autenticar
 
     ![][B16]
 
-25. Tome nota de la propiedad **URL de destino** en la pestaña **Conexión**. Más tarde en este tutorial haremos referencia a esta URL como *extremo de backend*. Haga clic en **Publicar**.
+25. Tome nota de la propiedad **URL de destino** en la pestaña **Conexión**. Más tarde en este tutorial haremos referencia a esta URL como  *backend endpoint*. Haga clic en **Publicar**.
 
     ![][B18]
 
@@ -298,3 +298,4 @@ Siga estos pasos para crear un nuevo modelo de WebAPI de ASP.NET para autenticar
 [B15]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users15.PNG
 [B16]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users16.PNG
 [B18]: ./media/notification-hubs-aspnet-backend-notifyusers/notification-hubs-notify-users18.PNG
+<!--HONumber=42-->

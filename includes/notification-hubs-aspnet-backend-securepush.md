@@ -1,50 +1,50 @@
-## Proyecto WebAPI
+﻿## Proyecto WebAPI
 
-1.  En Visual Studio, abra el proyecto **AppBackend** que creó en el tutorial **Notificación a usuarios**.
-2.  En Notifications.cs, sustituya toda la clase **Notifications** por el código siguiente. Asegúrese de sustituir los marcadores de posición por su cadena de conexión (con acceso total) para el centro de notificaciones y el nombre del centro. Puede obtener estos valores desde el [Portal de administración de Azure][Portal de administración de Azure]. Este módulo representa ahora las diferentes notificaciones seguras que se enviarán. En una implementación completa, las notificaciones se almacenarán en una base de datos; en este caso, vamos a almacenarlas en la memoria para simplificar el proceso.
+1. En Visual Studio, abra el proyecto **AppBackend** que creó en el tutorial **Notificación a usuarios**.
+2. En Notifications.cs, reemplace toda la clase **Notifications** por el código siguiente. Asegúrese de sustituir los marcadores de posición por su cadena de conexión (con acceso total) para el centro de notificaciones y el nombre del centro. Puede obtener estos valores en el [Portal de administración de Azure](http://manage.windowsazure.com). Este módulo representa ahora las diferentes notificaciones seguras que se enviarán. En una implementación completa, las notificaciones se almacenarán en una base de datos; en este caso, vamos a almacenarlas en la memoria para simplificar el proceso.
 
-        public class Notification
-        {
-            public int Id { get; set; }
-            public string Payload { get; set; }
-            public bool Read { get; set; }
-        }
+		public class Notification
+	    {
+	        public int Id { get; set; }
+	        public string Payload { get; set; }
+	        public bool Read { get; set; }
+	    }
+    
+    
+	    public class Notifications
+	    {
+	        public static Notifications Instance = new Notifications();
+	        
+	        private List<Notification> notifications = new List<Notification>();
+	
+	        public NotificationHubClient Hub { get; set; }
+	
+	        private Notifications() {
+	            Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}", 	"{hub name}");
+	        }
 
-
-        public class Notifications
-        {
-            public static Notifications Instance = new Notifications();
-
-            private List<Notification> notifications = new List<Notification>();
-
-            public NotificationHubClient Hub { get; set; }
-
-            private Notifications() {
-                Hub = NotificationHubClient.CreateClientFromConnectionString("{conn string with full access}",  "{hub name}");
-            }
-
-            public Notification CreateNotification(string payload)
-            {
-                var notification = new Notification() {
+	        public Notification CreateNotification(string payload)
+	        {
+	            var notification = new Notification() {
                 Id = notifications.Count,
                 Payload = payload,
                 Read = false
-                };
+            	};
 
-                notifications.Add(notification);
+            	notifications.Add(notification);
 
-                return notification;
-            }
+            	return notification;
+	        }
 
-            public Notification ReadNotification(int id)
-            {
-                return notifications.ElementAt(id);
-            }
-        }
+	        public Notification ReadNotification(int id)
+	        {
+	            return notifications.ElementAt(id);
+	        }
+	    }
 
-3.  En NotificationsController.cs, sustituya el código dentro de la definición de clase **NotificationsController** por el código siguiente. Este componente dota al dispositivo de una ruta para recuperar la notificación de forma segura, y además ofrece una manera (para los fines de este tutorial) de desencadenar una inserción segura en sus dispositivos. Tenga en cuenta que al enviar la notificación al Centro de notificaciones, enviamos una notificación sin procesar solo con el identificador de la notificación (no el mensaje real):
+20. En NotificationsController.cs, reemplace el código dentro de la definición de clase **NotificationsController** por el código siguiente. Este componente dota al dispositivo de una ruta para recuperar la notificación de forma segura, y además ofrece una manera (para los fines de este tutorial) de desencadenar una inserción segura en sus dispositivos. Tenga en cuenta que al enviar la notificación al Centro de notificaciones, enviamos una notificación sin procesar solo con el identificador de la notificación (no el mensaje real):
 
-        public NotificationsController()
+		public NotificationsController()
         {
             Notifications.Instance.CreateNotification("This is a secure notification!");
         }
@@ -77,10 +77,9 @@
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-Observe que el método `Post` ahora no envía una notificación del sistema. Envía una notificación sin procesar que contiene solo el identificador de la notificación sin ningún tipo de contenido delicado. Además, asegúrese de comentar la operación de envío de las plataformas para las que no tiene credenciales configuradas en su Centro de notificaciones, ya que provocarán un error.
 
-1.  Ahora implementaremos de nuevo esta aplicación en un sitio web de Azure a fin de que sea accesible para todos los dispositivos. Haga clic con el botón secundario en el proyecto **AppBackend** y, a continuación, seleccione **Publicar**.
+Tenga en cuenta que el método  `Post` ahora no envía una notificación del sistema. Envía una notificación sin procesar que contiene solo el identificador de la notificación sin ningún tipo de contenido delicado. Además, asegúrese de comentar la operación de envío de las plataformas para las que no tiene credenciales configuradas en su Centro de notificaciones, ya que provocarán un error.
 
-2.  Seleccione Sitio web Azure como destino de publicación. Inicie sesión con su cuenta de Azure y seleccione un sitio web nuevo o existente, y anote la propiedad **URL de destino** de la pestaña **Conexión**. Más tarde en este tutorial haremos referencia a esta URL como *extremo de backend*. Haga clic en **Publicar**.
+21. Ahora implementaremos de nuevo esta aplicación en un sitio web de Azure a fin de que sea accesible para todos los dispositivos. Haga clic con el botón secundario en el proyecto **AppBackend** y, a continuación, seleccione **Publicar**.
 
-  [Portal de administración de Azure]: http://manage.windowsazure.com
+24. Seleccione Sitio web Azure como destino de publicación. Inicie sesión con su cuenta de Azure, seleccione un sitio web nuevo o existente y anote la propiedad **dirección URL de destino** en la pestaña **Conexión**. Más tarde en este tutorial haremos referencia a esta URL como  *backend endpoint*. Haga clic en **Publicar**.<!--HONumber=42-->

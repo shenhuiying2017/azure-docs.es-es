@@ -2,9 +2,9 @@
 
 1. Si todavía no tiene el [SDK de Android para Servicios móviles], descárguelo ya y expanda los archivos comprimidos.
 
-2. Copie los archivos ".jar" de la carpeta "mobileservices" del SDK en la carpeta "libs" del proyecto GetStartedWithData.
+2. Copie los archivos  `.jar` de la carpeta  `mobileservices` del SDK en la carpeta  `libs` del proyecto GetStartedWithData.
 
-3. En explorador de paquetes de Eclipse, haga clic con el botón secundario en la carpeta "libs", haga clic en **Actualizar** y aparecerán los archivos jar copiados.
+3. En explorador de paquetes de Eclipse, haga clic con el botón secundario en la carpeta  `libs`, haga clic en **Actualizar** y aparecerán los archivos jar copiados.
 
   	De este modo, se agrega la referencia del SDK de los Servicios móviles al área de trabajo.
 
@@ -37,19 +37,19 @@
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-8. Guarde el archivo y el proyecto indicará los errores de la compilación. Busque las tres ubicaciones restantes en las que se usa la variable "toDoItemList" y convierta en comentarios las secciones indicadas. De este modo se elimina por completo la lista de la memoria. 
+8. Guarde el archivo y el proyecto indicará los errores de la compilación. Busque las tres ubicaciones restantes en las que se usa la variable  `toDoItemList` y convierta en comentarios las secciones indicadas. De este modo se elimina por completo la lista de la memoria. 
 
 9. Ahora agregamos nuestros servicios móviles. Quite la marca de comentario de las líneas de código siguientes:
 
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-10. Busque la clase *ProgressFilter* en la parte inferior del archivo y quite la marca de comentario. Esta clase muestra un indicador "loading" mientras *MobileServiceClient* está ejecutando operaciones de red.
+10. Busque la clase *ProgressFilter* en la parte inferior del archivo y quite los comentarios. Esta clase muestra un indicador 'loading' mientras *MobileServiceClient* ejecuta las operaciones de red.
 
 
 11. En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
 
-12. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**; a continuación, haga clic en **Administrar claves** y anote la **clave de la aplicación**.
+12. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**, a continuación haga clic en **Administrar claves** y anote la **clave de la aplicación**.
 
    	![](./media/download-android-sample-code/mobile-dashboard-tab.png)
 
@@ -71,9 +71,9 @@
 			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
 		}
 
-  	De este modo, se crea la nueva instancia de *MobileServiceClient* que se usa para obtener acceso a su servicio móvil. Además, se crea la instancia de *MobileServiceTable* que se usa para el almacenamiento de datos de proxy en el servicio móvil.
+  	Esto crea una nueva instancia de *MobileServiceClient* que se usa para acceder a su servicio móvil. Además, se crea la instancia *MobileServiceTable* que se usa para el almacenamiento de datos de proxy en el servicio móvil.
 
-14. En el código de arriba, reemplace "MobileServiceUrl" y "AppKey" por la URL y la clave de la aplicación de su servicio móvil, por ese orden.
+14. En el código de arriba, reemplace  `MobileServiceUrl` y  `AppKey` por la URL y la clave de la aplicación de su servicio móvil, por ese orden.
 
 
 
@@ -155,4 +155,4 @@
 		
 
 <!-- URLs. -->
-[SDK de Android para Servicios móviles]: http://aka.ms/Iajk6q
+[SDK de Android para Servicios móviles]: http://aka.ms/Iajk6q<!--HONumber=42-->

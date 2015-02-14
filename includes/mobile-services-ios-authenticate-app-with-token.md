@@ -2,7 +2,7 @@
 En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere que el cliente se ponga en contacto con el proveedor de identidades y con el servicio móvil cada vez que se inicia la aplicación. Este método no solo es ineficaz, sino que también puede enfrentarse a problemas relacionados con el uso si varios clientes inician la aplicación al mismo tiempo. Un método mejor es almacenar en caché el token de autorización devuelto por los servicios móviles e intentar usarlo primero antes de utilizar un inicio de sesión basado en proveedores. 
 
 
->[WACOM.NOTE] Puede almacenar en caché el token emitido por los servicios móviles con independencia de si es una autenticación administrada por el cliente o por el servicio. Este tutorial utiliza la autenticación administrada por el servicio.
+>[AZURE.NOTE] Puede almacenar en caché el token emitido por los servicios móviles con independencia de si es una autenticación administrada por el cliente o por el servicio. Este tutorial utiliza la autenticación administrada por el servicio.
 
 1. La manera recomendada para cifrar y almacenar los tokens de autenticación en un cliente iOS es mediante Keychain. Para ello, cree una clase KeychainWrapper, copiando [KeychainWrapper.m](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.m) y [KeychainWrapper.h](https://github.com/WindowsAzure-Samples/iOS-LensRocket/blob/master/source/client/LensRocket/Misc/KeychainWrapper.h) del [ejemplo LensRocket](https://github.com/WindowsAzure-Samples/iOS-LensRocket). Este objeto KeychainWrapper se usa como el objeto KeychainWrapper definido en la documentación de Apple no tiene en cuenta el recuento de referencias automáticas (ARC).
 
@@ -82,5 +82,6 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
 		    [self refresh];
 		}
 
-5. Si la aplicación realiza una solicitud al Servicio móvil que debería realizarse correctamente porque el usuario ya se ha autenticado, y recibe una respuesta 401 (error de autorización), significa que el token de usuario que está pasando ha expirado. En el controlador de finalización para cada método existente que interactúa con el Servicio móvil, se podría comprobar una respuesta 401 o se podría gestionar el proceso desde un solo lugar: el handleRequest de MSFilter.  Para ver cómo gestionar este escenario, consulte [este artículo del blog](http://www.thejoyofcode.com/Handling_expired_tokens_in_your_application_Day_11_.aspx).
+5. Si la aplicación realiza una solicitud al Servicio móvil que debería realizarse correctamente porque el usuario ya se ha autenticado, y recibe una respuesta 401 (error de autorización), significa que el token de usuario que está pasando ha expirado. En el controlador de finalización de cada método existente que interactúa con el Servicio móvil, se podría buscar una respuesta 401 o se podría gestionar el proceso desde un solo lugar: el método handleRequest de MSFilter.  Para ver cómo gestionar este escenario, consulte [este artículo del blog](http://www.thejoyofcode.com/Handling_expired_tokens_in_your_application_Day_11_.aspx).
 
+<!--HONumber=42-->

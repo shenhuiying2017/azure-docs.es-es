@@ -1,8 +1,8 @@
-﻿
+
 
 Tras probar la aplicación cliente con el servicio móvil local, el paso final de este tutorial consiste en publicar el servicio móvil en Azure y ejecutar la aplicación en el servicio en directo.
 
->[WACOM.NOTE]En este procedimiento se explica cómo publicar el servicio móvil con las herramientas de Visual Studio. También puede publicar el servicio móvil backend de .NET con la utilización del control de origen. Para obtener más información, consulte [Almacenamiento de códigos de proyectos en en control de código fuente](/en-us/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/).
+>[AZURE.NOTE] En este procedimiento se explica cómo publicar el servicio móvil con las herramientas de Visual Studio. También puede publicar el servicio móvil backend de .NET con la utilización del control de origen. Para obtener más información, consulte [Almacenamiento de códigos de proyectos en control de código fuente](/es-es/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/).
 
 1. En el Explorador de soluciones, haga clic con el botón secundario en el proyecto de servicio móvil, haga clic en **Publicar** y, a continuación, en el cuadro de diálogo **Publicación web**, haga clic en **Servicios móviles de Azure**.
 
@@ -14,7 +14,7 @@ Tras probar la aplicación cliente con el servicio móvil local, el paso final d
 
 	Visual Studio descarga la configuración de publicación directamente desde Azure.
 
-	>[WACOM.NOTE]Visual Studio almacena las credenciales de Azure hasta que cierre sesión explícitamente.
+	>[AZURE.NOTE] Visual Studio almacena las credenciales de Azure hasta que cierre sesión explícitamente.
 
 3. Haga clic en **Validar conexión** para verificar que la publicación está bien configurada y, a continuación, haga clic en **Publicar**.
 
@@ -22,5 +22,4 @@ Tras probar la aplicación cliente con el servicio móvil local, el paso final d
 
 	Una vez realizada la publicación, volverá a ver la página de confirmación de que el servicio móvil está en funcionamiento, aunque esta vez en Azure.
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

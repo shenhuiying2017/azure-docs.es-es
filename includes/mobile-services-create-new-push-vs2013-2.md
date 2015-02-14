@@ -1,4 +1,4 @@
-﻿1. En el archivo insert.js de la tabla **canales**, busque las siguientes líneas de código, coméntelas o elimínelas del archivo y, a continuación, guarde los cambios.
+﻿1. En el archivo insert.js de la tabla **channels**, busque las siguientes líneas de código, coméntelas o elimínelas del archivo y, a continuación, guarde los cambios.
 
 		sendNotifications(item.channelUri);
 
@@ -15,7 +15,7 @@
 		
 	Cuando guarde los cambios en el archivo insert.js, se cargará una nueva versión del script en el servicio móvil.
 
-2. En el Explorador de servidores, expanda la tabla TodoItem, abra el archivo insert.js y reemplace la función de inserción actual por el siguiente código y, a continuación, guarde los cambios: 
+2. En Server Explorer, expanda la tabla TodoItem, abra el archivo insert.js y reemplace la función de inserción actual por el siguiente código y, a continuación, guarde los cambios: 
 
 		function insert(item, user, request) {
 			request.execute({
@@ -43,4 +43,5 @@
 			}
 		}
 		
-	Ahora, cuando inserte un TodoItem nuevo, se enviará una notificación de inserción a todos los dispositivos registrados. 
+	Ahora, cuando inserte un TodoItem nuevo, se enviará una notificación de inserción a todos los dispositivos registrados.
+<!--HONumber=42-->

@@ -2,7 +2,7 @@
 
 Finalmente, debe actualizar el script registrado para insertar la operación en la tabla TodoItem a fin de enviar notificaciones.
 
-1. Haga clic en **TodoItem**, en **Script** y seleccione **Insertar**. 
+1. Haga clic en **TodoItem**, en **Script** y seleccione **Inserción**. 
 
    	![](./media/mobile-services-javascript-update-script-notification-hubs/mobile-insert-script-push2.png)
 
@@ -33,3 +33,4 @@ Finalmente, debe actualizar el script registrado para insertar la operación en 
 
 	Este script de inserción envía una notificación de inserción (con el texto del elemento insertado) a todos los registros de aplicaciones de la Tienda Windows una vez que se realiza la inserción.
 
+<!--HONumber=42-->

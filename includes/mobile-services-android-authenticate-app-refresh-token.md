@@ -11,7 +11,7 @@ En esta sección definirá un ServiceFilter que detectará una respuesta 401 del
 
 		import com.microsoft.windowsazure.mobileservices.MobileServiceException;
  
-2. Agregue los siguientes métodos a la clase "ToDoActivity". 
+2. Agregue los siguientes métodos a la clase  `ToDoActivity`. 
 
     	public boolean bAuthenticating = false;
 	    public final Object mAuthenticationLock = new Object();
@@ -74,7 +74,7 @@ En esta sección definirá un ServiceFilter que detectará una respuesta 401 del
     	}
 
 
-5. En el archivo ToDoActivity.java, actualice el método "authenticate" de la clase ToDoActivity para que acepte un parámetro booleano que permita forzar la actualización del token y de la caché del token. También necesitamos notificar a los subprocesos bloqueados que la autenticación se ha completado para que puedan recoger el nuevo token.
+5. En el archivo ToDoActivity.java, actualice el método  `authenticate` de la clase ToDoActivity para que acepte un parámetro booleano que permita forzar la actualización del token y de la caché del token. También necesitamos notificar a los subprocesos bloqueados que la autenticación se ha completado para que puedan recoger el nuevo token.
 
 	    /**
     	 * Authenticates with the desired login provider. Also caches the token. 
@@ -127,7 +127,7 @@ En esta sección definirá un ServiceFilter que detectará una respuesta 401 del
 
 
 
-6. En el archivo ToDoActivity.java, agregue este código para una nueva clase "RefreshTokenCacheFilter" dentro de la clase ToDoActivity:
+6. En el archivo ToDoActivity.java, agregue este código para una nueva clase  `RefreshTokenCacheFilter` dentro de la clase ToDoActivity:
 
 		/**
 		* The RefreshTokenCacheFilter class filters responses for HTTP status code 401. 
@@ -206,7 +206,7 @@ En esta sección definirá un ServiceFilter que detectará una respuesta 401 del
 
     Este filtro de servicio comprobará cada respuesta en busca del código de estado HTTP 401 "No autorizado". Si se encuentra un 401, se configurará una nueva solicitud de inicio de sesión para obtener un nuevo token en el subproceso de la interfaz de usuario. Otras llamadas se bloquearán hasta que se complete el inicio de sesión o hasta 5 intentos fallidos. Cuando el nuevo token se obtenga, la solicitud que ha desencadenado el 401 se reintentará con el nuevo token y todas las llamadas bloqueadas se reintentarán con el nuevo token. 
 
-7. En el archivo ToDoActivity.java, actualice el método "onCreate" de la forma siguiente:
+7. En el archivo ToDoActivity.java, actualice el método `onCreate` como sigue:
 
 		@Override
 	    public void onCreate(Bundle savedInstanceState) {
@@ -237,6 +237,7 @@ En esta sección definirá un ServiceFilter que detectará una respuesta 401 del
 	    }
 
 
-       En este código, se utiliza "RefreshTokenCacheFilter" además de "ProgressFilter". También, durante "onCreate" queremos cargar la caché del token. Por tanto, "false" se transfiere al método "authenticate".
+       En este código, `RefreshTokenCacheFilter` se usa junto con `ProgressFilter`. También, durante  `onCreate` queremos cargar la caché del token. Así, se pasa `false` al método `authenticate`.
 
 
+<!--HONumber=42-->

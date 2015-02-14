@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="Upload Data" pageTitle="Carga de datos para trabajos de Hadoop en HDInsight | Azure" metaKeywords="" description="Aprenda a cargar datos en HDInsight y obtener acceso a ellos con el Explorador de almacenamiento de Azure, Azure PowerShell, la línea de comandos de Hadoop o Sqoop." metaCanonical="" services="storage,hdinsight" documentationCenter="" title="Upload data for Hadoop jobs in HDInsight" authors="jgao" solutions="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Carga de datos para trabajos de Hadoop en HDInsight | Azure" 
+	description="Aprenda a cargar datos en HDInsight y obtener acceso a ellos con el Explorador de almacenamiento de Azure, Azure PowerShell, la línea de comandos de Hadoop o Sqoop." 
+	services="storage, hdinsight" 
+	documentationCenter="" 
+	authors="mumian" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="jgao" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="jgao"/>
 
 
 
-#Carga de datos para trabajos de Hadoop en HDInsight
+# Carga de datos para trabajos de Hadoop en HDInsight
 
 HDInsight de Azure proporciona un sistema de archivos distribuidos Hadoop (HDFS) completo a través del servicio de almacenamiento de blobs de Azure. Se ha diseñado como extensión HDFS para proporcionar una experiencia sin igual a los clientes al habilitar un conjunto completo de componentes del ecosistema Hadoop para poder operar directamente en los datos que administra. Tanto el almacenamiento de blobs de Azure como HDFS son sistemas de archivos diferentes que se han optimizado para el almacenamiento de datos y el cálculo en ellos. Para conocer las ventajas del uso del almacenamiento de blobs de Azure, consulte [Uso del almacenamiento de blobs de Azure con HDInsight][hdinsight-storage]. 
 
@@ -24,7 +38,7 @@ Tenga en cuenta los siguientes requisitos antes de empezar este artículo:
 
 * Un clúster de HDInsight de Azure. Para obtener instrucciones, consulte [Introducción a HDInsight de Azure][hdinsight-get-started] o [Aprovisionamiento de clústeres de HDInsight][hdinsight-provision].
 
-##En este artículo
+## En este artículo
 
 * [Carga de datos en el almacenamiento de blobs usando AzCopy](#azcopy)
 * [Carga de datos en el almacenamiento de blobs usando Azure PowerShell](#powershell)
@@ -32,7 +46,7 @@ Tenga en cuenta los siguientes requisitos antes de empezar este artículo:
 * [Carga de datos en el almacenamiento de blobs usando la línea de comandos de Hadoop](#commandline)
 * [Importación de datos desde una base de datos SQL de Azure en el almacenamiento de blobs usando Sqoop](#sqoop)
 
-##<a id="azcopy"></a>Carga de datos en el almacenamiento de blobs usando AzCopy##
+## <a id="azcopy"></a>Carga de datos en el almacenamiento de blobs usando AzCopy##
 
 AzCopy es una utilidad de línea de comandos que se ha diseñado para simplificar la tarea de transferir datos a una cuenta de almacenamiento de Azure y desde ella. Puede usarla como herramienta independiente o incorporarla a una aplicación que ya existe. [Descarga de AzCopy][azure-azcopy-download].
 
@@ -40,11 +54,11 @@ La sintaxis de AzCopy es la siguiente:
 
 	AzCopy <Source> <Destination> [filePattern [filePattern...]] [Options]
 
-Para obtener más información, consulte [AzCopy - Carga y descarga de archivos para blobs de Azure][azure-azcopy].
+Para obtener más información, consulte [AzCopy - Carga y descarga de archivos para blobs de Azure][azure-azcopy]
 
-##<a id="powershell"></a>Carga de datos en el almacenamiento de blobs usando Azure PowerShell##
+## <a id="powershell"></a>Carga de datos en el almacenamiento de blobs usando Azure PowerShell##
 
-Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. Puede usar Azure PowerShell para cargar datos en el almacenamiento de blobs, a fin de que los trabajos de MapReduce puedan procesar los datos. Para obtener información acerca de cómo configurar su estación de trabajo para que ejecute Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell][powershell-install-configure]..
+Azure PowerShell es un potente entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus cargas de trabajo en Azure. Puede usar Azure PowerShell para cargar datos en el almacenamiento de blobs, a fin de que los trabajos de MapReduce puedan procesar los datos. Para obtener información acerca de cómo configurar su estación de trabajo para que ejecute Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell][powershell-install-configure].
 
 **Para cargar un archivo local en el almacenamiento de blobs**
 
@@ -70,7 +84,7 @@ Azure PowerShell es un potente entorno de scripting que puede usar para controla
 		
 3. Pegue el script en la ventana de la consola de Azure PowerShell para ejecutarlo.
 
-Los contenedores del almacenamiento de blobs almacenan los datos como pares de clave/valor y no hay jerarquía de directorios. No obstante, el carácter "/" se puede usar en el nombre de la clave para que parezca que el archivo está almacenado dentro de una estructura de directorios. Por ejemplo, la clave de un blob puede ser *input/log1.txt*. No hay directorios "input", pero dada la presencia del carácter "/" en el nombre de la clave, parece la ruta de un archivo. En el script anterior, puede dar una estructura de carpeta al archivo configurando la variable $blobname. Por ejemplo: *$blobname="micarpeta/miarchivo.txt"*.
+Los contenedores del almacenamiento de blobs almacenan los datos como pares de clave/valor y no hay jerarquía de directorios. No obstante, el carácter "/" se puede usar en el nombre de la clave para que parezca que el archivo está almacenado dentro de una estructura de directorios. Por ejemplo, la clave de un blob puede ser  *input/log1.txt*. No hay directorios "input", pero dada la presencia del carácter "/" en el nombre de la clave, parece la ruta de un archivo. En el script anterior, puede dar una estructura de carpeta al archivo configurando la variable $blobname. Por ejemplo, *$blobname="myfolder/myfile.txt"*.
 
 Al usar las herramientas de Azure Explorer, puede que vea algunos archivos de 0 bytes. Estos archivos tienen dos propósitos:
 
@@ -84,11 +98,11 @@ Al usar las herramientas de Azure Explorer, puede que vea algunos archivos de 0 
 
 
 
-##<a id="storageexplorer"></a>Carga de datos en el almacenamiento de blobs usando el explorador de almacenamiento de Azure
+## <a id="storageexplorer"></a>Carga de datos en el almacenamiento de blobs usando el explorador de almacenamiento de Azure
 
-*El explorador de almacenamiento de Azure* es una herramienta útil para inspeccionar y modificar los datos de su almacenamiento de Azure. Se trata de una herramienta gratuita que se puede descargar de [http://azurestorageexplorer.codeplex.com/].(http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+El *Explorador de almacenamiento de Azure* es una herramienta útil para inspeccionar y modificar los datos de su almacenamiento de Azure. Se trata de una herramienta gratuita que se puede descargar de [http://azurestorageexplorer.codeplex.com/](http://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-Antes de usar la herramienta, debe saber el nombre y la clave de la cuenta de almacenamiento de Azure. Para obtener instrucciones acerca de cómo conseguir esta información, consulte la sección "Visualización, copia y regeneración de claves de acceso al almacenamiento" de [Creación, administración o eliminación de cuentas de almacenamiento][azure-create-storageaccount].  
+Antes de usar la herramienta, debe saber el nombre y la clave de la cuenta de almacenamiento de Azure. Para obtener instrucciones acerca de cómo conseguir esta información, consulte la sección "Visualización, copia y regeneración de claves de acceso de almacenamiento" de [Creación, administración o eliminación de cuentas de almacenamiento].  
 
 1. Ejecute el explorador de almacenamiento de Azure.
 
@@ -99,12 +113,12 @@ Antes de usar la herramienta, debe saber el nombre y la clave de la cuenta de al
 	![HDI.ASEAddAccount][image-ase-addaccount]
 
 3. Escriba el **nombre de la cuenta de almacenamiento** y la **clave de la cuenta de almacenamiento** y, a continuación, haga clic en **Agregar cuenta de almacenamiento**. Puede agregar varias cuentas de almacenamiento y cada una de ellas aparecerá en una pestaña. 
-4. Bajo **Tipo de almacenamiento**, haga clic en **Blobs**.
+4. En **Tipo de almacenamiento**, haga clic en **Blobs**.
 
 	![HDI.ASEBlob][image-ase-blob]
 
 5. En **Contenedor**, haga clic en el contenedor que esté asociado a su clúster de HDInsight. Cuando cree un clúster de HDInsight, debe especificar un contenedor.  Si no, el proceso de creación del clúster creará uno automáticamente.
-6. Bajo **Blob**, haga clic en **Cargar**.
+6. En **Blob**, haga clic en **Cargar**.
 7. Especifique el archivo que vaya a cargar y, a continuación, haga clic en **Abrir**.
 
 
@@ -178,7 +192,7 @@ Antes de usar la herramienta, debe saber el nombre y la clave de la cuenta de al
 
 
 
-##<a id="commandline"></a> Carga de datos en el almacenamiento de blobs usando la línea de comandos de Hadoop
+## <a id="commandline"></a> Carga de datos en el almacenamiento de blobs usando la línea de comandos de Hadoop
 
 Para usar la línea de comandos de Hadoop, primero debe conectarse al clúster usando un escritorio remoto. 
 
@@ -188,12 +202,12 @@ Para usar la línea de comandos de Hadoop, primero debe conectarse al clúster u
 2. Haga clic en **HDINSIGHT**. Aparecerá una lista de los clústeres de Hadoop implementados.
 3. Haga clic en el clúster de HDInsight en el que desee cargar los datos.
 4. Haga clic en **CONFIGURACIÓN** en la parte superior de la página.
-5. Haga clic en **HABILITAR DE FORMA REMOTA** si todavía no ha habilitado el escritorio remoto y siga las instrucciones.  Si no, continúe con el paso siguiente.
-4. Haga clic en **CONECTAR** en la parte inferior de la página.
-7. Haga clic en **Abrir**.
+5. Haga clic en **HABILITAR REMOTO** si todavía no ha habilitado el escritorio remoto y siga las instrucciones.  Si no, continúe con el paso siguiente.
+4. Haga clic en  **CONECTAR** en la parte inferior de la página.
+7. Haga clic en **Open**.
 8. Escriba sus credenciales y, a continuación, haga clic en **Aceptar**.
 9. Haga clic en **Sí**.
-10. En el escritorio, haga clic en **Línea de comandos de Hadoop**..
+10. En el escritorio, haga clic en **Línea de comandos Hadoop**.
 12. El siguiente ejemplo indica cómo copiar el archivo davinci.txt desde el sistema de archivos local del nodo principal de HDInsight en el directorio /example/data.
 
 		hadoop dfs -copyFromLocal C:\temp\davinci.txt /example/data/davinci.txt
@@ -206,16 +220,16 @@ Para usar la línea de comandos de Hadoop, primero debe conectarse al clúster u
 
 		wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-	Se necesita el nombre completo del dominio para usar *wasbs*.
+	Se requiere el nombre de dominio completo al usar *wasbs*.
 
 13. Use el comando siguiente para incluir los archivos cargados:
 
 		hadoop dfs -lsr /example/data
 
 
-##<a id="sqoop"></a> Importación de datos a HDFS desde Base de datos SQL o SQL Server usando Sqoop
+## <a id="sqoop"></a> Importación de datos a HDFS desde Base de datos SQL o SQL Server usando Sqoop
 
-Sqoop es una herramienta diseñada para transferir datos entre Hadoop y las bases de datos relacionales. Puede usarla para importar datos desde un sistema de administración de bases de datos relacionales (RDBMS) como SQL, MySQL u Oracle en el sistema de archivos distribuidos Hadoop (HDFS), transformar los datos de Hadoop con MapReduce o Hive y, a continuación, exportar los datos en RDBMS. Para obtener más información, consulte el [manual del usuario de Sqoop][apache-sqoop-guide] (en inglés).
+Sqoop es una herramienta diseñada para transferir datos entre Hadoop y las bases de datos relacionales. Puede usarla para importar datos desde un sistema de administración de bases de datos relacionales (RDBMS) como SQL, MySQL u Oracle en el sistema de archivos distribuidos Hadoop (HDFS), transformar los datos de Hadoop con MapReduce o Hive y, a continuación, exportar los datos en RDBMS. Para obtener más información, consulte el [manual del usuario de Sqoop][apache-sqoop-guide].
 
 Antes de importar los datos, debe saber el nombre de la base de datos SQL de Azure, el nombre de la cuenta de la base de datos, la contraseña de la cuenta y el nombre de la base de datos. 
 
@@ -252,12 +266,12 @@ El procedimiento siguiente usa PowerShell para enviar un trabajo de Sqoop.
 
 3. Pegue el script en la ventana de la consola de Azure PowerShell para ejecutarlo. Consulte [Introducción a HDInsight][hdinsight-get-started] para ver un ejemplo de PowerShell para recuperar el archivo de datos del almacenamiento de blobs de Azure.
 
-Para obtener más información acerca de cómo usar Sqoop, consulte [Uso de Sqoop con HDInsight][hdinsight-use-sqoop]..
+Para obtener más información acerca de cómo usar Sqoop, consulte [Uso de Sqoop con HDInsight][hdinsight-use-sqoop].
 
 ## Pasos siguientes
 Ahora que ya sabe cómo enviar datos a HDInsight, use los artículos siguientes para aprender a realizar el análisis:
 
-* [Introducción a Azure HDInsight][hdinsight-get-started]
+* [Introducción a HDInsight de Azure][hdinsight-get-started]
 * [Envío de trabajos de Hadoop mediante programación][hdinsight-submit-jobs]
 * [Uso de Hive con HDInsight][hdinsight-use-hive]
 * [Uso de Pig con HDInsight][hdinsight-use-pig]
@@ -266,9 +280,9 @@ Ahora que ya sabe cómo enviar datos a HDInsight, use los artículos siguientes 
 
 
 [azure-management-portal]: https://manage.windowsazure.com
-[azure-powershell]: http://msdn.microsoft.com/en-us/library/windowsazure/jj152841.aspx
+[azure-powershell]: http://msdn.microsoft.com/es-es/library/windowsazure/jj152841.aspx
 
-[azure-storage-client-library]: /en-us/develop/net/how-to-guides/blob-storage/
+[azure-storage-client-library]: /es-es/develop/net/how-to-guides/blob-storage/
 [azure-create-storage-account]: ../storage-create-storage-account/
 [azure-azcopy-download]: http://aka.ms/WaCopy
 [azure-azcopy]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx
@@ -294,5 +308,4 @@ Ahora que ya sabe cómo enviar datos a HDInsight, use los artículos siguientes 
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

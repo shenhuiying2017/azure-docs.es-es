@@ -1,12 +1,24 @@
-﻿<properties urlDisplayName="Image Gallery w/ Storage" pageTitle="Aplicación local con almacenamiento de blobs (Java) | Microsoft Azure" metaKeywords="Azure blob storage, Azure blob Java, Azure blob example, Azure blob tutorial" description="Aprenda a crear una aplicación de consola que carga una imagen en Azure y, a continuación, muestra la imagen en el explorador. Ejemplos de código en Java." metaCanonical="" services="storage" documentationCenter="Java" title="On-Premises Application with Blob Storage" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties 
+	pageTitle="Aplicación local con almacenamiento de blobs (Java) | Microsoft Azure" 
+	description="Aprenda a crear una aplicación de consola que carga una imagen en Azure y, a continuación, muestra la imagen en el explorador. Ejemplos de código en Java." 
+	services="storage" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Aplicación local con almacenamiento de blobs
 
-En el siguiente ejemplo se muestra cómo se puede utilizar el almacenamiento de Azure para
-almacenar las imágenes en Azure. El código siguiente es para una aplicación
-de consola que carga una imagen en Azure y, a continuación, crea un
+El siguiente ejemplo muestra cómo se puede utilizar el almacenamiento de Azure para almacenar las imágenes en Azure. El siguiente código se destina a una aplicación de consola que carga una imagen en Azure y, a continuación, crea un
 archivo HTML que muestra la imagen en el explorador.
 
 ## Tabla de contenido
@@ -23,15 +35,13 @@ archivo HTML que muestra la imagen en el explorador.
 4.  Una cuenta de almacenamiento configurada en Azure. El nombre y clave de la cuenta para la cuenta de almacenamiento será utilizada por el código a continuación. Consulte [Creación de una cuenta de almacenamiento] para obtener información acerca de la creación de una cuenta de almacenamiento y [Administración de cuentas de almacenamiento] para obtener información acerca del la recuperación de la clave de la cuenta.
 5.  Un archivo de imagen local creado con nombre y almacenado en la ruta de acceso c:\\myimages\\image1.jpg. También puede modificar el constructor **FileInputStream** en el ejemplo para utilizar una ruta de acceso de imagen y un nombre de archivo diferentes.
 
-[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+[AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-## <a name="bkmk_uploadfile"> </a>Uso del almacenamiento de blobs de Azure para cargar un archivo
+## <a name="bkmk_uploadfilePara usar el almacenamiento de blobs de Azure para cargar un archivo"></a>
 
 Se presenta a continuación un procedimiento paso a paso; si desea omitir estos pasos, más adelante se presenta todo el código en este tema.
 
-Comience el código incluyendo importaciones para las clases de
-almacenamiento principales de Azure, las clases de clientes de blobs de Azure, las clases de E/S de Java y
-la clase **URISyntaxException**:
+Comience el código mediante la inclusión de importaciones para las clases de almacenamiento central de Azure, las clases de clientes de blob de Azure, las clases de Java IO y la clase **URISyntaxException**:
 
     import com.microsoft.windowsazure.services.core.storage.*;
     import com.microsoft.windowsazure.services.blob.client.*;
@@ -43,28 +53,22 @@ Declare una clase llamada **StorageSample** e incluya el corchete de apertura
 
     public class StorageSample {
 
-Dentro de la clase **StorageSample**, declare una variable de cadena que
-contenga el protocolo de extremo predeterminado, el nombre de la cuenta de almacenamiento y
-la clave de acceso de almacenamiento, según se especifica en la cuenta
-de almacenamiento de Azure. Reemplace los valores de marcador de posición **your\_account\_name** y
-**your\_account\_key** con su nombre y clave de la cuenta,
-respectivamente.
+Dentro de la clase **StorageSample**, declare una variable de cadena que contendrá el protocolo de extremo predeterminado, el nombre de la cuenta de almacenamiento y su clave de acceso al almacenamiento, según lo especificado en su cuenta de almacenamiento de Azure. Reemplace los valores de marcador de posición **your\_account\_name** y
+**your\_account\_key** con su propio nombre y clave de cuenta, respectivamente.
 
     public static final String storageConnectionString = 
            "DefaultEndpointsProtocol=http;" + 
                "AccountName=your_account_name;" + 
                "AccountKey=your_account_name"; 
 
-Agregue la declaración para **main**, incluya un bloque **try** e
-incluya los corchetes de apertura necesarios, **{**.
+Agregue su declaración de **main**, incluya un bloque **try** e incluya los corchetes de apertura necesarios (*{***).
 
     public static void main(String[] args) 
     {
         try
         {
 
-Declare variables del tipo siguiente (las descripciones se ofrecen para la
-forma en que se usan en este ejemplo):
+Declare variables del siguiente tipo (las descripciones reflejan el uso que se les da en este ejemplo):
 
 -   **CloudStorageAccount**: Se utiliza para inicializar el objeto de cuenta con el nombre y la clave de la cuenta de almacenamiento de Azure y para crear el objeto de cliente blob.
 -   **CloudBlobClient**: Se utiliza para tener acceso al servicio de blob.
@@ -86,13 +90,13 @@ Asigne un valor a la variable **serviceClient**.
 
     serviceClient = account.createCloudBlobClient();
 
-Asigne un valor a la variable **container**. Obtendrá una referencia a un
-contenedor denominado **gettingstarted**.
+Asigne un valor a la variable **container**. Obtendremos una referencia al contenedor llamado **gettingstarted**.
 
     // Container name must be lower case.
     container = serviceClient.getContainerReference("gettingstarted");
 
-Cree el contenedor. Este método creará el contenedor si no existe (y devolverá **true**). Si el contenedor existe, devolverá **false**. Una alternativa a **createIfNotExist** es el método **create** (que devolverá un error si el contenedor ya existe).
+Cree el contenedor. Este método creará el contenedor si no existe (y devolverá **true**). Si el contenedor existe, devolverá
+**false**. Una alternativa a **createIfNotExist** es el método **create** (que devolverá un error si el contenedor ya existe).
 
     container.createIfNotExist();
 
@@ -101,7 +105,7 @@ Configure el acceso anónimo para el contenedor.
     // Set anonymous access on the container.
     BlobContainerPermissions containerPermissions;
     containerPermissions = new BlobContainerPermissions();
-    containerPermissions.setPublicAccess(BlobContainerPublicAccessType.CONTAINER);
+     containerPermissions.setPublicAccess(BlobContainerPublicAccessType.CONTAINER);
     container.uploadPermissions(containerPermissions);
 
 Obtenga una referencia al blob en bloque, que representará al blob en el
@@ -113,11 +117,13 @@ Use el constructor **File** para obtener una referencia al archivo que se creó 
 
     File fileReference = new File ("c:\\myimages\\image1.jpg");
 
-Cargue el archivo local a través de una llamada al método **CloudBlockBlob.upload**. El primer parámetro del método **CloudBlockBlob.upload** es un objeto **FileInputStream** que representa el archivo local que se cargará en el almacenamiento de Azure. El segundo parámetro es el tamaño, en bytes, del archivo.
+Cargue el archivo local a través de una llamada al método **CloudBlockBlob.upload**. El primer parámetro para el método **CloudBlockBlob.upload** es un objeto
+**FileInputStream** que representa el archivo local que se cargarán en el almacenamiento de Azure. El segundo parámetro es el tamaño, en bytes, del archivo.
 
     blob.upload(new FileInputStream(fileReference), fileReference.length());
 
-Llame a una función auxiliar denominada **MakeHTMLPage** para hacer una página HTML básica que contiene un elemento **&lt;image&gt;** con la fuente establecida en el blob que se encuentra ahora en la cuenta de almacenamiento de Azure. (El código de  **MakeHTMLPage** se describirá más adelante en este tema).
+Llame a una función auxiliar denominada **MakeHTMLPage** para crear una página HTML básica que contenga un elemento **&lt;image&gt;** con la fuente definida en el blob que se encuentra ahora en la cuenta de almacenamiento de Azure. (El código de
+**MakeHTMLPage** se describirá más adelante en este tema).
 
     MakeHTMLPage(container);
 
@@ -130,7 +136,7 @@ Cierre el bloque **try** mediante la inserción de un corchete de cierre: **}**
 
 Controle las siguientes excepciones:
 
--   **FileNotFoundException**: Se puede mostrar mediante los constructores **FileInputStream**  o **FileOutputStream**.
+-   **FileNotFoundException**: Se puede mostrar mediante los constructores **FileInputStream** o **FileOutputStream**.
 -   **StorageException**: Se puede mostrar mediante la biblioteca de almacenamiento del cliente de Azure.
 -   **URISyntaxException**: Se puede mostrar mediante el método **ListBlobItem.getUri** .
 -   **Excepción**: Control de una excepción genérica.
@@ -174,13 +180,15 @@ Cree un archivo local llamado **index.html**.
     PrintStream stream;
     stream = new PrintStream(new FileOutputStream("index.html"));
 
-Escriba en el archivo local; para ello, agregue los elementos **&lt;html&gt;**, **&lt;header&gt;** y **&lt;body&gt;**.
+Escriba en el archivo local y agregue los elementos **&lt;html&gt;**, **&lt;header&gt;** y
+**&lt;body&gt;**.
 
     stream.println("<html>");
     stream.println("<header/>");
     stream.println("<body>");
 
-Itere a través de la lista de blobs cargados. Para cada blob, en la página HTML cree un elemento **&lt;img&gt;** que envió su atributo **src** al URI del blob, tal como existe en su cuenta de almacenamiento de Azure. Aunque ha agregado una sola imagen en este ejemplo, si agregara más, este código iteraría todas ellas.
+Itere a través de la lista de blobs cargados. Para cada blob, en la página HTML, cree un elemento **&lt;img&gt;** que envíe su atributo **src** al URI del blob, tal como existe en la cuenta de almacenamiento de Azure.
+Aunque ha agregado una sola imagen en este ejemplo, si agregara más, este código iteraría todas ellas.
 
 Para simplificar, en este ejemplo se asume que cada blob cargado es una imagen. Si ha actualizado blobs aparte de imágenes o blobs de páginas en lugar de blobs en bloques, ajuste el código según sea necesario.
 
@@ -203,7 +211,8 @@ Cierre **MakeHTMLPage** con la inserción de un corchete de cierre: **}**
 
 Cierre **StorageSample** mediante la inserción de un corchete de cierre: **}**
 
-El siguiente es el código completo de este ejemplo. Recuerde modificar los valores de marcador de posición **your\_account\_name** y **your\_account\_key** para usar el nombre y la clave de la cuenta, respectivamente.
+El siguiente es el código completo de este ejemplo. Recuerde que debe modificar los valores de marcador de posición **your\_account\_name** y
+**your\_account\_key** para usar su nombre y clave de cuenta, respectivamente.
 
     import com.microsoft.windowsazure.services.core.storage.*;
     import com.microsoft.windowsazure.services.blob.client.*;
@@ -310,14 +319,17 @@ Además de subir el archivo de imagen local al almacenamiento de Azure, el códi
 
 Debido a que el código contiene el nombre y la clave de la cuenta, asegúrese de que su código fuente sea seguro.
 
-## <a name="bkmk_deletecontainer"> </a>Eliminación de un contenedor
+## <a name="bkmk_deletecontainerPara eliminar un contenedor"></a>
 
-Debido a que se cobrará por el almacenamiento, es posible que desee eliminar el contenedor **gettingstarted** después de que haya terminado de experimentar con este ejemplo. Para eliminar un contenedor, use el método **CloudBlobContainer.delete**:
+Dado que el almacenamiento se cobra, puede que desee eliminar el contenedor
+**gettingstarted** al acabar de experimentar con el ejemplo. Para eliminar un contenedor, use el método **CloudBlobContainer.delete**:
 
     container = serviceClient.getContainerReference("gettingstarted");
     container.delete();
 
-Para llamar al método **CloudBlobContainer.delete**, el proceso de inicialización de los objetos **CloudStorageAccount**, **ClodBlobClient** y **CloudBlobContainer** es el mismo que se muestra para el método **createIfNotExist**. A continuación se expone un ejemplo completo que elimina el contenedor llamado **gettingstarted**.
+Para llamar al método **CloudBlobContainer.delete**, el proceso de inicialización de los objetos **CloudStorageAccount**, **ClodBlobClient**,
+**CloudBlobContainer** es el mismo que se muestra para el método
+**createIfNotExist**. A continuación se expone un ejemplo completo que elimina el contenedor llamado **gettingstarted**.
 
     import com.microsoft.windowsazure.services.core.storage.*;
     import com.microsoft.windowsazure.services.blob.client.*;
@@ -361,14 +373,13 @@ Para llamar al método **CloudBlobContainer.delete**, el proceso de inicializaci
         }
     }
 
-Para ver información general de otras clases y métodos de almacenamiento de blobs, consulte [Uso del servicio de almacenamiento de blobs desde Java].
+Para obtener información general sobre otras clases y métodos de almacenamiento de blobs, consulte [Uso del servicio de almacenamiento de blobs desde Java].
 
   [Requisitos previos]: #bkmk_prerequisites
   [Para usar el almacenamiento de blobs de Azure para cargar un archivo]: #bkmk_uploadfile
   [Para eliminar un contenedor]: #bkmk_deletecontainer
-  [Descarga del SDK de Azure para Java]: http://www.windowsazure.com/en-us/develop/java/
-  [Creación de una cuenta de almacenamiento]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-create-a-storage-account/
-  [Administración de cuentas de almacenamiento]: http://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/
-  [Uso del servicio de almacenamiento de blobs desde Java]: http://www.windowsazure.com/en-us/develop/java/how-to-guides/blob-storage/
-
-<!--HONumber=35.1-->
+  [Descarga del SDK de Azure para Java]: http://www.windowsazure.com/es-es/develop/java/
+  [Creación de una cuenta de almacenamiento]: http://www.windowsazure.com/es-es/manage/services/storage/how-to-create-a-storage-account/
+  [Administración de cuentas de almacenamiento]: http://www.windowsazure.com/es-es/manage/services/storage/how-to-manage-a-storage-account/
+  [Uso del servicio de almacenamiento de blobs desde Java]: http://www.windowsazure.com/es-es/develop/java/how-to-guides/blob-storage/
+<!--HONumber=42-->

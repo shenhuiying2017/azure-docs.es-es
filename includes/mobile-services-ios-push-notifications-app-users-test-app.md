@@ -3,9 +3,9 @@
 
   	![][23]
 
-    > [WACOM.NOTE] Debe aceptar de forma explícita las notificaciones de inserción desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
+    > [AZURE.NOTE] Debe aceptar de forma explícita las notificaciones de inserción desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
 
-2. En la aplicación, escriba un texto significativo, como _Una nueva tarea de Servicios móviles_ y, a continuación, haga clic en el icono (**+**).
+2. En la aplicación, escriba un texto significativo, como _Una nueva tarea de Servicios móviles_ y, a continuación, haga clic en el icono del signo más (**+**).
 
   	![][24]
 
@@ -24,3 +24,4 @@ Ha completado correctamente este tutorial.
 [25]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push3-ios.png
 [26]: ./media/mobile-services-ios-get-started-push/mobile-quickstart-push4-ios.png
 
+<!--HONumber=42-->

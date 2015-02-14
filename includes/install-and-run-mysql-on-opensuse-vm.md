@@ -41,7 +41,7 @@
 
 	Tenga en cuenta que el punto y coma (;) al final de las líneas es fundamental para terminar los comandos.
 
-8. Para crear una base de datos y conceder permisos de usuario "mysqluser" en ella, emita los siguientes comandos:
+8. Para crear una base de datos y conceder permisos de usuario  `mysqluser` en ella, emita los siguientes comandos:
 
 		mysql> CREATE DATABASE testdatabase;
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
@@ -52,7 +52,7 @@
 
 		mysql> GRANT ALL ON testdatabase.* TO 'mysqluser'@'<ip-address>' IDENTIFIED BY 'password';
 
-	donde "ip-address" es la dirección IP del equipo desde el que se conectará a MySQL.
+	donde `ip-address` es la dirección IP del equipo desde el que se conectará a MySQL.
 	
 10. Para salir de la utilidad administración de base de datos MySQL, emita el siguiente comando:
 
@@ -60,13 +60,13 @@
 
 11. Cuando MySQL esté instalado, deberá configurar un extremo para que pueda obtenerse acceso a MySQL de manera remota. Inicie sesión en el [Portal de administración de Azure][AzurePreviewPortal]. En el Portal de Azure, haga clic en **Máquinas virtuales**, en el nombre de la nueva máquina virtual y, a continuación, en **Extremos**.
 
-	![Endpoints][Imagen7]
+	![Endpoints][Image7]
 
 12. Haga clic en **Agregar** en la parte inferior de la página.
-	![Endpoints][Imagen8]
+	![Endpoints][Image8]
 
-13. Agregue un extremo con el nombre "MySQL", el protocolo **TCP** y los puertos **Público** y **Privado** establecidos en "3306". Esto permite obtener acceso remoto a MySQL.
-	![Endpoints][Imagen9]
+13. Agregue un extremo con el nombre "MySQL", con el protocolo **TCP** y puertos **Público** y **Private** establecidos en "3306". Esto permite obtener acceso remoto a MySQL.
+	![Endpoints][Image9]
 
 14. Para conectarse remotamente a MySQL en la máquina virtual OpenSUSE en Azure, ejecute el siguiente comando en el equipo local:
 
@@ -76,11 +76,10 @@
 
 		mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
-15. Ha configurado MySQL y ha creado una base de datos y un nuevo usuario correctamente.  Para obtener más información sobre MySQL, consulte la [documentación de MySQL][MySQLDocs].	
+15. Ha configurado MySQL y ha creado una base de datos y un nuevo usuario correctamente.  Para obtener más información sobre MySQL, consulte la [Documentación de MySQL][MySQLDocs].	
 
 [MySQLDocs]: http://dev.mysql.com/doc/
 [AzurePreviewPortal]: http://manage.windowsazure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

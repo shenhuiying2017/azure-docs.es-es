@@ -1,8 +1,8 @@
 ﻿#Descarga del SDK de Azure para Java
 
-##Bibliotecas de clientes de Azure para Java: Descarga manual
+##Bibliotecas de cliente de Azure para Java: descarga manual
 
-Las bibliotecas de Azure para Java se distribuyen bajo la licencia de [Apache License, versión 2.0][]. Haga clic [aquí][zip-download] para obtener un archivo ZIP de las bibliotecas y todas sus dependencias.  Microsoft Open Technologies, Inc. es quien lo ofrece. Consulte los archivos license.txt y ThirdPartyNotices.txt que se encuentran dentro del ZIP para obtener información sobre la licencia y sobre otras cuestiones.
+Las bibliotecas de Azure para Java se distribuyen bajo la [licencia de Apache, versión 2.0][license]. Haga clic [Aquí][zip-download] para obtener un archivo ZIP de las bibliotecas y todas las dependencias.  Microsoft Open Technologies, Inc. es quien lo ofrece. Consulte los archivos license.txt y ThirdPartyNotices.txt que se encuentran dentro del ZIP para obtener información sobre la licencia y sobre otras cuestiones.
 
 ##Bibliotecas de Azure para Java: Maven
 
@@ -56,7 +56,8 @@ Si su proyecto ya se ha configurado para usar Maven para la compilación, agregu
 
 
 
-En el elemento "<versión>", reemplace *n.n.n* por un número de versión válido, que puede obtenerse del [repositorio de bibliotecas de Azure en Maven](http://go.microsoft.com/fwlink/?LinkID=286274).
+En el elemento `<version>`, reemplace  *n.n.n* por un número de versión válido, que puede obtenerse del [Repositorio de bibliotecas de Azure en Maven](http://go.microsoft.com/fwlink/?LinkID=286274).
 
 [licencia]: http://www.apache.org/licenses/LICENSE-2.0.html
-[zip-download]:  http://go.microsoft.com/fwlink/?LinkId=253887
+[zip-descarga]:  http://go.microsoft.com/fwlink/?LinkId=253887
+<!--HONumber=42-->

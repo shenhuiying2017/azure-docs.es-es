@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Introduction to Azure Storage" pageTitle="Introducción a Almacenamiento | Microsoft Azure" metaKeywords="Get started  Azure storage introduction  Azure storage overview  Azure blob   Azure unstructured data   Azure unstructured storage   Azure blob   Azure blob storage  Azure queue   Azure asynchronous processing   Azure queue   Azure queue storage Azure table   Azure nosql   Azure large structured data store   Azure table   Azure table storage  Azure file storage  Azure file  Azure file share  Azure " description="Información general de Almacenamiento de Microsoft Azure." metaCanonical="" disqusComments="1" umbracoNaviHide="1" services="storage" documentationCenter="" title="Introduction to Microsoft Azure Storage" authors="tamram" manager="adinah" />
+﻿<properties 
+	pageTitle="Introducción a Almacenamiento | Microsoft Azure" 
+	description="Información general de Almacenamiento de Microsoft Azure." 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/11/2014" 
+	ms.author="tamram"/>
 
 # Introducción a Almacenamiento de Microsoft Azure
 
@@ -26,39 +40,39 @@ Puede obtener acceso a este servicio desde cualquier lugar del mundo y cualquier
 
 Almacenamiento de Azure admite clientes que utilizan una gran variedad de sistemas operativos (incluidos Windows y Linux) y diversos lenguajes de programación (incluidos .NET, Java y C++) para un desarrollo más práctico. Además, expone recursos de datos a través de sencillas API REST, disponibles para cualquier cliente capaz de enviar y recibir datos mediante HTTP/HTTPS.
 
-El almacenamiento premium de Azure se encuentra disponible actualmente en vista previa. El almacenamiento premium de Azure ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un alto consumo de E/S que se ejecutan en Máquinas virtuales de Azure. Con el almacenamiento premium de Azure, puede conectar varios discos de datos persistentes a una máquina virtual y configurarlos para satisfacer sus requisitos en términos de rendimiento. Un disco de SSD del almacenamiento premium de Azure realiza copias de seguridad de cada disco de datos para ofrecer un rendimiento máximo de E/S. Consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo en Máquinas virtuales de Azure](http://go.microsoft.com/fwlink/?LinkId=521898) para obtener más información. 
+El almacenamiento premium de Azure se encuentra disponible actualmente en vista previa. El almacenamiento premium de Azure ofrece compatibilidad con discos de alto rendimiento y baja latencia para cargas de trabajo con un alto consumo de E/S que se ejecutan en Máquinas virtuales de Azure. Con el almacenamiento premium de Azure, puede conectar varios discos de datos persistentes a una máquina virtual y configurarlos para satisfacer sus requisitos en términos de rendimiento. Un disco de SSD del almacenamiento premium de Azure realiza copias de seguridad de cada disco de datos para ofrecer un rendimiento máximo de E/S. Consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo de máquina Virtual de Azure](http://go.microsoft.com/fwlink/?LinkId=521898) para obtener más información. 
 
 ## Introducción de los servicios de Almacenamiento de Azure ##
 
 Una cuenta de almacenamiento de Azure es una cuenta segura que proporciona acceso a los servicios del Almacenamiento de Azure. La cuenta de almacenamiento ofrece el espacio de nombres exclusivo para los recursos de almacenamiento. Existen dos tipos de cuentas de almacenamiento:
 
 - Una cuenta de almacenamiento estándar incluye el almacenamiento de blobs, tablas, colas y archivos.
-- Una cuenta de almacenamiento premium actualmente solo admite los discos de Máquinas virtuales de Azure. El almacenamiento premium de Azure se encuentra disponible bajo petición a través de la [página de vista previa de Azure](/en-us/services/preview/).
+- Una cuenta de almacenamiento premium actualmente solo admite los discos de Máquinas virtuales de Azure. El almacenamiento premium de Azure se encuentra disponible bajo petición a través de la [página de vista previa de Azure](/es-es/services/preview/).
 
-Para poder crear una cuenta de almacenamiento, debe tener una suscripción de Azure, que es un plan que le proporciona acceso a diversos servicios de Azure. Puede crear hasta 100 cuentas de almacenamiento con nombre único con una única suscripción. Consulte los [detalles de precios de almacenamiento](http://www.windowsazure.com/en-us/pricing/details/storage/) para obtener información sobre los precios por volumen.
+Para poder crear una cuenta de almacenamiento, debe tener una suscripción de Azure, que es un plan que le proporciona acceso a diversos servicios de Azure. Puede crear hasta 100 cuentas de almacenamiento con nombre único con una única suscripción. Consulte [Detalles de precios de almacenamiento](http://www.windowsazure.com/es-es/pricing/details/storage/) para obtener información acerca de los precios por volumen.
 
-Para comenzar con Azure, puede usar una [evaluación gratuita](/en-us/pricing/free-trial/). Una vez que decida adquirir un plan, puede elegir entre diversas [opciones de compra](/en-us/pricing/purchase-options/). Si ya es [suscriptor deMSDN](/en-us/pricing/member-offers/msdn-benefits-details/), obtendrá créditos mensuales gratuitos que podrá usar con los servicios de Azure, incluido el almacenamiento de Azure.
+Para comenzar con Azure, puede usar una [evaluación gratuita](/es-es/pricing/free-trial/). Cuando decida adquirir un plan, puede elegir entre una variedad de [opciones de compra](/es-es/pricing/purchase-options/).. Si es un [suscriptor de MSDN](/es-es/pricing/member-offers/msdn-benefits-details/), obtendrá créditos mensuales gratuitos que podrá usar con los servicios de Azure, incluido el Almacenamiento de Azure.
 
 ### Cuentas de almacenamiento estándar
 
-Una cuenta de almacenamiento estándar proporciona acceso al almacenamiento de blobs, tablas, colas y archivos.
+Una cuenta de almacenamiento estándar proporciona acceso al almacenamiento de blobs, tablas, colas y archivos:
 
 - El **almacenamiento de blobs** almacena datos de archivos. Un blob puede ser un tipo cualquiera de datos binarios o texto, como un documento, un archivo multimedia o un instalador de aplicación. 
 - El **almacenamiento de tablas** almacena conjuntos de datos estructurados. Se trata de un almacén de datos de clave-atributo NoSQL, que permite el desarrollo rápido de grandes cantidades de datos y el acceso inmediato a los mismos.
 - El **almacenamiento de colas** ofrece una solución de mensajería confiable para el procesamiento de flujos de trabajo y para la comunicación entre los componentes de los servicios en la nube.
-- El **almacenamiento de archivos (vista previa)** ofrece almacenamiento compartido para aplicaciones heredadas que usan el protocolo SMB 2.1 estándar. Las máquinas virtuales y los servicios en la nube de Azure pueden compartir datos de archivo entre componentes de aplicaciones a través de recursos compartidos montados, y las aplicaciones locales pueden acceder a datos de archivo de un recurso compartido a través del servicio de archivos de la API REST. El almacenamiento de archivos se encuentra disponible bajo petición a través de la [página de vista previa de Azure](/en-us/services/preview/). 
+- El **almacenamiento de archivos (vista previa)** ofrece almacenamiento compartido para aplicaciones heredadas que usan el protocolo SMB 2.1 estándar. Las máquinas virtuales y los servicios en la nube de Azure pueden compartir datos de archivo entre componentes de aplicaciones a través de recursos compartidos montados, y las aplicaciones locales pueden acceder a datos de archivo de un recurso compartido a través del servicio de archivos de la API REST. El almacenamiento de archivos se encuentra disponible bajo petición a través de la [página de vista previa de Azure](/es-es/services/preview/). 
 
-Cada cuenta de almacenamiento estándar puede contener hasta 500 TB de datos de blobs, colas, tablas y archivos combinados. Consulte los [Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx) para obtener información detallada sobre la capacidad de la cuenta de almacenamiento estándar.
+Cada cuenta de almacenamiento estándar puede contener hasta 500 TB de datos de blobs, colas, tablas y archivos combinados. Consulte los [objetivos de rendimiento y escalabilidad del Almacenamiento de Azure](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx) para obtener más información acerca de la capacidad de la cuenta de almacenamiento estándar.
 
 La siguiente imagen muestra las relaciones entre los recursos de almacenamiento de Azure en una cuenta de almacenamiento estándar:
 
 ![Azure Storage Resources](./media/storage-introduction/storage-concepts.png)
 
-Cuando esté preparado para crear una cuenta de almacenamiento estándar, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage-create-storage-account/) para obtener más información.
+Cuando esté listo para crear una cuenta de almacenamiento estándar, consulte [Creación, administración o eliminación de una cuenta de almacenamiento](../storage-create-storage-account/) para obtener más detalles.
 
 ### Cuentas de almacenamiento premium (vista previa)
 
-El almacenamiento premium de Azure actualmente solo admite los discos de Máquinas virtuales de Azure. El almacenamiento premium de Azure se encuentra disponible bajo petición a través de la [página de vista previa de Azure](/en-us/services/preview/). Para obtener información general detallada sobre el almacenamiento premium de Azure, consulte [Almacenamiento premium: almacenamiento de alto rendimiento para cargas de trabajo en Máquinas virtuales de Azure](http://go.microsoft.com/fwlink/?LinkId=521898).
+El almacenamiento premium de Azure actualmente solo admite los discos de Máquinas virtuales de Azure. El almacenamiento premium de Azure se encuentra disponible bajo petición a través de la [página de vista previa de Azure](/es-es/services/preview/). Para obtener información general detallada sobre el almacenamiento premium de Azure, consulte [Almacenamiento premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](http://go.microsoft.com/fwlink/?LinkId=521898).
 
 ## Almacenamiento de blobs ##
 
@@ -75,7 +89,7 @@ Cada blob se organiza en un contenedor. Los contenedores también ofrecen una fo
 
 El almacenamiento de blobs ofrece dos tipos de blobs: blobs en bloques y blobs en páginas (discos). Los blobs en bloques están optimizados para el streaming y para el almacenamiento de objetos de nube, y constituyen una opción idónea para almacenar documentos, archivos multimedia y copias de seguridad, entre otros. El tamaño máximo de un blob de este tipo es de 200 GB. Los blobs en páginas están optimizados para representar discos IaaS y admitir la escritura aleatoria. Pueden tener un tamaño máximo de 1 TB. Un disco IaaS asociado a una red de máquinas virtuales de Azure es un VHD almacenado como blob en páginas.
 
-Para conjuntos de datos de gran tamaño donde las restricciones de red hacen imposible la carga o descarga de datos en el almacenamiento de blobs a través de una conexión, puede enviar una unidad de disco duro a Microsoft para importar o exportar datos directamente desde el centro de datos con el [servicio de importación y exportación de Azure](http://azure.microsoft.com/en-us/documentation/articles/storage-import-export-service/). También puede copiar datos de blobs en la cuenta de almacenamiento o entre cuentas de este tipo. 
+Para conjuntos de datos de gran tamaño donde las restricciones de red hacen imposible la carga o descarga de datos en el almacenamiento de blobs a través de una conexión, puede enviar una unidad de disco duro a Microsoft para importar o exportar datos directamente desde el centro de datos con el [servicio de importación y exportación de Azure](../articles/storage-import-export-service/). También puede copiar datos de blobs en la cuenta de almacenamiento o entre cuentas de este tipo. 
 
 ## Almacenamiento de tablas ##
 
@@ -120,7 +134,7 @@ Por último, puede especificar que un contenedor y sus blobs, o un blob específ
 
 ## Replicación para obtener durabilidad y alta disponibilidad ##
 
-[WACOM.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
+[AZURE.INCLUDE [storage-replication-options](../includes/storage-replication-options.md)]
 
 ## Precios ##
 
@@ -128,19 +142,19 @@ A los clientes se les factura el uso del Almacenamiento de Azure conforme a cuat
 
 La capacidad de almacenamiento se refiere a cuánto de la asignación correspondiente a cuentas de almacenamiento utiliza para almacenar datos. El coste de simplemente almacenar los datos está determinado por la cantidad de datos que almacena y la manera en que se replican. Cada operación de lectura y escritura en Almacenamiento de Azure realiza también una solicitud al servicio. La salida de los datos se refiere a los datos transferidos fuera de una región de Windows Azure. Cuando una aplicación que no está en ejecución en la misma región tiene acceso a los datos en su cuenta de almacenamiento, se le cobra por la salida de los datos, independientemente de si la aplicación es un servicio en la nube u otro tipo de aplicación. (En el caso de los servicios de Azure, puede llevar a cabo pasos para agrupar los datos y servicios en los mismos centros de datos a fin de reducir o eliminar los cargos en concepto de salida y proceso de los datos). 
 
-En la página [Detalles de precios de almacenamiento](/en-us/pricing/details/storage/) se proporciona información detallada sobre los precios de la capacidad, la replicación y las transacciones de almacenamiento. En la página [Detalles de precios de transferencias de datos](/en-us/pricing/details/data-transfers/) se ofrece información detallada sobre los precios para la salida de datos. Puede usar la [calculadora de preciso de almacenamiento de Azure](/en-us/pricing/calculator/?scenario=data-management) to help estimate your costs.
+La página [Detalles de precios de Storage](/es-es/pricing/details/storage/) proporciona información detallada sobre los precios de la capacidad, replicación y transacciones de almacenamiento. La página [Detalles de precios de Transferencias de datos](/es-es/pricing/details/data-transfers/) proporciona información detallada sobre los precios para la salida de datos. Puede usar la [calculadora de precios de Almacenamiento de Azure](/es-es/pricing/calculator/?scenario=data-management) para ayudarle a calcular los costes.
 
 ## Desarrollo y almacenamiento ##
 
-Almacenamiento de Azure expone los recursos de almacenamiento a través de una [API de REST](http://msdn.microsoft.com/library/windowsazure/dd179355.aspx) a la cual puede llamar cualquier lenguaje que pueda realizar solicitudes HTTP/HTTPS. Además, ofrece bibliotecas de programación para varios lenguajes de amplio uso. Estas bibliotecas simplifican muchos aspectos relacionados con el uso de Almacenamiento de Azure, ya que abordan detalles como la invocación sincrónica y asincrónica, el procesamiento por lotes de las operaciones, la administración de excepciones, los reintentos automáticos y el comportamiento operativo, entre otros. Actualmente hay bibliotecas disponibles para los siguientes lenguajes y plataformas, además de otros previstos:
+Almacenamiento de Azure expone los recursos de almacenamiento a través de una [API REST](http://msdn.microsoft.com/library/windowsazure/dd179355.aspx) a la cual puede llamar cualquier lenguaje que pueda realizar solicitudes HTTP/HTTPS. Además, ofrece bibliotecas de programación para varios lenguajes de amplio uso. Estas bibliotecas simplifican muchos aspectos relacionados con el uso de Almacenamiento de Azure, ya que abordan detalles como la invocación sincrónica y asincrónica, el procesamiento por lotes de las operaciones, la administración de excepciones, los reintentos automáticos y el comportamiento operativo, entre otros. Actualmente hay bibliotecas disponibles para los siguientes lenguajes y plataformas, además de otros previstos:
 
 - [.NET](http://go.microsoft.com/fwlink/?LinkID=390731)
 - [Código nativo](http://msdn.microsoft.com/library/dn495438.aspx)
-- [Java/Android](/en-us/develop/java/)
-- [Node.js](/en-us/develop/nodejs/)
-- [PHP](/en-us/develop/php/)
-- [Ruby](/en-us/develop/ruby/)
-- [Python](/en-us/develop/python/)
+- [Java/Android](/es-es/develop/java/)
+- [Node.js](/es-es/develop/nodejs/)
+- [PHP](/es-es/develop/php/)
+- [Ruby](/es-es/develop/ruby/)
+- [Python](/es-es/develop/python/)
 - [PowerShell](http://msdn.microsoft.com/library/dn495240.aspx)
 
 ## Pasos siguientes ##
@@ -150,7 +164,7 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
 ### Descargas
 
 - [Paquete de NuGet de Almacenamiento de Azure - Bibliotecas de clientes para .NET, Windows Phone y Windows en tiempo de ejecución](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [SDK y herramientas de Azure](http://azure.microsoft.com/en-us/downloads/)
+- [SDK y herramientas de Azure](http://azure.microsoft.com/es-es/downloads/)
 - [Emulador de almacenamiento de Azure](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
 
 ### Código fuente
@@ -159,16 +173,16 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
 
 ### Documentación
 
-- [Documentación del almacenamiento de Azure](/en-us/documentation/services/storage/)
-- [Referencia de la API REST de servicios de almacenamiento](http://msdn.microsoft.com/en-us/library/dd179355.aspx)
-- [Referencia a la herramienta de línea de comandos de AzCopy](http://azure.microsoft.com/en-us/documentation/articles/storage-use-azcopy/)
+- [Documentación del almacenamiento de Azure](/es-es/documentation/services/storage/)
+- [Referencia de la API REST de servicios de almacenamiento](http://msdn.microsoft.com/es-es/library/dd179355.aspx)
+- [Referencia a la herramienta de línea de comandos de AzCopy](http://azure.microsoft.com/es-es/documentation/articles/storage-use-azcopy/)
 
 <h3>Para usuarios de PowerShell</h3>
-- [Cmdlets del almacenamiento de Azure](http://msdn.microsoft.com/en-us/library/azure/dn806401.aspx)
+- [Cmdlets del almacenamiento de Azure](http://msdn.microsoft.com/es-es/library/azure/dn806401.aspx)
 
 <h3>Para desarrolladores de .NET</h3>
 
-- [Referencia a la biblioteca de clientes de .NET](http://msdn.microsoft.com/en-us/library/wa_storage_30_reference_home.aspx)
+- [Referencia a la biblioteca de clientes de .NET](http://msdn.microsoft.com/es-es/library/wa_storage_30_reference_home.aspx)
 - [Uso del almacenamiento de blobs en .NET](../storage-dotnet-how-to-use-blobs/)
 - [Uso del almacenamiento de tablas en .NET](../storage-dotnet-how-to-use-tables/)
 - [Uso del almacenamiento en cola en .NET](../storage-dotnet-how-to-use-queues/)
@@ -203,5 +217,4 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
 - [Uso del almacenamiento de blobs en Python](../storage-python-how-to-use-blob-storage/)
 - [Uso del almacenamiento de tablas en Python](../storage-python-how-to-use-table-storage/)
 - [Uso del almacenamiento de colas en Python](../storage-python-how-to-use-queue-storage/)
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

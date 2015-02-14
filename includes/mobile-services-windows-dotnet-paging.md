@@ -1,4 +1,4 @@
-﻿
+
 
 1. En Visual Studio, abra el proyecto que ha modificado al completar el tutorial **Introducción a los datos**.
 
@@ -26,7 +26,7 @@
 
 4. (Opcional) Vea el URI de la solicitud que se ha enviado al servicio móvil mediante el software de inspección de mensajes, como las herramientas para desarrolladores del explorador o [Fiddler]. 
 
-   	Tenga en cuenta que el método "Take(3)" se tradujo en la opción de consulta "$top=3" en el URI de consulta.
+   	Tenga en cuenta que el método  `Take(3)` se tradujo en la opción de consulta `$top=3` en el URI de consulta.
 
 5. Actualice el método **RefreshTodoItems** una vez más con el código siguiente:
             
@@ -42,13 +42,13 @@
             ListItems.ItemsSource = items;
         }
 
-Esta consulta omite los tres primeros resultados y devuelve los tres siguientes. Esa es realmente la segunda página de datos en la que el tamaño de página cuenta con tres elementos.
+   	Esta consulta omite los tres primeros resultados y devuelve los tres siguientes. Esa es realmente la segunda página de datos en la que el tamaño de página cuenta con tres elementos.
 
-    >[WACOM.NOTE]Este tutorial usa un escenario simplificado para pasar valores de paginación codificados de forma rígida a los métodos <strong>Take</strong> y <strong>Skip</strong>. En una aplicación en tiempo real, puede usar consultas similares a las anteriores con un control de paginación o interfaz de usuario comparable para permitir a los usuarios desplazarse a las páginas anteriores y posteriores. También puede llamar al método <strong>IncludeTotalCount</strong> para obtener el recuento total de elementos disponibles en el servidor, junto con los datos paginados.
+    >[AZURE.NOTE] Este tutorial usa un escenario simplificado para pasar valores de paginación codificados de forma rígida a los métodos <strong>Take</strong> y <strong>Skip</strong>. En una aplicación en tiempo real, puede usar consultas similares a las anteriores con un control de paginación o interfaz de usuario comparable para permitir a los usuarios desplazarse a las páginas anteriores y posteriores. También puede llamar al método <strong>IncludeTotalCount</strong> para obtener el recuento total de elementos disponibles en el servidor, junto con los datos paginados.
 
 6. (Opcional) Vea de nuevo el URI de la solicitud enviada al servicio móvil. 
 
-   	Observe que el método "Skip(3)" se ha traducido a la opción de consulta "$skip=3" en el URI de la consulta.
+   	Observe que el método  `Skip(3)` se ha traducido en la opción de consulta `$skip=3` en el URI de la consulta.
 
 <!-- URLs -->
-[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412
+[Fiddler]: http://go.microsoft.com/fwlink/?LinkID=262412<!--HONumber=42-->

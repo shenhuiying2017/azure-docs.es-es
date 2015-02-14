@@ -1,11 +1,25 @@
-﻿<properties urlDisplayName="" pageTitle="Creación y uso de una firma de acceso compartido con el servicio BLOB | Microsoft Azure" metaKeywords="Azure blob, shared access signatures, stored access policy" description="Exploración de la generación y uso de firmas de acceso compartido con el servicio BLOB" metaCanonical="" services="storage" documentationCenter="" title="Part 2: Create and Use a SAS with the Blob Service" solutions="" authors="tamram" manager="adinah" editor="cgronlun" />
+<properties 
+	pageTitle="Creación y uso de una firma de acceso compartido con el servicio BLOB | Microsoft Azure" 
+	description="Exploración de la generación y uso de firmas de acceso compartido con el servicio BLOB" 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor="cgronlun"/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/10/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="tamram"/>
 
 
 # Firmas de acceso compartido, parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB
 
-[En la parte 1](../storage-dotnet-shared-access-signature-part-1/) de este tutorial se analizaron las firmas de acceso compartido (SAS) y se explicaron los procedimientos recomendados para su uso. En la parte 2 se muestra cómo generar este tipo de firmas para, a continuación, usarlas con el servicio BLOB de Azure. Los ejemplos están escritos en C# y usan la biblioteca del cliente de almacenamiento de Azure para .NET. Entre los escenarios descritos se incluyen los siguientes aspectos del uso de firmas de acceso compartido:
+En la [parte 1](../storage-dotnet-shared-access-signature-part-1/) de este tutorial se analizaron las firmas de acceso compartido (SAS) y se explicaron los procedimientos recomendados para su uso. En la parte 2 se muestra cómo generar este tipo de firmas para, a continuación, usarlas con el servicio BLOB de Azure. Los ejemplos están escritos en C# y usan la biblioteca del cliente de almacenamiento de Azure para .NET. Entre los escenarios descritos se incluyen los siguientes aspectos del uso de firmas de acceso compartido:
 
 - Generación de una firma de acceso compartido en un contenedor
 - Generación de una firma de acceso compartido en un blob
@@ -17,11 +31,11 @@ En este tutorial, nos centraremos en la creación de firmas de acceso compartido
 
 # Parte 1: Creación de una aplicación de consola para generar firmas de acceso compartido #
 
-En primer lugar, asegúrese de tener instalada la biblioteca del cliente de almacenamiento de Azure para .NET. Puede instalar el [paquete de NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package") que contenga los ensamblados más recientes para la biblioteca del cliente. Este es el método recomendado para asegurarse de contar con las últimas revisiones. También puede descargar dicha biblioteca como parte de la última versión del [SDK de Azure para .NET](http://www.windowsazure.com/en-us/downloads/).
+En primer lugar, asegúrese de tener instalada la biblioteca del cliente de almacenamiento de Azure para .NET. Puede instalar el [paquete de NuGet](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet package")que contiene los ensamblados más recientes para la biblioteca del cliente. Este es el método recomendado para asegurarse de que cuenta con las últimas revisiones. También puede descargar dicha biblioteca como parte de la última versión del [SDK de Azure para .NET](http://www.windowsazure.com/es-es/downloads/).
 
 En Visual Studio, cree una aplicación de consola de Windows y denomínela **GenerateSharedAccessSignatures**. Agregue referencias a los archivos **Microsoft.WindowsAzure.Configuration.dll** y **Microsoft.WindowsAzure.Storage.dll** de una de las siguientes formas:
 
-- 	Si desea instalar el paquete de NuGet, instale en primer lugar la [extensión Administrador de paquetes NuGet para Visual Studio](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). En Visual Studio, seleccione **Proyecto | Administrar paquetes de NuGet**, busque en línea **Almacenamiento de Azure** y siga las instrucciones de instalación.
+- 	Si desea instalar el paquete de NuGet, instale en primer lugar la [extensión Administrador de paquetes NuGet para Visual Studio](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c) (en inglés). En Visual Studio, seleccione **Proyecto | Administrar paquetes de NuGet**, busque en línea **Almacenamiento de Azure** y siga las instrucciones de instalación.
 - 	También puede buscar los ensamblados en la instalación del SDK de Azure y agregar referencias a estos.
  
 En la parte superior del archivo Program.cs, agregue las siguientes instrucciones **using**:
@@ -228,7 +242,7 @@ Agregue un nuevo método para crear un blob y generar una firma de acceso compar
 	    return blob.Uri + sasBlobToken;
     }
 
-En la parte inferior del método **Main()**, antes de la llamada a **Console.ReadLine()**, agregue las siguientes líneas para llamar al método **GetBlobSasUriWithPolicy**:    
+En la parte inferior del método **Main()**, antes de la llamada a**Console.ReadLine()**, agregue las siguientes líneas para llamar al método **GetBlobSasUriWithPolicy**:    
 
     //Generate a SAS URI for a blob within the container, using a stored access policy to set constraints on the SAS.
     Console.WriteLine("Blob SAS URI using stored access policy: " + GetBlobSasUriWithPolicy(container, sharedAccessPolicyName));
@@ -521,14 +535,13 @@ Ejecute la aplicación de consola y observe el resultado para ver qué operacion
 
 [Firmas de acceso compartido, parte 1: Descripción del modelo de firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1/)
 
-[Administración del acceso a los recursos de almacenamiento de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/ee393343.aspx)
+[Administración del acceso a los recursos de almacenamiento de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/ee393343.aspx)
 
-[Delegación de acceso con una firma de acceso compartido (API de REST)](http://msdn.microsoft.com/en-us/library/windowsazure/ee395415.aspx)
+[Delegación de acceso con una firma de acceso compartido (API de REST)](http://msdn.microsoft.com/es-es/library/windowsazure/ee395415.aspx)
 
 [Introducción a las firmas de acceso compartido de tabla y cola](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
 
 [sas-console-output-1]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-1.PNG
 [sas-console-output-2]: ./media/storage-dotnet-shared-access-signature-part-2/sas-console-output-2.PNG
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="HDInsight High Availability" pageTitle="Disponibilidad de clústeres de Hadoop en HDInsight | Azure" metaKeywords="hdinsight, hadoop, hdinsight hadoop, hadoop azure" description="HDInsight implementa clústeres confiables y de alta disponibilidad." services="HDInsight" umbracoNaviHide="0" disqusComments="1" editor="cgronlun" manager="paulettm" title="Availability of Hadoop clusters in HDInsight" authors="bradsev" />
+﻿<properties 
+	pageTitle="Disponibilidad de clústeres de Hadoop en HDInsight | Azure" 
+	description="HDInsight implementa clústeres confiables y de alta disponibilidad." 
+	services="hdinsight" 
+	editor="cgronlun" 
+	manager="paulettm" 
+	authors="bradsev" 
+	documentationCenter=""/>
 
-<tags ms.service="hdinsight" ms.workload="big-data" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="11/10/2014" ms.author="bradsev" />
+<tags 
+	ms.service="hdinsight" 
+	ms.workload="big-data" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/10/2014" 
+	ms.author="bradsev"/>
 
 
 #Disponibilidad y fiabilidad de clústeres de Hadoop en HDInsight
@@ -10,19 +24,19 @@ Se ha agregado un segundo nodo principal a los clústeres de Hadoop desarrollado
 
 ![](http://i.imgur.com/jrUmrH4.png)
 
-HDInsight quita este único punto de error con la incorporación de un nodo principal secundario (Nodo principal1). [Se han agregado nodos de ZooKeeper][zookeeper] (ZKs) que se usan para la elección de líder de nodos principales y para asegurar que los nodos de trabajo y las puertas de enlace (GW) saben cuándo conmutar por error al nodo principal secundario (Nodo principal1) cuando el nodo principal activo (Nodo principal0) pasa a estar inactivo.
+HDInsight quita este único punto de error con la incorporación de un nodo principal secundario (Nodo principal1). [Se han agregado nodos de ZooKeeper][zookeeper] (ZK) que se usan para la elección de líder de nodos principales y para asegurar que los nodos de trabajo y las puertas de enlace (GW) saben cuándo conmutar por error al nodo principal secundario (Nodo principal1) cuando el nodo principal activo (Nodo principal0) pasa a estar inactivo.
 
 
 ## Comprobación del estado de los servicios en el nodo principal activo ##
-Para determinar qué nodo principal está activo y comprobar el estado de los servicios que se ejecutan en ese nodo principal, debe conectarse al clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP). La capacidad de interactuar remotamente en el clúster está deshabilitada de forma predeterminada en Azure, por lo que primero se debe habilitar. Para obtener instrucciones sobre cómo llevar a cabo esta acción en el portal, consulte [Conexión a clústeres de HDInsight mediante RDP](../hdinsight-administer-use-management-portal/#rdp)
-Una vez que se ha conectado remotamente al clúster, haga doble clic en el icono **Estado de disponibilidad de los servicios de Hadoop** situado del escritorio para obtener el estado sobre qué nodo principal se están ejecutando los servicios Namenode, Jobtracker, Templeton, Oozieservice, Metastore y Hiveserver2, o para HDI 3.0, Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore y Hiveserver2.
+Para determinar qué nodo principal está activo y comprobar el estado de los servicios que se ejecutan en ese nodo principal, debe conectarse al clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP). La capacidad de interactuar remotamente en el clúster está deshabilitada de forma predeterminada en Azure, por lo que primero se debe habilitar. Para obtener instrucciones sobre cómo llevar a cabo esta acción en el portal, consulte [Conexión a los clústeres de HDInsight con RDP](../hdinsight-administer-use-management-portal/#rdp)
+Una vez que se haya conectado remotamente al clúster, haga doble clic en el icono **Estado de disponibilidad de los servicios de Hadoop**, situado en el escritorio, para obtener el estado sobre qué servicios de nodo principal se están ejecutando (Namenode, Jobtracker, Templeton, Oozieservice, Metastore y Hiveserver2 o Namenode, Resource Manager, History Server, Templeton, Oozieservice, Metastore y Hiveserver2 para HDI 3.0).
 
 ![](http://i.imgur.com/MYTkCHW.png)
 
 
 ## Acceso a los archivos de registro en el nodo principal secundario ##
 
-Para acceder a registros de trabajo en el nodo principal secundario en el caso de que haya pasado a ser el nodo principal, la exploración de la interfaz de usuario de la herramienta de seguimiento de trabajos todavía funciona como lo hace para el nodo activo primario. Para acceder a la herramienta de seguimiento de trabajos, debe conectarse al clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP) tal y como se describió en la sección anterior. Una vez que se ha conectado de forma remota de clúster, haga doble clic en el icono **Nodo de nombres de Hadoop** situado en el escritorio y después haga clic en **Registros del nodo de nombres** para obtener el directorio de registros del nodo principal secundario.
+Para acceder a registros de trabajo en el nodo principal secundario en el caso de que haya pasado a ser el nodo principal, la exploración de la interfaz de usuario de la herramienta de seguimiento de trabajos todavía funciona como lo hace para el nodo activo primario. Para acceder a la herramienta de seguimiento de trabajos, debe conectarse al clúster de Hadoop mediante el Protocolo de escritorio remoto (RDP) tal y como se describió en la sección anterior. Una vez que se haya conectado de forma remota al clúster, haga doble clic en el icono **Nodo de nombres de Hadoop** situado en el escritorio y, a continuación, haga clic en **Registros del nodo de nombres** para obtener el directorio de registros del nodo principal secundario.
 
 ![](http://i.imgur.com/eL6jzgB.png)
 
@@ -32,13 +46,13 @@ Los nodos principales se asignan como máquinas virtuales grandes de forma prede
 
 Las máquinas virtuales extragrandes se pueden configurar usando cmdlets de Azure PowerShell o el SDK de HDInsight.
 
-La creación y aprovisionamiento de un clúster usando PowerShell se documenta en [Administración de HDInsight con PowerShell](../hdinsight-administer-use-powershell/). La configuración de un nodo principal extragrande requiere la adición del parámetro `-HeadNodeVMSize ExtraLarge` al cmdlet `New-AzureHDInsightcluster` usado en este código.
+La creación y aprovisionamiento de un clúster mediante PowerShell se documenta en [Administración de HDInsight con PowerShell](../hdinsight-administer-use-powershell/). La configuración de un nodo principal extragrande requiere la adición del parámetro `-HeadNodeVMSize ExtraLarge` al cmdlet `New-AzureHDInsightcluster` usado en este código.
 
-    # Creación de un nuevo clúster de HDInsight en Azure PowerShell
-	# Configurado con una VM de nodo principal extragrande
+    # Create a new HDInsight cluster in Azure PowerShell
+	# Configured with an ExtraLarge Headnode VM
     New-AzureHDInsightCluster -Name $clusterName -Location $location -HeadNodeVMSize ExtraLarge -DefaultStorageAccountName "$storageAccountName.blob.core.windows.net" -DefaultStorageAccountKey $storageAccountKey -DefaultStorageContainerName $containerName  -ClusterSizeInNodes $clusterNodes
 
-Para la SDK, la historia es similar. La creación y aprovisionamiento de un clúster usando el SDK se documenta en [Uso del SDK .NET de HDInsight](../hdinsight-provision-clusters/#sdk). La configuración de un nodo principal extragrande requiere la adición del parámetro `HeadNodeSize = NodeVMSize.ExtraLarge` al método `ClusterCreateParameters()` usado en este código.
+Para la SDK, la historia es similar. La creación y aprovisionamiento de un clúster mediante el SDK se documenta en [Uso del SDK .NET de HDInsight](../hdinsight-provision-clusters/#sdk). La configuración de un nodo principal extragrande requiere la adición del parámetro `HeadNodeSize = NodeVMSize.ExtraLarge` al método `ClusterCreateParameters()` usado en este código.
 
     # Create a new HDInsight cluster with the HDInsight SDK
 	# Configured with an ExtraLarge Headnode VM
@@ -70,5 +84,4 @@ Para la SDK, la historia es similar. La creación y aprovisionamiento de un clú
 
 
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

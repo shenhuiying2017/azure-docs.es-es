@@ -1,7 +1,9 @@
-> [WACOM.NOTE] **Este artículo usa el portal Azure en vista previa**
->
-> El [portal en vista previa][portal en vista previa] ofrece acceso a las nuevas características y experiencias en la plataforma Azure y se requiere al usar los pasos y la información proporcionada en este artículo.
->
-> Si no ha iniciado sesión en su suscripción de Azure, se le solicitará que inicie sesión cuando visite el [Portal en vista previa][portal en vista previa].
+﻿
+> [AZURE.NOTE] **En este artículo se usa el Portal de vista previa de Azure**
+> 
+> El [portal de vista previa](https://portal.azure.com/) proporciona acceso a las nuevas características y experiencias en la plataforma de Azure y es necesario al seguir los pasos y usar la información que se incluyen en este artículo.
+> 
+> Si no ha iniciado sesión en su suscripción de Azure, se le solicitará que la inicie cuando visite el [portal de vista previa](https://portal.azure.com/).
 
-  [portal en vista previa]: https://portal.azure.com/
+
+<!--HONumber=42-->

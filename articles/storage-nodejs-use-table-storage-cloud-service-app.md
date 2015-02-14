@@ -1,6 +1,20 @@
-<properties urlDisplayName="Web App with Storage" pageTitle="Aplicación web con almacenamiento de tablas (Node.js) | Microsoft Azure" metaKeywords="Azure Node.js hello world tutorial, Azure Node.js hello world, Azure Node.js Getting Started tutorial, Azure Node.js tutorial, Azure Node.js Express tutorial" description="Un tutorial que se agrega a la aplicación web con el tutorial Express añadiendo servicios Almacenamiento de Azure y el módulo de Azure." metaCanonical="" services="cloud-services,storage" documentationCenter="nodejs" title="Node.js Web Application using Storage" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Aplicación web con almacenamiento de tablas (Node.js) | Microsoft Azure" 
+	description="Un tutorial que se agrega a la aplicación web con el tutorial Express añadiendo servicios Almacenamiento de Azure y el módulo de Azure." 
+	services="cloud-services, storage" 
+	documentationCenter="nodejs" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="mwasson" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="mwasson"/>
 
 
 
@@ -9,11 +23,11 @@
 
 # Aplicación web Node.js con almacenamiento
 
-En este tutorial, podrá ampliar la aplicación creada en el tutorial [Aplicación web Node.js con Express] mediante el uso de las bibliotecas de cliente de Windows Azure para Node.js a fin de trabajar con los servicios de administración de datos. Va a ampliar su aplicación para crear una aplicación de lista de tareas basada en web que se puede implementar en Azure. La lista de tareas permite al usuario recuperar tareas, agregar tareas nuevas y marcar tareas como completadas.
+En este tutorial, podrá ampliar la aplicación creada en el tutorial [Aplicación web Node.js con Express] mediante el uso de las bibliotecas de cliente de Azure para Node.js a fin de trabajar con los servicios de administración de datos. Va a ampliar su aplicación para crear una aplicación de lista de tareas basada en web que se puede implementar en Azure. La lista de tareas permite al usuario recuperar tareas, agregar tareas nuevas y marcar tareas como completadas.
 
 Los elementos de tarea se almacenan en el almacenamiento de Azure. El almacenamiento de Azure ofrece almacenamiento de datos no estructurados que es tolerante a errores y tiene una alta disponibilidad. El almacenamiento de Azure incluye varias estructuras de datos donde puede almacenar datos y tener acceso a ellos, además de aprovechar los servicios de almacenamiento de las API que se incluyen en el SDK de Azure para Node.js o mediante las API de REST. Para obtener más información, consulte [Almacenamiento de datos y acceso a los mismos en Azure].
 
-En este tutorial se asume que ha completado los tutoriales [Aplicación web Node.js] y [Aplicación web Node.js con Express].
+En este tutorial se supone que ha completado los tutoriales de [Aplicación web Node.js] y [Node.js con Express][Aplicación web Node.js con Express].
 
 Aprenderá a:
 
@@ -26,12 +40,10 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 ## Establecimiento de las credenciales de almacenamiento en Web.Config
 
-Para tener acceso al almacenamiento de Azure, necesita proporcionar credenciales de almacenamiento. Para ello, utiliza la configuración de aplicación web.config. Estos ajustes pasarán como variables de entorno a Node, que luego son leídos por el SDK de Azure.
+Para tener acceso al almacenamiento de Azure, necesita proporcionar credenciales de almacenamiento. Para ello, utiliza la configuración de aplicación web.config.
+Estos ajustes pasarán como variables de entorno a Node, que luego son leídos por el SDK de Azure.
 
-<div class="dev-callout">
-<strong>Nota:</strong>
-<p>Las credenciales de almacenamiento solo se utilizan cuando la aplicación se implementa en Azure. Cuando se ejecuta en el emulador, la aplicación utilizará el emulador de almacenamiento.</p>
-</div>
+> [AZURE.NOTE] Las credenciales de almacenamiento solo se utilizan cuando la aplicación se implementa en Azure. Cuando se ejecuta en el emulador, la aplicación utilizará el emulador de almacenamiento.
 
 Siga estos pasos para recuperar las credenciales de la cuenta de almacenamiento y agregarlas a la configuración de web.config:
 
@@ -45,10 +57,7 @@ Siga estos pasos para recuperar las credenciales de la cuenta de almacenamiento 
 
 	De esta manera se recupera la lista de cuentas de almacenamiento y las claves de cuentas con el servicio hospedado.
 
-	<div class="dev-callout">
-	<strong>Nota:</strong>
-	<p>Debido a que el SDK de Azure crea una cuenta de almacenamiento al implementar un servicio, ya debe existir una cuenta de almacenamiento procedente de la implementación de la aplicación en las guías anteriores.</p>
-	</div>
+	> [AZURE.NOTE] Debido a que el SDK de Azure crea una cuenta de almacenamiento al implementar un servicio, ya debe existir una cuenta de almacenamiento procedente de la implementación de la aplicación en las guías anteriores.
 
 4.  Abra el archivo **ServiceDefinition.csdef** que contiene la configuración del entorno que se usa cuando la aplicación se implementa en Azure:
 
@@ -67,7 +76,7 @@ Siga estos pasos para recuperar las credenciales de la cuenta de almacenamiento 
 
 2. Use el comando siguiente para instalar los módulos [azure], [node-uuid], [nconf] y [async] localmente y para guardar una entrada de ellos en el archivo **package.json**:
 
-		PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
+	    PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
 
 	El resultado de este comando debe ser similar al siguiente:
 
@@ -94,9 +103,9 @@ En esta sección extenderá la aplicación básica creada por el comando **expre
 
 ### Crear el modelo
 
-1. En el directorio **WebRole1**, cree el directorio nuevo con el nombre **models**.
+1. En el directorio **WebRole1**, cree el directorio nuevo con el nombre**models**.
 
-2. En el directorio **models**, cree un archivo nuevo con el nombre **task.js**. Este archivo contendrá el modelo para las tareas que se crean con su aplicación.
+2. En el directorio **models**, cree un archivo nuevo con el nombre **models**. Este archivo contendrá el modelo para las tareas que se crean con su aplicación.
 
 3. Al comienzo del archivo **task.js**, agregue el siguiente código para hacer referencia a las bibliotecas requeridas:
 
@@ -177,7 +186,7 @@ En esta sección extenderá la aplicación básica creada por el comando **expre
 
 1. En el directorio **WebRole1/routes**, cree un archivo nuevo con el nombre **tasklist.js** y ábralo en un editor de texto.
 
-2. Agregue el siguiente código a **tasklist.js**. De este modo se cargan los módulos azure y async, que utiliza **tasklist.js**. También define la función **TaskList**, que pasa a una instancia del objeto **Task** que definimos anteriormente:
+2. Agregue el siguiente código a **tasklist.js**. De este modo se cargan los módulos azure y async, que utiliza **tasklist.js**. También define la función **TaskList**, que pasa a una instancia del objeto**Task** que definimos anteriormente:
 
 		var azure = require('azure-storage');
 		var async = require('async');
@@ -188,7 +197,7 @@ En esta sección extenderá la aplicación básica creada por el comando **expre
 		  this.task = task;
 		}
 
-2. Continúe agregando al archivo **tasklist.js**; para ello, agregue los métodos utilizados para **showTasks**, **addTask** y **completeTasks**:
+2. Continúe agregando al archivo **tasklist.js** agregando los métodos usados para **showTasks**, **addTask** y **completeTasks**:
 
 		TaskList.prototype = {
 		  showTasks: function(req, res) {
@@ -249,7 +258,7 @@ En esta sección extenderá la aplicación básica creada por el comando **expre
 		app.use('/', routes);
 		app.use('/users', users);
 
-	Sustituya las líneas anteriores por el código que se muestra a continuación. A continuación, se inicializará una instancia de <strong>Tarea</strong> con una conexión a la cuenta de almacenamiento. Se pasa a la <strong>lista de tareas</strong>, que la usará para comunicarse con el servicio Tabla:
+	Sustituya las líneas anteriores por el código que se muestra a continuación. De este modo se inicializará una instancia de <strong>Task</strong> con una conexión a su cuenta de almacenamiento. Esto se pasa a la <strong>TaskList</strong>, que lo utilizará para comunicarse con el servicio Tabla:
 
 		var TaskList = require('./routes/tasklist');
 		var Task = require('./models/task');
@@ -309,11 +318,11 @@ En esta sección extenderá la aplicación básica creada por el comando **expre
 
 ###Modificar el diseño global
 
-El archivo **layout.jade** del directorio **views** se utiliza como plantilla global para otros archivos **.jade**. En este paso lo modificará para usar [Twitter Bootstrap](https://github.com/twbs/bootstrap), que es un kit de herramientas que facilita el diseño de un sitio web atractivo.
+El archivo **layout.jade** del directorio **views** se utiliza como plantilla global para otros archivos **.jade**. En este paso podrá modificarlo para utilizar [Twitter Bootstrap](https://github.com/twbs/bootstrap), un kit de herramientas que facilita el diseño de un sitio web atractivo.
 
 1. Descargue y extraiga los archivos para [Twitter Bootstrap](http://getbootstrap.com/). Copie el archivo **bootstrap.min.css** desde la carpeta **bootstrap\\dist\\css** al directorio **public\\stylesheets** de su aplicación de lista de tareas.
 
-2. En la carpeta **views**, abra **layout.jade** en el editor de texto y reemplace el contenido por lo siguiente:
+2. En la carpeta **views**, abra**layout.jade** en el editor de texto y reemplace el contenido por lo siguiente:
 
 		doctype html
 		html
@@ -367,13 +376,14 @@ Después de que la implementación se haya completado, debe ver una respuesta si
 
 Al igual que antes, debido a que ha especificado la opción **-launch**, el explorador se abre y muestra la aplicación que se ejecuta en Azure cuando se completa la publicación.
 
-![Una ventana del explorador muestra la página My Task List. La URL indica que la página está hospedada en Azure.](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
+![A browser window displaying the My Task List page. The URL indicates the page is now being hosted on Azure.](./media/storage-nodejs-use-table-storage-cloud-service-app/getting-started-1.png)
 
 ## Detención y eliminación de su aplicación
 
 Después de implementar la aplicación, es posible que desee deshabilitarla a fin de evitar costes o compilar e implementar otras aplicaciones dentro del período de prueba gratuito.
 
-Azure factura las instancias de rol web por hora consumida de tiempo de servidor. El tiempo de servidor se empieza a consumir una vez implementada su aplicación, incluso si las instancias no se están ejecutando y se encuentran detenidas.
+Azure factura las instancias de rol web por hora consumida de tiempo de servidor.
+El tiempo de servidor se empieza a consumir una vez implementada su aplicación, incluso si las instancias no se están ejecutando y se encuentran detenidas.
 
 Los siguientes pasos muestran cómo detener y eliminar su aplicación.
 
@@ -383,7 +393,7 @@ Los siguientes pasos muestran cómo detener y eliminar su aplicación.
 
 	La detención del servicio puede durar varios minutos. Una vez detenido el servicio, recibirá un mensaje que le avisará de su detención.
 
-3.  Para eliminar el servicio, llame al siguiente cmdlet:
+2.  Para eliminar el servicio, llame al siguiente cmdlet:
 
         PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
 
@@ -391,9 +401,8 @@ Los siguientes pasos muestran cómo detener y eliminar su aplicación.
 
 	La eliminación del servicio puede durar varios minutos. Una vez eliminado el servicio, recibirá un mensaje que le avisará de su eliminación.
 
-  [Aplicación web Node.js con Express]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/web-app-with-express/
-  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433040.aspx
-  [Aplicación web Node.js]: http://www.windowsazure.com/en-us/develop/nodejs/tutorials/getting-started/
+  [Aplicación web Node.js con Express]: http://www.windowsazure.com/es-es/develop/nodejs/tutorials/web-app-with-express/
+  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
+  [Aplicación web Node.js]: http://www.windowsazure.com/es-es/develop/nodejs/tutorials/getting-started/
  
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

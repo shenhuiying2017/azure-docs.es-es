@@ -1,6 +1,20 @@
-﻿<properties title="Managing Concurrency in Microsoft Azure Storage" pageTitle="required" description="Administración de la simultaneidad para los servicios BLOB, Cola, Tabla y Archivo" metaKeywords="Optional" services="Optional" solutions="Optional" documentationCenter="Optional" authors="tamram" manager="adinah" videoId="Optional" scriptId="Optional" />
+﻿<properties 
+	pageTitle="requerido" 
+	description="Administración de la simultaneidad para los servicios BLOB, Cola, Tabla y Archivo" 
+	services="storage" 
+	documentationCenter="" 
+	authors="tamram" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="storage" ms.workload="storage" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/08/2014" ms.author="tamram" />
+<tags 
+	ms.service="storage" 
+	ms.workload="storage" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="tamram"/>
 
 #Administración de la simultaneidad en Almacenamiento de Microsoft Azure
 Las aplicaciones modernas basadas en Internet, normalmente tienen varios usuarios que ven y actualizan datos simultáneamente. Esto requiere que los desarrolladores de las aplicaciones piensen detenidamente cómo proporcionar una experiencia predecible a sus usuarios finales, especialmente para escenarios donde varios usuarios pueden actualizar los mismos datos. Hay tres estrategias de simultaneidad de datos principales que normalmente tendrán en cuenta los desarrolladores:  
@@ -65,7 +79,7 @@ El siguiente fragmento de código de C# (usando Biblioteca de almacenamiento de 
 	        throw;
 	}  
 
-El servicio Almacenamiento también incluye soporte para encabezados condicionales adicionales como **If-Modified-Since**, **If-Unmodified-Since** y **If-None-Match**, además de combinaciones de los mismos. Para obtener más información, consulte [Especificar encabezados condicionales para las operaciones del servicio BLOB](http://msdn.microsoft.com/en-us/library/dd179371.aspx) en MSDN.  
+El servicio Almacenamiento también incluye soporte para encabezados condicionales adicionales como **If-Modified-Since**, **If-Unmodified-Since** y **If-None-Match**, además de combinaciones de los mismos. Para obtener más información, consulte [Especificar encabezados condicionales para las operaciones del servicio BLOB](http://msdn.microsoft.com/es-es/library/dd179371.aspx) en MSDN.  
 
 En la siguiente tabla se resumen las operaciones de contenedor que aceptan encabezados condicionales como **If-Match** en la solicitud y que devuelven un valor ETag en la respuesta.  
 
@@ -76,16 +90,16 @@ Get Container Properties|	Sí|	No|
 Get Container Metadata|	Sí|	No|
 Set Container Metadata|	Sí|	Sí|
 Get Container ACL|	Sí|	No|
-Set Container ACL|	Sí	Sí(*)|
-Delete Container|	No|	Sí
-Lease Container|	Sí	Sí
+Set Container ACL|	Sí|	Sí (*)|
+Delete Container|	No|	Sí|
+Lease Container|	Sí|	Sí|
 List Blobs|	No|	No  
 
 (*) Los permisos definidos por SetContainerACL se almacenan en caché y las actualizaciones a estos permisos tardan 30 segundos en propagarse durante los cuales no se garantiza la coherencia de las actualizaciones.  
 
 En la siguiente tabla se resumen las operaciones de contenedor que aceptan encabezados condicionales como **If-Match** en la solicitud y que devuelven un valor ETag en la respuesta.  
 
-Operación	|Devuelve el valor ETag del contenedor	|Acepta encabezados condicionales|
+Operación	|Devuelve el valor ETag	|Acepta encabezados condicionales|
 -----------|-------------------|----------------------------|
 Put Blob|	Sí|	Sí|
 Get Blob|	Sí|	Sí|
@@ -95,7 +109,7 @@ Get Blob Metadata|	Sí|	Sí|
 Set Blob Metadata|	Sí|	Sí|
 Lease Blob (*)|	Sí|	Sí|
 Snapshot Blob|	Sí|	Sí|
-Copy Blob|	Sí|	Sí (para blob de origen y destino)|
+Copy Blob|	Sí|	Sí (para los blobs de origen y destino)|
 Abort Copy Blob|	No|	No|
 Delete Blob|	No|	Sí|
 Put Block|	No|	No|
@@ -104,10 +118,10 @@ Get Block List|	Sí|	No|
 Put Page|	Sí|	Sí|
 Get Page Ranges|	Sí|	Sí
 
-(*) Lease Blob no cambia ETag en un blob.  
+(*) (*) Lease Blob no cambia la ETag en un blob.  
 
 ##Simultaneidad pesimista para blobs
-Para bloquear un blob para uso exclusivo, puede adquirir una [concesión](http://msdn.microsoft.com/en-us/library/azure/ee691972.aspx) en él. Cuando adquiera una concesión, especifique durante cuánto tiempo necesita la concesión: puede ser entre 15 y 60 segundos o de manera infinita, lo que corresponde a un bloqueo exclusivo. Puede renovar una concesión finita para extenderla y puede liberar cualquier concesión cuando haya terminado con ella. El servicio de blob libera automáticamente concesiones finitas cuando expiran.  
+Para bloquear un blob para uso exclusivo, puede adquirir una [concesión](http://msdn.microsoft.com/es-es/library/azure/ee691972.aspx) en él. Cuando adquiera una concesión, especifique durante cuánto tiempo necesita la concesión: puede ser entre 15 y 60 segundos o de manera infinita, lo que corresponde a un bloqueo exclusivo. Puede renovar una concesión finita para extenderla y puede liberar cualquier concesión cuando haya terminado con ella. El servicio de blob libera automáticamente concesiones finitas cuando expiran.  
 
 Las concesiones permiten diferentes estrategias de sincronización, como por ejemplo las siguientes: escritura exclusiva / lectura compartida, escritura exclusiva / lectura exclusiva y escritura compartida / lectura exclusiva. Donde existe una concesión, el servicio Almacenamiento impone escrituras exclusivas (operaciones poner, establecer y eliminar) garantizando, sin embargo, que la exclusividad para operaciones de lectura requiere que el desarrollador garantice que todas las aplicaciones cliente usan un identificador de concesión y que solamente un cliente tiene un identificador de concesión válido en cada momento. Las operaciones de lectura que no incluyen un identificador de concesión, dan lugar a lecturas compartidas.  
 
@@ -138,7 +152,7 @@ En el siguiente fragmento de código de C# se muestra un ejemplo de adquisición
 	        throw;
 	}  
 
-Si intenta una operación de escritura en un blob concedido sin pasar el identificador de concesión, la solicitud no se puede realizar y muestra el error 412. Tenga en cuenta que si la concesión expira antes de llama al método **UploadText**, pero sigue pasando el identificador de concesión, la solicitud tampoco se podrá realizar y mostrará el error **412**. Para obtener más información acerca de la administración de tiempos de expiración, consulte la documentación REST [Lease Blob](http://msdn.microsoft.com/en-us/library/azure/ee691972.aspx) .  
+Si intenta una operación de escritura en un blob concedido sin pasar el identificador de concesión, la solicitud no se puede realizar y muestra el error 412. Tenga en cuenta que si la concesión expira antes de llama al método **UploadText**, pero sigue pasando el identificador de concesión, la solicitud tampoco se podrá realizar y mostrará el error **412**. Para obtener más información acerca de la administración de tiempos de expiración de la concesión y de identificadores de concesión, vea la documentación REST [Lease Blob](http://msdn.microsoft.com/es-es/library/azure/ee691972.aspx).  
 
 Las siguientes operaciones de blob pueden usar concesiones para administrar simultaneidad pesimista:  
 
@@ -155,9 +169,9 @@ Las siguientes operaciones de blob pueden usar concesiones para administrar simu
 -	Get Block List
 -	Put Page
 -	Get Page Ranges
--	Snapshot Blob (identificador de concesión opcional si existe una concesión)
+-	Instantánea de blob - identificador de concesión opcional si existe una concesión
 -	Copy Blob (identificador de concesión necesario si existe una concesión en el blob de destino)
--	Abort Copy Blob (identificador de concesión necesario si existe una concesión infinita en el blob de destino)
+-	Abort Copy Blob - Se requiere un identificador de concesión si existe una concesión infinita en el blob de destino
 -	Lease Blob  
 
 ##Simultaneidad pesimista para contenedores
@@ -175,9 +189,9 @@ Las siguientes operaciones de contenedor pueden usar concesiones para administra
 
 Para obtener más información, consulte:  
 
-- [Especificar encabezados condicionales para las operaciones del servicio BLOB](http://msdn.microsoft.com/en-us/library/azure/dd179371.aspx)
-- [Lease Container](http://msdn.microsoft.com/en-us/library/azure/jj159103.aspx)
-- [Lease Blob ](http://msdn.microsoft.com/en-us/library/azure/ee691972.aspx) 
+- [Especificar encabezados condicionales para las operaciones del servicio BLOB](http://msdn.microsoft.com/es-es/library/azure/dd179371.aspx)
+- [Lease Container](http://msdn.microsoft.com/es-es/library/azure/jj159103.aspx)
+- [Lease Blob](http://msdn.microsoft.com/es-es/library/azure/ee691972.aspx) 
 
 #Administración de simultaneidad en el servicio Tabla
 El servicio tabla usa comprobaciones de simultaneidad optimista como el comportamiento predeterminado cuando trabaja con entidades, a diferencia del servicio BLOB donde debe elegir explícitamente la realización de comprobaciones de simultaneidad optimista. La otra diferencia entre los servicios Tabla y BLOB es que solamente puede administrar el comportamiento de simultaneidad de entidades mientras que con el servicio BLOB puede administrar la simultaneidad tanto de contenedores como de blobs.  
@@ -192,7 +206,7 @@ Para usar simultaneidad optimista y comprobar si otro proceso modificó una enti
 
 Tenga en cuenta que, a diferencia del servicio BLOB, el servicio Tabla requiere que el cliente incluya un encabezado **If-Match** en las solicitudes de actualización. Sin embargo, es posible imponer una actualización no condicional (estrategia de tipo El último en escribir gana) y omitir comprobaciones de simultaneidad si el cliente establece el encabezado **If-Match** en el carácter comodín (*) en la solicitud.  
 
-El siguiente fragmento de código C# muestra una entidad customer que se creó o recuperó previamente teniendo su dirección de correo electrónico actualizada. La operación de inserción o recuperación inicial almacena el valor ETag en el objeto customer y, dado que el ejemplo usa la misma instancia de objeto cuando ejecuta la operación de reemplazo, automáticamente vuelve a enviar el valor ETag al servicio Tabla, permitiendo al servicio comprobar las infracciones de simultaneidad. Si otro proceso ha actualizado la entidad en el almacenamiento de tabla, el servicio devuelve un mensaje de estado HTTP 412 (Error en la condición previa). Puede descargar el ejemplo completo [aquí](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).  
+El siguiente fragmento de código C# muestra una entidad customer que se creó o recuperó previamente teniendo su dirección de correo electrónico actualizada. La operación de inserción o recuperación inicial almacena el valor ETag en el objeto customer y, dado que el ejemplo usa la misma instancia de objeto cuando ejecuta la operación de reemplazo, automáticamente vuelve a enviar el valor ETag al servicio Tabla, permitiendo al servicio comprobar las infracciones de simultaneidad. Si otro proceso ha actualizado la entidad en el almacenamiento de tabla, el servicio devuelve un mensaje de estado HTTP 412 (Error en la condición previa). Puede descargar el ejemplo completo [aquí](http://code.msdn.microsoft.com/windowsazure/Managing-Concurrency-using-56018114).
 
 	try
 	{
@@ -215,7 +229,7 @@ customer.ETag = "*";
 
 En la siguiente tabla se resume cómo las operaciones de entidad de tabla usan valores ETag:  
 
-Operación	|Devuelve valor ETag	|Requiere encabezado de solicitud If-Match|
+Operación	|Devuelve el valor de ETag	|Requiere encabezado de solicitud If-Match|
 ------------|-------------------|--------------------------------|
 Query Entities|	Sí|	No|
 Insert Entity|	Sí|	No|
@@ -225,13 +239,13 @@ Delete Entity|	No|	Sí|
 Insert or Replace Entity|	Sí|	No|
 Insert or Merge Entity|	Sí|	No 
 
-Tenga en cuenta que las operaciones **Insert or Replace Entity** y **Insert or Merge Entity** *no* realizan ninguna comprobación de simultaneidad porque no envían un valor ETag al servicio Tabla.  
+Tenga en cuenta que las operaciones **Insert or Replace Entity** e **Insert or Merge Entity** *no* realizan ninguna comprobación de simultaneidad porque no envían un valor de ETag al servicio tabla.  
 
 En general, los desarrolladores que usan tablas deben basarse en simultaneidad optimista cuando desarrollan aplicaciones escalables. Si se necesita el bloqueo pesimista, un enfoque que los desarrolladores pueden usar cuando obtienen acceso a tablas es asignar un blob designado para cada tabla e intentar llevar a cabo una concesión en el blob antes de realizar operaciones en la tabla. Este enfoque no requiere que la aplicación garantice que todas las rutas de acceso a los datos obtienen la concesión antes de realizar operaciones en la tabla. También debe tener en cuenta que el tiempo mínimo de concesión es 15 segundos, lo que requiere una consideración cuidadosa para escalabilidad.  
 
 Para obtener más información, consulte:  
 
-- [Operaciones en entidades](http://msdn.microsoft.com/en-us/library/azure/dd179375.aspx)  
+- [Operaciones en entidades](http://msdn.microsoft.com/es-es/library/azure/dd179375.aspx)  
 
 #Administración de simultaneidad en el servicio Cola
 Un escenario en el que la simultaneidad es una preocupación en el servicio de colas es donde varios clientes recuperan mensajes de una cola. Cuando un mensaje se recupera de la cola, la respuesta incluye el mensaje y un valor de recepción de confirmación, que es necesario para eliminar dicho mensaje. El mensaje no se elimina automáticamente de la cola, pero después de haberse recuperado, no se muestra a otros clientes durante el intervalo de tiempo especificado por el parámetro visibilitytimeout. Se espera que el cliente que recupera el mensaje lo elimine una vez procesado y antes de que se cumpla el tiempo especificado por el elemento TimeNextVisible de la respuesta, que se calcula en función del valor del parámetro visibilitytimeout. El valor de visibilitytimeout se agrega al tiempo en el que el mensaje se recupera para determinar el valor de TimeNextVisible.  
@@ -240,8 +254,8 @@ El servicio Cola no admite simultaneidad optimista o pesimista y, por esta razó
 
 Para obtener más información, consulte:  
 
-- [API de REST del servicio Cola](http://msdn.microsoft.com/en-us/library/azure/dd179363.aspx)
-- [Get Messages](http://msdn.microsoft.com/en-us/library/azure/dd179474.aspx)  
+- [API de REST del servicio Cola](http://msdn.microsoft.com/es-es/library/azure/dd179363.aspx)
+- [Get Messages](http://msdn.microsoft.com/es-es/library/azure/dd179474.aspx)  
 
 #Administración de simultaneidad en el servicio Archivo
 Se puede acceder al servicio Archivo utilizando dos extremos de protocolo diferentes: SMB y REST. El servicio REST no admite bloqueo optimista o bloqueo pesimista y todas las actualizaciones seguirán una estrategia de tipo El último en escribir gana. Los clientes SMB que montan recursos compartidos de archivo pueden aprovechar mecanismos de bloqueo del sistema de archivos para administrar el acceso a archivos compartidos, incluida la capacidad de realizar bloqueo pesimista. Cuando un cliente SMB abre un archivo, especifica tanto el acceso al archivo como el modo de uso compartido. El establecimiento de una opción Acceso de archivo en "Escritura" o "Lectura/Escritura" junto con un modo Uso compartido de archivos de "Ninguno" provocará el bloqueo del archivo por parte de un cliente hasta que el archivo se cierre. Si se intenta realizar la operación REST en un archivo donde un cliente SMB tiene el archivo bloqueado, el servicio REST devolverá el código de estado 409 (Conflicto) con el código de error SharingViolation.  
@@ -250,7 +264,7 @@ Cuando un cliente SMB abre un archivo para eliminarlo, lo marca como eliminació
 
 Para obtener más información, consulte:  
 
-- [Administración de bloqueos de archivo](http://msdn.microsoft.com/en-us/library/azure/dn194265.aspx)  
+- [Administración de bloqueos de archivo](http://msdn.microsoft.com/es-es/library/azure/dn194265.aspx)  
 
 #Resumen y pasos siguientes
 El servicio Almacenamiento de Microsoft Azure se ha diseñado para satisfacer las necesidades de las aplicaciones en línea más complejas sin necesidad de que los desarrolladores comprometan o se replanteen sus asunciones de diseño clave, como simultaneidad y coherencia de datos, que han llegado a dar por sentado.  
@@ -261,10 +275,9 @@ Aquí podrá obtener la aplicación de ejemplo completa a la que se hace referen
 
 Para obtener más información acerca de Almacenamiento de Azure, consulte:  
 
-- [Página principal de Almacenamiento de Microsoft Azure](http://azure.microsoft.com/en-us/services/storage/)
-- [Introducción a Almacenamiento de Azure](http://azure.microsoft.com/en-us/documentation/articles/storage-introduction/)
-- Introducción de almacenamiento para [Blob](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-blobs/), [Tabla](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-tables/) y [Colas](http://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-how-to-use-queues/)
+- [Página principal de Almacenamiento de Microsoft Azure](http://azure.microsoft.com/es-es/services/storage/)
+- [Introducción al Almacenamiento de Azure](http://azure.microsoft.com/es-es/documentation/articles/storage-introduction/)
+- Introducción al almacenamiento para [Blob](, http://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-how-to-use-blobs/)[Tabla](http://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-how-to-use-tables/) y [Colas](http://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-how-to-use-queues/)
 - Arquitectura de almacenamiento: [Almacenamiento de Microsoft Azure: Un servicio de almacenamiento en nube altamente disponible con gran coherencia](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

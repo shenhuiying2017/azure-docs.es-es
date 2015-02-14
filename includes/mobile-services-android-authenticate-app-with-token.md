@@ -1,7 +1,7 @@
 ﻿
 En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere que el cliente se ponga en contacto con el proveedor de identidades y con el servicio móvil cada vez que se inicia la aplicación. No solo este método es ineficaz, sino que también puede enfrentarse a problemas relacionados con el uso si varios clientes inician la aplicación al mismo tiempo. Un método mejor es almacenar en caché el token de autorización devuelto por los servicios móviles e intentar usarlo primero antes de utilizar un inicio de sesión basado en proveedores. 
 
->[WACOM.NOTE]Puede almacenar en caché el token emitido por los servicios móviles con independencia de si es una autenticación administrada por el cliente o por el servicio. Este tutorial utiliza la autenticación administrada por el servicio.
+>[AZURE.NOTE]Puede almacenar en caché el token emitido por los servicios móviles con independencia de si es una autenticación administrada por el cliente o por el servicio. Este tutorial utiliza la autenticación administrada por el servicio.
 
 
 1. En Eclipse, abra el archivo ToDoActivity.java y agregue las siguientes instrucciones de importación:
@@ -10,14 +10,14 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
         import android.content.SharedPreferences;
         import android.content.SharedPreferences.Editor;
 
-2. Agregue los siguientes métodos a la clase "ToDoActivity".
+2. Agregue los siguientes métodos a la clase `ToDoActivity`.
 
     	public static final String SHAREDPREFFILE = "temp";	
 	    public static final String USERIDPREF = "uid";	
     	public static final String TOKENPREF = "tkn";	
 
 
-3. En el archivo ToDoActivity.java, agregue la siguiente definición para el método "cacheUserToken".
+3. En el archivo ToDoActivity.java, agregue la siguiente definición para el método  `cacheUserToken`.
  
     	private void cacheUserToken(MobileServiceUser user)
 	    {
@@ -30,10 +30,10 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
   
     Este método almacena el identificador de usuario y el token en un archivo de preferencias que está marcado como privado. Esto debería proteger el acceso a la memoria caché para que otras aplicaciones del dispositivo no tengan acceso al token porque la preferencia está aislada para la aplicación. Sin embargo, si alguien obtiene acceso al dispositivo, es posible que pueda tener acceso a la caché del token mediante otros medios. 
 
-    >[WACOM.NOTE]Puede proteger adicionalmente el token con cifrado si el acceso del token a los datos se considera sumamente sensible y alguien puede obtener acceso al dispositivo. Sin embargo, una solución completamente segura está fuera del alcance de este tutorial y depende de los requisitos de seguridad.
+    >[AZURE.NOTE]Puede proteger adicionalmente el token con cifrado si el acceso del token a los datos se considera sumamente sensible y alguien puede obtener acceso al dispositivo. Sin embargo, una solución completamente segura está fuera del alcance de este tutorial y depende de los requisitos de seguridad.
 
 
-4. En el archivo ToDoActivity.java, agregue la siguiente definición para el método "loadUserTokenCache".
+4. En el archivo ToDoActivity.java, agregue la siguiente definición para el método  `loadUserTokenCache`.
 
     	private boolean loadUserTokenCache(MobileServiceClient client)
 	    {
@@ -54,7 +54,7 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
 
 
 
-5. En el archivo *ToDoActivity.java*, reemplace el método "authenticate" por el método siguiente que usa una caché del token. Cambie el proveedor de inicio de sesión si desea usar otra cuenta que no sea la de Microsoft.
+5. En el archivo *ToDoActivity.java*, reemplace el método `authenticate` por el método siguiente que usa una caché del token. Cambie el proveedor de inicio de sesión si desea usar otra cuenta que no sea la de Microsoft.
 
 		private void authenticate() {
 			// We first try to load a token cache if one exists.
@@ -89,3 +89,4 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
 
 
 
+<!--HONumber=42-->
