@@ -482,4 +482,5 @@ Para ver tutoriales que ejecutan otras muestras y proporcionan instrucciones sob
 [hdinsight-use-pig]: ../hdinsight-use-pig/
  
 
+
 <!--HONumber=42-->

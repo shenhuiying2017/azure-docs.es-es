@@ -42,4 +42,5 @@ Antes de realizar cualquier acción con una tabla, debe obtener la cadena de con
       CloudConfigurationManager.GetSetting("<storageAccountName>_AzureStorageConnectionString"));
 
 [AZURE.INCLUDE [vs-storage-getting-started-tables-include](../includes/vs-storage-getting-started-tables-include.md)]
+
 <!--HONumber=42-->

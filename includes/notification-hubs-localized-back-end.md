@@ -51,4 +51,5 @@ En su programador de Servicios móviles, sobrescriba el script con:
 	});
 	
 Vea cómo en este caso no hay necesidad de enviar varias notificaciones para diferentes configuraciones regionales y plataformas.
+
 <!--HONumber=42-->

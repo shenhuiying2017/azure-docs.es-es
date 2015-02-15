@@ -621,4 +621,5 @@ Ahora que ha captado la idea general, el siguiente paso es programar su primera 
 
 [Azure Media Services Poster]: http://azure.microsoft.com/es-es/documentation/infographics/media-services/
 
+
 <!--HONumber=42-->

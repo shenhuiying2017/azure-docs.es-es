@@ -277,4 +277,5 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
 [Referencia del SDK de cliente de almacenamiento de Azure]: http://dl.windowsazure.com/storage/javadoc/
 [API de REST de almacenamiento de Azure]: http://msdn.microsoft.com/es-es/library/azure/gg433040.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

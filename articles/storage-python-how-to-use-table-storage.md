@@ -170,4 +170,5 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
   [Adición de de una tabla]: #delete-table
   [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
   [Visite el Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

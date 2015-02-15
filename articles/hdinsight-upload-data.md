@@ -308,4 +308,5 @@ Ahora que ya sabe cómo enviar datos a HDInsight, use los artículos siguientes 
 [image-ase-addaccount]: ./media/hdinsight-upload-data/HDI.ASEAddAccount.png
 [image-ase-blob]: ./media/hdinsight-upload-data/HDI.ASEBlob.png
 
+
 <!--HONumber=42-->

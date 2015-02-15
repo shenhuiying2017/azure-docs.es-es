@@ -45,4 +45,5 @@ El servicio BLOB contiene los componentes siguientes:
 
 [Blob1]: ./media/howto-blob-storage/blob1.jpg
 
+
 <!--HONumber=42-->

@@ -182,4 +182,5 @@ El paso final es probar la aplicación y validar que se carga correctamente.
 [Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-windows-phone-get-started
 [CameraCaptureTask]: http://msdn.microsoft.com/es-es/library/windowsphone/develop/microsoft.phone.tasks.cameracapturetask(v=vs.105).aspx
 [PhotoCamera]: http://msdn.microsoft.com/es-es/library/windowsphone/develop/microsoft.devices.photocamera(v=vs.105).aspx
+
 <!--HONumber=42-->

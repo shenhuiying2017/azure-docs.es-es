@@ -46,4 +46,5 @@ El disco permanece en el almacenamiento pero ya no está acoplado a una máquina
 [attachdisk]:/es-es/manage/windows/how-to-guides/attach-a-disk/
 
 [Acerca de discos e imágenes]:http://go.microsoft.com/fwlink/p/?LinkId=263439
+
 <!--HONumber=42-->

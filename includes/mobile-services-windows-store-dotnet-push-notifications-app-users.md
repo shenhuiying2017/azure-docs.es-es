@@ -57,4 +57,5 @@ En este método, agregó un código de registro desde el tutorial directamente e
             await AuthenticateAsync();            
             App.InitNotificationsAsync();
             RefreshTodoItems();
-        }<!--HONumber=42-->
+        }
+<!--HONumber=42-->

@@ -67,4 +67,5 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 > [AZURE.NOTE] La cantidad máxima de discos que se pueden conectar a una máquina virtual es variable en función del tamaño de la máquina virtual. Por ejemplo, solo puede conectar 4 discos al estándar A2 estándar, pero puede conectar 32 discos al estándar D14 y 64 discos al estándar G5. Puede encontrar información detallada sobre cuántos discos se pueden conectar por tamaño de máquina virtual [aquí](https://msdn.microsoft.com/es-es/library/azure/dn197896.aspx).
 
 
+
 <!--HONumber=42-->

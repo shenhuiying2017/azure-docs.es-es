@@ -14,4 +14,5 @@
 
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
-   	Tenga en cuenta que el texto guardado se almacena en una colección de la memoria y se muestra en la lista de abajo.<!--HONumber=42-->
+   	Tenga en cuenta que el texto guardado se almacena en una colección de la memoria y se muestra en la lista de abajo.
+<!--HONumber=42-->

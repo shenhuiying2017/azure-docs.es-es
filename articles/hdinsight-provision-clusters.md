@@ -678,4 +678,5 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [img-hdi-cluster]: ./media/hdinsight-provision-clusters/HDI.Cluster.png
 
   [89e2276a]: /es-es/documentation/articles/hdinsight-use-sqoop/ "Use Sqoop with HDInsight"
+
 <!--HONumber=42-->

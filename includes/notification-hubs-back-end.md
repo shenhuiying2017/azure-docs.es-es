@@ -100,4 +100,5 @@ Omita los pasos 1-3 si creó una aplicación de consola cuando realizó el tutor
 [Información general acerca de los Centros de notificaciones ]: http://msdn.microsoft.com/es-es/library/jj927170.aspx
 [Procedimientos de los Centros de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/es-es/library/jj927172.aspx
 [Interfaz de REST de los Centros de notificaciones]: http://msdn.microsoft.com/es-es/library/windowsazure/dn223264.aspx
+
 <!--HONumber=42-->

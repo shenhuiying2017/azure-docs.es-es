@@ -98,4 +98,5 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en 
 	Haga clic en el nombre de la cuenta de almacenamiento para abrir el panel y, a continuación, haga clic en **Eliminar**.
 
 3. Haga clic en **Sí** para confirmar que desea eliminar la cuenta de almacenamiento.
+
 <!--HONumber=42-->

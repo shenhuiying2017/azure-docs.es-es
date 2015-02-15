@@ -1,1 +1,2 @@
-﻿Archivo de imagen público convertido en datos CSV.<p> </p>El código para convertir la imagen se proporciona en la página de detalles de modelos sobre la <strong>cuantificación de color mediante la agrupación en clústeres k-Means</strong>.<!--HONumber=42-->
+﻿Archivo de imagen público convertido en datos CSV.<p> </p>El código para convertir la imagen se proporciona en la página de detalles de modelos sobre la <strong>cuantificación de color mediante la agrupación en clústeres k-Means</strong>.
+<!--HONumber=42-->

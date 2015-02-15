@@ -400,4 +400,5 @@ Ahora que está familiarizado con los aspectos básicos del servicio Cola de Azu
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Portal de administración de Azure]: http://manage.windowsazure.com/
 [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
+
 <!--HONumber=42-->

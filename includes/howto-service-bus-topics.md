@@ -68,4 +68,5 @@ Anote el valor de **SharedAccessKey**  o cópielo en el Portapapeles:
   
   [6]: ./media/howto-service-bus-topics/getting-started-multi-tier-27.png
   [34]: ./media/howto-service-bus-topics/VSProperties.png
+
 <!--HONumber=42-->

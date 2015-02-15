@@ -20,4 +20,5 @@ A continuación se ofrece una alternativa que aprovecha el hecho de que el scrip
 ### Opción 3: personalizar el script de implementación
 
 Si ha personalizado el script de implementación, puede cambiar el código en deploy.cmd para forzarlo a eliminar la carpeta env.
+
 <!--HONumber=42-->

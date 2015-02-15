@@ -179,4 +179,5 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
 * Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure](http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx)
 * Visite el [blog del equipo de Almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 * Visite el repositorio de [SDK de Azure para Ruby](http://github.com/WindowsAzure/azure-sdk-for-ruby) en GitHub.
+
 <!--HONumber=42-->

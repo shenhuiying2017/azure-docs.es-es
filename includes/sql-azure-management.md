@@ -244,4 +244,5 @@ Base de datos SQL admite varias vistas de administración dinámica que puede us
   [Introducción a Base de datos SQL]: http://msdn.microsoft.com/es-es/library/windowsazure/ee336230.aspx
   [Modelo de aprovisionamiento de Base de datos SQL]: http://msdn.microsoft.com/es-es/library/ee336227.aspx
   [Agregar usuarios a la Base de datos SQL]: http://blogs.msdn.com/b/sqlazure/archive/2010/06/21/10028038.aspx
+
 <!--HONumber=42-->

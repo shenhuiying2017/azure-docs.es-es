@@ -38,4 +38,5 @@
 
 5. Vuelva a compilar el proyecto de servicio todolist de back-end .NET y compruebe que no haya errores de compilación. 
 
-A continuación, actualice la aplicación cliente para mostrar los datos nuevos de **CompleteDate**.<!--HONumber=42-->
+A continuación, actualice la aplicación cliente para mostrar los datos nuevos de **CompleteDate**.
+<!--HONumber=42-->

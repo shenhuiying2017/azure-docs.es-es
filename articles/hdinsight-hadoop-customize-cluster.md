@@ -174,4 +174,5 @@ El servicio HDInsight proporciona varias maneras de utilizar los componentes per
 
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster provisioning"
+
 <!--HONumber=42-->

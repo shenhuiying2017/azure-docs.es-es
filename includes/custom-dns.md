@@ -137,4 +137,5 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
   [Validar dominio personalizado, cuadro de diálogo]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
   [Asignación del contenido de la red CDN a un dominio personalizado]: http://msdn.microsoft.com/es-es/library/windowsazure/gg680307.aspx
   [vip]: ./media/custom-dns/csvip.png
-  [csurl]: ./media/custom-dns/csurl.png<!--HONumber=42-->
+  [csurl]: ./media/custom-dns/csurl.png
+<!--HONumber=42-->

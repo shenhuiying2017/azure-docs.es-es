@@ -404,4 +404,5 @@ Aunque Pig le permite realizar análisis de datos, también hay otros lenguajes 
 [image-hdi-pig-powershell]: ./media/hdinsight-use-pig/hdi.pig.powershell.png
 [image-hdi-pig-architecture]: ./media/hdinsight-use-pig/HDI.Pig.Architecture.png
 
+
 <!--HONumber=42-->

@@ -43,4 +43,5 @@ Antes de realizar cualquier acción con una cola, debe obtener la cadena de cone
 
 [AZURE.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
-Para obtener más información, consulte [ASP.NET](http://www.asp.net).<!--HONumber=42-->
+Para obtener más información, consulte [ASP.NET](http://www.asp.net).
+<!--HONumber=42-->

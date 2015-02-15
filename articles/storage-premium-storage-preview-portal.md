@@ -277,4 +277,5 @@ En esta sección se muestra cómo crear una cuenta de Almacenamiento premium y c
 [Referencia de MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
+
 <!--HONumber=42-->

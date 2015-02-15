@@ -28,4 +28,5 @@ Los siguientes pasos permiten crear un servicio móvil en Azure y agregar al pro
 7. Después de crear el servicio móvil, selecciónelo en la lista del Administrador de servicios y haga clic en **Aceptar**.
 
 	Cuando el asistente finaliza, significa que ya están instalados los paquetes de NuGet necesarios, que se ha agregado al proyecto una referencia a la biblioteca cliente de Servicios móviles y que se ha actualizado el código fuente del proyecto.
+
 <!--HONumber=42-->

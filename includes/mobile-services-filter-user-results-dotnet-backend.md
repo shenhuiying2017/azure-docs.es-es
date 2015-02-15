@@ -41,4 +41,5 @@ Ahora que la autenticación es necesaria para obtener acceso a los datos en la t
    	Esta consulta filtra los objetos TodoItem devueltos de manera que cada usuario solo recibe los elementos que inserte. 
 
 6. Vuelva a publicar el proyecto de servicio móvil en Azure.
+
 <!--HONumber=42-->

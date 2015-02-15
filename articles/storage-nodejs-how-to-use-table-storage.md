@@ -444,4 +444,5 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de ta
   [Node.js Cloud Service with Storage]: /es-es/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
   [Node.js Web Application with Storage]: /es-es/documentation/articles/storage-nodejs-use-table-storage-web-site/
   [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: /es-es/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+
 <!--HONumber=42-->

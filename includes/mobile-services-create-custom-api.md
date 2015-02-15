@@ -51,4 +51,5 @@ A continuación, podrá modificar la aplicación de inicio rápido para agregar 
 <!-- URLs. -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [objeto mssql]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554212.aspx
+
 <!--HONumber=42-->

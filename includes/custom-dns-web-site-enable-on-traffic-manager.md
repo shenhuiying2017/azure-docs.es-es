@@ -4,4 +4,5 @@
 
 Si aún no lo ha agregado al sitio web como extremo del Administrador de tráfico, debe hacerlo para que funcione la resolución de nombres, debido a que el nombre de dominio personalizado se enruta al Administrador de tráfico. Posteriormente, el Administrador de tráfico enruta al sitio web. Use la información de [Adición o eliminación de extremos](http://msdn.microsoft.com/es-es/library/windowsazure/hh744839.aspx) para agregar su sitio web como un extremo en el perfil del Administrador de tráfico.
 
-> [AZURE.NOTE] Si su sitio web no aparece en la lista al agregar un extremo, compruebe que está configurado en modo estándar. Si desea trabajar con el Administrador de tráfico, debe utilizar el modo estándar para su sitio web.<!--HONumber=42-->
+> [AZURE.NOTE] Si su sitio web no aparece en la lista al agregar un extremo, compruebe que está configurado en modo estándar. Si desea trabajar con el Administrador de tráfico, debe utilizar el modo estándar para su sitio web.
+<!--HONumber=42-->

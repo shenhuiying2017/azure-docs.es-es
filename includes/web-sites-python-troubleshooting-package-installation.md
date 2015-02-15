@@ -67,4 +67,5 @@ Se recomienda eliminar el entorno virtual existente en el sitio para evitar que 
 [Creación de una máquina virtual que ejecuta Windows]: http://azure.microsoft.com/es-es/documentation/articles/virtual-machines-windows-tutorial/
 [Compilador de Microsoft Visual C++ para Python 2.7]: http:://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
+
 <!--HONumber=42-->

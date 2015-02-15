@@ -10,4 +10,5 @@
 4. (Opcional) Repita los pasos 1 a 3 en otro dispositivo cliente y use otra cuenta para iniciar sesión.  
 
 	Compruebe que solo este dispositivo recibe la notificación, dado que el dispositivo anterior no estaba etiquetado con la ID del usuario actual. 
+
 <!--HONumber=42-->

@@ -217,4 +217,5 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
 - [Uso del almacenamiento de blobs en Python](../storage-python-how-to-use-blob-storage/)
 - [Uso del almacenamiento de tablas en Python](../storage-python-how-to-use-table-storage/)
 - [Uso del almacenamiento de colas en Python](../storage-python-how-to-use-queue-storage/)
+
 <!--HONumber=42-->

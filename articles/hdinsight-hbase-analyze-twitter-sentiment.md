@@ -1364,4 +1364,5 @@ En este tutorial, hemos visto cómo obtener tweets, analizar la opinión de esto
 [hdinsight-power-query]: ../hdinsight-connect-excel-power-query/
 [hdinsight-hive-odbc]: ../hdinsight-connect-excel-hive-ODBC-driver/
 
+
 <!--HONumber=42-->

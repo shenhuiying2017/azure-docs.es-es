@@ -1356,4 +1356,5 @@ Ahora ha aprendido a utilizar Storm para leer datos desde el Centro de eventos, 
 * Para obtener información sobre la creación de topologías en .NET, consulte [Desarrollo de aplicaciones de procesamiento de datos de transmisión por secuencias con SCP.NET y C# en Storm en HDInsight](/es-es/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/)
 
 [azure-portal]: https://manage.windowsazure.com/
+
 <!--HONumber=42-->

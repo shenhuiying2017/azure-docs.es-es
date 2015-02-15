@@ -691,4 +691,5 @@ Si bien los pasos de este artículo describen el uso del servicio Tabla para alm
 [app-settings]: ./media/storage-nodejs-use-table-storage-web-site/storage-tasks-appsettings.png
 
 [Creación e implementación de una aplicación Node.js en sitios web de Azure]: /es-es/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+
 <!--HONumber=42-->

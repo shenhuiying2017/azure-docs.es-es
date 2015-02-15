@@ -12,4 +12,5 @@ A continuación, debe cambiar la manera en que se registran las notificaciones d
             await AuthenticateAsync();            
             App.AcquirePushChannel();
             RefreshTodoItems();
-        }<!--HONumber=42-->
+        }
+<!--HONumber=42-->

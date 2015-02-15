@@ -11,4 +11,5 @@
 
 	![](./media/mobile-services-windows-universal-test-app/mobile-quickstart-completed-wp8.png)
 	
-	Tenga en cuenta que los datos guardados en el paso anterior se cargan del servicio móvil después de que se inicie la aplicación.<!--HONumber=42-->
+	Tenga en cuenta que los datos guardados en el paso anterior se cargan del servicio móvil después de que se inicie la aplicación.
+<!--HONumber=42-->

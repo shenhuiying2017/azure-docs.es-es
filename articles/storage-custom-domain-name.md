@@ -159,4 +159,5 @@ Por ejemplo, puede usar el siguiente URI para obtener acceso a un formulario web
 ## Recursos adicionales
 
 -   <a href="http://msdn.microsoft.com/es-es/library/windowsazure/gg680307.aspx">Asignación del contenido de la red CDN a un dominio personalizado</a>
+
 <!--HONumber=42-->

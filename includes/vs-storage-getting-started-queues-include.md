@@ -48,4 +48,5 @@ Este proceso extracción de un mensaje que consta de dos pasos garantiza que si 
 [Más información sobre Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
 Consulte también [Exploración y administración de recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/es-es/library/azure/ff683677.aspx).
 
+
 <!--HONumber=42-->

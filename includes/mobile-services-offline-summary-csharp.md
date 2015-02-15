@@ -23,4 +23,5 @@ Cuando queramos sincronizar el almacén local con el servidor, usaremos los mét
     Si no desea participar en la sincronización incremental, pase `null` como el identificador de consulta. En este caso, se recuperarán todos los registros en cada llamada a `PullAsync`, lo que resulta potencialmente ineficaz.
 
 * Para quitar registros del almacenamiento local del dispositivo cuando se han eliminado en la base de datos de su servicio móvil, debe habilitar la [Eliminación temporal]. De lo contrario, la aplicación debe llamar periódicamente a `IMobileServiceSyncTable.PurgeAsync()` para purgar el almacén local.
+
 <!--HONumber=42-->

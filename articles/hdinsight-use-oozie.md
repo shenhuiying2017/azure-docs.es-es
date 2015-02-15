@@ -629,4 +629,5 @@ En este tutorial ha aprendido a definir un flujo de trabajo de Oozie y a ejecuta
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png 
 
 [technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+
 <!--HONumber=42-->

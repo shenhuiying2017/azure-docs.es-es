@@ -116,4 +116,5 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
   [Adición de Carga y descarga de blobs de gran tamaño]: #large-blobs
   [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+
 <!--HONumber=42-->

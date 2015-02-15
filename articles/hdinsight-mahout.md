@@ -420,4 +420,5 @@ Para ejecutar los trabajos que usan estas clases, conéctese al clúster de HDIn
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
+
 <!--HONumber=42-->

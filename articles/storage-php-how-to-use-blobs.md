@@ -316,4 +316,5 @@ Ahora que está familiarizado con los aspectos básicos del servicio BLOB de Azu
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
+
 <!--HONumber=42-->

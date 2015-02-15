@@ -32,4 +32,5 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
 	El servicio móvil y la aplicación están ahora configurados para que funcionen con el proveedor de autenticación seleccionado.
 
 <!-- URLs. -->
-[Portal de administración de Azure]: https://manage.windowsazure.com/<!--HONumber=42-->
+[Portal de administración de Azure]: https://manage.windowsazure.com/
+<!--HONumber=42-->

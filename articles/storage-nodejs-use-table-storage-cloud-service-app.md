@@ -405,4 +405,5 @@ Los siguientes pasos muestran cómo detener y eliminar su aplicación.
   [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
   [Aplicación web Node.js]: http://www.windowsazure.com/es-es/develop/nodejs/tutorials/getting-started/
  
+
 <!--HONumber=42-->

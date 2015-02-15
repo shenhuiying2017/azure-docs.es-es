@@ -562,4 +562,5 @@ En este tutorial, ha aprendido a desarrollar un trabajo de MapReduce de streamin
 
 
 
+
 <!--HONumber=42-->

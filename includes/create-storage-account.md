@@ -31,4 +31,5 @@ Para usar Almacenamiento de Azure, necesitará una suscripción a Azure. Siga es
 [Portal de administración de Azure]: http://manage.windowsazure.com
 [plus-new]: ./media/create-storage-account/plus-new.png
 [quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
+
 <!--HONumber=42-->

@@ -28,4 +28,5 @@ Las siguientes direcciones URL desvían una de las colas del diagrama:
 - **Mensaje:** un mensaje, en cualquier formato, de hasta 64KB.
 
 
+
 <!--HONumber=42-->

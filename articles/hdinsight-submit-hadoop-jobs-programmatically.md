@@ -587,4 +587,5 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
+
 <!--HONumber=42-->

@@ -30,4 +30,5 @@ Haga clic en **Sí** para verificar la identidad de la máquina virtual.
 
 Ahora puede trabajar con la máquina virtual de forma remota.
 
+
 <!--HONumber=42-->

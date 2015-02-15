@@ -8,4 +8,5 @@ El proyecto de servicio móvil descargado le permite ejecutar el nuevo servicio 
 
 	![](./media/mobile-services-dotnet-backend-test-local-service/mobile-service-startup.png)
 
-	Una vez que se inicia el servicio móvil correctamente, aparece una página web.<!--HONumber=42-->
+	Una vez que se inicia el servicio móvil correctamente, aparece una página web.
+<!--HONumber=42-->

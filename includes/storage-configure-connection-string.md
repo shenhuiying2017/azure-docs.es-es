@@ -62,4 +62,5 @@ Ahora está preparado para realizar los procedimientos de esta guía.
 [connection-string4]: ./media/storage-configure-connection-string/connection-string4.png
 [connection-string5]: ./media/storage-configure-connection-string/connection-string5.png
 
-[Configuración de cadenas de conexión]: http://msdn.microsoft.com/es-es/library/windowsazure/ee758697.aspx<!--HONumber=42-->
+[Configuración de cadenas de conexión]: http://msdn.microsoft.com/es-es/library/windowsazure/ee758697.aspx
+<!--HONumber=42-->

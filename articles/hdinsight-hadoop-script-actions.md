@@ -213,4 +213,5 @@ En caso de que se produzca un error de ejecución, también se incluirá la sali
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
-[powershell-install-configure]: ../install-configure-powershell/<!--HONumber=42-->
+[powershell-install-configure]: ../install-configure-powershell/
+<!--HONumber=42-->

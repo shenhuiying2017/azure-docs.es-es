@@ -41,4 +41,5 @@ Además, se ha agregado el paquete de NuGet **Microsoft.Framework.ConfigurationM
 ##### Se ha agregado la cadena de conexión para Almacenamiento de Azure. 
 En el archivo config.json de su proyecto, se ha creado un elemento con la cadena y la clave de conexión de la cuenta de almacenamiento seleccionada.
 
-Para obtener más información, consulte [ASP.NET 5](http://www.asp.net/vnext).<!--HONumber=42-->
+Para obtener más información, consulte [ASP.NET 5](http://www.asp.net/vnext).
+<!--HONumber=42-->
