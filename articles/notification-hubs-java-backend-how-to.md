@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="Uso de los Centros de notificaciones con Java" metaKeywords="" description="Obtenga información acerca de cómo usar los centros de notificaciones de Azure desde un back-end de Java." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="How to use Notification Hubs with Java" pageTitle="Uso de los Centros de notificaciones con Java" metaKeywords="" description="Obtenga información acerca de cómo usar los centros de notificaciones de Azure desde un back-end de Java." metaCanonical="" services="mobile-services,notification-hubs,push,java" documentationCenter="" title="How to use Notification Hubs with Java" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="java" ms.topic="article" ms.date="11/14/2014" ms.author="piyushjo" />
 
@@ -14,7 +14,7 @@ En este tema le mostraremos cómo:
 * Crear un cliente REST para las características de Centros de notificaciones en Java;
 * Siga el [tutorial introductorio](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/) para la plataforma móvil que elija, implementando la parte del back-end en Java.
 
-##<a name="client-interface"></a>Interfaz del cliente
+## <a name="client-interface"></a>Interfaz del cliente
 La interfaz del cliente principal puede proporcionar los mismos métodos disponibles en el [SDK de Centros de notificaciones .NET](http://msdn.microsoft.com/en-us/library/jj933431.aspx), que le permitirá trasladar todos los tutoriales y ejemplos actualmente disponibles en este sitio directamente y con el que contribuye a la comunidad en Internet.
 
 Puede encontrar todo el código disponible en el [ejemplo de contenedor REST para Java].
@@ -36,7 +36,7 @@ Para enviar una notificación nativa de iOS:
 	Notification n = Notification.createAppleNotifiation("APNS body");
 	hub.sendNotification(n);
 
-##<a name="implementation"></a>Implementación
+## <a name="implementation"></a>Implementación
 Si todavía no lo ha hecho, siga nuestro [tutorial introductorio] hasta la última sección en la que tiene que implementar el back-end.
 Asimismo, si lo desea, puede usar el código del [ejemplo de contenedor REST para Java] e ir directamente a la sección [Finalización del tutorial](#complete-tutorial) .
 
@@ -298,7 +298,7 @@ Con esta clase, ahora podemos escribir los métodos de envío de notificaciones 
 
 Los métodos anteriores envían una solicitud POST HTTP al extremo /messages del centro de notificaciones, con el cuerpo y encabezados correctos para enviar la notificación.
 
-##<a name="complete-tutorial"></a>Finalización del tutorial
+## <a name="complete-tutorial"></a>Finalización del tutorial
 Ahora puede completar el tutorial introductorio enviando la notificación desde un back-end de Java.
 
 Inicialice el cliente de Centros de notificaciones (sustituya la cadena de conexión y el nombre del centro, tal como se indica en el [tutorial introductorio]):
@@ -308,7 +308,7 @@ Después, agregue el código de envío dependiendo de la plataforma móvil de de
 
 ### Tienda Windows y Windows Phone 8.1 (no Silverlight)
 
-
+	String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
 	Notification n = Notification.createWindowsNotification(toast);
 	hub.sendNotification(n);
 
@@ -342,7 +342,7 @@ Después, agregue el código de envío dependiendo de la plataforma móvil de de
 La ejecución del código de Java debe generar ahora una notificación que aparece en el dispositivo de destino.
 
 
-##<a name="next-steps"></a>Pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 En este tema hemos mostrado cómo crear un simple cliente REST en Java para Centros de notificaciones. Desde aquí puede:
 
 * Descargar el [ejemplo de contenedor REST para Java] completo, que contiene todo el código anterior más la administración de registro.

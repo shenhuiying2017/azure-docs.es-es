@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Install Python" pageTitle="Instalación de Python y el SDK - Azure" metaKeywords="Azure Python SDK" description="Obtenga información para instalar Python y el SDK para usarlos con Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Install Python" pageTitle="Instalación de Python y el SDK - Azure" metaKeywords="Azure Python SDK" description="Obtenga información para instalar Python y el SDK para usarlos con Azure." metaCanonical="" services="" documentationCenter="Python" title="Installing Python and the SDK" authors="huvalo" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="11/10/2014" ms.author="huvalo" />
 
@@ -96,7 +96,7 @@ Una vez completada la instalación, debe tener las bibliotecas de clientes y de 
 
 ### Instalación de otros paquetes
 
-Aunque esta versión se centra principalmente en las aplicaciones web, puede examinar el [índice de paquetes de Python (PyPI)][] para ver una abundante selección de otras soluciones de software.  Si ha optado por instalar una distribución, ya dispondrá de los bits más interesantes para diversos escenarios que van desde el desarrollo web a la informática técnica.
+Aunque esta versión se centra principalmente en las aplicaciones web, puede examinar el [índice de paquetes de Python (PyPI)](http://pypi.python.org/pypi) para ver una abundante selección de otras soluciones de software.  Si ha optado por instalar una distribución, ya dispondrá de los bits más interesantes para diversos escenarios que van desde el desarrollo web a la informática técnica.
 
 
 ### Python Tools para Visual Studio
@@ -173,7 +173,7 @@ Para obtener información sobre cómo configurar una VM de Linux, consulte la [s
 [Django Project - A mature web framework/CMS]: http://www.djangoproject.com 
 [IPython - an advanced REPL/Notebook for Python]: http://ipython.org
 [Bloc de notas de IPython en Azure]: /es-es/documentation/articles/virtual-machines-python-ipython-notebook
-[implementación en Servicios en la nube y Sitios web]: /es-es/documentation/articles/cloud-services-web-sites-python-django-app-with-ptvs/
+[la implementación en Sitios web y Servicios en la nube]: /es-es/documentation/articles/cloud-services-web-sites-python-django-app-with-ptvs/
 [Python Tools for Visual Studio on CodePlex]: http://pytools.codeplex.com 
 [Índice de paquetes de Python (PyPI)]: http://pypi.python.org/pypi
 [Virtualenv]: http://pypi.python.org/pypi/virtualenv 

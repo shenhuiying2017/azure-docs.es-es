@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introducción a los Centros de eventos" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Siga este tutorial para empezar a usar los centros de eventos de Azure con C# mediante EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Introducción a los Centros de eventos" metaKeywords="Azure Service Bus, Event Hub, getting started Event Hubs" description="Siga este tutorial para empezar a usar los centros de eventos de Azure con C# mediante EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="csharp" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
@@ -79,6 +79,6 @@ Ahora está preparado para ejecutar las aplicaciones.
 <!-- Links -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Host de procesador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Información general de Centros de eventos]: http://msdn.microsoft.com/en-us/library/azure/dn836025.aspx
+[Información general sobre Centros de eventos]: http://msdn.microsoft.com/en-us/library/azure/dn836025.aspx
 
 <!--HONumber=35.1-->

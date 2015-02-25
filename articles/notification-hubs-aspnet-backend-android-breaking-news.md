@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Breaking News" pageTitle="Tutorial de noticias de última hora en los Centros de notificaciones: Android" metaKeywords="" description="Obtenga información acerca del uso de centros de notificaciones de Azure para enviar notificaciones de noticias de última hora en dispositivos Android." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Breaking News" pageTitle="Tutorial de noticias de última hora en los Centros de notificaciones: Android" metaKeywords="" description="Obtenga información acerca del uso de centros de notificaciones de Azure para enviar notificaciones de noticias de última hora en dispositivos Android." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="11/22/2014" ms.author="ricksal" />
 
@@ -22,7 +22,7 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar este e
 
 Este tema se basa en la aplicación que creó en [Introducción a los Centros de notificaciones][get-started]. Antes de comenzar este tutorial, debe haber completado la [Introducción a los Centros de notificaciones][get-started].
 
-##<a name="adding-categories"></a>Incorporación de una selección de categorías a la aplicación
+## <a name="adding-categories"></a>Incorporación de una selección de categorías a la aplicación
 
 El primer paso es agregar los elementos de la interfaz de usuario a la actividad principal existente que permiten al usuario seleccionar las categorías para registrar. Las categorías seleccionadas por un usuario se almacenan en el dispositivo. Cuando la aplicación se inicia, se crea un registro de dispositivos en el centro de notificaciones con las categorías seleccionadas como etiquetas. 
 
@@ -209,7 +209,7 @@ El primer paso es agregar los elementos de la interfaz de usuario a la actividad
 
 La aplicación ahora puede almacenar un conjunto de categorías en el almacenamiento local en el dispositivo y registrarse en el centro de notificaciones siempre que el usuario cambie la selección de categorías. 
 
-##<a name="register"></a>Registro de notificaciones
+## <a name="register"></a>Registro de notificaciones
 
 Estos pasos permiten registrar el centro de notificaciones en el inicio mediante las categorías que se han almacenado en el almacén local. 
 
@@ -230,7 +230,7 @@ Estos pasos permiten registrar el centro de notificaciones en el inicio mediante
 
 		notifications.subscribeToCategories(notifications.retrieveCategories());
 
-	De esta forma, se garantiza que cada vez que la aplicación se inicia, se recuperan las categorías del almacenamiento local y se solicita un registro de estas categorías. El método **InitNotificationsAsync** se creó como parte del tutorial [Introducción a los Centros de notificaciones], pero no es necesario en este tema.
+	De esta forma, se garantiza que cada vez que la aplicación se inicia, se recuperan las categorías del almacenamiento local y se solicita un registro de estas categorías. El método **InitNotificationsAsync** se creó como parte del tutorial [Introducción a los Centros de notificaciones][get-started], pero no es necesario en este tema.
 
 3. Luego agregue el siguiente método a **MainActivity**:
 
@@ -262,7 +262,7 @@ La aplicación está ahora completa y puede almacenar un conjunto de categorías
 
 [WACOM.INCLUDE [notification-hubs-back-end](../includes/notification-hubs-back-end.md)]
 
-##<a name="test-app"></a>Ejecución de la aplicación y generación de notificaciones
+## <a name="test-app"></a>Ejecución de la aplicación y generación de notificaciones
 
 1. En Eclipse, cree la aplicación e iníciela en un dispositivo o emulador.
 	
@@ -308,7 +308,7 @@ En este tutorial hemos aprendido cómo difundir noticias de última hora por cat
 [Uso de los Centros de notificaciones para difundir noticias de última hora localizadas]: /en-us/manage/services/notification-hubs/breaking-news-localized-dotnet/ 
 [Notificación a los usuarios con los Centros de notificaciones]: /en-us/manage/services/notification-hubs/notify-users
 [Servicio móvil]: /en-us/develop/mobile/tutorials/get-started/
-[Información general acerca de los Centros de notificaciones de Azure]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
+[Orientación sobre los Centros de notificaciones]: http://msdn.microsoft.com/en-us/library/jj927170.aspx
 [Procedimientos en los Centros de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/en-us/library/jj927172.aspx
 [Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039

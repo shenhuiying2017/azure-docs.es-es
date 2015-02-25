@@ -136,8 +136,9 @@ Para ver el aspecto de la aplicación web sin Bootstrap, abra *App\_Start\\Bundl
               //"~/Content/bootstrap.css",
               "~/Content/site.css"));
 
-Presione "CTRL+F5" para ejecutar la aplicación.
- Observe que la barra de navegación contraíble ahora es simplemente una lista no ordenada. Vuelva a hacer clic en **Explorar por etiqueta** y, a continuación, haga clic en **ASP.NET**. En la vista del emulador de explorador, puede ver que ahora ya no se ajusta en zoom a la pantalla y que debe desplazarse lateralmente para ver el lado derecho de la tabla.
+Presione `CTRL+F5` para ejecutar la aplicación.
+
+Observe que la barra de navegación contraíble ahora es simplemente una lista no ordenada. Vuelva a hacer clic en **Explorar por etiqueta** y, a continuación, haga clic en **ASP.NET**. En la vista del emulador de explorador, puede ver que ahora ya no se ajusta en zoom a la pantalla y que debe desplazarse lateralmente para ver el lado derecho de la tabla.
 
 ![][SessionsByTagASP.NETNoBootstrap]
 
@@ -555,7 +556,7 @@ En este tutorial se ha mostrado cómo usar ASP.NET MVC 5 para desarrollar aplica
 Otras referencias
 --------
 
--   [Nueve principios básicos del diseño web con respuesta][http://blog.froont.com/9-basic-principles-of-responsive-web-design/]
+-   [Nueve principios básicos del diseño web con respuesta](http://blog.froont.com/9-basic-principles-of-responsive-web-design/)
 -   [Sitio de Bootstrap][BootstrapSite]
 -   [Blog oficial de Bootstrap][]
 -   [Tutorial de Twitter Bootstrap de Tutorial Republic][]

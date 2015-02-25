@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Patrón de aplicación web multiempresa: arquitectura de Azure" metaKeywords="" description="Encuentre información general de arquitectura y patrones de diseño que describan cómo implementar una aplicación web multiempresa en Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Patrón de aplicación web multiempresa: arquitectura de Azure" metaKeywords="" description="Encuentre información general de arquitectura y patrones de diseño que describan cómo implementar una aplicación web multiempresa en Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
 
@@ -104,7 +104,6 @@ Azure ofrece diferentes formas de aprovisionar nuevos inquilinos para la aplicac
 	- 	Copiar desde una base de datos de referencia maestra 
 	- 	Usar la importación y exportación de base de datos para aprovisionar bases de datos nuevas desde un archivo 
 
-][].
 
 <!--links-->
 

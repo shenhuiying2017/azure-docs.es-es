@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SendGrid Email Service" pageTitle="Uso del servicio de correo electrónico SendGrid (Java) - Azure" metaKeywords="Azure SendGrid, servicio de correo electrónico de Azure, Azure SendGrid Node.js, correo electrónico Node.js para Azure" description="Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Ejemplos de código escritos con la API de Node.js." metaCanonical="" services="" documentationCenter="nodejs" title="How to Send Email Using SendGrid from Node.js" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="SendGrid Email Service" pageTitle="Uso del servicio de correo electrónico SendGrid (Java) - Azure" metaKeywords="Azure SendGrid, servicio de correo electrónico de Azure, Azure SendGrid Node.js, correo electrónico Node.js para Azure" description="Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Ejemplos de código escritos con la API de Node.js." metaCanonical="" services="" documentationCenter="nodejs" title="How to Send Email Using SendGrid from Node.js" authors="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com" />
 
@@ -236,15 +236,22 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
   [Direccionamiento del servicios adicionales de SendGrid]: #useservices
   [1]: #nextsteps
 
-  
+  [Referencia al módulo de Node.js de SendGrid]: #reference
+  [Creación de un correo electrónico]: #createemail
+  [Envío de un correo electrónico]: #sendemail
+  [Incorporación de un archivo adjunto]: #addattachment
+  [Uso de filtros para habilitar pies de página, seguimiento y análisis]: #usefilters
+  [Actualización de las propiedades del correo electrónico]: #updateproperties
+  [Uso de servicios adicionales de SendGrid]: #useservices
   
   [oferta especial]: https://sendgrid.com/windowsazure.html
   
   
   [sendgrid-nodejs]: https://github.com/sendgrid/sendgrid-nodejs
-  [SMTP vs. Web API]: https://sendgrid.com/docs/Integrate/index.html
+  [SMTP frente a API web]: https://sendgrid.com/docs/Integrate/index.html
   
-  [Filter Settings]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
-  [SendGrid API documentation]: https://sendgrid.com/docs
-  [cloud-based email service]: https://sendgrid.com/email-solutions
-  [transactional email delivery]: https://sendgrid.com/transactional-email
+  [Configuración de filtros]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
+  [documentación sobre la API de SendGrid]: https://sendgrid.com/docs
+  [servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions
+  [entrega de correos electrónicos transaccional]: https://sendgrid.com/transactional-email
+

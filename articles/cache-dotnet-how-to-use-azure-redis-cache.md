@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Uso de Caché en Redis de Azure" metaKeywords="" description="Aprenda a crear y usar una memoria caché en Caché en Redis de Azure" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Uso de Caché en Redis de Azure" metaKeywords="" description="Aprenda a crear y usar una memoria caché en Caché en Redis de Azure" metaCanonical="" services="cache" documentationCenter="API Management" title="How to Use Azure Redis Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="tbd" ms.tgt_pltfrm="cache-redis" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
@@ -218,7 +218,7 @@ Escriba **RedisSessionStateProvider** en el cuadro de texto **Buscar en línea**
 
 El paquete de NuGet se descarga, agrega las referencias de ensamblado requeridas y agrega la siguiente sección en el archivo web.config que contiene la configuración requerida para que su aplicación ASP.NET use el proveedor del estado de sesión de caché Redis.
 
-  <sessionState mode="Custom" customProvider="MySessionStateStore">
+    <sessionState mode="Custom" customProvider="MySessionStateStore">
       <providers>
         <!--
           <add name="MySessionStateStore" 
@@ -332,7 +332,7 @@ siga estos vínculos para obtener información sobre cómo realizar tareas de al
 <!-- LINKS -->
 [Proveedor de estado de sesión de Redis de Azure]: http://go.microsoft.com/fwlink/?LinkId=398249
 [Portal de administración de Azure]: http://windows.azure.com/
-[Configuración De clientes de caché mediante programación]:: http://msdn.microsoft.com/es-es/library/windowsazure/gg618003.aspx
+[Configuración De clientes de caché mediante programación]: http://msdn.microsoft.com/es-es/library/windowsazure/gg618003.aspx
 [Proveedor de estado de sesión para Caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Caché de Azure AppFabric: estado de sesión de almacenamiento en caché]: http://www.microsoft.com/es-es/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Proveedor de caché de salida para Caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=320837
@@ -366,9 +366,9 @@ siga estos vínculos para obtener información sobre cómo realizar tareas de al
 [Documentación del cliente de caché StackExchange.Redis]: http://github.com/StackExchange/StackExchange.Redis#documentation
 
 [Redis]: http://redis.io/documentation
-[Tipos de datos de Redis]: http://redis.io/topics/data-types
-[una introducción de quince minutos a tipos de datos de Redis]: http://redis.io/topics/data-types-intro
+[tipos de datos Redis]: http://redis.io/topics/data-types
+[una introducción de quince minutos para tipos de datos Redis]: http://redis.io/topics/data-types-intro
 
-[Sitios web Microsoft Azure: funcionamiento de las cadenas de aplicación y de las cadenas de conexión]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
+[Sitios web Microsoft Azure: cómo funcionan las cadenas de aplicación y las cadenas de conexión]: http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/
 
 <!--HONumber=35.2-->

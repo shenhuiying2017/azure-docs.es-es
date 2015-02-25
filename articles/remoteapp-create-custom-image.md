@@ -1,8 +1,8 @@
-﻿<properties title="How to create a custom template image for RemoteApp" pageTitle="Creación de una imagen de plantilla personalizada para RemoteApp" description="Aprenda a crear una imagen de plantilla personalizada de RemoteApp. Puede usar esta plantilla con una implementación híbrida o en la nube." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+<properties title="How to create a custom template image for RemoteApp" pageTitle="Creación de una imagen de plantilla personalizada para RemoteApp" description="Aprenda a crear una imagen de plantilla personalizada de RemoteApp. Puede usar esta plantilla con una implementación híbrida o en la nube." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
 
 <tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="mbaldwin" />
 
-#Creación de una imagen de plantilla personalizada para RemoteApp
+# Creación de una imagen de plantilla personalizada para RemoteApp
 RemoteApp de Azure usa una imagen de plantilla de Windows Server 2012 R2 para hospedar todos los programas que desea compartir con sus usuarios. Para crear una imagen de plantilla de RemoteApp, puede comenzar a usar una imagen existente o crear una nueva. Los requisitos para la imagen que se pueden cargar para usarse con RemoteApp de Azure son:
 
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SendGrid Email Service" pageTitle="Cómo usar el servicio de correo electrónico SendGrid (Java) - Azure" metaKeywords="Azure SendGrid, servicio de correo electrónico de Azure, Azure SendGrid Java, correo electrónico Java de Azure" description="Aprenda a enviar correos electrónicos con el servicio de correo electrónico SendGrid en Azure. Los ejemplos de código están escritos en Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+<properties urlDisplayName="SendGrid Email Service" pageTitle="Cómo usar el servicio de correo electrónico SendGrid (Java) - Azure" metaKeywords="Azure SendGrid, servicio de correo electrónico de Azure, Azure SendGrid Java, correo electrónico Java de Azure" description="Aprenda a enviar correos electrónicos con el servicio de correo electrónico SendGrid en Azure. Los ejemplos de código están escritos en Java." metaCanonical="" services="" documentationCenter="Java" title="How to Send Email Using SendGrid from Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
 
 <tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
 
@@ -203,9 +203,9 @@ estos vínculos para obtener más información.
   [Creación de una cuenta de SendGrid]: #bkmk_CreateSendGridAcct
   [Uso de las bibliotecas javax.mail]: #bkmk_HowToUseJavax
   [Creación de un correo electrónico]: #bkmk_HowToCreateEmail
-  [Envío de un correo electrónico]: #bkmk_HowToSendEmail
+  [How to: Send an Email]: #bkmk_HowToSendEmail
   [Adición de un archivo adjunto]: #bkmk_HowToAddAttachment
-  [Uso de filtros para habilitar pies de página, seguimiento y Twitter]: #bkmk_HowToUseFilters
+  [Uso de filtros para habilitar pies de página, seguimiento y análisis]: #bkmk_HowToUseFilters
   [Actualización de las propiedades del correo electrónico]: #bkmk_HowToUpdateEmail
   [Uso de servicios adicionales de SendGrid]: #bkmk_HowToUseAdditionalSvcs
   [http://sendgrid.com]: https://sendgrid.com
@@ -218,5 +218,7 @@ estos vínculos para obtener más información.
   [http://sendgrid.com/azure.html]: https://sendgrid.com/windowsazure.html
   [cloud-based email service]: https://sendgrid.com/email-solutions
   [transactional email delivery]: https://sendgrid.com/transactional-email
+  [Filter Settings]: https://sendgrid.com/docs/API_Reference/Web_API/filter_settings.html
+  [documentación de la API de SendGrid]: https://sendgrid.com/docs/API_Reference/index.html
 
 <!--HONumber=35.2-->

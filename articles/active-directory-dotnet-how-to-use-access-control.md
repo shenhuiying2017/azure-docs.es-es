@@ -6,7 +6,7 @@
 
 En esta guía se indica cómo usar el control de acceso de Azure Active Directory (también conocido como servicio de control de acceso o ACS) para autenticar usuarios con proveedores de identidades como Microsoft, Google, Yahoo y Facebook cuando intentan obtener acceso a una aplicación web.
 
-## <span class="short-header">Contenido</span>Contenido
+<h2>Contenido</h2>
 
 -   [¿Qué es ACS?][¿Qué es ACS?]
 -   [Conceptos][Conceptos]
@@ -20,7 +20,7 @@ En esta guía se indica cómo usar el control de acceso de Azure Active Director
 -   [Incorporación de un proveedor de identidades][Incorporación de un proveedor de identidades]
 -   [Pasos siguientes][Pasos siguientes]
 
-## <span class="short-header">¿Qué es ACS?</span>¿Qué es ACS?
+<h2>¿Qué es ACS?</h2>
 
 La mayoría de los desarrolladores ni son expertos en identidad ni quieren dedicar demasiado tiempo a desarrollar mecanismos de autenticación y autorización para sus aplicaciones y servicios. ACS es un servicio de Azure que ofrece un sencillo método de autenticación para que los usuarios tenga acceso a sus servicios y aplicaciones sin tener que agregar una lógica de autenticación compleja a su código.
 
@@ -36,7 +36,7 @@ En ACS están disponibles las características siguientes:
 
 Para obtener más información acerca de ACS, consulte [Access Control Service 2.0][Access Control Service 2.0].
 
-## <span class="short-header">Conceptos</span>Conceptos
+<h2>Conceptos</h2>
 
 ACS se ha creado sobre los principios de la identidad basada en notificaciones, un enfoque coherente para crear mecanismos de autenticación para las aplicaciones que se ejecutan en el entorno local o en la nube. La identidad basada en notificaciones proporciona un método común para que las aplicaciones y los servicios obtengan la información necesaria acerca de la identidad de los usuarios de la organización, de otras organizaciones y en Internet.
 
@@ -76,7 +76,8 @@ La siguiente ilustración muestra cómo funciona la autenticación de ACS con un
     estas notificaciones.
 7.  ACS ordena al cliente que envíe al RP el token de seguridad emitido por ACS. El RP valida la firma del token de seguridad, extrae las notificaciones que debe usar la lógica de negocios de la aplicación y devuelve la página que se solicitó originalmente.
 
-## <span class="short-header">Requisitos previos</span>Requisitos previos
+<h2>Requisitos previos</h2>
+
 
 Necesitará lo siguiente para completar las tareas de esta guía:
 
@@ -84,7 +85,7 @@ Necesitará lo siguiente para completar las tareas de esta guía:
 -   Microsoft Visual Studio 2012
 -   Herramienta de identidades y acceso para Visual Studio 2012 (para descargarla, consulte [Identity and Access Tool][Identity and Access Tool])
 
-## <span class="short-header">Creación de un espacio de nombres de control de acceso</span>Creación de un espacio de nombres de control de acceso
+<h2>Creación de un espacio de nombres de control de acceso</h2>
 
 Para usar el control de acceso de Active Directory en Azure, cree un espacio de nombres de control de acceso. El espacio de nombres proporciona un ámbito
 único para dirigir los recursos de ACS a su aplicación.
@@ -105,7 +106,7 @@ Para usar el control de acceso de Active Directory en Azure, cree un espacio de 
 
 Azure crea y activa el espacio de nombres.
 
-## <span class="short-header">Creación de una aplicación ASP.NET MVC</span>Creación de una aplicación ASP.NET MVC
+<h2>Creación de una aplicación ASP.NET MVC</h2>
 
 En este paso, creará una aplicación ASP.NET MVC. En los pasos siguientes, integraremos esta sencilla aplicación de formularios web con ACS.
 
@@ -149,7 +150,7 @@ Actualmente, ACS no configura User.Identity.Name, por lo que hay que realizar el
 
 1.  Presione F5 para ejecutar la aplicación. La aplicación ASP.NET MVC predeterminada aparece en su explorador web.
 
-## <span class="short-header">Integración de su aplicación web con ACS</span>Integración de su aplicación web con ACS
+<h2>Integración de su aplicación web con ACS</h2>
 
 En esta tarea, integrará su aplicación web ASP.NET con ACS.
 
@@ -193,7 +194,7 @@ En esta tarea, integrará su aplicación web ASP.NET con ACS.
 
     ![][12]
 
-## <span class="short-header">Prueba de la integración con ACS</span>Prueba de la integración con ACS
+<h2>Prueba de la integración con ACS</h2>
 
 En esta tarea se explica cómo probar la integración de su aplicación RP con ACS.
 
@@ -205,7 +206,7 @@ Cuando la aplicación se integre con ACS y haya seleccionado Windows Live ID (cu
 
 ¡Enhorabuena! Ha integrado correctamente ACS con la aplicación web ASP.NET. ACS ahora se encarga de la autenticación de los usuarios que utilizan sus credenciales de la cuenta de Microsoft.
 
-## <a name="bkmk_viewClaims"></a>Visualización de las notificaciones enviadas por ACS
+<h2><a name="bkmk_viewClaims"></a>Visualización de las notificaciones enviadas por ACS</h2>
 
 En esta sección se modificará la aplicación para ver las notificaciones enviadas por ACS. La herramienta de identidades y acceso ha creado un grupo de reglas que pasa por todas las notificaciones que emite el IP a su aplicación. Tenga en cuenta que cada proveedor de identidades envía notificaciones diferentes.
 
@@ -289,7 +290,7 @@ En esta sección se modificará la aplicación para ver las notificaciones envia
 
 Para obtener más información acerca de cómo usar las notificaciones de su aplicación, consulte la [biblioteca de Windows Identity Foundation][biblioteca de Windows Identity Foundation].
 
-## <a name="bkmk_VP"></a>Visualización de la aplicación en el portal de administración de ACS
+<h2><a name="bkmk_VP"></a>Visualización de la aplicación en el portal de administración de ACS</h2>
 
 La herramienta de identidades y acceso de Visual Studio integra automáticamente su aplicación con ACS.
 
@@ -325,7 +326,7 @@ Puede revisar y cambiar estas opciones de configuración en el portal de adminis
 
 En la sección siguiente, utilizaremos las características del portal de administración de ACS para realizar un cambio en la aplicación web, simplemente para mostrar lo fácil que es hacerlo.
 
-## <span class="short-header">Incorporación de un proveedor de identidades</span>Incorporación de un proveedor de identidades
+<h2>Incorporación de un proveedor de identidades</h2>
 
 Utilizaremos el portal de administración de ACS para cambiar la autenticación de nuestra aplicación MvcACS. En este ejemplo, incorporaremos Google como proveedor de identidades para MvcACS.
 
@@ -351,7 +352,7 @@ Y cuando ejecute la aplicación, verá el efecto. Cuando una aplicación admite 
 
 Una vez que el usuario seleccione un proveedor de identidades, el explorador irá a la página de inicio de sesión de este.
 
-## <span class="short-header">Pasos siguientes</span>Pasos siguientes
+<h2>Pasos siguientes</h2>
 
 Ha creado una aplicación web que está integrada con ACS. Sin embargo, esto es solo el principio. Puede expandir este escenario.
 
@@ -361,6 +362,7 @@ También puede agregar reglas a su espacio de nombres que determinen qué notifi
 
 Para seguir explorando la funcionalidad de ACS y experimentar con más escenarios, consulte [Access Control Service 2.0][Access Control Service 2.0].
 
+  [¿Qué es ACS?]: #what-is
   [Conceptos]: #concepts
   [Requisitos previos]: #pre
   [Creación de un espacio de nombres de control de acceso]: #create-namespace

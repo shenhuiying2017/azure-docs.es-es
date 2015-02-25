@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="" pageTitle="Cómo usar el Servicio de caché administrado de Azure" metaKeywords="" description="" metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="" pageTitle="Cómo usar el Servicio de caché administrado de Azure" metaKeywords="" description="" metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
 
@@ -421,10 +421,10 @@ Ahora que está familiarizado con los aspectos básicos del Servicio de caché a
 
 <!-- INTRA-TOPIC LINKS -->
 [Pasos siguientes]: #next-steps
-[¿Qué es el Servicio de caché administrado de Azure?] #what-is
+[¿Qué es el Servicio de caché administrado de Azure?]: #what-is
 [Creación de una caché de Azure]: #create-cache
-[¿Qué tipo de almacenamiento en caché es el adecuada para mí?] #choosing-cache
-[Preparación del proyecto de Visual Studio para usar el almacenamiento en caché de Azure] #prepare-vs
+[¿Qué tipo de almacenamiento en caché es el adecuada para mí?]: #choosing-cache
+[Preparación del proyecto de Visual Studio para usar el almacenamiento en caché de Azure]: #prepare-vs
 [Configuración de su aplicación para usar el almacenamiento en caché]: #configure-app
 [Introducción al Servicio de caché administrado]: #getting-started-cache-service
 [Creación de la caché]: #create-cache
@@ -459,7 +459,7 @@ Ahora que está familiarizado con los aspectos básicos del Servicio de caché a
 [Configuración de clientes de caché mediante programación]: http://msdn.microsoft.com/es-es/library/windowsazure/gg618003.aspx
 [Proveedor de estado de sesión para Caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Caché de Azure AppFabric: estado de sesión de almacenamiento en caché]: http://www.microsoft.com/es-es/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
-[Proveedor de caché de salida para Caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=320837
+[Proveedor de la caché de resultados para la caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=320837
 [Almacenamiento en caché compartido de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg278356.aspx
 [Blog del equipo]: http://blogs.msdn.com/b/windowsazure/
 [Almacenamiento en caché de Azure]: http://www.microsoft.com/es-es/showcase/Search.aspx?phrase=azure+caching
@@ -477,7 +477,7 @@ Ahora que está familiarizado con los aspectos básicos del Servicio de caché a
 [Portal de administración]: https://manage.windowsazure.com/
 [Ofertas de caché]: http://go.microsoft.com/fwlink/?LinkId=317277
 [Planificación de capacidad]: http://go.microsoft.com/fwlink/?LinkId=320167
-[Expiración y expulsión]: http://go.microsoft.com/fwlink/?LinkId=317278
+[Caducidad y expulsión]: http://go.microsoft.com/fwlink/?LinkId=317278
 [Alta disponibilidad]: http://go.microsoft.com/fwlink/?LinkId=317329
 [Notificaciones]: http://go.microsoft.com/fwlink/?LinkId=317276
 [Migración al Servicio de caché administrado]: http://go.microsoft.com/fwlink/?LinkId=317347
@@ -488,6 +488,11 @@ Ahora que está familiarizado con los aspectos básicos del Servicio de caché a
 [Add-AzureAccount]: http://msdn.microsoft.com/es-es/library/dn495128.aspx
 [Select-AzureSubscription]: http://msdn.microsoft.com/es-es/library/dn495203.aspx
 
-[¿Qué oferta de caché de Azure es adecuada para mí?] http://msdn.microsoft.com/es-es/library/azure/dn766201.aspx
+[¿Cuál es la oferta de Caché de Azure más adecuada para mí?]: http://msdn.microsoft.com/es-es/library/azure/dn766201.aspx
+
+[Notificaciones de Azure Cache Service (vista previa)]: http://go.microsoft.com/fwlink/?LinkId=317276
+[Ofertas de caché para Azure Cache Service (Vista previa)]: http://go.microsoft.com/fwlink/?LinkId=317277
+[Diagnóstico y solución de problemas de aplicaciones de Servicio Caché (vista previa)]: http://go.microsoft.com/fwlink/?LinkId=320839
+[Proveedor del estado de sesión para la caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
 
 <!--HONumber=35.2-->

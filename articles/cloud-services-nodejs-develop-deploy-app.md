@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Cloud Service" pageTitle="Guía de introducción a Node.js - Tutorial de Azure" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="Un tutorial completo que le ayuda a desarrollar una sencilla aplicación web Node.js e implementarla en Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties urlDisplayName="Cloud Service" pageTitle="Guía de introducción a Node.js - Tutorial de Azure" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="Un tutorial completo que le ayuda a desarrollar una sencilla aplicación web Node.js e implementarla en Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
 
@@ -24,7 +24,7 @@ Siguiendo este tutorial, podrá compilar una aplicación web sencilla hospedada 
 
 A continuación se muestra una captura de pantalla de la aplicación completada:
 
-<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="Ventana del explorador que muestra la página Hello World. La dirección URL indica que la página está hospedada en Azure.">
+<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="Ventana del explorador que muestra la página Hello World. La dirección URL indica que la página está hospedada en Azure.">
 </p>
 
 
@@ -57,15 +57,15 @@ Realice las siguientes tareas para crear un nuevo proyecto de Servicio en la nub
 	Los archivos creados por el cmdlet **New-AzureServiceProject** son:
 
 	-   **ServiceConfiguration.Cloud.cscfg**,
-        **ServiceConfiguration.Local.cscfg** and **ServiceDefinition.csdef** are
-        Azure-specific files necessary for publishing your
-        application.
+        **ServiceConfiguration.Local.cscfg** y **ServiceDefinition.csdef** son
+        archivos específicos de Azure necesarios para publicar su
+        aplicación.
 		
-	For more information about these files, see
-        [Overview of Creating a Hosted Service for Azure][].
+	Para obtener más información acerca de estos archivos, consulte
+        [Información general de la creación de un servicio hospedado para Azure][].
 
-	-   **deploymentSettings.json** stores local settings that are used by
-        the Azure PowerShell deployment cmdlets.
+	-   **deploymentSettings.json** almacena la configuración local que utilizan los 
+        cmdlet de implementación de Azure PowerShell.
 
 4.  Escriba el siguiente comando para agregar un nuevo rol web con el **cmdlet Add-AzureNodeWebRole**:
 
@@ -162,7 +162,7 @@ Con el fin de implementar su aplicación en Azure, debe descargar primero la con
 
 2.  Crea una nueva **cuenta de almacenamiento** si no hay ninguna disponible. La cuenta de almacenamiento de Azure se utiliza para almacenar el paquete de la aplicación durante la implementación. Una vez finalizada la implementación, puede eliminar de forma segura la cuenta de almacenamiento.
 
-3.  Crea un nuevo **servicio en la nube** si todavía no hay ninguno disponible. Un **servicio en la nube** es el contenedor en el que su aplicación se hospeda cuando se implementa en Azure. Para obtener más información, consulte [Overview of Creating a Hosted Service for Azure][].
+3.  Crea un nuevo **servicio en la nube** si todavía no hay ninguno disponible. Un **servicio en la nube** es el contenedor en el que su aplicación se hospeda cuando se implementa en Azure. Para obtener más información, consulte [Información general de la creación de un servicio hospedado para Azure][].
 
 4.  Publica el paquete de implementación en Azure.
 

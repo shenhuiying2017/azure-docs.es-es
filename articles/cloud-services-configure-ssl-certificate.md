@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Enable SSL" pageTitle="Configuración de SSL para un servicio en la nube - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Aprenda a especificar un extremo HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="adegeo" solutions="" manager="timlt" editor="mollybos" />
+<properties urlDisplayName="Enable SSL" pageTitle="Configuración de SSL para un servicio en la nube - Azure" metaKeywords="Azure SSL, Azure HTTPS, Azure SSL, Azure HTTPS, .NET Azure SSL, .NET Azure HTTPS, C# Azure SSL, C# Azure HTTPS, VB Azure SSL, VB Azure HTTPS" description="Aprenda a especificar un extremo HTTPS para un rol web y cómo cargar un certificado SSL para proteger su aplicación." metaCanonical="" services="cloud-services" documentationCenter=".NET" title="Configuring SSL for an application in Azure" authors="adegeo" solutions="" manager="timlt" editor="mollybos" />
 
 <tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/14/2014" ms.author="adegeo" />
 
@@ -150,14 +150,14 @@ Si desea usar SSL para una implementación de ensayo en vez de una implementaci�
   [Paso 2: Modificar la definición del servicio y los archivos de configuración]: #step2
   [Paso 3: Cargar el paquete de implementación y el certificado]: #step3
   [Paso 4: Conectarse a la instancia de rol con HTTPS]: #step4
-  [Creación de un certificado para un rol]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx
-  [Asociación de un certificado con un servicio]: http://msdn.microsoft.com/en-us/library/windowsazure/gg465718.aspx
+  [Creación de un certificado para un rol]: http://msdn.microsoft.com/es-es/library/windowsazure/gg432987.aspx
+  [Asociación de un certificado con un servicio]: http://msdn.microsoft.com/es-es/library/windowsazure/gg465718.aspx
   [Portal de administración de Azure]: http://manage.windowsazure.com
   [0]: ./media/cloud-services-dotnet-configure-ssl-certificate/CreateCloudService.png
   [1]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificate.png
   [2]: ./media/cloud-services-dotnet-configure-ssl-certificate/CopyURL.png
   [3]: ./media/cloud-services-dotnet-configure-ssl-certificate/SSLCloudService.png
   [4]: ./media/cloud-services-dotnet-configure-ssl-certificate/AddCertificateComplete.png  
-  [How to configure an SSL certificate on an HTTPS endpoint]: http://msdn.microsoft.com/en-us/library/windowsazure/ff795779.aspx
+  [Configuración de un certificado SSL en un extremo HTTPS]: http://msdn.microsoft.com/es-es/library/windowsazure/ff795779.aspx
 
 <!--HONumber=35.1-->

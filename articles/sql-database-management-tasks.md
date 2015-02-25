@@ -1,4 +1,4 @@
-﻿<properties umbracoNaviHide="0" pageTitle="Administración de Base de datos SQL" metaKeywords ="base de datos SQL de Azure, base de datos SQL, administrar base de datos sql, agregar inicios de sesión, conectarse a base de datos sql" description="Obtenga información acerca de cómo administrar la base de datos de SQL de Azure." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
+<properties umbracoNaviHide="0" pageTitle="Administración de Base de datos SQL" metaKeywords ="base de datos SQL de Azure, base de datos SQL, administrar base de datos sql, agregar inicios de sesión, conectarse a base de datos sql" description="Obtenga información acerca de cómo administrar la base de datos de SQL de Azure." urlDisplayName="Cloud Services" headerExpose="" footerExpose="" disqusComments="1" title="How to Manage SQL Database" authors="jeffreyg" manager="jeffreyg" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 
@@ -7,7 +7,7 @@
 
 Esta documentación muestra cómo realizar tareas de administración sencillas en Base de datos SQL de Azure. 
 
-##Tabla de contenido##
+## Tabla de contenido##
 
 * [Direccionamiento del Base de datos SQL en Azure con Management Studio](#connect)
 * [Direccionamiento del inicios de sesión y usuarios a Base de datos SQL en Azure](#addlogins)
@@ -23,7 +23,7 @@ En el siguiente paso, utilizará Management Studio para conectarse a un servidor
 
 Para poder conectarse, a veces es necesario crear una excepción de firewall que permita realizar solicitudes salientes en el puerto 1433 en el sistema local. Los equipos que están asegurados de forma predeterminada suelen tener el puerto 1433 cerrado. 
 
-##Configuración del firewall para un servidor local
+## Configuración del firewall para un servidor local
 
 1. En el Firewall de Windows con seguridad avanzada, cree una nueva regla saliente.
 
@@ -32,7 +32,7 @@ Para poder conectarse, a veces es necesario crear una excepción de firewall que
 3. Especifique un nombre significativo como, por ejemplo, *WindowsAzureSQLDatabase puerto (salida tcp) 1433*. 
 
 
-##Conexión con un servidor lógico
+## Conexión con un servidor lógico
 
 1. En Management Studio, en Conectar al servidor, asegúrese de que Motor de base de datos esté seleccionado y escriba el nombre del servidor lógico con el formato siguiente: *servername*.database.windows.net
 
@@ -45,7 +45,7 @@ Para poder conectarse, a veces es necesario crear una excepción de firewall que
 4. En Conectar con base de datos, especifique **master**.
 
 
-##Conexión con un servidor local
+## Conexión con un servidor local
 
 1. En Management Studio, en Conectar al servidor, asegúrese de que Motor de base de datos esté seleccionado y, a continuación, escriba el nombre de una instancia local con el formato siguiente: *servername*\\*instancename*. Si el servidor es local y se trata de una instancia predeterminada, escriba *localhost*.
 
@@ -62,7 +62,7 @@ Los inicios de sesión que cree deben ser inicios de sesión de autenticación d
 
 El segundo script asigna permisos de usuario de base de datos. Con este script, se conectará con una base de datos que ya esté cargada en Azure.
 
-##Creación de inicios de sesión
+## Creación de inicios de sesión
 
 1. En Management Studio, conéctese con un servidor lógico en Azure, expanda la carpeta Bases de datos, haga clic con el botón secundario en **master** y seleccione **Nueva consulta**.
 
@@ -82,7 +82,7 @@ El segundo script asigna permisos de usuario de base de datos. Con este script, 
 </pre></div>
 
 
-##Creación de usuarios de bases de datos
+## Creación de usuarios de bases de datos
 
 1. Expanda la carpeta Bases de datos, haga clic con el botón secundario en **school** y seleccione **Nueva consulta**.
 
@@ -104,7 +104,7 @@ El segundo script asigna permisos de usuario de base de datos. Con este script, 
     GRANT VIEW DATABASE STATE to 'sqlops';
 </pre></div>
 
-##Visualización y prueba de inicios de sesión
+## Visualización y prueba de inicios de sesión
 
 1. En una ventana de nueva consulta, conéctese con **master** y ejecute la siguiente instrucción: 
 
@@ -125,9 +125,9 @@ El segundo script asigna permisos de usuario de base de datos. Con este script, 
 
 Ya ha creado y probado varios inicios de sesión. Para obtener más información, consulte [Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure][] y [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica][].
 
-[Administrar bases de datos e inicios de sesión en Base de datos SQL]: http://msdn.microsoft.com/es-es/library/windowsazure/ee336235.aspx
+[Administrar bases de datos e inicios de sesión en Base de datos SQL de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/ee336235.aspx
 [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica]: http://msdn.microsoft.com/es-es/library/windowsazure/ff394114.aspx
-[Administración de base de datos de SQL con Management Studio]: http://www.windowsazure.com/es-es/develop/net/common-tasks/sql-azure-management/
+[Administración de Base de datos SQL con Management Studio]: http://www.windowsazure.com/es-es/develop/net/common-tasks/sql-azure-management/
 
 
 

@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="View ACS SAML" pageTitle="Visualización del SAML que devuelve el servicio de control de acceso (Java)" metaKeywords="" description="Obtenga información acerca de cómo ver SAML devuelto por el servicio de Control de acceso en las aplicaciones de Java hospedadas en Azure." metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Azure Access Control Service" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="View ACS SAML" pageTitle="Visualización del SAML que devuelve el servicio de control de acceso (Java)" metaKeywords="" description="Obtenga información acerca de cómo ver SAML devuelto por el servicio de Control de acceso en las aplicaciones de Java hospedadas en Azure." metaCanonical="" services="" documentationCenter="Java" title="How to view SAML returned by the Azure Access Control Service" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 
@@ -189,3 +189,4 @@ Para seguir explorando la funcionalidad de ACS y experimentar con escenarios má
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
+[Servicio de control de acceso 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360

@@ -1,4 +1,4 @@
-﻿<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Paso 1: Creación de un área de trabajo de Aprendizaje automático | Azure" description="Paso 1: creación de una nueva área de trabajo de Estudio de aprendizaje automático de Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Paso 1: Creación de un área de trabajo de Aprendizaje automático | Azure" description="Paso 1: creación de una nueva área de trabajo de Estudio de aprendizaje automático de Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
 
 <tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
 
@@ -27,7 +27,7 @@ Este es el primer paso del tutorial [Desarrollo de una solución predictiva con 
 
 Para usar Estudio de aprendizaje automático, debe tener un área de trabajo de Aprendizaje automático. Esta área de trabajo contiene las herramientas que necesita para crear, administrar y publicar experimentos.  
 
-##Para crear un área de trabajo, siga estos pasos:  
+## Para crear un área de trabajo, siga estos pasos:  
 
 1.	Inicie sesión en su cuenta de Microsoft Azure.
 2.	En el panel de servicios de Microsoft Azure, haga clic en **APRENDIZAJE AUTOMÁTICO**.  

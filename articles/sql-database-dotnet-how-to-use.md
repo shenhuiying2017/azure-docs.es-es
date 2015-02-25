@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="SQL Database" pageTitle="Uso de Base de datos SQL (.NET) - Guía de características de Azure" metaKeywords="Introducción a SQL de Azure, Introducción sobre SQL de Azure, conexión a base de datos SQL de Azure, ADO.NET de SQL de Azure, ODBC de SQL de Azure, EntityClient de SQL de Azure" description="Introducción a la Base de datos SQL. Aprenda a crear una instancia de Base de datos SQL y a conectarse a ella mediante el proveedor EntityClient, ODBC y ADO.NET." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
+<properties urlDisplayName="SQL Database" pageTitle="Uso de Base de datos SQL (.NET) - Guía de características de Azure" metaKeywords="Introducción a SQL de Azure, Introducción sobre SQL de Azure, conexión a base de datos SQL de Azure, ADO.NET de SQL de Azure, ODBC de SQL de Azure, EntityClient de SQL de Azure" description="Introducción a la Base de datos SQL. Aprenda a crear una instancia de Base de datos SQL y a conectarse a ella mediante el proveedor EntityClient, ODBC y ADO.NET." metaCanonical="" services="sql-database" documentationCenter=".NET" title="How to use Azure SQL Database in .NET applications" authors="jeffreyg" solutions="" manager="jeffreyg" editor="" />
 
 <tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/31/2015" ms.author="jeffreyg" />
 
@@ -10,8 +10,7 @@
 
 # Uso de Base de datos SQL de Azure en aplicaciones .NET
 
-En esta guía se muestra cómo crear un servidor lógico y una instancia de base de datos en la Base de datos SQL de Azure y conectarse a
-la base de datos con las siguientes tecnologías de proveedor de datos de .NET Framework:
+En esta guía se muestra cómo crear un servidor lógico y una instancia de base de datos en la Base de datos SQL de Azure y conectarse a la base de datos con las siguientes tecnologías de proveedor de datos de .NET Framework:
 ADO.NET, ODBC y proveedor de EntityClient.
 
 
@@ -238,5 +237,6 @@ Ahora que conoce los aspectos básicos de la conexión a Base de datos SQL, cons
   [Proveedor de EntityClient para Entity Framework]: http://msdn.microsoft.com/es-es/library/bb738561.aspx
   [Desarrollo de Base de datos SQL de Azure: Temas de procedimientos]: http://msdn.microsoft.com/es-es/library/windowsazure/ee621787.aspx
   [Base de datos SQL]: http://msdn.microsoft.com/es-es/library/windowsazure/ee336279.aspx
+  [Desarrollo: Temas de procedimientos]: http://msdn.microsoft.com/es-es/library/windowsazure/ee621787.aspx
 
 <!--HONumber=35.2-->

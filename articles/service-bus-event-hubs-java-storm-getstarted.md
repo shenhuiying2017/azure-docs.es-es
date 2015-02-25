@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introducción a los Centros de eventos" metaKeywords="Bus de servicio de Azure, Centro de eventos, introducción a los Centros de eventos" description="Siga este tutorial para empezar a usar eventos de envío de centros de eventos de Azure con Java y recibirlos en un clúster de Apache Storm" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Introducción a los Centros de eventos" metaKeywords="Bus de servicio de Azure, Centro de eventos, introducción a los Centros de eventos" description="Siga este tutorial para empezar a usar eventos de envío de centros de eventos de Azure con Java y recibirlos en un clúster de Apache Storm" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
 
 <tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="java" ms.devlang="java" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
 
@@ -89,5 +89,5 @@ Los siguientes recursos están disponibles para desarrollar aplicaciones que int
 
 [Apache Storm]: https://storm.incubator.apache.org
 [Información general de Storm en HDinsight]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-storm-overview/
-[Análisis de los datos de sensor con Storm y HDInsight]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-storm-sensor-data-analysis/
-[Desarrollo de aplicaciones de procesamiento de datos de streaming con SCP.NET y C# en Storm y HDInsight]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+[Análisis de los datos de sensor con Storm y HBase en HDInsight]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Desarrollo de aplicaciones de procesamiento de datos de streaming con SCP.NET y C# en Storm de HDInsight]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/

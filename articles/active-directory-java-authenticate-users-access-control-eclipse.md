@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Access Control" pageTitle="Uso de control de acceso (Java): guía de características de Azure" metaKeywords="" description="Obtenga información acerca de cómo desarrollar y usar el Control de acceso con Java en Azure." metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Azure Access Control Service Using Eclipse" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+<properties urlDisplayName="Access Control" pageTitle="Uso de control de acceso (Java): guía de características de Azure" metaKeywords="" description="Obtenga información acerca de cómo desarrollar y usar el Control de acceso con Java en Azure." metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Azure Access Control Service Using Eclipse" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
 
 <tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
 
@@ -173,8 +173,10 @@ como una aplicación RP válida.
         de Azure**.
     2.  En **Modo**, seleccione **Escribir la configuración manualmente.**.
     3.  En **Dominio kerberos**, escriba el URI al que se aplica el token de seguridad que emitió ACS. Para esta tarea, escriba **http://localhost:8080/**.
+        
         ![Relying party realm for use in compute emulator][relying_party_realm_emulator]
     4.  En **Dirección URL de retorno**, escriba la URL a la cual ACS devuelve el token de seguridad. Para esta tarea, escriba **http://localhost:8080/MyACSHelloWorld/index.jsp**
+        
         ![Relying party return URL for use in compute emulator][relying_party_return_url_emulator]
     5.  Acepte los valores predeterminados en el resto de los campos.
 
@@ -208,6 +210,7 @@ En esta tarea, cargará un certificado .PFX que se utilizará para firmar solici
     2. En la sección **Tipo**, seleccione **Certificado X.509**.
     3. En la sección **Certificado**, haga clic en el botón de examinar y navegue al archivo del certificado X.509 que desea utilizar. Este será un archivo .PFX. Seleccione el archivo, haga clic en **Abrir**   y, a continuación, escriba la contraseña del certificado en el cuadro de texto **Contraseña**. Observe que, para fines de prueba, puede utilizar un certificado autofirmado. Para crear un certificado autofirmado, utilice el botón **Nuevo** que aparece en el cuadro de diálogo **Biblioteca de filtros de ACS** (que se describe más adelante); o bien, use la herramienta **encutil.exe** desde el [sitio web del proyecto][] del kit de inicio de Azure para Java (de Microsoft Open Technologies).
     4. Asegúrese de que la opción **Hacer principal** esté activada. La página **Agregar certificado o clave de firma de tokens** debería ser similar a la siguiente.
+
         ![Add token-signing certificate][add_token_signing_cert]
     5. Haga clic en **Guardar** para guardar la configuración y cierre la página **Agregar certificado o clave de firma de tokens**.
 

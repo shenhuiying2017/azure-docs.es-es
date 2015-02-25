@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Localized Breaking News" pageTitle="Tutorial de últimas noticias localizadas sobre los Centros de notificaciones" metaKeywords="" description="Obtenga información acerca de los centros de notificaciones del Bus de servicio de Azure para enviar notificaciones de noticias de última hora localizadas." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Localized Breaking News" pageTitle="Tutorial de últimas noticias localizadas sobre los Centros de notificaciones" metaKeywords="" description="Obtenga información acerca de los centros de notificaciones del Bus de servicio de Azure para enviar notificaciones de noticias de última hora localizadas." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
 # Uso de los Centros de notificaciones para enviar noticias de última hora localizadas
@@ -25,7 +25,7 @@ Este escenario tiene dos partes:
 
 
 
-##Requisitos previos ##
+## Requisitos previos ##
 
 Debe haber completado el tutorial [Uso de Centros de notificaciones para enviar noticias de última hora] y debe tener disponible el código, porque este tutorial se basa directamente en ese código. 
 
@@ -184,27 +184,12 @@ Para obtener más información acerca del uso de las plantillas, consulte [Notif
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- URLs. -->
 [Servicio móvil]: /es-es/develop/mobile/tutorials/get-started
 [Notificación a los usuarios con los Centros de notificaciones: ASP.NET]: /es-es/manage/services/notification-hubs/notify-users-aspnet
 [Notificación a los usuarios con los Centros de notificaciones: Servicios móviles]: /es-es/manage/services/notification-hubs/notify-users
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: /es-es/manage/services/notification-hubs/breaking-news-dotnet 
+[Uso de Centros de notificaciones para enviar noticias de última hora]: /es-es/manage/services/notification-hubs/breaking-news-dotnet 
+[Uso de los Centros de notificaciones para enviar noticias de última hora]: /es-es/manage/services/notification-hubs/breaking-news-dotnet
 
 [Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039

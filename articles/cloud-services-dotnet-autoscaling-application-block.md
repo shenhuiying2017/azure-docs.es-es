@@ -28,6 +28,7 @@ En esta guía se demuestra cómo llevar a cabo supuestos comunes usando el bloqu
 El bloque de autoescala de la aplicación puede escalar automáticamente su aplicación de Azure según las reglas que define específicamente para su aplicación. Puede usar estas reglas para ayudar a su aplicación de Azure a mantener su rendimiento en respuesta a los cambios en su carga de trabajo y, al mismo tiempo, controlar los costes asociados al hospedaje de su aplicación en Azure. Además del escalado mediante el aumento o la disminución de la cantidad de instancias de rol en su aplicación, el bloque le permite también usar otras acciones de escalado, como limitar cierta funcionalidad dentro de su aplicación o usar acciones definidas por el cliente.
 
 Puede optar por hospedar el bloque en un rol de Azure o en una aplicación local. 
+
 El bloque de autoescala de la aplicación forma parte del [Paquete de integración de Microsoft Enterprise Library 5.0 para Azure][].
 
 ## <a id="Concepts"> </a>Conceptos
@@ -114,7 +115,7 @@ en la carpeta de salida. Para ello, siga estos pasos:
 
 1.  Haga clic con el botón secundario en el archivo y seleccione **Propiedades**.
 
-2.  En el panel Propiedades, establezca el valor **Copiar en el directorio de salida **
+2.  En el panel Propiedades, establezca el valor **Copiar en el directorio de salida**
     en **Copiar siempre**.
 
     ![Set Copy to Output Directory value](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling04.png)
@@ -193,7 +194,7 @@ Inicie sesión en el Portal de administración.
         ![image](./media/cloud-services-dotnet-autoscaling-application-block/autoscaling08.png)
   
  
-	-   **[managementcertificatethumbprint]:** ** La **huella digital** del certificado de administración que el bloque usa para proteger las solicitudes de escalado de la aplicación de destino.
+	-   **[managementcertificatethumbprint]:** La **huella digital** del certificado de administración que el bloque usa para proteger las solicitudes de escalado de la aplicación de destino.
 
     1.  En el Portal de administración de Azure, haga clic en **Configuración**.
 

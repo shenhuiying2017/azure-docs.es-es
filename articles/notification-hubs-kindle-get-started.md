@@ -1,4 +1,4 @@
-﻿<properties urlDisplayName="Get Started" pageTitle="Introducción a los Centros de notificaciones de Azure" metaKeywords="" description="Obtenga información acerca de cómo usar los centros de notificaciones de Azure para enviar notificaciones de inserción." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
+<properties urlDisplayName="Get Started" pageTitle="Introducción a los Centros de notificaciones de Azure" metaKeywords="" description="Obtenga información acerca de cómo usar los centros de notificaciones de Azure para enviar notificaciones de inserción." metaCanonical="" services="notification-hubs" documentationCenter="Mobile" title="Get started with Notification Hubs" authors="piyushjo" solutions="" manager="dwrede" editor="" />
 
 <tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-kindle" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
 
@@ -14,7 +14,7 @@ Este tutorial requiere lo siguiente:
 + El SDK de Android (se presupone que usará Eclipse), que puede descargarse <a href="http://go.microsoft.com/fwlink/?LinkId=389797">aquí</a>.
 + Siga los pasos descritos <a href="https://developer.amazon.com/appsandservices/resources/development-tools/ide-tools/tech-docs/01-setting-up-your-development-environment">aquí</a> para configurar el entorno de desarrollo para Kindle.
 
-##Incorporación de una aplicación nueva al portal para desarrolladores
+## Incorporación de una aplicación nueva al portal para desarrolladores
 
 1. En primer lugar, cree una aplicación en el [portal de desarrolladores].
 
@@ -57,7 +57,7 @@ En el portal, agregue el secreto de cliente y el identificador de cliente a la p
 
 ## Configuración de la aplicación
 
-<div class="dev-callout"><b>Nota:</b>
+    <div class="dev-callout"><b>Nota:</b>
     <p>Al crear un aplicación, use al menos la API Level 17.</p>
     </div>
 
@@ -255,8 +255,8 @@ Para enviar un mensaje con .NET:
 ![][7]
 
 <!-- URLs. -->
-[portal para desarrolladores]: https://developer.amazon.com/home.html
-[descargar el SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
+[portal de desarrolladores]: https://developer.amazon.com/home.html
+[descargue el SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
 [1]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png
