@@ -1,24 +1,38 @@
-<properties title="Hybrid Connection: Connect an Azure Website to an On-Premises Resource" pageTitle="Conexión híbrida: Conexión de un sitio web de Azure a un recurso local" description="Crear una conexión entre un sitio web de Azure y un recurso local que usa un puerto TCP estático" metaKeywords="" services="web-sites" solutions="web" documentationCenter="" authors="cephalin" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Conexión híbrida: Conexión de un sitio web de Azure a un recurso local" 
+	description="Crear una conexión entre un sitio web de Azure y un recurso local que usa un puerto TCP estático" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 #Conexión de un stio web de Azure a un recurso local mediante conexiones híbridas
 
 Un sitio web de Microsoft Azure se puede conectar a cualquier recurso local que utilice un puerto TCP estático, como SQL Server, MySQL, API Web HTTP, Servicio móviles y la mayoría de los servicios web personalizados. En este artículo se muestra cómo crear una conexión híbrida entre un sitio web de Azure y una base de datos de SQL Server local.
 
-> [WACOM.NOTE] La parte de sitios web de la característica Conexiones híbridas solo está disponible en el [Portal de vista previa de Azure](https://portal.azure.com). Para crear una conexión en Servicios de BizTalk, consulte [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
+> [AZURE.NOTE] La parte de sitios web de la característica Conexiones híbridas solo está disponible en el[Portal de vista previa de Azure](https://portal.azure.com) Para crear una conexión en Servicios de BizTalk, consulte [Conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274).  
 
 ##Requisitos previos
-- Una suscripción de Azure. Para obtener una suscripción gratuita, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/en-us/pricing/free-trial/). 
+- Una suscripción de Azure. Para obtener una suscripción gratuita, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/es-es/pricing/free-trial/). 
 
-- Para usar una base de datos de SQL Server o SQL Server Express local con una conexión híbrida, es necesario habilitar TCP/IP en un puerto estático. Se recomienda usar una instancia predeterminada en SQL Server porque usa el puerto estático 1433. Para obtener información sobre cómo crear una aplicación web de ASP.NET que use una conexión híbrida, consulte [Conexión a un servidor SQL Server local desde un sitio web de Azure mediante conexiones híbridas](http://go.microsoft.com/fwlink/?LinkID=397979).
+- Para usar una base de datos de SQL Server o SQL Server Express local con una conexión híbrida, es necesario habilitar TCP/IP en un puerto estático. Se recomienda usar una instancia predeterminada en SQL Server porque usa el puerto estático 1433. Para obtener información sobre cómo crear una aplicación web de ASP.NET que use una conexión híbrida, consulte[Conexión a un servidor SQL Server local desde un sitio web de Azure mediante conexiones híbridas](http://go.microsoft.com/fwlink/?LinkID=397979).
 
 - El equipo en el que instala el agente local de Administrador de conexiones híbridas se describe más adelante en este artículo:
 
 	- Debe ser capaz de conectarse a Azure a través del puerto 5671
-	- Debe poder establecer comunicación con el *nombre de host*:*número de puerto* de su recurso local. 
+	- Debe ser capaz de conectar con  *hostname*:*númerodepuerto* del recurso local. 
 
-> [WACOM.NOTE] En estos pasos de este artículo se supone que usa el explorador del equipo que hospeda el agente de conexiones híbridas local.
+> [AZURE.NOTE] En estos pasos de este artículo se supone que usa el explorador del equipo que hospeda el agente de conexiones híbridas local.
 
 
 ##En este artículo##
@@ -35,9 +49,9 @@ Un sitio web de Microsoft Azure se puede conectar a cualquier recurso local que 
 
 ## Creación de un sitio web en el Portal de Azure en vista previa ##
 
-> [WACOM.NOTE] Si ya ha creado un sitio web en el Portal de Azure en vista previa que quiere usar en este tutorial, puede omitir este paso e ir directamente a [Creación de una conexión híbrida y un servicio de BizTalk](#CreateHC) y comenzar desde ahí.
+> [AZURE.NOTE] Si ya ha creado un sitio web en el Portal de Azure en vista previa que quiere usar en este tutorial, puede omitir este paso e ir directamente a [Creación de una conexión híbrida y un servicio de BizTalk](#CreateHC) y comenzar desde aquí.
 
-1. En la esquina inferior izquierda del [Portal de vista previa de Azure](https://portal.azure.com), haga clic en **Nuevo** y, a continuación, seleccione **Sitio web**.
+1. En la esquina inferior izquierda del [Portal de Azure en vista previa](https://portal.azure.com), haga clic en **Nuevo** y elija **Sitio web**.
 	
 	![New button][New]
 	
@@ -70,11 +84,11 @@ A continuación, creará una conexión híbrida y un servicio de BizTalk para el
 	
 	![Add a hybrid connnection][CreateHCAddHC]
 	
-3. Se abre el cuadro **Agregar una conexión híbrida**.  Dado que esta es su primera conexión híbrida, la opción **Nueva conexión híbrida** aparece preseleccionada y se abre el cuadro **Crear conexión híbrida**.
+3. Se abre el cuadro **Agregar una conexión híbrida**.  Dado que esta es su primera conexión híbrida, la opción**Nueva conexión híbrida** aparece preseleccionada y se abre el cuadro **Crear conexión híbrida**.
 	
 	![Create a hybrid connection][TwinCreateHCBlades]
 	
-	En el cuadro **Crear conexión híbrida**, haga lo siguiente:
+	En el cuadro**Crear conexión híbrida**, haga lo siguiente:
 	- En **Nombre**, escriba un nombre para la conexión.
 	- En **Nombre de host**, escriba el nombre del equipo local que hospeda su recurso.
 	- En el **Puerto**, escriba el número de puerto que usa su recurso local (1433 para una instancia predeterminada de SQL Server).
@@ -85,7 +99,7 @@ A continuación, creará una conexión híbrida y un servicio de BizTalk para el
 	
 	![Create BizTalk service][CreateHCCreateBTS]
 	
-	El cuadro **Crear servicio de BizTalk** se cierra y vuelve al cuadro **Crear conexión híbrida**.
+	El cuadro**Crear servicio de BizTalk** se cierra y vuelve al cuadro **Crear conexión híbrida**.
 	
 5. En el cuadro Crear conexión híbrida, haga clic en **Aceptar**. 
 	
@@ -108,7 +122,7 @@ Llegados a este punto, ha completado una parte importante de la infraestructura 
 	
 	![Hybrid connections icon][HCIcon]
 	
-2. En el cuadro **Conexiones híbridas**, la columna **Estado** del extremo agregado recientemente muestra **No conectado**. Haga clic en la conexión para configurarla.
+2. En el cuadro**Conexiones híbridas**, la columna**Estado** del extremo agregado recientemente muestra **No conectado**. Haga clic en la conexión para configurarla.
 	
 	![Not connected][NotConnected]
 	
@@ -142,7 +156,7 @@ Llegados a este punto, ha completado una parte importante de la infraestructura 
 	
 	En el cuadro **Conexiones híbridas**, la columna **Estado** muestra ahora **Conectado**. 
 	
-	![Connected Status][HCStatusConnected]
+	![Estado conectado][HCStatusConnected]
 
 Ahora que la infraestructura de conexión híbrida se ha completado, puede crear una aplicación híbrida que la utilice. 
 
@@ -151,7 +165,7 @@ Ahora que la infraestructura de conexión híbrida se ha completado, puede crear
 
 - Para obtener información sobre cómo crear una aplicación web de ASP.NET que use una conexión híbrida, consulte [Conexión a un servidor SQL Server local desde un sitio web de Azure mediante conexiones híbridas](http://go.microsoft.com/fwlink/?LinkID=397979).
 
-- Para obtener información sobre el uso de una conexión híbrida con un servicio móvil, consulte [Conexión a un servidor SQL Server local desde un servicio móvil de Azure mediante conexiones híbridas](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
+- Para obtener información sobre el uso de una conexión híbrida con un servicio móvil, consulte[Conexión a un servidor SQL Server local desde un servicio móvil de Azure mediante conexiones híbridas](http://azure.microsoft.com/es-es/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/).
 
 ###Recursos adicionales
 
@@ -159,9 +173,9 @@ Ahora que la infraestructura de conexión híbrida se ha completado, puede crear
 
 [Josh Twist presenta las conexiones híbridas (vídeo de Channel 9)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Sitio web de conexiones híbridas](http://azure.microsoft.com/en-us/services/biztalk-services/)
+[Sitio web de conexiones híbridas](http://azure.microsoft.com/es-es/services/biztalk-services/)
 
-[Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas](http://azure.microsoft.com/en-us/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
+[Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas](http://azure.microsoft.com/es-es/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
 [Creación de una nube híbrida del mundo real con una perfecta portabilidad de aplicaciones (vídeo de Canal 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
@@ -192,4 +206,7 @@ Ahora que la infraestructura de conexión híbrida se ha completado, puede crear
 [HCMInstallComplete]:./media/web-sites-hybrid-connection-get-started/D09HCMInstallComplete.png
 [HCStatusConnected]:./media/web-sites-hybrid-connection-get-started/D10HCStatusConnected.png
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

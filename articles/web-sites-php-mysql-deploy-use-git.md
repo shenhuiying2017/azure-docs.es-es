@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="Web w/ MySQL + Git" pageTitle="Sitio web PHP con MySQL y Git - Tutorial de Azure" metaKeywords="" description="Un tutorial en el que se muestra cómo crear un sitio web de PHP que almacene datos en MySQL y usar la implementación de Git en Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Create a PHP-MySQL Azure website and deploy using Git" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties 
+	pageTitle="Sitio web PHP con MySQL y Git - Tutorial de Azure" 
+	description="Un tutorial en el que se muestra cómo crear un sitio web de PHP que almacene datos en MySQL y usar la implementación de Git en Azure." 
+	services="web-sites" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/14/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/14/2014" 
+	ms.author="tomfitz"/>
 
 #Creación de un sitio web Azure de PHP-MySQL e implementación mediante Git
 
-En este tutorial se muestra cómo crear un sitio web PHP-MySQL de Azure y cómo implementarlo mediante Git. Usará [PHP][install-php], la herramienta de línea de comandos MySQL (parte de [MySQL][install-mysql]), un servidor web y [Git][install-git] instalados en el equipo. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo, incluidos Windows, Mac y Linux. Una vez completada esta guía, tendrá un sitio web PHP/MySQL ejecutándose en Azure.
+En este tutorial se muestra cómo crear un sitio web PHP-MySQL de Azure y cómo implementarlo mediante Git. Usará [PHP][install-php], la herramienta de línea de comandos de MySQL (parte de [MySQL][install-mysql]), un servidor web y [Git][install-git] instalados en su equipo. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo, incluidos Windows, Mac y Linux. Una vez completada esta guía, tendrá un sitio web PHP/MySQL ejecutándose en Azure.
  
 Aprenderá a:
 
@@ -15,19 +29,19 @@ Mediante este tutorial, se compilará una aplicación web de registro sencilla e
 
 ![Azure PHP web site][running-app]
 
-> [WACOM.NOTE]
-> Para completar este tutorial, necesita una cuenta de Azure que tenga habilitada la característica Sitios web Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener información, consulte: <a href="http://www.windowsazure.com/en-us/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Evaluación gratuita de Azure</a>.
+> [AZURE.NOTE]
+> Para completar este tutorial, necesita una cuenta de Azure que tenga habilitada la característica Sitios web Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Evaluación gratuita de Azure</a>.
 > 
-> Si desea obtener una introducción a Sitios web Azure antes de suscribirse a una cuenta, visite <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita un sitio básico de ASP.NET de corta duración en Sitios web Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea obtener una introducción a Sitios web Azure antes de inscribirse para abrir una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita un sitio básico de ASP.NET de corta duración en Sitios web Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ##Configuración del entorno de desarrollo
 
-En este tutorial se supone que tiene instalados en el equipo [PHP][install-php], la herramienta de línea de comandos MySQL (parte de [MySQL][install-mysql]), un servidor web y Git [Git][install-git].
+En este tutorial se supone que tiene instalados en el equipo [PHP][install-php], la herramienta de línea de comandos de MySQL (parte de [MySQL][install-mysql]), un servidor web y [Git][install git].
 
-> [WACOM.NOTE]
-> Si el tutorial se está realizando en Windows, puede configurarse la máquina para PHP y configurar IIS (el servidor web integrado en Windows) automáticamente mediante la instalación del <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">SDK de Azure para PHP.</a>.
+> [AZURE.NOTE]
+> Si el tutorial se está realizando en Windows, puede configurarse la máquina para PHP y configurar IIS (el servidor web integrado en Windows) automáticamente mediante la instalación del <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">SDK de Azure para PHP</a>.
 
-##<a id="create-web-site-and-set-up-git"></a>Creación de un sitio web de Azure y configuración de la publicación Git
+##<a id="create-web-site-and-set-up-git"></a>Creación de un Sitio web Azure y configuración de la publicación Git
 
 Siga estos pasos para crear un sitio web de Azure y una base de datos MySQL:
 
@@ -48,7 +62,7 @@ Siga estos pasos para crear un sitio web de Azure y una base de datos MySQL:
 
 	![Create new MySQL database][new-mysql-db]
 
-	Una vez creado el sitio web, se mostrará el texto **La creación del sitio web "[NOMBRE DEL SITIO]" se ha realizado correctamente**. Ahora puede habilitarse la publicación Git.
+	Una vez creado el sitio web, se mostrará el texto**La creación del sitio web "[NOMBRE DEL SITIO]" se ha realizado correctamente**. Ahora puede habilitarse la publicación Git.
 
 6. Haga clic en el nombre del sitio web que se muestra en la lista para abrir el panel **Inicio rápido**.
 
@@ -77,7 +91,7 @@ Para conectarse a la base de datos MySQL que se ejecuta en Sitios web Azure, se 
 
 	![Get database connection information][connection-string-info]
 	
-2. Anote los valores de "Base de datos", "Origen de datos", "Id. de usuario" y "Contraseña".
+2. Anote los valores de  `Database`,  `Data Source`,  `User Id` y  `Password`.
 
 ##Compilación y comprobación de la aplicación localmente
 
@@ -89,7 +103,7 @@ Registration es una sencilla aplicación PHP que permite registrarse en un event
 
 Para compilar y ejecutar la aplicación localmente, realice los pasos siguientes. Tenga en cuenta que en estos pasos se supone que tiene PHP, la herramienta de línea de comandos MySQL (parte de MySQL) y un servidor web configurado en la máquina local, además de tener habilitada la [extensión PDO para MySQL][pdo-mysql].
 
-1. Conéctese al servidor MySQL remoto usando los valores de "Origen de datos", "Id. de usuario", "Contraseña" y "Base de datos" recuperados anteriormente:
+1. Conéctese al servidor MySQL remoto usando los valores de  `Data Source`,  `User Id`,  `Password` y  `Database` recuperados anteriormente:
 
 		mysql -h{Data Source] -u[User Id] -p[Password] -D[Database]
 
@@ -97,11 +111,11 @@ Para compilar y ejecutar la aplicación localmente, realice los pasos siguientes
 
 		mysql>
 
-3. Pegue el comando "CREATE TABLE" siguiente para crear la tabla "registration_tbl" en la base de datos:
+3. Pegue el comando  `CREATE TABLE` siguiente para crear la tabla  `registration_tbl` en la base de datos:
 
 		mysql> CREATE TABLE registration_tbl(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY(id), name VARCHAR(30), email VARCHAR(30), date DATE);
 
-4. En el directorio raíz del servidor web, cree una carpeta denominada "registration" y un archivo llamado "index.php".
+4. En el directorio raíz del servidor web, cree una carpeta denominada  `registration` y un archivo llamado  `index.php`.
 
 5. Abra el archivo **index.php** en un editor de texto o entorno de desarrollo integrado y agregue el código siguiente. A continuación, realice los cambios necesarios marcados con comentarios "//TODO:".
 
@@ -197,14 +211,14 @@ Ahora puede dirigirse a **http://localhost/registration/index.php** para probar 
 
 Una vez que se haya probado la aplicación localmente, esta puede publicarse en el sitio web de Azure mediante Git. Será necesario inicializar el repositorio Git local y publicar la aplicación.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Estos son los mismos pasos que se muestran en el portal al final de la sección Creación de un sitio web de Azure y configuración de la publicación Git, más arriba.
 
 1. (Opcional) Si ha olvidado la dirección URL del repositorio Git remoto o no lo encuentra, vaya a la pestaña Implementaciones del portal.
 	
 	![Get Git URL][git-instructions]
 
-1. Abra GitBash (o un terminal, si Git está en su "PATH"), cambie los directorios al directorio raíz de la aplicación y ejecute los siguientes comandos:
+1. Abra GitBash (o un terminal, si Git está en su  `PATH`), cambie los directorios al directorio raíz de la aplicación y ejecute los siguientes comandos:
 
 		git init
 		git add .
@@ -227,7 +241,7 @@ Una vez publicada la aplicación, podrá comenzar a realizar cambios en esta y a
 Para publicar los cambios de la aplicación, siga estos pasos:
 
 1. Realice los cambios en la aplicación localmente.
-2. Abra GitBash (o un terminal, si Git está en su "PATH"), cambie los directorios al directorio raíz de la aplicación y ejecute los siguientes comandos:
+2. Abra GitBash (o un terminal, si Git está en su  `PATH`), cambie los directorios al directorio raíz de la aplicación y ejecute los siguientes comandos:
 
 		git add .
 		git commit -m "comment describing changes"
@@ -241,13 +255,13 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 
 	![Azure PHP web site][running-app]
 
-4. También podrá ver la nueva implementación en la pestaña "Implementaciones" del Portal de administración de Azure:
+4. También podrá ver la nueva implementación en la pestaña 'Deployments' del Portal de administración de Azure:
 
 	![List of web site deployments][deployments-list]
 
 [install-php]: http://www.php.net/manual/en/install.php
-[install-SQLExpress]: http://www.microsoft.com/en-us/download/details.aspx?id=29062
-[install-Drivers]: http://www.microsoft.com/en-us/download/details.aspx?id=20098
+[install-SQLExpress]: http://www.microsoft.com/es-es/download/details.aspx?id=29062
+[install-Drivers]: http://www.microsoft.com/es-es/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
 
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
@@ -267,6 +281,9 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 [deployments-list]: ./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png
 [connection-string-info]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
 [management-portal]: https://manage.windowsazure.com
-[sql-database-editions]: http://msdn.microsoft.com/en-us/library/windowsazure/ee621788.aspx
+[sql-database-editions]: http://msdn.microsoft.com/es-es/library/windowsazure/ee621788.aspx
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

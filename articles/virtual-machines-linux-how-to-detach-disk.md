@@ -1,10 +1,13 @@
-﻿<properties urlDisplayName="Detach a Disk" pageTitle="Desacoplamiento de un disco de una máquina virtual de Linux en Azure" metaKeywords="Azure detaching disk, VM detached disk" description="Aprenda a desacoplar un disco de datos de una máquina virtual de Azure." metaCanonical="http://www.windowsazure.com/en-us/manage/windows/how-to-guides/detach-a-disk/" services="virtual-machines" documentationCenter="" title="" authors="kathydav" solutions="" manager="timlt" editor="" />
+﻿<properties pageTitle="Desacoplamiento de un disco de una máquina virtual de Linux en Azure" description="Aprenda a desacoplar un disco de datos de una máquina virtual de Azure." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/31/2014" ms.author="kathydav" />
-
-
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/31/2014" ms.author="kathydav"/>
 
 
-[WACOM.INCLUDE [howto-detach-disk-windows-linux](../includes/howto-detach-disk-windows-linux.md)]
 
-<!--HONumber=35.1-->
+
+[AZURE.INCLUDE [howto-detach-disk-windows-linux](../includes/howto-detach-disk-windows-linux.md)]
+
+
+
+
+<!--HONumber=42-->

@@ -1,13 +1,27 @@
-﻿<properties linkid="web-sites-python-ptvs-bottle-mongodb" title="Bottle and MongoDB on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Bottle y MongoDB en Azure con Python Tools 2.1 para Visual Studio" description="Obtenga información acerca de cómo usar las herramientas de Python para Visual Studio a fin de crear una aplicación Bottle que almacene datos en una instancia de base de datos de MongoDB y que pueda implementarse en un sitio web." metaKeywords="" services="web-sites" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Bottle y MongoDB en Azure con Python Tools 2.1 para Visual Studio" 
+	description="Aprenda a usar las herramientas de Python para Visual Studio para crear una aplicación de Bottle que almacene datos en una instancia de base de datos MongoDB y puedan implementarse en un sitio web." 
+	services="web-sites" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
 
 # Bottle y MongoDB en Azure con Python Tools 2.1 para Visual Studio
 
-En este tutorial, crearemos una aplicación de sondeos sencilla con la utilización de una de las plantillas de ejemplo de PTVS. Este tutorial también se encuentra disponible como [vídeo](https://www.youtube.com/watch?v=8hQMyf8p_Jo).
+En este tutorial, crearemos una aplicación de sondeos sencilla con la utilización de una de las plantillas de ejemplo de PTVS. Este tutorial también se encuentra disponible en [vídeo](https://www.youtube.com/watch?v=8hQMyf8p_Jo).
 
 La aplicación de sondeos define una abstracción para su repositorio, por lo que puede alternar fácilmente entre los diferentes tipos de repositorios (en memoria, almacenamiento de tablas de Azure y MongoDB).
 
@@ -27,13 +41,13 @@ Consulte el [Centro para desarrolladores de Python][] para tener acceso a más a
 ##<a name="prerequisites"></a>Requisitos previos
 
  - Visual Studio 2012 o 2013
- - [Python Tools 2.1 para Visual Studio][]
+ - [Python Tools 2.1 para Visual Studio (en inglés)][]
  - [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio][]
- - [Herramientas del SDK de Azure para VS 2013 ][] o [Herramientas del SDK de Azure para VS 2012][]
+ - [Herramientas del SDK de Azure para VS 2013][] o [Herramientas del SDK de Azure para VS 2012][]
  - [Python 2.7 de 32 bits][] o [Python 3.4 de 32 bits][]
  - [RoboMongo][] (opcional)
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="create-the-project"></a>Creación del proyecto
 
@@ -69,7 +83,7 @@ Siga estos pasos para crear una prueba gratuita con MongoLab.
 
 1.  Inicie sesión en el [Portal de administración de Azure][].
 
-1.  En la parte inferior del panel de navegación, haga clic en **NEW** (Nuevo).
+1.  En la parte inferior del panel de navegación, haga clic en **NEW**.
 
   	![New Button](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonAzurePlusNew.png)
 
@@ -111,7 +125,7 @@ En esta sección, vamos a configurar nuestra aplicación para usar la base de da
 
 1.  El código que implementa el repositorio de MongoDB se encuentra en **models/mongodb.py**.
 
-1.  Presione <kbd>F5</kbd> para ejecutar la aplicación.  Los sondeos creados con **Create Sample Polls** y los datos enviados al votar se serializarán en MongoDB.
+1.  Ejecute la aplicación con <kbd>F5</kbd>.  Los sondeos creados con **Create Sample Polls** y los datos enviados al votar se serializarán en MongoDB.
 
 1.  Vaya a la página **Acerca de** para verificar que la aplicación usa el repositorio de **MongoDB**.
 
@@ -123,15 +137,15 @@ Puede usar una aplicación como [RoboMongo][] para consultar una base de datos M
 
 1.  Cree una conexión nueva.  Necesitará el valor de **MONGOLAB\_URI** que hemos recuperado en la sección anterior.
 
-    Note the format of the URI: `mongodb://<name>:<password>@<address>:<port>/<name>`
+    Observe el formato del URI: `mongodb://<name>:<password>@<address>:<port>/<name>`
 
     El nombre coincide con el nombre indicado al crear el servicio con Azure.  Se usa para el nombre de la base de datos y para el nombre de usuario.
 
-1.  En la página de conexión, defina el valor **Nombre** con el nombre que desee para la conexión.  Defina también los campos **Dirección** y **Puerto** para la *dirección* y el *puerto* de **MONGOLAB\_URI**.
+1.  En la página de conexión, defina el valor **Nombre** con el nombre que desee para la conexión.  Especifique también los campos **Dirección** y **Puerto** con los valores *address* y *port* de **MONGOLAB\_URI**.
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection1.png)
 
-1.  En la página de autenticación, defina los valores **Base de datos** y **Nombre de usuario** para el *nombre* de **MONGOLAB\_URI**.  Defina también el valor **Contraseña** para la *contraseña* de **MONGOLAB\_URI**.
+1.  En la página de autenticación, especifique los valores **Base de datos** y **Nombre de usuario** con los valores *name* de **MONGOLAB\_URI**.  Defina también el campo **Contraseña** con el valor *password* de **MONGOLAB\_URI**.
 
   	![Connection Settings Dialog](./media/web-sites-python-ptvs-bottle-mongodb/PollsCommonRobomongoCreateConnection2.png)
 
@@ -193,32 +207,35 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
   - [Proyectos web][]
   - [Proyectos de servicio en la nube][]
   - [Depuración remota en Microsoft Azure][]
-- [Documentación sobre Bottle][]
+- [Documentación de Bottle][]
 - [MongoDB][]
-- [Documentación sobre PyMongo][]
+- [Documentación de PyMongo][]
 - [PyMongo][]
 
 
 <!--Link references-->
-[Centro para desarrolladores de Python]: /en-us/develop/python/
-[Servicios en la nube de Azure]: ../cloud-services-python-ptvs/
+[Centro para desarrolladores de Python]: /es-es/develop/python/
+[Servicios en la nube de Azure] ../cloud-services-python-ptvs/
 
 <!--External Link references-->
 [Portal de administración de Azure]: https://manage.windowsazure.com
 [RoboMongo]: http://robomongo.org/
-[Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.1 para Visual Studio (en inglés)]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Herramientas del SDK de Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Herramientas del SDK de Azure para VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 (32 bits)]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 (32 bits)]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Documentación sobre Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation
-[Documentación sobre Bottle]: http://bottlepy.org/docs/dev/index.html
+[Documentación de Bottle]: http://bottlepy.org/docs/dev/index.html
 [MongoDB]: http://www.mongodb.org/
-[Documentación sobre PyMongo]: http://api.mongodb.org/python/current/
+[Documentación de PyMongo]: http://api.mongodb.org/python/current/
 [PyMongo]: https://github.com/mongodb/mongo-python-driver
 [Depuración remota en Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Proyectos web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Proyectos de servicio en la nube]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

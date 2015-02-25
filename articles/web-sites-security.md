@@ -1,13 +1,27 @@
-﻿<properties title="Securing an Azure Website" pageTitle="Protección de un sitio web de Azure." description="Obtenga información acerca de cómo proteger un sitio web de Azure." metaKeywords="Azure web site security, azure web site https, azure web site ftps, azure web site ssl, azure web site ssl rewrite" services="web-sites" solutions="" documentationCenter="web" authors="larryfr" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Protección de un sitio web de Azure." 
+	description="Obtenga información acerca de cómo proteger un sitio web de Azure." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 #Protección de una aplicación web en un Sitio web Azure
 
 Uno de los retos que plantea el desarrollo de una aplicación web es cómo proporcionar un servicio seguro y protegido para sus clientes. En este artículo conocerá las características de Sitios web Azure que pueden proteger su aplicación web.
 
-> [WACOM.NOTE] No es el objetivo de este documento abarcar una completa exposición de las consideraciones de seguridad para las aplicaciones basadas en web. Como punto de inicio para conocer más en profundidad la cuestión de la protección de las aplicaciones web, consulte el [proyecto de código abierto sobre seguridad en aplicaciones web (OWASP)]( https://www.owasp.org/index.php/Main_Page), concretamente el [proyecto de los 10 principales](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), que enumera los 10 principales errores de seguridad en aplicaciones web de acuerdo con los miembros de OWASP.
+> [AZURE.NOTE] No es el objetivo de este documento abarcar una completa exposición de las consideraciones de seguridad para las aplicaciones basadas en web. Como punto de inicio para conocer más en profundidad la cuestión de la protección de las aplicaciones web, consulte el [proyecto de código abierto sobre seguridad en aplicaciones web (OWASP)]( https://www.owasp.org/index.php/Main_Page), concretamente el [proyecto de los 10 principales](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project), que enumera los 10 principales errores de seguridad en aplicaciones web de acuerdo con los miembros de OWASP.
 
 ###Tabla de contenido
 
@@ -23,13 +37,13 @@ Si utiliza el nombre de dominio **.azurewebsites.net** que se crea para su sitio
 
 ###Perfiles de publicación y configuración de publicación
 
-Al desarrollar aplicaciones, realizar tareas de mantenimiento o automatizar tareas mediante herramientas como **Visual Studio**, **Web Matrix**, **Azure PowerShell** o la **Interfaz de línea de comandos entre plataformas** de Azure, puede utilizar un archivo de *configuración de publicación* o un *perfil de publicación*. Ambos le autentican en Azure, y deberían estar protegidos para evitar el acceso no autorizado.
+Al desarrollar aplicaciones, realizar tareas de mantenimiento o automatizar tareas mediante herramientas como **Visual Studio**, **Web Matrix**, **Azure PowerShell** o la **Interfaz de línea de comandos entre plataformas** de Azure, puede utilizar un archivo de *publish settings* o un *publishing profile*. Ambos le autentican en Azure, y deberían estar protegidos para evitar el acceso no autorizado.
 
 * Un archivo de **configuración de publicación** contiene
 
 	* El identificador de suscripción a Azure
 
-	* Un certificado de administración que le permite realizar tareas de administración para su suscripción *sin tener que proporcionar un nombre de cuenta o contraseña*.
+	* Un certificado de administración que le permita realizar tareas de administración para la suscripción *without having to provide an account name or password*.
 
 * Un archivo de **perfil de publicación** contiene
 
@@ -42,11 +56,11 @@ Además, debería asegurarse de que se protegen las credenciales importadas. Por
 ###Valores de configuración y cadenas de conexión
 Es habitual almacenar cadenas de conexión, credenciales de autenticación y otra información de tipo confidencial en archivos de configuración. Lamentablemente, estos archivos pueden resultar expuestos en su sitio web o podrían aparecer en búsquedas de un repositorio público, con lo que la información podría quedar al descubierto.
 
-Sitios web Azure le permite almacenar la información de configuración como parte del entorno de tiempo de ejecución de Sitios web en forma de **configuración de aplicación** y **cadenas de conexión**. Estos valores se exponen a su aplicación en el tiempo de ejecución a través de *variables de entorno* para la mayoría de lenguajes de programación. En el caso de las aplicaciones .NET, estos valores se insertan en la configuración de .NET en el tiempo de ejecución.
+Sitios web Azure le permite almacenar la información de configuración como parte del entorno de tiempo de ejecución de Sitios web en forma de **configuración de aplicación** y **cadenas de conexión**. Los valores se exponen a la aplicación en tiempo de ejecución a través de *environment variables* para la mayoría de lenguajes de programación. En el caso de las aplicaciones .NET, estos valores se insertan en la configuración de .NET en el tiempo de ejecución.
 
 **Configuración de aplicación** y **cadenas de conexión** se pueden configurar mediante el Portal de administración de Azure o herramientas como PowerShell o la Interfaz de la línea de comandos entre plataformas de Azure.
 
-Para obtener más información sobre configuración de aplicación y cadenas de conexión, consulte [Configuración de Sitios web](/es-es/documentation/articles/web-sites-configure/).
+Para obtener más información sobre configuración de aplicación y cadenas de conexión, consulte [Configuración de sitios web](/es-es/documentation/articles/web-sites-configure/).
 
 ###FTPS
 
@@ -61,3 +75,8 @@ Para obtener más información sobre la seguridad en la plataforma de Azure, apr
 Para obtener más información sobre los archivos **web.config** o **applicationhost.config** en Sitios web Azure, consulte [Opciones de configuración desbloqueadas en Sitios web Azure](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/).
 
 Para obtener información sobre información de registro para Sitios web Azure, que puede resultar útil en la detección de ataques, consulte [Habilitación del registro de diagnóstico](/es-es/documentation/articles/web-sites-enable-diagnostic-log/).
+
+
+
+
+<!--HONumber=42-->

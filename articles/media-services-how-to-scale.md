@@ -1,14 +1,14 @@
-﻿<properties urlDisplayName="How to scale" pageTitle="Escalación de un servicio multimedia | Documentación de Azure" metaKeywords="" description="Aprenda a escalar Servicios multimedia mediante la especificación del número de unidades reservadas de streaming a petición y unidades reservadas de codificación con las que desea aprovisionar la cuenta." metaCanonical="" services="media-services" documentationCenter="" title="How to Scale a Media Service" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Escalación de un servicio multimedia | Documentación de Azure" description="Aprenda a escalar Servicios multimedia mediante la especificación del número de unidades reservadas de streaming a petición y unidades reservadas de codificación con las que desea aprovisionar la cuenta." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
-
-
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
-#Escalación de un Servicio multimedia  
 
-[WACOM.INCLUDE [disclaimer](../includes/disclaimer.md)]
+
+# Escalación de un Servicio multimedia  
+
+[AZURE.INCLUDE [declinación de responsabilidades](../includes/disclaimer.md)]
 
 
 Es posible escalar Servicios multimedia mediante la especificación del número de **unidades reservadas de streaming a petición** y **unidades reservadas de codificación** con las que desea aprovisionar la cuenta. 
@@ -16,13 +16,13 @@ Es posible escalar Servicios multimedia mediante la especificación del número 
 
 <h2>Unidades reservadas de streaming a petición</h2>
 
-Las unidades reservadas de streaming a petición ofrecen una capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps y una funcionalidad adicional que incluye [capacidades de empaquetado dinámico].(http://go.microsoft.com/fwlink/?LinkId=276874). De manera predeterminada, el streaming a petición está configurado en un modelo de instancias compartidas para el que se comparten recursos de servidor (por ejemplo, proceso, capacidad de salida, entre otros) con los demás usuarios. Para mejorar el resultado del streaming a petición, se recomienda adquirir unidades reservadas de streaming a petición. 
+Las unidades reservadas de streaming a petición proporcionan tanto la capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps como la  funcionalidad adicional que incluye actualmente [capacidades de empaquetado dinámico](http://go.microsoft.com/fwlink/?LinkId=276874). De manera predeterminada, el streaming a petición está configurado en un modelo de instancias compartidas para el que se comparten recursos de servidor (por ejemplo, proceso, capacidad de salida, entre otros) con los demás usuarios. Para mejorar el resultado del streaming a petición, se recomienda adquirir unidades reservadas de streaming a petición. 
 
 Para cambiar el número de dichas unidades, haga lo siguiente:
 
 1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios multimedia**. A continuación, haga clic en el nombre del servicio multimedia.
 
-2. Seleccione la página EXTREMOS DE STREAMING. Luego, haga clic en el extremo de streaming que quiere modificar.
+2. Seleccione la página EXTREMOS DE STREAMING. Luego, haga clic en el extremo de streaming que desea modificar.
 
 
 3. Para especificar el número de unidades de streaming, seleccione la pestaña ESCALA y desplace el control deslizante de **capacidad reservada**.
@@ -36,7 +36,7 @@ Para cambiar el número de dichas unidades, haga lo siguiente:
 	 
 	>[Azure.Note] Actualmente, pasar de cualquier valor positivo de unidades de streaming a petición a ninguno puede deshabilitar el streaming a petición hasta una hora.
 
-	>[Azure.Note] Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste. Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia].(http://go.microsoft.com/fwlink/?LinkId=275107).
+	>[Azure.Note] Se utiliza el número más elevado de unidades especificadas durante el período de 24 horas al calcular el coste. Para obtener más información acerca del precio, consulte la página sobre [información del precio de Servicios multimedia](http://go.microsoft.com/fwlink/?LinkId=275107).
 
 <h2>Unidades reservadas de codificación</h2>
 
@@ -71,9 +71,9 @@ De manera predeterminada las cuentas de Servicios multimedia pueden escalar hast
 
 Para abrir una incidencia de soporte técnico, haga lo siguiente: 
 
-1. Inicie sesión su cuenta de Azure en [Portal de administración](http://manage.windowsazure.com).
-2. Vaya a [Soporte técnico](http://www.windowsazure.com/en-us/support/contact/).
-3. Haga clic en "Get Support".
+1. Inicie sesión en su cuenta de Azure en [Portal de administración](http://manage.windowsazure.com).
+2. Vaya a [Soporte técnico](http://www.windowsazure.com/es-es/support/contact/).
+3. Haga clic en "Obtener soporte".
 4. Seleccione su suscripción.
 5. En el tipo de soporte, seleccione "Técnico".
 6. Haga clic en "Crear incidencia".
@@ -87,10 +87,5 @@ Para abrir una incidencia de soporte técnico, haga lo siguiente:
 
 
 
- 
 
-
-
-
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

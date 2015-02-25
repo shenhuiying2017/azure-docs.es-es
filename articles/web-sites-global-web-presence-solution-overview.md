@@ -1,256 +1,145 @@
-﻿<properties urlDisplayName="Create a Global Web Presence on Azure Websites" pageTitle="Creación de una presencia web global en Sitios web Azure" metaKeywords="" description="En esta guía se ofrece información general de carácter técnico acerca de cómo hospedar el sito (.COM) de su organización en sitios web de Azure. Esto incluye la implementación, los dominios personalizados, SSL y la supervisión." metaCanonical="http://www.windowsazure.com/en-us/documentation/articles/web-sites-global-web-presence-solution-overview/" services="" documentationCenter="" title="Create a Global Web Presence on Azure Websites" authors="jroth" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Creación de una presencia web global en Sitios web Azure" 
+	description="En esta guía se ofrece información general de carácter técnico acerca de cómo hospedar el sito (.COM) de su organización en sitios web de Azure. Esto incluye la implementación, los dominios personalizados, SSL y la supervisión." 
+	editor="jimbe" 
+	manager="wpickett" 
+	authors="cephalin" 
+	services="web-sites" 
+	documentationCenter=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/01/2014" ms.author="jroth" />
-
-
-
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2014" 
+	ms.author="cephalin"/>
 
 
 # Creación de una presencia web global en Sitios web Azure
 
-En esta guía se ofrece información general de carácter técnico acerca de cómo hospedar el sito (.COM) de su organización en Azure. A este escenario también se hace referencia como una presencia web global. Esta guía se centra en el uso de [Azure Web Sites][websitesoverview], ya que es la forma más fácil y rápida de crear, migrar, escalar y administrar una aplicación web en Azure. No obstante, algunos requisitos de la aplicación se prestan mejor a [Servicios en la nube de Azure][csoverview] o [Máquinas virtuales de Azure][vmoverview] con IIS. También son opciones excelentes para hospedar aplicaciones web. Si se encuentra en la fase de planificación inicial, consulte el documento [Sitios web, Servicios en la nube y Máquinas virtuales de Azure: cuándo usar cada uno][chooseservice]. En caso de que no exista ningún requisito para usar Servicios en la nube o Máquinas virtuales, recomendamos usar Sitios web para hospedar la presencia web global. En el resto de este documento se ofrecerá orientación acerca del uso de Sitios web con este escenario. 
+[Sitios web Azure] tiene todas las funciones que necesita para establecer una presencia web global para su sitio .COM. Independientemente del tamaño de su organización, necesita una plataforma robusta, segura y escalable para impulsar su negocio, el conocimiento de la marca y las comunicaciones con los clientes. Sitios web Azure puede ayudar a mantener su marca corporativa y su identidad con una continuidad del negocio respaldada por Microsoft.
 
-En esta guía se tratan los siguientes temas:
+> [AZURE.NOTE] Si desea obtener una introducción a Sitios web Azure antes de inscribirse para abrir una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita un sitio básico de ASP.NET de corta duración en Sitios web Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-- [Creación de un sitio web de Azure](#createwebsite)
-- [Implementación del sitio web](#deploywebsite)
-- [Incorporación de un dominio personalizado](#customdomain)
-- [Protección del sitio web con SSL](#ssl)
-- [Supervisión del sitio](#monitor)
+A continuación se muestra un ejemplo de un sitio web .COM que se ejecuta en Sitios web Azure. Se muestra lo que puede hacer simplemente al componer los sitios web de Azure junto con otros servicios con inversiones técnicas mínimas. **Haga clic en un elemento de la topografía para obtener más información sobre él.** 
+
+<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
 > [WACOM.NOTE]
-> En esta guía se presentan algunos de los temas y tareas más comunes relacionados con el desarrollo de sitios .COM de acceso público. Sin embargo, existen otras funciones de Sitios web Azure que puede utilizar en su implementación concreta. Para revisar estas capacidades, consulte también otras guías sobre <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview">campañas de marketing digital</a> y <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/business-application-solution-overview">Aplicaciones empresariales</a>.
-> 
-> Si desea obtener una introducción a Sitios web Azure antes de suscribirse a una cuenta, visite <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita un sitio básico de ASP.NET de corta duración en Sitios web Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> En esta guía se presentan algunas de las áreas y las tareas más comunes que se alinean con la ejecución de un sitio .COM público en Sitios web Azure. Sin embargo, hay otras soluciones comunes que se pueden implementar en Sitios web Azure. Para revisar estas soluciones, consulte las otras guías sobre <a href="http://www.windowsazure.com/es-es/manage/services/web-sites/digital-marketing-campaign-solution-overview">campañas de marketing digital</a> y <a href="http://www.windowsazure.com/es-es/manage/services/web-sites/business-application-solution-overview">aplicaciones empresariales</a>.
 
-##<a name="createwebsite"></a>Creación de un sitio web de Azure
-En el Portal de administración de Azure puede crear un sitio web de Azure nuevo de varias formas. Si hace clic en el botón **Nuevo** en la parte inferior del portal, se abrirá el siguiente cuadro de diálogo:
+### Aporte recursos existentes o créelos desde cero
 
-![GlobalWebCreate][GlobalWebCreate]
+Cree rápidamente nuevos sitios desde un CMS popular en la galería o aporte sus recursos web existentes en Sitios web Azure desde una variedad de lenguajes y marcos.
 
-Hay tres opciones para crear un sitio web nuevo: **Creación rápida**, **Creación personalizada** y **Desde la galería**. Con cada una de estas opciones, debe seleccionar una región de Azure adecuada para la mayor parte de la base de usuarios.
+La galería de Azure ofrece plantillas de los sistemas de administración de contenido (CMS) de sitios web más conocidos, como [Orchard], [Umbraco], [Drupal] y [WordPress]. Puede crear un sitio web con un toque de su CMS favorito. Puede elegir entre varios back-ends de bases de datos para cubrir sus necesidades, entre las que se incluyen la [Base de datos SQL de Azure] y [MySQL].
 
-Si va a migrar un sitio existente, la opción **Creación personalizada** le permite crear o asociar una Base de datos SQL o MySQL. Esta opción también ofrece la posibilidad de especificar varias opciones de control de código fuente para la implementación, como GitHub o Team Foundation Server (TFS). Si ya administra el sitio web con un mecanismo de control de código fuente, esta opción le permite configurar el sitio web de Azure rápidamente para la implementación.
+Sus recursos web existentes pueden ejecutarse en Sitios web de Azure, ya sean de .NET, PHP, Java, Node.js o Python. Puede moverlos a Sitios web de Azure con sus herramientas [FTP] habituales o con su sistema de administración de control de código fuente. Sitios web Azure admite la publicación directa desde las opciones de control de código fuente más conocidas, como [Visual Studio], [Visual Studio Online] y [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
 
-La opción **Desde la galería** le permite configurar un sitio nuevo con varios marcos de trabajo, como Drupal o WordPress. Esto puede resultar útil para configurar con rapidez un sitio nuevo que posteriormente puede personalizar con el marco de trabajo seleccionado.
+### Publicación de manera confiable
 
-Como la mayoría de los servicios de Azure, debe seleccionar una región de Azure para el sitio web nuevo. Azure tiene muchas regiones en todo el mundo. Tras implementar el sitio web en alguna región, será posible obtener acceso a él en todo el mundo a través de Internet. No obstante, varias regiones ofrecen mayor flexibilidad. Un beneficio evidente es implementar los sitios en las regiones más próximas a los usuarios. 
+Publique su sitio web de forma confiable mediante la publicación continua directamente desde su sistema de control de código fuente existente y probar de forma activa el contenido. 
 
-Para obtener pasos detallados para crear un sitio web nuevo, consulte [Empezar a utilizar Sitios web Azure y ASP.NET][howtocreatewebsites].
+Durante la planificación, la creación de prototipos y la implementación inicial de un sitio, puede mirar las versiones funcionales reales del sitio web antes de lanzarlo de forma pública mediante la [implementación en un espacio de ensayo] de su Sitio web Azure. Al integrar el control de código fuente con Sitios web Azure, puede [publicar de forma continua] en un espacio de ensayo y cambiar a producción sin tiempo de inactividad cuando esté listo para hacerlo. Si surge algún problema en el sitio de producción, también se puede cambiar a una versión anterior del sitio inmediatamente. 
 
-##<a name="deploywebsite"></a>Implemente el sitio web
-Hay varias formas de implementar sitios web en Azure. Si ha seleccionado un marco de trabajo desde la galería, ya dispondrá de un sitio inicial implementado. No obstante, para avanzar, debe configurar algún tipo de procedimiento de edición e implementación. Algunas de las opciones de implementación son:
+Asimismo, cuando planifique los cambios de un sitio web en vivo, puede [ejecutar pruebas A/B] con facilidad en las actualizaciones propuestas con la característica Prueba en producción y analizar el comportamiento real de los usuarios para ayudarle a tomar decisiones fundamentadas sobre el diseño del sitio.
 
-- Usar un cliente FTP
-- Implementar desde el control de código fuente
-- Publicar desde Visual Studio
-- Publicar desde [WebMatrix][webmatrix].
+### Marca y protección
 
-Cada una de estas opciones tiene varias ventajas. La posibilidad de publicar desde un cliente FTP es una solución sencilla y completa para enviar archivos nuevos al sitio. También supone que todas las herramientas o procesos de publicación existentes que se basan en FTP puedan continuar funcionando con Sitios web Azure. El control de código fuente ofrece el mejor control de las versiones de contenido del sitio, porque se puede hacer un seguimiento de los cambios, publicarlos y realizar la reversión a las versiones anteriores en caso de que sea necesario. Las opciones para publicar directamente desde Visual Studio o Web Matrix resultan cómodas para los desarrolladores que usan cualquiera de estas herramientas. Un escenario útil para esta característica es durante las primeras fases de un proyecto o para la creación de prototipos. En ambos casos, la publicación y las pruebas frecuentes son posiblemente más convenientes desde el interior del entorno de desarrollo. 
+Use el dominio de los sitios web de forma gratuita o asigne a su nombre de dominio registrado y proteja su marca con el certificado SSL firmado de CA.
 
-Muchas de las tareas de implementación de este escenario implican el uso de información en el Portal de administración de Azure. Vaya al sitio web, seleccione la pestaña **Panel** y, a continuación, busque la sección **vista rápida**. En la captura de pantalla siguiente se muestran varias opciones.
+El dominio **\*.azurewebsites.net** es gratuito cuando ejecuta su sitio web en Sitios web Azure. O bien, puede asignar el sitio web a un [dominio personalizado] (por ejemplo, contoso.com), que haya obtenido en cualquier registro de DNS, como GoDaddy.
 
-![GlobalWebQuickGlance][GlobalWebQuickGlance]
+Si recopila cualquier información de usuario, realizar labores de comercio electrónico o administre otra información confidencial, puede proteger la reputación de su marca y a sus clientes con [HTTPS]. El nombre de dominio **\*.azurewebsites.net** ya viene con un certificado SSL y, si usa su dominio personalizado, puede aportar su certificado SSL para Sitios web Azure. Hay un cargo mensual (prorrateado por horas) asociado a cada certificado SSL. Para obtener más información, consulte [Detalles de precios de Sitios web].
 
-Algunas herramientas de control de código fuente y clientes FTP requieren el acceso mediante nombre de usuario/contraseña. Para un sitio web nuevo, las credenciales no se crean automáticamente. No obstante, puede crearlas con facilidad; para ello, haga clic en **Restablezca sus credenciales de implementación**. Tras completar esta tarea, puede usar cualquier cliente FTP para implementar el sitio web con la utilización de estas credenciales junto con la opción **Nombre del host FTP** en la misma página **Panel**.
+### Sea global
 
-![GlobalWebFTPSettings][GlobalWebFTPSettings]
+Sea global al proporcionarle a las oficinas regionales el Administrador de tráfico de Azure y entregar contenido con una velocidad increíble con CDN de Azure.
 
-Tenga en cuenta que el nombre de usuario para la implementación y el cliente FTP es una combinación del nombre del sitio web y el nombre de usuario que ha proporcionado. Por tanto, si el sitio fuera "http://contoso.azurewebsite.net" y si su nombre de usuario fuera "myuser", el nombre de usuario para la implementación y el cliente FTP sería "contoso\myuser".
+Para servir a clientes internacionales en sus respectivas regiones, use el [Administrador de tráfico de Azure] para enrutar a los visitantes del sitio a un sitio regional que ofrezca el mejor rendimiento. Como alternativa, puede distribuir uniformemente la carga del sitio en varias copias de su sitio web alojadas en varias regiones.
 
-También tiene la opción de implementar mediante un servicio de administración de control de código fuente, como GitHub o TFS en línea. Haga clic en la opción **Configurar implementación desde control de código fuente**. A continuación, siga las instrucciones para el servicio o sistema de control de código fuente que elija. Para obtener instrucciones paso a paso sobre la publicación desde un repositorio Git local, consulte [Publicación en Sitios web Azure desde el control de código fuente][publishingwithgit].
+Ofrezca el contenido estático a los usuarios de todo el mundo con una velocidad increíble al [integrar su sitio web con CDN de Azure]. CDN de Azure almacena en caché el contenido estático en el [nodo CDN] más cercano al usuario, lo que reduce la latencia y las conexiones a su sitio web.
 
-Si piensa usar Visual Studio para crear y administrar el sitio, puede elegir publicar directamente desde Visual Studio. Uno de los métodos consiste en hacer clic en la opción **Descargar el perfil de publicación**. Esto le permitirá guardar un archivo publishsettings que puede importarse en Visual Studio para la publicación web. 
+### Optimización
 
-> [WACOM.NOTE]
-> Es importante mantener el archivo  <i>publishsettings</i> seguro y fuera del control de código fuente, porque contiene los nombres de usuario y las contraseñas para la implementación y también cualquier cadena de conexión de base de datos vinculada.
+Optimice su sitio .COM mediante el escalado automático con Autoscale, el almacenamiento en caché con Azure Redis Cache, la ejecución de tareas en segundo plano con WebJobs y el mantenimiento de una alta disponibilidad con el Administrador de tráfico de Azure.
 
-También es posible importar la información de la suscripción directamente a Visual Studio. Por ejemplo, considere un proyecto de ASP.NET local en Visual Studio. Haga clic con el botón secundario en el proyecto web y, a continuación, seleccione **Publicar**. El botón **Importar** del cuadro de diálogo **Publicación web** le permite importar un archivo que contenga la configuración de la suscripción a Azure o el archivo publishsettings que ha descargado del panel Sitios web. En la captura de pantalla siguiente se muestran estas opciones.
+La capacidad de Sitios web Azure de [escalar vertical y horizontalmente] cubre las necesidades de su sitio .COM, independientemente del tamaño de la carga de trabajo. Escale horizontalmente de forma manual su sitio web a través del [Portal de administración de Azure], mediante programación a través de la [API de administración de servicios] o de [scripting de PowerShell], o automáticamente con la función Autoscale. En el plan de hospedaje **Standard**, Autoscale permite escalar horizontalmente un sitio web de forma automática, basándose en el uso de CPU. Para conocer los procedimientos recomendados, consulte la publicación de [Troy Hunt], [10 things I learned about rapidly scaling websites with Azure].
 
-![GlobalWebVSPublish][GlobalWebVSPublish]
+Consiga que su sitio web tenga más capacidad de respuesta con [Caché en Redis de Azure]. Úsela para almacenar en caché datos de bases de datos de back-end y otras cosas como el [estado de sesión e ASP.NET] y la [caché de resultados].
 
-Para obtener más información acerca de la publicación en Azure desde Visual Studio, consulte Implementación de una aplicación web ASP.NET en un sitio web de Azure. 
+Mantenga una alta disponibilidad de su sitio web con [Azure Traffic Manager]. Gracias al método **Failover**, Traffic Manager enruta automáticamente el tráfico a un sitio secundario si se produce un problema en el sitio primario.
 
-Una opción para el desarrollo y la implementación es WebMatrix desde el Portal de administración de Azure.
+### Supervisión y análisis
 
-![GlobalWebWebMatrix][GlobalWebWebMatrix]
+Manténgase informado sobre el rendimiento de su sitio web con herramientas de Azure o de terceros. Reciba alertas sobre eventos críticos del sitio web. Obtenga fácilmente información sobre los usuarios con Application Insight o con los análisis de registros web de HDInsight. 
 
-Para obtener más información acerca de esta opción, consulte [Desarrollo e implementación de un sitio web con Microsoft WebMatrix][aspnetgetstarted].
+Obtenga una [vista rápida] de las métricas de rendimiento actuales del sitio web y de las cuotas de recursos en el panel de Sitios web Azure. Para obtener una vista completa de la aplicación en cuanto a disponibilidad, rendimiento y uso, utilice [Azure Application Insights] para ofrecer rápidamente información potente de uso, de diagnóstico y de solución de problemas. O bien, utilice una herramienta de terceros como [New Relic] para proporcionar datos de supervisión avanzada de sus sitios web.
 
-A pesar de que estos pasos ofrecen lo que necesita para implementar su sitio .COM, también debe crear un plan para administrar el ciclo de publicación de contenido en curso. Estas opciones podrían ir desde la reversión de una solución personalizada, pasando por las reimplementaciones periódicas de un sitio que cambia con poca frecuencia, y hasta un sistema de administración de contenido (CMS) completo. Si va a crear un sitio web nuevo, debe tener en cuenta que hay opciones en la galería para usar los marcos de CMS existentes, como [Drupal][drupal] o [Umbraco][umbraco].
+En el plan de hospedaje **Standard**, la capacidad de respuesta del sitio de supervisión recibe notificaciones por correo electrónico cuando su sitio deja de responder. Para obtener más información, consulte [Inserción de notificaciones de alerta y administración de reglas de alerta en Azure].
 
-##<a name="customdomain"></a>Incorporación de un dominio personalizado
-Si se trata de su presencia web global, deberá asociar su nombre de dominio registrado al sitio web. Hay muchos proveedores externos que ofrecen servicios de registro de dominios. Cada uno de estos proveedores admite la creación de diferentes tipos de registros DNS para administrar el dominio. Un registro DNS ayuda a asignar una URL descriptiva, como "www.contoso.com", a la URL real o la dirección IP que hospeda el sitio. 
+### Use medios enriquecidos y llegue a todos los dispositivos
 
-<div class="dev-callout">
-<strong>Nota:</strong>
-<p>En la información que se expone a continuación, se nombran dos tipos de registros DNS que resultan interesantes. En primer lugar, un registro CNAME puede redirigir desde una URL, como "www.contoso.com", hasta una URL diferente, como "contoso.azurewebsites.net". En segundo lugar, un registro A puede asignar una URL, como "www.contoso.com", a una dirección IP, como 172.16.48.1.</p>
-</div>
+Haga que su sitio .COM sea más atractivo con medios enriquecidos, como:
 
-Para Sitios web Azure, primero debe crear un registro CNAME en el sitio web de Azure. Esta configuración se hace a través del sitio del registrador externo. A continuación se expone un registro CNAME de ejemplo.
+-  La carga y el streaming de vídeos de forma global con [Servicios multimedia de Azure]
+-  El envío de correos electrónicos a los usuarios con el [servicio SendGrid en Azure Marketplace]
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="top">Tipo</th>
-   <th align="left" valign="top">Host</th>
-   <th align="left" valign="top">Respuesta</th>
-   <th align="left" valign="top">TTL</th>
-</tr>
-<tr>
-   <td valign="top"><strong>CNAME</strong></td>
-   <td valign="top">www.contoso.com</td>
-   <td valign="top">contoso.azurewebsites.net</td>
-   <td valign="top">8000</td>
-</tr>
-</table>
+## Más recursos
 
-Si el dominio está recién registrado, la resolución del dominio en todos los servidores DNS puede llevar un día o más, dado que funcionan con las entradas DNS almacenadas en caché. No obstante, si el dominio ya existe, el cambio de CNAME debería producirse en un minuto. Tenga en cuenta que el registro CNAME ofrece una asignación entre el dominio (que debe cualificarse con un alias de subdominio, como "www") y la URL del sitio web de Azure. Ningún lado del registro CNAME incluye el prefijo "http://".
+- [Documentación de Sitios web Azure](/es-es/documentation/services/websites/)
+- [Mapa de aprendizaje de Sitios web Azure](/es-es/documentation/articles/websites-learning-map/)
+- [Blog de web de Azure](/blog/topics/web/)
 
-En el Portal de administración de Azure, compruebe que está utilizando los modos **compartido** o están****dar en la pestaña **Escalar** (los dominios personalizados no se admiten para los sitios web **libres**. A continuación, vaya a la pestaña **Configurar** y haga clic en el botón **Administrar dominios**. Esto le permite asociar el sitio web al nombre de dominio personalizado. 
 
-![GlobalWebWebMatrix][GlobalWebWebMatrix]
 
-Antes de colocar el dominio personalizado en la lista, primero debe ir al proveedor DNS y crear un registro CNAME para el dominio personalizado (www.contoso.com) que dirija a la URL del sitio web de Azure (contoso.azurewebsites.net). Después de la propagación, puede escribir el dominio personalizado en el cuadro de diálogo ilustrado en la captura de pantalla anterior. La presencia del registro CNAME para www.contoso.com que dirija a este sitio web garantiza disponer de la autoridad para usar dicho nombre de dominio con este sitio web. En este punto, puede crear un registro A con la dirección IP de la parte inferior del cuadro de diálogo.
+[Sitios web Azure]:/es-es/services/websites/
 
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="top">Tipo</th>
-   <th align="left" valign="top">Host</th>
-   <th align="left" valign="top">Respuesta</th>
-   <th align="left" valign="top">TTL</th>
-</tr>
-<tr>
-   <td valign="top"><strong>A</strong></td>
-   <td valign="top">contoso.com</td>
-   <td valign="top">172.16.48.1</td>
-   <td valign="top">8000</td>
-</tr>
-</table>
+[Orchard]:/es-es/documentation/articles/web-sites-dotnet-orchard-cms-gallery/
+[Umbraco]:/es-es/documentation/articles/web-sites-gallery-umbraco/
+[Drupal]:/es-es/documentation/articles/web-sites-php-migrate-drupal/
+[WordPress]:/es-es/documentation/articles/web-sites-php-web-site-gallery/
+[MySQL]:/es-es/documentation/articles/web-sites-php-mysql-deploy-use-git/
+[Base de datos SQL de Azure]:/es-es/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
+[FTP]:/es-es/documentation/articles/web-sites-deploy/#ftp
+[Visual Studio]:/es-es/documentation/articles/web-sites-dotnet-get-started/
+[Visual Studio Online]:/es-es/documentation/articles/cloud-services-continuous-delivery-use-vso/
+[Git]:/es-es/documentation/articles/web-sites-publish-source-control/
 
-Para obtener más información, consulte [Configuración de un nombre de dominio personalizado para un Sitio web Azure][customdns].
+[Implementación de ensayo en Sitios web Microsoft Azure]:/es-es/documentation/articles/web-sites-staged-publishing/ 
+[continuously publish]:http://rickrainey.com/2014/01/21/continuous-deployment-github-with-azure-web-sites-and-staged-publishing/
+[run A/B tests]:http://blogs.msdn.com/b/tomholl/archive/2014/11/10/a-b-testing-with-azure-websites.aspx
 
-##<a name="ssl"></a>Protección del sitio web con SSL
-Si el sitio contiene información de solo lectura, no es necesario proporcionar acceso seguro al sitio. No obstante, si recopila información de usuarios, realiza operaciones de comercio electrónico o administra otros datos delicados, debe proteger el sitio. La seguridad es un tema complejo y, por ello, en este documento no se pueden tratar todos los procedimientos y técnicas recomendados. No obstante, es importante destacar el proceso de habilitar la Capa de sockets seguros (SSL) para el sitio web. SSL permite a los usuarios conectar el sitio de una manera cifrada con direcciones HTTPS en lugar de HTTP. Hay pasos específicos necesarios para usar SSL con Sitios web Azure. 
+[dominios personalizados]:/es-es/documentation/articles/web-sites-custom-domain-name/
+[HTTPS]:/es-es/documentation/articles/web-sites-configure-ssl-certificate/
+[Detalles de precios de Sitios web]:/es-es/pricing/details/web-sites/#service-ssl
 
-La plataforma Sitios web Azure ofrece automáticamente una conexión segura a la URL real del sitio. Por ejemplo, si el sitio fuera http://contoso.azurewebsites.net, puede conectarse a través de SSL solo con cambiar "http" por "https", como en **https**://contoso.azurewebsites.net.
+[Administrador de tráfico de Azure]:http://www.hanselman.com/blog/CloudPowerHowToScaleAzureWebsitesGloballyWithTrafficManager.aspx
+[Integración de un sitio web de Azure con la red CDN de Azure]:/es-es/documentation/articles/cdn-websites-with-cdn/ 
+[Nodo de CDN]:https://msdn.microsoft.com/library/azure/gg680302.aspx
 
-No obstante, si usa un nombre de dominio personalizado, debe realizar los pasos para cargar un certificado y habilitar SSL a través del Portal de administración de Azure para el sitio web. Los pasos siguientes ofrecen un resumen de este proceso, pero puede encontrar instrucciones detalladas en el tema [Configuración de un certificado SSL para un sitio web de Azure][ssl].
+[escalado vertical y horizontal]:/es-es/manage/services/web-sites/how-to-scale-websites/
+[Portal de administración de Azure]:http://manage.windowsazure.com/
+[Referencia de la API de REST de administración de servicios]:http://msdn.microsoft.com/es-es/library/windowsazure/ee460799.aspx
+[Scripting de PowerShell]:http://msdn.microsoft.com/es-es/library/windowsazure/jj152841.aspx
+[Troy Hunt]:https://twitter.com/troyhunt
+[10 things I learned about rapidly scaling websites with Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
+[Caché en Redis de Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
+[Estado de la sesión de ASP.NET]:https://msdn.microsoft.com/es-es/library/azure/dn690522.aspx
+[caché de resultados]:https://msdn.microsoft.com/es-es/library/azure/dn798898.aspx
 
-En primer lugar, obtenga un certificado SSL de una entidad de certificación. Si va a proteger el dominio con varios subdominios (por ejemplo, www.contoso.com y staging.contoso.com), deberá obtener un certificado comodín (*.contoso.com). Puede ser más caro, por lo que debe decidir si la flexibilidad de este tipo de certificado justifica el coste.
+[vista rápida]:/es-es/manage/services/web-sites/how-to-monitor-websites/
+[Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
+[New Relic]:/es-es/develop/net/how-to-guides/new-relic/
+[Uso de notificaciones de alerta y administración de reglas de alerta en Azure].:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
-Tras obtener el certificado de la entidad de certificación, no basta con cargarlo en Azure con el mismo formato. Debe generar un archivo .pfx con el comando openssl. El comando openssl forma parte del proyecto OpenSSL. Los orígenes se distribuyen en el [OpenSSL website][openssl], pero normalmente puede encontrar también una versión precompilada de la herramienta en Internet. En el ejemplo siguiente, se usan un certificado, myserver.crt, y el archivo de clave privada, myserver.key, para crear un archivo .pfx.
+[Servicios multimedia de Azure]:http://blogs.technet.com/b/cbernier/archive/2013/09/03/windows-azure-media-services-and-web-sites.aspx
+[Servicio SendGrid en Azure Marketplace]:/es-es/documentation/articles/sendgrid-dotnet-how-to-send-email/
 
-	openssl pkcs12 -export -out myserver.pfx -inkey myserver.key -in myserver.crt
 
-Para cargar el certificado en Azure, primero vaya a la pestaña **Escalar** y compruebe que ejecuta el modo **Estándar**. El uso de SSL para dominios personalizados no se admite con los modos **libre** o **compartido**. En la pestaña **Configurar**, haga clic en el botón **cargar un certificado**.
 
-![GlobalWebUplodateCert][GlobalWebUplodateCert]
 
-A continuación, en la sección **Enlaces ssl**, asigne el certificado al nombre de dominio que protege. Hay dos opciones para esta asignación: SSL SNI y SSL basada en IP.
 
-![GlobalWebSSLBindings][GlobalWebSSLBindings]
-
-La opción **SSL basada en IP** es la forma tradicional de asignar la dirección IP dedicada pública al nombre de dominio. Funciona con todos los exploradores. La opción **SSL SNI** permite que varios dominios compartan la misma dirección IP y, a pesar de ello, tengan diferentes certificados SSL asociados para cada dominio. SSL SNI no funciona con algunos exploradores anteriores (para obtener más información sobre la compatibilidad, consulte la [entrada de Wikipedia para SSL SNI][sni]). Hay un cargo mensual (prorrateado por horas) asociado a cada certificado SSL y el precio varía en función de si la opción de SSL se basa en IP o en SSL SNI. Para obtener información sobre el precio, consulte [Información sobre el precio de Sitios web][sslpricing]. Para obtener más información acerca de este proceso, consulte [Configuración de un certificado SSL para un sitio web de Azure][ssl].
-
-##<a name="monitor"></a>Supervisión del sitio
-Después de que el sitio controle activamente las solicitudes de los usuarios, es importante usar la supervisión. Por ejemplo, debe saber si la carga de usuario causa un tiempo elevado de CPU, que podría indicar la necesidad de escalar el sitio. Por otra parte, la ineficacia de la aplicación puede aumentar el tiempo de respuesta o producir errores. En esta sección se tratan algunas de las capacidades de supervisión integradas en el Portal de administración de Azure.
-
-La pestaña **Supervisar** contiene algunas métricas clave del sitio web en formato gráfico. 
-
-![GlobalWebMonitor1][GlobalWebMonitor1]
-
-Puede personalizar las métricas en este gráfico con el botón Add Metrics.
-
-![GlobalWebMonitor2][GlobalWebMonitor2]
-
-Para los sitios que se ejecutan en modo **estándar**, también puede habilitar las alertas y la supervisión de extremos. En la pestaña **Configurar**,vaya a la sección **supervisión** y configure un extremo. Este extremo se ejecuta desde una o varias ubicaciones especificadas y trata periódicamente de obtener acceso al sitio web. Se recopila información sobre los errores y el tiempo. 
-
-En la pestaña **Supervisar**, este extremo parece mostrar el tiempo de respuesta. Si selecciona la métrica del extremo, puede agregar una regla de alertas si hace clic en el icono **Agregar regla**.
-
-![GlobalWebMonitor3][GlobalWebMonitor3]
-
-La regla puede enviar correos electrónicos a los administradores o a otras personas cuando el tiempo de respuesta supera el umbral especificado.
-
-![GlobalWebMonitor4][GlobalWebMonitor4]
-
-Si observa que el sitio precisa de escalado, puede hacerlo en la pestaña **Escalar** manualmente, o bien usar la característica Escalado automático (vista previa). La pestaña Escala ofrece opciones para escalar verticalmente (máquinas dedicadas más grandes) u horizontalmente (instancias compartidas adicionales o instancias dedicadas del mismo tamaño). No obstante, la característica Autoscale (Preview) solo admite el escalado horizontal. Para obtener información más detallada acerca de la supervisión de sitios web, consulte la sección "Escala según la demanda de los usuarios" del escenario [Campaña de marketing digital][scenariodigitalmarketing]. Consulte también [Supervisión de sitios web][howtomonitor].
-
-##<a name="summary"></a>Resumen
-Para crear el sitio (.COM) de su organización, las tareas habituales comprenden la elección de un marco de desarrollo, la creación del sitio, la implementación, la asignación de dominios personalizados y la supervisión. Si se trata de sitios que deben proteger los datos de los usuarios, se recomienda encarecidamente usar SSL. En este artículo se ha ofrecido información general acerca de la ejecución de estas tareas con Sitios web Azure. Para obtener más información, consulte los siguientes artículos técnicos a los que se hace referencia en el documento.
-
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="top">Ámbito</th>
-   <th align="left" valign="top">Recursos</th>
-</tr>
-<tr>
-   <td valign="middle"><strong>Plan</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Sitios web Azure, Servicios en la nube y Máquinas virtuales: cuándo usar cada uno</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Creación</strong></td>
-   <td valign="top">- <a href="http://azure.microsoft.com/en-us/documentation/articles/web-sites-dotnet-get-started/">Introducción a Sitios web Azure y ASP.NET</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Implementación</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/publishing-with-git/">Publicación del control de código fuente a Sitios web Azure</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/">Implementación de una aplicación web ASP.NET en un sitio web de Azure</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/website-with-webmatrix/">Desarrollo e implementación de un sitio web con Microsoft WebMatrix</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Dominios personalizados</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/custom-dns-web-site/">Configuración de un nombre de dominio personalizado para un sitio web de Azure.</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>SSL</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/">Configuración de un certificado SSL para un sitio web de Azure</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Monitor</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">Supervisión de sitios web</a></td>
-</tr>
-</table>
-
-  [websitesoverview]:/en-us/documentation/services/web-sites/
-  [csoverview]:/en-us/documentation/services/cloud-services/
-  [vmoverview]:/en-us/documentation/services/virtual-machines/
-  [chooseservice]:/en-us/manage/services/web-sites/choose-web-app-service
-  
-  
-  [scenariodigitalmarketing]:/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview
-  [howtocreatewebsites]:/en-us/documentation/articles/web-sites-dotnet-get-started
-  [webmatrix]:http://www.microsoft.com/web/webmatrix/
-  [publishingwithgit]:/en-us/develop/net/common-tasks/publishing-with-git/
-  [aspnetgetstarted]:/en-us/develop/net/tutorials/get-started/
-  [drupal]:https://drupal.org/
-  [umbraco]:http://umbraco.com/
-  [customdns]:/en-us/develop/net/common-tasks/custom-dns-web-site/
-  [ssl]:/en-us/develop/net/common-tasks/enable-ssl-web-site/
-  [openssl]:http://www.openssl.org/
-  [sni]:http://en.wikipedia.org/wiki/Server_Name_Indication
-  [sslpricing]:/en-us/pricing/details/web-sites/#service-ssl
-  [howtomonitor]:/en-us/manage/services/web-sites/how-to-monitor-websites/
-  
- [GlobalWebCreate]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Create.png
-  [GlobalWebQuickGlance]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_QuickGlance.png
-  [GlobalWebMonitor1]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor1.png
-  [GlobalWebMonitor2]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor2.png
-  [GlobalWebMonitor3]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor3.png
-  [GlobalWebMonitor4]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Monitor4.png
-  [GlobalWebVSPublish]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_VS_Publish.png
-  [GlobalWebSSLBindings]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_SSL_Bindings.png
-  [GlobalWebUplodateCert]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_Uplodate_Cert.png
-  [GlobalWebCustomDomain]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_CustomDomain.png
-  [GlobalWebWebMatrix]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_WebMatrix.png
-  [GlobalWebFTPSettings]: ./media/web-sites-global-web-presence-solution-overview/GlobalWeb_FTPSettings.png
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

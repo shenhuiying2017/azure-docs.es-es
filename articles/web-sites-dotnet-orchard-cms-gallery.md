@@ -1,8 +1,22 @@
-﻿<properties urlDisplayName="Website from Gallery" pageTitle="Creación de un sitio web de Orchard CMS desde la Galería de Azure" metaKeywords ="Azure crear sitio Web, administrar sitio web Azure" description="Un tutorial que le enseña a crear un nuevo sitio web en Azure. También explica cómo iniciar y administrar el sitio con el Portal de administración." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Create an Orchard CMS website from the gallery in Azure" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Creación de un sitio web de Orchard CMS desde la Galería de Azure" 
+	description="Un tutorial que le enseña a crear un nuevo sitio web en Azure. También explica cómo iniciar y administrar el sitio con el Portal de administración." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="tomfitz"/>
 
-# Creación de un sitio web de Orchard CMS desde la galería de Azure
+# Creación de un sitio web de Orchard CMS desde la Galería de Azure
 
 La galería pone a disposición del usuario una gran variedad de populares aplicaciones web desarrolladas por Microsoft, compañías de terceros e iniciativas de software de código abierto. Las aplicaciones web creadas desde la galería no requieren la instalación de ningún software que no sea el explorador utilizado para conectarse al [Portal de administración de Azure](http://manage.windowsazure.com). Para obtener más información sobre las aplicaciones web de la galería, consulte [Windows Web App Gallery](http://www.microsoft.com/web/gallery/categories.aspx).
 
@@ -16,13 +30,13 @@ Va a crear un sitio Orchard CMS que utiliza una plantilla predeterminada. [Orcha
 
 ![Orchard blog][13]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 <h2>Creación de un sitio web de Orchard desde la galería</h2>
 
 1. Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com).
 
-2. Haga clic en el icono **New**, situado en la parte inferior izquierda del portal.
+2. Haga clic en el icono **Nuevo**, situado en la parte inferior izquierda del portal.
 	
 	![Create New][1]
 
@@ -64,8 +78,8 @@ Azure iniciará las operaciones de compilación e implementación. Durante la co
 3. Siga los detalles de la [documentación de Orchard](http://docs.orchardproject.net/) (en inglés) para obtener más información sobre Orchard y configurar el sitio web.
 
 <h2>Paso siguiente</h2>
-* [Desarrollo e implementación de un sitio web con Microsoft WebMatrix](/es-es/develop/net/tutorials/website-with-webmatrix/) - Obtenga información sobre cómo editar un sitio web de Azure en WebMatrix. 
-* [Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL en un sitio web de Azure](/es-es/develop/net/tutorials/web-site-with-sql-database/) - Obtenga información acerca de cómo crear un nuevo sitio web desde Visual Studio.
+* [Desarrollo e implementación de un sitio web con Microsoft WebMatrix](/es-es/develop/net/tutorials/website-with-webmatrix/)-- Obtenga información sobre cómo editar un sitio web de Azure en WebMatrix.
+* [Implementación de una aplicación ASP.NET MVC segura con suscripción, OAuth y Base de datos SQL en un sitio web de Azure](/es-es/develop/net/tutorials/web-site-with-sql-database/)-- Obtenga información acerca de cómo crear un nuevo sitio web desde Visual Studio.
 
 [1]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-01.png
 [2]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-02.png
@@ -77,3 +91,8 @@ Azure iniciará las operaciones de compilación e implementación. Durante la co
 [13]: ./media/web-sites-dotnet-orchard-cms-gallery/orchardgallery-08.png
 
 
+
+
+
+
+<!--HONumber=42-->

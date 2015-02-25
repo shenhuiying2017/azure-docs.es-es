@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website with WebMatrix" pageTitle="Sitio web de Node.js con WebMatrix: tutorial de Azure" metaKeywords="" description="Un tutorial que le enseña cómo usar WebMatrix para desarrollar e implementar una aplicación Node.js en un sitio web de Azure." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="Build and deploy a Node.js website to Azure using WebMatrix" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Sitio web de Node.js con WebMatrix: tutorial de Azure" 
+	description="Un tutorial que le enseña cómo usar WebMatrix para desarrollar e implementar una aplicación Node.js en un sitio web de Azure." 
+	services="web-sites" 
+	documentationCenter="nodejs" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 # Compilación e implementación de un sitio web Node.js en Azure con WebMatrix
@@ -13,16 +27,13 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 ![Azure node Web site][webmatrix-node-completed]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Inicio de sesión en Azure
 
 Siga estos pasos para crear un sitio web de Azure.
 
-<div class="dev-callout"><strong>Nota:</strong>
-<p>Para completar este tutorial, necesita una cuenta de Azure que tenga habilitada la característica Sitios web Azure.</p>
-<p>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A7171371E" target="_blank">Evaluación gratuita de Azure</a>.</p>
-</div>
+> [AZURE.NOTE] Para completar este tutorial, necesita una cuenta de Azure que tenga habilitada la característica Sitios web Azure.  <br /> En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A7171371E"%20target="_blank").
 <br />
 
 1. Inicie WebMatrix
@@ -89,7 +100,7 @@ Puede modificar y volver a publicar su aplicación fácilmente. En este caso, re
 
 ##Pasos siguientes
 
-Para obtener más información acerca de las versiones de Node.js que se proporcionan con Azure y la forma de especificar la versión que se debe utilizar con su aplicación, consulte [Especificación de una versión de Node.js en una aplicación Azure](/es-es/documentation/articles/nodejs-specify-node-version-azure-apps/).
+Para obtener más información acerca de las versiones de Node.js que se proporcionan con Azure y la forma de especificar la versión que se debe utilizar con su aplicación, consulte [Especificación de una versión de Node.js en una aplicación Azure]/es-es/documentation/articles/nodejs-specify-node-version-azure-apps/)..
 
 Si tiene problemas con su aplicación después de la implementación en Azure, consulte [Depuración de una aplicación Node.js en Sitios web Azure](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/Debug-Website/) para obtener información acerca del diagnóstico del problema.
 
@@ -99,7 +110,7 @@ Si tiene problemas con su aplicación después de la implementación en Azure, c
 [WebMatrix for Azure]: http://go.microsoft.com/fwlink/?LinkID=253622&clcid=0x409
 
 [Publicación de un sitio web Azure con Git]: /es-es/develop/nodejs/common-tasks/publishing-with-git/
-[for free]: /es-es/pricing/free-trial
+[de forma gratuita]: /es-es/pricing/free-trial
 [webmatrix-node-completed]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-complete.png
 
 
@@ -125,3 +136,8 @@ Si tiene problemas con su aplicación después de la implementación en Azure, c
 [signin]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-sign-in.png
 [sitefromtemplate]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-site-from-template.png
 [nodesitefromtemplateazure]: ./media/web-sites-nodejs-use-webmatrix/webmatrix-node-site-azure.png
+
+
+
+
+<!--HONumber=42-->

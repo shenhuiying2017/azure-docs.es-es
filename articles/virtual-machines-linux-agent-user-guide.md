@@ -1,6 +1,6 @@
-<properties urlDisplayName="Linux Agent guide" pageTitle="Guía de usuario del Agente de Linux para Azure" metaKeywords="" description="Aprenda a instalar y configurar el Agente de Linux (waagent) para administrar la interacción de la máquina virtual con el controlador de tejido de Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="Azure Linux Agent User Guide" authors="szarkos" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Guía de usuario del Agente de Linux para Azure" description="Aprenda a instalar y configurar el Agente de Linux (waagent) para administrar la interacción de la máquina virtual con el controlador de tejido de Azure." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos"/>
 
 
 
@@ -99,15 +99,15 @@ El archivo de registro del agente se guarda en /var/log/waagent.log.
 - install: Instalación manual del agente
  * Comprueba las dependencias requeridas del sistema
 
- * Crea el script init de SysV (/etc/init.d/waagent), el archivo de configuración logrotate (/etc/logrotate.d/waagent)  y configura la imagen para que ejecute el script init en el arranque.
+ * Crea el script init SysV (/etc/init.d/waagent), el archivo de configuración logrotate (/etc/logrotate.d/waagent) y configura la imagen para que ejecute el script init en el arranque
 
  * Escribe un archivo de configuración de muestra en /etc/waagent.conf
 
- * Todo archivo de configuración existente se mueve a //etc/waagent.conf.old
+ * Todo archivo de configuración existente se mueve a /etc/waagent.conf.old
 
  * Detecta la versión del kernel y aplica la solución alternativa VNUMA si es necesario
 
- * Mueve las reglas de udev que pueden interferir con la red (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) a /var/lib/waagent/  
+ * Reglas de udev de movimientos que pueden interferir con la red (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) en /var/lib/waagent/  
 
 - uninstall: Quita waagent y los archivos asociados
  * Quita del registro el script init del sistema y lo elimina
@@ -185,7 +185,7 @@ Si se específica una ruta a un programa ejecutable, se invoca cuando waagent ha
 Tipo: String  
 Predeterminado: None
 
-Si se especifica una ruta a un programa ejecutable, el programa se invoca cuando el Tejido indica que hay un archivo de configuración disponible para la máquina virtual. La ruta al archivo de configuración XML se proporciona como un argumento para el ejecutable. Este se puede invocar todas las veces que el archivo de configuración cambia. En el Anexo se proporciona un archivo de muestra. La ruta actual de este archivo es /var/lib/waagent/HostingEnvironmentConfig.xml.
+Si se especifica una ruta a un programa ejecutable, el programa se invoca cuando el Tejido indica que hay un archivo de configuración disponible para la máquina virtual. La ruta al archivo de configuración XML se proporciona como un argumento para el ejecutable. Este se puede invocar todas las veces que el archivo de configuración cambia. En el Anexo se proporciona un archivo de muestra. La ruta de acceso actual de este archivo es /var/lib/waagent/HostingEnvironmentConfig.xml.
 
 **Role.TopologyConsumer:**
 
@@ -250,18 +250,18 @@ De esta manera se especifica el tipo de sistema de archivos para el disco de rec
 Tipo: String  
 Predeterminado: /mnt/resource 
 
-Esta opción especifica la ruta en la cual se monta el disco de recursos. Tenga en cuenta que el disco de recursos es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona.
+Esta opción especifica la ruta en la cual se monta el disco de recursos. Tenga en cuenta que el disco de recursos es un disco  *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona.
 
 **ResourceDisk.EnableSwap:**
 
 Tipo: Boolean  
 Predeterminado: n 
 
-Si está establecido, se crea un archivo de (/swapfile) intercambio (/swapfile) en el disco de recursos y se agrega al espacio de intercambio del sistema.
+Si se establece, se crea un archivo de intercambio (/swapfile) en el disco de recursos y se agrega al espacio de intercambio del sistema.
 
 **ResourceDisk.SwapSizeMB:**
 
-Tipo: Integer  
+Tipo: entero  
 Predeterminado: 0
 
 El tamaño del archivo de intercambio en megabytes.
@@ -314,7 +314,7 @@ Esta opción se puede usar para especificar una ruta alternativa para que el bin
 	    <PrivilegeLevel mode="max" />
 	    <AdditionalProperties><CgiHandlers></CgiHandlers></AdditionalProperties></HostingEnvironmentSettings>
 	    <ApplicationSettings>
-	      <Setting name="__ModelData" value="<m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;><r name=&quot;LinuxVM&quot;><e name=&quot;HTTP&quot; /><e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; /><e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; /><e name=&quot;SSH&quot; /></r></m>" />
+	      <Setting name="__ModelData" value="&lt;m role=&quot;LinuxVM&quot; xmlns=&quot;urn:azure:m:v1&quot;>&lt;r name=&quot;LinuxVM&quot;>&lt;e name=&quot;HTTP&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteAccess.Rdp&quot; />&lt;e name=&quot;Microsoft.WindowsAzure.Plugins.RemoteForwarder.RdpInput&quot; />&lt;e name=&quot;SSH&quot; />&lt;/r>&lt;/m>" />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="..." />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2015-11-06T23:59:59.0000000-08:00" />
 	      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="rdos" />
@@ -405,4 +405,7 @@ Esta opción se puede usar para especificar una ruta alternativa para que el bin
 	  </Instances>
 	</SharedConfig>
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

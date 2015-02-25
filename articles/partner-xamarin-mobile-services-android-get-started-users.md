@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="Get Started with Authentication (Xamarin.Android)" pageTitle="Introducción a la autenticación (Xamarin.Android) - Servicios móviles" metaKeywords="registro de aplicación de Azure, autenticación de Azure, autenticación de aplicaciones, autenticar servicios móviles, Servicios móviles Xamarin.Android" description="Obtenga información acerca de cómo usar la autenticación en su aplicación de Servicios móviles de Azure para Xamarin.Android." metaCanonical="" disqusComments="1" umbracoNaviHide="1" title="Get started with authentication in Mobile Services" services="mobile-services" documentationCenter="Mobile" manager="dwrede" authors="donnam"/>
+﻿<properties 
+	pageTitle="Introducción a la autenticación (Xamarin.Android) - Servicios móviles" 
+	description="Obtenga información acerca de cómo usar la autenticación en su aplicación de Servicios móviles de Azure para Xamarin.Android." 
+	services="mobile-services" 
+	documentationCenter="xamarin" 
+	manager="dwrede" 
+	authors="lindydonna" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="donnam"/>
 
-# Incorporación de autenticación a la aplicación de Servicios móviles
+# Agregar autenticación a la aplicación de Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-<p>En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde su aplicación Xamarin.Android. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que se haya realizado la autenticación y autorización correctamente en los Servicios móviles, se mostrará el valor de identificador de usuario.</p>
+<p>En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde su aplicación Xamarin.Android. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.</p>
 
 En este tutorial se realiza un recorrido por los pasos básicos para habilitar la autenticación en su aplicación:
 
@@ -14,18 +28,18 @@ En este tutorial se realiza un recorrido por los pasos básicos para habilitar l
 2. [Restricción de los permisos de tabla a usuarios autenticados]
 3. [Incorporación de autenticación a la aplicación]
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a Servicios móviles]. 
+Este tutorial está basado en el inicio rápido de Servicios móviles. Primero debe completar el tutorial [Introducción a los Servicios móviles]. 
 
 Para completar este tutorial necesita Xamarin.Android y el SDK de Android 4.2 o una versión posterior. 
 
 <h2><a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles</h2>
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 <h2><a name="permissions"></a>Restricción de los permisos para los usuarios autenticados</h2>
 
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 
 3. En Eclipse, abra el proyecto que ha creado al completar el tutorial [Introducción a Servicios móviles]. 
@@ -59,11 +73,9 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
     De este modo se crea un método para administrar el proceso de autenticación. El usuario se autentica mediante el inicio de sesión de la cuenta Microsoft. Aparecerá un diálogo que muestra el identificador del usuario autenticado. No puede continuar sin una autenticación positiva.
 
-    <div class="dev-callout"><b>Nota:</b>
-	<p>Si usa un proveedor de identidades que no sea Microsoft, cambie el valor que ha pasado al método <strong>login</strong> anterior por uno de los siguientes: <i>Facebook</i>, <i>Google</i>, <i>Twitter</i> o <i>WindowsAzureActiveDirectory</i>.</p>
-    </div>
+    > [AZURE.NOTE] Si usa un proveedor de identidades que no sea Microsoft, cambie el valor que ha pasado al método **login** anterior por uno de los siguientes: _Facebook_, _Google_, _Twitter_, o _WindowsAzureActiveDirectory_.
 
-3. En el método **OnCreate**, agregue la línea de código siguiente después del código que crea instancias en el objeto `MobileServiceClient`.
+3. En el método **onCreate**, agregue la línea de código siguiente después del código que crea instancias en el objeto  `MobileServiceClient`.
 
 		await Authenticate();
 
@@ -92,7 +104,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 		await CreateTable();
 
 
-6. En el menú **Ejecutar**, haga clic en **Ejecutar** para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido. 
+6. En el menú **Run (Ejecutar)**, haga clic en **Run (Ejecutar)** para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido. 
 
    	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
 
@@ -122,12 +134,19 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introducción a Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-xamarin-android
+[Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-xamarin-android
 [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android
 [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android
 [Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-xamarin-android
-[Autorización a los usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
+[Autorizar a los usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-[proyecto de ejemplo completo]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+[proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+
+
+
+
+
+
+<!--HONumber=42-->

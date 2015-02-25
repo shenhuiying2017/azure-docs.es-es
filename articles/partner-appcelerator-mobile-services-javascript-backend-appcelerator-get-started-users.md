@@ -1,12 +1,26 @@
-﻿<properties pageTitle="Introducción a la autenticación (Appcelerator) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación iOS a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with authentication in Mobile Services" authors="Appcelerator team;mahender" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Introducción a la autenticación (Appcelerator) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación iOS a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-appcelerator" ms.devlang="multiple" ms.topic="article" ms.date="11/24/2014" ms.author="Appcelerator team;mahender" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="mahender"/>
 
 # Introducción a la autenticación en Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-En este tema se muestra cómo autenticar usuarios en Servicios móviles de Windows Azure desde su aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
+En este tema se muestra cómo autenticar a los usuarios en los Servicios móviles de Microsoft Azure desde su aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
 En este tutorial se realiza un recorrido por los pasos básicos para habilitar la autenticación en su aplicación:
 
@@ -20,11 +34,11 @@ Para finalizar este tutorial se necesita Appcelerator Titanium Studio 3.2.1 o po
 
 ##<a name="register"></a>Registro de la aplicación para la autenticación y configuración de Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
+[AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
-##<a name="permissions"></a> Restricción de los permisos para los usuarios autenticados
+##<a name="permissions"></a>Restricción de los permisos para los usuarios autenticados
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
+[AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)]
 
 3.	En Appcelerator Titanium Studio, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles].
 
@@ -80,7 +94,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
             }
         });
 
->[WACOM.NOTE] Si usa un proveedor de identidades que no sea Google, cambie el valor que ha pasado al método **authorizeClient** por uno de los siguientes: *microsoftaccount*, *facebook*, *twitter* o *windowsazureactivedirectory*.
+>[AZURE.NOTE] Si usa un proveedor de identidades distinto de Google, cambie el valor que ha pasado al método **authorizeClient** por uno de los siguientes: *microsoftaccount*, *facebook*, *twitter* o *windowsazureactivedirectory*.
 
 4.	Presione el botón Run para compilar el proyecto, inicie la aplicación en el simulador de iPhone o en el emulador de Android y después haga clic en la opción With Login para iniciar sesión con el proveedor de identidades.
 
@@ -96,6 +110,10 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 <!-- Images. -->
 
 <!-- URLs. -->
-[Introducción a los Servicios móviles]: /en-us/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[Introducción a los Servicios móviles]: /es-es/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
 
-<!--HONumber=35.1-->
+
+
+
+
+<!--HONumber=42-->

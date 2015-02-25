@@ -1,31 +1,31 @@
-﻿<properties pageTitle="Introducción a los centros de notificaciones de inserción usando servicios móviles en tiempo de ejecución de .NET" metaKeywords="" description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación de la Tienda Windows." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" authors="wesmc,ricksal" solutions="mobile" manager="dwrede" editor="" />
+<properties pageTitle="Introducción a los centros de notificaciones de inserción usando servicios móviles en tiempo de ejecución de .NET" description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación de la Tienda Windows." services="mobile-services, notification-hubs" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc,ricksal" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc,ricksal"/>
 
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push-legacy](../includes/mobile-services-selector-get-started-push-legacy.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push-legacy](../includes/mobile-services-selector-get-started-push-legacy.md)]
 
-Este tema muestra cómo usar Servicios móviles de Azure con un back-end .NET para enviar notificaciones de inserción a una aplicación universal para Windows. Este tutorial le permite habilitar notificaciones de inserción con los Centros de notificaciones de Azure para el proyecto de inicio rápido universal de Windows. Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción desde el back-end de .NET con los Centros de notificación cada vez que se inserte un registro. El centro de notificaciones que cree es gratuito con el servicio móvil, puede administrarse independientemente del servicio móvil y pueden utilizarlo otras aplicaciones y servicios.
+Este tema muestra cómo usar Servicios móviles de Azure con un back-end de .NET para enviar notificaciones de inserción a una aplicación universal para Windows. Este tutorial le permite habilitar notificaciones de inserción con los Centros de notificaciones de Azure para el proyecto de inicio rápido universal de Windows. Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción desde el back-end de .NET con los Centros de notificación cada vez que se inserte un registro. El centro de notificaciones que cree es gratuito con el servicio móvil, puede administrarse independientemente del servicio móvil y pueden utilizarlo otras aplicaciones y servicios.
 
->[WACOM.NOTE]En este tema se muestra cómo configurar manualmente las notificaciones de inserción mediante el Servicio de notificaciones de inserción de Windows (WNS) para una aplicación de la Tienda Windows. Puede usar las herramientas de Visual Studio 2013 para configurar automáticamente las mismas notificaciones de inserción en un proyecto de aplicación de Windows. Para obtener más información, consulte la [versión de la aplicación universal de Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push) de este tutorial.
+>[AZURE.NOTE] En este tema se muestra cómo configurar manualmente las notificaciones de inserción mediante el Servicio de notificaciones de Windows (WNS) para una aplicación de la Tienda Windows. Puede usar las herramientas de Visual Studio 2013 para configurar automáticamente las mismas notificaciones de inserción en un proyecto de aplicación de Windows. Para obtener más información, vea la [versión de la aplicación universal de Windows](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-push) de este tutorial.
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 
 1. [Registro de la aplicación con WNS y configuración de Servicios móviles](#register)
 2. [Actualización de la aplicación para registrarse a fin de recibir notificaciones](#update-app)
 3. [Actualización del servidor para enviar notificaciones de inserción](#update-server)
-4. [Habilitar notificaciones de inserción para pruebas locales](#local-testing)
+4. [Habilitación de notificaciones de inserción para pruebas locales](#local-testing)
 3. [Inserción de datos para recibir notificaciones de inserción](#test)
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de empezar este tutorial, primero debe completar [Introducción a Servicios móviles] o [Introducción a los datos] para conectar su proyecto al servicio móvil. 
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de empezar este tutorial, primero debe completar [Introducción a los Servicios móviles] o [Introducción a los datos] para conectar su proyecto al servicio móvil. 
 
->[WACOM.NOTE]En este tema se describen las aplicaciones para Windows Phone 8.1 de la Tienda Windows. Para agregar notificaciones de inserción a una aplicación de Windows Phone Silverlight 8.1 o Windows Phone 8, consulte esta versión de [Introducción a las notificaciones de inserción en Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push).
+>[AZURE.NOTE] En este tema se describen las aplicaciones para Windows Phone 8.1 de la Tienda Windows. Para agregar notificaciones de inserción a una aplicación de Windows Phone Silverlight 8.1 o Windows Phone 8, consulte esta versión de [Introducción a las notificaciones de inserción en Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push).
 
 ##<a id="register"></a> Registro de la aplicación con WNS y configuración de Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-notification-hubs-register-windows-store-app](../includes/mobile-services-notification-hubs-register-windows-store-app.md)]
+[AZURE.INCLUDE [mobile-services-notification-hubs-register-windows-store-app](../includes/mobile-services-notification-hubs-register-windows-store-app.md)]
 
 El servicio móvil y las aplicaciones están ahora configurados para funcionar con WNS y con los Centros de notificaciones. A continuación, actualizará la aplicación universal de Windows para el registro de notificaciones.
 
@@ -33,12 +33,12 @@ El servicio móvil y las aplicaciones están ahora configurados para funcionar c
 
 Para que la aplicación pueda recibir notificaciones de inserción, debe registrar un canal de notificaciones.
 
-E1. n Visual Studio, abra el archivo App.xaml.cs y agregue la siguiente instrucción `using`:
+1. En Visual Studio, abra el archivo App.xaml.cs y agregue las siguientes instrucciones  `using`:
 
         using Windows.Networking.PushNotifications;
 		using Windows.UI.Popups;
 
-2. Agregue el siguiente método `InitNotificationAsync` a la clase **App** para crear un canal de notificaciones de inserción y registrarse para obtener notificaciones de inserción. 
+2. Agregue el siguiente método `InitNotificationAsync` a la clase **App** para crear un canal de notificaciones de inserción y registrarse para obtener notificaciones de inserción: 
 	
         private async void InitNotificationsAsync()
         {
@@ -81,44 +81,44 @@ E1. n Visual Studio, abra el archivo App.xaml.cs y agregue la siguiente instrucc
 
 ##<a id="update-server"></a> Actualización del servidor para enviar notificaciones de inserción
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-update-server-push](../includes/mobile-services-dotnet-backend-update-server-push.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-update-server-push](../includes/mobile-services-dotnet-backend-update-server-push.md)]
 
-##<a id="local-testing"></a> Habilitar notificaciones de inserción para pruebas locales
+##<a id="local-testing"></a> Habilitación de notificaciones de inserción para pruebas locales
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-configure-local-push](../includes/mobile-services-dotnet-backend-configure-local-push.md)]
 
-##<a id="test"></a> Probar las notificaciones de inserción en su aplicación
+##<a id="test"></a> Prueba de las notificaciones de inserción en su aplicación
 
-[WACOM.INCLUDE [mobile-services-windows-store-test-push](../includes/mobile-services-windows-store-test-push.md)]
+[AZURE.INCLUDE [mobile-services-windows-store-test-push](../includes/mobile-services-windows-store-test-push.md)]
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
-En este tutorial hemos presentado las nociones para habilitar una aplicación de la Tienda Windows para que envíe notificaciones de inserción con Servicios móviles y Centros de notificaciones. Le recomendamos que después realice el siguiente tutorial sobre cómo [enviar notificaciones de inserción a usuarios autenticados], que muestra cómo enviar estas notificaciones con etiquetas desde un servicio móvil a un único usuario autenticado.
+En este tutorial hemos presentado las nociones para habilitar una aplicación de la Tienda Windows para que envíe notificaciones de inserción con Servicios móviles y Centros de notificaciones. Le recomendamos que después complete el tutorial [Envío de notificaciones de inserción a usuarios autenticados], que muestra cómo enviar estas notificaciones con etiquetas desde un servicio móvil a un único usuario autenticado.
 
-<!--+ [Send push notifications to authenticated users]
-	<br/>Aprenda a utilizar etiquetas para enviar notificaciones de inserción desde un servicio móvil a solo un usuario autenticado.
+<!--+ [Envío de notificaciones de inserción a usuarios autenticados]
+	<br/>Aprenda a usar las etiquetas para enviar notificaciones de inserción desde un servicio móvil a solo un usuario autenticado.
 
-+ [Envío de notificaciones de difusión a suscriptores]
-	<br/>Obtenga información acerca de cómo los usuarios pueden registrar y recibir notificaciones de inserción para las categorías que les interesan.
++ [Envío de notificaciones de difusión a los suscriptores]
+	<br/>Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
 
-+ [Envío de notificaciones basadas en plantillas a suscriptores]
-	<br/>Aprenda a utilizar plantillas para enviar notificaciones de inserción de un servicio móvil, sin necesidad de cargas de trabajo específicas de la plataforma en el back-end.
++ [Envío de notificaciones basadas en plantillas a los suscriptores]
+	<br/>Obtenga información sobre cómo usar las plantillas para enviar notificaciones de inserción desde un servicio móvil sin tener que diseñar cargas específicas de plataforma en el back-end.
 -->
 Puede obtener más información acerca de los Servicios móviles y los Centros de notificaciones en los siguientes temas:
 
 * [Introducción a los datos]
-  <br/>Obtenga más información sobre cómo almacenar y consultar datos con servicios móviles.
+  <br/>Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
 * [Introducción a la autenticación]
-  <br/>Aprenda a autenticar a los usuarios de su aplicación con diferentes tipos de cuenta con servicios móviles.
+  <br/>Aprenda a autenticar a los usuarios de su aplicación con distintos tipos de cuentas con los Servicios móviles.
 
 * [¿Qué son los Centros de notificaciones?]
   <br/>Aprenda cómo funcionan los Centros de notificaciones para entregar notificaciones a sus aplicaciones en todas las principales plataformas cliente.
 
 * [Depuración de aplicaciones de los Centros de notificaciones](http://go.microsoft.com/fwlink/p/?linkid=386630)
-  </br>Obtenga orientación para solucionar problemas de las soluciones de centros de notificaciones y depurar dichas soluciones. 
+  </br>Obtenga orientación para solucionar y depurar las soluciones de Centros de notificaciones. 
 
-* [Referencia conceptual de Servicios móviles con .NET]
+* [Referencia conceptual de servicios móviles con .NET]
   <br/>Obtenga más información sobre el uso de Servicios móviles con .NET.
 
 <!-- Anchors. -->
@@ -132,18 +132,21 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 
 
 <!-- URLs. -->
-[Enviar una página de aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introducción a Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
+[Introducción a los servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started
 [Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
 [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
 
 [Envío de notificaciones de inserción a usuarios autenticados]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-push-notifications-app-users/
 
-[¿Qué son los centros de notificaciones?]: /es-us/documentation/articles/notification-hubs-overview/
-[Envío de notificaciones de difusión a suscriptores]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
-[Envío de notificaciones basadas en plantilla a suscriptores]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
+[¿Qué son los Centros de notificaciones?]: /es-es/documentation/articles/notification-hubs-overview/
+[Envío de notificaciones de difusión a los suscriptores]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-breaking-news/
+[Envío de notificaciones basadas en plantillas a los suscriptores]: /es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/
 
 
 [Referencia conceptual de Servicios móviles con .NET]: /es-es/documentation/articles/mobile-services-html-how-to-use-client-library
+
+
+<!--HONumber=42-->

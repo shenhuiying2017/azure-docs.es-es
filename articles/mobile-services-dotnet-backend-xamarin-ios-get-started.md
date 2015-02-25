@@ -1,14 +1,14 @@
-﻿<properties urlDisplayName="Get Started with Mobile Services for Xamarin iOS apps" pageTitle="Introducción a Servicios móviles para aplicaciones de iOS de Xamarin - Servicios móviles de Azure" metaKeywords="" description="Siga este tutorial para empezar a usar Servicios móviles de Azure para el desarrollo de Xamarin iOS" metaCanonical="" services="" documentationCenter="Mobile" title="Get Started with Mobile Services for Xamarin iOS apps" authors="donnam" solutions="" manager="dwrede" editor="mollybos" />
+﻿<properties pageTitle="Introducción a Servicios móviles para aplicaciones de iOS de Xamarin - Servicios móviles de Azure" description="Siga este tutorial para empezar a usar Servicios móviles de Azure para el desarrollo de Xamarin iOS" services="" documentationCenter="xamarin" authors="lindydonna" manager="dwrede" editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="11/11/2014" ms.author="donnam"/>
 
-# <a name="getting-started"> </a>Introducción a Servicios móviles
+# <a name="getting-started"> </a>Introducción a los Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started](../includes/mobile-services-selector-get-started.md)]
 
-En este tutorial se muestra cómo agregar un servicio de bac-kend basado en la nube a una aplicación Xamarin iOS usando Servicios móviles de Azure Con este tutorial creará tanto un servicio móvil nuevo como una aplicación simple de _Lista de pendientes_ que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que cree utilizará los lenguajes .NET compatibles y recurrirá a Visual Studio para la lógica de negocios de servidor y para las tareas de administración. Si desea crear un servicio móvil que le permita escribir la lógica empresarial del lado del servidor en JavaScript, consulte la [versión back-end de este tema para JavaScript].
+En este tutorial se muestra cómo agregar un servicio de back-end basado en la nube a una aplicación Xamarin iOS usando los Servicios móviles de Azure. Con este tutorial, creará tanto un servicio móvil nuevo como una aplicación sencilla _To do list_ que almacena datos de la aplicación en el servicio móvil nuevo. El servicio móvil que cree utilizará los lenguajes .NET compatibles y recurrirá a Visual Studio para la lógica de negocios de servidor y para las tareas de administración. Para crear un servicio móvil que permita escribir la lógica de negocios del lado servidor en JavaScript, consulte la [versión back-end JavaScript] de este tema.
 
->[WACOM.NOTE]En este tema se muestra cómo crear un proyecto de servicio móvil nuevo desde el Portal de administración de Azure. Si usa Visual Studio 2013 con actualización 2, también puede agregar un proyecto de servicio móvil nuevo a una solución existente de Visual Studio. Para obtener más información, consulte [Quickstart: Add a mobile service (.NET backend)](http://msdn.microsoft.com/es-es/library/windows/apps/dn629482.aspx)
+>[AZURE.NOTE]En este tema se muestra cómo crear un proyecto de servicio móvil nuevo desde el Portal de administración de Azure. Si usa Visual Studio 2013 con actualización 2, también puede agregar un proyecto de servicio móvil nuevo a una solución existente de Visual Studio. Para obtener más información, consulte [Inicio rápido: Incorporación de un servicio móvil (back-end de .NET](http://msdn.microsoft.com/es-es/library/windows/apps/dn629482.aspx).
 
 La siguiente captura de pantalla muestra la aplicación final:
 
@@ -17,11 +17,11 @@ La siguiente captura de pantalla muestra la aplicación final:
 
 Completar este tutorial es un requisito previo para todos los tutoriales de Servicios móviles para aplicaciones Xamarin iOS. 
 
->[WACOM.NOTE]Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener detalles, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started" target="_blank">Evaluación gratuita de Azure</a>.<br />Este tutorial requiere <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. Hay disponible una versión de prueba gratuita.
+>[AZURE.NOTE]para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-xamarin-ios-get-started" target="_blank">Evaluación gratuita de Azure</a>.<br />Este tutorial requiere <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. Hay disponible una versión de prueba gratuita.
 
 ## Creación de un servicio móvil
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 ## Creación de una nueva aplicación Xamarin iOS
 
@@ -41,21 +41,21 @@ En esta sección va a descargar una nueva aplicación Xamarin iOS y un proyecto 
 
 3. Si todavía no lo ha hecho, descargue e instale <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a> en el equipo local o máquina virtual.  
 
-4. Descargue e instale [Xcode] v4.4 o posterior y [Xamarin Studio]. También puede usar Xamarin para Visual Studio.
+4. Descargue e instale [Xcode] v4.4 o una versión posterior y [Xamarin Studio]. También puede usar Xamarin para Visual Studio.
 
 5. En **Descargar y publicar el servicio en la nube**, seleccione **iOS** y haga clic en **Descargar**. 
 
-  	De esta forma, se descarga una solución que contiene proyectos tanto para el servicio móvil como para la aplicación _Lista de pendientes_ de ejemplo conectada a su servicio móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
+  	De esta forma, se descarga una solución que contiene proyectos tanto para el servicio móvil como para la aplicación _To do list_ de ejemplo que se conecta al servicio móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
 
 6. Descargue su perfil de publicación, guarde el archivo descargado en el equipo local y tome nota de dónde lo guarda.
 
 ## Prueba del servicio móvil
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-test-local-service](../includes/mobile-services-dotnet-backend-test-local-service.md)]
 
 ## Publicación del servicio móvil
 
-[WACOM.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 ## Ejecución de la aplicación Xamarin iOS
 
@@ -69,32 +69,32 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 
 2. Presione el botón **Ejecutar** para compilar el proyecto e iniciar la aplicación en el emulador de iPhone.
 
-3. En la aplicación, escriba un texto significativo, como _Realice el tutorial_. A continuación, haga clic en el icono de suma (**+**).
+3. En la aplicación, escriba texto significativo, como _Complete the tutorial_ y, a continuación, haga clic en el icono del signo más (**+**).
 
 	![][10]
 
 	Esta acción envía una solicitud POST al nuevo servicio móvil hospedado en Azure. Los datos de la solicitud se insertan en la tabla TodoItem. El servicio móvil devuelve los elementos almacenados en la tabla y los datos se muestran en la lista.
 
->[WACOM.NOTE]Puede revisar el código que obtiene acceso al servicio móvil para consultar e insertar datos en el archivo de C# QSTodoService.cs.
+>[AZURE.NOTE]Puede revisar el código que obtiene acceso al servicio móvil para consultar e insertar datos en el archivo de C# QSTodoService.cs.
 
     
 ## Pasos siguientes
 Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adicionales en los Servicios móviles: 
 
 * [Introducción a la sincronización de datos sin conexión]
-  <br/>Obtenga información acerca de cómo utilizar la sincronización de datos sin conexión para que la aplicación responde y robusto.
+  <br/>Descubra cómo el tutorial utiliza sincronización de datos sin conexión para hacer la aplicación sólida y con capacidad de respuesta.
 
 * [Introducción a la autenticación]
   <br/>Aprenda a autenticar a los usuarios de su aplicación con un proveedor de identidades.
 
-* [Introducción a las notificaciones de inserción] 
-  <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
+* [Introducción a las notificaciones de inserción]
+  <br/>Aprenda cómo enviar una notificación de inserción muy básica a la aplicación.
 
-* [Solución de problemas en un back-end .NET de Servicios móviles]
-  <br/> Aprenda a diagnosticar y corregir problemas que pueden surgir con un back-end .NET de Servicios móviles. 
+* [Solución de problemas en un back-end de .NET de Servicios móviles]
+  <br/> Aprenda a diagnosticar y corregir problemas que pueden surgir con un back-end de .NET de Servicios móviles. 
 
 <!-- Anchors. -->
-[Introducción a Servicios móviles]:#getting-started
+[Introducción a los Servicios móviles]:#getting-started
 [Creación de un servicio móvil]:#create-new-service
 [Pasos siguientes]:#next-steps
 
@@ -113,14 +113,16 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users
 [Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push
 [Visual Studio Professional 2013]: https://go.microsoft.com/fwLink/p/?LinkID=257546
-[SDK de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=257545
+[SDK de servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=257545
 [JavaScript y HTML]: mobile-services-win8-javascript/
 [Portal de administración]: https://manage.windowsazure.com/
 [Versión de back-end de JavaScript]: /es-es/documentation/articles/partner-xamarin-mobile-services-ios-get-started
 [Introducción a los datos en Servicios móviles con Visual Studio 2012]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-data-vs2012
-[Solución de problemas en un back-end .NET de Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
+[Solución de problemas en un back-end de .NET de Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-how-to-troubleshoot/
 
 
 [Xamarin Studio]: http://xamarin.com/download
 [Xcode]: https://go.microsoft.com/fwLink/?LinkID=266532&clcid=0x409
 [Xamarin para Windows]: https://go.microsoft.com/fwLink/?LinkID=330242&clcid=0x409
+
+<!--HONumber=42-->

@@ -1,14 +1,14 @@
-﻿<properties urlDisplayName="Deliver Apple HTTP Live Streaming (HLS)" pageTitle="Cómo proporcionar HTTP Live Streaming (HLS) de Apple para Azure" metaKeywords="" description="Aprenda a crear un localizador para el contenido de HTTP Live Streaming (HLS) de Apple en un servidor de origen de Servicios multimedia. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Deliver Apple HLS streaming content" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Cómo proporcionar HTTP Live Streaming (HLS) de Apple para Azure" description="Aprenda a crear un localizador para el contenido de HTTP Live Streaming (HLS) de Apple en un servidor de origen de Servicios multimedia. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
-
-
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
-<h1>Reproducción de contenido por secuencias HLS de Apple</h1>
 
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior era [ Entrega de contenido de streaming](../media-services-deliver-streaming-content/).
+
+<h1>  Entrega de streaming HLS de Apple</h1>
+
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Entrega de contenido de streaming](../media-services-deliver-streaming-content/).
 
 En este tema se explica cómo crear un localizador para el contenido por secuencias mediante HTTP Live Streaming (HLS) de Apple en un servidor de origen de Servicios multimedia. Use este enfoque para crear una dirección URL para el contenido HLS de Apple y proporciónela a los dispositivos iOS de Apple para la reproducción. El enfoque básico para generar la dirección URL del localizador es el mismo. Genere un localizador para la ruta de acceso del recurso de transmisión de HLS de Apple en un servidor de origen y, a continuación, genere una dirección URL completa que se vincule al manifiesto para el contenido de transmisión.
 
@@ -65,8 +65,8 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 
 Para obtener más información acerca de la entrega de recursos, consulte:
 <ul>
-<li><a href="http://msdn.microsoft.com/en-us/library/jj129575.aspx">Entrega de recursos con los Servicios multimedia para .NET</a></li>
-<li><a href="http://msdn.microsoft.com/en-us/library/jj129578.aspx">Entrega de recursos con la API de REST de Media Services</a></li>
+<li><a href="http://msdn.microsoft.com/es-es/library/jj129575.aspx">Entrega de recursos con los Servicios multimedia para .NET</a></li>
+<li><a href="http://msdn.microsoft.com/es-es/library/jj129578.aspx">Entrega de recursos con la API de REST de Media Services</a></li>
 </ul>
 
 <h2>Pasos siguientes</h2>
@@ -85,6 +85,6 @@ Con este tema concluyen los temas acerca del uso de los Servicios multimedia de 
 [Introducción al SDK de Servicios multimedia para .NET]: http://go.microsoft.com/fwlink/?linkid=252966
 [Creación de aplicaciones con la API REST de Servicios multimedia para .NET]: http://go.microsoft.com/fwlink/?linkid=252967
 [Creación de aplicaciones con el SDK de Servicios multimedia para .NET]: http://go.microsoft.com/fwlink/?linkid=247821
-[Foro de Servicios multimedia]: http://social.msdn.microsoft.com/Forums/en-US/MediaServices/threads
+[Foro de Servicios multimedia]: http://social.msdn.microsoft.com/Forums/es-es/MediaServices/threads
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

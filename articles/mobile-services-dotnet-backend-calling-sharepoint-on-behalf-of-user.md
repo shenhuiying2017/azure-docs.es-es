@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Access SharePoint on behalf of the user" pageTitle="Acceso a SharePoint en nombre del usuario | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo realizar llamadas a SharePoint en nombre del usuario" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Access SharePoint on behalf of the user" authors="mahender" manager="dwrede" />
+﻿<properties pageTitle="Acceso a SharePoint en nombre del usuario | Centro de desarrollo móvil" description="Obtenga información acerca de cómo realizar llamadas a SharePoint en nombre del usuario" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
 
 # Acceso a SharePoint en nombre del usuario
 
@@ -9,7 +9,7 @@
 <p>En este tema se muestra cómo tener acceso a las API de SharePoint en nombre del usuario que tiene la sesión actualmente iniciada.</p>
 <p>Si prefiere ver un vídeo, el clip que aparece a la derecha muestra los mismos pasos que este tutorial. En el vídeo, Mat Velloso le conduce a través de la actualización de una aplicación de la Tienda Windows para interactuar con SharePoint Online.</p>
 </div>
-<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">Ver el tutorial (en inglés)</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">Reproducir vídeo (en inglés)</span></a> <span class="time">12:51:00</span></div>
+<div class="dev-onpage-video-wrapper"><a href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="label">ver el tutorial</a> <a style="background-image: url('http://media.ch9.ms/ch9/f217/3f8cbf94-f36b-4162-b3da-1c00339ff217/AzureMobileServicesAADO365AuthenticationIdentityA_960.jpg') !important;" href="http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Azure-Mobile-Services-AAD-O365-Authentication-identity-across-services" target="_blank" class="dev-onpage-video"><span class="icon">Reproducir vídeo</span></a> <span class="time">12:51</span></div>
 </div>
 
 En este tutorial, actualizará la aplicación a partir del tutorial Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory para crear un documento de Word en SharePoint Online cuando se agrega un nuevo TodoItem.
@@ -26,16 +26,16 @@ Este tutorial requiere lo siguiente:
 
 * Visual Studio 2013 en Windows 8.1
 * Una suscripción activa a [SharePoint Online]
-* Realización del tutorial [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory]. Debe utilizar el inquilino que le suministra su suscripción a SharePoint.
+* Realización del tutorial [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory]. Debería utilizar el inquilino que le suministra su suscripción a SharePoint.
 
 ## <a name="configure-permissions"></a>Configuración de la aplicación para acceso delegado a SharePoint
-De manera predeterminada, el token que recibe de AAD tiene permisos limitados. Para acceder a una aplicación SaaS o a un recurso de terceros, como SharePoint Online, debe permitirlo explícitamente.
+De manera predeterminada, el token que recibe de AAD tiene permisos limitados. A fin de tener acceso a una aplicación SaaS o recurso de terceros, como SharePoint Online, debe permitirlo explícitamente.
 
 1. En la sección **Active Directory** del [Portal de administración de Azure], seleccione su inquilino. Vaya a la aplicación web que creó para el servicio móvil.
 
     ![][0]
 
-2. En la pestaña **Configurar**, desplácese hacia la parte inferior de la página hasta llegar a la sección de permisos a otras aplicaciones. Seleccione **Office 365 SharePoint Online** y conceda el permiso delegado **Editar o eliminar archivos de usuarios**. Haga clic en **Guardar**.
+2. En la pestaña **Configurar**, desplácese hacia la parte inferior de la página hasta llegar a la sección de permisos para otras aplicaciones. Seleccione **Office 365 SharePoint Online** y conceda el permiso delegado **Editar o eliminar archivos de usuarios**. Luego, haga clic en **Guardar**.
 
     ![][1]
 
@@ -47,11 +47,11 @@ A fin de realizar una llamada a SharePoint, tiene que especificar los extremos a
 
 1. Vuelva a la pestaña Aplicaciones de AAD para su inquilino y seleccione la aplicación web para su servicio móvil.
 
-2. En Configurar, desplácese hacia abajo hasta llegar a Claves. Obtendrá un Secreto de cliente generando una clave nueva. Tenga en cuenta que una vez que cree una clave y abandone la página, no hay manera de volver a sacarla del portal. En el momento de la creación debe copiar y guardar este valor en una ubicación segura. Seleccione una duración para la clave y, a continuación, haga clic en guardar y copie el valor resultante.
+2. En Configurar, desplácese hasta abajo hasta llegar a Claves. Obtendrá un Secreto de cliente generando una clave nueva. Tenga en cuenta que una vez que cree una clave y abandone la página, no hay manera de volver a sacarla del portal. En el momento de la creación debe copiar y guardar este valor en una ubicación segura. Seleccione una duración para la clave y, a continuación, haga clic en guardar y copie el valor resultante.
 
     ![][2]
 
-3. En la sección Servicios móviles del Portal de administración, vaya a la pestaña Configurar y desplácese hacia abajo hasta Configuración de la aplicación. Aquí puede suministrar un par clave-valor que le ayudará a hacer referencia a las credenciales necesarias.
+3. En la sección Servicios móviles del Portal de administración, vaya a la pestaña Configurar y desplácese hasta abajo hasta Configuración de la aplicación. Aquí puede suministrar un par clave-valor que le ayudará a enumerar las credenciales necesarias.
 
     ![][3]
 
@@ -65,13 +65,13 @@ Podrá obtener estos valores de nuevo en nuestro código utilizando ApiServices.
 
 ## <a name="obtain-token"></a>Obtención de un token de acceso y llamada a la API de SharePoint
 
-A fin de tener acceso a SharePoint, necesita un token de acceso especial con SharePoint como audiencia de destino. Para obtener este token, tiene que llamar de nuevo a AAD con la identidad del servicio móvil y el token que se emitió para el usuario.
+A fin de tener acceso a SharePoint, necesita un token de acceso especial con SharePoint como audiencia de destino. Para obtener este token, tiene que llamar de nuevo a AAD con la identidad del Servicio móvil y el token que se emitió para el usuario.
 
 1. Abra su proyecto de back-end de Servicios móviles en Visual Studio.
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-install-nuget](../includes/mobile-services-dotnet-adal-install-nuget.md)]
 
-2. En el proyecto de backend de Servicios móviles, cree una clase llamada SharePointUploadContext. En ella, agregue lo siguiente:
+2. En el proyecto de back-end de Servicios móviles, cree una clase nueva llamada SharePointUploadContext. En ella, agregue lo siguiente:
 
         private String accessToken;
         private String mySiteApiPath;
@@ -93,7 +93,7 @@ A fin de tener acceso a SharePoint, necesita un token de acceso especial con Sha
         {
             //Call ADAL and request a token to SharePoint with the access token
             AuthenticationContext ac = new AuthenticationContext(authority);
-            AuthenticationResult ar = ac.AcquireToken(sharepointURL, new UserAssertion(userToken), new ClientCredential(clientId, clientSecret));
+            AuthenticationResult ar = ac.AcquireToken(sharepointURL, new ClientCredential(clientId, clientSecret), new UserAssertion(userToken));
             accessToken = ar.AccessToken;
             string upn = ar.UserInfo.UserId;
             mySiteApiPath = "/personal/" + upn.Replace('@','_').Replace('.','_') + "/_api/web"; 
@@ -174,7 +174,7 @@ Para crear un documento de Word, utilizará el paquete de NuGet OpenXML. Instale
 
 ## <a name="test-application"></a>Prueba de la aplicación
 
-1. Publique los cambios en el backend y ejecute la aplicación cliente. Inicie sesión cuando se le solicite e inserte un nuevo TodoItem.
+1. Publique los cambios en el back-end y, a continuación, ejecute la aplicación cliente. Inicie sesión cuando se le solicite e inserte un nuevo TodoItem.
 
 2. Vaya a su sitio de SharePoint e inicie sesión con el mismo usuario.
 
@@ -203,3 +203,5 @@ Para crear un documento de Word, utilizará el paquete de NuGet OpenXML. Instale
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [SharePoint Online]: http://office.microsoft.com/es-es/sharepoint/
 [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory]: http://azure.microsoft.com/es-es/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/
+
+<!--HONumber=42-->

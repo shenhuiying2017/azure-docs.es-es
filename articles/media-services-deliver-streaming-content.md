@@ -1,11 +1,11 @@
-﻿<properties urlDisplayName="Deliver Streaming Content from Media Services" pageTitle="Cómo proporcionar contenido de transmisión por secuencias desde Servicios multimedia en Azure" metaKeywords="" description="Aprenda a proporcionar contenido de transmisión por secuencias desde Servicios multimedia mediante el uso de una URL directa. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." metaCanonical="" disqusComments="1" umbracoNaviHide="0" title="How to: Deliver streaming content" authors="juliako" manager="dwrede" />
+<properties pageTitle="Cómo proporcionar contenido de streaming desde Servicios multimedia en Azure" description="Aprenda a proporcionar contenido de streaming desde Servicios multimedia mediante el uso de una URL directa. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." authors="juliako" manager="dwrede" editor="" services="media-services" documentationCenter=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
-#Entrega de contenido de streaming
+#   Entrega de contenido de streaming
 
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior era [ Entrega de un recurso mediante descarga](../media-services-deliver-asset-download/).
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Entrega de un recurso mediante descarga](../media-services-deliver-asset-download/).
 
 Además de descargar el contenido multimedia de los Servicios multimedia, puede usar la transmisión de velocidad de bits adaptable para entregar contenido. Por ejemplo, puede crear una URL directa, lo que se conoce como localizador, al contenido por secuencias de un servidor de origen de los Servicios multimedia. Las aplicaciones cliente como Microsoft Silverlight pueden reproducir el contenido por secuencias directamente desde el localizador.
 
@@ -71,11 +71,11 @@ private static ILocator GetStreamingOriginLocator( string targetAssetID)
 
 Para obtener más información acerca de la entrega de recursos, consulte:
 <ul>
-<li><a href="http://msdn.microsoft.com/en-us/library/jj129575.aspx">Entrega de recursos con los Servicios multimedia para .NET</a></li>
-<li><a href="http://msdn.microsoft.com/en-us/library/jj129578.aspx">Entrega de recursos con la API de REST de Media Services</a></li>
+<li><a href="http://msdn.microsoft.com/es-es/library/jj129575.aspx">Entrega de recursos con los Servicios multimedia para .NET</a></li>
+<li><a href="http://msdn.microsoft.com/es-es/library/jj129578.aspx">Entrega de recursos con la API de REST de Media Services</a></li>
 </ul>
 
 <h2>Pasos siguientes</h2>
-Hasta el momento, hemos tratado la entrega de contenido multimedia mediante descarga desde la plataforma Almacenamiento de Azure y con el uso de Smooth Streaming. En el tema siguiente[Entrega de contenido HLS](../media-services-deliver-http-live-streaming-content/) se analiza la entrega de contenido de streaming usando Apple HTTP Live Streaming (HLS).
+Hasta el momento, hemos tratado la entrega de contenido multimedia mediante descarga desde la plataforma Almacenamiento de Azure y con el uso de Smooth Streaming. En el siguiente tema [Entrega de contenido HLS](../media-services-deliver-http-live-streaming-content/) se habla acerca de la entrega de contenido por secuencias mediante HTTP Live Streaming (HLS) de Apple.
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

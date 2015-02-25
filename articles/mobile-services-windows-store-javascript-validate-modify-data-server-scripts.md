@@ -1,10 +1,10 @@
-﻿<properties urlDisplayName="Validate Data" pageTitle="Uso de scripts de servidor para validar y modificar datos (JavaScript) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo validar y modificar los datos enviados mediante scripts de servidor desde su aplicación de JavaScript de la Tienda Windows." metaCanonical="http://www.windowsazure.com/es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Uso de scripts de servidor para validar y modificar datos (JavaScript) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo validar y modificar los datos enviados mediante scripts de servidor desde su aplicación de JavaScript de la Tienda Windows." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor 
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
 En este tema se muestra cómo aprovechar los scripts del servidor en Servicios móviles de Azure. Dichos scripts se registran en un servicio móvil y pueden usarse para realizar una gran variedad de operaciones en los datos que se han insertado y actualizado, incluidas la modificación y validación de los datos. En este tutorial, definirá y registrará scripts de servidor que sirven para validar y modificar datos. Dado que el comportamiento de los scripts del servidor suele afectar al cliente, también actualizará la aplicación de la Tienda Windows para que se beneficie de estos nuevos comportamientos.
 
@@ -25,7 +25,7 @@ Siempre es conveniente validar la longitud de los datos enviados por los usuario
 
    	![][0]
 
-2. Haga clic en la pestaña **Datos** y, a continuación, en la tabla **TodoItem**.
+2. Haga clic en la pestaña **Datos** y, a continuación, haga clic en la tabla **TodoItem**.
 
    	![][1]
 
@@ -33,7 +33,7 @@ Siempre es conveniente validar la longitud de los datos enviados por los usuario
 
    	![][2]
 
-4. Reemplace el script existente por la siguiente función y, a continuación, haga clic en **Guardar**.
+4. Sustituya el script existente por la siguiente función y, a continuación, haga clic en **Guardar**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -45,9 +45,7 @@ Siempre es conveniente validar la longitud de los datos enviados por los usuario
 
     Este script comprueba la longitud de la propiedad **TodoItem.text** y envía una respuesta de error cuando esta sobrepasa los 10 caracteres. En caso de no sobrepasarlos, se llama al método **execute** para completar la inserción.
 
-    <div class="dev-callout"> 
-	<b>Nota</b> 
-	<p>Puede quitar un script registrado en la pestaña <strong>Script</strong> haciendo clic en <strong>Borrar</strong> y, a continuación, en <strong>Guardar</strong>.</p></div>	
+    > [AZURE.TIP] Puede quitar un script registrado en la pestaña **Script** haciendo clic en **Borrar** y, a continuación, en **Guardar**.	
 
 ## <a name="update-client-validation"></a>Actualización del cliente
 
@@ -55,11 +53,11 @@ Ahora que el servicio móvil puede validar los datos y enviar respuestas de erro
 
 1. En Visual Studio 2012 Express para Windows 8, abra el proyecto que modificó cuando completó el tutorial [Introducción a los datos].
 
-2. Presione la tecla **F5** para ejecutar la aplicación, escriba un texto que sobrepase los 10 caracteres en **Insertar un TodoItem** y haga clic en **Guardar**.
+2. Presione la tecla **F5** para ejecutar la aplicación, escriba texto que sobrepase los 10 caracteres en **Insertar TodoItem** y haga clic en **Guardar**.
 
    	Observe que la aplicación produce un error no controlado como resultado de la respuesta 400 (solicitud incorrecta) devuelta por el servicio móvil.
 
-6. 	Abra el archivo default.js y, a continuación, reemplace el método **InsertTodoItem** por lo siguiente:
+6. 	Abra el archivo default.js y, a continuación, sustituya el método **InsertTodoItem** por lo siguiente:
 
         var insertTodoItem = function (todoItem) {
             // Inserts a new row into the database. When the operation completes
@@ -81,11 +79,9 @@ Ahora que el servicio móvil puede validar los datos y enviar respuestas de erro
 
 Las tareas anteriores validaban una inserción y bien la aceptaban o rechazaban. Ahora, actualizará los datos insertados mediante un script de servidor que agrega una propiedad de marca de tiempo al objeto antes de insertarse.
 
-<div class="dev-callout"><b>Nota:</b>
-<p>La propiedad de marca de tiempo <b>createdAt</b> que se muestra en este ejemplo es redundante en este caso. Servicios móviles crea automáticamente una propiedad del sistema <b>__createdAt</b> para cada tabla.</p>
-</div>
+> [AZURE.NOTE] La propiedad de marca de tiempo **createdAt** que se muestra en este ejemplo es redundante en este caso. Servicios móviles crea automáticamente una propiedad del sistema **__createdAt** para cada tabla.
 
-1. En la pestaña **Scripts** del [Portal de administración], reemplace el script de **inserción** por la siguiente función y, a continuación, haga clic en **Guardar**.
+1. En la pestaña **Scripts** del [Portal de administración], reemplace el script **Insert** actual por la siguiente función y, a continuación, haga clic en **Guardar**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -98,15 +94,13 @@ Las tareas anteriores validaban una inserción y bien la aceptaban o rechazaban.
 
     Esta función aumenta el script de inserción anterior mediante la incorporación de una nueva propiedad de marca de tiempo **createdAt** al objeto antes de que la llamada a **request**.**execute** lo inserte. 
 
-    <div class="dev-callout"><b>Nota:</b>
-	<p>El esquema dinámico debe habilitarse la primera vez que se ejecute este script de inserción. Al tener habilitado dicho esquema, Servicios móviles agrega automáticamente la columna <strong>createdAt</strong> a la tabla <strong>TodoItem</strong> en la primera ejecución. El esquema dinámico está habilitado de forma predeterminada para un nuevo servicio móvil y debe deshabilitarse antes de publicar la aplicación en la Tienda Windows.</p>
-    </div>
+    > [AZURE.NOTE] El esquema dinámico debe habilitarse la primera vez que se ejecute este script de inserción. Al tener habilitado dicho esquema, Servicios móviles agrega automáticamente la columna **createdAt** a la tabla **TodoItem** en la primera ejecución. El esquema dinámico está habilitado de forma predeterminada para un nuevo servicio móvil y debe deshabilitarse antes de publicar la aplicación en la Tienda Windows.
 
-2. En Visual Studio, presione la tecla **F5** para ejecutar la aplicación, escriba un texto (con menos de 10 caracteres) en **Insertar un TodoItem** y haga clic en **Guardar**.
+2. En Visual Studio, presione la tecla **F5** para ejecutar la aplicación y, a continuación, escriba texto (con menos de 10 caracteres) en **Insertar TodoItem** y haga clic en **Guardar**.
 
    	Observe que la nueva marca de tiempo no aparece en la interfaz de usuario de la aplicación.
 
-3. Nuevamente en el Portal de administración, haga clic en la pestaña **Examinar** en la tabla **todoitem**.
+3. De vuelta en el Portal de administración, haga clic en la pestaña **Examinar** en la tabla **todoitem**.
    
    	Observe que ahora aparece una columna **createdAt** y el nuevo elemento insertado tiene un valor de marca de tiempo.
   
@@ -114,7 +108,7 @@ A continuación, debe actualizar la aplicación de la Tienda Windows para que mu
 
 ## <a name="update-client-timestamp"></a>Nueva actualización del cliente
 
-El cliente Servicios móviles omitirá los datos de cualquier respuesta que no pueda serializar en propiedades en el tipo definido. El paso final consiste en actualizar el cliente para que muestre estos nuevos datos.
+El cliente de Servicios móviles omitirá los datos de cualquier respuesta que no pueda serializar en propiedades en el tipo definido. El paso final consiste en actualizar el cliente para que muestre estos nuevos datos.
 
 1. En Visual Studio, abra el archivo default.html y, a continuación, agregue el siguiente elemento HTML en la cuadrícula TemplateItem:
 	      
@@ -127,7 +121,7 @@ El cliente Servicios móviles omitirá los datos de cualquier respuesta que no p
 
    	Observe que la marca de tiempo solo se muestra para los elementos insertados después de haber actualizado el script de inserción.
 
-7. En el archivo default.js, reemplace el método **RefreshTodoItems** por el siguiente código:
+7. En el archivo default.js, reemplace el método **RefreshTodoItems** existente por el siguiente código:
 
         var refreshTodoItems = function () {
             // More advanced query that filters out completed items. 
@@ -143,7 +137,7 @@ El cliente Servicios móviles omitirá los datos de cualquier respuesta que no p
 
    	Este método actualiza la consulta de forma que se filtren también los elementos que no tengan un valor de marca de tiempo.
 	
-8. Presione la tecla **F5** para ejecutar la aplicación.
+8. Presione la tecla F5 para ejecutar la aplicación.
 
    	Observe que todos los elementos creados sin un valor de marca de tiempo desaparecen de la interfaz de usuario.
 
@@ -156,13 +150,13 @@ Ahora que ha completado este tutorial, considere continuar con el tutorial final
 Los scripts de servidor también se usan al autorizar usuarios y para enviar notificaciones de inserción. Para obtener más información, consulte los siguientes tutoriales:
 
 * [Autorización de usuarios con scripts]
-  <br/>Obtenga información acerca de cómo filtrar datos según el identificador de un usuario autenticado.
+  <br/>Aprenda cómo filtrar los datos según el identificador de un usuario autenticado.
 
-* [Introducción a las notificaciones de inserción] 
+* [Introducción a las notificaciones de inserción]
   <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
-* [Referencia del script del servidor de Servicios móviles]
-  <br/>Obtener más información acerca del registro y uso de scripts de servidor.
+* [Referencia del script de servidor de Servicios móviles]
+  <br/>Obtenga más información acerca del registro y del uso de scripts de servidor.
 
 <!-- Anchors. -->
 [Incorporación de la validación de longitud de cadena]: #string-length-validation
@@ -178,8 +172,8 @@ Los scripts de servidor también se usan al autorizar usuarios y para enviar not
 
 
 <!-- URLs. -->
-[Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Introducción a Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
+[Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Introducción a los servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
 [Autorización de usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-js
 [Limitación de consultas con paginación]: /es-es/develop/mobile/tutorials/add-paging-to-data-js
 [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-js
@@ -189,3 +183,6 @@ Los scripts de servidor también se usan al autorizar usuarios y para enviar not
 
 [Portal de administración]: https://manage.windowsazure.com/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
+
+
+<!--HONumber=42-->

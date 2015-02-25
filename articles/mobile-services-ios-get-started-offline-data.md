@@ -1,14 +1,12 @@
-﻿<properties urlDisplayName="Using Offline Data" pageTitle="Uso de la sincronización de datos sin conexión en Servicios móviles (iOS) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación iOS" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Using Offline data sync in Mobile Services" authors="krisragh" manager="dwrede" />
+﻿<properties pageTitle="Uso de la sincronización de datos sin conexión en Servicios móviles (iOS) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación iOS" documentationCenter="ios" authors="krisragh" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="01/16/2015" ms.author="krisragh,donnam"/>
 
 # Introducción a la sincronización de datos sin conexión en Servicios móviles
 
+[AZURE.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
 
-[WACOM.INCLUDE [mobile-services-selector-offline](../includes/mobile-services-selector-offline.md)]
-
-
-En este tutorial se trata la característica de sincronización sin conexión de Servicios móviles en iOS, que permite a los desarrolladores escribir aplicaciones que se pueden usar incluso cuando el usuario final no tiene acceso de red.
+Este tutorial explica la característica de sincronización sin conexión de Servicios móviles de iOS. La sincronización sin conexión permite a los usuarios finales interactuar con una aplicación móvil (ver, agregar o modificar datos), incluso cuando no hay ninguna conexión de red. Los cambios se almacenan en una base de datos local; una vez que el dispositivo se vuelve a conectar, estos cambios se sincronizan con el servicio remoto.
 
 La sincronización sin conexión tiene varios usos posibles:
 
@@ -17,401 +15,237 @@ La sincronización sin conexión tiene varios usos posibles:
 * Permitir a los usuarios finales crear y modificar datos incluso cuando no hay acceso de red, proporcionando escenarios con muy poca o ninguna conectividad.
 * Sincronizar datos entre diferentes dispositivos y detectar conflictos cuando dos dispositivos modifican el mismo registro.
 
-	Este tutorial le mostrará cómo actualizar la aplicación del tutorial [Introducción a Servicios móviles] para que admita las características sin conexión de Servicios móviles de Azure. A continuación, agregará datos en un escenario sin conexión desconectado, sincronizará dichos elementos con la base de datos en línea e iniciará sesión en el Portal de administración de Azure para ver los cambios efectuados en los datos al ejecutar la aplicación.
+>[AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>.
 
->[WACOM.NOTE] Necesita una cuenta de Azure para completar este tutorial. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>.
-
-El objeto de este tutorial es profundizar en el uso de Azure con Servicios móviles para almacenar y recuperar datos en una aplicación de la Tienda Windows. Para ello, en este tema se recorren muchos de los pasos que se completan automáticamente en el inicio rápido de Servicios móviles. Si esta es la primera vez que usa Servicios móviles, considere realizar antes el tutorial [Introducción a Servicios móviles].
-
->[WACOM.NOTE] Puede omitir estas secciones y pasar a descargar una versión del proyecto de introducción que ya incluye funcionalidad sin conexión y todos los elementos que se describen en este tema.  Para descargar un proyecto con la funcionalidad sin conexión habilitada, consulte [Ejemplo de sincronización sin conexión en iOS].
-
+Si esta es la primera vez que usa Servicios móviles, considere la posibilidad de completar antes el tutorial [Introducción a los Servicios móviles].
 
 Este tutorial le guiará a través de estos pasos básicos:
 
-1. [Obtención de la aplicación de ejemplo Quickstart]
-2. [Descarga de la versión de vista previa del SDK y actualización del marco de trabajo]
-3. [Configuración de Core Data]
-4. [Definición del modelo de datos principal]
-5. [Inicialización y uso de la tabla de sincronización y el contexto de sincronización]
-6. [Prueba de la aplicación]
+1. [Obtención de la aplicación de ejemplo]
+2. [Revisión del código de sincronización de Servicios móviles]
+3. [Revisión del modelo Core Data]
+4. [Cambio del comportamiento de sincronización de la aplicación]
+5. [Prueba de la aplicación]
 
-## <a name="get-app"></a>Obtención de la aplicación de ejemplo Quickstart
+## <a name="get-app"></a>Obtención de la aplicación de ejemplo sin conexión ToDo
 
-Siga las instrucciones del tutorial [Introducción a Servicios móviles] y descargue el proyecto Quickstart.
+En el [repositorio de muestras de Servicios móviles en GitHub], clone el repositorio y abra el proyecto [Muestra de iOS sin conexión] en Xcode.
 
-## <a name="update-app"></a>Descarga de la versión de vista previa del SDK y actualización del marco de trabajo
+### SDK de la versión beta
+Para agregar compatibilidad sin conexión con una aplicación existente, obtenga el [SDK de la versión beta de iOS](http://aka.ms/gc6fex).
 
-1. Para agregar compatibilidad sin conexión a nuestra aplicación, vamos a obtener una versión del SDK de Servicios móviles para iOS que permite la sincronización sin conexión. Puesto que vamos a iniciarlo como una característica de vista previa, no está todavía en el SDK oficialmente descargable. [Descargue la versión de vista previa del SDK aquí].
+## <a name="review-sync"></a>Revisión del código de sincronización de Servicios móviles
 
-2. Después, quite la referencia **WindowsAzureMobileServices.framework** actual del proyecto en Xcode. Para ello, selecciónela y haga clic en el menú **Edit** (Editar) y elija "Move to Trash" (Mover a la papelera) para eliminar realmente los archivos.
+La sincronización sin conexión de servicios móviles de Azure permite a los usuarios finales interactuar con una base de datos local cuando la red no está accesible. Para utilizar estas características en su aplicación, inicialice el contexto de sincronización de  `MSClient` y haga referencia a un almacén local. A continuación, obtenga una referencia a la tabla mediante la interfaz  `MSSyncTable`.
 
-      ![][update-framework-1]
+Esta sección le guía a través del código relacionado con la sincronización sin conexión en la muestra.
 
-3. Descomprima el contenido de la nueva vista previa del SDK y en lugar del antiguo SDK, arrastre y coloque el nuevo SDK **WindowsAzureMobileServices.framework**. Asegúrese de que está seleccionada la opción "Copy items into destination group's folder (if needed)" (Copiar elementos en la carpeta del grupo de destino (si es necesario)).
+1. En **QSTodoService.m**, observe que el tipo del miembro  `syncTable` es  `MSSyncTable`. La sincronización sin conexión usa esta interfaz de tabla de sincronización en lugar de  `MSTable`. Cuando se utiliza una tabla de sincronización, todas las operaciones van al almacén local y solo se sincronizan con el servicio remoto con operaciones de inserción y extracción explícitas.
 
-      ![][update-framework-2]
+    Para obtener una referencia a una tabla de sincronización, utilice el método  `syncTableWithName`. Para quitar la funcionalidad de sincronización sin conexión, use  `tableWithName` en su lugar.
 
+3. Antes de poder realizar cualquier operación de tabla, se debe inicializar el almacén local. Este es el código pertinente en el método  `QSTodoService.init`:
 
-## <a name="setup-core-data"></a>Configuración de Core Data
-
-1. El SDK de Servicios móviles para iOS permite utilizar cualquier almacén persistente siempre que cumpla el protocolo **MSSyncContextDataSource**. El SDK incluye un origen de datos que implementa este protocolo basado en [Core Data].
-
-2. Puesto que la aplicación utiliza Core Data, navegue a **Targets** (Destinos) --> **Build Phases** (Fases de compilación) y, en **Link Binary with Libraries** (Vincular binarios con bibliotecas), agregue **CoreData.framework**.
-
-      ![][core-data-1]
-
-      ![][core-data-2]
-
-3. Estamos agregando Core Data a un proyecto existente en Xcode que ya no admite Core Data. Por lo tanto, tenemos que agregar código adicional a distintas partes del proyecto. En primer lugar, agregue el código siguiente en **QSAppDelegate.h**:
-
-        #import <UIKit/UIKit.h>  
-        #import <CoreData/CoreData.h>  
-
-        @interface QSAppDelegate : UIResponder <UIApplicationDelegate>  
-
-        @property (strong, nonatomic) UIWindow *window;  
-
-        @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;  
-        @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;  
-        @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;  
-
-        - (void)saveContext;  
-        - (NSURL *)applicationDocumentsDirectory;  
-
-        @end
-
-4. A continuación, reemplace el contenido de **QSAppDelegate.m** por el código siguiente. Este es prácticamente el mismo código que aparece al crear una nueva aplicación en Xcode y seleccionar la casilla "Use Core Data" (Usar Core Data), salvo que usa un tipo de simultaneidad de cola privada al inicializar **_managedObjectContext**. Con este cambio, está casi listo para usar Core Data, pero no está haciendo nada todavía con él.
-
-        #import "QSAppDelegate.h"
-
-        @implementation QSAppDelegate
-
-        @synthesize managedObjectContext = _managedObjectContext;
-        @synthesize managedObjectModel = _managedObjectModel;
-        @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
-
-        - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-        {
-            return YES;
-        }
-
-        - (void)saveContext
-        {
-            NSError *error = nil;
-            NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
-            if (managedObjectContext != nil) {
-                if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-                    abort();
-                }
-            }
-        }
-
-        #pragma mark - Core Data stack
-
-        // Returns the managed object context for the application.
-        // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-        - (NSManagedObjectContext *)managedObjectContext
-        {
-            if (_managedObjectContext != nil) {
-                return _managedObjectContext;
-            }
-
-            NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
-            if (coordinator != nil) {
-                _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
-                [_managedObjectContext setPersistentStoreCoordinator:coordinator];
-            }
-            return _managedObjectContext;
-        }
-
-        // Returns the managed object model for the application.
-        // If the model doesn't already exist, it is created from the application's model.
-        - (NSManagedObjectModel *)managedObjectModel
-        {
-            if (_managedObjectModel != nil) {
-                return _managedObjectModel;
-            }
-            NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"QSTodoDataModel" withExtension:@"momd"];
-            _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-            return _managedObjectModel;
-        }
-
-        // Returns the persistent store coordinator for the application.
-        // If the coordinator doesn't already exist, it is created and the application's store added to it.
-        - (NSPersistentStoreCoordinator *)persistentStoreCoordinator
-        {
-            if (_persistentStoreCoordinator != nil) {
-                return _persistentStoreCoordinator;
-            }
-
-            NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"qstodoitem.sqlite"];
-
-            NSError *error = nil;
-            _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-            if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
-                /*
-                 Replace this implementation with code to handle the error appropriately.
-
-                 abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-
-                 Typical reasons for an error here include:
-                 * The persistent store is not accessible;
-                 * The schema for the persistent store is incompatible with current managed object model.
-                 Check the error message to determine what the actual problem was.
-
-                 If the persistent store is not accessible, there is typically something wrong with the file path. Often, a file URL is pointing into the application's resources directory instead of a writeable directory.
-
-                 If you encounter schema incompatibility errors during development, you can reduce their frequency by:
-                 * Simply deleting the existing store:
-                 [[NSFileManager defaultManager] removeItemAtURL:storeURL error:nil]
-
-                 * Performing automatic lightweight migration by passing the following dictionary as the options parameter:
-                 @{NSMigratePersistentStoresAutomaticallyOption:@YES, NSInferMappingModelAutomaticallyOption:@YES}
-
-                 Lightweight migration will only work for a limited set of schema changes; consult "Core Data Model Versioning and Data Migration Programming Guide" for details.
-
-                 */
-
-                NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-                abort();
-            }
-
-            return _persistentStoreCoordinator;
-        }
-
-        #pragma mark - Application's Documents directory
-
-        // Returns the URL to the application's Documents directory.
-        - (NSURL *)applicationDocumentsDirectory
-        {
-            return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-        }
-
-        @end
-
-## <a name="defining-core-data"></a>Definición del modelo de datos principal
-
-1. Vamos a seguir configurando la aplicación con Core Data definiendo el modelo de datos. No comenzaremos a utilizar este modelo aún. Primero, vamos a definir el modelo de datos principal o esquema. Para empezar, haga clic en **File ** (Archivo) -> **New File** (Nuevo archivo) y seleccione **Data Model** (Modelo de datos) en la sección **Core Data**. Cuando se le pida un nombre de archivo, utilice **QSTodoDataModel.xcdatamodeld**.
-
-      ![][defining-core-data-main-screen]
-
-2. A continuación, vamos a definir las entidades reales (tablas) que necesitamos. Vamos a crear tres tablas (entidades) con el editor de modelos de Core Data. Para obtener más información, consulte la [Ayuda del editor de modelos de Core Data.].
-
-  * TodoItem: para almacenar los propios elementos
-  * MS_TableOperations: para realizar el seguimiento de los elementos que deben sincronizarse con el servidor (es necesario para que funcione la característica sin conexión)
-  * MS_TableOperationErrors: para realizar el seguimiento de los errores que se producen durante la sincronización sin conexión (es necesaria para que funcione la característica sin conexión)
-
-      ![][defining-core-data-model-editor]
-
-3. Defina las tres entidades tal como se muestra a continuación. Guarde el modelo y compile el proyecto para asegurarse de que todo está bien. Ahora hemos terminado de configurar la aplicación para trabajar con Core Data, pero la aplicación no lo está utilizando todavía.
-
-      ![][defining-core-data-todoitem-entity]
-
-      ![][defining-core-data-tableoperations-entity]
-
-      ![][defining-core-data-tableoperationerrors-entity]
-
-
-    **TodoItem**
-
-    | Atributo  |  Tipo   |
-    |----------- |  ------ |
-    | id         | Cadena  |
-    | complete   | Booleano |
-    | text       | Cadena  |
-    | ms_version | Cadena  |
-
-    **MS_TableOperations**
-
-    | Atributo  |    Tipo     |
-    |----------- |   ------    |
-    | id         | Entero 64  |
-    | properties | Datos binarios |
-    | itemId     | Cadena      |
-    | table      | Cadena      |
-
-    **MS_TableOperationErrors**
-
-    | Atributo  |    Tipo     |
-    |----------- |   ------    |
-    | id         | Cadena      |
-    | properties | Datos binarios |
-
-## <a name="setup-sync"></a> Inicialización y uso de la tabla de sincronización y el contexto de sincronización
-
-1. Para iniciar el almacenamiento en caché de datos sin conexión, vamos a reemplazar el uso de **MSTable** por **MSSyncTable** para obtener acceso al servicio móvil. A diferencia de una tabla **MSTable** normal, una tabla de sincronización es como una tabla local que agrega la capacidad para insertar los cambios realizados localmente en una tabla remota y extraer los cambios de forma local. En **QSTodoService.h**, quite la definición de la propiedad **table**:
-
-        @property (nonatomic, strong)   MSTable *table;
-
-    Add a new line to define the **syncTable** property:
-
-        @property (nonatomic, strong)   MSTable *syncTable;
-
-2. Add the following import statement at the top of **QSTodoService.m**:
-
-        #import "QSAppDelegate.h"
-
-3. En **QSTodoService.m**, quite las dos líneas siguientes en **init**:
-
-        // Create an MSTable instance to allow us to work with the TodoItem table
-        self.table = [_client tableWithName:@"TodoItem"];
-
-    Instead, add these two new lines in its place:
-
-        // Create an MSSyncTable instance to allow us to work with the TodoItem table
-        self.syncTable = [self.client syncTableWithName:@"TodoItem"];
-
-4. A continuación, de nuevo en **QSTodoService.m**, inicialice el contexto de sincronización en el **MSClient** con la implementación de almacén de datos basado en datos anterior. El contexto es responsable de realizar el seguimiento de los elementos que se han cambiado localmente y enviarlos al servidor cuando se inicia una operación de inserción. Para inicializar el contexto, necesitamos un origen de datos (la implementación de **MSCoreDataStore** del protocolo) y una implementación de **MSSyncContextDelegate** opcional. Inserte estas líneas justo encima de las dos líneas insertadas anteriormente.
-
-        QSAppDelegate *delegate = (QSAppDelegate *)[[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext *context = delegate.managedObjectContext;
         MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
-
+        
         self.client.syncContext = [[MSSyncContext alloc] initWithDelegate:nil dataSource:store callback:nil];
 
-5. A continuación, vamos a actualizar las operaciones de **QSTodoService.m** para usar la tabla de sincronización en lugar de la tabla normal. En primer lugar, reemplace **refreshDataOnSuccess** por la siguiente implementación. Esto recupera los datos desde el servicio, por lo que vamos a actualizarlo para usar una tabla de sincronización, pedir a la tabla de sincronización que extraiga solo los elementos que coinciden con los criterios y cargar datos de la tabla de sincronización local en la propiedad **items** del servicio. Con este código,  **refreshDataOnSuccess** extrae los datos de la tabla remota en la tabla local (sincronización). Generalmente nos debemos extraer solo un subconjunto de la tabla para que no sobrecargar el cliente con la información que no necesite.
+    Esto crea un almacén local mediante la interfaz  `MSCoreDataStore`, que se proporciona en el SDK de Servicios móviles. En su lugar puede proporcionar otro almacén local mediante la implementación del protocolo  `MSSyncContextDataSource`.
 
-    Para esto y las operaciones restantes que se indican más adelante, se encierran las llamadas a los bloques de finalización en una llamada de **dispatch_async** al subproceso principal. Cuando se inicializa el contexto de sincronización, no se pasa un parámetro de devolución de llamada, por lo que el marco de trabajo crea una cola de serie predeterminada que envía los resultados de todas las operaciones de syncTable en un subproceso en segundo plano. Para modificar los componentes de interfaz de usuario, es necesario distribuir el código nuevo al subproceso de interfaz de usuario.
+    El primer parámetro de  `initWithDelegate` se utiliza para especificar un controlador de conflictos. Puesto que hemos pasado  `nil`, obtenemos el controlador de conflictos predeterminado, que produce un error en cualquier conflicto. Para obtener más información sobre cómo implementar un controlador de conflictos personalizado, vea el tutorial [Control de conflictos con compatibilidad sin conexión para Servicios móviles].
 
-          -(void) refreshDataOnSuccess:(QSCompletionBlock)completion
-          {
-              NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-              MSQuery *query = [self.syncTable queryWithPredicate:predicate];
+4. Los métodos  `pullData` y  `syncData` realizan la operación de sincronización real:  `syncData` inserta primero los nuevos cambios y, a continuación, se llama a  `pullData` para obtener datos desde el servicio remoto.
 
-              [query orderByAscending:@"text"];
-              [query readWithCompletion:^(MSQueryResult *result, NSError *error) {
-                  [self logErrorIfNotNil:error];
-
-                  self.items = [result.items mutableCopy];
-
-                  // Let the caller know that we finished
-                  dispatch_async(dispatch_get_main_queue(), ^{
-                      completion();
-                  });
-              }];
-          }
-
-6. Después, reemplace **addItem** en **QSTodoService.m** como se indica a continuación. Con este cambio, pone en cola la operación para que inserte los cambios en el servicio remoto y haga que esté visible para todos los usuarios:
-
-        -(void)addItem:(NSDictionary *)item completion:(QSCompletionWithIndexBlock)completion
+        -(void)syncData:(QSCompletionBlock)completion
         {
-            // Insert the item into the TodoItem table and add to the items array on completion
-            [self.syncTable insert:item completion:^(NSDictionary *result, NSError *error)
-             {
-                 [self logErrorIfNotNil:error];
-
-                 NSUInteger index = [items count];
-                 [(NSMutableArray *)items insertObject:result atIndex:index];
-
-                 // Let the caller know that we finished
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     completion(index);
-                 });
-             }];
-        }
-
-7. Actualice **completeItem** en **QSTodoService.m** como se indica a continuación. A diferencia de **MSTable**, el bloque de finalización de la operación **update** para **MSSyncTable** no tiene ningún elemento actualizado. Con **MSTable**, el servidor modifica el elemento que se está actualizando y esa modificación se refleja en el cliente. Con **MSSyncTable**, no se modifican los elementos actualizados y el bloque de finalización no tiene un parámetro.
-
-        -(void) completeItem:(NSDictionary *)item completion:(QSCompletionWithIndexBlock)completion
-        {
-            // Cast the public items property to the mutable type (it was created as mutable)
-            NSMutableArray *mutableItems = (NSMutableArray *) items;
-
-            // Set the item to be complete (we need a mutable copy)
-            NSMutableDictionary *mutable = [item mutableCopy];
-            [mutable setObject:@YES forKey:@"complete"];
-
-            // Replace the original in the items array
-            NSUInteger index = [items indexOfObjectIdenticalTo:item];
-            [mutableItems replaceObjectAtIndex:index withObject:item];
-
-            // Update the item in the TodoItem table and remove from the items array on completion
-            [self.syncTable update:mutable completion:^(NSError *error) {
-
+            // push all changes in the sync context, then pull new data
+            [self.client.syncContext pushWithCompletion:^(NSError *error) {
                 [self logErrorIfNotNil:error];
-
-                NSUInteger index = [items indexOfObjectIdenticalTo:mutable];
-                if (index != NSNotFound)
-                {
-                    [mutableItems removeObjectAtIndex:index];
-                }
-
-                // Let the caller know that we have finished
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    completion(index);
-                });
-
+                [self pullData:completion];
             }];
         }
 
-8. Agregue la siguiente declaración de **syncData** a **QSTodoService.h**:
+    A su vez, el método `pullData` obtiene datos nuevos que coinciden con una consulta:
 
-        - (void)syncData:(QSCompletionBlock)completion;
-
-     Add the corresponding implementation of **syncData** to **QSTodoService.m**. We're adding this operation to update the sync table with remote changes.
-
-          -(void)syncData:(QSCompletionBlock)completion
-           {
-              // Create a predicate that finds items where complete is false
-              NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
-
-              MSQuery *query = [self.syncTable queryWithPredicate:predicate];
-
-              // Pulls data from the remote server into the local table. We're only
-              // pulling the items which we want to display (complete == NO).
-              [self.syncTable pullWithQuery:query completion:^(NSError *error) {
-                  [self logErrorIfNotNil:error];
-                  [self refreshDataOnSuccess:completion];
-           }];
-          }
-
-9. Back in **QSTodoListViewController.m**, change the implementation of **refresh** to call **syncData** instead of **refreshDataOnSuccess**:
-
-        -(void) refresh
+        -(void)pullData:(QSCompletionBlock)completion
         {
-            [self.refreshControl beginRefreshing];
-            [self.todoService syncData:^
-             {
-                  [self.refreshControl endRefreshing];
-                  [self.tableView reloadData];
-             }];
-        }
+            MSQuery *query = [self.syncTable query];
+            
+            // Pulls data from the remote server into the local table.
+            // We're pulling all items and filtering in the view
+            // query ID is used for incremental sync
+            [self.syncTable pullWithQuery:query queryId:@"allTodoItems" completion:^(NSError *error) {
+                [self logErrorIfNotNil:error];
+                
+                // Let the caller know that we have finished
+                if (completion != nil) {
+                    dispatch_async(dispatch_get_main_queue(), completion);
+                }
+            }];
+        }   
 
-10. De nuevo en **QSTodoListViewController.m**, reemplace la llamada a **[self refresh]** al final de la operación **viewDidLoad** por el siguiente código:
+    En `syncData`, llamamos primero `pushWithCompletion` en el contexto de sincronización. Este método es miembro de `MSSyncContext` y no de la tabla de sincronización porque insertará cambios en todas las tablas. Solo los registros que se han modificado localmente de alguna forma (mediante operaciones CUD) se enviarán al servidor. A continuación, se llama a la aplicación auxiliar `pullData`, que llama a 'MSSyncTable.pullWithQuery' para recuperar datos remotos y almacenarlos en la base de datos local. 
 
-        // load the local data, but don't pull from server
-        [self.todoService refreshDataOnSuccess:^
-         {
-             [self.refreshControl endRefreshing];
-             [self.tableView reloadData];
-         }];
+    Tenga en cuenta que, en este ejemplo, la operación de inserción no es estrictamente necesaria. Si hay cambios pendientes en el contexto de sincronización para la tabla que está realizando una operación de inserción, la extracción siempre realiza primero una inserción. Sin embargo, si tiene más de una tabla de sincronización, es mejor llamar explícitamente a la inserción para asegurarse de que todo sea coherente en las tablas relacionadas.
 
-11. Ahora, probemos realmente la aplicación sin conexión. Agregue algunos elementos a la aplicación, visite el Portal de administración de Azure y examine la ficha **Datos** de la aplicación. Verá que no se ha agregado todavía ningún elemento.
+    El método `pullWithQuery` le permite especificar una consulta para filtrar los registros que desea recuperar. En este ejemplo, la consulta recupera simplemente todos los registros en la tabla `TodoItem` remota.
 
-12. A continuación, realice el gesto de actualización en la aplicación arrastrándolo desde la parte superior. Visite el Portal de administración de Azure de nuevo y vuelva a observar la ficha **Datos**. Ahora sí verá los datos guardados en la nube. También puede cerrar la aplicación después de agregar un elemento (o después de la edición, si la aplicación tiene la funcionalidad habilitada para editar elementos.) Cuando se reinicie la aplicación, se sincronizará con el servidor y guardará los cambios.
+    El segundo parámetro para `pullWithQuery` es un identificador de consulta que se utiliza para la *sincronización incremental*. La sincronización incremental recupera solo aquellos registros modificados desde la última sincronización, mediante la marca de tiempo `UpdatedAt` del registro (llamada  `ms_updatedAt` en el almacén local). El identificador de la consulta debe ser una cadena descriptiva que sea única para cada consulta lógica en la aplicación. Para la desactivación de la sincronización incremental, pase `nil` como identificador de la consulta. Tenga en cuenta que esto puede resultar potencialmente ineficaz, ya que se recuperarán todos los registros de cada operación de extracción.
 
-13. Cuando el cliente realiza cambios en los elementos de forma local, los cambios se almacenan en el contexto de sincronización para enviarse al servidor. Una operación *push* envía los cambios realizados al servidor remoto, pero, en este caso, no tenemos llamadas de inserción al servidor. Sin embargo, *antes de ejecutar una operación pull, se envían al servidor (con una operación push) todas las operaciones pendientes*, de forma que tiene lugar al mismo tiempo una operación push para evitar conflictos. Este es el motivo por el que no hay llamadas explícitas a *push* en esta aplicación.
+    >[AZURE.NOTE] Para quitar registros del almacén local del dispositivo cuando se han eliminado de la base de datos del servicio móvil, debe habilitar la [eliminación temporal]. De lo contrario, la aplicación podría llamar periódicamente a  `MSSyncTable.purgeWithQuery` para purgar el almacén local.
+
+5. En la clase  `QSTodoService`, se llama al método  `syncData` después de las operaciones que modifican datos, `addItem` y  `completeItem`. También se le llama desde  `QSTodoListViewController.refresh`, de modo que el usuario obtiene los datos más recientes cada vez que realizan los gestos de actualización. La aplicación también lleva a cabo una sincronización en el inicio, ya que  `QSTodoListViewController.init` llama a  `refresh`.
+
+    Dado que  `syncData` se llama cada vez que se modifican datos, esta aplicación supone que el usuario está en línea siempre que se editan datos. En otra sección, actualizaremos la aplicación para que los usuarios pueden editar incluso cuando estén sin conexión.
+
+## <a name="review-core-data"></a>Revisión del modelo Core Data
+
+Cuando se usa el almacén sin conexión Core Data, tendrá que definir tablas y campos determinados en el modelo de datos. La aplicación de ejemplo ya incluye un modelo de datos con el formato correcto. En esta sección se le guiará a través de estas tablas y el modo de utilizarlas.
+
+- Abra **QSDataModel.xcdatamodeld**. Hay cuatro tablas definidas: tres que utiliza el SDK y una para los propios elementos de la lista de tareas:
+      * MS_TableOperations: para realizar el seguimiento de los elementos que deben sincronizarse con el servidor
+      * MS_TableOperationErrors: para realizar el seguimiento de los errores que se producen durante la sincronización sin conexión 
+      * MS_TableConfig: para realizar el seguimiento de la hora de la última actualización de la última operación de sincronización para todas las operaciones de extracción
+      * TodoItem: para almacenar los elementos de lista de tareas Las columnas de sistema **ms_createdAt**, **ms_updatedAt** y **ms_version** son propiedades del sistema opcionales. 
+
+>[AZURE.NOTE] El SDK de Servicios móviles reserva los nombres de columna que contienen "**'ms_'**". No debe utilizar este prefijo en otra cosa que no sean las columnas del sistema; en caso contrario, se modificarán los nombres de columna cuando se use el servicio remoto.
+
+- Al utilizar la característica de sincronización sin conexión, debe definir las tablas del sistema, tal como se muestra a continuación.
+
+    ### Tablas del sistema
+
+    **MS_TableOperations**
+
+    ![][defining-core-data-tableoperations-entity]
+
+    | Atributo |    Tipo |
+    |----------- |   ------    |
+    | id         | Entero de 64 |
+    | itemId | Cadena |
+    | properties | Datos binarios |
+    | table      | Cadena      |
+    | tableKind  | Entero de 16  |
+
+    <br>**MS_TableOperationErrors**
+
+    ![][defining-core-data-tableoperationerrors-entity]
+
+    | Atributo |    Tipo |
+    |----------- |   ------    |
+    | id         | Cadena      |
+    | operationID | Entero de 64 |
+    | properties | Datos binarios |
+    | tableKind  | Entero de 16  |
+
+    <br>**MS_TableConfig**
+
+    ![][defining-core-data-tableconfig-entity]
+
+    | Atributo |    Tipo |
+    |----------- |   ------    |
+    | id         | Entero de 64 |
+    | key        | Cadena      |
+    | keyType    | Entero de 64  |
+    | table      | Cadena      |
+    | value      | Cadena      |
+
+    ### Tabla de datos
+
+    ![][defining-core-data-todoitem-entity]
+
+    **TodoItem**
+
+    | Atributo |  Tipo | Nota                                                       | 
+    |-----------   |  ------ | -----------------------------------------------------------|
+    | id           | Cadena | clave principal en almacén remoto                                |
+    | complete     | Booleano | campo de elemento de lista de tareas                                            |
+    | text         | Cadena  | campo de elemento de lista de tareas                                            |
+    | ms_createdAt | Fecha    | *(opcional)* se asigna a la propiedad del sistema `__createdAt`         |
+    | ms_updatedAt | Fecha    | *(opcional)* se asigna a la propiedad del sistema `__createdAt`         |
+    | ms_version   | Cadena  | *(opcional)* se utiliza para detectar conflictos, se asigna a `__version` |
+
+
+## <a name="setup-sync"></a>Cambio del comportamiento de sincronización de la aplicación
+
+En esta sección, modificará la aplicación para que no se sincronice en el inicio de la aplicación o al insertar y actualizar elementos, sino solo cuando se realice el gesto de actualización. 
+
+1. En **QSTodoListViewController.m**, cambie el método **viewDidLoad** para quitar la llamada a '[self refresh]' al final del método. Ahora, los datos no se sincronizarán con el servidor al inicio de la aplicación, sino que lo hará el contenido del almacén local.
+
+2. En **QSTodoService.m**, modifique la definición de  `addItem` para que no se sincronice tras la inserción del elemento. Quite el bloque  `self syncData` y sustitúyalo por lo siguiente:
+
+            if (completion != nil) {
+                dispatch_async(dispatch_get_main_queue(), completion);
+            }
+
+3. Modifique la definición de  `completeItem` como anteriormente; quite el bloque de  `self syncData` y sustitúyalo por lo siguiente:
+
+            if (completion != nil) {
+                dispatch_async(dispatch_get_main_queue(), completion);
+            }
 
 ## <a name="test-app"></a>Prueba de la aplicación
 
-Por último, vamos a probar la aplicación sin conexión. Agregue algunos elementos en la aplicación. A continuación, vaya al portal y examine los datos (o utilice una herramienta de red como PostMan o Fiddler para consultar directamente la tabla).
+En esta sección, desactivará el Wi-Fi en el simulador para crear un escenario sin conexión. Al agregar elementos de datos, estos se guardarán en el almacén local Core Data, pero no se sincronizarán con el servicio móvil.
 
-Verá que los elementos no se agregaron al servicio todavía. Realice ahora el gesto de actualizar en la aplicación arrastrándola desde la parte superior. Ahora verá que los datos se han guardado en la nube. Incluso puede cerrar la aplicación después de agregar algunos elementos. Cuando inicie la aplicación de nuevo se sincronizará con el servidor y guardará los cambios.
+1. Desactive el Wi-Fi en el simulador de iOS.
+
+2. Agregue algunos elementos de la lista de pendientes o complete algunos elementos. Salga del simulador (o fuerce el cierre de la aplicación) y reinicie. Compruebe que se han guardado los cambios.
+
+3. Vea el contenido de la tabla TodoItem remota:
+   - Para el back-end de JavaScript, vaya al Portal de administración y haga clic en la pestaña Datos para ver el contenido de la tabla  `TodoItem`.
+   - Para el back-end de .NET, vea la contenido de tabla con una herramienta SQL, como SQL Server Management Studio, o con un cliente REST como Fiddler o Postman.
+
+    Compruebe que los nuevos elementos  *no* se han sincronizado con el servidor:
+
+4. Active el Wi-Fi en el simulador de iOS y, a continuación, realice el gesto de actualización desplegando la lista de elementos. Verá una rueda con el progreso y el texto "Sincronizando...".
+
+5. Vea los datos de TodoItem de nuevo. Ahora deberían aparecer los elementos de TodoItems nuevos y modificados.
+
+## Resumen
+
+Para admitir las características sin conexión de servicios móviles, usamos la interfaz  `MSSyncTable` e inicializamos  `MSClient.syncContext` con un almacén local. En este caso, el almacén local era una base de datos Core Data. 
+
+Cuando se utiliza un almacén local Core Data, debe definir varias tablas con las [propiedades del sistema de corrección][Revisión del modelo Core Data].
+
+Las operaciones CRUD normales para servicios móviles funcionan como si la aplicación siguiera conectada, pero todas las operaciones se producen en el almacén local.
+
+Cuando quisimos sincronizar el almacén local con el servidor, usamos los métodos  `MSSyncTable.pullWithQuery` y  `MSClient.syncContext.pushWithCompletion`.
+
+*  Para insertar los cambios en el servidor, llamamos a `Revisión del modelo Core Data`. Este método es miembro de  `MSSyncContext` y no de la tabla de sincronización porque insertará cambios en todas las tablas.
+
+    Solo los registros que se han modificado localmente de alguna forma (mediante operaciones CUD) se enviarán al servidor.
+   
+* Para extraer datos de una tabla del servidor en la aplicación, llamamos a  `MSSyncTable.pullWithQuery`.
+
+    Una extracción siempre realiza primero una inserción. De este modo, se asegurará de que todas las tablas del almacén local sean coherentes con las relaciones.
+
+    Tenga en cuenta que  `pullWithQuery` puede utilizarse para filtrar los datos que se almacenan en el cliente mediante la personalización del parámetro  `query`. 
+
+* Para habilitar la sincronización incremental, pase un identificador de consulta a  `pullWithQuery`. El identificador de consulta se utiliza para almacenar la última marca de tiempo actualizada de los resultados de la última operación de extracción. El identificador de la consulta debe ser una cadena descriptiva que sea única para cada consulta lógica en la aplicación. Si la consulta tiene un parámetro, el mismo valor de parámetro debe formar parte del identificador de consulta.
+
+    Si desea cancelar la sincronización incremental, pase  `nill` como identificador de consulta. En este caso, se recuperarán todos los registros en cada llamada a  `pullWithQuery`, que es potencialmente ineficaz.
+
+* Para quitar registros del almacén local del dispositivo cuando se han eliminado de la base de datos del servicio móvil, debe habilitar la [eliminación temporal]. De lo contrario, la aplicación podría llamar periódicamente a  `MSSyncTable.purgeWithQuery` para quitar los registros de la base de datos local, en caso de que se hayan eliminado en el servicio remoto.
+
 
 ## Pasos siguientes
 
 * [Control de conflictos con compatibilidad sin conexión para Servicios móviles]
 
+* [Uso de la eliminación temporal en Servicios móviles][Eliminación temporal]
+
+## Recursos adicionales
+
+* [Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]
+
+* [Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure] \ (Nota: las demostraciones son para Windows, pero las características tratadas son aplicables a todas las plataformas\)
+
 <!-- URLs. -->
 
-[Obtención de la aplicación de ejemplo Quickstart]: #get-app
-[Descarga de la versión de vista previa del SDK y actualización del marco de trabajo]: #update-app
-[Configuración de Core Data]: #setup-core-data
-[Definición del modelo de datos principal]: #defining-core-data
-[Inicialización y uso de la tabla de sincronización y el contexto de sincronización]: #setup-sync
+[Obtención de la aplicación de ejemplo]: #get-app
+[Revisión del modelo Core Data]: #review-core-data
+[Revisión del código de sincronización de Servicios móviles]: #review-sync
+[Cambio del comportamiento de sincronización de la aplicación]: #setup-sync
 [Prueba de la aplicación]: #test-app
 
 [core-data-1]: ./media/mobile-services-ios-get-started-offline-data/core-data-1.png
@@ -421,25 +255,30 @@ Verá que los elementos no se agregaron al servicio todavía. Realice ahora el g
 [defining-core-data-model-editor]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-model-editor.png
 [defining-core-data-tableoperationerrors-entity]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableoperationerrors-entity.png
 [defining-core-data-tableoperations-entity]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableoperations-entity.png
+[defining-core-data-tableconfig-entity]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/mobile-services-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 [update-framework-1]: ./media/mobile-services-ios-get-started-offline-data/update-framework-1.png
 [update-framework-2]: ./media/mobile-services-ios-get-started-offline-data/update-framework-2.png
 
-
-
-
-[Ayuda del editor de modelos de datos principales]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
+[Ayuda del editor de modelos de Core Data]: https://developer.apple.com/library/mac/recipes/xcode_help-core_data_modeling_tool/Articles/about_cd_modeling_tool.html
 [Creación de una conexión de salida]: https://developer.apple.com/library/mac/recipes/xcode_help-interface_builder/articles-connections_bindings/CreatingOutlet.html
 [Creación de una interfaz de usuario]: https://developer.apple.com/library/mac/documentation/ToolsLanguages/Conceptual/Xcode_Overview/Edit_User_Interfaces/edit_user_interface.html
-[Adición de un Segue entre bastidores en un guión gráfico]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
-[Adición de una escena a un guión gráfico]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
+[Incorporación de un elemento Segue entre escenas de un guión gráfico]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardSegue.html#//apple_ref/doc/uid/TP40014225-CH25-SW1
+[Incorporación de una escena a un guión gráfico]: https://developer.apple.com/library/ios/recipes/xcode_help-IB_storyboard/chapters/StoryboardScene.html
 
 [Core Data]: https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreData/cdProgrammingGuide.html
-[Descargue la vista previa del SDK aquí.]: http://aka.ms/Gc6fex
-[Uso de la biblioteca de cliente de Servicios móviles para iOS]: /es-es/documentation/articles/mobile-services-ios-how-to-use-client-library/
-[Ejemplo de sincronización sin conexión en iOS]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
+[Descargue el SDK de versión preliminar aquí]: http://aka.ms/Gc6fex
+[Cómo usar la biblioteca de cliente de servicios móviles para iOS]: /es-es/documentation/articles/mobile-services-ios-how-to-use-client-library/
+[Muestra de iOS sin conexión]: https://github.com/Azure/mobile-services-samples/tree/master/TodoOffline/iOS/blog20140611
+[Repositorio de muestras de Servicios móviles en GitHub]: https://github.com/Azure/mobile-services-samples
 
-
-[Introducción a Servicios móviles]: /es-es/documentation/articles/mobile-services-ios-get-started/
+[Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-ios-get-started/
 [Introducción a los datos]: /es-es/documentation/articles/mobile-services-ios-get-started-data/
-[Control de conflictos con compatibilidad sin conexión para Servicios móviles]: /es-es/documentation/articles/mobile-services-ios-handling-conflicts-offline-data/
+[Control de conflictos con compatibilidad sin conexión para servicios móviles]: /es-es/documentation/articles/mobile-services-ios-handling-conflicts-offline-data/
+[Eliminación temporal]: /es-es/documentation/articles/mobile-services-using-soft-delete/
+
+[Descripción de la nube: Sincronización sin conexión en Servicios móviles de Azure]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Azure Friday: Aplicaciones habilitadas sin conexión en Servicios móviles de Azure]: http://azure.microsoft.com/es-es/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+
+
+<!--HONumber=42-->

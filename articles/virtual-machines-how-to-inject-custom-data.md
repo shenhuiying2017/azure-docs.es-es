@@ -1,6 +1,6 @@
-﻿<properties title="virtual-machines-how-to-inject-custom-data" pageTitle="Inyección de datos personalizados en máquinas virtuales de Azure" description="En este tema se describe cómo inyectar datos personalizados en una máquina virtual de Azure cuando la instancia se crea y cómo localizar dichos datos en Windows o Linux." metaKeywords="Azure linux vm, linux vm, userdata vm, user data vm, custom data vm, windows custom data" services="virtual-machines" solutions="" documentationCenter="" authors="rasquill" manager="timlt" editor="tysonn" videoId="" scriptId="" />
+﻿<properties pageTitle="Inyección de datos personalizados en máquinas virtuales de Azure" description="Este tema describe cómo inyectar datos personalizados en una máquina virtual de Azure cuando la instancia se crea y cómo localizar dichos datos en Windows o Linux." services="virtual-machines" documentationCenter="" authors="squillace" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="10/1/2014" ms.author="rasquill" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="10/1/2014" ms.author="rasquill"/>
 
 
 
@@ -14,7 +14,7 @@ La inyección de un script o de otros datos en una máquina virtual de Azure cua
 
 - Usar herramientas especiales disponibles en algunos sistemas para detectar y administrar datos personalizados automáticamente.
 
-> [WACOM.NOTE] Este tema se amplía en esta [entrada de blog sobre Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/) para hablar de esta característica, y se actualizará a medida que aparezcan más funcionalidades.
+> [AZURE.NOTE] Este tema amplía la información existente en [esta publicación en el blog de Azure](http://azure.microsoft.com/blog/2014/04/21/custom-data-and-cloud-init-on-windows-azure/) sobre esta característica y se actualizará a medida que vayan apareciendo más funcionalidades.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 En este tema:
@@ -28,7 +28,7 @@ En este tema:
 
 ## <a id="injectingCustomData"></a>Inyección de datos personalizados en una máquina virtual de Azure
 
-Esta característica solamente se admite actualmente en la [interfaz de la línea de comandos entre plataformas de Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat). Aunque puede usar cualquiera de las opciones para el comando "azure vm create", el siguiente enfoque muestra una perspectiva muy básica. 
+Esta característica solamente se admite actualmente en la [interfaz de la línea de comandos entre plataformas de Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat). Aunque puede usar cualquiera de las opciones para el comando  `azure vm create`, el siguiente enfoque muestra una perspectiva muy básica. 
 
 ```
     PASSWORD='AcceptablePassword -- more than 8 chars, a cap, a num, a special'
@@ -41,14 +41,14 @@ Esta característica solamente se admite actualmente en la [interfaz de la líne
 
 ## <a id="usingCustomData"></a>Uso de datos personalizados en la máquina virtual
  
-+ Si la máquina virtual de Azure es una máquina virtual de Windows, entonces el archivo de datos personalizados se guarda en "%SYSTEMDRIVE%\AzureData\CustomData.bin" y aunque tuviera una codificación base64 para transferirse desde el equipo local a la nueva máquina virtual, se descodifica automáticamente y se puede abrir o usar inmediatamente. 
++ Si la máquina virtual de Azure es una máquina virtual de Windows, entonces el archivo de datos personalizados se guarda en  `%SYSTEMDRIVE%\AzureData\CustomData.bin` y aunque tuviera una codificación base64 para transferirse desde el equipo local a la nueva máquina virtual, se descodifica automáticamente y se puede abrir o usar inmediatamente. 
 
-   > [WACOM.NOTE] Si el archivo existe se sobrescribe. La seguridad en el directorio se establece en **Sistema: Control total** y **Administradores: Control total**.
+   > [AZURE.NOTE] Si el archivo existe se sobrescribe. La seguridad en el directorio se establece en **Sistema: Control total** y **Administradores: Control total**.
 
 + Si la máquina virtual de Azure es una máquina virtual Linux, entonces el archivo de datos personalizados se ubicará en los dos lugares siguientes pero los datos tendrán la codificación base64, por lo que necesita descodificarlos primero.
 
-    + En "/var/lib/waagent/ovf-env.xml"
-    + En "/var/lib/waagent/CustomData" 
+    + En  `/var/lib/waagent/ovf-env.xml`
+    + En  `/var/lib/waagent/CustomData` 
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a id="nextsteps"></a>Pasos siguientes: Uso de cloud-init
@@ -61,4 +61,7 @@ Si la máquina virtual de Azure es una imagen de Ubuntu, entonces puede usar clo
 [Interfaz de la línea de comandos entre plataformas de Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

@@ -1,10 +1,10 @@
-﻿<properties pageTitle="Autorización en el servicio (Tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo autorizar a los usuarios en el back-end .NET de Servicios móviles de Azure." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Autorización del servicio (Tienda Windows) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo autorizar a los usuarios en el back-end de .NET de Servicios móviles de Azure." services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="glenga"/>
 
 # Autorización en el servicio de usuarios de Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]
 
 
 Este tema le muestra cómo realizar la autorización de usuarios autenticados para obtener acceso a los datos en Servicios móviles de Azure desde una aplicación de la Tienda Windows. En este tutorial, agregará código a los métodos de acceso a datos de su controlador para filtrar las consultas según el identificador de usuario de los usuarios autenticados, lo que garantiza que cada usuario solo pueda ver sus propios datos.
@@ -13,7 +13,7 @@ Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutoria
 
 ## <a name="register-scripts"></a>Modificación de los métodos de acceso a datos
 
-[WACOM.INCLUDE [mobile-services-filter-user-results-dotnet-backend](../includes/mobile-services-filter-user-results-dotnet-backend.md)] 
+[AZURE.INCLUDE [mobile-services-filter-user-results-dotnet-backend](../includes/mobile-services-filter-user-results-dotnet-backend.md)] 
 
 
 ## Prueba de la aplicación
@@ -24,7 +24,7 @@ Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutoria
 
    	Tenga en cuenta que esta vez, aunque existan elementos ya en la tabla TodoItem de tutoriales anteriores, no se devuelven elementos. Esto ocurre porque se insertaron elementos anteriores sin la columna userID y ahora cuentan con valores nulos.
 
-3. En la aplicación, escriba un texto en **Insertar un TodoItem** y, a continuación, haga clic en **Guardar**.
+3. En la aplicación, escriba texto en **Insertar TodoItem** y, a continuación, haga clic en **Guardar**.
 
    	![][3]
 
@@ -37,12 +37,12 @@ Este tutorial se basa en el inicio rápido de Servicios móviles y en el tutoria
 Este es el último tutorial que muestra los aspectos básicos relacionados con el uso de la autenticación. Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
 * [Introducción a los datos]
-  <br/>Más información sobre cómo almacenar y consultar datos con Servicios móviles.
+  <br/>Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
-* [Introducción a las notificaciones de inserción] 
-  <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
+* [Introducción a las notificaciones de inserción]
+  <br/>Aprenda cómo enviar una notificación de inserción muy básica a la aplicación.
   
-* [Referencia conceptual de Servicios móviles con .NET]
+* [Referencia conceptual de servicios móviles con .NET]
   <br/>Obtenga más información sobre el uso de Servicios móviles con .NET.
 
 <!-- Anchors. -->
@@ -54,9 +54,12 @@ Este es el último tutorial que muestra los aspectos básicos relacionados con e
 [3]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts/mobile-quickstart-startup.png
 
 <!-- URLs. -->
-[Introducción a Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-get-started
+[Introducción a los servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-get-started
 [Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data
 [Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users
 [Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push
 
 [Referencia conceptual de Servicios móviles con .NET]: /es-es/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library/
+
+
+<!--HONumber=42-->

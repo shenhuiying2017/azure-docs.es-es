@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="Validate Data" pageTitle="Uso de scripts de servidor para validar y modificar datos (Xamarin Android) | Centro de desarrollo móvil" metaKeywords="tener acceso y cambiar datos, Servicios móviles de Azure, dispositivos móviles, Azure, móvil, Xamarin.Android" description="Obtenga información acerca de cómo validar y modificar los datos enviados mediante scripts de servidor desde su aplicación Xamarin.Android." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" services="mobile-services"  title="Validate and modify data in Mobile Services by using server scripts" authors="donnam" manager="dwrede" />
+﻿<properties 
+	pageTitle="Uso de scripts de servidor para validar y modificar datos (Xamarin Android) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo validar y modificar los datos enviados mediante scripts de servidor desde su aplicación Xamarin.Android." 
+	documentationCenter="xamarin" 
+	services="mobile-services" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-android" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="donnam" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="donnam"/>
 
 # Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
 En este tema se muestra cómo aprovechar los scripts del servidor en Servicios móviles de Azure. Dichos scripts se registran en un servicio móvil y pueden usarse para realizar una gran variedad de operaciones en los datos que se han insertado y actualizado, incluidas la modificación y validación de los datos. En este tutorial, definirá y registrará scripts de servidor que sirven para validar y modificar datos. Dado que el comportamiento de los scripts del servidor suele afectar al cliente, también actualizará la aplicación Android para que se beneficie de estos nuevos comportamientos. El código terminado está disponible en el ejemplo de la [aplicación ValidateModifyData][GitHub].
 
@@ -21,19 +35,19 @@ Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial a
 
 Siempre es conveniente validar la longitud de los datos enviados por los usuarios. En primer lugar, registre un script que valide la longitud de los datos de cadena enviados al servicio móvil y que rechace las cadenas demasiado largas, en este caso con más de 10 caracteres.
 
-1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y luego haga clic en su aplicación. 
+1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su aplicación. 
 
 	![][0]
 
-2. Haga clic en la pestaña **Datos** y, a continuación, en la tabla **TodoItem**.
+2. Haga clic en la pestaña **Data** y, a continuación, haga clic en la tabla **TodoItem**.
 
 	![][1]
 
-3. Haga clic en **Script** y luego seleccione la operación de **inserción**.
+3. Haga clic en **Script** y, a continuación, seleccione la operación **Insert**.
 
 	![][2]
 
-4. Sustituya el script existente por la siguiente función y, a continuación, haga clic en **Guardar**.
+4. Sustituya el script existente por la siguiente función y, a continuación, haga clic en **Save**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -45,9 +59,7 @@ Siempre es conveniente validar la longitud de los datos enviados por los usuario
 
     Este script comprueba la longitud de la propiedad **text** y envía una respuesta de error cuando esta sobrepasa los 10 caracteres. En caso de no sobrepasarlos, se llama al método **execute** para completar la inserción.
 
-    <div class="dev-callout"> 
-	<b>Nota</b> 
-	<p>Puede quitar un script registrado en la pestaña <strong>Script</strong> haciendo clic en <strong>Borrar</strong> y luego en <strong>Guardar</strong>.</p></div>
+    > [AZURE.TIP] Puede eliminar un script registrado en la pestaña **Script** haciendo clic en**Clear** y, a continuación, en**Save**.
 
 ## <a name="update-client-validation"></a>Actualización del cliente
 
@@ -84,9 +96,7 @@ Las tareas anteriores validaban una inserción y bien la aceptaban o rechazaban.
 
     Esta función aumenta el script de inserción anterior mediante la incorporación de una nueva propiedad de marca de tiempo **createdAt** al objeto antes de que la llamada a **request**.**execute** lo inserte. 
 
-    <div class="dev-callout"><b>Nota:</b>
-	<p>El esquema dinámico debe habilitarse la primera vez que se ejecute este script de inserción. Al tener habilitado dicho esquema, Servicios móviles agrega automáticamente la columna <strong>createdAt</strong> a la tabla <strong>TodoItem</strong> en la primera ejecución. El esquema dinámico está habilitado de forma predeterminada para un nuevo servicio móvil y debe deshabilitarse antes de publicar la aplicación.</p>
-    </div>
+    > [AZURE.IMPORTANT] El esquema dinámico debe habilitarse la primera vez que se ejecute este script de inserción. Al tener habilitado dicho esquema, Servicios móviles agrega automáticamente la columna **createdAt** a la tabla **TodoItem** en la primera ejecución. El esquema dinámico está habilitado de forma predeterminada para un nuevo servicio móvil y debe deshabilitarse antes de publicar la aplicación.
 
 2. En el menú **Ejecutar**, haga clic en **Ejecutar** para iniciar la aplicación y, a continuación, escriba un texto (con menos de 10 caracteres) en el cuadro de texto y haga clic en el botón **Agregar**.
 
@@ -107,9 +117,7 @@ El cliente de Servicios móviles omitirá los datos de cualquier respuesta que n
         [DataMember(Name = "createdAt")]
         public DateTime? CreatedAt { get; set; }
   
-    <div class="dev-callout"><b>Nota:</b>
-	<p>La anotación <code>DataMember's Name</code> indica al cliente que asigne la nueva propiedad <code>CreatedAt</code> de la aplicación a la columna <code>createdAt</code> definida en la tabla TodoItem, que tiene un nombre diferente. Al usar esta anotación, la aplicación puede tener nombres de propiedad en objetos distintos a los nombres de columna de la base de datos SQL. Sin la anotación en cuestión, se produce un error debido a las diferencias en el uso de mayúsculas y minúsculas.</p>
-    </div>
+    > [AZURE.NOTE] La anotación  `DataMember's Name` indica al cliente que asigne la nueva propiedad  `CreatedAt` de la aplicación a la columna  `createdAt` definida en la tabla TodoItem, que tiene un nombre diferente. Al usar esta anotación, la aplicación puede tener nombres de propiedad en objetos distintos a los nombres de columna de la base de datos SQL. Sin la anotación en cuestión, se produce un error debido a las diferencias en el uso de mayúsculas y minúsculas.
 
 2. En el método GetView, agregue el siguiente código justo encima de donde el código actual que establece <code>checkBox.Text</code> en <code>currentItem.Text</code>:
 
@@ -119,7 +127,7 @@ El cliente de Servicios móviles omitirá los datos de cualquier respuesta que n
 
    	De esta manera se crea una cadena de fecha con formato cuando existe un valor de marca de tiempo. 
 
-3. Busque el código `checkBox.Text = currentItem.Text` nuevo y reemplace esta línea de código por lo siguiente:
+3. Vuelva a ubicar el código  `checkBox.Text = currentItem.Text` y reemplace esta línea de código por lo siguiente:
 
 		checkBox.Text = string.Format("{0} - {1}", currentItem.Text, displayDate);
 
@@ -143,20 +151,20 @@ El cliente de Servicios móviles omitirá los datos de cualquier respuesta que n
 
 Ha completado este tutorial de trabajo con datos.
 
-## <a name="next-steps"> </a>Pasos siguientes
+## <a name="next-steps">Pasos siguientes</a>
 
 Ahora que ha completado este tutorial, considere continuar con el tutorial final de la serie de datos: [Limitación de consultas con paginación].
 
 Los scripts de servidor también se usan al autorizar usuarios y para enviar notificaciones de inserción. Para obtener más información, consulte los siguientes tutoriales:
 
-* [Autorización a los usuarios con scripts]
-  <br/>Obtenga información acerca de cómo filtrar datos según el identificador de un usuario autenticado.
+* [Autorizar a los usuarios con scripts]
+  <br/>Aprenda cómo filtrar los datos según el identificador de un usuario autenticado.
 
-* [Introducción a las notificaciones de inserción] 
+* [Introducción a las notificaciones de inserción]
   <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
-* [Referencia del script del servidor de Servicios móviles]
-  <br/>Más información acerca del registro y uso de scripts de servidor.
+* [Referencia del script de servidor de Servicios móviles]
+  <br/>Obtenga más información acerca del registro y del uso de scripts de servidor.
 
 <!-- Anchors. -->
 [Incorporación de la validación de longitud de cadena]: #string-length-validation
@@ -173,9 +181,9 @@ Los scripts de servidor también se usan al autorizar usuarios y para enviar not
 
 
 <!-- URLs. -->
-[Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Introducción a Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-xamarin-android
-[Autorización a los usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
+[Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Introducción a los servicios móviles]: /es-es/develop/mobile/tutorials/get-started-xamarin-android
+[Autorizar a los usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
 [Limitación de consultas con paginación]: /es-es/develop/mobile/tutorials/add-paging-to-data-xamarin-android
 [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android
 [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android
@@ -184,3 +192,10 @@ Los scripts de servidor también se usan al autorizar usuarios y para enviar not
 [Portal de administración]: https://manage.windowsazure.com/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=331330
+
+
+
+
+
+
+<!--HONumber=42-->

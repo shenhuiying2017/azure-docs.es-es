@@ -1,11 +1,11 @@
-﻿<properties pageTitle="Introducción a Servicios móviles de Azure para aplicaciones de Windows Phone" metaKeywords="" description="Siga este tutorial para introducirse en el uso de Servicios móviles de Azure para el desarrollo de Windows Phone. " metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Get started with Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introducción a Servicios móviles de Azure para aplicaciones de Windows Phone" description="Siga este tutorial para introducirse en el uso de Servicios móviles de Azure para el desarrollo de Windows Phone." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/22/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="hero-article" ms.date="11/22/2014" ms.author="glenga"/>
 
 # <a name="getting-started"> </a>Introducción a los Servicios móviles
 
-Ya no se admite este tema; un proyecto de inicio rápido de Windows Phone 8.0 ya no se encuentra disponible para descarga desde el portal. Para agregar Servicios móviles a una aplicación Silverlight de Windows Phone 8.0 o de Windows Phone 8.1, consulte el tema [Incorporación de Servicios móviles a una aplicación existente](/en-us/documentation/articles/mobile-services-windows-phone-get-started-data/). 
+Ya no se admite este tema; un proyecto de inicio rápido de Windows Phone 8.0 ya no se encuentra disponible para descarga desde el portal. Para agregar Servicios móviles a una aplicación Silverlight de Windows Phone 8.0 o de Windows Phone 8.1, consulte el tema [Incorporación de Servicios móviles a una aplicación existente](/es-es/documentation/articles/mobile-services-windows-phone-get-started-data/). 
 
-Hay disponible una descarga del proyecto de inicio rápido para aplicaciones de Windows Phone Store 8.1 como parte de un proyecto universal de Windows. Para obtener más información, consulte [Introducción a Servicios móviles](/en-us/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/). 
+Hay disponible una descarga del proyecto de inicio rápido para aplicaciones de Windows Phone Store 8.1 como parte de un proyecto universal de Windows. Para obtener más información, consulte [Introducción a los Servicios móviles](/es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/). 
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

@@ -1,13 +1,27 @@
-﻿<properties linkid="web-sites-python-ptvs-django-sql" title="Django and SQL Database on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Django y Base de datos SQL en Azure con Python Tools 2.1 para Visual Studio" description="Obtenga información acerca de cómo usar las herramientas de Python para Visual Studio a fin de crear una aplicación Django que almacene datos en una instancia de base de datos SQL y que pueda implementarse en un sitio web.." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Django y Base de datos SQL en Azure con Python Tools 2.1 para Visual Studio" 
+	description="Aprenda a usar las herramientas de Python para Visual Studio para crear una aplicación de Django que almacene datos en una instancia de base de datos SQL y puedan implementarse en un sitio web." 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
 
 # Django y Base de datos SQL en Azure con Python Tools 2.1 para Visual Studio 
 
-En este tutorial, crearemos una aplicación de sondeos sencilla con la utilización de una de las plantillas de ejemplo de PTVS. Este tutorial también se encuentra disponible como [vídeo](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
+En este tutorial, crearemos una aplicación de sondeos sencilla con la utilización de una de las plantillas de ejemplo de PTVS. Este tutorial también se encuentra disponible en [vídeo](https://www.youtube.com/watch?v=ZwcoGcIeHF4).
 
 Facilitaremos información acerca del uso de una base de datos SQL hospedada en Azure, la configuración de la aplicación para utilizar Base de datos SQL y la publicación de la aplicación en un sitio web de Azure.
 
@@ -23,12 +37,12 @@ Consulte el [Centro para desarrolladores de Python][] para tener acceso a más a
 ##<a name="prerequisites"></a>Requisitos previos
 
  - Visual Studio 2012 o 2013
- - [Python Tools 2.1 para Visual Studio][]
+ - [Python Tools 2.1 para Visual Studio (en inglés)][]
  - [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio][]
  - [Herramientas del SDK de Azure para VS 2013][] o [Herramientas del SDK de Azure para VS 2012][]
- - [Python 2.7 (32 bits)][]
+ - [Python 2.7 32-bit][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="create-the-project"></a>Creación del proyecto
 
@@ -76,7 +90,7 @@ En esta sección, vamos a crear un proyecto de Visual Studio con la utilización
 
   	![Web Browser](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqliteBrowser.png)
 
-##<a name="create-a-sql-database"></a>una Base de datos SQL
+##<a name="create-a-sql-database"></a>Creación de una Base de datos SQL
 
 Para la base de datos, vamos a crear una base de datos SQL de Azure.
 
@@ -84,7 +98,7 @@ Siga estos pasos para crear una base de datos.
 
 1.  Inicie sesión en el [Portal de administración de Azure][].
 
-1.  En la parte inferior del panel de navegación, haga clic en **NEW** (Nuevo).
+1.  En la parte inferior del panel de navegación, haga clic en **NEW**.
 
   	![New Button](./media/web-sites-python-ptvs-django-sql/PollsCommonAzurePlusNew.png)
 
@@ -118,7 +132,7 @@ En esta sección, vamos a configurar nuestra aplicación para usar la base de da
 
   	![Allowed Services](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlAllowedServices.png)
 
-1.  En Visual Studio, abra **settings.py** desde la carpeta *ProjectName*. Edite la definición de "BASES DE DATOS".
+1.  En Visual Studio, abra **settings.py**, desde la carpeta *ProjectName*. Edite la definición de `DATABASES`.
 
         DATABASES = {
             'default': {
@@ -135,17 +149,17 @@ En esta sección, vamos a configurar nuestra aplicación para usar la base de da
             }
         }
 
-    "<DatabaseName>", "<User>" Y "<Password>" son los valores que ha especifica al crear la base de datos y el servidor.
+    `<DatabaseName>`, `<User>` y `<Password>` son los valores que especificó cuando creó la base de datos y el servidor.
 
-    Los valores de "<ServerName>" y "<ServerPort>" los genera Azure cuando se crea el servidor y pueden encontrarse en la sección **Conexión a la base de datos**.
+    Los valores de `<ServerName>` y `<ServerPort>` los genera Azure cuando se crea el servidor y se encuentran en la sección **Conectar con la base de datos**.
 
 1.  En el Explorador de soluciones, en **Python Environments** (Entornos de Python), haga clic con el botón secundario en el entorno virtual y seleccione **Install Python Package** (Instalar paquete de Python).
 
-1.  Instale el paquete "pyodbc" con **easy_install**.
+1.  Instale el paquete `pyodbc` con **easy_install**.
 
   	![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackagePyodbc.png)
 
-1.  Instale el paquete "django-pyodbc-azure" con **pip**.
+1.  Instale el paquete `django-pyodbc-azure` con **pip**.
 
   	![Install Python Package Dialog](./media/web-sites-python-ptvs-django-sql/PollsDjangoSqlInstallPackageDjangoPyodbcAzure.png)
 
@@ -155,7 +169,7 @@ En esta sección, vamos a configurar nuestra aplicación para usar la base de da
 
   	![Django Management Console Window](./media/web-sites-python-ptvs-django-sql/PollsDjangoConsole.png)
 
-1.  Presione <kbd>F5</kbd> para ejecutar la aplicación.  Los sondeos creados con **Create Sample Polls** (Crear sondeos de ejemplo) y los datos enviados al votar se serializarán en la base de datos SQL.
+1.  Ejecute la aplicación con <kbd>F5</kbd>.  Los sondeos creados con **Create Sample Polls** (Crear sondeos de ejemplo) y los datos enviados al votar se serializarán en la base de datos SQL.
 
 
 ##<a name="publish-to-an-azure-website"></a>Publicación en un sitio web de Azure
@@ -190,26 +204,29 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
   - [Proyectos web][]
   - [Proyectos de servicio en la nube][]
   - [Depuración remota en Microsoft Azure][]
-- [Documentación sobre Django][]
+- [Documentación de Django][]
 - [Base de datos SQL][]
 
 
 <!--Link references-->
-[Centro para desarrolladores de Python]: /en-us/develop/python/
+[Centro para desarrolladores de Python]: /es-es/develop/python/
 [Servicios en la nube de Azure]: ../cloud-services-python-ptvs/
 
 <!--External Link references-->
 [Portal de administración de Azure]: https://manage.windowsazure.com
-[Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.1 para Visual Studio (en inglés)]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Herramientas del SDK de Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Herramientas del SDK de Azure para VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 (32 bits)]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
 [Documentación sobre Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation
 [Depuración remota en Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Proyectos web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Proyectos de servicio en la nube]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-[Documentación sobre Django]: https://www.djangoproject.com/
-[Base de datos SQL]: /en-us/documentation/services/sql-database/
+[Documentación de Django]: https://www.djangoproject.com/
+[Base de datos SQL]: /es-es/documentation/services/sql-database/
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

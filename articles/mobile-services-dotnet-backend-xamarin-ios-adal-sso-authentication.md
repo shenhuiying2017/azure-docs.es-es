@@ -1,22 +1,22 @@
-﻿<properties urlDisplayName="Active Directory SSO Authentication with ADAL" pageTitle="Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory (Xamarin.iOS) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo autenticar usuarios para inicio de sesión único con ADAL en su aplicación de Xamarin.iOS." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Authenticate your app with Active Directory Authentication Library Single Sign-On" authors="wesmc,mahender" manager="dwrede" />
+﻿<properties pageTitle="Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory (Xamarin.iOS) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo autenticar usuarios para inicio de sesión único con ADAL en su aplicación de Xamarin.iOS." documentationCenter="xamarin" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc,mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc,mahender"/>
 
 # Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory
 
-[WACOM.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
+[AZURE.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
 En este tutorial, agregará la autenticación al proyecto de inicio rápido mediante la biblioteca de autenticación de Active Directory. 
 
-Para poder autenticar a los usuarios, debe registrar su aplicación en Azure Active Directory (AAD). Para ello, debe realizar dos pasos. Primero, debe registrar su servicio móvil y exponer los permisos sobre él. En segundo lugar, debe registrar la aplicación Xamarin.iOS y concederle acceso a esos permisos.
+Para poder autenticar a los usuarios, debe registrar su aplicación en Azure Active Directory (AAD). Para ello, debe realizar dos pasos. Primero, debe registrar su servicio móvil y exponer los permisos sobre él. En segundo lugar, debe registrar la aplicación de Xamarin.iOS y conceder acceso a esos permisos.
 
 
->[WACOM.NOTE] Este tutorial está pensado para ayudarle a comprender mejor la forma en que Servicios móviles permite la autenticación de Azure Active Directory con inicio de sesión único para aplicaciones Xamarin.iOS. Si esta es la primera vez que usa los Servicios móviles, complete el tutorial [Introducción a Servicios móviles].
+>[AZURE.NOTE] Este tutorial está pensado para ayudarle a comprender mejor la forma en que los Servicios móviles permiten la autenticación de Azure Active Directory con inicio de sesión único para aplicaciones Xamarin.iOS. Si esta es la primera vez que usa Servicios móviles, complete el tutorial [Introducción a los Servicios móviles].
 
 Este tutorial le guiará a través de estos pasos básicos:
 
-1. [Registro del servicio móvil en Azure Active Directory]
-2. [Registro de la aplicación en Azure Active Directory] 
+1. [Registro del servicio móvil con Azure Active Directory]
+2. [Registro de la aplicación con Azure Active Directory]
 3. [Configuración del servicio móvil para exigir autenticación]
 4. [Incorporación de código de autenticación a la aplicación cliente]
 5. [Prueba del cliente mediante autenticación]
@@ -24,22 +24,22 @@ Este tutorial le guiará a través de estos pasos básicos:
 Este tutorial requiere lo siguiente:
 
 * XCode 4.5 y iOS 6.0 (o versiones posteriores). 
-* Visual Studio con la [extensión Xamarin] o [Xamarin Studio] en OS X
-* Finalización del tutorial [Introducción a Servicios móviles] o [Introducción a los datos].
+* Visual Studio con la [extensión Xamarin] o [Xamarin Studio] en OS X.
+* Realización del tutorial [Introducción a los Servicios móviles] o [Introducción a los datos].
 * SDK de Servicios móviles de Microsoft Azure
-* Enlace de [Xamarin para la biblioteca de autenticación de Active Directory para iOS].
+* [Enlace de Xamarin para la biblioteca de autenticación de Active Directory para iOS]
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-register-service](../includes/mobile-services-dotnet-adal-register-service.md)]
 
-[WACOM.INCLUDE [mobile-services-dotnet-adal-register-client](../includes/mobile-services-dotnet-adal-register-client.md)]
+[AZURE.INCLUDE [mobile-services-dotnet-adal-register-client](../includes/mobile-services-dotnet-adal-register-client.md)]
 
 ## <a name="require-authentication"></a>Configuración del servicio móvil para exigir autenticación
 
-[WACOM.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
+[AZURE.INCLUDE [mobile-services-restrict-permissions-dotnet-backend](../includes/mobile-services-restrict-permissions-dotnet-backend.md)]
 
 ## <a name="add-authentication-code"></a>Incorporación de código de autenticación a la aplicación cliente
 
-1. Agregue el enlace de Xamarin para la biblioteca de autenticación de Active Directory al proyecto de Xamarin.iOS. En Visual Studio 2013, haga clic con el botón secundario en **Referencias** y seleccione **Agregar referencia**. Después, busque la biblioteca de enlace y haga clic en **Agregar**. Asegúrese de agregar también los guiones gráficos del origen ADAL.
+1. Agregue el enlace de Xamarin para la biblioteca de autenticación de Active Directory al proyecto de Xamarin.iOS. En Visual Studio 2013, haga clic con el botón derecho en **Referencias** y seleccione **Agregar referencia**. Después, busque la biblioteca de enlace y haga clic en **Agregar**. Asegúrese de agregar también los guiones gráficos del origen ADAL.
 
 2. Agregue lo siguiente a la clase QSTodoService: 
 
@@ -88,7 +88,7 @@ Este tutorial requiere lo siguiente:
 
             try
             {
-                user = await this.client.LoginAsync(MobileServiceAuthenticationProvider.WindowsAzureActiveDirectory, token);
+                user = await this.client.LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAzureActiveDirectory, token);
             }
             catch (Exception ex)
             {
@@ -96,13 +96,13 @@ Este tutorial requiere lo siguiente:
             }
         }
 
-6. En el código para el método `AuthenticateAsync` anterior, reemplace **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que se ha aprovisionado la aplicación, el formato debe ser https://login.windows.net/tenant-name.onmicrosoft.com. Este valor puede copiarse de la pestaña Dominio en Azure Active Directory en el [Portal de administración de Azure].
+6. En el código del método anterior  `AuthenticateAsync`, sustituya **INSERT-AUTHORITY-HERE** por el nombre del inquilino en el que aprovisionó su aplicación; el formato debe ser https://login.windows.net/tenant-name.onmicrosoft.com. Este valor se puede copiar de la pestaña Dominio de Azure Active Directory en el [Portal de administración de Azure].
 
-7. En el código del método anterior `AuthenticateAsync`, sustituya **INSERT-RESOURCE-URI-HERE** por el **URI de identificación de aplicación** de su dispositivo móvil. Si ha seguido el tema [Registro en Azure Active Directory], el URI de identificación de aplicación debe ser parecido a https://todolist.azure-mobile.net/login/aad.
+7. En el código del método anterior  `AuthenticateAsync`, sustituya **INSERT-RESOURCE-URI-HERE** por el **App ID URI** de su servicio móvil. Si ha seguido el tema [Registro en Azure Active Directory], el URI de id. de aplicación debe ser parecido a https://todolist.azure-mobile.net/login/aad.
 
-8. En el código del método anterior `AuthenticateAsync`, sustituya **INSERT-CLIENT-ID-HERE** por el identificador de cliente que ha copiado de la aplicación cliente nativa.
+8. En el código del método anterior  `AuthenticateAsync`, sustituya **INSERT-CLIENT-ID-HERE** por el Id. de cliente copiado de la aplicación cliente nativa.
 
-9. En el código del método `AuthenticateAsync` anterior, reemplace **INSERT-REDIRECT-URI-HERE** por el extremo /login/done para su servicio móvil. Debe ser similar a https://todolist.azure-mobile.net/login/done.
+9. En el código del método anterior  `AuthenticateAsync`, sustituya **INSERT-REDIRECT-URI-HERE** por el /login/done endpoint de su servicio móvil. Debe ser similar a https://todolist.azure-mobile.net/login/done.
 
 
 3. En QSTodoListViewController, modifique **ViewDidLoad** agregando el siguiente código justo antes de la llamada a RefreshAsync();
@@ -121,17 +121,19 @@ Este tutorial requiere lo siguiente:
    ![](./media/mobile-services-dotnet-backend-xamarin-ios-adal-sso-authentication/mobile-services-app-run.png)
 
 <!-- Anchors. -->
-[Registro del servicio móvil en Azure Active Directory]: #register-mobile-service-aad
-[Registro de la aplicación en Azure Active Directory]: #register-app-aad
+[Registro del servicio móvil con Azure Active Directory]: #register-mobile-service-aad
+[Registro de la aplicación con Azure Active Directory]: #register-app-aad
 [Configuración del servicio móvil para exigir autenticación]: #require-authentication
 [Incorporación de código de autenticación a la aplicación cliente]: #add-authentication-code
 [Prueba del cliente mediante autenticación]: #test-client
 
 <!-- URLs. -->
 [Introducción a los datos]: /es-es/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/
-[Introducción a Servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
+[Introducción a los servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
 [Registro en Azure Active Directory]: /es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Enlace de Xamarin para la biblioteca de autenticación de Active Directory para iOS]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
-[Extensión Xamarin]: http://xamarin.com/visual-studio
+[Enlace Xamarin para la biblioteca de autenticación de Active Directory para iOS]: https://github.com/AzureADSamples/NativeClient-Xamarin-iOS
+[Extensión de Xamarin]: http://xamarin.com/visual-studio
 [Xamarin Studio]: http://xamarin.com/download
+
+<!--HONumber=42-->

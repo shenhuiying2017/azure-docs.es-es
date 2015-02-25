@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="New Relic" pageTitle="Uso de New Relic con Azure - Guía de características de Azure" metaKeywords="" description="Aprenda a utilizar el servicio New Relic para administrar y supervisar su aplicación de Azure." metaCanonical="" services="" documentationCenter=".NET" title="New Relic Application Performance Management on Azure" authors="" solutions="" manager="carolz" editor="" />
+﻿<properties 
+	pageTitle="Uso de New Relic con Azure - Guía de características de Azure" 
+	description="Aprenda a utilizar el servicio New Relic para administrar y supervisar su aplicación de Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="stepsic-microsoft-com" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="stepsic" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="stepsic"/>
 
 
 
@@ -23,10 +37,7 @@ New Relic Pro se ofrece según el tamaño de la instancia de servicios de nube d
 
 Para obtener información sobre el precio, consulte la [página de New Relic en la Tienda de Azure](http://www.windowsazure.com/es-es/gallery/store/new-relic/new-relic/).
 
-<div class="dev-callout"> 
-<strong>Nota:</strong>
-<p>El precio solo se muestra para 10 equipos como máximo. Para cantidades mayores, póngase en contacto con New Relic (sales@newrelic.com) para obtener información del precio por volumen.</p>
-</div>
+> [AZURE.NOTE] El precio solo se muestra para 10 equipos como máximo. Para cantidades mayores, póngase en contacto con New Relic (sales@newrelic.com) para obtener información del precio por volumen.
 
 Los clientes de Azure reciben una suscripción de prueba a New Relic Pro de dos semanas de duración cuando implementan el agente de New Relic.
 
@@ -55,8 +66,7 @@ Para suscribirse directamente a New Relic desde la Tienda de Azure, siga estos t
 
 ### Paso 2. Instalar el paquete NuGet
 
-1. Abra la solución de Visual Studio o cree una nueva mediante la selección de
-   **Archivo > Nuevo > Proyecto**.
+1. Abra la solución de Visual Studio o cree una nueva seleccionando **File > New > Project**.
 
 	![Visual Studio](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget01.png)
 
@@ -64,12 +74,11 @@ Para suscribirse directamente a New Relic desde la Tienda de Azure, siga estos t
 
 	![Create cloud service](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget02.png)
 
-3. Abra la consola del Administrador de paquetes seleccionando **Tools > Library Package Manager > Package Manager Console**. Establezca su proyecto para que sea el predeterminado en la parte superior de la ventana de la Consola del Administrador de paquetes.
+3. Abra la consola del Administrador de paquetes seleccionando **Tools > Library Package Manager > Package Manager Console**). Establezca su proyecto para que sea el predeterminado en la parte superior de la ventana de la Consola del Administrador de paquetes.
 
 	![Package manager console](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget04.png)
 
-4. En el símbolo del sistema de Administrador de paquetes, escriba 'Install-Package
-   NewRelicWindowsAzure' y presione **ENTRAR**.
+4. En el símbolo del sistema del Administrador de paquetes, escriba  `Install-Package NewRelicWindowsAzure` y pulse **Entrar**.
 
 	![install in package manager](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget06.png)
 
@@ -77,7 +86,7 @@ Para suscribirse directamente a New Relic desde la Tienda de Azure, siga estos t
 
 	![enter license key](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget07.png)
 
-6. Opcional: En el aviso del nombre de aplicación, escriba el nombre de la aplicación tal como aparecerá en el panel de New Relic. O bien, utilice su nombre de solución como valor predeterminado.
+6. Opcional: en el aviso del nombre de aplicación, escriba el nombre de la aplicación tal como aparecerá en el panel de New Relic. O bien, utilice su nombre de solución como valor predeterminado.
 
 	![enter application name](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget08.png)
 
@@ -86,7 +95,8 @@ Para suscribirse directamente a New Relic desde la Tienda de Azure, siga estos t
 	![public the cloud project](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget09.png)
 
 
-**Nota:** si es la primera vez que implementa esta aplicación en Azure, se le pedirá que escriba sus credenciales de Azure. Para obtener más información, consulte <a href="/es-es/develop/net/tutorials/get-started/">Implementación de una aplicación web ASP.NET en un sitio web de Azure</a>.
+**Nota:** si es la primera vez que implementa esta aplicación en Azure, se le pedirá que escriba sus 
+credenciales de Azure. Para obtener más información, consulte <a href="/es-es/develop/net/tutorials/get-started/">Implementación de una aplicación web ASP.NET en un sitio web de Azure</a>.
 
 ![publish settings](./media/store-new-relic-cloud-services-dotnet-application-performce-management/NewRelicAzureNuget10.png)
 
@@ -94,7 +104,7 @@ Para suscribirse directamente a New Relic desde la Tienda de Azure, siga estos t
 
 Para ver el panel de New Relic:
 
-1. En el portal de Azure, haga clic en el botón **Manage**.
+1. En el portal de Azure, haga clic en el botón **Administrar**.
 2. Inicie sesión con el correo electrónico y la contraseña de la cuenta de New Relic.
 3. En la barra de menús de New Relic, seleccione **Applications > (nombre de la aplicación)**.
 
@@ -108,7 +118,7 @@ Para ver el panel de New Relic:
 
 Después de seleccionar la aplicación de la lista en el menú Applications, el panel Overview muestra información actual del explorador y del servidor de aplicaciones. Para alternar entre las dos vistas, haga clic en el botón **App server** o **Browser**.
 
-Además del método <a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">de la IU de New Relic</a> y <a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">de las funciones de exploración en profundidad del panel,</a> el panel Applications Overview muestra funciones adicionales.
+Además de las funciones de <a href="https://newrelic.com/docs/site/the-new-relic-ui#functions">la interfaz de usuario estándar de New Relic</a> y la <a href="https://newrelic.com/docs/site/the-new-relic-ui#drilldown">información detallada del panel</a>, el panel Applications Overview muestra funciones adicionales.
 
 <table border="1">
   <thead>
@@ -120,23 +130,23 @@ Además del método <a href="https://newrelic.com/docs/site/the-new-relic-ui#fun
   <tbody>
     <tr>
        <td>Mostrar la información del panel para el explorador o servidor de aplicaciones seleccionado</td>
-       <td>Haga clic en el botón <b>App Server</b> o <b>Browser</b> .</td>
+       <td>Haga clic en el botón <b>App Server</b> o <b>Browser</b>.</td>
     </tr>
-     <tr>
-       <td>Ver los niveles de umbral para la puntuación de <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> de la aplicación</td>
+€<tr>
+€<td>Ver los niveles de umbral para la puntuación de <a href="https://newrelic.com/docs/site/apdex" target="_blank">Apdex</a> de su aplicación</td>
        <td>Seleccione el icono <b>?<b> de la puntuación de Apdex.</b></b></td>
     </tr>
     <tr>
        <td>Ver los detalles de Apdex globales</td>
-       <td>Desde la vista <b>Browser</b> de Overview, seleccione cualquier lugar del mapa Global Apdex.<br /><b>Sugerencia:</b> para ir directamente al panel <a href="https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard" target="_blank">Geography</a>de la aplicación seleccionada, haga clic en el título <b>Global Apdex</b> o haga clic en cualquier lugar del mapa Global Apdex.</td>
+       <td>Desde la vista de <b>explorador</b> de la información general, seleccione el mapa Global Apdex.<br /><b>Sugerencia:</b> para ir directamente al panel <a href="https://docs.newrelic.com/docs/new-relic-browser/geography-dashboard" target="_blank">Geography</a> de la aplicación seleccionada, haga clic en el título <b>Global Apdex</b> o haga clic en cualquier lugar del mapa Global Apdex.</td>
     </tr>
     <tr>
-       <td>Ver el panel <a href="https://newrelic.com/docs/applications-dashboards/web-transactions" target="_blank">Web Transactions</a> </td>
+       <td>Ver el panel <a href="https://newrelic.com/docs/applications-dashboards/web-transactions" target="_blank">Web Transactions</a></td>
        <td>Haga clic en la tabla Web Transactions en el panel Applications Overview. O bien, para ver los detalles sobre una transacción web específica (incluyendo <a href="https://newrelic.com/docs/site/key-transactions" target="_blank">Key Transactions</a>), haga clic en su nombre.</td>
     </tr>
     <tr>
-       <td>Ver el panel <a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a> </td>
-       <td>Haga clic en el título del gráfico de tasas de error en el panel Applications Overview.<br /><b>Sugerencia:</b> también puede ver el panel Errors en <b>Applications</b> > (su aplicación) > Events > Errors.</td>
+       <td>Ver el panel <a href="https://newrelic.com/docs/site/errors" target="_blank">Errors</a></td>
+       <td>Haga clic en el título del gráfico de tasas de error en el panel Applications Overview.<br /><b>Sugerencia:</b> también puede ver el panel de errores en <b>Applications</b> &gt; (su aplicación) &gt; eventos &gt; errores.</td>
     </tr>
     <tr>
        <td>Ver los detalles del servidor de aplicaciones</td>
@@ -149,7 +159,7 @@ Además del método <a href="https://newrelic.com/docs/site/the-new-relic-ui#fun
         </ul>
        </p></p></td>
     </tr>
-  </tbody>
+€</tbody>
 </table>
 
 A continuación se muestra un ejemplo del panel Applications Overview cuando se selecciona la vista de explorador.
@@ -165,7 +175,12 @@ Consulte estos recursos adicionales para obtener más información:
 información general de la nueva interfaz de usuario de New Relic, configuración de derechos de usuario y perfiles, uso de funciones estándar e información detallada del panel.
  * [Applications Overview](https://newrelic.com/docs/site/applications-overview): características y funciones cuando se utiliza el panel Applications Overview de New Relic.
  * [Apdex](https://newrelic.com/docs/site/apdex): información general de cómo Apdex mide la satisfacción de los usuarios finales con la aplicación.
- * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): información general sobre cómo RUM detalla el tiempo que tardan los exploradores de los usuarios en cargar las páginas web, de dónde proceden y qué exploradores usan.
+ * [Real User Monitoring](https://newrelic.com/docs/features/real-user-monitoring): información general sobre cómo RUM detalla el tiempo que tardan los exploradores de los usuarios en cargar las páginas web, de dónde proceden y qué exploradores utilizan.
  * [Finding Help](https://newrelic.com/docs/site/finding-help): recursos disponibles en el centro de ayuda en línea de New Relic.
 
-<!--HONumber=35.2-->
+
+
+
+
+
+<!--HONumber=42-->

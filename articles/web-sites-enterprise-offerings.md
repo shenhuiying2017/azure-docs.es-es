@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="Azure Websites Enterprise Offerings" pageTitle="Migración de los sitios web de IIS a Sitios web Azure mediante el Asistente para migración" metaKeywords="Azure Websites,solution" description="Muestra cómo usar sitios web de Azure para crear soluciones de sitio web de empresa para su negocio" metaCanonical="" services="web-sites" documentationCenter="" title="Azure Websites Offerings for Enterprise Whitepaper" authors="cephalin,Apurva.Joshi"  solutions="" writer="cephalin" manager="wpickett" editor=""  />
+﻿<properties 
+	pageTitle="Migración de Sitios web de IIS a Sitios web Azure mediante el Asistente para migración" 
+	description="Muestra cómo usar sitios web de Azure para crear soluciones de sitio web de empresa para su negocio" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="cephalin"/>
 
 # Documento técnico sobre ofertas de Sitios web Azure para empresas #
 
@@ -27,14 +42,14 @@ Los equipos de desarrollo buscan ofrecer ventajas empresariales inmediatas, prop
 <a href="highlevel" />
 ## Solución de alto nivel ##
 
-Los marcos de trabajo y las plataformas web cada vez se usan más para desarrollar, probar y hospedar aplicaciones de línea de negocio. Una aplicación de línea de negocio típica, como un sistema de gastos de empleados internos, suele estar compuesta únicamente de un sitio web con una base de datos auxiliar para almacenar los datos relacionados con la aplicación.
+Los marcos de trabajo y las plataformas web cada vez se usan más para desarrollar, probar y hospedar aplicaciones de línea de negocio.  Una aplicación de línea de negocio típica, como un sistema de gastos de empleados internos, suele estar compuesta únicamente de un sitio web con una base de datos auxiliar para almacenar los datos relacionados con la aplicación.
 
 Sitios web Microsoft Azure es una buena opción para hospedar tales aplicaciones, ya que ofrece una infraestructura escalable y confiable que se administra y revisa prácticamente sin intervención manual y que tiene un tiempo de inactividad casi nulo. La plataforma Microsoft Azure proporciona muchas opciones de almacenamiento de datos para admitir aplicaciones web hospedadas en Sitios web Microsoft Azure, desde Base de datos SQL de Microsoft Azure (una base de datos como servicio relacional escalable administrada) a servicios populares de nuestros asociados, como por ejemplo Base de datos MySQL de ClearDB y MongoDB.
 
-Un enfoque alternativo es hacer uso de su inversión existente local. En el escenario de ejemplo, un sistema de gastos de empleados, puede que le interese mantener el almacén de datos dentro de su propia infraestructura interna. Esto podría ser para la integración con sistemas internos (informes, nóminas, facturación, etc.) o para satisfacer un requisito de administración de TI. Sitios web Microsoft Azure proporciona dos métodos que le permiten conectarse a su infraestructura local:
+Un enfoque alternativo es hacer uso de su inversión existente local. En el escenario de ejemplo, un sistema de gastos de empleados, puede que le interese mantener el almacén de datos dentro de su propia infraestructura interna. Esto podría ser para la integración con sistemas internos (informes, nóminas, facturación, etc.) o para satisfacer un requisito de administración de TI.  Sitios web Microsoft Azure proporciona dos métodos que le permiten conectarse a su infraestructura local:
 
-- [Conexiones híbridas](http://aka.ms/hybridconnections) - Conexiones híbridas es una característica de Servicios de BizTalk de Microsoft Azure que permite a Sitios web Azure conectarse a recursos locales de forma segura, por ejemplo SQL Server, MySQL, API web y servicios web personalizados. 
-- [Integración de red virtual](http://aka.ms/websitesvnet) - Integración de red virtual de Sitios web Azure le permite conectar su sitio web a una red virtual de Azure que, a su vez, se puede conectar a la infraestructura local través de una VPN de tipo sitio a sitio. 
+- [Conexiones híbridas](http://aka.ms/hybridconnections) - Conexiones híbridas es una característica de Servicios de BizTalk de Microsoft Azure que permite a Sitios web Azure conectarse a recursos locales de forma segura, por ejemplo SQL Server, MySQL, API web y servicios web personalizados.
+- [Integración de red virtual](http://aka.ms/websitesvnet) - Integración de red virtual de Sitios web Azure le permite conectar su sitio web a una red virtual de Azure que, a su vez, se puede conectar a la infraestructura local través de una VPN de tipo sitio a sitio.
 
 El diagrama siguiente es una solución de alto nivel de ejemplo con opciones de conectividad para recursos locales.
 
@@ -46,19 +61,19 @@ Sitios web Microsoft Azure proporciona numerosas ventajas empresariales que perm
 
 ### Modelo PaaS ###
 
-Sitios web Azure se basa en un modelo Plataforma como servicio que proporciona una serie de ahorros de costo y eficacia. Ya no es necesario pasar horas administrando máquinas virtuales ni aplicando revisiones a sistemas operativos ni marcos. Sitios web Azure es un entorno automáticamente revisado que le permite centrarse en la administración de las aplicaciones web y no en las máquinas virtuales, dejando a los equipos libres para proporcionar valor empresarial adicional.
+Sitios web Azure se basa en un modelo Plataforma como servicio que proporciona una serie de ahorros de costo y eficacia.  Ya no es necesario pasar horas administrando máquinas virtuales ni aplicando revisiones a sistemas operativos ni marcos. Sitios web Azure es un entorno automáticamente revisado que le permite centrarse en la administración de las aplicaciones web y no en las máquinas virtuales, dejando a los equipos libres para proporcionar valor empresarial adicional.
 
 El modelo PaaS que sustenta Sitios web Microsoft Azure permite a los profesionales de la metodología de operaciones de desarrollo cumplir sus objetivos. Como empresa, esto significa la administración e integración completas durante todo el ciclo de vida de la aplicación, incluido el desarrollo, pruebas, lanzamiento, supervisión, administración y soporte técnico. 
 
 Para los equipos de desarrollo, se pueden configurar flujos de trabajo de integración e implementación continuas desde Visual Studio Online, GitHub, TeamCity, Hudson o BitBucket, habilitando la compilación, prueba e implementación automáticas que permiten ciclos de lanzamiento más rápidos reduciendo al mismo tiempo la problemática que supone el lanzamiento en una infraestructura existente. Sitios web Azure también admite la creación de varios entornos de prueba y ensayo para el flujo de trabajo de lanzamiento. Ya no necesitará reservar o asignar hardware para estas finalidades; puede crear tantos entornos como desee y definir su propia promoción al flujo de trabajo de lanzamiento. Como empresa, podría decidir el lanzamiento a un espacio de prueba desde el control de código fuente, realizar una serie de pruebas y, tras la finalización correcta, promover a un espacio de ensayo; finalmente podría cambiar a producción sin tiempo de inactividad, con la ventaja añadida de que las aplicaciones web hospedadas en Sitios web Azure están previamente cargadas y activas para proporcionar la mejor experiencia posible al cliente.
 
-Los equipos de operaciones pueden estar seguros de que se encuentran en la mejor posición posible para reaccionar ante un problema con cualquiera de sus aplicaciones web hospedadas en Sitios web Azure con las características de supervisión y alerta integradas. Si los equipos de operaciones ya han invertido en soluciones de análisis y supervisión, como Microsoft Visual Studio Application Insights, New Relic y AppDynamics, dichas soluciones también son totalmente compatibles con Sitios web Azure, lo que permite la continuidad y entornos conocidos desde los que supervisar las aplicaciones web.
+Los equipos de operaciones pueden estar seguros de que se encuentran en la mejor posición posible para reaccionar ante un problema con cualquiera de sus aplicaciones web hospedadas en Sitios web Azure con las características de supervisión y alerta integradas. Si los equipos de operaciones ya han invertido en soluciones de supervisión y análisis como Microsoft Visual Studio Application Insights, New Relic y AppDynamics. También son compatibles con Sitios web Azure, lo que permite la continuidad y un entorno familiar desde el que supervisar sus aplicaciones web.
 
 Por último, Sitios web Azure proporciona funcionalidad para realizar automáticamente copias de seguridad de los sitios y las bases de datos hospedadas directamente en un contenedor de almacenamiento de blobs de Azure. Todo ello le proporciona una forma sencilla y un método muy económico con los que recuperarse ante desastres, lo que reduce la necesidad de hardware y software locales complejos.
 
 ### Facilidad de migración ###
 
-La rotación y el mantenimiento de hardware es un factor clave para las empresas a medida que los ciclos de lanzamiento de hardware y sistemas operativos se aceleran. ¿Quizá tenga una serie de servidores Windows Server 2003 R2 que están llegando al final del período de soporte en 2015 pero aún hospedan aplicaciones web clave para su empresa? Sitios web Azure es un excelente candidato en el que hospedar esas aplicaciones y con el que racionalizar el estado de hardware empresarial. Sitios web Azure proporciona acceso a una amplia gama de especificaciones de hardware que se administran y mantienen como parte del servicio, eliminando la necesidad de tener en cuenta los costos de sustitución y administración como parte de su presupuesto en infraestructura. La migración puede ser tan simple como una operación de copiar y pegar desde la implementación existente a Sitios web Azure o una migración más compleja donde el uso del Asistente para migración de Sitios web Azure aportará valor. Las aplicaciones web migradas disfrutan de infinidad de servicios de Azure, integrando servicios adicionales en las aplicaciones web. Por ejemplo, se puede considerar la incorporación de Azure Active Directory para controlar el acceso a la aplicación basándose en la asociación de los usuarios a grupos de seguridad. Otro ejemplo puede ser agregar servicios de caché para mejorar el rendimiento y reducir la latencia, proporcionando una mejor experiencia de usuario global. 
+La rotación y el mantenimiento de hardware es un factor clave para las empresas a medida que los ciclos de lanzamiento de hardware y sistemas operativos se aceleran. ¿Quizá tenga una serie de servidores Windows Server 2003 R2 que están llegando al final del período de soporte en 2015 pero aún hospedan aplicaciones web clave para su empresa? Sitios web Azure es un excelente candidato en el que hospedar esas aplicaciones y con el que racionalizar el estado de hardware empresarial. Sitios web Azure proporciona acceso a una amplia gama de especificaciones de hardware que se administran y mantienen como parte del servicio, eliminando la necesidad de tener en cuenta los costos de sustitución y administración como parte de su presupuesto en infraestructura.  La migración puede ser tan simple como una operación de copiar y pegar desde la implementación existente a Sitios web Azure o una migración más compleja donde el uso del Asistente para migración de Sitios web Azure aportará valor. Las aplicaciones web migradas disfrutan de infinidad de servicios de Azure, integrando servicios adicionales en las aplicaciones web. Por ejemplo, se puede considerar la incorporación de Azure Active Directory para controlar el acceso a la aplicación basándose en la asociación de los usuarios a grupos de seguridad. Otro ejemplo puede ser agregar servicios de caché para mejorar el rendimiento y reducir la latencia, proporcionando una mejor experiencia de usuario global. 
 
 ### Hospedaje de clase empresarial ###
 
@@ -66,7 +81,7 @@ Sitios web Azure proporciona una plataforma estable y confiable que ha demostrad
 
 La plataforma de Microsoft Azure permite controles de autorización basados en rol que posibilitan niveles de control empresarial a recursos dentro de Sitios web Azure. RBAC ofrece a las empresas la capacidad de implementar sus propias directivas de administración de acceso para todos sus activos en el entorno de Azure, asignando usuarios a grupos y, a su vez, asignando los permisos necesarios a esos grupos en el activo como un sitio web de Azure. Para obtener más información sobre RBAC en Azure, consulte [http://aka.ms/azurerbac](http://aka.ms/azurerbac). Mediante el uso de Sitios web Azure puede estar seguro de que las aplicaciones web se implementan en un entorno seguro y de que tiene control total sobre en qué territorio se implementan sus activos. 
 
-Además, Sitios web Azure también es capaz de hacer un uso completo de sus inversiones locales ofreciendo la posibilidad de conectarse a los recursos internos, como el almacén de datos o el entorno de SharePoint. Como se analizó en la sección [Solución de alto nivel](#highlevel), puede utilizar las conexiones híbridas y la conectividad de red virtual para establecer conexiones con la infraestructura y los servicios locales.
+Además, Sitios web Azure también es capaz de hacer un uso completo de sus inversiones locales ofreciendo la posibilidad de conectarse a los recursos internos, como el almacén de datos o el entorno de SharePoint. Como se describe en [Solución de alto nivel](#highlevel) puede hacer uso de conexiones híbridas y conectividad de redes virtuales para establecer conexiones con servicios e infraestructuras locales.
 
 ### Escala global ###
 
@@ -91,7 +106,7 @@ El primer paso de toda la solución para mover una aplicación de línea de nego
 Cuando se migra una aplicación desde un entorno local, debe tener en mente algunas restricciones de Sitios web Azure. A continuación presentamos algunos temas clave que se deben tener en cuenta al migrar aplicaciones web a Sitios web Azure ([http://aka.ms/websitesmigrationresources](http://aka.ms/websitesmigrationresources)):
 
 -	Enlaces de puertos - Sitios web Azure solamente admite el puerto 80 para HTTP y el puerto 443 para el tráfico HTTPS. Si su aplicación o sitio usa cualquier otro puerto, entonces una vez migrada la aplicación o el sitio asegúrese de usar el puerto 80 para HTTP y el puerto 443 para el tráfico HTTPS. Este suele ser un problema sin consecuencias, ya que, en implementaciones locales, es habitual usar distintos puertos para evitar el uso de nombres de dominio, especialmente en entornos de desarrollo y pruebas.
--	Autenticación - Sitios web Azure admite la autenticación anónima de forma predeterminada y la autenticación mediante formularios según se identifica por una aplicación. Sitios web Azure puede ofrecer autenticación de Windows cuando la aplicación o el sitio se integra con Azure Active Directory y ADFS solamente. Se trata de una característica que se describe con más detalle [aquí](http://aka.ms/azurebizapp) .
+-	Autenticación - Sitios web Azure admite la autenticación anónima de forma predeterminada y la autenticación mediante formularios según se identifica por una aplicación. Sitios web Azure puede ofrecer autenticación de Windows cuando la aplicación o el sitio se integra con Azure Active Directory y ADFS solamente. Se trata de una característica que se describe con más detalle [aquí](http://aka.ms/azurebizapp). 
 -	Ensamblados basados en caché global de ensamblados - Sitios web Azure no permite la implementación de ensamblados en la memoria caché global de ensamblados, por lo que si la aplicación o el sitio que se está migrando usa esta característica de forma local, considere la posibilidad de mover los ensamblados a la carpeta de la papelera de dicha aplicación o sitio.
 -	Modo de compatibilidad con IIS5 - Sitios web Azure no admite el modo de compatibilidad con IIS5 y, como tal, cada sitio y todas las aplicaciones que se encuentran bajo el sitio primario se ejecutan en el mismo proceso de trabajo dentro de un único grupo de aplicaciones.
 -	Uso de bibliotecas COM - Sitios web Azure no permite el registro de componentes COM en la plataforma, por lo tanto, si el sitio o la aplicación usa cualquiera de los componentes COM, estos necesitarían reescribirse en código administrado e implementarse con el sitio o la aplicación.
@@ -131,4 +146,9 @@ Además de la flexibilidad de escalado de Sitios web Microsoft Azure, la platafo
 Sitios web Microsoft Azure ofrece una solución flexible, económica y con capacidad de respuesta a las necesidades dinámicas de una empresa en un entorno que evoluciona rápidamente. Las empresas de Sitios web Azure aumentan la productividad y eficacia mediante una plataforma administrada con capacidades de operaciones de desarrollo y administración práctica reducida, proporcionando al mismo tiempo capacidades empresariales de escala, resistencia, seguridad e integración con activos locales.
 
 ## Pasar a la acción ##
-Para obtener más información sobre el servicio Sitios web Microsoft Azure, visite [http://aka.ms/enterprisewebsites](http://aka.ms/enterprisewebsites), donde se puede encontrar más información, y regístrese para una versión de prueba hoy mismo en [http://aka.ms/azuretrial](http://aka.ms/azuretrial) para evaluar el servicio y descubrir las ventajas para su empresa.
+Para obtener más información sobre el servicio Sitios web Microsoft Azure, visite [http://aka.ms/enterprisewebsites](http://aka.ms/enterprisewebsites), donde puede encontrar más información, y regístrese para una versión de prueba hoy mismo en [http://aka.ms/azuretrial](http://aka.ms/azuretrial) para evaluar el servicio y descubrir las ventajas para su empresa.
+
+
+
+
+<!--HONumber=42-->

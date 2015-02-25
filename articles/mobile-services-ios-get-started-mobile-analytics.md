@@ -1,11 +1,11 @@
-﻿<properties urlDisplayName="Get Started with Mobile Analytics" pageTitle="Introducción al análisis móvil | Centro de desarrollo móvil" metaKeywords="" description="Introducción al análisis móvil" metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Get Started with Mobile Analytics" authors="mahender" manager="dwrede"/>
+﻿<properties pageTitle="Introducción al análisis móvil | Centro de desarrollo móvil" description="Introducción al análisis móvil" documentationCenter="ios" authors="mattchenderson" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender"/>
 
 # Introducción al análisis móvil (Capptain)
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/en-us/documentation/articles/mobile-services-ios-get-started-mobile-analytics" title="iOS" class="current">iOS</a>
+<a href="/es-es/documentation/articles/mobile-services-ios-get-started-mobile-analytics" title="iOS" class="current">iOS</a>
 </div>
 
 En este tutorial, agregará funciones de análisis móvil a su aplicación mediante [Capptain]. Los análisis móviles le permiten determinar el modo en que los usuarios interactúan con su aplicación y cuáles son las secciones que están impulsando la mayor actividad. Para comenzar a obtener estos datos, instrumentaremos su aplicación con el SDK de Capptain.
@@ -28,10 +28,10 @@ Este tutorial requiere lo siguiente:
 
 1. Vaya a la página **Detalles de la aplicación** de su aplicación registrada en Capptain. Seleccione la pestaña SDK y descargue el paquete.
 
-2. En XCode, agregue el SDK de Capptain a su proyecto; para ello, haga clic con el botón secundario en el proyecto y seleccione "Agregar archivos a..." Elija la carpeta CapptainSDK.
+2. En XCode, agregue el SDK de Capptain a su proyecto; para ello, haga clic con el botón derecho en el proyecto y seleccione "Agregar archivos a..." Elija la carpeta CapptainSDK.
 
-3. Seleccione su proyecto. En la pestaña **Fases de compilación**, seleccione **Vincular binarios con bibliotecas** y agregue los siguientes marcos de trabajo:
-    * AdSupport.framework: establezca el vínculo como Opcional.
+3. Seleccione su proyecto. En la pestaña **Build Phases** (Generar fases), seleccione **Link Binary With Libraries** (Vincular binario con bibliotecas) y agregue los marcos siguientes:
+    * AdSupport.framework - set the link as Optional
     * SystemConfiguration.framework
     * CoreTelephony.framework
     * CFNetwork.framework
@@ -57,7 +57,7 @@ Este tutorial requiere lo siguiente:
 
 ## <a name="instrument"></a>Sobrecarga de UIViewController
 
-1. Encuentre cada elemento secundario de "UIViewController" en su proyecto y asegúrese de que cada uno herede de "CapptainViewController".
+1. Busque cada elemento secundario de  `UIViewController` en su proyecto y asegúrese de que cada uno herede de  `CapptainViewController`.
 
         #import <UIKit/UIKit.h>
         #import "CapptainViewController.h"
@@ -71,7 +71,7 @@ Este tutorial requiere lo siguiente:
         @property (nonatomic, retain) IBOutlet UITextField* myTextField1;
         @property (nonatomic, retain) IBOutlet UITextField* myTextField2;
 
-2. Encuentre cada elemento secundario de "UITableViewController" en su proyecto y asegúrese de que cada uno herede de "CapptainTableViewController".
+2. Busque cada elemento secundario de  `UITableViewController` en su proyecto y asegúrese de que cada uno herede de  `CapptainTableViewController`.
 
     Su aplicación está ya configurada para enviar datos de análisis a Capptain.
 
@@ -85,6 +85,7 @@ Puede obtener más información sobre lo que Capptain puede hacer por su aplicac
 
 <!-- URLs. -->
 [Capptain]: http://www.capptain.com
-[Nivel estándar de Servicios móviles]: /en-us/pricing/details/mobile-services/
+[Nivel estándar de Servicios móviles]: /es-es/pricing/details/mobile-services/
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

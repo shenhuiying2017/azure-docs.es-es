@@ -1,22 +1,22 @@
-﻿<properties urlDisplayName="Create Encrypted Asset and Upload to Storage" pageTitle="Creación de un recurso cifrado y carga en el almacenamiento de Azure" metaKeywords="" description="Aprenda a obtener contenido multimedia en Servicios multimedia creando y cargando un activo cifrado." metaCanonical="" services="media-services" documentationCenter="" title="How to: Create an encrypted Asset and upload to storage" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Creación de un recurso cifrado y carga en el almacenamiento de Azure" description="Aprenda a obtener contenido multimedia en Servicios multimedia creando y cargando un activo cifrado." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
 <h1><a name="create-asset"> </a><span class="short header">Creación de un recurso codificado y carga en el almacenamiento</span></h1>
 
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior era [Configuración de su equipo para servicios multimedia](http://go.microsoft.com/fwlink/?LinkID=301751&clcid=0x409).
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de la [Configuración del equipo para servicios multimedia](http://go.microsoft.com/fwlink/?LinkID=301751&clcid=0x409).
 
-Para llevar el contenido multimedia a Servicios multimedia, primero debe crear un recurso, agregar archivos y, a continuación, cargar el recurso. Este proceso se llama ingesta de contenido.  
+Para llevar el contenido multimedia a Servicios multimedia, primero debe crear un recurso, agregarle archivos y, a continuación, cargar el recurso. Este proceso se llama ingesta de contenido.  
 
 Cuando cree activos, podrá especificar tres opciones diferentes para el cifrado. 
 
-- **AssetCreationOptions.None**: sin cifrado. Si desea crear un activo sin cifrar, debe configurar esta opción.
+- **AssetCreationOptions.None**: sin cifrado. Si desea crear un recurso sin cifrar, debe configurar esta opción.
 - **AssetCreationOptions.CommonEncryptionProtected**: para archivos protegidos con cifrado común (CENC). Un ejemplo es un conjunto de archivos que ya está cifrado para PlayReady. 
 - **AssetCreationOptions.StorageEncrypted**: cifrado de almacenamiento. Cifra un archivo de entrada limpio antes de que se cargue en el almacenamiento de Azure.
 
-> WACOM.NOTE
+> AZURE.NOTE
 > Los Servicios multimedia proporcionan cifrado de almacenamiento en disco para sus recursos, no por cable como el administrador de derechos digitales (DRM).
 
 El código de ejemplo de abajo hace lo siguiente: 
@@ -85,7 +85,7 @@ static public IAsset CreateAssetAndUploadMultipleFiles( AssetCreationOptions ass
         throw new FileNotFoundException(String.Format("No files in directory, check folderPath: {0}", folderPath));
     }
 
-    var uploadTasks = new List<Task>();
+    var uploadTasks = new List&lt;Task&gt;();
     foreach (var filePath in filePaths)
     {
         var assetFile = asset.AssetFiles.Create(Path.GetFileName(filePath));
@@ -120,6 +120,6 @@ static void  blobTransferClient_TransferProgressChanged(object sender, BlobTrans
 <h2>Pasos siguientes</h2>
 Ahora que ha cargado un recurso en los Servicios multimedia, vaya al tema [Obtención de un procesador de multimedia][].
 
-[Obtención de un procesador de multimedia en Azure]: ../media-services-get-media-processor/
+[Obtención de un procesador de multimedia]: ../media-services-get-media-processor/
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

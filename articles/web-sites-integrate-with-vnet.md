@@ -1,6 +1,20 @@
-﻿<properties title="Integrate your Azure Website with an Azure Virtual Network" pageTitle="Integración de un sitio web de Azure con una red virtual de Azure" description="Muestra cómo conectar un sitio web de Azure a una red virtual de Azure nueva o existente" metaKeywords="" services="web-sites,virtual-network" solutions="web,integration,infrastructure" documentationCenter="" authors="cephalin" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Integración de un sitio web de Azure con una red virtual de Azure" 
+	description="Muestra cómo conectar un sitio web de Azure a una red virtual de Azure nueva o existente" 
+	services="web-sites, virtual-network" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="cephalin"/>
 
 # Integración de su sitio web de Azure con una red virtual de Azure #
 Este documento describe la característica en vista previa de integración de redes virtuales y muestra cómo configurarla con su sitio web de Azure.  Si no conoce las redes virtuales de Azure, sepa que esta es una capacidad que le permite compilar soluciones híbridas con sus recursos locales y de Azure.  
@@ -13,7 +27,7 @@ Si quiere más detalles sobre las redes virtuales de Azure, vea la información 
 Le recordamos algunas cosas que debe tener en cuenta antes de conectar su sitio a una red virtual.
 
 1.	Los sitios solo se pueden conectar a una red virtual si se están ejecutando en un plan de hospedaje web que esté en el nivel de precios "Estándar".  Los sitios gratuitos, compartidos y básicos no se pueden conectar a una red virtual.
-2.	Si su red virtual de destino ya existe, debe tener habilitada la característica punto a sitio con una puerta de enlace de enrutamiento dinámica para que se pueda conectar a un sitio web. No puede habilitar una VPN de punto a sitio si la puerta de enlace está configurada con enrutamiento estático.
+2.	Si su red virtual de destino ya existe, debe tener habilitada la característica punto a sitio con una puerta de enlace de enrutamiento dinámica para que se pueda conectar a un sitio web.  No puede habilitar una VPN de punto a sitio si la puerta de enlace está configurada con enrutamiento estático.
 3.	Solo puede tener 5 redes configuradas como mucho en su plan de hospedaje web.  Un sitio web solo se puede conectar a una red cada vez.  Esas 5 redes las pueden usar todos los sitios web que quiera dentro del mismo plan de hospedaje web.  
 
 Puede conectarse a una red virtual nueva o existente.  Si crea una red nueva, se le preconfigura una puerta de enlace.  Crear y configurar una red virtual lleva unos minutos.  
@@ -79,8 +93,13 @@ Esta acción también debe usarse si agrega un DNS a la red virtual o si agrega 
 ![](./media/web-sites-integrate-with-vnet/vnet-sync-connection.png)
 
 ## Comparación y contraste con las conexiones híbridas ##
-Sitios web Azure ofrece otra característica llamada Conexiones híbridas que se parece un poco a la integración de las redes virtuales. Aunque algunos casos de uso coinciden, ninguna característica puede reemplazar a la otra.  Con Conexiones híbridas, puede establecer conexiones con varios extremos de aplicación en un conjunto de redes.  La característica de redes virtuales conecta su sitio web a una VNET que se puede conectar a su red local.  Esto funciona muy bien si sus recursos están todos en el ámbito de esa red.  
+Sitios web Azure ofrece otra característica llamada Conexiones híbridas que se parece un poco a la integración de las redes virtuales.  Aunque algunos casos de uso coinciden, ninguna característica puede reemplazar a la otra.  Con Conexiones híbridas, puede establecer conexiones con varios extremos de aplicación en un conjunto de redes.  La característica de redes virtuales conecta su sitio web a una VNET que se puede conectar a su red local.  Esto funciona muy bien si sus recursos están todos en el ámbito de esa red.  
 
 Otra diferencia es que hay que instalar un agente de retransmisión para que Conexiones híbridas funcione.  Este agente tiene que ejecutarse en una instancia de Windows Server.  Con la característica de redes virtuales, no hay que instalar nada y se puede obtener acceso a los recursos remotos sea cual sea el sistema operativo de hospedaje.  
 
 Actualmente, también hay diferencias en los niveles de precios entre las dos funciones.  Esto se debe a que en los niveles más baratos, la característica Conexiones híbridas es muy útil para escenarios de desarrollo y pruebas, y solo da acceso a un número reducido de extremos.  La característica de redes virtuales le da acceso a todo lo que haya en la VNET o esté conectado a ella.  
+
+
+
+
+<!--HONumber=42-->

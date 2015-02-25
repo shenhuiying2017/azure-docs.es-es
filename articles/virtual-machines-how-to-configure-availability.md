@@ -1,20 +1,21 @@
-﻿<properties title="How to Configure An Availability Set for Virtual Machines" pageTitle="Cómo configurar un conjunto de disponibilidad para máquinas virtuales" description="Proporciona los pasos para configurar un conjunto de disponibilidad para una máquina virtual en Azure" metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+﻿<properties pageTitle="Cómo configurar un conjunto de disponibilidad para máquinas virtuales" description="Proporciona los pasos para configurar un conjunto de disponibilidad para una máquina virtual en Azure" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="kathydav"/>
 
 #Cómo configurar un conjunto de disponibilidad para máquinas virtuales#
 
-Un conjunto de disponibilidad ayuda a mantener las máquinas virtuales disponibles durante períodos de inactividad, como por ejemplo mientras se realiza mantenimiento. Colocar dos o más máquinas virtuales similarmente configuradas en un conjunto de disponibilidad crea la redundancia necesaria para mantener la disponibilidad de las aplicaciones o servicios que ejecuta su máquina virtual. Para obtener información detallada sobre el funcionamiento, consulte [Administración de la disponibilidad de las máquinas virtuales] []. 
 
-Es una buena práctica usar una combinación de conjuntos de disponibilidad y extremos de equilibrio de carga para ayudar a asegurar de que su aplicación está siempre disponible y ejecutándose de forma eficaz. Para obtener detalles acerca de extremos de equilibrio de carga, consulte [Equilibrio de carga para Servicios de infraestructura de Azure] [].
+Un conjunto de disponibilidad ayuda a mantener las máquinas virtuales disponibles durante períodos de inactividad, como por ejemplo mientras se realiza mantenimiento. Colocar dos o más máquinas virtuales similarmente configuradas en un conjunto de disponibilidad crea la redundancia necesaria para mantener la disponibilidad de las aplicaciones o servicios que ejecuta su máquina virtual. Para obtener información detallada sobre el funcionamiento, consulte [Administración de la disponibilidad de las máquinas virtuales][]. 
+
+Es una buena práctica usar una combinación de conjuntos de disponibilidad y extremos de equilibrio de carga para ayudar a asegurar de que su aplicación está siempre disponible y ejecutándose de forma eficaz. Para obtener detalles acerca de extremos de equilibrio de carga, consulte[Equilibrio de carga para Servicios de infraestructura de Azure][].
 
 Puede poner máquinas virtuales en un conjunto de disponibilidad usando una de estas dos opciones:
 
-- [Opción 1: Creación de una máquina virtual y un conjunto de disponibilidad simultáneamente] []. A continuación, agregue nuevas máquinas virtuales al conjunto cuando cree en dichas máquinas virtuales.
-- [Opción 2: Adición de una máquina virtual existente a un conjunto de disponibilidad] [].
+- [Opción 1: Creación de una máquina virtual y un conjunto de disponibilidad simultáneamente][]. A continuación, agregue nuevas máquinas virtuales al conjunto cuando cree en dichas máquinas virtuales.
+- [Opción 2: Adición de una máquina virtual existente a un conjunto de disponibilidad][].
 
 
->[WACOM.NOTE] Las máquinas virtuales que desee poner en el mismo conjunto de disponibilidad deben pertenecer al mismo servicio en la nube.   
+>[AZURE.NOTE] Las máquinas virtuales que desee poner en el mismo conjunto de disponibilidad deben pertenecer al mismo servicio en la nube.   
 
 ## <a id="createset"> </a>Opción 1: Creación de una máquina virtual y un conjunto de disponibilidad simultáneamente##
 
@@ -22,9 +23,9 @@ Puede usar el Portal de administración o cmdlets de Azure PowerShell para hacer
 
 Para utilizar el Portal de administración:
 
-1. Si no lo ha hecho todavía, inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com).
+1. Si no lo ha hecho todavía, inicie sesión en el [Portal de administración](http://manage.windowsazure.com) de Azure.
 
-2. En la barra de comandos, haga clic en **Nuevo**.
+2. En la barra de comandos, haga clic en **New**.
 
 3. Haga clic en **Máquina virtual** y, a continuación, haga clic en **Desde la galería**.
 
@@ -55,7 +56,7 @@ Para usar cmdlets de Azure:
 
 	`C:\PS> $image = (Get-AzureVMImage)[<index_number>].ImageName`
 
-	>[WACOM.NOTE] Ejecute "Get-AzureVMImage" sin parámetros para obtener una lista de todas las imágenes que se aplican a la suscripción. Puede devolver una lista larga. Para acortar la lista, use propiedades como el nombre de familia de la imagen. Para obtener sugerencias y ejemplos que muestren cómo hacerlo para buscar una imagen específica, consulte [Administración de imágenes con Windows PowerShell](http://msdn.microsoft.com/en-us/library/azure/dn790330.aspx).
+	>[AZURE.NOTE] Ejecute  `Get-AzureVMImage` sin parámetros para obtener una lista de todas las imágenes que se aplican a la suscripción. Puede devolver una lista larga. Para acortar la lista, use propiedades como el nombre de familia de la imagen. Para obtener sugerencias y ejemplos que muestren cómo hacerlo para buscar una imagen específica, consulte [Administración de imágenes con Windows PowerShell](http://msdn.microsoft.com/es-es/library/azure/dn790330.aspx).
 
 3.	Especifique la configuración para la nueva máquina virtual y, a continuación, use la canalización para pasar un objeto de configuración al cmdlet que cree la máquina virtual. Asegúrese de sustituir los marcadores de posición por sus propios valores, como por ejemplo &lt;VmName&gt; y &lt;VmSize&gt;.
 
@@ -65,7 +66,7 @@ Para usar cmdlets de Azure:
 
 En el Portal de administración, puede agregar máquinas virtuales existentes a un conjunto de disponibilidad existente o crear uno nuevo para ellas. (Recuerde que las máquinas virtuales deben pertenecer al mismo servicio en la nube.) Estos pasos son prácticamente los mismos. En Azure PowerShell, puede agregar la máquina virtual a un conjunto de disponibilidad existente. 
 
-1. Si no lo ha hecho todavía, inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com).
+1. Si no lo ha hecho todavía, inicie sesión en el [Portal de administración](http://manage.windowsazure.com) de Azure.
 
 2. En la barra de navegación, haga clic en **Máquinas virtuales**.
 
@@ -81,7 +82,7 @@ En el Portal de administración, puede agregar máquinas virtuales existentes a 
 
 	![Create an availabililty set for an existing VM](./media/virtual-machines-how-to-configure-availability/VMavailabilityExistingVM.png) 
 
-6. Haga clic en **Guardar**.
+6. Haga clic en **Save**.
 
 Para usar cmdlets de Azure:
 
@@ -89,7 +90,7 @@ Abra una sesión de Azure PowerShell y ejecute el comando siguiente. Asegúrese 
 
 	C:\PS> Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Set-AzureAvailabilitySet -AvailabilitySetName "<MyAvSet>" | Update-AzureVM
 
->[WACOM.NOTE] La máquina virtual podría reiniciarse para terminar de agregarla al conjunto de disponibilidad.
+>[AZURE.NOTE] La máquina virtual podría reiniciarse para terminar de agregarla al conjunto de disponibilidad.
 
 
 ##Recursos adicionales
@@ -102,10 +103,13 @@ Abra una sesión de Azure PowerShell y ejecute el comando siguiente. Asegúrese 
 [Equilibrio de carga para Servicios de infraestructura de Azure]: ../virtual-machines-load-balance
 [Administración de la disponibilidad de las máquinas virtuales]: ../virtual-machines-manage-availability
 [Creación de una máquina virtual que ejecuta Windows]: ../virtual-machines-windows-tutorial
-[Información general de red virtual]: http://go.microsoft.com/fwlink/p/?linkid=294063
+[Información general de la red virtual de Azure]: http://go.microsoft.com/fwlink/p/?linkid=294063
 [Acerca grupos de afinidad para redes virtuales]: http://msdn.microsoft.com/library/windowsazure/jj156085.aspx
 [Conexión de máquinas virtuales en un Servicio en la nube]: ../virtual-machines-connect-cloud-service
-[Acerca de los ajustes de configuración de máquinas virtuales en Azure]: http://msdn.microsoft.com/en-us/library/azure/dn763935.aspx
+[Acerca de los ajustes de configuración de máquinas virtuales en Azure]: http://msdn.microsoft.com/es-es/library/azure/dn763935.aspx
 
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

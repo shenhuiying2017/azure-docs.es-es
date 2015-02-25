@@ -1,21 +1,35 @@
-﻿<properties urlDisplayName="How to configure" pageTitle="Configuración de sitios web - administración de servicios de Azure" metaKeywords="sitios web de Azure, configuración de sitios web de Azure, base de datos SQL de Azure, Azure MySQL" description="Obtenga información acerca de cómo configurar sitios web en Azure, incluida la manera de configurar un sitio web para utilizar una base de datos SQL o MySQL." metaCanonical="" services="web-sites" documentationCenter="" title="How to Configure Websites" authors="mwasson" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Configuración de sitios web - administración de servicios de Azure" 
+	description="Obtenga información acerca de cómo configurar sitios web en Azure, incluida la manera de configurar un sitio web para utilizar una base de datos SQL o MySQL." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="mwasson" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/18/2014" 
+	ms.author="mwasson"/>
 
 
-# Configuración de Sitios web #
+# Configuración de sitios web #
 En el Portal de administración de Azure puede cambiar las opciones de configuración para los sitios web y puede vincular el sitio web a otros recursos de Azure, como una base de datos.
 
 ## Tabla de contenido ##
-- [Direccionamiento del opciones de configuración para un sitio web](#howtochangeconfig)
-- [Direccionamiento del sitio web para utilizar una base de datos SQL](#howtoconfigSQL)
-- [Direccionamiento del sitio web para utilizar una base de datos MySQL](#howtoconfigMySQL)
-- [Direccionamiento del nombre de dominio personalizado](#howtodomain)
-- [Direccionamiento del sitio web para utilizar SSL](#howtoconfigSSL)
+- [Uso de opciones de configuración para un sitio web](#howtochangeconfig)
+- [Uso de sitio web para utilizar una base de datos SQL](#howtoconfigSQL)
+- [Uso de sitio web para utilizar una base de datos MySQL](#howtoconfigMySQL)
+- [Uso de nombre de dominio personalizado](#howtodomain)
+- [Uso de sitio web para utilizar SSL](#howtoconfigSSL)
 - [Pasos siguientes](#next)
 
 
-##<a name="howtochangeconfig"></a>Creación de las opciones de configuración para un sitio web
+##<a name="howtochangeconfig"></a>Cómo: opciones de configuración para un sitio web
 
 <!-- HOW TO: CHANGE CONFIGURATION OPTIONS FOR A WEBSITE -->
 
@@ -53,7 +67,7 @@ Nota: Si habilita el control de código fuente, es posible que una implementaci�
 
 ### Certificados
 
-En modo básico o estándar puede cargar certificados SSL para un dominio personalizado. Para obtener más información, consulte [Habilitación de HTTPS para un sitio web de Azure](href="http://www.windowsazure.com/es-es/documentation/articles/web-sites-configure-ssl-certificate/). 
+En modo básico o estándar puede cargar certificados SSL para un dominio personalizado. Para obtener más información, consulte [Enable HTTPS for an Azure website](http://www.windowsazure.com/es-es/documentation/articles/web-sites-configure-ssl-certificate/). 
 
 Aquí se enumeran los certificados que haya cargado. Después de cargar un certificado, puede asignarlo a cualquier sitio web de su suscripción y región. Los certificados comodín se pueden utilizar para cualquier sitio dentro del dominio para el cual es válido. Un certificado solo se puede eliminar si no tiene ningún vínculo activo.
 
@@ -63,7 +77,7 @@ Vea o agregue nombres de dominio adicionales para el sitio web. Para obtener má
 
 ### Enlaces SSL
 
-Si carga certificados SSL puede vincularlos a nombres de dominios personalizados. Para obtener más información, consulte [Habilitación de HTTPS para un sitio web de Azure](href="http://www.windowsazure.com/es-es/documentation/articles/web-sites-configure-ssl-certificate/).
+Si carga certificados SSL puede vincularlos a nombres de dominios personalizados. Para obtener más información, consulte [Enable HTTPS for an Azure website](http://www.windowsazure.com/es-es/documentation/articles/web-sites-configure-ssl-certificate/).
 
 ### Implementaciones
 
@@ -85,9 +99,9 @@ Opciones para escribir registros de diagnóstico de una aplicación web que admi
 
 <strong>Nivel de registro</strong>. Cuando el registro está habilitado, esta opción especifica la cantidad de información que se registrará (Error, Advertencia, Información o Detalle).
 
-**Administrar almacenamiento de tablas**. Cuando el almacenamiento en tabla está habilitado, haga clic en este botón para configurar la cuenta de almacenamiento y el nombre de la tabla.
+**Administración del almacenamiento de tablas**. Si el almacenamiento en tabla está habilitado, haga clic en este botón para configurar la cuenta de almacenamiento y el nombre de la tabla.
 
-**Administración del almacenamiento blob.** Cuando el almacenamiento de blob está habilitado, haga clic en este botón para configurar la cuenta de almacenamiento y el nombre del blob.
+**Administración del almacenamiento de blob.** Si el almacenamiento de blob está habilitado, haga clic en este botón para configurar la cuenta de almacenamiento y el nombre del almacenamiento de blob.
 
 ### Diagnósticos del sitio
 
@@ -109,7 +123,7 @@ Opciones para recopilar la información de diagnóstico para el sitio web.
 
 ### Supervisión
 
-En modo estándar o básico, pruebe la disponibilidad de los extremos HTTP o HTTPS desde ubicaciones geodistribuidas. Una prueba de supervisión da error si el código de respuesta HTTP es un error (4xx o 5xx) o si la respuesta se retrasa más de 30 segundos. Un extremo se considera disponible si sus pruebas de supervisión se realizan correctamente desde todas las ubicaciones especificadas. 
+En modo estándar, pruebe la disponibilidad de los extremos HTTP o HTTPS desde ubicaciones geodistribuidas. Una prueba de supervisión da error si el código de respuesta HTTP es un error (4xx o 5xx) o si la respuesta se retrasa más de 30 segundos. Un extremo se considera disponible si sus pruebas de supervisión se realizan correctamente desde todas las ubicaciones especificadas. 
 
 Para obtener más información, consulte [Supervisión del estado de los extremos web](http://go.microsoft.com/fwLink/?LinkID=279906&clcid=0x409).
 
@@ -141,7 +155,7 @@ En las aplicaciones PHP, Python, Java y Node, estas configuraciones estarán dis
 - Base de datos SQL: SQLAZURECONNSTR_
 - Personalizada: CUSTOMCONNSTR_
 
-Por ejemplo, si una cadena de conexión de MySQL recibió el nombre de connectionstring1, se obtendrá acceso a ella a través de la variable de entorno <code>MYSQLCONNSTR_connectionString1</code>.
+Por ejemplo, si una cadena de conexión de MySQL recibió el nombre de connectionstring1, se obtendrá acceso a ella a través de la variable de entorno<code>MYSQLCONNSTR_connectionString1</code>..
 
 <strong>Nota</strong>: Las cadenas de conexión se crean cuando vincula un recurso de base de datos a un sitio web. Las cadenas de conexión creadas de esta manera son de solo lectura cuando se visualizan en la 
 página de administración de la configuración.
@@ -156,9 +170,9 @@ Es posible que las aplicaciones utilicen módulos que enruten en base a la URL, 
 
 Utilice esta zona para agregar procesadores de script personalizados para controlar solicitudes de extensiones de archivo específicas. 
 
-- **Extensión**. La extensión de archivo que se va a gestionar, por ejemplo, *.php o handler.fcgi.
-- **Ruta de acceso del procesador de script**. La ruta absoluta del procesador de script. El procesador de script procesará las solicitudes a archivos que coincidan con esta extensión de archivo. Utilice la ruta de acceso <code>D:\home\site\wwwroot</code> para hacer referencia al directorio raíz de su sitio.
-- **Argumentos adicionales**. Argumentos opcionales de la línea de comandos para el procesador de script
+- **Extensión**. La extensión de archivo que se va a gestionar, por ejemplo, *.php o handler.fcgi. 
+- **Ruta de acceso del procesador de script**. La ruta absoluta del procesador de script. El procesador de script procesará las solicitudes a archivos que coincidan con esta extensión de archivo. Utilice la ruta de acceso <code>D:\home\site\wwwroot</code>r para hacer referencia al directorio raíz de su sitio.
+- **Argumentos adicionales**. Argumentos opcionales de la línea de comandos para el procesador de script 
 
 
 ### Directorios y aplicaciones virtuales 
@@ -168,7 +182,7 @@ Para configurar aplicaciones y directorios virtuales asociados con su sitio web,
 	
 
 <!-- HOW TO: CONFIGURE A WEBSITE TO USE A SQL DATABASE -->
-##<a name="howtoconfigSQL"></a>Configuración de un sitio web para utilizar una base de datos SQL
+##<a name="howtoconfigSQL"></a>Cómo: sitio web para utilizar una base de datos SQL
 
 Siga estos pasos para vincular un sitio web a una base de datos SQL:
 
@@ -189,22 +203,27 @@ Siga estos pasos para vincular un sitio web a una base de datos SQL:
 Azure creará una base de datos SQL con los parámetros especificados y vinculará la base de datos al sitio web.
 
 <!-- HOW TO: CONFIGURE A WEBSITE TO USE A MYSQL DATABASE -->
-##<a name="howtoconfigMySQL"></a>Configuración del sitio web para utilizar una base de datos MySQL##
+##<a name="howtoconfigMySQL"></a>Cómo: sitio web para utilizar una base de datos MySQL##
 Para configurar un sitio web para que se utilice una base de datos MySQL, siga los mismos pasos que para utilizar una base de datos SQL, pero en el asistente para **vincular un recurso**, elija **Base de datos MySQL** en lugar de **Base de datos SQL**. 
 
 De manera alternativa, puede crear el sitio web con la opción **Creación personalizada**. En la lista desplegable **Base de datos**, elija **Crear una nueva base de datos MySQL** o **Usar una base de datos MySQL existente**. 
 
-##<a name="howtodomain"></a>Direccionamiento del nombre de dominio personalizado
+##<a name="howtodomain"></a>Cómo: nombre de dominio personalizado
 
 Para obtener información sobre la configuración del sitio web para que utilice un nombre de dominio personalizado, consulte [Configuración de un nombre de dominio personalizado para un sitio web de Azure](http://www.windowsazure.com/es-es/documentation/articles/web-sites-custom-domain-name/).
 
-##<a name="howtoconfigSSL"></a>Configuración del sitio web para utilizar SSL##
+##<a name="howtoconfigSSL"></a>Cómo: sitio web para utilizar SSL##
 
 Para obtener información acerca de la configuración de SSL para un dominio personalizado en Azure, consulte [Habilitación de HTTPS para un sitio web de Azure](http://www.windowsazure.com/es-es/documentation/articles/web-sites-configure-ssl-certificate/). 
 
 ##<a name="next"></a>Pasos siguientes
 
-* [Escalación de sitios web](http://www.windowsazure.com/es-es/documentation/articles/web-sites-scale/)
+* [Escalado de sitios web](http://www.windowsazure.com/es-es/documentation/articles/web-sites-scale/)
 
 * [Supervisión de sitios web](http://www.windowsazure.com/es-es/documentation/articles/web-sites-monitor/)
 
+
+
+
+
+<!--HONumber=42-->

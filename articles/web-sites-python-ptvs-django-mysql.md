@@ -1,13 +1,27 @@
-﻿<properties linkid="web-sites-python-ptvs-django-mysql" title="Django and MySQL on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Django y MySQL en Azure con Python Tools 2.1 para Visual Studio" description="Obtenga información acerca de cómo usar Python Tools para Visual Studio para crear una aplicación Django que almacene datos en una instancia de base de datos de MySQL y se pueda implementar en un sitio web." metaKeywords="" services="" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Django y MySQL en Azure con Python Tools 2.1 para Visual Studio" 
+	description="Obtenga información acerca de cómo usar Python Tools para Visual Studio para crear una aplicación Django que almacene datos en una instancia de base de datos de MySQL y se pueda implementar en un sitio web. 
+	services="" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
 
 # Django y MySQL en Azure con Python Tools 2.1 para Visual Studio 
 
-En este tutorial, crearemos una aplicación de sondeos sencilla con la utilización de una de las plantillas de ejemplo de PTVS. Este tutorial también se encuentra disponible como [vídeo](https://www.youtube.com/watch?v=oKCApIrS0Lo).
+En este tutorial, crearemos una aplicación de sondeos sencilla con la utilización de una de las plantillas de ejemplo de PTVS. Este tutorial también se encuentra disponible en [vídeo](https://www.youtube.com/watch?v=oKCApIrS0Lo).
 
 Facilitaremos información acerca del uso de un servicio de MySQL hospedado en Azure, la configuración de la aplicación para utilizar MySQL y la publicación de la aplicación en un sitio web de Azure.
 
@@ -23,15 +37,15 @@ Consulte el [Centro para desarrolladores de Python][] para tener acceso a más a
 ##<a name="prerequisites"></a>Requisitos previos
 
  - Visual Studio 2012 o 2013
- - [Python Tools 2.1 para Visual Studio][]
+ - [Python Tools 2.1 para Visual Studio (en inglés)][]
  - [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio][]
  - [Herramientas del SDK de Azure para VS 2013][] o [Herramientas del SDK de Azure para VS 2012][]
- - [Python 2.7 (32 bits)][]
+ - [Python 2.7 32-bit][]
 
-> [WACOM.NOTE]
-> para completar este tutorial, deberá tener una cuenta de Azure. Puede <a href="http://azure.microsoft.com/en-us/pricing/member-offers/msdn-benefits-details/">activar las ventajas de suscriptor de MSDN</a> o <a href="http://azure.microsoft.com/en-us/pricing/free-trial/">suscribirse a una prueba gratuita</a>.
+> [AZURE.NOTE]
+> para completar este tutorial, deberá tener una cuenta de Azure. Puede <a href="http://azure.microsoft.com/es-es/pricing/member-offers/msdn-benefits-details/">activar sus beneficios de suscriptor a MSDN</a> o <a href="http://azure.microsoft.com/es-es/pricing/free-trial/">registrarse para obtener una evaluación gratuita</a>.
 > 
-> Si desea obtener una introducción a Sitios web Azure antes de suscribirse a una cuenta, visite <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita un sitio básico de ASP.NET de corta duración en Sitios web Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
+> Si desea obtener una introducción a Sitios web Azure antes de inscribirse para abrir una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita un sitio básico de ASP.NET de corta duración en Sitios web Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ##<a name="create-the-project"></a>Creación del proyecto
 
@@ -89,7 +103,7 @@ Siga estos pasos para crear una base de datos con un plan gratuito.
 
 1.  Inicie sesión en el [Portal de administración de Azure][].
 
-1.  En la parte inferior del panel de navegación, haga clic en **NEW** (Nuevo).
+1.  En la parte inferior del panel de navegación, haga clic en **NEW**.
 
   	![New Button](./media/web-sites-python-ptvs-django-mysql/PollsCommonAzurePlusNew.png)
 
@@ -115,7 +129,7 @@ En esta sección, vamos a configurar nuestra aplicación para usar la base de da
 
   	![Connection Info Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLConnectionInfo.png)
 
-1.  En Visual Studio, abra **settings.py** desde la carpeta *ProjectName*.  Pegue temporalmente la cadena de conexión en el editor.  La cadena de conexión tiene el siguiente formato:
+1.  En Visual Studio, abra **settings.py**, desde la carpeta *ProjectName*.  Pegue temporalmente la cadena de conexión en el editor.  La cadena de conexión tiene el siguiente formato:
 
         Database=<NAME>;Data Source=<HOST>;User Id=<USER>;Password=<PASSWORD>
 
@@ -135,7 +149,7 @@ En esta sección, vamos a configurar nuestra aplicación para usar la base de da
 
 1.  En el Explorador de soluciones, en **Python Environments** (Entornos de Python), haga clic con el botón secundario en el entorno virtual y seleccione **Install Python Package** (Instalar paquete de Python).
 
-1. Instale el paquete "mysql-python" con **easy_install**.
+1. Instale el paquete `mysql-python` con **easy_install**.
 
   	![Install Package Dialog](./media/web-sites-python-ptvs-django-mysql/PollsDjangoMySQLInstallPackage.png)
 
@@ -145,7 +159,7 @@ En esta sección, vamos a configurar nuestra aplicación para usar la base de da
 
   	![Django Management Console Window](./media/web-sites-python-ptvs-django-mysql/PollsDjangoConsole.png)
 
-1.  Presione <kbd>F5</kbd> para ejecutar la aplicación.  Los sondeos creados con **Create Sample Polls** (Crear sondeos de ejemplo) y los datos enviados al votar se serializarán en la base de datos MySQL.
+1.  Ejecute la aplicación con <kbd>F5</kbd>.  Los sondeos creados con **Create Sample Polls** (Crear sondeos de ejemplo) y los datos enviados al votar se serializarán en la base de datos MySQL.
 
 ##<a name="publish-to-an-azure-website"></a>Publicación en un sitio web de Azure
 
@@ -165,7 +179,7 @@ PTVS ofrece una forma fácil de implementar la aplicación web en un sitio web d
 
 1.  Acepte todos los valores predeterminados y haga clic en **Publicar**.
 
-1.  El explorador web se abrirá automáticamente en el sitio web publicado.  La aplicación ahora debe funcionar según lo previsto, con la utilización de la base de datos **MySQL** hospedada en Azure.
+1.  El explorador web se abrirá automáticamente en el sitio web publicado.  La aplicación ahora debe funcionar según lo previsto, con la utilización de la base de datos**MySQL** hospedada en Azure.
 
     ¡Enhorabuena!
 
@@ -179,26 +193,29 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
   - [Proyectos web][]
   - [Proyectos de servicio en la nube][]
   - [Depuración remota en Microsoft Azure][]
-- [Documentación sobre Django][]
+- [Documentación de Django][]
 - [MySQL][]
 
 
 <!--Link references-->
-[Centro para desarrolladores de Python]: /en-us/develop/python/
+[Centro para desarrolladores de Python]: /es-es/develop/python/
 [Servicios en la nube de Azure]: ../cloud-services-python-ptvs/
 
 <!--External Link references-->
 [Portal de administración de Azure]: https://manage.windowsazure.com
-[Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[Python Tools 2.1 para Visual Studio (en inglés)]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Herramientas del SDK de Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Herramientas del SDK de Azure para VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 (32 bits)]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
 [Documentación sobre Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation
 [Depuración remota en Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Proyectos web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Proyectos de servicio en la nube]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-[Documentación sobre Django]: https://www.djangoproject.com/
+[Documentación de Django]: https://www.djangoproject.com/
 [MySQL]: http://www.mysql.com/
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

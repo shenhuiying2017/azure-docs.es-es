@@ -1,23 +1,37 @@
-﻿<properties urlDisplayName="Upload custom Java website" pageTitle="Carga de un sitio web de Java personalizado en Azure" metaKeywords="" description="En este tutorial se muestra cómo cargar un sitio web de Java personalizado en Azure." metaCanonical="" services="web-sites" documentationCenter="Java" title="Upload a custom Java website to Azure" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Carga de un sitio web de Java personalizado en Azure" 
+	description="En este tutorial se muestra cómo cargar un sitio web de Java personalizado en Azure." 
+	services="web-sites" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Carga de un sitio web de Java personalizado en Azure
 
 En este tema se explica cómo cargar un sitio web de Java personalizado en Azure. Se incluye información que se aplica a cualquier sitio web de Java, así como algunos ejemplos de aplicaciones específicas.
 
 Tenga en cuenta que Azure proporciona un medio para la creación de sitios web de Java con la interfaz de usuario de configuración del portal de Azure y la galería de aplicaciones de Azure, como se documenta en [Introducción a sitios web de Azure y Java.
-](../web-sites-java-get-started) Este tutorial se destina a situaciones en las que no desea utilizar la interfaz de usuario de configuración de Azure ni la galería de aplicaciones de Azure.  
+](../web-sites-java-get-started). Este tutorial se destina a situaciones en las que no desea utilizar la interfaz de usuario de configuración de Azure ni la galería de aplicaciones de Azure.  
 
 # Directrices de configuración
 
 A continuación se describe la configuración esperada para los sitios web de Java personalizados en Azure.
 
-- El puerto HTTP que utiliza el proceso de Java se asigna de manera dinámica.  El proceso debe utilizar el puerto de la variable de entorno `HTTP_PLATFORM_PORT`.
+- El puerto HTTP que utiliza el proceso de Java se asigna de manera dinámica.  El proceso debe utilizar el puerto de la variable de entorno  `HTTP_PLATFORM_PORT`.
 - Se deben deshabilitar todos los puertos de escucha aparte del agente de escucha simple HTTP.  En Tomcat, ello incluye los puertos de apagado, HTTPS y AJP.
 - El contenedor debe estar configurado solo para el tráfico IPv4.
 - En la configuración se debe establecer el comando **startup** para la aplicación.
-- Las aplicaciones que requieren directorios con permiso de escritura tienen que estar ubicadas en el directorio de contenido del sitio web de Azure, que es **D:\home**.
+- Las aplicaciones que requieren directorios con permiso de escritura tienen que estar ubicadas en el directorio de contenido del sitio web de Azure, que es **D:\home**.  La variable de entorno `HOME` hace referencia a D:\home.  
 
 Puede establecer las variables de entorno como se requiere en el archivo web.config.
 
@@ -25,15 +39,15 @@ Puede establecer las variables de entorno como se requiere en el archivo web.con
 
 La siguiente información describe el formato **httpPlatform** dentro de web.config.
                                  
-**arguments** (Default=""). Argumentos para el ejecutable o script especificado en la configuración de **processPath**.
+**argumentos** (Default=""). Argumentos para el ejecutable o script especificado en la configuración de **processPath**.
 
 Ejemplos (que se muestran con **processPath** incluido):
 
-    processPath="d:\home\site\wwwroot\bin\tomcat\bin\catalina.bat"
+    processPath="%HOME%\site\wwwroot\bin\tomcat\bin\catalina.bat"
     arguments="start"
     
     processPath="%JAVA_HOME\bin\java.exe"
-    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+    arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP\_PLATFORM\_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
 
 
 **processPath** - Ruta de acceso al ejecutable o script que pondrá en marcha un proceso de escucha de las solicitudes HTTP.
@@ -44,23 +58,23 @@ Ejemplos:
 
     processPath="%JAVA_HOME%\bin\java.exe"
 
-    processPath="d:\home\site\wwwroot\bin\tomcat\bin\startup.bat"
+    processPath="%HOME%\site\wwwroot\bin\tomcat\bin\startup.bat"
 
-    processPath="d:\home\site\wwwroot\bin\tomcat\bin\catalina.bat"
+    processPath="%HOME%\site\wwwroot\bin\tomcat\bin\catalina.bat"
                                                                                        
-**rapidFailsPerMinute** (Valor predeterminado=10). Número de veces que se permite que el proceso especificado en **processPath** se bloquee por minuto. Si se supera este límite, **HttpPlatformHandler** detendrá el inicio del proceso durante el resto del minuto.
+**rapidFailsPerMinute** (valor predeterminado=10). Número de veces que se permite que el proceso especificado en **processPath** se bloquee por minuto. Si se supera este límite, **HttpPlatformHandler** detendrá el inicio del proceso durante el resto del minuto.
                                     
-**requestTimeout** (Valor predeterminado="00:02:00".) Tiempo durante el cual **HttpPlatformHandler** esperará una respuesta del proceso de escucha en `%HTTP_PLATFORM_PORT%`.
+**requestTimeout** (valor predeterminado="00:02:00"). Tiempo durante el cual **HttpPlatformHandler** esperará una respuesta del proceso de escucha en `%HTTP_PLATFORM_PORT%`.
 
-**startupRetryCount** (Valor predeterminado=10). Número de veces que **HttpPlatformHandler** intentará iniciar el proceso especificado en **processPath**. Consulte **startupTimeLimit** para obtener más detalles.
+**startupRetryCount** (valor predeterminado=10). Número de veces que **HttpPlatformHandler** intentará iniciar el proceso especificado en **processPath**. Consulte **startupTimeLimit** para obtener más detalles.
 
-**startupTimeLimit** (Valor predeterminado=10 segundos). Tiempo durante el cual **HttpPlatformHandler** esperará a que el ejecutable/script inicie un proceso que escucha en el puerto.  Si se supera este límite de tiempo, **HttpPlatformHandler** cerrará el proceso e intentará volver a iniciarlo ** startupRetryCount ** veces.
+**startupTimeLimit** (valor predeterminado=10 segundos). Tiempo durante el cual **HttpPlatformHandler** esperará a que el ejecutable/script inicie un proceso que escucha en el puerto.  Si se supera este límite de tiempo, **HttpPlatformHandler** cerrará el proceso e intentará volver a iniciarlo ** startupRetryCount ** veces.
                                                                                       
-**stdoutLogEnabled** (Valor predeterminado="true".) Si es true, **stdout** y **stderr** para el proceso especificado en la configuración **processPath** serán redirigidos al archivo especificado en **stdoutLogFile** (consulte la sección **stdoutLogFile**).
+**stdoutLogEnabled** (valor predeterminado="true"). Si es true, **stdout** y **stderr** para el proceso especificado en la configuración **processPath** serán redirigidos al archivo especificado en **stdoutLogFile** (consulte la sección **stdoutLogFile**).
                                     
-**stdoutLogFile** (Valor predeterminado="d:\home\LogFiles\httpPlatformStdout.log"). Ruta de acceso absoluta del archivo por el cual se registrarán **stdout** y **stderr** desde el proceso especificado en **processPath**.
+**stdoutLogFile** (valor predeterminado="d:\home\LogFiles\httpPlatformStdout.log"). Ruta de acceso absoluta del archivo por el cual se registrarán **stdout** y **stderr** desde el proceso especificado en **processPath**.
                                     
-> [WACOM.NOTE] `%HTTP_PLATFORM_PORT%` es un marcador de posición especial que se debe especificar como parte de los **argumentos** o como parte de la lista **environmentVariables** de **httpPlatform**. Esto se reemplazará por un puerto generado internamente mediante **HttpPlatformHandler** de modo que el proceso que se especifica en **processPath** puede escuchar en este puerto.
+> [AZURE.NOTE] `%HTTP_PLATFORM_PORT%` es un marcador de posición especial que se debe especificar como parte de los **argumentos** o como parte de la lista **environmentVariables** de **httpPlatform**. Esto se reemplazará por un puerto generado internamente mediante **HttpPlatformHandler** de modo que el proceso que se especifica en **processPath** puede escuchar en este puerto.
 
 # Implementación
 
@@ -79,12 +93,12 @@ Si bien hay dos variaciones en Tomcat que se suministran con Sitios web Azure, t
 	    <handlers>
 	      <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
 	    </handlers>
-	    <httpPlatform processPath="d:\home\site\wwwroot\bin\tomcat\bin\startup.bat" 
+	    <httpPlatform processPath="%HOME%\site\wwwroot\bin\tomcat\bin\startup.bat" 
 	        arguments="">
 	      <environmentVariables>
 	        <environmentVariable name="CATALINA_OPTS" value="-Dport.http=%HTTP_PLATFORM_PORT%" />
-	        <environmentVariable name="CATALINA_HOME" value="d:\home\site\wwwroot\bin\tomcat" />
-	        <environmentVariable name="JRE_HOME" value="d:\home\site\wwwroot\bin\java" /> <!-- optional, if not specified, this will default to %programfiles%\Java -->
+	        <environmentVariable name="CATALINA_HOME" value="%HOME%\site\wwwroot\bin\tomcat" />
+	        <environmentVariable name="JRE_HOME" value="%HOME%\site\wwwroot\bin\java" /> <!-- optional, if not specified, this will default to %programfiles%\Java -->
 	        <environmentVariable name="JAVA_OPTS" value="-Djava.net.preferIPv4Stack=true" />
 	      </environmentVariables>
 	    </httpPlatform>
@@ -97,7 +111,7 @@ Por el lado de Tomcat, es necesario realizar algunos cambios en la configuració
 -	Puerto del conector HTTP = {port.http}
 -	Dirección del conector HTTP = "127.0.0.1"
 -	Convierta en comentarios los conectores HTTPS y AJP
--	La configuración de IPv4 también se puede configurar en el archivo catalina.properties donde se puede agregar `java.net.preferIPv4Stack=true`
+-	La configuración de IPv4 también se puede configurar en el archivo catalina.properties donde puede agregar  `java.net.preferIPv4Stack=true`
     
 Las llamadas Direct3D no se admiten en los sitios web de Azure. Para deshabilitarlas, agregue la siguiente opción de Java si la aplicación realiza llamadas de ese tipo: `-Dsun.java2d.d3d=false`
 
@@ -112,7 +126,7 @@ Como es el caso de Tomcat, los clientes pueden cargar sus propias instancias de 
 	      <add name="httppPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified" />
 	    </handlers>
 	    <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" 
-	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;d:\home\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
+	         arguments="-Djava.net.preferIPv4Stack=true -Djetty.port=%HTTP_PLATFORM_PORT% -Djetty.base=&quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115&quot; -jar &quot;%HOME%\site\wwwroot\bin\jetty-distribution-9.1.0.v20131115\start.jar&quot;"
 	        startupTimeLimit="20"
 		  startupRetryCount="10"
 		  stdoutLogEnabled="true">
@@ -120,7 +134,7 @@ Como es el caso de Tomcat, los clientes pueden cargar sus propias instancias de 
 	  </system.webServer>
 	</configuration>
 
-La configuración de Jetty necesita cambiarse en el archivo start.ini para establecer `java.net.preferIPv4Stack=true`.
+La configuración de Jetty necesita cambiarse en el archivo start.ini para establecer  `java.net.preferIPv4Stack=true`.
 
 ## Hudson
 
@@ -142,9 +156,9 @@ Nuestra prueba utilizó war de Hudson 3.1.2 y la instancia predeterminada de Tom
 		startupRetryCount="10">
 		<environmentVariables>
 		  <environmentVariable name="HUDSON_HOME" 
-		value="d:\home\site\wwwroot\hudson_home" />
+		value="%HOME%\site\wwwroot\hudson_home" />
 		  <environmentVariable name="JAVA_OPTS" 
-		value="-Djava.net.preferIPv4Stack=true -Duser.home=d:/home/site/wwwroot/user_home -Dhudson.DNSMultiCast.disabled=true" />
+		value="-Djava.net.preferIPv4Stack=true -Duser.home=%HOME%/site/wwwroot/user_home -Dhudson.DNSMultiCast.disabled=true" />
 		</environmentVariables>            
 		    </httpPlatform>
 		  </system.webServer>
@@ -184,7 +198,7 @@ Con Liferay 6.1.2 Community Edition GA3 incluido con Tomcat, se editaron los sig
 
 En la carpeta **liferay\tomcat-7.0.40\webapps\ROOT\WEB-INF\classes**, cree un archivo llamado **portal-ext.properties**. Este archivo debe contener una línea, como se muestra aquí:
 
-    liferay.home=d:/home/site/wwwroot/liferay
+    liferay.home=%HOME%/site/wwwroot/liferay
 
 En el mismo nivel de directorio que la carpeta tomcat-7.0.40, cree un archivo llamado **web.config** con el siguiente contenido:
 
@@ -195,14 +209,14 @@ En el mismo nivel de directorio que la carpeta tomcat-7.0.40, cree un archivo ll
 	<add name="httpPlatformHandler" path="*" verb="*"
 	     modules="httpPlatformHandler" resourceType="Unspecified" />
 	    </handlers>
-	    <httpPlatform processPath="d:\home\site\wwwroot\tomcat-7.0.40\bin\catalina.bat" 
+	    <httpPlatform processPath="%HOME%\site\wwwroot\tomcat-7.0.40\bin\catalina.bat" 
 	                  arguments="run" 
 	                  startupTimeLimit="10" 
 	                  requestTimeout="00:10:00" 
 	                  stdoutLogEnabled="true">
 	      <environmentVariables>
 	  <environmentVariable name="CATALINA_OPTS" value="-Dport.http=%HTTP_PLATFORM_PORT%" />
-	  <environmentVariable name="CATALINA_HOME" value="d:\home\site\wwwroot\tomcat-7.0.40" />
+	  <environmentVariable name="CATALINA_HOME" value="%HOME%\site\wwwroot\tomcat-7.0.40" />
 	        <environmentVariable name="JRE_HOME" value="D:\Program Files\Java\jdk1.7.0_51" /> 
 	        <environmentVariable name="JAVA_OPTS" value="-Djava.net.preferIPv4Stack=true" />
 	      </environmentVariables>
@@ -223,3 +237,8 @@ Para obtener más información sobre Liferay, visite [http://www.liferay.com](ht
 
 
 
+
+
+
+
+<!--HONumber=42-->

@@ -1,12 +1,12 @@
-﻿<properties urlDisplayName="Validate Data - HTML5" pageTitle="Uso de scripts de servidor para validar y modificar datos (HTML 5) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo validar y modificar los datos enviados mediante scripts de servidor desde su aplicación HTML." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Validate and modify data in Mobile Services by using server scripts" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Uso de scripts de servidor para validar y modificar datos (HTML 5) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo validar y modificar los datos enviados mediante scripts de servidor desde su aplicación HTML." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor 
 
-[WACOM.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-validate-modify-data](../includes/mobile-services-selector-validate-modify-data.md)]
 
-En este tema se muestra cómo aprovechar los scripts de servidor en Servicios móviles de Azure. Dichos scripts se registran en un servicio móvil y pueden usarse para realizar una gran variedad de operaciones en los datos que se han insertado y actualizado, incluidas la modificación y validación de los datos. En este tutorial, definirá y registrará scripts de servidor que sirven para validar y modificar datos. Dado que el comportamiento de los scripts de servidor suelen afectar al cliente, también actualizará la aplicación HTML para que se beneficie de estos nuevos comportamientos.
+En este tema se muestra cómo aprovechar los scripts del servidor en Servicios móviles de Azure. Dichos scripts se registran en un servicio móvil y pueden usarse para realizar una gran variedad de operaciones en los datos que se han insertado y actualizado, incluidas la modificación y validación de los datos. En este tutorial, definirá y registrará scripts de servidor que sirven para validar y modificar datos. Dado que el comportamiento de los scripts del servidor suele afectar al cliente, también actualizará la aplicación HTML para que se beneficie de estos nuevos comportamientos.
 
 Este tutorial le guiará a través de estos pasos básicos:
 
@@ -15,25 +15,25 @@ Este tutorial le guiará a través de estos pasos básicos:
 3. [Incorporación de una marca de tiempo al insertar]
 4. [Actualización del cliente para mostrar la marca de tiempo]
 
-Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos]. Antes de comenzar este tutorial, debe completar [Introducción a los datos].  
+Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos]. Antes de comenzar este tutorial, primero debe completar [Introducción a los datos].  
 
 ## <a name="string-length-validation"></a>Incorporación de la validación
 
 Siempre es conveniente validar la longitud de los datos enviados por los usuarios. En primer lugar, registre un script que valide la longitud de los datos de cadena enviados al servicio móvil y que rechace las cadenas demasiado largas, en este caso con más de 10 caracteres.
 
-1. Inicie sesión en el [Portal de administración de Azure], elija **Servicios móviles** y haga clic en su aplicación. 
+1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, en su aplicación. 
 
    	![][0]
 
-2. Haga clic en la pestaña **Datos** y elija la tabla **TodoItem**.
+2. Haga clic en la pestaña **Datos** y, a continuación, haga clic en la tabla **TodoItem**.
 
    	![][1]
 
-3. Haga clic en **Script**, seleccione la operación **Insertar**.
+3. Haga clic en **Script** y, a continuación, seleccione la operación **Insert**.
 
    	![][2]
 
-4. Reemplace el script existente por la siguiente función y haga clic en **Guardar**.
+4. Sustituya el script existente por la siguiente función y, a continuación, haga clic en **Guardar**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -45,11 +45,9 @@ Siempre es conveniente validar la longitud de los datos enviados por los usuario
             }
         }
 
-    Este script comprueba la longitud de la propiedad **TodoItem.text** y envía una respuesta de error cuando la longitud supera los 10 caracteres. En caso contrario, se llama a la función **execute** para completar la inserción.
+    Este script comprueba la longitud de la propiedad **TodoItem.text** y envía una respuesta de error cuando esta sobrepasa los 10 caracteres. En caso de no sobrepasarlos, se llama a la función **execute** para completar la inserción.
 
-    <div class="dev-callout"> 
-	<b>Nota:</b> 
-	<p>Para quitar un script registrado en la pestaña <strong>Script</strong>, haga clic en <strong>Borrar</strong> y después en <strong>Guardar</strong>.</p></div>	
+    > [AZURE.TIP] Puede quitar un script registrado en la pestaña **Script** haciendo clic en **Borrar** y, a continuación, en **Guardar**.	
 
 ## <a name="update-client-validation"></a>Actualización del cliente
 
@@ -57,13 +55,11 @@ Ahora que el servicio móvil puede validar los datos y enviar respuestas de erro
 
 1. Ejecute uno de los siguientes archivos de comando desde la subcarpeta **server** del proyecto que modificó cuando completó el tutorial [Introducción a los datos].
 
-	+ **launch-windows** (equipos con Windows) 
-	+ **launch-mac.command** (equipos con Mac OS X)
-	+ **launch-linux.sh** (equipos con Linux)
+	+ **launch-windows** (equipos Windows) 
+	+ **launch-mac.command** (equipos Mac OS X)
+	+ **launch-linux.sh** (equipos Linux)
 
-	<div class="dev-callout"><b>Nota:</b>
-		<p>En un equipo con Windows, escriba `R` cuando PowerShell le pida que confirme que desea ejecutar el script. Su explorador web podría advertirle de no ejecutar el script porque se ha descargado de Internet. Cuando esto ocurra, debe solicitar que el explorador continúe con la carga del script.</p>
-	</div>
+	> [AZURE.NOTE] En un equipo con Windows, escriba `R` cuando PowerShell le pida que confirme que desea ejecutar el script. Su explorador web podría advertirle de no ejecutar el script porque se ha descargado de Internet. Cuando esto ocurra, debe solicitar que el explorador continúe con la carga del script.
 
 	De este modo se inicia un servidor web en su equipo local para hospedar la aplicación.
 
@@ -82,7 +78,7 @@ Ahora que el servicio móvil puede validar los datos y enviar respuestas de erro
 			evt.preventDefault();
 		});
 
-2. En un explorador web, navegue a <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>, escriba texto en **Agregar nueva tarea** y haga clic en **Agregar**.
+2. En un explorador web, vaya a <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a>, a continuación, escriba texto en **Agregar nueva tarea** y haga clic en **Agregar**.
 
    	Observe que la operación presenta un error y que el control de errores muestra la respuesta de error en un cuadro de diálogo.
 
@@ -90,11 +86,9 @@ Ahora que el servicio móvil puede validar los datos y enviar respuestas de erro
 
 Las tareas anteriores validaban una inserción y bien la aceptaban o rechazaban. Ahora, actualizará los datos insertados mediante un script de servidor que agrega una propiedad de marca de tiempo al objeto antes de insertarse.
 
-<div class="dev-callout"><b>Nota:</b>
-<p>La propiedad de marca de tiempo <b>createdAt</b> que se muestra en este ejemplo es redundante en este caso. Servicios móviles crea automáticamente una propiedad del sistema <b>__createdAt</b> para cada tabla.</p>
-</div>
+> [AZURE.NOTE] La propiedad de marca de tiempo **createdAt** que se muestra en este ejemplo es redundante en este caso. Servicios móviles crea automáticamente una propiedad del sistema **__createdAt** para cada tabla.
 
-1. En la pestaña **Scripts** del [Portal de administración], reemplace el script **Insert** actual por la siguiente función y haga clic en **Guardar**.
+1. En la pestaña **Scripts** del [Portal de administración], reemplace el script **Insert** actual por la siguiente función y, a continuación, haga clic en **Guardar**.
 
         function insert(item, user, request) {
             if (item.text.length > 10) {
@@ -107,17 +101,15 @@ Las tareas anteriores validaban una inserción y bien la aceptaban o rechazaban.
             }
         }
 
-    Esta función aumenta el script de inserción anterior mediante la incorporación de una nueva propiedad de marca de tiempo **createdAt** al objeto antes de su inserción con la llamada a **request**.**execute**. 
+    Esta función aumenta el script de inserción anterior agregando una nueva propiedad de marca de tiempo **createdAt** para el objeto antes de que la llamada a **request**.**execute** lo inserte. 
 
-    <div class="dev-callout"><b>Nota:</b>
-	<p>El esquema dinámico debe habilitarse la primera vez que se ejecute este script de inserción. Al tener habilitado dicho esquema, Servicios móviles agrega automáticamente la columna <strong>createdAt</strong> a la tabla <strong>TodoItem</strong> en la primera ejecución. El esquema dinámico está habilitado de forma predeterminada para un nuevo servicio móvil y debe deshabilitarse antes de publicar la aplicación.</p>
-    </div>
+    > [AZURE.IMPORTANT] El esquema dinámico debe habilitarse la primera vez que se ejecute este script de inserción. Con el esquema dinámico habilitado, Servicios móviles agrega automáticamente la columna **createdAt** a la tabla **TodoItem** en la primera ejecución. El esquema dinámico está habilitado de forma predeterminada para un nuevo servicio móvil y debe deshabilitarse antes de publicar la aplicación.
 
-2. En el explorador web, recargue la página, escriba un texto (con menos de 10 caracteres) en **Agregar nueva tarea** y haga clic en **Agregar**.
+2. En el explorador web, vuelva a cargar la página, escriba texto (con menos de 10 caracteres) en **Agregar nueva tarea** y haga clic en **Agregar**.
 
    	Observe que la nueva marca de tiempo no aparece en la interfaz de usuario de la aplicación.
 
-3. De nuevo en el Portal de administración, haga clic en la pestaña **Examinar** en la tabla **todoitem**.
+3. De vuelta en el Portal de administración, haga clic en la pestaña **Examinar** en la tabla **todoitem**.
    
    	Observe que ahora aparece una columna **createdAt** y el nuevo elemento insertado tiene un valor de marca de tiempo.
   
@@ -131,7 +123,7 @@ El cliente de Servicios móviles omitirá los datos de cualquier respuesta que n
 
 		function refreshTodoItems() {
 			var query = todoItemTable.where(function () {
-                return (this.complete === false && this.createdAt !== null);
+                return (this.complete === false);
             });
 
 			query.read().then(function(todoItems) {
@@ -156,7 +148,7 @@ El cliente de Servicios móviles omitirá los datos de cualquier respuesta que n
 
    	Esto muestra la parte de la fecha de la nueva propiedad **createdAt**. 
 
-2. En el editor, abra el archivo style.css y reemplace los estilos de la clase `item-text` por el código siguiente:
+2. En el editor, abra el archivo style.css y reemplace los estilos de la clase  `item-text` por lo siguiente:
 
 		.item-text { width: 70%; height: 26px; line-height: 24px; 
 			border: 1px solid transparent; background-color: transparent; }
@@ -168,7 +160,7 @@ El cliente de Servicios móviles omitirá los datos de cualquier respuesta que n
 
    	Observe que la marca de tiempo solo se muestra para los elementos insertados después de haber actualizado el script de inserción.
 
-7. De nuevo en la función **refreshTodoItems**, reemplace la línea de código que define la consulta por lo siguiente:
+7. De vuelta en la función **refreshTodoItems**, reemplace la línea de código que define la consulta por lo siguiente:
 
          var query = todoItemTable.where(function () {
                 return (this.complete === false && this.createdAt !== null);
@@ -186,7 +178,7 @@ Ha completado este tutorial de trabajo con datos.
 
 Ahora que ha completado este tutorial, considere continuar con el tutorial final de la serie de datos: [Limitación de consultas con paginación].
 
-Para obtener más información, consulte [Trabajo con scripts de servidor] y [Documentación de referencia conceptual de Servicios móviles con HTML/JavaScript]
+Para obtener más información, consulte [Uso de scripts del servidor] y [Referencia conceptual de Servicios móviles con HTML/JavaScript].
 
 
 <!-- Anchors. -->
@@ -204,7 +196,7 @@ Para obtener más información, consulte [Trabajo con scripts de servidor] y [Do
 
 <!-- URLs. -->
 [Trabajo con scripts de servidor]: /es-es/develop/mobile/how-to-guides/work-with-server-scripts
-[Introducción a Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-html
+[Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-html
 [Autorización de usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-html
 [Limitación de consultas con paginación]: /es-es/develop/mobile/tutorials/add-paging-to-data-html
 [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-html
@@ -212,4 +204,7 @@ Para obtener más información, consulte [Trabajo con scripts de servidor] y [Do
 
 [Portal de administración]: https://manage.windowsazure.com/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Documentación de referencia conceptual de Servicios móviles con HTML/JavaScript]: /es-es/develop/mobile/how-to-guides/work-with-html-js-client
+[Referencia conceptual de Servicios móviles con HTML/JavaScript]: /es-es/develop/mobile/how-to-guides/work-with-html-js-client
+
+
+<!--HONumber=42-->

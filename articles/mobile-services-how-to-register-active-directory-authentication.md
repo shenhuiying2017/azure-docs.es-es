@@ -1,20 +1,20 @@
-﻿<properties urlDisplayName="Register for Azure Active Directory Authentication" pageTitle="Registro para la autenticación de Active Directory de Azure - servicios móviles" metaKeywords="Azure registering application, Azure Active Directory authentication, application authenticate, authenticate mobile services" description="Obtenga información acerca de cómo registrarse para la autenticación de Azure Active Directory en la aplicación de Servicios móviles de Azure." title="Register your account to use an Azure Active Directory account login" authors="wesmc" services="mobile-services" documentationCenter="Mobile" manager="dwrede" />
+﻿<properties pageTitle="Registro para la autenticación de Active Directory de Azure - servicios móviles" description="Obtenga información acerca de cómo registrarse para la autenticación de Azure Active Directory en la aplicación de Servicios móviles de Azure." authors="wesmc7777" services="mobile-services" documentationCenter="" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
 
 # Registro de las aplicaciones para usar un inicio de sesión de la cuenta de Azure Active Directory
 
 Este tema indica cómo registrar las aplicaciones para que puedan usar Azure Active Directory como proveedor de autenticación para los Servicios móviles de Azure. 
 
 
->[AZURE.NOTE] Los pasos descritos en este tema están pensados para utilizarse con el tutorial [Incorporación de autenticación a la aplicación de Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) cuando desee usar [operaciones de inicio de sesión dirigida por el servicio](http://msdn.microsoft.com/es-es/library/azure/dn283952.aspx) con su aplicación. Como alternativa, si la aplicación tiene un requisito para las [operaciones de inicio de sesión dirigidas por el cliente](http://msdn.microsoft.com/es-es/library/azure/jj710106.aspx) para Azure Active Directory y un servicio móvil de back-end de .NET, debe empezar el tutorial [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory](/es-es/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/).
+>[AZURE.NOTE] Los pasos descritos en este tema están diseñados para utilizarse con el tutorial [Incorporación de autenticación a la aplicación de Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) cuando desee usar [operaciones de inicio de sesión dirigidas por el servicio](http://msdn.microsoft.com/es-es/library/azure/dn283952.aspx) con su aplicación. Como alternativa, si la aplicación tiene un requisito de [operaciones de inicio de sesión dirigidas por el cliente](http://msdn.microsoft.com/es-es/library/azure/jj710106.aspx) para Azure Active Directory y un servicio móvil de back-end de .NET, debe comenzar por el tutorial [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory](/es-es/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/).
 
 
 1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.
 
     ![][1]
 
-2. Haga clic en la pestaña **Identidad** del servicio móvil. 
+2. Haga clic en la pestaña **Identidad** de su servicio móvil. 
 
     ![][2]
 
@@ -24,7 +24,7 @@ Este tema indica cómo registrar las aplicaciones para que puedan usar Azure Act
 
 4. Diríjase a **Active Directory** en el portal de administración y haga clic en el directorio.
 
-    ![][4] 
+    ![][4] 	
 
 5. Haga clic en la pestaña **Aplicaciones** que aparece en la parte superior y, a continuación, haga clic en **AGREGAR** para agregar una aplicación. 
 
@@ -32,7 +32,7 @@ Este tema indica cómo registrar las aplicaciones para que puedan usar Azure Act
 
 6. Haga clic en **Agregar una aplicación que mi organización está desarrollando**.
 
-7. En el asistente para agregar aplicaciones, escriba el valor de **Nombre** para la aplicación y haga clic en el tipo   **Aplicación web y/o API web**. A continuación, haga clic para continuar.
+7. En el asistente para agregar aplicaciones, escriba el valor de **Nombre** para la aplicación y haga clic en el tipo **Aplicación web y/o API web**. A continuación, haga clic para continuar.
 
     ![][5]
 
@@ -43,7 +43,7 @@ Este tema indica cómo registrar las aplicaciones para que puedan usar Azure Act
 
 9. Una vez que se haya agregado la aplicación, haga clic en la pestaña **Configurar**. A continuación, haga clic para copiar el **Id. de cliente** de la aplicación.
 
-    Si creó el servicio móvil para que utilice el back-end de .NET del servicio móvil, edite además el valor de **Dirección URL de respuesta** bajo **Inicio de sesión único** de modo que sea la dirección URL del servicio móvil con la ruta de acceso, _signin-aad_. Por ejemplo,  `https://todolist.azure-mobile.net/signin-aad`
+    Si creó el servicio móvil para que utilice el back-end de .NET en su servicio móvil, edite además el valor de **URL de respuesta** en **Inicio de sesión único** de modo que sea la dirección URL del servicio móvil con la ruta de acceso _signin-aad_ anexada. Por ejemplo,  `https://todolist.azure-mobile.net/signin-aad`
 
     ![][8]
 
@@ -51,7 +51,7 @@ Este tema indica cómo registrar las aplicaciones para que puedan usar Azure Act
 10. Vuelva a la pestaña **Identidad** del servicio móvil. En la parte inferior, pegue la configuración de **Id. de cliente** para el proveedor de identidades de Azure Active Directory.
 
   
-11. En la lista **Inquilinos permitidos** debe agregar el dominio del directorio en el que registró la aplicación (por ejemplo, contoso.onmicrosoft.com). Para buscar el nombre de dominio predeterminado, haga clic en la pestaña **Dominios** en Active Directory.
+11. En la lista **Inquilinos permitidos** debe agregar el dominio del directorio en el que registró la aplicación (por ejemplo, contoso.onmicrosoft.com). Para buscar el nombre de dominio predeterminado, haga clic en la pestaña **Dominios** de Active Directory.
 
     ![][11]
  
@@ -84,3 +84,6 @@ Ahora está preparado para usar Azure Active Directory para realizar la autentic
 <!-- URLs. -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
+
+
+<!--HONumber=42-->

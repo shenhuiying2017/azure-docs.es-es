@@ -1,16 +1,16 @@
-﻿<properties urlDisplayName="Optimistic concurrency" pageTitle="Controlar conflictos de escritura de base de datos con la simultaneidad optimista (tienda Windows) | Centro de desarrollo móvil" metaKeywords="" description="Aprenda a controlar conflictos de escritura de base de datos en el servidor y en la aplicación de la Tienda Windows." metaCanonical="" disqusComments="1" umbracoNaviHide="1" documentationCenter="Mobile" title="Handling database write conlicts" authors="wesmc" manager="dwrede" />
+﻿<properties pageTitle="Control de conflictos de escritura de base de datos con la simultaneidad optimista (Tienda Windows) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo controlar conflictos de escritura de base de datos tanto en el servidor como en su aplicación de la Tienda Windows." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
 
 # Control de conflictos de escritura de bases de datos
 
 <div class="dev-center-tutorial-selector sublanding">
-<a href="/es-es/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/" title="Windows Store C#">Windows Store C#</a>
-<a href="/es-es/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/" title="Windows Store JavaScript">Windows Store JavaScript</a>
+<a href="/es-es/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/" title="Windows Store C#">C# para Tienda Windows</a>
+<a href="/es-es/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/" title="Windows Store JavaScript">JavaScript para Tienda Windows</a>
 <a href="/es-es/develop/mobile/tutorials/handle-database-write-conflicts-wp8/" title="Windows Phone" class="current">Windows Phone</a>
 </div>
 
-Este tutorial tiene como finalidad ayudarle a comprender mejor cómo controlar los conflictos que se producen cuando dos o más clientes escriben en el mismo registro de la base de datos en una aplicación de Windows Phone 8. En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. Servicios móviles proporciona la compatibilidad para detectar y solucionar estos conflictos. Este tema le guiará a través de los pasos que le permitirán controlar los conflictos de escritura de bases de datos tanto en el servidor como en la aplicación.
+Este tutorial tiene como finalidad ayudarle a comprender mejor cómo controlar los conflictos que se producen cuando uno o más clientes escriben en el mismo registro de la base de datos en una aplicación de Windows Phone 8. En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. Servicios móviles proporciona la compatibilidad para detectar y solucionar estos conflictos. Este tema le guiará a través de los pasos que le permitirán controlar los conflictos de escritura de bases de datos tanto en el servidor como en la aplicación.
 
 En este tutorial agregará funcionalidad a la aplicación de inicio rápido para controlar los conflictos que se produzcan al actualizar la base de datos TodoItem. Este tutorial le guiará a través de estos pasos básicos:
 
@@ -27,11 +27,11 @@ Este tutorial requiere lo siguiente:
 + [Cuenta de Azure]
 + Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles].
 + Paquete de NuGet de Servicios móviles de Azure 1.1.0 o posterior. Para obtener la última versión, siga los pasos a continuación:
-	1. En Visual Studio, abra el proyecto y haga clic con el botón secundario en el proyecto en el Explorador de soluciones y, a continuación, haga clic en **Administrar paquetes de NuGet**. 
+	1. En Visual Studio, abra el proyecto y haga clic con el botón derecho en el proyecto en el Explorador de soluciones y, a continuación, haga clic en **Administrar paquetes de NuGet**. 
 
 		![][13]
 
-	2. Expanda **En línea** y haga clic en **Microsoft y .NET**. En el cuadro de texto de búsqueda, escriba **Servicios móviles de Azure**. Haga clic en **Instalar** en el paquete de NuGet de **Servicios móviles de Azure**.
+	2. Expanda **En línea** y haga clic en **Microsoft and .NET**. En el cuadro de texto de búsqueda, escriba **Servicios móviles de Azure**. Haga clic en **Instalar** en el paquete de NuGet de **Servicios móviles de Azure**.
 
 		![][14]
 
@@ -40,11 +40,11 @@ Este tutorial requiere lo siguiente:
 
 <h2><a name="uiupdate"></a>Actualización de la aplicación para permitir actualizaciones</h2>
 
-En esta sección, actualizará la interfaz de usuario TodoList para permitir la actualización del texto de cada elemento en un control ListBox. ListBox contendrá un control de CheckBox y TextBox para cada elemento en la tabla de la base de datos. Podrá actualizar el campo de texto de TodoItem. La aplicación controlará el evento `LostFocus` desde TextBox para actualizar el elemento en la base de datos.
+En esta sección, actualizará la interfaz de usuario TodoList para permitir la actualización del texto de cada elemento en un control ListBox. ListBox contendrá un control de CheckBox y TextBox para cada elemento en la tabla de la base de datos. Podrá actualizar el campo de texto de TodoItem. La aplicación controlará el evento  `LostFocus` desde TextBox para actualizar el elemento en la base de datos.
 
 
 1. En Visual Studio, abra el proyecto TodoList que descargó en el tutorial [Introducción a los Servicios móviles].
-2. En el Explorador de soluciones de Visual Studio, abra MainPage.xaml y reemplace la definición `phone:LongListSelector` por el ListBox que aparece a continuación y guarde el cambio.
+2. En el Explorador de soluciones de Visual Studio, abra MainPage.xaml y reemplace la definición  `phone:LongListSelector` por el ListBox que aparece a continuación y guarde los cambios.
 
 		<ListBox Grid.Row="4" Grid.ColumnSpan="2" Name="ListItems">
 			<ListBox.ItemTemplate>
@@ -58,12 +58,12 @@ En esta sección, actualizará la interfaz de usuario TodoList para permitir la 
 		</ListBox>
 
 
-2. En el Explorador de soluciones de Visual Studio, abra MainPage.xaml.cs y agregue la siguiente directiva `using`.
+2. En el Explorador de soluciones de Visual Studio, abra MainPage.xaml.cs y agregue la siguiente directiva  `using`.
 
 		using System.Threading.Tasks;
 
 
-3. En el Explorador de soluciones de Visual Studio, abra MainPage.xaml.cs. Agregue el controlador de eventos a la MainPage para el evento 'LostFocus' de TextBox como se muestra a continuación.
+3. En el Explorador de soluciones de Visual Studio, abra MainPage.xaml.cs. Agregue el controlador de eventos a la MainPage para el evento  `LostFocus` de TextBox como se muestra a continuación.
 
 
         private async void ToDoText_LostFocus(object sender, RoutedEventArgs e)
@@ -78,7 +78,7 @@ En esta sección, actualizará la interfaz de usuario TodoList para permitir la 
             }
         }
 
-4. En MainPage.xaml.cs, agregue la definición para el método `UpdateToDoItem()` de MainPage al que se hace referencia en el controlador de eventos como se muestra a continuación.
+4. En MainPage.xaml.cs, agregue la definición para el método  `UpdateToDoItem()` de MainPage con referencia en el controlador de eventos, como se muestra a continuación.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -97,7 +97,7 @@ Ahora la aplicación escribe los cambios del texto en cada elemento devuelto a l
 
 <h2><a name="enableOC"></a>Habilitación de la detección de conflictos en la aplicación</h2>
 
-En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. [El control de simultaneidad optimista] asume que cada transacción puede confirmarse y, por lo tanto, no usa ningún bloqueo de recursos. Antes de confirmar una transacción, el control de simultaneidad optimista comprueba que ninguna otra transacción haya modificado los datos. Si los datos se han modificado, la transacción de confirmación se desecha. Servicios móviles de Azure es compatible con el control de simultaneidad optimista mediante el seguimiento de cambios en cada elemento con la columna de propiedades del sistema `__version` que se agrega a cada tabla. En esta sección, habilitaremos la aplicación para detectar estos conflictos de escritura a través de la propiedad del sistema `__version`. La aplicación recibirá una notificación mediante una excepción `MobileServicePreconditionFailedException` durante un intento de actualización si el registro ha cambiado desde la última consulta. Entonces podrá elegir si confirmar el cambio realizado en la base de datos o dejar intacto el último cambio realizado en la base de datos. Para obtener más información acerca de las propiedades del sistema para Servicios móviles, consulte las [propiedades del sistema].
+En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. [El control de simultaneidad optimista] asume que cada transacción puede confirmarse y, por lo tanto, no usa ningún bloqueo de recursos. Antes de confirmar una transacción, el control de simultaneidad optimista comprueba que ninguna otra transacción haya modificado los datos. Si los datos se han modificado, la transacción de confirmación se desecha. Servicios móviles de Azure es compatible con el control de simultaneidad optimista mediante el seguimiento de cambios en cada elemento con la columna de propiedades del sistema `__version` que se agrega en cada tabla. En esta sección, habilitaremos la aplicación para detectar estos conflictos de escritura a través de la propiedad del sistema `__version`. La aplicación recibirá una notificación mediante una excepción  `MobileServicePreconditionFailedException` durante un intento de actualización si el registro ha cambiado desde la última consulta. Entonces podrá elegir si confirmar el cambio realizado en la base de datos o dejar intacto el último cambio realizado en la base de datos. Para obtener más información acerca de las propiedades del sistema para Servicios móviles, consulte las [propiedades del sistema].
 
 1. En MainPage.xaml.cs, actualice la definición de clase de **TodoItem** con el siguiente código para incluir la propiedad del sistema **__version** que permite la compatibilidad para la detección de conflictos de escritura:
 
@@ -112,15 +112,15 @@ En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemen
 			public string Version { set; get; }
 		}
 
-	<div class="dev-callout"><strong>Nota:</strong>
-	<p>Cuando use tablas sin tipo, habilite la simultaneidad optimista agregando la marca de versión en las SystemProperties de la tabla.</p>
-	<pre><code>//Enable optimistic concurrency by retrieving __version
+	> [AZURE.NOTE[ Cuando use tablas sin tipo, habilite la simultaneidad optimista agregando la marca de versión en las SystemProperties de la tabla.  
+	>
+	>````` 
+	//Enable optimistic concurrency by retrieving __version
 todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
-</code></pre>
-	</div>
+`````
 
 
-2. Al agregar la propiedad `Version` a la clase `TodoItem`, la aplicación recibirá una notificación con una excepción `MobileServicePreconditionFailedException` durante una actualización si el registro ha cambiado desde la última consulta. Esta excepción incluye la última versión del elemento desde el servidor. En MainPage.xaml.cs, agregue el siguiente código para controlar la excepción en el método `UpdateToDoItem()`.
+2. Al agregar la propiedad  `Version` a la clase  `TodoItem`, la aplicación recibirá una notificación con una excepción  `MobileServicePreconditionFailedException` durante una actualización si el registro ha cambiado desde la última consulta. Esta excepción incluye la última versión del elemento desde el servidor. En MainPage.xaml.cs, agregue el siguiente código para controlar la excepción en el método  `UpdateToDoItem()`.
 
         private async Task UpdateToDoItem(TodoItem item)
         {
@@ -151,7 +151,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
         }
 
 
-3. En MainPage.xaml.cs, agregue la definición para el método 'ResolveConflict()' al que se hace referencia en `UpdateToDoItem()`. Tenga en cuenta que, para resolver el conflicto, debe configurar la versión local del elemento a la versión actualizada desde el servidor antes de confirmar la decisión del usuario. De lo contrario, experimentará continuamente el conflicto.
+3. En MainPage.xaml.cs, agregue la definición para el método  `ResolveConflict()` al que se hace referencia en  `UpdateToDoItem()`. Observe que para resolver el conflicto, se establece la versión del elemento local en la versión actualizada desde el servidor antes de confirmar la decisión del usuario. De lo contrario, experimentará continuamente el conflicto.
 
 
         private async Task ResolveConflict(TodoItem localItem, TodoItem serverItem)		
@@ -189,7 +189,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 <h2><a name="test-app"></a>Prueba de conflictos de escritura de bases de datos en la aplicación</h2>
 
-En esta sección, probará el código que controla los conflictos de escritura mediante la ejecución de la aplicación en dos emuladores de Windows Phone 8 distintos (WVGA y WVGA 512M). Ambas aplicaciones cliente intentarán actualizar la propiedad `text` del mismo elemento, lo cual exigirá que el usuario resuelva el conflicto.
+En esta sección, probará el código que controla los conflictos de escritura mediante la ejecución de la aplicación en dos emuladores de Windows Phone 8 distintos (WVGA y WVGA 512M). Ambas aplicaciones cliente intentarán actualizar la misma propiedad  `text` del elemento, lo cual exigirá que el usuario resuelva el conflicto.
 
 
 1. En Visual Studio, asegúrese de que la opción **Emulator WVGA 512MB (ES)** esté seleccionada en el cuadro desplegable como el destino de implementación, tal como aparece en la captura de pantalla a continuación.
@@ -206,21 +206,21 @@ En esta sección, probará el código que controla los conflictos de escritura m
 
 4. En el menú de Visual Studio, haga clic en **GENERAR** y, a continuación, en **Implementar solución**. Compruebe en la ventana de salida que aparece en la parte inferior que la compilación y la implementación en el emulador de Windows Phone 8 se realizaron correctamente.
 
-€
+   	![][2]
   
 5. Coloque ambos emuladores en ejecución en paralelo. Podemos simular conflictos de escritura simultánea entre las aplicaciones cliente que se ejecutan en estos emuladores. Deslícese de derecha a izquierda en ambos emuladores para ver la lista de aplicaciones instaladas. Desplácese a la parte inferior de cada lista y haga clic en la aplicación **todolist**.
 
 	![][3]
 
-6. En el emulador de la izquierda, actualice el valor `text` del último TodoItem a **Test Write 1** y, a continuación, haga clic en otro cuadro de texto para que el controlador de eventos `LostFocus` actualice la base de datos. La siguiente captura de pantalla muestra un ejemplo. 
+6. En el emulador de la izquierda, actualice el valor  `text` del último TodoItem a **Test Write 1** y, a continuación, haga clic en otro cuadro de texto para que el controlador de eventos  `LostFocus` actualice la base de datos. La siguiente captura de pantalla muestra un ejemplo. 
 
 	![][4]
 
-7. En este punto, el elemento correspondiente del emulador a la derecha tiene una versión anterior y un valor de texto anterior. En el emulador de la derecha, escriba **Test Write 2** para la propiedad de texto. A continuación, haga clic en otro cuadro de texto para que el controlador de eventos `LostFocus` del emulador de la derecha intente actualizar la base de datos con la versión antigua.
+7. En este punto, el elemento correspondiente del emulador a la derecha tiene una versión anterior y un valor de texto anterior. En el emulador de la derecha, escriba **Test Write 2** para la propiedad de texto. A continuación, haga clic en otro cuadro de texto para que el controlador de eventos  `LostFocus` del emulador de la derecha intente actualizar la base de datos con la versión antigua.
 
 	![][5]
 
-8. Como la versión usada con el intento de actualización no coincidió con la versión del servidor, el SDK de los Servicios móviles genera la excepción `MobileServicePreconditionFailedException`, lo que permite que la aplicación solucione este conflicto. Para solucionar el conflicto, puede hacer clic en **Aceptar** para confirmar los valores de la aplicación de la derecha. También puede hacer clic en **Cancelar** para descargar los valores de la aplicación de la derecha, confirmando así los valores de la aplicación de la izquierda. 
+8. Como la versión usada con el intento de actualización no coincidió con la versión del servidor, el SDK de los Servicios móviles arroja la excepción  `MobileServicePreconditionFailedException`, lo que permite que la aplicación solucione este conflicto. Para solucionar el conflicto, puede hacer clic en **Aceptar** para confirmar los valores de la aplicación de la derecha. También puede hacer clic en **Cancelar** para descargar los valores de la aplicación de la derecha, confirmando así los valores de la aplicación de la izquierda. 
 
 	![][6]
 
@@ -230,8 +230,8 @@ En esta sección, probará el código que controla los conflictos de escritura m
 
 Puede detectar y resolver conflictos de escritura en los scripts del servidor. Es una buena idea si puede utilizar la lógica de los scripts en lugar de la interacción del usuario para resolver el conflicto. En esta sección, agregará un script del servidor a la tabla TodoItem para la aplicación. La lógica que este script utilizará para resolver conflictos es la siguiente:
 
-+  Si el campo ` complete` de TodoItem está establecido en true, se considerará completado y `text` no se podrá modificar.
-+  Si el campo `complete` de TodoItem aún es false, tratará de actualizarse y `text` se confirmará.
++  Si el campo ` complete` de TodoItem está establecido en true, se considerará completado y  `text` no se podrá modificar.
++  Si el campo `complete` de TodoItem aún es false, tratará de actualizarse y  `text` se confirmará.
 
 Los siguientes pasos describen la incorporación del script de actualización del servidor y su prueba.
 
@@ -239,7 +239,7 @@ Los siguientes pasos describen la incorporación del script de actualización de
 
    	![][7]
 
-2. Haga clic en la pestaña **Data** y, a continuación, haga clic en la tabla **TodoItem**.
+2. Haga clic en la pestaña **Datos** y, a continuación, haga clic en la tabla **TodoItem**.
 
    	![][8]
 
@@ -247,7 +247,7 @@ Los siguientes pasos describen la incorporación del script de actualización de
 
    	![][9]
 
-4. Sustituya el script existente por la siguiente función y, a continuación, haga clic en **Save**.
+4. Sustituya el script existente por la siguiente función y, a continuación, haga clic en **Guardar**.
 
 		function update(item, user, request) { 
 			request.execute({ 
@@ -264,11 +264,11 @@ Los siguientes pasos describen la incorporación del script de actualización de
 				}
 			}); 
 		}   
-5. Cambie el texto TodoItem por el último elemento en la aplicación del emulador de la izquierda. Luego haga clic en otro cuadro de texto para que el controlador de eventos `LostFocus` actualice la base de datos.
+5. Cambie el texto TodoItem por el último elemento en la aplicación del emulador de la izquierda. Luego haga clic en otro cuadro de texto para que el controlador de eventos  `LostFocus` actualice la base de datos.
 
 	![][4]
 
-6. En el emulador de la derecha, escriba un valor distinto para la propiedad de texto del último TodoItem. A continuación, haga clic en otro cuadro de texto para que el controlador de eventos `LostFocus` del emulador de la derecha intente actualizar la base de datos con la versión antigua.
+6. En el emulador de la derecha, escriba un valor distinto para la propiedad de texto del último TodoItem. A continuación, haga clic en otro cuadro de texto para que el controlador de eventos  `LostFocus` del emulador de la derecha intente actualizar la base de datos con la versión antigua.
 
 	![][5]
 
@@ -280,20 +280,20 @@ Los siguientes pasos describen la incorporación del script de actualización de
 
 	![][11]
 
-9. En la aplicación del emulador de la derecha, intente actualizar el mismo texto de TodoItem y active el evento `LostFocus`. En respuesta al conflicto, el script lo resolvió rechazando la actualización porque el elemento ya se había completado. 
+9. En la aplicación del emulador de la derecha, intente actualizar el mismo texto de TodoItem y active el evento  `LostFocus`. En respuesta al conflicto, el script lo resolvió rechazando la actualización porque el elemento ya se había completado. 
 
 	![][12]
 
-* 
-* ## <a name="next-steps"> </a>Pasos siguientes
+
+## <a name="next-steps"> </a>Pasos siguientes
 
 Este tutorial le ha mostrado cómo habilitar la aplicación de Windows Phone 8 para controlar los conflictos de escritura al trabajar con datos en Servicios móviles. A continuación, plantéese completar uno de los siguientes tutoriales en nuestra serie de datos:
 
 * [Validar y modificar datos con scripts]
-  <br/>Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
+  <br/>Obtenga más información sobre el uso de scripts de servidor en Servicios móviles para validar y cambiar los datos enviados desde su aplicación.
 
 * [Limitación de consultas con paginación]
-  <br/>Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se manejan en una única solicitud.
+  <br/>Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos gestionados en una única solicitud.
 
 Una vez que haya completado la serie de datos, también puede probar uno de los siguientes tutoriales de Windows Phone 8:
 
@@ -346,4 +346,5 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
 [Sitio de ejemplos de código para desarrolladores]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Propiedades del sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

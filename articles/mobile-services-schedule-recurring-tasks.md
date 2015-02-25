@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Schedule Backend Tasks" pageTitle="Programación de tareas de back-end con el programador - Servicios móviles" metaKeywords="" description="Use el programador de Servicios móviles de Azure para programar trabajos para su aplicación móvil." metaCanonical="" services="mobile-services" documentationCenter="Mobile" title="Schedule recurring jobs in Mobile Services" authors="glenga" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Programación de tareas de back-end con el programador - Servicios móviles" description="Use el programador de Servicios móviles de Azure para programar trabajos para su aplicación móvil." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Programación de trabajos periódicos en Servicios móviles 
 
@@ -20,37 +20,37 @@ Este tutorial le guiará por los siguientes pasos relativos al uso del programad
 + [Creación de la nueva tabla de actualizaciones]
 + [Creación de un nuevo trabajo programado]
 
-## <a name="get-oauth-credentials"></a>Registro para obtener acceso a las API de Twitter v1.1 y almacenamiento de credenciales
+##<a name="get-oauth-credentials"></a>Registro para obtener acceso a las API de Twitter v1.1 y almacenamiento de credenciales
 
-[WACOM.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
+[AZURE.INCLUDE [mobile-services-register-twitter-access](../includes/mobile-services-register-twitter-access.md)]
 
-## <a name="create-table"></a>Creación de la nueva tabla de actualizaciones
+##<a name="create-table"></a>Creación de la nueva tabla de actualizaciones
 
 A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 
-2. En el Portal de administración, haga clic en la pestaña **Datos** para su servicio móvil y elija **+Crear**.
+2. En el Portal de administración, haga clic en la pestaña **Datos** para el servicio móvil y, a continuación, haga clic en **+Crear**.
 
    	![][2]
 
-   	Esto muestra el cuadro de diálogo **Crear nueva tabla**.
+   	Esto muestra el cuadro de diálogo **Create new table**.
 
-3. En **Nombre de tabla** escriba _Updates_ y haga clic en el botón de marca de verificación.
+3. En **Nombre de tabla** escriba _Updates_ y haga clic en el botón de comprobación.
 
    	![][3]
 
   	De esta forma, se creará una nueva tabla de almacenamiento **Updates**. 
 
-## <a name="add-job"></a>Creación de un nuevo trabajo programado  
+##<a name="add-job"></a>Creación de un nuevo trabajo programado  
 
 Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena los datos de tweets en la nueva tabla de actualizaciones.
 
-2. Haga clic en la pestaña **Programador** y después en **+Crear**. 
+2. Haga clic en la pestaña **Programador** y, a continuación, en **+Crear**. 
 
    	![][4]
 
-    >[WACOM.NOTE]Cuando ejecute el servicio móvil en el nivel <em>Gratis</em>, solo podrá ejecutar un trabajo programado cada vez. En los niveles de pago, puede ejecutar hasta diez trabajos programados a la vez.
+    >[AZURE.NOTE]Cuando ejecute el servicio móvil en el nivel <em>Gratis</em>, solo podrá ejecutar un trabajo programado a la vez. En los niveles de pago, puede ejecutar hasta diez trabajos programados a la vez.
 
-3. En el cuadro de diálogo del programador, especifique _getUpdates_ para **Nombre de trabajo**, establezca el intervalo de programación y las unidades, y haga clic en el botón de marca de verificación.    
+3. En el cuadro de diálogo del programador, especifique _getUpdates_ para **Nombre de trabajo**, establezca el intervalo de programación y las unidades, y haga clic en el botón de comprobación. 
    
    	![][5]
 
@@ -138,15 +138,15 @@ Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena 
 
    	Este script llama a la API de consulta de Twitter mediante las credenciales almacenadas para solicitar los tweets recientes que contienen el hashtag `#mobileservices`. Las respuestas y tweets duplicados se quitan de los resultados antes de almacenarse en la tabla.
 
-    >[WACOM.NOTE]En este ejemplo se presupone que solo se insertan algunas filas en la tabla durante cada ejecución programada. En los casos en los que se inserten muchas filas en un bucle, es posible que se agoten las conexiones con el nivel gratis. En ese caso, debe realizar inserciones en los lotes. Para obtener más información, consulte <a href="/es-es/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">Inserción de Inserciones en masa</a>.
+    >[AZURE.NOTE]En este ejemplo se presupone que solo se insertan algunas filas en la tabla durante cada ejecución programada. En los casos en los que se inserten muchas filas en un bucle, es posible que se agoten las conexiones con el nivel gratis. En ese caso, debe realizar inserciones en los lotes. Para obtener más información, consulte <a href="/es-es/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">Inserción de inserciones en masa</a>.
 
 6. Haga clic en **Ejecutar una vez** para probar el script. 
 
   	![][7]
-       
+
    	De esta forma, se guarda y ejecuta el trabajo mientras se mantiene deshabilitado en el programador.
 
-7. Haga clic en el botón de retroceso, elija **Datos**, haga clic en la tabla **Updates**, elija **Examinar** y compruebe que se hayan insertado los datos de Twitter en la tabla.
+7. Haga clic en el botón de retroceso, en **Datos**, en la tabla **Updates**, en **Examinar** y compruebe que se han insertado los datos de Twitter en la tabla.
 
    	![][8]
 
@@ -160,8 +160,8 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 
 ## <a name="nextsteps"> </a>Pasos siguientes
 
-* [Referencia del script del servidor de Servicios móviles]
-  <br/>Más información acerca del registro y uso de scripts de servidor.
+* [Referencia del script de servidor de Servicios móviles]
+  <br/>Obtenga más información acerca del registro y del uso de scripts de servidor.
 
 <!-- Anchors. -->
 [Registro para obtener acceso a Twitter y almacenamiento de credenciales]: #get-oauth-credentials
@@ -184,9 +184,12 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [11]: ./media/mobile-services-schedule-recurring-tasks/mobile-identity-tab-twitter-only.png
 
 <!-- URLs. -->
-[Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
-[WindowsAzure.com]: http://www.windowsazure.com/
+[Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+[MicrosoftAzure.com]: http://www.windowsazure.com/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Registro de las aplicaciones para el inicio de sesión en Twitter con Servicios móviles]: /es-es/develop/mobile/how-to-guides/register-for-twitter-authentication
 [Desarrolladores de Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Configuración de aplicaciones]: http://msdn.microsoft.com/es-es/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+
+
+<!--HONumber=42-->

@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Set up endpoints" pageTitle="Configuración de extremos en una máquina virtual en Azure" metaKeywords="Azure config setup, configuring vm connection" description="Aprenda a configurar la comunicación con una máquina virtual en Azure." metaCanonical="" services="virtual-machines" documentationCenter="" title="" authors="timlt" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Configuración de extremos en una máquina virtual en Azure" description="Aprenda a configurar la comunicación con una máquina virtual en Azure." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/29/2014" ms.author="kathydav"/>
 
 #Configuración de extremos en una máquina virtual
 
@@ -40,7 +40,7 @@ Se proporcionan los valores predeterminados para los puertos y el protocolo de e
 
 7. En **Puerto público** y **Puerto privado**, escriba los números de puerto que desee usar. Estos números de puerto pueden ser distintos. El puerto público es el punto de entrada para la comunicación desde fuera de Azure y lo usa el equilibrador de carga de Azure. Puede utilizar el puerto privado y las reglas de firewall en la máquina virtual para redirigir el tráfico de la manera más adecuada para su aplicación.
 
-8. Haga clic en **Crear un conjunto de equilibrio de carga** si este extremo será el primero del conjunto de carga equilibrada. A continuación, en la página **Configurar el conjunto de carga equilibrada**, especifique información sobre el sondeo, el protocolo y un nombre. Los conjuntos con equilibrio de carga requieren un sondeo para que se pueda supervisar el estado del conjunto. Para obtener más información, consulte [Equilibrio de carga de máquinas virtuales](http://www.windowsazure.com/en-us/manage/windows/common-tasks/how-to-load-balance-virtual-machines/).  
+8. Haga clic en **Crear un conjunto de equilibrio de carga** si este extremo será el primero del conjunto de carga equilibrada. A continuación, en la página **Configurar el conjunto de carga equilibrada**, especifique información sobre el sondeo, el protocolo y un nombre. Los conjuntos con equilibrio de carga requieren un sondeo para que se pueda supervisar el estado del conjunto. Para obtener más información, consulte [Equilibrio de carga de máquinas virtuales](http://www.windowsazure.com/es-es/manage/windows/common-tasks/how-to-load-balance-virtual-machines/).  
 
 9.	Haga clic en la marca de verificación para crear el extremo.
 
@@ -50,7 +50,7 @@ Se proporcionan los valores predeterminados para los puertos y el protocolo de e
 
 ###Administración de ACL en un extremo###
 
-Siga estos pasos para agregar, modificar o quitar una ACL en un extremo.
+La lista de control de acceso (ACL) de un extremo de red puede restringir el tráfico basado en la IP de origen, para proteger, de este modo, los extremos que se crean en la máquina virtual. Siga estos pasos para agregar, modificar o quitar una ACL en un extremo.
 
 **Nota**: si el extremo forma parte de un conjunto con equilibrio de carga, los cambios que realice en la ACL en un extremo se aplican a todos los extremos del conjunto.
 
@@ -72,4 +72,7 @@ Siga estos pasos para agregar, modificar o quitar una ACL en un extremo.
 
 6. Use las filas de la lista para agregar, eliminar o editar reglas para una ACL. El valor Remote Subnet se corresponde con el intervalo de la dirección IP que puede permitir o denegar como regla. Las reglas se evalúan en orden, comenzando por la primera regla y terminando por la última. Esto significa que las reglas deben aparecer de menos restrictivas a más restrictivas. Para obtener ejemplos y más información, consulte [Acerca de las listas de control de acceso (ACL) de red](http://go.microsoft.com/fwlink/p/?LinkId=303816).
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

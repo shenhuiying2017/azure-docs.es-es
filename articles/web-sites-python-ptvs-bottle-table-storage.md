@@ -1,13 +1,27 @@
-﻿<properties linkid="web-sites-python-ptvs-bottle-table-storage" title="Bottle and Azure Table Storage on Azure with Python Tools 2.1 for Visual Studio" pageTitle="Bottle y Almacenamiento de tablas de Azure en Azure con Python Tools 2.1 para Visual Studio" description="Obtenga información acerca de cómo usar las herramientas de Python para Visual Studio a fin de crear una aplicación Bottle que almacene datos en Almacenamiento de tablas de Azure y que pueda implementarse en un sitio web." metaKeywords="" services="web-sites" solutions="" documentationCenter="Python" authors="huvalo" videoId="" scriptId="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Bottle y Almacenamiento de tablas de Azure en Azure con Python Tools 2.1 para Visual Studio" 
+	description="Aprenda a usar las herramientas de Python para Visual Studio para crear una aplicación de Bottle que almacene datos en un almacenamiento de tablas de Azure y puedan implementarse en un sitio web." 
+	services="web-sites" 
+	documentationCenter="python" 
+	authors="huguesv" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="python" ms.topic="article" ms.date="10/10/2014" ms.author="huvalo" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="python" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="huvalo"/>
 
 
 
 
 # Bottle y Almacenamiento de tablas de Azure en Azure con Python Tools 2.1 para Visual Studio 
 
-En este tutorial, crearemos una aplicación de sondeos sencilla con la utilización de una de las plantillas de ejemplo de PTVS. Este tutorial también se encuentra disponible como [vídeo](https://www.youtube.com/watch?v=GJXDGaEPy94).
+En este tutorial, crearemos una aplicación de sondeos sencilla con la utilización de una de las plantillas de ejemplo de PTVS. Este tutorial también se encuentra disponible en [vídeo](https://www.youtube.com/watch?v=GJXDGaEPy94).
 
 La aplicación de sondeos define una abstracción para su repositorio, por lo que puede alternar fácilmente entre los diferentes tipos de repositorios (en memoria, almacenamiento de tablas de Azure y MongoDB).
 
@@ -27,12 +41,12 @@ Consulte el [Centro para desarrolladores de Python][] para tener acceso a más a
 ##<a name="prerequisites"></a>Requisitos previos
 
  - Visual Studio 2012 o 2013
- - [Python Tools 2.1 para Visual Studio][]
+ - [Python Tools 2.1 para Visual Studio (en inglés)][]
  - [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio][]
- - [Herramientas del SDK de Azure para VS 2013 ][] o [Herramientas del SDK de Azure para VS 2012][]
+ - [Herramientas del SDK de Azure para VS 2013][] o [Herramientas del SDK de Azure para VS 2012][]
  - [Python 2.7 de 32 bits][] o [Python 3.4 de 32 bits][]
 
-[WACOM.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ##<a name="create-the-project"></a>Creación del proyecto
 
@@ -64,11 +78,11 @@ Necesita una cuenta de almacenamiento de Azure para usar operaciones de almacena
 
 1.  Inicie sesión en el [Portal de administración de Azure][].
 
-1.  En la parte inferior del panel de navegación, haga clic en **NEW** (Nuevo).
+1.  En la parte inferior del panel de navegación, haga clic en **NEW**.
 
   	![New Button](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzurePlusNew.png)
 
-1.  Haga clic en **SERVICIOS DE DATOS**, en **ALMACENAMIENTO** y, a continuación, en **CREACIÓN RÁPIDA**.
+1.  Haga clic en **DATA SERVICES**, en **STORAGE** y, a continuación, en **QUICK CREATE**.
 
   	![Quick Create](./media/web-sites-python-ptvs-bottle-table-storage/PollsCommonAzureStorageCreate.png)
 
@@ -106,7 +120,7 @@ En esta sección, vamos a configurar nuestra aplicación para usar la cuenta de 
 
 1.  El código que implementa el repositorio de Almacenamiento de tablas de Azure se encuentra en **models/azuretablestorage.py**.  Consulte la [documentación] para obtener más información sobre cómo usar el servicio Tabla en Python.
 
-1.  Presione <kbd>F5</kbd> para ejecutar la aplicación.  Los sondeos creados con **Create Sample Polls** (Crear sondeos de ejemplo) y los datos enviados al votar se serializarán en el Almacenamiento de tablas de Azure.
+1.  Ejecute la aplicación con <kbd>F5</kbd>.  Los sondeos creados con **Create Sample Polls** (Crear sondeos de ejemplo) y los datos enviados al votar se serializarán en el Almacenamiento de tablas de Azure.
 
 1.  Vaya a la página **Acerca de** para verificar que la aplicación usa el repositorio de **Almacenamiento de tablas de Azure**.
 
@@ -116,7 +130,7 @@ En esta sección, vamos a configurar nuestra aplicación para usar la cuenta de 
 
 Es fácil ver y editar tablas de almacenamiento con el Explorador de servidores en Visual Studio.  En esta sección, vamos a utilizar el Explorador de servidores para ver el contenido de las tablas de la aplicación de sondeos.
 
-> [WACOM.NOTE] Para esto es necesario que las Herramientas de Microsoft Azure estén instaladas, que se encuentran disponibles como parte del [SDK de Azure para .NET][].
+> [AZURE.NOTE] Para esto es necesario que las Herramientas de Microsoft Azure estén instaladas, que se encuentran disponibles como parte del [SDK de Azure para .NET][].
 
 1.  Abra el **Explorador de servidores**.  Expanda **Azure**, **Almacenamiento**, la cuenta de almacenamiento y, a continuación, **Tablas**.
 
@@ -180,33 +194,36 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
   - [Proyectos web][]
   - [Proyectos de servicio en la nube][]
   - [Depuración remota en Microsoft Azure][]
-- [Documentación sobre Bottle][]
+- [Documentación de Bottle][]
 - [Almacenamiento de Azure][]
 - [SDK de Azure para Python][]
 - [Uso del servicio de almacenamiento de tablas desde Python][]
 
 
 <!--Link references-->
-[Centro para desarrolladores de Python]: /en-us/develop/python/
+[Centro para desarrolladores de Python]: /es-es/develop/python/
 [Servicios en la nube de Azure]: ../cloud-services-python-ptvs/
 [Documentación]: ../storage-python-how-to-use-table-storage/
 [Uso del servicio de almacenamiento de tablas desde Python]: ../storage-python-how-to-use-table-storage/
 
 <!--External Link references-->
 [Portal de administración de Azure]: https://manage.windowsazure.com
-[SDK de Azure para .NET]: http://azure.microsoft.com/en-us/downloads/
-[Python Tools 2.1 para Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
+[SDK de Azure para .NET]: http://azure.microsoft.com/es-es/downloads/
+[Python Tools 2.1 para Visual Studio (en inglés)]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Herramientas del SDK de Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Herramientas del SDK de Azure para VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 (32 bits)]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 (32 bits)]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Documentación sobre Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation
-[Documentación sobre Bottle]: http://bottlepy.org/docs/dev/index.html
+[Documentación de Bottle]: http://bottlepy.org/docs/dev/index.html
 [Depuración remota en Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Proyectos web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Proyectos de servicio en la nube]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-[Almacenamiento de Azure]: http://azure.microsoft.com/en-us/documentation/services/storage/
+[Almacenamiento de Azure]: http://azure.microsoft.com/es-es/documentation/services/storage/
 [SDK de Azure para Python]: https://github.com/Azure/azure-sdk-for-python
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

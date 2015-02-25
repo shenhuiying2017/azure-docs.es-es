@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Upload a SUSE Linux VHD" pageTitle="Creación y carga de un VHD de SUSE Linux en Azure" metaKeywords="Azure VHD, uploading Linux VHD, SUSE, SLES, openSUSE" description="Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene un sistema operativo SUSE Linux." metaCanonical="" services="virtual-machines" documentationCenter="" title="Creating and Uploading a Virtual Hard Disk that Contains a SUSE Linux Operating System" authors="szarkos" solutions="" manager="timlt" editor="tysonn" />
+<properties pageTitle="Creación y carga de un VHD de SUSE Linux en Azure" description="Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene un sistema operativo SUSE Linux." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="06/05/2014" ms.author="szarkos" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
 
 
 # Preparación de una máquina virtual SLES u openSUSE para Azure
@@ -13,14 +13,14 @@
 En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE u openSUSE en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, una solución de virtualización como Hyper-V. Para obtener instrucciones al respecto, consulte [Instalar el rol Hyper-V y configurar una máquina virtual](http://technet.microsoft.com/library/hh846766.aspx). 
 
 
-**Notas sobre la instalación de SLES / openSUSE**
+**Notas sobre la instalación de SLES/openSUSE**
 
  - [SUSE Studio](http://www.susestudio.com) puede crear y administrar fácilmente sus imágenes de SLES/openSUSE para Azure y Hyper-V. Se trata del método recomendado para personalizar sus imágenes SUSE y openSUSE. Las siguientes imágenes oficiales de la Galería de SUSE Studio se pueden descargar o clonar en su propio SUSE Studio:
 
   - [SLES 11 SP3 para Azure en la galería de SUSE Studio](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
   - [openSUSE 13.1 para Azure en la galería de SUSE Studio](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
 
-- el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
+- El reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
 
 - Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas.  LVM o [RAID](../virtual-machines-linux-configure-raid) se pueden utilizar en discos de datos si así se prefiere.
 
@@ -29,45 +29,19 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 - El tamaño de todos los archivos VHD debe ser múltiplo de 1 MB.
 
 
-## <a id="sles11"> </a>Preparación de SUSE Linux Enterprise Server 11 SP3 ##
+## <a id="sles11"></a>Preparación de SUSE Linux Enterprise Server 11 SP3 ##
 
 1. Seleccione la máquina virtual en el panel central del Administrador de Hyper-V.
 
 2. Haga clic en **Conectar** para abrir la ventana de la máquina virtual.
 
-3. Agregue el repositorio que contiene el kernel y el Agente de Linux de Azure más recientes. Ejecute el comando "zypper lr". Por ejemplo, con SLES 11 SP3 la salida debería ser similar a la siguiente:
+3. Registre el sistema de SUSE Linux Enterprise para permitir que descargue actualizaciones e instale paquetes.
 
-		# | Alias                        | Name               | Enabled | Refresh
-		--+------------------------------+--------------------+---------+--------
-		1 | susecloud:SLES11-SP1-Pool    | SLES11-SP1-Pool    | No      | Yes
-		2 | susecloud:SLES11-SP1-Updates | SLES11-SP1-Updates | No      | Yes
-		3 | susecloud:SLES11-SP2-Core    | SLES11-SP2-Core    | No      | Yes
-		4 | susecloud:SLES11-SP2-Updates | SLES11-SP2-Updates | No      | Yes
-		5 | susecloud:SLES11-SP3-Pool    | SLES11-SP3-Pool    | Yes     | Yes
-		6 | susecloud:SLES11-SP3-Updates | SLES11-SP3-Updates | Yes     | Yes
-
-	Si el comando devuelve un mensaje de error como el siguiente:
-
-		"No repositories defined. Use the 'zypper addrepo' command to add one or more repositories."
-
-	utilice los comandos siguientes para agregar estos repositorios:
-
-		# sudo zypper ar -f http://azure-update.susecloud.net/repo/$RCE/SLES11-SP3-Pool/sle-11-x86_64 SLES11-SP3-Pool 
-		# sudo zypper ar -f http://azure-update.susecloud.net/repo/$RCE/SLES11-SP3-Updates/sle-11-x86_64 SLES11-SP3-Updates
-
-	En caso de que no haya un repositorio de actualizaciones relevante habilitado, habilítelo con el comando siguiente:
-
-		# sudo zypper mr -e [REPOSITORY NUMBER]
-
-4. Actualice el kernel a la versión más reciente disponible:
-
-		# sudo zypper up kernel-default
-
-	O para actualizar el sistema con todos los parches más recientes:
+4. Actualice el sistema con las revisiones más recientes:
 
 		# sudo zypper update
 
-5. Instale el Agente de Linux de Azure:
+5. Instale el Agente de Linux de Azure desde el repositorio SLES:
 
 		# sudo zypper install WALinuxAgent
 
@@ -77,7 +51,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 	Así se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores.
 
-7.	Se recomienda editar el archivo "/etc/sysconfig/network/dhcp" y cambiar el parámetro "DHCLIENT_SET_HOSTNAME" por lo siguiente:
+7.	Se recomienda editar el archivo "/etc/sysconfig/network/dhcp" y cambiar el parámetro  `DHCLIENT_SET_HOSTNAME` por lo siguiente:
 
 		DHCLIENT_SET_HOSTNAME="no"
 
@@ -90,7 +64,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 10.	No cree un espacio de intercambio en el disco del sistema operativo.
 
-	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
+	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco  *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -109,7 +83,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 ----------
 
-## <a id="osuse"> </a>Preparación de openSUSE 13.1+ ##
+## <a id="osuse"></a>Preparación de openSUSE 13.1+ ##
 
 1. Seleccione la máquina virtual en el panel central del Administrador de Hyper-V.
 
@@ -156,11 +130,11 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 		libata.atapi_enabled=0 reserve=0x1f0,0x8
 
-7.	Se recomienda editar el archivo "/etc/sysconfig/network/dhcp" y cambiar el parámetro "DHCLIENT_SET_HOSTNAME" por lo siguiente:
+7.	Se recomienda editar el archivo "/etc/sysconfig/network/dhcp" y cambiar el parámetro  `DHCLIENT_SET_HOSTNAME` por lo siguiente:
 
 		DHCLIENT_SET_HOSTNAME="no"
 
-8.	**Importante:** En "/etc/sudoers", convierta en comentario o quite las líneas siguientes, si existen:
+8.	**Importante:** en "/etc/sudoers", realice un comentario o quite las siguientes líneas si existen:
 
 		Defaults targetpw   # ask for the password of the target user i.e. root
 		ALL    ALL=(ALL) ALL   # WARNING! Only use this together with 'Defaults targetpw'!
@@ -169,7 +143,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 10.	No cree un espacio de intercambio en el disco del sistema operativo.
 
-	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
+	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco  *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -191,4 +165,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

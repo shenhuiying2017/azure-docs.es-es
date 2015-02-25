@@ -1,11 +1,11 @@
-﻿<properties urlDisplayName="Notify iOS app users by using Mobile Services" pageTitle="Registro del usuario actual para notificaciones de inserción mediante un servicio móvil - Centros de notificaciones "metaKeywords="registro de aplicación de Azure, Centros de notificaciones, notificaciones de inserción de Azure, aplicación iOS de notificaciones de inserción" description="Obtenga información acerca de cómo solicitar el registro de notificaciones de inserción en una aplicación iOS con los centros de notificaciones de Azure cuando Servicios móviles de Azure realiza el registro." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Register the current user for push notifications by using a mobile service" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Registro del usuario actual para notificaciones de inserción mediante un servicio móvil - Centros de notificaciones" description="Obtenga información acerca de cómo solicitar el registro de notificaciones de inserción en una aplicación iOS con los centros de notificaciones de Azure cuando Servicios móviles de Azure realiza el registro." services="mobile-services, notification-hubs" documentationCenter="" authors="ysxu" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu"/>
 
 # Registro del usuario actual para notificaciones de inserción con un servicio móvil
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/es-es/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows Store C#">C# de Tienda Windows</a><a href="/es-es/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+    <a href="/es-es/documentation/articles/notification-hubs-windows-store-mobile-services-register-user-push-notifications/" title="Windows Store C#">C# de la Tienda Windows</a><a href="/es-es/documentation/articles/notification-hubs-ios-mobile-services-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
 Este tema muestra cómo solicitar un registro de notificación de inserción con Centros de notificaciones de Azure al realizar el registro mediante Servicios móviles de Azure. Este tema amplía el tutorial [Notificación a los usuarios con los Centros de notificaciones]. Debe haber completado ya los pasos necesarios de ese tutorial para crear el servicio móvil autenticado. Para obtener más información acerca del escenario de notificación a los usuarios, consulte [Notificación a los usuarios con los Centros de notificaciones].  
@@ -43,9 +43,7 @@ Este tema muestra cómo solicitar un registro de notificación de inserción con
 
 	Esta acción actualiza la propiedad **deviceToken**.
 
-	<div class="dev-callout"><b>Nota:</b>
-	<p>En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial <a href="/es-es/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">Introducción a los Centros de notificaciones</a>, debe convertir la llamada en comentario o borrarla.</p>
-	</div>
+	> [AZURE.NOTE] En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial [Introducción a los Centros de notificaciones](/es-es/manage/services/notification-hubs/get-started-notification-hubs-ios/"%20target="_blank") , debe convertir la llamada en comentario o borrarla.
 
 5.  (Opcional) En el archivo QSAppDelegate.m, agregue el siguiente método de controlador:
 
@@ -93,10 +91,8 @@ Este tema muestra cómo solicitar un registro de notificación de inserción con
 			    }];
 			}
 
-	<div class="dev-callout"><b>Nota:</b>
-	<p>Esto garantiza que se solicitará registro cada vez que se cargue la página. En la aplicación, es posible que solo desee realizar este registro de manera periódica para asegurarse de que el registro esté actualizado.</p>
-	</div>
-
+	> [AZURE.NOTE] Esto garantiza que se solicitará registro cada vez que se cargue la página. En la aplicación, es posible que solo desee realizar este registro de manera periódica para asegurarse de que el registro esté actualizado.
+	
 Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación a los usuarios con los Centros de notificaciones] y actualice el servicio móvil para enviar notificaciones mediante Centros de notificaciones.
 
 <!-- Anchors. -->
@@ -110,3 +106,10 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Introducción a los Centros de notificaciones]: /es-es/manage/services/notification-hubs/get-started-notification-hubs-ios/
+
+
+
+
+
+
+<!--HONumber=42-->

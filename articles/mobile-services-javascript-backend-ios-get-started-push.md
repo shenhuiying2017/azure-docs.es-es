@@ -1,12 +1,12 @@
-<properties urlDisplayName="Get Started with Push (iOS)" pageTitle="Introducción a las notificaciones de inserción (iOS) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación iOS." metaCanonical="http://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-push-dotnet/" services="mobile-services,notification-hubs" documentationCenter="Mobile" title="Get started with push notifications in Mobile Services" solutions="" manager="dwrede" editor="" authors="krisragh" />
+﻿<properties pageTitle="Introducción a las notificaciones de inserción (iOS) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación iOS." services="mobile-services, notification-hubs" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="12/15/2014" ms.author="krisragh"/>
 
-# Incorporación de notificaciones de inserción a su aplicación de Servicios móviles
+# Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-Este tema muestra cómo puede usar Servicios móviles de Azure para enviar notificaciones de inserción a través del servicio de notificaciones de inserción de Apple (APNS) a una aplicación de iOS. Este tutorial le permite habilitar notificaciones de inserción con los Centros de notificaciones de Azure para el [proyecto de inicio rápido](http://azure.microsoft.com/en-us/documentation/articles/mobile-services-ios-get-started/). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
+Este tema muestra cómo puede usar Servicios móviles de Azure para enviar notificaciones de inserción a través del servicio de notificaciones de inserción de Apple (APNS) a una aplicación de iOS. Este tutorial le permite habilitar notificaciones de inserción con los Centros de notificaciones de Azure para el [proyecto de inicio rápido](http://azure.microsoft.com/es-es/documentation/articles/mobile-services-ios-get-started/). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 
@@ -21,21 +21,21 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar las no
 Este tutorial requiere lo siguiente:
 
 + [SDK de iOS para Servicios móviles]
-+ [XCode 4.5][Install Xcode]
++ [XCode 4.5][Instalación de Xcode]
 + Dispositivo compatible con iOS 6.0 (o una versión posterior)
 + Pertenencia al programa para desarrolladores de iOS
 
-   > [WACOM.NOTE] Debido a los requisitos de la configuración de las notificaciones de inserción, debe implementar y realizar una prueba de las notificaciones de inserción en un dispositivo compatible con iOS (iPhone o iPad) en lugar de hacerlo en un emulador.
+   > [AZURE.NOTE] Debido a los requisitos de la configuración de las notificaciones de inserción, debe implementar y realizar una prueba de las notificaciones de inserción en un dispositivo compatible con iOS (iPhone o iPad) en lugar de hacerlo en un emulador.
 
-Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles].
-
-
-[WACOM.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
+Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de empezar este tutorial, primero debe completar [Introducción a Servicios móviles] o [Incorporación de Servicios móviles a una aplicación existente][Introducción a los datos].
 
 
-## <a id="configure"></a>Configuración de Servicios móviles para enviar solicitudes de inserción
+[AZURE.INCLUDE [Enable Apple Push Notifications](../includes/enable-apple-push-notifications.md)]
 
-[WACOM.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
+
+## <a id="configure"></a>Configuración de servicios móviles para enviar solicitudes de inserción
+
+[AZURE.INCLUDE [mobile-services-apns-configure-push](../includes/mobile-services-apns-configure-push.md)]
 
 ## <a id="update-scripts"></a>Actualización del script de inserción registrado en el Portal de administración
 
@@ -68,13 +68,13 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
    	De esta forma, se registra un nuevo script de inserción, que usa el [objeto apns] para enviar una notificación de inserción (el texto insertado) al dispositivo proporcionado en la solicitud de inserción.
 
 
-   	> [WACOM.NOTE] Este script retrasa el envío de la notificación para proporcionarle tiempo para cerrar la aplicación y recibir una notificación de inserción.
+   	> [AZURE.NOTE] Este script retrasa el envío de la notificación para proporcionarle tiempo para cerrar la aplicación y recibir una notificación de inserción.
 
 ## <a id="add-push"></a>Incorporación de notificaciones de inserción a la aplicación
 
 1. En QSAppDelegate.m, inserte el fragmento siguiente para importar el SDK de iOS para Servicios móviles:
 
-        #import <WindowsAzureMobileServices/WindowsAzureMobileServices.h>
+        #import <MicrosoftAzureMobileServices/MicrosoftAzureMobileServices.h>
 
 2. En QSAppDelegate.m, reemplace el siguiente método de controlador dentro de la implementación:
 
@@ -87,7 +87,7 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
             return YES;
         }
 
-3. En QSAppDelegate.m, agregue el siguiente método de controlador dentro de la implementación. Asegúrese de copiar los valores de dirección URL y de clave de aplicación del servicio móvil y cambiarlos para los marcadores de posición:
+3. In QSAppDelegate.m, agregue el siguiente método de controlador dentro de la implementación. Asegúrese de copiar los valores de dirección URL y de clave de aplicación del servicio móvil y cambiarlos para los marcadores de posición:
 
         - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:
         (NSData *)deviceToken {
@@ -124,19 +124,19 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
 Ahora su aplicación está actualizada para que sea compatible con las notificaciones de inserción.
 
-## <a id="test"></a>Probar las notificaciones de inserción en su aplicación
+## <a id="test"></a>Prueba de las notificaciones de inserción en su aplicación
 
-1. Presiones el botón **Ejecutar** para crear el proyecto e iniciar la aplicación en un dispositivo compatible con iOS. A continuación, haga clic en **Aceptar** para aceptar las notificaciones de inserción
+1. Presione el botón **Run** (Ejecutar) para crear el proyecto e iniciar la aplicación en un dispositivo compatible con iOS. A continuación, haga clic en **OK** (Aceptar) para aceptar las notificaciones de inserción.
 
   	![][23]
 
-    > [WACOM.NOTE] Debe aceptar de forma explícita las notificaciones de inserción desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
+    > [AZURE.NOTE] Debe aceptar de forma explícita las notificaciones de inserción desde su aplicación. Esta solicitud solo se produce la primera vez que se ejecuta la aplicación.
 
-2. En la aplicación, escriba un texto significativo, como _Una nueva tarea de Servicios móviles_ y, a continuación, haga clic en el icono del signo más (**+**).
+2. En la aplicación, escriba texto significativo, como _A new Mobile Services task_ y, a continuación, haga clic en el icono del signo más (**+**).
 
   	![][24]
 
-3. Compruebe que se ha recibido la notificación y, a continuación, haga clic en **Aceptar** para descartarla.
+3. Compruebe que se ha recibido la notificación y, a continuación, haga clic en **OK** (Aceptar) para descartarla.
 
   	![][25]
 
@@ -151,14 +151,14 @@ Ha completado correctamente este tutorial.
 En este tutorial se muestran los conceptos básicos de la habilitación de una aplicación de iOS para que use Servicios móviles y Centros de notificaciones para enviar notificaciones de inserción. A continuación, considere completar uno de los siguientes tutoriales:
 
 + [Envío de notificaciones de inserción a usuarios autenticados]
-	<br/>Aprenda a usar las etiquetas para enviar notificaciones de inserción desde un servicio móvil solo a un usuario autenticado.
+	<br/>Aprenda a usar las etiquetas para enviar notificaciones de inserción desde un servicio móvil a solo un usuario autenticado.
 
-+ [Envío de notificaciones a los suscriptores]
++ [Envío de notificaciones de difusión a los suscriptores]
 	<br/>Sepa cómo los usuarios se pueden registrar y recibir notificaciones de inserción de categorías que les interesan.
-
-<!---+ [Send template-based notifications to subscribers]
-	<br/>Learn how to use templates to send push notifications from a Mobile Service, without having to craft platform-specific payloads in your back-end.-->
-
+<!---
++ [Envío de notificaciones basadas en plantillas a los suscriptores]
+	<br/>Obtenga información sobre cómo usar las plantillas para enviar notificaciones de inserción desde un servicio móvil sin tener que diseñar cargas específicas de plataforma en el back-end.
+-->
 Puede obtener más información acerca de los Servicios móviles y los Centros de notificaciones en los siguientes temas:
 
 * [Introducción a los datos]
@@ -176,7 +176,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 * [Referencia conceptual de Servicios móviles de Objective-C]
   <br/>Obtenga más información sobre el uso de Servicios móviles con Objective-C y iOS.
 
-* [Referencia del script del servidor de Servicios móviles]
+* [Referencia del script de servidor de Servicios móviles]
   <br/>Obtenga más información sobre cómo implementar lógica empresarial al servicio móvil.
 
 <!-- Anchors. -->
@@ -220,24 +220,25 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [117]: ./media/mobile-services-ios-get-started-push/mobile-services-ios-push-17.png
 
 <!-- URLs.   -->
-[Instalación de Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Instalar Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portal de aprovisionamiento de iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [SDK de iOS para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[Servicio de notificaciones de inserción de Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-[Introducción a los Servicios móviles]: /en-us/documentation/articles/mobile-services-ios-get-started
-[Introducción a los datos]: /en-us/documentation/articles/mobile-services-ios-get-started-data
-[Introducción a la autenticación]: /en-us/documentation/articles/mobile-services-ios-get-started-users
+[Servicio de notificación de inserción de Apple]: http://go.microsoft.com/fwlink/p/?LinkId=272584
+[Introducción a los servicios móviles]: /es-es/documentation/articles/mobile-services-ios-get-started
+[Introducción a los datos]: /es-es/documentation/articles/mobile-services-ios-get-started-data
+[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-ios-get-started-users
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[objeto apns]: http://go.microsoft.com/fwlink/p/?LinkId=272333
+[apns, objeto]: http://go.microsoft.com/fwlink/p/?LinkId=272333
 
-[Referencia del script del servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
 
-[Envío de notificaciones de inserción a usuarios autenticados]: /en-us/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
+[Envío de notificaciones de inserción a usuarios autenticados]: /es-es/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/
 
-[¿Qué son los Centros de notificaciones?]: /en-us/documentation/articles/notification-hubs-overview/
-[Envío de notificaciones a los suscriptores]: /en-us/documentation/articles/notification-hubs-ios-send-breaking-news/
-[Envío de notificaciones basadas en plantillas a los suscriptores]: /en-us/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
+[¿Qué son los Centros de notificaciones?]: /es-es/documentation/articles/notification-hubs-overview/
+[Envío de notificaciones de difusión a los suscriptores]: /es-es/documentation/articles/notification-hubs-ios-send-breaking-news/
+[Envío de notificaciones basadas en plantillas a los suscriptores]: /es-es/documentation/articles/notification-hubs-ios-send-localized-breaking-news/
 
-[Referencia conceptual de Servicios móviles de Objective-C]: /en-us/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
+[Referencia conceptual de Servicios móviles de Objective-C]: /es-es/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

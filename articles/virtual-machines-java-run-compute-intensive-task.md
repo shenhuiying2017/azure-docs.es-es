@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="TSP on Virtual Machine" pageTitle="Aplicación de Java de proceso intensivo en una máquina virtual - Azure" metaKeywords="Azure virtual machine Java, Azure Java app, Azure Java application" description="Aprenda a crear una máquina virtual de Azure que ejecuta una aplicación Java de proceso intensivo y que otra aplicación Java puede supervisar." metaCanonical="" services="virtual-machines" documentationCenter="Java" title="How to run a compute-intensive task in Java on a virtual machine" authors="robmcm" videoId="" scriptId="" solutions="" manager="wpickett" editor="mollybos" />
+<properties pageTitle="Aplicación de Java de proceso intensivo en una máquina virtual - Azure" description="Aprenda a crear una máquina virtual de Azure que ejecuta una aplicación Java de proceso intensivo y que otra aplicación Java puede supervisar." services="virtual-machines" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm"/>
 
 # Ejecución de una tarea de Java de proceso intensivo en una máquina virtual
 
@@ -11,7 +11,7 @@ Este tutorial asume que sabe cómo crear aplicaciones de consola Java, importar 
 Aprenderá a:
 
 * Crear una máquina virtual que tenga ya instalado un JDK.
-* Iniciar sesión de manera remota en la máquina virtual
+* Iniciar sesión de manera remota en la máquina virtual.
 * Crear un espacio de nombres del bus de servicio.
 * Crear una aplicación Java que realiza una tarea de proceso intensivo.
 * Crear una aplicación Java que supervisa el progreso de la tarea de proceso intensivo.
@@ -26,7 +26,7 @@ A continuación se muestra un ejemplo de la aplicación Java que supervisa la ta
 
 ![Traveling Salesman Problem client][client_output]
 
-[WACOM.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-vms-note](../includes/create-account-and-vms-note.md)]
 
 ## Para crear una máquina virtual
 
@@ -35,9 +35,22 @@ A continuación se muestra un ejemplo de la aplicación Java que supervisa la ta
 3. En el cuadro de diálogo **Selección de imagen de máquina virtual**, seleccione **JDK 7 Windows Server 2012**.
 Observe que **JDK 6 Windows Server 2012** está disponible si tiene aplicaciones heredadas que aún no están preparadas para ejecutarse en JDK 7.
 4. Haga clic en **Siguiente**.
-4. En el cuadro de diálogo **Configuración de la máquina virtual**: Especifique un nombre para la máquina virtual. Especifique el tamaño que se va a utilizar para la máquina virtual. Escriba un nombre para el administrador en el campo **Nombre de usuario**. Recuerde este nombre y la contraseña que va a escribir a continuación ya que los utilizará cuando inicie sesión de forma remota en la máquina virtual. Escriba una contraseña en el campo **Contraseña nueva** y confírmela en el campo **Confirmar**. Esta es la contraseña de la cuenta de administrador. Haga clic en **Siguiente**.
-5. En el cuadro de diálogo siguiente **Configuración de la máquina virtual**: En **Servicio en la nube**, use el valor predeterminado de **Crear un nuevo servicio en la nube**. El valor de **Nombre DNS de servicio en la nube** debe ser exclusivo en cloudapp.net. Si es necesario, modifique este valor para que Azure indique que es exclusivo. Especifique una región, un grupo de afinidad o una red virtual. En este tutorial, especifique una región como **Oeste de EE. UU.**. En **Cuenta de almacenamiento**, seleccione **Usar una cuenta de almacenamiento generada automáticamente**. En **Conjunto de disponibilidad**, seleccione **(None)**. Haga clic en **Siguiente**.
-5. En el cuadro de diálogo final **Configuración de la máquina virtual**: Acepte las entradas de extremo predeterminadas. Haga clic en **Completar**.
+4. En el cuadro de diálogo **Configuración de la máquina virtual**:
+    1. Especifique un nombre para la máquina virtual.
+    2. Especifique el tamaño que se va a utilizar para la máquina virtual.
+    3. Escriba un nombre para el administrador en el campo **Nombre de usuario**. Recuerde este nombre y la contraseña que va a escribir a continuación ya que los utilizará cuando inicie sesión de forma remota en la máquina virtual.
+    4. Escriba una contraseña en el campo **Contraseña nueva** y confírmela en el campo **Confirmar**. Esta es la contraseña de la cuenta de administrador.
+    5. Haga clic en **Siguiente**.
+5. En el cuadro de diálogo siguiente **Configuración de la máquina virtual**:
+    1. En **Servicio en la nube**, use el valor predeterminado de **Crear un nuevo servicio en la nube**.
+    2. El valor de **Nombre DNS de servicio en la nube** debe ser exclusivo en cloudapp.net. Si es necesario, modifique este valor para que Azure indique que es exclusivo.
+    2. Especifique una región, un grupo de afinidad o una red virtual. En este tutorial, especifique una región como **Oeste de EE. UU.**.
+    2. En **Cuenta de almacenamiento**, seleccione **Usar una cuenta de almacenamiento generada automáticamente**.
+    3. En **Conjunto de disponibilidad**, seleccione **(None)**.
+    4. Haga clic en **Siguiente**.
+5. En el cuadro de diálogo final **Configuración de la máquina virtual**:
+    1. Acepte las entradas de extremo predeterminadas.
+    2. Haga clic en **Completar**.
 
 ## Para iniciar sesión de manera remota en la máquina virtual
 
@@ -57,34 +70,40 @@ Para crear un nombre de espacio de servicio:
 
 1.  Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com).
 2.  En el panel de navegación izquierdo del Portal de administración, haga clic en **Bus de servicio, Access Control y Caché**.
-3.  En el panel superior izquierdo del Portal de administración, haga clic en el nodo **Bus de servicio** y, a continuación, haga clic en el botón **Nuevo**.  
+3.  En el panel superior izquierdo del Portal de administración, haga clic en el nodo **Bus
+    de servicio** y, a continuación, haga clic en el botón **Nuevo**.  
     ![Service Bus Node screenshot][svc_bus_node]
-4.  En el cuadro de diálogo **Crear un espacio de nombres de servicio nuevo**, escriba un **Espacio de nombres** y, a continuación, para asegurarse de que es único, haga clic en el botón **Comprobar disponibilidad**.  
+4.  En el cuadro de diálogo **Crear un nuevo espacio de nombres de servicio**, escriba un
+    **Espacio de nombres** y, a continuación, para asegurarse de que es único, haga clic en el botón
+    **Comprobar la disponibilidad**.  
     ![Create a New Namespace screenshot][create_namespace]
-5.  Después de asegurarse de que el nombre del espacio de nombres está disponible, elija el país o región en el que debería alojarse el espacio de nombres y, a continuación, haga clic en el botón **Crear espacio de nombres**.  
+5.  Después de asegurarse de que el espacio de nombres está disponible, elija el
+    país o región en la que debe hospedarse el espacio de nombres y, a continuación, haga clic en el botón **Crear espacio de nombres**.  
       
-    El espacio de nombres que creó aparecerá a continuación en el Portal de administración y tardará un poco en activarse. Espere hasta que el estado sea **Activo** antes de continuar con el siguiente paso.
+    El espacio de nombres que creó aparecerá a continuación en el Portal de administración
+    y espere un momento para que se active. Espere hasta que el estado sea **Activo** antes de continuar con el siguiente paso.
 
 ## Obtención de credenciales de administración predeterminadas para el espacio de nombres
 
-Para realizar operaciones de administración (como la creación de una cola) en el
-nuevo espacio de nombres, debe obtener las credenciales de administración para el
-espacio de nombres.
+Para realizar operaciones de administración (como la creación de una cola) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres.
 
-1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para ver la lista de espacios de nombres disponibles:   
+1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para
+    mostrar la lista de espacios de nombres disponibles:   
     ![Available Namespaces screenshot][avail_namespaces]
 2.  Seleccione el espacio de nombres que acaba de crear en la lista desplegable:   
     ![Namespace List screenshot][namespace_list]
 3.  En el panel **Propiedades** de la derecha se mostrarán las propiedades del nuevo espacio de nombres:   
     ![Properties Pane screenshot][properties_pane]
-4.  El valor **Clave predeterminada** está oculto. Haga clic en el botón **Ver** para mostrar las credenciales de seguridad:   
+4.  El valor **Clave predeterminada** está oculto. Haga clic en el botón **Ver** para mostrar las credenciales de seguridad:
     ![Default Key screenshot][default_key]
-5.  Tome nota del valor de **Emisor predeterminado** y **Clave predeterminada** cuando utilice la información siguiente para realizar las operaciones con el espacio de nombres. 
+5.  Tome nota del **emisor predeterminado** y la **clave predeterminada**, ya que
+    utilizará esta información para realizar operaciones con el
+    espacio de nombres. 
 
 ## Creación de una aplicación Java que realiza una tarea de proceso intensivo
 
-1. En nuestro equipo de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para Java](http://www.windowsazure.com/en-us/develop/java/).
-2. Cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. Para este tutorial, utilizaremos **TSPSolver.java** como nombre de archivo de Java. Modifique los marcadores de posición **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** y **your\_service\_bus\_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada**, respectivamente.
+1. En nuestro equipo de desarrollo (que no tiene que ser la máquina virtual que ha creado), descargue el [SDK de Azure para Java](http://www.windowsazure.com/es-es/develop/java/).
+2. Cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. Para este tutorial, utilizaremos **TSPSolver.java** como nombre de archivo de Java. Modifique los marcadores de posición **your\_service\_bus\_namespace**, **your\_service\_bus\_owner**, y **your\_service\_bus\_key** para usar los valores del **espacio de nombres** del bus de servicio, el **emisor predeterminado** y la **clave predeterminada**, respectivamente.
 3. Después de la codificación, exporte la aplicación a un archivo Java (JAR) ejecutable y empaquete las bibliotecas requeridas en el JAR generado. Para este tutorial, utilizaremos **TSPSolver.jar** como el nombre JAR generado.
 
 <p/>
@@ -274,7 +293,7 @@ espacio de nombres.
 
 ## Creación de una aplicación Java que supervisa el progreso de la tarea de proceso intensivo
 
-1. En el equipo de desarrollo, cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. Para este tutorial, utilizaremos **TSPClient.java** como nombre de archivo de Java. Como en el caso anterior, modifique los marcadores de posición **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** y **your\_service\_bus\_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada** del bus de servicio, respectivamente.
+1. En el equipo de desarrollo, cree una aplicación de consola Java utilizando el código de ejemplo que se encuentra al final de esta sección. Para este tutorial, utilizaremos **TSPClient.java** como nombre de archivo de Java. Como en el caso anterior, modifique los marcadores de posición**your\_service\_bus\_namespace**, **your\_service\_bus\_owner** y **your\_service\_bus\_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada** del bus de servicio, respectivamente.
 2. Exporte la aplicación a un archivo Java (JAR) ejecutable y empaquete las bibliotecas requeridas en el JAR generado. Para este tutorial, utilizaremos **TSPClient.jar** como el nombre JAR generado.
 
 <p/>
@@ -397,7 +416,7 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
 1. Inicie sesión en la máquina virtual.
 2. Cree una carpeta en la que ejecutará la aplicación. Por ejemplo, **c:\TSP**.
 3. Copie **TSPSolver.jar** en **c:\TSP**,
-4. Cree un archivo con el nombre **c:\TSP\cities.txt** con el siguiente contenido:
+4. Cree un archivo denominado **c:\TSP\cities.txt** con el siguiente contenido:
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -462,7 +481,7 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
 
  Si no especifica un número, se ejecutará en 10 ciudades. Cuando el solucionador encuentra las rutas más cortas actuales, las agregará a la cola.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Cuanto mayor sea el número que especifique, más tiempo se ejecutará el solucionador. Por ejemplo, si la ejecución en 14 ciudades puede tardar varios minutos, la ejecución en 15 ciudades podría tardar varias horas. Si se aumenta a 16 o más ciudades, la ejecución podría tardar varios días (posiblemente semanas, meses y años). Esto se debe al rápido aumento del número de permutaciones evaluadas por el solucionador a medida que aumenta el número de ciudades.
  
 ### Ejecución de la supervisión de la aplicación cliente
@@ -479,14 +498,14 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
 
 	    java -jar TSPClient.jar 1
 
-    El cliente se ejecutará hasta que vea un mensaje de cola de "Complete". Tenga en cuenta que si ejecuta varias ocurrencias del solucionador sin ejecutar el cliente, es posible que tenga que ejecutar el cliente varias veces para vaciar la cola por completo. Además, puede eliminar la cola y después volver a crearla. Para eliminar la cola, ejecute el siguiente comando **TSPSolver** (no **TSPClient**):
+    El cliente se ejecutará hasta que vea un mensaje de cola de "Completo". Tenga en cuenta que si ejecuta varias ocurrencias del solucionador sin ejecutar el cliente, es posible que tenga que ejecutar el cliente varias veces para vaciar la cola por completo. Además, puede eliminar la cola y después volver a crearla. Para eliminar la cola, ejecute el siguiente comando **TSPSolver** (no **TSPClient**):
 
         java -jar TSPSolver.jar deletequeue
 
     El solucionador se ejecutará hasta que acabe de examinar todas las rutas. 
 
 ## Detención de las aplicaciones Java
-En ambas aplicaciones, el solucionador y el cliente, presione **Ctrl+C** para salir si desea acabar antes de la finalización normal.
+En ambas aplicaciones del solucionador y el cliente, puede presionar **Ctrl+C** para salir si desea acabar antes de la finalización normal.
 
 
 [solver_output]: ./media/virtual-machines-java-run-compute-intensive-task/WA_JavaTSPSolver.png
@@ -501,4 +520,5 @@ En ambas aplicaciones, el solucionador y el cliente, presione **Ctrl+C** para sa
 
 
 
-<!--HONumber=35.1-->
+
+<!--HONumber=42-->

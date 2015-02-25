@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Configure RAID on Linux" pageTitle="Configuración de RAID de software en una máquina virtual que ejecuta Linux en Azure" metaKeywords="raid in Azure, mdadm Azure, stripe disks in Azure" description="Aprenda a utilizar mdadm para configurar RAID en Linux en Azure." metaCanonical="http://www.windowsazure.com/en-us/manage/linux/articles/virtual-machines-linux-configure-raid" services="virtual-machines" documentationCenter="" title="" authors="szark" solutions="" writer="szark" manager="timlt" editor=""  />
+<properties pageTitle="Configuración de RAID de software en una máquina virtual que ejecuta Linux en Azure" description="Aprenda a utilizar mdadm para configurar RAID en Linux en Azure." services="virtual-machines" documentationCenter="" authors="szarkos" writer="szark" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="szark" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="09/18/2014" ms.author="szark"/>
 
 
 
@@ -9,9 +9,9 @@ Es un escenario habitual usar el software RAID en máquinas virtuales con Linux 
 
 
 ## Conexión de discos de datos
-Dos o más discos de datos vacíos se necesitarán habitualmente para configurar un dispositivo RAID.  Este artículo no entrará en detalles acerca de cómo conectar discos de datos a una máquina virtual con Linux.  Consulte el artículo de Microsoft Azure sobre la [conexión de un disco](http://www.windowsazure.com/en-us/documentation/articles/storage-windows-attach-disk/#attachempty) para obtener instrucciones detalladas acerca de cómo conectar un disco de datos vacío a una máquina virtual con Linux en Azure.
+Dos o más discos de datos vacíos se necesitarán habitualmente para configurar un dispositivo RAID.  Este artículo no entrará en detalles acerca de cómo conectar discos de datos a una máquina virtual con Linux.  Consulte el artículo de Azure sobre la [conexión de un disco](http://www.windowsazure.com/es-es/documentation/articles/storage-windows-attach-disk/#attachempty) para obtener instrucciones detalladas acerca de cómo conectar un disco de datos vacío a una máquina virtual con Linux en Azure.
 
->[WACOM.NOTE] El tamaño ExtraSmall de la máquina virtual no admite más de un disco de datos conectado a la máquina virtual.  Consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/en-us/library/windowsazure/dn197896.aspx) para obtener información detallada sobre los tamaños de máquina virtual y el número de discos de datos admitidos.
+>[AZURE.NOTE] El tamaño ExtraSmall de la máquina virtual no admite más de un disco de datos conectado a la máquina virtual.  Consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/dn197896.aspx) para obtener información detallada acerca de los tamaños de máquinas virtuales y el número de discos de datos admitidos.
 
 
 ## Instalación de la utilidad mdadm
@@ -60,17 +60,17 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
 
 		Partition number (1-4): 1
 
-- Seleccione el punto de partida de la partición nueva o presione "<Entrar>" para aceptar el valor predeterminado para colocar la partición al principio del espacio disponible en la unidad:
+- Seleccione el punto de partida de la partición nueva o presione `<Entrar>` para aceptar el valor predeterminado para colocar la partición al principio del espacio disponible en la unidad:
 
 		First cylinder (1-1305, default 1):
 		Using default value 1
 
-- Seleccione el tamaño de la partición; por ejemplo, escriba "+10G" para crear una partición de 10 gigabytes. O presione solamente "<Entrar>" para crear una única partición que extienda la unidad completa:
+- Seleccione el tamaño de la partición; por ejemplo, escriba "+10G" para crear una partición de 10 gigabytes. O presione solamente `<enter>` para crear una única partición que extienda la unidad completa:
 
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
 
-- A continuación, cambie el identificador y **e**scriba la partición desde el identificador predeterminado "83" (Linux) hasta el identificador "fd" (Linux raid auto):
+- A continuación, cambie el identificador y **e**scriba la partición desde el identificador predeterminado "83" (Linux) hasta el identificador  'fd' (Linux raid auto):
 
 		Command (m for help): t
 		Selected partition 1
@@ -89,7 +89,7 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
 		# sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
 		  /dev/sdc1 /dev/sdd1 /dev/sde1
 
-En este ejemplo, después de ejecutar este comando, se creará un nuevo dispositivo RAID llamado **/dev/md127**. Tenga en cuenta también que, si estos discos de datos formaban parte anteriormente de otra matriz RAID inactiva, puede ser necesario agregar el parámetro "--force" al comando "mdadm".
+En este ejemplo, después de ejecutar este comando, se creará un nuevo dispositivo RAID llamado **/dev/md127**. Tenga en cuenta también que, si estos discos de datos formaban parte anteriormente de otra matriz RAID inactiva, puede ser necesario agregar el parámetro `--force` al comando  `mdadm`.
 
 
 2. Cree el sistema de archivos en el nuevo dispositivo RAID.
@@ -107,18 +107,18 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 		# sudo -i chkconfig --add boot.md
 		# sudo echo 'DEVICE /dev/sd*[0-9]' >> /etc/mdadm.conf
 
-	>[WACOM.NOTE] Es posible que sea necesario reiniciar después de realizar estos cambios en los sistemas SUSE.
+	>[AZURE.NOTE] Es posible que sea necesario reiniciar después de realizar estos cambios en los sistemas SUSE.
 
 
 ## Incorporación del nuevo sistema de archivos a /etc/fstab
 
-**Precaución:** la edición incorrecta del archivo /etc/fstab puede tener como resultado un sistema que no se pueda arrancar. Si no está seguro, consulte la documentación de distribución para obtener información sobre cómo editar correctamente ese archivo. También se recomienda realizar una copia de seguridad del archivo /etc/fstab antes de editarlo.
+**Precaución:** la edición incorrecta del archivo/etc/fstab podría provocar un reinicio del sistema. Si no está seguro, consulte la documentación de distribución para obtener información sobre cómo editar correctamente este archivo. También se recomienda que se cree una copia de seguridad del archivo/etc/fstab antes de la edición.
 
 1. Cree el punto de montaje deseado para el nuevo sistema de archivos, por ejemplo:
 
 		# sudo mkdir /data
 
-2. Al editar /etc/fstab, el **UUID** debe usarse para hacer referencia al sistema de archivos en lugar de al nombre del dispositivo.  Use la utilidad "blkid" para determinar el UUID para el nuevo sistema de archivos:
+2. Al editar /etc/fstab, el **UUID** debe usarse para hacer referencia al sistema de archivos en lugar de al nombre del dispositivo.  Use la utilidad  `blkid` para determinar el UUID para el nuevo sistema de archivos:
 
 		# sudo /sbin/blkid
 		...........
@@ -132,7 +132,7 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 
 		/dev/disk/by-uuid/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext3  defaults  0  2
 
-	Then, save and close /etc/fstab.
+	A continuación, guarde y cierre /etc/fstab.
 
 4. Pruebe que la entrada /etc/fstab sea correcta:
 
@@ -140,7 +140,7 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 
 	Si este comando genera un mensaje de error, compruebe la sintaxis del archivo /etc/fstab.
 
-	A continuación, ejecute el comando "mount" para garantizar el montaje del sistema de archivos:
+	A continuación, ejecute el comando  `mount` para garantizar el montaje del sistema de archivos:
 
 		# mount
 		.................
@@ -148,7 +148,7 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 
 5. Parámetros opcionales
 
-	Muchas distribuciones incluyen los parámetros de montaje"nobootwait" o "nofail" que pueden agregarse al archivo /etc/fstab. Estos parámetros admiten errores al montar un sistema de archivos concreto y permiten que el sistema Linux continúe iniciándose incluso aunque no pueda montar correctamente el sistema de archivos RAID. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
+	Muchas distribuciones incluyen los parámetros de montaje  `nobootwait` o  `nofail` que pueden agregarse al archivo /etc/fstab. Estos parámetros admiten errores al montar un sistema de archivos concreto y permiten que el sistema Linux continúe iniciándose incluso aunque no pueda montar correctamente el sistema de archivos RAID. Consulte la documentación de su distribución para obtener más información sobre estos parámetros.
 
 	Ejemplo (Ubuntu):
 
@@ -156,7 +156,10 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 
 	Además de los parámetros anteriores, el parámetro de kernel "`bootdegraded=true`" puede permitir que el sistema se inicie incluso si RAID se percibe como dañado o degradado, por ejemplo si una unidad de datos se quita accidentalmente de la máquina virtual. De manera predeterminada, esto podría resultar en un sistema no iniciable.
 
-	Consulte la documentación sobre la distribución para obtener información acerca de cómo editar correctamente los parámetros de kernel. Por ejemplo, en muchas distribuciones (CentOS, Oracle Linux y SLES 11), estos parámetros pueden agregarse manualmente al archivo "`/boot/grub/menu.lst`".  En Ubuntu, este parámetro puede agregarse a la variable "GRUB_CMDLINE_LINUX_DEFAULT" en "/etc/default/grub".
+	Consulte la documentación sobre la distribución para obtener información acerca de cómo editar correctamente los parámetros de kernel. Por ejemplo, en muchas distribuciones (CentOS, Oracle Linux y SLES 11), estos parámetros pueden agregarse manualmente al archivo `/boot/grub/menu.lst`.  En Ubuntu, este parámetro puede agregarse a la variable  `GRUB_CMDLINE_LINUX_DEFAULT` en "/etc/default/grub".
 
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

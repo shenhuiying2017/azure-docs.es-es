@@ -1,6 +1,20 @@
-<properties urlDisplayName="How to monitor" pageTitle="Supervisión de sitios web - Administración de servicios de Azure" metaKeywords="Azure monitoring web sites, Azure Management Portal Monitor, Azure monitoring" description="Obtenga información acerca de cómo supervisar sitios web de Azure mediante la página Monitor en el Portal de administración." metaCanonical="" services="web-sites" documentationCenter="" title="How to Monitor Websites" authors="cephalin" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Supervisión de sitios web - Administración de servicios de Azure" 
+	description="Obtenga información acerca de cómo supervisar sitios web de Azure mediante la página Monitor en el Portal de administración." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 
 
@@ -9,17 +23,17 @@
 Los sitios web proporcionan la funcionalidad de supervisión a través de la página de administración de supervisión. La página de administración de supervisión brinda estadísticas del rendimiento de un sitio web, tal como se describe a continuación.
 
 ## Tabla de contenido ##
-- [Incorporación de métricas de sitio web](#websitemetrics)
-- [Recepción de alertas desde métricas de sitio web](#howtoreceivealerts)
-- [Visualización de cuotas de uso para un sitio web](#howtoviewusage)
-- [Evitar superar las cuotas](#resourceusage)
-- [Configuración de registros de diagnóstico y descarga para un sitio web](#howtoconfigdiagnostics)
-- [Supervisión del estado de extremo web](#webendpointstatus)
+- [Uso de métricas de sitio web](#websitemetrics)
+- [Uso de alertas desde métricas de sitio web](#howtoreceivealerts)
+- [Uso de cuotas de uso para un sitio web](#howtoviewusage)
+- [Uso de Evitar superar las cuotas](#resourceusage)
+- [Uso de registros de diagnóstico y descarga para un sitio web](#howtoconfigdiagnostics)
+- [Uso de estado de extremo web](#webendpointstatus)
 
-##<a name="websitemetrics"></a>Reproducción de Adición de métricas de sitio web
-1. En el [Portal de administración de Azure](http://manage.windowsazure.com/), en las páginas de administración del sitio web, haga clic en la pestaña **Supervisar** para ver la página de administración **Supervisar**. De manera predeterminada, el gráfico de la pantalla **Supervisar** muestra las mismas métricas que el gráfico de la página **Panel**. 
+##<a name="websitemetrics"></a>Cómo: Adición de métricas de sitio web
+1. En el [Portal de administración de Azure](http://manage.windowsazure.com/), en las páginas de administración del sitio web, haga clic en la pestaña **Monitor** para mostrar la página de administración **Monitor**. De manera predeterminada, el gráfico de la pantalla **Supervisar** muestra las mismas métricas que el gráfico de la página **Panel**. 
 
-2. Si desea ver métricas adicionales para el sitio web, haga clic en **Agregar métricas** en la parte inferior de la página para abrir el cuadro de diálogo **Elegir métricas**. 
+2. Si desea ver métricas adicionales para el sitio web, haga clic en**Agregar métricas** en la parte inferior de la página para abrir el cuadro de diálogo **Elegir métricas**. 
 
 3. Haga clic para seleccionar métricas adicionales que mostrar en la página **Supervisar**. 
 
@@ -29,28 +43,28 @@ Los sitios web proporcionan la funcionalidad de supervisión a través de la pá
 
 6. Para quitar métricas de la página **Supervisar**, seleccione la métrica que desea quitar y, a continuación, haga clic en el icono **Eliminar métrica** en la parte inferior de la página.
 
-##<a name="howtoreceivealerts"></a>Reproducción de Alertas desde métricas de sitio web
-En el modo de sitio web **estándar**, puede recibir alertas según las métricas de supervisión de su sitio web. La característica de alerta requiere primero configurar un extremo web para supervisión, lo que puede hacer en la sección **Supervisión** de la página **Configurar**. En la página **Configuración** del Portal de administración de Azure, puede crear una regla para desencadenar una alerta cuando la métrica seleccionada alcance el valor que haya especificado. Puede también elegir que se envíe un correo electrónico cuando se desencadene la alerta. Para obtener más información, consulte [Recepción de notificaciones de alerta y administración de reglas de alerta en Azure](http://go.microsoft.com/fwlink/?LinkId=309356).  
+##<a name="howtoreceivealerts"></a>Cómo: Alertas desde métricas de sitio web
+En el modo de sitio web **estándar**, puede recibir alertas según las métricas de supervisión de su sitio web. La característica de alerta requiere primero configurar un extremo web para supervisión, lo que puede hacer en la sección **Supervisión** de la página **Configurar**. En la página **Configuración** del Portal de administración de Azure, puede crear una regla para desencadenar una alerta cuando la métrica seleccionada alcance el valor que haya especificado. Puede también elegir que se envíe un correo electrónico cuando se desencadene la alerta. Para obtener más información, consulte [Inserción de Notificaciones de alerta y administración de reglas de alerta en Azure](http://go.microsoft.com/fwlink/?LinkId=309356).  
 
-##<a name="howtoviewusage"></a>Reproducción de Cuotas de uso para un sitio web
+##<a name="howtoviewusage"></a>Cómo: Cuotas de uso para un sitio web
 
-Los sitios web pueden estar configurados para ejecutarse en modo de sitio web **compartido** o **estándar** desde la página de administración **Escalar**. Cada suscripción a Azure tiene acceso a un conjunto de recursos que tienen como finalidad la ejecución de hasta 100 sitios web por región en el modo de sitio web **compartido**. El grupo de recursos disponibles para cada suscripción de Sitio web con este fin es compartido por otros sitios web en la misma región geográfica que estén configurados para ejecutarse en modo **compartido**. Como estos recursos son compartidos para su uso de parte de otros sitios web, todas las suscripciones tienen límites en el uso que hacen de estos recursos. Los límites que se aplican al uso que una suscripción hace de estos recursos se expresan como cuotas de uso enumeradas bajo la sección de información general de uso en la página de administración de **Panel** de cada sitio web.
+Los sitios web pueden estar configurados para ejecutarse en modo de sitio web **compartido** o **estándar** desde la página de administración **Escalar**. Cada suscripción a Azure tiene acceso a un conjunto de recursos que tienen como finalidad la ejecución de hasta 100 sitios web por región en el modo de sitio web **compartido**. El grupo de recursos disponibles para cada suscripción de Sitio web con este fin es compartido por otros sitios web en la misma región geográfica que estén configurados para ejecutarse en modo**compartido**. Como estos recursos son compartidos para su uso de parte de otros sitios web, todas las suscripciones tienen límites en el uso que hacen de estos recursos. Los límites que se aplican al uso que una suscripción hace de estos recursos se expresan como cuotas de uso enumeradas bajo la sección de información general de uso en la página de administración de **Panel** de cada sitio web.
 
->[WACOM.NOTE] Cuando un sitio web está configurado para ejecutarse en modo **estándar**, se le asignan recursos dedicados equivalentes a los tamaños **Pequeño** (valor predeterminado), **Mediano** o **Grande** de máquina virtual en la tabla de [Tamaños de máquinas virtuales y servicios en la nube de Azure][vmsizes]. No hay límites en los recursos que puede utilizar una suscripción para ejecutar sitios web en modo **estándar**. Sin embargo, la cantidad de sitios web en modo **estándar** que se pueden crear por región es 500.
+>[AZURE.NOTE] Cuando un sitio web está configurado para ejecutarse en modo **estándar**, se le asignan recursos dedicados equivalentes a los tamaños **Pequeño** (valor predeterminado), **Mediano** o **Grande** de máquina virtual en la tabla de [Tamaños de máquinas virtuales y servicios en la nube de Azure][vmsizes] No hay límites en los recursos que puede utilizar una suscripción para ejecutar sitios web en modo **estándar**. Sin embargo, la cantidad de sitios web en modo **estándar** que se pueden crear por región es 500.
  
-### Reproducción de Visualización de cuotas de uso para sitios web configurados para el modo de sitio web compartido ###
+### Cómo: Visualización de cuotas de uso para sitios web configurados para el modo de sitio web compartido ###
 Para determinar el alcance del impacto de un sitio web en las cuotas de uso de los recursos, siga estos pasos:
 
-1. Abra la página de administración **Panel** del sitio web.
+1. Abra la página de administración**Panel** del sitio web.
 2. En la sección **Información general del uso** se muestran las cuotas de uso del plan de hospedaje web correspondiente, que es un subconjunto de:
 	-	**Data Out**, **CPU Time** y **Memory**: si se excede la cuota, Azure detiene el sitio web durante el resto del intervalo de la cuota actual. Azure iniciará el sitio web al comienzo del siguiente intervalo de cuota.
 	-	**Almacenamiento del sistema de archivos**: cuando se alcanza la cuota, el almacenamiento del sistema de archivos permanece accesible para las operaciones de lectura, pero se bloquean todas las operaciones de escritura, incluidas las que resultan necesarias para el funcionamiento normal del sitio web. Las operaciones de escritura se reanudarán si se reduce el uso del archivo o si el sitio web se transfiere a un plan de hospedaje web con una cuota mayor.
-	-	**Recursos vinculados**: también se muestran aquí las cuotas de todos los recursos vinculados del sitio web, como la base de datos o el almacenamiento.   
+	-	**Recursos vinculados**: también se muestran aquí las cuotas de todos los recursos vinculados del sitio web, como la base de datos o el almacenamiento.
 
-	Algunas cuotas pueden aplicarse por cada plan de hospedaje web, mientras que otras pueden aplicarse por cada sitio. Para obtener información detallada sobre las cuotas de uso de cada plan de hospedaje web, consulte [Límites de sitios web](http://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#websiteslimits).
+	Algunas cuotas pueden aplicarse por cada plan de hospedaje web, mientras que otras pueden aplicarse por cada sitio. Para obtener información detallada sobre las cuotas de uso de cada plan de hospedaje web, consulte [Límites de sitios web](http://azure.microsoft.com/es-es/documentation/articles/azure-subscription-service-limits/#websiteslimits).
 
 
-##<a name="resourceusage"></a>Evitar superar las cuotas
+##<a name="resourceusage"></a>Cómo: superar las cuotas
 
 Las cuotas no están relacionadas con el rendimiento ni con el coste, sino que se trata de la forma en que Azure rige el uso de recursos en un entorno multiempresa al prevenir que los inquilinos realicen un uso excesivo de los recursos compartidos. Habida cuenta de que superar las cuotas supone tiempo de inactividad o una reducción de la funcionalidad del sitio web, tenga en cuenta lo siguiente si desea mantener su sitio en ejecución cuando esté a punto de superar las cuotas:
 
@@ -58,9 +72,9 @@ Las cuotas no están relacionadas con el rendimiento ni con el coste, sino que s
 - A medida que aumenta el número de instancias de un sitio web, también aumenta la probabilidad de que se superen las cuotas de recursos compartidos. Si resulta conveniente, plantéese volver a escalar instancias adicionales de un sitio web cuando se excedan las cuotas de recursos compartidos.
 
 
-##<a name="howtoconfigdiagnostics"></a>Reproducción de Registros de diagnóstico y descarga para un sitio web
+##<a name="howtoconfigdiagnostics"></a>Cómo: Registros de diagnóstico y descarga para un sitio web
 
-Los diagnósticos se habilitan en la página de administración **Configurar** del sitio web. Existen dos tipos de diagnóstico: **diagnósticos de la aplicación** y **diagnósticos del sitio**.
+Los diagnósticos se habilitan en la página de administración**Configurar** del sitio web. Existen dos tipos de diagnóstico: **diagnósticos de la aplicación** y **diagnósticos del sitio**.
 
 ####Diagnósticos de la aplicación####
 
@@ -82,31 +96,24 @@ Puede habilitar o deshabilitar los siguientes diagnósticos de aplicación:
 
 	Para especificar el blob y la cuenta de almacenamiento de Azure, elija **Activado**, seleccione el **Nivel de registro** y, a continuación, elija **Administrar almacenamiento de blobs**. Especifique la cuenta de almacenamiento, el contenedor de blobs y el nombre de blob que se utilizará o cree un contenedor y un blob nuevos.
 
-Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte [Administración de cuentas de almacenamiento](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte [Administración de cuentas de almacenamiento](https://www.windowsazure.com/es-es/manage/services/storage/how-to-manage-a-storage-account/).
 
-<div class="dev-callout"on> 
-<b>Note</b> 
-<p>El registro de aplicaciones en almacenamiento de tablas o blobs solo es compatible con aplicaciones .NET.</p> </div>
+> [AZURE.NOTE] El registro de aplicaciones en almacenamiento de tablas o blobs solo es compatible con aplicaciones .NET.
 
 Como el registro de aplicaciones en almacenamiento requiere utilizar un cliente de almacenamiento para ver los datos de registro, resulta más útil cuando planea utilizar un servicio o aplicación que comprenda cómo leer y procesar los datos directamente desde el almacenamiento de tablas o blobs de Azure. El registro en el sistema de archivos genera archivos que se pueden descargar en el equipo local a través de FTP u otras utilidades, según se describe más adelante en esta sección.
 
-<div class="dev-callout"> 
-	<b>Nota:</b> 
-	<p><b>Diagnósticos de la aplicación (sistema de archivos)</b>, <b>diagnósticos de la aplicación (almacenamiento de tablas)</b>y <b>diagnósticos de la aplicación (almacenamiento de blobs)</b> se pueden habilitar al mismo tiempo y tienen configuraciones individuales para el nivel de registro. Por ejemplo, es posible que desee registrar errores y advertencias en el almacenamiento como una solución de registro a largo plazo, mientras que se habilita el registro de sistema de archivos con un nivel de detalle después de instrumentar el código de la aplicación para solucionar un problema.</p> </div>
+> [AZURE.NOTE] **Application diagnostics (file system)*, ***Application diagnostics (table storage)** y **Application diagnostics (blob storage)** se pueden habilitar al mismo tiempo y pueden tener configuraciones individuales en el nivel de registro. Por ejemplo, es posible que desee registrar errores y advertencias en el almacenamiento como una solución de registro a largo plazo, mientras que se habilita el registro de sistema de archivos con un nivel de detalle después de instrumentar el código de la aplicación para solucionar un problema.
 
-<div class="dev-callout"> 
-	<b>Nota:</b> 
-	<p>Los diagnósticos también se pueden habilitar desde Azure PowerShell con el cmdlet <b>Set-AzureWebsite</b> .</p><p>Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte <a href="http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/powershell-cmdlets/">Uso de Azure PowerShell.</a>.</p></div>
+> [AZURE.NOTE] Los diagnósticos también se pueden habilitar desde Azure PowerShell con el cmdlet **Set-AzureWebsite**.
+> 
+> Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
-<div class="dev-callout"> 
-<b>Nota:</b> 
-<p>El registro de aplicaciones se basa en la información de registro que genera su aplicación. El método usado para generar información de registro, así como también el formato de la información, es específico para el lenguaje en que está escrita la aplicación. Si desea información específica para el lenguaje sobre el uso del registro de aplicaciones, consulte los siguientes artículos:</p>
-<ul>
-<li><b>.NET</b> - <a href="/en-us/develop/net/common-tasks/diagnostics-logging-and-instrumentation/">Habilitación del registro de diagnóstico para Sitios web Azure</a></li>
-<li><b>Node.js</b> - <a href="/en-us/develop/nodejs/how-to-guides/Debug-Website/">Depuración de una aplicación Node.js en Sitios web Azure</a></li>
-</ul>
-<p>El registro de aplicaciones en almacenamiento de tablas o blobs solo es compatible con aplicaciones .NET.</p>
-</div>
+> [AZURE.NOTE] El registro de aplicaciones se basa en la información de registro que genera su aplicación. El método usado para generar información de registro, así como también el formato de la información, es específico para el lenguaje en que está escrita la aplicación. Si desea información específica para el lenguaje sobre el uso del registro de aplicaciones, consulte los siguientes artículos:
+> 
+> **.NET**: [Habilitación del registro de diagnóstico para Sitios web Azure](/es-es/develop/net/common-tasks/diagnostics-logging-and-instrumentation/)
+> **Node.js**: [Depuración de una aplicación Node.js en Sitios web Azure](/es-es/develop/nodejs/how-to-guides/Debug-Website/)
+> 
+> El registro de aplicaciones en almacenamiento de tablas o blobs solo es compatible con aplicaciones .NET.
 
 ####Diagnósticos de sitios####
 
@@ -114,7 +121,7 @@ La sección **diagnósticos de sitios** de la página de administración **Confi
 
 - **Registro del servidor web**: active el registro de servidores web para guardar registros de sitios web que utilicen formato de archivo de registro W3C extendido. El registro de servidores web genera un registro de todas las solicitudes entrantes a su sitio web, que contiene información como la dirección IP del cliente, el URI solicitado, el código de estado HTTP de la respuesta y la cadena de agente de usuario del cliente. Puede guardar los registros en una cuenta de almacenamiento de Azure o en el sistema de archivos.
 
- Para guardar los registros de servidores web en una cuenta de almacenamiento de Azure, elija **Almacenamiento** y, a continuación, **administrar almacenamiento** para especificar un contenedor de blobs de Azure donde se conservarán los registros. Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte [Administración de cuentas de almacenamiento](https://www.windowsazure.com/en-us/manage/services/storage/how-to-manage-a-storage-account/).
+ Para guardar los registros de servidores web en una cuenta de almacenamiento de Azure, elija **Almacenamiento** y, a continuación, **administrar almacenamiento** para especificar un contenedor de blobs de Azure donde se conservarán los registros. Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte [Administración de cuentas de almacenamiento](https://www.windowsazure.com/es-es/manage/services/storage/how-to-manage-a-storage-account/).
 
    Para guardar registros de servidores web en el sistema de archivos, elija **Sistema de archivos**. Con esto se habilitará la casilla **Cuota**, en la que podrá definir la cantidad máxima de espacio en disco para los archivos de registro. El tamaño mínimo es de 25 MB, mientras que el máximo es de 100 MB. El tamaño predeterminado es de 35 MB.
 
@@ -125,12 +132,9 @@ La sección **diagnósticos de sitios** de la página de administración **Confi
 - **Seguimiento de solicitudes con error**: active el seguimiento de solicitudes con error para capturar información para solicitudes de clientes con error, como un código de estado HTTP de la serie 400.  El seguimiento de solicitudes con error genera un documento XML que contiene un seguimiento de los módulos por los que la solicitud ha pasado en IIS, los detalles devueltos por el módulo y la hora en que se invocó el módulo. Esta información se puede utilizar para aislar el componente en que se produjo el error.
 
 
-Después de habilitar los diagnósticos para un sitio web, haga clic en el icono **Guardar** en la parte inferior de la página de administración **Configurar** para así aplicar las opciones que definió.
+Después de habilitar los diagnósticos para un sitio web, haga clic en el icono **Guardar** en la parte inferior de la página de administración **Configurar**para así aplicar las opciones que definió.
 
-<div class="dev-callout"> 
-<b>Importante</b> 
-<p>El registro y el seguimiento plantean exigencias importantes sobre un sitio web. Recomendamos desactivar el registro y el seguimiento una vez que haya reproducido los problemas que se están solucionando.</p> 
-</div>
+> [AZURE.IMPORTANT] El registro y el seguimiento plantean exigencias importantes sobre un sitio web. Recomendamos desactivar el registro y el seguimiento una vez que haya reproducido los problemas que se están solucionando.
 
 ###Configuración avanzada###
 
@@ -169,10 +173,7 @@ Los archivos de registro se pueden descargar mediante el uso de FTP, Azure Power
 
 1. En la pantalla **Inicio** o en el **menú Inicio**, busque **Azure PowerShell**. Haga clic con el botón secundario en la entrada **Azure PowerShell** y seleccione **Ejecutar como administrador**.
 
-	<div class="dev-callout"> 
-	<b>Nota:</b> 
-	<p>Si <b>Azure PowerShell</b> no está instalado, consulte <a href="http://msdn.microsoft.com/en-us/library/windowsazure/jj554332.aspx">Introducción a los cmdlets de Windows Azure</a> para obtener información sobre la instalación y la configuración.</p> 
-	</div>
+	> [AZURE.NOTE] Si **Azure PowerShell** no está instalado, consulte [Introducción a los cmdlets de Azure PowerShell](http://msdn.microsoft.com/es-es/library/windowsazure/jj554332.aspx) para obtener información sobre la instalación y configuración.
 
 2. Desde el símbolo del sistema de Azure PowerShell, utilice el siguiente comando para descargar los archivos de registro:
 
@@ -200,53 +201,50 @@ También puede ver una secuencia en vivo de eventos de registro a través del si
 
 Con esto aparecerá información de registros en la sesión de Terminal, sesión Bash, PowerShell o símbolo del sistema desde donde se ejecuta el comando.
 
-<div class="dev-callout"> 
-<b>Nota:</b> 
-<p>Si el comando <b>azure</b> no está instalado, consulte <a href="http://www.windowsazure.com/en-us/develop/nodejs/how-to-guides/command-line-tools/">Uso de las herramientas de línea de comandos de Azure</a> para obtener información sobre la instalación y la configuración.</p>
-</div>
+> [AZURE.NOTE] Si el comando **azure** no está instalado, consulte [Uso de las herramientas de línea de comandos](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/command-line-tools/) para obtener información sobre la instalación y la configuración.
 
 ###Lectura de archivos de registro###
 
 Los archivos de registro que se generan después de habilitar el registro o el seguimiento de un sitio web varían según el nivel de registro/seguimiento definido en la página de administración Configure para el sitio web. A continuación aparece la ubicación de los archivos de registro y la manera en que se pueden analizar:
 
-**Tipo de archivo de registro: Registro de la aplicación**
+**Tipo de archivo de registro: Registro de aplicaciones**
 
-- Ubicación: /LogFiles/Application/. Esta carpeta contiene uno o varios archivos de texto con información generada por el registro de aplicaciones. La información registrada incluye la fecha y la hora, el identificador del proceso (PID) de la aplicación y el valor que produce la instrumentación de la aplicación.
+- Ubicación/LogFiles/Application/: Esta carpeta contiene uno o varios archivos de texto con información generada por el registro de aplicaciones. La información registrada incluye la fecha y la hora, el identificador del proceso (PID) de la aplicación y el valor que produce la instrumentación de la aplicación.
 
 - Lea los archivos con: Un editor de texto o un analizador que comprenda los valores que genera su aplicación
 
 **Tipo de archivo de registro: Seguimiento de solicitudes con error**
 
-- Ubicación: /LogFiles/W3SVC#########/. Esta carpeta contiene un archivo XSL y uno o varios archivos XML. Asegúrese de descargar el archivo XSL en el mismo directorio de los archivos XML, porque el archivo XSL proporciona funcionalidad para dar formato y filtrar los contenidos de los archivos XML cuando se visualizan en Internet Explorer. 
+- Location: /LogFiles/W3SVC#########/. Esta carpeta contiene un archivo XSL y uno o varios archivos XML. Asegúrese de descargar el archivo XSL en el mismo directorio de los archivos XML, porque el archivo XSL proporciona funcionalidad para dar formato y filtrar los contenidos de los archivos XML cuando se visualizan en Internet Explorer. 
 
 - Lea los archivos con: Internet Explorer
 
 **Tipo de archivo de registro: Registro detallado de errores**
 
-- Ubicación: /LogFiles/DetailedErrors/. La carpeta /LogFiles/DetailedErrors/ contiene uno o más archivos .htm que proporcionan una amplia información para cualquier error HTTP que se haya generado. 
+- Location: /LogFiles/DetailedErrors/. La carpeta /LogFiles/DetailedErrors/ contiene uno o varios archivos .htm con información amplia de todos los errores HTTP que se han producido. 
 
 - Lea los archivos con: Explorador web
 
 Los archivos .htm incluyen las siguientes opciones:
 
-- **Información detallada de error:** Incluye información sobre el error, como <em>Módulo</em>, <em>Controlador</em>, <em>Código de error</em>y <em>Dirección URL solicitada</em>.
+- **Información detallada del Error:** incluye información sobre el error, como <em>Módulo</em>, <em>Controlador</em>, <em>Código de error</em> y <em>URL solicitada</em>.
 
-- **Causas más probables:** Enumera varias causas posibles del error.
+- **Causas más probables:** enumera varias causas posibles del error.
 
-- **Acciones que puede intentar:** Enumera posibles soluciones para resolver el problema indicado por el error.
+- **Procedimientos que puede intentar:** enumera posibles soluciones para resolver el problema que indica el error.
 
 - **Vínculos y más información**: Proporciona información resumida adicional acerca del error y también puede incluir vínculos a otros recursos, como artículos de Microsoft Knowledge Base.
 
 **Tipo de archivo de registro: Registro del servidor web**
 
-- Ubicación: /LogFiles/http/RawLogs. El formato de la información almacenada en los archivos se aplica con [formato de registro W3C extendido](http://go.microsoft.com/fwlink/?LinkID=90561). Sitios web Azure no utiliza los campos s-computername, s-ip y cs-version.
+- Location: /LogFiles/http/RawLogs. El formato de la información almacenada en los archivos se aplica con [W3C extended log format](http://go.microsoft.com/fwlink/?LinkID=90561). Sitios web Azure no utiliza los campos s-computername, s-ip y cs-version.
 
 - Lea los archivos con: Analizador de registro. Se usa para analizar y consultar archivos de registro de IIS. El Analizador de registro 2.2 está disponible en el Centro de descarga de Microsoft en <a href="http://go.microsoft.com/fwlink/?LinkId=246619">http://go.microsoft.com/fwlink/?LinkId=246619</a>.
 
 
-##<a name="webendpointstatus"></a>Reproducción de estado de extremo web
+##<a name="webendpointstatus"></a>Cómo: del estado de extremo web
 
-Esta característica, disponible en modo **estándar**, le permite supervisar hasta dos extremos desde hasta tres ubicaciones geográficas. 
+Esta característica, disponible en modo **estándar**, le permite supervisar hasta dos extremos hasta desde tres ubicaciones geográficas. 
 
 La supervisión de extremo configura pruebas web desde ubicaciones distribuidas geográficamente que prueban el tiempo de respuesta y el tiempo activo de direcciones URL web. La prueba realiza una operación HTTP Get en la dirección URL web para determinar el tiempo de respuesta y el tiempo activo desde cada ubicación. Cada ubicación configurada ejecuta una prueba cada cinco minutos.
 
@@ -263,24 +261,24 @@ Después de configurar la supervisión de extremo, puede obtener detalles sobre 
 5.	Escriba la dirección URL de una parte del sitio web que desea supervisar. Por ejemplo, [http://contoso.azurewebsites.net/archive](http://contoso.azurewebsites.net/archive). 
 6.	Seleccione una o más ubicaciones geográficas en la lista.
 7.	De manera opcional, repita los pasos anteriores para crear un segundo extremo.
-8.	Haga clic en **Guardar**. Es posible que los datos de supervisión del extremo web tarden cierto tiempo en estar disponibles en las pestañas **Panel** y **Supervisar**.
+8.	Haga clic en **Save**. Es posible que los datos de supervisión del extremo web tarden cierto tiempo en estar disponibles en las pestañas **Panel** y **Supervisar**.
 
 	Para crear una regla de correo electrónico, realice las siguientes tareas:
 
 9.	En la barra del servicio, situada a la izquierda, haga clic en **Servicios de administración**.
 10.	Haga clic en el botón **Agregar regla**.
-11.	En **Tipo de servicio**, seleccione **Sitio web** y, a continuación, seleccione el sitio web para el que ha configurado anteriormente la supervisión del extremo. Haga clic en **Siguiente**.
+11.	En **Tipo de servicio**, seleccione **Sitio web** y, a continuación, seleccione el sitio web para el que ha configurado anteriormente la supervisión del extremo. Haga clic en **Next**.
 12.	En **Métrica**, ahora puede seleccionar métricas adicionales para el extremo configurado. Por ejemplo: **Tiempo de respuesta (página principal/EE. UU.: IL-Chicago)**. Seleccione la métrica Tiempo de respuesta y escriba 3 en **Valor de umbral** para especificar un umbral de 3 segundos.
-13.	Seleccione **Envíe un correo electrónico al administrador y a los coadministradores del servicio**. Haga clic en **Completar**.
+13.	Seleccione **Envíe un correo electrónico al administrador y a los coadministradores del servicio**. Haga clic en **Complete**.
 
 	Azure ahora supervisará de forma activa el extremo y enviará una alerta por correo electrónico si tarda más de 3 segundos en responder.
 
 
 Vea el siguiente vídeo para obtener más información sobre la supervisión de extremos de sitio web:
 
-- [Scott Guthrie presenta Sitios web Azure y configura la supervisión de extremos](http://www.windowsazure.com/en-us/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+- [Scott Guthrie presenta Sitios web Azure y configura la supervisión de extremos](http://www.windowsazure.com/es-es/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
-- [Keeping Azure Web Sites up plus Endpoint Monitoring - por Stefan Schackow](http://www.windowsazure.com/en-us/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+- [Keeping Azure Web Sites up plus Endpoint Monitoring - por Stefan Schackow](http://www.windowsazure.com/es-es/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 
 
@@ -293,4 +291,7 @@ Vea el siguiente vídeo para obtener más información sobre la supervisión de 
 
 
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

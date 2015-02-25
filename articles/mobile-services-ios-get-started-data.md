@@ -1,35 +1,33 @@
-﻿<properties urlDisplayName="Get Started with Data" pageTitle="Introducción a los datos (iOS) | Centro de desarrollo móvil" metaKeywords="Datos de iOS de Azure, datos de servicios móviles de Azure " description="Obtenga información sobre cómo empezar a usar Servicios móviles para aprovechar los datos en la aplicación iOS." metaCanonical="" services="" documentationCenter="Mobile" title="Get started with data in Mobile Services" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Introducción a los datos (iOS) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación iOS." services="" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
-# Agregar Servicios móviles a una aplicación existente
+# Incorporación de Servicios móviles a una aplicación existente
 
-[WACOM.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
+[AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 Este tema muestra cómo utilizar Servicios móviles de Azure para aprovechar los datos en una aplicación de iOS. En este tutorial descargará una aplicación que almacena datos en memoria, creará un nuevo servicio móvil, integrará el servicio móvil en la aplicación y luego iniciará sesión en el Portal de administración de Azure para ver los cambios que se hicieron en los datos durante la ejecución de la aplicación.
 
-<div class="dev-callout"><b>Nota:</b>
-<p>Este tutorial está destinado a profundizar en el uso de Azure con los Servicios móviles para almacenar y recuperar datos en una aplicación de iOS. Para ello, en este tema se recorren muchos de los pasos que se completan automáticamente en el inicio rápido de Servicios móviles. Si esta es su primera experiencia con Servicios móviles, considere la posibilidad de completar primero el tutorial <a href="/es-es/develop/mobile/tutorials/get-started-ios">Introducción a los Servicios móviles</a>.</p>
-</div>
+> [AZURE.NOTE] Este tutorial está destinado a profundizar en el uso de Azure con los Servicios móviles para almacenar y recuperar datos en una aplicación de iOS. Para ello, en este tema se recorren muchos de los pasos que se completan automáticamente en el inicio rápido de Servicios móviles. Si esta es la primera vez que usa Servicios móviles, considere la posibilidad de completar antes el tutorial [Introducción a los Servicios móviles](/es-es/develop/mobile/tutorials/get-started-ios).
 
 Este tutorial le guiará a través de estos pasos básicos:
 
 1. [Descarga del proyecto de la aplicación de iOS]
 2. [Crear el servicio móvil]
 3. [Agregar una tabla de datos para almacenamiento]
-4. [Actualizar la aplicación para usar Servicios móviles]
+4. [Actualización de la aplicación para usar Servicios móviles]
 5. [Probar la aplicación en Servicios móviles]
 
 Este tutorial requiere lo siguiente:
 
-+ [SDK de iOS para Servicios móviles], [XCode 4.5][Install Xcode] y iOS 5.0 o versiones posteriores.
-+ Una cuenta de Microsoft Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener información, vea <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Evaluación gratuita de Azure</a>.</p></div>
++ [SDK de iOS para Servicios móviles] y [XCode 4.5][Instalar Xcode] y iOS 5.0 o versiones posteriores.
++ Una cuenta de Microsoft Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-ios%2F" target="_blank">Evaluación gratuita de Azure</a>.</p></div>
 
-##<a name="download-app"></a>Descargar el proyecto GetStartedWithData
+##<a name="download-app"></a>Descarga del proyecto GetStartedWithData
 
-Este tutorial se basa en la [aplicación GetStartedWithData][GitHub], una aplicación de iOS. La interfaz de usuario de esta aplicación es idéntica a la de la aplicación generada por el inicio rápido de iOS de Servicios móviles, con la excepción de que los elementos agregados se almacenan localmente en la memoria.
+Este tutorial se basa en la [aplicación GetStartedWithData][GitHub], que es una aplicación iOS. La interfaz de usuario de esta aplicación es idéntica a la de la aplicación generada por el inicio rápido de iOS de Servicios móviles, con la excepción de que los elementos agregados se almacenan localmente en la memoria.
 
-1. Descargue la [aplicación de muestra][GitHub] GetStartedWithData.
+1. Descargue la [aplicación de ejemplo][GitHub]GetStartedWithData.
 
 2. En Xcode, abra el proyecto descargado y examine el archivo TodoService.m.
 
@@ -45,15 +43,15 @@ Este tutorial se basa en la [aplicación GetStartedWithData][GitHub], una aplica
 
 ##<a name="create-service"></a>Creación de un servicio móvil en el Portal de administración
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data](../includes/mobile-services-create-new-service-data.md)]
 
-##<a name="add-table"></a>Agregar una tabla nueva al servicio móvil
+##<a name="add-table"></a>Incorporación de una tabla nueva al servicio móvil
 
-[WACOM.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
+[AZURE.INCLUDE [mobile-services-create-new-service-data-2](../includes/mobile-services-create-new-service-data-2.md)]
 
 ##<a name="update-app"></a>Actualización de la aplicación para usar el servicio móvil para el acceso a datos
 
-[WACOM.INCLUDE [mobile-services-ios-enable-mobile-service-access](../includes/mobile-services-ios-enable-mobile-service-access.md)]
+[AZURE.INCLUDE [mobile-services-ios-enable-mobile-service-access](../includes/mobile-services-ios-enable-mobile-service-access.md)]
 
 ##<a name="test-app"></a>Prueba de la aplicación con su servicio móvil nuevo
 
@@ -85,7 +83,7 @@ A continuación, considere la realización de uno de los siguientes tutoriales q
   <br/>Obtenga más información sobre el uso de scripts de servidor en Servicios móviles para validar y cambiar los datos enviados desde su aplicación.
 
 * [Limitación de consultas con paginación]
-  <br/>Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos controlada en una única solicitud.
+  <br/>Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos gestionados en una única solicitud.
 
 Una vez que haya completado la serie de datos, pruebe con uno de estos otros tutoriales para iOS:
 
@@ -99,7 +97,7 @@ Una vez que haya completado la serie de datos, pruebe con uno de estos otros tut
 [Descarga del proyecto de la aplicación de iOS]: #download-app
 [Crear el servicio móvil]: #create-service
 [Agregar una tabla de datos para almacenamiento]: #add-table
-[Actualizar la aplicación para usar Servicios móviles]: #update-app
+[Actualización de la aplicación para usar Servicios móviles]: #update-app
 [Probar la aplicación en Servicios móviles]: #test-app
 [Pasos siguientes]:#next-steps
 
@@ -132,4 +130,5 @@ Una vez que haya completado la serie de datos, pruebe con uno de estos otros tut
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkId=268622
 [Repositorio de GitHub]: http://go.microsoft.com/fwlink/p/?LinkId=268784
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

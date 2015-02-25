@@ -1,6 +1,20 @@
-﻿<properties title="Manage an Azure website" pageTitle="Administrar un sitio web de Azure" description="Vincula a recursos para administrar un sitio web de Microsoft Azure." services="web-sites" solutions="web" documentationCenter="" authors="mwasson" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Administrar un sitio web de Azure" 
+	description="Vincula a recursos para administrar un sitio web de Microsoft Azure." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="MikeWasson" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/16/2014" ms.author="mwasson" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/16/2014" 
+	ms.author="mwasson"/>
 
 # Administrar un sitio web de Azure
 
@@ -20,7 +34,7 @@ Muchas tareas de administración de sitios web se pueden hacer desde el portal d
 
 Los sitios web de Azure se ofrecen en cuatro niveles: gratis, compartido, básico y estándar. Para más información sobre las funciones y los precios de cada nivel, vea [Detalles de precios](http://azure.microsoft.com/es-es/pricing/details/websites/). 
 
-Los - [planes de hospedaje web](http://azure.microsoft.com/es-es/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview) le permiten agrupar varios sitios web en el mismo nivel.
+- Los [planes de hospedaje web](http://azure.microsoft.com/es-es/documentation/articles/azure-web-sites-web-hosting-plans-in-depth-overview) le permiten agrupar varios sitios web en el mismo nivel.
 - Siempre puede [cambiar los niveles](http://azure.microsoft.com/es-es/documentation/articles/web-sites-scale/) después de crear su sitio web.
 
 ### Configuración
@@ -34,10 +48,10 @@ Use el [Portal de administración de Azure](https://manage.windowsazure.com/) pa
 
 Además de estas opciones de configuración básicas, puede configurar lo siguiente:
 
-Cifrado - **Capa de sockets seguros (SSL)**. Para usar SSL con un nombre de dominio personalizado, debe obtener un certificado SSL y configurar el sitio web para que lo use. Vea [Habilitación de HTTPS en un sitio web de Azure](http://azure.microsoft.com/es-es/documentation/articles/web-sites-configure-ssl-certificate/).
+- Cifrado de **Capa de sockets seguros (SSL)**. Para usar SSL con un nombre de dominio personalizado, debe obtener un certificado SSL y configurar el sitio web para que lo use. Vea [Habilitación de HTTPS en un sitio web de Azure](http://azure.microsoft.com/es-es/documentation/articles/web-sites-configure-ssl-certificate/).
 - **Nombre de dominio personalizado.** Su sitio web tiene automáticamente un subdominio en azurewebsites.net. Puede asociar un nombre de dominio personalizado, como contoso.com. Vea [Configuración de un nombre de dominio personalizado](http://azure.microsoft.com/es-es/documentation/articles/web-sites-custom-domain-name/).
 
-Configuración específica por idioma:
+Configuración específica del lenguaje:
 
 - **PHP**: [Configuración de PHP en Sitios web Azure](http://azure.microsoft.com/es-es/documentation/articles/web-sites-php-configure/).
 - **Python**: [Configuración de Python con Sitios web Azure](http://azure.microsoft.com/es-es/documentation/articles/web-sites-python-configure/)
@@ -51,7 +65,7 @@ Cuando el sitio esté en funcionamiento, querrá asegurarse de que está disponi
 
 - Desde el portal de administración, puede [agregar métricas de rendimiento](http://azure.microsoft.com/es-es/documentation/articles/web-sites-monitor), como el uso de la CPU y el número de solicitudes de clientes.
 - Si quiere más detalles, use New Relic para supervisar y administrar el rendimiento. Vea [Administración del rendimiento de la aplicación New Relic en Sitios web Azure](http://azure.microsoft.com/es-es/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/).
-- [Escale su sitio web](http://azure.microsoft.com/es-es/documentation/articles/web-sites-scale/) en respuesta al tráfico. En función de su nivel, puede escalar el número de máquinas virtuales y/o el tamaño de las instancias de las máquinas virtuales. En el plan estándar, también puede configurar la escala automática para que el sitio escale automáticamente, bien según una programación fija, o bien en respuesta a la carga. 
+- [Escale su sitio web](http://azure.microsoft.com/es-es/documentation/articles/web-sites-scale/) en respuesta al tráfico. En función de su nivel, puede escalar el número de máquinas virtuales y/o el tamaño de las instancias de las máquinas virtuales. En el plan estándar, también puede configurar la escala automática para que el sitio escale automáticamente, bien según una programación fija, o bien en respuesta a la carga.  
  
 ### Copias de seguridad
 
@@ -78,7 +92,7 @@ Puede usar una [implementación de ensayo](http://azure.microsoft.com/es-es/docu
 Si usa Visual Studio Online, puede configurar una implementación continua desde el control de código fuente:
 
 - [Uso del control de versiones de Team Foundation (TFVC)](http://azure.microsoft.com/es-es/documentation/articles/cloud-services-continuous-delivery-use-vso/).
-- [Usar Git](http://azure.microsoft.com/es-es/documentation/articles/cloud-services-continuous-delivery-use-vso-git/)
+- [Uso de Git](http://azure.microsoft.com/es-es/documentation/articles/cloud-services-continuous-delivery-use-vso-git/)
  
 
  
@@ -90,3 +104,7 @@ Si usa Visual Studio Online, puede configurar una implementación continua desde
 [Cuando actualiza el sitio web]: #when-you-update-your-website
 
  
+
+
+
+<!--HONumber=42-->

@@ -1,6 +1,6 @@
-﻿<properties urlDisplayName="Install LAMP stack" pageTitle="Instalación de la pila LAMP en una máquina virtual de Linux" metaKeywords="" description="Aprenda a instalar la pila LAMP en una máquina virtual de Linux en Azure. Puede realizar la instalación en Ubuntu o CentOS." metaCanonical="" services="virtual-machines" documentationCenter="" title="Install the LAMP Stack on a Linux virtual machine in Azure" authors="szark" solutions="" manager="timlt" editor="" />
+<properties pageTitle="Instalación de la pila LAMP en una máquina virtual de Linux" description="Aprenda a instalar la pila LAMP en una máquina virtual de Linux en Azure. Puede realizar la instalación en Ubuntu o CentOS." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark"/>
 
 
 
@@ -18,17 +18,17 @@ Una pila LAMP consta de los siguientes elementos diferentes:
 
 Necesitará los siguientes paquetes instalados:
 
-- "apache2"
-- "mysql-server"
-- "php5"
-- "php5-mysql"
+- `apache2`
+- `mysql-server`
+- `php5`
+- `php5-mysql`
 
-Después de ejecutar "apt-get update" para actualizar la lista local de paquetes, puede instalar estos paquetes con un solo comando "apt-get install":
+Después de ejecutar  `apt-get update` para actualizar la lista local de paquetes, puede instalar estos paquetes con un solo comando  `apt-get install`:
 
 	# sudo apt-get update
 	# sudo apt-get install apache2 mysql-server php5 php5-mysql
 
-Tras ejecutar el comando anterior, se le pedirá que instale estos paquetes y una serie de dependencias.  Pulse 'y' seguido por 'Enter' para continuar, y siga cualquier otra instrucción que aparezca para establecer un contraseña administrativa para MySQL.
+Tras ejecutar el comando anterior, se le pedirá que instale estos paquetes y una serie de dependencias.  Presione 'y' y, a continuación, 'Entrar' para continuar y siga las indicaciones para establecer una contraseña administrativa para MySQL.
 
 Esto instalará las extensiones PHP mínimas necesarias para utilizar PHP con MySQL. Ejecute el siguiente comando para ver otras extensiones PHP disponibles como paquetes:
 
@@ -39,17 +39,17 @@ Esto instalará las extensiones PHP mínimas necesarias para utilizar PHP con My
 
 Necesitará los siguientes paquetes instalados:
 
-- "httpd"
-- "mysql"
-- "mysql-server"
-- "php"
-- "php-mysql"
+- `httpd`
+- `mysql`
+- `mysql-server`
+- `php`
+- `php-mysql`
 
-Puede instalar estos paquetes con un solo comando "yum install":
+Puede instalar estos paquetes con un solo comando  `yum install`:
 
 	# sudo yum install httpd mysql mysql-server php php-mysql
 
-Tras ejecutar el comando anterior, se le pedirá que instale estos paquetes y una serie de dependencias.  Pulse 'y' seguido por 'Enter' para continuar.
+Tras ejecutar el comando anterior, se le pedirá que instale estos paquetes y una serie de dependencias.  Presione 'y' y, a continuación, 'Entrar' para continuar.
 
 Esto instalará las extensiones PHP mínimas necesarias para utilizar PHP con MySQL. Ejecute el siguiente comando para ver otras extensiones PHP disponibles como paquetes:
 
@@ -65,11 +65,11 @@ Necesitará los siguientes paquetes instalados:
 - apache2-mod_php53
 - php53-mysql
 
-Puede instalar estos paquetes con un solo comando "zypper install":
+Puede instalar estos paquetes con un solo comando  `zypper install`:
 
 	# sudo zypper install apache2 mysql apache2-mod_php53 php53-mysql
 
-Tras ejecutar el comando anterior, se le pedirá que instale estos paquetes y una serie de dependencias.  Pulse 'y' seguido por 'Enter' para continuar.
+Tras ejecutar el comando anterior, se le pedirá que instale estos paquetes y una serie de dependencias.  Presione 'y' y, a continuación, 'Entrar' para continuar.
 
 Esto instalará las extensiones PHP mínimas necesarias para utilizar PHP con MySQL. Ejecute el siguiente comando para ver otras extensiones PHP disponibles como paquetes:
 
@@ -83,23 +83,23 @@ Instalación
 
 	- Ejecute el siguiente comando para asegurarse de que arranca el servidor web Apache:
 
-		- Ubuntu y SLES: "sudo service apache2 restart"
+		- Ubuntu & SLES: `sudo service apache2 restart`
 
-		- CentOS y Oracle: "sudo service httpd restart"
+		- CentOS & Oracle: `sudo service httpd restart`
 
-	- Apache escucha en el puerto 80 de manera predeterminada. Tal vez necesite abrir un extremo para acceder a su servidor Apache de manera remota.  Consulte la documentación sobre la [configuración de extremos](http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-set-up-endpoints/) para obtener más instrucciones detalladas.
+	- Apache escucha en el puerto 80 de manera predeterminada. Tal vez necesite abrir un extremo para acceder a su servidor Apache de manera remota.  Para obtener información más detallada consulte la documentación en [configurar extremos](http://azure.microsoft.com/es-es/documentation/articles/virtual-machines-set-up-endpoints/).
 
-	- Ahora ya puede comprobar si Apache funciona y proporciona contenido. Dirija su explorador a "http://[MYSERVICE].cloudapp.net", donde **[MYSERVICE]** es el nombre del servicio de nube en el que reside su máquina virtual. Es posible que en algunas distribuciones reciba la bienvenida con una página web predeterminada que sencillamente diga "Funciona". En otras puede tal vez vea una página web más completa con enlaces a documentación y contenido adicional para configurar el servidor Apache.
+	- Ahora ya puede comprobar si Apache funciona y proporciona contenido. Dirija su explorador a  `http://[MYSERVICE].cloudapp.net`, donde **[[MYSERVICE]]** es el nombre del servicio de nube en el que reside su máquina virtual. Es posible que en algunas distribuciones reciba la bienvenida con una página web predeterminada que sencillamente diga "Funciona". En otras puede tal vez vea una página web más completa con enlaces a documentación y contenido adicional para configurar el servidor Apache.
 
 2. Instalación de **MySQL**
 
-	- Tenga en cuenta que este paso no es necesario en Ubuntu, que le pedirá una contraseña "root" de MySQL cuando el paquete mysql-server se instaló.
+	- Tenga en cuenta que este paso no es necesario en Ubuntu, que le pedirá una contraseña  `root` de MySQL cuando el paquete mysql-server se instaló.
 
 	- En otras distribuciones establezca la contraseña raíz para MySQL mediante la ejecución del siguiente comando:
 
 			# mysqladmin -u root -p password yourpassword
 
-	- A continuación puede administrar MySQL con las utilidades "mysql" o "mysqladmin".
+	- A continuación puede administrar MySQL con las utilidades  `mysql` o  `mysqladmin`.
 
 
 ##Lecturas adicionales
@@ -108,4 +108,7 @@ Existen muchos recursos para instalar una pila LAMP en Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

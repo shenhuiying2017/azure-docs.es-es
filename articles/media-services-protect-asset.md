@@ -1,20 +1,20 @@
-﻿<properties urlDisplayName="Encrypt Assets in Media Services" pageTitle="Cifrado de activos en Servicios multimedia de Azure" metaKeywords="" description="Aprenda a usar la protección de Microsoft PlayReady para cifrar un activo en Servicios multimedia. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." metaCanonical="" services="media-services" documentationCenter="" title="How to: Protect an Asset with PlayReady Protection" authors="juliako" solutions="" manager="dwrede" editor="" />
+<properties pageTitle="Cifrado de activos en Servicios multimedia de Azure" description="Aprenda a usar la protección de Microsoft PlayReady para cifrar un activo en Servicios multimedia. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako" />
-
-
+<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
 
 
 
-<h1><a name="playready"></a>Reproducción de un recurso con PlayReady</h1>
 
-Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior era[ Comprobación del progreso del trabajo](../media-services-check-job-progress/).
+
+<h1><a name="playready"></a>  Protección de un recurso con PlayReady</h1>
+
+Este artículo forma parte de una serie en la que se presenta la programación de los Servicios multimedia de Azure. El tema anterior trataba de [ Comprobación del progreso del trabajo](../media-services-check-job-progress/).
 
 En Servicios multimedia de Azure puede enviar un trabajo que integre la protección Microsoft PlayReady para cifrar un recurso. El código de esta sección utiliza varios archivos de transmisión de una carpeta de entrada, crea una tarea y los cifra con la protección PlayReady. 
 
 En el siguiente ejemplo se muestra cómo crear un trabajo sencillo para proporcionar la protección PlayReady.
 
-   1. Recupere los datos de configuración. Puede obtener un archivo de configuración de ejemplo del tema [Valores preestablecidos de tarea para Azure Media Encryptor](http://msdn.microsoft.com/en-us/library/hh973610.aspx) .
+   1. Recupere los datos de configuración. Puede obtener un archivo de configuración de ejemplo del tema [Valores preestablecidos de tarea para Azure Media Encryptor](http://msdn.microsoft.com/es-es/library/hh973610.aspx).
    2. Cargue un archivo de entrada MP4.
    3. Convierta el archivo MP4 en un recurso de Smooth Streaming.
    4. Cifre el recurso con PlayReady.
@@ -78,7 +78,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 
     // Use the following event handler to check job progress. 
     job.StateChanged += new
-            EventHandler<JobStateChangedEventArgs>(StateChanged);
+            EventHandler&lt;JobStateChangedEventArgs&gt;(StateChanged);
 
     // Launch the job.
     job.Submit();
@@ -109,11 +109,11 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 </code></pre>
 Para obtener más información acerca de la protección PlayReady, consulte:
 <ul>
-<li><a href="http://msdn.microsoft.com/en-us/library/dn189154.aspx">Proteger Smooth Stream y MPEG DASH con PlayReady</a></li>
+<li><a href="http://msdn.microsoft.com/es-es/library/dn189154.aspx">Proteger Smooth Stream y MPEG DASH con PlayReady</a></li>
 <li><a href="http://www.microsoft.com/PlayReady/">Microsoft PlayReady</a></li>
 </ul>
 
 <h2>Pasos siguientes</h2>
-Ahora que sabe cómo proteger recursos con Servicios multimedia, diríjase al tema [Administración de recursos](../media-services-manage-assets/) .
+Ahora que sabe cómo proteger recursos con Servicios multimedia, diríjase al tema [Administración de recursos](../media-services-manage-assets/).
 
-<!--HONumber=35.1-->
+<!--HONumber=42-->

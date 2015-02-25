@@ -1,10 +1,10 @@
-﻿<properties pageTitle="Autorización del servicio (iOS) | Centro de desarrollo móvil" metaKeywords="" description="Obtenga información sobre cómo autorizar a los usuarios en el back-end de JavaScript de Servicios móviles de Azure." metaCanonical="" services="" documentationCenter="Mobile" title="Service-side authorization of Mobile Services users" authors="krisragh" solutions="" manager="dwrede" editor="" />
+﻿<properties pageTitle="Autorización del servicio (iOS) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo autorizar a los usuarios en el back-end de JavaScript de Servicios móviles de Azure." services="" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
 
 # Autorización en el servicio de usuarios de Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]
+[AZURE.INCLUDE [mobile-services-selector-service-auth-users](../includes/mobile-services-selector-service-auth-users.md)]
 
 
 Este tema le muestra cómo usar scripts de servidor a fin de autorizar a usuarios autenticados a obtener acceso a los datos en Servicios móviles de Azure desde una aplicación iOS.  En este tutorial registrará los scripts con Servicios móviles para filtrar las consultas basadas en el userId de un usuario autenticado, asegurándose de que cada usuario puede ver solo sus propios datos.
@@ -18,7 +18,7 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
 
    	![][0]
 
-2. Haga clic en la pestaña **Data** y, a continuación, haga clic en la tabla **TodoItem**.
+2. Haga clic en la pestaña **Datos** y, a continuación, haga clic en la tabla **TodoItem**.
 
    	![][1]
 
@@ -26,7 +26,7 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
 
    	![][2]
 
-4. Sustituya el script existente por la siguiente función y, a continuación, haga clic en **Save**.
+4. Sustituya el script existente por la siguiente función y, a continuación, haga clic en **Guardar**.
 
         function insert(item, user, request) {
           item.userId = user.userId;
@@ -35,9 +35,7 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
 
     Este script agrega un valor userId al elemento, que es el identificador de usuario del usuario autenticado, antes de que se inserte en la tabla TodoItem.
 
-    <div class="dev-callout"><b>Nota:</b>
-	<p>El esquema dinámico debe habilitarse la primera vez que se ejecute este script de inserción. Con el esquema dinámico habilitado, Servicios móviles agrega automáticamente la columna <strong>userId</strong> a la tabla <strong>TodoItem</strong> en la primera ejecución. El esquema dinámico está habilitado de forma predeterminada para un nuevo servicio móvil y debe deshabilitarse antes de publicar la aplicación en la Tienda Windows.</p>
-    </div>
+    > [AZURE.NOTE] El esquema dinámico debe habilitarse la primera vez que se ejecute este script de inserción. Con el esquema dinámico habilitado, Servicios móviles agrega automáticamente la columna **userId** a la tabla **TodoItem** en la primera ejecución. El esquema dinámico está habilitado de forma predeterminada para un nuevo servicio móvil y debe deshabilitarse antes de publicar la aplicación en la Tienda Windows.
 
 
 5. Repita los pasos 3 y 4 para reemplazar la operación **Read** existente por la siguiente función:
@@ -55,15 +53,15 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
 
 2. Presione el botón **Run** para compilar el proyecto, inicie la aplicación en el emulador de iPhone e inicie sesión con su proveedor de identidades elegido.
 
-   	Tenga en cuenta que esta vez, aunque existan elementos ya en la tabla TodoItem de tutoriales anteriores, no se devuelven elementos. Esto ocurre porque se insertaron elementos anteriores sin la columna userID y ahora cuentan con valores nulos.
+   	Tenga en cuenta que esta vez, aunque existan elementos ya en la tabla TodoItem de tutoriales anteriores, no se devuelven elementos. Esto ocurre porque se insertaron elementos anteriores sin la columna userId y ahora cuentan con valores nulos.
 
-3. En la aplicación, escriba un texto en **Insert a TodoItem** y, a continuación, haga clic en **Save**.
+3. En la aplicación, escriba texto en **Insertar TodoItem** y, a continuación, haga clic en **Guardar**.
 
    	![][3]
 
-   	De esta forma, se inserta tanto el texto como el userId en la tabla TodoItem en el servicio móvil. Puesto que el nuevo elemento cuenta con un valor userID correcto, el servicio móvil lo devuelve y se muestra en la segunda columna.
+   	De esta forma, se inserta tanto el texto como el userId en la tabla TodoItem en el servicio móvil. Puesto que el nuevo elemento cuenta con un valor userId correcto, el servicio móvil lo devuelve y se muestra en la segunda columna.
 
-5. Vuelva a la tabla **todoitem** en el [Portal de administración][Azure Management Portal], haga clic en **Browse** y compruebe que los elementos recién agregados dispongan ahora de un valor userId asociado.
+5. De nuevo en la tabla **todoitem** del [Portal de administración][Portal de administración de Azure], haga clic en **Examinar** y compruebe que cada elemento recién agregado cuenta ahora con un valor userId asociado.
 
 6. (Opcional) Si dispone de cuentas de inicio de sesión adicionales, puede comprobar que los usuarios pueden solo ver sus propios datos si cierran la aplicación y, a continuación, la vuelven a ejecutar. Cuando se muestre el cuadro de diálogo de credenciales de inicio de sesión, especifique un inicio de sesión distinto y, a continuación, compruebe que no se muestran los elementos especificados en la cuenta anterior.
 
@@ -72,10 +70,10 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
 Este es el último tutorial que muestra los aspectos básicos relacionados con el uso de la autenticación. Considere la posibilidad de profundizar más en los siguientes temas de Servicios móviles:
 
 * [Introducción a los datos]
-  <br/>Más información sobre cómo almacenar y consultar datos con Servicios móviles.
+  <br/>Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
 * [Introducción a las notificaciones de inserción]
-  <br/>Aprenda cómo enviar una notificación de inserción muy básica a la aplicación.
+  <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
 * [Referencia del script de servidor de Servicios móviles]
   <br/>Obtenga más información acerca del registro y del uso de scripts de servidor.
@@ -102,4 +100,5 @@ Este es el último tutorial que muestra los aspectos básicos relacionados con e
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

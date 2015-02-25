@@ -1,6 +1,6 @@
-﻿<properties title="How to install and configure Trend on an Azure VM" pageTitle="Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure" description="Describe la instalación y configuración de la seguridad de Trend Micro en una máquina virtual de Azure" metaKeywords="" services="virtual machines" solutions="" documentationCenter="" authors="kathydav" manager="timlt" videoId="" scriptId="" />
+<properties pageTitle="Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure" description="Describe la instalación y configuración de Trend Micro Security en una máquina virtual de Azure" services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="kathydav" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="kathydav"/>
 
 #Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure
 
@@ -8,11 +8,11 @@
 
 <p>El cliente se instala como una extensión de seguridad usando el Agente de máquina virtual. En una nueva máquina virtual, instalará el agente de máquina virtual junto con el Agente de Deep Security. En una máquina virtual que no tenga el Agente de máquina virtual, primero necesitará descargarlo e instalarlo. Este artículo trata ambas situaciones.
 
-<p> Si tiene una suscripción existente de Trend para una solución local, puede usarla para proteger sus máquinas virtuales de Azure. Si todavía no es cliente, puede suscribirse para una prueba. Para obtener más información acerca de esta solución, consulte la entrada de blog [Extensión del Agente de máquina virtual de Microsoft Azure para Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
+<p> Si tiene una suscripción existente de Trend para una solución local, puede usarla para proteger sus máquinas virtuales de Azure. Si todavía no es cliente, puede suscribirse para una prueba. Para obtener más información acerca de esta solución, consulte la publicación del blog [Extensión del Agente de máquina virtual de Microsoft Azure para Deep Security](http://go.microsoft.com/fwlink/p/?LinkId=403945).
 
 ## Instalación del Agente de Deep Security en una nueva máquina virtual
 
-El [Portal de administración de Azure](http://manage.windowsazure.com)  permite instalar el Agente de máquina virtual y la extensión de seguridad de Trend cuando usa la opción **Desde la galería ** para crear la máquina virtual. Este enfoque proporciona una forma sencilla de agregar protección desde Trend si crea una sola máquina virtual.
+El [Portal de administración de Azure](http://manage.windowsazure.com) permite instalar el Agente de máquina virtual y la extensión de seguridad de Trend cuando usa la opción **Desde la galería** para crear la máquina virtual. Este enfoque proporciona una forma sencilla de agregar protección desde Trend si crea una sola máquina virtual.
 
 La opción **Desde la galería** abre un asistente que le ayuda configurar la máquina virtual. Utilice la última página del asistente para instalar el Agente de máquina virtual y la extensión de seguridad de Trend. Para obtener instrucciones generales, consulte [Creación de una máquina virtual que ejecuta Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=403943). Cuando se encuentre en la última página del asistente, realice las acciones siguientes:
 
@@ -39,23 +39,23 @@ Abra una sesión de Azure PowerShell y ejecute los comandos siguientes. Asegúre
 	<p>`$name = MyVmName`
 	<p>`$vm = Get-AzureVM -ServiceName $servicename -Name $name`
 
-	> [WACOM.NOTE] Si no conoce el nombre del servicio en la nube y de la máquina virtual, ejecute Get-AzureVM para mostrar esa información para todas las máquinas virtuales de la suscripción actual.
+	> [AZURE.NOTE] Si no conoce el nombre del servicio en la nube y de la máquina virtual, ejecute Get-AzureVM para mostrar esa información para todas las máquinas virtuales de la suscripción actual.
 
 2.	Agregue el agente de Deep Security a la máquina virtual:
-<p> "Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA -VM $vm.VM"
+<p> `Set-AzureVMExtension -Publisher TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA -VM $vm.VM`
 
-	> [WACOM.NOTE] Si desea instalar una versión específica, ejecute el siguiente comando para obtener una lista de versiones disponibles: "Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA". A continuación, incluya el parámetro Version cuando ejecute Set-AzureVMExtension.
+	> [AZURE.NOTE] Si desea instalar una versión específica, ejecute el siguiente comando para obtener una lista de versiones disponibles:  `Get-AzureVMAvailableExtension TrendMicro.DeepSecurity -ExtensionName TrendMicroDSA`. A continuación, incluya el parámetro Version cuando ejecute Set-AzureVMExtension.
 
 3.	Actualice la máquina virtual, que instala el Agente de Deep Security:
-<p> "Update-AzureVM -ServiceName $servicename -Name $name -VM $vm.VM"
+<p> `Update-AzureVM -ServiceName $servicename -Name $name -VM $vm.VM`
 
 
 ## Pasos siguientes
 Después de instalar el agente, tardará unos minutos en comenzar a ejecutarse. Después de ello, necesitará activar Deep Security en la máquina virtual de forma que pueda ser administrado por Deep Security Manager. Consulte lo siguiente:
 
 - Artículo de Trend sobre esta solución, [Seguridad en la nube instantánea para Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=404101).
-- Un [script de ejemplo de Windows PowerShell](http://go.microsoft.com/fwlink/?LinkId=404100) para configurar la máquina virtual.
-- [Instrucciones](http://go.microsoft.com/fwlink/?LinkId=404099)  para el ejemplo.
+- [Script de Windows PowerShell de ejemplo](http://go.microsoft.com/fwlink/?LinkId=404100) para configurar la máquina virtual.
+- [Instrucciones](http://go.microsoft.com/fwlink/?LinkId=404099) para el ejemplo.
 
 
 
@@ -72,4 +72,7 @@ Después de instalar el agente, tardará unos minutos en comenzar a ejecutarse. 
 
 
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

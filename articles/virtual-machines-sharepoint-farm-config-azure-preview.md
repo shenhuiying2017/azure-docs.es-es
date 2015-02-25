@@ -1,9 +1,9 @@
-<properties title="SharePoint Server Farm Configuration Details" pageTitle="Detalles de configuración de una granja de servidores de SharePoint" description="Describe la configuración predeterminada de las granjas de SharePoint." metaKeywords="" services="virtual-machines" solutions="" documentationCenter="" authors="josephd" videoId="" scriptId="" manager="timlt"/>
+﻿<properties pageTitle="Detalles de configuración de una granja de servidores de SharePoint" description="Describe la configuración predeterminada de las granjas de SharePoint." services="virtual-machines" documentationCenter="" authors="JoeDavies-MSFT" manager="timlt" editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="josephd" />
+<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
 
 
-# Detalles de configuración de una granja de servidores de SharePoint#
+#Detalles de configuración de una granja de servidores de SharePoint#
 
 Granja de servidores de SharePoint es una característica del Portal de vista previa de Microsoft Azure que crea automáticamente una granja de SharePoint Server 2013. Hay dos configuraciones de granja:
 
@@ -14,9 +14,9 @@ En las siguientes secciones se proporcionan detalles de configuración de cada g
 
 Para obtener información adicional, consulte [Granja de servidores de SharePoint](../virtual-machines-sharepoint-farm-azure-preview/).
 
-## Granja básica de SharePoint##
+##Granja básica de SharePoint##
 
-La granja básica de SharePoint consta de tres máquinas virtuales con la siguiente configuración:
+La granja de SharePoint básica consta de tres máquinas virtuales con esta configuración:
 
 ![sharepointfarm](./media/virtual-machines-sharepoint-farm-config-azure-preview/SPFarm_Basic.png) 
 
@@ -30,9 +30,9 @@ A continuación se indican los detalles de configuración:
     -	Espacio de direcciones: 192.168.16.0/26    
 
 - Máquinas virtuales
-	-	HostNamePrefix-DC (controlador de dominio AD DS)
-	-	HostNamePrefix-SQL (servidor SQL Server 2014)
-	-	HostNamePrefix-SP (servidor SharePoint 2013)
+	-	*HostNamePrefix*-DC (controlador de dominio de AD DS)
+	-	*HostNamePrefix*- SQL (servidor SQL Server 2014)
+	-	*HostNamePrefix*-SP (servidor de SharePoint 2013)
 
 - Controlador de dominio
 	-	Prefijo de nombre de host: se especifica durante la configuración inicial.
@@ -57,31 +57,31 @@ A continuación se indican los detalles de configuración:
 	-	Frase de contraseña de granja de SharePoint: se especifica durante la configuración inicial.
 
 
-## Alta disponibilidad##
+##Granja de SharePoint de alta disponibilidad##
 
-La granja de SharePoint de alta disponibilidad consta de nueve máquinas virtuales con la siguiente configuración:
+La granja de servidores de SharePoint de alta disponibilidad consta de nueve máquinas virtuales con esta configuración:
 
 ![sharepointfarm](./media/virtual-machines-sharepoint-farm-config-azure-preview/SPFarm_HighAvail.png)
  
 A continuación se indican los detalles de configuración:
 
 -	Suscripción de Azure: se especifica durante la configuración inicial.
--	Nombres de dominio de Azure (también conocido como servicios en la nube): se crean nombres de dominio independientes automáticamente para cada máquina virtual.
+-	Nombres de dominio de Azure (también conocido como servicios en la nube): Los nombres de dominio separados se crean según la figura anterior.
 -	Cuenta de almacenamiento: se especifica durante la configuración inicial.
 -	Red virtual	
 	-	Tipo: solo para la nube
 	-	Espacio de direcciones: 192.168.16.0/26	
 
 -	Máquinas virtuales
-	-	HostNamePrefix-DC1 (controlador de dominio AD DS)
-	-	HostNamePrefix-DC2 (controlador de dominio AD DS)
-	-	HostNamePrefix-SQL1 (servidor SQL Server 2014)
-	-	HostNamePrefix-SQL2 (servidor SQL Server 2014)
-	-	HostNamePrefix-SQL0 (servidor SQL Server 2014)
-	-	HostNamePrefix-WEB1 (servidor SharePoint 2013)
-	-	HostNamePrefix-WEB2 (servidor SharePoint 2013)
-	-	HostNamePrefix-APP1 (servidor SharePoint 2013)
-	-	HostNamePrefix-APP2 (servidor SharePoint 2013)
+	-	*HostNamePrefix*-DC1 (controlador de dominio de AD DS)
+	-	*HostNamePrefix*-DC2 (controlador de dominio de AD DS)
+	-	*HostNamePrefix*-SQL1 (servidor SQL Server 2014)
+	-	*HostNamePrefix*-SQL2 (servidor SQL Server 2014)
+	-	*HostNamePrefix*-SQL0 (servidor Windows Server 2012 R2)
+	-	*HostNamePrefix*-WEB1 (servidor de SharePoint 2013)
+	-	*HostNamePrefix*-WEB2 (servidor de SharePoint 2013)
+	-	*HostNamePrefix*-APP1 (servidor de SharePoint 2013)
+	-	*HostNamePrefix*-APP2 (servidor de SharePoint 2013)
 
 -	Controladores de dominio
 	-	Prefijo de nombre de host: se especifica durante la configuración inicial.
@@ -105,5 +105,13 @@ A continuación se indican los detalles de configuración:
 	-	Contraseña de cuenta de granja de SharePoint: se especifica durante la configuración inicial.		
 	-	Frase de contraseña de granja de SharePoint: se especifica durante la configuración inicial.
 
+##Recursos adicionales##
 
-<!--HONumber=35.1-->
+[Granja de servidores de SharePoint](../virtual-machines-sharepoint-farm-azure-preview/)
+
+[SharePoint en los servicios de infraestructura de Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
+
+
+
+
+<!--HONumber=42-->

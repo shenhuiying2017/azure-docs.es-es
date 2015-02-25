@@ -1,13 +1,27 @@
-﻿<properties urlDisplayName="Migrating Drupal to Azure Websites" pageTitle="Migración de Drupal a Sitios web Azure" metaKeywords="Drupal, PHP, Sitios web" description="Migre un sitio PHP de Drupal a sitios web de Azure." metaCanonical="" services="web-sites" documentationCenter="PHP" title="Migrating Drupal to Azure Websites" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Migración de Drupal a Sitios web Azure" 
+	description="Migre un sitio PHP de Drupal a sitios web de Azure." 
+	services="web-sites" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/11/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/11/2014" 
+	ms.author="tomfitz"/>
 
 
 # Migración de Drupal a Sitios web Azure
 
 Como Sitios web Azure admite tanto PHP como MySQL, es relativamente sencillo migrar un sitio de Drupal a Sitios web Azure. Además, como Drupal y PHP se pueden ejecutar en todas las plataformas, el proceso debería funcionar para mover Drupal a Sitios web Azure independientemente de la plataforma que use actualmente. Dicho esto, las instalaciones de Drupal pueden variar mucho, por lo que es posible que en el siguiente material queden sin tratar pasos exclusivos de migración. Tenga en cuenta que la herramienta Drush no se usa porque no es compatible con Sitios web Azure.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > Si está tratando de mover una aplicación de Drupal grande y compleja, considere la opción de usar Servicios en la nube de Azure. Para obtener más información acerca de las diferencias entre Sitios web y Servicios en la nube, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=310123">Sitios web, Servicios en la nube y Máquinas virtuales de Windows Azure: cuándo usar cada uno</a>. Para recibir ayuda con el paso de Drupal a Servicios en la nube, consulte <a href="http://blogs.msdn.com/b/brian_swan/archive/2012/03/19/azure-real-world-migrating-drupal-from-lamp-to-windows-azure.aspx">Migración de un sitio de Drupal de LAMP a Azure</a>.
 
 ## Tabla de contenido
@@ -20,13 +34,13 @@ Como Sitios web Azure admite tanto PHP como MySQL, es relativamente sencillo mig
  
 ##<a name="create-siteanddb"></a>1. Creación de un sitio web de Azure y base de datos MySQL
 
-En primer lugar, siga el tutorial de instrucciones para saber cómo crear un sitio web con MySQL: [Creación de un sitio web PHP-MySQL de Azure e implementación mediante Git][]. Si tiene previsto usar Git para publicar el sitio de Drupal, entonces siga los pasos del tutorial donde se explica cómo configurar un repositorio de Git. Asegúrese de seguir las instrucciones de la sección **Obtener la información de la conexión MySQL remota**, ya que necesitará dicha información más adelante. Puede ignorar el recordatorio del tutorial para la implementación del sitio de Drupal. No obstante, si no está familiarizado con Sitios web Azure (ni con Git), puede que le resulte útil leer lo siguiente.
+En primer lugar, siga el tutorial de instrucciones para saber cómo crear un sitio web con MySQL: [Creación de un sitio web PHP-MySQL de Azure e implementación mediante Git][] Si tiene previsto usar Git para publicar el sitio de Drupal, entonces siga los pasos del tutorial donde se explica cómo configurar un repositorio de Git. Asegúrese de seguir las instrucciones de la sección **Obtener la información de la conexión MySQL remota**, ya que necesitará dicha información más adelante. Puede ignorar el recordatorio del tutorial para la implementación del sitio de Drupal. No obstante, si no está familiarizado con Sitios web Azure (ni con Git), puede que le resulte útil leer lo siguiente.
 
 Después de configurar un nuevo sitio web con una base de datos MySQL, tendrá la información de la conexión de la base de datos MySQL y un repositorio Git (opcional). El paso siguiente es copiar su base de datos a MySQL en Sitios web Azure.
 
 ##<a name="copy-database"></a>2. Copia de base de datos a MySQL en Sitios web Azure
 
-Hay muchas formas de migrar una base de datos a Azure. Una de las que mejor funcionan con las bases de datos MySQL es usar la herramienta [MySqlDump][]. El comando siguiente proporciona un ejemplo de cómo copiar de un equipo local a Sitios web Azure:
+Hay muchas formas de migrar una base de datos a Azure. Una de las que mejor funciona con las bases de datos MySQL es usar la herramienta [MySqlDump][]. El comando siguiente proporciona un ejemplo de cómo copiar de un equipo local a Sitios web Azure:
 
     mysqldump -u local_username --password=local_password  drupal | mysql -h remote_host -u remote_username --password=remote_password remote_db_name
 
@@ -40,7 +54,7 @@ Llegados a este punto, la base de datos de Drupal estará activa en Sitios web A
 
 ##<a name="modify-settingsphp"></a>3. Modificación de la información de conexión de base de datos en settings.php
 
-En este punto, volverá a necesitar la información de conexión de la nueva base de datos. Abra el archivo **/drupal/sites/default/setting.php** en un editor de texto y reemplace los valores de 'database', 'username', 'password' y 'host' de la matriz **$databases** por los valores correctos de la nueva base de datos. Cuando termine, el resultado debería ser similar al siguiente:
+En este punto, volverá a necesitar la información de conexión de la nueva base de datos. Abra el archivo **/drupal/sites/default/setting.php** en un editor de texto y reemplace los valores de 'database', 'username', 'password' y 'host' en la matriz **$databases** con los valores correctos de la base de datos. Cuando termine, el resultado debería ser similar al siguiente:
 
     $databases = array (
        'default' => 
@@ -68,7 +82,7 @@ Si usa FTP, busque el nombre de usuario y el nombre de host de FTP en el panel d
 
 Si usa Git, debería haber configurado un repositorio Git en los pasos anteriores. Debe instalar Git en su equipo local. A continuación, siga las instrucciones proporcionadas después de crear el repositorio.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > En función de su configuración de Git, puede que tenga que modificar el archivo .gitignore (un archivo oculto y del mismo nivel de la carpeta .git creada en el directorio raíz local después de ejecutar la confirmación git). De este modo se especifican archivos en su aplicación de Drupal que podrían de otro modo ignorarse. Si contiene archivos que deberían implementarse, elimine las entradas para que estos archivos no se ignoren.
 
 Después de implementar Drupal en Sitios web Azure, puede continuar implementando las actualizaciones por medio de Git o FTP.
@@ -91,6 +105,11 @@ Para obtener más información, consulte los temas y las publicaciones siguiente
   [Creación de un sitio web PHP-MySQL de Azure e implementación mediante Git]: http://www.windowsazure.com/es-es/develop/php/tutorials/website-w-mysql-and-git/
   
   [Sitios web Azure: una perspectiva de PHP (en inglés)]: http://blogs.msdn.com/b/silverlining/archive/2012/06/12/windows-azure-websites-a-php-perspective.aspx
-  [Sitios web, Servicios en la nube y Máquinas virtuales de Windows Azure: cuándo usar cada uno]: http://go.microsoft.com/fwlink/?LinkId=310123.
+  [Sitios web, Servicios en la nube y Máquinas virtuales de Windows Azure: cuándo usar cada uno].: http://go.microsoft.com/fwlink/?LinkId=310123
   [Configuración de PHP en Sitios web Azure con archivos .user.ini (en inglés)]: http://blogs.msdn.com/b/silverlining/archive/2012/07/10/configuring-php-in-windows-azure-websites-with-user-ini-files.aspx
   [Módulo de integración de Azure]: http://drupal.org/project/azure
+
+
+
+
+<!--HONumber=42-->

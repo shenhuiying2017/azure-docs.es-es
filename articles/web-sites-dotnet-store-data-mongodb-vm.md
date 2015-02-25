@@ -1,13 +1,27 @@
-<properties urlDisplayName="Website with MongoDB VM" pageTitle="Sitio web .NET con MongoDB en una máquina virtual - Azure" metaKeywords="Azure Git ASP.NET MongoDB, Git .NET, Git MongoDB, ASP.NET MongoDB, Azure MongoDB, Azure ASP.NET, Azure tutorial" description="Un tutorial que le enseña a usar Git para implementar una aplicación ASP.NET en un sitio web de Azure conectado a MongoDB en una máquina virtual." metaCanonical="" services="web-sites,virtual-machines" documentationCenter=".NET" title="Create an Azure website that connects to MongoDB running on a virtual machine in Azure" authors="cephalin" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Sitio web .NET con MongoDB en una máquina virtual - Azure" 
+	description="Un tutorial que le enseña a usar Git para implementar una aplicación ASP.NET en un sitio web de Azure conectado a MongoDB en una máquina virtual." 
+	services="web-sites, virtual-machines" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 	
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/24/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/24/2014" 
+	ms.author="cephalin"/>
 
 
 # Creación de un sitio web de Azure que se conecta a MongoDB en una máquina virtual en Azure
 
 Puede utilizar Git para implementar una aplicación ASP.NET para un sitio web de Azure. En este tutorial, generará una aplicación de lista de tareas ASP.NET MVC front-end simple que se conecta a una base de datos MongoDB en una máquina virtual en Azure.  [MongoDB][MongoDB] es una conocida base de datos NoSQL de alto rendimiento de código abierto. Después de ejecutar y realizar la prueba de la aplicación ASP.NET en el equipo de desarrollo, cargará la aplicación en un sitio web de Azure mediante Git.
 
-[WACOM.INCLUDE [create-account-and-websites-and-vms-note](../includes/create-account-and-websites-and-vms-note.md)]
+[AZURE.INCLUDE [create-account-and-websites-and-vms-note](../includes/create-account-and-websites-and-vms-note.md)]
 
 
 
@@ -25,10 +39,10 @@ En este tutorial, aprenderá lo siguiente:
 
 El conocimiento de los siguientes aspectos es útil para este tutorial, aunque no es obligatorio:
 
-* El controlador C# para MongoDB. Para obtener más información sobre el desarrollo de aplicaciones C# en relación con MongoDB, consulte el [Centro de lenguaje CSharp][MongoC#LangCenter] de MongoDB. 
+* El controlador C# para MongoDB. Para obtener más información sobre el desarrollo de aplicaciones de C# con MongoDB, consulte el [Centro de lenguaje CSharp][MongoC#LangCenter] de MongoDB. 
 * El marco de la aplicación web ASP.NET. Puede obtener toda la información en el [sitio web de ASP.net][ASP.NET].
-* El marco de la aplicación web ASP .NET MVC. Puede obtener todo la información al respecto en el [sitio web de ASP.NET MVC][MVCWebSite].
-* Azure. Puede comenzar leyendo [Azure][WindowsAzure].
+* El marco de la aplicación web ASP .NET MVC. Puede obtener toda la información al respecto en el [sitio web de ASP.NET MVC][MVCWebSite].
+* Azure. Puede comenzar leyendo en [Azure][WindowsAzure].
 
 
 ##Preparación##
@@ -47,7 +61,7 @@ Después de haber creado la máquina virtual en Azure e instalado MongoDB, aseg�
 
 ### Instalación de Visual Studio###
 
-Para empezar, instale y ejecute [Visual Studio Express 2013 para Web] [VSEWeb] o [Visual Studio 2013] [VSUlt].
+Para empezar, instale y ejecute [Visual Studio Express 2013 para Web][VSEWeb] o [Visual Studio 2013][VSUlt].
 
 Visual Studio es un IDE (siglas en inglés de "entorno de desarrollo integrado"). Usará el IDE para crear aplicaciones de la misma forma que usa Microsoft Word para escribir documentos. Este tutorial usa Microsoft Visual Studio 2013, pero puede usar Microsoft Visual Studio Express 2013, que es una versión gratuita de Microsoft Visual Studio.
 
@@ -61,7 +75,7 @@ En Visual Studio, haga clic en **Nuevo proyecto**.
 
 ![Start Page New Project][StartPageNewProject]
 
-En la ventana **Nuevo proyecto**, en el panel izquierdo, seleccione **Visual C#** y, a continuación, seleccione **Web**. En el panel intermedio, seleccione **Aplicación web ASP.NET**. En la parte inferior, utilice el nombre "MyTaskListApp" para el proyecto y, a continuación, haga clic en **Aceptar**.
+En la ventana **Nuevo proyecto**, en el panel izquierdo, seleccione **Visual C#** y, a continuación, seleccione **Web**. En el panel intermedio, seleccione**Aplicación web ASP.NET**. En la parte inferior, utilice el nombre "MyTaskListApp" para el proyecto y, a continuación, haga clic en **Aceptar**.
 
 ![New Project Dialog][NewProjectMyTaskListApp]
 
@@ -98,7 +112,7 @@ El controlador C# de MongoDB está ahora instalado.  Las referencias a las bibli
 ![MongoDB C# Driver References][MongoDBCSharpDriverReferences]
 
 ###Incorporación de un modelo###
-En el **Explorador de soluciones**, haga clic con el botón secundario en la carpeta *Models* y seleccione **Agregar** una nueva **Clase** y asígnele el nombre *TaskModel.cs*.  En *TaskModel.cs*, reemplace el código existente por el siguiente código:
+En el **Explorador de soluciones**, haga clic en la carpeta *Models*, **Agregue** una nueva **Clase** y asígnele el nombre *TaskModel.cs*.  En *TaskModel.cs*, reemplace el código existente por el código siguiente:
 
 	using System;
 	using System.Collections.Generic;
@@ -131,7 +145,7 @@ En el **Explorador de soluciones**, haga clic con el botón secundario en la car
 	}
 
 ###Incorporación de un nivel de acceso de datos###
-En el **Explorador de soluciones**, haga clic con el botón secundario en el proyecto *MyTaskListApp* y seleccione **Agregar** una **Carpeta nueva** llamada *DAL*.  Haga clic con el botón secundario en la carpeta *DAL* y utilice la opción **Agregar** una nueva **Clase**. Utilice el nombre de archivo de clase *Dal.cs*.  En *Dal.cs*, reemplace el código existente por el siguiente código:
+En el **Explorador de soluciones**, haga clic en el proyecto *MyTaskListApp* y **Agregue** una **Nueva carpeta** llamada *DAL*.  Haga clic con el botón derecho en la carpeta *DAL* y **Agregue** una nueva **Clase**. Asigne como nombre del archivo de clase *Dal.cs*.  En *Dal.cs*, reemplace el código existente por el código siguiente:
 
 	using System;
 	using System.Collections.Generic;
@@ -237,7 +251,7 @@ En el **Explorador de soluciones**, haga clic con el botón secundario en el pro
 	}
 
 ###Incorporación de un controlador###
-Abra el archivo *Controllers\HomeController.cs* en el **Explorador de soluciones** y reemplace el código existente por lo siguiente:
+Abra el archivo  *Controllers\HomeController.cs* en el **Explorador de soluciones** y reemplace el código existente por el siguiente:
 
 	using System;
 	using System.Collections.Generic;
@@ -359,7 +373,7 @@ Para configurar el menú Task List, abra el archivo *\Views\Home\Index.cshtml* y
 	<div>  @Html.Partial("Create", new MyTaskListApp.Models.MyTask())</div>
 
 
-Para agregar la capacidad de crear una nueva tarea, haga clic con el botón secundario en la carpeta *Views\Home\\* y utilice la opción **Add** para agregar una vista en **View**.  Póngale a la vista el nombre *Create*. Reemplace el código por lo siguiente:
+Para agregar la capacidad de crear una nueva tarea, haga clic con el botón secundario en la carpeta *Views\Home\\*Views\Home\ y **Agregue** una **Vista**.  Asígnele a la vista el nombre *Create*. Reemplace el código por lo siguiente:
 
 	@model MyTaskListApp.Models.MyTask
 	
@@ -411,7 +425,7 @@ En el **Explorador de soluciones**, abra el archivo *DAL/Dal.cs*. Busque la sigu
 
 	private string connectionString = "mongodb://<vm-dns-name>";
 
-Reemplace "<vm-dns-name>" por el nombre de DNS de la máquina virtual que ejecuta el MongoDB que creó en el paso [Creación de una máquina virtual e instalación de MongoDB][] de este tutorial.  Para buscar el nombre de DNS de la máquina virtual, diríjase al Portal de administración de Azure, seleccione **Máquinas virtuales** y busque **Nombre DNS**.
+Reemplace `<vm-dns-name>` por el nombre de DNS de la máquina virtual que ejecuta el MongoDB que creó en el paso [Creación de una máquina virtual e instalación de MongoDB][] de este tutorial.  Para buscar el nombre de DNS de la máquina virtual, diríjase al Portal de administración de Azure, seleccione **Máquinas virtuales** y busque **Nombre DNS**.
 
 Si el nombre de DNS de la máquina virtual es "testlinuxvm.cloudapp.net" y MongoDB está escuchando en el puerto predeterminado 27017, la línea de la cadena de conexión del código tendrá la siguiente apariencia:
 
@@ -486,8 +500,8 @@ Ha implementado correctamente la aplicación ASP.NET en un sitio web de Azure.  
 [ASP.NET]: http://www.asp.net/
 [MongoConnectionStrings]: http://www.mongodb.org/display/DOCS/Connections
 [MongoDB]: http://www.mongodb.org
-[InstallMongoOnCentOSLinuxVM]: /en-us/manage/linux/common-tasks/mongodb-on-a-linux-vm/
-[InstallMongoOnWindowsVM]: /en-us/manage/windows/common-tasks/install-mongodb/
+[InstallMongoOnCentOSLinuxVM]: /es-es/manage/linux/common-tasks/mongodb-on-a-linux-vm/
+[InstallMongoOnWindowsVM]: /es-es/manage/windows/common-tasks/install-mongodb/
 [VSEWeb]: http://www.microsoft.com/visualstudio/eng/2013-downloads#d-2013-express
 [VSUlt]: http://www.microsoft.com/visualstudio/eng/2013-downloads
 
@@ -516,4 +530,7 @@ Ha implementado correctamente la aplicación ASP.NET en un sitio web de Azure.  
 [Creación de un sitio web de Azure]: #createwebsite
 [Implementación de la aplicación ASP.NET en el sitio web con Git]: #deployapp
 
-<!--HONumber=35.1-->
+
+
+
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Website with WebMatrix" pageTitle="Sitio web de .NET con WebMatrix: tutoriales de Azure"metaKeywords ="WebMatrix Azure, WebMatrix Azure, sitio web de WebMatrix Azure, sitio web de WebMatrix Azure, Web Matrix Azure, WebMatrix Azure" description="Aprenda a desarrollar e implementar un sitio web de Azure con WebMatrix." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Develop and deploy a website with Microsoft WebMatrix" authors="tomfitz" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Sitio web de .NET con WebMatrix: tutoriales de Azure" 
+	description="Obtenga información acerca de cómo desarrollar e implementar un sitio web de Azure con WebMatrix." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/27/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="tomfitz"/>
 
 
 
@@ -15,9 +29,9 @@ Aprenderá a:
 * Crear un sitio mediante una plantilla integrada con WebMatrix 
 * Implementar el sitio web personalizado directamente desde WebMatrix hasta Azure.
 
-> [WACOM.NOTE]
-> para completar este tutorial, deberá tener una cuenta de Azure. De manera opcional, puede: <a href="http://azure.microsoft.com/es-es/pricing/member-offers/msdn-benefits-details/">activar los beneficios de suscriptor MSDN</a> o <a href="http://azure.microsoft.com/es-es/pricing/free-trial/">suscribirse para una prueba gratuita</a>.
-> Si desea empezar a trabajar con sitios web de Azure antes de contratar una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net,</a>donde puede crear inmediatamente un sitio de inicio ASP.NET en sitios web de Azure de forma gratuita. No se requiere ninguna tarjeta de crédito, sin compromisos.
+> [AZURE.NOTE]
+> para completar este tutorial, deberá tener una cuenta de Azure. Puede <a href="http://azure.microsoft.com/es-es/pricing/member-offers/msdn-benefits-details/">activar sus beneficios de suscriptor a MSDN</a> o <a href="http://azure.microsoft.com/es-es/pricing/free-trial/">registrarse para obtener una evaluación gratuita</a>.
+> Si desea obtener una introducción a Sitios web Azure antes de inscribirse para abrir una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita un sitio básico de ASP.NET de corta duración en Sitios web Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ## Inicio de sesión en Azure
 
@@ -67,14 +81,14 @@ El ejemplo de la panadería incluye un formulario de pedido simulado que envía 
 
     ![SendGrid added][binsendgrid]
 
-3. Abra la página *Order.cshtml* haciendo doble clic en el nombre del archivo.
+3. Abra la página *Order.cshtml* haciendo doble clic en el nombre de archivo.
 
 	![][modify2]
 
 4. Al principio del archivo, agregue el código siguiente:
 
         @using SendGrid;
-        @using System.Net.Mail;
+        @using System.Net.Mail;	
 
 4. Busque el comentario que dice //Configuración SMTP para Hotmail y elimine o comente todo el código para usar el correo electrónico web.
 
@@ -162,7 +176,7 @@ Puede usar WebMatrix para modificar el sitio y volver a publicarlo en su sitio w
 
 1. Abra la página *Order.cshtml*.
 
-2. Localice la definición de la forma de clase de "envío". Inserte el siguiente código justo después del bloque <li>.
+2. Localice la definición de la forma de clase de "envío". Inserte el código siguiente justo después del bloque &lt;li&gt;.
 		
 		<li class="gift">
 		    <div class="fieldcontainer" data-role="fieldcontain">
@@ -173,7 +187,7 @@ Puede usar WebMatrix para modificar el sitio y volver a publicarlo en su sitio w
 
 	![][modify5]
 
-3. Localice la línea "var shipping = Request["orderShipping"];" en el archivo e inserte la siguiente línea de código inmediatamente después.
+3. Busque la línea"var shipping = Request["orderShipping"];" en el archivo e inserte la siguiente línea de código inmediatamente después.
 
 		var gift = Request["isGift"];
 
@@ -183,7 +197,7 @@ Puede usar WebMatrix para modificar el sitio y volver a publicarlo en su sitio w
 			body += "This is a gift." + "<br/>";
 		}
 
-	Su archivo *order.cshtml* debe parecerse a la siguiente imagen.
+	El archivo *order.cshtml* debe ser similar a la siguiente imagen.
 
 	![][modify6]
 
@@ -236,4 +250,7 @@ Ha aprendido a crear e implementar un sitio web de WebMatrix en Azure. Para obte
 [sendmailissues]: http://go.microsoft.com/fwlink/?LinkId=253001#email
 [sendgridexample]: http://azure.microsoft.com/es-es/documentation/articles/sendgrid-dotnet-how-to-send-email/
 
-<!--HONumber=35.2-->
+
+
+
+<!--HONumber=42-->

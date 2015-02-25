@@ -1,216 +1,128 @@
-﻿<properties urlDisplayName="Create a Line-of-Business Application on Azure Websites" pageTitle="Creación de una aplicación de línea de negocio en Sitios web Azure" metaKeywords="Web Sites" description="En esta guía se ofrece información general de carácter técnico acerca de cómo usar Sitios web Azure para crear Intranet y aplicaciones de líneas de negocios. Esto incluye las estrategias de autenticación, la retransmisión del bus de servicio y la supervisión." umbracoNaviHide="0" disqusComments="1" editor="mollybos" manager="wpickett" title="Create a Line-of-Business Application on Azure Websites" authors="jroth" />
+﻿<properties 
+	pageTitle="Creación de una aplicación de línea de negocio en Sitios web Azure" 
+	description="En esta guía se ofrece información general de carácter técnico acerca de cómo usar Sitios web Azure para crear Intranet y aplicaciones de líneas de negocios. Esto incluye las estrategias de autenticación, la retransmisión del bus de servicio y la supervisión. 
+	editor="jimbe" 
+	manager="wpickett" 
+	authors="cephalin" 
+	services="web-sites" 
+	documentationCenter=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/01/2014" ms.author="jroth" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2014" 
+	ms.author="cephalin"/>
 
 
 
 # Creación de una aplicación de línea de negocio en Sitios web Azure
 
-En esta guía se ofrece información general de carácter técnico acerca de cómo usar Sitios web Azure para crear aplicaciones de líneas de negocios. En el ámbito de este documento, estas aplicaciones se consideran aplicaciones de intranet que deben protegerse para utilizarse internamente con fines empresariales. Las aplicaciones empresariales presentan dos características distintivas. Por un lado, requieren autenticación, normalmente en un directorio corporativo. Por otro lado, suelen requerir algún tipo de acceso a los datos y servicios locales o integración con ellos. Esta guía se centra en el desarrollo de aplicaciones empresariales en [Sitios web Azure][websitesoverview]. Sin embargo, en determinadas situaciones [Servicios en la nube de Azure][csoverview] o [Máquinas virtuales de Azure][vmoverview] se ajustarían mejor a sus requisitos. Es importante consultar las diferencias entre estas opciones en el tema [Sitios web, Servicios en la nube y Máquinas virtuales de Azure: cuándo usar cada uno][chooseservice]. 
+[Sitios web Azure] es una elección excelente para las aplicaciones de línea de negocio. Estas aplicaciones son aplicaciones de intranet que deberían protegerse para su uso comercial interno. Normalmente requieren autenticación, de forma habitual en un directorio corporativo, y con algún acceso o integración con servicios y datos locales. 
 
-En esta guía se tratan los siguientes temas:
+Existen ventajas importantes al mover aplicaciones de línea de negocio móviles a los sitios web Azure, como:
 
-- [Evaluación de las ventajas](#benefits)
-- [Selección de una estrategia de autenticación](#authentication)
-- [Creación de un sitio web de Azure compatible con la autenticación](#createintranetsite)
-- [Uso del bus de servicio para la integración con los recursos locales](#servicebusrelay)
-- [Supervisión de la aplicación](#monitor)
+-  el escalado hacia arriba y abajo con cargas de trabajo dinámicas, como una aplicación que controle el rendimiento anual de revisión. Durante el período de revisión, el tráfico aumentará notablemente en el caso de las empresas de gran tamaño. Azure ofrece opciones de escalado que permiten a la empresa escalar su capacidad horizontalmente para soportar la carga durante el período de revisión de mucho tráfico y ahorrar dinero volviendo a reducir su capacidad el resto del año. 
+-  una dedicación mayor al desarrollo de aplicaciones y menor a la adquisición y administración de infraestructuras
+-  mejor compatibilidad para que los empleados y partners usen la aplicación desde cualquier lugar. Los usuarios no necesitan estar conectados a la red corporativa todo el tiempo para utilizar la aplicación, con lo que el departamento de TI evita complejas soluciones de proxy inverso. Existen diversas opciones de autenticación para garantizar la protección del acceso a las aplicaciones de empresa.
+
+A continuación se muestra un ejemplo de una aplicación de línea de negocio que se ejecuta en Sitios web Azure. Se muestra lo que puede hacer simplemente al componer los Sitios web Azure junto con otros servicios con inversiones técnicas mínimas. **Haga clic en un elemento de la topografía para obtener más información sobre él.** 
+
+<object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/web-app-notitle.svg" width="100%" height="100%"></object>
 
 <div class="dev-callout">
-<strong>Nota:</strong>
-<p>En esta guía se presentan algunos de los temas y tareas más comunes relacionados con el desarrollo de sitios .COM de acceso público. Sin embargo, existen otras funciones de Sitios web Azure que puede utilizar en su implementación concreta. Para revisar estas capacidades, consulte también otras guías sobre <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/global-web-presence-solution-overview/">presencia web global</a> y <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview">campañas de marketing digital</a>.</p>
+<strong>Nota</strong>
+<p>En esta guía se muestran algunas de las áreas y las tareas más comunes que están alineadas con las aplicaciones de línea de negocio. Sin embargo, existen otras funciones de Sitios web Azure que puede utilizar en su implementación concreta. Para obtener información acerca de estas funciones, consulte también las otras guías sobre <a href="http://www.windowsazure.com/es-es/manage/services/web-sites/global-web-presence-solution-overview/">presencia web mundial</a> y <a href="http://www.windowsazure.com/es-es/manage/services/web-sites/digital-marketing-campaign-solution-overview">campañas de marketing digital</a>.</p>
 </div>
 
-##<a name="benefits"></a>Evaluación de las ventajas
-Dado que las aplicaciones de línea de negocio suelen estar dirigidas a usuarios corporativos, debe tener en cuenta las razones para usar la nube en lugar de los recursos e infraestructura corporativos locales. En primer lugar, están algunas de las ventajas habituales de la migración a la nube, como la posibilidad de escalar o reducir verticalmente la capacidad con cargas de trabajo dinámicas. Tomemos como ejemplo una aplicación para administrar las revisiones anuales del rendimiento. La mayor parte del año una aplicación de este tipo tendrá muy poco tráfico; sin embargo, durante el período de revisión, el tráfico aumentará notablemente en el caso de las empresas de gran tamaño. Azure ofrece opciones de escalado que permiten a la empresa escalar su capacidad horizontalmente para soportar la carga durante el período de revisión de mucho tráfico y ahorrar dinero volviendo a reducir su capacidad el resto del año. Otra ventaja de la nube es la posibilidad de centrarse en el desarrollo de aplicaciones en lugar de en la adquisición y administración de la infraestructura.
+### Aportación de los recursos existentes
 
-Además de estas ventajas estándar, al migrar una aplicación empresarial a la nube se posibilita que los empleados y asociados la utilicen desde cualquier lugar. Los usuarios no necesitan estar conectados a la red corporativa todo el tiempo para utilizar la aplicación, con lo que el departamento de TI evita complejas soluciones de proxy inverso. Existen diversas opciones de autenticación para garantizar la protección del acceso a las aplicaciones de empresa. Estas opciones se describen en las siguientes secciones de esta guía.
+Aporte los recursos web existentes a Sitios web de Azure de entre una variedad de lenguajes y marcos.
 
-##<a name="authentication"></a>Selección de una estrategia de autenticación
-En el contexto de las aplicaciones empresariales, es esencial elegir una buena estrategia de autenticación. Existen varias opciones:
+Sus recursos web existentes pueden ejecutarse en Sitios web de Azure, ya sean de .NET, PHP, Java, Node.js o Python. Puede moverlos a Sitios web de Azure con sus herramientas [FTP] habituales o con su sistema de administración de control de código fuente. Sitios web Azure admite la publicación directa desde las opciones de control de código fuente más conocidas, como [Visual Studio], [Visual Studio Online] y [Git] (local, GitHub, BitBucket, DropBox, Mercurial, etc.).
 
-- Utilizar el [servicio Azure Active Directory][adoverview]. Puede utilizarlo como un directorio independiente, o bien sincronizarlo con un directorio Active Directory local. De este modo, las aplicaciones interactuarán con Azure Active Directory para autenticar a los usuarios. Para obtener información general acerca de esta estrategia, consulte [Uso de Azure Active Directory][adusing].
-- Utilizar Máquinas virtuales y Red virtual Azure para instalar Active Directory. Esta opción le permite ampliar una instalación de Active Directory local a la nube. También puede optar por usar los servicios de federación de Active Directory (ADFS) para federar las solicitudes de identidad en el directorio AD local. De este modo, la autenticación de la aplicación Azure pasará por los ADFS para llegar al directorio Active Directory local. Para obtener más información acerca de este enfoque, consulte [Ejecución de Windows Server Active Directory en máquinas virtuales][adwithvm] y [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Azure][addeployguidelines]. 
-- Utilizar un servicio intermediario, como el [servicio de control de acceso de Azure][acs2] (ACS), para usar varios servicios de identidad con el fin de autenticar a los usuarios. Con esta opción se logra una abstracción para la autenticación a través de Active Directory o a través de otro proveedor de identidades. Para obtener más información, consulte [Uso del control de acceso de Azure Active Directory][acsusing].
+### Protección de sus recursos
 
-En el caso que nos ocupa, la primera opción, consistente en el uso de Azure Active Directory, es el camino más rápido para implementar una estrategia de autenticación para la aplicación. El resto de esta guía se centra en Azure Active Directory. Sin embargo, dependiendo de los requisitos de su empresa, es posible que alguna de las otras dos soluciones resulte más apropiada. Por ejemplo, si no se le permite sincronizar la información de identidad con la nube, la solución de los ADFS puede ser la más conveniente. O bien, si debe ofrecer compatibilidad con otros proveedores de identidades, como Facebook, la solución del ACS sería más adecuada.
+Proteja los recursos mediante el cifrado, autentique usuarios corporativos locales o remotos, y autorice el uso de recursos. 
 
-Antes de empezar a configurar un nuevo directorio de Azure Active Directory, compruebe si los servicios existentes, como Office 365 o Windows Intune, ya utilizan uno. De ser así, debe asociar la suscripción existente a la suscripción de Azure. Para obtener más información, consulte [¿Qué es un inquilino de Azure AD?][adtenant].
+Proteja los recursos internos contra interceptores con [HTTPS]. El nombre de dominio **\*.azurewebsites.net** ya viene con un certificado SSL y, si usa su dominio personalizado, puede aportar su certificado SSL para Sitios web Azure. Hay un cargo mensual (prorrateado por horas) asociado a cada certificado SSL. Para obtener más información, consulte [Detalles de precios de Sitios web].
 
-Si actualmente no cuenta con ningún servicio que utilice Azure Active Directory, puede crear un nuevo directorio en el Portal de administración. Utilice la sección **Active Directory** del Portal de administración para tal fin.
+[Autenticar a los usuarios] en el directorio corporativo. Sitios web Azure puede autenticar a los usuarios con proveedores de identidades locales, como los Servicios de federación de Active Directory (AD FS), o con un inquilino de Azure Active Directory que se haya sincronizado con su implementación de Active Directory corporativo. Los usuarios pueden acceder a sus propiedades web en Sitios web de Azure a través de un inicio de sesión único, tanto cuando se encuentran de forma local como de forma remota. Los servicios existentes, como Office 365 o Windows Intune, ya usan Azure Active Directory. Mediante [Easy Auth], la activación de la autenticación con el mismo inquilino de Azure Active Directory para su sitio web es muy fácil. 
 
-![BusinessApplicationsAzureAD][BusinessApplicationsAzureAD]
+[Autorice que los usuarios] usen sus propiedades web. Con un mínimo de código adicional, puede adoptar el mismo patrón de codificación de ASP.NET local en Sitios web de Azure, por ejemplo con la decoración `[Authorize]`. Conserve la misma flexibilidad de control de acceso detallado de las aplicaciones que mantiene de forma local.
 
-Una vez creado el directorio, tiene la opción de crear y administrar usuarios, aplicaciones integradas y dominios.
+### Conexión con recursos locales ###
 
-![BusinessApplicationsADUsers][BusinessApplicationsADUsers]
+Conéctese con los recursos o datos de su sitio web, ya sea en la nube por motivos de rendimiento o de forma local por cumplimiento normativo. Para obtener más información acerca de cómo mantener los datos en Azure, consulte [Centro de confianza de Azure]. 
 
-Para obtener información detallada acerca de estos pasos, consulte [Incorporación del inicio de sesión a la aplicación web utilizando Azure AD][adsso]. Si va a utilizar el nuevo directorio como recurso independiente, el siguiente paso consiste en desarrollar aplicaciones que se integren con él. Sin embargo, si dispone de identidades locales de Active Directory, lo habitual es sincronizarlas con el nuevo directorio Azure Active Directory. Para obtener más información acerca de cómo hacerlo, consulte [Integración de Active Directory][dirintegration].
+Puede elegir varios back-ends de base de datos en Azure para cubrir las necesidades de su sitio web, entre los que se incluyen [Base de datos SQL de Azure] y [MySQL]. Al mantener los datos de forma segura en Azure, consigue que los datos estén más cerca de su sitio web geográficamente y optimiza su rendimiento.
 
-Una vez creado y poblado el directorio, debe crear aplicaciones web que requieran autenticación y, a continuación, integrarlas con el directorio. Estos pasos se explican en las dos secciones siguientes.
+Sin embargo, su empresa puede necesitar que sus datos se mantengan de forma local. Sitios web Azure permite configurar fácilmente una [conexión híbrida] con el recurso local, como un back-end de base de datos. Si desea una administración unificada de las conexiones locales, integre varios Sitios web Azure en una [Red virtual de Azure] que tenga una VPN de sitio a sitio. Así, tendrá acceso a recursos locales como si sus sitios web Azure estuvieran de forma local. [Enterprise Pizza: conexión de sitios web de forma local mediante el bus de servicio][enterprisepizza]
 
-##<a name="createintranetsite"></a>Creación de un sitio web de Azure compatible con la autenticación
-En la guía sobre presencia web mundial, explicamos varias opciones para crear e implementar un sitio web. Si es la primera vez que utiliza Sitios web Azure, es recomendable que [consulte esa información][scenarioglobalweb]. Los usuarios que desean una aplicación web de intranet que utilice la autenticación de Windows suelen recurrir a una aplicación ASP.NET en Visual Studio. Una de las razones es la estrecha integración y compatibilidad con este tipo de aplicación que ofrecen ASP.NET y Visual Studio.
+### Optimización
 
-Por ejemplo, a la hora de crear un proyecto ASP.NET MVC 4 en Visual Studio, en el cuadro de diálogo de creación de proyectos aparece la opción de crear una **aplicación de intranet**.
+Optimice la aplicación de línea de negocio mediante el escalado automático con Autoscale, el almacenamiento en caché con Caché en Redis de Azure, la ejecución de tareas en segundo plano con WebJobs y el mantenimiento de una alta disponibilidad con Azure Traffic Manager.
 
-![BusinessApplicationsVSIntranetApp][BusinessApplicationsVSIntranetApp]
+La capacidad de Sitios web Azure para [escalar vertical y horizontalmente] cubre las necesidades de la aplicación de línea de negocio, independientemente del tamaño de la carga de trabajo. Escale horizontalmente de forma manual su sitio web a través del [Portal de administración de Azure], mediante programación a través de la [API de administración de servicios] o de [scripting de PowerShell], o automáticamente con la función Autoscale. En el plan de hospedaje **Standard**, Autoscale permite escalar horizontalmente un sitio web de forma automática, basándose en el uso de CPU. Para conocer los procedimientos recomendados, consulte la publicación de [Troy Hunt], [10 things I learned about rapidly scaling websites with Azure].
 
-Esta opción hace cambios en la configuración del proyecto para que este sea compatible con la autenticación de Windows. En concreto, el archivo web.config establece el atributo **mode** del elemento **authentication** en **Windows**. Este cambio debe realizarlo manualmente si crea un proyecto ASP.NET diferente, por ejemplo, un proyecto de formularios web, o si trabaja con un proyecto existente.
+Consiga que su sitio web tenga más capacidad de respuesta con [Caché en Redis de Azure]. Úsela para almacenar en caché datos de bases de datos de back-end y otras cosas como el [estado de sesión e ASP.NET] y la [caché de resultados].
 
-En el caso de los proyectos MVC, también debe cambiar dos valores de la ventana de propiedades del proyecto. Establezca  **Autenticación de Windows** en **Habilitada** y **Autenticación anónima** en **Deshabilitada**.
+Mantenga una alta disponibilidad de su sitio web con [Azure Traffic Manager]. Gracias al método **Failover**, Traffic Manager enruta automáticamente el tráfico a un sitio secundario si se produce un problema en el sitio primario.
 
-![BusinessApplicationsVSProperties][BusinessApplicationsVSProperties]
+### Supervisión y análisis
 
-Si desea utilizar Azure Active Directory para la autenticación, debe registrar la aplicación en el directorio y, a continuación, modificar su configuración para establecer conexión. Esto puede hacerse de dos maneras en Visual Studio:
+Manténgase informado sobre el rendimiento de su sitio web con herramientas de Azure o de terceros. Reciba alertas sobre eventos críticos del sitio web. Obtenga fácilmente información sobre los usuarios con Application Insight o con los análisis de registros web de HDInsight. 
 
-- [Herramienta de identidades y acceso para Visual Studio](#identityandaccessforvs)
-- [Herramientas de Microsoft ASP.NET para Azure Active Directory](#aspnettoolsforwaad)
+Obtenga una [vista rápida] de las métricas de rendimiento actuales del sitio web y de las cuotas de recursos en el panel de Sitios web Azure. Para obtener una vista completa de la aplicación en cuanto a disponibilidad, rendimiento y uso, utilice [Azure Application Insights] para ofrecer rápidamente información potente de uso, de diagnóstico y de solución de problemas. O bien, utilice una herramienta de terceros como [New Relic] para proporcionar datos de supervisión avanzada de sus sitios web.
 
-###<a name="identityandaccessforvs"></a>Herramienta de identidades y acceso para Visual Studio:
-Un método consiste en utilizar la [herramienta de identidades y acceso][identityandaccess] (que puede descargar e instalar). Esta herramienta se integra con Visual Studio en el menú contextual del proyecto. Las instrucciones y capturas de pantalla siguientes son de Visual Studio 2012. Haga clic con el botón secundario en el proyecto y seleccione **Identidades y acceso**. Debe configurar tres elementos. En la pestaña **Proveedores**, debe escribir un valor en **ruta de acceso al documento de metadatos de STS** y el **URI DE ID. DE LA APLICACIÓN** (para obtener estos valores, consulte la sección acerca del [registro de aplicaciones en Azure Active Directory](#registerwaadapp)).
+En el plan de hospedaje **Standard**, la capacidad de respuesta del sitio de supervisión recibe notificaciones por correo electrónico cuando su sitio deja de responder. Para obtener más información, consulte [Inserción de notificaciones de alerta y administración de reglas de alerta en Azure].
 
-![BusinessApplicationsVSIdentityAndAccess][BusinessApplicationsVSIdentityAndAccess]
+## Más recursos
 
-Por último, debe realizar un cambio en la pestaña **Configuration** del cuadro de diálogo **Identidades y acceso**. Debe activar la casilla **Habilitar cookies de la granja web**. Para obtener información detallada acerca de estos pasos, consulte [Incorporación del inicio de sesión a la aplicación web utilizando Azure AD][adsso].
+- [Documentación de Sitios web Azure](/es-es/documentation/services/websites/)
+- [Mapa de aprendizaje de Sitios web Azure](/es-es/documentation/articles/websites-learning-map/)
+- [Blog de web de Azure](/blog/topics/web/)
 
-####<a name="registerwaadapp"></a>Registro de aplicaciones en Azure Active Directory:
-Para poder completar la información de la pestaña **Proveedores**, debe registrar la aplicación en Azure Active Directory. En el Portal de administración de Azure, en la sección **Active Directory**, seleccione su directorio y, a continuación, abra la pestaña **Aplicaciones**. De este modo, podrá agregar el sitio web de Azure utilizando la URL. Tenga en cuenta que al seguir estos pasos inicialmente se establece la URL en la dirección localhost facilitada para la depuración local en Visual Studio. Más adelante, cuando implemente el sitio web, se cambiará a la URL real de este.
 
-![BusinessApplicationsADIntegratedApps][BusinessApplicationsADIntegratedApps]
 
-Una vez agregado el sitio web, el portal proporciona tanto la ruta al documento de metadatos de STS (la **URL del documento de metadatos de Federation**) como el **URI de identificación de la aplicación**. Estos valores se utilizan en la pestaña **Proveedores** del cuadro de diálogo **Identidades y acceso** de Visual Studio. 
+[Aplicaciones y Sitios web]:/es-es/services/websites/
 
-![BusinessApplicationsADAppAdded][BusinessApplicationsADAppAdded]
+[FTP]:/es-es/documentation/articles/web-sites-deploy/#ftp
+[Visual Studio]:/es-es/documentation/articles/web-sites-dotnet-get-started/
+[Visual Studio Online]:/es-es/documentation/articles/cloud-services-continuous-delivery-use-vso/
+[Git]:/es-es/documentation/articles/web-sites-publish-source-control/
 
-###<a name="aspnettoolsforwaad"></a>Herramientas de Microsoft ASP.NET para Azure Active Directory:
-Una manera alternativa de realizar los pasos anteriores consiste en utilizar las [herramientas de Microsoft ASP.NET para Azure Active Directory][aspnettools]. Para ello, haga clic en el elemento **Habilitar autenticación de Azure** del menú **Proyecto** de Visual Studio. De este modo, aparece un sencillo cuadro de diálogo donde debe escribir la dirección de su dominio de Azure Active Directory (no la URL de la aplicación).
+[HTTPS]:/es-es/documentation/articles/web-sites-configure-ssl-certificate/
+[Detalles de precios de Sitios web]:/es-es/pricing/details/web-sites/#service-ssl
+[Autenticación de usuarios]:/es-es/documentation/articles/web-sites-authentication-authorization/
+[Easy Auth]:/blog/2014/11/13/azure-websites-authentication-authorization/
+[Autorización de los usuarios]:/es-es/documentation/articles/web-sites-authentication-authorization/
 
-![BusinessApplicationsVSEnableAuth][BusinessApplicationsVSEnableAuth]
+[Centro de confianza de Microsoft Azure]:/es-es/support/trust-center/
+[MySQL]:/es-es/documentation/articles/web-sites-php-mysql-deploy-use-git/
+[Base de datos SQL de Azure]:/es-es/documentation/articles/web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/
+[conexión híbrida]:/es-es/documentation/articles/web-sites-hybrid-connection-get-started/
+[Red virtual de Azure]:/es-es/documentation/articles/web-sites-integrate-with-vnet/
 
-Si es el administrador de ese dominio de Active Directory, active la casilla **Aprovisionar esta aplicación en Azure AD**. Así se registrará la aplicación en Active Directory. Si no es el administrador, desactive esa casilla y facilite la información que se va a mostrar al administrador. El administrador puede utilizar el Portal de administración para crear una aplicación integrada siguiendo los pasos descritos anteriormente para la herramienta de identidades y acceso. Para obtener información detallada acerca de cómo usar las herramientas de ASP.NET para Azure Active Directory, consulte [Autenticación de Azure][azureauthtutorial].
+[escalado vertical y horizontal]:/es-es/manage/services/web-sites/how-to-scale-websites/
+[Portal de administración de Azure]:http://manage.windowsazure.com/
+[Referencia de la API de REST de administración de servicios]:http://msdn.microsoft.com/es-es/library/windowsazure/ee460799.aspx
+[Scripting de PowerShell]:http://msdn.microsoft.com/es-es/library/windowsazure/jj152841.aspx
+[Troy Hunt]:https://twitter.com/troyhunt
+[10 things I learned about rapidly scaling websites with Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
+[Caché en Redis de Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
+[Estado de la sesión de ASP.NET]:https://msdn.microsoft.com/es-es/library/azure/dn690522.aspx
+[caché de resultados]:https://msdn.microsoft.com/es-es/library/azure/dn798898.aspx
 
-A la hora de administrar la aplicación de línea de negocio, puede utilizar cualquiera de los sistemas de control de código fuente compatibles para la implementación. Sin embargo, debido al alto grado de integración con Visual Studio de este ejemplo, es probable que elija Team Foundation Service (TFS) como sistema de control de código fuente. Si es el caso, tenga en cuenta que Sitios web Azure ofrece integración con TFS. En el Portal de administración, abra la pestaña **Panel** del sitio web. A continuación, seleccione **Configurar implementación desde control de código fuente**. Siga las instrucciones sobre cómo usar TFS. 
-
-![BusinessApplicationsDeploy][BusinessApplicationsDeploy]
-
-##<a name="servicebusrelay"></a>Uso del bus de servicio para la integración con los recursos locales
-Muchas aplicaciones de línea de negocio deben integrarse con los datos y servicios locales. Existen varias razones por las que no es posible migrar determinados tipos de datos a la nube. Estas razones pueden ser prácticas o reglamentarias. Si se encuentra en la fase de planificación y es momento de decidir qué datos hospedar en Azure y qué datos conservar en el entorno local, es importante revisar los recursos del [Centro de confianza de Azure][trustcenter]. Las aplicaciones web híbridas se ejecutan en Azure y obtienen acceso a recursos que deben permanecer en el entorno local.
-
-Si utiliza Máquinas virtuales o Servicios en la nube, puede recurrir a una red virtual para conectar las aplicaciones de Azure con una red corporativa. Sin embargo, Sitios web no admite redes virtuales, por lo que la mejor manera de llevar a cabo este tipo de integración con Sitios web es mediante el [servicio de retransmisión de bus de servicio de Azure][sbrelay]. El servicio de retransmisión de bus de servicio permite a las aplicaciones en la nube conectarse de manera segura con servicios de WCF que se ejecutan en una red corporativa. El bus de servicio permite esta comunicación sin abrir puertos de firewall. 
-
-En el diagrama que aparece a continuación, la aplicación en la nube y el servicio de WCF local se comunican con el bus de servicio a través de un espacio de nombres creado previamente. El servicio de WCF local tiene acceso a datos y servicios internos que no se pueden migrar a la nube. Asimismo, registra un extremo del espacio de nombres. El sitio web que se ejecuta en Azure también se conecta con este extremo del bus de servicio. Basta con que puedan realizar solicitudes HTTP públicas salientes para completar este paso.
-
-![BusinessApplicationsServiceBusRelay][BusinessApplicationsServiceBusRelay]
-
-A continuación, el bus de servicio conecta la aplicación en la nube con el servicio de WCF local. Esto proporciona una arquitectura básica para crear aplicaciones híbridas que utilicen servicios y recursos tanto de Azure como locales. Para obtener más información, consulte [Uso del servicio de retransmisión de bus de servicio][sbrelayhowto] y el tutorial [Tutorial sobre mensajería retransmitida del bus de servicio][sbrelaytutorial]. En el siguiente vínculo podrá consultar un ejemplo de uso de esta técnica: [Enterprise Pizza: Conexión de sitios web a los recursos locales utilizando el bus de servicio][enterprisepizza].
-
-##<a name="monitor"></a>Supervisión de la aplicación
-Las aplicaciones empresariales se benefician de las funciones estándar de los sitios web, como el escalado y la supervisión. En el caso de las aplicaciones empresariales que soportan cargas variables dependiendo del día o la hora, la función de autoescalado (vista previa) puede ayudar a escalar el sitio horizontalmente y luego devolverlo a sus dimensiones originales para utilizar los recursos de manera eficiente. Entre las opciones de supervisión se incluye la supervisión de los extremos y de las cuotas. Todo esto se explica en detalle en las guías sobre [presencia web mundial][scenarioglobalweb] y [campañas de marketing digital][scenariodigitalmarketing].
-
-Las necesidades de supervisión de las aplicaciones de línea de negocio pueden variar en función de la importancia que estas tengan para la empresa. En el caso de aplicaciones esenciales, es recomendable invertir en una solución de supervisión de terceros, como [New Relic][newrelic].
-
-Las aplicaciones de línea de negocio suele administrarlas el equipo de TI. Si se produce un error o un funcionamiento inesperado, el equipo de TI puede habilitar un registro más detallado y, a continuación, analizar los datos resultantes para identificar los problemas. En el Portal de administración, abra la pestaña **Configurar** y revise las opciones de las secciones **Diagnóstico de aplicaciones** y **diagnósticos de sitios**. 
-
-![BusinessApplicationsDiagnostics][BusinessApplicationsDiagnostics]
-
-Utilice los diferentes registros de aplicaciones y sitios para solucionar problemas del sitio web. Observe que algunas de las opciones indican **Sistema de archivos**, lo que quiere decir que los archivos de registro se guardan en el sistema de archivos del sitio. Es posible obtener acceso a ellos mediante FTP, Azure PowerShell o las herramientas de línea de comandos de Azure. Otras opciones indican **Almacenamiento**. Esto quiere decir que la información se envía a la cuenta de almacenamiento de Azure que especifique. En el apartado **Registro del servidor web**, también tiene la opción de especificar una cuota de disco para el sistema de archivos o una directiva de retención para la opción de almacenamiento. De este modo, evitará que se almacene una cantidad ilimitada de datos de registro.
-
-![BusinessApplicationsDiagRetention][BusinessApplicationsDiagRetention]
-
-Para obtener más información acerca de la configuración del registro, consulte [Configuración de registros de diagnóstico y descarga para un sitio web][configurediagnostics].
-
-Además de obtener acceso a los registros sin procesar mediante FTP o herramientas de almacenamiento, como el explorador de almacenamiento de Azure, también puede ver la información de registro en Visual Studio. Para obtener información detallada acerca de cómo utilizar estos registros para solucionar problemas, consulte [Solución de problemas de Sitios web Azure en Visual Studio][troubleshootwebsites].
-
-##<a name="summary"></a>Resumen
-Azure le permite hospedar aplicaciones de intranet seguras en la nube. Azure Active Directory ofrece la posibilidad de autenticar a los usuarios para que solo los miembros de la organización puedan obtener acceso a las aplicaciones. El servicio de retransmisión de bus de servicio ofrece un mecanismo para que las aplicaciones web se comuniquen con los servicios y datos locales. Este modelo de aplicación híbrida facilita la publicación de aplicaciones empresariales en la nube sin migrar también todos los datos y servicios dependientes. Una vez implementadas, las aplicaciones empresariales se benefician de las funciones estándar de escalado y supervisión proporcionadas por Sitios web Azure. Para obtener más información, consulte los siguientes artículos técnicos.
-
-<table cellspacing="0" border="1">
-<tr>
-   <th align="left" valign="top">Ámbito</th>
-   <th align="left" valign="top">Recursos</th>
-</tr>
-<tr>
-   <td valign="middle"><strong>Plan</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/choose-web-app-service">Sitios web Azure, Servicios en la nube y Máquinas virtuales: cuándo usar cada uno</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Creación e implementación</strong></td>
-   <td valign="top">- <a href ="http://www.windowsazure.com/en-us/develop/net/tutorials/get-started/">Implementación de una aplicación web ASP.NET en un sitio web de Azure</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/web-site-with-sql-database/">Implementación de una aplicación ASP.NET MVC segura en Azure</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Autenticación</strong></td>
-   <td valign="top">- <a href ="http://www.windowsazure.com/en-us/manage/windows/fundamentals/identity/">Descripción de las opciones de identidades de Azure</a><br/>- <a href="http://www.windowsazure.com/en-us/documentation/services/active-directory/">Servicio Azure Active Directory</a><br/>- <a href="http://technet.microsoft.com/en-us/library/jj573650.aspx">¿Qué es un inquilino de Azure AD?</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn151790.aspx">Incorporación del inicio de sesión a la aplicación web utilizando Azure AD</a><br/>- <a href="http://www.asp.net/aspnet/overview/aspnet-and-visual-studio-2012/windows-azure-authentication">Tutorial sobre la autenticación de Azure</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Retransmisión de bus de servicio</strong></td>
-   <td valign="top">- <a href="http://www.windowsazure.com/en-us/develop/net/how-to-guides/service-bus-relay/">Uso del servicio del relé del bus de servicio</a><br/>- <a href="http://msdn.microsoft.com/en-us/library/windowsazure/ee706736.aspx">Tutorial sobre la mensajería retransmitida del Bus de servicio</a></td>
-</tr>
-<tr>
-   <td valign="middle"><strong>Monitor</strong></td>
-   <td valign="top">- <a href ="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/">Supervisión de sitios web</a><br/>- <a href="http://msdn.microsoft.com/library/windowsazure/dn306638.aspx">Recepción de notificaciones de alerta y administración de reglas de alerta en Azure.</a><br/>- <a href="http://www.windowsazure.com/en-us/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics">Reproducción de Registros de diagnóstico y descarga para un sitio web</a><br/>- <a href="http://www.windowsazure.com/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/">Solución de problemas de Sitios web Azure en Visual Studio.</a></td>
-</tr>
-</table>
-
-  [websitesoverview]:/en-us/documentation/services/web-sites/
-  [csoverview]:/en-us/documentation/services/cloud-services/
-  [vmoverview]:/en-us/documentation/services/virtual-machines/
-  [chooseservice]:/en-us/manage/services/web-sites/choose-web-app-service
-  [scenarioglobalweb]:/en-us/manage/services/web-sites/global-web-presence-solution-overview/
-  [scenariodigitalmarketing]:/en-us/manage/services/web-sites/digital-marketing-campaign-solution-overview
-  [adoverview]:/en-us/documentation/services/active-directory/
-  [adusing]:/en-us/manage/windows/fundamentals/identity/#ad
-  [adwithvm]:/en-us/manage/windows/fundamentals/identity/#adinvm
-  [addeployguidelines]:http://msdn.microsoft.com/en-us/library/windowsazure/jj156090.aspx
-  [acs2]:http://msdn.microsoft.com/library/windowsazure/hh147631.aspx
-  [acsusing]:/en-us/manage/windows/fundamentals/identity/#ac
-  [adtenant]:http://technet.microsoft.com/en-us/library/jj573650.aspx
-  [adsso]:http://msdn.microsoft.com/library/windowsazure/dn151790.aspx
-  [dirintegration]:http://technet.microsoft.com/en-us/library/jj573653.aspx
-  [identityandaccess]:http://visualstudiogallery.msdn.microsoft.com/e21bf653-dfe1-4d81-b3d3-795cb104066e
-  [aspnettools]:http://go.microsoft.com/fwlink/?LinkID=282306
-  [azureauthtutorial]:http://www.asp.net/aspnet/overview/aspnet-and-visual-studio-2012/windows-azure-authentication
-  [trustcenter]:/en-us/support/trust-center/
-  [sbrelay]:http://msdn.microsoft.com/en-us/library/windowsazure/jj860549.aspx
-  [sbrelayhowto]:/en-us/develop/net/how-to-guides/service-bus-relay/
-  [sbrelaytutorial]:http://msdn.microsoft.com/en-us/library/windowsazure/ee706736.aspx
-  [enterprisepizza]:http://code.msdn.microsoft.com/windowsazure/Enterprise-Pizza-e2d8f2fa
-  [newrelic]:http://newrelic.com/azure
-  [configurediagnostics]:/en-us/manage/services/web-sites/how-to-monitor-websites/#howtoconfigdiagnostics
-  [troubleshootwebsites]:/en-us/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/
-  [BusinessApplicationsAzureAD]: ./media/web-sites-business-application-solution-overview/BusinessApplications_AzureAD.png
-  [BusinessApplicationsADUsers]: ./media/web-sites-business-application-solution-overview/BusinessApplications_AD_Users.png
-  [BusinessApplicationsVSIntranetApp]: ./media/web-sites-business-application-solution-overview/BusinessApplications_VS_IntranetApp.png
-  [BusinessApplicationsVSProperties]: ./media/web-sites-business-application-solution-overview/BusinessApplications_VS_Properties.png
-  [BusinessApplicationsVSIdentityAndAccess]: ./media/web-sites-business-application-solution-overview/BusinessApplications_VS_IdentityAndAccess.png
-  [BusinessApplicationsADIntegratedApps]: ./media/web-sites-business-application-solution-overview/BusinessApplications_AD_IntegratedApps.png
-  [BusinessApplicationsADAppAdded]: ./media/web-sites-business-application-solution-overview/BusinessApplications_AD_AppAdded.png
-  [BusinessApplicationsVSEnableAuth]: ./media/web-sites-business-application-solution-overview/BusinessApplications_VS_EnableAuth.png
-  [BusinessApplicationsDeploy]: ./media/web-sites-business-application-solution-overview/BusinessApplications_Deploy.png
-  [BusinessApplicationsServiceBusRelay]: ./media/web-sites-business-application-solution-overview/BusinessApplications_ServiceBusRelay.png
-  [BusinessApplicationsDiagnostics]: ./media/web-sites-business-application-solution-overview/BusinessApplications_Diagnostics.png
-  [BusinessApplicationsDiagRetention]: ./media/web-sites-business-application-solution-overview/BusinessApplications_Diag_Retention.png
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+[vista rápida]:/es-es/manage/services/web-sites/how-to-monitor-websites/
+[Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
+[New Relic]:/es-es/develop/net/how-to-guides/new-relic/
+[Uso de notificaciones de alerta y administración de reglas de alerta en Azure].:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
 
 
 
-  
 
-
-
-
-<!--HONumber=35.1-->
+<!--HONumber=42-->

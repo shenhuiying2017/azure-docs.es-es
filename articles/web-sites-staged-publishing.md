@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="How to stage sites on Microsoft Azure" pageTitle="Implementación de ensayo en Sitios web Azure de Microsoft" metaKeywords="Sitios web Microsoft Azure, Implementación de ensayo, Espacios de sitio" description="Obtenga información acerca de cómo usar la publicación de ensayo en sitios web de Microsoft Azure." metaCanonical="" services="web-sites" documentationCenter="" title="Staged Deployment on Microsoft Azure Websites" authors="cephalin"  solutions="" writer="cephalin" manager="wpickett" editor="mollybos"  />
+﻿<properties 
+	pageTitle="Implementación de ensayo en Sitios web Azure de Microsoft" 
+	description="Obtenga información acerca de cómo usar la publicación de ensayo en sitios web de Microsoft Azure." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/9/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="9/9/2014" 
+	ms.author="cephalin"/>
 
 <a name="Overview"></a>
 #Implementación de ensayo en Sitios web Microsoft Azure#
@@ -8,7 +23,7 @@ Al implementar su aplicación en Sitios web Azure, puede hacerlo en un espacio d
 
 - Puede validar los cambios en el sitio web en un espacio de implementación de ensayo antes de intercambiarlo con el espacio de producción.
 
-- Después del intercambio, el espacio con el sitio de ensayo anterior ahora tiene el sitio de producción anterior. Si los cambios intercambiados en el espacio de producción no son los esperados, puede realizar el mismo intercambio inmediatamente para volver a obtener el "último sitio en buen estado". 
+- Después del intercambio, el espacio con el sitio de ensayo anterior ahora ocupa el sitio de producción anterior. Si los cambios intercambiados en el espacio de producción no son los esperados, puede realizar el mismo intercambio inmediatamente para volver a obtener el "último sitio en buen estado". 
  
 - La implementación de un sitio en un espacio en primer lugar y su intercambio con el de la producción garantiza que todas las instancias del espacio estén correctas antes de colocarse en producción. Esto elimina tiempos de inactividad a la hora de implementar el sitio. El redireccionamiento del tráfico es impecable y no se anulan las solicitudes como consecuencia de las operaciones de cambio. 
 
@@ -20,8 +35,8 @@ Para cada sitio web del plan **Estándar** se admiten cuatro espacios de impleme
 - [Cambio de las ranuras de implementación](#Swap)
 - [Reversión de un sitio de producción a ensayo](#Rollback)
 - [Eliminación de una ranura de sitio](#Delete)
-- [cmdlets de Azure PowerShell para ranuras de sitio](#PowerShell)
-- [Comandos de la interfaz de la línea de comandos de Azure de varias plataformas (xplat-cli) para ranuras de sitio](#CLI)
+- [cmdlets de Azure PowerShell para espacios de sitio](#PowerShell)
+- [Comandos de la interfaz de la línea de comandos entre plataformas (xplat-cli) de Azure para espacios de sitio](#CLI)
 
 <a name="Add"></a>
 ##Incorporación de un espacio de implementación a un sitio web##
@@ -32,24 +47,24 @@ Para habilitar el uso de varios espacios de implementación, el sitio web debe e
 	
 	![Add a new deployment slot][QGAddNewDeploymentSlot]
 	
-	> [WACOM.NOTE]
-	Si el sitio web no está todavía en modo **estándar**, recibirá el mensaje **Para habilitar la publicación de ensayo debe estar en el modo Estándar**. Llegados a este punto, tiene la opción de seleccionar **Actualizar** e ir a la pestaña **Escalar** de su sitio web antes de continuar.
+	> [AZURE.NOTE]
+	> Si el sitio web no está todavía en modo **Standard**, recibirá el mensaje **Para habilitar la publicación de ensayo, debe estar en el modo Standard**. Llegados a este punto, tiene la opción de seleccionar **Actualizar** e ir a la pestaña **Escalar** de su sitio web antes de continuar.
 	
 2. En el cuadro de diálogo **Agregar un nuevo espacio de implementación**, asigne un nombre al espacio y seleccione si la configuración del sitio web se debe clonar de otro espacio de implementación. Haga clic en la marca de verificación para continuar. 
 	
 	![Configuration Source][ConfigurationSource1]
 	
-	La primera vez que crea un espacio, solo tendrá dos opciones: clonar la configuración del espacio predeterminado en producción o no clonar nada. 
+	La primera vez cree un espacio, solo tendrá dos opciones: clonar la configuración del espacio en producción predeterminado o no. 
 	
 	Después de haber creado varios espacios, podrá clonar la configuración de un espacio que no sea el de producción:
 	
 	![Configuration sources][MultipleConfigurationSources]
 
-5. En la lista de sitios web, expanda la marca situada a la izquierda del nombre del sitio web para que aparezca el espacio de implementación. Tendrá el nombre de su sitio de web seguido del nombre del espacio de implementación. 
+5. En la lista de sitios web, expanda la marca situada a la izquierda del nombre del sitio web para que aparezca la ranura de implementación. Tendrá el nombre de su sitio de web seguido del nombre del espacio de implementación. 
 	
 	![Site List with Deployment Slot][SiteListWithStagedSite]
 	
-4. Al hacer clic en el nombre del espacio del sitio de implementación, se abrirá una página con un conjunto de pestañas, tal y como ocurre con cualquier otro sitio web. Aparecerá <strong><i>su nombre de sitio web</i>(<i>nombre de espacio de implementación</i>)</strong> en la parte superior de la página del portal para recordarle que está visualizando el espacio del sitio de implementación.
+4. Al hacer clic en el nombre del espacio de sitio de implementación, se abrirá una página con un conjunto de pestañas, como en cualquier otro sitio web. <strong><i>your-website-name</i>(<i>deployment-slot-name</i>)</strong> aparecerá en la parte superior de la página del portal para recordarle que está viendo el espacio del sitio de implementación.
 	
 	![Deployment Slot Title][StagingTitle]
 	
@@ -85,7 +100,7 @@ Cuando crea un clon de la configuración de otro espacio de implementación, la 
 
 - Un espacio de implementación que pretenda cambiar a producción tiene que estar configurado tal y como quiera que esté en producción.
 
-- De forma predeterminada, un espacio de implementación apuntará a la misma base de datos que el sitio de producción. No obstante, puede configurar la ranura de implementación para que apunte a una base de datos diferente cambiando las cadenas de conexión de la base de datos de la ranura de implementación. A continuación, puede restaurar las cadenas de conexión de la base de datos original en el espacio de implementación justo antes de cambiarlo a producción.
+- De forma predeterminada, una ranura de implementación apuntará a la misma base de datos que el sitio de producción. No obstante, puede configurar la ranura de implementación para que apunte a una base de datos diferente cambiando las cadenas de conexión de la base de datos de la ranura de implementación. A continuación, puede restaurar las cadenas de conexión de la base de datos original en la ranura de implementación justo antes de cambiarla a producción.
 
 
 <a name="Swap"></a>
@@ -95,11 +110,11 @@ Cuando crea un clon de la configuración de otro espacio de implementación, la 
 	
 	![Swap Button][SwapButtonBar]
 	
-2. Aparecerá el cuadro de diálogo Intercambiar implementaciones. El cuadro de diálogo le permite elegir qué espacio de sitio debe ser el origen y qué sitio debe ser el destino.
+2. Aparecerá el cuadro de diálogo Swap Deployments. El cuadro de diálogo le permite elegir qué ranura de sitio debe ser el origen y qué sitio debe ser el destino.
 	
 	![Swap Deployments Dialog][SwapDeploymentsDialog]
 	
-3. Haga clic en la marca de verificación para terminar la operación. Cuando termine la operación, los espacios de sitio se habrán cambiado.
+3. Haga clic en la marca de verificación para terminar la operación. Cuando termine la operación, las ranuras de sitio se habrán cambiado.
 
 
 <a name="Rollback"></a>
@@ -123,7 +138,7 @@ En la barra de comandos situada al final de la página del Portal de Sitios web 
 
 - De forma predeterminada, sus espacios de implementación (sitios) comparten los mismos recursos que los espacios de producción (sitios) y se ejecutan en las mismas máquinas virtuales. Si realiza pruebas de carga en una ranura de ensayo, su entorno de producción experimentará una carga similar. 
 	
-	> [WACOM.NOTE] Solo en el [Portal de vista previa de Azure](https://portal.azure.com) puede evitar este impacto potencial en un espacio de producción si mueve temporalmente el espacio de no producción a un plan de hospedaje web diferente. Tenga en cuenta que, antes de poder intercambiar el espacio de prueba con el de producción, los espacios de prueba y producción deben compartir nuevamente el plan de hospedaje web.
+	> [AZURE.NOTE]  Solo en el [Portal de vista previa de Azure](https://portal.azure.com) puede evitar este impacto potencial en un espacio de producción si mueve temporalmente el espacio de no producción a un plan de hospedaje web diferente. Tenga en cuenta que, antes de poder intercambiar el espacio de prueba con el de producción, los espacios de prueba y producción deben compartir nuevamente el plan de hospedaje web.
 
 <!-- ======== AZURE POWERSHELL CMDLETS =========== -->
 
@@ -134,7 +149,7 @@ Azure PowerShell es un módulo que proporciona cmdlets para administrar Azure me
 
 - Para obtener información acerca de cómo instalar y configurar Azure PowerShell y cómo autenticar Azure PowerShell con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](http://www.windowsazure.com/es-es/documentation/articles/install-configure-powershell).  
 
-- Para mostrar los cmdlets disponibles para Sitios web Azure en PowerShell, llame a `help AzureWebsite`. 
+- Para mostrar los cmdlets disponibles para Sitios web Azure en PowerShell, llame  `help AzureWebsite`. 
 
 ----------
 
@@ -189,7 +204,7 @@ La interfaz de la línea de comandos de Azure de varias plataformas (xplat-cli) 
 
 - Para obtener instrucciones acerca de cómo instalar y configurar la xplat-cli, incluyendo la información acerca de cómo conectar la xplat-cli a su suscripción de Azure, consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure](http://www.windowsazure.com/es-es/documentation/articles/xplat-cli). 
 
--  Para mostrar los comandos disponibles para Sitios web Azure en la xplat-cli, llame a `azure site -h`. 
+-  Para mostrar los comandos disponibles para Sitios web Azure en la xplat-cli, llame  `azure site -h`. 
 
 ----------
 ###azure site list
@@ -221,7 +236,7 @@ Para eliminar un espacio de implementación que ya no sea necesario, utilice el 
 
 ----------
 ## Pasos siguientes ##
-[Sitios web Azure: bloquear acceso web a espacios de implementación que no sean de producción.](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
+[Sitios web Azure: bloqueo del acceso web a espacios de implementación que no sean de producción.](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
 [Evaluación gratuita de Microsoft Azure](http://azure.microsoft.com/es-es/pricing/free-trial/)
 
@@ -237,3 +252,8 @@ Para eliminar un espacio de implementación que ya no sea necesario, utilice el 
 [SwapConfirmationDialog]:  ./media/web-sites-staged-publishing/SwapConfirmationDialog.png
 [DeleteStagingSiteButton]: ./media/web-sites-staged-publishing/DeleteStagingSiteButton.png
 [SwapDeploymentsDialog]: ./media/web-sites-staged-publishing/SwapDeploymentsDialog.png
+
+
+
+
+<!--HONumber=42-->

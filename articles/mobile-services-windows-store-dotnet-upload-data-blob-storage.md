@@ -1,14 +1,14 @@
-﻿<properties pageTitle="Uso de servicios móviles para cargar imágenes en el almacenamiento de blobs (Tienda Windows) | Servicios móviles" metaKeywords="" description="Aprenda a usar Servicios móviles para cargar imágenes al almacenamiento de blobs de Azure y obtener acceso a las imágenes desde la aplicación de la Tienda Windows." metaCanonical="" services="mobile-services,storage" documentationCenter="Mobile" title="Upload images to Azure Storage by using Mobile Services" authors="glenga" solutions="mobile" manager="dwrede" editor="" />
+﻿<properties pageTitle="Uso de servicios móviles para cargar imágenes en el almacenamiento de blobs (Tienda Windows) | Servicios móviles" description="Obtenga información acerca de cómo usar Servicios móviles para cargar imágenes en el almacenamiento de blobs de Azure y acceder a las imágenes desde su aplicación de la Tienda Windows. services="mobile-services, storage" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga" />
+<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
 
 # Carga de imágenes en el almacenamiento de Azure mediante Servicios móviles
 
-[WACOM.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-selector-upload-data-blob-storage](../includes/mobile-services-selector-upload-data-blob-storage.md)]
 
 Este tema muestra cómo utilizar Servicios móviles de Azure para permitir que su aplicación cargue y almacene imágenes generadas por el usuario en el almacenamiento de Azure. Servicios móviles utiliza una Base de datos SQL para almacenar datos. Sin embargo, los datos de objetos binarios grandes (BLOB) se almacenan de manera eficiente en el servicio de almacenamiento de blobs de Azure. 
 
-No puede distribuir de manera segura con la aplicación cliente las credenciales que se requieren para cargar con seguridad datos al servicio de almacenamiento de blobs. En lugar de eso, debe almacenar estas credenciales en su servicio móvil y usarlas para generar una firma de acceso compartido (SAS) que se utiliza para cargar una imagen nueva. Servicios móviles devuelve de manera segura a SAS, una credencial de expiración breve (en este caso de 5 minutos), a la aplicación cliente. Luego la aplicación utiliza esta credencial temporal para cargar la imagen. En este ejemplo, las descargas del servicio BLOB son públicas.
+No puede distribuir de manera segura con la aplicación cliente las credenciales que se requieren para cargar con seguridad datos al servicio de almacenamiento de blobs. En lugar de eso, debe almacenar estas credenciales en su servicio móvil y usarlas para generar una firma de acceso compartido (SAS) que se utiliza para cargar una imagen nueva. Servicios móviles devuelve de manera segura a SAS, una credencial de expiración breve (en este caso de cinco minutos), a la aplicación cliente. Luego la aplicación utiliza esta credencial temporal para cargar la imagen. En este ejemplo, las descargas del servicio BLOB son públicas.
 
 En este tutorial agregará funcionalidad a la aplicación de inicio rápido de Servicios móviles para tomar fotografías y cargar las imágenes a Azure a través de una SAS generada por Servicios móviles. Este tutorial le guiará a través de los siguientes pasos básicos para actualizar el inicio rápido de Servicios móviles para cargar imágenes al servicio de almacenamiento de blobs:
 
@@ -20,18 +20,18 @@ En este tutorial agregará funcionalidad a la aplicación de inicio rápido de S
 Este tutorial requiere lo siguiente:
 
 + Microsoft Visual Studio 2012 Express para Windows 8 o una versión posterior
-+ [Cuenta de almacenamiento de Azure][How To Create a Storage Account]
++ [Cuenta de Almacenamiento de Azure][Creación de una cuenta de Almacenamiento]
 + Una cámara u otro dispositivo de captura de imágenes conectado a su equipo.
 
 Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de comenzar este tutorial, primero debe completar [Introducción a los Servicios móviles]. 
 
-##<a name="install-storage-client"></a>Instalación del cliente de almacenamiento para aplicaciones de la Tienda Windows
+##<a name="install-storage-client"></a>Instalación del cliente de Almacenamiento para aplicaciones de la Tienda Windows
 
 Para poder utilizar una SAS para cargar imágenes al almacenamiento de blobs, primero debe agregar el paquete NuGet que instala la biblioteca de clientes de almacenamiento para aplicaciones de la Tienda Windows.
 
-1. En el **Explorador de soluciones** de Visual Studio, haga clic con el botón secundario en el nombre del proyecto y, a continuación, seleccione **Administrar paquetes de NuGet**.
+1. En el **Explorador de soluciones** de Visual Studio, haga clic con el botón derecho en el nombre del proyecto y, a continuación, seleccione **Administrar paquetes de NuGet**.
 
-2. En el panel izquierdo, seleccione la categoría **En línea**, busque `WindowsAzure.Storage`, haga clic en **Instalar** en el paquete **Almacenamiento de Azure** y acepte los contratos de licencia. 
+2. En el panel izquierdo, seleccione la categoría **En línea**, busque  `MicrosoftAzure.Storage`, haga clic en **Instalar** en el paquete de **Almacenamiento de Azure** y, a continuación, acepte los contratos de licencia. 
 
   	![][2]
 
@@ -41,9 +41,9 @@ A continuación, actualizará la aplicación de inicio rápido para capturar y c
 
 ##<a name="update-scripts"></a>Actualización del script de inserción registrado en el Portal de administración
 
-[WACOM.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-configure-blob-storage](../includes/mobile-services-configure-blob-storage.md)]
 
-[WACOM.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
+[AZURE.INCLUDE [mobile-services-windows-store-dotnet-upload-to-blob-storage](../includes/mobile-services-windows-store-dotnet-upload-to-blob-storage.md)]
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
@@ -57,7 +57,7 @@ Ahora que ha podido cargar de manera segura imágenes al integrar su servicio m�
 
   Aprenda a utilizar la funcionalidad del programador de trabajos de Servicios móviles para definir el código de script de servidor que se ejecuta según una programación que define usted.
 
-+ [Referencia del script del servidor de Servicios móviles]
++ [Referencia del script de servidor de Servicios móviles]
 
   Temas de referencia para utilizar scripts de servidor con la finalidad de ejecutar tareas del lado servidor e integración con otros componentes de Azure y recursos externos.
  
@@ -82,7 +82,7 @@ Ahora que ha podido cargar de manera segura imágenes al integrar su servicio m�
 [Envío de correo electrónico desde servicios móviles con SendGrid]: /es-es/develop/mobile/tutorials/send-email-with-sendgrid/
 [Programación de trabajos de back-end en servicios móviles]: /es-es/documentation/articles/mobile-services-schedule-recurring-tasks
 [Enviar notificaciones de inserción a las aplicaciones de la tienda Windows con bus de servicio desde un back-end de .NET]: http://go.microsoft.com/fwlink/?LinkId=277073&clcid=0x409
-[Referencia del script de servidor de servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [Introducción a los servicios móviles]: /es-es/documentation/articles/mobile-services-windows-store-get-started
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
@@ -91,4 +91,5 @@ Ahora que ha podido cargar de manera segura imágenes al integrar su servicio m�
 [Referencia conceptual de servicios móviles con .NET]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library
 [Configuración de aplicaciones]: http://msdn.microsoft.com/es-es/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=35.2-->
+
+<!--HONumber=42-->

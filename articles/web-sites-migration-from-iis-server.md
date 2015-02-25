@@ -1,16 +1,31 @@
-﻿<properties urlDisplayName="Migrate from IIS to Azure Websites with Migration Assistant" pageTitle="Migración de Sitios web de IIS a Sitios web Azure mediante el Asistente para migración"metaKeywords =" Sitios web Azure, migración, migrar, IIS" description="Muestra cómo usar el Asistente para la migración de sitios web de Azure para migrar rápidamente sitios web de IIS existentes a sitios web de Azure" metaCanonical="" services="web-sites" documentationCenter="" title="Migrate your IIS Websites to Azure Websites using the Migration Assistant" authors="cephalin,anwestg"  solutions="" writer="cephalin" manager="wpickett" editor=""  />
+﻿<properties 
+	pageTitle="Migración de Sitios web de IIS a Sitios web Azure mediante el Asistente para migración" 
+	description="Muestra cómo usar el Asistente para la migración de sitios web de Azure para migrar rápidamente sitios web de IIS existentes a sitios web de Azure" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="cephalin" 
+	writer="cephalin" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="cephalin" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="cephalin"/>
 
 # Migración de Sitios web de IIS a Sitios web Azure mediante el Asistente para migración #
-Puede migrar fácilmente a Sitios web Azure sus sitios web existentes que se ejecutan en Internet Information Service (IIS) 6 o posterior. El [Asistente para migración de Sitios web Azure](https://www.movemetothecloud.net/) puede analizar la instalación del servidor IIS, identificar qué sitios se pueden migrar a Sitios web Azure, destacar los elementos que no se pueden migrar o que no se admiten en la plataforma y, a continuación, migrar los sitios web y las bases de datos asociadas a Azure.
+Puede migrar fácilmente a Sitios web Azure sus sitios web existentes que se ejecutan en Internet Information Service (IIS) 6 o posterior. [El Asistente para migración de Sitios web Azure](https://www.movemetothecloud.net/) puede analizar la instalación del servidor IIS, identificar qué sitios se pueden migrar a Sitios web Azure, destacar los elementos que no se pueden migrar o que no se admiten en la plataforma y, a continuación, migrar los sitios web y las bases de datos asociadas a Azure.
 
->[WACOM.NOTE]Windows Server 2003 llegará al fin de su periodo de soporte técnico el 14 de julio de 2015. Si actualmente tiene sus sitios web en un servidor IIS de Windows Server 2003, Sitios web Azure representa un método de bajo riesgo, bajo coste y baja fricción para mantener sus sitios web en línea y el Asistente para migración de Sitios web Azure puede ayudar a automatizar el proceso de migración en su lugar. 
+>[AZURE.NOTE] El 14 de julio de 2015 finalizará el soporte para Windows Server 2003. Si actualmente tiene sus sitios web en un servidor IIS con Windows Server 2003, Sitios web de Azure es una manera de mantener sus sitios web en línea con poco riesgo, coste reducido y baja fricción, y el Asistente para la migración de sitios Web Azure puede ayudarle al automatizar el proceso de migración. 
 
 ## Elementos comprobados durante el análisis de compatibilidad ##
 El Asistente para migración de Sitios web Azure crea un informe sobre el estado de preparación para identificar las causas potenciales de problemas o las cuestiones que podrían imposibilitar una migración correcta desde IIS local a Sitios web Azure. Algunos de los elementos claves que se deben tener en cuenta son:
 
--	Enlaces de puerto: Sitios web Azure solo admite el puerto 80 para el tráfico HTTP y el puerto 443 para el tráfico HTTPS. Otras configuraciones de puerto se ignorarán y el tráfico se enrutará a 80 o 443.
+-	Enlaces de puerto: Sitios web Azure solo admite el puerto 80 para el tráfico HTTP y el puerto 443 para el tráfico HTTPS. Otras configuraciones de puerto se ignorarán y el tráfico se enrutará a 80 o 443. 
 -	Autenticación: Sitios web Azure admite la autenticación anónima de forma predeterminada y la autenticación de formularios cuando una aplicación lo especifique. Puede utilizarse la autenticación de Windows solo mediante la integración con Azure Active Directory y ADFS. Actualmente no se admiten otras formas de autenticación, como la autenticación básica. 
 -	Caché global de ensamblados (GAC): la GAC no se admite en Sitios web Azure. Si la aplicación hace referencia a ensamblados que se implementan normalmente en la GAC, tendrá que implementar en la carpeta bin de aplicación en Sitios web Azure. 
 -	Modo de compatibilidad IIS5: esto no es compatible con Sitios web Azure. 
@@ -21,7 +36,7 @@ El Asistente para migración de Sitios web Azure crea un informe sobre el estado
 	-	registrar los archivos DLL mediante [Web.config](http://www.iis.net/configreference/system.webserver/isapifilters)
 	-	colocar un archivo applicationHost.xdt en la raíz del sitio con el siguiente contenido:
 
-			?xml version="1.0"?
+			<?xml version="1.0"?>
 			<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
 			<configSections>
 			    <sectionGroup name="system.webServer">
@@ -37,7 +52,7 @@ El Asistente para migración de Sitios web Azure crea un informe sobre el estado
 ## Utilización del Asistente para migración de Sitios web Azure ##
 En esta sección se analiza un ejemplo para migrar algunos sitios web que utilizan una base de datos de SQL Server y se ejecutan en un equipo de Windows Server 2003 R2 (IIS 6.0) local:
 
-1.	En el servidor IIS o en el equipo cliente, navegue hasta [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
+1.	En el servidor IIS o en el equipo cliente, navegue a [https://www.movemetothecloud.net/](https://www.movemetothecloud.net/) 
 
 	![](./media/web-sites-migration-from-iis-server/migration-tool-homepage.png)
 
@@ -46,7 +61,7 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
 
 	![](./media/web-sites-migration-from-iis-server/install-page.png)
 
-	>[WACOM.NOTE] También puede hacer clic en **Descargar para instalación sin conexión** para descargar un archivo comprimido para la instalación en servidores no conectados a Internet. O bien, puede hacer clic en **Cargar un informe existente sobre el estado de preparación de la migración**, que es una opción avanzada para trabajar con un informe sobre el estado de preparación de la migración existente que ha generado previamente (se explica más adelante).
+	>[AZURE.NOTE] También puede hacer clic en **Descargar para instalación sin conexión** para descargar un archivo comprimido para la instalación en servidores no conectados a Internet. O bien, puede hacer clic en **Cargar un informe existente sobre el estado de preparación de la migración**, que es una opción avanzada para trabajar con un informe sobre el estado de preparación de la migración existente que ha generado previamente (se explica más adelante).
 
 5.	En la pantalla **Instalación de la aplicación**, haga clic en **Instalar** para instalar en el equipo. También instalará las dependencias correspondientes como Web Deploy, DacFX e IIS, si es necesario. 
 
@@ -91,7 +106,7 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[WACOM.NOTE] La casilla de verificación **Habilitar Azure Active Directory** en la configuración personalizada integra el sitio web de Azure con [Azure Active Directory](http://azure.microsoft.com/es-es/documentation/articles/active-directory-whatis/) (el **directorio predeterminado**). Para obtener más información sobre la sincronización de Azure Active Directory con su Active Directory local, vea [Integración de directorios](http://msdn.microsoft.com/library/jj573653).
+	>[AZURE.NOTE] La casilla de verificación **Habilitar Azure Active Directory** de la configuración personalizada integra el sitio web de Azure con [Azure Active Directory](http://azure.microsoft.com/es-es/documentation/articles/active-directory-whatis/) (el **directorio predeterminado**). Para obtener más información sobre la sincronización de Azure Active Directory con su Active Directory local, vea [Integración de directorios](http://msdn.microsoft.com/library/jj573653).
 
 16.	 Una vez realizados todos los cambios deseados, haga clic en **Crear** para iniciar el proceso de migración. La herramienta de migración creará la Base de datos SQL Azure y el sitio web de Azure y, a continuación, publicará el contenido del sitio web y las bases de datos. El proceso de migración se muestra claramente en la herramienta de migración y verá una pantalla de resumen al final que detalla los sitios migrados, si se realizaron con éxito y los vínculos a los sitios web de Azure recién creados. 
 
@@ -104,3 +119,8 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
 20.	Haga clic en los vínculos a los sitios web de Azure y compruebe que la migración se ha realizado correctamente.
 
 
+
+
+
+
+<!--HONumber=42-->

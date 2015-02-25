@@ -1,6 +1,20 @@
-<properties urlDisplayName="Debug Websites (Node)" pageTitle="Cómo depurar sitios web de Azure en Node.js"metaKeywords ="debug website azure, debugging azure, troubleshooting azure web site, troubleshoot azure website node" description="Obtenga información sobre cómo depurar un sitio web de Azure en Node.js." metaCanonical="" services="web-sites" documentationCenter="nodejs" title="How to debug a Node.js application in Azure Websites" authors="larryfr" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Cómo depurar sitios web de Azure en Node.js" 
+	description="Obtenga información acerca de cómo depurar un sitio web de Azure en Node.js." 
+	services="web-sites" 
+	documentationCenter="nodejs" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 
@@ -28,17 +42,11 @@ El archivo **IISNode.yml** puede usarse también para controlar si los errores d
 
 Después de que se habilita esta opción, IISNode devolverá los últimos 64 K de información que se enviaron a stderr en vez de un error descriptivo como "se produjo un error de servidor interno".
 
-<div class="dev-callout">
-<strong>Nota:</strong>
-<p>Si bien devErrorsEnabled es útil para diagnosticar los problemas que se producen durante el desarrollo, su habilitación en un entorno de producción puede tener como resultado que se envíen errores de desarrollo a los usuarios finales.</p>
-</div>
+> [AZURE.NOTE] Si bien devErrorsEnabled es útil para diagnosticar los problemas que se producen durante el desarrollo, su habilitación en un entorno de producción puede tener como resultado que se envíen errores de desarrollo a los usuarios finales.
 
 Si el archivo **IISNode.yml** no existía ya en su aplicación, debe reiniciar su sitio web después de publicar la aplicación actualizada. Si solamente va a cambiar la configuración de un archivo **IISNode.yml** existente que ya se publicó anteriormente, no es necesario reiniciar.
 
-<div class="dev-callout">
-<strong>Nota:</strong>
-<p>Si su sitio web se creó mediante las herramientas de línea de comandos de Azure o los cmdlets de PowerShell de Azure, el archivo predeterminado <strong>IISNode.yml</strong> se crea automáticamente.</p>
-</div>
+> [AZURE.NOTE] Si su sitio web se creó usando las herramientas de línea de comandos de Azure o los cmdlets de Azure PowerShell, automáticamente se crea un archivo predeterminado **IISNode.yml**.
 
 Puede reiniciar el sitio web si selecciona el sitio desde el [Portal de administración de Azure] y, a continuación, selecciona el botón **RESTART**:
 
@@ -48,10 +56,7 @@ Si las herramientas de línea de comandos de Azure están instaladas en su entor
 
 	azure site restart [sitename]
 
-<div class="dev-callout">
-<strong>Nota:</strong>
-<p>Si bien loggingEnabled y devErrorsEnabled son las opciones de configuración de IISNode.yml de uso más común para capturar información de diagnóstico, se puede usar IISNode.yml para configurar diversas opciones para su entorno de hospedaje. Para obtener una lista completa de las opciones de configuración, consulte el archivo <a href="https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml">iisnode_schema.Xml</a> .</p>
-</div>
+> [AZURE.NOTE] Si bien loggingEnabled y devErrorsEnabled son las opciones de configuración de IISNode.yml de uso más común para capturar información de diagnóstico, se puede usar IISNode.yml para configurar diversas opciones para su entorno de hospedaje. Para obtener una lista completa de las opciones de configuración, consulte el archivo [iisnode_schema.xml](https://github.com/tjanczuk/iisnode/blob/master/src/config/iisnode_schema.xml).
 
 ##<a id="viewlogs"></a>Acceso a los registros
 
@@ -59,16 +64,13 @@ Se puede tener acceso a los registros de diagnósticos de tres formas; mediante 
 
 	npm install azure-cli -g
 
-Una vez instaladas, se puede tener acceso a ellas mediante el comando 'azure'. Las herramientas de línea de comandos se deben configurar primero para usar su suscripción de Azure. Para obtener información sobre cómo llevar a cabo esta tarea, consulte la sección **Descarga e importación de la configuración de publicación** del artículo [Uso de las herramientas de línea de comandos de Azure].
+Una vez instalado, se tiene acceso a las herramientas mediante el comando 'azure'. Las herramientas de línea de comandos se deben configurar primero para usar su suscripción de Azure. Para obtener información sobre cómo llevar a cabo esta tarea, consulte la sección **Descarga e importación de la configuración de publicación** del artículo [Uso de las herramientas de línea de comandos de Azure].
 
 ###FTP
 
 Para tener acceso a la información de diagnóstico a través de FTP, visite el [portal de Azure], seleccione su sitio web y, a continuación, seleccione el **PANEL**. En la sección **vínculos rápidos**, los vínculos **FTP DIAGNOSTIC LOGS** y **FTPS DIAGNOSTIC LOGS** proporcionan acceso a los registros usando el protocolo FTP.
 
-<div class="dev-callout">
-<strong>Nota:</strong>
-<p>Si no configuró previamente el nombre de usuario ni la contraseña de FTP o la implementación, puede hacerlo desde la página de administración <strong>QuickStart</strong> seleccionando <strong>Configurar credenciales de implementación</strong>.</p>
-</div>
+> [AZURE.NOTE] Si no ha configurado antes el nombre de usuario y la contraseña de FTP o la implementación, puede hacerlo desde la página de administración **Inicio rápido** al seleccionar **Configurar las credenciales de implementación**.
 
 La URL de FTP devuelta en el panel es para el directorio **LogFiles**, que contendrá los siguientes subdirectorios:
 
@@ -100,7 +102,7 @@ Para ver una secuencia en directo de la información de registro de diagnóstico
 
 De esta manera se devolverá una secuencia de eventos de registro que se actualizan a medida que se producen en el servidor. Esta secuencia devolverá información de implementación además de información de stdout y stderr (cuando loggingEnabled es verdadero).
 
-##<a id="nextsteps"></a>Pasos siguientes
+##<a id="nextstepsPasos siguientes"></a>
 
 En este artículo aprendió a habilitar y a tener acceso a información de diagnóstico en Azure. Si bien esta información es útil para comprender los problemas que se producen con su aplicación, puede indicar un problema con un módulo que está usando o que la versión de Node.js que usan los Sitios web Azure es diferente a la usada en su entorno de implementación.
 
@@ -109,12 +111,15 @@ Para obtener información sobre el trabajo con módulos en Azure, consulte [Uso 
 Para obtener información sobre la especificación de una versión de Node.js para su aplicación, consulte [Especificación de una versión de Node.js en una aplicación de Azure].
 
 [IISNode]: https://github.com/tjanczuk/iisnode
-[Léame de IISNode]: https://github.com/tjanczuk/iisnode#readme
-[Cómo utilizar las herramientas de línea de comandos de Azure]: /es-es/documentation/articles/xplat-cli/
+[IISNode Readme]: https://github.com/tjanczuk/iisnode#readme
+[Uso de las herramientas de línea de comandos de Azure]: /es-es/documentation/articles/xplat-cli/
 [Uso de módulos Node.js con aplicaciones de Azure]: /es-es/documentation/articles/nodejs-use-node-modules-azure-apps/
 [Especificación de una versión de Node.js en una aplicación Azure]: /es-es/documentation/articles/nodejs-specify-node-version-azure-apps/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
 [restart-button]: ./media/web-sites-nodejs-debug/restartbutton.png
 
-<!--HONumber=35.2-->
+
+
+
+<!--HONumber=42-->

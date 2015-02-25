@@ -1,6 +1,20 @@
-﻿<properties title="Getting Started with Mobile Services" pageTitle="" metaKeywords="Azure, Getting Started, Mobile Services" description="" services="mobile-services" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="" 
+	description="" 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="web" ms.tgt_pltfrm="vs-getting-started" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-getting-started" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/8/2014" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Introducción](/documentation/articles/vs-mobile-services-javascript-getting-started/)
@@ -22,7 +36,7 @@ Ya se ha agregado el objeto de cliente a su proyecto.  Su nombre es el nombre de
 
 #####Incorporación de entrada 
 
-Inserte un nuevo elemento en una tabla de datos. Se crea automáticamente un identificador (un GUID de tipo cadena) como clave principal para la nueva fila. No cambie el tipo de la columna del identificador, ya que la infraestructura de Servicios móviles lo utiliza.
+Inserte un nuevo elemento en una tabla de datos. Se crea automáticamente un identificador (un GUID de tipo cadena) como clave principal para la nueva fila. No cambie el tipo de la columna del identificador, ya que la infraestructura de los servicios móviles lo utiliza.
 
     var todoTable = client.getTable('TodoItem');
     var todoItems = new WinJS.Binding.List();
@@ -56,7 +70,7 @@ Puede usar el método where para modificar la consulta. Aquí mostramos un ejemp
         listItems.winControl.itemDataSource = todoItems.dataSource;
     });
 
-Para obtener más ejemplos de las consultas que puede utilizar, consulte el objeto [query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
+Para obtener más ejemplos de las consultas que puede utilizar, consulte el objeto[query](http://msdn.microsoft.com/library/azure/jj613353.aspx).
 
 #####Actualización de entrada
 
@@ -77,3 +91,7 @@ Elimine una fila en la tabla de datos. Llame al método [done]() en el objeto [P
 
 
 [Más información acerca de Servicios móviles](http://azure.microsoft.com/documentation/services/mobile-services/)
+
+
+
+<!--HONumber=42-->
