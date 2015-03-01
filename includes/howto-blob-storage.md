@@ -1,0 +1,48 @@
+## <a name="what-is"> </a>Qué es el almacenamiento de blobs
+
+El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados, como texto o datos binarios, a los que se puede obtener acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Puede usar el almacenamiento de blobs para exponer datos públicamente o para almacenar datos de la aplicación de manera privada.
+
+El almacenamiento de blobs suele usarse para realizar las siguientes tareas:
+
+-   Servicio de imágenes o documentos directamente a un explorador
+-   Almacenamiento de archivos para acceso distribuido
+-   Streaming de audio y vídeo
+-   Realización de copia de seguridad segura y recuperación ante desastres
+-   Almacenamiento de datos para el análisis de un servicio local u hospedado de Azure
+    
+
+## <a name="concepts"> </a>Conceptos
+
+El servicio BLOB contiene los componentes siguientes:
+
+![Blob1][Blob1]
+
+-   **uenta de almacenamiento:** se realiza todo el acceso al almacenamiento de Azure
+    a través de una cuenta de almacenamiento. Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento en Azure](http://msdn.microsoft.com/es-es/library/dn249410.aspx) para obtener detalles acerca de la capacidad de las cuentas de almacenamiento.
+
+-   **Contenedor:** un contenedor proporciona una agrupación de un conjunto de blobs.
+    Todos los blobs deben residir en un contenedor. Una cuenta puede contener una
+    cantidad ilimitada de contenedores. Un contenedor puede almacenar una
+    cantidad ilimitada de blobs.
+
+-   **Blob:** un archivo de cualquier tipo y tamaño. Hay dos tipos de blobs
+    que pueden almacenarse en el almacenamiento de Azure: blobs en páginas y en bloques.
+    La mayoría de los archivos son blobs en bloques. Un blob en bloques único puede tener
+    un tamaño de hasta 200 GB. En este tutorial se usan blobs en bloques. Blobs en páginas, otro tipo de blob,
+     puede tener un tamaño de hasta 1 TB y son más eficaces cuando se modifican con frecuencia intervalos
+    de bytes de un archivo. Para obtener más información
+    sobre blobs, consulte [Introducción a los blobs en bloques y a los blobs en páginas][].
+
+-   **Formato de dirección URL:** los blobs son direccionables mediante la siguiente dirección URL
+    :   
+    http://`<storage
+    account>`.blob.core.windows.net/`<container>`/`<blob>`  
+      
+    En el diagrama anterior se podría usar la siguiente dirección URL de ejemplo para dirigir
+    uno de los blobs.  
+    `http://sally.blob.core.windows.net/movies/MOV1.AVI`
+
+
+[Blob1]: ./media/howto-blob-storage/blob1.jpg
+
+<!--HONumber=41-->
