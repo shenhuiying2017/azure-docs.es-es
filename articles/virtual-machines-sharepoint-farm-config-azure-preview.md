@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Detalles de configuración de una granja de servidores de SharePoint" description="Describe la configuración predeterminada de las granjas de SharePoint." services="virtual-machines" documentationCenter="" authors="JoeDavies-MSFT" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Detalles de configuración de una granja de servidores de SharePoint" 
+	description="Describe la configuración predeterminada de las granjas de SharePoint." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-sharepoint" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/26/2015" 
+	ms.author="josephd"/>
 
 
 #Detalles de configuración de una granja de servidores de SharePoint#
@@ -111,7 +125,4 @@ A continuación se indican los detalles de configuración:
 
 [SharePoint en los servicios de infraestructura de Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

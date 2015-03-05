@@ -25,10 +25,10 @@ En la barra de comandos, haga clic en **New**.
 
 13. En **Conjunto de disponibilidad**, a efectos de este tutorial, use la configuración predeterminada de **Ninguno**. 
 
-14.	En **Extremos**, revise el extremo que se crea automáticamente para permitir conexiones de Shell seguro (SSH) a la máquina virtual. (Los extremos permiten que los recursos en Internet u otras redes virtuales se comuniquen con una máquina virtual). Puede agregar más extremos ahora o crearlos más adelante. Para obtener instrucciones sobre la creación de extremos más adelante, consulte [Configuración de extremos en una máquina virtual](http://azure.microsoft.com/es-es/documentation/articles/virtual-machines-set-up-endpoints/).
+14.	En **Extremos**, revise el extremo que se crea automáticamente para permitir conexiones de Shell seguro (SSH) a la máquina virtual. (Los extremos permiten que los recursos en Internet u otras redes virtuales se comuniquen con una máquina virtual). Puede agregar más extremos ahora o crearlos más adelante. Para obtener instrucciones sobre la creación de extremos más adelante, consulte [Configuración de extremos en una máquina virtual](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
 
 15.  En **Agente de máquina virtual**, revise las extensiones disponibles. Estas extensiones proporcionan varias características que facilitan el uso y la administración de una máquina virtual. Para conocer los detalles, consulte [Extensiones de máquina virtual de Azure](http://go.microsoft.com/FWLink/p/?LinkID=390493). 
 
 
 Una vez que Azure crea la máquina virtual y el servicio en la nube, el Portal de administración muestra la máquina virtual nueva en **Máquinas virtuales** y el servicio en la nube en **Servicios en la nube**. Tanto la máquina virtual como el servicio en la nube se inician automáticamente.
-<!--HONumber=42-->
+<!--HONumber=45--> 

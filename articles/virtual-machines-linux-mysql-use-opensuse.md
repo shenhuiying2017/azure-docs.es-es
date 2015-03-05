@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Instalación de MySQL en una máquina virtual que ejecuta OpenSUSE Linux en Azure" description="Aprenda a instalar MySQL en una máquina virtual en Azure." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Instalación de MySQL en una máquina virtual que ejecuta OpenSUSE Linux en Azure" 
+	description="Aprenda a instalar MySQL en una máquina virtual en Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/12/2014" 
+	ms.author="kathydav"/>
 
 # Instalación de MySQL en una máquina virtual que ejecuta OpenSUSE Linux en Azure
 
@@ -8,7 +22,7 @@
 
 - Uso del [Portal de administración de Azure][AzurePortal] para crear una imagen de máquina virtual de OpenSUSE Linux a partir de una imagen disponible en Azure.
 - Conectarse a la máquina virtual con SSH o PuTTY.
-- Instalar MySQL en la máquina virtual.
+- Instalar MySQL en la máquina virtual
 
 [AZURE.INCLUDE [antares-iaas-signup-iaas](../includes/antares-iaas-signup-iaas.md)]
 
@@ -27,7 +41,4 @@ En este tutorial ha obtenido información sobre cómo crear una máquina virtual
 [MySQL]: http://www.mysql.com
 [AzurePortal]: http://manage.windowsazure.com
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

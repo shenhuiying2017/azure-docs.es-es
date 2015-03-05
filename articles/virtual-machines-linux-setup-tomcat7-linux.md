@@ -1,6 +1,20 @@
-<properties pageTitle="Configuración de Tomcat7 en una máquina Virtual con Linux mediante Microsoft Azure" description="Obtenga información acerca de la configuración de Tomcat7 con Microsoft Azure con una máquina virtual (VM) Azure con Linux." services="virtual-machines" documentationCenter="" authors="NingKuang" manager="timlt" editor="tysonn"/>
+﻿<properties 
+	pageTitle="Configuración de Tomcat7 en una máquina Virtual con Linux mediante Microsoft Azure" 
+	description="Obtenga información acerca de la configuración de Tomcat7 con Microsoft Azure con una máquina virtual (VM) Azure con Linux." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="NingKuang" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/27/2014" ms.author="ningk"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/27/2014" 
+	ms.author="ningk"/>
 
 #Configuración de Tomcat7 en una máquina Virtual con Linux mediante Microsoft Azure 
 
@@ -14,7 +28,7 @@ Aprenderá a:
 -	Preparar la máquina virtual para tomcat7.
 -	Instalar tomcat7.
 
-Se supone que el lector ya tiene una suscripción de Azure.  Si no, puede registrarse para una evaluación gratuita en [http://azure.microsoft.com](http://azure.microsoft.com). Si tiene una suscripción de MSDN, consulte [Precios especiales de Microsoft Azure: Ventajas de MSDN, MPN y Bizspark](http://azure.microsoft.com/es-es/pricing/member-offers/msdn-benefits/?c=14-39). Para obtener más información acerca de Azure, consulte [¿Qué es Azure?](http://azure.microsoft.com/es-es/overview/what-is-azure/).
+Se supone que el lector ya tiene una suscripción de Azure.  Si no, puede registrarse para una evaluación gratuita en [http://azure.microsoft.com](http://azure.microsoft.com). Si tiene una suscripción de MSDN, consulte [Precios especiales de Microsoft Azure: Ventajas de MSDN, MPN y Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits/?c=14-39). Para obtener más información acerca de Azure, consulte [¿Qué es Azure?](http://azure.microsoft.com/overview/what-is-azure/).
 
 En este tema se supone que tiene conocimientos prácticos básicos de tomcat y Linux.  
 
@@ -68,7 +82,7 @@ El puerto TCP 8080 es el número de puerto predeterminado al que escucha tomcat.
 	  
 		Si se establece con el valor 80, no necesitará incluir el número de puerto en la dirección URL que permite obtener acceso a tomcat. Por ejemplo, http://tomcatdemo.cloudapp.net.    
 
-		Si se establece en otro valor como, por ejemplo, el 81, deberá agregar el número de puerto a la dirección URL para tener acceso a tomcat. Por ejemplo, http://tomcatdemo.cloudapp.net:81/.
+		Si se establece en otro valor como, por ejemplo, el 81, deberá agregar el número de puerto a la dirección URL para tener acceso a tomcat. Por ejemplo, http://lampdemo.cloudapp.net:81/.
 	2.	Escriba 8080 en Puerto privado. De forma predeterminada, tomcat escucha en el puerto TCP 8080. Si se cambió el puerto de escucha predeterminado de tomcat, deberá actualizar el Puerto privado para que sea que el mismo puerto de escucha de tomcat.  
 	![][7]
  
@@ -84,7 +98,7 @@ En primer lugar, obtenga el nombre DNS de la máquina virtual desde el Portal de
 Obtener el número de puerto para las conexiones SSH desde el campo **SSH**. Aquí tiene un ejemplo:  
 ![][8]
  
-Descargue Putty de [aquí](http://www.putty.org/) .  
+Descargue Putty de [aquí](http://www.putty.org/).  
 
 Después de descargar, haga clic en el archivo ejecutable PUTTY.EXE. Configure las opciones básicas con el nombre de host y el número de puerto obtenido de las propiedades de la máquina virtual. Aquí tiene un ejemplo:  
 ![][9]
@@ -205,7 +219,7 @@ Después de editar este archivo, deberá reiniciar los servicios de tomcat7 con 
 
 	sudo /etc/init.d/tomcat7 restart  
 
-Abra el explorador y escriba la dirección URL **http://<your tomcat server DNS name>/manager/html**. Por ejemplo, en este artículo, la dirección URL es http://tomcatexample.cloudapp.net/manager/html.  
+Abra el explorador y escriba la dirección URL **http://<nombre DNS de su servidor de tomcat>/manager/html**. Por ejemplo, en este artículo, la dirección URL es http://tomcatexample.cloudapp.net/manager/html.  
 
 Después de conectarse, debería ver algo parecido a lo siguiente:  
 ![][18]
@@ -229,7 +243,7 @@ Tomcat se está ejecutando, pero no puede ver la página predeterminada de Tomca
 
 			sudo vi /etc/default/tomcat7  
 
-		A continuación, deberá quitarse la marca de comentario de la última línea y cambiar "no" por "yes". 
+		A continuación, deberá quitarse la marca de comentario de la última línea y cambiar "no" por "yes".  
 
 			AUTHBIND=yes
 
@@ -240,7 +254,7 @@ Tomcat se está ejecutando, pero no puede ver la página predeterminada de Tomca
 			sudo yum  install w3m w3m-img
 			w3m http://localhost:8080  
 
--	**Solución**
+-	**Solución** 
 	1. Si el puerto de escucha de tomcat no es el mismo que el Puerto privado del extremo para el tráfico a la máquina virtual, es necesario cambiar el puerto privado para que sea el mismo que el puerto de escucha de tomcat.   
 	
 	2.	Si el problema se debe a los firewall o iptables, agregue las siguientes líneas a /etc/sysconfig/iptables:  
@@ -309,7 +323,4 @@ Necesita obtener permiso de la cuenta raíz. Puede cambiar la propiedad de esa c
 [16]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

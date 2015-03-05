@@ -1,6 +1,20 @@
-<properties pageTitle="Guía de usuario del Agente de Linux para Azure" description="Aprenda a instalar y configurar el Agente de Linux (waagent) para administrar la interacción de la máquina virtual con el controlador de tejido de Azure." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Guía de usuario del Agente de Linux para Azure" 
+	description="Aprenda a instalar y configurar el Agente de Linux (waagent) para administrar la interacción de la máquina virtual con el controlador de tejido de Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="szarkos"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/20/2014" 
+	ms.author="szarkos"/>
 
 
 
@@ -107,7 +121,7 @@ El archivo de registro del agente se guarda en /var/log/waagent.log.
 
  * Detecta la versión del kernel y aplica la solución alternativa VNUMA si es necesario
 
- * Reglas de udev de movimientos que pueden interferir con la red (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) en /var/lib/waagent/  
+ * Mueve las reglas de udev que pueden interferir con la red (/lib/udev/rules.d/75-persistent-net-generator.rules, /etc/udev/rules.d/70-persistent-net.rules) a /var/lib/waagent/  
 
 - uninstall: Quita waagent y los archivos asociados
  * Quita del registro el script init del sistema y lo elimina
@@ -185,7 +199,7 @@ Si se específica una ruta a un programa ejecutable, se invoca cuando waagent ha
 Tipo: String  
 Predeterminado: None
 
-Si se especifica una ruta a un programa ejecutable, el programa se invoca cuando el Tejido indica que hay un archivo de configuración disponible para la máquina virtual. La ruta al archivo de configuración XML se proporciona como un argumento para el ejecutable. Este se puede invocar todas las veces que el archivo de configuración cambia. En el Anexo se proporciona un archivo de muestra. La ruta de acceso actual de este archivo es /var/lib/waagent/HostingEnvironmentConfig.xml.
+Si se especifica una ruta a un programa ejecutable, el programa se invoca cuando el Tejido indica que hay un archivo de configuración disponible para la máquina virtual. La ruta al archivo de configuración XML se proporciona como un argumento para el ejecutable. Este se puede invocar todas las veces que el archivo de configuración cambia. En el Anexo se proporciona un archivo de muestra. La ruta actual de este archivo es /var/lib/waagent/HostingEnvironmentConfig.xml.
 
 **Role.TopologyConsumer:**
 
@@ -250,7 +264,7 @@ De esta manera se especifica el tipo de sistema de archivos para el disco de rec
 Tipo: String  
 Predeterminado: /mnt/resource 
 
-Esta opción especifica la ruta en la cual se monta el disco de recursos. Tenga en cuenta que el disco de recursos es un disco  *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona.
+Esta opción especifica la ruta en la cual se monta el disco de recursos. Tenga en cuenta que el disco de recursos es un disco  *temporary* que debe vaciarse cuando la máquina virtual se desaprovisiona.
 
 **ResourceDisk.EnableSwap:**
 
@@ -405,7 +419,4 @@ Esta opción se puede usar para especificar una ruta alternativa para que el bin
 	  </Instances>
 	</SharedConfig>
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,9 +1,23 @@
-<properties pageTitle="Creación y carga de un VHD de Linux en Azure" description="Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene un sistema operativo Linux." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Creación y carga de un VHD de Linux en Azure" 
+	description="Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene un sistema operativo Linux." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="szarkos"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="szarkos"/>
 
 
-# <a id="nonendorsed"></a>Información para las distribuciones no aprobadas #
+# <a id="nonendorsed"> </a>Información para las distribuciones no aprobadas #
 
 **Importante**: El contrato de nivel de servicio de la plataforma Azure se aplica a máquinas virtuales que ejecutan el SO Linux solo cuando cuentan con una de las [distribuciones aprobadas](../virtual-machines-linux-endorsed-distributions). Todas las distribuciones de Linux que se ofrezcan en la galería de imágenes de Azure son distribuciones aprobadas con la configuración requerida.
 
@@ -53,19 +67,19 @@ A continuación, volver a generar el initrd con los módulos kernel  `hv_vmbus` 
 
 ### Cambio de tamaño de los discos duros virtuales ###
 
-Las imágenes VHD en Azure deben tener un tamaño virtual alineado con 1 MB. Normalmente, los discos duros virtuales creados con Hyper-V ya deben alinearse correctamente. Si el disco duro virtual no está alineado correctamente, recibirá un mensaje de error similar al siguiente cuando intente crear una  *imagen* desde el disco duro virtual:
+Las imágenes VHD en Azure deben tener un tamaño virtual alineado con 1 MB.  Normalmente, los discos duros virtuales creados con Hyper-V ya deben alinearse correctamente.  Si el disco duro virtual no está alineado correctamente, recibirá un mensaje de error similar al siguiente cuando intente crear una imagen (*image*) desde el disco duro virtual:
 
 	"The VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd has an unsupported virtual size of 21475270656 bytes. The size must be a whole number (in MBs)."
 
-Para solucionar este problema, puede cambiar el tamaño de la máquina virtual mediante la consola de administrador de Hyper-V o el del cmdlet de PowerShell [Resize-VHD](http://technet.microsoft.com/es-es/library/hh848535.aspx).
+Para solucionar este problema, puede cambiar el tamaño de la máquina virtual mediante la consola de administrador de Hyper-V o el del cmdlet de PowerShell [Resize-VHD](http://technet.microsoft.com/ library/hh848535.aspx).
 
 Si no está ejecutando en un entorno de Windows, se recomienda usar qemu-img para convertir (si es necesario) y cambiar el tamaño del disco duro virtual:
 
- 1. Cambiar el tamaño del disco duro virtual directamente mediante herramientas como `qemu-img` o  `vbox-manage` puede dar lugar a un disco duro virtual que no puede arrancar. Por tanto, se recomienda convertir primero el disco duro virtual a una imagen de disco sin procesar. Si la imagen de VM ya se ha creado como imagen de disco sin procesar (el valor predeterminado para algunos hipervisores como KVM), puede omitir este paso:
+ 1. Cambiar el tamaño del disco duro virtual directamente mediante herramientas como `qemu-img` o  `vbox-manage` puede dar lugar a un disco duro virtual que no puede arrancar.  Por tanto, se recomienda convertir primero el disco duro virtual a una imagen de disco sin procesar.  Si la imagen de VM ya se ha creado como imagen de disco sin procesar (el valor predeterminado para algunos hipervisores como KVM), puede omitir este paso:
 
 		# qemu-img convert -f vpc -O raw MyLinuxVM.vhd MyLinuxVM.raw
 
- 2. Calcular el tamaño necesario de la imagen de disco para asegurarse de que el tamaño virtual está alineado con 1MB. La siguiente secuencia de comandos de shell bash puede ayudar con esto. La secuencia de comandos usa "`qemu-img info`" para determinar el tamaño virtual de la imagen de disco y, a continuación, calcula el tamaño al MB siguiente:
+ 2. Calcular el tamaño necesario de la imagen de disco para asegurarse de que el tamaño virtual está alineado con 1MB.  La siguiente secuencia de comandos de shell bash puede ayudar con esto.  El script usa "`qemu-img info`" para determinar el tamaño virtual de la imagen de disco y, a continuación, calcula el tamaño con el bloque de 1 MB siguiente:
 
 		rawdisk="MyLinuxVM.raw"
 		vhddisk="MyLinuxVM.vhd"
@@ -134,7 +148,7 @@ El [agente de Linux de Azure](../virtual-machines-linux-agent-user-guide) (waage
 
 	Así también se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores.
 
-	Además de lo anterior, se recomienda  *quitar* los parámetros siguientes (si existen):
+	Además de lo anterior, se recomienda eliminar (*remove*) los parámetros siguientes, si existen:
 
 		rhgb quiet crashkernel=auto
 
@@ -144,13 +158,13 @@ El [agente de Linux de Azure](../virtual-machines-linux-agent-user-guide) (waage
 
 - Instalación del agente de Linux de Azure
 
-	El agente de Linux de Azure se requiere para aprovisionar una imagen de Linux en Azure. Muchas distribuciones proporcionan el agente como un paquete RPM o Deb (normalmente, se llama el paquete 'WALinuxAgent' o 'walinuxagent'). El agente también se puede instalar manualmente siguiendo los pasos de la [Guía del agente de Linux](../virtual-machines-linux-agent-user-guide).
+	El agente de Linux de Azure se requiere para aprovisionar una imagen de Linux en Azure.  Muchas distribuciones proporcionan el agente como un paquete RPM o Deb (normalmente, se llama el paquete 'WALinuxAgent' o 'walinuxagent').  El agente también se puede instalar manualmente siguiendo los pasos de la [Guía del agente de Linux](../virtual-machines-linux-agent-user-guide).
 
-- Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque. Este es normalmente el valor predeterminado.
+- Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque.  Este es normalmente el valor predeterminado.
 
 - No cree un espacio de intercambio en el disco del sistema operativo.
 
-	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco  *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
+	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal (*temporary*) que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -173,5 +187,4 @@ El [agente de Linux de Azure](../virtual-machines-linux-agent-user-guide) (waage
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

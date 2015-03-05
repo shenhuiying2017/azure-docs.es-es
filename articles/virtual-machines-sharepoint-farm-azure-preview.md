@@ -1,6 +1,20 @@
-<properties pageTitle="Granja de servidores SharePoint" description="Describe la nueva característica Granja de servidores de SharePoint disponible en el Portal de vista previa de Azure." services="virtual-machines" documentationCenter="" authors="JoeDavies-MSFT" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Granja de servidores SharePoint" 
+	description="Describe la nueva característica Granja de servidores de SharePoint disponible en el Portal de vista previa de Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="JoeDavies-MSFT" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-sharepoint" ms.devlang="na" ms.topic="article" ms.date="1/26/2015" ms.author="josephd"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-sharepoint" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="1/26/2015" 
+	ms.author="josephd"/>
 
 #Granja de servidores SharePoint#
 
@@ -67,15 +81,12 @@ Notas:
 
 ##Administrador de recursos de Azure##
 
-Granja de servidores SharePoint utiliza el Administrador de recursos de Azure y scripts para crear automáticamente la infraestructura y las configuraciones de servidor para estas granjas de SharePoint. Para obtener más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](http://azure.microsoft.com/es-es/documentation/articles/powershell-azure-resource-manager/).
+Granja de servidores SharePoint utiliza el Administrador de recursos de Azure y scripts para crear automáticamente la infraestructura y las configuraciones de servidor para estas granjas de SharePoint. Para obtener más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
 
 ##Recursos adicionales
 
 [SharePoint en los servicios de infraestructura de Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-[Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](http://azure.microsoft.com/es-es/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

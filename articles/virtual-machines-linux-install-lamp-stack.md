@@ -1,6 +1,20 @@
-<properties pageTitle="Instalación de la pila LAMP en una máquina virtual de Linux" description="Aprenda a instalar la pila LAMP en una máquina virtual de Linux en Azure. Puede realizar la instalación en Ubuntu o CentOS." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Instalación de la pila LAMP en una máquina virtual de Linux" 
+	description="Aprenda a instalar la pila LAMP en una máquina virtual de Linux en Azure. Puede realizar la instalación en Ubuntu o CentOS." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="szark"/>
 
 
 
@@ -28,7 +42,7 @@ Después de ejecutar  `apt-get update` para actualizar la lista local de paquete
 	# sudo apt-get update
 	# sudo apt-get install apache2 mysql-server php5 php5-mysql
 
-Tras ejecutar el comando anterior, se le pedirá que instale estos paquetes y una serie de dependencias.  Presione 'y' y, a continuación, 'Entrar' para continuar y siga las indicaciones para establecer una contraseña administrativa para MySQL.
+Tras ejecutar el comando anterior, se le pedirá que instale estos paquetes y una serie de dependencias.  Presione 'y' and then 'Enter' para continuar y siga las indicaciones para establecer una contraseña administrativa para MySQL.
 
 Esto instalará las extensiones PHP mínimas necesarias para utilizar PHP con MySQL. Ejecute el siguiente comando para ver otras extensiones PHP disponibles como paquetes:
 
@@ -49,7 +63,7 @@ Puede instalar estos paquetes con un solo comando  `yum install`:
 
 	# sudo yum install httpd mysql mysql-server php php-mysql
 
-Tras ejecutar el comando anterior, se le pedirá que instale estos paquetes y una serie de dependencias.  Presione 'y' y, a continuación, 'Entrar' para continuar.
+Tras ejecutar el comando anterior, se le pedirá que instale estos paquetes y una serie de dependencias.  Presione  'y' and then 'Enter' para continuar.
 
 Esto instalará las extensiones PHP mínimas necesarias para utilizar PHP con MySQL. Ejecute el siguiente comando para ver otras extensiones PHP disponibles como paquetes:
 
@@ -69,7 +83,7 @@ Puede instalar estos paquetes con un solo comando  `zypper install`:
 
 	# sudo zypper install apache2 mysql apache2-mod_php53 php53-mysql
 
-Tras ejecutar el comando anterior, se le pedirá que instale estos paquetes y una serie de dependencias.  Presione 'y' y, a continuación, 'Entrar' para continuar.
+Tras ejecutar el comando anterior, se le pedirá que instale estos paquetes y una serie de dependencias.  Presione  'y' and then 'Enter' para continuar.
 
 Esto instalará las extensiones PHP mínimas necesarias para utilizar PHP con MySQL. Ejecute el siguiente comando para ver otras extensiones PHP disponibles como paquetes:
 
@@ -83,13 +97,13 @@ Instalación
 
 	- Ejecute el siguiente comando para asegurarse de que arranca el servidor web Apache:
 
-		- Ubuntu & SLES: `sudo service apache2 restart`
+		- Ubuntu y SLES: `sudo service apache2 restart`
 
-		- CentOS & Oracle: `sudo service httpd restart`
+		- CentOS y Oracle: `sudo service httpd restart`
 
-	- Apache escucha en el puerto 80 de manera predeterminada. Tal vez necesite abrir un extremo para acceder a su servidor Apache de manera remota.  Para obtener información más detallada consulte la documentación en [configurar extremos](http://azure.microsoft.com/es-es/documentation/articles/virtual-machines-set-up-endpoints/).
+	- Apache escucha en el puerto 80 de manera predeterminada. Tal vez necesite abrir un extremo para acceder a su servidor Apache de manera remota.  Para obtener información más detallada consulte la documentación en [configurar extremos](http://azure.microsoft.com/documentation/articles/virtual-machines-set-up-endpoints/).
 
-	- Ahora ya puede comprobar si Apache funciona y proporciona contenido. Dirija su explorador a  `http://[MYSERVICE].cloudapp.net`, donde **[[MYSERVICE]]** es el nombre del servicio de nube en el que reside su máquina virtual. Es posible que en algunas distribuciones reciba la bienvenida con una página web predeterminada que sencillamente diga "Funciona". En otras puede tal vez vea una página web más completa con enlaces a documentación y contenido adicional para configurar el servidor Apache.
+	- Ahora ya puede comprobar si Apache funciona y proporciona contenido. Dirija su explorador a  `http://[MYSERVICE].cloudapp.net`, donde **[MYSERVICE]** es el nombre del servicio de nube en el que reside su máquina virtual. Es posible que en algunas distribuciones reciba la bienvenida con una página web predeterminada que sencillamente diga "Funciona". En otras puede tal vez vea una página web más completa con enlaces a documentación y contenido adicional para configurar el servidor Apache.
 
 2. Instalación de **MySQL**
 
@@ -108,7 +122,4 @@ Existen muchos recursos para instalar una pila LAMP en Ubuntu.
 
 - [https://help.ubuntu.com/community/ApacheMySQLPHP](https://help.ubuntu.com/community/ApacheMySQLPHP)
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-<properties pageTitle="Aplicación web de Ruby on Rails en Azure con una máquina virtual de Linux" description="Hospede un sitio web basado en Ruby on Rails en Azure usando una máquina virtual de Linux." services="virtual-machines" documentationCenter="ruby" authors="blackmist" manager="wpickett" editor=""/>
+﻿<properties 
+	pageTitle="Aplicación web de Ruby on Rails en Azure con una máquina virtual de Linux" 
+	description="Hospede un sitio web basado en Ruby on Rails en Azure usando una máquina virtual de Linux." 
+	services="virtual-machines" 
+	documentationCenter="ruby" 
+	authors="blackmist" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="web" ms.tgt_pltfrm="vm-linux" ms.devlang="ruby" ms.topic="article" ms.date="09/17/2014" ms.author="larryfr"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="ruby" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="larryfr"/>
 
 
 
@@ -44,11 +58,11 @@ La siguiente es una captura de pantalla de la aplicación completa:
 
 1. Instale Ruby en su entorno de desarrollo. Los pasos pueden variar según el sistema operativo.
 
-	* **Apple OS X** - Existen varias distribuciones de Ruby para OS X. Este tutorial se validó en OS X mediante [Homebrew](http://brew.sh/) para instalar **rbenv** y **ruby-build**. Puede encontrar información sobre la instalación en [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
+	* **Apple OS X**: Puede haber varias distribuciones de Ruby para OS X. Este tutorial se validó en OS X mediante [Homebrew](http://brew.sh/) para instalar **rbenv** y **ruby-build**. Puede encontrar información sobre la instalación en [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
 
-	* **Linux** - Use su sistema de administración de paquetes de distribución. Este tutorial se validó en Ubuntu 12.10 usando los paquetes de desarrollo de ruby1.9.1 y ruby1.9.1-dev.
+	* **Linux**: Use su sistema de administración de paquetes de distribución. Este tutorial se validó en Ubuntu 12.10 usando los paquetes de desarrollo de ruby1.9.1 y ruby1.9.1-dev.
 
-	* **Windows** - Existen varias distribuciones de Ruby para Windows. Este tutorial se validó con [RailsInstaller](http://railsinstaller.org/) 1.9.3-p392.
+	* **Windows**: Existen varias distribuciones de Ruby para Windows. Este tutorial se validó con [RailsInstaller](http://railsinstaller.org/) 1.9.3-p392.
 
 2. Abra una nueva línea de comandos o sesión de terminal y escriba el siguiente comando para instalar Ruby on Rails:
 
@@ -122,7 +136,7 @@ Siga las instrucciones que se proporcionan [aquí][vm-instructions] para crear u
 
 > [AZURE.NOTE] los pasos de este tutorial se realizaron en una máquina virtual de Azure con Ubuntu 12.10. Si va a usar una distribución de Linux diferente, es posible que se requieran diferentes pasos para llevar a cabo las mismas tareas.
 
-> [AZURE.IMPORTANT] **Solo** necesita crear la máquina virtual. Deténgase después de saber cómo conectarse a la máquina virtual con SSH.
+> [AZURE.IMPORTANT] **Solo** debe crear la máquina virtual. Deténgase después de saber cómo conectarse a la máquina virtual con SSH.
 
 Después de crear la máquina virtual de Azure, realice los siguientes pasos para instalar Ruby and Rails en la máquina virtual:
 
@@ -247,7 +261,7 @@ En este artículo aprendió a crear y publicar una aplicación básica de Rails 
 
 Para obtener información sobre la implementación de automatización de su aplicación de Rails, y sobre el uso del servidor web Unicorn y NginX, consulte [Unicorn+NginX+Capistrano con una Máquina virtual de Azure][unicorn-nginx-capistrano].
 
-Si desea obtener más información sobre Ruby on Rails, visite las [Guías de Ruby on Rails] (en inglés).[rails-guides].
+Si desea obtener más información sobre Ruby on Rails, visite las [Guías de Ruby on Rails][rails-guides] (en inglés).
 
 Para obtener información sobre cómo usar el SDK de Azure para Ruby y así tener acceso a los servicios de Azure desde su aplicación de Ruby, consulte:
 
@@ -294,7 +308,4 @@ Para obtener información sobre cómo usar el SDK de Azure para Ruby y así tene
 [new-endpoint]: ./media/virtual-machines-ruby-rails-web-app-linux/newendpoint.png
 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

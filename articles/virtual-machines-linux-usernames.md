@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Selección de nombres de usuario para Linux en Azure" description="Aprenda a seleccionar nombres de usuario para una máquina virtual de Linux en Azure." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Selección de nombres de usuario para Linux en Azure" 
+	description="Aprenda a seleccionar nombres de usuario para una máquina virtual de Linux en Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="szark"/>
 
 
 
@@ -231,7 +245,4 @@ A continuación, se indican los nombres de usuario que debería evitar al realiz
 - www-data
 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 
