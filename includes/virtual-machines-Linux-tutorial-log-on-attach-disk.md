@@ -30,9 +30,9 @@ Este tutorial le muestra cómo usar el programa PuTTY para tener acceso a la má
 
 Es posible que su aplicación necesite almacenar datos. Para hacerlo posible, adjunta un disco de datos a la máquina virtual que creó anteriormente. La manera más fácil de hacerlo es adjuntar un disco de datos vacío a la máquina.
 
-En Linux, el disco de recursos se administra generalmente mediante el Agente de Linux de Azure y se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Por otro lado, en Linux el kernel podría denominar al disco de datos como  `/dev/sdc`, y los usuarios necesitarán crear particiones, dar formato y montar ese recurso. Consulte la [Guía de usuario del Agente de Linux de Azure](http://www.windowsazure.com/es-es/manage/linux/how-to-guides/linux-agent-guide/) para obtener más información.
+En Linux, el disco de recursos se administra generalmente mediante el Agente de Linux de Azure y se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Por otro lado, en Linux el kernel podría denominar al disco de datos como  `/dev/sdc`, y los usuarios necesitarán crear particiones, dar formato y montar ese recurso. Consulte la [Guía de usuario del Agente de Linux de Azure](http://azure.microsoft.com/manage/linux/how-to-guides/linux-agent-guide/) para obtener más información.
 
->[AZURE.NOTE] No almacene datos en el disco de recursos. Este disco proporciona almacenamiento temporal para aplicaciones y procesos y se utiliza para almacenar datos que no tiene que conservar, como archivos de intercambio. Los discos de datos residen en Almacenamiento de Azure como archivos .vhd en blobs de páginas y ofrecen redundancia de almacenamiento para proteger sus datos. Para obtener más información, consulte [Acerca de discos e imágenes en Azure](http://msdn.microsoft.com/es-es/library/jj672979.aspx).
+>[AZURE.NOTE] No almacene datos en el disco de recursos. Este disco proporciona almacenamiento temporal para aplicaciones y procesos y se utiliza para almacenar datos que no tiene que conservar, como archivos de intercambio. Los discos de datos residen en Almacenamiento de Azure como archivos .vhd en blobs de páginas y ofrecen redundancia de almacenamiento para proteger sus datos. Para obtener más información, consulte [Acerca de discos e imágenes en Azure](http://msdn.microsoft.com/library/jj672979.aspx).
 
 1. Si no lo ha hecho todavía, inicie sesión en el Portal de administración de Azure.
 
@@ -42,7 +42,7 @@ En Linux, el disco de recursos se administra generalmente mediante el Agente de 
 	
 	Aparece el cuadro de diálogo **Conectar disco vacío**.
 
-	![Definir detalles de disco](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachnewdisklinux.png)
+	![Define disk details](./media/virtual-machines-Linux-tutorial-log-on-attach-disk/attachnewdisklinux.png)
 
 4. El **nombre de máquina virtual**, la **ubicación de almacenamiento** y el **nombre de archivo** ya están definidos. Solo tiene que especificar el tamaño que desea utilizar para el disco. Escriba **5** en el campo **Size** (Tamaño).
 
@@ -75,7 +75,7 @@ El disco de datos que acaba de adjuntar a la máquina virtual permanecerá desco
 
 	`sudo fdisk /dev/sdc`
 
-	>[AZURE.NOTE] En este ejemplo es posible que tenga que utilizar  `sudo -i` en algunas distribuciones si /sbin o/usr/sbin no está en su '$PATH'.
+	>[AZURE.NOTE] En este ejemplo, es posible que tenga que usar `sudo -i` en algunas distribuciones si /sbin o /usr/sbin no están en su `$PATH`.
 
 
 4. Escriba **n** para crear una nueva partición.
@@ -131,7 +131,7 @@ El disco de datos que acaba de adjuntar a la máquina virtual permanecerá desco
 		`/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"`
 		`/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"`
 
-	>[AZURE.NOTE] Es posible que blkid no requiera acceso sudo en todos los casos. Sin embargo, puede que sea más sencillo ejecutar  `sudo -i` en algunas distribuciones si /sbin o /usr/sbin no se encuentran en su `$PATH`.
+	>[AZURE.NOTE] Es posible que blkid no requiera acceso sudo en todos los casos. Sin embargo, puede que sea más sencillo ejecutar con  `sudo -i` en algunas distribuciones si /sbin o /usr/sbin no se encuentran en su `$PATH`.
 
 	**Precaución:** la edición incorrecta del archivo/etc/fstab podría provocar un reinicio del sistema. Si no está seguro, consulte la documentación de distribución para obtener información sobre cómo editar correctamente este archivo. También se recomienda que se crea una copia de seguridad del archivo/etc/fstab antes de la edición.
 
@@ -157,4 +157,4 @@ El disco de datos que acaba de adjuntar a la máquina virtual permanecerá desco
 
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

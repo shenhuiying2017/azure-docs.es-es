@@ -1,7 +1,7 @@
 ﻿
-Para obtener más información sobre los discos, consulte [Acerca de los discos de máquina virtual en Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697).
+Para obtener más información sobre los discos, consulte [Acerca de los discos de máquina virtual en Azure](http://go.microsoft.com/fwlink/p/?LinkId=403697)
 
-##<a id="attachempty"></a>Procedimiento: Conectar un disco vacío
+##<a id="attachempty"></a>Codificación Conectar un disco vacío
 El acoplamiento de un disco vacío supone el método más sencillo de agregar un disco de datos, porque Azure crea el archivo .vhd en su lugar y lo almacena en la cuenta de almacenamiento.
 
 1. Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual correspondiente.
@@ -9,12 +9,12 @@ El acoplamiento de un disco vacío supone el método más sencillo de agregar un
 2. En la barra de comandos, haga clic en **Conectar** y luego en **Conectar un disco vacío**.
 
 
-	![Conectar un disco vacío](./media/howto-attach-disk-window-linux/AttachEmptyDisk.png)
+	![Attach an empty disk](./media/howto-attach-disk-window-linux/AttachEmptyDisk.png)
 
 3.	Aparecerá el cuadro de diálogo **Conectar un disco vacío**.
 
 
-	![Conectar un disco vacío nuevo](./media/howto-attach-disk-window-linux/AttachEmptyDetail.png)
+	![Attach a new empty disk](./media/howto-attach-disk-window-linux/AttachEmptyDetail.png)
 
  
 	Haga lo siguiente:
@@ -27,24 +27,24 @@ El acoplamiento de un disco vacío supone el método más sencillo de agregar un
 
 4.	Una vez creado y conectado el disco de datos, este aparece en el panel de la máquina virtual.
 
-	![Disco de datos vacío conectado correctamente](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
+	![Empty data disk successfully attached](./media/howto-attach-disk-window-linux/AttachEmptySuccess.png)
 
-##<a id="attachexisting"></a>Procedimiento: Conectar un disco existente
+##<a id="attachexisting"></a>Codificación un disco existente
 
-El acoplamiento de un disco existente requiere que disponga de un .vhd disponible en la cuenta de almacenamiento. Use el cmdlet [Add-AzureVhd](http://go.microsoft.com/FWLink/p/?LinkID=391684) para cargar el archivo .vhd en la cuenta de almacenamiento. Una vez que haya creado y cargado el archivo .vhd, puede acoplarlo a una máquina virtual. 
+El acoplamiento de un disco existente requiere que disponga de un .vhd disponible en la cuenta de almacenamiento. Use el cmdlet [Add-AzureVhd](http://go.microsoft.com/FWLink/p/?LinkID=391684) para cargar el archivo .vhd a la cuenta de almacenamiento. Una vez que haya creado y cargado el archivo .vhd, puede acoplarlo a una máquina virtual. 
 
 1. Haga clic en **Máquinas virtuales** y, a continuación, seleccione la máquina virtual correspondiente.
 
 2. En la barra de comandos, haga clic en **Conectar** y luego elija **Conectar disco**.
 
 
-	![Conectar un disco de datos](./media/howto-attach-disk-window-linux/AttachExistingDisk.png)
+	![Attach data disk](./media/howto-attach-disk-window-linux/AttachExistingDisk.png)
 
 	Aparecerá el cuadro de diálogo **Conectar disco**.
 
 
 
-	![Especificar la información del disco de datos](./media/howto-attach-disk-window-linux/AttachExistingDetail.png)
+	![Enter data disk details](./media/howto-attach-disk-window-linux/AttachExistingDetail.png)
 
 3. Seleccione el disco de datos que desee acoplar a la máquina virtual.
 
@@ -53,7 +53,7 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
 5.	Una vez conectado el disco de datos, este aparece en el panel de la máquina virtual.
 
 
-	![Disco de datos conectado correctamente](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
+	![Data disk successfully attached](./media/howto-attach-disk-window-linux/AttachExistingSuccess.png)
 
 > [AZURE.NOTE] 
 > Después de conectar un disco de datos, tendrá que iniciar sesión en la máquina virtual e inicializar el disco para que la máquina virtual pueda usar el disco para el almacenamiento.
@@ -61,4 +61,4 @@ El acoplamiento de un disco existente requiere que disponga de un .vhd disponibl
 
 
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

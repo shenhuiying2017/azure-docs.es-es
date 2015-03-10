@@ -1,6 +1,20 @@
-<properties pageTitle="Ofertas de seguridad para máquinas virtuales de Azure" description="Rápida visión global de las características de seguridad más importantes para las máquinas virtuales de Azure y vínculos a los detalles." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Ofertas de seguridad para máquinas virtuales de Azure" 
+	description="Rápida visión global de las características de seguridad más importantes para las máquinas virtuales de Azure y vínculos a los detalles." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-multiple" ms.devlang="na" ms.topic="article" ms.date="01/23/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-multiple" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/23/2015" 
+	ms.author="kathydav"/>
 
 #Ofertas de seguridad para máquinas virtuales de Azure
 
@@ -24,11 +38,8 @@ Azure ofrece varias opciones para soluciones antivirus y antimalware, pero la ad
 Las listas de control de acceso (ACL) de red ofrecen la posibilidad de permitir o denegar de forma selectiva el tráfico de entrada a un extremo de máquina virtual. Esta capacidad de filtro de paquetes proporciona un nivel adicional de seguridad. Para obtener detalles sobre cómo funciona esto y vínculos e instrucciones, consulte [Acerca de las listas de control de acceso (ACL) de red](http://go.microsoft.com/fwlink/?LinkId=506655).
 
 ##Recursos adicionales
-[Recursos](http://azure.microsoft.com/es-es/support/trust-center/resources/) del Centro de confianza de Microsoft Azure
+[Recursos](http://azure.microsoft.com/support/trust-center/resources/) del Centro de confianza de Microsoft Azure
 
 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Inicio de sesión en una máquina virtual que ejecuta Linux en Azure" description="Aprenda a iniciar sesión en una máquina virtual de Azure que ejecuta Linux utilizando un cliente Secure Shell (SSH)." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Inicio de sesión en una máquina virtual que ejecuta Linux en Azure" 
+	description="Aprenda a iniciar sesión en una máquina virtual de Azure que ejecuta Linux utilizando un cliente Secure Shell (SSH)." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/12/2014" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/12/2014" 
+	ms.author="kathydav"/>
 
 
 
@@ -18,7 +32,7 @@ Debe instalar un cliente de SSH en el equipo que desea usar para iniciar sesión
 
 Este procedimiento le muestra cómo usar el programa PuTTY para tener acceso a la máquina virtual.
 
-1. Busque el nombre de host (**Host Name**) y la información de puerto (**Port information**) en el [Portal de administración](http://manage.windowsazure.com). Puede encontrar la información que necesita en el panel de la máquina virtual. Haga clic en el nombre de la máquina virtual y busque los **Detalles de SSH** en la sección **Vista rápida**del panel.
+1. Busque el nombre de host (**Host Name**) y la información de puerto (**Port information**) en el [Portal de administración](http://manage.windowsazure.com). Puede encontrar la información que necesita en el panel de la máquina virtual. Haga clic en el nombre de la máquina virtual y busque **SSH Details** (Detalles de SSH)  en la sección **Quick Glance** (Vista rápida) del panel.
 
 	![Obtain SSH details](./media/virtual-machines-linux-how-to-log-on/sshdetails.png)
 
@@ -28,7 +42,7 @@ Este procedimiento le muestra cómo usar el programa PuTTY para tener acceso a l
 
 	![Open PuTTY](./media/virtual-machines-linux-how-to-log-on/putty.png)
 
-4. Inicie sesión en la máquina virtual usando la cuenta que especificó cuando se creó la máquina. Para obtener más detalles sobre cómo crear una máquina virtual con el nombre de usuario y contraseña, consulte [Creación de una máquina virtual que ejecuta Linux](http://azure.microsoft.com/es-es/documentation/articles/virtual-machines-linux-tutorial/). 
+4. Inicie sesión en la máquina virtual usando la cuenta que especificó cuando se creó la máquina. Para obtener más detalles sobre cómo crear una máquina virtual con el nombre de usuario y contraseña, consulte [Creación de una máquina virtual que ejecuta Linux](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-tutorial/). 
 
 	![Log on to the virtual machine](./media/virtual-machines-linux-how-to-log-on/sshlogin.png)
 
@@ -39,7 +53,4 @@ Ahora puede trabajar con la máquina virtual igual que hace con cualquier otro s
 <!-- LINKS -->
 [Restablecimiento de una contraseña o de SSH para máquinas virtuales de Linux]: http://go.microsoft.com/fwlink/p/?LinkId=512138
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,14 +1,28 @@
-<properties pageTitle="Creación y carga de un VHD de Linux en Azure" description="Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene el sistema operativo Linux." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor="tysonn"/>
+﻿<properties 
+	pageTitle="Creación y carga de un VHD de Linux en Azure" 
+	description="Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene el sistema operativo Linux." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="01/13/2015" ms.author="kathydav, szarkos"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="kathydav, szarkos"/>
 
 # Creación y carga de un disco duro virtual que contiene el sistema operativo Linux
 
 En este artículo se muestra cómo puede crear y cargar un disco duro virtual (VHD) que podrá utilizar como imagen propia para crear máquinas virtuales en Azure. Aprenderá a preparar el sistema operativo que podrá utilizar para crear máquinas virtuales basadas en esa imagen.  
 
-> [AZURE.NOTE] No es necesario que tenga experiencia con máquinas virtuales de Azure para completar los pasos de este artículo. Sin embargo, sí necesita una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Creación de una cuenta de Azure](http://www.windowsazure.com/es-es/develop/php/tutorials/create-a-windows-azure-account/). 
+> [AZURE.NOTE] No es necesario que tenga experiencia con máquinas virtuales de Azure para completar los pasos de este artículo. Sin embargo, sí necesita una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Creación de una cuenta de Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/) 
 
-Una máquina virtual en Azure ejecuta el sistema operativo basado en la imagen que elige cuando crea la máquina virtual. Las imágenes se almacenan en formato VHD en archivos .vhd en una cuenta de almacenamiento. Para obtener más información acerca de los discos y las imágenes en Azure, consulte [Administrar discos e imágenes](http://msdn.microsoft.com/es-es/library/windowsazure/jj672979.aspx).
+Una máquina virtual en Azure ejecuta el sistema operativo basado en la imagen que elige cuando crea la máquina virtual. Las imágenes se almacenan en formato VHD en archivos .vhd en una cuenta de almacenamiento. Para obtener más información acerca de los discos y las imágenes en Azure, consulte [Administrar discos e imágenes](http://msdn.microsoft.com/library/windowsazure/jj672979.aspx).
 
 Al crear la máquina virtual, puede personalizar parte de la configuración del sistema operativo para adaptarla a la aplicación que desea ejecutar. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada](/es-es/manage/windows/how-to-guides/custom-create-a-vm/).
 
@@ -20,15 +34,15 @@ En este artículo se supone que tiene los siguientes elementos:
 
 - **Un certificado de administración**: ha creado un certificado de administración para la suscripción para la que desea cargar un VHD, y ha exportado el certificado a un archivo .cer. Para obtener más información acerca de la creación de certificados, consulte [Crear y cargar un certificado de administración para Azure](http://msdn.microsoft.com/library/windowsazure/gg551722.aspx). 
 
-- **Sistema operativo Linux instalado en un archivo .vhd**. Ha instalado un sistema operativo Linux compatible en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, puede utilizar una solución de virtualización como Hyper-V para crear el archivo .vhd e instalar el sistema operativo. Para obtener instrucciones, consulte [Instalar el rol Hyper-V y configurar una máquina virtual](http://technet.microsoft.com/library/hh846766.aspx). 
+- **Sistema operativo Linux instalado en un archivo .vhd**  - Ha instalado un sistema operativo Linux compatible en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, puede utilizar una solución de virtualización como Hyper-V para crear el archivo .vhd e instalar el sistema operativo. Para obtener instrucciones, consulte [Instalar el rol Hyper-V y configurar una máquina virtual](http://technet.microsoft.com/library/hh846766.aspx). 
 
 	**Importante**: el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
 
-	Para ver una lista de distribuciones aprobadas, consulte [Linux en distribuciones aprobadas por Azure](../linux-endorsed-distributions). Como alternativa, vea la sección al final de este artículo para obtener [información para las distribuciones no aprobadas](../virtual-machines-linux-create-upload-vhd-generic).
+	Para ver una lista de distribuciones aprobadas, consulte [Linux en distribuciones aprobadas por Azure](../linux-endorsed-distributions). También puede consultar la sección que se encuentra al final de este artículo para obtener [información para las distribuciones no aprobadas](../virtual-machines-linux-create-upload-vhd-generic).
 
 - **Herramienta de línea de comandos de Azure para Linux**. Si usa el sistema operativo Linux para crear su imagen, utilizará las [Herramientas de línea de comando de Azure para Linux y Mac](http://go.microsoft.com/fwlink/?LinkID=253691&clcid=0x409) para cargar el VHD.
 
-- **Herramientas Powershell de Azure**. El cmdlet  `Add-AzureVhd` se puede utilizar también para cargar el VHD. Visite las [Descargas de Azure](http://azure.microsoft.com/es-es/downloads/) para descargar los cmdlets de Powershell de Azure. Para obtener más información, consulte [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
+- **Herramientas Powershell de Azure**. El cmdlet  `Add-AzureVhd` se puede utilizar también para cargar el VHD. Visite las [Descargas de Azure](http://azure.microsoft.com/downloads/) para descargar los cmdlets de Powershell de Azure. Para obtener más información, consulte [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn495173.aspx).
 
 
 Esta tarea incluye los siguientes pasos:
@@ -38,7 +52,7 @@ Esta tarea incluye los siguientes pasos:
 - [Paso 3: Preparar la conexión a Azure] []
 - [Paso 4: Cargar la imagen en Azure] []
 
-## <a id="prepimage"></a>Paso 1: Preparar la imagen que se va a cargar ##
+## <a id="prepimage"> </a>Paso 1: Preparar la imagen que se va a cargar ##
 
 Microsoft Azure admite varias distribuciones de Linux (consulte [Distribuciones aprobadas](../linux-endorsed-distributions)). Los artículos siguientes le guiarán a través del proceso de preparación de las distintas distribuciones de Linux admitidas en Azure:
 
@@ -53,13 +67,13 @@ Consulte también las **[Notas de instalación de Linux](../virtual-machines-lin
 Tras seguir los pasos de las guías enumeradas anteriormente debería contar con un archivo VHD listo para cargarse en Azure.
 
 
-## <a id="createstorage"></a>Paso 2: Crear una cuenta de almacenamiento en Azure ##
+## <a id="createstorage"> </a>Paso 2: Crear una cuenta de almacenamiento en Azure ##
 
 Una cuenta de almacenamiento representa el más alto nivel del espacio de nombres para el acceso a los servicios de almacenamiento, y está asociada con la suscripción de Azure. Necesitará una cuenta de almacenamiento en Azure para cargar en Azure el archivo .vhd que se va a utilizar para crear una máquina virtual. Puede crear una cuenta de almacenamiento en el Portal de administración de Azure.
 
 1. Inicie sesión en el Portal de administración de Azure.
 
-2. En la barra de comandos, haga clic en **Nuevo**.
+2. En la barra de comandos, haga clic en **New**.
 
 	![Create storage account](./media/virtual-machines-linux-create-upload-vhd/create.png)
 
@@ -102,9 +116,9 @@ Antes de cargar el archivo .vhd, debe establecer una conexión segura entre el e
 
 	`Import-AzurePublishSettingsFile <PathToFile>`
 
-	Donde `<PathToFile>` es la ruta de acceso completa al archivo .publishsettings. 
+	Donde `<PathToFile>` es la ruta completa al archivo .publishsettings. 
 
-	Para obtener información, consulte [Introducción a los cmdlets de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/jj554332.aspx). 
+	Para obtener información, consulte [Introducción a los cmdlets de Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx). 
 
 
 ## <a id="upload"> </a>Paso 4: Cargar la imagen en Azure ##
@@ -117,7 +131,7 @@ Realice una de las operaciones siguientes:
 
 		`Add-AzureVhd -Destination <BlobStorageURL>/<YourImagesFolder>/<VHDName> -LocalFilePath <PathToVHDFile>`
 
-	Para obtener más información, consulte [Add-AzureVhd](http://msdn.microsoft.com/es-es/library/windowsazure/dn205185.aspx).
+	Para obtener más información, consulte [Add-AzureVhd](http://msdn.microsoft.com/library/windowsazure/dn205185.aspx).
 
 - Utilice la herramienta de línea de comandos de Linux para cargar la imagen. Puede cargar una imagen mediante el siguiente comando:
 
@@ -131,7 +145,4 @@ Realice una de las operaciones siguientes:
 [Paso 4: Cargar la imagen en Azure]: #upload
 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

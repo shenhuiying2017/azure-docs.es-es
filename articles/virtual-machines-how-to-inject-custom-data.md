@@ -1,10 +1,24 @@
-﻿<properties pageTitle="Inyección de datos personalizados en máquinas virtuales de Azure" description="Este tema describe cómo inyectar datos personalizados en una máquina virtual de Azure cuando la instancia se crea y cómo localizar dichos datos en Windows o Linux." services="virtual-machines" documentationCenter="" authors="squillace" manager="timlt" editor="tysonn"/>
+<properties 
+	pageTitle="Inyección de datos personalizados en máquinas virtuales de Azure" 
+	description="Este tema describe cómo inyectar datos personalizados en una máquina virtual de Azure cuando la instancia se crea y cómo localizar dichos datos en Windows o Linux." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="squillace" 
+	manager="timlt" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="10/1/2014" ms.author="rasquill"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/1/2014" 
+	ms.author="rasquill"/>
 
 
 
-#Inyección de datos personalizados en una máquina virtual de Azure 
+# Inyección de datos personalizados en una máquina virtual de Azure 
 
 La inyección de un script o de otros datos en una máquina virtual de Azure cuando se está aprovisionando es un escenario muy común, independientemente de si el sistema operativo es Microsoft Windows o una distribución de Linux. En este tema se describe cómo:
 
@@ -61,7 +75,4 @@ Si la máquina virtual de Azure es una imagen de Ubuntu, entonces puede usar clo
 [Interfaz de la línea de comandos entre plataformas de Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

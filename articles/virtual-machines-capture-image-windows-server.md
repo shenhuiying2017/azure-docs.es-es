@@ -42,7 +42,7 @@ Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y h
 4. 	Aparecerá el cuadro de diálogo **System Preparation Tool**. Haga lo siguiente:
 
 
-	- En **Acción de limpieza del sistema**, seleccione **Escriba la experiencia inmediata con el sistema (OOBE)** y asegúrese de que la opción **Generalizar** está marcada. Para obtener más información acerca del uso Sysprep, consulte [Uso de Sysrep: Introducción][].
+	- En **Acción de limpieza del sistema**, seleccione **Escriba la experiencia inmediata con el sistema (OOBE)** y asegúrese de que la opción **Generalizar** está marcada. Para obtener más información acerca del uso Sysprep, consulte [Uso de Sysprep (introducción)][].
 
 	- En **Shutdown Options**, seleccione **Shutdown**.
 
@@ -69,19 +69,18 @@ Para seguir estos pasos se supone que ya ha creado un máquina virtual Azure y h
 
   **NOTA: Al capturar la imagen de una máquina virtual generalizada, la máquina virtual se elimina.**
 
-	La nueva imagen ahora está disponible en **Imágenes**.
-
-	![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
+ La nueva imagen ahora está disponible en **Imágenes**.
+ ![Image capture successful](./media/virtual-machines-capture-image-windows-server/VMCapturedImageAvailable.png)
 
 ##Pasos siguientes##
 La imagen está lista para ser utilizada como plantilla para crear máquinas virtuales. Para ello, cree una máquina virtual personalizada con el método **Desde la galería** y seleccione la imagen que acaba de crear. Para obtener instrucciones, consulte [Creación de una máquina virtual personalizada][].
 
 	
-[Acerca de las imágenes de máquina virtual en Azure]: http://msdn.microsoft.com/es-es/library/azure/dn790290.aspx
+[Acerca de las imágenes de máquina virtual en Azure]: http://msdn.microsoft.com/library/azure/dn790290.aspx
 [Creación de una máquina virtual personalizada]: ../virtual-machines-create-custom/
 [Acoplamiento de un disco de datos a una máquina virtual]: ../storage-windows-attach-disk/
-[Inicio de sesión en una máquina virtual con Windows Server]:http://www.windowsazure.com/es-es/manage/windows/how-to-guides/log-on-a-windows-vm/
-[Uso de Sysrep: Introducción]:http://technet.microsoft.com/es-es/library/bb457073.aspx
+[Inicio de sesión en una máquina virtual con Windows Server]:http://azure.microsoft.com/manage/windows/how-to-guides/log-on-a-windows-vm/
+[Uso de Sysprep (introducción)]:http://technet.microsoft.com/ library/bb457073.aspx
 [Ejecución de Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
 [Definición de las opciones de Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
 [La máquina virtual se detiene]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png
@@ -90,4 +89,4 @@ La imagen está lista para ser utilizada como plantilla para crear máquinas vir
 [Captura correcta de la imagen]: ./media/virtual-machines-capture-image-windows-server/CaptureSuccess.png
 [Uso de la imagen capturada]: ./media/virtual-machines-capture-image-windows-server/MyImagesWindows.png
 
-<!--HONumber=42-->
+<!--HONumber=45--> 

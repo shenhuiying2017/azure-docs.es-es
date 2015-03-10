@@ -1,6 +1,20 @@
-<properties pageTitle="Puppet y Máquinas virtuales de Azure" description="Describe la instalación y configuración de Puppet en una máquina virtual de Azure." services="virtual-machines" documentationCenter="" authors="KBDAzure" manager="timlt" editor=""/>
+<properties 
+	pageTitle="Puppet y Máquinas virtuales de Azure" 
+	description="Describe la instalación y configuración de Puppet en una máquina virtual de Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="KBDAzure" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-windows" ms.devlang="na" ms.topic="article" ms.date="01/23/2015" ms.author="kathydav"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-windows" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/23/2015" 
+	ms.author="kathydav"/>
 
 #Puppet y Máquinas virtuales de Azure
 
@@ -21,17 +35,14 @@ Para obtener instrucciones, descargue la "guía introductoria" disponible en la 
 
 [Inicio de sesión en una máquina virtual con Linux]
 
-[Administración de extensiones]
+[Características y extensiones de máquina virtual de Azure]
 
 <!--Link references-->
 [Nuevas integraciones con Microsoft Azure y Visual Studio]: http://puppetlabs.com/blog/new-integrations-windows-azure-and-visual-studio
 [Inicio de sesión en una máquina virtual con Windows Server]: ../virtual-machines-log-on-windows-server/
 [Inicio de sesión en una máquina virtual con Linux]: ../virtual-machines-linux-how-to-log-on
-[Administración de extensiones]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Características y extensiones de máquina virtual de Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Uso de privilegios raíz en máquinas virtuales de Linux en Azure" description="Aprenda a usar privilegios raíz en una máquina virtual de Linux en Azure." services="virtual-machines" documentationCenter="" authors="szarkos" manager="timlt" editor=""/>
+﻿<properties 
+	pageTitle="Uso de privilegios raíz en máquinas virtuales de Linux en Azure" 
+	description="Aprenda a usar privilegios raíz en una máquina virtual de Linux en Azure." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="szarkos" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="vm-linux" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="szark"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="vm-linux" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="szark"/>
 
 
 
@@ -9,9 +23,9 @@
 
 De forma predeterminada, el usuario  `root` está deshabilitado en las máquinas virtuales de Linux en Azure. Los usuarios pueden ejecutar comandos con privilegios elevados mediante el comando  `sudo`. Sin embargo, la experiencia puede variar dependiendo de la manera en que se aprovisionó el sistema.
 
-1. **Clave SSH y contraseña o solo contraseña** - la máquina virtual se aprovisionó con un certificado (archivo ".CER") o clave SSH, así como con una contraseña o simplemente un nombre de usuario y una contraseña. En este caso  `sudo` solicitará la contraseña del usuario antes de ejecutar el comando.
+1. **Clave SSH y contraseña o solo contraseña**: la máquina virtual se aprovisionó con un certificado (archivo `.CER`) o una clave SSH, además de una contraseña, o solo un nombre de usuario y una contraseña. En este caso  `sudo` solicitará la contraseña del usuario antes de ejecutar el comando.
 
-2. **Solo clave SSH** - La máquina virtual se aprovisionó con un certificado (".cer" o archivo  `.pem`) o clave SSH, pero no hay ninguna contraseña.  En este caso  `sudo`** no** solicitará la contraseña del usuario antes de ejecutar el comando.
+2. **Solo clave SSH**: se ha aprovisionado la máquina virtual con un certificado (archivo `.cer` o `.pem`) o una clave SSH, pero sin contraseña.  En este caso  `sudo`** no** solicitará la contraseña del usuario antes de ejecutar el comando.
 
 
 ## Clave SSH y contraseña o solo contraseña
@@ -23,6 +37,12 @@ Inicie sesión en la máquina virtual con Linux usando la autenticación de clav
 
 En este caso, se le solicitará al usuario una contraseña. Después de escribir la contraseña,  `sudo` ejecutará el comando con los privilegios  `root`.
 
+También puede habilitar sudo sin contraseña, si edita el archivo `/etc/sudoers.d/waagent`, por ejemplo:
+
+	#/etc/sudoers.d/waagent
+	azureuser (ALL) = (ALL) NOPASSWD: ALL
+
+Este cambio permitirá que el usuario azureuser utilice sudo sin contraseña.
 
 ## Solo clave SSH
 
@@ -30,10 +50,7 @@ Inicie sesión en la máquina virtual con Linux usando la autenticación de clav
 
 	# sudo <command>
 
-En este caso **no** se solicitará la contraseña al usuario. Después de pulsar, `<, enter>` `sudo` ejecutará el comando con los privilegios  `root`.
+En este caso **no** se solicitará la contraseña al usuario. Después de presionar `<entrar>`, `sudo` ejecutará el comando con privilegios `root`.
 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=45--> 
