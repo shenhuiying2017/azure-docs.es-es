@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Control de conflictos con datos sin conexión en Servicios móviles (Windows Phone) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo usar Servicios móviles de Azure para gestionar los conflictos que se producen al sincronizar datos sin conexión en su aplicación de Windows Phone" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+<properties 
+	pageTitle="Control de conflictos con datos sin conexión en Servicios móviles (Windows Phone) | Centro de desarrollo móvil" 
+	descripción="Obtenga información acerca de cómo usar Servicios móviles de Azure para gestionar los conflictos que se producen al sincronizar datos sin conexión en su aplicación de Windows Phone" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 
 # Control de conflictos con la sincronización de datos sin conexión en Servicios móviles
