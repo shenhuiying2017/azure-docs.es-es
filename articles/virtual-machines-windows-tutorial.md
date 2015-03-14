@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Creación de una máquina virtual que ejecuta Windows en Azure" 
 	description="Aprenda a crear una máquina virtual de Windows (VM) en Azure para, a continuación, iniciar sesión y conectar un disco de datos" 
 	services="virtual-machines" 
@@ -24,7 +24,7 @@
 
 Este tutorial muestra lo fácil que resulta crear una máquina virtual (VM) de Azure. En este tutorial se usa una imagen de Windows Server, pero eso es solo una de las muchas imágenes disponibles con Azure. Incluye sistemas operativos Windows, sistemas operativos basados en Linux e imágenes con aplicaciones preinstaladas. Las imágenes que puede elegir dependen del tipo de suscripción que tiene. Por ejemplo, las imágenes de escritorio pueden estar disponibles para los suscriptores MSDN.
 
-> [AZURE.NOTE] No necesita ninguna experiencia con las máquinas virtuales de Azure para finalizar este tutorial, aunque sí necesitará una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Creación de una cuenta de Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/) 
+> [AZURE.NOTE] No necesita ninguna experiencia con las máquinas virtuales de Azure para finalizar este tutorial, aunque sí necesitará una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Creación de una cuenta de Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/). 
 
 En este tutorial se explica lo siguiente:
 
@@ -82,7 +82,7 @@ En esta sección se muestra cómo asociar un disco de datos vacío a una máquin
 
 	Cuando se conecta un disco de datos, este está sin conexión y sin iniciar. Antes de que pueda usarlo para almacenar datos, tendrá que iniciar sesión en la máquina virtual e inicializarlo.
 
-7. Conéctese e inicie sesión en la máquina virtual usando los pasos que se mencionaron en la sección anterior, [Inicio de sesión en una máquina virtual después de su creación]. (#logon).
+7. Conéctese e inicie sesión en la máquina virtual usando los pasos que se mencionaron en la sección anterior, [Inicio de sesión en una máquina virtual después de su creación](#logon).
 
 8. Después de iniciar sesión en la máquina virtual, abra el **Administrador del servidor**. En el panel izquierdo, seleccione **Servicios de archivos y almacenamiento**.
 
@@ -112,7 +112,7 @@ En esta sección se muestra cómo asociar un disco de datos vacío a una máquin
 
 Para obtener más información acerca de la configuración de máquinas virtuales en Azure, consulte los artículos siguientes:
 
-[HConexión de máquinas virtuales en un Servicio en la nube](http://azure.microsoft.com/documentation/articles/cloud-services-connect-virtual-machine/)
+[Conexión de máquinas virtuales en un Servicio en la nube](http://azure.microsoft.com/documentation/articles/cloud-services-connect-virtual-machine/)
 
 [Creación y carga de su propio disco duro virtual con el sistema operativo Windows Server](http://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
 
@@ -140,4 +140,7 @@ Para obtener más información acerca de la configuración de máquinas virtuale
 [Acoplamiento de un disco de datos a la nueva máquina virtual]: #attachdisk
 [Establecimiento de la comunicación con la máquina virtual]: #endpoints
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

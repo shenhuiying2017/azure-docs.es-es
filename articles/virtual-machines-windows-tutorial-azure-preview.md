@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Creación de una máquina virtual con Windows en el Portal de vista previa de Azure" 
 	description="Aprenda a crear máquinas virtuales (VM) de Azure que usen Windows con Azure Marketplace en el Portal de vista previa de Azure" 
 	services="virtual-machines" 
@@ -15,7 +15,7 @@
 	ms.date="01/13/2015" 
 	ms.author="danlep,kathydav,rasquill"/>
 
-<!---El flujo de trabajo puede ser confuso... hay que seleccionar el tamaño correcto con **Examinar todos los niveles de precios**, a continuación, haga clic en Seleccionar en ese panel y en el panel **Niveles de precios recomendados** para aplicarlo. Pero incluso después, parecía que no seleccionaba la cuenta de almacenamiento Premium... se mostraba como 'GRS estándar' cuando inspeccioné el tipo de cuenta de almacenamiento que se utilizaría para la máquina virtual. 
+<!---Workflow can be confusing...have to select the correct size with **Browse all pricing tiers** then click Select on that pane and the **Recommended pricing tiers** pane to apply. But even after that, it didn't seem to pick the Premium storage account...showed up as 'standard GRS' when I inspected what type of storage account would be used for the VM. 
 -->
 
 <!-- Preview portal screenshots getting a little out of date. Please refresh at next update.
@@ -27,7 +27,7 @@
 
 Este tutorial muestra lo fácil que es crear una máquina virtual (VM) de Azure que use Windows, usando como ejemplo una imagen de Windows Server de Azure Marketplace del Portal de vista previa de Azure. Azure Marketplace ofrece una amplia variedad de imágenes como, por ejemplo, las imágenes de aplicaciones, sistemas operativos basados en Linux y sistemas operativos Windows. 
 
-> [AZURE.NOTE] No es necesario que tenga experiencia con máquinas virtuales de Azure para completar este tutorial. Sin embargo, sí necesita una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Creación de una cuenta de Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/) 
+> [AZURE.NOTE] No es necesario que tenga experiencia con máquinas virtuales de Azure para completar este tutorial. Sin embargo, sí necesita una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Creación de una cuenta de Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/). 
 
 En este tutorial se explica lo siguiente:
 
@@ -54,7 +54,7 @@ En esta sección se muestra cómo usar el Portal de vista previa para crear una 
 
 	![Select a VM image from the Gallery](./media/virtual-machines-windows-tutorial-azure-preview/image_gallery_preview_portal.png)
 	
-4. En el cuadro **Crear VM**, rellene los campos **Nombre de host**, **Nombre de usuario** y el campo **Contraseña**.  
+4. En el cuadro **Crear VM**, rellene los campos **Nombre de host**, **Nombre de usuario** y el campo **Contraseña**.
 
 	>[AZURE.NOTE] El campo **Nombre de usuario** hace referencia a la cuenta administrativa que usa para administrar el servidor. Cree una contraseña única para esta cuenta y asegúrese de recordarla. **Necesitará el nombre de usuario y la contraseña para iniciar sesión en la máquina virtual**.
 	
@@ -64,7 +64,7 @@ En esta sección se muestra cómo usar el Portal de vista previa para crear una 
 	
 5. Revise la configuración predeterminada, como el **nivel de precios**, la **configuración opcional** y la **ubicación**. Estas opciones afectan al tamaño de la máquina virtual, así como las opciones de red, como la pertenencia al dominio. Por ejemplo, para probar el almacenamiento Premium en una máquina virtual, necesitará seleccionar una región y el tamaño que admite. 
 
-	>[AZURE.NOTE] El almacenamiento Premium está en vista previa, disponible para las máquinas virtuales de la serie DS en determinadas regiones. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina Virtual de Azure](http://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/).
+	>[AZURE.NOTE] El almacenamiento Premium está en vista previa, disponible para las máquinas virtuales de la serie DS en determinadas regiones. Para obtener más información, consulte [Almacenamiento Premium: Almacenamiento de alto rendimiento para cargas de trabajo de máquina virtual de Azure](http://azure.microsoft.com/documentation/articles/storage-premium-storage-preview-portal/).
 
 	![Configure host name and log on credentials](./media/virtual-machines-windows-tutorial-azure-preview/create_vm_preview_portal.png)
 	
@@ -112,7 +112,7 @@ En esta sección se muestra cómo iniciar sesión en la máquina virtual para po
 
 Para obtener más información sobre la configuración de máquinas virtuales de Windows en Azure, consulte los siguientes artículos:
 
-[HConexión de máquinas virtuales en un Servicio en la nube](http://azure.microsoft.com/documentation/articles/cloud-services-connect-virtual-machine/)
+[How to Connect Virtual Machines in a Cloud Service](http://azure.microsoft.com/documentation/articles/cloud-services-connect-virtual-machine/)
 
 [Creación y carga de su propio disco duro virtual con el sistema operativo Windows Server](http://azure.microsoft.com/documentation/articles/virtual-machines-create-upload-vhd-windows-server/)
 
@@ -125,4 +125,7 @@ Para obtener más información sobre la configuración de máquinas virtuales de
 [Creación de una máquina virtual]: #custommachine
 [Inicio de sesión en una máquina virtual después de su creación]: #logon
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

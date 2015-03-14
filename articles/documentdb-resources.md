@@ -1,6 +1,20 @@
-﻿<properties title="DocumentDB resource model and concepts" pageTitle="Modelo de recursos y conceptos de la Base de datos de documentos | Azure" description="La base de datos de documentos nosql de Base de datos de documentos administra recursos, identificados de manera única por URI lógicos con los que los desarrolladores pueden interactuar mediante verbos HTTP, encabezados de solicitud/respuesta y códigos de estado." metaKeywords="" services="documentdb" solutions="data-management" documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Modelo de recursos y conceptos de la Base de datos de documentos | Azure" 
+	description="La Base de datos de documentos de Microsoft Azure es una base de datos de documentos NoSQL totalmente administrada que usa un modelo jerárquico de cuentas de base de datos, bases de datos, colecciones, procedimientos almacenados, desencadenadores, funciones definidas por el usuario, documentos, datos adjuntos, medios, usuarios y permisos para administrar los recursos."
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="mimig"/>
 
 #Modelo de recursos y conceptos de la Base de datos de documentos
 
@@ -460,3 +474,5 @@ Como con el resto de recursos, los permisos de la Base de datos de documentos se
 [2]: ./media/documentdb-resources/resources2.png
 [3]: ./media/documentdb-resources/resources3.png
 [4]: ./media/documentdb-resources/resources4.png
+
+<!--HONumber=46--> 

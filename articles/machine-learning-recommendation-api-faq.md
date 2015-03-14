@@ -1,6 +1,20 @@
-﻿<properties title="FAQ for setting up and using the Machine Learning Recommendations API" pageTitle="Preguntas más frecuentes (P+F) sobre cómo configurar y utilizar la API de recomendaciones de Aprendizaje automático | Azure" description="Preguntas frecuentes de la API de RECOMENDACIONES de Microsoft creada con el aprendizaje automático de Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Preguntas más frecuentes (P+F) sobre cómo configurar y utilizar la API de recomendaciones de Aprendizaje automático | Azure" 
+	description="Preguntas frecuentes de la API de RECOMENDACIONES de Microsoft creada con el aprendizaje automático de Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2014" 
+	ms.author="jaymathe"/> 
 
 # Preguntas más frecuentes (P+F) sobre cómo configurar y utilizar la API de recomendaciones de Aprendizaje automático
 Versión 1.0
@@ -88,7 +102,7 @@ Proceso para actualizar una suscripción
 
 IMPORTANTE: Lea detenidamente el cuadro de diálogo antes de actualizar, ya que hay implicaciones de facturación y uso.
 
-Haga clic [aquí](http://msdn.microsoft.com/es-es/library/gg312164.aspx) para obtener más información acerca de las suscripciones.
+Haga clic [aquí](http://msdn.microsoft.com/library/gg312164.aspx) para obtener más información acerca de las suscripciones.
 
 ###¿Cuándo finalizará mi suscripción a las recomendaciones?
 La suscripción finalizará cuando la cancele. Si desea cancelar las suscripciones, consulte las instrucciones siguientes.
@@ -143,3 +157,5 @@ Este documento no proporciona ningún derecho legal a la propiedad intelectual d
 (c) 2014 Microsoft. Todos los derechos reservados. 
 
 
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-<properties pageTitle="How to add operations to an API in Azure API Management" metaKeywords="" description="Learn how to add operations to an API in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to add operations to an API in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Incorporación de operaciones a una API en Administración de API de Azure" 
+	description="Obtenga información acerca de cómo agregar operaciones a una API en Administración de API de Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Incorporación de operaciones a una API en Administración de API de Azure
 
@@ -142,3 +156,5 @@ Una vez agregadas las operaciones a una API, el paso siguiente es asociar la API
   [Body content type]: ./media/api-management-howto-add-operations/api-management-response-body-content-type.png
   [Response body]: ./media/api-management-howto-add-operations/api-management-response-body.png
   [Creación y publicación de un producto]: ../api-management-howto-add-products
+
+<!--HONumber=46--> 

@@ -44,5 +44,4 @@
 		}
 		
 	Ahora, cuando inserte un TodoItem nuevo, se enviará una notificación de inserción a todos los dispositivos registrados.
-
 <!--HONumber=42-->

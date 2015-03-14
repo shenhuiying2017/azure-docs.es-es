@@ -20,7 +20,7 @@
 
 	El centro de notificaciones que su servicio móvil usa se actualiza con el registro de Servicios de notificaciones de inserción de Windows (WNS). Ahora podrá usar Centros de notificaciones de Azure para enviar notificaciones desde Servicios móviles a su aplicación mediante WNS. 
 
-	>[AZURE.NOTE]En este tutorial se muestra el envío de notificaciones desde un back-end de servicio móvil. Puede usar el mismo registro del centro de notificaciones para enviar notificaciones desde cualquier servicio back-end. Para obtener más información, consulte [Introducción a los Centros de notificaciones](http://msdn.microsoft.com/es-es/library/azure/jj927170.aspx).
+	>[AZURE.NOTE]En este tutorial se muestra el envío de notificaciones desde un back-end de servicio móvil. Puede usar el mismo registro del centro de notificaciones para enviar notificaciones desde cualquier servicio back-end. Para obtener más información, consulte [Introducción a los Centros de notificaciones](http://msdn.microsoft.com/library/azure/jj927170.aspx).
 
 5. Al completar el asistente, se abre la página **La configuración de las inserciones casi se ha completado** en Visual Studio. En esta página se incluyen detalles sobre un método alternativo con el fin configurar el proyecto de servicio móvil para enviar notificaciones que difiere de este tutorial. 
 
@@ -30,5 +30,4 @@
 [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/
 [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-dotnet/
 [Importación del archivo publishsettings en Visual Studio 2013]: /es-es/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
-
 <!--HONumber=42-->

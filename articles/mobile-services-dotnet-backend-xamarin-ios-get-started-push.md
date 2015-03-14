@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción a Servicios móviles para aplicaciones de iOS de Xamarin - Servicios móviles de Azure" description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación Xamarin iOS" services="mobile-services, notification-hubs" documentationCenter="xamarin" authors="lindydonna" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Introducción a Servicios móviles para aplicaciones de iOS de Xamarin - Servicios móviles de Azure" 
+	description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación Xamarin iOS" 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="xamarin" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-xamarin-ios" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="donnam"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
 

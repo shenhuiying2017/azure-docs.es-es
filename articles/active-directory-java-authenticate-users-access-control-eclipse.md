@@ -1,6 +1,20 @@
-<properties urlDisplayName="Access Control" pageTitle="Uso de control de acceso (Java): guía de características de Azure" metaKeywords="" description="Obtenga información acerca de cómo desarrollar y usar el Control de acceso con Java en Azure." metaCanonical="" services="active-directory" documentationCenter="Java" title="How to Authenticate Web Users with Azure Access Control Service Using Eclipse" videoId="" scriptId="" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="Uso de control de acceso (Java): guía de características de Azure" 
+	description="Obtenga información acerca de cómo desarrollar y usar el Control de acceso con Java en Azure." 
+	services="active-directory" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse
 
@@ -126,9 +140,9 @@ Necesitará lo siguiente para completar las tareas de esta guía:
 - IDE de Eclipse para desarrolladores de Java EE, Indigo o superior. Esto se puede descargar en <http://www.eclipse.org/downloads/>. 
 - Una distribución de un servidor de aplicaciones o servidor web basado en Java, como Apache Tomcat, GlassFish, JBoss Application Server o Jetty.
 - Una suscripción de Azure, que se puede adquirir en <http://www.microsoft.com/windowsazure/offers/>.
-- Complemento de Azure para Eclipse con Java (de Microsoft Open Technologies), versión de abril de 2014. Para obtener más información, consulte [Instalación del complemento de Azure para Eclipse con Java (de Microsoft Open Technologies)](http://msdn.microsoft.com/es-es/library/windowsazure/hh690946.aspx).
+- Complemento de Azure para Eclipse con Java (de Microsoft Open Technologies), versión de abril de 2014. Para obtener más información, consulte [Instalación del complemento de Azure para Eclipse con Java (de Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
 - Un certificado X.509 para utilizar con la aplicación. Necesitará este certificado en formato de certificado público (.cer) e intercambio de información personal (.PFX). (Las opciones para crear este certificado se describirán más adelante en este tutorial).
-- Estar familiarizado con el emulador de proceso de Azure y las técnicas de implementación analizadas en [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/es-es/library/windowsazure/hh690944.aspx).
+- Estar familiarizado con el emulador de proceso de Azure y las técnicas de implementación analizadas en [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx).
 
 ## <a name="create-namespace"></a>Creación de un espacio de nombres de ACS
 
@@ -280,7 +294,7 @@ En la página **Integración de página de inicio de sesión: Azure Web App**, l
 
 1. En el explorador de proyectos de Eclipse, haga clic con el botón derecho en **MyACSHelloWorld** y, a continuación, haga clic en **Azure** y luego en **Paquete para Azure**.
 2. En **Nombre de proyecto**, escriba **MyAzureACSProject** y haga clic en **Siguiente**.
-3. Seleccione un JDK y un servidor de aplicaciones. (Estos pasos aparecen detallados en el tutorial [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/es-es/library/windowsazure/hh690944.aspx)).
+3. Seleccione un JDK y un servidor de aplicaciones. (Estos pasos aparecen detallados en el tutorial [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)).
 4. Haga clic en **Finalizar**.
 5. Haga clic en el botón **Ejecutar en emulador de Azure**.
 6. Una vez que la aplicación web de Java se inicie en el emulador de proceso, cierre todas las instancias del explorador (para que ninguna sesión actual del explorador interfiera con la prueba de inicio de sesión en ACS).
@@ -314,11 +328,11 @@ Para implementar en Azure, deberá cambiar el dominio de usuario de confianza y 
 
 13. Haga clic en **Finalizar** para cerrar el cuadro de diálogo **Editar la biblioteca**.
 14. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Propiedades de MyACSHelloWorld**.
-15. En Eclipse, haga clic en el botón **Publicar en la nube de Azure**. Siga las indicaciones, tal como lo hizo en la sección **Implementación de su aplicación en Azure** del tema [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/es-es/library/windowsazure/hh690944.aspx). 
+15. En Eclipse, haga clic en el botón **Publicar en la nube de Azure**. Siga las indicaciones, tal como lo hizo en la sección **Implementación de su aplicación en Azure** del tema [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx). 
 
 Una vez que se ha implementado la aplicación web, cierre las sesiones abiertas del explorador, ejecute la aplicación web y se le solicitará iniciar sesión con credenciales de Windows Live ID y, a continuación, irá a la URL de retorno de su aplicación de usuario de confianza.
 
-Cuando haya terminado de utilizar la aplicación Hello World de ACS, recuerde eliminar la implementación (aprenda a eliminar una implementación en el tema [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/es-es/library/windowsazure/hh690944.aspx)).
+Cuando haya terminado de utilizar la aplicación Hello World de ACS, recuerde eliminar la implementación (aprenda a eliminar una implementación en el tema [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx)).
 
 
 ## <a name="next_steps"></a>Pasos siguientes
@@ -382,3 +396,5 @@ En este punto, su certificado se incluiría en la implementación. Observe que, 
 [add_jsp_file_acs]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddJSPFileACS.png
 [create_acs_hello_world]: ./media/active-directory-java-authenticate-users-access-control-eclipse/CreateACSHelloWorld.png
 [add_token_signing_cert]: ./media/active-directory-java-authenticate-users-access-control-eclipse/AddTokenSigningCertificate.png
+
+<!--HONumber=46--> 

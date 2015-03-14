@@ -1,6 +1,20 @@
-<properties title="How to create a custom template image for RemoteApp" pageTitle="Creación de una imagen de plantilla personalizada para RemoteApp" description="Aprenda a crear una imagen de plantilla personalizada de RemoteApp. Puede usar esta plantilla con una implementación híbrida o en la nube." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="mbaldwin" />
+﻿<properties 
+	pageTitle="Creación de una imagen de plantilla personalizada para RemoteApp" 
+	description="Obtenga información acerca de cómo crear una imagen de plantilla personalizada para RemoteApp. Puede usar esta plantilla con una implementación híbrida o en la nube." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="mbaldwin" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 # Creación de una imagen de plantilla personalizada para RemoteApp
 RemoteApp de Azure usa una imagen de plantilla de Windows Server 2012 R2 para hospedar todos los programas que desea compartir con sus usuarios. Para crear una imagen de plantilla de RemoteApp, puede comenzar a usar una imagen existente o crear una nueva. Los requisitos para la imagen que se pueden cargar para usarse con RemoteApp de Azure son:
@@ -23,10 +37,10 @@ RemoteApp de Azure usa una imagen de plantilla de Windows Server 2012 R2 para ho
 
 Necesita llevar a cabo los pasos siguientes antes de crear el servicio:
 
-- Suscríbase a RemoteApp. Puede hacerlo en la dirección [http://azure.microsoft.com/es-es/services/remoteapp/](http://azure.microsoft.com/es-es/services/remoteapp/).
-- Cree una cuenta de usuario en Active Directory para usar la cuenta de servicio RemoteApp. Restrinja los permisos para esta cuenta de forma que solamente pueda unir máquinas al dominio. Consulte [Configurar Azure Active Directory para RemoteApp](http://azure.microsoft.com/es-es/documentation/articles/remoteapp-ad/) para obtener más información.
+- Suscríbase a RemoteApp. Puede hacerlo en la dirección [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/).
+- Cree una cuenta de usuario en Active Directory para usar la cuenta de servicio RemoteApp. Restrinja los permisos para esta cuenta de forma que solamente pueda unir máquinas al dominio. Consulte [Configurar Azure Active Directory para RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-ad/) para obtener más información.
 - Recopile información sobre la red local: información de direcciones IP y detalles de dispositivos VPN.
-- Instale el módulo [Azure PowerShell](http://azure.microsoft.com/es-es/documentation/articles/install-configure-powershell/).
+- Instale el módulo [Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
 - Recopile información sobre los usuarios a los que quiera conceder acceso. Esta información puede ser información de cuentas de Microsoft o información de cuentas de trabajo de Active Directory de usuarios.
 
 
@@ -115,8 +129,10 @@ A continuación se indican los pasos detallados para crear una nueva imagen:
 Ahora que ya tiene su imagen de plantilla personalizada, cárguela en su implementación de RemoteApp. Para obtener información sobre cómo crear la colección, lea los artículos siguientes:
 
 
-- [Cómo crear una colección híbrida de RemoteApp](http://azure.microsoft.com/es-es/documentation/articles/remoteapp-create-hybrid-deployment/)
-- [Cómo crear una colección en la nube de RemoteApp](http://azure.microsoft.com/es-es/documentation/articles/remoteapp-create-cloud-deployment/)
+- [Cómo crear una colección híbrida de RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-create-hybrid-deployment/)
+- [Cómo crear una colección en la nube de RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-create-cloud-deployment/)
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

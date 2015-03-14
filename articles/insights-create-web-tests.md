@@ -1,6 +1,18 @@
-﻿<properties title="How to create web test" pageTitle="Creación de una prueba web" description="Obtenga información acerca de cómo crear pruebas web en Azure." authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="Creación de una prueba web" 
+	description="Obtenga información acerca de cómo crear pruebas web en Azure." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-29" ms.author="awills"  />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-17" 
+	ms.author="awills"/>
 
 # Pruebas web para Sitios web de Microsoft Azure
 ¿Sigue estando su sitio web de Azure en ejecución? ¿Responde de forma correcta y lo suficientemente rápido? Pruebe su sitio web de forma periódica mediante la configuración de una prueba web. Si el sitio deja de estar disponible o responde con lentitud o de forma incorrecta, recibirá una alerta por correo electrónico. Obtendrá gráficos que mostrarán su disponibilidad y su capacidad de respuesta con el paso del tiempo.  
@@ -47,3 +59,5 @@ Las pruebas erróneas se pueden analizar para determinar el motivo del error.  E
 ![Open in VS](./media/insights-create-web-tests/Insights_OpenInVS.png)
 
 [availability]: ../app-insights-monitor-web-app-availability/
+
+<!--HONumber=46--> 

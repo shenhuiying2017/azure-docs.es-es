@@ -147,7 +147,7 @@ En una aplicación real, normalmente crea cuentas independientes para los datos 
  
 	El archivo contiene una cadena de conexión SQL y una cadena de conexión de almacenamiento de Azure para trabajar con blobs y colas. 
 
-	La cadena de conexión SQL apunta a una base de datos [SQL Server Express LocalDB](http://msdn.microsoft.com/es-es/library/hh510202.aspx).
+	La cadena de conexión SQL apunta a una base de datos [SQL Server Express LocalDB](http://msdn.microsoft.com/library/hh510202.aspx).
  
 	La cadena de conexión de almacenamiento es un ejemplo que tiene marcadores de posición para la clave de acceso y el nombre de la cuenta de almacenamiento. Se sustituirá por una cadena de conexión con el nombre y la clave de su cuenta de almacenamiento.  
 
@@ -506,7 +506,7 @@ Ahora puede generar, ejecutar e implementar la aplicación como se indicó anter
 
 ## <a id="code"></a>Revisión del código de la aplicación
 
-En la siguiente sección se explica el código relacionado para trabajar con el SDK de WebJobs y los blobs y las colas de Azure. Para consultar el código específico del SDK de WebJobs, consulte la [sección Program.cs].(#programcs).
+En la siguiente sección se explica el código relacionado para trabajar con el SDK de WebJobs y los blobs y las colas de Azure. Para consultar el código específico del SDK de WebJobs, consulte la [sección Program.cs)]#programcs).
 
 ### ContosoAdsCommon - Ad.cs
 
@@ -652,7 +652,7 @@ El código similar obtiene una referencia a la cola *images*.
 		queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSeconds(3), 3);
 		imagesQueue = queueClient.GetQueueReference("blobnamerequest");
 
-La mayoría del código del controlador es típico para trabajar con un modelo de datos de usando Entity Framework usando una clase DbContext. Una excepción es el método  `Create` HttpPost, que carga un archivo y lo guarda en el almacenamiento de blobs. El enlazador de modelos proporciona un objeto [HttpPostedFileBase](http://msdn.microsoft.com/es-es/library/system.web.httppostedfilebase.aspx) al método.
+La mayoría del código del controlador es típico para trabajar con un modelo de datos de usando Entity Framework usando una clase DbContext. Una excepción es el método  `Create` HttpPost, que carga un archivo y lo guarda en el almacenamiento de blobs. El enlazador de modelos proporciona un objeto [HttpPostedFileBase](http://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) al método.
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]

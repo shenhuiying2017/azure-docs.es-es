@@ -1,6 +1,20 @@
-<properties urlDisplayName="Cloud Service" pageTitle="Guía de introducción a Node.js - Tutorial de Azure" metaKeywords="Azure node.js getting started, Azure Node.js tutorial, Azure Node.js tutorial" description="Un tutorial completo que le ayuda a desarrollar una sencilla aplicación web Node.js e implementarla en Azure." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build and deploy a Node.js application to an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Guía de introducción a Node.js - Tutorial de Azure" 
+	description="Un tutorial completo que le ayuda a desarrollar una sencilla aplicación web Node.js e implementarla en Azure." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="wpickett"/>
 
 
 
@@ -9,22 +23,24 @@
 
 # Compilación e implementación de una aplicación Node.js en un Servicio en la nube de Azure
 
-Cuando finalice esta guía, tendrá una aplicación Node.js sencilla en ejecución en un Servicio en la nube de Azure. Los Servicios en la nube son los bloques de compilación de aplicaciones en la nube escalables en Azure. Permiten la separación y la administración independiente de los componentes front-end y back-end de su aplicación, así como su escalación horizontal.  Los Servicios en la nube proporcionan una máquina virtual dedicada y robusta para hospedar los roles de forma fiable.
+Cuando finalice esta guía, tendrá una aplicación Node.js sencilla en ejecución 
+en un Servicio en la nube de Azure. Los Servicios en la nube son los bloques de creación de las 
+aplicaciones escalables en la nube en Azure. Permiten la separación y la administración
+y escalado horizontal independientes de los componentes de front-end y back-end de su aplicación.  Los Servicios en la nube 
+proporcionan una máquina virtual dedicada y robusta para hospedar cada rol de manera confiable.
 
-Para obtener más información sobre los Servicios en la nube y sobre su comparación con Sitios web Azure y Maquinas virtuales, consulte [Comparación entre sitios web Azure, servicios en la nube y máquinas virtuales](http://azure.microsoft.com/es-es/documentation/articles/choose-web-site-cloud-service-vm/).
+Para obtener más información sobre los Servicios en la nube y sobre su comparación con Sitios web Azure y Máquinas virtuales, consulte [Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales](http://azure.microsoft.com/ documentation/articles/choose-web-site-cloud-service-vm/).
 
-<p />
+>[AZURE.SUGERENCIA] ¿Desea compilar un sitio web sencillo? Si su escenario implica solo un simple sitio web front-end, considere la posibilidad de <a href="/es-es/documentation/articles/web-sites-nodejs-develop-deploy-mac/">usar de un sitio web ligero de Azure.</a> Puede actualizar a un Servicio en la nube más adelante, cuando su sitio web sea más grande y sus requisitos cambien.
 
-<div class="dev-callout"><strong>¿Desea compilar un sitio web sencillo?</strong>
-<p>Si su escenario implica solo un simple sitio web front-end, considere la posibilidad de <a href="/es-es/documentation/articles/web-sites-nodejs-develop-deploy-mac/">usar de un sitio web ligero de Azure.</a> Puede actualizar a un Servicio en la nube más adelante, cuando su sitio web sea más grande y sus requisitos cambien.</p>
-</div>
-<br />
 
-Siguiendo este tutorial, podrá compilar una aplicación web sencilla hospedada en un rol web. Utilizará el emulador de proceso para probar su aplicación localmente y, a continuación, la implementará con las herramientas de línea de comandos de PowerShell.
+Siguiendo este tutorial, podrá compilar una aplicación web sencilla hospedada en un rol web. Utilizará
+el emulador de proceso para probar su aplicación localmente y, a continuación, la implementará
+con las herramientas de línea de comandos de PowerShell.
 
 A continuación se muestra una captura de pantalla de la aplicación completada:
 
-<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/en-us/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="Ventana del explorador que muestra la página Hello World. La dirección URL indica que la página está hospedada en Azure.">
+<p><img src="https://wacomdpsstablestorage.blob.core.windows.net/articlesmedia/demo-ppe.windowsazure.com/es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/20140107035927/node21.png" alt="A browser window displaying the hello world page. The URL indicates the page is hosted on Azure.">
 </p>
 
 
@@ -37,7 +53,7 @@ Realice las siguientes tareas para crear un nuevo proyecto de Servicio en la nub
 
 	![Azure PowerShell icon][powershell-menu]
 
-	[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
+	[AZURE.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 
 2.  Cree un nuevo directorio **node** en su unidad C y cambie al directorio c:\node:
@@ -64,10 +80,11 @@ Realice las siguientes tareas para crear un nuevo proyecto de Servicio en la nub
 	Para obtener más información acerca de estos archivos, consulte
         [Información general de la creación de un servicio hospedado para Azure][].
 
-	-   **deploymentSettings.json** almacena la configuración local que utilizan los 
-        cmdlet de implementación de Azure PowerShell.
+	-   **deploymentSettings.json** almacena la configuración local que usan los
+        cmdlets de implementación de Azure PowerShell.
 
-4.  Escriba el siguiente comando para agregar un nuevo rol web con el **cmdlet Add-AzureNodeWebRole**:
+4.  Escriba el siguiente comando para agregar un rol web nuevo con el
+    **cmdlet Add-AzureNodeWebRole**:
 
         PS C:\node\helloworld> Add-AzureNodeWebRole
 
@@ -77,10 +94,7 @@ Realice las siguientes tareas para crear un nuevo proyecto de Servicio en la nub
 
 	El cmdlet **Add-AzureNodeWebRole** crea un nuevo directorio para su aplicación y genera scaffolding para una aplicación Node.js básica. También modifica los archivos **ServiceConfiguration.Cloud.csfg**, **ServiceConfiguration.Local.csfg** y **ServiceDefinition.csdef** creados en el paso anterior para agregar entradas de configuración para el nuevo rol.
 
-	<div class="dev-callout">
-	<b>Nota:</b>
-	<p>De forma predeterminada, si no proporciona un nombre de rol, se creará uno automáticamente. Puede proporcionar un nombre como primer parámetro para <b>Add-AzureNodeWebRole</b>. Por ejemplo: <code>Add-AzureNodeWebRole MyRole</code></p>
-	</div>
+	> [AZURE.NOTE] De forma predeterminada, si no proporciona un nombre de rol, se creará uno automáticamente. Puede proporcionar un nombre como primer parámetro para **Add-AzureNodeWebRole**. Por ejemplo, `Add-AzureNodeWebRole MyRole`
 
 5.  Utilice los siguientes comandos para navegar hasta el directorio **WebRole1** y, a continuación, abra el archivo **server.js** en el Bloc de notas. 
 
@@ -89,14 +103,18 @@ Realice las siguientes tareas para crear un nuevo proyecto de Servicio en la nub
 
 	El archivo **server.js** fue creado por el cmdlet **Add-AzureNodeWebRole** y contiene el siguiente código de inicio. Este código es similar al ejemplo "Hello World" del sitio web [nodejs.org][], excepto por lo siguiente:
 
-   	-   Se ha cambiado el puerto para permitir que la aplicación encuentre el puerto correcto que le ha asignado el entorno de la nube.
+   	-   Se ha cambiado el puerto para permitir que la aplicación encuentre el 
+        puerto correcto que le ha asignado el entorno de la nube.
    	-   Se ha quitado el registro de la consola.
 
 	![Notepad displaying the contents of server.js](./media/cloud-services-nodejs-develop-deploy-app/node13.png)
 
 ## Ejecución de su aplicación localmente en el emulador
 
-Una de las herramientas instaladas por el SDK de Azure es el emulador de proceso de Azure, que le permite probar su aplicación localmente. El emulador de proceso estimula el entorno que ejecutará su aplicación cuando se implemente en la nube. Realice los siguientes pasos para probar la aplicación en el emulador.
+Una de las herramientas que instala el SDK de Azure es el
+emulador de proceso de Azure, que le permite probar localmente su aplicación El
+emulador de proceso simula el entorno en que se ejecutará su aplicación
+cuando se implementa en la nube. Realice los siguientes pasos para probar la aplicación en el emulador.
 
 1.  Cierre el Bloc de notas y regrese a la ventana de Windows PowerShell.
   	Escriba el siguiente cmdlet para ejecutar su servicio en el emulador:
@@ -113,11 +131,11 @@ Una de las herramientas instaladas por el SDK de Azure es el emulador de proceso
 
 ## Implementación de la aplicación en Azure
 
-	[WACOM.INCLUDE [create-account-note](../includes/create-account-note.md)]
+	[AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
 
 
-###<a id="download_publishing_settings"></a>Descarga de la configuración de publicación de Azure
+### <a id="download_publishing_settings"></a>Descarga de la configuración de publicación de Azure
 
 Con el fin de implementar su aplicación en Azure, debe descargar primero la configuración de publicación para su suscripción de Azure. Los siguientes pasos le guían a lo largo del proceso:
 
@@ -134,15 +152,13 @@ Con el fin de implementar su aplicación en Azure, debe descargar primero la con
         PS C:\node\helloworld\WebRole1> Import-AzurePublishSettingsFile [path to file]
 
 
-	<div class="dev-callout">
-	<b>Nota:</b>
-	<p>Después de importar la configuración de publicación, podría ser conveniente eliminar el archivo .publishSettings descargado dado que contiene información que otros usuarios podrían emplear para tener acceso a su cuenta.</p>
-	</div>
+	> [AZURE.NOTE] Después de importar la configuración de publicación, podría ser conveniente eliminar el archivo .publishSettings descargado dado que contiene información que otros usuarios podrían emplear para tener acceso a su cuenta.
     
 
 ### Publicación de la aplicación
 
-1.  Publique la aplicación con el cmdlet **Publish-AzureServiceProject**, tal y como se muestra a continuación.
+1.  Publique la aplicación con el cmdlet **Publish-AzureServiceProject**,
+    tal como aparece a continuación.
 
         PS C:\node\helloworld\WebRole1> Publish-AzureServiceProject -ServiceName NodeHelloWorld -Location "East US" -Launch
 
@@ -167,7 +183,7 @@ Con el fin de implementar su aplicación en Azure, debe descargar primero la con
 4.  Publica el paquete de implementación en Azure.
 
 
-	> [WACOM.NOTE]
+	> [AZURE.NOTE]
 	> La implementación de la aplicación puede durar entre 5 y 7 minutos y la aplicación estará disponible cuando se publique.
 
 	Una vez finalizada la implementación, se abrirá una ventana del explorador y navegará hasta el servicio en la nube.
@@ -200,26 +216,22 @@ Después de implementar su aplicación, es posible que desee deshabilitarla para
 
 	![The status of the Remove-AzureService command](./media/cloud-services-nodejs-develop-deploy-app/node49.png)
 
-	<div class="dev-callout">
-	<strong>Nota:</strong>
-	<p>La eliminación del servicio no elimina la cuenta de almacenamiento que se creó al publicar por primera vez el servicio, por lo que se le seguirá facturando por el almacenamiento utilizado. Para obtener más información sobre
-la eliminación de cuentas de almacenamiento, consulte <a href="http://msdn.microsoft.com/es-es/library/windowsazure/hh531562.aspx">Cómo eliminar una cuenta de almacenamiento de una suscripción de Azure</a>.</p>
-</div>
+	> [AZURE.NOTE] La eliminación del servicio no elimina la cuenta de almacenamiento que se creó al publicar por primera vez el servicio, por lo que se le seguirá facturando por el almacenamiento utilizado. Para obtener más información acerca de la eliminación de una cuenta de almacenamiento, consulte [Eliminación de una cuenta de almacenamiento desde una suscripción de Azure](http://msdn.microsoft.com/library/windowsazure/hh531562.aspx).
 
 
-[Menú Inicio de Windows con la entrada de Azure SDK Node.js expandida]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
+[The Windows Start menu with the Azure SDK Node.js entry expanded]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-menu.png
 [mkdir]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-6.png
 [nodejs.org]: http://nodejs.org/
-[Lista de directorios de la carpeta helloworld.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-7.png
-[Información general de la creación de un servicio hospedado para Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/jj155995.aspx
-[Lista de directorios de la carpeta WebRole1]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-8.png
-[Menú que se muestra al hacer clic con el botón secundario en el emulador de Azure desde la barra de tareas.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-11.png
-[Ventana del explorador que muestra la dirección http://www.windowsazure.com/ con el vínculo de versión de prueba gratuita resaltado]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-12.png
-[Ventana del explorador que muestra la página de inicio de sesión de liveID]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-13.png
-[Ventana de Internet Explorer que muestra el cuadro de diálogo Guardar como para el archivo publishSettings.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-14.png
+[A directory listing of the helloworld folder.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-7.png
+[Información general de la creación de un servicio hospedado para Azure]: http://msdn.microsoft.com/library/windowsazure/jj155995.aspx
+[A directory listing of the WebRole1 folder]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-8.png
+[The menu displayed when right-clicking the Azure emulator from the task bar.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-11.png
+[A browser window displaying http://www.windowsazure.com/ with the Free Trial link highlighted]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-12.png
+[A browser window displaying the liveID sign in page]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-13.png
+[Internet Explorer displaying the save as dialog for the publishSettings file.]: ./media/cloud-services-nodejs-develop-deploy-app/getting-started-14.png
 
-[Resultado de estado completo del comando Publish-AzureService]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
-[Cómo eliminar una cuenta de almacenamiento de una suscripción de Azure]: https://www.windowsazure.com/es-es/manage/services/storage/how-to-manage-a-storage-account/
+[The full status output of the Publish-AzureService command]: ./media/cloud-services-nodejs-develop-deploy-app/node20.png
+[Eliminación de una cuenta de almacenamiento desde una suscripción de Azure]: https://www.windowsazure.com/es-es/manage/services/storage/how-to-manage-a-storage-account/
 [powershell-menu]: ./media/cloud-services-nodejs-develop-deploy-app/azure-powershell-start.png
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

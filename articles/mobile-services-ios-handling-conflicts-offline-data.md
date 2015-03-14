@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Gestión de conflictos con datos sin conexión en Servicios móviles (iOS) | Centro de desarrollo móvil" description="Aprenda a usar Servicios móviles de Azure para gestionar los conflictos que se producen al sincronizar datos sin conexión en su aplicación iOS." documentationCenter="ios" authors="krisragh" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Gestión de conflictos con datos sin conexión en Servicios móviles (iOS) | Centro de desarrollo móvil" 
+	description="Aprenda a usar Servicios móviles de Azure para gestionar los conflictos que se producen al sincronizar datos sin conexión en su aplicación iOS." 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="dotnet" ms.topic="article" ms.date="01/26/2015" ms.author="krisragh,donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="01/26/2015" 
+	ms.author="krisragh,donnam"/>
 
 
 # Control de conflictos con la sincronización de datos sin conexión en Servicios móviles
@@ -9,7 +23,7 @@
 
 En este tema se explica cómo sincronizar los datos y controlar conflictos cuando se usan las capacidades sin conexión de Servicios móviles de Azure. Este tutorial se basa en los pasos y en la aplicación de ejemplo del tutorial anterior [Introducción a los datos sin conexión]. Antes de comenzar este tutorial, primero debe completar [Introducción a los datos sin conexión].
 
->[AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure.</a>
+>[AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure.</a>
 
 Este tutorial le guiará a través de estos pasos básicos:
 

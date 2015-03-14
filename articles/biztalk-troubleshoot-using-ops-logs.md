@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="BizTalk Services: Troubleshoot using operation logs" pageTitle="Servicios de BizTalk: Solución de problemas con la utilización de los registros de operaciones | Azure" metaKeywords="" description="Servicios de BizTalk: solución de problemas mediante los registros de operaciones" metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Troubleshoot using ops logs" authors="mandia"  solutions="" writer="nitinme" manager="dwrede" editor="cgronlun"  />
+﻿<properties 
+	pageTitle="Servicios de BizTalk: Solución de problemas con la utilización de los registros de operaciones | Azure" 
+	description="Solucione los problemas de los Servicios de BizTalk con el uso de registros de operaciones. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="nitinme" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 # Servicios de BizTalk: Solución de problemas con la utilización de los registros de operaciones
@@ -8,7 +22,7 @@
 Registros de operaciones es una característica de los Servicios de administración, disponible en el Portal de administración de Azure, que permite consultar registros históricos realizados en los servicios de Azure, como el servicio BizTalk. Esta característica le permite consultar datos históricos relacionados con las operaciones de administración en su suscripción a Servicios BizTalk de hasta 180 días de antigüedad.
 
 <div class="dev-callout"><b>Nota:</b>
-<p>Esta característica únicamente captura registros para las operaciones de administración en Servicios BizTalk, por ejemplo, cuándo se inició el servicio o cuándo se hizo la copia de seguridad, entre otros. Se realiza el seguimiento de dichas operaciones con independencia de si se llevan a cabo en el Portal de administración de Azure o mediante las <a href="http://msdn.microsoft.com/es-es/library/windowsazure/dn232347.aspx">API REST de Servicios BizTalk</a>. Para obtener una lista completa de las operaciones que se siguen mediante los Servicios de administración, consulte <a href="#bizops">Seguimiento de operaciones mediante los Servicios de administración de Azure</a>.</p>
+<p>Esta característica únicamente captura registros para las operaciones de administración en Servicios BizTalk, por ejemplo, cuándo se inició el servicio o cuándo se hizo la copia de seguridad, entre otros. Se realiza el seguimiento de dichas operaciones con independencia de si se llevan a cabo en el Portal de administración de Azure o mediante las <a href="http://msdn.microsoft.com/library/windowsazure/dn232347.aspx">API REST de Servicios BizTalk</a>. Para obtener una lista completa de las operaciones que se siguen mediante los Servicios de administración, consulte <a href="#bizops">Seguimiento de operaciones mediante los Servicios de administración de Azure</a>.</p>
 <p>No captura los registros de actividades relacionadas con el tiempo de ejecución de los Servicios BizTalk (como mensajes procesados por puentes, etc.). Para consultar estos registros, debe utilizar la vista de seguimiento desde el portal de Servicios BizTalk. Para obtener más información, consulte <a HREF="http://msdn.microsoft.com/library/windowsazure/hh949805.aspx">Mensajes de seguimiento</a>.</p>
 </div>
 
@@ -99,3 +113,5 @@ En la tabla siguiente se enumeran las operaciones cuyo seguimiento se realiza ut
 - [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
+
+<!--HONumber=46--> 

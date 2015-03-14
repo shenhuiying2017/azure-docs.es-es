@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Publishing with Visual Studio Online" pageTitle="Entrega continua con Visual Studio Online en Azure" metaKeywords="" description="Aprenda a configurar los proyectos de equipo de Visual Studio Online para que se compilen y se implementen automáticamente en los sitios web de Azure o en los servicios en la nube." metaCanonical="" services="web-sites" documentationCenter=".NET" title="Continuous delivery to Azure using Visual Studio Online and Git" authors="ghogen" solutions="" manager="douge" editor="" />
+﻿<properties 
+	pageTitle="Entrega continua con Visual Studio Online en Azure" 
+	description="Aprenda a configurar los proyectos de equipo de Visual Studio Online para que se compilen y se implementen automáticamente en los sitios web de Azure o en los servicios en la nube." 
+	services="web-sites" 
+	documentationCenter=".net" 
+	authors="kempb" 
+	manager="douge" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="ghogen" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 
 
@@ -9,37 +23,34 @@
 
 Puede usar proyectos de equipo de Visual Studio Online para hospedar en un repositorio Git el código fuente, y compilarlo e implementarlo automáticamente en sitios web o servicios en la nube de Azure cada vez que se inserta una confirmación en el repositorio.
 
-Necesitará Visual Studio 2013 y tener instalado el SDK de Azure. Si todavía no tiene Visual Studio 2013, descárguelo; para ello, haga clic en el vínculo **Empiece de manera gratuita** en [www.visualstudio.com].(http://www.visualstudio.com). Instale el SDK de Azure desde [aquí](http://go.microsoft.com/fwlink/?LinkId=239540).
+Necesitará Visual Studio 2013 y tener instalado el SDK de Azure. Si aún no tiene Visual Studio 2013, descárguelo; para ello, haga clic en el vínculo **Empezar de forma gratuita** en [www.visualstudio.com](http://www.visualstudio.com). Instale el SDK de Azure desde [aquí](http://go.microsoft.com/fwlink/?LinkId=239540).
 
 
-<div class="wa-note">
-  <span class="wa-icon-bulb"></span>
-  <h5><a name="note"></a>Para completar este tutorial, deberá tener una cuenta de Visual Studio Online:</h5>
-<p>Puede <a href="http://go.microsoft.com/fwlink/p/?LinkId=512979">abrir una cuenta de Visual Studio Online gratuitamente</a>.</p>
-</div>
+> [AZURE.NOTE] Para completar este tutorial, deberá tener una cuenta de Visual Studio Online:
+> Puede [abrir una cuenta de Visual Studio Online de forma gratuita](http://go.microsoft.com/fwlink/p/?LinkId=512979).
 
 Para configurar un servicio en la nube que se compile e implemente automáticamente en Azure con Visual Studio Online, siga los pasos que aparecen a continuación:
 
--   [Paso 1: Cree un repositorio Git.][]
+-   [Paso 1: Cree un repositorio Git][]
 
--   [Paso 2: Cree un proyecto e insértelo en el repositorio Git.][]
+-   [Paso 2: Cree un proyecto e insértelo en el repositorio Git][]
 
--   [Paso 3: Conecte el proyecto a Azure.][]
+-   [Paso 3: Conecte el proyecto a Azure][]
 
--   [Paso 4: Realice cambios, desencadene una recompilación y vuelva a implementar.][]
+-   [Paso 4: Realice cambios, desencadene una recompilación y vuelva a implementar][]
 
--   [Paso 5: Vuelva a implementar una compilación anterior (opcional).][]
+-   [Paso 5: Vuelva a implementar una compilación anterior (opcional)][]
 
 -   [Paso 6: Cambie la implementación de producción][]
 
 -	[Paso 7: Implemente desde una bifurcación de trabajo][]
 
-<h2> <a name="step1"></a>Paso 1: Creación de un repositorio Git</h2>
+<h2> <a name="step1"></a>Paso 1: Cree un repositorio Git</h2>
 
 
-1. Si aún no tiene una cuenta de Visual Studio Online, siga las instrucciones [aquí](http://go.microsoft.com/fwlink/?LinkId=397665). Cuando cree un proyecto de equipo, elija Git como el sistema de control de código fuente. Siga las instrucciones para conectar Visual Studio al proyecto de equipo.
+1. Si todavía no tiene una cuenta de Visual Studio Online, siga las instrucciones [aquí](http://go.microsoft.com/fwlink/?LinkId=397665). Cuando cree un proyecto de equipo, elija Git como el sistema de control de código fuente. Siga las instrucciones para conectar Visual Studio al proyecto de equipo.
 
-2. En Team Explorer, elija el vínculo **Clonar este repositorio**. 
+2. En Team Explorer, haga clic en el vínculo **Clonar este repositorio**. 
 ![][3]
 
 3. Especifique la ubicación de la copia local y elija el botón **Clonar**.
@@ -50,22 +61,23 @@ Para configurar un servicio en la nube que se compile e implemente automáticame
 ![][4]
 
 2. Puede implementar un sitio web o un servicio en la nube (aplicación de Azure) siguiendo los pasos que se ofrecen en este tutorial.
-Cree un proyecto de Servicio de nube de Azure o un proyecto de MVC de ASP.NET nuevo. Asegúrese de que el proyecto se dirige a .NET Framework 4 o 4.5. Si está creando un proyecto de Servicio de nube, agregue un rol web de MVC de ASP.NET y un rol de trabajo.
-Si desea crear un sitio web, seleccione la plantilla de proyecto de aplicación web ASP.NET y, a continuación, MVC. Consulte [Introducción a Azure y ASP.NET].(http://www.windowsazure.com/en-us/documentation/articles/web-sites-dotnet-get-started/).
+Cree un nuevo proyecto de Servicio de nube de Microsoft Azure
+o un proyecto de MVC de ASP.NET. Asegúrese de que el proyecto se dirige a .NET Framework 4 o 4.5. Si está creando un proyecto de Servicio de nube, agregue un rol web de MVC de ASP.NET y un rol de trabajo.
+Si desea crear un sitio web, seleccione la plantilla de proyecto de aplicación web ASP.NET y, a continuación, MVC. Consulte [Introducción a Azure y ASP.NET](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
 
-3. Abra el menú de acceso directo de la solución y seleccione **Confirmar**.<br/>
+3. Abra el menú contextual de la solución y elija **Confirmar**.<br/>
 ![][7]
 
-4. Si es la primera vez que usa Git en Visual Studio Online, deberá proporcionar alguna información que le identifique en Git. En el área **Cambios pendientes de Team Explorer**, escriba su nombre de usuario y dirección de correo electrónico. Escriba un comentario para la confirmación y elija **Confirmar**.<br/>
+4. Si es la primera vez que usa Git en Visual Studio Online, deberá proporcionar alguna información que le identifique en Git. En el área **Cambios pendientes** de Team Explorer, escriba su nombre de usuario y dirección de correo electrónico. Escriba un comentario para la confirmación y elija **Confirmar**.<br/>
 ![][8]
 
-5. Fíjese en las opciones para incluir o excluir cambios concretos al registrar. Si se excluyen los cambios deseados, haga clic en el vínculo **Incluir todos**.<br/>
+5. Observe las opciones para incluir o excluir cambios específicos al proteger. Si los cambios deseados se excluyen, elija **Incluir todo**.<br/>
 
 6. Ahora ha confirmado los cambios en la copia local del repositorio. A continuación, sincronice esos cambios con el servidor. Elija el vínculo **Sincronizar**.
 
 <h2> <a name="step3"> </a>Paso 3: Conecte el proyecto a Azure</h2>
 
-1. Ahora que tiene un repositorio Git en Visual Studio Online con código fuente, esta en disposición de conectarlo a Azure.  En el [Portal de Azure](http://manage.windowsazure.com), seleccione el servicio en la nube o el sitio web, o cree unos nuevos; para ello, seleccione el icono + en la parte inferior izquierda y elija **Servicio en la nube** o **Sitio web** y luego **Creación rápida**.<br.>
+1. Ahora que tiene un repositorio Git en Visual Studio Online con código fuente, esta en disposición de conectarlo a Azure.  En el [Portal de Azure](http://manage.windowsazure.com), seleccione su servicio en la nube o sitio web, o bien cree uno nuevo. Para ello, seleccione el icono + en la parte inferior izquierda y elija **Servicio en la nube** o **Sitio web** y, a continuación, **Creación rápida**.<br.>
 ![][9]
 
 3. Para servicios en la nube, elija el vínculo **Configurar publicación con Visual Studio Online**. Para sitios web, elija el vínculo **Configurar implementación desde control de código fuente**.<br/>
@@ -74,7 +86,7 @@ Si desea crear un sitio web, seleccione la plantilla de proyecto de aplicación 
 2. En el asistente, escriba el nombre de la cuenta de Visual Studio Online en el cuadro de texto y elija el vínculo **Autorizar ahora**. Puede que se le solicite que inicie sesión.<br/>
 ![][11]
 
-3. En el cuadro de diálogo emergente de OAuth, seleccione **Aceptar** para autorizar a Azure para que configure el proyecto de equipo en V Studio Online.<br/>
+3. En el cuadro de diálogo emergente de OAuth, elija **Aceptar** para autorizar a Azure a que configure el proyecto de equipo en Visual Studio Online.<br/>
 ![][12]
 
 4. Si la autorización se realiza correctamente, verá una lista desplegable que contiene los proyectos de equipo de Visual Studio Online.  Seleccione el nombre del proyecto de equipo que ha creado en los pasos anteriores y presione el botón de la marca de verificación del asistente.<br/>
@@ -91,7 +103,7 @@ La próxima vez que inserte una confirmación en el repositorio, Visual Studio O
 2. Edite el texto del pie de página del sitio y guarde el archivo.<br/>
 ![][18]
 
-3. En el Explorador de soluciones, abra el menú de acceso directo del nodo de solución, el nodo de proyecto o el archivo que ha cambiado, y elija **Confirmar**.<br/>
+3. En el Explorador de soluciones, abra el menú contextual del nodo de solución, el nodo de proyecto o el archivo que ha cambiado y elija **Confirmar**.<br/>
 
 4. Escriba un comentario y elija **Confirmar**.<br/>
 ![][20]
@@ -105,7 +117,7 @@ La próxima vez que inserte una confirmación en el repositorio, Visual Studio O
 7. Presione el botón Inicio para volver a la página principal de Team Explorer.<br/>
 ![][21]
 
-8. Haga clic en el vínculo **Compilaciones** para ver las compilaciones en curso.<br/>
+8. Elija **Compilaciones** para ver las compilaciones en curso.<br/>
 ![][22]
 <br/>
 Team Explorer indica que se ha desencadenado una compilación para su registro.<br/>
@@ -113,16 +125,16 @@ Team Explorer indica que se ha desencadenado una compilación para su registro.<
 
 9. Para ver un registro detallado del progreso de la compilación, haga doble clic en el nombre de la compilación en curso.<br/>
 
-10. Mientras la compilación está en curso, eche un vistazo a la definición de compilación que se creó al vincular a Azure con el asistente.  Abra el menú de acceso directo de la definición de compilación y seleccione **Editar definición de compilación**.<br/>
+10. Mientras la compilación está en curso, eche un vistazo a la definición de compilación que se creó al vincular a Azure con el asistente.  Abra el menú contextual de la definición de compilación y elija **Editar definición de compilación**.<br/>
 ![][25]
 <br/>
-En la pestaña **Desencadenar**, verá que la definición de compilación se ha configurado en cada registro de forma predeterminada. (Para un servicio en la nube, Visual Studio Online compila e implementa automáticamente la bifurcación principal en el entorno de ensayo. Aún así, tendrá que realizar un paso manual para implementar en el sitio activo. Para un sitio web que no tenga un entorno de ensayo, implementa directamente la bifurcación principal en el sitio activo.<br/>
+En la pestaña **Desencadenador**, verá que la definición de compilación se ha configurado en cada protección de forma predeterminada. (Para un servicio en la nube, Visual Studio Online compila e implementa automáticamente la bifurcación principal en el entorno de ensayo. Aún así, tendrá que realizar un paso manual para implementar en el sitio activo. Para un sitio web que no tenga un entorno de ensayo, implementa directamente la bifurcación principal en el sitio activo.<br/>
 ![][26]
 <br/>
-En la pestaña **Proceso**, podrá ver que el entorno de implementación se ha configurado con el nombre del servicio en la nube o sitio web.<br/>
+En la pestaña **Proceso**, puede ver que el entorno de implementación se ha configurado con el nombre del servicio en la nube o el sitio web.<br/>
 ![][27]
 <br/>
-Especifique los valores para las propiedades si desea que sean diferentes de los predeterminados. Las propiedades para la publicación de Azure se encuentran en la sección Implementación, y es posible que también sea necesario definir los parámetros de MSBuild. Por ejemplo, en un proyecto de servicio en la nube, para especificar una configuración de servicio que no sea "Nube", establezca los parámetros de MSbuild en /p:TargetProfile=*SuPerfil* donde *SuPerfil* coincide con un archivo de configuración de servicio con un nombre como ServiceConfiguration.*SuPerfilP.cscfg.
+Especifique los valores para las propiedades si desea que sean diferentes de los predeterminados. Las propiedades para la publicación de Azure se encuentran en la sección Implementación, y es posible que también sea necesario definir los parámetros de MSBuild. Por ejemplo, en un proyecto de servicio en la nube, para especificar una configuración de servicio que no sea "Nube", establezca los parámetros de MSbuild en /p:TargetProfile=*YourProfile*, donde *YourProfile* coincide con un archivo de configuración de servicio con un nombre como ServiceConfiguration.*YourProfile*.cscfg.
 En la tabla siguiente se muestran las propiedades disponibles en la sección Implementación:
 	<table>
 <tr><td><b>Propiedad</b></td><td><b>Valor predeterminado</b></td></tr>
@@ -138,13 +150,13 @@ En la tabla siguiente se muestran las propiedades disponibles en la sección Imp
 11. Llegados a este punto, la compilación debería haber finalizado correctamente.<br/>
 ![][28]
 
-12. Si hace doble clic en el nombre de la compilación, Visual Studio mostrará un **Resumen de la compilación** en el que se incluyen los resultados de las pruebas de los proyectos de prueba de unidades asociadas.<br/>
+12. Si se hace doble clic en el nombre de la compilación, Visual Studio muestra un **Resumen de la compilación** en el que se incluyen los resultados de las pruebas de los proyectos de pruebas unitarias asociados.<br/>
 ![][29]
 
-13. En el [Portal de Azure](http://manage.windowsazure.com)puede ver la implementación asociada en la pestaña Implementaciones cuando se selecciona el entorno de ensayo.<br/>
+13. En el [Portal de Azure](http://manage.windowsazure.com) puede ver la implementación asociada en la pestaña Implementaciones cuando se selecciona el entorno de ensayo.<br/>
 ![][30]
 
-14.	Vaya a la dirección URL del sitio. Para un servicio web, elija el botón **Examinar** del portal. Para un servicio en la nube, elija la URL en la sección **Vista rápida** de la página **Panel** que muestra el entorno de ensayo. Las implementaciones de la integración continua para los servicios en la nube se publican de forma predeterminada en el entorno de ensayo. Puede cambiarlo configurando la propiedad Entorno del servicio de nube alternativo en Producción. Aquí es donde se encuentra la URL del sitio en la página Panel del servicio en la nube: <br/>
+14.	Vaya a la dirección URL del sitio. Para un sitio web, elija el botón **Examinar** en el portal. Para un servicio en la nube, elija la dirección URL de la sección **Vista rápida** de la página **Panel** que muestra el entorno de ensayo. Las implementaciones de la integración continua para los servicios en la nube se publican de forma predeterminada en el entorno de ensayo. Puede cambiarlo configurando la propiedad Entorno del servicio de nube alternativo en Producción. Aquí es donde se encuentra la URL del sitio en la página Panel del servicio en la nube: <br/>
 ![][31]
 <br/>
 Se abrirá una nueva pestaña del explorador para mostrar el sitio que se está ejecutando.<br/>
@@ -155,31 +167,31 @@ Se abrirá una nueva pestaña del explorador para mostrar el sitio que se está 
 
 <h2> <a name="step5"> </a>Paso 5: Vuelva a implementar una compilación anterior</h2>
 
-Este paso es opcional. En el Portal de administración, seleccione una implementación anterior y haga clic en **Volver a implementar** para que su sitio vuelva a un registro anterior. Tenga en cuenta que esto activará una nueva compilación en TFS y se creará una nueva entrada en el historial de implementación.<br/>
+Este paso es opcional. En el Portal de administración, seleccione una implementación anterior y haga clic en **Implementar de nuevo** para que el sitio vuelva a una protección anterior. Tenga en cuenta que esta acción desencadenará una nueva compilación en TFS y creará una nueva entrada en el historial de implementación.<br/>
 ![][34]
 
 <h2> <a name="step6"> </a>Paso 6: Cambie la implementación de producción</h2>
 
- Cuando esté preparado, puede promover el entorno de ensayo al de producción haciendo clic en el botón **Intercambiar** del Portal de administración. El entorno de ensayo recién implementado se promueve a Producción y el anterior entorno de Producción, si lo hubiera, pasa a entorno de ensayo. La implementación activa puede ser diferente para los entornos de producción y ensayo, pero el historial de implementación de las compilaciones recientes es el mismo independientemente del entorno.<br/>
+ Cuando esté listo, puede promover el entorno de ensayo al de producción si elige **Intercambiar** en el Portal de administración. El entorno de ensayo recién implementado se promueve a Producción y el anterior entorno de Producción, si lo hubiera, pasa a entorno de ensayo. La implementación activa puede ser diferente para los entornos de producción y ensayo, pero el historial de implementación de las compilaciones recientes es el mismo independientemente del entorno.<br/>
 ![][35]
 
-<h2> <a name="step7"> </a>Paso 6: Implemente desde una bifurcación de trabajo.</h2>
+<h2> <a name="step7"> </a>Paso 6: Implemente desde una bifurcación de trabajo</h2>
 
 Cuando usa Git, realiza cambios habitualmente en una bifurcación de trabajo y la integra en la bifurcación principal cuando el trabajo de desarrollo alcanza una fecha de finalización. Durante la fase de desarrollo de un proyecto, querrá compilar e implementar la bifurcación de trabajo en Azure.
 
-1. En Team Explorer, elija el botón **Inicio** y luego elija el botón **Bifurcaciones**.<br/>
+1. En Team Explorer, elija el botón **Inicio** y, a continuación, el botón **Bifurcaciones**.<br/>
 ![][40]
 
-2. Elija el vínculo **Nueva bifurcación**.<br/>
+2. Haga clic en el vínculo **Nueva bifurcación**.<br/>
 ![][41]
 
-3. Escriba el nombre de la bifurcación, por ejemplo "trabajo", y elija** Crear bifurcación**. De esta forma se crea una nueva bifurcación local.<br/>
+3. Escriba el nombre de la bifurcación, por ejemplo "trabajo", y elija **Crear bifurcación**. De esta forma se crea una nueva bifurcación local.<br/>
 ![][42]
 
 4. Publique la bifurcación. Elija el nombre de la bifurcación en **Bifurcaciones no publicadas** y elija **Publicar**.<br/>
 ![][44]
 
-6. De manera predeterminada, solo los cambios realizados en la bifurcación principal activan una compilación continua. Para configurar la compilación continua en una bifurcación de trabajo, elija la página Compilaciones de Team Explorer y elija **Editar definición de compilación**.
+6. De manera predeterminada, solo los cambios realizados en la bifurcación principal activan una compilación continua. Para configurar la compilación continua en una bifurcación de trabajo, elija la página Compilaciones de Team Explorer y **Editar definición de compilación**.
 
 7. Abra la pestaña **Configuración de origen**. En **Bifurcaciones supervisadas para integración y compilación continuas**, elija **Haga clic aquí para agregar una nueva fila**.<br/>
 ![][47]
@@ -187,21 +199,21 @@ Cuando usa Git, realiza cambios habitualmente en una bifurcación de trabajo y l
 8. Especifique la bifurcación que ha creado, por ejemplo refs/heads/working.
 ![][48]
 
-9. Realice un cambio en el código, abra el menú de acceso directo del archivo modificado y elija **Confirmar**.<br/>
+9. Realice un cambio en el código, abra el menú contextual del archivo modificado y elija **Confirmar**.<br/>
 ![][43]
 
-10. Elija el vínculo **Confirmaciones no sincronizadas** y elija el botón **Sincronizar** o el vínculo **Insertar** para copiar los cambios en la copia de la bifurcación de trabajo en Visual Studio Online.
+10. Haga clic en el vínculo **Confirmaciones no sincronizadas** y elija el botón **Sincronizar** o el vínculo **Insertar** para copiar los cambios en la copia de la bifurcación de trabajo en Visual Studio Online.
 ![][45]
 
-11. Vaya a la vista **Compilaciones** y busque la compilación que se acaba de activar para la bifurcación de trabajo.
+11. Navegue hasta la vista **Compilaciones** y busque la compilación que se acaba de desencadenar para la bifurcación de trabajo.
 
-Para obtener más información, consulte [Visual Studio Online].(http://go.microsoft.com/fwlink/?LinkId=253861). Para obtener información adicional sobre el uso de Git con Visual Studio Online, consulte [Uso compartido del código en Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) y para obtener información sobre el uso de un repositorio de Git que no esté administrador por Visual Studio Online para publicar en Azure, consulte [Publicación en Sitios web Azure desde el control de código fuente](http://www.windowsazure.com/en-us/documentation/articles/web-sites-publish-source-control).
+Para obtener más información, consulte [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). Para obtener información adicional sobre el uso de Git con Visual Studio Online, consulte [Uso compartido del código en Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) y para obtener información sobre el uso de un repositorio de Git no administrado por Visual Studio Online para publicar en Azure, consulte [Publicación en Sitios web Azure desde el control de código fuente](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control).
 
-[Paso 1: Cree un repositorio Git.]: #step1
-[Paso 2: Cree un proyecto e insértelo en el repositorio Git.]: #step2
-[Paso 3: Conecte el proyecto a Azure.]: #step3
-[Paso 4: Realice cambios, desencadene una recompilación y vuelva a implementar.]: #step4
-[Paso 5: Vuelva a implementar una compilación anterior (opcional).]: #step5
+[Paso 1: Cree un repositorio Git]: #step1
+[Paso 2: Cree un proyecto e insértelo en el repositorio Git]: #step2
+[Paso 3: Conecte el proyecto a Azure]: #step3
+[Paso 4: Realice cambios, desencadene una recompilación y vuelva a implementar]: #step4
+[Paso 5: Vuelva a implementar una compilación anterior (opcional)]: #step5
 [Paso 6: Cambie la implementación de producción]: #step6
 [Paso 7: Implemente desde una bifurcación de trabajo]: #step7
 [0]: ./media/cloud-services-continuous-delivery-use-vso/tfs0.PNG
@@ -250,4 +262,4 @@ Para obtener más información, consulte [Visual Studio Online].(http://go.micro
 [47]: ./media/cloud-services-continuous-delivery-use-vso-git/SourceSettingsPage.PNG
 [48]: ./media/cloud-services-continuous-delivery-use-vso-git/IncludeWorkingBranch.PNG
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

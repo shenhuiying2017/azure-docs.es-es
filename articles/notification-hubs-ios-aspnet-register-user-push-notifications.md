@@ -1,30 +1,43 @@
-﻿
-<properties urlDisplayName="Notify iOS app users by using Web API" pageTitle="Registro del usuario actual para notificaciones de inserción mediante un servicio móvil - Centros de notificaciones "metaKeywords="registro de aplicación de Azure, Centros de notificaciones, notificaciones de inserción de Azure, aplicación iOS de notificaciones de inserción" description="Obtenga información acerca de cómo solicitar el registro de notificaciones de inserción en una aplicación iOS con los centros de notificaciones de Azure al realizar el registro por la API web de ASP.NET." metaCanonical="" services="notification-hubs" documentationCenter="" title="Register the current user for push notifications by using ASP.NET" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Registro del usuario actual para notificaciones de inserción mediante un servicio móvil - Centros de notificaciones" 
+	description="Obtenga información acerca de cómo solicitar el registro de notificaciones de inserción en una aplicación iOS con los Centros de notificaciones de Azure al realizar el registro por la API web de ASP.NET." 
+	services="notification-hubs" 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 # Registro del usuario actual para las notificaciones de inserción mediante ASP.NET
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/es-es/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">C# de Tienda Windows</a><a href="/es-es/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
+    <a href="/es-es/documentation/articles/notification-hubs-windows-store-aspnet-register-user-push-notifications/" title="Windows Store C#">Windows Store C#</a><a href="/es-es/documentation/articles/notification-hubs-ios-aspnet-register-user-push-notifications/" title="iOS" class="current">iOS</a>
 </div>
 
 En este tema se describe cómo solicitar el registro de las notificaciones de inserción con los Centros de notificaciones de Azure al realizar el registro mediante ASP.NET Web API. Este tema amplía el tutorial [Notificación a los usuarios con los Centros de notificaciones]. Debe haber completado ya los pasos necesarios de ese tutorial para crear el servicio móvil autenticado. Para obtener más información acerca del escenario de notificación a los usuarios, consulte [Notificación a los usuarios con los Centros de notificaciones].  
 
 1. En su MainStoryboard_iPhone.storyboard, agregue los siguientes componentes desde la biblioteca de objetos:
 
-	+ **Label**: "Push to User with Notification Hubs"
-	+ **Label**: "InstallationId"
-	+ **Label**: "User"
-	+ **Text Field**: "User"
-	+ **Label**: "Password"
-	+ **Text Field**: "Password"
-	+ **Button**: "Login"
+	+ **Etiqueta**: "Push to User with Notification Hubs"
+	+ **Etiqueta**: "InstallationId"
+	+ **Etiqueta**: "User"
+	+ **Campo de texto**: "User"
+	+ **Etiqueta**: "Password"
+	+ **Campo de texto**: "Password"
+	+ **Botón**: "Login"
 
 	En este punto, su storyboard debe presentar la siguiente apariencia:
 
    	![][0]
 
-2. En el assistant editor, cree outlets para todos los switched controls y llámelos, conecte los campos de texto con View Controller (delegate) y cree una **acción** para el botón de **inicio de sesión**.
+2. En el editor del asistente, cree salidas para todos los controles cambiados y llámelos, conecte los campos de texto con el controlador de vista (delegado) y cree una **acción** para el botón de **inicio de sesión**.
 
    	![][1]
 
@@ -83,7 +96,7 @@ En este tema se describe cómo solicitar el registro de las notificaciones de in
 
 		[[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
 
-	La primera línea inicializa el singleton **DeviceInfo**. La segunda línea inicia el registro de notificaciones de inserción, que ya existe si ya ha completado el tutorial [Introducción a los Centros de notficaciones].
+	La primera línea inicializa el singleton **DeviceInfo**. La segunda línea inicia el registro de notificaciones de inserción, que ya existe si ya ha completado el tutorial [Introducción a los Centros de notificaciones].
 
 9. En PushToUserAppDelegate.m, implemente el método **didRegisterForRemoteNotificationsWithDeviceToken** en su AppDelegate y agregue el siguiente código:
 
@@ -91,9 +104,7 @@ En este tema se describe cómo solicitar el registro de las notificaciones de in
 
 	De este modo se configura el token del dispositivo para la solicitud.
 
-	<div class="dev-callout"><b>Nota:</b>
-	<p>En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial <a href="/es-es/manage/services/notification-hubs/get-started-notification-hubs-ios/" target="_blank">Introducción a los Centros de notificaciones</a>, debe convertir la llamada en comentario o borrarla.</p>
-	</div>
+	> [AZURE.NOTE] En este punto, no debería haber ningún otro código en este método. Si ya tiene una llamada al método **registerNativeWithDeviceToken** que se agregó cuando realizó el tutorial [Introducción a los Centros de notificaciones](/es-es/manage/services/notification-hubs/get-started-notification-hubs-ios/%20target="_blank") tutorial, debe convertir la llamada en comentario o borrarla.
 
 10.	En el archivo PushToUserAppDelegate.m, agregue el siguiente método de controlador:
 
@@ -116,7 +127,7 @@ En este tema se describe cómo solicitar el registro de las notificaciones de in
 		    return YES;
 		}
 
-9. En el método **viewDidLoad** en el archivo PushToUserViewController.m, inicialice la etiqueta installationId como se muestra a continuación:
+9. En el método **viewDidLoad** del archivo PushToUserViewController.m, inicialice la etiqueta installationId como se muestra a continuación:
 
 		DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
 		Self.installationId.text = deviceInfo.installationId;
@@ -204,7 +215,7 @@ En este tema se describe cómo solicitar el registro de las notificaciones de in
 		        }
 		    }];
 
-	Este método obtiene un ID de instalación y un canal para las notificaciones de inserción y los envía, junto con el tipo de dispositivo, al método de Web API autenticado que crea un registro en los Centros de notificaciones. Esta Web API se definió en [Notificación a los usuarios con los Centros de notificaciones].
+	Este método obtiene un ID de instalación y un canal para las notificaciones de inserción y los envía, junto con el tipo de dispositivo, al método de Web API autenticado que crea un registro en los Centros de notificaciones. Esta API web se definió en [Notificación a los usuarios con los Centros de notificaciones].
 
 Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación a los usuarios con los Centros de notificaciones] y actualice el servicio móvil para enviar notificaciones mediante Centros de notificaciones.
 
@@ -219,3 +230,5 @@ Ahora que la aplicación de cliente se ha actualizado, regrese a [Notificación 
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Introducción a los Centros de notificaciones]: /es-es/manage/services/notification-hubs/get-started-notification-hubs-ios
+
+<!--HONumber=45--> 

@@ -1,6 +1,20 @@
-<properties urlDisplayName="Caching" pageTitle="Utilización de la característica de caché en rol (.NET) - Guía de características de Azure" metaKeywords="Azure cache, Azure caching, Azure cache, Azure caching, Azure store session state, Azure cache .NET, Azure cache C#" description="Aprenda a usar caché en rol de Azure. Los ejemplos se escriben en código C# y usan la API .NET." metaCanonical="" services="cache" documentationCenter=".NET" title="How to Use In-Role Cache for Azure Cache" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Utilización de la característica de caché en rol (.NET) - Guía de características de Azure" 
+	description="Obtenga información acerca de cómo usar la caché en rol de Azure. Los ejemplos se escriben en código C# y usan la API .NET." 
+	services="cache" 
+	documentationCenter=".net" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="cache" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 
 
@@ -395,27 +409,29 @@ siga estos vínculos para obtener información sobre cómo realizar tareas de al
   
 <!-- LINKS -->
 [Configuración de tamaños de la máquina virtual]: http://go.microsoft.com/fwlink/?LinkId=164387
-[Configuración de clientes de caché mediante programación]: http://msdn.microsoft.com/es-es/library/windowsazure/gg618003.aspx
-[Establecimiento de la capacidad de almacenamiento en caché de una página mediante programación]: http://msdn.microsoft.com/es-es/library/z852zf6b.aspx
-[Establecimiento de la capacidad de almacenamiento en caché de una página de ASP.NET mediante declaraciones]: http://msdn.microsoft.com/es-es/library/zd1ysf1y.aspx
+[Configuración de clientes de caché mediante programación]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
+[Establecimiento de la capacidad de almacenamiento en caché de una página mediante programación]: http://msdn.microsoft.com/library/z852zf6b.aspx
+[Establecimiento de la capacidad de almacenamiento en caché de una página de ASP.NET mediante declaraciones]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
 [Consideraciones sobre el planeamiento de la capacidad para la caché en rol]: http://go.microsoft.com/fwlink/?LinkId=252651
-[Ejemplos de caché en rol]: http://msdn.microsoft.com/es-es/library/jj189876.aspx
+[Ejemplos de caché en rol]: http://msdn.microsoft.com/library/jj189876.aspx
 [Caché en rol]: http://go.microsoft.com/fwlink/?LinkId=252658
 [Caché en rol]: http://www.microsoft.com/es-es/showcase/Search.aspx?phrase=azure+caching
 [Rendimiento máximo: Agilización de las aplicaciones de servicios de nube con el almacenamiento en caché de Azure]: http://channel9.msdn.com/Events/TechEd/NorthAmerica/2013/WAD-B326#fbid=kmrzkRxQ6gU
-[Migración a la caché en rol]: http://msdn.microsoft.com/es-es/library/hh914163.aspx
+[Migración a la caché en rol]: http://msdn.microsoft.com/library/hh914163.aspx
 [instalación de NuGet Package Manager]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Proveedor de caché de salida para la caché en rol]: http://msdn.microsoft.com/es-es/library/windowsazure/gg185662.aspx
+[Proveedor de caché de salida para la caché en rol]: http://msdn.microsoft.com/library/windowsazure/gg185662.aspx
 [Directiva OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Información general de la caché en rol]: http://go.microsoft.com/fwlink/?LinkId=254172
-[Proveedor del estado de sesión para la caché en rol]: http://msdn.microsoft.com/es-es/library/windowsazure/gg185668.aspx
+[Proveedor del estado de sesión para la caché en rol]: http://msdn.microsoft.com/library/windowsazure/gg185668.aspx
 [Blog del equipo]: http://blogs.msdn.com/b/windowsazure/
-[Diagnóstico y solución de problemas de In-Role Cache]: http://msdn.microsoft.com/es-es/library/windowsazure/hh914135.aspx
+[Diagnóstico y solución de problemas de In-Role Cache]: http://msdn.microsoft.com/library/windowsazure/hh914135.aspx
 [Caché de Azure AppFabric: Estado de sesión de almacenamiento en caché]: http://www.microsoft.com/es-es/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Portal de administración de Azure]: http://windows.azure.com/
-[Almacenamiento en caché compartido de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg278356.aspx
+[Almacenamiento en caché compartido de Azure]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 
-[¿Cuál es la oferta de Caché de Azure más adecuada para mí?]: http://msdn.microsoft.com/es-es/library/azure/dn766201.aspx
+[¿Cuál es la oferta de Caché de Azure más adecuada para mí?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
 [Proveedor de caché de resultados para la caché en rol]: http://go.microsoft.com/fwlink/?LinkId=398249
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

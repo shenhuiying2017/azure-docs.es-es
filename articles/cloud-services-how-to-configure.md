@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="How to configure" pageTitle="Configuración de un servicio en la nube - Azure" metaKeywords="Configuración de servicios en la nube" description="Aprenda a configurar servicios en la nube en Azure. Aprenda a actualizar la configuración del servicio en la nube y configurar el acceso remoto en instancias de rol." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Configure Cloud Services" authors="davidmu" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="Configuración de un servicio en la nube - Azure" 
+	description="Aprenda a configurar servicios en la nube en Azure. Aprenda a actualizar la configuración del servicio en la nube y configurar el acceso remoto en instancias de rol." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="adegeo"/>
 
 
 
@@ -13,13 +27,13 @@ También puede habilitar una conexión de Escritorio remoto con uno o todos los 
 
 Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las actualizaciones de la configuración si tiene al menos dos instancias de rol para cada rol. Esto permite que una máquina virtual procese las solicitudes del cliente mientras la otra se actualiza. Para obtener más información, vea [Contratos de nivel de servicio](https://www.windowsazure.com/es-es/support/legal/sla/).
 
-##Tabla de contenido##
+## Tabla de contenido##
 
-* [Cómo configuración del servicio en la nube](#update)
-* [Cómo acceso remoto a las instancias de rol](#remoteaccess)
+* [Actualización de la configuración del servicio en la nube](#update)
+* [Configuración del acceso remoto a las instancias de rol](#remoteaccess)
 
 
-<h2><a id="update"></a>Reproducción de configuración del servicio en la nube</h2>
+<h2><a id="update"></a>Actualización de la configuración del servicio en la nube</h2>
 
 1. En el [Portal de administración de Azure](http://manage.windowsazure.com/), haga clic en **Servicios en la nube**, en el nombre del servicio en la nube y, a continuación, en **Configurar**.
 
@@ -27,12 +41,12 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las 
 	
 	En la página **Configurar**, puede configurar la supervisión, actualizar la configuración de roles y seleccionar el sistema operativo invitado y la familia para las instancias de rol. 
 
-2. En **supervisión**, establezca el nivel de supervisión en Detallado o Mínimo y configure las cadenas de conexión del diagnóstico que se requieren para la supervisión detallada. Para obtener instrucciones, vea [Supervisión de servicios en la nube].(../how-to-monitor-a-cloud-service/).
+2. En **supervisión**, establezca el nivel de supervisión en Detallado o Mínimo y configure las cadenas de conexión del diagnóstico que se requieren para la supervisión detallada. Para obtener instrucciones, vea [Supervisión de servicios en la nube](../how-to-monitor-a-cloud-service/).
 
 
 3. Para los roles de servicio (agrupados por rol), puede actualizar la siguiente configuración:
 
-	>- **Configuración**   Modifique los valores de los ajustes de la configuración diversa que se especifican en los elementos *ConfigurationSettings* del archivo de configuración del servicio (.cscfg).
+	>- **Configuración**   Modifique los valores de los diversos ajustes de la configuración que se especifican en los elementos *ConfigurationSettings* del archivo de configuración del servicio (.cscfg).
 	
 	>- **Certificados**   Cambie la huella digital del certificado que se está usando en el cifrado SSL para un rol. Para cambiar un certificado, debe primero cargar el certificado nuevo (en la página **Certificados**). Posteriormente, actualice la huella digital en la cadena de certificado que aparece en la configuración de roles.
 
@@ -48,7 +62,7 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las 
 
 5. Para guardar los ajustes de configuración y transmitirlos a las instancias de rol, haga clic en **Save**. (Haga clic en **Discard** para cancelar los cambios). **Se agregan Save** y **Discard** a la barra de comandos después de cambiar un ajuste.
 
-###Para actualizar un archivo de configuración del servicio en la nube manualmente###
+### Para actualizar un archivo de configuración del servicio en la nube manualmente###
 
 1. Descargue un archivo de configuración del servicio en la nube (.cscfg) con la configuración actual. En la página **Configure** del servicio en la nube, haga clic en **Download**. A continuación, haga clic en **Save** o en **Save As** para guardar el archivo.
 
@@ -62,22 +76,22 @@ Azure solo puede asegurar un 99,95 % de disponibilidad del servicio durante las 
 
 	c. Si su servicio en la nube contiene cualquier rol que tiene una sola instancia, active la casilla **Aplicar la configuración aunque una o más reglas contenga una instancia única** para permitir que continúen las actualizaciones de configuración para los roles.
 
-	A menos que defina como mínimo dos instancias de cada rol, Azure no puede garantizar una disponibilidad de su servicio en la nube de al menos un 99,95 % durante las actualizaciones de la configuración del servicio. Para obtener más información, vea [Contratos de nivel de servicio](http://www.windowsazure.com/es-es/support/legal/sla/).
+	A menos que defina como mínimo dos instancias de cada rol, Azure no puede garantizar una disponibilidad de su servicio en la nube de al menos un 99,95 % durante las actualizaciones de la configuración del servicio. Para obtener más información, vea [Contratos de nivel de servicio](http://azure.microsoft.com/support/legal/sla/).
 
 	d. Haga clic en **Aceptar** (marca de verificación). 
 
 
-<h2><a id="remoteaccess"></a>Reproducción de acceso remoto a las instancias de rol</h2>
+<h2><a id="remoteaccess"></a>How to: acceso remoto a las instancias de rol</h2>
 
 Escritorio remoto le permite tener acceso al escritorio de un rol que se ejecuta en Azure. Puede usar la conexión de Escritorio remoto para solucionar y diagnosticar problemas con su aplicación mientras se ejecuta. Puede habilitar una conexión de Escritorio remoto en su rol durante el diseño de la aplicación o después de que haya implementado la aplicación en Azure (mientras el rol se está ejecutando).  La habilitación de una conexión de Escritorio remoto en un rol en ejecución a través del Portal de administración no requiere que vuelva a implementar la aplicación.  Para autenticar la conexión de Escritorio remoto puede usar un certificado que se haya cargado anteriormente o puede crear un certificado nuevo.
 
 En la pagina **Configure** de su servicio en la nube, puede habilitar el Escritorio remoto o cambiar la cuenta o la contraseña de Administrador local que se usan para conectarse a las máquinas virtuales, el certificado que se usa en la autenticación o la fecha de caducidad.
 
-###Para configurar el Acceso remoto en el archivo de definición del servicio###
+### Para configurar el Acceso remoto en el archivo de definición del servicio###
 
 Agregue elementos de **Import** al archivo de definición de servicio (.csdef) para importar los módulos RemoteAccess y RemoteForwarder al modelo de servicio. Cuando esos módulos están presentes, Azure agrega los ajustes de configuración para Escritorio remoto en el archivo de configuración del servicio. Para completar la configuración de Escritorio remoto, necesitará importar un certificado a Azure y especificar dicho certificado en el archivo de configuración del servicio. Para obtener más información, consulte [Establecer una conexión a Escritorio remoto para un rol de Azure][].
 
-###Para habilitar o modificar el Acceso remoto para las instancias de rol en el Portal de administración###
+### Para habilitar o modificar el Acceso remoto para las instancias de rol en el Portal de administración###
 
 1. Haga clic en **Servicios en la nube**, en el nombre del servicio en la nube y, a continuación, en **Configurar**.
 
@@ -115,7 +129,7 @@ Agregue elementos de **Import** al archivo de definición de servicio (.csdef) p
 
 	d. Haga clic en **Abrir** y, a continuación, en **Conectar** para iniciar la conexión del Escritorio remoto.
 
-###Para deshabilitar el Acceso remoto para instancias de rol en el Portal de administración###
+### Para deshabilitar el Acceso remoto para las instancias de rol en el Portal de administración###
 
 1. Haga clic en **Servicios en la nube**, en el nombre del servicio en la nube y, a continuación, en **Configurar**.
 
@@ -127,9 +141,11 @@ Agregue elementos de **Import** al archivo de definición de servicio (.csdef) p
 
 5. Haga clic en **Aceptar** (marca de verificación).
 
-[Configurar una conexión a Escritorio remoto para un rol de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/hh124107.aspx
+[Configuración de una conexión a Escritorio remoto para un rol de Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
+[Establecer una conexión a Escritorio remoto para un rol de Azure]: http://msdn.microsoft.com/library/windowsazure/hh124107.aspx
 
-[Uso de Escritorio de remoto con los roles de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg443832.aspx
+[Uso de Escritorio de remoto con los roles de Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
+[Uso de Escritorio remoto con los roles de Azure]: http://msdn.microsoft.com/library/windowsazure/gg443832.aspx
 			
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

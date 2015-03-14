@@ -44,12 +44,12 @@ Para ver un tutorial completo de cómo crear una cuenta de almacenamiento y real
 ## Componentes del servicio de almacenamiento de blobs de Azure 
 
 * Cuenta de almacenamiento: La cuenta de almacenamiento es el punto de partida de todos los servicios de almacenamiento. Para obtener acceso a un servicio de almacenamiento de blobs de Azure, primero debe crear una cuenta de almacenamiento de Azure. El nombre de la cuenta de almacenamiento y sus propiedades de clave de acceso son necesarios para autenticarse en el servicio de almacenamiento de blobs de Azure y sus componentes. 
-Para obtener más información acerca del servicio de almacenamiento de blobs de Azure, consulte [Uso del servicio de almacenamiento de blobs de Azure](http://www.windowsazure.com/es-es/develop/net/how-to-guides/blob-storage/)
+Para obtener más información acerca del servicio de almacenamiento de blobs de Azure, consulte [Uso del servicio de almacenamiento de blobs de Azure](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/)
 
 * Contenedor: Un contenedor ofrece la agrupación de un conjunto de blobs y puede almacenar un número ilimitado de ellos. Para realizar una copia de seguridad de SQL Server en un servicio BLOB de Azure, debe haber creado un contenedor raíz como mínimo. 
 
 * Blob: un archivo de cualquier tipo y tamaño. Existen dos tipos de blobs que pueden almacenarse en el servicio de almacenamiento de blobs de Azure: blobs en páginas y en bloques.  La copia de seguridad de SQL Server usa blobs en páginas como tipo de blob. Es posible dirigir los blobs con el siguiente formato de dirección URL: `https://<storage account>.blob.core.windows.net/<container>/<blob>`
-Para obtener más información sobre los blobs en páginas, consulte [Introducción a los blobs en bloques y a los blobs en páginas](http://msdn.microsoft.com/es-es/library/windowsazure/ee691964.aspx)
+Para obtener más información sobre los blobs en páginas, consulte [Introducción a los blobs en bloques y a los blobs en páginas](http://msdn.microsoft.com/library/windowsazure/ee691964.aspx)
 
 ## Componentes de SQL Server
 
@@ -61,7 +61,7 @@ A continuación encontrará un ejemplo de la URL que debería especificar en el 
 <b>Importante</b>
 Si elige copiar y cargar un archivo de copia de seguridad en un servicio de almacenamiento de blobs de Azure, debe usar blob en páginas como opción de almacenamiento si tiene pensado usar este archivo para las operaciones de restauración. RESTORE desde un tipo de blob en bloques provocará un error. 
 
-* Credencial: La información necesaria para conectarse y autenticarse en un servicio de almacenamiento de blobs de Azure se almacena como credencial.  Para que SQL Server escriba copias de seguridad en un blob de Azure o realice la restauración desde él es preciso crear una credencial de SQL Server. La credencial almacena el nombre de la cuenta de almacenamiento y la clave de acceso de la misma.  Cuando se haya creado la credencial, hay que especificarla en la opción WITH CREDENTIAL al emitir las instrucciones BACKUP/RESTORE. Para obtener más información acerca de cómo ver, copiar o regenerar las claves de acceso de la cuenta de almacenamiento, consulte [Ver, copiar y regenerar las claves de acceso en una cuenta de almacenamiento de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/hh531566.aspx).
+* Credencial: La información necesaria para conectarse y autenticarse en un servicio de almacenamiento de blobs de Azure se almacena como credencial.  Para que SQL Server escriba copias de seguridad en un blob de Azure o realice la restauración desde él es preciso crear una credencial de SQL Server. La credencial almacena el nombre de la cuenta de almacenamiento y la clave de acceso de la misma.  Cuando se haya creado la credencial, hay que especificarla en la opción WITH CREDENTIAL al emitir las instrucciones BACKUP/RESTORE. Para obtener más información acerca de cómo ver, copiar o regenerar las claves de acceso de la cuenta de almacenamiento, consulte [Ver, copiar y regenerar las claves de acceso en una cuenta de almacenamiento de Azure](http://msdn.microsoft.com/library/windowsazure/hh531566.aspx).
 Para obtener instrucciones detalladas acerca de cómo crear una credencial de SQL Server, consulte [Introducción al servicio de almacenamiento de Azure para copia de seguridad y restauración de SQL Server](http://go.microsoft.com/fwlink/?LinkId=271615).
 
 ## Copia de seguridad y restauración de bases de datos SQL Server con los blobs de Azure: conceptos y tareas.
@@ -82,7 +82,6 @@ Para obtener instrucciones detalladas acerca de cómo crear una credencial de SQ
 
 
 	
-
 
 
 

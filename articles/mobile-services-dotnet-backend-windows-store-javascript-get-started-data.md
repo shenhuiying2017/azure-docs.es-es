@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción a los datos (Tiendas Windows) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación de la Tienda Windows." services="mobile-services" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Introducción a los datos (Tiendas Windows) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación de la Tienda Windows." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/27/2014" 
+	ms.author="wesmc"/>
 
 # Incorporación de Servicios móviles a una aplicación existente
 
@@ -24,7 +38,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, vea [Evaluación gratuita de Azure.](http://azure.microsoft.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-javascript-get-started-data%2F)
+* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, vea [Evaluación gratuita de Azure.](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-javascript-get-started-data%2F)
 * <a href="https://go.microsoft.com/fwLink/p/?LinkID=257546" target="_blank">Visual Studio Professional 2013</a>. Hay disponible una versión de prueba gratuita.
 
 ##<a name="download-app"></a>Descarga del proyecto GetStartedWithData
@@ -130,7 +144,8 @@ En esta sección, actualizará la aplicación de Tienda Windows para utilizar el
                 // Mobile Services assigns each item an id and the 
                 // item is added to the Binding List
                 todoTable.insert(todoItem).done(function (item) {
-                    todoItems.push(item);
+                    todoIte
+	ms.push(item);
                 });
             };
             var refreshTodoItems = function () {
@@ -140,7 +155,9 @@ En esta sección, actualizará la aplicación de Tienda Windows para utilizar el
                     .read()
                     .done(function (results) {
                         todoItems = new WinJS.Binding.List(results);
-                        listItems.winControl.itemDataSource = todoItems.dataSource;
+                        listIte
+	ms.winControl.itemDataSource = todoIte
+	ms.dataSource;
                     });
             };
             var updateCheckedTodoItem = function (todoItem) {
@@ -148,7 +165,9 @@ En esta sección, actualizará la aplicación de Tienda Windows para utilizar el
                 // When the MobileService responds, 
                 // the item is removed from the list 
                 todoTable.update(todoItem).done(function (item) {
-                    todoItems.splice(todoItems.indexOf(item), 1);
+                    todoIte
+	ms.splice(todoIte
+	ms.indexOf(item), 1);
                 });
             };
             buttonSave.addEventListener("click", function () {
@@ -160,7 +179,8 @@ En esta sección, actualizará la aplicación de Tienda Windows para utilizar el
             buttonRefresh.addEventListener("click", function () {
                 refreshTodoItems();
             });
-            listItems.addEventListener("change", function (eventArgs) {
+            listIte
+	ms.addEventListener("change", function (eventArgs) {
                 var todoItem = eventArgs.target.dataContext.backingData;
                 todoItem.complete = eventArgs.target.checked;
                 updateCheckedTodoItem(todoItem);
@@ -265,7 +285,8 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
 [11]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/vs-build-solution.png
 [12]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/vs-run-solution.png
 
-[16]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/azure-items.png
+[16]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/azure-ite
+	ms.png
 [17]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/manage-sql-azure-database.png
 [18]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/sql-azure-query.png
 [19]: ./media/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/vs-mobileservices-script-reference.png

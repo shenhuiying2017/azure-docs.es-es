@@ -1,6 +1,20 @@
-<properties urlDisplayName="Multi-Tenant Web Application Pattern" pageTitle="Patrón de aplicación web multiempresa: arquitectura de Azure" metaKeywords="" description="Encuentre información general de arquitectura y patrones de diseño que describan cómo implementar una aplicación web multiempresa en Azure." metaCanonical="" services="" documentationCenter=".NET" title="Multitenant Applications in Azure" authors="wpickett" solutions="" manager="wpickett" editor="" />
+﻿<properties 
+	pageTitle="Patrón de aplicación web multiempresa: arquitectura de Azure" 
+	description="Encuentre información general de arquitectura y patrones de diseño que describan cómo implementar una aplicación web multiempresa en Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="wpickett" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/19/2014" 
+	ms.author="wpickett"/>
 
 
 <div>
@@ -107,7 +121,9 @@ Azure ofrece diferentes formas de aprovisionar nuevos inquilinos para la aplicac
 
 <!--links-->
 
-[Hospedaje de una aplicación multiempresa en Azure]: http://msdn.microsoft.com/es-es/library/hh534480.aspx
-[Diseño de aplicaciones multiempresa en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/hh689716
+[Hospedaje de una aplicación multiempresa en Azure]: http://msdn.microsoft.com/library/hh534480.aspx
+[Diseño de aplicaciones multiempresa en Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
 
 
+
+<!--HONumber=46--> 

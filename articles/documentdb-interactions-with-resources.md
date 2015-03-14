@@ -1,6 +1,20 @@
-﻿<properties title="Interact with DocumentDB resources" pageTitle="Interacción con recursos de Base de datos de documentos | Azure" description="La Base de datos de documentos proporciona SDK de cliente para .NET, Python, Node.js y JavaScript, que son todos contenedores sencillos sobre las API REST subyacentes." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Interacciones de RESTful con recursos de Base de datos de documentos | Azure" 
+	description="Obtenga información acerca de cómo realizar interacciones de RESTful con los recursos de Base de datos de documentos de Microsoft Azure mediante verbos HTTP." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="mimig"/>
 
 #Interacción con recursos de Base de datos de documentos 
 La Base de datos de documentos ofrece un modelo de programación RESTful sencillo y abierto en HTTP. En su versión de vista previa, la Base de datos de documentos proporciona SDK de cliente para .NET, Python, Node.js y JavaScript, que son todos contenedores sencillos por sobre las API REST subyacentes. En las versiones futuras, proporcionará también SDK de C++ y Java. Le instamos a crear sus propios SDK para su entorno de programación específico y compartirlo con la comunidad a medida que abrimos nuestras SDK. 
@@ -334,3 +348,5 @@ La Base de datos de documentos expone un modelo de direccionamiento lógico dond
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources1.png
 [2]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
+
+<!--HONumber=46--> 

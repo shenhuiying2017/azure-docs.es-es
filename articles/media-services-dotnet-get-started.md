@@ -1,6 +1,20 @@
-<properties pageTitle="Introducción al SDK de Servicios multimedia para .NET de Azure" description="Este tutorial le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido de vídeo a petición (VoD) con Servicios multimedia de Azure mediante. NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Introducción al SDK de Servicios multimedia para .NET de Azure" 
+	description="Este tutorial le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido de vídeo a petición (VoD) con Servicios multimedia de Azure mediante. NET." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="01/12/2015" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="01/12/2015" 
+	ms.author="juliako"/>
 
 
 # Entrega de vídeo a petición con el SDK de Servicios multimedia para .NET 
@@ -9,7 +23,7 @@
 
 
 >[AZURE.NOTE]
-> Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Prueba gratuita de Azure</a>.
+> Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A8A8397B5" target="_blank">Prueba gratuita de Azure</a>.
 
 Este tutorial le guiará por los pasos necesarios para implementar una aplicación de entrega de contenido de vídeo a petición (VoD) con el SDK de Servicios multimedia (AMS) de Azure para .NET. 
 
@@ -157,7 +171,7 @@ En el código de esta sección se muestra cómo realizar las tareas siguientes:
 
 Cuando se utilizan Servicios multimedia con .NET, debe utilizar la clase **CloudMediaContext** para la mayoría de las tareas de programación de Servicios multimedia: conexión a la cuenta de Servicios multimedia; creación, actualización, obtención de acceso y eliminación de los siguientes objetos: recursos, archivos de recursos, trabajos, directivas de acceso, localizadores, entre otras. 
  
-Sobrescriba la clase de programa predeterminada con el código siguiente. El código muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto CloudMediaContext para conectarse a Servicios multimedia. Para obtener más información sobre cómo conectarse a Servicios multimedia, consulte [Conexión a Servicios multimedia con el SDK de Servicios multimedia para .NET](http://msdn.microsoft.com/es-es/library/azure/jj129571.aspx).
+Sobrescriba la clase de programa predeterminada con el código siguiente. El código muestra cómo leer los valores de conexión del archivo App.config y cómo crear el objeto CloudMediaContext para conectarse a Servicios multimedia. Para obtener más información sobre cómo conectarse a Servicios multimedia, consulte [Conexión a Servicios multimedia con el SDK de Servicios multimedia para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 La función **Main** llama a métodos que se definirán más adelante en esta sección.
 	
@@ -303,9 +317,9 @@ Agregue el método siguiente a la clase Program
 
 Para obtener información sobre cómo configurar la protección de contenido, consulte los siguientes artículos:
 
-- [Uso de cifrado dinámico de AES-128 y el servicio de entrega de claves](http://msdn.microsoft.com/es-es/library/azure/dn783457.aspx)
-- [Uso del cifrado dinámico de PlayReady y servicio de entrega de licencias](http://msdn.microsoft.com/es-es/library/azure/dn783467.aspx)
-- [Entrega de contenido cifrado de almacenamiento](http://msdn.microsoft.com/es-es/library/azure/dn783451.aspx)
+- [Uso de cifrado dinámico de AES-128 y el servicio de entrega de claves](http://msdn.microsoft.com/library/azure/dn783457.aspx)
+- [Uso del cifrado dinámico de PlayReady y servicio de entrega de licencias](http://msdn.microsoft.com/library/azure/dn783467.aspx)
+- [Entrega de contenido cifrado de almacenamiento](http://msdn.microsoft.com/library/azure/dn783451.aspx)
 
 ### <a id="configure_delivery_method"></a>Configuración de la directiva de entrega para el recurso codificado
 

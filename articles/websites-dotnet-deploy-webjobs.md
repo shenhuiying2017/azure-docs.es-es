@@ -66,11 +66,11 @@ Las características de implementación de WebJobs también se incluyen en [Visu
 
 Dispone de dos opciones:
 
-* [Activación de la implementación automática con un proyecto web].(#convertlink).
+* [Activación de la implementación automática con un proyecto web)]#convertlink).
 
 	Configure un proyecto de aplicación de consola existente de forma que se implemente automáticamente como un WebJob cuando implemente un proyecto web. Utilice esta opción cuando desee ejecutar WebJob en el mismo sitio web en el que ejecuta la aplicación web relacionada.
 
-* [Activación de la implementación sin un proyecto web].(#convertnolink).
+* [Activación de la implementación sin un proyecto web)]#convertnolink).
 
 	Configure un proyecto de aplicación de consola existente para implementar como WebJob por sí mismo, sin vínculo a un proyecto web. Utilice esta opción cuando desee ejecutar un WebJob en un sitio web por sí mismo, sin ninguna aplicación web ejecutándose en dicho sitio web. Puede que desee hacer esto para poder escalar los recursos de su WebJob independientemente de los recursos de la aplicación web.
 
@@ -98,11 +98,11 @@ Dispone de dos opciones:
 
 2.  Complete el cuadro de diálogo [Agregar WebJob de Azure](#configure) y haga clic en **Aceptar**.
 
-	Aparecerá el asistente **Publicación web**.  Si no quiere realizar la publicación inmediatamente, cierre el asistente. La configuración que ha escrito se guarda para cuando desee [implementar el proyecto].(#deploy).
+	Aparecerá el asistente **Publicación web**.  Si no quiere realizar la publicación inmediatamente, cierre el asistente. La configuración que ha escrito se guarda para cuando desee [implementar el proyecto)]#deploy).
 
 ## <a id="create"></a>Creación de un nuevo proyecto con funcionalidad WebJobs
 
-Para crear un nuevo proyecto con funcionalidad WebJobs, puede usar la plantilla de proyecto de aplicación de consola y habilitar la implementación WebJobs tal y como se explicó en [la sección anterior].(#convert). Como alternativa, puede usar la plantilla para nuevos proyectos WebJobs:
+Para crear un nuevo proyecto con funcionalidad WebJobs, puede usar la plantilla de proyecto de aplicación de consola y habilitar la implementación WebJobs tal y como se explicó en [la sección anterior)]#convert). Como alternativa, puede usar la plantilla para nuevos proyectos WebJobs:
 
 * [Uso de la plantilla para nuevos proyectos WebJobs para un WebJob independiente](#createnolink)
 
@@ -121,7 +121,7 @@ En el SDK 2.4, la plantilla para nuevos proyectos WebJobs no es mucho más senci
 
 	![New Project dialog showing WebJob template](./media/websites-dotnet-deploy-webjobs/np.png)
 	
-2. Siga las instrucciones mostradas anteriormente para [crear el proyecto de aplicación de consola para un proyecto WebJobs independiente].(#convertnolink).
+2. Siga las instrucciones mostradas anteriormente para [crear el proyecto de aplicación de consola para un proyecto WebJobs independiente)]#convertnolink).
 
 ### <a id="createlink"></a>Uso de la plantilla para nuevos proyectos WebJobs para un WebJob vinculado a un proyecto web
 

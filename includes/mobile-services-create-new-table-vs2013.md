@@ -13,8 +13,7 @@ Para poder almacenar datos en su nuevo servicio móvil, debe crear antes una tab
 
 	Esto crea la tabla TodoItem en el servidor, donde cualquiera que tenga la clave de aplicación puede tener acceso a los datos de la tabla y modificarlos sin necesidad de autenticarse antes. 
 
-	>[AZURE.NOTE]La clave de aplicación se distribuye con la aplicación. Puesto que esta clave no se distribuye de forma segura, no se puede considerar un token de seguridad. Para proteger el acceso a los datos de su servicio móvil, los usuarios se deben autenticar antes del acceso. Para obtener más información, consulte [Permisos](http://msdn.microsoft.com/es-es/library/windowsazure/jj193161.aspx).
-
+	>[AZURE.NOTE]La clave de aplicación se distribuye con la aplicación. Puesto que esta clave no se distribuye de forma segura, no se puede considerar un token de seguridad. Para proteger el acceso a los datos de su servicio móvil, los usuarios se deben autenticar antes del acceso. Para obtener más información, consulte [Permisos](http://msdn.microsoft.com/library/windowsazure/jj193161.aspx).
 
 
 

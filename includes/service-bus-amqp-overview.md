@@ -91,10 +91,9 @@ Para obtener más información sobre cómo obtener y usar estas bibliotecas con 
 
 *    [Uso de AMQP 1.0 con la API .NET del Bus de servicio](http://aka.ms/lym3vk)
 *    [Uso de la API de Java Message Service (JMS) con el Bus de servicio y AMQP 1.0](http://aka.ms/ll1fm3)
-*    [Guía para desarrolladores sobre AMQP 1.0 del Bus de servicio](http://msdn.microsoft.com/es-es/library/jj841071.aspx)
+*    [Guía para desarrolladores sobre AMQP 1.0 del Bus de servicio](http://msdn.microsoft.com/library/jj841071.aspx)
 *    [Especificación de la versión 1.0 del Protocolo de colas de mensajes avanzados de OASIS (AMQP)](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 
 [0]: ./media/service-bus-amqp-overview/Example1.png
-
 
 <!--HONumber=42-->

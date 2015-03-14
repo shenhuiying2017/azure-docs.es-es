@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Cambio de la letra de unidad del disco temporal de Windows" 
 	description="Describe cómo reasignar el disco temporal en una máquina virtual de Windows en Azure." 
 	services="virtual-machines" 
@@ -52,7 +52,7 @@ Si desea usar un disco de datos existente en la unidad D, asegúrese de que tamb
 [Acerca de las cuentas de almacenamiento de Azure]
 
 <!--Link references-->
-[Acoplamiento de un disco de datos a una máquina virtual de Windows]: ../storage-windows-attach-disk
+[Conexión de un disco de datos a una máquina virtual de Windows]: ../storage-windows-attach-disk
 [Acerca de los discos de máquina virtual en Azure]: ../http://msdn.microsoft.com/library/azure/dn790303.aspx
 [Creación y carga de un VHD de Windows Server en Azure]: ../virtual-machines-create-upload-vhd-windows-server/
 [Inicio de sesión en una máquina virtual con Windows Server]: ../virtual-machines-log-on-windows-server/
@@ -61,4 +61,7 @@ Si desea usar un disco de datos existente en la unidad D, asegúrese de que tamb
 
 
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

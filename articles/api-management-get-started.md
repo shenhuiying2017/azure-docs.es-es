@@ -1,6 +1,20 @@
-<properties pageTitle="Get started with Azure API Management" metaKeywords="" description="Learn how to create APIs, operations, and get started with API Management." metaCanonical="" services="" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Introducción a la Administración de API de Azure" 
+	description="Vea cómo crear API, operaciones y comenzar a usar Administración de API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # Introducción a Administración de API de Azure
 
@@ -244,7 +258,7 @@ La sección **Análisis** consta de las cuatro pestañas siguientes.
   [Llamada a una operación desde el portal para desarrolladores]: #call-operation
   [Ver análisis]: #view-analytics
   [Pasos siguientes]: #next-steps
-  [Evaluación gratuita de Azure]: http://azure.microsoft.com/es-es/pricing/free-trial/?WT.mc_id=api_management_hero_a
+  [Evaluación gratuita de Azure]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=api_management_hero_a
   [Portal de administración]: https://manage.windowsazure.com/
   [API Management new instance]: ./media/api-management-get-started/api-management-create-instance-menu.png
   [New API Management service]: ./media/api-management-get-started/api-management-create-instance-step1.png
@@ -276,3 +290,5 @@ La sección **Análisis** consta de las cuatro pestañas siguientes.
   [Resumen]: ./media/api-management-get-started/api-management-api-summary-metrics.png
   [Información general]: ./media/api-management-get-started/api-management-analytics-overview.png
   [Introducción a la configuración de API avanzada]: ../api-management-get-started-advanced
+
+<!--HONumber=46--> 

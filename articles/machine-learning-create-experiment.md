@@ -1,6 +1,20 @@
-﻿<properties title="Create a simple experiment in Azure Machine Learning Studio" pageTitle="Creación de un experimento sencillo en el Estudio de aprendizaje automático | Azure" description="Cómo crear un experimento para entrenar y probar un modelo simple en Estudio de aprendizaje automático de Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Creación de un experimento sencillo en el Estudio de aprendizaje automático | Azure" 
+	description="Cómo crear un experimento para entrenar y probar un modelo simple en Estudio de aprendizaje automático de Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/22/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/07/2015" 
+	ms.author="garye"/>
 
 #Creación de un experimento sencillo en el Estudio de aprendizaje automático de Azure 
  
@@ -173,7 +187,7 @@ Ahora que tiene preparado el experimento, puede iteracionar para intentar mejora
 
 Si está satisfecho con su modelo, puede publicarlo como un servicio web a fin de usarlo para predecir precios de automóviles usando nuevos datos. Consulte el tema de ayuda de ML Studio acerca de cómo **publicar los experimentos** para obtener más detalles.
 
-Para obtener un tutorial más amplio y detallado para crear, entrenar, puntuar y publicar un modelo predictivo, consulte [Tutorial: Desarrollo de una solución predictiva con Aprendizaje automático de Azure](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/). 
+Para obtener un tutorial más amplio y detallado para crear, entrenar, puntuar y publicar un modelo predictivo, consulte [Tutorial: Desarrollo de una solución predictiva con Aprendizaje automático de Azure](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/). 
 
 
 <!-- Images -->
@@ -191,3 +205,5 @@ Para obtener un tutorial más amplio y detallado para crear, entrenar, puntuar y
 [screen8a]:./media/machine-learning-create-experiment/screen8a.png
 [screen9]:./media/machine-learning-create-experiment/screen9.png
 [screen10]:./media/machine-learning-create-experiment/screen10.png
+
+<!--HONumber=46--> 

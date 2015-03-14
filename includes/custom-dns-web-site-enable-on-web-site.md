@@ -18,5 +18,4 @@
 
 	Una vez completada la configuración, el nombre de dominio personalizado aparecerá en la sección **nombres de dominio** de la página **Configurar** del sitio web.
 
-En este punto, debería poder escribir el nombre de dominio personalizado en su explorador y ver que le lleva sin problemas al sitio web de Azure. 
-<!--HONumber=42-->
+En este punto, debería poder escribir el nombre de dominio personalizado en su explorador y ver que le lleva sin problemas al sitio web de Azure. <!--HONumber=42-->

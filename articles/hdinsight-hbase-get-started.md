@@ -44,7 +44,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 - **Una suscripción de Azure** Para obtener más información sobre cómo obtener una suscripción, consulte [Opciones de compra][azure-purchase-options], [Ofertas para miembros][azure-member-offers] o [Prueba gratuita][azure-free-trial].
 - **Una cuenta de almacenamiento de Azure** Para obtener instrucciones, consulte [Creación de una cuenta de almacenamiento][azure-create-storageaccount].
-- **Una estación de trabajo** con Visual Studio 2013 instalado. Para obtener instrucciones, consulte [Instalación de Visual Studio](http://msdn.microsoft.com/es-es/library/e2h7fzkw.aspx).
+- **Una estación de trabajo** con Visual Studio 2013 instalado. Para obtener instrucciones, consulte [Instalación de Visual Studio](http://msdn.microsoft.com/library/e2h7fzkw.aspx).
 
 ##<a name="create-hbase-cluster"></a>Aprovisionamiento de un clúster de HBase en el Portal de Azure
 
@@ -322,16 +322,15 @@ Descubra cómo realizar [análisis de opinión](http://en.wikipedia.org/wiki/Sen
 [hdinsight-hbase-provision-vnet]: ../hdinsight-hbase-provision-vnet
 [hdinsight-versions]: ../hdinsight-component-versioning/
 [hbase-twitter-sentiment]: ../hdinsight-hbase-analyze-twitter-sentiment/
-[azure-purchase-options]: http://azure.microsoft.com/es-es/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/es-es/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/es-es/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
-[azure-create-storageaccount]: http://azure.microsoft.com/es-es/documentation/articles/storage-create-storage-account/ 
+[azure-create-storageaccount]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/ 
 
 [img-hdinsight-hbase-cluster-quick-create]: ./media/hdinsight-hbase-get-started/hdinsight-hbase-quick-create.png
 [img-hdinsight-hbase-hive-editor]: ./media/hdinsight-hbase-get-started/hdinsight-hbase-hive-editor.png
 [img-hdinsight-hbase-file-browser]: ./media/hdinsight-hbase-get-started/hdinsight-hbase-file-browser.png
-
 
 
 

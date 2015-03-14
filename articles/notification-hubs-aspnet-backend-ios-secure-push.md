@@ -1,6 +1,20 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Inserción segura de los Centros de notificaciones de Azure" metaKeywords="Notificaciones de inserción de Azure, centros de notificaciones de Azure, inserción segura" description="Aprenda a enviar notificaciones push seguras a una aplicación iOS desde Azure. Los ejemplos de código están escritos en Objective C y C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+﻿<properties 
+	pageTitle="Inserción segura de los Centros de notificaciones de Azure" 
+	description="Obtenga información acerca de cómo enviar notificaciones de inserción seguras a una aplicación iOS desde Azure. Ejemplos de código escritos en Objective-C y C#." 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
 #Inserción segura de los Centros de notificaciones de Azure
 
@@ -26,9 +40,9 @@ Es importante tener en cuenta que en el flujo anterior (y en este tutorial), se 
 
 Este tutorial Inserción segura muestra cómo enviar una notificación de inserción de forma segura. El tutorial se basa en el tutorial **Notificar a los usuarios**, por lo que debe completar los pasos de ese tutorial primero.
 
-> [AZURE.NOTE] Este tutorial asume que ha creado y configurado el centro de notificaciones tal y como se describe en [Introducción a los Centros de notificaciones (iOS)](http://azure.microsoft.com/es-es/documentation/articles/notification-hubs-ios-get-started/).
+> [AZURE.NOTE] Este tutorial asume que ha creado y configurado el Centro de notificaciones tal y como se describe en [Introducción a los Centros de notificaciones (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/).
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modificación del proyecto iOS
 
@@ -46,7 +60,7 @@ Para lograr este objetivo, tenemos que escribir la lógica para recuperar el con
 		- (void) retrieveSecurePayloadWithId:(int)payloadId completion: (void(^)(NSString*, NSError*)) completion;
 		@end
 
-3. A continuación, agregue en la sección implementación el código siguiente, sustituyendo el marcador de posición `{back-end endpoint}` por el extremo para el back-end obtenido anteriormente:
+3. Después, en la sección de implementación, agregue el siguiente código, sustituyendo el marcador de posición `{back-end endpoint}` por el extremo para el back-end obtenido anteriormente:
 
 		NSString *const GetNotificationEndpoint = @"{back-end endpoint}/api/notifications";
 
@@ -109,7 +123,7 @@ Para lograr este objetivo, tenemos que escribir la lógica para recuperar el con
 		    NSLog(@"%@", userInfo);
 
 		    [self retrieveSecurePayloadWithId:[[userInfo objectForKey:@"secureId"] intValue] completion:^(NSString * payload, NSError *error) {
-		        if (!error) {
+		        if(!error){
 		            // show local notification
 		            UILocalNotification* localNotification = [[UILocalNotification alloc] init];
 		            localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:0];
@@ -139,4 +153,4 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-secure-push/secure-push-ios-1.png
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

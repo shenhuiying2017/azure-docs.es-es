@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Creación y carga de un VHD de Ubuntu Linux en Azure" 
 	description="Aprenda a crear y cargar un disco duro virtual de Azure (VHD) que contiene el sistema operativo Ubuntu Linux." 
 	services="virtual-machines" 
@@ -25,7 +25,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 
 **Notas de instalación de Ubuntu**
 
-- el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
+- El reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
 
 - Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas.  LVM o [RAID](../virtual-machines-linux-configure-raid) se pueden utilizar en discos de datos si así se prefiere.
 
@@ -34,7 +34,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 - El tamaño de todos los archivos VHD debe ser múltiplo de 1 MB.
 
 
-## <a id="ubuntu"> </a>Ubuntu 12.04+ ##
+## <a id="ubuntu"></a>Ubuntu 12.04+ ##
 
 1. Seleccione la máquina virtual en el panel central del Administrador de Hyper-V.
 
@@ -93,7 +93,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 
 	a) Abra el archivo /etc/grub.d/00_header.
 
-	b) En la función **make_timeout()**, busque **if ["\${recordfail}" = 1 ]; then**
+	b) En la función **make_timeout ()**, busque **if ["\${recordfail}" = 1 ]; a continuación**
 
 	c) Cambie la instrucción que se encuentra debajo de esta línea a **set timeout=5**.
 
@@ -103,7 +103,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 
 		GRUB_CMDLINE_LINUX_DEFAULT="console=ttyS0 earlyprintk=ttyS0 rootdelay=300"
 
-	Guarde el archivo, ciérrelo y, a continuación, ejecute '`sudo update-grub`'. Así se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. 
+	Guarde el archivo, ciérrelo y, a continuación, ejecute "`sudo update-grub`". Así se asegurará de que todos los mensajes de la consola se envían al primer puerto serie, lo que puede ayudar al soporte técnico de Azure con los problemas de depuración de errores. 
 
 8.	Asegúrese de que el servidor SSH se haya instalado y configurado para iniciarse en el tiempo de arranque.  Este es normalmente el valor predeterminado.
 
@@ -124,4 +124,5 @@ En este artículo se supone que ya ha instalado un sistema operativo Ubuntu Linu
 
 
 
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

@@ -30,10 +30,10 @@ En esta guía se indica cómo realizar las tareas de administración habituales 
 * [Creación de una aplicación de Ruby](#create-app)
 * [Configuración de la aplicación para que use el SDK](#configure-access)
 * [Configuración de una conexión de administración de Azure](#setup-connection)
-* [Configuración Máquinas virtuales](#virtual-machine)
-* [Configuración imágenes y discos](#vm-images)
-* [Configuración Servicios en la nube](#cloud-services)
-* [Configuración servicios de almacenamiento](#storage-services)
+* [Adición de Máquinas virtuales](#virtual-machine)
+* [Adición de imágenes y discos](#vm-images)
+* [Adición de Servicios en la nube](#cloud-services)
+* [Adición de servicios de almacenamiento](#storage-services)
 * [Pasos siguientes](#next-steps)
 
 ## <a name="what-is"> </a>Qué es la administración de servicios
@@ -44,9 +44,9 @@ Mientras que la API de administración de servicios se puede usar para administr
 
 ## <a name="concepts"> </a>Conceptos
 
-Las máquinas virtuales de Azure se implementan como roles ('roles') dentro de un servicio en la nube. Cada servicio en la nube puede contener uno o varios roles que se agrupan de forma lógica en implementaciones. El rol define las características físicas generales de la máquina virtual, como la cantidad de memoria disponible o la cantidad de núcleos de CPU, entre otros aspectos.
+Las máquinas virtuales de Azure se implementan como 'roles' en un servicio en la nube. Cada servicio en la nube puede contener uno o varios roles que se agrupan de forma lógica en implementaciones. El rol define las características físicas generales de la máquina virtual, como la cantidad de memoria disponible o la cantidad de núcleos de CPU, entre otros aspectos.
 
-Además, cada máquina virtual tiene un disco del SO que contiene el sistema operativo de arranque. Una máquina virtual tiene uno o varios discos de datos. Estos son los discos adicionales que deberían usarse para almacenar datos de la aplicación. Los discos se implementan como discos duros virtuales (VHD) almacenados en el almacenamiento de blobs de Azure. Los VHD también se pueden exponer como imágenes ('images'), que son plantillas usadas para crear discos que la máquina virtual utiliza durante la creación de las máquinas virtuales. Por ejemplo, si crea una nueva máquina virtual que usa una imagen de Ubuntu conseguirá que se cree un nuevo disco del SO a partir de la imagen de Ubuntu.
+Además, cada máquina virtual tiene un disco del SO que contiene el sistema operativo de arranque. Una máquina virtual tiene uno o varios discos de datos. Estos son los discos adicionales que deberían usarse para almacenar datos de la aplicación. Los discos se implementan como discos duros virtuales (VHD) almacenados en el almacenamiento de blobs de Azure. Los VHD también se pueden exponer como 'imágenes', que son plantillas usadas para crear discos que la máquina virtual utiliza, a su vez, durante la creación de las máquinas virtuales. Por ejemplo, si crea una nueva máquina virtual que usa una imagen de Ubuntu conseguirá que se cree un nuevo disco del SO a partir de la imagen de Ubuntu.
 
 La mayoría de las imágenes las proporciona Microsoft o los socios; no obstante, puede crear sus propias imágenes o crear una desde una máquina virtual hospedada en Azure.
 
@@ -104,7 +104,7 @@ Para administrar los servicios de Azure, tiene que descargar y usar la gema de A
 		Successfully installed azure-0.5.0
 		7 gems installed
 
-	> [AZURE.NOTE] Si obtiene un error relacionado con los permisos, use <code>sudo gem install azure</code> en su lugar.
+	> [AZURE.NOTE] Si obtiene un error relacionado con los permisos, use <code>sudo gem install azure</code> en lugar de lo anterior.
 
 ### Gema obligatoria
 
@@ -112,13 +112,13 @@ Agregue lo siguiente a la parte superior del archivo de la aplicación de Ruby c
 
 	require 'azure'
 
-## <a name="setup-connection"> </a>Codificación a la administración de servicios
+## <a name="setup-connection"> </a>Conexión a la administración de servicios
 
-Para realizar correctamente operaciones de administración de servicios con Azure, debe especificar el identificador de suscripción y el certificado obtenido en [Creación de un certificado de administración de Azure](#setup-certificate). La forma más sencilla de hacerlo es especificando el Id. y la ruta de acceso al archivo de certificado mediante el uso de las variables de entorno siguientes:
+Para realizar correctamente operaciones de administración de servicios con Azure, debe especificar el identificador de suscripción y el certificado obtenido en [Creación de un certificado de administración de Azure](#setup-certificate) . La forma más sencilla de hacerlo es especificando el Id. y la ruta de acceso al archivo de certificado mediante el uso de las variables de entorno siguientes:
 
-* AZURE\_MANAGEMENT\_CERTIFICATE: la ruta de acceso al archivo .PEM que contiene el certificado de administración.
+* AZURE\_MANAGEMENT\_CERTIFICATE - Ruta de acceso al archivo .PEM que contiene el certificado de administración.
 
-* AZURE\_SUBSCRIPTION\_ID: el identificador de su suscripción a Azure.
+* AZURE\_SUBSCRIPTION\_ID - Identificador de su suscripción a Azure.
 
 También puede configurar estos valores mediante programación en la aplicación usando lo siguiente:
 
@@ -127,25 +127,25 @@ También puede configurar estos valores mediante programación en la aplicación
 	  config.subscription_id = 'subscription ID'
 	end
 
-##<a name="virtual-machine"> </a>Codificación Máquinas virtuales
+##<a name="virtual-machine"> </a>Trabajo con máquinas virtuales
 
 Las operaciones de administración para Máquinas virtuales de Azure se realizan usando la clase **Azure::VirtualMachineService**.
 
-###Codificación Crear una máquina virtual
+###Cómo: Crear una máquina virtual
 
 Para crear una nueva máquina virtual, use el método **create\_virtual\_machine**. Este método acepta un hash que contiene los parámetros siguientes y devuelve una instancia de **Azure::VirtualMachineManagement::VirtualMachine** que describe la máquina virtual creada:
 
 **Parámetros**
 
-* **:vm\_name**: el nombre de la máquina virtual.
+* **:vm\_name** - Nombre de la máquina virtual.
 
-* **:vm\_user**: el nombre de usuario administrador o raíz.
+* **:vm\_user** - Nombre de usuario administrador o raíz.
 
-* **:password**: la contraseña usada para el usuario administrador o raíz.
+* **:password** - Contraseña usada para el usuario administrador o raíz.
 
-* **:image**: la imagen del SO que se usará para crear el disco del SO para esta máquina virtual. El disco del SO se almacenará en un VHD creado en el almacenamiento de blobs.
+* **:image** - Imagen del SO que se usará para crear el disco del SO para esta máquina virtual. El disco del SO se almacenará en un VHD creado en el almacenamiento de blobs.
 
-* **:location**: la región en la que se creará la máquina virtual. Esta debe ser la misma que la de la cuenta de almacenamiento que contiene los discos que usa la máquina virtual.
+* **:location** - Región en la que se creará la máquina virtual. Esta debe ser la misma que la de la cuenta de almacenamiento que contiene los discos que usa la máquina virtual.
 
 Este es un ejemplo de creación de una nueva máquina virtual usando estos parámetros:
 
@@ -171,25 +171,25 @@ Puede proporcionar un hash de parámetros opcionales que permita invalidar el co
 
 A continuación se muestran las opciones que están disponibles al utilizar el método **create\_virtual\_machine**:
 
-* **:storage\_account\_name**: el nombre de la cuenta de almacenamiento que se va a usar para almacenar imágenes de disco. Si la cuenta de almacenamiento no existe todavía, se crea una nueva. Si se omite, se creará una cuenta de almacenamiento con un nombre basado en el parámetro :vm\_name.
+* **:storage\_account\_name** - Nombre de la cuenta de almacenamiento que se va a usar para almacenar imágenes de disco. Si la cuenta de almacenamiento no existe todavía, se crea una nueva. Si se omite, se creará una cuenta de almacenamiento con un nombre basado en el parámetro :vm\_name.
 
-* **:cloud\_service\_name**: el nombre del servicio en la nube que hay que usar para hospedar la máquina virtual. Si el servicio en la nube no existe todavía, se crea uno nuevo. Si se omite, se creará una nueva cuenta de servicio de nube con un nombre basado en el parámetro :vm\_name.
+* **:cloud\_service\_name** - Nombre del servicio en la nube que hay que usar para hospedar la máquina virtual. Si el servicio en la nube no existe todavía, se crea uno nuevo. Si se omite, se creará una nueva cuenta de servicio de nube con un nombre basado en el parámetro :vm\_name.
 
-* **:deployment_name**: el nombre de la implementación que se va a usar al implementar la configuración de la máquina virtual.
+* **:deployment\_name** - Nombre de la implementación que se va a usar al implementar la configuración de la máquina virtual.
 
-* **:tcp_endpoints**: los puertos TCP que se exponen públicamente para esta máquina virtual. No es necesario especificar los extremos SSH (para las máquinas virtuales basadas en Linux) y WinRM (para las máquinas virtuales basadas en Windows), ya que se crearán automáticamente. Se pueden especificar varios puertos separados por comas. Para asociar un puerto interno a uno público usando un número de puerto diferente, utilice el formato **public port:internal port**. Por ejemplo, 80:8080 expone el puerto interno 8080 como puerto público 80.
+* **:tcp\_endpoints** - Puertos TCP que se exponen públicamente para esta máquina virtual. No es necesario especificar los extremos SSH (para las máquinas virtuales basadas en Linux) y WinRM (para las máquinas virtuales basadas en Windows), ya que se crearán automáticamente. Se pueden especificar varios puertos separados por comas. Para asociar un puerto interno a uno público usando un número de puerto diferente, utilice el formato **public port:internal port**. Por ejemplo, 80:8080 expone el puerto interno 8080 como puerto público 80.
 
-* **:service_location**: la ubicación de almacenamiento del certificado de destino en la máquina virtual. Solo se aplica a máquinas virtuales basadas en Windows.
+* **:service\_location** - Ubicación de almacenamiento del certificado de destino en la máquina virtual. Solo se aplica a máquinas virtuales basadas en Windows.
 
-* **:ssh\_private\_key\_file**: archivo que contiene la clave privada que se usará para proteger el acceso SSH a la máquina virtual basada en Linux. También se usa para especificar el certificado utilizado para proteger WinRM si se selecciona el transporte HTTPS. Si **:ssh\_private\_key\_file** y **:ssh\_certificate\_file** se omiten, SSH usará solo la autenticación de contraseña.
+* **:ssh\_private\_key\_file** - Archivo que contiene la clave privada que se usará para proteger el acceso SSH a la máquina virtual basada en Linux. También se usa para especificar el certificado utilizado para proteger WinRM si se selecciona el transporte HTTPS. Si **:ssh\_private\_key\_file** y **:ssh\_certificate\_file** se omiten, SSH usará solo la autenticación de contraseña.
 
-* **:ssh\_certificate\_file**: el archivo que contiene el archivo de certificado que se usará para proteger el acceso SSH a las máquinas virtuales basadas en Linux. También se usa para especificar el certificado utilizado para proteger WinRM si se selecciona el transporte HTTPS. Si **:ssh\_private\_key\_file** y **:ssh\_certificate\_file** se omiten, SSH usará solo la autenticación de contraseña.
+* **:ssh\_certificate\_file** - Archivo que contiene el archivo de certificado que se usará para proteger el acceso SSH a las máquinas virtuales basadas en Linux. También se usa para especificar el certificado utilizado para proteger WinRM si se selecciona el transporte HTTPS. Si **:ssh\_private\_key\_file** y **:ssh\_certificate\_file** se omiten, SSH usará solo la autenticación de contraseña.
 
-* **:ssh\_port**: el puerto público que se usará para la comunicación SSH. Si se omite, el valor de puerto SSH predeterminado será 22.
+* **:ssh\_port** - Puerto público que se usará para la comunicación SSH. Si se omite, el valor de puerto SSH predeterminado será 22.
 
-* **: vm\_size**: el tamaño de la máquina virtual. Determina el tamaño de la memoria, el número de núcleos, el ancho de banda y otras características físicas de la máquina virtual. Consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx) para ver las características físicas y los tamaños disponibles.
+* **:vm\_size** - Tamaño de la máquina virtual. Determina el tamaño de la memoria, el número de núcleos, el ancho de banda y otras características físicas de la máquina virtual. Consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx) para ver las características físicas y los tamaños disponibles.
 
-* **:winrm_transport**: una matriz de transportes disponible para su uso con WinRM. Los transportes válidos son  'http' y  'https'. Si  'https' se especifica como un transporte, también debe usar **:ssh\_private\_key\_file** y **:ssh\_certificate\_file** para especificar el certificado usado para proteger las comunicaciones HTTPS.
+* **:winrm_transport** - Matriz de transportes disponible para el uso con WinRM. Los transportes válidos son  'http' y  'https'. Si  'https' se especifica como un transporte, también debe usar **:ssh\_private\_key\_file** y **:ssh\_certificate\_file** para especificar el certificado usado para proteger las comunicaciones HTTPS.
 
 A continuación encontrará un ejemplo de cómo crear una nueva máquina virtual que use una pequeña instancia de proceso, exponga públicamente los puertos para tráfico HTTP (puerto local 8080, puerto público 80) y HTTPS (443), y permita la autenticación de certificados para las sesiones SSH usando los archivos de certificado especificados:
 
@@ -211,21 +211,21 @@ A continuación encontrará un ejemplo de cómo crear una nueva máquina virtual
 	vm_mgr = Azure::VirtualMachineService.new
 	vm = vm_mgr.create_virtual_machine(vm_params, vm_opts)
 
-###Codificación máquinas virtuales
+###Cómo: máquinas virtuales
 
 Para enumerar las máquinas virtuales existentes para la suscripción de Azure, use el método **list\_virtual\_machines**. Este método devuelve una matriz de objetos **Azure::VirtualMachineManagement::VirtualMachine**:
 
 	vm_mgr = Azure::VirtualMachineService.new
 	virtual_machines = vm_mgr.list_virtual_machines
 
-###Codificación información acerca de una máquina virtual
+###Cómo: información acerca de una máquina virtual
 
 Para obtener una instancia de **Azure::VirtualMachineManagement::VirtualMachine** para una máquina virtual concreta, use el método **get\_virtual\_machine** y proporcione los nombres de la máquina virtual y del servicio en la nube:
 
 	vm_mgr = Azure::VirtualMachineService.new
 	vm = vm_mgr.get_virtual_machine('myvm', 'mycloudservice')
 
-###Codificación una máquina virtual
+###Cómo: una máquina virtual
 
 Para eliminar una máquina virtual, use el método **delete\_virtual\_machine** y proporcione los nombres de servicio de nube y de máquina virtual:
 
@@ -234,122 +234,122 @@ Para eliminar una máquina virtual, use el método **delete\_virtual\_machine** 
 
 > [AZURE.WARNING] El método **delete_virtual_machine** elimina el servicio en la nube y todos los discos asociados a la máquina virtual.
 
-###Codificación una máquina virtual
+###Cómo: una máquina virtual
 
 Para cerrar una máquina virtual, use el método **shutdown\_virtual\_machine** y proporcione los nombres de servicio de nube y de máquina virtual:
 
 	vm_mgr = Azure::VirtualMachineService.new
 	vm = vm_mgr.shutdown_virtual_machine('myvm', 'mycloudservice')
 
-###Codificación una máquina virtual
+###Cómo: una máquina virtual
 
 Para iniciar una máquina virtual, use el método **start\_virtual\_machine** y proporcione los nombres de servicio de nube y de máquina virtual:
 
 	vm_mgr = Azure::VirtualMachineService.new
 	vm = vm_mgr.start_virtual_machine('myvm', 'mycloudservice')
 
-##<a name="vm-images"> </a>Codificación discos e imágenes de la máquina virtual
+##<a name="vm-images"> </a>Trabajo con discos e imágenes de la máquina virtual
 
 Las operaciones en las imágenes de la máquina virtual  se realizan usando la clase **Azure::VirtualMachineImageService**. La operaciones en los discos se realizan usando la clase **Azure::VirtualMachineImageManagement::VirtualMachineDiskManagementService**.
 
-###Codificación imágenes de máquinas virtuales
+###Cómo: imágenes de máquinas virtuales
 
 Para mostrar las imágenes de máquina virtual disponibles, use el método **list\_virtual\_machine\_images**. Este método devuelve una matriz de objetos **Azure::VirtualMachineImageService**.
 
 	image_mgr = Azure::VirtualMachineImageService.new
 	images = image_mgr.list_virtual_machine_images
 
-###Codificación discos
+###Cómo: discos
 
 Para mostrar los discos para la suscripción de Azure, use el método **list\_virtual\_machine\_disks**. Este método devuelve una matriz de objetos **Azure::VirtualMachineImageManagement::VirtualMachineDisk**.
 
 	disk_mgr = Azure::VirtualMachineImageManagement::VirtualMachineDiskManagementService.new
 	disks = disk_mgr.list_virtual_machine_disks
 
-###Codificación un disco
+###Cómo: un disco
 
 Para eliminar un disco, use el método **delete\_virtual\_machine\_disk** y especifique el nombre del disco que se va a eliminar:
 
 	disk_mgr = Azure::VirtualMachineImageManagement::VirtualMachineDiskManagementService.new
 	disk_mgr.delete_virtual_machine_disk
 
-##<a name="cloud-services"> </a>Codificación Servicios en la nube
+##<a name="cloud-services"> </a>Trabajo con los servicios en la nube
 
 Las operaciones de administración de Servicios en la nube de Azure se realizan usando la clase **Azure::CloudService**.
 
-###Codificación de un servicio en la nube
+###Creación de un servicio en la nube
 
 Para crear un nuevo servicio de nube, use el método **create\_cloud\_service** y proporcione un nombre y un hash de opciones. Las opciones válidas son:
 
-* **:location**:  *Required*. Región en la que se creará el servicio en la nube.
+* **:location** - *Obligatorio*. Región en la que se creará el servicio en la nube.
 
-* **:description**: una descripción del servicio en la nube.
+* **:description** - Descripción del servicio en la nube.
 
 Lo siguiente crea un servicio en la nube en la región East US:
 
 	cs_mgr = Azure::CloudService.new
 	cs_mgr.create_cloud_service('mycloudservice', { :location => 'East US' })
 
-###Codificación servicios en la nube
+###Creación servicios en la nube
 
 Para mostrar los servicios de nube para la suscripción de Azure, use el método **list\_cloud\_services**. Este método devuelve una matriz de objetos **Azure::CloudServiceManagement::CloudService**:
 
 	cs_mgr = Azure::CloudService.new
 	cloud_services = cs_mgr.list_cloud_services
 
-###Codificación la existencia de un servicio en la nube
+###Creación la existencia de un servicio en la nube
 
 Para comprobar si ya existe un servicio en la nube concreto, use el método **get\_cloud\_service** y proporcione el nombre del servicio en la nube. Devuelve **true** si ya existe un servicio en la nube con el nombre especificado; si no existe, devuelve **false**.
 
 	cs_mgr = Azure::CloudService.new
 	cs_exists = cs_mgr.get_cloud_service('mycloudservice')
 
-###Codificación de un servicio en la nube
+###Eliminación de un servicio en la nube
 
 Para eliminar un servicio de nube, use el método **delete\_cloud\_service** y proporcione el nombre del servicio de nube:
 
 	cs_mgr = Azure::CloudService.new
 	cs_mgr.delete_cloud_service('mycloudservice')
 
-###Codificación de una implementación
+###Eliminación de una implementación
 
 Para eliminar una implementación de un servicio de nube, use el método **delete\_cloud\_service\_deployment** y proporcione el nombre de servicio de nube:
 
 	cs_mgr = Azure::CloudService.new
 	cs_mgr.delete_cloud_service_deployment('mycloudservice')
 
-##<a name="storage-services"> </a>Codificación servicios de almacenamiento
+##<a name="storage-services"> </a>Trabajo con servicios de almacenamiento
 
 Las operaciones de administración de Servicios en la nube de Azure se realizan usando la clase **Azure::StorageService**.
 
-###Codificación de una cuenta de almacenamiento
+###Creación de una cuenta de almacenamiento
 
 Para crear una nueva cuenta de almacenamiento, use el método **create\_storage\_account** y proporcione un nombre y un hash de opciones. Las opciones válidas son:
 
-* **:location**:  *Required*. Región en la que se creará la cuenta de almacenamiento.
+* **:location** - *Obligatorio*. Región en la que se creará la cuenta de almacenamiento.
 
-* **:description**: la descripción de la cuenta de almacenamiento.
+* **:description** - Descripción de la cuenta de almacenamiento.
 
 Lo siguiente crea una cuenta de almacenamiento en la región East US:
 
 	storage_mgr = Azure::StorageService.new
 	storage_mgr.create_storage_account('mystorage', { :location => 'East US' })
 
-###Codificación cuentas de almacenamiento
+###Creación de cuentas de almacenamiento
 
 Para obtener una lista de cuentas de almacenamiento de su suscripción de Azure, use el método **list\_storage\_accounts**. Este método devuelve una matriz de objetos **Azure::StorageManagement::StorageAccount**.
 
 	storage_mgr = Azure::StorageService.new
 	accounts = storage_mgr.list_storage_accounts
 
-###Codificación la existencia de una cuenta de almacenamiento
+###Comprobación de la existencia de una cuenta de almacenamiento
 
 Para ver si existe una cuenta de almacenamiento concreta, use el método **get_storage_account** y especifique el nombre de la cuenta de almacenamiento. Este método devuelve **true** si ya existe la cuenta de almacenamiento o **false** si no existe.
 
 	storage_mgr = Azure::StorageService.new
 	store_exists = storage_mgr.get_storage_account('mystorage')
 
-###Codificación de una cuenta de almacenamiento
+###Eliminación de una cuenta de almacenamiento
 
 Para eliminar una cuenta de almacenamiento, use el método **delete\_storage\_account** y especifique el nombre de la cuenta de almacenamiento:
 
@@ -364,4 +364,7 @@ Ahora que ya conoce los aspectos básicos de la creación de máquinas virtuales
 *  Consulte la referencia de MSDN: [Máquinas virtuales](http://msdn.microsoft.com/library/windowsazure/jj156003.aspx)
 * Más información acerca de cómo hospedar una [Aplicación de Ruby on Rails en una máquina virtual](http://azure.microsoft.com/develop/ruby/tutorials/web-app-with-linux-vm/)
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

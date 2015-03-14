@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Uso de datos sin conexión en servicios móviles (Tienda Windows) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación de la Tienda Windows" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Uso de datos sin conexión en servicios móviles (Tienda Windows) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para almacenar en caché y sincronizar datos sin conexión en su aplicación de la Tienda Windows" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/10/2014" 
+	ms.author="wesmc"/>
 
 # Uso de la sincronización de datos sin conexión en Servicios móviles
 
@@ -22,7 +36,7 @@ En este tutorial, se actualizará el proyecto de aplicación universal del tutor
 
 >[AZURE.NOTE] Este tutorial está destinado a profundizar en el uso de Azure con los servicios móviles para almacenar y recuperar datos en una aplicación de la Tienda Windows. Si es su primera experiencia con servicios móviles, primero deberá completar el tutorial [Introducción a los servicios móviles].
 >
->Necesita una cuenta de Azure para completar este tutorial. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>. 
+>Necesita una cuenta de Azure para completar este tutorial. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>. 
 >
 >El tutorial de Windows Phone 8 anterior para Visual Studio 2012 sigue estando disponible aquí: [Tutorial de Windows Phone 8 para Visual Studio 2012].
 
@@ -41,7 +55,7 @@ Este tutorial requiere lo siguiente:
 * [Almacén de SQLite de Servicios móviles de Azure versión 1.0.0 (o posterior)][NuGet del almacén de SQLite]
 * [SQLite para Windows 8.1](www.sqlite.org/downloads)
 
->[AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure.</a> 
+>[AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure.</a> 
 
 ## <a name="enable-offline-app"></a>Actualización de la aplicación para que admita características sin conexión
 
@@ -125,7 +139,8 @@ Las características sin conexión de Servicios móviles de Azure permiten inter
         private async Task InsertTodoItem(TodoItem todoItem)
         {
             await todoTable.InsertAsync(todoItem);
-            items.Add(todoItem);
+            ite
+	ms.Add(todoItem);
 
             await SyncAsync(); // offline sync
         }
@@ -133,8 +148,10 @@ Las características sin conexión de Servicios móviles de Azure permiten inter
         private async Task UpdateCheckedTodoItem(TodoItem item)
         {
             await todoTable.UpdateAsync(item);
-            items.Remove(item);
-            ListItems.Focus(Windows.UI.Xaml.FocusState.Unfocused);
+            ite
+	ms.Remove(item);
+            ListIte
+	ms.Focus(Windows.UI.Xaml.FocusState.Unfocused);
 
             await SyncAsync(); // offline sync
         }

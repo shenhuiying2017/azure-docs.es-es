@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Notificaciones de inserción para usuarios (Android) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo usar Servicios móviles para insertar notificaciones para los usuarios de su aplicación Android." services="mobile-services, notification-hubs" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Notificaciones de inserción para usuarios (Android) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo usar Servicios móviles para insertar notificaciones para los usuarios de su aplicación Android." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/07/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/07/2014" 
+	ms.author="ricksal"/>
 
 # Notificaciones de inserción para usuarios mediante Servicios móviles
 

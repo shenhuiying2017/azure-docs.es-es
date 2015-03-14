@@ -68,5 +68,4 @@ De este modo ya estará listo para usar una cuenta Microsoft para autenticarse e
 [Introducción a Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
 [Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-
 <!--HONumber=42-->

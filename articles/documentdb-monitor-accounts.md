@@ -1,6 +1,20 @@
-<properties title="Monitor a DocumentDB Account" pageTitle="Monitor a DocumentDB account | Azure" description="Learn how to monitor your DocumentDB account for performance metrics (such as requests and server errors) and usage metrics (such as storage consumption)." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, monitor, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Supervisar una cuenta de Base de datos de documentos | Azure" 
+	description="Obtenga información acerca de cómo supervisar la cuenta de Base de datos de documentos para aplicar métricas de rendimiento (como solicitudes y errores de servidor) y métricas de uso (como consumo de almacenamiento)." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="brradsev" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="mimig"/>
 
 # Supervisión de una cuenta de Base de datos de documentos
 
@@ -124,3 +138,5 @@ El Portal de vista previa de Azure le permite crear gráficos de métricas paral
   [10]: ./media/documentdb-monitor-accounts/madocdb11.png
   [11]: http://i.imgur.com/Inra4Po.png
   [azure.com]: http://go.microsoft.com/fwlink/p/?LinkID=402319
+
+<!--HONumber=46--> 

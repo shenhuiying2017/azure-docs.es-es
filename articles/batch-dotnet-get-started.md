@@ -1,6 +1,20 @@
-﻿<properties title="Tutorial - Getting Started with the Azure Batch Library for .NET" pageTitle="Tutorial: Introducción a la biblioteca de Lote de Azure para .NET" description="requerido" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
+﻿<properties 
+	pageTitle="Tutorial: Introducción a la biblioteca de Lote de Azure para .NET" 
+	description="Aprenda los conceptos básicos sobre el Lote de Azure y cómo usar el servicio Lote con un escenario simple." 
+	services="batch" 
+	documentationCenter=".net" 
+	authors="yidingzhou" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="batch" ms.devlang="dotnet" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="12/03/2014" ms.author="yidingz, karran.batta" />
+<tags 
+	ms.service="batch" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="big-compute" 
+	ms.date="12/03/2014" 
+	ms.author="yidingz, kabatta"/>
 
 #Introducción a la biblioteca de Lote de Azure para .NET  
 
@@ -10,14 +24,14 @@ Este artículo contiene los siguientes dos tutoriales que le introducirán en el
 -	[Tutorial 2: biblioteca de Aplicaciones de Lote de Azure para .NET](#tutorial2)  
 
 
-Para obtener información general y escenarios para Lote de Azure, consulte [Información general técnica de Lote de Azure](http://azure.microsoft.com/es-es/documentation/articles/batch-technical-overview/).
+Para obtener información general y escenarios para Lote de Azure, consulte [Información general técnica de Lote de Azure](http://azure.microsoft.com/documentation/articles/batch-technical-overview/).
 
 ##<a name="tutorial1"></a>Tutorial 1: biblioteca de Lote de Azure para .NET
   	
 Este tutorial le enseñará a crear una aplicación de consola que configura el cálculo distribuido entre un grupo de máquinas virtuales mediante el servicio Lote de Azure. Las tareas que se crean en este tutorial evalúan el texto de los archivos de almacenamiento de Azure y devuelven las palabras que se utilizan normalmente. Los ejemplos están escritos en código C# y utilizan la biblioteca de Lote de Azure para .NET.
 
 
->[WACOM.NOTE] para completar este tutorial, deberá tener una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/). 
+>[WACOM.NOTE] para completar este tutorial, deberá tener una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/). 
 >
 >Necesitará usar NuGet para obtener el ensamblado **Microsoft.Azure.Batch.dll**. Después de crear el proyecto en Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**. Busque **Azure.Batch**en línea y luego haga clic en Instalar para instalar el paquete y las dependencias de Lote de Azure.
 >
@@ -42,7 +56,7 @@ El servicio Lote se utiliza para programar un cálculo escalable y distribuido. 
 Comencemos con el uso más básico.
 
 ###Creación de una cuenta de Lote de Azure
-Puede utilizar el Portal de administración para crear la cuenta de Lote. Una vez creada la cuenta, se le proporciona una clave. Para obtener más información, consulte [Información general técnica de Lote de Azure](http://azure.microsoft.com/es-es/documentation/articles/batch-technical-overview/).  
+Puede utilizar el Portal de administración para crear la cuenta de Lote. Una vez creada la cuenta, se le proporciona una clave. Para obtener más información, consulte [Información general técnica de Lote de Azure](http://azure.microsoft.com/documentation/articles/batch-technical-overview/).  
 
 ###Reproducción de un grupo a una cuenta
 Un grupo de máquinas virtuales de tareas es el primer conjunto de recursos que debe crear cuando desee ejecutar tareas.  
@@ -406,7 +420,7 @@ Para poder ejecutar el código en este tutorial, debe tener acceso a una cuenta 
 6.	También puede habilitar la replicación geográfica.
 7.	Haga clic en **CREAR CUENTA DE ALMACENAMIENTO**.  
 
-Para obtener más información acerca de Almacenamiento de Azure, consulte [Uso del servicio de almacenamiento de blobs de Azure en .NET](http://www.windowsazure.com/es-es/develop/net/how-to-guides/blob-storage/).  
+Para obtener más información acerca de Almacenamiento de Azure, consulte [Uso del servicio de almacenamiento de blobs de Azure en .NET](http://azure.microsoft.com/develop/net/how-to-guides/blob-storage/).  
 
 
 ##<a name="tutorial2"></a>Tutorial 2: Biblioteca de Aplicaciones de Lote de Azure para .NET
@@ -416,7 +430,7 @@ Aplicaciones de Lote es una característica de Lote de Azure que proporciona una
 
 En el caso de Aplicaciones de Lote, se escribe código utilizando el SDK de la nube de Aplicaciones de Lote para dividir trabajos en tareas paralelas, se describen las dependencias entre estas tareas y se especifica cómo ejecutar cada tarea.  Este código se implementa en la cuenta de Lote.  Los clientes, a continuación, pueden ejecutar trabajos de manera sencilla especificando el tipo de trabajo y los archivos de entrada en una API de REST.
 
->[WACOM.NOTE] para completar este tutorial, deberá tener una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/). Puede usar NuGet para obtener tanto el ensamblado de la <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Nube de aplicaciones de Lote</a> y el ensamblado del <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Cliente de aplicaciones en la nube</a> . Después de crear el proyecto en Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**. También puede descargar la extensión de Visual Studio para aplicaciones de Lote, que incluye una plantilla de proyecto para habilitar las aplicaciones para la nube y la capacidad de implementar una aplicación <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">aquí</a> o a través de la búsqueda de **aplicaciones de Lote** en Visual Studio mediante el elemento de menú Extensiones y actualizaciones.  También puede encontrar <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">ejemplos completos en MSDN.</a>
+>[WACOM.NOTE] para completar este tutorial, deberá tener una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/). Puede usar NuGet para obtener tanto el ensamblado de la <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps.Cloud/">Nube de aplicaciones de Lote</a> y el ensamblado del <a href="http://www.nuget.org/packages/Microsoft.Azure.Batch.Apps/">Cliente de aplicaciones en la nube</a> . Después de crear el proyecto en Visual Studio, haga clic con el botón derecho en el proyecto en el **Explorador de soluciones** y elija **Administrar paquetes de NuGet**. También puede descargar la extensión de Visual Studio para aplicaciones de Lote, que incluye una plantilla de proyecto para habilitar las aplicaciones para la nube y la capacidad de implementar una aplicación <a href="https://visualstudiogallery.msdn.microsoft.com/8b294850-a0a5-43b0-acde-57a07f17826a">aquí</a> o a través de la búsqueda de **aplicaciones de Lote** en Visual Studio mediante el elemento de menú Extensiones y actualizaciones.  También puede encontrar <a href="https://go.microsoft.com/fwLink/?LinkID=512183&clcid=0x409">ejemplos completos en MSDN.</a>
 >
 
 ###Aspectos básicos de Aplicaciones de Lote de Azure 
@@ -597,3 +611,5 @@ Un trabajo describe una carga de trabajo que se ejecutará y debe incluir toda l
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

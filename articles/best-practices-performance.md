@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Performance" pageTitle="Prácticas recomendadas de rendimiento - Azure" metaKeywords="optimización de Azure, prácticas recomendadas de rendimiento de Azure" description="Conozca las prácticas recomendadas para el rendimiento en Azure." metaCanonical="" services="cloud-services,sql-database,storage,service-bus,virtual-network" documentationCenter=".NET" title="" authors="robb" solutions="" manager="johndaw" editor="" />
+﻿<properties 
+	pageTitle="Prácticas recomendadas de rendimiento - Azure" 
+	description="Obtenga información acerca de las prácticas recomendadas de rendimiento en Azure." 
+	services="cloud-services, sql-database, storage, service-bus, virtual-network" 
+	documentationCenter=".net" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="9/1/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="9/1/2014" 
+	ms.author="robb"/>
 
 # Prácticas recomendadas de rendimiento para aplicaciones de Azure  #
 
@@ -103,7 +117,7 @@ Un patrón de diseño habitual compatible con el almacenamiento de tablas consta
 
 Para obtener más información acerca del almacenamiento de tablas, consulte: 
 
-* [Almacenamiento de tablas de Azure y base de datos SQL de Azure: comparación y diferencias](http://msdn.microsoft.com/es-es/library/jj553018.aspx)
+* [Almacenamiento de tablas de Azure y base de datos SQL de Azure: comparación y diferencias](http://msdn.microsoft.com/library/jj553018.aspx)
 * [Aspectos de rendimiento de las tablas de Azure que se deben tener en cuenta](http://go.microsoft.com/fwlink/?LinkId=252663) 
 * [Almacenamiento de tablas de Azure y bases de datos SQL](http://go.microsoft.com/fwlink/?LinkId=252664) 
 * [Mejora del rendimiento mediante el procesamiento por lotes de las inserciones de almacenamiento de tablas de Azure](http://go.microsoft.com/fwlink/?LinkID=252665), donde se comentan algunos resultados de rendimiento. 
@@ -343,3 +357,5 @@ Otros recursos
 * [Azure Planning - A Post-decision Guide to Integrate Azure in Your Environment](http://go.microsoft.com/fwlink/?LinkId=252884) (Planeación de Azure: Guía para la integración posterior de Azure en su entorno)
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

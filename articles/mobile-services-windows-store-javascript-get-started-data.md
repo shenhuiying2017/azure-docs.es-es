@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción a los datos (JavaScript de la Tienda Windows) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación JavaScript de la Tienda Windows." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>	
+<properties 
+	pageTitle="Introducción a los datos (JavaScript de la Tienda Windows) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación JavaScript de la Tienda Windows." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>	
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/19/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/19/2014" 
+	ms.author="glenga"/>
 
 
 # Incorporación de Servicios móviles a una aplicación existente
@@ -19,7 +33,7 @@ Este tema muestra cómo utilizar Servicios móviles de Azure para aprovechar los
 
 Este tutorial le guiará a través de estos pasos básicos:
 
-1. [Descarga del proyecto de aplicación de la Tienda Windows][Obtención de la aplicación de la Tienda Windows] 
+1. [Descarga del proyecto de aplicación de la Tienda Windows][Obtener la aplicación de la Tienda Windows] 
 2. [Crear el servicio móvil]
 3. [Agregar una tabla de datos para almacenamiento]
 4. [Actualización de la aplicación para usar Servicios móviles]
@@ -27,12 +41,12 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 Para completar este tutorial, necesitará lo siguiente:
 
-* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure.](http://azure.microsoft.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F)
+* Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure.](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-windows-store-javascript-get-started-data%2F)
 * Visual Studio 2013, con lo que es más fácil conectar su aplicación de la Tienda Windows con Servicios móviles. Para completar el mismo procedimiento básico con Visual Studio 2012, siga los pasos en el tema <a href="/es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-data-vs2012">Introducción a los datos en Servicios móviles con Visual Studio 2012</a>. 
 
 <h2><a name="download-app"></a>Descarga del proyecto GetStartedWithData</h2>
 
-Este tutorial se basa en la [aplicación GetStartedWithMobileServices][, que es un proyecto de aplicación de la Tienda Windows en Visual Studio 2013. La interfaz de usuario de esta aplicación es idéntica a la de la aplicación generada por el inicio rápido de Servicios móviles, con la excepción de que los elementos agregados se almacenan localmente en la memoria.  
+Este tutorial se basa en la [aplicación GetStartedWithMobileServices], que es un proyecto de aplicación de la Tienda Windows en Visual Studio 2013. La interfaz de usuario de esta aplicación es idéntica a la de la aplicación generada por el inicio rápido de Servicios móviles, con la excepción de que los elementos agregados se almacenan localmente en la memoria.  
 
 1. Descargue la versión de JavaScript de la aplicación de ejemplo GetStartedWithData desde el [sitio de código de ejemplo para desarrolladores] (en inglés). 
 
@@ -67,7 +81,7 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices][, que es 
 
 [AZURE.INCLUDE [mobile-services-create-new-table-vs2013](../includes/mobile-services-create-new-table-vs2013.md)]
 
->[AZURE.NOTE]Las tablas nuevas se crean con las columnas Id, __createdAt, __updatedAt y __version. Cuando está habilitado el esquema dinámico, Servicios móviles genera automáticamente columnas nuevas basadas en el objeto JSON en la solicitud de inserción o actualización. Para obtener más información, consulte [Esquema dinámico](http://msdn.microsoft.com/es-es/library/windowsazure/jj193175.aspx).
+>[AZURE.NOTE]Las tablas nuevas se crean con las columnas Id, __createdAt, __updatedAt y __version. Cuando está habilitado el esquema dinámico, Servicios móviles genera automáticamente columnas nuevas basadas en el objeto JSON en la solicitud de inserción o actualización. Para obtener más información, consulte [Esquema dinámico](http://msdn.microsoft.com/library/windowsazure/jj193175.aspx).
 
 #<a name="update-app"></a>Actualización de la aplicación para utilizar el servicio móvil
 
@@ -96,12 +110,15 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices][, que es 
 6. En el archivo de proyecto default.js, reemplace el método **RefreshTodoItems** existente por el siguiente código que filtra los elementos completados:
 
         var refreshTodoItems = function () {                     
-            // More advanced query that filters out completed items. 
+            // More advanced query that filters out completed ite
+		ms. 
             todoTable.where({ complete: false })
                .read()
                .done(function (results) {
                    todoItems = new WinJS.Binding.List(results);
-                   listItems.winControl.itemDataSource = todoItems.dataSource;
+                   listIte
+		ms.winControl.itemDataSource = todoIte
+		ms.dataSource;
                });            
         };
 
@@ -138,7 +155,7 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
 [Crear el servicio móvil]: #create-service
 [Agregar una tabla de datos para almacenamiento]: #add-table
 [Actualización de la aplicación para usar Servicios móviles]: #update-app
-[Probar la aplicación en Servicios móviles]: #test-app
+[aplicación GetStartedWithMobileServices]: #test-app
 [Pasos siguientes]:#next-steps
 
 <!-- Images. -->

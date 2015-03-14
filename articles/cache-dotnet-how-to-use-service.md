@@ -1,6 +1,20 @@
-<properties urlDisplayName="" pageTitle="Cómo usar el Servicio de caché administrado de Azure" metaKeywords="" description="" metaCanonical="" services="cache" documentationCenter="" title="How to Use Azure Managed Cache Service" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Cómo usar el Servicio de caché administrado de Azure" 
+	description="" 
+	services="cache" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="cache" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="cache" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Cómo usar el Servicio de caché administrado de Azure
 
@@ -456,24 +470,24 @@ Ahora que está familiarizado con los aspectos básicos del Servicio de caché a
    
 <!-- LINKS -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Configuración de clientes de caché mediante programación]: http://msdn.microsoft.com/es-es/library/windowsazure/gg618003.aspx
+[Configuración de clientes de caché mediante programación]: http://msdn.microsoft.com/library/windowsazure/gg618003.aspx
 [Proveedor de estado de sesión para Caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
 [Caché de Azure AppFabric: estado de sesión de almacenamiento en caché]: http://www.microsoft.com/es-es/showcase/details.aspx?uuid=87c833e9-97a9-42b2-8bb1-7601f9b5ca20
 [Proveedor de la caché de resultados para la caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=320837
-[Almacenamiento en caché compartido de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg278356.aspx
+[Almacenamiento en caché compartido de Azure]: http://msdn.microsoft.com/library/windowsazure/gg278356.aspx
 [Blog del equipo]: http://blogs.msdn.com/b/windowsazure/
 [Almacenamiento en caché de Azure]: http://www.microsoft.com/es-es/showcase/Search.aspx?phrase=azure+caching
 [Configuración de tamaños de máquina virtual]: http://go.microsoft.com/fwlink/?LinkId=164387
 [Consideraciones de planeación de capacidad de almacenamiento en caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=320167
 [Almacenamiento en caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=252658
-[Establecimiento de la capacidad de almacenamiento en caché de una página de ASP.NET mediante declaraciones]: http://msdn.microsoft.com/es-es/library/zd1ysf1y.aspx
-[Establecimiento de la capacidad de almacenamiento en caché de una página mediante programación]: http://msdn.microsoft.com/es-es/library/z852zf6b.aspx
+[Establecimiento de la capacidad de almacenamiento en caché de una página de ASP.NET mediante declaraciones]: http://msdn.microsoft.com/library/zd1ysf1y.aspx
+[Establecimiento de la capacidad de almacenamiento en caché de una página mediante programación]: http://msdn.microsoft.com/library/z852zf6b.aspx
 [Descripción general del servicio de caché administrado de Azure]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Servicio de caché administrado]: http://go.microsoft.com/fwlink/?LinkId=320830
 [Directiva OutputCache]: http://go.microsoft.com/fwlink/?LinkId=251979
 [Solución de problemas y diagnóstico]: http://go.microsoft.com/fwlink/?LinkId=320839
 [Instalación del Administrador de paquetes de NuGet]: http://go.microsoft.com/fwlink/?LinkId=240311
-[Detalles de precios de caché]: http://www.windowsazure.com/es-es/pricing/details/cache/
+[Detalles de precios de caché]: http://azure.microsoft.com/pricing/details/cache/
 [Portal de administración]: https://manage.windowsazure.com/
 [Ofertas de caché]: http://go.microsoft.com/fwlink/?LinkId=317277
 [Planificación de capacidad]: http://go.microsoft.com/fwlink/?LinkId=320167
@@ -485,10 +499,10 @@ Ahora que está familiarizado con los aspectos básicos del Servicio de caché a
 [New-AzureManagedCache]: http://go.microsoft.com/fwlink/?LinkId=400495
 [Cmdlets del caché administrado de Azure]: http://go.microsoft.com/fwlink/?LinkID=398555
 [Instalación y configuración de PowerShell de Azure]: http://go.microsoft.com/fwlink/?LinkId=400494
-[Add-AzureAccount]: http://msdn.microsoft.com/es-es/library/dn495128.aspx
-[Select-AzureSubscription]: http://msdn.microsoft.com/es-es/library/dn495203.aspx
+[Add-AzureAccount]: http://msdn.microsoft.com/library/dn495128.aspx
+[Select-AzureSubscription]: http://msdn.microsoft.com/library/dn495203.aspx
 
-[¿Cuál es la oferta de Caché de Azure más adecuada para mí?]: http://msdn.microsoft.com/es-es/library/azure/dn766201.aspx
+[¿Cuál es la oferta de Caché de Azure más adecuada para mí?]: http://msdn.microsoft.com/library/azure/dn766201.aspx
 
 [Notificaciones de Azure Cache Service (vista previa)]: http://go.microsoft.com/fwlink/?LinkId=317276
 [Ofertas de caché para Azure Cache Service (Vista previa)]: http://go.microsoft.com/fwlink/?LinkId=317277
@@ -496,3 +510,5 @@ Ahora que está familiarizado con los aspectos básicos del Servicio de caché a
 [Proveedor del estado de sesión para la caché de Azure]: http://go.microsoft.com/fwlink/?LinkId=320835
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

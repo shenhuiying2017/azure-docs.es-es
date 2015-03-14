@@ -83,7 +83,7 @@ Una sección **Vista rápida** que incluye la siguiente información resumida y 
 La página de administración **Supervisar** proporciona un gráfico que muestra la información de uso del sitio web. De forma predeterminada, este gráfico muestra las mismas métricas que el gráfico de la página **Panel**, como se ha indicado anteriormente en la sección Panel. El gráfico también se puede configurar para que muestre las métricas Operaciones correctas de HTTP, Redirecciones de HTTP, Errores HTTP 401, Errores HTTP 403, Errores HTTP 404 y Errores HTTP 406. Para obtener más información acerca de estas métricas, consulte [Supervisión de sitios web][Monitor].
 
 ##WebJobs##
-La página de administración WebJobs le permite crear tareas bajo demanda, programadas o de ejecución continua para su sitio web. Para obtener más información, consulte [Utilización de la característica WebJobs en Sitios web Azure](http://www.windowsazure.com/es-es/documentation/articles/web-sites-create-web-jobs/).
+La página de administración WebJobs le permite crear tareas bajo demanda, programadas o de ejecución continua para su sitio web. Para obtener más información, consulte [Utilización de la característica WebJobs en Sitios web Azure](http://azure.microsoft.com/documentation/articles/web-sites-create-web-jobs/).
 
 ##Configurar##
 La página de administración **Configurar** se usa para configurar las opciones específicas de la aplicación.
@@ -102,7 +102,7 @@ Para obtener más información acerca de cómo configurar las opciones de escala
 La página de administración **Recursos vinculados** proporciona una lista de recursos de Microsoft Azure que usa su sitio web, incluyendo las bases de datos SQL y MySQL y las cuentas de almacenamiento de Azure. Haga clic en el nombre del recurso para administrarlo.
 
 ##Copias de seguridad##
-La página de administración **Copias de seguridad** le permite crear copias de seguridad automatizadas o manuales de un sitio web, restaurar su sitio web a un estado previo o crear un sitio web basado en una de sus copias de seguridad. Para obtener más información, consulte [Copias de seguridad de sitios web de Microsoft Azure](http://www.windowsazure.com/es-es/documentation/articles/web-sites-backup/) y [Restauración de un sitio web de Microsoft Azure](http://www.windowsazure.com/es-es/documentation/articles/web-sites-restore/).
+La página de administración **Copias de seguridad** le permite crear copias de seguridad automatizadas o manuales de un sitio web, restaurar su sitio web a un estado previo o crear un sitio web basado en una de sus copias de seguridad. Para obtener más información, consulte [Copias de seguridad de sitios web de Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-backup/) y [Restauración de un sitio web de Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
 ##Iconos de la página de administración##
 Los iconos se muestran en la parte inferior de cada página de administración del sitio web. Muchos de estos iconos aparecen en varias páginas y algunos de ellos se muestran solo en algunas.  Los iconos siguientes se muestran en la parte inferior de la página de administración **Panel**:
@@ -210,11 +210,11 @@ Para restablecer la contraseña haga clic en **Restablecer las credenciales de s
 
 [azuresdk]:http://go.microsoft.com/fwlink/?LinkId=246928
 
-[Configuración]: http://www.windowsazure.com/es-es/manage/services/web-sites/how-to-configure-websites
+[Configuración]: http://azure.microsoft.com/manage/services/web-sites/how-to-configure-websites
 
-[Supervisión]: http://www.windowsazure.com/es-es/manage/services/web-sites/how-to-monitor-websites/
+[Supervisión]: http://azure.microsoft.com/manage/services/web-sites/how-to-monitor-websites/
 
-[Escalado]: http://www.windowsazure.com/es-es/manage/services/web-sites/how-to-scale-websites
+[Escalado]: http://azure.microsoft.com/manage/services/web-sites/how-to-scale-websites
 
 
 <!-- Anchors. -->

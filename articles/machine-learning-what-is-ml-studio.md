@@ -1,6 +1,20 @@
-﻿<properties title="What Is Azure Machine Learning Studio?" pageTitle="¿Qué es Estudio de aprendizaje automático? | Azure" description="Información general de Estudio de aprendizaje automático de Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="¿Qué es Estudio de aprendizaje automático de Microsoft Azure? | Azure" 
+	description="Información general de Estudio de aprendizaje automático de Azure y de sus componentes básicos" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/11/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/11/2014" 
+	ms.author="garye"/>
 
 # ¿Qué es Estudio de aprendizaje automático de Microsoft Azure?
 
@@ -39,8 +53,8 @@ Un experimento consta de conjuntos de datos que proporcionan datos a módulos an
 - Todos los puertos de entrada de los módulos deben tener alguna conexión al flujo de datos. 
 - Deben establecerse todos los parámetros requeridos para un módulo. 
 
-Para obtener un ejemplo de creación de un experimento simple, consulte [Creación de un experimento sencillo en el Estudio de aprendizaje automático de Azure](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-create-experiment/). 
-Para obtener un tutorial más completo de la creación de una solución de análisis predictivos, consulte [Desarrollo de una solución predictiva con Aprendizaje automático de Azure](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
+Para obtener un ejemplo de creación de un experimento simple, consulte [Creación de un experimento sencillo en el Estudio de aprendizaje automático de Azure](http://azure.microsoft.com/documentation/articles/machine-learning-create-experiment/). 
+Para obtener un tutorial más completo de la creación de una solución de análisis predictivos, consulte [Desarrollo de una solución predictiva con Aprendizaje automático de Azure](http://azure.microsoft.com/documentation/articles/machine-learning-walkthrough-develop-predictive-solution/).
 
 ### Conjuntos de datos
 
@@ -67,3 +81,5 @@ Un módulo puede tener un conjunto de parámetros que puede utilizar para config
 
 
 [ml-studio-overview]:./media/machine-learning-what-is-ml-studio/context.jpg
+
+<!--HONumber=46--> 

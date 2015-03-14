@@ -155,5 +155,4 @@
 		
 
 <!-- URLs. -->
-[SDK de Android para Servicios móviles]: http://aka.ms/Iajk6q
-<!--HONumber=42-->
+[SDK de Android para Servicios móviles]: http://aka.ms/Iajk6q<!--HONumber=42-->

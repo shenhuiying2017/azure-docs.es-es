@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Compilación de una aplicación de HBase con Maven" 
 	description="Vea cómo usar Apache Maven para compilar una aplicación de Apache HBase basada en Java e implementarla después en HDInsight de Azure" 
 	services="hdinsight" 
@@ -154,7 +154,7 @@ Aprenda a crear y a compilar una aplicación de [Apache HBase](http://hbase.apac
 
 	Este archivo se usará para cargar la configuración de HBase de un clúster de HDInsight.
 
-	> [AZURE.NOTE] Este es un archivo hbase-site.xml mínimo, que contiene la configuración básica elemental del clúster de HDInsight. Para obtener una versión completa del archivo de configuración hbase-site.xml que usado por HDInsight, [inicie sesión mediante Escritorio remoto en el clúster de HDInsight](http://azure.microsoft.com/es-es/documentation/articles/hdinsight-administer-use-management-portal/#rdp). El archivo está ubicado en el directorio C:\apps\dist\hbase-&lt;version number>-hadoop2\conf. La parte del número de versión de la ruta de acceso al archivo cambiará cuando HBase se actualice en el clúster.
+	> [AZURE.NOTE] Este es un archivo hbase-site.xml mínimo, que contiene la configuración básica elemental del clúster de HDInsight. Para obtener una versión completa del archivo de configuración hbase-site.xml que usado por HDInsight, [inicie sesión mediante Escritorio remoto en el clúster de HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp). El archivo está ubicado en el directorio C:\apps\dist\hbase-&lt;version number>-hadoop2\conf. La parte del número de versión de la ruta de acceso al archivo cambiará cuando HBase se actualice en el clúster.
 
 3. Guarde el archivo __hbase-site.xml__.
 
@@ -482,7 +482,7 @@ Aprenda a crear y a compilar una aplicación de [Apache HBase](http://hbase.apac
 		    # Is the Azure module installed?
 		    if (-not(Get-Module -ListAvailable Azure))
 		    {
-		        throw "Windows Azure PowerShell not found! For help, see http://www.windowsazure.com/es-es/documentation/articles/install-configure-powershell/"
+		        throw "Windows Azure PowerShell not found! For help, see http://azure.microsoft.com/documentation/articles/install-configure-powershell/"
 		    }
 		
 		    # Is there an active Azure subscription?
@@ -589,5 +589,4 @@ Reemplace __hdinsightclustername__ por el nombre del clúster de HDInsight.
 ###Sin resultados o resultados inesperados al usar Start-HBaseExample
 
 Use el parámetro `-showErr` para ver la información de error STDERR producida mientras se ejecutaba el trabajo.
-
 <!--HONumber=42-->

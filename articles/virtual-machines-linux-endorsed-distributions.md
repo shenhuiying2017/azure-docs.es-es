@@ -74,11 +74,12 @@ Esta tabla también incluye un vínculo a la [revisión de compatibilidad del ke
 	<tr>
 		<th> CentOS de OpenLogic </th>
 		<td> CentOS 6.3+</td>
-	    <td>CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">Controladores de LIS</a>; controladores de CentOS 6.4+: en Kernel</td>
+	    <td>CentOS 6.3: <a href="http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409">Controladores de LIS</a>; Controladores centOS 6.4 +: en Kernel</td>
 		<td><a href="http://go.microsoft.com/fwlink/?LinkID=275153&amp;clcid=0x409">Se requiere solo para 6.3</a></td>
-		<td>Paquete: en <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">el repositorio del paquete de OpenLogin </a> en walinuxagent<br />
+		<td>Paquete: en el <a href="http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/">repositorio de paquetes de Open Logic</a> (en inglés) bajo walinuxagent<br />
 			Origen: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
  		
+
 	</tr>
 	<tr>
 		<th> <a href="https://coreos.com/docs/running-coreos/cloud-providers/azure/">CoreOS</a> </th>
@@ -102,7 +103,7 @@ Esta tabla también incluye un vínculo a la [revisión de compatibilidad del ke
 		<td> SLES 11 SP3+</td>
         <td>En kernel</td>
 		<td>N/D</td>
-		<td>Paquete: En el <a href="https://build.opensuse.org/project/show/Cloud:Tools" >repositorio Cloud:Tools</a> , nombre: WALinuxAgent<br />
+		<td>Paquete: En el repositorio <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a>, nombre: WALinuxAgent<br />
 			Código fuente: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
@@ -111,11 +112,14 @@ Esta tabla también incluye un vínculo a la [revisión de compatibilidad del ke
 		<td> openSUSE 13.1+</td>
 		<td>En kernel</td>
 		<td>N/D</td>
-		<td>Paquete: En el <a href="https://build.opensuse.org/project/show/Cloud:Tools" >repositorio Cloud:Tools</a> , nombre: WALinuxAgent<br />
+		<td>Paquete: En el repositorio <a href="https://build.opensuse.org/project/show/Cloud:Tools" >Cloud:Tools</a>, nombre: WALinuxAgent<br />
 			Código fuente: <a href="http://go.microsoft.com/fwlink/p/?LinkID=250998">GitHub</a></td>
 		
 	</tr>
 </table>
 
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

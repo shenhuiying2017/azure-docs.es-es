@@ -125,4 +125,7 @@ A continuación se indican los detalles de configuración:
 
 [SharePoint en los servicios de infraestructura de Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

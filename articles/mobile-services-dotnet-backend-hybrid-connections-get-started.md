@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Conexión a un servidor SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas - Servicios móviles de Azure" description="Obtenga información acerca de cómo conectarse a un SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas" services="" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Conexión a un servidor SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas - Servicios móviles de Azure" 
+	description="Obtenga información acerca de cómo conectarse a un SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas" 
+	services="" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
   
 # Conexión a un servidor SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas 
@@ -156,9 +170,9 @@ El servicio móvil ha transferido los cambios generados en la aplicación a la b
 
 ##Otras referencias##
  
-+ [Sitio web de conexiones híbridas](http://azure.microsoft.com/es-es/services/biztalk-services/)
++ [Sitio web de conexiones híbridas](http://azure.microsoft.com/services/biztalk-services/)
 + [Introducción a las conexiones híbridas](http://go.microsoft.com/fwlink/p/?LinkID=397274)
-+ [Servicios de BizTalk: Pestañas Panel, Monitor, Escala, Configurar y Conexión híbrida](http://azure.microsoft.com/es-es/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
++ [Servicios de BizTalk: Pestañas Panel, Monitor, Escala, Configurar y Conexión híbrida](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
 <!-- IMAGES -->
  

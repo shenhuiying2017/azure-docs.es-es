@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Tutorial: Create a cloud-only virtual network" pageTitle="Tutorial: Creación de una red virtual solo en la nube" metaKeywords="" description="Obtenga información acerca de cómo crear una red virtual de Azure solo en la nube de ejemplo en este tutorial." metaCanonical="" services="virtual-machines,virtual-network" documentationCenter="" title="Tutorial: Create a Clound-only Virtual Network in Azure" authors="cherylmc" solutions="" manager="adinah" editor="" />
+﻿<properties 
+	pageTitle="Tutorial: Creación de una red virtual solo en la nube" 
+	description="Obtenga información acerca de cómo crear una red virtual de Azure solo en la nube de ejemplo en este tutorial." 
+	services="virtual-machines, virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/29/2014" ms.author="cherylmc" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="cherylmc"/>
 
 <h1 id="vnettut1">Tutorial: Creación de una red virtual solo en la nube en Azure</h1>
 
@@ -25,7 +39,7 @@ En este tutorial, aprenderá a configurar una red virtual de Azure solo en la nu
 
 ##  Requisitos previos
 
-*  Una cuenta de Microsoft con al menos una suscripción válida y activa a Azure. Si todavía no dispone de una suscripción a Azure, puede registrarse para una prueba gratuita en [Probar Azure](http://www.windowsazure.com/pricing/free-trial/). Si tiene una suscripción de MSDN, consulte [Microsoft Azure Special Pricing: Ventajas de MSDN, MPN y Bizspark](http://azure.microsoft.com/es-es/pricing/member-offers/msdn-benefits-details/).
+*  Una cuenta de Microsoft con al menos una suscripción válida y activa a Azure. Si todavía no dispone de una suscripción a Azure, puede registrarse para una prueba gratuita en [Probar Azure](http://www.windowsazure.com/pricing/free-trial/). Si tiene una suscripción de MSDN, consulte [Microsoft Azure Special Pricing: Ventajas de MSDN, MPN y Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ##  Creación de la red virtual para este tutorial
 
@@ -71,9 +85,9 @@ Para crear esta red virtual de ejemplo solo en la nube, haga lo siguiente:
 
 Para seguir aprendiendo sobre los servicios de infraestructura de Azure, consulte lo siguiente:
 
-- [Creación de una máquina virtual personalizada](http://www.windowsazure.com/es-es/manage/windows/how-to-guides/custom-create-a-vm/) Use este tema para instalar una máquina virtual en su red virtual. Para obtener más información acerca de las máquinas virtuales y las opciones de instalación, consulte [Máquinas virtuales de Azure](http://www.windowsazure.com/es-es/manage/windows/).
+- [Creación de una máquina virtual personalizada](http://azure.microsoft.com/manage/windows/how-to-guides/custom-create-a-vm/) Use este tema para instalar una máquina virtual en su red virtual. Para obtener más información acerca de las máquinas virtuales y las opciones de instalación, consulte [Máquinas virtuales de Azure](http://azure.microsoft.com/manage/windows/).
 
-- [Instalación de un nuevo bosque de Active Directory en una red virtual de Azure](http://www.windowsazure.com/es-es/manage/services/networking/active-directory-forest/): use este tema para instalar un nuevo bosque de Windows Server Active Directory sin conectividad a ninguna otra red. El tutorial explica los pasos específicos requeridos para crear una máquina virtual (VM) para una nueva instalación de bosque. Si piensa utilizar este tutorial, no cree ninguna máquina virtual mediante el Portal de administración. Para obtener más información, consulte [Instrucciones para implementar Active Directory de Windows Server en máquinas virtuales de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/jj156090.aspx).
+- [Instalación de un nuevo bosque de Active Directory en una red virtual de Azure](http://azure.microsoft.com/manage/services/networking/active-directory-forest/): use este tema para instalar un nuevo bosque de Windows Server Active Directory sin conectividad a ninguna otra red. El tutorial explica los pasos específicos requeridos para crear una máquina virtual (VM) para una nueva instalación de bosque. Si piensa utilizar este tutorial, no cree ninguna máquina virtual mediante el Portal de administración. Para obtener más información, consulte [Instrucciones para implementar Active Directory de Windows Server en máquinas virtuales de Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 Para quitar esta red virtual, selecciónela, haga clic en **Eliminar** y luego en **Sí**.
 
@@ -90,7 +104,7 @@ Para obtener información acerca de procedimientos y configuración de la red vi
 
 -  [Tareas de configuración de Red virtual de Azure](http://go.microsoft.com/fwlink/?LinkId=296652)
 
--  [Configurar una red virtual con archivos de configuración de red](http://msdn.microsoft.com/es-es/library/windowsazure/jj156097.aspx)
+-  [Configurar una red virtual con archivos de configuración de red](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
 -  [Resolución de nombres](http://go.microsoft.com/fwlink/?LinkId=248097)
 
@@ -103,3 +117,5 @@ Para obtener información acerca de procedimientos y configuración de la red vi
 [Image7]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 [Image8]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 
+
+<!--HONumber=46--> 

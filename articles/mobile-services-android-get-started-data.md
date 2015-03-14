@@ -1,6 +1,20 @@
-<properties pageTitle="Introducción a los datos (Android) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación Android." services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Introducción a los datos (Android) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación Android." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal,glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/16/2014" 
+	ms.author="ricksal,glenga"/>
 
 # Incorporación de Servicios móviles a una aplicación existente
 
@@ -28,7 +42,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 4. [Actualización de la aplicación para usar Servicios móviles]
 5. [Probar la aplicación en Servicios móviles]
 
-> [AZURE.IMPORTANT] para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, vea [Evaluación gratuita de Azure](.http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AED8DE357"%20target="_blank) 
+> [AZURE.IMPORTANT] para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, vea [Evaluación gratuita de Azure](.http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AED8DE357"%20target="_blank) 
 
 Este tutorial requiere el [SDK de Android` para Servicios móviles]; el <a href="https://go.microsoft.com/fwLink/p/?LinkID=280125" target="_blank">SDK de Android</a>, que incluye el entorno de desarrollo integrado de Eclipse (IDE) y el complemento de Herramientas para desarrolladores de Android (ADT); y Android 4.2 o una versión más reciente. 
 

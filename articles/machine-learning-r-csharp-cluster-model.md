@@ -1,6 +1,20 @@
-﻿<properties title="Cluster Model" pageTitle="Modelo de clúster | Azure" description="Modelo de clúster" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Modelo de clúster | Azure" 
+	description="Modelo de clúster" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="jaymathe"/> 
 
 
 #Modelo de clúster    
@@ -58,7 +72,7 @@ Hay varias maneras de utilizar el servicio de forma automática ([aquí](http://
 
 
 #Creación del servicio web  
->Este servicio web se ha creado con el Aprendizaje automático de Microsoft Azure. Para obtener acceso a una prueba gratuita y a vídeos introductorios sobre la creación de experimentos y la [publicación de servicios web](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consulte [azure.com/ml](http://azure.com/ml). A continuación se muestra una captura de pantalla del experimento que creó el código de ejemplo y el servicio web para cada uno de los módulos dentro del experimento.
+>Este servicio web se ha creado con el Aprendizaje automático de Microsoft Azure. Para obtener acceso a una prueba gratuita y a vídeos introductorios sobre la creación de experimentos y la [publicación de servicios web](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consulte [azure.com/ml](http://azure.com/ml). A continuación se muestra una captura de pantalla del experimento que creó el código de ejemplo y el servicio web para cada uno de los módulos dentro del experimento.
 
 En el Aprendizaje automático de Azure se creó un nuevo experimento en blanco y se extrajeron dos comandos "Ejecutar scripts R" en el área de trabajo. El esquema de datos se creó con un sencillo comando "Ejecutar scripts R"; a continuación, el esquema de datos se vinculó a la sección del modelo de clúster, que también se creó con un comando "Ejecutar script R". En el comando "Ejecutar script R" utilizado para el modelo de clúster, el servicio web utiliza la función "k-means", que está preintegrada en el comando "Ejecutar script R" del Aprendizaje automático de Azure.    
    
@@ -102,8 +116,10 @@ En el Aprendizaje automático de Azure se creó un nuevo experimento en blanco y
 Se trata de un ejemplo muy sencillo de un servicio web de agrupación en clústeres. Como puede observarse en el código de ejemplo anterior, no se implementa ninguna detección de errores y el servicio asume que todo es una variable continua (ninguna característica categórica permitida), ya que el servicio solo recibe valores numéricos en el momento de la creación de este servicio web. Además, el servicio actualmente controla el tamaño de datos limitado, debido a la naturaleza de solicitud y respuesta de la llamada al servicio web y el hecho de que el modelo se ajusta cada vez que se llama al servicio web. 
 
 ##P+F
-Para ver las preguntas más frecuentes sobre el uso del servicio web o la publicación en Marketplace, haga clic [aquí](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-marketplace-faq).
+Para ver las preguntas más frecuentes sobre el uso del servicio web o la publicación en Marketplace, haga clic [aquí](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-cluster-model/cluster-img1.png
 [2]: ./media/machine-learning-r-csharp-cluster-model/cluster-img2.png
 [3]: ./media/machine-learning-r-csharp-cluster-model/cluster-img3.png
+
+<!--HONumber=46--> 

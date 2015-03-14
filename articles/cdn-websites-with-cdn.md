@@ -1,15 +1,29 @@
-﻿<properties urlDisplayName="Integrate an Azure Website with Azure CDN" pageTitle="Integración de un sitio web de Azure con la red CDN de Azure" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN, MVC, websites" description="Un tutorial que le enseña cómo implementar un sitio web que ofrece contenido de un extremo de CDN de Azure integrado" metaCanonical="" services="cdn,web-sites" documentationCenter=".NET" title="Integrate an Azure Website with Azure CDN" authors="cephalin" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties 
+	pageTitle="Integración de un sitio web de Azure con la red CDN de Azure" 
+	description="Un tutorial que le enseña cómo implementar un sitio web que ofrece contenido de un extremo de CDN de Azure integrado" 
+	services="cdn, web-sites" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="cdn" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
+<tags 
+	ms.service="cdn" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/02/2014" 
+	ms.author="cephalin"/>
 
 <a name="intro"></a>
 # Integración de un sitio web de Azure con la red CDN de Azure #
 
-Sitios web Azure puede integrarse con [CDN de Azure](http://azure.microsoft.com/es-es/services/cdn/), agregándolo a las capacidades de escalado globales inherentes en Sitios web Azure sirviendo el contenido del sitio web globalmente desde los nodos de servidor cercan de sus clientes ([aquí](http://msdn.microsoft.com/es-es/library/azure/gg680302.aspx) se puede encontrar una lista actualizada de todas las ubicaciones de nodo actuales). Esta integración aumenta considerablemente el rendimiento de su sitio web de Azure y mejora considerablemente la experiencia del usuario de dicho sitio en todo el mundo. 
+Sitios web Azure puede integrarse con [CDN de Azure](http://azure.microsoft.com/services/cdn/), agregándolo a las capacidades de escalado globales inherentes en Sitios web Azure sirviendo el contenido del sitio web globalmente desde los nodos de servidor cercan de sus clientes ([aquí](http://msdn.microsoft.com/library/azure/gg680302.aspx) se puede encontrar una lista actualizada de todas las ubicaciones de nodo actuales). Esta integración aumenta considerablemente el rendimiento de su sitio web de Azure y mejora considerablemente la experiencia del usuario de dicho sitio en todo el mundo. 
 
 La integración de Sitios web Azure con la red CDN de Azure le ofrece las siguientes ventajas:
 
-- Integración de la implementación de contenido (imágenes, scripts y hojas de estilo) como parte del proceso de [implementación continua](http://azure.microsoft.com/es-es/documentation/articles/web-sites-publish-source-control/) de su sitio web Azure
+- Integración de la implementación de contenido (imágenes, scripts y hojas de estilo) como parte del proceso de [implementación continua](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/) de su sitio web Azure
 - Actualización sencilla de los paquetes de NuGet en el sitio web de Azure, como versiones de jQuery o Bootstrap 
 - Administración de la aplicación web y del contenido servido por CDN desde la misma interfaz de Visual Studio
 - Integración de unión y minificación de ASP.NET con CDN de Azure
@@ -32,15 +46,15 @@ Implementaremos un sitio web de Azure mediante la plantilla predeterminada ASP.N
 
 Este tutorial cuenta con los siguientes requisitos previos:
 
--	Una cuenta de [Microsoft Azure activa](http://azure.microsoft.com/es-es/account/)
+-	Una cuenta de [Microsoft Azure activa](http://azure.microsoft.com/account/)
 -	Visual Studio 2013 con el [SDK de Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409)
 
 <div class="wa-note">
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>Para completar este tutorial, deberá tener una cuenta de Azure:</h5>
   <ul>
-    <li>Puede <a href="http://azure.microsoft.com/es-es/pricing/free-trial/?WT.mc_id=A261C142F">abrir una cuenta de Azure de manera gratuita</a> - Obtiene crédito que puede utilizar para probar los servicios de Azure de pago, e incluso una vez agotado este podrá mantener la cuenta y utilizar servicios gratuitos de Azure, como Sitios web.</li>
-    <li>Puede <a href="http://azure.microsoft.com/es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activar las ventajas de suscriptor de MSDN</a> - Su suscripción a MSDN le proporciona crédito todos los meses que puede utilizar para servicios de Azure de pago.</li>
+    <li>Puede <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F">abrir una cuenta de Azure de manera gratuita</a> - Obtiene crédito que puede utilizar para probar los servicios de Azure de pago, e incluso una vez agotado este podrá mantener la cuenta y utilizar servicios gratuitos de Azure, como Sitios web.</li>
+    <li>Puede <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activar las ventajas de suscriptor de MSDN</a> - Su suscripción a MSDN le proporciona crédito todos los meses que puede utilizar para servicios de Azure de pago.</li>
   <ul>
 </div>
 
@@ -368,7 +382,7 @@ Esto permite depurar el código JavaScript de su entorno de desarrollo y, al mis
 
 Siga estos pasos para la integración de la unión y minificación de ASP.NET con el extremo de CDN.
 
-1. De vuelta en *App_Start\BundleConfig.cs*, modifique los métodos `bundles.Add()` para usar un [constructor de paquetes](http://msdn.microsoft.com/es-es/library/jj646464.aspx) diferente, uno que especifique una dirección de CDN. Para ello, sustituya la definición de método `RegisterBundles` por el código siguiente:  
+1. De vuelta en *App_Start\BundleConfig.cs*, modifique los métodos `bundles.Add()` para usar un [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx) diferente, uno que especifique una dirección de CDN. Para ello, sustituya la definición de método `RegisterBundles` por el código siguiente:  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -462,9 +476,9 @@ Siga estos pasos para la integración de la unión y minificación de ASP.NET co
 
 Cuando el extremo de CDN de Azure no funcione por cualquier motivo, querrá que su página web sea lo bastante inteligente como para acceder al servidor web de origen como opción de reserva para cargar JavaScript o Bootstrap. Es grave perder imágenes en su sitio web debido a la falta de disponibilidad de la red CDN, pero aún es más grave perder la funcionalidad esencial de página que proporcionan sus scripts y hojas de estilos.
 
-La clase [Bundle](http://msdn.microsoft.com/es-es/library/system.web.optimization.bundle.aspx) contiene una propiedad llamada [CdnFallbackExpression](http://msdn.microsoft.com/es-es/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) que le permite configurar el mecanismo de reserva en caso de error de CDN. Para usar esta propiedad, siga estos pasos:
+La clase [Bundle](http://msdn.microsoft.com/library/system.web.optimization.bundle.aspx) contiene una propiedad llamada [CdnFallbackExpression](http://msdn.microsoft.com/library/system.web.optimization.bundle.cdnfallbackexpression.aspx) que le permite configurar el mecanismo de reserva en caso de error de CDN. Para usar esta propiedad, siga estos pasos:
 
-1. En el proyecto ASP.NET, abra *App_Start\BundleConfig.cs*, donde ha agregado una URL de CDN a cada [constructor de paquetes](http://msdn.microsoft.com/es-es/library/jj646464.aspx), y realice los siguientes cambios que se resaltan para agregar el mecanismo de reserva a los paquetes predeterminados:  
+1. En el proyecto ASP.NET, abra *App_Start\BundleConfig.cs*, donde ha agregado una URL de CDN a cada [constructor de paquetes](http://msdn.microsoft.com/library/jj646464.aspx), y realice los siguientes cambios que se resaltan para agregar el mecanismo de reserva a los paquetes predeterminados:  
 	<pre class="prettyprint">
 	public static void RegisterBundles(BundleCollection bundles)
 	{
@@ -576,7 +590,9 @@ La clase [Bundle](http://msdn.microsoft.com/es-es/library/system.web.optimizatio
 
 # Más información #
 - [Información general de la red de entrega de contenido (CDN) de Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Entrega de contenido desde la red CDN de Azure en su aplicación web](http://azure.microsoft.com/es-es/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
-- [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](http://azure.microsoft.com/es-es/documentation/articles/cdn-cloud-service-with-cdn/)
+- [Entrega de contenido desde la red CDN de Azure en su aplicación web](http://azure.microsoft.com/Documentation/Articles/cdn-serve-content-from-cdn-in-your-web-application/)
+- [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](http://azure.microsoft.com/documentation/articles/cdn-cloud-service-with-cdn/)
 - [Unión y minificación de ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification)
-- [Uso de la red CDN en Azure](http://azure.microsoft.com/es-es/documentation/articles/cdn-how-to-use/)
+- [Uso de la red CDN en Azure](http://azure.microsoft.com/documentation/articles/cdn-how-to-use/)
+
+<!--HONumber=46--> 

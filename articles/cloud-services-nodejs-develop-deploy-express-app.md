@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Web App with Express" pageTitle="Aplicaciones web con Express (Node.js) - Tutorial de Azure" metaKeywords="tutorial de hello world de Node.js de Azure, hello world de Node.js de Azure, tutorial de introducción a Node.js de Azure, tutorial de Node.js de Azure, tutorial de Express de Node.js de Azure" description="Este tutorial se basa en el tutorial sobre servicios en la nube y muestra cómo usar el módulo Express." metaCanonical="" services="cloud-services" documentationCenter="nodejs" title="Build a Node.js web application using Express on an Azure Cloud Service" authors="larryfr" solutions="" manager="wpickett" editor="" />
+<properties 
+	pageTitle="Aplicación web con Express (Node.js) - Tutorial de Azure" 
+	description="Este tutorial se basa en el tutorial sobre servicios en la nube y muestra cómo usar el módulo Express." 
+	services="cloud-services" 
+	documentationCenter="nodejs" 
+	authors="" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="nodejs" ms.topic="article" ms.date="09/17/2014" ms.author="wpickett" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="nodejs" 
+	ms.topic="article" 
+	ms.date="09/17/2014" 
+	ms.author="wpickett"/>
 
 
 
@@ -9,21 +23,24 @@
 
 # Compilación de una aplicación web Node.js mediante Express en un servicio en la nube de Azure
 
-Node.js incluye un conjunto mínimo de funcionalidad en el tiempo de ejecución del núcleo. Los desarrolladores suelen utilizar módulos de terceros para proporcionar funcionalidad adicional al desarrollar una aplicación Node.js. En este tutorial, aprenderá a crear una nueva aplicación mediante el módulo [Express][], que proporciona un marco MVC para la creación de aplicaciones web Node.js.
+Node.js incluye un conjunto mínimo de funcionalidad en el tiempo de ejecución del núcleo.
+Los desarrolladores a menudo usan módulos de terceros para proporcionar una funcionalidad
+adicional cuando desarrollan una aplicación Node.js. En este tutorial,
+creará una nueva aplicación mediante el uso del módulo [Express][], que proporciona un marco MVC para la creación de aplicaciones web Node.js.
 
 A continuación se muestra una captura de pantalla de la aplicación completada:
 
 ![A web browser displaying Welcome to Express in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
-##Creación de un proyecto de servicio en la nube
+## Creación de un proyecto de servicio en la nube
 
-Realice los siguientes pasos para crear un nuevo proyecto de servicio en la nube con nombre "expressapp":
+Realice los siguientes pasos para crear un nuevo proyecto de servicio en la nube con nombre 'expressapp':
 
 1. Desde el **menú Inicio** o la **pantalla Inicio**, busque **Azure PowerShell**. Finalmente, haga clic en el botón secundario en **Azure PowerShell** y seleccione **Ejecutar como administrador**.
 
 	![Azure PowerShell icon](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
 
-	[WACOM.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
+	[AZURE.INCLUDE [install-dev-tools](../includes/install-dev-tools.md)]
 
 2. Cambie los directorios al directorio **c:\\node** y, a continuación, escriba los siguientes comandos para crear una nueva solución llamada **expressapp** y un rol web llamado **WebRole1**:
 
@@ -31,9 +48,9 @@ Realice los siguientes pasos para crear un nuevo proyecto de servicio en la nube
 		PS C:\Node\expressapp> Add-AzureNodeWebRole
 		PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 node 0.10.21
 
-	> [WACOM.NOTE] De forma predeterminada, **Add-AzureNodeWebRole** utiliza una versión anterior de Node.js. La instrucción **Set-AzureServiceProjectRole** anterior indica a Azure que debe usar la v0.10.21 del nodo. 
+	> [AZURE.NOTE] De forma predeterminada, **Add-AzureNodeWebRole** utiliza una versión anterior de Node.js. La instrucción **Set-AzureServiceProjectRole** anterior indica a Azure que debe usar la v0.10.21 del nodo. 
 
-##Instalación de Express
+## Instalación de Express
 
 1. Instale el generador Express mediante el siguiente comando:
 
@@ -52,7 +69,8 @@ Realice los siguientes pasos para crear un nuevo proyecto de servicio en la nube
 	![The output of the express command](./media/cloud-services-nodejs-develop-deploy-express-app/node23.png)
 
 
-5.  Para instalar dependencias adicionales definidas en el archivo package.json, escriba el siguiente comando:
+5.  Para instalar dependencias adicionales definidas en el archivo package.json,
+    escriba el siguiente comando:
 
         PS C:\node\expressapp\WebRole1> npm install
 
@@ -74,7 +92,8 @@ Realice los siguientes pasos para crear un nuevo proyecto de servicio en la nube
 
 	Este cambio es necesario porque el archivo se movió (anteriormente **bin/www**) al mismo directorio que el archivo de aplicación que se requiere. Después de realizar este cambio, guarde el archivo **server.js**.
 
-8.  Utilice el siguiente comando para ejecutar la aplicación en el emulador de Azure:
+8.  Use el siguiente comando para ejecutar la aplicación en el
+    emulador de Microsoft Azure:
 
         PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
 
@@ -91,7 +110,8 @@ Azure".
 
     ![The contents of the index.jade file.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
 
-    Jade es el motor de vistas predeterminado que utilizan las aplicaciones Express. Para obtener más información acerca del motor de vistas Jade, consulte [http://jade-lang.com][].
+    Jade es el motor de vistas predeterminado que utilizan las aplicaciones Express. Para obtener más
+    información acerca del motor de vistas Jade, consulte [http://jade-lang.com][].
 
 2.  Modifique la última línea de texto para anexarla **en Azure**.
 
@@ -105,7 +125,7 @@ Azure".
 
 Después de evaluar la aplicación, utilice el cmdlet **Stop-AzureEmulator** para detener el emulador.
 
-##Publicación de la aplicación en Azure
+## Publicación de la aplicación en Azure
 
 En la ventana de Azure PowerShell, utilice el cmdlet **Publish-AzureServiceProject** para implementar la aplicación en un servicio en la nube.
 
@@ -116,9 +136,9 @@ Una vez finalizada la operación de implementación, el explorador abrirá y mos
 ![A web browser displaying the Express page. The URL indicates it is now hosted on Azure.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 
-  [Aplicación web Node.js]: http://www.windowsazure.com/es-es/develop/nodejs/tutorials/getting-started/
+  [Aplicación web Node.js]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
   [Express]: http://expressjs.com/
   [http://jade-lang.com]: http://jade-lang.com
 
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

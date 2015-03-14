@@ -1,6 +1,20 @@
-﻿<properties title="Consistency levels in DocumentDB" pageTitle="Niveles de coherencia en Base de datos de documentos" description="La base de datos de documentos tiene cuatro niveles de coherencia con niveles de rendimiento asociados para ayudar a los desarrolladores de aplicaciones a crear ventajas predecibles de coherencia-disponibilidad-latencia." metaKeywords="Optional" services="documentdb" solutions="data-management" authors="bradsev" manager="jhubbard" editor="cgronlun" videoId="Optional" scriptId="Optional" />
+﻿<properties 
+	pageTitle="Niveles de coherencia en Base de datos de documentos" 
+	description="La base de datos de documentos tiene cuatro niveles de coherencia con niveles de rendimiento asociados para ayudar a los desarrolladores de aplicaciones a crear ventajas predecibles de coherencia-disponibilidad-latencia." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/05/2015" 
+	ms.author="mimig"/>
 
 #Niveles de coherencia en Base de datos de documentos
 Los desarrolladores con frecuencia se enfrentan al desafío de elegir entre los dos extremos de una coherencia alta y una coherencia ocasional. Lo cierto es que hay varios puntos intermedios entre estos dos extremos de la coherencia. En la mayoría de los escenarios reales, las aplicaciones se benefician de la realización de equilibrios muy ajustados entre la coherencia, la disponibilidad y la latencia. Base de datos de documentos ofrece cuatro niveles de coherencia bien definidos con niveles de rendimiento asociados. Esto permite a los desarrolladores de aplicaciones realizar equilibrios predecibles entre la coherencia, la disponibilidad y la latencia.  
@@ -49,3 +63,5 @@ Al igual que con las solicitudes de lecturas, puede bajar el nivel de coherencia
 [http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 -	Werner Vogels. Coherencia ocasional - Revisión.    
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
+
+<!--HONumber=46--> 

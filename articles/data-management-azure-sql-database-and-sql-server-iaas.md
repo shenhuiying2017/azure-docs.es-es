@@ -1,6 +1,20 @@
-<properties pageTitle="Descripción de Base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure" description="Obtenga información acerca de la base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure. Revise los factores de motivación comunes del negocio para determinar la tecnología de SQL que funciona mejor en el caso de la aplicación." services="virtual-machines" documentationCenter="" authors="Selcin" manager="jeffreyg" editor="tysonn"/>
+<properties 
+	pageTitle="Descripción de Base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure" 
+	description="Obtenga información acerca de la base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure. Revise los factores de motivación comunes del negocio para determinar la tecnología de SQL que funciona mejor en el caso de la aplicación." 
+	services="virtual-machines" 
+	documentationCenter="" 
+	authors="Selcin" 
+	manager="jeffreyg" 
+	editor="tysonn"/>
 
-<tags ms.service="virtual-machines" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/26/2014" ms.author="selcint"/>
+<tags 
+	ms.service="virtual-machines" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="selcint"/>
 
 # Descripción de Base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure
 
@@ -223,15 +237,15 @@ Este artículo del grupo Servicios de contenido empresarial y en la nube de Micr
    <td valign="middle">Vínculos a la documentación de la biblioteca.</td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/es-es/library/azure/jj879332.aspx">Base de datos SQL de Azure y SQL Server - Comparación y contraste del rendimiento y la escalabilidad</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj879332.aspx">Base de datos SQL de Azure y SQL Server - Comparación y contraste del rendimiento y la escalabilidad</p></td>
    <td valign="middle">En este artículo se explican las diferencias de rendimiento y las técnicas de solución de problemas al utilizar Base de datos SQL de Azure y SQL Server en ejecución en instalaciones locales o en una máquina virtual. </td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/es-es/library/dn574746.aspx">Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/dn574746.aspx">Estrategias de desarrollo y patrones de aplicación de SQL Server en máquinas virtuales de Azure</p></td>
    <td valign="middle">En este artículo se tratan los patrones de aplicación más frecuentes que se aplican a SQL Server en máquinas virtuales de Azure y también en escenarios híbridos que incluyan Base de datos SQL de Azure. </td>   
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/es-es/library/hh680934(v=PandP.50).aspx">Bloque de aplicación de control de errores transitorios de biblioteca de empresa de Microsoft</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/hh680934(v=PandP.50).aspx">Bloque de aplicación de control de errores transitorios de biblioteca de empresa de Microsoft</p></td>
    <td valign="middle">Esta biblioteca permite que los desarrolladores aumenten la resistencia de las aplicaciones en ejecución en Base de datos SQL de Azure agregando una lógica de control de errores transitorios más robusta. Los errores transitorios son aquellos que se producen debido a algún estado transitorio como, por ejemplo, problemas de conectividad de la red o falta de disponibilidad del servicio. Puesto que Base de datos SQL de Azure es un servicio multiempresa, es importante controlar dichos errores para minimizar cualquier tiempo de inactividad de la aplicación. </td>   
 </tr>
 </table>

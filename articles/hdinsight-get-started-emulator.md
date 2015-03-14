@@ -473,10 +473,10 @@ Con este tutorial, tiene instalado un emulador de HDInsight y ha ejecutado algun
 
 
 
-[azure-sdk]: http://azure.microsoft.com/es-es/downloads/
+[azure-sdk]: http://azure.microsoft.com/downloads/
 [azure-create-storage-account]: ../storage-create-storage-account/
 [azure-management-portal]: https://manage.windowsazure.com/
-[netstat-url]: http://technet.microsoft.com/es-es/library/ff961504.aspx
+[netstat-url]: http://technet.microsoft.com/library/ff961504.aspx
 
 [hdinsight-develop-mapreduce]: ../hdinsight-develop-deploy-java-mapreduce/
 
@@ -485,7 +485,7 @@ Con este tutorial, tiene instalado un emulador de HDInsight y ha ejecutado algun
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 [hdinsight-submit-jobs]: ../hdinsight-submit-hadoop-jobs-programmatically/
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/es-es/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 [hdinsight-get-started]: ../hdinsight-get-started/
 [hdinsight-develop-deploy-streaming]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 [hdinsight-versions]: ../hdinsight-component-versioning/
@@ -495,5 +495,4 @@ Con este tutorial, tiene instalado un emulador de HDInsight y ha ejecutado algun
 [hadoop-commands-manual]: http://hadoop.apache.org/docs/r1.1.1/commands_manual.html
 
 [image-hdi-emulator-services]: ./media/hdinsight-get-started-emulator/HDI.Emulator.Services.png 
-
 <!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Implementación de una aplicación web de Ruby on Rails en una máquina virtual de Azure con Capistrano - Tutorial" 
 	description="Aprenda a implementar una aplicación de Ruby on Rails en una máquina virtual de Azure con Capistrano, Unicorn y Nginx." 
 	authors="blackmist" 
@@ -67,11 +67,11 @@ La siguiente es una captura de pantalla de la aplicación completa:
 
 1. Instale Ruby en su entorno de desarrollo. Los pasos pueden variar según el sistema operativo.
 
-	* **Apple OS X**: Puede haber varias distribuciones de Ruby para OS X. Este tutorial se validó en OS X mediante [Homebrew](http://brew.sh/) para instalar **rbenv**, **ruby-build** y **Ruby 2.0.0-p451**. Puede encontrar información sobre la instalación en [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
+	* **Apple OS X** - Existen varias distribuciones de Ruby para OS X. Este tutorial se validó en OS X mediante [Homebrew](http://brew.sh/) para instalar **rbenv**, **ruby-build** y **Ruby 2.0.0-p451**. Puede encontrar información sobre la instalación en [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
 
-	* **Linux**: Use su sistema de administración de paquetes de distribución. Este tutorial se validó en Ubuntu 12.10 usando **rbenv**, **ruby-build** y **Ruby 2.0.0-p451**.
+	* **Linux** - Use su sistema de administración de paquetes de distribución. Este tutorial se validó en Ubuntu 12.10 usando **rbenv**, **ruby-build** y **Ruby 2.0.0-p451**.
 
-	* **Windows**: Existen varias distribuciones de Ruby para Windows. Este tutorial se validó usando [RubyInstaller](http://RubyInstaller.org/) para instalar **Ruby 2.0.0-p451**. Los comandos se emitieron con la línea de comandos de **GitBash** disponible con [Git para Windows](http://git-scm.com/download/win).
+	* **Windows** - Existen varias distribuciones de Ruby para Windows. Este tutorial se validó usando [RubyInstaller](http://RubyInstaller.org/) para instalar **Ruby 2.0.0-p451**. Los comandos se emitieron con la línea de comandos de **GitBash** disponible con [Git para Windows](http://git-scm.com/download/win).
 
 2. Abra una nueva línea de comandos o sesión de terminal y escriba el siguiente comando para instalar Ruby on Rails:
 
@@ -225,13 +225,13 @@ Una vez finalizada la instalación, use el siguiente comando para verificar que 
 
 	ruby -v
 
-Esto debería devolver `ruby 2.0.0p451` como la versión.
+Esto debería devolver 'ruby 2.0.0p451' como la versión.
 
 ###Instalación de PostgreSQL
 
 La base de datos predeterminada que usa Rails en la fase de desarrollo es SQLite. Normalmente, se utiliza otra en producción. Con los pasos siguientes se instala PostgreSQL en la máquina virtual y se crea un usuario y una base de datos. En pasos posteriores, configurará la aplicación de Rails para que use PostgreSQL durante la implementación.
 
-1. Instale PostgreSQL y los elementos de desarrollo con el siguiente comando:
+1. Instale PostgreSQL y los elementos de desarrollo con el siguiente comando.
 
 		sudo apt-get -y install postgresql postgresql-contrib libpq-dev
 
@@ -289,7 +289,7 @@ En su entorno de desarrollo, modifique la aplicación para que use el servidor w
 		  gem 'capistrano-postgresql', '~> 3.0'
 		end
 
-	> [AZURE.NOTE] Unicorn no está disponible en Windows. Si utiliza Windows como entorno de desarrollo, modifique el archivo __Gemfile__ para asegurarse de que solo intentará instalar Unicorn cuando se implemente en la máquina virtual. Para ello, use el código siguiente cuando especifique la gema para Unicorn:
+	> [AZURE.NOTE] Unicorn no está disponible en Windows. Si utiliza Windows como entorno de desarrollo, modifique el archivo __Gemfile__ para asegurarse de que solo intentará instalar Unicorn cuando se implemente en la máquina virtual. Para ello, use el código siguiente cuando especifique la gema para Unicorn.
 	> 
 	> `platforms :ruby do`
 	> `  gem 'unicorn'`
@@ -299,7 +299,7 @@ En su entorno de desarrollo, modifique la aplicación para que use el servidor w
 
 	La gema capistrano-unicorn-nginx crea automáticamente los scripts que se usan con Unicorn y Nginx durante la implementación, de forma que no tenemos que crearlos manualmente. La gema capistrano-postgresql genera automáticamente una base de datos, un usuario y una contraseña en PostgreSQL para la aplicación. Si bien no tiene que usarlas, ambas simplifican notablemente el proceso de implementación.
  
-5.	Utilice el comando siguiente para instalar las gemas nuevas:
+5.	Utilice el comando siguiente para instalar las gemas nuevas.
 		
 		bundle
 
@@ -323,14 +323,14 @@ En su entorno de desarrollo, modifique la aplicación para que use el servidor w
 
 	La carpeta **capistrano** contiene tareas y otros archivos que se usan como parte del proceso de implementación.
 
-5. Edite el archivo **Capfile** en la raíz de la aplicación y quite las marcas de comentario (__#__) de las líneas siguientes:
+5. Edite el archivo **Capfile** en la raíz de la aplicación y quite las marcas de comentario de las líneas siguientes. Para ello, quite el carácter __#__ del principio de la línea.
 
 		require 'capistrano/rbenv'
 		require 'capistrano/bundler'
 		require 'capistrano/rails/assets'
 		require 'capistrano/rails/migrations'
 
-	Cuando haya quitado las marcas de comentario de las líneas anteriores, agregue las líneas siguientes:
+	Cuando haya quitado las marcas de comentario de las líneas anteriores, agregue las líneas siguientes.
 
 		require 'capistrano/unicorn_nginx'
 		require 'capistrano/postgresql'
@@ -339,7 +339,7 @@ En su entorno de desarrollo, modifique la aplicación para que use el servidor w
 
 	Cuando haya realizado estos cambios, guarde el archivo.
 
-6.  Edite el archivo **config/deploy.rb** y reemplace su contenido por el siguiente. Cambie **YourApplicationName** por el nombre de su aplicación y reemplace **https://github.com/YourGitHubName/YourRepoName.git** por la dirección URL del repositorio de GitHub para este proyecto.
+6.  Edite el archivo **config/deploy.rb** y reemplace su contenido por el siguiente. Sustituya **YourApplicationName** por el nombre de su aplicación y sustituya **https://github.com/YourGitHubName/YourRepoName.git** por la dirección URL del repositorio de GitHub para este proyecto.
 
 		lock '3.1.0'
 		# application name and the github repository
@@ -422,7 +422,7 @@ La aplicación debe estar ya lista para implementarla.
 
 	Capistrano se conectará a la máquina virtual usando SSH y después creará el directorio (~/apps) en el que se implementará la aplicación. Si esta es la primera implementación, la gema capistrano-postgresql creará también un rol y una base de datos en PostgreSQL en el servidor. También creará un archivo de configuración database.yml que Rails usará para conectarse a la base de datos.
 
-	> [AZURE.NOTE] Si obtiene un error de tipo **Error al leer la longitud de respuesta del socket de autenticación** durante la implementación, puede ser necesario iniciar el agente SSH en el entorno de desarrollo usando el  comando `ssh-agent`. Por ejemplo, agregue `eval $(ssh-agent)` al archivo ~/.bash\_profile.
+	> [AZURE.NOTE] Si obtiene un error de tipo **Error al leer la longitud de respuesta del socket de autenticación** durante la implementación, puede ser necesario iniciar el agente SSH en el entorno de desarrollo usando el comando `ssh-agent`.  Por ejemplo, agregue `eval $(ssh-agent)` al archivo ~/.bash\_profile.
 	> 
 	> También puede ser necesario agregar la clave SSH a la memoria caché del agente usando el comando  `ssh-add`.
 
@@ -448,13 +448,13 @@ En este punto, la aplicación de Ruby on Rails se debe estar ejecutando en la m�
 
 En este artículo ha aprendido a crear y publicar una aplicación básica de Rails en una máquina virtual de Azure con Capistrano. Trabajar con una aplicación básica como la de este artículo es solo una parte mínima de lo que se puede hacer con Capistrano para la implementación. Para obtener más información sobre el uso de Capistrano, consulte:
 
-* [Capistranorb.com](http://capistranorb.com): sitio de Capistrano.
-* [Azure, Ruby on Rails, Capistrano 3 y PostgreSQL](http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql): un método alternativo para la implementación en Azure que implica scripts de implementación personalizados.
-* [Tutorial de Capistrano 3](http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/): tutorial sobre cómo trabajar con Capistrano 3.
+* [Capistranorb.com](http://capistranorb.com) - Sitio Capistrano.
+* [Azure, Ruby on Rails, Capistrano 3 y PostgreSQL](http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql) - Enfoque alternativo a la implementación en Azure que incluye scripts de implementación personalizados.
+* [Tutorial de Capistrano 3](http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/) - Tutorial sobre cómo trabajar con Capistrano 3.
 
 Para ver un ejemplo más básico de creación e implementación de una aplicación de Rails en una máquina virtual de Azure con solo SSH, consulte [Hospedaje de una aplicación web de Ruby o Rails mediante una máquina virtual Linux][ruby-vm].
 
-Si desea obtener más información sobre Ruby on Rails, visite las [Guías de Ruby on Rails][rails-guides] (en inglés).
+Si desea obtener más información sobre Ruby on Rails, visite las [Guías de Ruby on Rails] (en inglés).[rails-guides].
 
 Para obtener información sobre cómo usar el SDK de Azure para Ruby y así tener acceso a los servicios de Azure desde su aplicación de Ruby, consulte:
 
@@ -487,4 +487,7 @@ Para obtener información sobre cómo usar el SDK de Azure para Ruby y así tene
 [ssh-on-azure]: http://azure.microsoft.com/documentation/articles/linux-use-ssh-key/
 [capistrano]: http://capistranorb.com
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

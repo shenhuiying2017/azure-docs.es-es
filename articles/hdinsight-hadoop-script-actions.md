@@ -123,7 +123,7 @@ Microsoft proporciona scripts de ejemplo para instalar los componentes en un cl�
 - [Instalación y uso de Solr en clústeres de HDInsight](../hdinsight-hadoop-solr-install)
 - [Instalación y uso de Giraph en clústeres de HDInsight](../hdinsight-hadoop-giraph-install)  
 
-> [AZURE.NOTE] El script de muestra solo funciona con el clúster de HDInsight versión 3.1 o superior. Para obtener más información acerca de las versiones de clústeres de HDInsight, consulte las [versiones de clústeres de HDInsight](http://azure.microsoft.com/es-es/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] El script de muestra solo funciona con el clúster de HDInsight versión 3.1 o superior. Para obtener más información acerca de las versiones de clústeres de HDInsight, consulte las [versiones de clústeres de HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
 ## <a name="testScript"></a>Cómo probar un script personalizado con el emulador de HDInsight
 
@@ -131,7 +131,7 @@ Una manera sencilla de probar un script personalizado antes de usarlo en el coma
 
 En esta sección se describe el procedimiento para usar el emulador de HDInsight localmente con fines de prueba, pero el procedimiento para usar una máquina virtual es similar.
 
-**Instalación del emulador de HDInsight** Para ejecutar las acciones de script localmente, debe tener instalado el emulador de HDInsight. Para obtener instrucciones sobre cómo instalarlo, consulte [Introducción al emulador de HDInsight](http://azure.microsoft.com/es-es/documentation/articles/hdinsight-get-started-emulator/)
+**Instalación del emulador de HDInsight** Para ejecutar las acciones de script localmente, debe tener instalado el emulador de HDInsight. Para obtener instrucciones sobre cómo instalarlo, consulte [Introducción al emulador de HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-get-started-emulator/)
 
 **Establecer la directiva de ejecución de PowerShell de Azure:** abra Microsoft Azure PowerShell y ejecute (como administrador) los comandos siguientes para establecer la directiva de ejecución en la *LocalMachine* y para que sea *Unrestricted*.
  
@@ -214,4 +214,4 @@ En caso de que se produzca un error de ejecución, también se incluirá la sali
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
 [powershell-install-configure]: ../install-configure-powershell/
-<!--HONumber=42-->
+\<!--HONumber=42-->

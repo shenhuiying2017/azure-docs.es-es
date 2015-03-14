@@ -1,6 +1,20 @@
-<properties pageTitle="Cómo proporcionar contenido de streaming desde Servicios multimedia en Azure" description="Aprenda a proporcionar contenido de streaming desde Servicios multimedia mediante el uso de una URL directa. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." authors="juliako" manager="dwrede" editor="" services="media-services" documentationCenter=""/>
+<properties 
+	pageTitle="Cómo proporcionar contenido de streaming desde Servicios multimedia en Azure" 
+	description="Aprenda a proporcionar contenido de streaming desde Servicios multimedia mediante el uso de una URL directa. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
+	authors="juliako" 
+	manager="dwrede" 
+	editor="" 
+	services="media-services" 
+	documentationCenter=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 #   Entrega de contenido de streaming
@@ -71,8 +85,8 @@ private static ILocator GetStreamingOriginLocator( string targetAssetID)
 
 Para obtener más información acerca de la entrega de recursos, consulte:
 <ul>
-<li><a href="http://msdn.microsoft.com/es-es/library/jj129575.aspx">Entrega de recursos con los Servicios multimedia para .NET</a></li>
-<li><a href="http://msdn.microsoft.com/es-es/library/jj129578.aspx">Entrega de recursos con la API de REST de Media Services</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129575.aspx">Entrega de recursos con los Servicios multimedia para .NET</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129578.aspx">Entrega de recursos con la API de REST de Media Services</a></li>
 </ul>
 
 <h2>Pasos siguientes</h2>

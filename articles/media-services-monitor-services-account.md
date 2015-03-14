@@ -1,6 +1,20 @@
-<properties pageTitle="Supervisión de una cuenta de Servicios multimedia en Azure" description="Describe cómo configurar la supervisión para la cuenta de Servicios multimedia en Azure." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Supervisión de una cuenta de Servicios multimedia en Azure" 
+	description="Describe cómo configurar la supervisión para la cuenta de Servicios multimedia en Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 

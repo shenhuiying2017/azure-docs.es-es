@@ -1,6 +1,20 @@
-﻿<properties title="Create an Umbraco website from the gallery in Microsoft Azure" pageTitle="Creación de un sitio web de Umbraco desde la galería en Microsoft Azure" description="requerido" metaKeywords="Azure, gallery, Umbraco, web site, website" services="web-sites" solutions="web" documentationCenter="" authors="tomfitz" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Creación de un sitio web de Umbraco desde la galería en Microsoft Azure" 
+	description="requerido" 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="tomfitz"/>
 
 #Creación de un sitio web de Umbraco desde la galería en Microsoft Azure#
 
@@ -88,13 +102,13 @@ Una vez completada la implementación, el panel de inicio del portal muestra que
 
 [Tutoriales de vídeo de Umbraco](https://umbraco.com/help-and-support/video-tutorials.aspx)
 
-[Introducción al Portal de vista previa de Microsoft Azure](http://azure.microsoft.com/es-es/overview/preview-portal/)
+[Introducción al Portal de vista previa de Microsoft Azure](http://azure.microsoft.com/overview/preview-portal/)
 
-[Documentación del Portal de vista previa de Microsoft Azure](http://azure.microsoft.com/es-es/documentation/preview-portal/)
+[Documentación del Portal de vista previa de Microsoft Azure](http://azure.microsoft.com/documentation/preview-portal/)
 
 [Portal de vista previa de Azure (Channel 9)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal) 
 
-[Documentación de Sitios web Microsoft Azure](http://azure.microsoft.com/es-es/documentation/services/web-sites/)
+[Documentación de Sitios web Microsoft Azure](http://azure.microsoft.com/documentation/services/web-sites/)
 
 
 <!-- IMAGES -->
@@ -114,3 +128,5 @@ Una vez completada la implementación, el panel de inicio del portal muestra que
 [15CreateItemUnderOverflow]: ./media/web-sites-gallery-umbraco/15CreateItemUnderOverflow.PNG
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción a la autenticación (Tienda Windows) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación de la Tienda Windows a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Introducción a la autenticación (Tienda Windows) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación de la Tienda Windows a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="glenga"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles 
 
@@ -31,7 +45,7 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Primero d
 
 <ol start="6">
 <li><p>En Visual Studio, haga clic con el botón derecho en el proyecto de la Tienda Windows para la aplicación TodoList y haga clic en <strong>Establecer como proyecto de inicio</strong>.</p></li>
-<li><p>En el proyecto compartido, abra el archivo de proyecto App.xaml.cs, busque la definición de <a href="http://msdn.microsoft.com/es-es/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> y asegúrese de que se ha configurado para conectar con el servicio móvil que se ejecuta en Azure.</p>
+<li><p>En el proyecto compartido, abra el archivo de proyecto App.xaml.cs, busque la definición de <a href="http://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.aspx">MobileServiceClient</a> y asegúrese de que se ha configurado para conectar con el servicio móvil que se ejecuta en Azure.</p>
 <p>Cuando se conecta una aplicación a un servicio móvil con las herramientas de Visual Studio, la herramienta genera dos conjuntos de definiciones <strong>MobileServiceClient</strong>, una para cada plataforma cliente. Este es un buen momento para simplificar el código generado por la unificación de las definiciones de <code>#if...#endif</code> <strong>MobileServiceClient</strong> ajustadas en una única definición sin ajustar usada por ambas versiones de la aplicación. No necesitará hacer esto cuando descargue la aplicación de inicio rápido desde el Portal de administración de Azure.</p>
 </li> 
 <li><p>Presione la tecla F5 para ejecutar la aplicación de la Tienda Windows y compruebe que, cuando esta se inicia, se genera una excepción no controlada con el código de estado 401 (No autorizado).</p>

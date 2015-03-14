@@ -1,6 +1,20 @@
-﻿<properties title="Introduction to Azure Data Factory" pageTitle="Introducción a la Factoría de datos de Azure" description="Obtenga información acerca de cómo usar el servicio Factoría de datos de Azure para componer el procesamiento de datos, el almacenamiento de datos y servicios de movimiento de datos para crear canalizaciones que generan información de confianza." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Introducción a la Factoría de datos de Azure" 
+	description="Obtenga información acerca de cómo puede usar el servicio de la factoría de datos de Azure para componer el procesamiento de datos, el almacenamiento de datos y los servicios de movimiento de datos para crear canalizaciones que generen información de confianza." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/13/2015" 
+	ms.author="spelluru"/>
 
 # Introducción al servicio Factoría de datos de Azure
 El servicio **Factoría de datos de Azure** es un servicio completamente administrado para crear servicios de almacenamiento de datos, procesamiento y movimiento en canalizaciones de producción de datos confiable, escalable y simplificado.  Los desarrolladores pueden usar la factoría de datos para transformar datos estructurados, semiestructurados y no estructurados desde los orígenes locales y en la nube en información de confianza. Los desarrolladores crean flujos de trabajo orientados a datos (canalizaciones) que combinan, agregan y transforman datos que proceden de sus servicios locales, basados en la nube y de Internet, y configuran procesamientos de datos complejos a través de scripting JSON simple. El servicio Factoría de datos de Azure permite supervisar y administrar estas canalizaciones de un vistazo con una experiencia visual enriquecida que se ofrece a través del Portal de vista previa de Azure. La información generada por las canalizaciones puede usarse fácilmente mediante BI y herramientas de análisis, así como otras aplicaciones para controlar de forma confiable decisiones y perspectivas empresariales clave.
@@ -175,3 +189,5 @@ Microsoft Data Management Gateway es software que conecta orígenes de datos loc
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

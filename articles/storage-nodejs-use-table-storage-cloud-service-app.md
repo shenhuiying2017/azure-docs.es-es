@@ -401,9 +401,8 @@ Los siguientes pasos muestran cómo detener y eliminar su aplicación.
 
 	La eliminación del servicio puede durar varios minutos. Una vez eliminado el servicio, recibirá un mensaje que le avisará de su eliminación.
 
-  [Aplicación web Node.js con Express]: http://www.windowsazure.com/es-es/develop/nodejs/tutorials/web-app-with-express/
-  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
-  [Aplicación web Node.js]: http://www.windowsazure.com/es-es/develop/nodejs/tutorials/getting-started/
+  [Aplicación web Node.js con Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
+  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
+  [Aplicación web Node.js]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
  
-
 <!--HONumber=42-->

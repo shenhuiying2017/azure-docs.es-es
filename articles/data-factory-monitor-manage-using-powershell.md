@@ -1,6 +1,20 @@
-﻿<properties title="Monitor and manage Azure Data Factory using Azure PowerShell" pageTitle="Supervisión y administración de la Factoría de datos de Azure mediante PowerShell de Azure" description="Aprenda a usar Azure PowerShell para supervisar y administrar las factorías de datos de Azure que ha creado." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Supervisión y administración de la Factoría de datos de Azure mediante PowerShell de Azure" 
+	description="Obtenga información acerca de cómo usar PowerShell de Azure para supervisar y administrar las factorías de datos de Azure que ha creado." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Supervisión y administración de la Factoría de datos de Azure mediante PowerShell de Azure
 La siguiente tabla enumera los cmdlets que puede utilizar para supervisar y administrar las factorías de datos de Azure mediante el uso de PowerShell de Azure. 
@@ -411,3 +425,5 @@ Artículo | Descripción
 [cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

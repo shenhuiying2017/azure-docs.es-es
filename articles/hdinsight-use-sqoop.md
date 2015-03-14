@@ -74,7 +74,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 	> [AZURE.NOTE] > Azure HDInsight solo admite redes virtuales basadas en la ubicación y actualmente no funciona con redes virtuales basadas en grupos de afinidad.
 
-	* Para **crear y configurar una red virtual**, consulte [Tareas de configuración de red virtual](http://msdn.microsoft.com/es-es/library/azure/jj156206.aspx).
+	* Para **crear y configurar una red virtual**, consulte [Tareas de configuración de red virtual](http://msdn.microsoft.com/library/azure/jj156206.aspx).
 
 		* Al usar SQL Server **en su centro de datos**, debe configurar la red virtual como  *site-to-site* o  *point-to-site*.
 
@@ -362,7 +362,7 @@ En esta sección, usará Azure PowerShell para ejecutar el comando de exportaci�
 
 > [AZURE.NOTE] Aparte de la información de la cadena de conexión, los pasos indicados en esta sección deben funcionar en Base de datos de Azure o en SQL Server. Estos pasos se probaron con la siguiente configuración:
 > 
-> * **Configuración de punto a sitio de la red virtual de Azure**: red virtual que conecta el clúster de HDInsight a SQL Server en un centro privado de datos. Para obtener más información, consulte [Configuración de una VPN de punto a sitio en el Portal de administración](http://msdn.microsoft.com/es-es/library/azure/dn133792.aspx).
+> * **Configuración de punto a sitio de la red virtual de Azure**: red virtual que conecta el clúster de HDInsight a SQL Server en un centro privado de datos. Para obtener más información, consulte [Configuración de una VPN de punto a sitio en el Portal de administración](http://msdn.microsoft.com/library/azure/dn133792.aspx).
 > * **Azure HDInsight 3.1**: consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight con opciones personalizadas](/es-es/documentation/articles/hdinsight-provision-clusters/) para obtener información sobre la creación de un clúster en una red virtual.
 > * **SQL Server 2014**: está configurado para permitir la autenticación de SQL y ejecuta el paquete de configuración de clientes VPN para conectarse de forma segura a la red virtual.
 
@@ -648,11 +648,10 @@ Ahora ya ha aprendido a usar Sqoop. Para obtener más información, consulte:
 [sqldatabase-get-started]: ../sql-database-get-started/
 [sqldatabase-create-configue]: ../sql-database-create-configure/
 
-[powershell-start]: http://technet.microsoft.com/es-es/library/hh847889.aspx
+[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: ../install-configure-powershell
-[powershell-script]: http://technet.microsoft.com/es-es/library/ee176949.aspx
+[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
-
 
 <!--HONumber=42-->

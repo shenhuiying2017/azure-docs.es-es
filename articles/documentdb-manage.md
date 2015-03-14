@@ -1,6 +1,20 @@
-﻿<properties title="Manage DocumentDB capacity and performance" pageTitle="Gestión de la capacidad y rendimiento de la Base de datos de documentos | Azure" description="Obtenga información acerca de cómo puede ampliar la Base de datos de documentos de forma elástica para cumplir con las necesidades de rendimiento y almacenamiento de su aplicación." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Gestión de la capacidad y rendimiento de la Base de datos de documentos | Azure" 
+	description="Obtenga información acerca de cómo puede ampliar la Base de datos de documentos de forma elástica para cumplir con las necesidades de rendimiento y almacenamiento de su aplicación." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/13/2015" 
+	ms.author="mimig"/>
 
 #Gestión de la capacidad y rendimiento de la Base de datos de documentos
 La Base de datos de documentos es un servicio de bases de datos diferentes a SQL orientado a documentos totalmente gestionados de gran escalabilidad.  Con la Base de datos de documentos, no tendrá que alquilar máquinas virtuales, implementar software, supervisar bases de datos o preocuparse por la recuperación ante desastres. Los ingenieros de Microsoft operan y supervisan de forma continua la Base de datos de documentos para ofrecer disponibilidad, rendimiento y protección de datos universales.  
@@ -66,3 +80,5 @@ Con cada CU adquirida su cuenta se aprovisiona con 10 GB de almacenamiento de do
 
 De forma predeterminada, la Base de datos de documentos indexa todos los documentos automáticamente. Sin embargo, en caso de que desee ajustar la sobrecarga de índice, puede elegir eliminar determinados documentos de la indexación en el momento de insertar o reemplazar un documento. Puede configurar una colección de la Base de datos de documentos para que excluya todos los documentos de la colección de la indexación. También puede configurar una colección de la Base de datos de documentos para indizar de manera selectiva solo determinadas propiedades o rutas de acceso con caracteres comodines de sus documentos JSON.  La exclusión de propiedades o documentos también mejora el rendimiento de escritura, lo que significa que se consumirán menos unidades de solicitud.   
  
+
+<!--HONumber=46--> 

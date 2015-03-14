@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a Almacenamiento | Microsoft Azure" 
 	description="Información general de Almacenamiento de Microsoft Azure." 
 	services="storage" 
@@ -49,7 +49,7 @@ Una cuenta de almacenamiento de Azure es una cuenta segura que proporciona acces
 - Una cuenta de almacenamiento estándar incluye el almacenamiento de blobs, tablas, colas y archivos.
 - Una cuenta de almacenamiento premium actualmente solo admite los discos de Máquinas virtuales de Azure. El almacenamiento premium de Azure se encuentra disponible bajo petición a través de la [página de vista previa de Azure](/es-es/services/preview/).
 
-Para poder crear una cuenta de almacenamiento, debe tener una suscripción de Azure, que es un plan que le proporciona acceso a diversos servicios de Azure. Puede crear hasta 100 cuentas de almacenamiento con nombre único con una única suscripción. Consulte [Detalles de precios de almacenamiento](http://www.windowsazure.com/es-es/pricing/details/storage/) para obtener información acerca de los precios por volumen.
+Para poder crear una cuenta de almacenamiento, debe tener una suscripción de Azure, que es un plan que le proporciona acceso a diversos servicios de Azure. Puede crear hasta 100 cuentas de almacenamiento con nombre único con una única suscripción. Consulte [Detalles de precios de almacenamiento](http://azure.microsoft.com/pricing/details/storage/) para obtener información acerca de los precios por volumen.
 
 Para comenzar con Azure, puede usar una [evaluación gratuita](/es-es/pricing/free-trial/). Cuando decida adquirir un plan, puede elegir entre una variedad de [opciones de compra](/es-es/pricing/purchase-options/).. Si es un [suscriptor de MSDN](/es-es/pricing/member-offers/msdn-benefits-details/), obtendrá créditos mensuales gratuitos que podrá usar con los servicios de Azure, incluido el Almacenamiento de Azure.
 
@@ -164,7 +164,7 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
 ### Descargas
 
 - [Paquete de NuGet de Almacenamiento de Azure - Bibliotecas de clientes para .NET, Windows Phone y Windows en tiempo de ejecución](https://www.nuget.org/packages/WindowsAzure.Storage/)
-- [SDK y herramientas de Azure](http://azure.microsoft.com/es-es/downloads/)
+- [SDK y herramientas de Azure](http://azure.microsoft.com/downloads/)
 - [Emulador de almacenamiento de Azure](http://www.microsoft.com/en-in/download/details.aspx?id=43709)
 
 ### Código fuente
@@ -174,15 +174,15 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
 ### Documentación
 
 - [Documentación del almacenamiento de Azure](/es-es/documentation/services/storage/)
-- [Referencia de la API REST de servicios de almacenamiento](http://msdn.microsoft.com/es-es/library/dd179355.aspx)
-- [Referencia a la herramienta de línea de comandos de AzCopy](http://azure.microsoft.com/es-es/documentation/articles/storage-use-azcopy/)
+- [Referencia de la API REST de servicios de almacenamiento](http://msdn.microsoft.com/library/dd179355.aspx)
+- [Referencia a la herramienta de línea de comandos de AzCopy](http://azure.microsoft.com/documentation/articles/storage-use-azcopy/)
 
 <h3>Para usuarios de PowerShell</h3>
-- [Cmdlets del almacenamiento de Azure](http://msdn.microsoft.com/es-es/library/azure/dn806401.aspx)
+- [Cmdlets del almacenamiento de Azure](http://msdn.microsoft.com/library/azure/dn806401.aspx)
 
 <h3>Para desarrolladores de .NET</h3>
 
-- [Referencia a la biblioteca de clientes de .NET](http://msdn.microsoft.com/es-es/library/wa_storage_30_reference_home.aspx)
+- [Referencia a la biblioteca de clientes de .NET](http://msdn.microsoft.com/library/wa_storage_30_reference_home.aspx)
 - [Uso del almacenamiento de blobs en .NET](../storage-dotnet-how-to-use-blobs/)
 - [Uso del almacenamiento de tablas en .NET](../storage-dotnet-how-to-use-tables/)
 - [Uso del almacenamiento en cola en .NET](../storage-dotnet-how-to-use-queues/)
@@ -217,5 +217,6 @@ Para comenzar a usar Almacenamiento de Azure, explore estos recursos:
 - [Uso del almacenamiento de blobs en Python](../storage-python-how-to-use-blob-storage/)
 - [Uso del almacenamiento de tablas en Python](../storage-python-how-to-use-table-storage/)
 - [Uso del almacenamiento de colas en Python](../storage-python-how-to-use-queue-storage/)
+
 
 <!--HONumber=42-->

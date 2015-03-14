@@ -1,6 +1,20 @@
-<properties pageTitle="Uso de Servicios multimedia (Java): guía de características de Azure" description="Describe cómo usar Servicios multimedia de Azure para realizar tareas comunes como codificación, cifrado y recursos de streaming." services="media-services" documentationCenter="java" authors="rmcmurray" manager="wpickett" editor="mollybos"/>
+<properties 
+	pageTitle="Uso de Servicios multimedia (Java): guía de características de Azure" 
+	description="Describe cómo usar Servicios multimedia de Azure para realizar tareas comunes como codificación, cifrado y recursos de streaming." 
+	services="media-services" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="robmcm"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="robmcm"/>
 
 # Uso de Servicios multimedia
 
@@ -75,7 +89,7 @@ Para los PC y Mac, puede dirigir una experiencia de transferencia mediante Micro
 #### Aplicaciones de Windows 8
 Para Windows 8, puede generar aplicaciones de la Tienda Windows mediante una de las construcciones y lenguajes de desarrollo compatibles como HTML, Javascript, XAML, C# y C+.
 
--	[SDK del cliente de Smooth Streaming para Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). Para obtener más información sobre cómo crear una aplicación de la Tienda Windows con este SDK, consulte [Generación de una aplicación de la Tienda Windows de transmisión suave](http://go.microsoft.com/fwlink/?LinkId=271647). Para obtener información sobre cómo crear un reproductor de transmisión suave en HTML5, consulte [Tutorial: Generación del primer reproductor de transmisión suave de HTML5](http://msdn.microsoft.com/es-es/library/jj573656.aspx).
+-	[SDK del cliente de Smooth Streaming para Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). Para obtener más información sobre cómo crear una aplicación de la Tienda Windows con este SDK, consulte [Generación de una aplicación de la Tienda Windows de transmisión suave](http://go.microsoft.com/fwlink/?LinkId=271647). Para obtener información sobre cómo crear un reproductor de transmisión suave en HTML5, consulte [Tutorial: Generación del primer reproductor de transmisión suave de HTML5](http://msdn.microsoft.com/library/jj573656.aspx).
 
 -	[Plataforma multimedia de Microsoft: Player Framework for Windows 8 Windows Store Applications](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
 
@@ -121,7 +135,7 @@ Esta sección contiene los requisitos previos generales para el desarrollo de Se
 
 El siguiente código muestra cómo crear un recurso, cargar un archivo en el recurso, ejecutar un trabajo con una tarea para transformar el recurso y descargar los archivos de salida del recurso transformado.
 
-Necesitará configurar una cuenta de servicios multimedia antes de usar este código. Para obtener información sobre cómo configurar una cuenta, consulte [Creación de una cuenta de Servicios multimedia](http://www.windowsazure.com/es-es/manage/services/media-services/how-to-create-a-media-services-account/).
+Necesitará configurar una cuenta de servicios multimedia antes de usar este código. Para obtener información sobre cómo configurar una cuenta, consulte [Creación de una cuenta de Servicios multimedia](http://azure.microsoft.com/manage/services/media-services/how-to-create-a-media-services-account/).
 
 Sustituya los valores por las variables `clientId` y `clientSecret`. El código también se basa en un archivo almacenado localmente, `c:/media/MPEG4-H264.mp4`. Necesitará proporcionar su propio archivo para usar. El código también requiere una carpeta de salida, `c:/output`, que es dónde se descargarán los archivos de salida.
 
@@ -280,7 +294,7 @@ Sustituya los valores por las variables `clientId` y `clientSecret`. El código 
 	
 	        // Create a task with the specified media processor, in this case to transform the original asset to the H264 Broadband 720p preset.
 	        // Information on the various configurations can be found at
-	        // http://msdn.microsoft.com/es-es/library/windowsazure/jj129582.aspx.
+	        // http://msdn.microsoft.com/library/windowsazure/jj129582.aspx.
 	        // This example uses only one task, but others could be added.
 	        Task.CreateBatchOperation task = Task.create(
 	                mediaProcessor.getId(),
@@ -443,10 +457,10 @@ Para obtener la documentación de Javadoc de Servicios multimedia, consulte [Doc
 <!-- URLs. -->
 
   [Creación de una cuenta de Servicios multimedia]: http://go.microsoft.com/fwlink/?linkid=256662
-  [Centro para desarrolladores de Java para Azure]: http://www.windowsazure.com/es-es/develop/java/
+  [Centro para desarrolladores de Java para Azure]: http://azure.microsoft.com/develop/java/
   [Documentación de las bibliotecas de Azure para Java]: http://dl.windowsazure.com/javadoc/
-  [Desarrollo de clientes de los Servicios multimedia]: http://msdn.microsoft.com/es-es/library/windowsazure/dn223283.aspx
-  [Tipos de archivo compatibles para Servicios multimedia]: http://msdn.microsoft.com/es-es/library/dn535852.aspx
+  [Desarrollo de clientes de los Servicios multimedia]: http://msdn.microsoft.com/library/windowsazure/dn223283.aspx
+  [Tipos de archivo compatibles para Servicios multimedia]: http://msdn.microsoft.com/library/dn535852.aspx
 
 
 

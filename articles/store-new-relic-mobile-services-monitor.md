@@ -139,7 +139,7 @@ A continuación, habilite la supervisión de New Relic para el servicio móvil e
 [5]: ./media/store-new-relic-mobile-services-monitor/mobile-new-relic-dashboard-2.png
 
 <!-- URLs. -->
-[Control de código fuente]: http://msdn.microsoft.com/es-es/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
+[Control de código fuente]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Uso de scripts del servidor en Servicios móviles]: /es-es/develop/mobile/how-to-guides/work-with-server-scripts.md
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/

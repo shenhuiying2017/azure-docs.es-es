@@ -40,7 +40,7 @@
 	Este código usa el [objeto mssql] para obtener acceso a la tabla **todoitem** directamente a fin de establecer la marca completada en todos los elementos. Debido a que se usa la función **exports.post**, los clientes envían una solicitud POST para realizar la operación. La cantidad de filas cambiadas se devuelve al cliente como un valor entero.
 
 > [AZURE.NOTE]
-> Los objetos <a href="http://msdn.microsoft.com/es-es/library/windowsazure/jj554218.aspx" target="_blank">request</a> y <a href="http://msdn.microsoft.com/es-es/library/windowsazure/dn303373.aspx" target="_blank">response</a> que proporcionen las funciones de API personalizada se implementan mediante la <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">biblioteca de Express.js</a>. Para obtener más información, consulte <a href="http://msdn.microsoft.com/es-es/library/windowsazure/dn280974.aspx" target="_blank">API personalizada</a>. 
+> Los objetos <a href="http://msdn.microsoft.com/library/windowsazure/jj554218.aspx" target="_blank">request</a> y <a href="http://msdn.microsoft.com/library/windowsazure/dn303373.aspx" target="_blank">response</a> que proporcionen las funciones de API personalizada se implementan mediante la <a href="http://go.microsoft.com/fwlink/p/?LinkId=309046" target="_blank">biblioteca de Express.js</a>. Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/windowsazure/dn280974.aspx" target="_blank">API personalizada</a>. 
 
 A continuación, podrá modificar la aplicación de inicio rápido para agregar un botón y código nuevos que llame de forma asincrónica a la nueva API personalizada.
 
@@ -50,6 +50,5 @@ A continuación, podrá modificar la aplicación de inicio rápido para agregar 
 
 <!-- URLs. -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[objeto mssql]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554212.aspx
-
+[objeto mssql]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
 <!--HONumber=42-->

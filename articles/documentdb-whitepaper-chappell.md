@@ -1,6 +1,20 @@
-﻿<properties title="DocumentDB whitepaper by David Chappell" pageTitle="Notas del producto de la Base de datos de documentos | Azure" description="Descargue las notas del producto de David Chappell con la descripción de la Base de datos de documentos, una base de datos de NoSQL administrada en Azure." metaKeywords="" services="documentdb" solutions="" documentationCenter="" authors="adlevin" videoId="" scriptId="" manager="jhubbard" />
+﻿<properties 
+	pageTitle="Notas del producto de la Base de datos de documentos | Azure" 
+	description="Descargue las notas del producto de David Chappell acerca de la Base de datos de documentos, una base de datos de NoSQL administrada en Azure." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="adlevin" 
+	manager="jhubbard" 
+	editor=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="adlevin" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="adlevin"/>
 
 
 
@@ -23,3 +37,5 @@ Las notas del producto también describen los conceptos fundamentales siguientes
 
 **Descarga:** [Presentación de la Base de datos de documentos: una base de datos no SQL para Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=511318)
 
+
+<!--HONumber=46--> 

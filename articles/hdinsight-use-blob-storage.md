@@ -62,7 +62,7 @@ Además de esta cuenta de almacenamiento, puede agregar más cuentas de almacena
 - **Los contenedores o blobs públicos de las cuentas de almacenamiento que no están conectados a un clúster:** tiene permiso de solo lectura a los blobs de los contenedores.
 
 	> [AZURE.NOTE]
-        > Un contenedor público le permite obtener una lista de todos los blobs disponibles del contenedor en cuestión y obtener sus metadatos. El blob público le permite  tener acceso a los blobs solo si conoce la dirección URL exacta. Para obtener más información, consulte <a href="http://msdn.microsoft.com/es-es/library/windowsazure/dd179354.aspx">Restricción del acceso a contenedores y blobs</a>.
+        > Un contenedor público le permite obtener una lista de todos los blobs disponibles del contenedor en cuestión y obtener sus metadatos. El blob público le permite  tener acceso a los blobs solo si conoce la dirección URL exacta. Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/windowsazure/dd179354.aspx">Restricción del acceso a contenedores y blobs</a>.
 
 - **Los contenedores privados de las cuentas de almacenamiento que no están conectados a un clúster:** no puede tener acceso a los blobs de los contenedores a menos que defina la cuenta de almacenamiento, al enviar los trabajos de WebHCat. Se explica más adelante en este artículo.
 
@@ -297,11 +297,10 @@ Para obtener más información, consulte los artículos siguientes:
 [hdinsight-use-pig]: ../hdinsight-use-pig/
 
 [Powershell-install]: ../install-configure-powershell/
-[blob-storage-restAPI]: http://msdn.microsoft.com/es-es/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
 [azure-storage-create]: ../storage-create-storage-account/
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-use-blob-storage/HDI.PowerShell.BlobCommands.png 
 [img-hdi-quick-create]: ./media/hdinsight-use-blob-storage/HDI.QuickCreateCluster.png
 [img-hdi-custom-create-storage-account]: ./media/hdinsight-use-blob-storage/HDI.CustomCreateStorageAccount.png  
-
 <!--HONumber=42-->

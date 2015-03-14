@@ -1,6 +1,20 @@
-<properties urlDisplayName="Provision BizTalk Services in management portal" pageTitle="Creaci&oacute;n de Servicios de BizTalk en el portal de administraci&oacute;n | Azure" metaKeywords="Get started Azure biztalk services, provision, Azure unstructured data" description="Aprenda a aprovisionar un servicio de BizTalk en el Portal de administraci&oacute;n de Azure, as&iacute; como crear un servidor opcional de base de datos SQL y una cuenta de Almacenamiento." metaCanonical="http://www.windowsazure.com/es-es/manage/services/biztalk-services/provisioning-biztalk-service" services="biztalk-services" documentationCenter="" title="Servicios de BizTalk: Aprovisionamiento con el Portal de administraci&oacute;n de Azure" authors="mandia" solutions="" manager="dwrede" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Creación de Servicios de BizTalk en el portal de administración | Azure" 
+	description="Obtenga información acerca de cómo aprovisionar o crear un servicio de BizTalk en el Portal de administración de Azure. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/10/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 # Crear un Servicio de BizTalk mediante el portal de administración de Azure
 
@@ -304,3 +318,5 @@ Ahora que se crea un Servicio de BizTalk, familiarícese con las distintas pesta
   [Servicios de BizTalk: Limitaciones]: http://go.microsoft.com/fwlink/p/?LinkID=302282
   [Servicios de BizTalk: Nombre de emisor y clave de emisor]: http://go.microsoft.com/fwlink/p/?LinkID=303941
   [¿Cómo puedo comenzar a utilizar el SDK de Servicios de BizTalk de Azure?]: http://go.microsoft.com/fwlink/p/?LinkID=302335
+
+<!--HONumber=46--> 

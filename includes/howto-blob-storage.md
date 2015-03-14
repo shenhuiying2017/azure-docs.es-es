@@ -18,7 +18,7 @@ El servicio BLOB contiene los componentes siguientes:
 ![Blob1][Blob1]
 
 -   **uenta de almacenamiento:** se realiza todo el acceso al almacenamiento de Azure
-    a través de una cuenta de almacenamiento. Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento en Azure](http://msdn.microsoft.com/es-es/library/dn249410.aspx) para obtener detalles acerca de la capacidad de las cuentas de almacenamiento.
+    a través de una cuenta de almacenamiento. Consulte [Objetivos de escalabilidad y rendimiento del almacenamiento en Azure](http://msdn.microsoft.com/library/dn249410.aspx) para obtener detalles acerca de la capacidad de las cuentas de almacenamiento.
 
 -   **Contenedor:** un contenedor proporciona una agrupación de un conjunto de blobs.
     Todos los blobs deben residir en un contenedor. Una cuenta puede contener una
@@ -45,4 +45,4 @@ El servicio BLOB contiene los componentes siguientes:
 
 [Blob1]: ./media/howto-blob-storage/blob1.jpg
 
-<!--HONumber=41-->
+<!--HONumber=42-->

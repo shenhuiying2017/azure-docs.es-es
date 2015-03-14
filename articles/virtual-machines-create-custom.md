@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Creación de una máquina virtual personalizada en Azure" 
 	description="Aprenda a crear una máquina virtual personalizada en Azure." 
 	services="virtual-machines" 
@@ -16,9 +16,9 @@
 	ms.date="11/12/2014" 
 	ms.author="kathydav"/>
 
-# Creación de una máquina virtual personalizada
+#Creación de una máquina virtual personalizada
 
-Una máquina virtual *custom* simplemente significa una máquina virtual creada con la opción **Desde la galería** porque le ofrece más opciones de configuración que la opción **Creación rápida**. Entre estas opciones se incluyen:
+Una máquina virtual  *personalizada* simplemente significa una máquina virtual creada con la opción**Desde la galería** porque le ofrece más opciones de configuración que la opción **Creación rápida**. Entre estas opciones se incluyen:
 
 - Conexión de la VM a una red virtual
 - Instalación del agente de máquina virtual, por ejemplo para funciones antimalware 
@@ -31,4 +31,7 @@ Una máquina virtual *custom* simplemente significa una máquina virtual creada 
 
 
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

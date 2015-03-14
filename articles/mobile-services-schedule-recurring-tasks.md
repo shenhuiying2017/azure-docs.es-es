@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Programación de tareas de back-end con el programador - Servicios móviles" description="Use el programador de Servicios móviles de Azure para programar trabajos para su aplicación móvil." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Programación de tareas de back-end con el programador - Servicios móviles" 
+	description="Use el programador de Servicios móviles de Azure para programar trabajos para su aplicación móvil." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # Programación de trabajos periódicos en Servicios móviles 
 
@@ -185,11 +199,11 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 
 <!-- URLs. -->
 [Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
-[MicrosoftAzure.com]: http://www.windowsazure.com/
+[MicrosoftAzure.com]: http://azure.microsoft.com/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Registro de las aplicaciones para el inicio de sesión en Twitter con Servicios móviles]: /es-es/develop/mobile/how-to-guides/register-for-twitter-authentication
 [Desarrolladores de Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Configuración de aplicaciones]: http://msdn.microsoft.com/es-es/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
+[Configuración de aplicaciones]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
 
 <!--HONumber=42-->

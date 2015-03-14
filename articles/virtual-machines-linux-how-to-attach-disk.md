@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Acoplamiento de un disco a una máquina virtual que ejecuta Linux en Azure" 
 	description="Aprenda como acoplar un disco de datos a una máquina virtual de Azure y a inicializarla para que esté lista para utilizarse." 
 	services="virtual-machines" 
@@ -20,20 +20,20 @@
 
 Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos casos, se trata realmente de archivos .vhd que residen en una cuenta de almacenamiento de Azure. También en ambos casos, una vez acoplado el disco, tendrá que inicializarlo para que esté listo para utilizarse. 
 
-> [AZURE.NOTE] Es recomendable utilizar uno o varios discos independientes para almacenar los datos de una máquina virtual. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo y un disco temporal. **No utilice el disco temporal para almacenar datos.** Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure. 
+> [AZURE.NOTE] Es recomendable utilizar uno o varios discos independientes para almacenar los datos de una máquina virtual. Al crear una máquina virtual de Azure, esta cuenta con un disco para el sistema operativo y un disco temporal. **No utilice el disco temporal para almacenar datos.**  Como señala su nombre, esta ofrece únicamente almacenamiento temporal. No ofrece redundancia o copias de seguridad porque no reside en el almacenamiento de Azure. 
 > El Agente de Linux de Azure normalmente administra el disco temporal, y este se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu). Por otra parte, en Linux el kernel debe poner al disco de datos el nombre  `/dev/sdc`. Si ese fuera el caso, tiene que crear particiones en ese recurso, darle formato y montarlo. Consulte la [Guía de usuario del Agente de Linux de Azure](http://azure.microsoft.com/manage/linux/how-to-guides/linux-agent-guide/) para obtener más información.
 
-- [Codificación un disco vacío](#attachempty)
-- [Codificación un disco existente](#attachexisting)
-- [Codificación un nuevo disco de datos en Linux](#initializeinlinux)
+- [Uso de un disco vacío](#attachempty)
+- [Uso de un disco existente](#attachexisting)
+- [Uso de un nuevo disco de datos en Linux](#initializeinlinux)
 
 [WACOM.INCLUDE [howto-attach-disk-windows-linux](../includes/howto-attach-disk-windows-linux.md)]
 
-##<a id="initializeinlinux"></a>Codificación un nuevo disco de datos en Linux
+##<a id="initializeinlinux"></a>Cómo: un nuevo disco de datos en Linux
 
 
 
-1. Conéctese a la máquina virtual, según los pasos que aparecen en [Inicio de sesión en una máquina virtual con Linux][logonlinux].
+1. Siga los pasos que aparecen en [Inicio de sesión en una máquina virtual con Linux][logonlinux] para conectarse a una máquina virtual.
 
 
 
@@ -55,7 +55,7 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 
 		# sudo fdisk /dev/sdc
 
-	>[AZURE.NOTE] En este ejemplo, es posible que tenga que usar `sudo -i` en algunas distribuciones si /sbin o /usr/sbin no están en su `$PATH`.
+	>[AZURE.NOTE] En este ejemplo, es posible que tenga que utilizar  `sudo -i` en algunas distribuciones si /sbin o /usr/sbin no se encuentran en su `$PATH`.
 
 
 4. Escriba **n** para crear una nueva partición.
@@ -142,4 +142,7 @@ Puede acoplar tanto discos vacíos como discos que contienen datos. En ambos cas
 
 [logonlinux]: ../virtual-machines-linux-how-to-log-on/
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

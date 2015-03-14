@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Sitio web PHP con MySQL y Git - Tutorial de Azure" 
 	description="Un tutorial en el que se muestra cómo crear un sitio web de PHP que almacene datos en MySQL y usar la implementación de Git en Azure." 
 	services="web-sites" 
@@ -18,7 +18,7 @@
 
 #Creación de un sitio web Azure de PHP-MySQL e implementación mediante Git
 
-En este tutorial se muestra cómo crear un sitio web PHP-MySQL de Azure y cómo implementarlo mediante Git. Usará [PHP][install-php], la herramienta de línea de comandos de MySQL (parte de [MySQL][install-mysql]), un servidor web y [Git][install-git] instalados en su equipo. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo, incluidos Windows, Mac y Linux. Una vez completada esta guía, tendrá un sitio web PHP/MySQL ejecutándose en Azure.
+En este tutorial se muestra cómo crear un sitio web PHP-MySQL de Azure y cómo implementarlo mediante Git. Usará [PHP][install-php], la herramienta de línea de comandos de MySQL (parte de [MySQL](install-mysql)), un servidor web y [Git][install-git] instalados en su equipo. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo, incluidos Windows, Mac y Linux. Una vez completada esta guía, tendrá un sitio web PHP/MySQL ejecutándose en Azure.
  
 Aprenderá a:
 
@@ -30,13 +30,13 @@ Mediante este tutorial, se compilará una aplicación web de registro sencilla e
 ![Azure PHP web site][running-app]
 
 > [AZURE.NOTE]
-> Para completar este tutorial, necesita una cuenta de Azure que tenga habilitada la característica Sitios web Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Evaluación gratuita de Azure</a>.
+> Para completar este tutorial, necesita una cuenta de Azure que tenga habilitada la característica Sitios web Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Evaluación gratuita de Azure</a>.
 > 
 > Si desea obtener una introducción a Sitios web Azure antes de inscribirse para abrir una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita un sitio básico de ASP.NET de corta duración en Sitios web Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 ##Configuración del entorno de desarrollo
 
-En este tutorial se supone que tiene instalados en el equipo [PHP][install-php], la herramienta de línea de comandos de MySQL (parte de [MySQL][install-mysql]), un servidor web y [Git][install git].
+En este tutorial se supone que tiene instalados en el equipo [PHP][install-php], la herramienta de línea de comandos de MySQL (parte de [MySQL](install-mysql)), un servidor web y [Git](install git).
 
 > [AZURE.NOTE]
 > Si el tutorial se está realizando en Windows, puede configurarse la máquina para PHP y configurar IIS (el servidor web integrado en Windows) automáticamente mediante la instalación del <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">SDK de Azure para PHP</a>.
@@ -281,7 +281,7 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 [deployments-list]: ./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png
 [connection-string-info]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
 [management-portal]: https://manage.windowsazure.com
-[sql-database-editions]: http://msdn.microsoft.com/es-es/library/windowsazure/ee621788.aspx
+[sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
 
 
 

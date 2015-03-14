@@ -1,6 +1,20 @@
-<properties pageTitle="El complemento Smooth Streaming para Open Source Media Framework" description="Aprenda a usar el complemento Smooth Streaming de Servicios multimedia de Azure para Adobe Open Source Media Framework." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="El complemento Smooth Streaming para Open Source Media Framework" 
+	description="Aprenda a usar el complemento Smooth Streaming de Servicios multimedia de Azure para Adobe Open Source Media Framework." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -41,7 +55,8 @@ A continuación se indican las características no compatibles:
 
 A continuación se expone una lista de problemas conocidos:
 
-- La reproducción de contenido Smooth Streaming con pistas de audio de 48 KHz presenta problemas. El tiempo de ejecución flash experimenta un problema conocido para representar contenido de audio de 48 KHz. Debido a este problema, es posible que el contenido Smooth Streaming codificado con una configuración de 48 KHz no funcione según lo previsto. Consulte: [Utilización de Flash Player](http://forums.adobe.com/message/4483498#4483498) y [Adobe Flash Player 11.3  -  Error 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964) para obtener más información.
+- La reproducción de contenido Smooth Streaming con pistas de audio de 48 KHz presenta problemas. El tiempo de ejecución flash experimenta un problema conocido para representar contenido de audio de 48 KHz. Debido a este problema, es posible que el contenido Smooth Streaming codificado con una configuración de 48 KHz no funcione según lo previsto. Consulte: [Utilización de Flash Player](http://foru
+	ms.adobe.com/message/4483498#4483498) y [Adobe Flash Player 11.3  -  Error 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964) para obtener más información.
 - La reproducción múltiple de contenido Smooth Streaming en una única página puede causar problemas. Se trata de un problema conocido con OSMF.
 - La reproducción de Stage Video puede ocasionar problemas y que no se reproduzca ningún vídeo en algunas máquinas. Como solución alternativa, puede deshabilitar la aceleración de hardware o Stage Video.
 

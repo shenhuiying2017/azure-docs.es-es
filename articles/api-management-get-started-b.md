@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción a la Administración de API de Azure" metaKeywords="" description="Vea cómo crear API, operaciones y comenzar a usar Administración de API." metaCanonical="" services="api-management" documentationCenter="API Management" title="Get started with Azure API Management" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Introducción a la Administración de API de Azure" 
+	description="Vea cómo crear API, operaciones y comenzar a usar Administración de API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # Introducción a Administración de API de Azure
 
@@ -156,7 +170,7 @@ Después de invocar una operación, el portal para desarrolladores mostrará el 
 -   Personalización del portal para desarrolladores
 -   Seguimiento de llamadas con API Inspector
 
-[Evaluación gratuita de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/
+[Evaluación gratuita de Azure]: http://azure.microsoft.com/pricing/free-trial/
 
 [Creación de una instancia de Administración de API]: #create-service-instance
 [Creación de una API]: #create-api
@@ -203,3 +217,5 @@ Después de invocar una operación, el portal para desarrolladores mostrará el 
 [api-management-invoke-get-response]: ./media/api-management-get-started-b/api-management-invoke-get-response.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

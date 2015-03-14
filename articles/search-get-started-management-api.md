@@ -1,6 +1,20 @@
-﻿<properties title="Get started with Azure Search Management REST API" pageTitle="Introducción a la API de REST de administración de búsqueda de Azure" description="Introducción a la API de REST de administración de búsqueda de Azure" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Introducción a la API de REST de administración de búsqueda de Azure" 
+	description="Introducción a la API de REST de administración de búsqueda de Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/10/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 # Introducción a la API de REST de administración de búsqueda de Azure #
 
 La API de administración de REST de Búsqueda de Azure es una alternativa de programación para realizar tareas administrativas en el portal. Las operaciones de administración de servicios incluyen crear o eliminar el servicio, escalar el servicio y administrar las claves. Este tutorial incluye una aplicación cliente de ejemplo que muestra la API de administración de servicios. También incluye los pasos de configuración necesarios para ejecutar el ejemplo en el entorno de desarrollo local.
@@ -24,11 +38,11 @@ Puede encontrar la aplicación cliente en Codeplex en [Demostración de la API d
 
 <h2 id="config">Configuración de la aplicación</h2>
 
-Para poder ejecutar la aplicación de ejemplo, debe habilitar la autenticación de modo que se puedan aceptar solicitudes enviadas desde la aplicación cliente al extremo del Administrador de recursos. El requisito de autenticación se origina con el [Administrador de recursos de Azure](http://msdn.microsoft.com/es-es/library/azure/dn790568.aspx), que es la base para todas las operaciones relacionadas con el portal solicitadas a través de una API, que incluye las relacionadas con la administración del servicio de búsqueda. La API de administración de servicios de Búsqueda de Azure es simplemente una extensión del Administrador de recursos de Azure y, por tanto, hereda sus dependencias.  
+Para poder ejecutar la aplicación de ejemplo, debe habilitar la autenticación de modo que se puedan aceptar solicitudes enviadas desde la aplicación cliente al extremo del Administrador de recursos. El requisito de autenticación se origina con el [Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790568.aspx), que es la base para todas las operaciones relacionadas con el portal solicitadas a través de una API, que incluye las relacionadas con la administración del servicio de búsqueda. La API de administración de servicios de Búsqueda de Azure es simplemente una extensión del Administrador de recursos de Azure y, por tanto, hereda sus dependencias.  
 
 El Administrador de recursos de Azure requiere el servicio Azure Active Directory como su proveedor de identidades. 
 
-Para obtener un token de acceso que permitirá que las solicitudes lleguen al Administrador de recursos, la aplicación cliente incluye un segmento de código que llama a Active Directory. El segmento de código, además de los pasos previos para usarlo, se han tomado prestados de este artículo: [Solicitudes de autenticación del Administrador de recursos de Azure](http://msdn.microsoft.com/es-es/library/azure/dn790557.aspx).
+Para obtener un token de acceso que permitirá que las solicitudes lleguen al Administrador de recursos, la aplicación cliente incluye un segmento de código que llama a Active Directory. El segmento de código, además de los pasos previos para usarlo, se han tomado prestados de este artículo: [Solicitudes de autenticación del Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 Puede seguir las instrucciones del vínculo anterior o usar los pasos de este documento si prefiere revisar el tutorial paso a paso.
 
@@ -39,7 +53,7 @@ En esta sección, realizaremos las siguientes tareas:
 1. Configurar la aplicación AD registrando detalles acerca de la aplicación cliente de ejemplo que descargó
 1. Cargar la aplicación cliente de ejemplo con los valores que se usarán para obtener autorización para sus solicitudes
 
-> [WACOM.NOTE] Estos vínculos proporcionan información de contexto acerca con Azure Active Directory para autenticar solicitudes de cliente en el Administrador de recursos: [Administrador de recursos de Azure](http://msdn.microsoft.com/es-es/library/azure/dn790568.aspx), [Autenticación de solicitudes del Administrador de recursos de Azure](http://msdn.microsoft.com/es-es/library/azure/dn790557.aspx) y [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx).
+> [WACOM.NOTE] Estos vínculos proporcionan información de contexto acerca con Azure Active Directory para autenticar solicitudes de cliente en el Administrador de recursos: [Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790568.aspx), [Autenticación de solicitudes del Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx) y [Azure Active Directory](http://msdn.microsoft.com/library/azure/jj673460.aspx).
 
 <h3>Crear un servicio de Active Directory</h3>
 
@@ -140,7 +154,7 @@ Si no ha [descargado la aplicación de ejemplo de Codeplex](linkTBD), la necesit
 
 ‎Los problemas con las referencias de ensamblado pueden evitar que se compile una solución. Esta sección proporciona soluciones alternativas para algunos de ellos.
 
-- se debe instalar Microsoft.IdentityModel.Clients.ActiveDirectory (consulte [Autenticación de solicitudes del Administrador de recursos de Azure](http://msdn.microsoft.com/es-es/library/azure/dn790557.aspx) para obtener información detallada sobre cómo instalar la [biblioteca de autenticación de Active Directory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)).
+- se debe instalar Microsoft.IdentityModel.Clients.ActiveDirectory (consulte [Autenticación de solicitudes del Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx) para obtener información detallada sobre cómo instalar la [biblioteca de autenticación de Active Directory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)).
 - Volver a instalar un ensamblado también puede resolver un problema. Vaya a **Herramientas** | **Administrador de paquetes NuGet** | **Consola del Administrador de paquetes**. En el símbolo del sistema PM>, escriba *Update-package -reinstall Microsoft.IdentityModel.Clients.ActiveDirectory*.
 - También se hace referencia a Newtonsoft.Json en esta solución. Si se produce un error en este ensamblado, elimínelo del proyecto y, a continuación, vuelva a agregarlo. Haga clic con el botón secundario en **Referencias** | **Administrar paquetes de NuGet** | **Paquetes instalados**. Seleccione **Json.Net** y desinstálelo. Expanda **En línea**, seleccione **Json.Net** | **Instalar**.
 
@@ -155,13 +169,13 @@ La aplicación de ejemplo crea un servicio de Búsqueda de Azure gratuito para u
  
 3. Observe que **ExecuteArmRequest** se utiliza para ejecutar solicitudes en el extremo del Administrador de recursos de Azure, `https://management.azure.com/subscriptions` para un `subscriptionID` especificado. Este método se utiliza en todo el programa para realizar operaciones mediante la API del Administrador de recursos de Azure o la API de administración de búsqueda.
 
-3. Las solicitudes al Administrador de recursos de Azure se deben autenticar y autorizar. Esto se consigue mediante el método **GetAuthorizationHeader**, al que se llama mediante el método **ExecuteArmRequest**, que se ha pedido prestado de [Autenticación de solicitudes del Administrador de recursos de Azure](http://msdn.microsoft.com/es-es/library/azure/dn790557.aspx). Observe que **GetAuthorizationHeader** llama a `https://management.core.windows.net` para obtener un token de acceso.
+3. Las solicitudes al Administrador de recursos de Azure se deben autenticar y autorizar. Esto se consigue mediante el método **GetAuthorizationHeader**, al que se llama mediante el método **ExecuteArmRequest**, que se ha pedido prestado de [Autenticación de solicitudes del Administrador de recursos de Azure](http://msdn.microsoft.com/library/azure/dn790557.aspx). Observe que **GetAuthorizationHeader** llama a `https://management.core.windows.net` para obtener un token de acceso.
 
 4. Se le pedirá que inicie sesión con un nombre de usuario y una contraseña que sea válida para la suscripción.
 
 5. A continuación, se registra un nuevo servicio de Búsqueda de Azure con el proveedor del Administrador de recursos de Azure. De nuevo, este es el método **ExecuteArmRequest**, que se usa esta vez para crear el servicio de búsqueda en Azure para su suscripción a través de `providers/Microsoft.Search/register`. 
 
-6. El resto del programa utiliza la [API de REST de administración de búsqueda de Azure](http://msdn.microsoft.com/es-es/library/dn832684.aspx). Observe que la "versión de api" de esta API es diferente de la versión de api del Administrador de recursos de Azure. Por ejemplo, `/listAdminKeys?api-version=2014-07-31-Preview` muestra la `versión de api` de la API de REST de administración de búsqueda de Azure.
+6. El resto del programa utiliza la [API de REST de administración de búsqueda de Azure](http://msdn.microsoft.com/library/dn832684.aspx). Observe que la "versión de api" de esta API es diferente de la versión de api del Administrador de recursos de Azure. Por ejemplo, `/listAdminKeys?api-version=2014-07-31-Preview` muestra la `versión de api` de la API de REST de administración de búsqueda de Azure.
 
 	La siguiente serie de operaciones recupera la definición de servicio que acaba de crear, las claves de api de administración, vuelve a generar y recupera las claves, cambia la réplica y la partición y finalmente elimina el servicio.
 
@@ -173,8 +187,8 @@ Al cambiar el número de réplica o de partición de servicio, se espera que est
 
 Una vez terminado este tutorial, puede obtener más información acerca de la administración o la autenticación de servicios con el servicio de Active Directory:
 
-- Más información acerca de cómo integrar una aplicación cliente con Active Directory. Consulte [Integración de aplicaciones en Azure Active Directory](http://msdn.microsoft.com/es-es/library/azure/dn151122.aspx).
-- Obtenga información acerca de otras operaciones de administración de servicios en Azure. Consulte [Administración de los servicios](http://msdn.microsoft.com/es-es/library/azure/dn578292.aspx).
+- Más información acerca de cómo integrar una aplicación cliente con Active Directory. Consulte [Integración de aplicaciones en Azure Active Directory](http://msdn.microsoft.com/library/azure/dn151122.aspx).
+- Obtenga información acerca de otras operaciones de administración de servicios en Azure. Consulte [Administración de los servicios](http://msdn.microsoft.com/library/azure/dn578292.aspx).
 
 <!--Anchors-->
 [Descarga de la aplicación de ejemplo]: #Download
@@ -197,3 +211,5 @@ Una vez terminado este tutorial, puede obtener más información acerca de la ad
 [Crear una aplicación de búsqueda geoespacial usando Búsqueda de Azure]: ../search-create-geospatial/
 
 
+
+<!--HONumber=46--> 

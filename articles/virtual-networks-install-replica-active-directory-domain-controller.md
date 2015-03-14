@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="Replica domain controller" pageTitle="Instalar un controlador de dominio de réplica en Azure"metaKeywords ="" description="En este tutorial se explica cómo instalar un controlador de dominio desde un bosque de Active Directory local en una máquina virtual de Azure." metaCanonical="" services="virtual-network" documentationCenter="" title="Install a Replica Active Directory Domain Controller on an Azure Virtual Network" authors="Justinha" solutions="" writer="Justinha" manager="TerryLan" editor="LisaToft" />
+﻿<properties 
+	pageTitle="Instalar un controlador de dominio de réplica en Azure" 
+	description="Tutorial que explica cómo instalar un controlador de dominio de un bosque de Active Directory local en una máquina virtual de Azure." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="Justinha" 
+	writer="Justinha" 
+	manager="TerryLan" 
+	editor="LisaToft"/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/04/2014" ms.author="Justinha" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="Justinha"/>
 
 
 #Instalación de un controlador de dominio réplica de Active Directory en Redes virtuales de Azure
@@ -154,7 +169,7 @@ Inicie sesión en una máquina virtual y compruebe que tiene conectividad a trav
 Como alternativa al uso del portal de administración para aprovisionar máquinas virtuales, puede usar Windows PowerShell para Microsoft Azure. Use objetos <a href = "http://msdn.microsoft.com/library/azure/dn495159.aspx">New-AzureVMConfig</a> y <a href = "http://msdn.microsoft.com/library/azure/dn495299.aspx">Add-AzureProvisioningConfig</a> para aprovisionar una máquina virtual como un equipo unido al dominio cuando se inicia por primera vez y utilice <a href = "http://msdn.microsoft.com/library/azure/dn495254.aspx">New-AzureVM</a> para crear la propia máquina virtual. 
 </p>
 
-Para obtener más información acerca del uso de Windows PowerShell, consulte [Azure PowerShell](http://msdn.microsoft.com/es-es/library/windowsazure/jj156055.aspx) y [Azure Management Cmdlets](http://msdn.microsoft.com/es-es/library/windowsazure/jj152841).
+Para obtener más información acerca del uso de Windows PowerShell, consulte [Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj156055.aspx) y [Azure Management Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj152841).
 
 
 <h2><a id="resources"></a>Recursos adicionales</h2>
@@ -179,3 +194,5 @@ Para obtener más información acerca del uso de Windows PowerShell, consulte [A
 [1]: ./media/virtual-networks-install-replica-active-directory-domain-controller/ReplicaDCsOnAzureVNet.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

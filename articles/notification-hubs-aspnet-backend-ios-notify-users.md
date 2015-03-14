@@ -1,36 +1,50 @@
-﻿<properties title="Azure Notification Hubs Notify Users" pageTitle="Notificación a los usuarios de Centros de notificaciones de Azure" metaKeywords="Azure push notifications, Azure notification hubs" description="Obtenga información acerca de cómo enviar notificaciones de inserción seguras en Azure. Ejemplos de código escritos en Objective-C con la API de .NET." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="yuaxu" manager="dwrede" />
+﻿<properties 
+	pageTitle="Notificación a los usuarios con los Centros de notificaciones de Azure" 
+	description="Obtenga información acerca de cómo enviar notificaciones de inserción seguras en Azure. Ejemplos de código escritos en Objective-C con la API de .NET." 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="11/22/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="yuaxu"/>
 
-#Notificación a los usuarios de Centros de notificaciones de Azure
+#Notificación a los usuarios con los Centros de notificaciones de Azure
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/en-us/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
-		<a href="/en-us/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
+    	<a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-windows-dotnet-notify-users/" title="Windows Universal">Windows Universal</a><a href="/es-es/documentation/articles/notification-hubs-/" title="iOS" class="current">iOS</a>
+		<a href="/es-es/documentation/articles/notification-hubs-aspnet-backend-android-notify-users/" title="Android">Android</a>
 </div>
 
-La compatibilidad con las notificaciones de inserción en Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Un backend de ASP.NET WebAPI se usa para autenticar clientes y generar notificaciones, tal como se muestra en el tema de referencia [Registro desde el backend de la aplicación](http://msdn.microsoft.com/en-us/library/dn743807.aspx).
+La compatibilidad con las notificaciones de inserción en Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Un back-end de ASP.NET WebAPI se usa para autenticar clientes y generar notificaciones, tal y como se muestra en el tema de referencia [Registro desde el back-end de la aplicación](http://msdn.microsoft.com/library/dn743807.aspx).
 
-> [AZURE.NOTE] Este tutorial asume que ha creado y configurado el centro de notificaciones tal como se describe en [Introducción a los Centros de notificaciones (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/). Este tutorial también es el requisito previo para el tutorial [Inserción segura (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/) .
-> Si usa Servicios móviles como su servicio backend, consulte la [versión de Servicios móviles](/en-us/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/) de este tutorial.
+> [AZURE.NOTE] Este tutorial asume que ha creado y configurado el Centro de notificaciones tal y como se describe en [Introducción a los Centros de notificaciones (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/). Este tutorial también es el requisito previo para el tutorial [Inserción segura (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/).
+> Si usa Servicios móviles como su servicio back-end, consulte la [versión de Servicios móviles](/es-es/documentation/articles/mobile-services-javascript-backend-ios-push-notifications-app-users/) de este tutorial.
 
 
-## Creación y configuración del centro de notificaciones
+## Creación y configuración del Centro de notificaciones
 
-Siga las secciones 1 a 5 en [Introducción a los Centros de notificaciones (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/). Para obtener recursos adicionales sobre el aprovisionamiento de dispositivos iOS, consulte la guía en [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html).
+Siga las secciones 1 a 5 en [Introducción a los Centros de notificaciones (iOS](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/). Para obtener recursos adicionales sobre el aprovisionamiento de dispositivos iOS, consulte la guía en [Big Nerd Ranch](http://www.bignerdranch.com/we-teach/how-to-prepare/ios-device-provisioning.html)
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## Modificación de la aplicación iOS
 
-1. Abra la aplicación de vista de una página que creó siguiendo las secciones 1 a 5 en [Introducción a los Centros de notificaciones (iOS)](http://azure.microsoft.com/en-us/documentation/articles/notification-hubs-ios-get-started/).
+1. Abra la aplicación de vista de una página que creó siguiendo las secciones 1 a 5 en [Introducción a los Centros de notificaciones (iOS)](http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/)
 
 > [AZURE.NOTE] En esta sección asumimos que configuró el proyecto con un nombre de organización vacío. Si no es así, debe anteponer el nombre de la organización a todos los nombres de clase.
 
 2. En Main.storyboard, agregue los siguientes componentes desde la biblioteca de objetos:
 	+ UITextField con el texto de marcador de posición **Username**
-	+ UITextField con el texto de marcador de posición **Password** y marque la opción **Segura** en el Inspector de atributos, en Textfield Return Key
-	+ Un UIButton etiquetado **1. Iniciar sesión** y desactive la opción **Habilitado** en el Inspector de atributos, en Control y luego Contenido
+	+ UITextField con el texto de marcador de posición **Password** y marque la opción **Secure** en el Inspector de atributos, en Textfield Return Key
+	+ Un UIButton etiquetado **1. Inicie sesión** y desactive la opción **Habilitado** en el Inspector de atributos, en Control y luego Contenido
 	+ Un UIButton etiquetado **2. Enviar inserción** y desactive la opción **Habilitado**
 
 	El guión gráfico debe tener el aspecto siguiente:
@@ -192,7 +206,7 @@ Siga las secciones 1 a 5 en [Introducción a los Centros de notificaciones (iOS)
 		    [dataTask resume];
 		}
 
-	El código anterior implementa la lógica explicada en el artículo de referencia [Registro desde el backend de la aplicación](http://msdn.microsoft.com/en-us/library/dn743807.aspx) usando NSURLSession para realizar llamadas REST al back-end de la aplicación y NSUserDefaults para almacenar localmente el registrationId devuelto por el centro de notificaciones.
+	El código anterior implementa la lógica explicada en el artículo de referencia [Registro desde el back-end de la aplicación](http://msdn.microsoft.com/library/dn743807.aspx) usando NSURLSession para realizar llamadas REST al back-end de la aplicación y NSUserDefaults para almacenar localmente del identificador de registro devuelto por el Centro de notificaciones.
 
 	Tenga en cuenta que esta clase requiere que su propiedad **authorizationHeader** esté establecida para que funcione correctamente. Esta propiedad la establece la clase **ViewController** después del inicio de sesión.
 
@@ -235,9 +249,9 @@ Siga las secciones 1 a 5 en [Introducción a los Centros de notificaciones (iOS)
 		    return YES;
 		}
 
-	Observe cómo al establecer el token del dispositivo se habilita el botón de inicio de sesión. Esto se debe a que, como una parte de la acción de inicio de sesión, el controlador de vista registrará notificaciones de inserción con el back-end de la aplicación. Por lo tanto, no se desea que la acción Iniciar sesión sea accesible hasta que el token del dispositivo se haya configurado correctamente. Es posible que desacople el inicio de sesión del registro de inserción, siempre que lo primero ocurra antes que lo último.
+	Observe cómo al establecer el token del dispositivo se habilita el botón de inicio de sesión. Esto se debe a que, como una parte de la acción de inicio de sesión, el controlador de vista registra notificaciones de inserción con el back-end de la aplicación. Por lo tanto, no se desea que la acción Iniciar sesión sea accesible hasta que el token del dispositivo se haya configurado correctamente. Es posible que desacople el inicio de sesión del registro de inserción, siempre que lo primero ocurra antes que lo último.
 
-10. En ViewController.m, agregue una constante para el extremo backend y use los siguientes fragmentos de código para implementar los métodos de acción para los UIButtons. Reemplace el extremo de backend de marcador de posición por la dirección URL de destino que utilizó para el backend.
+10. En ViewController.m, agregue una constante para el extremo backend y use los siguientes fragmentos de código para implementar los métodos de acción para los UIButtons. Reemplace el extremo de backend de marcador de posición por la dirección URL de destino que utilizó para el back-end.
 
 		- (IBAction)LogInAction:(id)sender {
 		    // create authentication header and set it in register client
@@ -313,11 +327,11 @@ Siga las secciones 1 a 5 en [Introducción a los Centros de notificaciones (iOS)
 
 2. En la interfaz de usuario de la aplicación iOS, escriba un nombre de usuario y contraseña. Esta información puede ser cualquier cadena, pero deben tener el mismo valor. A continuación, haga clic en **Iniciar sesión**.
 
-3. Debería ver una ventana emergente que le informa sobre el éxito del registro. Haga clic en **Aceptar**.
+3. Debería ver una ventana emergente que le informa del éxito de registro. Haga clic en **OK**.
 
 4. Haga clic en **Enviar inserción** y presione el botón de inicio. Una notificación de inserción aparecerá en breve.
 
 
 [IOS1]: ./media/notification-hubs-aspnet-backend-ios-notify-users/notification-hubs-ios-notify-users1.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

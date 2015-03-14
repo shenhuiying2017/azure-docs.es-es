@@ -106,7 +106,7 @@ En esta sección se analiza un ejemplo para migrar algunos sitios web que utiliz
 
 	![](./media/web-sites-migration-from-iis-server/migration-settings.png)
 
-	>[AZURE.NOTE] La casilla de verificación **Habilitar Azure Active Directory** de la configuración personalizada integra el sitio web de Azure con [Azure Active Directory](http://azure.microsoft.com/es-es/documentation/articles/active-directory-whatis/) (el **directorio predeterminado**). Para obtener más información sobre la sincronización de Azure Active Directory con su Active Directory local, vea [Integración de directorios](http://msdn.microsoft.com/library/jj573653).
+	>[AZURE.NOTE] La casilla de verificación **Habilitar Azure Active Directory** de la configuración personalizada integra el sitio web de Azure con [Azure Active Directory](http://azure.microsoft.com/documentation/articles/active-directory-whatis/) (el **directorio predeterminado**). Para obtener más información sobre la sincronización de Azure Active Directory con su Active Directory local, vea [Integración de directorios](http://msdn.microsoft.com/library/jj573653).
 
 16.	 Una vez realizados todos los cambios deseados, haga clic en **Crear** para iniciar el proceso de migración. La herramienta de migración creará la Base de datos SQL Azure y el sitio web de Azure y, a continuación, publicará el contenido del sitio web y las bases de datos. El proceso de migración se muestra claramente en la herramienta de migración y verá una pantalla de resumen al final que detalla los sitios migrados, si se realizaron con éxito y los vínculos a los sitios web de Azure recién creados. 
 

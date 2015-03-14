@@ -26,5 +26,4 @@
 <!-- URLs. -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [SDK de Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
-
 <!--HONumber=42-->

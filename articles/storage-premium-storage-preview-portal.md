@@ -214,7 +214,7 @@ En esta sección:
 ###<a id="howto3">Portal de vista previa de Azure: Crear una cuenta de Almacenamiento premium</a>
 En esta sección se muestra cómo crear una cuenta de Almacenamiento premium mediante el Portal de vista previa de Azure.
 
-1.	Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/). Consulte la oferta [Evaluación gratuita](http://www.windowsazure.com/pricing/free-trial/) si todavía no tiene una suscripción. 
+1.	Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com/). Consulte la oferta [Evaluación gratuita](http://azure.microsoft.com/pricing/free-trial/) si todavía no tiene una suscripción. 
 
 
     >[AZURE.NOTE] Si inicia sesión en el Portal de administración de Azure, haga clic en el nombre de cuenta de usuario en la esquina superior derecha del portal. A continuación, haga clic en **Cambiar al nuevo portal**.
@@ -236,7 +236,7 @@ Para obtener un tutorial completo del entorno de Azure, consulte [Creación de u
 ###<a id="howto2">Azure PowerShell: Crear una cuenta de Almacenamiento premium y usarla para operaciones básicas de VM</a>
 En esta sección se muestra cómo crear una cuenta de Almacenamiento premium y cómo usarla al crear una máquina virtual y adjuntar un disco de datos a una máquina virtual con Azure PowerShell.
 
-1. Configure el entorno de PowerShell siguiendo los pasos que se indican en [Instalación y configuración de Azure PowerShell](http://azure.microsoft.com/es-es/documentation/articles/install-configure-powershell/).
+1. Configure el entorno de PowerShell siguiendo los pasos que se indican en [Instalación y configuración de Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
 2. Inicie la consola de PowerShell, conéctese a su suscripción y ejecute el cmdlet siguiente de PowerShell en la ventana de la consola. Tal como se muestra la instrucción de PowerShell, deberá especificar el parámetro **Type** como **Premium_LRS** al crear una cuenta de almacenamiento premium.
 
 		New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
@@ -277,5 +277,4 @@ En esta sección se muestra cómo crear una cuenta de Almacenamiento premium y c
 [Referencia de MSDN](http://msdn.microsoft.com/library/azure/gg433040.aspx)
 
 [Image1]: ./media/storage-premium-storage-preview-portal/Azure_pricing_tier.png
-
 <!--HONumber=42-->

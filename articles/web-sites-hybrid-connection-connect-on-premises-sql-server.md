@@ -28,7 +28,7 @@ En este tutorial aprenderemos a crear un sitio web en el portal de vista previa 
 ##Requisitos previos##
 Para completar este tutorial, necesitará los siguientes productos. Todos están disponibles en versión gratuita, así que puede comenzar a desarrollar para Azure completamente gratis.
 
-- **Suscripción de Azure** - Para obtener información sobre una suscripción gratuita, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/es-es/pricing/free-trial/). 
+- **Suscripción de Azure** - Para obtener información sobre una suscripción gratuita, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/). 
 
 - **Visual Studio 2013** - Para descargar una versión de evaluación gratuita de Visual Studio 2013, consulte [Descargas de Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs) Instale esta aplicación antes de continuar.
 
@@ -115,7 +115,7 @@ En esta sección se muestra cómo instalar SQL Server Express, habilitar TCP/IP 
 6. Recorra el resto del asistente para completar la instalación.
 
 ###Habilitar TCP/IP###
-Para habilitar TCP/IP, usará el Administrador de configuración de SQL Server, que se instaló al instalar SQL Server Express. Siga los pasos que figuran en [Habilitar el protocolo de red TCP/IP para SQL Server](http://technet.microsoft.com/es-es/library/hh231672%28v=sql.110%29.aspx) antes de continuar.
+Para habilitar TCP/IP, usará el Administrador de configuración de SQL Server, que se instaló al instalar SQL Server Express. Siga los pasos que figuran en [Habilitar el protocolo de red TCP/IP para SQL Server](http://technet.microsoft.com/library/hh231672%28v=sql.110%29.aspx) antes de continuar.
 
 <a name="CreateSQLDB"></a>
 ###Creación de una base de datos de SQL Server local###
@@ -384,13 +384,13 @@ Ya ha creado e implementado una aplicación web ASP.NET que usa una conexión h�
 
 [Josh Twist presenta las conexiones híbridas (vídeo de Channel 9)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Sitio web de conexiones híbridas](http://azure.microsoft.com/es-es/services/biztalk-services/)
+[Sitio web de conexiones híbridas](http://azure.microsoft.com/services/biztalk-services/)
 
-[Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas](http://azure.microsoft.com/es-es/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
+[Servicios de BizTalk: pestañas Panel, Monitor, Escala, Configurar y Conexiones híbridas](http://azure.microsoft.com/documentation/articles/biztalk-dashboard-monitor-scale-tabs/)
 
 [Creación de una nube híbrida del mundo real con una perfecta portabilidad de aplicaciones (vídeo de Canal 9)](http://channel9.msdn.com/events/TechEd/NorthAmerica/2014/DCIM-B323#fbid=)
 
-[Conexión a un SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas](http://azure.microsoft.com/es-es/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/)
+[Conexión a un SQL Server local desde un servicio móvil de Azure mediante Conexiones híbridas](http://azure.microsoft.com/documentation/articles/mobile-services-dotnet-backend-hybrid-connections-get-started/)
 
 [Conexión a un servidor SQL Server local desde Servicios móviles de Azure mediante conexiones híbridas (vídeo de Canal 9)](http://channel9.msdn.com/Series/Windows-Azure-Mobile-Services/Connect-to-an-on-premises-SQL-Server-from-Azure-Mobile-Services-using-Hybrid-Connections)
 

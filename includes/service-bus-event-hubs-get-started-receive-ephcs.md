@@ -108,10 +108,10 @@ Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento d
 > [AZURE.NOTE] Este tutorial usa una sola instancia de [EventProcessorHost]. Para aumentar el rendimiento, se recomienda ejecutar varias instancias de [EventProcessorHost], como se muestra en el [ejemplo de procesamiento de eventos escalados horizontalmente]. En esos casos, las diferentes instancias se coordinan automáticamente entre sí con el fin de equilibrar la carga de los eventos recibidos. Si desea que varios destinatarios procesen  *all* los eventos, debe usar el concepto **ConsumerGroup**. Cuando se reciben eventos de distintos equipos, puede ser útil especificar nombres para las instancias de [EventProcessorHost] según los equipos (o roles) en que se implementan. Para obtener más información acerca de estos temas, consulte  [Información general de los Centros de eventos] y [Guía de programación de Centros de eventos].
 
 <!-- Links -->
-[Información general de los Centros de eventos]: http://msdn.microsoft.com/es-es/library/azure/dn821413.aspx
+[Información general de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn821413.aspx
 [Ejemplo de procesamiento de eventos escalados horizontalmente]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Event-Hub-45f43fc3
-[Cuenta de almacenamiento de Azure]: http://azure.microsoft.com/es-es/documentation/articles/storage-create-storage-account/
-[EventProcessorHost]: http://msdn.microsoft.com/es-es/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
+[Cuenta de almacenamiento de Azure]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[EventProcessorHost]: http://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.eventprocessorhost(v=azure.95).aspx 
 
 <!-- Images -->
 
@@ -120,5 +120,4 @@ Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento d
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Guía del desarrollador de los Centros de eventos]: http://msdn.microsoft.com/es-es/library/azure/dn789972.aspx
-<!--HONumber=42-->
+[Guía del desarrollador de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn789972.aspx<!--HONumber=42-->

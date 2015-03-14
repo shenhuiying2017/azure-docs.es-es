@@ -6,7 +6,7 @@ Para obtener más información sobre los patrones de recepción de los Centros d
 
 Este tutorial usa una instalación de [HDInsight Storm], que integra el emisor de Centros de eventos que ya se encuentra disponible.
 
-1. Siga el procedimiento descrito en [Introducción a HDInsight Storm](http://azure.microsoft.com/es-es/documentation/articles/hdinsight-storm-getting-started/) para crear un clúster nuevo de HDInsight y conectarlo a través del Escritorio remoto.
+1. Siga el procedimiento descrito en [Introducción a HDInsight Storm](http://azure.microsoft.com/documentation/articles/hdinsight-storm-getting-started/) para crear un clúster nuevo de HDInsight y conectarlo a través del Escritorio remoto.
 
 2. Copie el archivo  `%STORM_HOME%\examples\eventhubspout\eventhubs-storm-spout-0.9-jar-with-dependencies.jar` en su entorno de desarrollo local. Contiene events-storm-spout.
 
@@ -220,13 +220,12 @@ Este tutorial usa una instalación de [HDInsight Storm], que integra el emisor d
 	Esta clase crea un nuevo emisor de Centros de eventos, utilizando las propiedades del archivo de configuración para crear una instancia. Es importante tener en cuenta que este ejemplo crea tantas tareas de emisor como número de particiones hay en el Centro de eventos, para poder usar el paralelismo máximo permitido por ese Centro de eventos.
 
 <!-- Links -->
-[Información general de los Centros de eventos]: http://msdn.microsoft.com/es-es/library/azure/dn821413.aspx
-[HDInsight Storm]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-storm-overview/
-[Tutorial de análisis de sensores de HDInsight]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Información general de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn821413.aspx
+[HDInsight Storm]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
+[Tutorial de análisis de sensores de HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
 
 <!-- Images -->
 
 [12]: ./media/service-bus-event-hubs-getstarted/create-storm1.png
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
-[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
-<!--HONumber=42-->
+[14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png<!--HONumber=42-->

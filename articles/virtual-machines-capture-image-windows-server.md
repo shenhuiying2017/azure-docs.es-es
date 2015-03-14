@@ -80,7 +80,7 @@ La imagen está lista para ser utilizada como plantilla para crear máquinas vir
 [Creación de una máquina virtual personalizada]: ../virtual-machines-create-custom/
 [Acoplamiento de un disco de datos a una máquina virtual]: ../storage-windows-attach-disk/
 [Inicio de sesión en una máquina virtual con Windows Server]:http://azure.microsoft.com/manage/windows/how-to-guides/log-on-a-windows-vm/
-[Uso de Sysprep (introducción)]:http://technet.microsoft.com/ library/bb457073.aspx
+[Uso de Sysprep (introducción)]:http://technet.microsoft.com/library/bb457073.aspx
 [Ejecución de Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepCommand.png
 [Definición de las opciones de Sysprep.exe]: ./media/virtual-machines-capture-image-windows-server/SysprepGeneral.png
 [La máquina virtual se detiene]: ./media/virtual-machines-capture-image-windows-server/SysprepStopped.png

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Definición de una API personalizada que admita notificaciones periódicas: Servicios móviles de Azure" description="Obtenga información acerca de cómo definir una API personalizada que admita notificaciones periódicas en las aplicaciones de la Tienda Windows que usan Servicios móviles de Azure." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Definición de una API personalizada que admita notificaciones periódicas: Servicios móviles de Azure" 
+	description="Obtenga información acerca de cómo definir una API personalizada que admita notificaciones periódicas en las aplicaciones de la Tienda Windows que usan Servicios móviles de Azure." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 # Definición de una API personalizada que admita notificaciones periódicas
 
@@ -45,7 +59,8 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 		exports.get = function(request, response) {
 		    var wns = require('wns');
 		    var todoItems = request.service.tables.getTable('TodoItem');
-		    todoItems.where({
+		    todoIte
+	ms.where({
 		        complete: false
 		    }).read({
 		        success: sendResponse
@@ -82,7 +97,7 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Antes de 
 
 	La función **exports.get** se utiliza porque el cliente enviará una solicitud GET para tener acceso a la plantilla de icono.
 
-   	> [AZURE.NOTE] Este script de API personalizado utiliza el [módulo wns](http://go.microsoft.com/fwlink/p/?LinkId=306750) de Node.js, al que se hace referencia con la función **require**. Este módulo es diferente del [objeto wns](http://go.microsoft.com/fwlink/p/?LinkId=260591) devuelto por el [objeto push](http://msdn.microsoft.com/es-es/library/windowsazure/jj554217.aspx), que se usa para enviar notificaciones de inserción desde scripts de servidor.
+   	> [AZURE.NOTE] Este script de API personalizado utiliza el [módulo wns](http://go.microsoft.com/fwlink/p/?LinkId=306750) de Node.js, al que se hace referencia con la función **require**. Este módulo es diferente del [objeto wns](http://go.microsoft.com/fwlink/p/?LinkId=260591) devuelto por el [objeto push](http://msdn.microsoft.com/library/windowsazure/jj554217.aspx), que se usa para enviar notificaciones de inserción desde scripts de servidor.
 
 A continuación, deberá modificar la aplicación de inicio rápido para iniciar las notificaciones periódicas que actualizan el icono dinámico solicitando la nueva API personalizada.
 
@@ -150,7 +165,7 @@ Ahora que ha creado una notificación periódica, podría averiguar más informa
 [Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started-push
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Notificaciones periódicas]: http://msdn.microsoft.com/es-es/library/windows/apps/jj150587.aspx
+[Notificaciones periódicas]: http://msdn.microsoft.com/library/windows/apps/jj150587.aspx
 
 [Referencia conceptual de servicios móviles con .NET]: /es-es/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library
 

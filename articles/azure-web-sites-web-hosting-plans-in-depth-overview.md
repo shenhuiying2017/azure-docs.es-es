@@ -1,6 +1,20 @@
-﻿<properties title="Azure Websites Web Hosting Plans In-Depth Overview" pageTitle="Información detallada de planes de hospedaje de Sitios web Azure - Guía de características de Windows Azure" description="Obtenga información acerca de cómo funcionan los planes de hospedaje web para sitios web de Azure y cómo benefician la experiencia de administración." metaKeywords="Azure Web Sites, Azure Websites, WHP, Web Hosting Plan, Web Hosting Plans, Resource Groups" services="web-sites" solutions="web" documentationCenter="Infrastructure" authors="Byron Tardif and Yochay Kiryaty" videoId="" scriptId="" manager="wpickett" />
+﻿<properties 
+	pageTitle="Información detallada de planes de hospedaje de Sitios web Azure - Guía de características de Windows Azure" 
+	description="Obtenga información acerca de cómo funcionan los planes de hospedaje web para sitios web de Azure y cómo benefician a su experiencia de administración." 
+	services="web-sites" 
+	documentationCenter="" 
+	authors="btardif" 
+	manager="wpickett" 
+	editor=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/17/2014" ms.author="Byron Tardif and Yochay Kiryaty" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="byvinyal, yochayk"/>
 </br>
 #Información detallada sobre planes de hospedaje web de Sitios web Azure#
 </br>
@@ -189,3 +203,5 @@ Estas métricas representan el uso medio entre instancias pertenecientes a un pl
 Los planes de hospedaje web representan un conjunto de características y capacidades que puede compartir entre los sitios web.  Un plan de hospedaje web le proporciona flexibilidad para asignar sitios específicos a un conjunto de recursos dado (máquinas virtuales) y optimizar aún más su asignación y uso de recursos de Azure para sitios web.
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

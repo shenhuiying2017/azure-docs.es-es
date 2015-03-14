@@ -84,5 +84,4 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
 
 5. Si la aplicación realiza una solicitud al Servicio móvil que debería realizarse correctamente porque el usuario ya se ha autenticado, y recibe una respuesta 401 (error de autorización), significa que el token de usuario que está pasando ha expirado. En el controlador de finalización de cada método existente que interactúa con el Servicio móvil, se podría buscar una respuesta 401 o se podría gestionar el proceso desde un solo lugar: el método handleRequest de MSFilter.  Para ver cómo gestionar este escenario, consulte [este artículo del blog](http://www.thejoyofcode.com/Handling_expired_tokens_in_your_application_Day_11_.aspx).
 
-
 <!--HONumber=42-->

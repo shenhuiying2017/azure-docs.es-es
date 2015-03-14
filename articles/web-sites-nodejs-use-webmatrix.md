@@ -33,7 +33,7 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 Siga estos pasos para crear un sitio web de Azure.
 
-> [AZURE.NOTE] Para completar este tutorial, necesita una cuenta de Azure que tenga habilitada la característica Sitios web Azure.  <br /> En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A7171371E"%20target="_blank").
+> [AZURE.NOTE] Para completar este tutorial, necesita una cuenta de Azure que tenga habilitada la característica Sitios web Azure.  <br /> En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A7171371E"%20target="_blank").
 <br />
 
 1. Inicie WebMatrix
@@ -102,7 +102,7 @@ Puede modificar y volver a publicar su aplicación fácilmente. En este caso, re
 
 Para obtener más información acerca de las versiones de Node.js que se proporcionan con Azure y la forma de especificar la versión que se debe utilizar con su aplicación, consulte [Especificación de una versión de Node.js en una aplicación Azure]/es-es/documentation/articles/nodejs-specify-node-version-azure-apps/)..
 
-Si tiene problemas con su aplicación después de la implementación en Azure, consulte [Depuración de una aplicación Node.js en Sitios web Azure](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/Debug-Website/) para obtener información acerca del diagnóstico del problema.
+Si tiene problemas con su aplicación después de la implementación en Azure, consulte [Depuración de una aplicación Node.js en Sitios web Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/Debug-Website/) para obtener información acerca del diagnóstico del problema.
 
 
 [Portal de administración de Azure]: http://manage.windowsazure.com

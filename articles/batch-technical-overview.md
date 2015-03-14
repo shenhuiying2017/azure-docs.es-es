@@ -1,12 +1,25 @@
-﻿<properties linkid="batch-technical-overview" urlDisplayName="" pageTitle="Información técnica de Lote de Azure" metaKeywords="" description="Obtenga información sobre los conceptos, los flujos de trabajo y los escenarios del servicio Azure Batch" metaCanonical="" services="batch" documentationCenter="" title="Azure Batch technical overview" authors="danlep" solutions="" manager="timlt" editor="tysonn" />
+﻿<properties 
+	pageTitle="Información técnica de Lote de Azure" 
+	description="Obtener información acerca de los conceptos, los flujos de trabajo y los escenarios del servicio Batch de Azure" 
+	services="batch" 
+	documentationCenter="" 
+	authors="dlepow" 
+	manager="timlt"/>
 
-<tags ms.service="batch" ms.workload="big-compute" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/08/2014" ms.author="danlep" />
+<tags 
+	ms.service="batch" 
+	ms.workload="big-compute" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/30/2015" 
+	ms.author="danlep"/>
 
 
 #Información técnica de Lote de Azure
 Lote de Azure le ayuda a ejecutar aplicaciones de informática de alto rendimiento (HPC) y paralelas a gran escala en la nube al brindar la programación de tareas y autoescala de recursos informáticos, como un servicio de plataforma. Mediante el uso el SDK de Lote y el servicio de Lote, se pueden configurar cargas de trabajo por lote para ejecutarlas a petición o en función de una programación en una recopilación administrada de máquinas virtuales y no tener que preocuparse de la complejidad que implica la programación de trabajos y la administración de recursos en la plataforma subyacente.
  
->[WACOM.NOTE]Lote se encuentra en su versión preliminar. Para usar Lote, necesita una cuenta de Azure y debe tener habilitada la versión preliminar de Lote en su suscripción. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Creación de una cuenta de Azure](http://www.windowsazure.com/es-es/develop/php/tutorials/create-a-windows-azure-account/). 
+>[WACOM.NOTE]Lote se encuentra en su versión preliminar. Para usar Lote, necesita una cuenta de Azure y debe tener habilitada la versión preliminar de Lote en su suscripción. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Creación de una cuenta de Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/). 
 
 
 Este artículo le brinda información general de:
@@ -53,7 +66,7 @@ Las API de Lote basadas en REST son compatibles con dos escenarios de desarrolla
 
 <h2 id="BKMK_Entities">Conceptos de Lote</h2>
 
-Las siguientes secciones resumen los conceptos clave para trabajar con las API y el servicio de Lote. Para obtener más información, consulte [API basics for Azure Batch].(http://azure.microsoft.com/es-es/documentation/articles/batch-api-basics) 
+Las siguientes secciones resumen los conceptos clave para trabajar con las API y el servicio de Lote. Para obtener más información, consulte [API basics for Azure Batch](http://azure.microsoft.com/documentation/articles/batch-api-basics) 
 
 * [Cuenta de Lote](#BKMK_Account)
 * [Grupos y máquinas virtuales de tareas](#BKMK_TVM)
@@ -173,8 +186,8 @@ La ilustración 5 muestra un flujo de trabajo básico para publicar una aplicaci
 	
 <h2 id="BKMK_Resources">Recursos adicionales</h2>
 
-* [Introducción a la biblioteca de proceso por lotes de Azure para .NET](http://azure.microsoft.com/es-es/documentation/articles/batch-dotnet-get-started/)
-* [Herramientas y bibliotecas de desarollo por lotes de Azure](http://azure.microsoft.com/es-es/documentation/articles/batch-development-libraries-tools/)
+* [Introducción a la biblioteca de proceso por lotes de Azure para .NET](http://azure.microsoft.com/documentation/articles/batch-dotnet-get-started/)
+* [Herramientas y bibliotecas de desarollo por lotes de Azure](http://azure.microsoft.com/documentation/articles/batch-development-libraries-tools/)
 * [Referencia de la API de REST por lotes de Azure](http://go.microsoft.com/fwlink/p/?LinkId=517803)
 * [Referencia de la API de REST de aplicaciones por lotes de Azure](http://go.microsoft.com/fwlink/p/?LinkId=517804)
 
@@ -186,3 +199,5 @@ La ilustración 5 muestra un flujo de trabajo básico para publicar una aplicaci
 [app_pub_workflow]: ./media/batch-technical-overview/app_pub_workflow.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

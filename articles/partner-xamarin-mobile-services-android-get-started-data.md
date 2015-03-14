@@ -32,7 +32,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 4. [Actualizar la aplicación para usar Servicios móviles]
 5. [Probar la aplicación en Servicios móviles]
 
-> [AZURE.IMPORTANT] para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
+> [AZURE.IMPORTANT] para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
 
 Este tutorial requiere el [componente de Servicios móviles de Azure], [Xamarin.Android], y el SDK de Android 4.2 o una versión posterior. 
 

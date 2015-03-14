@@ -1,12 +1,26 @@
-﻿<properties pageTitle="Introducción a las notificaciones de inserción (iOS) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación iOS." services="mobile-services, notification-hubs" documentationCenter="ios" manager="dwrede" editor="" authors="krisragh"/>
+﻿<properties 
+	pageTitle="Introducción a las notificaciones de inserción (iOS) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación iOS." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="ios" 
+	manager="dwrede" 
+	editor="" 
+	authors="krisragh"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="12/15/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="12/15/2014" 
+	ms.author="krisragh"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-push](../includes/mobile-services-selector-get-started-push.md)]
 
-Este tema muestra cómo puede usar Servicios móviles de Azure para enviar notificaciones de inserción a través del servicio de notificaciones de inserción de Apple (APNS) a una aplicación de iOS. Este tutorial le permite habilitar notificaciones de inserción con los Centros de notificaciones de Azure para el [proyecto de inicio rápido](http://azure.microsoft.com/es-es/documentation/articles/mobile-services-ios-get-started/). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
+Este tema muestra cómo puede usar Servicios móviles de Azure para enviar notificaciones de inserción a través del servicio de notificaciones de inserción de Apple (APNS) a una aplicación de iOS. Este tutorial le permite habilitar notificaciones de inserción con los Centros de notificaciones de Azure para el [proyecto de inicio rápido](http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/). Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 

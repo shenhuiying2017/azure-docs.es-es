@@ -82,18 +82,17 @@ Las aplicaciones pueden ejecutarse en la parte superior de HBase usándolo como 
 
 [hdinsight-storage]: ../hdinsight-use-blob-storage/
 
-[hbase-get-started]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-hbase-get-started/
+[hbase-get-started]: http://azure.microsoft.com/documentation/articles/hdinsight-hbase-get-started/
 
 [cs-hbase-sdk]: https://github.com/hdinsight/hbase-sdk-for-net
 
-[azure-purchase-options]: http://azure.microsoft.com/es-es/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/es-es/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/es-es/pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-management-portal]: https://manage.windowsazure.com/
 [azure-create-storageaccount]: ../storage-create-storage-account/ 
 
 [apache-hadoop]: http://hadoop.apache.org/
-
 
 
 

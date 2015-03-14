@@ -1,6 +1,18 @@
-﻿<properties title="Monitor any web site's availability and responsiveness" pageTitle="Supervise la disponibilidad y capacidad de respuesta de cualquier sitio web" description="Configure pruebas web en Application Insights. Obtenga alertas si un sitio web deja de estar disponible o responde con lentitud." metaKeywords="analytics web test availability" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Supervise la disponibilidad y capacidad de respuesta de cualquier sitio web" 
+	description="Configure pruebas web en Application Insights. Obtenga alertas si un sitio web deja de estar disponible o responde con lentitud." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-10-30" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-27" 
+	ms.author="awills"/>
  
 # Supervise la disponibilidad y capacidad de respuesta de cualquier sitio web
 
@@ -192,3 +204,5 @@ Es posible que desee deshabilitar las pruebas web mientras está realizando un m
 
 
 [azurewebtest]: ../insights-create-web-tests/
+
+<!--HONumber=46--> 

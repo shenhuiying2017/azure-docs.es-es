@@ -1,6 +1,20 @@
-<properties pageTitle="Autorización en el servicio (Android) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo autorizar a los usuarios en el back-end de JavaScript de Servicios móviles de Azure." services="" documentationCenter="android" authors="ggailey777" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Autorización en el servicio (Android) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo autorizar a los usuarios en el back-end de JavaScript de Servicios móviles de Azure." 
+	services="" 
+	documentationCenter="android" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="09/29/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="glenga"/>
 
 # Autorización en el servicio de usuarios de Servicios móviles
 

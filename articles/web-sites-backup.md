@@ -21,7 +21,7 @@
 La característica Copia de seguridad y restauración de Sitios web Azure le permite crear fácilmente copias de seguridad del sitio web, de forma manual o automática. Puede restaurar su sitio web a un estado anterior o crear un nuevo sitio web basado en una de las copias de seguridad del sitio original. 
 
 
-Para obtener información acerca de la restauración de un sitio web Azure a partir de una copia de seguridad, consulte [Restauración de un sitio web de Microsoft Azure](http://www.windowsazure.com/es-es/documentation/articles/web-sites-restore/).
+Para obtener información acerca de la restauración de un sitio web Azure a partir de una copia de seguridad, consulte [Restauración de un sitio web de Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
 ##En este artículo
 
@@ -57,7 +57,7 @@ Esta información se guarda en una copia de seguridad en la cuenta de almacenami
 <a name="requirements"></a>
 ##Requisitos y restricciones
 
-* La característica Copia de seguridad y restauración requiere que es sitio esté en el nivel estándar. Para obtener más información acerca del ajuste de escala del sitios web a un nivel estándar, consulte [Escalación de sitios web](http://www.windowsazure.com/es-es/documentation/articles/web-sites-scale/). 
+* La característica Copia de seguridad y restauración requiere que es sitio esté en el nivel estándar. Para obtener más información acerca del ajuste de escala del sitios web a un nivel estándar, consulte [Escalación de sitios web](http://azure.microsoft.com/documentation/articles/web-sites-scale/). 
 
 * La característica Copia de seguridad y restauración requiere una cuenta de almacenamiento de Azure que debe pertenecer a la misma suscripción que el sitio web del que quiere tener una copia de seguridad. Si todavía no tiene una cuenta de almacenamiento, puede crear una haciendo clic en el botón **Almacenamiento** (icono de cuadrícula) del panel izquierdo del portal de Azure y, a continuación, seleccionando **Nuevo** en la barra de comandos de la parte inferior. Para obtener más información acerca de las cuentas de almacenamiento de Azure, consulte los [vínculos](#moreaboutstorage) al final de este artículo.
 
@@ -134,9 +134,9 @@ Los nombres de los archivos de copia de seguridad .zip y .xml constan del nombre
 
 El archivo XML que se almacena con el archivo zip indica el nombre del archivo de base de datos en *backupdescription* > *databases* > *databasebackupdescription* > *filename*.
 
-El archivo de copia de seguridad de la base de datos se guarda en la raíz del archivo .zip. En bases de datos de SQL, este es un archivo BACPAC (sin extensión de archivo) y se puede importar. Para crear una base de datos de SQL nueva a partir de la exportación de BACPAC, puede seguir los pasos indicados en el artículo [Importar un archivo de BACPAC para crear una nueva base de datos de usuario](http://technet.microsoft.com/es-es/library/hh710052.aspx).
+El archivo de copia de seguridad de la base de datos se guarda en la raíz del archivo .zip. En bases de datos de SQL, este es un archivo BACPAC (sin extensión de archivo) y se puede importar. Para crear una base de datos de SQL nueva a partir de la exportación de BACPAC, puede seguir los pasos indicados en el artículo [Importar un archivo de BACPAC para crear una nueva base de datos de usuario](http://technet.microsoft.com/library/hh710052.aspx).
 
-Para obtener información acerca de la restauración de un sitio web Azure (incluidas las bases de datos)con el portal de administración de Azure, consulte [Restauración de un sitio web de Microsoft Azure]( http://azure.microsoft.com/es-es/documentation/articles/web-sites-restore/).
+Para obtener información acerca de la restauración de un sitio web Azure (incluidas las bases de datos)con el portal de administración de Azure, consulte [Restauración de un sitio web de Microsoft Azure]( http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
 > [AZURE.NOTE] La modificación de los archivos del contenedor **websitebackups** puede ocasionar que la base de datos deje de ser válida y, por lo tanto, no se pueda restaurar.
 
@@ -150,19 +150,19 @@ Para obtener información acerca de la restauración de un sitio web Azure (incl
 
 <a name="nextsteps"></a>
 ## Pasos siguientes
-Para obtener información acerca de la restauración de un sitio web Azure a partir de una copia de seguridad, consulte [Restauración de un sitio web de Microsoft Azure](http://www.windowsazure.com/es-es/documentation/articles/web-sites-restore/).
+Para obtener información acerca de la restauración de un sitio web Azure a partir de una copia de seguridad, consulte [Restauración de un sitio web de Microsoft Azure](http://azure.microsoft.com/documentation/articles/web-sites-restore/).
 
-Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure](http://azure.microsoft.com/es-es/pricing/free-trial/).
+Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 
 <a name="moreaboutstorage"></a>
 ### Información adicional acerca de las cuentas de almacenamiento
 
-[¿Qué es una cuenta de almacenamiento?](http://www.windowsazure.com/es-es/documentation/articles/storage-whatis-account/)
+[¿Qué es una cuenta de almacenamiento?](http://azure.microsoft.com/documentation/articles/storage-whatis-account/)
 
-[Uso de una cuenta de almacenamiento](http://www.windowsazure.com/es-es/documentation/articles/storage-create-storage-account/)
+[Uso de una cuenta de almacenamiento](http://azure.microsoft.com/documentation/articles/storage-create-storage-account/)
 
-[Supervisión de una cuenta de almacenamiento](http://www.windowsazure.com/es-es/documentation/articles/storage-monitor-storage-account/)
+[Supervisión de una cuenta de almacenamiento](http://azure.microsoft.com/documentation/articles/storage-monitor-storage-account/)
 
 [Understanding Microsoft Azure Storage Billing](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)
 

@@ -21,7 +21,7 @@
 
 Sitios web Azure le permite ejecutar programas o scripts en su sitio web de tres maneras: a petición, de forma continua o según una programación. No hay ningún coste adicional por usar trabajos web de Microsoft Azure.
 
-En este artículo se muestra cómo implementar trabajos web mediante el Portal de administración de Azure. Para obtener información sobre cómo implementar mediante Visual Studio o un proceso de entrega continua, consulte [Implementación de trabajos web de Azure en Sitios web Azure](http://azure.microsoft.com/es-es/documentation/articles/websites-dotnet-deploy-webjobs).
+En este artículo se muestra cómo implementar trabajos web mediante el Portal de administración de Azure. Para obtener información sobre cómo implementar mediante Visual Studio o un proceso de entrega continua, consulte [Implementación de trabajos web de Azure en Sitios web Azure](http://azure.microsoft.com/documentation/articles/websites-dotnet-deploy-webjobs).
 
 El SDK de trabajos web de Azure simplifica muchas de las tareas de programación de trabajos web. Para obtener más información, consulte [¿Qué es el SDK de trabajos web?](../websites-dotnet-webjobs-sdk)..
 

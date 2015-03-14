@@ -68,7 +68,7 @@ Para realizar operaciones de administración (como la creación de una cola) en 
 
 ###Para obtener las credenciales de administración desde el Explorador de servidores
 
-Para obtener información de conexión utilizando Visual Studio en lugar del Portal de administración, siga el procedimiento descrito [aquí](http://http://msdn.microsoft.com/es-es/library/windowsazure/ff687127.aspx), en la sección titulada **Conexión a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Microsoft Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombres que ya ha creado. Haga clic con el botón secundario en cualquier espacio de nombre y, a continuación, haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio. 
+Para obtener información de conexión utilizando Visual Studio en lugar del Portal de administración, siga el procedimiento descrito [aquí](http://http://msdn.microsoft.com/library/windowsazure/ff687127.aspx), en la sección titulada **Conexión a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Microsoft Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombres que ya ha creado. Haga clic con el botón secundario en cualquier espacio de nombre y, a continuación, haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio. 
 
 Anote el valor de **SharedAccessKey** o cópielo en el Portapapeles:
 
@@ -78,5 +78,4 @@ Anote el valor de **SharedAccessKey** o cópielo en el Portapapeles:
   [Portal de administración de Azure]: http://manage.windowsazure.com
 
   [34]: ./media/howto-service-bus-queues/VSProperties.png
-
 <!--HONumber=42-->

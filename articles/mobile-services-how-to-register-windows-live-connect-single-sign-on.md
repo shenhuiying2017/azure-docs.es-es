@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Registro para inicio de sesión único - Servicios móviles de Azure" description="Obtenga información acerca de cómo registrarse para la autenticación de inicio de sesión único en la aplicación de Servicios móviles de Azure." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Registro para inicio de sesión único - Servicios móviles de Azure" 
+	description="Obtenga información acerca de cómo registrarse para la autenticación de inicio de sesión único en la aplicación de Servicios móviles de Azure." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Registro de las aplicaciones de la Tienda Windows para usar el inicio de sesión único de Live Connect de Windows
 

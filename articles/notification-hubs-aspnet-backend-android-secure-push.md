@@ -1,6 +1,20 @@
-﻿<properties title="Azure Notification Hubs Secure Push" pageTitle="Inserción segura de los Centros de notificaciones de Azure" metaKeywords="Notificaciones de inserción de Azure, centros de notificaciones de Azure, inserción segura" description="Aprenda a enviar notificaciones push seguras a una aplicación Android desde Azure. Los ejemplos de código están escritos en Java y C#." documentationCenter="Mobile" metaCanonical="" disqusComments="1" umbracoNaviHide="0" authors="sethm" manager="timlt" />
+﻿<properties 
+	pageTitle="Inserción segura de los Centros de notificaciones de Azure" 
+	description="Obtenga información acerca de cómo enviar notificaciones de inserción seguras en una aplicación Android desde Azure. Ejemplos de código escritos en Java y C#." 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor="" 
+	services="notification-hubs"/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="ricksal"/>
 
 #Inserción segura de los Centros de notificaciones de Azure
 
@@ -26,23 +40,23 @@ Es importante tener en cuenta que en el flujo anterior (y en este tutorial), se 
 
 Este tutorial Inserción segura muestra cómo enviar una notificación de inserción de forma segura. El tutorial se basa en el tutorial **Notificar a los usuarios**, por lo que debe completar los pasos de ese tutorial primero.
 
-> [AZURE.NOTE] [AZURE.NOTE] Este tutorial asume que se ha creado y configurado el centro de notificaciones tal como se describe en [Introducción a los centros de notificaciones (Android)](http://azure.microsoft.com/es-es/documentation/articles/notification-hubs-android-get-started/).
+> [AZURE.NOTE] Este tutorial asume que se ha creado y configurado el Centro de notificaciones tal como se describe en [Introducción a los Centros de notificaciones (Android)](http://azure.microsoft.com/ documentation/articles/notification-hubs-android-get-started/).
 
-[WACOM.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
+[AZURE.INCLUDE [notification-hubs-aspnet-backend-securepush](../includes/notification-hubs-aspnet-backend-securepush.md)]
 
 ## Modificación del proyecto Android
 
 Una vez modificado el back-end de la aplicación para enviar solamente el *id* de una notificación, deberá modificar la aplicación Android para que administre dicha notificación y devuelva la llamada a su back-end para recuperar el mensaje seguro que se debe mostrar.
 Para lograr este objetivo, tiene que asegurarse de que la aplicación Android sabe cómo autenticarse a sí misma con el back-end cuando recibe las notificaciones de inserción.
 
-A continuación, modificaremos el flujo de *inicio de sesión* para guardar el valor de encabezado de autenticación en las preferencias compartidas de la aplicación. Se pueden usar mecanismos similares para almacenar cualquier token de autenticación (por ejemplo tokens OAuth) que la aplicación tendrá que usar sin solicitar credenciales de usuario.
+A continuación, modificaremos el flujo de *login* para guardar el valor de encabezado de autenticación en las preferencias compartidas de la aplicación. Se pueden usar mecanismos similares para almacenar cualquier token de autenticación (por ejemplo tokens OAuth) que la aplicación tendrá que usar sin solicitar credenciales de usuario.
 
 1. En el proyecto de la aplicación Android, agregue las siguientes constantes en la parte superior de la clase **MainActivity**:
 
 		public static final String NOTIFY_USERS_PROPERTIES = "NotifyUsersProperties";
 		public static final String AUTHORIZATION_HEADER_PROPERTY = "AuthorizationHeader";
 
-2. Todavía en la clase **MainActivity**, actualice el método `getAuthorizationHeader()` para que contenga el código siguiente:
+2. Todavía en la clase **MainActivity**, actualice el método  `getAuthorizationHeader()` para que contenga el siguiente código:
 
 		private String getAuthorizationHeader() throws UnsupportedEncodingException {
 			EditText username = (EditText) findViewById(R.id.usernameText);
@@ -56,13 +70,13 @@ A continuación, modificaremos el flujo de *inicio de sesión* para guardar el v
     		return basicAuthHeader;
 		}
 
-3. Agregue las siguientes instrucciones `import` en la parte superior del archivo **MainActivity**:
+3. Agregue la siguientes instrucciones `import` en la parte superior del archivo **MainActivity**:
 
 		import android.content.SharedPreferences;
 
 Ahora cambiaremos el controlador al que se llama cuando se recibe la notificación.
 
-4. En la clase **MyHandler** cambie el método `OnReceive()` para que contenga:
+4. En la clase **MyHandler**, cambie el método  `OnReceive()` para que contenga:
 
 		public void onReceive(Context context, Bundle bundle) {
 	    	ctx = context;   
@@ -70,7 +84,7 @@ Ahora cambiaremos el controlador al que se llama cuando se recibe la notificaci�
 	    	retrieveNotification(secureMessageId);
 		}
 
-5. A continuación, agregue el método `retrieveNotification()`, reemplace el marcador de posición `{back-end endpoint}` con el extremo de back-end obtenido al implementar el back-end:
+5. Después, agregue el método  `retrieveNotification()`, reemplazando el marcador de posición  `{back-end endpoint}` con el extremo back-end obtenido mientras se implementa su back-end:
 
 		private void retrieveNotification(final String secureMessageId) {
 			SharedPreferences sp = ctx.getSharedPreferences(MainActivity.NOTIFY_USERS_PROPERTIES, Context.MODE_PRIVATE);
@@ -116,4 +130,4 @@ Para ejecutar la aplicación, realice las siguientes tareas:
 
 4. En la interfaz de usuario de la aplicación Android, haga clic en **Log in**. A continuación, haga clic en **Send push**.
 
-<!--HONumber=35.2-->
+<!--HONumber=45--> 

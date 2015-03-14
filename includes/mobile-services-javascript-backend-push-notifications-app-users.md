@@ -44,5 +44,4 @@
 
 	Esto agrega una etiqueta al registro que es el identificador del usuario que inició sesión. Se validan las etiquetas suministradas para evitar que un usuario se registre con el identificador de otro usuario. Cuando se envía una notificación a este usuario, se recibe en este y otros dispositivos registrados que el usuario haya registrado.
 
-4. Haga clic en la flecha atrás, en la pestaña **Datos**, haga clic en **TodoItem**, haga clic en **Script** y seleccione **Insertar**. 
-<!--HONumber=42-->
+4. Haga clic en la flecha atrás, en la pestaña **Datos**, haga clic en **TodoItem**, haga clic en **Script** y seleccione **Insertar**. <!--HONumber=42-->

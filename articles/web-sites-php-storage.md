@@ -123,7 +123,7 @@ Para poder almacenar datos, primero tiene que crear un contenedor para ellos (la
 		}
 		?>
 
-	Los mensajes y los códigos de error se pueden encontrar aquí: [http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx][msdn-errors]
+	Los mensajes y los códigos de error se pueden encontrar aquí: [http://msdn.microsoft.com/library/windowsazure/dd179438.aspx][msdn-errors]
 
 
 ##Consulta de una tabla
@@ -441,11 +441,11 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
 [composer-phar]: http://getcomposer.org/composer.phar
 
-[msdn-errors]: http://msdn.microsoft.com/es-es/library/windowsazure/dd179438.aspx
+[msdn-errors]: http://msdn.microsoft.com/library/windowsazure/dd179438.aspx
 
 
 
-[msdn-table-query-syntax]: http://msdn.microsoft.com/es-es/library/windowsazure/dd894031.aspx
+[msdn-table-query-syntax]: http://msdn.microsoft.com/library/windowsazure/dd894031.aspx
 [ws-storage-app]: ./media/web-sites-php-storage/ws-storage-app.png
 [management-portal]: https://manage.windowsazure.com
 [new-website]: ./media/web-sites-php-storage/new_website.jpg

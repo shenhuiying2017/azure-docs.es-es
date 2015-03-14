@@ -72,7 +72,7 @@ Para habilitar el uso de varios espacios de implementación, el sitio web debe e
 
 	-	 
 
-No hay contenido. Puede implementar el espacio desde una rama de repositorio diferente o desde un repositorio completamente diferente. También puede cambiar la configuración del espacio. Utilice el perfil de publicación o las credenciales de implementación asociadas al espacio de implementación para ver las actualizaciones del contenido.  Por ejemplo, puede [publicar en este espacio mediante Git](http://azure.microsoft.com/es-es/documentation/articles/web-sites-publish-source-control/).
+No hay contenido. Puede implementar el espacio desde una rama de repositorio diferente o desde un repositorio completamente diferente. También puede cambiar la configuración del espacio. Utilice el perfil de publicación o las credenciales de implementación asociadas al espacio de implementación para ver las actualizaciones del contenido.  Por ejemplo, puede [publicar en este espacio mediante Git](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/).
 
 <a name="AboutConfiguration"></a>
 ##Acerca de la configuración para espacios de implementación##
@@ -147,7 +147,7 @@ En la barra de comandos situada al final de la página del Portal de Sitios web 
 
 Azure PowerShell es un módulo que proporciona cmdlets para administrar Azure mediante Windows PowerShell, incluyendo la compatibilidad para administrar los espacios de implementación de Sitios web Azure. 
 
-- Para obtener información acerca de cómo instalar y configurar Azure PowerShell y cómo autenticar Azure PowerShell con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](http://www.windowsazure.com/es-es/documentation/articles/install-configure-powershell).  
+- Para obtener información acerca de cómo instalar y configurar Azure PowerShell y cómo autenticar Azure PowerShell con su suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell).  
 
 - Para mostrar los cmdlets disponibles para Sitios web Azure en PowerShell, llame  `help AzureWebsite`. 
 
@@ -202,7 +202,7 @@ Si ya no necesita un espacio de implementación, se puede eliminar usando el cmd
 
 La interfaz de la línea de comandos de Azure de varias plataformas (xplat-cli) proporciona comandos de varias plataformas para trabajar con Azure, incluyendo la compatibilidad para administrar espacios de implementación en Sitios web Azure. 
 
-- Para obtener instrucciones acerca de cómo instalar y configurar la xplat-cli, incluyendo la información acerca de cómo conectar la xplat-cli a su suscripción de Azure, consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure](http://www.windowsazure.com/es-es/documentation/articles/xplat-cli). 
+- Para obtener instrucciones acerca de cómo instalar y configurar la xplat-cli, incluyendo la información acerca de cómo conectar la xplat-cli a su suscripción de Azure, consulte [Instalación y configuración de la interfaz de línea de comandos entre plataformas de Azure](http://azure.microsoft.com/documentation/articles/xplat-cli). 
 
 -  Para mostrar los comandos disponibles para Sitios web Azure en la xplat-cli, llame  `azure site -h`. 
 
@@ -238,7 +238,7 @@ Para eliminar un espacio de implementación que ya no sea necesario, utilice el 
 ## Pasos siguientes ##
 [Sitios web Azure: bloqueo del acceso web a espacios de implementación que no sean de producción.](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-[Evaluación gratuita de Microsoft Azure](http://azure.microsoft.com/es-es/pricing/free-trial/)
+[Evaluación gratuita de Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/)
 
 
 <!-- IMAGES -->

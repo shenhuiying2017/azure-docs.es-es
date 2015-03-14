@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción a la autenticación personalizada | Centro de desarrollo móvil" description="Obtenga información acerca de cómo autenticar usuarios con un nombre de usuario y una contraseña." documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Introducción a la autenticación personalizada | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo autenticar usuarios con un nombre de usuario y una contraseña." 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # Introducción a la autenticación personalizada
 

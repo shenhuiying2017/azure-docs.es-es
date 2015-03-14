@@ -19,8 +19,11 @@
 
 #Inicio de sesión en una máquina virtual con Windows Server#
 
-Para iniciar sesión en una máquina virtual con Windows Server, use el botón Conectar del Portal de administración para iniciar una conexión de escritorio remoto. (Para máquinas virtuales de Linux, consulte [Inicio de sesión en una máquina virtual con Linux](./virtual-machines-linux-how-to-log-on/).)
+Para iniciar sesión en una máquina virtual con Windows Server, use el botón Conectar del Portal de administración para iniciar una conexión de escritorio remoto. Para máquinas virtuales de Linux, consulte [Inicio de sesión en una máquina virtual con Linux](./virtual-machines-linux-how-to-log-on/).
 
 [AZURE.INCLUDE [virtual-machines-log-on-win-server](../includes/virtual-machines-log-on-win-server.md)]
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

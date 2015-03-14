@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Habilitación de notificaciones de inserción de Apple" description="Siga este tutorial para crear un nuevo servicio mediante los Servicios móviles de Azure." services="mobile-services, notification-hubs" documentationCenter="ios" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Habilitación de notificaciones de inserción de Apple" 
+	description="Siga este tutorial para crear un nuevo servicio mediante los Servicios móviles de Azure." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="ios" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Habilitación de notificaciones de inserción de Apple
 

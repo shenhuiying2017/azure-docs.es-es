@@ -34,7 +34,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
   - [SLES 11 SP3 para Azure en la galería de SUSE Studio](http://susestudio.com/a/02kbT4/sles-11-sp3-for-windows-azure)
   - [openSUSE 13.1 para Azure en la galería de SUSE Studio](https://susestudio.com/a/02kbT4/opensuse-13-1-for-windows-azure)
 
-- el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
+- El reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD con el Administrador de Hyper-V o el cmdlet Convert-VHD.
 
 - Al instalar el sistema Linux se recomienda utilizar las particiones estándar en lugar de un LVM (que a menudo viene de forma predeterminada en muchas instalaciones). De este modo se impedirá que el nombre del LVM entre en conflicto con las máquinas virtuales clonadas, especialmente si en algún momento hace falta adjuntar un disco de SO a otra máquina virtual para solucionar problemas.  LVM o [RAID](../virtual-machines-linux-configure-raid) se pueden utilizar en discos de datos si así se prefiere.
 
@@ -43,7 +43,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 - El tamaño de todos los archivos VHD debe ser múltiplo de 1 MB.
 
 
-## <a id="sles11"> </a>Preparación de SUSE Linux Enterprise Server 11 SP3 ##
+## <a id="sles11"></a>Preparación de SUSE Linux Enterprise Server 11 SP3 ##
 
 1. Seleccione la máquina virtual en el panel central del Administrador de Hyper-V.
 
@@ -78,7 +78,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 10.	No cree un espacio de intercambio en el disco del sistema operativo.
 
-	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal (*temporary*) que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
+	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco  *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -97,13 +97,13 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 ----------
 
-## <a id="osuse"> </a>Preparación de openSUSE 13.1+ ##
+## <a id="osuse"></a>Preparación de openSUSE 13.1+ ##
 
 1. Seleccione la máquina virtual en el panel central del Administrador de Hyper-V.
 
 2. Haga clic en **Conectar** para abrir la ventana de la máquina virtual.
 
-3. En el shell, ejecute el comando '`zypper lr`'. Si este comando devuelve una salida similar a la siguiente (tenga en cuenta que los números de la versión pueden diferir):
+3. En el shell, ejecute el comando "`zypper lr`". Si este comando devuelve una salida similar a la siguiente (tenga en cuenta que los números de la versión pueden diferir):
 
 		# | Alias                 | Name                  | Enabled | Refresh
 		--+-----------------------+-----------------------+---------+--------
@@ -119,7 +119,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 		# sudo zypper ar -f http://download.opensuse.org/distribution/13.1/repo/oss openSUSE_13.1_OSS
 		# sudo zypper ar -f http://download.opensuse.org/update/13.1 openSUSE_13.1_Updates
 
-	Entonces, podrá verificar que se han agregado los repositorios al ejecutar el comando '`zypper lr`' de nuevo. En caso de que no haya un repositorio de actualizaciones relevante habilitado, habilítelo con el comando siguiente:
+	Puede verificar entonces que se han agregado los repositorios ejecutando el comando "`zypper lr`" de nuevo. En caso de que no haya un repositorio de actualizaciones relevante habilitado, habilítelo con el comando siguiente:
 
 		# sudo zypper mr -e [NUMBER OF REPOSITORY]
 
@@ -128,7 +128,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 		# sudo zypper up kernel-default
 
-	Or to update the system with all the latest patches:
+	O para actualizar el sistema con todos los parches más recientes:
 
 		# sudo zypper update
 
@@ -157,7 +157,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 10.	No cree un espacio de intercambio en el disco del sistema operativo.
 
-	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco temporal (*temporary*) que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
+	El Agente de Linux de Azure puede configurar automáticamente un espacio de intercambio utilizando el disco de recursos local que se adjunta a la máquina virtual después de aprovisionarse en Azure. Tenga en cuenta que el disco de recursos local es un disco  *temporal* que debe vaciarse cuando la máquina virtual se desaprovisiona. Después de instalar el Agente de Linux de Azure (consulte el paso anterior), modifique apropiadamente los parámetros siguientes en /etc/waagent.conf:
 
 		ResourceDisk.Format=y
 		ResourceDisk.Filesystem=ext4
@@ -179,4 +179,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Linux SUSE 
 
 
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

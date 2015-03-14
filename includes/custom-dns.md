@@ -32,7 +32,7 @@ El registro D asigna un dominio, como **contoso.com** o **www.contoso.com**,  *o
 > [AZURE.NOTE]
 > Puesto que un registro D se asigna a una dirección IP estática, no puede resolver automáticamente cambios en la dirección IP de su Servicio en la nube. La dirección IP que usa el Servicio en la nube se asigna la primera vez que se implementa en una ranura vacía (producción o ensayo). Si elimina la implementación para la ranura, Azure libera la dirección IP y a toda implementación posterior en la ranura se le podrá dar una dirección IP nueva.
 > 
-> De manera conveniente, la dirección IP de una ranura de implementación dada (producción o ensayo) se mantiene cuando se realiza un intercambio entre las implementaciones de ensayo y producción o se realiza una actualización local de una implementación existente. Para obtener más información sobre la realización de estas acciones, consulte [Administración de servicios en la nube].(../cloud-services-how-to-manage/).
+> De manera conveniente, la dirección IP de una ranura de implementación dada (producción o ensayo) se mantiene cuando se realiza un intercambio entre las implementaciones de ensayo y producción o se realiza una actualización local de una implementación existente. Para obtener más información sobre la realización de estas acciones, consulte [Administración de servicios en la nube)]../cloud-services-how-to-manage/).
 
 
 <h2><a name="add-cname"></a>Incorporación de un registro CNAME al dominio personalizado</h2>
@@ -131,11 +131,10 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
   [Exponer la aplicación en un dominio personalizado]: #access-app
   [Incorporación de un registro CNAME al dominio personalizado]: #add-cname
   [Exponer los datos en un dominio personalizado]: #access-data
-  [Intercambios de VIP]: http://msdn.microsoft.com/es-es/library/ee517253.aspx
+  [Intercambios de VIP]: http://msdn.microsoft.com/library/ee517253.aspx
   [Crear un registro CNAME que asocie el subdominio a la cuenta de almacenamiento]: #create-cname
   [Portal de administración de Azure]: https://manage.windowsazure.com
   [Validar dominio personalizado, cuadro de diálogo]: http://i.msdn.microsoft.com/dynimg/IC544437.jpg
-  [Asignación del contenido de la red CDN a un dominio personalizado]: http://msdn.microsoft.com/es-es/library/windowsazure/gg680307.aspx
+  [Asignación del contenido de la red CDN a un dominio personalizado]: http://msdn.microsoft.com/library/windowsazure/gg680307.aspx
   [vip]: ./media/custom-dns/csvip.png
-  [csurl]: ./media/custom-dns/csurl.png
-<!--HONumber=42-->
+  [csurl]: ./media/custom-dns/csurl.png<!--HONumber=42-->

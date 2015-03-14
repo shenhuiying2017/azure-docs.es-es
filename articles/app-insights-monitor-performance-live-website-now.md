@@ -1,6 +1,18 @@
-﻿<properties title="Diagnose performance issues on a running website" pageTitle="Diagnostique problemas de rendimiento en un sitio web en ejecución" description="Supervise el rendimiento de un sitio web sin volver a implementarlo." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Diagnostique problemas de rendimiento en un sitio web en ejecución" 
+	description="Supervise el rendimiento de un sitio web sin volver a implementarlo. Uso independiente o con el SDK de Application Insights" 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-23" 
+	ms.author="awills"/>
  
 
 # Supervisión inmediata del rendimiento en un sitio web activo
@@ -98,3 +110,5 @@ Verá los datos en Estado de la aplicación.
 
 
 
+
+<!--HONumber=46--> 

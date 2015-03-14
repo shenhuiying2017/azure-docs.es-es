@@ -1,6 +1,20 @@
-﻿<properties title="DocumentDB limits for the preview release" pageTitle="Límites de la Base de datos de documentos para la versión preliminar | Azure" description="Obtenga información acerca de los límites y las aplicaciones de cuota de Base de datos de documentos para la versión preliminar." metaKeywords="" services="documentdb" solutions="data-management"  authors="bradsev" manager="jhubbard" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Límites de la Base de datos de documentos para la versión preliminar | Azure" 
+	description="Obtenga información acerca de los límites y las aplicaciones de cuota de Base de datos de documentos para la versión preliminar." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="cgronlun" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="mimig"/>
 
 
 #Límites de la Base de datos de documentos para la versión preliminar
@@ -37,3 +51,5 @@ La siguiente tabla describe los límites y aplicaciones de cuota de la Base de d
 |Número máximo de JOIN por consulta    |2
 |Número máximo de cláusulas AND por consulta      |5
 |Número máximo de cláusulas OR por consulta       |5
+
+<!--HONumber=46--> 

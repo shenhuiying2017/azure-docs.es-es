@@ -1,6 +1,20 @@
-<properties pageTitle="Aplicación de la Tienda Windows de Smooth Streaming - Tutoriales de .NET de Azure" description="Aprenda a usar los Servicios multimedia de Azure para crear una aplicación de la Tienda Windows de C# con un control MediaElement de XML para reproducir contenido de Smooth Streaming." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Aplicación de la Tienda Windows de Smooth Streaming - Tutoriales de .NET de Azure" 
+	description="Aprenda a usar los Servicios multimedia de Azure para crear una aplicación de la Tienda Windows de C# con un control MediaElement de XML para reproducir contenido de Smooth Streaming." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -18,7 +32,7 @@ Este tutorial contiene cuatro lecciones:
 4. Selección de pistas de Smooth Streaming
 
 #Requisitos previos
-- Windows 8 de 32 o 64 bits. Puede conseguir la [Evaluación de Windows 8 Enterprise](http://msdn.microsoft.com/es-es/evalcenter/jj554510.aspx) en MSDN.
+- Windows 8 de 32 o 64 bits. Puede conseguir la [Evaluación de Windows 8 Enterprise](http://msdn.microsoft.com/evalcenter/jj554510.aspx) en MSDN.
 - Visual Studio 2012 o Visual Studio Express 2012 para Windows 8 instalado en Windows 8. Puede obtener la versión de prueba [aquí](http://www.microsoft.com/visualstudio/11/es-es/downloads)
 - [SDK de cliente Smooth Streaming para Windows 8](http://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Homehttp://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home).
 
@@ -29,7 +43,7 @@ En esta lección, creará una aplicación de Tienda Windows con un control Media
 
 ![Smooth Streaming Windows Store application example][PlayerApplication]
  
-Para obtener más información acerca del desarrollo de la aplicación de la Tienda Windows, consulte [Desarrollo de magníficas aplicaciones para Windows 8](http://msdn.microsoft.com/es-es/windows/apps/br229512.aspx) 
+Para obtener más información acerca del desarrollo de la aplicación de la Tienda Windows, consulte [Desarrollo de magníficas aplicaciones para Windows 8](http://msdn.microsoft.com/windows/apps/br229512.aspx) 
 Esta lección contiene los procedimientos siguientes:
 
 1.	Creación de un proyecto de Tienda Windows
@@ -633,29 +647,35 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 		
 		    try
 		    {
-		        for (int i = 0; i<manifestObject.AvailableStreams.Count; i++)
+		        for (int i = 0; i<manifestObject.AvailableStrea
+	ms.Count; i++)
 		        {
 		            Stream newStream = new Stream(manifestObject.AvailableStreams[i]);
 		            newStream.isChecked = false;
 		
 		            //populate the stream lists based on the types
-		            availableStreams.Add(newStream);
+		            availableStrea
+	ms.Add(newStream);
 		
 		            switch (newStream.ManifestStream.Type)
 		            {
 		                case MediaStreamType.Video:
-		                    availableVideoStreams.Add(newStream);
+		                    availableVideoStrea
+	ms.Add(newStream);
 		                    break;
 		                case MediaStreamType.Audio:
-		                    availableAudioStreams.Add(newStream);
+		                    availableAudioStrea
+	ms.Add(newStream);
 		                    break;
 		                case MediaStreamType.Text:
-		                    availableTextStreams.Add(newStream);
+		                    availableTextStrea
+	ms.Add(newStream);
 		                    break;
 		            }
 		
 		            // Select the default selected streams from the manifest.
-		            for (int j = 0; j<manifestObject.SelectedStreams.Count; j++)
+		            for (int j = 0; j<manifestObject.SelectedStrea
+	ms.Count; j++)
 		            {
 		                string selectedStreamName = manifestObject.SelectedStreams[j].Name;
 		                if (selectedStreamName.Equals(newStream.Name))
@@ -679,7 +699,8 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 		    {
 		        //update the stream check box list on the UI
 		        await _dispatcher.RunAsync(CoreDispatcherPriority.Normal, ()
-		            => { lbAvailableStreams.ItemsSource = availableStreams; });
+		            => { lbAvailableStrea
+	ms.ItemsSource = availableStreams; });
 		    }
 		    catch (Exception e)
 		    {
@@ -694,11 +715,13 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 		    bool isOneAudioSelected = false;
 		
 		    // Only one video stream can be selected
-		    for (int j = 0; j<availableVideoStreams.Count; j++)
+		    for (int j = 0; j<availableVideoStrea
+	ms.Count; j++)
 		    {
 		        if (availableVideoStreams[j].isChecked && (!isOneVideoSelected))
 		        {
-		            selectedStreams.Add(availableVideoStreams[j].ManifestStream);
+		            selectedStrea
+	ms.Add(availableVideoStreams[j].ManifestStream);
 		            isOneVideoSelected = true;
 		        }
 		    }
@@ -707,15 +730,18 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 		    if (!isOneVideoSelected)
 		    {
 		        availableVideoStreams[0].isChecked = true;
-		        selectedStreams.Add(availableVideoStreams[0].ManifestStream);
+		        selectedStrea
+	ms.Add(availableVideoStreams[0].ManifestStream);
 		    }
 		
 		    // Only one audio stream can be selected
-		    for (int j = 0; j<availableAudioStreams.Count; j++)
+		    for (int j = 0; j<availableAudioStrea
+	ms.Count; j++)
 		    {
 		        if (availableAudioStreams[j].isChecked && (!isOneAudioSelected))
 		        {
-		            selectedStreams.Add(availableAudioStreams[j].ManifestStream);
+		            selectedStrea
+	ms.Add(availableAudioStreams[j].ManifestStream);
 		            isOneAudioSelected = true;
 		            txtStatus.Text = "The audio stream is changed to " + availableAudioStreams[j].ManifestStream.Name;
 		        }
@@ -725,20 +751,24 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 		    if (!isOneAudioSelected)
 		    {
 		        availableAudioStreams[0].isChecked = true;
-		        selectedStreams.Add(availableAudioStreams[0].ManifestStream);
+		        selectedStrea
+	ms.Add(availableAudioStreams[0].ManifestStream);
 		    }
 		
 		    // Multiple text streams are supported.
-		    for (int j = 0; j < availableTextStreams.Count; j++)
+		    for (int j = 0; j < availableTextStrea
+	ms.Count; j++)
 		    {
 		        if (availableTextStreams[j].isChecked)
 		        {
-		            selectedStreams.Add(availableTextStreams[j].ManifestStream);
+		            selectedStrea
+	ms.Add(availableTextStreams[j].ManifestStream);
 		        }
 		    }
 		}
 		
-		// Change streams on a smooth streaming presentation with multiple video streams.
+		// Change streams on a smooth streaming presentation with multiple video strea
+	ms.
 		private async void changeStreams(List<IManifestStream> selectStreams)
 		{
 		    try
@@ -904,7 +934,8 @@ Una presentación de Smooth Streaming puede contener varios archivos de vídeo c
         private IManifestStream getVideoStream()
         {
             IManifestStream videoStream = null;
-            for (int i = 0; i < manifestObject.SelectedStreams.Count; i++)
+            for (int i = 0; i < manifestObject.SelectedStrea
+	ms.Count; i++)
             {
                 if (manifestObject.SelectedStreams[i].Type == MediaStreamType.Video)
                 {

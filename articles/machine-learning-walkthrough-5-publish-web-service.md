@@ -1,6 +1,20 @@
-﻿<properties title="Step 5: Publish the Azure Machine Learning web service" pageTitle="Paso 5: Publicación del servicio web de Aprendizaje automático | Azure" description="Paso 5: publicar un experimento de puntuación en Estudio de aprendizaje automático de Azure como servicio web de la API de aprendizaje automático" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Paso 5: Publicación del servicio web de Aprendizaje automático | Azure" 
+	description="Paso 5 del tutorial de la solución: publicar un experimento de puntuación en Estudio de aprendizaje automático de Azure como servicio web de Aprendizaje automático de Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 Este es el quinto paso del tutorial [Desarrollo de una solución predictiva con el Aprendizaje automático de Azure][develop]:
@@ -144,3 +158,5 @@ En la pestaña **CONFIGURACIÓN**, haga clic en "SÍ" junto a **¿LISTO PARA PRO
 [1]: ./media/machine-learning-walkthrough-5-publish-web-service/publish1.png
 [2]: ./media/machine-learning-walkthrough-5-publish-web-service/publish2.png
 [3]: ./media/machine-learning-walkthrough-5-publish-web-service/publish3.png
+
+<!--HONumber=46--> 

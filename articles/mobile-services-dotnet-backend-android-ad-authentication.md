@@ -1,6 +1,19 @@
-﻿<properties pageTitle="Inicio de sesión y acceso a los recursos con Active Directory (Android) | Centro de desarrollo móvil" description="Aprenda a agregar autenticación a una aplicación mediante Active Directory" documentationCenter="android" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Inicio de sesión y acceso a los recursos con Active Directory (Android) | Centro de desarrollo móvil" 
+	description="Aprenda a agregar autenticación a una aplicación mediante Active Directory" 
+	documentationCenter="android" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # Autenticación de la aplicación con Active Directory
 

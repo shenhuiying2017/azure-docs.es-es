@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Registro del usuario actual para notificaciones de inserción mediante un servicio móvil - Centros de notificaciones" description="Obtenga información acerca de cómo solicitar el registro de notificaciones de inserción en una aplicación iOS con los centros de notificaciones de Azure cuando Servicios móviles de Azure realiza el registro." services="mobile-services, notification-hubs" documentationCenter="" authors="ysxu" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Registro del usuario actual para notificaciones de inserción mediante un servicio móvil - Centros de notificaciones" 
+	description="Obtenga información acerca de cómo solicitar el registro de notificaciones de inserción en una aplicación iOS con los centros de notificaciones de Azure cuando Servicios móviles de Azure realiza el registro." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 
 # Registro del usuario actual para notificaciones de inserción con un servicio móvil
 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Registro para autenticación de Microsoft - Servicios móviles" description="Obtenga información acerca de cómo registrarse para la autenticación de Microsoft en la aplicación de Servicios móviles de Azure." authors="ggailey777" services="mobile-services" documentationCenter="" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Registro para autenticación de Microsoft - Servicios móviles" 
+	description="Obtenga información acerca de cómo registrarse para la autenticación de Microsoft en la aplicación de Servicios móviles de Azure." 
+	authors="ggailey777" 
+	services="mobile-services" 
+	documentationCenter="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Registro de sus aplicaciones para usar un inicio de sesión de la cuenta Microsoft
 

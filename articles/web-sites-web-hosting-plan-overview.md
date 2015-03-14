@@ -1,6 +1,20 @@
-﻿<properties pageTitle="¿Qué es un plan de hospedaje web?" description="Información general del plan de hospedaje web" title="What is a web hosting plan?" services="web-sites" authors="adamab" manager="wpickett" />
+﻿<properties 
+	pageTitle="¿Qué es un plan de hospedaje web?" 
+	description="Información general del plan de hospedaje web" 
+	services="web-sites" 
+	authors="adamabdelhamed" 
+	manager="wpickett" 
+	editor="" 
+	documentationCenter=""/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="01/01/1900" ms.author="adamab" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="adamab"/>
 
 # ¿Qué es un plan de hospedaje web? #
 
@@ -48,10 +62,12 @@ Si hace clic en el plan, aparece un cuadro que le permite administrar el plan de
 
 ### Pasos siguientes ###
 
-Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure](http://azure.microsoft.com/es-es/pricing/free-trial/).
+Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 <!-- Images. -->
 [BrowseEverythingScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-everything.png
 [WebHostingPlanResourceMapScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-resource-map.png
 [WebHostingPlanBladeScreenshot]: ./media/web-sites-web-hosting-plan-overview/web-hosting-plan-blade.png
 [BrowseWebHostingPlansScreenshot]: ./media/web-sites-web-hosting-plan-overview/browse-web-hosting-plans.png
+
+<!--HONumber=46--> 

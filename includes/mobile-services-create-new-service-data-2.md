@@ -56,5 +56,4 @@
 
 Ahora ya está listo para utilizar el nuevo servicio móvil como almacenamiento de datos para la aplicación.
 
-
 <!--HONumber=42-->

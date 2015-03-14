@@ -1,7 +1,21 @@
-﻿<properties title="Build a web application with ASP.NET MVC using DocumentDB" pageTitle="Compilación de una aplicación web con ASP.NET MVC usando Base de datos de documentos | Azure" description="Obtenga información acerca de cómo usar la Base de datos de documentos para crear una aplicación web de lista de tareas pendientes. Almacenará y accederá a datos desde una aplicación web ASP.NET MVC hospedada en Azure.."  metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Compilación de una aplicación web con ASP.NET MVC usando Base de datos de documentos | Azure" 
+	description="Obtenga información acerca de cómo usar la Base de datos de documentos para crear una aplicación web de lista de tareas pendientes. Almacenará y accederá a datos desde una aplicación web MVC de ASP.NET hospedada en Azure." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="ryancrawcour" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="08/19/2014" ms.author="ryancraw" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="ryancraw"/>
 
 <a name="_Toc395809351">Compilación de una aplicación web con ASP.NET MVC usando Base de datos de documentos</a>
 =======================================================================================================
@@ -587,3 +601,5 @@ En pocos segundos, Visual Studio terminará de publicar su aplicación web y eje
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 
 <!--HONumber=27-->
+
+<!--HONumber=46--> 

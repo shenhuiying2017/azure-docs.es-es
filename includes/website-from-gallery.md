@@ -11,7 +11,7 @@ Va a crear un blog de WordPress que utiliza una plantilla predeterminada. La sig
 
 ![Wordpress blog][13]
 
-> [AZURE.IMPORTANT] Para completar este tutorial, deberá tener una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Creación de una cuenta de Azure](http://www.windowsazure.com/es-es/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
+> [AZURE.IMPORTANT] Para completar este tutorial, deberá tener una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Creación de una cuenta de Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
 
 ## Creación de un sitio web en el portal
 
@@ -79,7 +79,6 @@ Después de hacer clic en **Completar**, Azure iniciará las operaciones de comp
 [11]: ./media/website-from-gallery/wordpressgallery-07.png
 [12]: ./media/website-from-gallery/wordpressgallery-08.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
-
 
 
 

@@ -1,6 +1,20 @@
-<properties pageTitle="Uso de Servicios multimedia" description="" services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Uso de Servicios multimedia" 
+	description="" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 # Uso de Servicios multimedia
@@ -11,7 +25,7 @@ También puede programar Servicios multimedia con las API de REST basadas en ODa
 
 Para comenzar a programar con la API de REST de Servicios multimedia o el SDK de Servicios multimedia, primero habilite su cuenta de Azure para Servicios multimedia como se describe en la sección [Configuración de una cuenta de Azure para Servicios multimedia][].
 
-La documentación del SDK de Servicios multimedia más actualizada se encuentra [aquí](http://msdn.microsoft.com/es-es/library/hh973613.aspx). 
+La documentación del SDK de Servicios multimedia más actualizada se encuentra [aquí](http://msdn.microsoft.com/library/hh973613.aspx). 
 
 ## <a name="what-are"></a><span class="short header">¿Qué es Servicios multimedia?</span>
 Los Servicios multimedia de Azure forman una plataforma multimedia extensible que integra lo mejor de la plataforma multimedia de Microsoft y los componentes multimedia de terceros en Azure. Los Servicios multimedia proporcionan un proceso en la nube que permite a los socios del sector ampliar o reemplazar las tecnologías de componentes. Los vendedores independientes de software y los proveedores multimedia pueden usar Servicios multimedia para generar soluciones multimedia de un extremo a otro. Esta introducción describe la arquitectura general y los escenarios de desarrollo comunes para Servicios multimedia.
@@ -72,7 +86,7 @@ Para los PC y Mac, puede dirigir una experiencia de transferencia mediante Micro
 #### Aplicaciones de Windows 8
 Para Windows 8, puede generar aplicaciones de la Tienda Windows mediante una de las construcciones y lenguajes de desarrollo compatibles como HTML, Javascript, XAML, C# y C+.
 
--	[SDK del cliente de Smooth Streaming para Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). Para obtener más información sobre cómo crear una aplicación de la Tienda Windows con este SDK, consulte [Generación de una aplicación de la Tienda Windows de transmisión suave](http://go.microsoft.com/fwlink/?LinkId=271647). Para obtener información sobre cómo crear un reproductor de transmisión suave en HTML5, consulte [Tutorial: Generación del primer reproductor de Smooth Streaming de HTML5](http://msdn.microsoft.com/es-es/library/jj573656(v=vs.90).aspx).
+-	[SDK del cliente de Smooth Streaming para Windows 8](http://go.microsoft.com/fwlink/?LinkID=246146). Para obtener más información sobre cómo crear una aplicación de la Tienda Windows con este SDK, consulte [Generación de una aplicación de la Tienda Windows de transmisión suave](http://go.microsoft.com/fwlink/?LinkId=271647). Para obtener información sobre cómo crear un reproductor de transmisión suave en HTML5, consulte [Tutorial: Generación del primer reproductor de Smooth Streaming de HTML5](http://msdn.microsoft.com/library/jj573656(v=vs.90).aspx).
 
 -	[Plataforma multimedia de Microsoft: Player Framework for Windows 8 Windows Store Applications](http://playerframework.codeplex.com/wikipage?title=Player%20Framework%20for%20Windows%208%20Metro%20Style%20Apps&referringTitle=Home)
 
@@ -131,15 +145,15 @@ Ahora que dispone de una visión general de los Servicios multimedia, diríjase 
   [Configuración de cuentas de vista previa de Servicios multimedia]: http://go.microsoft.com/fwlink/?linkid=247287
   [SDK de Servicios multimedia de Azure para .NET]: http://go.microsoft.com/fwlink/?LinkID=256500
   [Instalador de plataforma web]: http://go.microsoft.com/fwlink/?linkid=255386
-  [Instalación del SDK de Azure en Windows 8]: http://www.windowsazure.com/es-es/develop/net/other-resources/windows-azure-on-windows-8/
+  [Instalación del SDK de Azure en Windows 8]: http://azure.microsoft.com/develop/net/other-resources/windows-azure-on-windows-8/
   [Documentación de Servicios multimedia de Azure]: http://go.microsoft.com/fwlink/?linkid=245437
-  [Introducción a CDN de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/ff919705.aspx
+  [Introducción a CDN de Azure]: http://msdn.microsoft.com/library/windowsazure/ff919705.aspx
   [Foro de Servicios multimedia]: http://social.msdn.microsoft.com/Forums/es-es/MediaServices/threads
   [Introducción al SDK de Servicios multimedia para .NET]: http://go.microsoft.com/fwlink/?linkid=252966
   [Creación de aplicaciones con el SDK de Servicios multimedia para .NET]: http://go.microsoft.com/fwlink/?linkid=247821
   [Portal de administración de Azure]: https://manage.windowsazure.com/
   [Creación de una cuenta de Servicios multimedia]: ../media-services-create-account/
-  [Tipos de archivo compatibles para Servicios multimedia]: http://msdn.microsoft.com/es-es/library/dn535852.aspx
+  [Tipos de archivo compatibles para Servicios multimedia]: http://msdn.microsoft.com/library/dn535852.aspx
 
 
 <!--HONumber=42-->

@@ -1,7 +1,20 @@
-﻿
-<properties title="API basics for Azure Batch" pageTitle="Aspectos básicos sobre la API de Lote de Azure" description="Conceptos para introducir a los desarrolladores al servicio Batch y a las API de Batch de Azure" metaKeywords="" services="batch" solutions="" documentationCenter=".NET" authors="yidingz, karran.batta" videoId="" scriptId="" manager="timlt" />
+﻿<properties 
+	pageTitle="Aspectos básicos sobre la API de Lote de Azure" 
+	description="Conceptos para introducir a los desarrolladores al servicio Batch y a las API de Batch de Azure" 
+	services="batch" 
+	documentationCenter=".net" 
+	authors="yidingzhou" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="batch" ms.devlang="multiple" ms.topic="article" ms.tgt_pltfrm="na" ms.workload="big-compute" ms.date="10/27/2014" ms.author="yidingz, karran.batta" />
+<tags 
+	ms.service="batch" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.workload="big-compute" 
+	ms.date="02/02/2015" 
+	ms.author="yidingz, kabatta"/>
 
 
 <!--The next line, with one pound sign at the beginning, is the page title--> 
@@ -57,7 +70,7 @@ Una cuenta de Lote es una entidad identificada de forma exclusiva en el servicio
 
 ### <a name="taskvm"></a>Máquina virtual de tareas
 
-Una máquina virtual de tareas (TVM) es una máquina virtual de Azure dedicada a una carga de trabajo específica de la aplicación. El tamaño de una TVM determina el número de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asigna a la TVM. Una TVM puede ser una máquina virtual pequeña, grande o extragrande, como se describe en [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/es-es/library/dn197896.aspx).
+Una máquina virtual de tareas (TVM) es una máquina virtual de Azure dedicada a una carga de trabajo específica de la aplicación. El tamaño de una TVM determina el número de núcleos de CPU, la capacidad de memoria y el tamaño del sistema de archivos local que se asigna a la TVM. Una TVM puede ser una máquina virtual pequeña, grande o extragrande, como se describe en [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/dn197896.aspx).
 
 Los tipos de programas que se puede ejecutar una TVM incluyen archivos ejecutables (.exe), archivos de comandos (.cmd), archivos por lotes (.bat) y archivos de script. Una TVM también tiene los siguientes atributos:
 
@@ -340,3 +353,5 @@ Para cada tarea programada en un trabajo, se establece un conjunto específico d
 No se pueden sobrescribir estas variables definidas por el sistema.
 
 Puede recuperar el valor de la configuración del entorno mediante una operación Obtener tarea.
+
+<!--HONumber=46--> 

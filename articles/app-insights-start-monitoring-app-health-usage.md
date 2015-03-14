@@ -1,6 +1,18 @@
-﻿<properties title="Application Insights" pageTitle="Application Insights: comience a supervisar el estado y el uso de la aplicación" description="Analice el uso, la disponibilidad y el rendimiento de su aplicación web de Microsoft Azure o local con Application Insights." metaKeywords="analytics monitoring application insights" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Incorporación del SDK de Application Insights al proyecto web" 
+	description="Analice el uso, la disponibilidad y el rendimiento de su aplicación web de Microsoft Azure o local con Application Insights." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-02-03" 
+	ms.author="awills"/>
 
 # Application Insights: comience a supervisar el estado y el uso de la aplicación
 
@@ -102,3 +114,5 @@ A continuación, vuelva al portal y elimine el recurso anterior.
 [AZURE.INCLUDE [app-insights-learn-more](../includes/app-insights-learn-more.md)]
 
 
+
+<!--HONumber=46--> 

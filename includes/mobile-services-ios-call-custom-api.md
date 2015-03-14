@@ -89,5 +89,4 @@
 4. Haga clic en el botón **All**. Se mostrará un cuadro de alerta que indica el número de elementos marcados como completados y la consulta filtrada se vuelve a ejecutar, por lo que se borran todos los elementos de la lista.
 
   	![](./media/mobile-services-ios-call-custom-api/mobile-custom-api-ios-completed.png)
-
 <!--HONumber=42-->

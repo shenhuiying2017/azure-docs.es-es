@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Azure Subscription and Service Limits, Quotas, and Constraints" pageTitle="Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure" metaKeywords="servicios en la nube, máquinas virtuales, sitios web, red virtual, base de datos SQL, suscripción, almacenamiento" description="Proporciona una lista de límites habituales de suscripción y servicios de Azure junto con los valores máximos." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="" authors="jroth" solutions="" manager="jeffreyg" editor="mollybos" />
+﻿<properties 
+	pageTitle="Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure" 
+	description="Proporciona una lista de límites habituales de suscripción y servicios de Azure junto con los valores máximos." 
+	services="" 
+	documentationCenter="" 
+	authors="rothja" 
+	manager="jeffreyg" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="jroth" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="jroth"/>
 
 # Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 
@@ -30,22 +44,22 @@ En el siguiente documento se especifican algunos de los límites más comunes de
    <th align="left" valign="middle">Límite máximo</th>
 </tr>
 <tr>
-   <td valign="middle"><p>Núcleos por <a href="http://msdn.microsoft.com/es-es/library/azure/hh531793.aspx">suscripción</a><sup>1</sup></p></td>
+   <td valign="middle"><p>Núcleos por <a href="http://msdn.microsoft.com/library/azure/hh531793.aspx">suscripción</a><sup>1</sup></p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>10.000</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/es-es/library/azure/gg456328.aspx">Coadministradores</a> por suscripción</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/gg456328.aspx">Coadministradores</a> por suscripción</p></td>
    <td valign="middle"><p>200</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/es-es/documentation/articles/storage-whatis-account/">Cuentas de almacenamiento</a> por suscripción</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/storage-whatis-account/">Cuentas de almacenamiento</a> por suscripción</p></td>
    <td valign="middle"><p>100</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/es-es/documentation/articles/cloud-services-what-is/">Servicios en la nube</a> por suscripción</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Servicios en la nube</a> por suscripción</p></td>
    <td valign="middle"><p>20</p></td>
    <td valign="middle"><p>200</p></td>
 </tr>
@@ -55,7 +69,7 @@ En el siguiente documento se especifican algunos de los límites más comunes de
    <td valign="middle"><p>100</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/es-es/library/jj157100.aspx">Redes locales</a> por suscripción</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/jj157100.aspx">Redes locales</a> por suscripción</p></td>
    <td valign="middle"><p>de</p></td>
    <td valign="middle"><p>100</p></td>
 </tr>
@@ -85,18 +99,18 @@ En el siguiente documento se especifican algunos de los límites más comunes de
    <td valign="middle"><p>400</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/es-es/library/azure/jj156085.aspx">Grupo de afinidad</a> por suscripción</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/azure/jj156085.aspx">Grupo de afinidad</a> por suscripción</p></td>
    <td valign="middle"><p>256</p></td>
    <td valign="middle"><p>256</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/es-es/documentation/articles/azure-preview-portal-using-resource-groups/">Grupos de recursos</a> por suscripción</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/">Grupos de recursos</a> por suscripción</p></td>
    <td valign="middle"><p>300</p></td>
    <td valign="middle"><p>300</p></td>
 </tr>
 
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/es-es/services/batch/">Vista previa de lote</a> cuentas para cada región por suscripción</p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/services/batch/">Vista previa de lote</a> cuentas para cada región por suscripción</p></td>
    <td valign="middle"><p>1</p></td>
    <td valign="middle"><p>50</p></td>   
 </tr>
@@ -115,22 +129,22 @@ En el siguiente documento se especifican algunos de los límites más comunes de
    <th align="left" valign="middle">Límite máximo</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/es-es/documentation/articles/cloud-services-what-is/">Roles web y de trabajo por implementación<sup>1</sup></a></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/articles/cloud-services-what-is/">Roles web y de trabajo por implementación<sup>1</sup></a></p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/es-es/library/gg557552.aspx#InstanceInputEndpoint">Extremos de entrada de instancia</a> por cada implementación</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InstanceInputEndpoint">Extremos de entrada de instancia</a> por cada implementación</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/es-es/library/gg557552.aspx#InputEndpoint">Extremos de entrada</a> por cada implementación</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InputEndpoint">Extremos de entrada</a> por cada implementación</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://msdn.microsoft.com/es-es/library/gg557552.aspx#InternalEndpoint">Extremos internos</a> por cada implementación</p></td>
+   <td valign="middle"><p><a href="http://msdn.microsoft.com/library/gg557552.aspx#InternalEndpoint">Extremos internos</a> por cada implementación</p></td>
    <td valign="middle"><p>25</p></td>
    <td valign="middle"><p>25</p></td>
 </tr>
@@ -147,7 +161,7 @@ En el siguiente documento se especifican algunos de los límites más comunes de
    <th align="left" valign="middle">Límite máximo</th>
 </tr>
 <tr>
-   <td valign="middle"><p><a href="http://azure.microsoft.com/es-es/documentation/services/virtual-machines/">Máquinas virtuales</a> por cada servicio en la nube<sup>1</sup></p></td>
+   <td valign="middle"><p><a href="http://azure.microsoft.com/documentation/services/virtual-machines/">Máquinas virtuales</a> por cada servicio en la nube<sup>1</sup></p></td>
    <td valign="middle"><p>50</p></td>
    <td valign="middle"><p>50</p></td>
 </tr>
@@ -314,18 +328,20 @@ Para Azure Active Directory (AD), consulte el tema siguiente:
 
 [Tamaños de máquinas virtuales y servicios en la nube de Azure][vmsizes]
 
-  [customersupportfaq]: http://azure.microsoft.com/es-es/support/faq/
+  [customersupportfaq]: http://azure.microsoft.com/support/faq/
   [azurelimitsblogpost]: http://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-  [gateway]: http://msdn.microsoft.com/es-es/library/azure/jj156210.aspx 
+  [gateway]: http://msdn.microsoft.com/library/azure/jj156210.aspx 
   [storagelimits]: http://msdn.microsoft.com/library/azure/dn249410.aspx
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
-  [sqldblimits]: http://msdn.microsoft.com/es-es/library/azure/dn338081.aspx
-  [sqltiers]: http://msdn.microsoft.com/es-es/library/azure/dn741340.aspx
-  [sqltiersperflevels]: http://msdn.microsoft.com/es-es/library/azure/dn741336.aspx
-  [sqlDTU]: http://msdn.microsoft.com/es-es/library/azure/ee336245.aspx#DTUs
-  [vmsizes]: http://msdn.microsoft.com/es-es/library/azure/dn197896.aspx
+  [sqldblimits]: http://msdn.microsoft.com/library/azure/dn338081.aspx
+  [sqltiers]: http://msdn.microsoft.com/library/azure/dn741340.aspx
+  [sqltiersperflevels]: http://msdn.microsoft.com/library/azure/dn741336.aspx
+  [sqlDTU]: http://msdn.microsoft.com/library/azure/ee336245.aspx#DTUs
+  [vmsizes]: http://msdn.microsoft.com/library/azure/dn197896.aspx
   [georedundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/introducing-geo-replication-for-windows-azure-storage.aspx
   [locallyredundantstorage]: http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/08/introducing-locally-redundant-storage-for-windows-azure-storage.aspx
-  [adlimitsandrestrictions]: http://msdn.microsoft.com/es-es/library/azure/dn764971.aspx
+  [adlimitsandrestrictions]: http://msdn.microsoft.com/library/azure/dn764971.aspx
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

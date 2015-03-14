@@ -1,6 +1,20 @@
-﻿<properties title="Machine Learning example app: Frequently Bought Together" pageTitle="Aplicación de ejemplo de aprendizaje automático: artículos que con frecuencia se compran juntos | Azure" description="Un servicio web de aprendizaje automático que realiza análisis en línea del carro de la compra para producir recomendaciones de artículos que con frecuencia se compran juntos a partir de las transacciones históricas proporcionadas por el usuario." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="coromt" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Aplicación de ejemplo de aprendizaje automático: Artículos que con frecuencia se compran juntos | Azure" 
+	description="Un servicio web de aprendizaje automático que realiza análisis en línea del carro de la compra para producir recomendaciones de artículos que con frecuencia se compran juntos a partir de las transacciones históricas proporcionadas por el usuario." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="CoromT" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/17/2014" ms.author="coromt" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/17/2014" 
+	ms.author="coromt"/> 
 
 # Aplicación de ejemplo de aprendizaje automático: artículos que con frecuencia se compran juntos
  
@@ -13,3 +27,5 @@ Después de haberse suscrito al [servicio web]( https://datamarket.azure.com/dat
 
 Este servicio contiene API para administrar y crear modelos para Artículos que con frecuencia se compran juntos, cargar las transacciones del historial y recuperar los conjuntos de artículos que con frecuencia se compran juntos mejor clasificados para un producto dado.  Se pueden encontrar ejemplos que demuestran cómo usar estas API en el [repositorio de Azure-MachineLearning-DataScience en GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Apps/FrequentlyBoughtTogether).
 
+
+<!--HONumber=46--> 

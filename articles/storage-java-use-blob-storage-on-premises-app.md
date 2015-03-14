@@ -378,9 +378,8 @@ Para obtener información general sobre otras clases y métodos de almacenamient
   [Requisitos previos]: #bkmk_prerequisites
   [Para usar el almacenamiento de blobs de Azure para cargar un archivo]: #bkmk_uploadfile
   [Para eliminar un contenedor]: #bkmk_deletecontainer
-  [Descarga del SDK de Azure para Java]: http://www.windowsazure.com/es-es/develop/java/
-  [Creación de una cuenta de almacenamiento]: http://www.windowsazure.com/es-es/manage/services/storage/how-to-create-a-storage-account/
-  [Administración de cuentas de almacenamiento]: http://www.windowsazure.com/es-es/manage/services/storage/how-to-manage-a-storage-account/
-  [Uso del servicio de almacenamiento de blobs desde Java]: http://www.windowsazure.com/es-es/develop/java/how-to-guides/blob-storage/
-
+  [Descarga del SDK de Azure para Java]: http://azure.microsoft.com/develop/java/
+  [Creación de una cuenta de almacenamiento]: http://azure.microsoft.com/manage/services/storage/how-to-create-a-storage-account/
+  [Administración de cuentas de almacenamiento]: http://azure.microsoft.com/manage/services/storage/how-to-manage-a-storage-account/
+  [Uso del servicio de almacenamiento de blobs desde Java]: http://azure.microsoft.com/develop/java/how-to-guides/blob-storage/
 <!--HONumber=42-->

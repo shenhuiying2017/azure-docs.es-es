@@ -26,5 +26,4 @@ En HDInsight puede trabajar con grandes volúmenes de datos en la nube en Hadoop
 
 
 
-
 <!--HONumber=42-->

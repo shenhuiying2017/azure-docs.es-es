@@ -1,6 +1,20 @@
-﻿<properties title="Survival Analysis" pageTitle="Análisis de supervivencia | Azure" description="Análisis de supervivencia" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Análisis de supervivencia | Azure" 
+	description="Probabilidad de aparición de eventos de análisis de supervivencia" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 #Análisis de supervivencia 
@@ -70,7 +84,7 @@ Esta prueba se interpreta de la siguiente forma. Supongamos que el objetivo de l
 
 ##Creación del servicio web
 
->Este servicio web se ha creado con el Aprendizaje automático de Microsoft Azure. Para obtener acceso a una prueba gratuita y a vídeos introductorios sobre la creación de experimentos y la [publicación de servicios web](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consulte [azure.com/ml](http://azure.com/ml). A continuación se muestra una captura de pantalla del experimento que creó el código de ejemplo y el servicio web para cada uno de los módulos dentro del experimento.
+>Este servicio web se ha creado con el Aprendizaje automático de Microsoft Azure. Para obtener acceso a una prueba gratuita y a vídeos introductorios sobre la creación de experimentos y la [publicación de servicios web](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consulte [azure.com/ml](http://azure.com/ml). A continuación se muestra una captura de pantalla del experimento que creó el código de ejemplo y el servicio web para cada uno de los módulos dentro del experimento.
 
 En el Aprendizaje automático de Azure se creó un nuevo experimento en blanco y se extrajeron dos comandos "Ejecutar scripts R" en el área de trabajo. El esquema de datos se creó con un comando sencillo "Ejecutar script R", que define el esquema de datos de entrada para el servicio web. Este módulo está vinculado al segundo módulo "Ejecutar script R", que hace la mayor parte del trabajo. Este módulo realiza el preprocesamiento de datos, la creación de modelos y las previsiones. En el paso del preprocesamiento de los datos, los datos de entrada representados por una cadena larga se transforman y convierten en una trama de datos. En el paso de creación del modelo, un paquete R externo "survival_2.37 7.zip" se instala en primer lugar para llevar a cabo el análisis de supervivencia. A continuación, se ejecuta la función "coxph" después de una serie de tareas de procesamiento de datos. Se pueden leer los detalles de la función "coxph" para el análisis de supervivencia en la documentación de R. En el paso de previsión, se proporciona una instancia de prueba en el modelo de entrenado con la función "surfit", y la curva de supervivencia para esta instancia de prueba se genera como variable "curva". Por último, se obtiene la probabilidad del tiempo de interés. 
 
@@ -172,6 +186,8 @@ En el Aprendizaje automático de Azure se creó un nuevo experimento en blanco y
 Este servicio web solo puede aceptar valores numéricos como variables de característica (columnas). La columna "evento" solo puede aceptar el valor 0 ó 1. La columna "tiempo" debe ser un entero positivo.
 
 ##P+F
-Para ver las preguntas más frecuentes sobre el uso del servicio web o la publicación en Marketplace, haga clic [aquí](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-marketplace-faq).
+Para ver las preguntas más frecuentes sobre el uso del servicio web o la publicación en Marketplace, haga clic [aquí](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-survival-analysis/survive_img2.png
+
+<!--HONumber=46--> 

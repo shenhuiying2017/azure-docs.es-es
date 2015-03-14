@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Configuración de IIS Express para la prueba local del servicio móvil" description="Obtenga información acerca de cómo configurar IIS Express para permitir conexiones a un proyecto de servicio móvil local para pruebas." authors="ggailey777" manager="dwrede" services="mobile-services" documentationCenter="windows" editor=""/>
+﻿<properties 
+	pageTitle="Configuración de IIS Express para la prueba local del servicio móvil" 
+	description="Obtenga información acerca de cómo configurar IIS Express para permitir conexiones a un proyecto de servicio móvil local para pruebas." 
+	authors="ggailey777" 
+	manager="dwrede" 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/20/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/20/2014" 
+	ms.author="glenga"/>
 
 # Configuración del servidor web local para permitir conexiones a un servicio móvil local 
 

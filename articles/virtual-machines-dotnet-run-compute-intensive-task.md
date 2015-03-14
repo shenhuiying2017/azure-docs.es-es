@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Tarea .NET de proceso intensivo en una máquina virtual - Azure" 
 	description="Aprenda a implementar y ejecutar una aplicación .NET de proceso intensivo en una máquina virtual de Azure y a usar colas de Bus de servicio para supervisar el progreso remotamente." 
 	services="virtual-machines" 
@@ -24,8 +24,8 @@ En este tutorial se da por hecho que sabe cómo crear aplicaciones de consola .N
 
 Aprenderá a:
 
-* Crear una máquina virtual
-* Iniciar sesión de manera remota en la máquina virtual
+* Crear una máquina virtual.
+* Iniciar sesión de manera remota en la máquina virtual.
 * Crear un espacio de nombres del bus de servicio.
 * Crear una aplicación .NET que realiza una tarea de proceso intensivo.
 * Crear una aplicación .NET que supervisa el progreso de la tarea de proceso intensivo.
@@ -65,15 +65,13 @@ A continuación se muestra un ejemplo de la aplicación .NET que supervisa la ta
 
 <h2>Creación de un espacio de nombres del bus de servicio</h2>
 
-Para empezar a usar las colas del Bus de servicio en Azure, primero debe
-crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor
-con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
+Para comenzar a usar colas del bus de servicio en Azure, primero debe crear un espacio de nombres de servicio. Un espacio de nombres de servicio proporciona un contenedor con un ámbito para el desvío de recursos del bus de servicio en la aplicación.
 
 Para crear un nombre de espacio de servicio:
 
 1.  Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com).
 2.  En el panel de navegación izquierdo del Portal de administración, haga clic en **Bus de servicio**.
-3.  En el panel inferior del Portal de administración, haga clic en  **Crear**.
+3.  En el panel inferior del Portal de administración, haga clic en **Create**.
 
     ![Create new service bus][create_service_bus]
 4.  En el cuadro de diálogo **Crear un espacio de nombres**, especifique un nombre de espacio de nombres. El sistema realiza la comprobación de inmediato para ver si el nombre está disponible, ya que debe ser un nombre exclusivo.
@@ -92,16 +90,14 @@ El espacio de nombres que creó aparecerá a continuación en el Portal de admin
 
 <h2>Obtención de credenciales de administración predeterminadas para el espacio de nombres</h2>
 
-Para realizar operaciones de administración (como la creación de una cola) en el
-nuevo espacio de nombres, debe obtener las credenciales de administración para el
-espacio de nombres.
+Para realizar operaciones de administración (como la creación de una cola) en el nuevo espacio de nombres, debe obtener las credenciales de administración para el espacio de nombres.
 
 1.  En el panel de navegación izquierdo, haga clic en el nodo **Bus de servicio** para
     mostrar la lista de espacios de nombres disponibles:   
     ![Available namespaces screenshot][available_namespaces]
 2.  Seleccione el espacio de nombres que acaba de crear en la lista desplegable:   
     ![Namespace list screenshot][namespace_list]
-3. Haga clic en**Clave de acceso**.   
+3. Haga clic en **Clave de acceso**.   
     ![Access key button][access_key_button]
 4.  En el cuadro de diálogo, busque las entradas **Emisor predeterminado** y **Clave predeterminada**. Anote estos valores, ya que usará la información que aparece a continuación para realizar operaciones con el espacio de nombres. 
 
@@ -341,7 +337,7 @@ espacio de nombres.
 <h2>Crear una aplicación .NET que supervisa el progreso de la tarea de proceso intensivo</h2>
 
 1. En la máquina de desarrollo, cree una aplicación de consola .NET con **TSPClient** como nombre de proyecto. Asegúrese de que el marco de trabajo de destino esté establecido para .**NET Framework 4** o posterior (no para **.NET Framework 4 Client Profile**). El marco de trabajo de destino puede establecerse después de crear un proyecto mediante la siguiente forma: En el menú de Visual Studio, haga clic en **Proyectos**, en **Propiedades**, en la pestaña **Aplicación** y, a continuación, establezca el valor para **Marco de trabajo de destino**.
-2. Agregue en la biblioteca de Microsoft ServiceBus. En el Explorador de soluciones de Visual Studio, haga clic con el botón secundario en **TSPSolver**, en **Agregar referencia**, en la pestaña **Examinar**, vaya a la ubicación del SDK de Azure para .NET (por ejemplo, en **C:\Archivos de programa\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) y seleccione **Microsoft.ServiceBus.dll** como referencia.
+2. Agregue en la biblioteca de Microsoft ServiceBus. En el Explorador de soluciones de Visual Studio, haga clic con el botón secundario en **TSPSolver**, en **Agregar referencia**, en la pestaña **Examinar**, vaya a la ubicación del SDK de Azure para .NET (por ejemplo, en **C:\Program Files\Microsoft SDKs\Azure\.NET SDK\v2.5\ToolsRef**) y seleccione **Microsoft.ServiceBus.dll** como referencia.
 3. Agregue la biblioteca System Runtime Serialization. En el Explorador de soluciones de Visual Studio, haga clic con el botón secundario en **TSPClient**, haga clic en **Agregar referencia**, en la pestaña **.NET** y seleccione **System.Runtime.Serialization** como referencia.
 4. Use el código de ejemplo al final de esta sección para el contenido de **Program.cs**.
 5. Modifique los marcadores de posición **your\_service\_bus\_namespace**, **your\_service\_bus\_owner** y **your\_service\_bus\_key** para usar los valores **espacio de nombres**, **Emisor predeterminado** y **Clave predeterminada**, respectivamente.
@@ -464,9 +460,11 @@ Ejecute la aplicación de proceso intensivo, cree primero la cola y después res
 <h3>Ejecución de la aplicación de proceso intensivo</h3>
 
 1. Inicie sesión en la máquina virtual.
-2. Cree una carpeta con el nombre **c:\TSP**. Este es lugar en donde se ejecutará la aplicación.
+2. Cree una carpeta denominada **c:\TSP**. Este es lugar en donde se ejecutará la aplicación.
 3. Copie TSPSolver.exe y Microsoft.ServiceBus.dll. Ambos estarán disponibles en la carpeta **bin** del proyecto TSPSolver en **c:\TSP**.
-4. Cree un archivo con el nombre**c:\TSP\cities.txt** con el siguiente contenido:
+4. Cree un archivo denominado **c:\TSP\cities.txt** con el siguiente contenido:
+
+</p>
 
 		City_1, 1002.81, -1841.35
 		City_2, -953.55, -229.6
@@ -548,7 +546,7 @@ El solucionador se ejecutará hasta que acabe de examinar todas las rutas.
 
 	    TSPClient 1
 
-    El cliente se ejecutará hasta que vea un mensaje de cola de "Complete". Tenga en cuenta que si ejecuta varias ocurrencias del solucionador sin ejecutar el cliente, es posible que tenga que ejecutar el cliente varias veces para vaciar la cola por completo. Además, puede eliminar la cola y después volver a crearla. Para eliminar la cola, ejecute el siguiente comando **TSPSolver** (no **TSPClient**)  :
+    El cliente se ejecutará hasta que vea un mensaje de cola de "Complete". Tenga en cuenta que si ejecuta varias ocurrencias del solucionador sin ejecutar el cliente, es posible que tenga que ejecutar el cliente varias veces para vaciar la cola por completo. Además, puede eliminar la cola y después volver a crearla. Para eliminar la cola, ejecute el siguiente comando **TSPSolver** (no **TSPClient**):
 
         TSPSolver deletequeue
 
@@ -568,4 +566,7 @@ En lugar de usar TSPSolver para crear o eliminar la cola, puede crear o eliminar
 [namespace_list]: ./media/virtual-machines-dotnet-run-compute-intensive-task/NamespaceList.png
 [access_key_button]: ./media/virtual-machines-dotnet-run-compute-intensive-task/AccessKey.png
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

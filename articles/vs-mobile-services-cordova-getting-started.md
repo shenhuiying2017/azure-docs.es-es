@@ -36,7 +36,7 @@ El código siguiente obtiene una referencia a una tabla que contiene datos para 
 
 	var todoTable = mobileServiceClient.getTable('TodoItem');
 
-Para que funcionen estos ejemplos, los permisos de la tabla deben estar configurados en **Cualquier persona con la clave de aplicación**. Más adelante podrá configurar la autenticación. Consulte [Introducción a la autenticación](http://azure.microsoft.com/es-es/documentation/articles/mobile-services-html-get-started-users/).
+Para que funcionen estos ejemplos, los permisos de la tabla deben estar configurados en **Cualquier persona con la clave de aplicación**. Más adelante podrá configurar la autenticación. Consulte [Introducción a la autenticación](http://azure.microsoft.com/documentation/articles/mobile-services-html-get-started-users/).
 
 #####Incorporación de entrada 
 

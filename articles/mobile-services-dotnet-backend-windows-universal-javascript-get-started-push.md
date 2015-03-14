@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción a la notificación de inserción usando un servicio móvil de back-end de .NET" description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación universal de Windows." services="mobile-services, notification-hubs" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Introducción a la notificación de inserción usando un servicio móvil de back-end de .NET" 
+	description="Obtenga información acerca de cómo usar Servicios móviles de Azure y centros de notificaciones para enviar notificaciones de inserción a la aplicación universal de Windows." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="javascript" ms.topic="article" ms.date="09/27/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/27/2014" 
+	ms.author="glenga"/>
 
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
@@ -54,7 +68,7 @@ Los pasos pendientes de esta sección son opcionales. Permiten probar la aplicac
 
 <ol start="5">
 <li><p>Vaya a la <code>\services\mobileServices\settings</code> carpeta del proyecto, copie el archivo de script generado &lt;<em>your_service_name</em>&gt;.js en la <code>\js</code> carpeta del proyecto compartida y, a continuación, elimine este archivo del proyecto de Windows y del proyecto de la aplicación de WindowsPhone. Elimine también este archivo de la carpeta <code>\services\mobileServices\scripts</code> en cada proyecto de aplicación si ahí también existe.</p></li> 
-<li><p>Abra este archivo de script en la <code>\js</code> carpeta del proyecto compartida y convierta en comentario el código existente que define el elemento <a href="http://msdn.microsoft.com/es-es/library/azure/jj554219.aspx">MobileServiceClient object</a> usado  para tener acceso al servicio móvil que se ejecuta en Azure.</p></li>
+<li><p>Abra este archivo de script en la <code>\js</code> carpeta del proyecto compartida y convierta en comentario el código existente que define el elemento <a href="http://msdn.microsoft.com/library/azure/jj554219.aspx">MobileServiceClient object</a> usado  para tener acceso al servicio móvil que se ejecuta en Azure.</p></li>
 <li><p>Agregue una nueva definición de objeto <strong>MobileServiceClient</strong> con el mismo nombre, pero con la URL del host local en el constructor. Algo similar a lo siguiente:</p>
 <pre><code>// This MobileServiceClient has been configured to communicate with your local
 // test project for debugging purposes.

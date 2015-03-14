@@ -27,7 +27,7 @@
 > - [Colas](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
 > - [Tablas](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
 
-El servicio de almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales.  Para obtener más información, consulte [Uso del almacenamiento de tablas en .NET](http://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET").
+El servicio de almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales.  Para obtener más información, consulte [Uso del almacenamiento de tablas en .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET").
 
 Para obtener acceso mediante programación a las tablas en los proyectos ASP.NET 5, deberá agregar los elementos siguientes, si no están presentes aún.
 
@@ -192,6 +192,5 @@ Puede eliminar fácilmente una entidad después de haberla encontrado. El códig
 	   Console.WriteLine("Couldn't delete the entity.");
 
 [Más información sobre Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
-Consulte también [Explorar y administrar recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/es-es/library/azure/ff683677.aspx) y [ASP.NET 5](http://www.asp.net/vnext).
-
+Consulte también [Explorar y administrar recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) y [ASP.NET 5](http://www.asp.net/vnext).
 <!--HONumber=42-->

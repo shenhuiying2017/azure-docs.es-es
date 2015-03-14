@@ -1,6 +1,18 @@
-﻿<properties title="Troubleshooting and Q & A about Application Insights" pageTitle="Solución de problemas y preguntas y respuestas acerca de Application Insights" description="Sugerencias y solución de problemas" metaKeywords="analytics monitoring" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Solución de problemas y preguntas y respuestas acerca de Application Insights" 
+	description="¿Hay algo que no entienda o que no funcione? Pruebe aquí." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-02-03" 
+	ms.author="awills"/>
  
 # Solución de problemas y P+F - Application Insights en Microsoft Azure en vista previa
 
@@ -185,3 +197,5 @@ Si el servicio web se ejecuta en una máquina virtual de Azure, también puede [
 
 [older]: http://www.visualstudio.com/get-started/get-usage-data-vs
 
+
+<!--HONumber=46--> 

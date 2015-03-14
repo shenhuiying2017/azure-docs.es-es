@@ -137,7 +137,6 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento en co
   [Adición de quitar mensajes de la cola]: #advanced-get
   [Adición de la longitud de la cola]: #get-queue-length
   [Adición de una cola]: #delete-queue
-  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
+  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-
 <!--HONumber=42-->

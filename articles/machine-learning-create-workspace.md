@@ -1,6 +1,20 @@
-﻿<properties title="Create an Azure Machine Learning workspace" pageTitle="Creación de un área de trabajo de Aprendizaje automático | Azure" description="Crear un área de trabajo para el Estudio de aprendizaje automático de Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Creación de un área de trabajo de Aprendizaje automático | Azure" 
+	description="Creación de un área de trabajo para Estudio de aprendizaje automático de Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 
 # Creación de un área de trabajo de Aprendizaje automático de Azure 
@@ -31,3 +45,5 @@ Un área de trabajo de Aprendizaje automático de Microsoft Azure (área de trab
 
 
 <!--Link references-->
+
+<!--HONumber=46--> 

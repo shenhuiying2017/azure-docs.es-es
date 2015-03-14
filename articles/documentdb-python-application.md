@@ -1,7 +1,20 @@
-﻿<properties title="Build a web application with Python and Flask (MVC) using DocumentDB" pageTitle="Generación de una aplicación web con Python y Flask mediante la Base de datos de documentos | Azure" description="Obtenga información acerca de cómo usar la Base de datos de documentos para almacenar y acceder a los datos de una aplicación web de Python y Flask (MVC) hospedada en Azure."  metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+    pageTitle="Generación de una aplicación web con Python y Flask mediante la Base de datos de documentos | Azure" 
+    description="Obtenga información acerca de cómo usar la Base de datos de documentos para almacenar y acceder a los datos de una aplicación web de Python y Flask (MVC) hospedada en Azure." 
+    services="documentdb" 
+    documentationCenter="" 
+    authors="crwilcox" 
+    manager="jhubbard" 
+    editor="cgronlun"/>
 
-
-<tags ms.service="documentdb" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="hawong" />
+<tags 
+    ms.service="documentdb" 
+    ms.workload="data-management" 
+    ms.tgt_pltfrm="na" 
+    ms.devlang="na" 
+    ms.topic="article" 
+    ms.date="02/12/2015" 
+    ms.author="crwilcox"/>
 
 <a name="_Toc395888515"></a><a name="_Toc395809324">Generación de una aplicación web con Python y Flask (MVC) mediante la Base de datos de documentos</a>
 ===========================================================================================================================================
@@ -473,7 +486,9 @@ python, como se indicó anteriormente).
   [haga clic aquí]: http://go.microsoft.com/fwlink/?LinkID=509840&clcid=0x409
   [Haga clic aquí para tener acceso a tutoriales de Flask]: http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world
 
-  [Visual Studio Express]: http://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx
+  [Visual Studio Express]: http://www.visualstudio.com/es-es/products/visual-studio-express-vs.aspx
   [aquí]: https://pytools.codeplex.com/releases/view/123624
   [1]: http://go.microsoft.com/fwlink/?linkid=254281&clcid=0x409
   [Instalador de plataforma web de Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
+
+<!--HONumber=46--> 

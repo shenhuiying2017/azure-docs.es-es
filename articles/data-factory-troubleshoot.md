@@ -1,6 +1,20 @@
-﻿<properties title="Troubleshoot Azure Data Factory issues" pageTitle="Solución de problemas de la Factoría de datos de Azure" description="Obtenga información acerca de la solución de problemas relacionados con la factoría de datos de Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Solución de problemas de la Factoría de datos de Azure" 
+	description="Obtenga información acerca de la solución de problemas relacionados con la factoría de datos de Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Solución de problemas de la factoría de datos
 Puede solucionar los problemas de la Factoría de datos de Azure mediante el Portal de Azure (o) cmdlets de Azure PowerShell. Este tema contiene tutoriales que muestran cómo usar el Portal de Azure para solucionar rápidamente los errores que se producen con la factoría de datos. 
@@ -250,3 +264,5 @@ Artículo | Descripción
 [image-data-factory-troubleshoot-walkthrough2-slice-activity-runs]: ./media/data-factory-troubleshoot/Walkthrough2DataSliceActivityRuns.png
 
 [image-data-factory-troubleshoot-activity-run-details]: ./media/data-factory-troubleshoot/Walkthrough2ActivityRunDetails.png
+
+<!--HONumber=46--> 

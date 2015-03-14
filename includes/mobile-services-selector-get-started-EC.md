@@ -1,0 +1,19 @@
+﻿> [AZURE.SELECTOR-LIST (Platforma | Backend)]
+- [(iOS | .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started/)
+- [(iOS | JavaScript)](/es-es/documentation/articles/mobile-services-ios-get-started/)
+- [(C# universal para Windows| .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/)
+- [(C# universal para Windows | Javascript)](/es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-get-started/)
+- [(JavaScript universal para Windows | .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started/)
+- [(JavaScript universal para Windows | Javascript)](/es-es/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started/)
+- [(Android | .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-EC/)
+- [(Android | Javascript)](/es-es/documentation/articles/mobile-services-android-get-started-EC/)
+- [(Xamarin iOS | .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/)
+- [(Xamarin iOS | Javascript)](/es-es/documentation/articles/partner-xamarin-mobile-services-ios-get-started/)
+- [(Xamarin Android | .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-xamarin-android-get-started/)
+- [(Xamarin Android | Javascript)](/es-es/documentation/articles/partner-xamarin-mobile-services-android-get-started/)
+- [(HTML | Javascript)](/es-es/documentation/articles/mobile-services-html-get-started/)
+- [(PhoneGap | Javascript)](/es-es/documentation/articles/mobile-services-javascript-backend-phonegap-get-started/)
+- [(Sencha | Javascript)](/es-es/documentation/articles/partner-sencha-mobile-services-get-started/)
+- [(Appcelerator | Javascript)](/es-es/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started/)
+
+<!--HONumber=45--> 

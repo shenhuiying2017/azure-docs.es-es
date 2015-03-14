@@ -43,4 +43,5 @@
 8. Una vez creada la máquina virtual, en el Portal de administración se muestra la nueva máquina virtual en **Máquinas virtuales**. También se crean el servicio en la nube y la cuenta de almacenamiento correspondientes y se muestran en dichas secciones. La máquina virtual y el servicio en la nube se inician automáticamente, y aparecen en el Portal de administración con el estado **En ejecución**. 
 
 	![Configure VM Agent and the endpoints of the virtual machine](./media/virtual-machines-create-WindowsVM/vmcreated.png)
-<!--HONumber=45--> 
+
+<!--HONumber=42-->

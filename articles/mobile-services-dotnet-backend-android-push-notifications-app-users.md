@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Envío de notificaciones de inserción a usuarios autenticados" description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos" services="mobile-services, notification-hubs" documentationCenter="android" authors="wesmc7777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Envío de notificaciones de inserción a usuarios autenticados" 
+	description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos" 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="android" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-android" ms.devlang="java" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="wesmc"/>
 
 # Envío de notificaciones de inserción a usuarios autenticados
 

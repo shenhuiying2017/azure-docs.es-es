@@ -1,13 +1,27 @@
-﻿<properties pageTitle="Registro para la autenticación de Active Directory de Azure - servicios móviles" description="Obtenga información acerca de cómo registrarse para la autenticación de Azure Active Directory en la aplicación de Servicios móviles de Azure." authors="wesmc7777" services="mobile-services" documentationCenter="" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Registro para la autenticación de Active Directory de Azure - servicios móviles" 
+	description="Obtenga información acerca de cómo registrarse para la autenticación de Azure Active Directory en la aplicación de Servicios móviles de Azure." 
+	authors="wesmc7777" 
+	services="mobile-services" 
+	documentationCenter="" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 # Registro de las aplicaciones para usar un inicio de sesión de la cuenta de Azure Active Directory
 
 Este tema indica cómo registrar las aplicaciones para que puedan usar Azure Active Directory como proveedor de autenticación para los Servicios móviles de Azure. 
 
 
->[AZURE.NOTE] Los pasos descritos en este tema están diseñados para utilizarse con el tutorial [Incorporación de autenticación a la aplicación de Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) cuando desee usar [operaciones de inicio de sesión dirigidas por el servicio](http://msdn.microsoft.com/es-es/library/azure/dn283952.aspx) con su aplicación. Como alternativa, si la aplicación tiene un requisito de [operaciones de inicio de sesión dirigidas por el cliente](http://msdn.microsoft.com/es-es/library/azure/jj710106.aspx) para Azure Active Directory y un servicio móvil de back-end de .NET, debe comenzar por el tutorial [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory](/es-es/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/).
+>[AZURE.NOTE] Los pasos descritos en este tema están diseñados para utilizarse con el tutorial [Incorporación de autenticación a la aplicación de Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/) cuando desee usar [operaciones de inicio de sesión dirigidas por el servicio](http://msdn.microsoft.com/library/azure/dn283952.aspx) con su aplicación. Como alternativa, si la aplicación tiene un requisito de [operaciones de inicio de sesión dirigidas por el cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx) para Azure Active Directory y un servicio móvil de back-end de .NET, debe comenzar por el tutorial [Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory](/es-es/documentation/articles/mobile-services-windows-store-dotnet-adal-sso-authentication/).
 
 
 1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y, a continuación, haga clic en el servicio móvil.

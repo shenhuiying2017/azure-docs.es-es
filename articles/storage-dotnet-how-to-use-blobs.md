@@ -48,7 +48,7 @@ Esta guía demuestra cómo realizar algunas tareas comunes a través del servici
 ###Obtención del ensamblado 
 Se recomienda el uso de NuGet para obtener el ensamblado `Microsoft.WindowsAzure.Storage.dll`. Haga clic con el botón secundario en el proyecto en el **Explorador de soluciones** y seleccione **Administrar paquetes de NuGet**.  Busque "WindowsAzure.Storage" en línea y haga clic en **Instalar** para instalar el paquete y las dependencias de Almacenamiento de Azure.
 
-`Microsoft.WindowsAzure.Storage.dll` también se incluye en el SDK de Azure para .NET, que se puede descargar en el <a href="http://www.windowsazure.com/es-es/develop/net/#">Centro de desarrolladores de .NET</a>. El ensamblado se instala en el directorio  `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
+`Microsoft.WindowsAzure.Storage.dll` también se incluye en el SDK de Azure para .NET, que se puede descargar en el <a href="http://azure.microsoft.com/develop/net/#">Centro de desarrolladores de .NET</a>. El ensamblado se instala en el directorio  `%Program Files%\Microsoft SDKs\Windows Azure\.NET SDK\<sdk-version>\ref\`.
 
 ###Las declaraciones de los espacios de nombres
 Agregan las siguientes declaraciones de espacios de nombres en la parte superior de cualquier archivo C# en el que desee obtener acceso al almacenamiento de Azure mediante programación:
@@ -341,10 +341,10 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
   <ul>
     <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Referencia acerca de la biblioteca de clientes de almacenamiento para .NET</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/es-es/library/windowsazure/dd179355">Referencia de API de REST</a></li>
+    <li><a href="http://msdn.microsoft.com/library/windowsazure/dd179355">Referencia de API de REST</a></li>
   </ul>
 </li>
-<li>Obtenga información acerca de las tareas más avanzadas que se pueden realizar con el almacenamiento de Azure en <a href="http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx">Almacenamiento de datos y acceso a los mismos en Azure</a>.</li>
+<li>Obtenga información acerca de las tareas más avanzadas que se pueden realizar con el almacenamiento de Azure en <a href="http://msdn.microsoft.com/library/windowsazure/gg433040.aspx">Almacenamiento de datos y acceso a los mismos en Azure</a>.</li>
 <li>Aprenda a simplificar el código que escriba para trabajar con el Almacenamiento de Azure mediante la <a href="../websites-dotnet-webjobs-sdk/">SDK de WebJobs de Azure.</li>
 <li>Consulte más guías de características para obtener información acerca de otras opciones del almacenamiento de datos en Azure.
   <ul>
@@ -373,13 +373,12 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento de bl
   [Blob8]: ./media/storage-dotnet-how-to-use-blobs/blob8.png
   [Blob9]: ./media/storage-dotnet-how-to-use-blobs/blob9.png
   
-  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
+  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
   [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-  [Configurar cadenas de conexión]: http://msdn.microsoft.com/es-es/library/windowsazure/ee758697.aspx
+  [Configurar cadenas de conexión]: http://msdn.microsoft.com/library/windowsazure/ee758697.aspx
   [Referencia a la biblioteca de clientes de .NET]: http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-  [Referencia de API de REST]: http://msdn.microsoft.com/es-es/library/windowsazure/dd179355
+  [Referencia de API de REST]: http://msdn.microsoft.com/library/windowsazure/dd179355
   [OData]: http://nuget.org/packages/Microsoft.Data.OData/5.0.2
   [Edm]: http://nuget.org/packages/Microsoft.Data.Edm/5.0.2
   [Spatial]: http://nuget.org/packages/System.Spatial/5.0.2
-
 <!--HONumber=42-->

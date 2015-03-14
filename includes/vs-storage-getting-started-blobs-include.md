@@ -66,7 +66,7 @@ Para enumerar los blobs de un contenedor, primero obtenga una referencia de cont
     	}
 	}
 
-Hay otras maneras de enumerar el contenido de un contenedor de blobs. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](http://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob).
+Hay otras maneras de enumerar el contenido de un contenedor de blobs. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob).
 
 #####Descarga de un blob
 Para descargar un blob, primero obtenga una referencia al blob y, a continuación, llame al método DownloadToStream(). En el siguiente ejemplo se usa el método DownloadToStream() para transferir el contenido del blob a un objeto de secuencia que, a continuación, puede guardar como archivo local.
@@ -80,7 +80,7 @@ Para descargar un blob, primero obtenga una referencia al blob y, a continuació
     	blockBlob.DownloadToStream(fileStream);
 	}
 
-Hay otras maneras de guardar blobs como archivos. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](http://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs).
+Hay otras maneras de guardar blobs como archivos. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs).
 
 #####Eliminación de un blob
 Para eliminar un blob, primero obtenga una referencia al blob y, a continuación, llame al método Delete() en él.
@@ -92,7 +92,6 @@ Para eliminar un blob, primero obtenga una referencia al blob y, a continuación
 	blockBlob.Delete();
 
 [Más información sobre Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
-Consulte también [Exploración y administración de recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/es-es/library/azure/ff683677.aspx).
-
+Consulte también [Exploración y administración de recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx).
 
 <!--HONumber=42-->

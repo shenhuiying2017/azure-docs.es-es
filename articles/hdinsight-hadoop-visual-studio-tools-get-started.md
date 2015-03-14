@@ -182,5 +182,4 @@ En este artículo, ha aprendido a conectarse a clústeres de HDInsight desde Vis
 [hdinsight.analyze.twitter.data]: ../hdinsight-analyze-twitter-data/
 
 
-[apache.hive]: http://hive.apache.org
-<!--HONumber=42-->
+[apache.hive]: http://hive.apache.org<!--HONumber=42-->

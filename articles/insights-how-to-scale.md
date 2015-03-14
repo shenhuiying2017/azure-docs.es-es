@@ -1,6 +1,20 @@
-﻿<properties title="How to scale a website" pageTitle="Escalación de un sitio web" description="Aprenda a escalar su plan de hospedaje en Azure." authors="stepsic" manager="kamrani" />
+﻿<properties 
+	pageTitle="Escalación de un sitio web" 
+	description="Aprenda a escalar su plan de hospedaje en Azure." 
+	authors="stepsic-microsoft-com" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="stepsic"/>
 
 # Escalación de un sitio web
 
@@ -70,3 +84,5 @@ Con varias reglas de escalado, puede ser más agresivo acerca del escalado horiz
 2. Escalar horizontalmente por 3 instancias si el porcentaje de CPU es superior al 85 %
 
 Con esta regla adicional, si la carga excede del 85 % antes de una acción de escalado, obtendrá dos instancias adicionales en lugar de una. 
+
+<!--HONumber=46--> 

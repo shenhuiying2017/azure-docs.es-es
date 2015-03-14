@@ -1,19 +1,34 @@
-﻿<properties urlDisplayName="" pageTitle="Solución de problemas del control de acceso basado en roles" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Role based access control troubleshooting" authors="Stephen Siciliano"  solutions="" writer="" manager="terrylan" editor=""  />
+﻿<properties 
+	pageTitle="Solución de problemas del control de acceso basado en roles" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="stepsic-microsoft-com" 
+	writer="" 
+	manager="terrylan" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/03/2014" ms.author="Stephen Siciliano" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/03/2014" 
+	ms.author="stepsic"/>
 
 # Solución de problemas del control de acceso basado en roles
 
 ## Introducción
 
-El [control de acceso basado en roles](http://azure.microsoft.com/es-es/documentation/articles/role-based-access-control-configure/) es una característica muy útil que le permite delegar accesos específicos a recursos en Azure. Esto significa que puede tener la seguridad de que concede a una determinada persona el acceso exclusivamente a lo que necesita. No obstante, algunas veces el modelo de recursos para los recursos de Azure puede ser complicado y puede costar entender a qué se están concediendo permisos exactamente.
+El [control de acceso basado en roles](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) es una característica muy útil que le permite delegar accesos específicos a recursos en Azure. Esto significa que puede tener la seguridad de que concede a una determinada persona el acceso exclusivamente a lo que necesita. No obstante, algunas veces el modelo de recursos para los recursos de Azure puede ser complicado y puede costar entender a qué se están concediendo permisos exactamente.
 
 En este documento explicamos qué puede esperar al usar algunos de los roles del portal de vista previa.  En esta versión se incluyen tres roles predefinidos:
 * Propietario
 * Colaborador
 * Lector
 
-Los propietarios y los colaboradores tienen acceso total a la experiencia de administración, pero un colaborador no puede dar acceso a otros usuarios o grupos. Nos centraremos en el rol del lector, ya que tiene más cosas que comentar. [Vea este artículo](http://azure.microsoft.com/es-es/documentation/articles/role-based-access-control-configure/) si quiere detalles sobre cómo conceder acceso exactamente.
+Los propietarios y los colaboradores tienen acceso total a la experiencia de administración, pero un colaborador no puede dar acceso a otros usuarios o grupos. Nos centraremos en el rol del lector, ya que tiene más cosas que comentar. [Vea este artículo](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure/) si quiere detalles sobre cómo conceder acceso exactamente.
 
 ## Cargas de trabajo de sitio web
 
@@ -74,3 +89,5 @@ Las máquinas virtuales tienen estos recursos relacionados:
     * Las reglas de alertas
     
 Si no puede acceder a ninguno de estos elementos, deberá pedirle al administrador el acceso de colaborador al grupo de recursos.
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción a la autenticación (HTML 5) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación HTML a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Introducción a la autenticación (HTML 5) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación HTML a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/23/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="glenga"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles 
 
@@ -121,7 +135,8 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [5]: ./media/mobile-services-html-get-started-users/mobile-service-uri.png
 [13]: ./media/mobile-services-html-get-started-users/mobile-identity-tab.png
 [14]: ./media/mobile-services-html-get-started-users/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-perms.png
+[15]: ./media/mobile-services-html-get-started-users/mobile-portal-change-table-per
+	ms.png
 
 <!-- URLs. -->
 [Introducción a los servicios móviles]: /es-es/documentation/articles/mobile-services-html-get-started

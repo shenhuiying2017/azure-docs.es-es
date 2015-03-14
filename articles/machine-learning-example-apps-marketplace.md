@@ -1,6 +1,20 @@
-﻿<properties title="Machine Learning example apps in the Azure Marketplace" pageTitle="Aplicaciones de ejemplo de Aprendizaje automático en Azure Marketplace | Azure" description="En los ejemplos de aplicación de aprendizaje automático de Azure se muestra cómo publicar sus servicios de aprendizaje automático en el Azure Marketplace para que los suscriptores de pago los usen en sus aplicaciones." metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Aplicaciones de ejemplo de Aprendizaje automático en Azure Marketplace | Azure" 
+	description="En los ejemplos de aplicación de aprendizaje automático de Azure Marketplace se muestra cómo publicar los servicios de aprendizaje automático en Azure Marketplace para que los suscriptores de pago los usen en sus aplicaciones." 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="luisca" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/16/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="luiscabrer"/> 
 
 # Aplicaciones de ejemplo de Aprendizaje automático en Azure Marketplace
 
@@ -17,3 +31,5 @@ Estos incluyen por ejemplo:
 * [Detección anómala](https://datamarket.azure.com/dataset/aml_labs/anomalydetection): una API que puede colocar los eventos anómalos en datos de series temporales (por ejemplo, telemetría de servidores, datos basados en sensores).
 
 Estas API permiten consumir potentes servicios basados en el aprendizaje automático creados en el Aprendizaje automático de Azure, sin necesidad de ser un científico de los datos o de pasar mucho tiempo desarrollándolos, basta con traer sus propios datos y ya puede comenzar a usarlos.
+
+<!--HONumber=46--> 

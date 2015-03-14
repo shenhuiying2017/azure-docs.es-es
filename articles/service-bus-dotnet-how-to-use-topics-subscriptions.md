@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Service Bus Topics" pageTitle="Uso de temas de bus de servicio (.NET) - " metaKeywords="Introducción a temas de bus de servicio de Azure, mensajería para la suscripción de publicaciones de Azure, suscripciones y temas de mensajería de Azure en C# " description="Aprenda a usar los temas de Bus de servicio y suscripciones de Azure. Los ejemplos de código están escritos para aplicaciones .NET. " metaCanonical="" services="service-bus" documentationCenter=".NET" title="How to Use Service Bus Topics/Subscriptions" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Uso de temas de bus de servicio (.NET)" 
+	description="Obtenga información acerca de cómo usar los temas y las suscripciones de bus de servicio de Azure. Los ejemplos de código están escritos para aplicaciones .NET." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
@@ -308,6 +322,8 @@ Ahora que conoce los fundamentos de los temas y las suscripciones del bus de ser
   
   [7]: ./media/service-bus-dotnet-how-to-use-topics-subscriptions/getting-started-multi-tier-13.png
   
-  [Colas, temas y suscripciones del Service Bus]: http://msdn.microsoft.com/es-es/library/hh367516.aspx
-  [SqlFilter]: http://msdn.microsoft.com/es-es/library/microsoft.servicebus.messaging.sqlfilter.aspx
-  [Tutorial de .NET de mensajería con confianza establecida del bus de servicio]: http://msdn.microsoft.com/es-es/library/hh367512.aspx
+  [Colas, temas y suscripciones del Service Bus]: http://msdn.microsoft.com/library/hh367516.aspx
+  [SqlFilter]: http://msdn.microsoft.com/library/microsoft.servicebus.messaging.sqlfilter.aspx
+  [Tutorial de .NET de mensajería con confianza establecida del bus de servicio]: http://msdn.microsoft.com/library/hh367512.aspx
+
+<!--HONumber=46--> 

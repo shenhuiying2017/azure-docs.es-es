@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción a los datos (HTML 5) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación HTML." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Introducción a los datos (HTML 5) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación HTML." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/24/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="glenga"/>
 
 # Incorporación de Servicios móviles a una aplicación existente
 
@@ -18,7 +32,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 4. [Actualización de la aplicación para usar Servicios móviles]
 5. [Probar la aplicación en Servicios móviles]
 
-> [AZURE.IMPORTANT] para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank).
+> [AZURE.IMPORTANT] para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-html%2F"%20target="_blank).
 
 ###Requisitos adicionales
 
@@ -126,7 +140,7 @@ Para poder almacenar datos de aplicaciones en el nuevo servicio móvil, primero 
 
   	![][11]
 
-	> [AZURE.IMPORTANT] Si implementa la aplicación de inicio rápido en un servidor web que no sea localhost, debe agregar el nombre de host del servidor web a la lista **Permitir solicitudes de nombres de host**. Para obtener más información, consulte [Uso compartido de recursos entre orígenes](http://msdn.microsoft.com/es-es/library/windowsazure/dn155871.aspx"%20target="_blank).
+	> [AZURE.IMPORTANT] Si implementa la aplicación de inicio rápido en un servidor web que no sea localhost, debe agregar el nombre de host del servidor web a la lista **Permitir solicitudes de nombres de host**. Para obtener más información, consulte [Uso compartido de recursos entre orígenes](http://msdn.microsoft.com/library/windowsazure/dn155871.aspx"%20target="_blank).
 
 Ahora ya está listo para utilizar el nuevo servicio móvil como almacenamiento de datos para la aplicación.
 
@@ -197,8 +211,10 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 						.append($('<div>').append($('<input class="item-text">').val(item.text)));
 				});
 					   
-				$('#todo-items').empty().append(listItems).toggle(listItems.length > 0);
-				$('#summary').html('<strong>' + todoItems.length + '</strong> item(s)');
+				$('#todo-items').empty().append(listItems).toggle(listIte
+	ms.length > 0);
+				$('#summary').html('<strong>' + todoIte
+	ms.length + '</strong> item(s)');
 			});
 		}
 	   
@@ -308,7 +324,7 @@ Una vez que haya completado la serie de datos y aprendido a autenticar a los usu
 
 [Referencia conceptual de Servicios móviles con HTML/JavaScript]: /es-es/develop/mobile/how-to-guides/work-with-html-js-client
 
-[Uso compartido de recursos entre orígenes]: http://msdn.microsoft.com/es-es/library/windowsazure/dn155871.aspx
+[Uso compartido de recursos entre orígenes]: http://msdn.microsoft.com/library/windowsazure/dn155871.aspx
 
 
 

@@ -1,6 +1,20 @@
-﻿<properties title="How to customize monitoring" pageTitle="Personalización de la supervisión" description="Obtenga información acerca de cómo personalizar los gráficos de supervisión en Azure." authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="Personalización de la supervisión" 
+	description="Obtenga información acerca de cómo personalizar los gráficos de supervisión en Azure." 
+	authors="alancameronwills" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="awills"/>
 
 # Personalización de la supervisión
 
@@ -53,3 +67,5 @@ Con la poderosa personalización de usuario de la vista previa del Portal de Azu
 
 Tenga en cuenta que el intervalo de tiempo del gráfico y las métricas elegidas se restablecerán cuando salga del portal.
 
+
+<!--HONumber=46--> 

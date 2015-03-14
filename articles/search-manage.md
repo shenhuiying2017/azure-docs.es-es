@@ -1,6 +1,20 @@
-﻿<properties title="Manage your Search service on Microsoft Azure" pageTitle="Administración del servicio de búsqueda en Microsoft Azure" description="Administración del servicio de búsqueda en Microsoft Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Administración del servicio de búsqueda en Microsoft Azure" 
+	description="Administración del servicio de búsqueda en Microsoft Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Administración del servicio de búsqueda en Microsoft Azure
 
@@ -11,7 +25,7 @@ Búsqueda de Azure es un servicio basado en la nube y una API basada en HTTP que
 
 Este artículo explica cómo administrar un servicio de búsqueda en el nuevo [Portal de vista previa de Azure](https://portal.azure.com).
 
-Como alternativa, puede utilizar la API de REST de administración. Consulte [Introducción a la API de REST de administración de la Búsqueda de Azure](http://azure.microsoft.com/es-es/documentation/articles/search-get-started-management-api/) y [Referencia a la API de REST de administración de la Búsqueda de Azure](http://msdn.microsoft.com/es-es/library/azure/dn832684.aspx) para obtener información detallada.
+Como alternativa, puede utilizar la API de REST de administración. Consulte [Introducción a la API de REST de administración de la Búsqueda de Azure](http://azure.microsoft.com/documentation/articles/search-get-started-management-api/) y [Referencia a la API de REST de administración de la Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn832684.aspx) para obtener información detallada.
 
 <!--TOC-->
 
@@ -34,7 +48,7 @@ La búsqueda estándar se puede facturar al registrarse para obtener recursos de
 
 Para planificar la capacidad y entender el impacto de facturación, recomendamos estos vínculos:
 
-+	[Límites y restricciones](http://msdn.microsoft.com/es-es/library/dn798934.aspx)
++	[Límites y restricciones](http://msdn.microsoft.com/library/dn798934.aspx)
 +	[Detalles de precios](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
 Cuando esté listo para suscribirse, consulte [Introducción a Búsqueda de Azure](../search-get-started/).
@@ -98,10 +112,10 @@ En esta vista previa pública, la supervisión de recursos se limita a la inform
 
 En el panel de servicios, en la sección Uso, podrá determinar rápidamente si los niveles de recursos de partición son adecuados para su aplicación.
 
-Al usar la API del servicio de búsqueda, podrá obtener una recuento de los documentos e índices. Existen límites máximos asociados a estos recuentos basados en el nivel de precio. Consulte [Límites y restricciones](http://msdn.microsoft.com/es-es/library/dn798934.aspx) para obtener detalles. 
+Al usar la API del servicio de búsqueda, podrá obtener una recuento de los documentos e índices. Existen límites máximos asociados a estos recuentos basados en el nivel de precio. Consulte [Límites y restricciones](http://msdn.microsoft.com/library/dn798934.aspx) para obtener detalles. 
 
-+	[Obtención de estadísticas de índice](http://msdn.microsoft.com/es-es/library/dn798942.aspx)
-+	[Documentos de recuento](http://msdn.microsoft.com/es-es/library/dn798924.aspx)
++	[Obtención de estadísticas de índice](http://msdn.microsoft.com/library/dn798942.aspx)
++	[Documentos de recuento](http://msdn.microsoft.com/library/dn798924.aspx)
 
 > [WACOM.NOTE] Los comportamientos de Almacenamiento en caché pueden sobrevalorar un límite temporalmente. Por ejemplo, al usarse el servicio compartido, es posible que vea un recuento de documentos sobre el límite máximo de 10.000 documentos. La sobrevaloración es temporal y se detectará en la próxima comprobación de aplicación de límite. 
 
@@ -141,7 +155,7 @@ A diferencia de la eliminación de réplicas, que no requiere que haga nada más
 
 No existe un método de detección que indique qué particiones de índice se almacenan en particiones concretas. Cada partición proporciona un espacio de almacenamiento de aproximadamente 25 MB, de modo que será necesario reducirlo a un tamaño al que pueda ajustarse su número de particiones. Si quiere volver a una partición, las 12 particiones deberán ajustarse.
 
-Para ayudar en una futura planificación, es posible que quiera comprobar el espacio de almacenamiento (usando [Obtención de estadísticas de índice](http://msdn.microsoft.com/es-es/library/dn798942.aspx)) para ver cuánto usó en realidad. 
+Para ayudar en una futura planificación, es posible que quiera comprobar el espacio de almacenamiento (usando [Obtención de estadísticas de índice](http://msdn.microsoft.com/library/dn798942.aspx)) para ver cuánto usó en realidad. 
 
 
 <!---->
@@ -157,7 +171,7 @@ Con la interrupción o inicio del servicio no se desactiva la facturación. Debe
 <!---->
 <h2 id="sub-8">Definición de roles para el acceso administrativo</h2>
 
-Azure proporciona un modelo de autorización global basado en roles para todos los servicios administrados a través del Portal de vista previa o en la API del Administrador de recursos de Azure si utiliza una herramienta de administración personalizada. Los roles de lector, colaborador y propietario establecen el nivel de administración del servicio para los usuarios, los grupos y las entidades de seguridad de Active Directory a los que asigna cada rol. Consulte [Control de acceso basado en roles en el Portal de vista previa de Azure](http://azure.microsoft.com/es-es/updates/role-based-access-control-in-azure-preview-portal/) para obtener información detallada sobre la pertenencia a roles.
+Azure proporciona un modelo de autorización global basado en roles para todos los servicios administrados a través del Portal de vista previa o en la API del Administrador de recursos de Azure si utiliza una herramienta de administración personalizada. Los roles de lector, colaborador y propietario establecen el nivel de administración del servicio para los usuarios, los grupos y las entidades de seguridad de Active Directory a los que asigna cada rol. Consulte [Control de acceso basado en roles en el Portal de vista previa de Azure](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) para obtener información detallada sobre la pertenencia a roles.
 
 En términos de Búsqueda de Azure, los controles de acceso basados en roles determinan las siguientes tareas administrativas:
 
@@ -185,7 +199,7 @@ Los administradores de servicio y suscripción tienen pertenencia automática en
 </tr>
 </table>
 
-Tenga en cuenta que los roles no otorgan derechos de acceso al extremo de servicio. Las operaciones del servicio de búsqueda, como la administración de índices, el rellenado del índice y las consultas en datos de búsqueda, se controlan mediante claves de API, no a través de roles. Consulte "Autorización para administración frente a operaciones de datos" en [Control de acceso basado en roles en el Portal de vista previa de Azure](http://azure.microsoft.com/es-es/updates/role-based-access-control-in-azure-preview-portal/) para obtener más información.
+Tenga en cuenta que los roles no otorgan derechos de acceso al extremo de servicio. Las operaciones del servicio de búsqueda, como la administración de índices, el rellenado del índice y las consultas en datos de búsqueda, se controlan mediante claves de API, no a través de roles. Consulte "Autorización para administración frente a operaciones de datos" en [Control de acceso basado en roles en el Portal de vista previa de Azure](http://azure.microsoft.com/updates/role-based-access-control-in-azure-preview-portal/) para obtener más información.
 
 Los roles proporcionan control de acceso después de crear el servicio. Solo los administradores de la suscripción pueden agregar un servicio de búsqueda a una suscripción.
 
@@ -213,3 +227,5 @@ Los roles proporcionan control de acceso después de crear el servicio. Solo los
 [Flujo de trabajo de desarrollo de Búsqueda de Azure]: ../search-workflow/
 [Creación de la primera solución de búsqueda de Azure]: ../search-create-first-solution/
 
+
+<!--HONumber=46--> 

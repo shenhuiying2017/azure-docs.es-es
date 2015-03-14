@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción a las inserciones en tiempo real mediante SignalR y los Servicios móviles | Centro de desarrollo móvil" description="Obtenga información acerca de cómo empezar a usar la inserción en tiempo real con SignalR y Servicios móviles." documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Introducción a las inserciones en tiempo real mediante SignalR y los Servicios móviles | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo empezar a usar la inserción en tiempo real con SignalR y Servicios móviles." 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/19/2014" 
+	ms.author="mahender"/>
 
 # Introducción a las inserciones en tiempo real mediante SignalR y los Servicios móviles
 

@@ -1,6 +1,20 @@
-﻿<properties title="Troubleshooting Guide: Creating and connecting to an Azure Machine Learning workspace" pageTitle="Guía de solución de problemas: creación y conexión a un espacio de trabajo de aprendizaje automático de Azure| Azure" description="Soluciones para problemas comunes al crear y conectarse a un área de trabajo de aprendizaje automático de Azure " metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun"  videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Guía de solución de problemas: Creación y conexión a un espacio de trabajo de aprendizaje automático de Azure | Azure" 
+	description="Soluciones para problemas comunes al crear y conectarse a un área de trabajo de aprendizaje automático de Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/25/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/25/2014" 
+	ms.author="garye"/>
 
 
 #Guía de solución de problemas: creación y conexión a un espacio de trabajo de aprendizaje automático de Azure
@@ -53,3 +67,5 @@ Nuestro objetivo es hacer de la experiencia del aprendizaje automático de Azure
 [screen4]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen4.png
 [screen5]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen5.png
 [screen6]:./media/machine-learning-troubleshooting-creating-ml-workspace/screen6.png
+
+<!--HONumber=46--> 

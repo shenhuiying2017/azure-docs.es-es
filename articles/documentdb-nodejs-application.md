@@ -1,6 +1,20 @@
-<properties title="Build a Node.js web application using DocumentDB" pageTitle="Build a Node.js web application using DocumentDB | Azure" description="Learn how to use Azure DocumentDB to store and access data from a Node.js application hosted on Azure." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="ryancraw" manager="jhubbard" editor="cgronlun" scriptId="" />
+﻿<properties 
+	pageTitle="Compilación de una aplicación web Node.js mediante la Base de datos de documentos | Azure" 
+	description="Obtenga información acerca de cómo usar la Base de datos de documentos de Microsoft Azure para almacenar datos de una aplicación Node.js hospedada en Azure y obtener acceso a ellos." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="ryancrawcour" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="ryancraw" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="ryancraw"/>
 
 # <a name="_Toc395783175">Generación de una aplicación web Node.js mediante la Base de datos de documentos</a>
 
@@ -505,9 +519,9 @@ El código origen para la aplicación de referencia completa se puede descargar 
   [Texto alternativo]: ./media/documentdb-nodejs-application/image1.png
   [Node.js]: http://nodejs.org/
   [Git]: http://git-scm.com/
-  [Visual Studio 2013]: http://msdn.microsoft.com/es-es/vstudio/cc136611.aspx
+  [Visual Studio 2013]: http://msdn.microsoft.com/vstudio/cc136611.aspx
   [Herramientas de Node.js para Visual Studio]: https://nodejstools.codeplex.com/
-  [CLI de Azure]: http://azure.microsoft.com/es-es/documentation/articles/xplat-cli/
+  [CLI de Azure]: http://azure.microsoft.com/documentation/articles/xplat-cli/
   [Portal de administración de Azure]: http://portal.azure.com
   [1]: ./media/documentdb-nodejs-application/image2.png
   [2]: ./media/documentdb-nodejs-application/image3.png
@@ -530,3 +544,5 @@ El código origen para la aplicación de referencia completa se puede descargar 
   [19]: ./media/documentdb-nodejs-application/image20.png
   [20]: ./media/documentdb-nodejs-application/image21.png
   [aquí]: http://go.microsoft.com/fwlink/?LinkID=509839&clcid=0x409
+
+<!--HONumber=46--> 

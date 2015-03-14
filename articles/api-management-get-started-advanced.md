@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción a la configuración avanzada de la Administración de API de Azure" metaKeywords="" description="Vea como hacer el seguimiento de llamadas, configurar directivas de cuotas y limitaciones, y personalizar el portal de desarrolladores." metaCanonical="" services="api-management" documentationCenter="API Management" title="Get started with advanced Azure API Management configuration" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Introducción a la configuración avanzada de la Administración de API de Azure" 
+	description="Vea como hacer el seguimiento de llamadas, configurar directivas de cuotas y limitaciones, y personalizar el portal de desarrolladores." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Introducción a la configuración avanzada de Administración de API de Azure
 
@@ -22,3 +36,5 @@ Los tutoriales de esta sección ofrecen orientación sobre tareas de configuraci
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

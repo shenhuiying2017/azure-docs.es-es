@@ -1,10 +1,10 @@
-﻿<properties 
+<properties 
 	pageTitle="Configuración de RAID de software en una máquina virtual que ejecuta Linux en Azure" 
 	description="Aprenda a utilizar mdadm para configurar RAID en Linux en Azure." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="szarkos" 
-	writer="szark" 
+	Writer="szark" 
 	manager="timlt" 
 	editor=""/>
 
@@ -56,7 +56,7 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
 		Changes will remain in memory only, until you decide to write them.
 		After that, of course, the previous content won't be recoverable.
 
-		ADVERTENCIA: DOS-compatible mode is deprecated. It's strongly recommended to
+		WARNING: DOS-compatible mode is deprecated. It's strongly recommended to
 				 switch off the mode (command 'c') and change display units to
 				 sectors (command 'u').
 
@@ -75,12 +75,12 @@ En este ejemplo, vamos a crear una única partición de disco en /dev/sdc. Por t
 
 		Partition number (1-4): 1
 
-- Seleccione el punto de partida de la partición nueva o presione `<entrar>` para aceptar el valor predeterminado para colocar la partición al principio del espacio disponible en la unidad:
+- Seleccione el punto de partida de la partición nueva o presione `<Entrar>` para aceptar el valor predeterminado para colocar la partición al principio del espacio disponible en la unidad:
 
 		First cylinder (1-1305, default 1):
 		Using default value 1
 
-- Seleccione el tamaño de la partición; por ejemplo, escriba "+10G" para crear una partición de 10 gigabytes. O simplemente presione `<entrar>` para crear una única partición que extienda la unidad completa:
+- Seleccione el tamaño de la partición; por ejemplo, escriba "+10G" para crear una partición de 10 gigabytes. O presione solamente `<enter>` para crear una única partición que extienda la unidad completa:
 
 		Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
 		Using default value 1305
@@ -127,7 +127,7 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 
 ## Incorporación del nuevo sistema de archivos a /etc/fstab
 
-**Precaución:** la edición incorrecta del archivo/etc/fstab podría provocar un reinicio del sistema. Si no está seguro, consulte la documentación de distribución para obtener información sobre cómo editar correctamente este archivo. También se recomienda que se crea una copia de seguridad del archivo/etc/fstab antes de la edición.
+**Precaución:** la edición incorrecta del archivo/etc/fstab podría provocar un reinicio del sistema. Si no está seguro, consulte la documentación de distribución para obtener información sobre cómo editar correctamente este archivo. También se recomienda que se cree una copia de seguridad del archivo/etc/fstab antes de la edición.
 
 1. Cree el punto de montaje deseado para el nuevo sistema de archivos, por ejemplo:
 
@@ -171,7 +171,10 @@ En este ejemplo, después de ejecutar este comando, se creará un nuevo disposit
 
 	Además de los parámetros anteriores, el parámetro de kernel "`bootdegraded=true`" puede permitir que el sistema se inicie incluso si RAID se percibe como dañado o degradado, por ejemplo si una unidad de datos se quita accidentalmente de la máquina virtual. De manera predeterminada, esto podría resultar en un sistema no iniciable.
 
-	Consulte la documentación sobre la distribución para obtener información acerca de cómo editar correctamente los parámetros de kernel. Por ejemplo, en muchas distribuciones (CentOS, Oracle Linux y SLES 11), estos parámetros pueden agregarse manualmente al archivo "`/boot/grub/menu.lst`".  En Ubuntu, este parámetro puede agregarse a la variable  `GRUB_CMDLINE_LINUX_DEFAULT` en "/etc/default/grub".
+	Consulte la documentación sobre la distribución para obtener información acerca de cómo editar correctamente los parámetros de kernel. Por ejemplo, en muchas distribuciones (CentOS, Oracle Linux y SLES 11), estos parámetros pueden agregarse manualmente al archivo `/boot/grub/menu.lst`.  En Ubuntu, este parámetro puede agregarse a la variable  `GRUB_CMDLINE_LINUX_DEFAULT` en "/etc/default/grub".
 
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

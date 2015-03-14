@@ -246,5 +246,4 @@ Mientras MapReduce ofrece potentes capacidades de diagnóstico, puede ser un poc
 
 
 
-
 <!--HONumber=42-->

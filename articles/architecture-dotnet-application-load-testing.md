@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Load Testing Pattern" pageTitle="Patrón de prueba de carga de aplicación - Patrones de arquitectura de Azure" metaKeywords="" description="Encuentre información general sobre arquitectura y patrones de diseño que describen cómo implementar un sistema de prueba de carga en Azure." metaCanonical="" services="" documentationCenter=".NET" title="Load Testing in Azure" authors="robb" solutions="" manager="johndaw" editor="" />
+﻿<properties 
+	pageTitle="Patrón de prueba de carga de aplicación - Patrones de arquitectura de Azure" 
+	description="Encuentre información general de arquitectura y patrones de diseño que describan cómo implementar un sistema de pruebas de carga en Azure." 
+	services="" 
+	documentationCenter=".net" 
+	authors="Rboucher" 
+	manager="jwhit" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="11/25/2014" ms.author="robb" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/25/2014" 
+	ms.author="robb"/>
 
 # Prueba de carga en Azure
 
@@ -9,8 +23,8 @@ El servicio de prueba de carga basado en la nube puede probar la carga de sus ap
 <!--links-->
 
 [Azure y Visual Studio Ultimate]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-ultimate-2012#product-edition-ultimate-details
-[Ejecución de pruebas de carga en entornos mixtos]: http://msdn.microsoft.com/es-es/library/windowsazure/hh966776.aspx
-[Uso de pruebas de carga de Visual Studio en Roles de Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/hh674491.aspx
+[Ejecución de pruebas de carga en entornos mixtos]: http://msdn.microsoft.com/library/windowsazure/hh966776.aspx
+[Uso de pruebas de carga de Visual Studio en Roles de Azure]: http://msdn.microsoft.com/library/windowsazure/hh674491.aspx
 
 <!--images-->
 
@@ -18,3 +32,5 @@ El servicio de prueba de carga basado en la nube puede probar la carga de sus ap
  
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

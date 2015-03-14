@@ -304,11 +304,11 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
 	Para obtener información acerca de cómo utilizar SSL y su propio dominio (por ejemplo www.contoso.com en lugar de contoso.azurewebsites.net), consulte los siguientes recursos:
 
 	* [Configuración de un nombre de dominio personalizado para un sitio web de Azure](/es-es/documentation/articles/web-sites-custom-domain-name/). 
-	* [Habilitación de HTTPS en un sitio web de Azure](http://azure.microsoft.com/es-es/documentation/articles/web-sites-configure-ssl-certificate/)
+	* [Habilitación de HTTPS en un sitio web de Azure](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)
 
 * Cómo evitar el tiempo de reactivación después de períodos de inactividad 
 
-	De forma predeterminada, los sitios web se descargan si han estado inactivos durante algún tiempo. La primera solicitud después de este tiempo de inactividad tiene que esperar para que el sitio se cargue de nuevo. Para evitar el tiempo de espera, puede habilitar la característica AlwaysOn. Para obtener más información, consulte las opciones de configuración en [Configuración de sitios web](http://azure.microsoft.com/es-es/documentation/articles/web-sites-configure/).
+	De forma predeterminada, los sitios web se descargan si han estado inactivos durante algún tiempo. La primera solicitud después de este tiempo de inactividad tiene que esperar para que el sitio se cargue de nuevo. Para evitar el tiempo de espera, puede habilitar la característica AlwaysOn. Para obtener más información, consulte las opciones de configuración en [Configuración de sitios web](http://azure.microsoft.com/documentation/articles/web-sites-configure/).
 
 * Cómo agregar características en tiempo real (por ejemplo, chat)
 

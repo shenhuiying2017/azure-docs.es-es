@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Granja de servidores SharePoint" 
 	description="Describe la nueva característica Granja de servidores de SharePoint disponible en el Portal de vista previa de Azure." 
 	services="virtual-machines" 
@@ -89,4 +89,7 @@ Granja de servidores SharePoint utiliza el Administrador de recursos de Azure y 
 
 [Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

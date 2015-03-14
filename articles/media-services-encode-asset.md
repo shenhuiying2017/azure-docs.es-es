@@ -1,6 +1,20 @@
-<properties pageTitle="Codificación de un activo para Servicios Multimedia en Azure" description="Aprenda a usar el codificador multimedia de Azure para codificar contenido multimedia en Servicios multimedia. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Codificación de un activo para Servicios Multimedia en Azure" 
+	description="Aprenda a usar el codificador multimedia de Azure para codificar contenido multimedia en Servicios multimedia. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 #   Codificación de un recurso
@@ -9,7 +23,7 @@ Este artículo forma parte de una serie en la que se presenta la programación d
 Puede codificar el contenido multimedia del servidor con una serie de codificaciones y formatos multimedia que usa Azure Media Encoder. También puede usar un codificador proporcionado por un socio de Servicios multimedia. Podrá encontrar codificadores de terceros en [Azure Marketplace][]. Puede especificar los detalles de las tareas de codificación mediante las cadenas de [valores preestablecidos de codificador][] o los archivos de configuración. 
 
 ## Codificación en un conjunto de tasa de bits adaptativa MP4
-Es recomendable codificar el archivo intermedio en conjuntos de tasa de bit adaptativa MP4 y, a continuación, usar empaquetado dinámico para entregar el contenido. Para obtener más información, consulte [Creación de un trabajo de codificación con el SDK de Servicios multimedia para .NET](http://msdn.microsoft.com/es-es/library/azure/dn282273.aspx), [empaquetado dinámico](http://msdn.microsoft.com/es-es/library/azure/jj889436.aspx) y [entrega de contenido](http://msdn.microsoft.com/es-es/library/azure/hh973618.aspx).
+Es recomendable codificar el archivo intermedio en conjuntos de tasa de bit adaptativa MP4 y, a continuación, usar empaquetado dinámico para entregar el contenido. Para obtener más información, consulte [Creación de un trabajo de codificación con el SDK de Servicios multimedia para .NET](http://msdn.microsoft.com/library/azure/dn282273.aspx), [empaquetado dinámico](http://msdn.microsoft.com/library/azure/jj889436.aspx) y [entrega de contenido](http://msdn.microsoft.com/library/azure/hh973618.aspx).
 
 ## Codificación en MP4
 El método siguiente carga un solo recurso y crea un trabajo para codificarlo en MP4 usando el valor preestablecido "H264 Broadband 720p", que creará un solo MP4 usando la codificación H264 con una resolución de 720p:
@@ -108,7 +122,7 @@ Si desea codificar un vídeo en Smooth Streaming, tiene dos opciones:
 <li> Codificar en MP4 y, a continuación, convertir a Smooth Streaming</li>
 </ul>
 
-Para codificar directamente en Smooth Streaming, use el código mostrado arriba, pero utilice uno de los valores preestablecidos del codificador de Smooth Streaming. Para ver una lista completa de valores preestablecidos del codificador, consulte [Cadenas predefinidas de tarea para el Codificador multimedia de Azure](http://msdn.microsoft.com/es-es/library/jj129582.aspx). 
+Para codificar directamente en Smooth Streaming, use el código mostrado arriba, pero utilice uno de los valores preestablecidos del codificador de Smooth Streaming. Para ver una lista completa de valores preestablecidos del codificador, consulte [Cadenas predefinidas de tarea para el Codificador multimedia de Azure](http://msdn.microsoft.com/library/jj129582.aspx). 
 
 Para convertir MP4 a Smooth Streaming, use Azure Media Packager. Azure Media Packager no admite valores preestablecidos de cadenas, por lo que tiene que especificar las opciones de configuración en XML. Podrá encontrar el XML necesario para convertir MP4 a Smooth Streaming en [Valores preestablecidos de tarea para Azure Media Packager][]. Copie y pegue el XML en un archivo llamado MediaPackager_MP4ToSmooth.xml en su proyecto. El código siguiente ilustra cómo convertir un recurso de MP4 a Smooth Streaming. El método que aparece a continuación toma un recurso existente y lo convierte. 
 <pre><code>
@@ -151,19 +165,19 @@ private static IJob ConvertMP4toSmooth(IAsset assetToConvert, string configFileP
 
 Para obtener más información acerca de los recursos que se están procesando, consulte:
 <ul>
-<li><a href="http://msdn.microsoft.com/es-es/library/jj129580.aspx">Procesamiento de recursos con el SDK de Media Services para .NET</a></li>
-<li><a href="http://msdn.microsoft.com/es-es/library/jj129574.aspx">Procesamiento de recursos con la API de REST de Media Services</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129580.aspx">Procesamiento de recursos con el SDK de Media Services para .NET</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129574.aspx">Procesamiento de recursos con la API de REST de Media Services</a></li>
 </ul>
 
 ## Pasos siguientes
 Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [Comprobación del progreso del trabajo con Servicios multimedia](../media-services-check-job-progress/).
 
 [Azure Marketplace]: https://datamarket.azure.com/
-[valores preestablecidos de codificador]: http://msdn.microsoft.com/es-es/library/dn619392.aspx
+[valores preestablecidos de codificador]: http://msdn.microsoft.com/library/dn619392.aspx
 [ Obtención de una instancia de procesador multimedia]:http://go.microsoft.com/fwlink/?LinkId=301732
 [ Carga de un recurso cifrado]:http://go.microsoft.com/fwlink/?LinkId=301733
 [ Entrega de un recurso mediante descarga]:http://go.microsoft.com/fwlink/?LinkId=301734
 [Comprobación del progreso del trabajo]:http://go.microsoft.com/fwlink/?LinkId=301737
-[Valores preestablecidos de tarea para Azure Media Packager]:http://msdn.microsoft.com/es-es/library/windowsazure/hh973635.aspx
+[Valores preestablecidos de tarea para Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
 
 <!--HONumber=42-->

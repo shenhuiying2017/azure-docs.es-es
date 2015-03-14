@@ -20,4 +20,4 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices](http://go
 	![](./media/mobile-services-windows-universal-dotnet-download-project/mobile-quickstart-startup-wp8.png)
 
 7. Repita los pasos 3 y 4 para comprobar que la muestra se comporta del mismo modo.
-<!--HONumber=42-->
+\<!--HONumber=42-->

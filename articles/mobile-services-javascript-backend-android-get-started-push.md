@@ -1,6 +1,21 @@
-﻿<properties pageTitle="Introducción a las notificaciones de inserción (JavaScript para Android) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a la aplicación JavaScript de Android." services="mobile-services, notification-hubs" documentationCenter="android" authors="RickSaling" writer="ricksal" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Introducción a las notificaciones de inserción (JavaScript para Android) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a la aplicación JavaScript de Android." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	Writer="ricksal" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/16/2014" 
+	ms.author="ricksal"/>
 
 # Incorporación de notificaciones de inserción a su aplicación de Servicios móviles
 
@@ -210,7 +225,7 @@ Puede obtener más información acerca de los Servicios móviles y los Centros d
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Uso de la biblioteca de cliente Android para Servicios móviles]: /es-es/documentation/articles/mobile-services-android-how-to-use-client-library
 
-[gcm, objeto]: http://go.microsoft.com/fwlink/p/?LinkId=282645
+[objeto gcm]: http://go.microsoft.com/fwlink/p/?LinkId=282645
 
 [Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
 

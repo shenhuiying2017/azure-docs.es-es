@@ -1,6 +1,20 @@
-﻿<properties title="Step 2: Upload existing data into an Azure Machine Learning experiment" pageTitle="Paso 2: Carga de datos en un experimento de Aprendizaje automático | Azure" description="Paso 2: carga de los datos públicos existentes en Estudio de aprendizaje automático de Azure" metaKeywords="" services="machine-learning" solutions="big-data" documentationCenter="" authors="garye" videoId="" scriptId="" manager="paulettm" editor="cgronlun" />
+﻿<properties 
+	pageTitle="Paso 2: Carga de datos en un experimento de Aprendizaje automático | Azure" 
+	description="Paso 2 del tutorial de la solución: carga de los datos públicos existentes en Estudio de aprendizaje automático de Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/02/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/06/2015" 
+	ms.author="garye"/>
 
 Este es el segundo paso del tutorial [Desarrollo de una solución predictiva con el Aprendizaje automático de Azure][develop]:
 
@@ -70,3 +84,5 @@ De esta manera los datos se cargan en un módulo de conjunto de datos que podemo
 **A continuación: [Creación de un nuevo experimento][create-new]**
 
 [1]: ./media/machine-learning-walkthrough-2-upload-data/upload1.png
+
+<!--HONumber=46--> 

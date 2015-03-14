@@ -20,7 +20,7 @@
 
 #Administración del rendimiento de la aplicación New Relic en Azure
 
-En esta guía se describe cómo agregar la supervisión del rendimiento de primer nivel de New Relic a sus aplicaciones hospedadas en Azure. Veremos cómo agregar de forma fácil y sencilla New Relic a la aplicación y le mostraremos algunas de las características de New Relic. Para obtener más información sobre el uso de New Relic, consulte [Uso de New Relic].(#using-new-relic).
+En esta guía se describe cómo agregar la supervisión del rendimiento de primer nivel de New Relic a sus aplicaciones hospedadas en Azure. Veremos cómo agregar de forma fácil y sencilla New Relic a la aplicación y le mostraremos algunas de las características de New Relic. Para obtener más información sobre el uso de New Relic, consulte [Uso de New Relic)]#using-new-relic).
 
 ¿Qué es New Relic?
 --
@@ -35,7 +35,7 @@ Precio especial de New Relic en la Tienda de Azure
 La versión estándar de New Relic es gratuita para usuarios de Azure.
 New Relic Pro se ofrece según el tamaño de la instancia de servicios de nube de Azure
 
-Para obtener información sobre el precio, consulte la [página de New Relic en la Tienda de Azure](http://www.windowsazure.com/es-es/gallery/store/new-relic/new-relic/).
+Para obtener información sobre el precio, consulte la [página de New Relic en la Tienda de Azure](http://azure.microsoft.com/gallery/store/new-relic/new-relic/).
 
 > [AZURE.NOTE] El precio solo se muestra para 10 equipos como máximo. Para cantidades mayores, póngase en contacto con New Relic (sales@newrelic.com) para obtener información del precio por volumen.
 

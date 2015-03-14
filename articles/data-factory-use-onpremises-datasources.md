@@ -1,6 +1,20 @@
-﻿<properties title="Enable your pipelines to work with on-premises data" pageTitle="Habilitación de canalizaciones para trabajar con datos locales | Factoría de datos de Azure" description="Obtenga información acerca de cómo registrar un origen de datos local con una factoría de datos de Azure y copiar datos en el origen de datos o desde él." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Habilitación de canalizaciones para trabajar con datos locales | Factoría de datos de Azure" 
+	description="Obtenga información acerca de cómo registrar un origen de datos local con una factoría de datos de Azure y copiar datos en el origen de datos o desde él." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Habilitación de canalizaciones para trabajar con datos locales
 
@@ -504,7 +518,7 @@ Artículo | Descripción
 
 
 
-[azure-powershell-install]: http://azure.microsoft.com/es-es/documentation/articles/install-configure-powershell/
+[azure-powershell-install]: http://azure.microsoft.com/documentation/articles/install-configure-powershell/
 
 
 [image-data-factory-onprem-new-everything]: ./media/data-factory-use-onpremises-datasources/OnPremNewEverything.png
@@ -580,3 +594,5 @@ Artículo | Descripción
 [image-data-factory-new-datafactory-menu]: ./media/data-factory-use-onpremises-datasources/NewDataFactoryMenu.png
 
 [image-data-factory-preview-portal-storage-key]: ./media/data-factory-get-started/PreviewPortalStorageKey.png
+
+<!--HONumber=46--> 

@@ -26,7 +26,7 @@ A continuación se muestra un ejemplo de una campaña de marketing digital globa
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/digital-marketing-notitle.svg" width="100%" height="100%"></object>
 
 > [WACOM.NOTE]
-> En esta guía se muestran algunas de las áreas y las tareas más comunes que se alinean con la ejecución de una campaña de marketing digital en Sitios web Azure. Sin embargo, hay otras soluciones comunes que se pueden implementar en Sitios web Azure. Para revisar estas soluciones, consulte las otras guías sobre <a href="http://www.windowsazure.com/es-es/manage/services/web-sites/global-web-presence-solution-overview/">presencia web global</a> y <a href="http://www.windowsazure.com/es-es/manage/services/web-sites/business-application-solution-overview">aplicaciones empresariales</a>.
+> En esta guía se muestran algunas de las áreas y las tareas más comunes que se alinean con la ejecución de una campaña de marketing digital en Sitios web Azure. Sin embargo, hay otras soluciones comunes que se pueden implementar en Sitios web Azure. Para revisar estas soluciones, consulte las otras guías sobre <a href="http://azure.microsoft.com/manage/services/web-sites/global-web-presence-solution-overview/">presencia web global</a> y <a href="http://azure.microsoft.com/manage/services/web-sites/business-application-solution-overview">aplicaciones empresariales</a>.
 
 ### Aporte recursos existentes o créelos desde cero
 
@@ -124,8 +124,8 @@ En el plan de hospedaje **Standard**, la capacidad de respuesta del sitio de sup
 
 [escalado vertical y horizontal]:/es-es/manage/services/web-sites/how-to-scale-websites/
 [Portal de administración de Azure]:http://manage.windowsazure.com/
-[Referencia de la API de REST de administración de servicios]:http://msdn.microsoft.com/es-es/library/windowsazure/ee460799.aspx
-[Scripting de PowerShell]:http://msdn.microsoft.com/es-es/library/windowsazure/jj152841.aspx
+[Referencia de la API de REST de administración de servicios]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[Scripting de PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [10 things I learned about rapidly scaling websites with Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Caché en Redis de Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

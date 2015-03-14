@@ -29,7 +29,7 @@
 
 El almacenamiento de blobs de Azure es un servicio para almacenar grandes cantidades de datos no estructurados a los que puede obtenerse acceso desde cualquier lugar del mundo a través de HTTP o HTTPS. Un solo blob puede tener cualquier tamaño. Los blobs pueden tener forma de imágenes, archivos de audio y vídeo, archivos sin procesar y archivos de documentos.
 
-Para empezar, debe crear una cuenta de almacenamiento de Azure y, a continuación, cree uno o varios contenedores en el almacenamiento. Por ejemplo, puede crear un almacenamiento llamado "Scrapbook", a continuación crear contenedores en el almacenamiento denominados "images" para almacenar imágenes y "audio" para almacenar archivos de audio. Una vez creados los contenedores, puede cargar archivos de blob individuales a ellos. Consulte [Uso del almacenamiento de blobs en .NET](http://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-how-to-use-blobs/ "How to use Blob Storage from .NET") para obtener más información sobre la manipulación de blobs mediante programación.
+Para empezar, debe crear una cuenta de almacenamiento de Azure y, a continuación, cree uno o varios contenedores en el almacenamiento. Por ejemplo, puede crear un almacenamiento llamado "Scrapbook", a continuación crear contenedores en el almacenamiento denominados "images" para almacenar imágenes y "audio" para almacenar archivos de audio. Una vez creados los contenedores, puede cargar archivos de blob individuales a ellos. Consulte [Uso del almacenamiento de blobs en .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/ "How to use Blob Storage from .NET") para obtener más información sobre la manipulación de blobs mediante programación.
 
 Para obtener acceso mediante programación a los blobs en los proyectos ASP.NET 5, deberá agregar los elementos siguientes, si no están presentes aún.
 
@@ -123,7 +123,7 @@ Para enumerar los blobs de un contenedor, primero obtenga una referencia de cont
             }
         } while (token != null);
 
-Hay otras maneras de enumerar el contenido de un contenedor de blobs. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](http://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob).
+Hay otras maneras de enumerar el contenido de un contenedor de blobs. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#list-blob).
 
 ##### Descarga de un blob
 Para descargar un blob, primero obtenga una referencia al blob y, a continuación, llame al método **DownloadToStreamAsync()**. En el siguiente ejemplo se usa el método **DownloadToStreamAsync()** para transferir el contenido del blob a un objeto de secuencia que, a continuación, puede guardar como archivo local.
@@ -137,7 +137,7 @@ Para descargar un blob, primero obtenga una referencia al blob y, a continuació
     	await blockBlob.DownloadToStreamAsync(fileStream);
 	}
 
-Hay otras maneras de guardar blobs como archivos. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](http://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs).
+Hay otras maneras de guardar blobs como archivos. Para obtener más información, consulte [Uso del almacenamiento de blobs en .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/#download-blobs).
 
 ##### Eliminación de un blob
 Para eliminar un blob, primero obtenga una referencia al blob y, a continuación, llame al método **DeleteAsync()**.
@@ -149,5 +149,5 @@ Para eliminar un blob, primero obtenga una referencia al blob y, a continuación
 	await blockBlob.DeleteAsync();
 
 [Más información sobre Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
-Consulte también [Explorar y administrar recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/es-es/library/azure/ff683677.aspx) y [ASP.NET 5](http://www.asp.net/vnext).
-<!--HONumber=42-->
+Consulte también [Explorar y administrar recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) y [ASP.NET 5](http://www.asp.net/vnext).
+\<!--HONumber=42-->

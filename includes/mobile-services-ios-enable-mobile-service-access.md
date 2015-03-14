@@ -131,5 +131,4 @@ Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin 
 
 
 Ahora que se ha actualizado la aplicación para utilizar Servicios móviles para almacenamiento back-end, es momento de probar la aplicación con Servicios móviles.
-
 <!--HONumber=42-->

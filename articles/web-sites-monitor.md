@@ -61,7 +61,7 @@ Para determinar el alcance del impacto de un sitio web en las cuotas de uso de l
 	-	**Almacenamiento del sistema de archivos**: cuando se alcanza la cuota, el almacenamiento del sistema de archivos permanece accesible para las operaciones de lectura, pero se bloquean todas las operaciones de escritura, incluidas las que resultan necesarias para el funcionamiento normal del sitio web. Las operaciones de escritura se reanudarán si se reduce el uso del archivo o si el sitio web se transfiere a un plan de hospedaje web con una cuota mayor.
 	-	**Recursos vinculados**: también se muestran aquí las cuotas de todos los recursos vinculados del sitio web, como la base de datos o el almacenamiento.
 
-	Algunas cuotas pueden aplicarse por cada plan de hospedaje web, mientras que otras pueden aplicarse por cada sitio. Para obtener información detallada sobre las cuotas de uso de cada plan de hospedaje web, consulte [Límites de sitios web](http://azure.microsoft.com/es-es/documentation/articles/azure-subscription-service-limits/#websiteslimits).
+	Algunas cuotas pueden aplicarse por cada plan de hospedaje web, mientras que otras pueden aplicarse por cada sitio. Para obtener información detallada sobre las cuotas de uso de cada plan de hospedaje web, consulte [Límites de sitios web](http://azure.microsoft.com/documentation/articles/azure-subscription-service-limits/#websiteslimits).
 
 
 ##<a name="resourceusage"></a>Cómo: superar las cuotas
@@ -106,7 +106,7 @@ Como el registro de aplicaciones en almacenamiento requiere utilizar un cliente 
 
 > [AZURE.NOTE] Los diagnósticos también se pueden habilitar desde Azure PowerShell con el cmdlet **Set-AzureWebsite**.
 > 
-> Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 > [AZURE.NOTE] El registro de aplicaciones se basa en la información de registro que genera su aplicación. El método usado para generar información de registro, así como también el formato de la información, es específico para el lenguaje en que está escrita la aplicación. Si desea información específica para el lenguaje sobre el uso del registro de aplicaciones, consulte los siguientes artículos:
 > 
@@ -173,7 +173,7 @@ Los archivos de registro se pueden descargar mediante el uso de FTP, Azure Power
 
 1. En la pantalla **Inicio** o en el **menú Inicio**, busque **Azure PowerShell**. Haga clic con el botón secundario en la entrada **Azure PowerShell** y seleccione **Ejecutar como administrador**.
 
-	> [AZURE.NOTE] Si **Azure PowerShell** no está instalado, consulte [Introducción a los cmdlets de Azure PowerShell](http://msdn.microsoft.com/es-es/library/windowsazure/jj554332.aspx) para obtener información sobre la instalación y configuración.
+	> [AZURE.NOTE] Si **Azure PowerShell** no está instalado, consulte [Introducción a los cmdlets de Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx) para obtener información sobre la instalación y configuración.
 
 2. Desde el símbolo del sistema de Azure PowerShell, utilice el siguiente comando para descargar los archivos de registro:
 
@@ -201,7 +201,7 @@ También puede ver una secuencia en vivo de eventos de registro a través del si
 
 Con esto aparecerá información de registros en la sesión de Terminal, sesión Bash, PowerShell o símbolo del sistema desde donde se ejecuta el comando.
 
-> [AZURE.NOTE] Si el comando **azure** no está instalado, consulte [Uso de las herramientas de línea de comandos](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/command-line-tools/) para obtener información sobre la instalación y la configuración.
+> [AZURE.NOTE] Si el comando **azure** no está instalado, consulte [Uso de las herramientas de línea de comandos](http://azure.microsoft.com/develop/nodejs/how-to-guides/command-line-tools/) para obtener información sobre la instalación y la configuración.
 
 ###Lectura de archivos de registro###
 
@@ -276,9 +276,9 @@ Después de configurar la supervisión de extremo, puede obtener detalles sobre 
 
 Vea el siguiente vídeo para obtener más información sobre la supervisión de extremos de sitio web:
 
-- [Scott Guthrie presenta Sitios web Azure y configura la supervisión de extremos](http://www.windowsazure.com/es-es/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
+- [Scott Guthrie presenta Sitios web Azure y configura la supervisión de extremos](http://azure.microsoft.com/documentation/videos/websites-and-endpoint-monitoring-scottgu/)
 
-- [Keeping Azure Web Sites up plus Endpoint Monitoring - por Stefan Schackow](http://www.windowsazure.com/es-es/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
+- [Keeping Azure Web Sites up plus Endpoint Monitoring - por Stefan Schackow](http://azure.microsoft.com/documentation/videos/azure-web-sites-endpoint-monitoring-and-staying-up/)
 
 
 

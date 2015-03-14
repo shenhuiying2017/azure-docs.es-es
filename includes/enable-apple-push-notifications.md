@@ -129,5 +129,4 @@ A continuación, usará este certificado para generar un archivo .p12 y cargarlo
 9. En **Targets** (Destinos), haga clic en **Quickstart** (Inicio rápido), expanda **Code Signing Identity** (Identidad de firma de código) y, a continuación, en **Debug** (Depurar) seleccione el nuevo perfil. De esta forma, se garantiza que el proyecto de Xcode usa el nuevo perfil para la firma de código. A continuación, debe cargar el certificado en Azure.
 
    	![](./media/enable-apple-push-notifications/mobile-services-ios-push-step17.png)
-
 <!--HONumber=42-->

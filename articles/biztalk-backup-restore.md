@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="BizTalk Services: Backup and Restore" pageTitle="Servicios de BizTalk: Copia de seguridad y restauración | Azure" metaKeywords="" description="Los Servicios de BizTalk incluyen las capacidades de copia de seguridad y restauración. Al crear una copia de seguridad, se realiza una instantánea de la configuración de los Servicios de BizTalk." metaCanonical="" services="" documentationCenter="" title="BizTalk Services: Backup and Restore" authors="mandia"  solutions="" writer="mandia" manager="dwrede" editor="cgronlun"  />
+﻿<properties 
+	pageTitle="Servicios de BizTalk: Copia de seguridad y restauración | Azure" 
+	description="Entre los Servicios de BizTalk se incluye Copias de seguridad y restauración. Obtenga información acerca de cómo crear y restaurar una copia de seguridad y aprenda a determinar el contenido del que se realizan dichas copias. MABS, WABS" 
+	services="biztalk-services" 
+	documentationCenter="" 
+	authors="MandiOhlinger" 
+	manager="dwrede" 
+	editor="cgronlun"/>
 
-<tags ms.service="biztalk-services" ms.workload="integration" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/14/2014" ms.author="mandia" />
+<tags 
+	ms.service="biztalk-services" 
+	ms.workload="integration" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="mandia"/>
 
 
 # Servicios de BizTalk: Copia de seguridad y restauración
@@ -16,7 +30,7 @@ También puede realizar la copia de seguridad de los Servicios de BizTalk median
 
 ##<a name="beforebackup"></a>Introducción
 
-- Puede que Copias de seguridad y restauración no esté disponible para todas las ediciones. Consulte [Servicios de BizTalk: Tabla de ediciones](http://azure.microsoft.com/es-es/documentation/articles/biztalk-editions-feature-chart/).
+- Puede que Copias de seguridad y restauración no esté disponible para todas las ediciones. Consulte [Servicios de BizTalk: Tabla de ediciones](http://azure.microsoft.com/documentation/articles/biztalk-editions-feature-chart/).
 
 	**Nota** NO se realiza ninguna copia de seguridad de las conexiones híbridas, independientemente de la edición.
 
@@ -227,3 +241,5 @@ Para crear los Servicios de BizTalk de Azure en el Portal de administración de 
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png
 [AutomaticBU]: ./media/biztalk-backup-restore/AutomaticBU.png
 [RestoreBizTalkService]: ./media/biztalk-backup-restore/RestoreBizTalkServiceWindow.png
+
+<!--HONumber=46--> 

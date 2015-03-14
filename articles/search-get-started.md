@@ -1,6 +1,20 @@
-﻿<properties title="Get started with Azure Search" pageTitle="Introducción a Búsqueda de Azure" description="Introducción a Búsqueda de Azure" metaKeywords="" services="Azure Search" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Introducción a Búsqueda de Azure" 
+	description="Introducción a Búsqueda de Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Introducción a Búsqueda de Azure
 
@@ -292,7 +306,7 @@ El código de respuesta debe ser 200 y el resultado de la respuesta debe ser sim
  
    ![][19]
 
-La siguiente consulta de ejemplo proviene de la [operación de índice de búsqueda (API de Búsqueda de Azure)](http://msdn.microsoft.com/es-es/library/dn798927.aspx) en MSDN. Muchas de las consultas de ejemplo en este tema incluyen espacios, que no están permitidos en Fiddler. Reemplace cada espacio por un carácter + antes de pegar la cadena de la consulta e intentar la consulta en Fiddler: 
+La siguiente consulta de ejemplo proviene de la [operación de índice de búsqueda (API de Búsqueda de Azure)](http://msdn.microsoft.com/library/dn798927.aspx) en MSDN. Muchas de las consultas de ejemplo en este tema incluyen espacios, que no están permitidos en Fiddler. Reemplace cada espacio por un carácter + antes de pegar la cadena de la consulta e intentar la consulta en Fiddler: 
 
 **Los espacios anteriores se reemplazan:**
 
@@ -357,9 +371,9 @@ Si necesita un actualizador sobre dónde buscar las páginas de configuración, 
 
 - [Administración de la solución de búsqueda en Microsoft Azure](../search-manage/) 
 
-- [Información técnica sobre Búsqueda de Azure](http://msdn.microsoft.com/es-es/library/dn798933.aspx)
+- [Información técnica sobre Búsqueda de Azure](http://msdn.microsoft.com/library/dn798933.aspx)
 
-- [API de REST de Búsqueda de Azure](http://msdn.microsoft.com/es-es/library/dn798935.aspx)
+- [API de REST de Búsqueda de Azure](http://msdn.microsoft.com/library/dn798935.aspx)
 
 - [Vídeo de Canal 9: Introducción a Búsqueda de Azure](http://channel9.msdn.com/Shows/Data-Exposed/Introduction-To-Azure-Search)
 
@@ -402,3 +416,5 @@ Si necesita un actualizador sobre dónde buscar las páginas de configuración, 
 [Creación de una aplicación de búsqueda geoespacial mediante Búsqueda de Azure]: ../search-create-geospatial/
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,21 @@
-<properties pageTitle="Introducción a los centros de notificaciones de inserción usando servicios móviles en tiempo de ejecución de .NET" description="Obtenga información acerca de cómo usar centros de notificaciones y servicio móviles en tiempo de ejecución de .Net de Windows Azure para enviar notificaciones de inserción a su aplicación de Windows Phone." services="mobile-services, notification-hubs" documentationCenter="windows" authors="wesmc7777" writer="wesmc" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Introducción a los centros de notificaciones de inserción usando servicios móviles en tiempo de ejecución de .NET" 
+	description="Obtenga información acerca de cómo usar centros de notificaciones y servicio móviles en tiempo de ejecución de .Net de Windows Azure para enviar notificaciones de inserción a su aplicación de Windows Phone." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	Writer="wesmc" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 # Incorporación de notificaciones de inserción a la aplicación de Servicios móviles
 
@@ -131,7 +146,7 @@ Para que la aplicación pueda recibir notificaciones de inserción, debe registr
 
    	![][4]
 
-	>[AZURE.NOTE] Este tutorial usa MPNS en modo sin autenticar. En este modo, MPNS limita el número de notificaciones que se pueden enviar a un canal de dispositivo. Para quitar esta restricción, debe generar y cargar un certificado haciendo clic en <strong>Upload</strong> (Cargar) y seleccionando el certificado. Para obtener más información sobre la generación del certificado, vea <a href="http://msdn.microsoft.com/es-es/library/windowsphone/develop/ff941099(v=vs.105).aspx">Configuración de un servicio web autenticado para enviar notificaciones de inserción para Windows Phone</a>.
+	>[AZURE.NOTE] Este tutorial usa MPNS en modo sin autenticar. En este modo, MPNS limita el número de notificaciones que se pueden enviar a un canal de dispositivo. Para quitar esta restricción, debe generar y cargar un certificado haciendo clic en <strong>Upload</strong> (Cargar) y seleccionando el certificado. Para obtener más información sobre la generación del certificado, vea <a href="http://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx">Configuración de un servicio web autenticado para enviar notificaciones de inserción para Windows Phone</a>.
 
 Con esto se permite que el servicio móvil se conecte a MPNS en modo sin autenticar para enviar notificaciones de inserción.
 
@@ -210,7 +225,7 @@ Considere la posibilidad de profundizar más en los siguientes temas sobre Servi
 
 
 [Referencia conceptual de Servicios móviles con .NET]: /es-es/documentation/articles/mobile-services-html-how-to-use-client-library
-[Aplicaciones Silverlight de Windows Phone 8.1]: http://msdn.microsoft.com/es-es/library/windowsphone/develop/dn642082(v=vs.105).aspx
+[Aplicaciones Silverlight de Windows Phone 8.1]: http://msdn.microsoft.com/library/windowsphone/develop/dn642082(v=vs.105).aspx
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
 

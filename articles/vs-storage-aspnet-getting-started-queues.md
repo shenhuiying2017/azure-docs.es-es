@@ -27,7 +27,7 @@
 > - [Colas](/documentation/articles/vs-storage-aspnet-getting-started-queues/)
 > - [Tablas](/documentation/articles/vs-storage-aspnet-getting-started-tables/)
 
-El almacenamiento de cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Para obtener más información, consulte [Uso del almacenamiento en cola en .NET](http://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-how-to-use-queues/).
+El almacenamiento de cola de Azure es un servicio para almacenar grandes cantidades de mensajes a los que puede obtenerse acceso desde cualquier lugar del mundo a través de llamadas autenticadas con HTTP o HTTPS. Un único mensaje en cola puede tener un tamaño de hasta 64 KB y una cola puede contener millones de mensajes, hasta el límite de capacidad total de una cuenta de almacenamiento. Para obtener más información, consulte [Uso del almacenamiento en cola en .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-queues/).
 
 Agregue las siguientes declaraciones de espacio de nombres de código en la parte superior de todo archivo C# en el que desee obtener acceso al Almacenamiento de Azure mediante programación.
 
@@ -44,4 +44,4 @@ Antes de realizar cualquier acción con una cola, debe obtener la cadena de cone
 [AZURE.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
 Para obtener más información, consulte [ASP.NET](http://www.asp.net).
-<!--HONumber=42-->
+\<!--HONumber=42-->

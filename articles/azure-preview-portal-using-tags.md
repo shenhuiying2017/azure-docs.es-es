@@ -1,13 +1,28 @@
-﻿<properties urlDisplayName="" pageTitle="Uso de etiquetas para organizar los recursos de Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Using tags to organize your Azure resources" authors="Michael Flanakin" solutions="" writer="" manager="carolz" editor=""  />
+﻿<properties 
+	pageTitle="Uso de etiquetas para organizar los recursos de Azure" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="flanakin" 
+	writer="" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="micflan" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/08/2014" 
+	ms.author="micflan"/>
 
 
 # Uso de etiquetas para organizar los recursos de Azure
 
 El portal de vista previa de Azure y el Administrador de recursos subyacente van a organizar sus recursos y personalizar su experiencia a su medida. 
 
-En el portal completo de Azure, las suscripciones son la única manera de categorizar y agrupar los recursos. Con el portal de vista previa, [presentamos los grupos de recursos](http://azure.microsoft.com/es-es/documentation/articles/azure-preview-portal-using-resource-groups), que le permiten agrupar entidades relacionadas. Esto adquirió más valor aún cuando [presentamos el acceso basado en roles](http://azure.microsoft.com/es-es/documentation/articles/role-based-access-control-configure). Ahora, siguiendo ese mismo espíritu, puede etiquetar sus recursos con pares clave/valor para categorizar aún más y ver recursos entre grupos de recursos y, dentro del portal, entre suscripciones.
+En el portal completo de Azure, las suscripciones son la única manera de categorizar y agrupar los recursos. Con el portal de vista previa, [presentamos los grupos de recursos](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups), que le permiten agrupar entidades relacionadas. Esto adquirió más valor aún cuando [presentamos el acceso basado en roles](http://azure.microsoft.com/documentation/articles/role-based-access-control-configure). Ahora, siguiendo ese mismo espíritu, puede etiquetar sus recursos con pares clave/valor para categorizar aún más y ver recursos entre grupos de recursos y, dentro del portal, entre suscripciones.
 
 Agrupe recursos por equipo, proyecto o, incluso, entorno para centrarse exactamente en lo que desea ver, cuando necesita verlo. 
 
@@ -27,9 +42,9 @@ Desde aquí, puede hacer clic en cada etiqueta individual para ver una lista de 
 
 ## Etiquetado con PowerShell
 
-En primer lugar, aproveche el [módulo Azure PowerShell](http://azure.microsoft.com/es-es/documentation/articles/install-configure-powershell/) más reciente. Si es la primera vez que usa el módulo Azure PowerShell, [lea la documentación](http://azure.microsoft.com/es-es/documentation/articles/install-configure-powershell) para ponerse al día. Para la finalidad de este artículo, supondremos que ya se ha agregado una cuenta y ha seleccionado una suscripción con los recursos que desea etiquetar.
+En primer lugar, aproveche el [módulo Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/) más reciente. Si es la primera vez que usa el módulo Azure PowerShell, [lea la documentación](http://azure.microsoft.com/documentation/articles/install-configure-powershell) para ponerse al día. Para la finalidad de este artículo, supondremos que ya se ha agregado una cuenta y ha seleccionado una suscripción con los recursos que desea etiquetar.
 
-El etiquetado solamente está disponible para recursos y grupos de recursos disponibles en el [Administrador de recursos](http://msdn.microsoft.com/es-es/library/azure/dn790568.aspx), por lo que lo siguiente que debemos hacer es cambiar para usar dicho administrador. Para obtener más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](http://azure.microsoft.com/es-es/documentation/articles/powershell-azure-resource-manager/).
+El etiquetado solamente está disponible para recursos y grupos de recursos disponibles en el [Administrador de recursos](http://msdn.microsoft.com/library/azure/dn790568.aspx), por lo que lo siguiente que debemos hacer es cambiar para usar dicho administrador. Para obtener más información, consulte [Uso de Windows PowerShell con el Administrador de recursos](http://azure.microsoft.com/documentation/articles/powershell-azure-resource-manager/).
 
   Switch-AzureMode AzureResourceManager
 
@@ -50,7 +65,7 @@ El proceso es el mismo para los recursos, excepto en que va a usar los cmdlets `
 
 ## Etiquetado con el Administrador de recursos
 
-El portal de vista previa y PowerShell usan la [API REST del Administrador de recursos](http://msdn.microsoft.com/es-es/library/azure/dn790568.aspx) en segundo plano. Si necesita integrar el etiquetado en otro entorno, puede obtener etiquetas con un comando GET en el identificador de recurso y actualizar el conjunto de etiquetas con una llamada PATCH.
+El portal de vista previa y PowerShell usan la [API REST del Administrador de recursos](http://msdn.microsoft.com/library/azure/dn790568.aspx) en segundo plano. Si necesita integrar el etiquetado en otro entorno, puede obtener etiquetas con un comando GET en el identificador de recurso y actualizar el conjunto de etiquetas con una llamada PATCH.
 
 
 ## Administración de la taxonomía
@@ -74,3 +89,5 @@ Ancle las etiquetas más importantes en el Panel de inicio para un acceso rápid
 
 ![Pin tags to the Startboard](./media/azure-preview-portal-using-tags/pin-tags.png)
 
+
+<!--HONumber=46--> 

@@ -208,7 +208,7 @@ Siga estos vínculos para obtener más información acerca de Python Tools para 
 
 <!--External Link references-->
 [Portal de administración de Azure]: https://manage.windowsazure.com
-[SDK de Azure para .NET]: http://azure.microsoft.com/es-es/downloads/
+[SDK de Azure para .NET]: http://azure.microsoft.com/downloads/
 [Python Tools 2.1 para Visual Studio (en inglés)]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Herramientas del SDK de Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
@@ -220,7 +220,7 @@ Siga estos vínculos para obtener más información acerca de Python Tools para 
 [Depuración remota en Microsoft Azure]: http://pytools.codeplex.com/wikipage?title=Features%20Azure%20Remote%20Debugging
 [Proyectos web]: http://pytools.codeplex.com/wikipage?title=Features%20Web%20Project
 [Proyectos de servicio en la nube]: http://pytools.codeplex.com/wikipage?title=Features%20Cloud%20Project
-[Almacenamiento de Azure]: http://azure.microsoft.com/es-es/documentation/services/storage/
+[Almacenamiento de Azure]: http://azure.microsoft.com/documentation/services/storage/
 [SDK de Azure para Python]: https://github.com/Azure/azure-sdk-for-python
 
 

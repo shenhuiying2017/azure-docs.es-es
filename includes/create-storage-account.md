@@ -23,12 +23,12 @@ Para usar Almacenamiento de Azure, necesitará una suscripción a Azure. Siga es
     seleccione la misma región donde implementará su
     aplicación.
 
-6. Puede seleccionar si lo desea el tipo de replicación de su cuenta de almacenamiento. La replicación con redundancia geográfica está seleccionada de manera predeterminada y ofrece una durabilidad máxima. Para obtener más detalles sobre las opciones de replicación, consulte [Opciones de redundancia del Almacenamiento de Azure ](http://msdn.microsoft.com/es-es/library/azure/dn727290.aspx) y el [Blog del equipo de Almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
+6. Puede seleccionar si lo desea el tipo de replicación de su cuenta de almacenamiento. La replicación con redundancia geográfica está seleccionada de manera predeterminada y ofrece una durabilidad máxima. Para obtener más detalles sobre las opciones de replicación, consulte [Opciones de redundancia del Almacenamiento de Azure ](http://msdn.microsoft.com/library/azure/dn727290.aspx) y el [Blog del equipo de Almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
 
 6.  Haga clic en **CREAR CUENTA DE ALMACENAMIENTO**.
 
-[Mediante la API de REST]: http://msdn.microsoft.com/es-es/library/windowsazure/hh264518.aspx
+[Mediante la API de REST]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
 [Portal de administración de Azure]: http://manage.windowsazure.com
 [plus-new]: ./media/create-storage-account/plus-new.png
 [quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
-<!--HONumber=41-->
+<!--HONumber=42-->

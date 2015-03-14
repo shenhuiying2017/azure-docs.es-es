@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Creación de un servicio mediante un almacén de datos no relacionales - Servicios móviles de Azure" description="Obtener información acerca de cómo usar un almacén de datos no relacionales como MongoDB o almacenamiento de tablas de Azure con su servicio móvil basado en .NET" services="" documentationCenter="windows" authors="mattchenderson" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Creación de un servicio mediante un almacén de datos no relacionales - Servicios móviles de Azure" 
+	description="Obtener información acerca de cómo usar un almacén de datos no relacionales como MongoDB o almacenamiento de tablas de Azure con su servicio móvil basado en .NET" 
+	services="" 
+	documentationCenter="windows" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="mahender"/>
 
 # Creación de un servicio usando MongoDB como almacén de datos con el backend .NET
 

@@ -1,6 +1,20 @@
-﻿<properties title="Step 4: Train and evaluate the predictive analytic models" pageTitle="Paso 4: Entrenamiento y evaluación de los modelos de análisis predictivo | Azure" description="Paso 4: entrenar, puntuar y evaluar varios modelos en Estudio de aprendizaje automático de Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Paso 4: Entrenamiento y evaluación de los modelos de análisis predictivo | Azure" 
+	description="Paso 4 del tutorial de la solución: entrenar, puntuar y evaluar varios modelos en Estudio de aprendizaje automático de Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/20/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 	Este es el cuarto paso del tutorial [Desarrollo de una solución predictiva con Aprendizaje automático de Azure][develop]:
@@ -117,3 +131,5 @@ Como ayuda adicional para realizar un seguimiento de los cambios realizados en l
 [2]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train2.png
 [3]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train3.png
 [4]: ./media/machine-learning-walkthrough-4-train-and-evaluate-models/train4.png
+
+<!--HONumber=46--> 

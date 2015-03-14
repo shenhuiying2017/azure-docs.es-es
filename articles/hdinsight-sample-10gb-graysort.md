@@ -38,7 +38,7 @@ El formato de entrada y salida, que utilizan las tres aplicaciones, lee y escrib
 
 **Requisitos previos**	
 
-- Debe tener una cuenta de Azure. Si desea conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure](http://azure.microsoft.com/es-es/pricing/free-trial/).
+- Debe tener una cuenta de Azure. Si desea conocer las opciones para obtener una cuenta, consulte la página de la [prueba gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 - Debe haber aprovisionado un clúster de HDInsight. Para obtener instrucciones acerca de varias formas de creación de dichos clústeres, consulte [Aprovisionamiento de clústeres de HDInsight](../hdinsight-provision-clusters/)
 
@@ -441,7 +441,6 @@ Para ver tutoriales que ejecutan otras muestras y proporcionan instrucciones sob
 
 [hdinsight-use-hive]: ../hdinsight-use-hive/
 [hdinsight-use-pig]: ../hdinsight-use-pig/
-
 
 
 <!--HONumber=42-->

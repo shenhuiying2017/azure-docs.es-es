@@ -1,11 +1,11 @@
-﻿<properties 
+<properties 
 	pageTitle="Creación de una máquina virtual para un proyecto web usando Visual Studio" 
 	description="Creación de una máquina virtual para un sitio web" 
 	services="virtual-machines" 
 	documentationCenter="" 
-	authors="kempb" 
+	authors="ghogen" 
 	manager="douge" 
-	editor="tglee"/>
+	editor=""/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
-	ms.author="kempb"/>
+	ms.date="09/24/2014" 
+	ms.author="ghogen"/>
 
 # Creación de una máquina virtual para un sitio web con Visual Studio
 
@@ -52,7 +52,6 @@ Para crear una máquina virtual cuando cree un sitio web, siga estos pasos:
 
 	![][4]
 
-<br/>
 13. (Opcional) En el **Explorador de servidores**, expanda el nodo **Máquinas virtuales**, elija el nodo correspondiente a la máquina virtual creada y después elija **Conectarse con Escritorio remoto** para conectarse a la máquina virtual.
 
 # Pasos siguientes
@@ -65,4 +64,7 @@ Si desea personalizar los scripts de publicación creados, [aquí](http://msdn.m
 [3]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_Provisioning.png
 [4]: ./media/dotnet-visual-studio-create-virtual-machine/CreateVM_SolutionExplorer.png
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

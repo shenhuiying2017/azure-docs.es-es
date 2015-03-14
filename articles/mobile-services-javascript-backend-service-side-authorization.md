@@ -1,0 +1,83 @@
+<properties
+	pageTitle="Autorización de usuarios del lado servidor en Servicios móviles con el back-end de JavaScript | Centro de desarrollo móvil"
+	description="Obtenga información sobre cómo autorizar a los usuarios en el back-end de JavaScript de Servicios móviles de Azure"
+	services="mobile-services"
+	authors="krisragh"
+	manager="dwrede"
+	editor=""/>
+
+<tags
+	ms.service="mobile-services"
+	ms.workload="mobile"
+	ms.tgt_pltfrm=""
+	ms.topic="article"
+	ms.date="2/18/2015"
+	ms.author="krisragh"/>
+
+# Autorización de usuarios del lado servidor en Servicios móviles
+
+> [AZURE.SELECTOR-LIST (Plataforma | Backend)]
+- [(Cualquiera | .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-service-side-authorization/)
+- [(Cualquiera | Javascript)](/es-es/documentation/articles/mobile-services-javascript-backend-service-side-authorization/)
+
+En este tema se muestra cómo usar scripts del lado servidor para autorizar a los usuarios. En este tutorial, registrará scripts con Servicios móviles de Azure, filtrará consultas según el identificador de usuario y proporcionará a los usuarios acceso solamente a sus propios datos.
+
+Este tutorial se basa en el Inicio rápido de Servicios móviles y en el tutorial [Agregar autenticación a la aplicación de Servicios móviles existente]. Complete primero [Agregar autenticación a la aplicación de Servicios móviles existente].
+
+## <a name="register-scripts"></a>Registro de scripts
+
+1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y luego haga clic en el servicio móvil. Haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**.
+
+2. Haga clic en **Script** y, a continuación, seleccione la operación **Insert**.
+
+   	![][2]
+
+3. Sustituya el script existente por la siguiente función y, a continuación, haga clic en **Guardar**. Este script agrega el identificador de usuario del usuario autenticado al elemento antes de la inserción.
+
+        function insert(item, user, request) {
+          item.userId = user.userId;
+          request.execute();
+        }
+
+
+    > [AZURE.NOTE] [El esquema dinámico debe habilitarse](https://msdn.microsoft.com/library/azure/jj193175.aspx) para que esto funcione. Esta configuración está habilitada de forma predeterminada para nuevos servicios móviles.
+
+5. Del mismo modo, reemplace la operación **Read** existente con la siguiente función. Este script filtra los objetos TodoItem devueltos de manera que un usuario solo recibe los elementos que inserte.
+
+        function read(query, user, request) {
+           query.where({ userId: user.userId });
+           request.execute();
+        }
+
+
+
+
+## <a name="test-app"></a>Prueba de la aplicación
+
+1. Observe que cuando ejecute la aplicación del lado cliente, aunque ya existan elementos en la tabla _TodoItem_ de tutoriales anteriores, no se devuelven elementos. Esto ocurre porque se insertaron elementos anteriores sin la columna Id. de usuario y ahora cuentan con valores nulos. Compruebe que los elementos recién agregados tienen un valor userId asociado en la tabla _TodoItem_.
+
+2. Si dispone de cuentas de inicio de sesión adicionales, compruebe que los usuarios puedan ver solamente sus propios datos si cierran y eliminan la aplicación, y luego la vuelven a ejecutar. Cuando aparezca el cuadro de diálogo de credenciales de inicio de sesión, escriba otro inicio de sesión y compruebe que los elementos especificados no se muestran en el inicio de sesión anterior.
+
+<!-- Anchors. -->
+[Registro de scripts de servidor]: #register-scripts
+[Pasos siguientes]:#next-steps
+
+<!-- Images. -->
+[0]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-services-selection.png
+[1]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-portal-data-tables.png
+[2]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-insert-script-users.png
+[3]: ./media/mobile-services-ios-authorize-users-in-scripts/mobile-quickstart-startup-ios.png
+
+<!-- URLs. -->
+
+[Notificaciones de inserción de Windows y Live Connect]: http://go.microsoft.com/fwlink/p/?LinkID=257677
+[Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[Panel Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
+[Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
+[Agregar Servicios móviles a una aplicación existente]: /es-es/develop/mobile/tutorials/get-started-with-data-ios
+[Agregar autenticación a la aplicación de Servicios móviles existente]: /es-es/develop/mobile/tutorials/get-started-with-users-ios
+[Agregar notificaciones de inserción a una aplicación existente]: /es-es/develop/mobile/tutorials/get-started-with-push-ios
+
+[Portal de administración de Azure]: https://manage.windowsazure.com/
+
+<!--HONumber=45--> 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Configuración de Tomcat7 en una máquina Virtual con Linux mediante Microsoft Azure" 
 	description="Obtenga información acerca de la configuración de Tomcat7 con Microsoft Azure con una máquina virtual (VM) Azure con Linux." 
 	services="virtual-machines" 
@@ -18,7 +18,8 @@
 
 #Configuración de Tomcat7 en una máquina Virtual con Linux mediante Microsoft Azure 
 
-Apache Tomcat (o simplemente Tomcat, anteriormente denominado Jakarta Tomcat) es un servidor web y contenedor de servlet de código abierto desarrollado por Apache Software Foundation (ASF). Tomcat implementa los servlets de Java y las especificaciones de JavaServer Pages (JSP) de Sun Microsystems. Asimismo, proporciona un entorno de servidor web de Java HTTP en el que se ejecuta código de Java. En la configuración más sencilla, Tomcat se ejecuta en un proceso de sistema operativo único. Este proceso ejecuta una máquina virtual de Java (JVM). Todas las solicitudes HTTP desde un explorador para Tomcat se procesan como un subproceso independiente en el proceso de Tomcat.  
+Apache Tomcat (o simplemente Tomcat, anteriormente denominado Jakarta Tomcat) es un servidor web y contenedor de servlet de código abierto desarrollado por Apache Software Foundation (ASF). Tomcat implementa los servlets de Java y las especificaciones de JavaServer Pages (JSP) de Sun Microsyste
+	ms. Asimismo, proporciona un entorno de servidor web de Java HTTP en el que se ejecuta código de Java. En la configuración más sencilla, Tomcat se ejecuta en un proceso de sistema operativo único. Este proceso ejecuta una máquina virtual de Java (JVM). Todas las solicitudes HTTP desde un explorador para Tomcat se procesan como un subproceso independiente en el proceso de Tomcat.  
 
 En esta guía, se proporciona información acerca de la instalación de tomcat7 en una imagen de Linux así como sobre la implementación en Microsoft Azure.  
 
@@ -82,7 +83,7 @@ El puerto TCP 8080 es el número de puerto predeterminado al que escucha tomcat.
 	  
 		Si se establece con el valor 80, no necesitará incluir el número de puerto en la dirección URL que permite obtener acceso a tomcat. Por ejemplo, http://tomcatdemo.cloudapp.net.    
 
-		Si se establece en otro valor como, por ejemplo, el 81, deberá agregar el número de puerto a la dirección URL para tener acceso a tomcat. Por ejemplo, http://lampdemo.cloudapp.net:81/.
+		Si se establece en otro valor como, por ejemplo, el 81, deberá agregar el número de puerto a la dirección URL para tener acceso a tomcat. Por ejemplo, http://tomcatdemo.cloudapp.net:81/.
 	2.	Escriba 8080 en Puerto privado. De forma predeterminada, tomcat escucha en el puerto TCP 8080. Si se cambió el puerto de escucha predeterminado de tomcat, deberá actualizar el Puerto privado para que sea que el mismo puerto de escucha de tomcat.  
 	![][7]
  
@@ -98,7 +99,7 @@ En primer lugar, obtenga el nombre DNS de la máquina virtual desde el Portal de
 Obtener el número de puerto para las conexiones SSH desde el campo **SSH**. Aquí tiene un ejemplo:  
 ![][8]
  
-Descargue Putty de [aquí](http://www.putty.org/).  
+Descargue Putty de [aquí](http://www.putty.org/) .  
 
 Después de descargar, haga clic en el archivo ejecutable PUTTY.EXE. Configure las opciones básicas con el nombre de host y el número de puerto obtenido de las propiedades de la máquina virtual. Aquí tiene un ejemplo:  
 ![][9]
@@ -219,7 +220,7 @@ Después de editar este archivo, deberá reiniciar los servicios de tomcat7 con 
 
 	sudo /etc/init.d/tomcat7 restart  
 
-Abra el explorador y escriba la dirección URL **http://<nombre DNS de su servidor de tomcat>/manager/html**. Por ejemplo, en este artículo, la dirección URL es http://tomcatexample.cloudapp.net/manager/html.  
+Abra el explorador y escriba la dirección URL **http://<your tomcat server DNS name>/manager/html**. Por ejemplo, en este artículo, la dirección URL es http://tomcatexample.cloudapp.net/manager/html.  
 
 Después de conectarse, debería ver algo parecido a lo siguiente:  
 ![][18]
@@ -243,7 +244,7 @@ Tomcat se está ejecutando, pero no puede ver la página predeterminada de Tomca
 
 			sudo vi /etc/default/tomcat7  
 
-		A continuación, deberá quitarse la marca de comentario de la última línea y cambiar "no" por "yes".  
+		A continuación, deberá quitarse la marca de comentario de la última línea y cambiar "no" por "yes". 
 
 			AUTHBIND=yes
 
@@ -254,7 +255,7 @@ Tomcat se está ejecutando, pero no puede ver la página predeterminada de Tomca
 			sudo yum  install w3m w3m-img
 			w3m http://localhost:8080  
 
--	**Solución** 
+-	**Solución**
 	1. Si el puerto de escucha de tomcat no es el mismo que el Puerto privado del extremo para el tráfico a la máquina virtual, es necesario cambiar el puerto privado para que sea el mismo que el puerto de escucha de tomcat.   
 	
 	2.	Si el problema se debe a los firewall o iptables, agregue las siguientes líneas a /etc/sysconfig/iptables:  
@@ -323,4 +324,7 @@ Necesita obtener permiso de la cuenta raíz. Puede cambiar la propiedad de esa c
 [16]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-16.png
 [17]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-17.png
 [18]: ./media/virtual-machines-linux-setup-tomcat7-linux/virtual-machines-linux-setup-tomcat7-linux-18.png
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

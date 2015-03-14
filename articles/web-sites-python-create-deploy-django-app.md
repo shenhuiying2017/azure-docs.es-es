@@ -26,7 +26,7 @@ En este tutorial se describe cómo empezar a ejecutar Python en Sitios web Azure
 Creará una aplicación con el marco web de Django (consulte las versiones alternativas de este tutorial para [Flask](../web-sites-python-create-deploy-flask-app) y [Bottle](../web-sites-python-create-deploy-bottle-app)).  Creará el sitio web de la galería de Azure, configurará la implementación Git y clonará el repositorio de forma local.  A continuación, ejecutará la aplicación localmente, realizará cambios, los confirmará y los transmitirá a Azure.  En el tutorial se muestra cómo hacer esto desde Windows, Mac o Linux.
 
 > [AZURE.NOTE]
-> para completar este tutorial, deberá tener una cuenta de Azure. Puede <a href="http://azure.microsoft.com/es-es/pricing/member-offers/msdn-benefits-details/">activar sus beneficios de suscriptor a MSDN</a> o <a href="http://azure.microsoft.com/es-es/pricing/free-trial/">registrarse para obtener una evaluación gratuita</a>.
+> para completar este tutorial, deberá tener una cuenta de Azure. Puede <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">activar sus beneficios de suscriptor a MSDN</a> o <a href="http://azure.microsoft.com/pricing/free-trial/">registrarse para obtener una evaluación gratuita</a>.
 > 
 > Si desea obtener una introducción a Sitios web Azure antes de inscribirse para abrir una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/?language=python">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita un sitio básico de ASP.NET de corta duración en Sitios web Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 

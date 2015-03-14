@@ -43,10 +43,10 @@ En este tema aprenderá a instalar Solr con la acción de script. Solr es una ef
 Hay un script de ejemplo para instalar Solr en un clúster de HDInsight disponible desde un blob de almacenamiento de Azure de solo lectura en [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1). Esta sección proporciona instrucciones sobre cómo utilizar el script de ejemplo durante el aprovisionamiento del clúster mediante el Portal de administración de Azure. 
 
 
-> [AZURE.NOTE] El script de ejemplo solo funciona con el clúster de HDInsight versión 3.1.  Para obtener más información acerca de las versiones de clústeres de HDInsight, consulte las[versiones de clústeres de HDInsight](http://azure.microsoft.com/es-es/documentation/articles/hdinsight-component-versioning/).
+> [AZURE.NOTE] El script de ejemplo solo funciona con el clúster de HDInsight versión 3.1.  Para obtener más información acerca de las versiones de clústeres de HDInsight, consulte las[versiones de clústeres de HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
 
-1. Inicie el aprovisionamiento de un clúster con la opción **CREACIÓN PERSONALIZADA**, tal como se describe en [Aprovisionamiento de clústeres mediante opciones personalizadas](http://azure.microsoft.com/es-es/documentation/articles/hdinsight-provision-clusters/#portal). 
+1. Inicie el aprovisionamiento de un clúster con la opción **CREACIÓN PERSONALIZADA**, tal como se describe en [Aprovisionamiento de clústeres mediante opciones personalizadas](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/#portal). 
 2. En la página **Acciones de script** del asistente, haga clic en **Agregar acción de script** para proporcionar detalles acerca de la acción de script, tal como se muestra a continuación:
 
 	![Use Script Action to customize a cluster](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "Use Script Action to customize a cluster")
@@ -71,7 +71,7 @@ También puede utilizar el script para instalar Solr en HDInsight con PowerShell
 
 Debe comenzar con la indización de Solr con algunos archivos de datos. A continuación, puede utilizar Solr para ejecutar consultas de búsqueda en los datos indizados. Realice los pasos siguientes para utilizar Solr en un clúster de HDInsight:
 
-1. **RDP en el clúster de HDInsight con Solr instalado**. En el Portal de administración de Azure, habilite el Escritorio remoto para el clúster que ha creado con Solr instalado y, a continuación, remoto en el clúster. Para obtener instrucciones, vea <a href="http://azure.microsoft.com/es-es/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
+1. **RDP en el clúster de HDInsight con Solr instalado**. En el Portal de administración de Azure, habilite el Escritorio remoto para el clúster que ha creado con Solr instalado y, a continuación, remoto en el clúster. Para obtener instrucciones, vea <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
 
 2. **Indice Solr mediante la carga de archivos de datos**. Al indizar Solr, colocar en él aquellos documentos que tenga que buscar. Para indizar Solr, RDP en el clúster, desplácese al escritorio, abra la línea de comandos de Hadoop y desplácese a **C:\apps\dist\solr-4.7.2\example\exampledocs**. Ejecute el siguiente comando: 
 	
@@ -175,7 +175,7 @@ Debe comenzar con la indización de Solr con algunos archivos de datos. A contin
 
 ## <a name="usingPS"></a>Instalar Solr en clústeres de Hadoop de HDInsight mediante PowerShell
 
-En esta sección se utiliza el cmdlet **<a href = "http://msdn.microsoft.com/es-es/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para invocar scripts que usan la acción de script para personalizar un clúster. Antes de continuar, asegúrese de que ha instalado y configurado PowerShell. Para obtener información acerca de la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight PowerShell, consulte [Instalación y configuración de Azure PowerShell][powershell-install-configure].
+En esta sección se utiliza el cmdlet **<a href = "http://msdn.microsoft.com/library/dn858088.aspx" target="_blank">Add-AzureHDInsightScriptAction</a>** para invocar scripts que usan la acción de script para personalizar un clúster. Antes de continuar, asegúrese de que ha instalado y configurado PowerShell. Para obtener información acerca de la configuración de una estación de trabajo para que ejecute cmdlets de HDInsight PowerShell, consulte [Instalación y configuración de Azure PowerShell][powershell-install-configure].
 
 Lleve a cabo los siguiente pasos:
 
@@ -337,7 +337,7 @@ Cree un certificado autofirmado, instálelo en su estación de trabajo y cárgue
             Version = "3.1"
         };        
 
-10. Anexe el código siguiente a la función Main() para que use la clase [ScriptAction](http://msdn.microsoft.com/es-es/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) para invocar un script personalizado para instalar Solr.
+10. Anexe el código siguiente a la función Main() para que use la clase [ScriptAction](http://msdn.microsoft.com/library/microsoft.windowsazure.management.hdinsight.clusterprovisioning.data.scriptaction.aspx) para invocar un script personalizado para instalar Solr.
 
 		// ADD THE SCRIPT ACTION TO INSTALL Solr
         clusterInfo.ConfigActions.Add(new ScriptAction(
@@ -374,5 +374,4 @@ Proporcione un nombre de clúster y presione ENTRAR para aprovisionar un clúste
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
-
 <!--HONumber=42-->

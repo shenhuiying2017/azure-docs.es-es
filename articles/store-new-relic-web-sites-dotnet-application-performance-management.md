@@ -21,7 +21,7 @@
 #Administración del rendimiento de la aplicación New Relic en sitios web de Azure
 
 En esta guía se describe cómo agregar la supervisión del rendimiento de primer nivel de New Relic en su sitio web de Azure. Se verá cómo agregar de forma fácil y sencilla New Relic a la aplicación y se mostrarán algunas de las
-nuevas características de New Relic. Para obtener más información sobre el uso de New Relic, consulte [Uso de New Relic].(#using-new-relic).
+nuevas características de New Relic. Para obtener más información sobre el uso de New Relic, consulte [Uso de New Relic)]#using-new-relic).
 
 ¿Qué es New Relic?
 --
@@ -36,7 +36,7 @@ Precio especial de New Relic en la Tienda de Azure
 La versión estándar de New Relic es gratuita para usuarios de Azure.
 La versión profesional de New Relic se ofrece en varios paquetes basados en el modo de sitio web que use y el tamaño de instancia si está usando el modo reservado.
 
-Para obtener información sobre el precio, consulte la [página de New Relic en la Tienda de Azure](http://www.windowsazure.com/es-es/gallery/store/new-relic/new-relic/).
+Para obtener información sobre el precio, consulte la [página de New Relic en la Tienda de Azure](http://azure.microsoft.com/gallery/store/new-relic/new-relic/).
 
 > [AZURE.NOTE] El precio solo se muestra para 10 equipos como máximo. Para cantidades mayores, póngase en contacto con New Relic (sales@newrelic.com) para obtener información del precio por volumen.
 
@@ -238,8 +238,8 @@ información general de la nueva interfaz de usuario de New Relic, configuració
  * [Finding Help](https://newrelic.com/docs/site/finding-help): recursos disponibles en el centro de ayuda en línea de New Relic.
 
 
-[webmatrixwebsite]: http://www.windowsazure.com/es-es/develop/net/tutorials/website-with-webmatrix/
-[vswebsite]: http://www.windowsazure.com/es-es/develop/net/tutorials/get-started/
+[webmatrixwebsite]: http://azure.microsoft.com/develop/net/tutorials/website-with-webmatrix/
+[vswebsite]: http://azure.microsoft.com/develop/net/tutorials/get-started/
 
 [wmnugetbutton]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetbutton.png
 [wmnugetgallery]: ./media/store-new-relic-web-sites-dotnet-application-performce-management/nrwmnugetgallery.png

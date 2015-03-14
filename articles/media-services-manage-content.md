@@ -1,6 +1,20 @@
-<properties pageTitle="Administración de contenido multimedia: Servicios multimedia de Azure" description="Aprenda a administrar su contenido multimedia en Servicios multimedia de Azure." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Administración de contenido multimedia: Servicios multimedia de Azure" 
+	description="Aprenda a administrar su contenido multimedia en Servicios multimedia de Azure." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -66,7 +80,7 @@ Servicios multimedia proporciona paquetes dinámicos que permiten entregar conte
 Para aprovecharse de los paquetes dinámicos, deberá hacer lo siguiente:
 
 - codificar o transcodificar el archivo intermedio (origen) en un conjunto de archivos MP4 de velocidad de bits adaptable o de Smooth Streaming de velocidad de bits adaptable (más adelante en este tutorial se muestran los pasos de codificación),  
-- obtener al menos una unidad de streaming a petición para el extremo de streaming para el que piensa entregar el contenido. Para obtener más información, consulte [Escalación de unidades reservadas de streaming a petición](http://azure.microsoft.com/es-es/documentation/articles/media-services-how-to-scale/).
+- obtener al menos una unidad de streaming a petición para el extremo de streaming para el que piensa entregar el contenido. Para obtener más información, consulte [Escalación de unidades reservadas de streaming a petición](http://azure.microsoft.com/documentation/articles/media-services-how-to-scale/).
 
 Con el empaquetado dinámico solo necesita almacenar y pagar por los archivos en formato de almacenamiento sencillo y Servicios multimedia creará y servirá la respuesta adecuada en función de las solicitudes del cliente. 
 

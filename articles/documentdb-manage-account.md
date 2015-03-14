@@ -1,6 +1,20 @@
-<properties title="Monitor a DocumentDB Account" pageTitle="Manage a DocumentDB account | Azure" description="Learn how to manage your DocumentDB account." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, accounts" services="documentdb" solutions="data-management" documentationCenter=""  authors="hawong" manager="jhubbard" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Administrar una cuenta de Base de datos de documentos | Azure" 
+	description="Obtenga información acerca de cómo administrar la cuenta de Base de datos de documentos." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="stephbaron" 
+	manager="jhubbard" 
+	editor="cgronlun"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/03/2014" ms.author="hawong" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/12/2015" 
+	ms.author="stbaro"/>
 
 # Cómo administrar una cuenta de la Base de datos de documentos
 
@@ -149,3 +163,5 @@ Para quitar una cuenta de la Base de datos de documentos que ya no usa, ejecute 
   []: http://manage.windowsazure.com
   []: ./media/documentdb-manage-account/image002.jpg
 
+
+<!--HONumber=46--> 

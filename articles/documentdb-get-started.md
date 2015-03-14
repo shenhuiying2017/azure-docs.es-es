@@ -1,6 +1,20 @@
-﻿<properties title="Get started with the DocumentDB .NET SDK" pageTitle="Introducción al SDK de .NET de Base de datos de documentos | Azure" description="Aprenda a crear y configurar una cuenta de Base de datos de documentos de Azure, a crear bases de datos, colecciones y almacenar documentos JSON en su cuenta de base de datos de documentos NoSQL." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, getting started"   services="documentdb" solutions="data-management" documentationCenter=""  authors="mimig" manager="jhubbard" editor="monicar" scriptId="" />
+﻿<properties 
+	pageTitle="Introducción al SDK de .NET de Base de datos de documentos | Azure" 
+	description="Obtenga información acerca de cómo crear y configurar una cuenta de Base de datos de documentos de Azure, crear bases de datos, crear colecciones y almacenar documentos JSON en la cuenta de base de datos de documentos NoSQL." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/11/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/12/2014" 
+	ms.author="mimig"/>
 
 #Introducción al SDK de .NET de Base de datos de documentos  
 
@@ -214,3 +228,5 @@ Para restaurar las referencias al SDK de .NET de Base de datos de documentos de 
 [1]: ./media/documentdb-get-started/gs1.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

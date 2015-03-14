@@ -50,5 +50,4 @@ En este ejemplo, usará Hive para procesar datos de historial producidos por sis
 2. En la página web que se abre, haga clic en la pestaña **Galería de introducción** y, en la categoría **Ejemplos**, haga clic en el ejemplo **Análisis de registros de sitios web**.
 
 3. Siga las instrucciones que se proporcionan en la página web para finalizar el ejemplo.
-
 <!--HONumber=42-->

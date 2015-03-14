@@ -1,6 +1,20 @@
-﻿	<properties title="Web service: Forecasting - Autoregressive Integrated Moving Average (ARIMA)" pageTitle="Previsión - Media móvil integrada autorregresiva (ARIMA) | Azure" description="Previsión - Media móvil integrada autorregresiva (ARIMA)" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Previsión - Media móvil integrada autorregresiva (ARIMA) | Azure" 
+	description="Previsión - Media móvil integrada autorregresiva (ARIMA)" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
  
 #Previsión - Media móvil integrada autorregresiva (ARIMA)
@@ -70,7 +84,7 @@ Hay varias maneras de utilizar el servicio de forma automática ([aquí](http://
 
 ##Creación del servicio web 
 
->Este servicio web se ha creado con el Aprendizaje automático de Microsoft Azure. Para obtener acceso a una prueba gratuita y a vídeos introductorios sobre la creación de experimentos y la [publicación de servicios web](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consulte [azure.com/ml](http://azure.com/ml). A continuación se muestra una captura de pantalla del experimento que creó el código de ejemplo y el servicio web para cada uno de los módulos dentro del experimento.
+>Este servicio web se ha creado con el Aprendizaje automático de Microsoft Azure. Para obtener acceso a una prueba gratuita y a vídeos introductorios sobre la creación de experimentos y la [publicación de servicios web](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consulte [azure.com/ml](http://azure.com/ml). A continuación se muestra una captura de pantalla del experimento que creó el código de ejemplo y el servicio web para cada uno de los módulos dentro del experimento.
 
 Desde el Aprendizaje automático de Microsoft Azure, se creó un nuevo experimento en blanco. Se cargaron datos de entrada de muestra con un esquema de datos predefinido. Vinculado al esquema de datos hay un módulo de "Ejecutar scripts R" que genera el modelo de previsión ARIMA mediante las funciones "auto.arima" y "previsión" de R. 
 
@@ -116,8 +130,10 @@ Desde el Aprendizaje automático de Microsoft Azure, se creó un nuevo experimen
 Este es un ejemplo muy sencillo de previsión de ARIMA. Como puede verse en el código de ejemplo anterior, no se implementa ninguna detección de errores y el servicio asume que todas las variables son valores continuos/positivos y la frecuencia debe ser un entero mayor que 1. La longitud de los vectores de fecha y valor debe ser la misma. La variable de fecha debe respetar el formato "dd/mm/aaaa".
 
 ##P+F
-Para ver las preguntas más frecuentes sobre el uso del servicio web o la publicación en Marketplace, haga clic [aquí](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-marketplace-faq).
+Para ver las preguntas más frecuentes sobre el uso del servicio web o la publicación en Marketplace, haga clic [aquí](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-arima/arima-img1.png
 [2]: ./media/machine-learning-r-csharp-arima/arima-img2.png
 [3]: ./media/machine-learning-r-csharp-arima/arima-img3.png
+
+<!--HONumber=46--> 

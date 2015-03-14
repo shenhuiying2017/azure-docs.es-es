@@ -1,6 +1,20 @@
-<properties pageTitle="Uso de iOS Media Player Framework con Servicios multimedia de Azure" description="Aprenda a usar la biblioteca iOS Media Player Framework de Servicios multimedia para crear aplicaciones enriquecidas y dinámicas." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Uso de iOS Media Player Framework con Servicios multimedia de Azure" 
+	description="Aprenda a usar la biblioteca iOS Media Player Framework de Servicios multimedia para crear aplicaciones enriquecidas y dinámicas." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="mobile-ios" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 

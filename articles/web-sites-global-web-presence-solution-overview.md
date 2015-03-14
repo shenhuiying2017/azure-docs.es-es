@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Creación de una presencia web global en Sitios web Azure" 
 	description="En esta guía se ofrece información general de carácter técnico acerca de cómo hospedar el sito (.COM) de su organización en sitios web de Azure. Esto incluye la implementación, los dominios personalizados, SSL y la supervisión." 
 	editor="jimbe" 
@@ -28,7 +28,7 @@ A continuación se muestra un ejemplo de un sitio web .COM que se ejecuta en Sit
 <object type="image/svg+xml" data="https://sidneyhcontent.blob.core.windows.net/documentation/corp-website-visio.svg" width="100%" height="100%"></object>
 
 > [WACOM.NOTE]
-> En esta guía se presentan algunas de las áreas y las tareas más comunes que se alinean con la ejecución de un sitio .COM público en Sitios web Azure. Sin embargo, hay otras soluciones comunes que se pueden implementar en Sitios web Azure. Para revisar estas soluciones, consulte las otras guías sobre <a href="http://www.windowsazure.com/es-es/manage/services/web-sites/digital-marketing-campaign-solution-overview">campañas de marketing digital</a> y <a href="http://www.windowsazure.com/es-es/manage/services/web-sites/business-application-solution-overview">aplicaciones empresariales</a>.
+> En esta guía se presentan algunas de las áreas y las tareas más comunes que se alinean con la ejecución de un sitio .COM público en Sitios web Azure. Sin embargo, hay otras soluciones comunes que se pueden implementar en Sitios web Azure. Para revisar estas soluciones, consulte las otras guías sobre <a href="http://azure.microsoft.com/manage/services/web-sites/digital-marketing-campaign-solution-overview">campañas de marketing digital</a> y <a href="http://azure.microsoft.com/manage/services/web-sites/business-application-solution-overview">aplicaciones empresariales</a>.
 
 ### Aporte recursos existentes o créelos desde cero
 
@@ -118,22 +118,22 @@ Haga que su sitio .COM sea más atractivo con medios enriquecidos, como:
 
 [Administrador de tráfico de Azure]:http://www.hanselman.com/blog/CloudPowerHowToScaleAzureWebsitesGloballyWithTrafficManager.aspx
 [Integración de un sitio web de Azure con la red CDN de Azure]:/es-es/documentation/articles/cdn-websites-with-cdn/ 
-[Nodo de CDN]:https://msdn.microsoft.com/library/azure/gg680302.aspx
+[nodo CDN]:https://msdn.microsoft.com/library/azure/gg680302.aspx
 
-[escalado vertical y horizontal]:/es-es/manage/services/web-sites/how-to-scale-websites/
+[escalar vertical y horizontalmente]:/es-es/manage/services/web-sites/how-to-scale-websites/
 [Portal de administración de Azure]:http://manage.windowsazure.com/
-[Referencia de la API de REST de administración de servicios]:http://msdn.microsoft.com/es-es/library/windowsazure/ee460799.aspx
-[Scripting de PowerShell]:http://msdn.microsoft.com/es-es/library/windowsazure/jj152841.aspx
+[API de administración de servicios]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[Scripting de PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [10 things I learned about rapidly scaling websites with Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Caché en Redis de Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/
-[Estado de la sesión de ASP.NET]:https://msdn.microsoft.com/es-es/library/azure/dn690522.aspx
+[estado de sesión e ASP.NET]:https://msdn.microsoft.com/es-es/library/azure/dn690522.aspx
 [caché de resultados]:https://msdn.microsoft.com/es-es/library/azure/dn798898.aspx
 
 [vista rápida]:/es-es/manage/services/web-sites/how-to-monitor-websites/
 [Azure Application Insights]:http://blogs.msdn.com/b/visualstudioalm/archive/2015/01/07/application-insights-and-azure-websites.aspx
 [New Relic]:/es-es/develop/net/how-to-guides/new-relic/
-[Uso de notificaciones de alerta y administración de reglas de alerta en Azure].:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
+[Inserción de notificaciones de alerta y administración de reglas de alerta en Azure]:http://msdn.microsoft.com/library/windowsazure/dn306638.aspx
 
 [Servicios multimedia de Azure]:http://blogs.technet.com/b/cbernier/archive/2013/09/03/windows-azure-media-services-and-web-sites.aspx
 [Servicio SendGrid en Azure Marketplace]:/es-es/documentation/articles/sendgrid-dotnet-how-to-send-email/

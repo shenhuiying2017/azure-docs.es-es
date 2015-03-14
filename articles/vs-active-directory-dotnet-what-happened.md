@@ -1,6 +1,20 @@
-﻿<properties title="Getting Started with Active Directory Authentication - What Happened" pageTitle="Introducción a la autenticación de Active Directory - ¿Qué ha ocurrido?" metaKeywords="Azure, Getting Started, Active Directory" description="" services="active-directory" documentationCenter="" authors="ghogen, kempb" />
+﻿<properties 
+	pageTitle="<MORAVIA_TRANSLATEIntroducción a la autenticación de Active Directory - ¿Qué ha ocurrido?" 
+	description="Describe lo que le ha ocurrido al proyecto de Azure Active Directory en Visual Studio" 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="kempb" 
+	manager="douge" 
+	editor="tglee"/>
   
-<tags ms.service="active-directory" ms.workload="web" ms.tgt_pltfrm="vs-what-happened" ms.devlang="na" ms.topic="article" ms.date="10/8/2014" ms.author="ghogen, kempb" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="vs-what-happened" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/02/2015" 
+	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
 > - [Introducción](/documentation/articles/vs-active-directory-dotnet-getting-started/)
@@ -60,3 +74,5 @@ Si ya tenía una clase de inicio en su proyecto, el método **Configuration** se
 Se ha creado una aplicación de Azure AD en el directorio que seleccionó en el asistente. 
 
 [Más información acerca de Azure Active Directory](http://azure.microsoft.com/services/active-directory/)
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Control de conflictos de escritura de base de datos con la simultaneidad optimista (Tienda Windows) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo controlar conflictos de escritura de base de datos tanto en el servidor como en su aplicación de la Tienda Windows." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Control de conflictos de escritura de base de datos con la simultaneidad optimista (Tienda Windows) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo controlar conflictos de escritura de base de datos tanto en el servidor como en su aplicación de la Tienda Windows." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="wesmc"/>
 
 # Control de conflictos de escritura de bases de datos
 
@@ -371,7 +385,8 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
 [14]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write3.png
 [15]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-write3.png
 [16]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-checkbox.png
-[17]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-2-items.png
+[17]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-2-ite
+	ms.png
 [18]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-already-complete.png
 [19]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
 [20]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
@@ -379,7 +394,7 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
 <!-- URLs. -->
 [Control de concurrencia optimista]: http://go.microsoft.com/fwlink/?LinkId=330935
 [Introducción a los servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
-[Cuenta de Azure]: http://www.windowsazure.com/es-es/pricing/free-trial/
+[Cuenta de Azure]: http://azure.microsoft.com/pricing/free-trial/
 [Validar y modificar datos con scripts]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [Limitación de consultas con paginación]: /es-es/develop/mobile/tutorials/add-paging-to-data-dotnet
 [Introducción a los servicios móviles]: /es-es/develop/mobile/tutorials/get-started

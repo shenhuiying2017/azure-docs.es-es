@@ -1,17 +1,31 @@
-﻿<properties pageTitle="Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory (Tienda Windows) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo autenticar usuarios para inicio de sesión único con ADAL en su aplicación de la Tienda Windows." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory (Tienda Windows) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo autenticar usuarios para inicio de sesión único con ADAL en su aplicación de la Tienda Windows." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="10/14/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/14/2014" 
+	ms.author="wesmc"/>
 
 # Autenticación de la aplicación con el inicio de sesión único de la biblioteca de autenticación de Active Directory
 
 [AZURE.INCLUDE [mobile-services-selector-adal-sso](../includes/mobile-services-selector-adal-sso.md)]
 
-En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante la biblioteca de autenticación de Active Directory para admitir las [operaciones de inicio de sesión dirigidas por el cliente](http://msdn.microsoft.com/es-es/library/azure/jj710106.aspx) con Azure Active Directory. Para admitir las [operaciones de inicio de sesión dirigida por el servicio](http://msdn.microsoft.com/es-es/library/azure/dn283952.aspx) con Azure Active Directory, empiece por el tutorial [Incorporación de autenticación a la aplicación de Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/).
+En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante la biblioteca de autenticación de Active Directory para admitir las [operaciones de inicio de sesión dirigidas por el cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx) con Azure Active Directory. Para admitir las [operaciones de inicio de sesión dirigida por el servicio](http://msdn.microsoft.com/library/azure/dn283952.aspx) con Azure Active Directory, empiece por el tutorial [Incorporación de autenticación a la aplicación de Servicios móviles](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-users/).
 
 Para poder autenticar a los usuarios, debe registrar su aplicación en Azure Active Directory (AAD). Para ello, debe realizar dos pasos. Primero, debe registrar su servicio móvil y exponer los permisos sobre él. En segundo lugar, debe registrar su aplicación de la Tienda Windows y otorgar acceso a esos permisos.
 
 
->[AZURE.NOTE] Este tutorial está destinado a ayudarle a comprender mejor cómo los Servicios móviles le permiten realizar la autenticación de Azure Active Directory en un inicio de sesión único para aplicaciones de la Tienda Windows mediante un [operación de inicio de sesión dirigida por el cliente](http://msdn.microsoft.com/es-es/library/azure/jj710106.aspx). Si esta es la primera vez que usa Servicios móviles, complete el tutorial [Introducción a los Servicios móviles].
+>[AZURE.NOTE] Este tutorial está destinado a ayudarle a comprender mejor cómo los Servicios móviles le permiten realizar la autenticación de Azure Active Directory en un inicio de sesión único para aplicaciones de la Tienda Windows mediante un [operación de inicio de sesión dirigida por el cliente](http://msdn.microsoft.com/library/azure/jj710106.aspx). Si esta es la primera vez que usa Servicios móviles, complete el tutorial [Introducción a los Servicios móviles].
 
 Este tutorial le guiará a través de estos pasos básicos:
 

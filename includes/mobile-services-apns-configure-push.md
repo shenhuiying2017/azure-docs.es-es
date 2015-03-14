@@ -28,5 +28,4 @@ El servicio móvil está configurado ahora para que funcione con APNS.
 
 <!-- URLs. -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-
 <!--HONumber=42-->

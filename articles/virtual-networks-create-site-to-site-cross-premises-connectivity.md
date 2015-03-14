@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Tutorial: Create a Cross-Premises Virtual Network for Site-to-Site Connectivity" pageTitle="Tutorial: Creación de una red virtual entre locales para una conectividad sitio a sitio" metaKeywords="" description="Obtenga información acerca de cómo crear una red virtual de Azure con conectividad entre locales en este tutorial." metaCanonical="" services="virtual-network" documentationCenter="" title="Create a Virtual Network for Site-to-Site Cross-Premises Connectivity" authors="cherylmc" solutions="" manager="adinah" editor="" />
+﻿<properties 
+	pageTitle="Tutorial: Creación de una red virtual entre locales para una conectividad sitio a sitio" 
+	description="Obtenga información acerca de cómo crear una red virtual de Azure con conectividad entre locales en este tutorial." 
+	services="virtual-network" 
+	documentationCenter="" 
+	authors="cherylmc" 
+	manager="adinah" 
+	editor=""/>
 
-<tags ms.service="virtual-network" ms.workload="infrastructure-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/23/2014" ms.author="cherylmc" />
+<tags 
+	ms.service="virtual-network" 
+	ms.workload="infrastructure-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="cherylmc"/>
 
 
 
@@ -10,9 +24,9 @@
 
 En este tutorial se muestran los pasos que debe seguir para crear, por ejemplo, una red virtual entre locales con conexión sitio a sitio. 
 
-Si desea crear una red virtual solo en la nube, consulte el [Tutorial: Creación de una red virtual solo en la nube en Azure](http://azure.microsoft.com/es-es/documentation/articles/create-virtual-network/). Si desea crear una VPN de punto a sitio utilizando certificados y un cliente VPN, consulte [Configuración de una VPN de punto a sitio en el Portal de administración](http://go.microsoft.com/fwlink/?LinkId=296653).
+Si desea crear una red virtual solo en la nube, consulte el [Tutorial: Creación de una red virtual solo en la nube en Azure](http://azure.microsoft.com/documentation/articles/create-virtual-network/). Si desea crear una VPN de punto a sitio utilizando certificados y un cliente VPN, consulte [Configuración de una VPN de punto a sitio en el Portal de administración](http://go.microsoft.com/fwlink/?LinkId=296653).
 
-En este tutorial se asume que no tiene ninguna experiencia previa con Azure. La finalidad del mismo es ayudarle a familiarizarse con los pasos necesarios para crear una red virtual entre locales de ejemplo. Si busca escenarios de diseño e información avanzada sobre redes virtuales, consulte la [información general sobre Red virtual de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/jj156007.aspx).
+En este tutorial se asume que no tiene ninguna experiencia previa con Azure. La finalidad del mismo es ayudarle a familiarizarse con los pasos necesarios para crear una red virtual entre locales de ejemplo. Si busca escenarios de diseño e información avanzada sobre redes virtuales, consulte la [información general sobre Red virtual de Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
 
 Después de completar este tutorial, tendrá una red virtual entre locales de ejemplo. La siguiente ilustración muestra los detalles, según la configuración de ejemplo de este tutorial.
 
@@ -28,7 +42,7 @@ Para obtener información acerca de cómo agregar una máquina virtual y ampliar
 
 -  [Instalación de una réplica de controlador de dominio de Active Directory en Red virtual de Azure](http://go.microsoft.com/fwlink/?LinkId=299877)
 
-Para obtener directrices acerca de la implementación de AD DS en máquinas virtuales de Azure, consulte [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/jj156090.aspx).
+Para obtener directrices acerca de la implementación de AD DS en máquinas virtuales de Azure, consulte [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 Para obtener información acerca de procedimientos y configuración de la red virtual, consulte [Tareas de configuración de Red virtual de Azure](http://go.microsoft.com/fwlink/?LinkId=296652).
 
@@ -42,7 +56,7 @@ En este tutorial, aprenderá a:
 
 ##  Requisitos previos
 
--  Una cuenta de Microsoft con al menos una suscripción válida y activa a Azure.  Si todavía no dispone de una suscripción a Azure, puede registrarse para una prueba gratuita en [Probar Azure](http://www.windowsazure.com/pricing/free-trial/). Si tiene una suscripción de MSDN, consulte [Microsoft Azure Special Pricing: Ventajas de MSDN, MPN y Bizspark](http://azure.microsoft.com/es-es/pricing/member-offers/msdn-benefits-details/).
+-  Una cuenta de Microsoft con al menos una suscripción válida y activa a Azure.  Si todavía no dispone de una suscripción a Azure, puede registrarse para una prueba gratuita en [Probar Azure](http://www.windowsazure.com/pricing/free-trial/). Si tiene una suscripción de MSDN, consulte [Microsoft Azure Special Pricing: Ventajas de MSDN, MPN y Bizspark](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 Si utiliza este tutorial para configurar una red virtual entre locales que funciones y que esté personalizada para su organización, necesitará lo siguiente:
 
@@ -103,7 +117,7 @@ Para crear un ejemplo de red virtual que se conecte a la red de una empresa:
 
 	-  **NAME:** Para el ejemplo de este tutorial, escriba **YourCorpHQ**.
 
-	-  **VPN DEVICE IP ADDRESS:** Para el ejemplo de este tutorial, escriba **3.2.1.1**. De lo contrario, escriba la dirección IP pública del dispositivo VPN. Si no dispone de esta información, deberá obtenerla antes de realizar los pasos siguientes del asistente. Tenga en cuenta que el dispositivo VPN no puede encontrarse detrás de un NAT. Para obtener más información acerca de los dispositivos de VPN, consulte [Acerca de los dispositivos VPN de la red virtual](http://msdn.microsoft.com/es-es/library/windowsazure/jj156075.aspx).
+	-  **VPN DEVICE IP ADDRESS:** Para el ejemplo de este tutorial, escriba **3.2.1.1**. De lo contrario, escriba la dirección IP pública del dispositivo VPN. Si no dispone de esta información, deberá obtenerla antes de realizar los pasos siguientes del asistente. Tenga en cuenta que el dispositivo VPN no puede encontrarse detrás de un NAT. Para obtener más información acerca de los dispositivos de VPN, consulte [Acerca de los dispositivos VPN de la red virtual](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx).
 
 	-  **ADDRESS SPACE:** Para el ejemplo de este tutorial, escriba **10.1.0.0/16**.
 	-  **Add address space:** Este tutorial no requiere espacio de direcciones adicional.
@@ -244,15 +258,15 @@ Si desea exportar la configuración de la red virtual a un archivo de configurac
 
 ## Otras referencias
 
--  [Red virtual](http://msdn.microsoft.com/es-es/library/windowsazure/jj156007.aspx)
+-  [Red virtual](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
 
 -  [P+F de Red virtual](http://msdn.microsoft.com/library/windowsazure/dn133803.aspx)
 
--  [Configurar una red virtual con archivos de configuración de red](http://msdn.microsoft.com/es-es/library/windowsazure/jj156097.aspx)
+-  [Configurar una red virtual con archivos de configuración de red](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
--  [Incorporación de una máquina virtual a una red virtual](http://www.windowsazure.com/es-es/manage/services/networking/add-a-vm-to-a-virtual-network/)
+-  [Incorporación de una máquina virtual a una red virtual](http://azure.microsoft.com/manage/services/networking/add-a-vm-to-a-virtual-network/)
 
--  [Acerca de los dispositivos VPN de la red virtual](http://msdn.microsoft.com/es-es/library/windowsazure/jj156075.aspx)
+-  [Acerca de los dispositivos VPN de la red virtual](http://msdn.microsoft.com/library/windowsazure/jj156075.aspx)
 
 -  [Resolución de nombres](http://go.microsoft.com/fwlink/?LinkId=248097)
 
@@ -260,3 +274,5 @@ Si desea exportar la configuración de la red virtual a un archivo de configurac
 
 
 
+
+<!--HONumber=46--> 

@@ -107,7 +107,7 @@ Para conocer tutoriales integrales, visite la página [Tutoriales del Centro par
 [configure-php]: /es-es/develop/php/common-tasks/configure-php-web-site/
 [website-mysql-git]: /es-es/develop/php/tutorials/website-w-mysql-and-git/
 [wordpress-gallery]: /es-es/develop/php/tutorials/website-from-gallery/
-[websites-pricing]: http://www.windowsazure.com/es-es/pricing/details/#header-1
+[websites-pricing]: http://azure.microsoft.com/pricing/details/#header-1
 [scale-websites]: /es-es/manage/services/web-sites/how-to-scale-websites/
 
 

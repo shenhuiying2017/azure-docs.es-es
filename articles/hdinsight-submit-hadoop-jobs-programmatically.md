@@ -566,7 +566,7 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 * [Uso de Pig con HDInsight][hdinsight-use-pig]
 
 
-[azure-certificate]: http://msdn.microsoft.com/es-es/library/windowsazure/gg551722.aspx
+[azure-certificate]: http://msdn.microsoft.com/library/windowsazure/gg551722.aspx
 [azure-management-portal]: http://manage.windowsazure.com/
 
 [hdinsight-use-sqoop]: ../hdinsight-use-sqoop/
@@ -579,7 +579,7 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [hdinsight-admin-powershell]: ../hdinsight-administer-use-powershell/
 [hdinsight-develop-streaming-jobs]: ../hdinsight-hadoop-develop-deploy-streaming-jobs/
 
-[hdinsight-powershell-reference]: http://msdn.microsoft.com/es-es/library/windowsazure/dn479228.aspx
+[hdinsight-powershell-reference]: http://msdn.microsoft.com/library/windowsazure/dn479228.aspx
 
 [Powershell-install-configure]: ../install-configure-powershell/
 
@@ -587,5 +587,4 @@ En este artículo, ha aprendido a aprovisionar un clúster de HDInsight de varia
 [image-hdi-gettingstarted-mrjoboutput]: ./media/hdinsight-submit-hadoop-jobs-programmatically/HDI.GettingStarted.MRJobOutput.png
 
 [apache-hive]: http://hive.apache.org/
-
 <!--HONumber=42-->

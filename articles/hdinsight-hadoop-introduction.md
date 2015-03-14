@@ -123,7 +123,7 @@ Estas herramientas de BI pueden ayudarle en el análisis de grandes volúmenes d
 * <a target="_blank" href="http://www.microsoft.com/es-es/download/details.aspx?id=39379">Descarga de Microsoft Power Query para Excel</a> 
 * <a target="_blank" href="http://www.microsoft.com/es-es/download/details.aspx?id=40886">Descarga de Microsoft Hive ODBC Driver</a>
 * <a target="_blank" href="http://www.microsoft.com/es-es/server-cloud/solutions/business-intelligence/analysis.aspx">Más información sobre SQL Server Analysis Services</a>
-* <a target="_blank" href="http://msdn.microsoft.com/es-es/library/ms159106.aspx">Más información sobre SQL Server Reporting Services</a>
+* <a target="_blank" href="http://msdn.microsoft.com/library/ms159106.aspx">Más información sobre SQL Server Reporting Services</a>
 
 ## <a name="advantage"></a>Ventajas de Hadoop en la nube
 
@@ -166,9 +166,9 @@ Para probar Hadoop en HDInsight, consulte artículos sobre "Introducción" en la
 
 ### Base de datos SQL en Azure	
 		
-* [Base de datos SQL de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/ee336279.aspx): Documentación de MSDN sobre Base de datos SQL.
+* [Base de datos SQL de Azure](http://msdn.microsoft.com/library/windowsazure/ee336279.aspx): Documentación de MSDN sobre Base de datos SQL.
 	
-* [Portal de administración de Base de datos SQL](http://msdn.microsoft.com/es-es/library/windowsazure/gg442309.aspx) Herramienta de administración de bases de datos ligera y fácil de usar para administrar el modelo de ejecución Base de datos SQL en la nube.
+* [Portal de administración de Base de datos SQL](http://msdn.microsoft.com/library/windowsazure/gg442309.aspx) Herramienta de administración de bases de datos ligera y fácil de usar para administrar el modelo de ejecución Base de datos SQL en la nube.
 
 * [Adventure Works for Base de datos SQL](http://msftdbprodsamples.codeplex.com/releases/view/37304): Página de descarga de bases de datos de ejemplo para el modelo de ejecución Base de datos SQL.	
 
@@ -194,5 +194,4 @@ Para probar Hadoop en HDInsight, consulte artículos sobre "Introducción" en la
 [component-versioning]: ../hdinsight-component-versioning/
 
 [zookeeper]: http://zookeeper.apache.org/ 
-
 <!--HONumber=42-->

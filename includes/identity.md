@@ -49,7 +49,7 @@ Ejecutar Windows Server AD en máquinas virtuales de Azure es recomendable en di
 
 - Una organización que usa Azure para la recuperación ante desastres puede conservar un conjunto reducido de máquinas virtuales activas en la nube, incluido un controlador de dominio. Por lo tanto, puede estar preparada para ampliar este sitio según corresponda y hacerse cargo de los errores en cualquier otro lugar.
 
-Existen también otras posibilidades. Por ejemplo, en un centro de datos local no es obligatorio conectarse a Windows Server AD en la nube. Debe crear un bosque independiente en Azure si su intención es ejecutar una granja de SharePoint que ofrezca servicio, por ejemplo, a un determinado grupo de usuarios que iniciarían sesión de manera independiente con identidades basadas en la nube. La forma en la que use esta tecnología depende de cuáles sean sus objetivos. (Para obtener información más detallada sobre cómo usar Windows Server AD con Azure, [consulte aquí](http://msdn.microsoft.com/es-es/library/windowsazure/jj156090.aspx)).
+Existen también otras posibilidades. Por ejemplo, en un centro de datos local no es obligatorio conectarse a Windows Server AD en la nube. Debe crear un bosque independiente en Azure si su intención es ejecutar una granja de SharePoint que ofrezca servicio, por ejemplo, a un determinado grupo de usuarios que iniciarían sesión de manera independiente con identidades basadas en la nube. La forma en la que use esta tecnología depende de cuáles sean sus objetivos. (Para obtener información más detallada sobre cómo usar Windows Server AD con Azure, [consulte aquí](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx)).
 
 ## <a name="ad"></a>Uso de Azure Active Directory
 
@@ -121,5 +121,4 @@ Trabajar con identidades es importante en prácticamente cualquier aplicación. 
 ##Acerca del autor
 
 David Chappell es el director de Chappell & Associates [www.davidchappell.com](http://www.davidchappell.com) en San Francisco, California. A través de sus conferencias, redacciones y consultoría,
-
 <!--HONumber=42-->

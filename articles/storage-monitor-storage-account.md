@@ -18,9 +18,9 @@
 
 # <a id="createstorageaccount"></a>Supervisión de una cuenta de almacenamiento en el Portal de administración de Azure
 
-Puede supervisar su cuenta de almacenamiento en el Portal de administración de Azure. Al configurar la cuenta de almacenamiento para la supervisión a través del portal, el almacenamiento de Azure usa el [análisis del almacenamiento](http://msdn.microsoft.com/es-es/library/azure/hh343270.aspx) para realizar un seguimiento de las métricas de la cuenta y registrar los datos de solicitudes. 
+Puede supervisar su cuenta de almacenamiento en el Portal de administración de Azure. Al configurar la cuenta de almacenamiento para la supervisión a través del portal, el almacenamiento de Azure usa el [análisis del almacenamiento](http://msdn.microsoft.com/library/azure/hh343270.aspx) para realizar un seguimiento de las métricas de la cuenta y registrar los datos de solicitudes. 
 
-> [AZURE.NOTE] Existen costes adicionales asociados al análisis de los datos de supervisión en el Portal de administración. Para obtener más información, consulte <a href="http://msdn.microsoft.com/es-es/library/windowsazure/hh360997.aspx">Facturación del análisis de almacenamiento</a>. <br />
+> [AZURE.NOTE] Existen costes adicionales asociados al análisis de los datos de supervisión en el Portal de administración. Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/windowsazure/hh360997.aspx">Facturación del análisis de almacenamiento</a>. <br />
 
 > El servicio de archivos de Azure actualmente no admite el análisis de almacenamiento.
 
@@ -65,7 +65,7 @@ Hasta que no haya configurado la supervisión para una cuenta de almacenamiento,
 
 Después de configurar los niveles de supervisión y las políticas de retención, puede elegir las métricas disponibles que desea supervisar en el Portal de administración y las métricas que desea mostrar en los gráficos de métricas. En cada nivel de supervisión se muestra un conjunto de métricas predeterminado. Puede usar **Agregar métricas** para agregar o borrar métricas de la lista de métricas.
 
-Las métricas se almacenan en la cuenta de almacenamiento en cuatro tablas denominadas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue y $MetricsCapacityBlob. Para obtener más información, consulte [Acerca de las métricas del análisis de almacenamiento](http://msdn.microsoft.com/es-es/library/windowsazure/hh343258.aspx).
+Las métricas se almacenan en la cuenta de almacenamiento en cuatro tablas denominadas $MetricsTransactionsBlob, $MetricsTransactionsTable, $MetricsTransactionsQueue y $MetricsCapacityBlob. Para obtener más información, consulte [Acerca de las métricas del análisis de almacenamiento](http://msdn.microsoft.com/library/windowsazure/hh343258.aspx).
 
 
 <h2><a id="customizestoragemonitoring"></a>Uso de panel para la supervisión</h2>
@@ -109,7 +109,7 @@ Utilice los siguientes procedimientos para elegir las métricas de almacenamient
 
 	![Monitoring_VerboseDisplay](./media/storage-monitor-storage-account/Storage_Monitoring_VerboseDisplay.png)
 
-	> [AZURE.NOTE] Tenga en cuenta los costes al seleccionar las métricas. Existen costes de transacción y de salida asociados a la actualización de las visualizaciones de la supervisión. Para obtener más información, consulte [Facturación del análisis de almacenamiento](http://msdn.microsoft.com/es-es/library/windowsazure/hh360997.aspx).
+	> [AZURE.NOTE] Tenga en cuenta los costes al seleccionar las métricas. Existen costes de transacción y de salida asociados a la actualización de las visualizaciones de la supervisión. Para obtener más información, consulte [Facturación del análisis de almacenamiento](http://msdn.microsoft.com/library/windowsazure/hh360997.aspx).
 
 3. Haga clic en **Agregar métricas**. 
 
@@ -163,6 +163,5 @@ Para cada uno de los servicios de almacenamiento disponibles en su cuenta de alm
 
 4. Haga clic en **Save**.
 
-Los registros de diagnóstico se guardan en un contenedor de blobs denominado $logs en su cuenta de almacenamiento. Para obtener más información acerca del acceso al contenedor $logs, consulte [Acerca del registro del análisis de almacenamiento](http://msdn.microsoft.com/es-es/library/windowsazure/hh343262.aspx).
-
+Los registros de diagnóstico se guardan en un contenedor de blobs denominado $logs en su cuenta de almacenamiento. Para obtener más información acerca del acceso al contenedor $logs, consulte [Acerca del registro del análisis de almacenamiento](http://msdn.microsoft.com/library/windowsazure/hh343262.aspx).
 <!--HONumber=42-->

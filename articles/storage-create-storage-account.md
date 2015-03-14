@@ -33,7 +33,7 @@ Se le facturará por el uso del Almacenamiento de Azure en función de la cuenta
 - Las transacciones se refieren a todas las operaciones de lectura y escritura en Almacenamiento de Azure. 
 - La salida de los datos se refiere a los datos transferidos fuera de una región de Azure. Cuando una aplicación que no está en ejecución en la misma región tiene acceso a los datos en su cuenta de almacenamiento, se le cobra por la salida de los datos, independientemente de si la aplicación es un servicio en la nube u otro tipo de aplicación. (En el caso de los servicios de Azure, puede llevar a cabo pasos para agrupar sus datos y servicios en los mismos centros de datos para reducir o eliminar los cargos por concepto de salida de los datos).  
 
-La página [Detalles de precios de Storage](http://www.windowsazure.com/es-es/pricing/details/#storage) proporciona información detallada sobre los precios de la capacidad, replicación y transacciones de almacenamiento. La página [Detalles de precios de Transferencias de datos](http://www.windowsazure.com/es-es/pricing/details/data-transfers/) proporciona información detallada sobre los precios para la salida de datos.
+La página [Detalles de precios de Storage](http://azure.microsoft.com/pricing/details/#storage) proporciona información detallada sobre los precios de la capacidad, replicación y transacciones de almacenamiento. La página [Detalles de precios de Transferencias de datos](http://azure.microsoft.com/pricing/details/data-transfers/) proporciona información detallada sobre los precios para la salida de datos.
 
 Para obtener más información acerca de los objetivos de capacidad y rendimiento de la cuenta de almacenamiento, consulte[Objetivos de escalabilidad y rendimiento del almacenamiento de Azure](http://msdn.microsoft.com/library/windowsazure/dn249410.aspx).
 
@@ -101,7 +101,7 @@ También puede configurar un nombre de dominio personalizado para usar con la cu
 
 Un *grupo de afinidad* es un grupo geográfico de los servicios de Azure y máquinas virtuales con la cuenta de almacenamiento de Azure. Un grupo de afinidad puede mejorar el rendimiento del servicio al ubicar cargas de trabajo de equipos en el mismo centro de datos o cerca de la audiencia de usuarios de destino. Además, no se aplicarán costes de facturación en la salida cuando el acceso a los datos de una cuenta de almacenamiento tenga lugar desde otro servicio que forma parte del mismo grupo de afinidad.
 
-> [AZURE.NOTE]  Para crear un grupo de afinidad, abra el área <b>Configuración</b> del Portal de administración, haga clic en <b>Grupos de afinidad</b> y, a continuación, haga clic en el botón <b>Agregar un grupo de afinidad</b> o <b>Agregar</b>. Además puede crear y administrar los grupos de afinidad usando la API de administración de servicios de Azure. Consulte <a href="http://msdn.microsoft.com/es-es/library/windowsazure/ee460798.aspx">Operaciones en grupos de afinidad</a> para obtener más información.
+> [AZURE.NOTE]  Para crear un grupo de afinidad, abra el área <b>Configuración</b> del Portal de administración, haga clic en <b>Grupos de afinidad</b> y, a continuación, haga clic en el botón <b>Agregar un grupo de afinidad</b> o <b>Agregar</b>. Además puede crear y administrar los grupos de afinidad usando la API de administración de servicios de Azure. Consulte <a href="http://msdn.microsoft.com/library/windowsazure/ee460798.aspx">Operaciones en grupos de afinidad</a> para obtener más información.
 
 
 ### <a id="replication-options"></a>Opciones de replicación de la cuenta de almacenamiento
@@ -119,7 +119,7 @@ En el [Portal de administración](http://manage.windowsazure.com), use **Manage 
 
 ### Copia de una clave de acceso de almacenamiento ###
 
-Puede usar **Administrar claves** para copiar una clave de acceso de almacenamiento para usarla en una cadena de conexión. La cadena de conexión requiere el uso del nombre de la cuenta de almacenamiento y una clave en la autenticación. Para obtener información sobre la configuración de cadenas de conexión para tener acceso a los servicios de almacenamiento de Azure, consulte [Configurar las cadenas de conexión de Azure](http://msdn.microsoft.com/es-es/library/ee758697.aspx).
+Puede usar **Administrar claves** para copiar una clave de acceso de almacenamiento para usarla en una cadena de conexión. La cadena de conexión requiere el uso del nombre de la cuenta de almacenamiento y una clave en la autenticación. Para obtener información sobre la configuración de cadenas de conexión para tener acceso a los servicios de almacenamiento de Azure, consulte [Configurar las cadenas de conexión de Azure](http://msdn.microsoft.com/library/ee758697.aspx).
 
 1. En el [Portal de administración](http://manage.windowsazure.com), haga clic en **Almacenamiento** y, a continuación, haga clic en el nombre de la cuenta de almacenamiento para abrir el panel.
 
@@ -171,10 +171,9 @@ Para quitar una cuenta de almacenamiento que ya no utiliza, use **Eliminar** en 
 
 ## <a id="next"></a>Pasos siguientes
 
-- Para obtener más información acerca del Almacenamiento de Azure, consulte la documentación sobre Almacenamiento de Azure en [azure.com](http://azure.microsoft.com/es-es/documentation/services/storage/) y en [MSDN.](http://msdn.microsoft.com/es-es/library/gg433040.aspx). 
+- Para obtener más información acerca del Almacenamiento de Azure, consulte la documentación sobre Almacenamiento de Azure en [azure.com](http://azure.microsoft.com/documentation/services/storage/) y en [MSDN.](http://msdn.microsoft.com/library/gg433040.aspx). 
 
 - Visite el [Blog del equipo de almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/).
-
 
 
 

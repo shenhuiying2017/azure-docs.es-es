@@ -1,6 +1,20 @@
-<properties pageTitle="Cifrado de activos en Servicios multimedia de Azure" description="Aprenda a usar la protección de Microsoft PlayReady para cifrar un activo en Servicios multimedia. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Cifrado de activos en Servicios multimedia de Azure" 
+	description="Aprenda a usar la protección de Microsoft PlayReady para cifrar un activo en Servicios multimedia. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -14,7 +28,7 @@ En Servicios multimedia de Azure puede enviar un trabajo que integre la protecci
 
 En el siguiente ejemplo se muestra cómo crear un trabajo sencillo para proporcionar la protección PlayReady.
 
-   1. Recupere los datos de configuración. Puede obtener un archivo de configuración de ejemplo del tema [Valores preestablecidos de tarea para Azure Media Encryptor](http://msdn.microsoft.com/es-es/library/hh973610.aspx).
+   1. Recupere los datos de configuración. Puede obtener un archivo de configuración de ejemplo del tema [Valores preestablecidos de tarea para Azure Media Encryptor](http://msdn.microsoft.com/library/hh973610.aspx).
    2. Cargue un archivo de entrada MP4.
    3. Convierta el archivo MP4 en un recurso de Smooth Streaming.
    4. Cifre el recurso con PlayReady.
@@ -109,7 +123,7 @@ private static IJob CreatePlayReadyProtectionJob(string inputMediaFilePath, stri
 </code></pre>
 Para obtener más información acerca de la protección PlayReady, consulte:
 <ul>
-<li><a href="http://msdn.microsoft.com/es-es/library/dn189154.aspx">Proteger Smooth Stream y MPEG DASH con PlayReady</a></li>
+<li><a href="http://msdn.microsoft.com/library/dn189154.aspx">Proteger Smooth Stream y MPEG DASH con PlayReady</a></li>
 <li><a href="http://www.microsoft.com/PlayReady/">Microsoft PlayReady</a></li>
 </ul>
 

@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Configure a Backup Vault" pageTitle="Configuración de los Servicios de recuperación de Azure para hacer copias de seguridad de Windows Server de manera rápida y fácil" metaKeywords="recuperación ante desastres" description="Use este tutorial para aprender a utilizar el servicio Copia de seguridad en la nube de Microsoft Azure para crear copias de seguridad de Windows Server en la nube." metaCanonical="" services="recovery-services" documentationCenter="" title="Configure Azure Backup to quickly and easily back-up Windows Server" authors="markgal" solutions="" manager="johndaw" editor="tysonn" />
+﻿<properties 
+	pageTitle="Configuración de los Servicios de recuperación de Azure para hacer copias de seguridad de Windows Server de manera rápida y fácil" 
+	description="Use este tutorial para aprender a utilizar el servicio Copia de seguridad en la nube de Microsoft Azure para crear copias de seguridad de Windows Server en la nube." 
+	services="site-recovery" 
+	documentationCenter="" 
+	authors="markgalioto" 
+	manager="jwhit" 
+	editor="tysonn"/>
 
-<tags ms.service="site-recovery" ms.workload="backup-recovery" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/21/2014" ms.author="markgal" />
+<tags 
+	ms.service="site-recovery" 
+	ms.workload="backup-recovery" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="markgal"/>
 
 
 
@@ -61,8 +75,8 @@ Las credenciales de almacén reemplazan los certificados como manera de registra
 
 3. En la página de inicio rápido, seleccione el tipo de agente que desee descargar. Puede elegir **Descargar Azure Backup Agent**, **Windows Server y System Center Data Protection Manager** o **Windows Server Essentials**.  Para obtener más información, consulte:
 
-	* [Instalación de Azure Backup Agent para Windows Server 2012 y System Center 2012 SP1 - Data Protection Manager](http://technet.microsoft.com/es-es/library/hh831761.aspx#BKMK_installagent)
-	* [Instalación de Azure Backup Agent para Windows Server 2012 Essentials](http://technet.microsoft.com/es-es/library/jj884318.aspx)
+	* [Instalación de Azure Backup Agent para Windows Server 2012 y System Center 2012 SP1 - Data Protection Manager](http://technet.microsoft.com/library/hh831761.aspx#BKMK_installagent)
+	* [Instalación de Azure Backup Agent para Windows Server 2012 Essentials](http://technet.microsoft.com/library/jj884318.aspx)
 
 Después de que se instala el agente, puede usar la interfaz de administración local adecuada (como el complemento de Microsoft Management Console, System Center Data Protection Manager Console o el Panel de Windows Server Essentials) para configurar la directiva de copia de seguridad del servidor.
 	
@@ -101,3 +115,5 @@ Después de que se instala el agente, puede usar la interfaz de administración 
 [protected-itmes]: ./media/backup-configure-vault/RS_protecteditems.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

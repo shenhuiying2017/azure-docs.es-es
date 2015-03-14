@@ -1,6 +1,20 @@
-﻿<properties title="Use custom activities in an Azure Data Factory pipeline" pageTitle="Uso de actividades personalizadas en una canalización de Factoría de datos de Azure" description="Obtenga información acerca de cómo crear actividades personalizadas y usarlas en una canalización de la factoría de datos de Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Uso de actividades personalizadas en una canalización de Factoría de datos de Azure" 
+	description="Obtenga información acerca de cómo crear actividades personalizadas y usarlas en una canalización de la factoría de datos de Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Uso de actividades personalizadas en una canalización de Factoría de datos de Azure
 La Factoría de datos de Azure admite el uso de actividades integradas como la **Actividad de copia** y la **Actividad de HDInsight** en las canalizaciones a fin de mover y procesar datos. También puede crear una actividad personalizada con su propia lógica de procesamiento/transformación y usar la actividad en una canalización. La actividad personalizada se ejecuta como un trabajo de solo asignación en un clúster de HDInsight, por lo que deberá vincular un clúster de HDInsight para la actividad personalizada en la canalización.
@@ -488,7 +502,7 @@ Artículo | Descripción
 
 
 [nuget-package]: http://go.microsoft.com/fwlink/?LinkId=517478
-[azure-developer-center]: http://azure.microsoft.com/es-es/develop/net/
+[azure-developer-center]: http://azure.microsoft.com/develop/net/
 [adf-developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
 [azure-preview-portal]: https://portal.azure.com/
 
@@ -502,3 +516,5 @@ Artículo | Descripción
 [image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png
+
+<!--HONumber=46--> 

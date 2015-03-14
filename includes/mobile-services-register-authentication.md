@@ -33,4 +33,4 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
 
 <!-- URLs. -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-<!--HONumber=42-->
+\<!--HONumber=42-->

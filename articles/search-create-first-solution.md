@@ -1,6 +1,20 @@
-﻿<properties title="Create your first search solution using Azure Search" pageTitle="Creación de la primera solución de búsqueda con Búsqueda de Azure" description="Creación de la primera solución de búsqueda con Búsqueda de Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Creación de la primera solución de búsqueda con Búsqueda de Azure" 
+	description="Creación de la primera solución de búsqueda con Búsqueda de Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Creación de la primera solución de búsqueda con Búsqueda de Azure
 
@@ -29,7 +43,7 @@ Esta demostración le introduce en el uso de Búsqueda de Azure a través de est
 
 <h2 id="sub-1">Requisitos previos</h2>
 
-+	Visual Studio 2012 o posterior con ASP.NET MVC 4 y SQL Server instalados. Puede descargar las ediciones Express gratuitas si aún no tiene instalado el software: [Visual Studio 2013 Express](http://www.visualstudio.com/es-es/products/visual-studio-express-vs.aspx) y [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/es-es/evalcenter/dn434042.aspx).
++	Visual Studio 2012 o posterior con ASP.NET MVC 4 y SQL Server instalados. Puede descargar las ediciones Express gratuitas si aún no tiene instalado el software: [Visual Studio 2013 Express](http://www.visualstudio.com/es-es/products/visual-studio-express-vs.aspx) y [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
 +	Un servicio de Búsqueda de Azure. Necesitará el nombre del servicio de búsqueda y la clave de administrador. Vea [Introducción a Búsqueda de Azure](../search-get-started/) para obtener más información.
 +	[Proyecto Adventure Works para la demostración de la función de Búsqueda de Azure en CodePlex](http://go.microsoft.com/fwlink/p/?LinkID=510972). En la pestaña Origen, haga clic en **Descargar** para obtener un archivo zip de la solución. 
 
@@ -89,7 +103,7 @@ Vamos a examinar más de cerca el proyecto **CatalogIndexer** para entender cóm
 
 4.	Muévase a 'ApplyChanges' en el mismo archivo. Observe cómo esta función elimina el índice si ya existe ("DeleteCatalogIndex") y crea luego uno nuevo denominado "catalog" ('CreateCatalogIndex').  
 
-5.	Vaya a la función 'CreateCatalogIndex', y observe cómo se crea el índice con un esquema que coincide con las columnas de la tabla Products en SQL Server. Cada campo tiene un tipo (por ejemplo, 'Edm.String' o 'Edm.Double'), así como atributos que definen para que se usan estos campos. Consulte la [documentación de la API de REST de Búsqueda de Azure](http://msdn.microsoft.com/es-es/library/azure/dn798935.aspx) para obtener más información sobre estos atributos.
+5.	Vaya a la función 'CreateCatalogIndex', y observe cómo se crea el índice con un esquema que coincide con las columnas de la tabla Products en SQL Server. Cada campo tiene un tipo (por ejemplo, 'Edm.String' o 'Edm.Double'), así como atributos que definen para que se usan estos campos. Consulte la [documentación de la API de REST de Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) para obtener más información sobre estos atributos.
 
 6.	Volver a la función 'ApplyChanges'. Observe cómo esta función aplica un bucle a través de todos los datos de los cambios enumerados 'ChangeSet'. En lugar de aplicar los cambios uno a uno, los procesa por lotes en grupos de 1000 y luego los aplica al servicio de búsqueda. Esta forma es mucho más eficiente que aplicar los documentos uno a uno.
 
@@ -147,7 +161,7 @@ Vamos a profundizar en estas dos funciones un poco más:
 
 5.	Detenga la aplicación si se está ejecutando, y abra el archivo **Index.cshtml** en Vistas | Inicio.  Al final de este archivo, verá una función de JavaScript que usa 'JQuery $(function ())'. Cuando la página se carga se llama a esta función. Se usa la función autocompletar de JQuery y se vincula esta función como una devolución de llamada desde el cuadro de texto de búsqueda, identificado como "q". Cada vez que alguien escribe en el cuadro de texto, se llama a esta función autosuggest que llama a su vez a /home/suggest con lo que se ha escrito.  '/home/suggest' es una referencia a la función de **HomeController.cs** denominada 'Suggest'.
 
-6.	Abra **HomeController.cs** y vaya a la función Suggest. Este código es muy parecido a la función Search que usa el objeto '_catalogSearch' para llamar a una función en **CatalogSearch.cs** denominada 'Suggest'. En lugar de realizar una consulta de búsqueda, la función 'Suggest' hace una llamada a la [API de sugerencias](http://msdn.microsoft.com/es-es/library/azure/dn798936.aspx). Dicha API usa los términos escritos en el cuadro de texto y genera una lista de posibles sugerencias. Los valores se devuelven al archivo **Index.cshtml** y se muestran automáticamente en el cuadro de búsqueda como opciones anticipadas.
+6.	Abra **HomeController.cs** y vaya a la función Suggest. Este código es muy parecido a la función Search que usa el objeto '_catalogSearch' para llamar a una función en **CatalogSearch.cs** denominada 'Suggest'. En lugar de realizar una consulta de búsqueda, la función 'Suggest' hace una llamada a la [API de sugerencias](http://msdn.microsoft.com/library/azure/dn798936.aspx). Dicha API usa los términos escritos en el cuadro de texto y genera una lista de posibles sugerencias. Los valores se devuelven al archivo **Index.cshtml** y se muestran automáticamente en el cuadro de búsqueda como opciones anticipadas.
 
 Puede que en este punto se pregunte cómo sabe el servicio de Búsqueda de Azure sobre qué campos crear sugerencias. La respuesta a esto se remonta a cuando creó el índice. En la función 'CreateCatalogIndex' que hay en el archivo Program.cs del proyecto **CatalogIndexer**, hay un atributo denominado 'Suggestions'.  Cada vez que este atributo se establece en 'True', significa que Búsqueda de Azure puede usarlo como campo para recuperar sugerencias.
 
@@ -176,11 +190,11 @@ Al compilar AdventureWorksWeb, si recibe el mensaje "No se puede cargar el archi
 
 Si quiere ampliar conocimientos, puede agregar una página de detalles que se abra cuando un usuario hace clic en uno de los resultados de búsqueda. Para preparar esto, podría hacer lo siguiente:
 
-+	Estudie la [API de búsqueda](http://msdn.microsoft.com/es-es/library/azure/dn798929.aspx) que le permite hacer una consulta en Búsqueda de Azure para recuperar un documento específico (por ejemplo, podría pasar el productID).
++	Estudie la [API de búsqueda](http://msdn.microsoft.com/library/azure/dn798929.aspx) que le permite hacer una consulta en Búsqueda de Azure para recuperar un documento específico (por ejemplo, podría pasar el productID).
 +	Intente agregar una nueva función al archivo **HomeController.cs** denominada Details. Agregue una vista **Details.cshtml** correspondiente que reciba los resultados de esta búsqueda y los muestre.
 +	Consulte este ejemplo de código adicional y el vídeo sobre búsqueda geoespacial: [Canal 9: Búsqueda de Azure y datos geoespaciales](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data) y [CodePlex: Ejemplo de búsqueda geográfica con Búsqueda de Azure](http://azuresearchgeospatial.codeplex.com)
 
-También puede revisar la [API de REST de Búsqueda de Azure](http://msdn.microsoft.com/es-es/library/azure/dn798935.aspx) en MSDN.
+También puede revisar la [API de REST de Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn798935.aspx) en MSDN.
 
 
 <!--Anchors-->
@@ -201,3 +215,5 @@ También puede revisar la [API de REST de Búsqueda de Azure](http://msdn.micros
 [12]: ./media/search-create-first-solution/AzureSearch_Create1_CodeplexDownload.PNG
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

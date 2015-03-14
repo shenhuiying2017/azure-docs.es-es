@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Acceso a la información de gráficos de Azure Active Directory (Tienda Windows) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo acceder a la información de Active Directory de Azure con la API Graph en su aplicación de la Tienda Windows." documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Acceso a la información de gráficos de Azure Active Directory (Tienda Windows) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo acceder a la información de Active Directory de Azure con la API Graph en su aplicación de la Tienda Windows." 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/29/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/29/2014" 
+	ms.author="wesmc"/>
 
 # Acceso a información de Azure Active Directory Graph
 
@@ -172,8 +186,8 @@ En el próximo tutorial, [Control de acceso basado en roles con Azure Active Dir
 [Almacenamiento de scripts de servidor]: /es-es/documentation/articles/mobile-services-store-scripts-source-control/
 [Registro para usar un inicio de sesión de Azure Active Directory]: /es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/
 [API Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
-[API REST Graph]: http://msdn.microsoft.com/es-es/library/azure/hh974478.aspx
-[Get User]: http://msdn.microsoft.com/es-es/library/azure/dn151678.aspx
+[API REST Graph]: http://msdn.microsoft.com/library/azure/hh974478.aspx
+[Get User]: http://msdn.microsoft.com/library/azure/dn151678.aspx
 [Control de acceso basado en roles con Azure Active Directory en Servicios móviles]: /es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-aad-rbac/
 
 

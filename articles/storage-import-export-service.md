@@ -298,7 +298,7 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 
 	> [AZURE.IMPORTANT] Tenga en cuenta que es posible que los medios físicos que está enviando deban cruzar alguna frontera internacional. Usted es el responsable de asegurar que los medios y datos físicos se importan o exportan de acuerdo con todas las normativas aplicables. Antes de enviar los medios físicos, pida asesoramiento para comprobar que los medios y datos se pueden enviar legalmente al centro de datos identificado. De este modo, se asegurará de que llegan a Microsoft de manera puntual.
 
-- Al enviar los paquetes, debe seguir los términos establecidos en los[Términos de servicio de Microsoft Azure](http://azure.microsoft.com/es-es/support/legal/services-terms/). 
+- Al enviar los paquetes, debe seguir los términos establecidos en los[Términos de servicio de Microsoft Azure](http://azure.microsoft.com/support/legal/services-terms/). 
 
 **¿Puedo adquirir unidades de Microsoft para los trabajos de importación y exportación?**
 
@@ -313,5 +313,4 @@ Para los trabajos de exportación, puede visualizar y copiar las claves de BitLo
 [import-job-03]: ./media/storage-import-export-service/import-job-03.png
 [export-job-03]: ./media/storage-import-export-service/export-job-03.png
 [export-job-bitlocker-keys]: ./media/storage-import-export-service/export-job-bitlocker-keys.png
-
 <!--HONumber=42-->

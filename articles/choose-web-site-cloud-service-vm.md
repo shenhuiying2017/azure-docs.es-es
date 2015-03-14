@@ -1,6 +1,20 @@
-<properties pageTitle="Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales" metaKeywords="Cloud Services, Virtual Machines, Web Sites" description="Aprenda cuándo utilizar Sitios web Azure, Servicios en la nube y Máquinas virtuales para hospedar aplicaciones web." metaCanonical="" services="web-sites,virtual-machines,cloud-services" documentationCenter="" title="Azure Websites, Cloud Services, and Virtual Machines comparison" authors="tdykstra" solutions="" manager="wpickett" editor="jimbe" />
+﻿<properties 
+	pageTitle="Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales" 
+	description="Aprenda cuándo utilizar Sitios web Azure, Servicios en la nube y Máquinas virtuales para hospedar aplicaciones web." 
+	services="web-sites, virtual-machines, cloud-services" 
+	documentationCenter="" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="web-sites" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="web-sites" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="09/24/2014" 
+	ms.author="tdykstra"/>
 
 # Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales
 
@@ -115,7 +129,7 @@ Si no se admite el marco de código abierto en Sitios web, puede ejecutar la apl
 
 ### <a id="lob"></a>Tengo una aplicación de línea de negocio que necesita conectarse a la red corporativa
 
-Si desea crear una aplicación de línea de negocio, puede que su sitio web requiera un acceso directo a los servicios o datos de la red corporativa. Es posible hacerlo en Sitios web, Servicios en la nube y Máquinas virtuales utilizando el [servicio de Red virtual de Azure](/en-us/services/virtual-network/). En los sitios web puede usar la nueva [característica de integración VNET](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), que permite que las aplicaciones de Azure se ejecuten como si estuvieran en la red corporativa.
+Si desea crear una aplicación de línea de negocio, puede que su sitio web requiera un acceso directo a los servicios o datos de la red corporativa. Es posible hacerlo en Sitios web, Servicios en la nube y Máquinas virtuales utilizando el [servicio de Red virtual de Azure](/es-es/services/virtual-network/). En los sitios web puede usar la nueva [característica de integración VNET](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), que permite que las aplicaciones de Azure se ejecuten como si estuvieran en la red corporativa.
 
 ### <a id="mobile"></a>Deseo hospedar una API de REST o un servicio web para los clientes móviles
 
@@ -128,7 +142,7 @@ Los servicios web HTTP le permiten admitir una amplia variedad de clientes, incl
 
 ##<a name="features"></a>Comparación de características
 
-La siguiente tabla compara las capacidades de Sitios web, Servicios en la nube y Máquinas virtuales para ayudarle a tomar la mejor decisión. Para obtener más información acerca de los contratos de nivel de servicio para cada opción, consulte [Contratos de nivel de servicio de Azure](/en-us/support/legal/sla/).
+La siguiente tabla compara las capacidades de Sitios web, Servicios en la nube y Máquinas virtuales para ayudarle a tomar la mejor decisión. Para obtener más información acerca de los contratos de nivel de servicio para cada opción, consulte [Contratos de nivel de servicio de Azure](/es-es/support/legal/sla/).
 
 <table cellspacing="0" border="1">
 <tr>
@@ -272,14 +286,14 @@ La siguiente tabla compara las capacidades de Sitios web, Servicios en la nube y
    <td valign="middle"></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Aislamiento de red con <a href="/en-us/services/virtual-network/">Red virtual</a></p></td>
+   <td valign="middle"><p>Aislamiento de red con <a href="/es-es/services/virtual-network/">Red virtual</a></p></td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">Otras referencias <a href="/blog/2014/09/15/azure-websites-virtual-network-integration/">Integración de redes virtuales de Sitios web Azure</a></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Soporte para <a href="/en-us/services/traffic-manager/">Administrador de tráfico de Azure</a></p></td>
+   <td valign="middle"><p>Soporte para <a href="/es-es/services/traffic-manager/">Administrador de tráfico de Azure</a></p></td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
@@ -336,9 +350,9 @@ Para obtener más información acerca de las tres opciones de hospedaje web, con
 
 Para conocer con mayor profundidad las opciones que ha elegido para su aplicación, consulte los recursos siguientes:
 
-* [Sitios web Azure](/en-us/documentation/services/websites/)
-* [Servicios en la nube de Azure](/en-us/documentation/services/cloud-services/)
-* [Máquinas virtuales de Azure](/en-us/documentation/services/virtual-machines/)
+* [Sitios web Azure](/es-es/documentation/services/websites/)
+* [Servicios en la nube de Azure](/es-es/documentation/services/cloud-services/)
+* [Máquinas virtuales de Azure](/es-es/documentation/services/virtual-machines/)
 
   [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
   [Sitios web de Azure]: http://go.microsoft.com/fwlink/?LinkId=306051
@@ -346,15 +360,17 @@ Para conocer con mayor profundidad las opciones que ha elegido para su aplicaci�
   [Máquinas virtuales]: http://go.microsoft.com/fwlink/?LinkID=306053
   [ClearDB]: http://www.cleardb.com/
   [Trabajos web]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Configuración de un certificado SSL para un Sitio web de Azure]: http://www.windowsazure.com/en-us/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://www.windowsazure.com/en-us/gallery/store/
-  [scripting]: http://www.windowsazure.com/en-us/documentation/scripts/?services=web-sites
-  [dotnet]: http://www.windowsazure.com/en-us/develop/net/
-  [nodejs]: http://www.windowsazure.com/en-us/develop/nodejs/
-  [PHP]: http://www.windowsazure.com/en-us/develop/php/
-  [Python]: http://www.windowsazure.com/en-us/develop/python/
-  [servicebus]: http://www.windowsazure.com/en-us/documentation/services/service-bus/
-  [sqldatabase]: http://www.windowsazure.com/en-us/documentation/services/sql-database/
-  [Storage]: http://www.windowsazure.com/en-us/documentation/services/storage/
+  [Configuración de un certificado SSL para un Sitio web de Azure]: http://azure.microsoft.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://azure.microsoft.com/gallery/store/
+  [scripting]: http://azure.microsoft.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://azure.microsoft.com/develop/net/
+  [nodejs]: http://azure.microsoft.com/develop/nodejs/
+  [PHP]: http://azure.microsoft.com/develop/php/
+  [Python]: http://azure.microsoft.com/develop/python/
+  [servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
+  [sqldatabase]: http://azure.microsoft.com/documentation/services/sql-database/
+  [Storage]: http://azure.microsoft.com/documentation/services/storage/
 
 <!--HONumber=35.1-->
+
+<!--HONumber=46--> 

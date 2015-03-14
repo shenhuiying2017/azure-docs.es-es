@@ -28,10 +28,10 @@ Existen dos tipos de eventos de plataforma Azure que pueden afectar a la disponi
 ## Siga estas mejores prácticas para diseñar su aplicación para la alta disponibilidad.
 Para reducir el impacto del tiempo de parada debido a uno o más de estos eventos, recomendamos las siguientes mejores prácticas de alta disponibilidad para las máquinas virtuales:
 
-* [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia] 
-* [Configure cada nivel de aplicación en conjuntos separados de disponibilidad] 
-* [Combine el equilibrador de carga con los conjuntos de disponibilidad] 
-* [Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad] 
+* [Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia]
+* [Configure cada nivel de aplicación en conjuntos separados de disponibilidad]
+* [Combine el equilibrador de carga con los conjuntos de disponibilidad]
+* [Evite las máquinas virtuales de instancia única en los conjuntos de disponibilidad]
 
 ### Configure varias máquinas virtuales en un conjunto de disponibilidad para la redundancia 
 Para proporcionar redundancia a la aplicación, recomendamos que agrupe dos máquinas virtuales o más en un conjunto de disponibilidad. Esta configuración garantiza que durante un evento de mantenimiento planeado o no planeado, al menos una máquina virtual estará disponible y cumplirá el 99,95% de los niveles de servicio contratados de Azure. Para obtener más información sobre los contratos de nivel de servicio, consulte la sección "Servicios en la nube, máquinas virtuales y red virtual" en [Contratos de nivel de servicio](../../../support/legal/sla/). 
@@ -43,7 +43,7 @@ FD definen un grupo de máquinas virtuales que comparten un origen de alimentaci
 <!--Image reference-->
    ![UD FD configuration](./media/virtual-machines-manage-availability/ud-fd-configuration.png)
 
->[AZURE.NOTE] Para obtener instrucciones, consulte [Cómo configurar un conjunto de disponibilidad para máquinas virtuales][].
+>[AZURE.NOTE] Para obtener instrucciones, consulte [Configuración de un conjunto de disponibilidad para máquinas virtuales][].
 
 ### Configure cada nivel de aplicación en conjuntos separados de disponibilidad
 Si las máquinas virtuales en su conjunto de disponibilidad son casi idénticas y tienen la misma función en su aplicación, recomendamos que configure un conjunto de disponibilidad para cada nivel de la aplicación.  Si coloca dos niveles diferentes en el mismo conjunto de disponibilidad, todas las máquinas virtuales en un mismo nivel se podrían reiniciar simultáneamente. Al configurar al menos dos máquinas virtuales para cada nivel, se garantiza que al menos una máquina virtual en cada nivel estará disponible.   
@@ -69,8 +69,11 @@ Evite dejar una máquina virtual de instancia única sola en un conjunto de disp
 
  
 <!-- Link references -->
-[Cómo configurar un conjunto de disponibilidad para máquinas virtuales]: ../virtual-machines-how-to-configure-availability
+[Configuración de un conjunto de disponibilidad para máquinas virtuales]: ../virtual-machines-how-to-configure-availability
 
 
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

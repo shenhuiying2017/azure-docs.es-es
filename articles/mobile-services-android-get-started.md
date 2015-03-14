@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción a Servicios móviles de Azure para aplicaciones de Android" description="Siga este tutorial para empezar a usar Servicios móviles de Azure para el desarrollo de Android." services="" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Introducción a Servicios móviles de Azure para aplicaciones de Android" 
+	description="Siga este tutorial para empezar a usar Servicios móviles de Azure para el desarrollo de Android." 
+	services="" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="hero-article" ms.date="10/16/2014" ms.author="ricksal,glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="Mobile-Android" 
+	ms.devlang="Java" 
+	ms.topic="hero-article" 
+	ms.date="10/16/2014" 
+	ms.author="ricksal,glenga"/>
 
 # <a name="getting-started"> </a>Introducción a los Servicios móviles
 
@@ -20,7 +34,7 @@ Para completar este tutorial se requieren las [Herramientas para desarrolladores
 
 El proyecto de inicio rápido descargado contiene el SDK de Servicios móviles para Android. Si bien este proyecto requiere Android 4.2 o versiones posteriores, el SDK mencionado tan solo requiere Android 2.2 o una versión posterior.
 
-> [AZURE.IMPORTANT] para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, vea [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
+> [AZURE.IMPORTANT] para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, vea [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28"%20target="_blank).
 
 >[AZURE.NOTE] Si desea ver el código fuente de la aplicación finalizada, haga clic <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/GettingStarted/Android" target="_blank">aquí</a>.
 
@@ -75,7 +89,7 @@ La etapa final de este tutorial consiste en crear y ejecutar la aplicación nuev
 	- 	Busque el método **OnCreate** en **TodoActivity.java** y localice el código que crea una instancia del cliente de servicios móviles. El código se puede ver en la imagen anterior.
 	- 	Reemplace "MobileServiceUrl" con la dirección URL real del servicio móvil.
 	- 	Reemplace "AppKey" con la clave del servicio móvil.
-	- 	Para obtener más información, consulte el tutorial <a href="http://azure.microsoft.com/es-es/documentation/articles/mobile-services-android-get-started-data/">Incorporación de Servicios móviles a una aplicación existente</a>. 
+	- 	Para obtener más información, consulte el tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-android-get-started-data/">Incorporación de Servicios móviles a una aplicación existente</a>. 
 
 
 

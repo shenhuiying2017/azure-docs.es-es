@@ -1,6 +1,20 @@
-<properties pageTitle="Administración de activos en Servicios multimedia de Azure" description="Aprenda a administrar activos en Servicios multimedia. También puede administrar trabajos, tareas, directivas de acceso, localizadores y mucho más. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Administración de activos en Servicios multimedia de Azure" 
+	description="Aprenda a administrar activos en Servicios multimedia. También puede administrar trabajos, tareas, directivas de acceso, localizadores y mucho más. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -75,8 +89,8 @@ foreach (IAsset asset in _context.Assets)
 
 Para obtener más información acerca de la administración de recursos, consulte:
 <ul>
-<li><a href="http://msdn.microsoft.com/es-es/library/jj129589.aspx">Administración de recursos con el SDK de Media Services para .NET</a></li>
-<li><a href="http://msdn.microsoft.com/es-es/library/jj129583.aspx">Administración de recursos con la API de REST de Media Services</a></li></ul>
+<li><a href="http://msdn.microsoft.com/library/jj129589.aspx">Administración de recursos con el SDK de Media Services para .NET</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129583.aspx">Administración de recursos con la API de REST de Media Services</a></li></ul>
 
 
 <h2>Pasos siguientes</h2>

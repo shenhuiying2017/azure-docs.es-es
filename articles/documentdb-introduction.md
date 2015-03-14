@@ -1,6 +1,20 @@
-﻿<properties title="Introduction to Microsoft Azure DocumentDB" pageTitle="Introducción a Base de datos de documentos de Microsoft Azure | Azure" description="Obtenga información sobre Base de datos de documentos de Azure, una base de datos de documentos NoSQL y su valor para aplicaciones móviles y en la nube. Obtenga información sobre cómo administra datos y cómo puede usarlo en el desarrollo de aplicaciones." metaKeywords="" services="documentdb" solutions="data-management"  authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Introducción a Base de datos de documentos de Microsoft Azure | Azure" 
+	description="Obtenga información acerca de Base de datos de documentos de Azure, una base de datos de documentos NoSQL y su valor para aplicaciones en la nube y móviles. Aprenda también cómo administra datos y cómo puede usarla en el desarrollo de aplicaciones." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/05/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/18/2015" 
+	ms.author="mimig"/>
 
 #Introducción a Base de datos de documentos de Microsoft Azure
 
@@ -83,3 +97,5 @@ Para comenzar con la Base de datos de documentos de Azure, explore los siguiente
 [1]: ./media/documentdb-introduction/intro.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

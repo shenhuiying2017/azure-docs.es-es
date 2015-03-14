@@ -58,11 +58,10 @@
 
 	En el código anterior, reemplace  `todolistContext` por el nombre de DbContext del modelo de datos, que debe ser el nombre del servicio móvil agregado con  `Context`. Además, reemplace el nombre de esquema de la instrucción UPDATE con el nombre del servicio móvil. 
 
-	Este código usa la [clase Database](http://msdn.microsoft.com/es-es/library/system.data.entity.database.aspx) para obtener acceso a la tabla **TodoItems** directamente a fin de establecer la marca de completado en todos los elementos. Este método es compatible con una solicitud POST y el número de filas cambiadas se devuelve al cliente como un valor entero.
+	Este código usa la [clase Database](http://msdn.microsoft.com/library/system.data.entity.database.aspx) para obtener acceso a la tabla **TodoItems** directamente a fin de establecer la marca de completado en todos los elementos. Este método es compatible con una solicitud POST y el número de filas cambiadas se devuelve al cliente como un valor entero.
 
 	> [AZURE.NOTE] Los permisos predeterminados están establecidos, lo que significa que cualquier usuario de la aplicación puede llamar a la API personalizada. No obstante, la clave de la aplicación no se distribuye ni almacena de forma segura y no se puede considerar una credencial segura. Por ello, debe considerar restringir el acceso solo a los usuarios autenticados en las operaciones que modifican datos o afectan al servicio móvil. 
 
 A continuación, podrá modificar la aplicación de inicio rápido para agregar un botón y código nuevos que llame de forma asincrónica a la nueva API personalizada.
-
 
 <!--HONumber=42-->

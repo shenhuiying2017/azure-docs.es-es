@@ -1,10 +1,24 @@
-﻿<properties urlDisplayName="Localized Breaking News" pageTitle="Tutorial de últimas noticias localizadas sobre los Centros de notificaciones para iOS" metaKeywords="" description="Obtenga información acerca de los centros de notificaciones del Bus de servicio de Azure para enviar notificaciones de noticias de última hora localizadas (iOS)." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news to iOS devices" authors="yuaxu" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Tutorial de últimas noticias localizadas sobre los Centros de notificaciones para iOS" 
+	description="Obtenga información acerca de los Centros de notificaciones del Bus de servicio de Azure para enviar notificaciones de noticias de última hora localizadas (iOS)." 
+	services="notification-hubs" 
+	documentationCenter="ios" 
+	authors="ysxu" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="yuaxu" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="yuaxu"/>
 # Uso de los Centros de notificaciones para enviar noticias de última hora localizadas a dispositivos iOS
 
 <div class="dev-center-tutorial-selector sublanding">
-    	<a href="/es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#">C# de Tienda Windows</a><a href="/es-es/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS" class="current">iOS</a>
+    	<a href="/es-es/documentation/articles/notification-hubs-windows-store-dotnet-send-localized-breaking-news/" title="Windows Store C#">Windows Store C#</a><a href="/es-es/documentation/articles/notification-hubs-ios-send-localized-breaking-news/" title="iOS" class="current">iOS</a>
 </div>
 
 
@@ -15,14 +29,14 @@ Este tutorial le guiará a través de estos pasos básicos para habilitar este e
 1. [Conceptos de plantilla]
 2. [La interfaz de usuario de la aplicación]
 3. [Creación de la aplicación iOS]
-4. [Envío de notificaciones desde su back-end]
+4. [Envío de notificaciones desde el back-end]
 
 
 Este escenario tiene dos partes:
 
 - La aplicación iOS permite que los dispositivos cliente especifiquen un idioma y que se suscriban a distintas categorías de noticias de última hora;
 
-- El backend difunde las notificaciones, mediante las características de **etiqueta** y **plantilla** de los Centros de notificaciones de Azure.
+- el back-end difunde las notificaciones, mediante las características de **etiqueta** y **plantilla** de los Centros de notificaciones de Azure.
 
 
 
@@ -58,14 +72,14 @@ Esto garantizará que los dispositivos se registren con una plantilla que hace r
 		}
 	}
 
-Las plantillas son una característica muy potente de la que puede aprender más en nuestro artículo [Información general acerca de los Centros de notificaciones de Azure]. Puede encontrar una referencia sobre el lenguaje de la expresión de plantilla en [Centros de notificaciones de bus de servicio (aplicaciones iOS)].
+Las plantillas son una característica muy eficaz de la que puede aprender más en nuestro artículo [Orientación sobre los Centros de notificaciones]. Puede encontrar una referencia sobre el lenguaje de la expresión de plantilla en [Centros de notificaciones de Bus de servicio (aplicaciones iOS)].
 
 <h2><a name="ui"></a>La interfaz de usuario de la aplicación</h2>
 
 Ahora modificaremos la aplicación de noticias de última hora que creó en el tema [Uso de los Centros de notificaciones para enviar noticias de última hora] para enviar noticias de última hora localizadas con plantillas.
 
 
-En MainStoryboard_iPhone.storyboard, agregue un control segmentado con los tres idiomas compatibles: inglés, francés y chino mandarín.
+En MainStoryboard_iPhone.storyboard, agregue un control segmentado con los tres idiomas compatibles: inglés, francés y chino mandarín
 
 ![][13]
 
@@ -75,7 +89,7 @@ A continuación, asegúrese de agregar un IBOutlet en ViewController.h tal como 
 
 <h2><a name="building-client"></a><span class="building app">Interfaz de usuario de aplicación</span>Creación de la aplicación iOS</h2>
 
-Con la finalidad de adaptar sus aplicaciones clientes para que reciban mensajes localizados, debe reemplazar sus registros *nativos* (es decir, registros que especifica en una plantilla) por registros de plantilla.
+Con la finalidad de adaptar sus aplicaciones clientes para que reciban mensajes localizados, debe reemplazar sus registros  *native* (es decir, registros que especifica en una plantilla) por registros de plantilla.
 
 1. En Notification.h, agregue el método *retrieveLocale*, modifique el almacén y suscríbase a métodos tal como se muestra a continuación:
 
@@ -121,7 +135,7 @@ Con la finalidad de adaptar sus aplicaciones clientes para que reciban mensajes 
 		    [hub registerTemplateWithDeviceToken:self.deviceToken name:@"newsTemplate" jsonBodyTemplate:template expiryTemplate:@"0" tags:categories completion:completion];
 		}
 
-	Observe cómo usamos ahora el método *registerTemplateWithDeviceToken*, en lugar de *registerNativeWithDeviceToken*. Cuando nos registramos para obtener una plantilla, tenemos que proporcionar la plantilla json y también ponerle un nombre (dado que nuestra aplicación puede querer registrar distintas plantillas). Asegúrese de registrar sus categorías como etiquetas, debido a que queremos asegurarnos de recibir las notificaciones para dichas noticias.
+	Observe cómo usamos ahora el método *registerTemplateWithDeviceToken* en lugar de *registerNativeWithDeviceToken*. Cuando nos registramos para obtener una plantilla, tenemos que proporcionar la plantilla json y también ponerle un nombre (dado que nuestra aplicación puede querer registrar distintas plantillas). Asegúrese de registrar sus categorías como etiquetas, debido a que queremos asegurarnos de recibir las notificaciones para dichas noticias.
 
 	Finalmente, agregue un método para recuperar la configuración regional a partir de los ajustes predeterminados del usuario:
 
@@ -150,7 +164,7 @@ Con la finalidad de adaptar sus aplicaciones clientes para que reciban mensajes 
 	        }
 	    }];
 
-4. Finalmente, debe actualizar el método *didRegisterForRemoteNotificationsWithDeviceToken* en su AppDelegate.m, para que pueda actualizar correctamente el registro cuando se inicie la aplicación. 	Cambie la llamada al método *subscribe* de notificaciones con lo siguiente:
+4. Finalmente, debe actualizar el método *didRegisterForRemoteNotificationsWithDeviceToken* en su AppDelegate.m, para que pueda actualizar correctamente el registro cuando se inicie la aplicación. Cambie la llamada al método *subscribe* de notificaciones con lo siguiente:
 
 		NSSet* categories = [notifications retrieveCategories];
 	    int locale = [notifications retrieveLocale];
@@ -160,9 +174,9 @@ Con la finalidad de adaptar sus aplicaciones clientes para que reciban mensajes 
 	        }
 	    }];
 
-<h2><a name="send"></a>Envío de notificaciones localizadas desde su backend</h2>
+<h2><a name="send"></a>Envío de notificaciones localizadas desde el back-end</h2>
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 
 ## Pasos siguientes
@@ -171,7 +185,7 @@ Para obtener más información sobre el uso de plantillas, consulte:
 
 - [Notificación a los usuarios con los Centros de notificaciones: ASP.NET]
 - [Notificación a los usuarios con los Centros de notificaciones: Servicios móviles]
-- [Información general acerca de los Centros de notificaciones de Azure]
+- [Orientación sobre los Centros de notificaciones]
 
 Puede encontrar una referencia para el lenguaje de la expresión de plantilla en [Procedimientos de los Centros de notificaciones para iOS].
 
@@ -182,7 +196,7 @@ Puede encontrar una referencia para el lenguaje de la expresión de plantilla en
 [Conceptos de plantilla]: #concepts
 [La interfaz de usuario de la aplicación]: #ui
 [Creación de la aplicación iOS]: #building-client
-[Envío de notificaciones desde su back-end]: #send
+[Envío de notificaciones desde el back-end]: #send
 [Pasos siguientes]: #next-steps
 
 <!-- Images. -->
@@ -204,7 +218,7 @@ Puede encontrar una referencia para el lenguaje de la expresión de plantilla en
 
 
 <!-- URLs. -->
-[Eliminación de Centros de notificaciones de bus de servicio (aplicaciones iOS)]: http://msdn.microsoft.com/es-es/library/jj927168.aspx.
+[ Centros de notificaciones de Bus de servicio (aplicaciones iOS)].: http://msdn.microsoft.com/library/jj927168.aspx
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: /es-es/manage/services/notification-hubs/breaking-news-ios
 [Servicio móvil]: /es-es/develop/mobile/tutorials/get-started
 [Notificación a los usuarios con los Centros de notificaciones: ASP.NET]: /es-es/manage/services/notification-hubs/notify-users-aspnet
@@ -212,16 +226,18 @@ Puede encontrar una referencia para el lenguaje de la expresión de plantilla en
 [Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introducción a Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
+[Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
 [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-ios
 [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-ios
 [Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-ios
 [Notificaciones de inserción para usuarios de la aplicación]: /es-es/develop/mobile/tutorials/push-notifications-to-users-ios
-[Autorización a los usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-ios
+[Autorización de usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-ios
 [JavaScript y HTML]: /es-es/develop/mobile/tutorials/get-started-with-push-js.md
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Pasos de registro de Windows Developer Preview para Servicios móviles]: ../HowTo/mobile-services-windows-developer-preview-registration.md
-[wns, objeto]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Información general acerca de los Centros de notificaciones de Azure]: http://msdn.microsoft.com/es-es/library/jj927170.aspx
-[Procedimientos de los Centros de notificaciones para iOS]: http://msdn.microsoft.com/es-es/library/jj927168.aspx
+[objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Orientación sobre los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
+[Procedimientos de los Centros de notificaciones para iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+
+<!--HONumber=45--> 

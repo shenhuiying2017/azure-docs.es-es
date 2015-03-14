@@ -64,8 +64,7 @@ Si incluye el entorno virtual en el repositorio, puede impedir que el script de 
 Se recomienda eliminar el entorno virtual existente en el sitio para evitar que los archivos sobrantes de cuando el entorno virtual se administra automáticamente.
 
 
-[Creación de una máquina virtual que ejecuta Windows]: http://azure.microsoft.com/es-es/documentation/articles/virtual-machines-windows-tutorial/
+[Creación de una máquina virtual que ejecuta Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
 [Compilador de Microsoft Visual C++ para Python 2.7]: http:://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-
 <!--HONumber=42-->

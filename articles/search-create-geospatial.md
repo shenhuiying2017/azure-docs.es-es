@@ -1,6 +1,20 @@
-﻿<properties title="Create a geospatial search solution using Azure Search" pageTitle="Crear una aplicación de búsqueda geoespacial usando Búsqueda de Azure" description="Crear una aplicación de búsqueda geoespacial con la búsqueda de Azure y  Bing" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Crear una aplicación de búsqueda geoespacial usando Búsqueda de Azure" 
+	description="Crear una aplicación de búsqueda geoespacial con la búsqueda de Azure y  Bing" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="09/23/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="01/16/2015" 
+	ms.author="heidist"/>
 
 # Crear una aplicación de búsqueda geoespacial usando Búsqueda de Azure
 
@@ -25,7 +39,7 @@ Este tutorial se basa en la [Búsqueda de Azure: demostración de Adventure Work
 
 <h2 id="sub-1">Requisitos previos</h2>
 
-+	Visual Studio 2012 o posterior con ASP.NET MVC 4 y SQL Server instalados. Puede descargar las ediciones Express gratuitas si aún no tiene instalado el software: [Visual Studio 2013 Express](http://www.visualstudio.com/es-es/products/visual-studio-express-vs.aspx) y [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/es-es/evalcenter/dn434042.aspx).
++	Visual Studio 2012 o posterior con ASP.NET MVC 4 y SQL Server instalados. Puede descargar las ediciones Express gratuitas si aún no tiene instalado el software: [Visual Studio 2013 Express](http://www.visualstudio.com/es-es/products/visual-studio-express-vs.aspx) y [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
 +	Un servicio de Búsqueda de Azure. Necesitará el nombre del servicio de búsqueda y la clave de administrador. Consulte [Introducción a Búsqueda de Azure](../search-get-started/) para obtener información detallada.
 +	Un servicio de mapa de Bing y una clave para obtener acceso. En la sección siguiente verá las instrucciones.
 +	[Muestra de búsqueda geográfica de Búsqueda de Azure en CodePlex](https://azuresearchgeospatial.codeplex.com/). En la pestaña Origen, haga clic en **Descargar** para obtener un archivo zip de la solución. 
@@ -158,3 +172,5 @@ Si quiere ampliar conocimientos, puede agregar más capacidades a la aplicación
 <!--Image references-->
 [7]: ./media/search-create-geospatial/AzureSearch-geo1-App.PNG
 [12]: ./media/search-create-geospatial/AzureSearch_Create2_CodeplexDownload.PNG
+
+<!--HONumber=46--> 

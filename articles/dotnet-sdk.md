@@ -1,6 +1,20 @@
-﻿<properties pageTitle="¿Qué es el SDK de Azure para .NET?" metaKeywords="azure .net sdk" description="Obtenga información acerca de qué se incluye en el SDK de .NET de Azure." documentationCenter=".NET" title="What is the Azure SDK for .NET" authors="tdykstra" solutions="" manager="wpickett" editor="mollybos" />
+﻿<properties 
+	pageTitle="¿Qué es el SDK de Azure para .NET?" 
+	description="Obtenga información acerca de qué se incluye en el SDK de .NET de Azure." 
+	documentationCenter=".net" 
+	authors="tdykstra" 
+	manager="wpickett" 
+	editor="mollybos" 
+	services=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="09/24/2014" ms.author="tdykstra" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="02/19/2015" 
+	ms.author="tdykstra"/>
 
 # ¿Qué es el SDK de Azure para .NET?
 
@@ -40,7 +54,7 @@ Esto permite trabajar con Sitios web Azure:
 * [Publicar proyectos web en Sitios web Azure](../web-sites-dotnet-get-started/).
 * [Publicar proyectos de aplicaciones de consola en WebJobs de Azure](../websites-dotnet-deploy-webjobs/).
 * [Crear recursos de una Base de datos SQL y de un sitio web de Azure durante la creación de un nuevo proyecto web o la publicación de un proyecto web](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/).
-* [Crear scripts de implementación de PowerShell durante la creación de nuevos sitios web](http://msdn.microsoft.com/es-es/library/dn642480.aspx).
+* [Crear scripts de implementación de PowerShell durante la creación de nuevos sitios web](http://msdn.microsoft.com/library/dn642480.aspx).
 * [Administrar y solucionar problemas de Sitios web Azure en el Explorador de servidores](../web-sites-dotnet-troubleshoot-visual-studio/#sitemanagement).
 * [Ejecutar en modo de depuración de forma remota para sitios web y WebJobs](../web-sites-dotnet-troubleshoot-visual-studio/#remotedebug). 
 
@@ -51,28 +65,28 @@ Esto permite trabajar con Sitios web Azure:
 Esto permite trabajar con Servicios en la nube y Máquinas virtuales de Azure:
 
 * [Crear, abrir y publicar proyectos de servicio en la nube](../cloud-services-dotnet-get-started/).
-* [Crear paquetes de implementación para proyectos de servicio en la nube](http://msdn.microsoft.com/es-es/library/ff683672.aspx).
+* [Crear paquetes de implementación para proyectos de servicio en la nube](http://msdn.microsoft.com/library/ff683672.aspx).
 * [Crear Máquinas virtuales de Azure durante la creación de nuevos proyectos web](../virtual-machines-dotnet-create-visual-studio-powershell/).
-* [Crear scripts de PowerShell durante la creación de nuevas máquinas virtuales](http://msdn.microsoft.com/es-es/library/dn642480.aspx).
-* [Ver y administrar la configuración del proyecto de servicio en la nube en las ventanas de propiedades del proyecto de Visual Studio](http://msdn.microsoft.com/es-es/library/ee405486.aspx).
-* Ver y administrar [servicios en la nube](http://msdn.microsoft.com/es-es/library/ff683675.aspx), [máquinas virtuales](http://msdn.microsoft.com/es-es/library/jj131259.aspx) y [Bus de servicio](http://msdn.microsoft.com/es-es/library/jj149828.aspx) en el Explorador de servidores. 
-* [Ejecutar en modo de depuración de forma remota para servicios en la nube y máquinas virtuales](http://msdn.microsoft.com/es-es/library/ff683670.aspx).
+* [Crear scripts de PowerShell durante la creación de nuevas máquinas virtuales](http://msdn.microsoft.com/library/dn642480.aspx).
+* [Ver y administrar la configuración del proyecto de servicio en la nube en las ventanas de propiedades del proyecto de Visual Studio](http://msdn.microsoft.com/library/ee405486.aspx).
+* Ver y administrar [servicios en la nube](http://msdn.microsoft.com/library/ff683675.aspx), [máquinas virtuales](http://msdn.microsoft.com/library/jj131259.aspx) y [Bus de servicio](http://msdn.microsoft.com/library/jj149828.aspx) en el Explorador de servidores. 
+* [Ejecutar en modo de depuración de forma remota para servicios en la nube y máquinas virtuales](http://msdn.microsoft.com/library/ff683670.aspx).
 
 ###<a id="auth"></a>Herramientas de creación de Microsoft Azure
 
 Aquí se incluye lo siguiente:
 
-* La [herramienta de línea de comandos CSPack](http://msdn.microsoft.com/es-es/library/gg432988.aspx) para crear paquetes de implementación.
-* La [herramienta de línea de comandos CSEncrypt](http://msdn.microsoft.com/es-es/library/hh404001.aspx) para codificar contraseñas que se usan para obtener acceso a instancias de rol de servicio en la nube a través de una conexión de escritorio remoto.
+* La [herramienta de línea de comandos CSPack](http://msdn.microsoft.com/library/gg432988.aspx) para crear paquetes de implementación.
+* La [herramienta de línea de comandos CSEncrypt](http://msdn.microsoft.com/library/hh404001.aspx) para codificar contraseñas que se usan para obtener acceso a instancias de rol de servicio en la nube a través de una conexión de escritorio remoto.
 * Binarios en tiempo real requeridos por los proyectos de servicio en la nube para la comunicación con su entorno en tiempo real y diagnósticos. Estos binarios no están disponibles en los paquetes NuGet.
 
 ###<a id="emulator"></a>Emulador de Microsoft Azure
 
-El [emulador de Azure](http://msdn.microsoft.com/es-es/library/dn339018.aspx) simula el entorno de servicio en la nube de modo que pueda probar proyectos de servicio en la nube localmente en su equipo antes de implementarlos en Azure.
+El [emulador de Azure](http://msdn.microsoft.com/library/dn339018.aspx) simula el entorno de servicio en la nube de modo que pueda probar proyectos de servicio en la nube localmente en su equipo antes de implementarlos en Azure.
 
 ###<a id="stgemulator"></a>Emulador de almacenamiento de Microsoft Azure
 
-El [emulador de almacenamiento de Azure](http://msdn.microsoft.com/es-es/library/hh403989.aspx) usa una instancia de SQL Server y el sistema de archivos local para simular el almacenamiento de Azure (colas, tablas, blobs) de modo que pueda probarlo localmente. 
+El [emulador de almacenamiento de Azure](http://msdn.microsoft.com/library/hh403989.aspx) usa una instancia de SQL Server y el sistema de archivos local para simular el almacenamiento de Azure (colas, tablas, blobs) de modo que pueda probarlo localmente. 
 
 ###<a id="stgtools"></a>Herramientas de almacenamiento de Microsoft Azure
 
@@ -83,11 +97,11 @@ Esto instala [AzCopy](http://aka.ms/AzCopy), una herramienta de línea de comand
 Aquí se incluye lo siguiente:
 
 * Paquetes NuGet para Almacenamiento de Azure, Bus de servicio y Almacenamiento en caché que se almacenan en su equipo de modo que Visual Studio pueda crear nuevos proyectos de servicio en la nube sin conexión.
-* Un complemento de Visual Studio que permite la ejecución de proyectos de la [caché en rol](http://msdn.microsoft.com/es-es/library/dn386103.aspx) en Visual Studio localmente. 
+* Un complemento de Visual Studio que permite la ejecución de proyectos de la [caché en rol](http://msdn.microsoft.com/library/dn386103.aspx) en Visual Studio localmente. 
 
 ###<a id="ls"></a>Complemento LightSwitch Azure Publishing para Visual Studio
 
-Este permite [publicar proyectos de LightSwitch en Sitios web Azure](http://msdn.microsoft.com/es-es/library/jj131261.aspx). El complemento LightSwitch se incluye en las actualizaciones de Visual Studio y en el SDK de Azure para .NET. Con la instalación del SDK se garantiza la posesión de la versión más reciente del complemento. 
+Este permite [publicar proyectos de LightSwitch en Sitios web Azure](http://msdn.microsoft.com/library/jj131261.aspx). El complemento LightSwitch se incluye en las actualizaciones de Visual Studio y en el SDK de Azure para .NET. Con la instalación del SDK se garantiza la posesión de la versión más reciente del complemento. 
 
 ##<a id="notincluded"></a>Lo que no se incluye al instalar el SDK de Azure para .NET
 
@@ -139,7 +153,7 @@ Consulte la [directiva de ciclo de vida de soporte de Servicios en la nube de Mi
 
 ###<a id="guestos"></a>¿Con qué versiones del sistema operativo invitado es compatible el SDK de Azure para .NET?
 
-Consulte las [versiones del sistema operativo invitado de Azure y la matriz de compatibilidad del SDK](http://msdn.microsoft.com/es-es/library/ee924680.aspx).
+Consulte las [versiones del sistema operativo invitado de Azure y la matriz de compatibilidad del SDK](http://msdn.microsoft.com/library/ee924680.aspx).
 
 
 
@@ -150,3 +164,5 @@ Para descargar el SDK de Azure para .NET o una biblioteca de cliente, consulte l
 Para obtener el código fuente del SDK de Azure para .NET, incluidas las bibliotecas de cliente, consulte [GitHub.com/Azure](https://github.com/azure/).
 
 Para obtener documentación de referencia a la biblioteca de cliente de Azure, consulte [Referencia de .NET de Azure](/es-es/develop/net/reference/). 
+
+<!--HONumber=46--> 

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Control de conflictos con datos sin conexión en Servicios móviles (Windows Phone) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para gestionar los conflictos que se producen al sincronizar datos sin conexión en su aplicación de Windows Phone" 
 	documentationCenter="windows" 

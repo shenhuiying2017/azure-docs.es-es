@@ -19,7 +19,7 @@ El servicio Tabla contiene los siguientes componentes:
     http://`<storage account>`.table.core.windows.net/`<table>`     
     Puede desviar las tablas de Azure directamente mediante esta dirección con el protocolo OData. Para obtener más información, consulte [OData.org][]
 
--   **Cuenta de almacenamiento:** todo el acceso al almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Consulte [Objetivos de rendimiento y escalabilidad de almacenamiento de Azure](http://msdn.microsoft.com/es-es/library/dn249410.aspx) para obtener más información acerca de la capacidad de la cuenta de almacenamiento.
+-   **Cuenta de almacenamiento:** todo el acceso al almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Consulte [Objetivos de rendimiento y escalabilidad de almacenamiento de Azure](http://msdn.microsoft.com/library/dn249410.aspx) para obtener más información acerca de la capacidad de la cuenta de almacenamiento.
 
 -   **Tabla**: Una tabla es una colección de entidades. Las tablas no exigen un esquema sobre entidades, lo que significa que una única tabla puede contener entidades que dispongan de diferentes conjuntos de propiedades. El número de tablas que una 
 	cuenta de almacenamiento puede contener se encuentra restringido solo por el límite de capacidad de la cuenta de almacenamiento.
@@ -32,4 +32,4 @@ El servicio Tabla contiene los siguientes componentes:
   
   [Tabla1]: ./media/storage-java-how-to-use-table-storage/table1.png
   [OData.org]: http://www.odata.org/
-<!--HONumber=41-->
+<!--HONumber=42-->

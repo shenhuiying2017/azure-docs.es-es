@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Información general de Servicios móviles | Centro de desarrollo móvil" description="Obtenga información acerca de Servicios móviles." documentationCenter="" authors="mattchenderson" manager="dwrede" services="mobile-services" editor=""/>
+﻿<properties 
+	pageTitle="Información general de Servicios móviles | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de Servicios móviles." 
+	documentationCenter="" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	services="mobile-services" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="08/19/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="08/19/2014" 
+	ms.author="mahender"/>
 
 # Información general sobre los Servicios móviles
 

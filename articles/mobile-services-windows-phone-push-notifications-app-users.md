@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Notificaciones de inserción para usuarios (Windows Phone) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo usar Servicios móviles para insertar notificaciones para los usuarios de su aplicación de Windows Phone." services="mobile-services, notification-hubs" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Notificaciones de inserción para usuarios (Windows Phone) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo usar Servicios móviles para insertar notificaciones para los usuarios de su aplicación de Windows Phone." 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="10/07/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/07/2014" 
+	ms.author="glenga"/>
 
 # Notificaciones de inserción para usuarios mediante Servicios móviles
 

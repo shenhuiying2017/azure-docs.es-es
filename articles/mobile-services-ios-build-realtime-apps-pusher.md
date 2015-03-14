@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Creación de aplicaciones en tiempo real con Pusher (iOS) - Servicios móviles" description="Obtenga información acerca de cómo usar Pusher para enviar notificaciones a su aplicación de Servicios multimedia de Azure en iOS." services="" documentationCenter="ios" authors="lindydonna" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Creación de aplicaciones en tiempo real con Pusher (iOS) - Servicios móviles" 
+	description="Obtenga información acerca de cómo usar Pusher para enviar notificaciones a su aplicación de Servicios multimedia de Azure en iOS." 
+	services="" 
+	documentationCenter="ios" 
+	authors="lindydonna" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="donnam"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="donnam"/>
 
 
 # Generación de aplicaciones en tiempo real con Servicios móviles y Pusher

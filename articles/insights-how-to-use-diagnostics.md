@@ -1,6 +1,20 @@
-﻿<properties title="How to use diagnostics" pageTitle="Uso de diagnósticos" description="Obtenga información acerca de la configuración del diagnóstico de los recursos en Azure." authors="stepsic" manager="kamrani" />
+﻿<properties 
+	pageTitle="Uso de diagnósticos" 
+	description="Obtenga información acerca de la configuración del diagnóstico de los recursos en Azure." 
+	authors="stepsic-microsoft-com" 
+	manager="kamrani" 
+	editor="" 
+	services="application-insights" 
+	documentationCenter=""/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-04" ms.author="stepsic" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2014-11-04" 
+	ms.author="stepsic"/>
 
 # Configuración de diagnóstico
 
@@ -66,3 +80,5 @@ Ya puede seleccionar las métricas que ha habilitado para el diagnóstico:
 El gráfico muestra una vista previa del umbral de alerta en comparación con la métrica del día anterior. Después de hacer clic en **Guardar**, se le informará si la métrica que eligió excede el umbral. 
 
 Tenga en cuenta que en la versión íntegra del portal no se pueden emitir alertas de las métricas que solo aparecen en el Portal de vista previa. Como resultado, algunas reglas de alerta del Portal de vista previa no se muestran en la versión íntegra del portal.
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties title="Manage an Azure Machine Learning workspace" pageTitle="Administración de un área de trabajo de Aprendizaje automático | Azure" description="Administrar el acceso a las áreas de trabajo del aprendizaje automático de Azure, e implementar y administrar servicios web de la API del aprendizaje automático" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Administración de un área de trabajo de Aprendizaje automático | Azure" 
+	description="Administrar el acceso a las áreas de trabajo del aprendizaje automático de Azure, e implementar y administrar servicios web de la API del aprendizaje automático" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="garye"/>
 
 
 # Administración de un área de trabajo de Aprendizaje automático de Azure 
@@ -27,3 +41,5 @@ Para aprender a implementar los servicios web de producción, consulte el víncu
 
 <!--Image references-->
 [1]: ./media/machine-learning-manage-workspace/mw1.png
+
+<!--HONumber=46--> 

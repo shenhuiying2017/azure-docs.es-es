@@ -40,4 +40,4 @@ Este paquete agrega las siguientes referencias. NET:
 En el archivo web.config de su proyecto, se ha creado un elemento con la cadena y la clave de conexión de la cuenta de almacenamiento seleccionada.
 
 Para obtener más información, consulte [ASP.NET](http://www.asp.net).
-<!--HONumber=42-->
+\<!--HONumber=42-->

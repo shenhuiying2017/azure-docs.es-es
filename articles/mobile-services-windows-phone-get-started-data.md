@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción a los datos (WP8) - Servicios móviles de Azure" description="Obtenga información acerca de cómo empezar a usar los datos de la aplicación de Windows Phone 8 de Servicios móviles de Azure." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Introducción a los datos (WP8) - Servicios móviles de Azure" 
+	description="Obtenga información acerca de cómo empezar a usar los datos de la aplicación de Windows Phone 8 de Servicios móviles de Azure." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/19/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/19/2014" 
+	ms.author="glenga"/>
 
 
 # Incorporación de Servicios móviles a una aplicación existente
@@ -25,7 +39,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 Este tutorial requiere Visual Studio 2012 Express para Windows Phone 8 y el [SDK de Windows Phone 8] en Windows 8. Para completar este tutorial para crear una aplicación de Windows Phone 8.1, debe utilizar Visual Studio 2013 Update 2 o una versión posterior.
 
->[AZURE.NOTE]para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F" target="_blank">Evaluación gratuita de Azure.</a>
+>[AZURE.NOTE]para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A756A2826&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started-with-data-wp8%2F" target="_blank">Evaluación gratuita de Azure.</a>
 
 ##<a name="download-app"></a>Descarga del proyecto GetStartedWithData
 

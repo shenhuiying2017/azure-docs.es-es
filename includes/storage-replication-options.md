@@ -16,7 +16,7 @@
 
 - El *almacenamiento geográficamente redundante con acceso de lectura (RA-GRS)* frece todas las ventajas del almacenamiento con redundancia geográfica indicado anteriormente pero, además, permite el acceso de lectura a los datos de la región secundaria en caso de que la primera deje de estar disponible. Para una disponibilidad y durabilidad máximas se recomienda el almacenamiento geográficamente redundante con acceso de lectura.  
 
-Para obtener más detalles acerca de las opciones de replicación, consulte el [Blog del equipo de Almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/) y [Opciones de redundancia del Almacenamiento de Azure](http://msdn.microsoft.com/es-es/library/azure/dn727290.aspx).
+Para obtener más detalles acerca de las opciones de replicación, consulte el [Blog del equipo de Almacenamiento de Azure](http://blogs.msdn.com/b/windowsazurestorage/) y [Opciones de redundancia del Almacenamiento de Azure](http://msdn.microsoft.com/library/azure/dn727290.aspx).
 	
 Las diferencias de precios entre las distintas opciones de replicación se encuentran en la página [Detalles de precios de Almacenamiento](/es-es/pricing/details/storage/).
-<!--HONumber=41-->
+<!--HONumber=42-->

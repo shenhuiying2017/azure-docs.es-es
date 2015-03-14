@@ -24,7 +24,7 @@ El escalado vertical en Sitios web Azure implica dos acciones relacionadas: el c
 
 El cambio de modos y la configuración de estos se realiza fácilmente en la pestaña Scale del portal de administración. Puede escalar o reducir verticalmente según sea necesario. Estos cambios tardan solo segundos en aplicarse y afectan a todos los sitios web en el plan de hospedaje web. No requieren que el código se cambie o que las aplicaciones tengan que volver a implementarse.
 
-Para obtener información sobre los planes de hospedaje web, vea [What is a Web Hosting Plan?](http://azure.microsoft.com/es-es/documentation/articles/web-sites-web-hosting-plan-overview/) y [Azure Websites Web Hosting Plans In-Depth Overview](http://www.azure.microsoft.com/es-es/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). Para obtener más información acerca de los precios y las características de los planes de hospedaje web individuales, vea [Detalles de precios de Sitios web](http://www.windowsazure.com/es-es/pricing/details/web-sites/).  
+Para obtener información sobre los planes de hospedaje web, vea [What is a Web Hosting Plan?](http://azure.microsoft.com/documentation/articles/web-sites-web-hosting-plan-overview/) y [Azure Websites Web Hosting Plans In-Depth Overview](http://www.azure.microsoft.com/es-es/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). Para obtener más información acerca de los precios y las características de los planes de hospedaje web individuales, vea [Detalles de precios de Sitios web](http://azure.microsoft.com/pricing/details/web-sites/).  
 
 > [AZURE.NOTE] Antes de cambiar un sitio web del modo de plan de hospedaje web **libre** al modo de plan de hospedaje web **básico** o **estándar**, primero debe quitar los límites de gasto establecidos para la suscripción al sitio web de Azure. Para ver o cambiar opciones para la suscripción a sitios web de Microsoft Azure, consulte [Microsoft Azure Subscriptions][azuresubscriptions].
 
@@ -142,7 +142,7 @@ En este artículo:
 	
 14. Una vez que finalice la realización de cambios de los elementos en **Edit Scale Settings for Schedule**, haga clic en el icono **Save** de la barra de comandos en la parte inferior de la página para guardar toda la configuración de la programación a la vez (no tiene que guardar cada programación individualmente).
 
-> [AZURE.NOTE] En el [Azure Preview Portal](https://portal.azure.com/), puede escalar no solo por porcentaje de CPU, sino también por la métrica adicional del porcentaje de memoria, la longitud de cola del disco, longitud de cola HTTP, entrada de datos y salida de datos. También puede crear una o más reglas de incremento y reducción de escala que le proporcionarán un control mayor sobre el escalado. Para obtener más información, vea [How to Scale a Website](http://azure.microsoft.com/es-es/documentation/articles/insights-how-to-scale/) en la documentación del Portal de Azure en vista previa.
+> [AZURE.NOTE] En el [Azure Preview Portal](https://portal.azure.com/), puede escalar no solo por porcentaje de CPU, sino también por la métrica adicional del porcentaje de memoria, la longitud de cola del disco, longitud de cola HTTP, entrada de datos y salida de datos. También puede crear una o más reglas de incremento y reducción de escala que le proporcionarán un control mayor sobre el escalado. Para obtener más información, vea [How to Scale a Website](http://azure.microsoft.com/documentation/articles/insights-how-to-scale/) en la documentación del Portal de Azure en vista previa.
 
 <a name="ScalingSQLServer"></a>
 ##Escalación de una base de datos SQL Server conectada a su sitio	
@@ -179,40 +179,40 @@ Según el modo de plan de hospedaje web, se encuentran disponibles las siguiente
 
 **Supervisión de extremos web**
 
-- La supervisión de extremos web está disponible en los modos de plan de hospedaje básico y estándar. Para obtener más información sobre la supervisión de extremos web, consulte [Supervisión de sitios web](http://www.windowsazure.com/es-es/documentation/articles/web-sites-monitor/).
+- La supervisión de extremos web está disponible en los modos de plan de hospedaje básico y estándar. Para obtener más información sobre la supervisión de extremos web, consulte [Supervisión de sitios web](http://azure.microsoft.com/documentation/articles/web-sites-monitor/).
 
-- Para obtener información detallada sobre las características restantes en los planes de hospedaje web, incluido el precio y las características de interés para todos los usuarios (incluidos los desarrolladores), consulte [Detalles de precios de Sitios web](http://www.windowsazure.com/es-es/pricing/details/web-sites/).
+- Para obtener información detallada sobre las características restantes en los planes de hospedaje web, incluido el precio y las características de interés para todos los usuarios (incluidos los desarrolladores), consulte [Detalles de precios de Sitios web](http://azure.microsoft.com/pricing/details/web-sites/).
 
 <a name="Next Steps"></a>	
 ## Pasos siguientes
 
-- Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure](http://azure.microsoft.com/es-es/pricing/free-trial/).
+- Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
 
 - Para obtener información sobre el precio, soporte técnico y contrato de nivel de servicio, consulte los siguientes vínculos.
 	
-	[Detalle de precios de transferencias de datos](http://www.windowsazure.com/es-es/pricing/details/data-transfers/)
+	[Detalle de precios de transferencias de datos](http://azure.microsoft.com/pricing/details/data-transfers/)
 	
-	[Planes de soporte técnico de Microsoft Azure](http://www.windowsazure.com/es-es/support/plans/)
+	[Planes de soporte técnico de Microsoft Azure](http://azure.microsoft.com/support/plans/)
 	
-	[Contratos de nivel de servicio](http://www.windowsazure.com/es-es/support/legal/sla/)
+	[Contratos de nivel de servicio](http://azure.microsoft.com/support/legal/sla/)
 	
-	[Detalles de precios de Base de datos SQL](http://www.windowsazure.com/es-es/pricing/details/sql-database/)
+	[Detalles de precios de Base de datos SQL](http://azure.microsoft.com/pricing/details/sql-database/)
 	
 	[Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure][vmsizes]
 	
-	[Detalles de precios de Sitios web](http://www.windowsazure.com/es-es/pricing/details/web-sites/)
+	[Detalles de precios de Sitios web](http://azure.microsoft.com/pricing/details/web-sites/)
 	
-	[Detalles de precios de Sitios web: conexiones SSL](http://www.windowsazure.com/es-es/pricing/details/web-sites/#ssl-connections)
+	[Detalles de precios de Sitios web: conexiones SSL](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
 
 - Para obtener información sobre las prácticas recomendadas de sitios web de Azure, incluida la creación de una arquitectura resistente y escalable, consulte [Best Practices: Azure Websites (WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
 - Vídeos para la escalación de sitios web de Azure:
 	
-	[Cuándo escalar Sitios web Azure, con Stefan Schackow](http://www.windowsazure.com/es-es/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+	[Cuándo escalar Sitios web Azure, con Stefan Schackow](http://azure.microsoft.com/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
 	
-	[Ajuste de escala de Sitios web Azure mediante CPU o programación, con Stefan Schackow](http://www.windowsazure.com/es-es/documentation/videos/auto-scaling-azure-web-sites/)
+	[Ajuste de escala de Sitios web Azure mediante CPU o programación, con Stefan Schackow](http://azure.microsoft.com/documentation/videos/auto-scaling-azure-web-sites/)
 
-	[Escalado de Sitios web Azure, con Stefan Schackow](http://www.windowsazure.com/es-es/documentation/videos/how-azure-web-sites-scale/)
+	[Escalado de Sitios web Azure, con Stefan Schackow](http://azure.microsoft.com/documentation/videos/how-azure-web-sites-scale/)
 
 
 

@@ -1,6 +1,20 @@
-﻿<properties title="Use Pig and Hive with Azure Data Factory" pageTitle="Uso de Pig y Hive con la Factoría de datos de Azure" description="Obtenga información acerca de cómo procesar datos mediante la ejecución de scripts de Pig y Hive en un clúster de HDInsight de Azure desde una factoría de datos de Azure." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Uso de Pig y Hive con la Factoría de datos de Azure" 
+	description="Obtenga información acerca de cómo procesar datos mediante la ejecución de scripts de Pig y Hive en un clúster de HDInsight de Azure desde una factoría de datos de Azure." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/10/2015" 
+	ms.author="spelluru"/>
 
 # Uso de Pig y Hive con la Factoría de datos
 Una canalización en una factoría de datos de Azure procesa los datos de los servicios de almacenamiento vinculados mediante el uso de servicios de proceso vinculados. Contiene una secuencia de actividades donde cada actividad realiza una operación de procesamiento específica. 
@@ -418,3 +432,5 @@ Artículo | Descripción
 [Portal de Azure]: http://portal.azure.com
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

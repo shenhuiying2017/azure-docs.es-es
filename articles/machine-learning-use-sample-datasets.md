@@ -1,6 +1,20 @@
-﻿<properties title="Use the sample datasets in Azure Machine Learning Studio" pageTitle="Uso de conjuntos de datos de ejemplo en Estudio de aprendizaje automático | Azure" description="Uso de conjuntos de datos de ejemplo en Estudio de aprendizaje automático de Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Uso de conjuntos de datos de ejemplo en Estudio de aprendizaje automático | Azure" 
+	description="Descripciones de los conjuntos de datos de ejemplo que se incluyen en Estudio de aprendizaje automático de Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/16/2014" 
+	ms.author="garye"/>
 
 
 # Uso de conjuntos de datos de ejemplo en Estudio de aprendizaje automático de Azure
@@ -338,3 +352,5 @@ La versión serializada del contenedor primario pasada entre módulos de Estudio
 </td>
 </tr>
 </table>
+
+<!--HONumber=46--> 

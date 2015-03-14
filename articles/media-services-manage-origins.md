@@ -1,6 +1,21 @@
-<properties pageTitle="Administración de orígenes en una cuenta de Servicios multimedia" description="" services="media-services" documentationCenter="" authors="juliako" writer="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Administración de orígenes en una cuenta de Servicios multimedia" 
+	description="" 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	Writer="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/29/2015" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="juliako"/>
 
 
 # <a id="managemediaservicesorigins"></a>Administración de extremos de streaming en una cuenta de Servicios multimedia

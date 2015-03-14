@@ -26,7 +26,7 @@ Esta guía le muestra cómo comenzar con el desarrollo de una aplicación de la 
 
 ## Descarga de las herramientas necesarias ##
 
-- [Visual Studio 2012](http://msdn.microsoft.com/es-es/library/windows/apps/br211384) hace que sea fácil compilar, depurar, localizar, empaquetar e implementar aplicaciones de la Tienda Windows.
+- [Visual Studio 2012](http://msdn.microsoft.com/library/windows/apps/br211384) hace que sea fácil compilar, depurar, localizar, empaquetar e implementar aplicaciones de la Tienda Windows.
 - [La biblioteca de cliente de Almacenamiento de Microsoft Azure Windows en tiempo de ejecución](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/11/05/windows-azure-storage-client-library-for-windows-runtime.aspx) proporciona una biblioteca de clases para trabajar con el Almacenamiento de Azure.
 - [Las herramientas de servicios de datos de WCF para las aplicaciones de la Tienda Windows](http://www.microsoft.com/es-es/download/details.aspx?id=30714) amplían la experiencia de incorporación de referencia de servicios con compatibilidad con OData de cliente para las aplicaciones de la Tienda Windows en Visual Studio 2012 y versiones posteriores.
 
@@ -49,7 +49,7 @@ En este momento, la aplicación está preparada para llamar a los servicios BLOB
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Auth;
     
-A continuación, agregue un botón a la página. Agregue el siguiente código al evento **Click** y modifique el método del controlador de eventos con [async (Referencia de C#)](http://msdn.microsoft.com/es-es/library/vstudio/hh156513.aspx):
+A continuación, agregue un botón a la página. Agregue el siguiente código al evento **Click** y modifique el método del controlador de eventos con [async (Referencia de C#)](http://msdn.microsoft.com/library/vstudio/hh156513.aspx):
     
     var credentials = new StorageCredentials(accountName, accountKey);
     var account = new CloudStorageAccount(credentials, true);
@@ -90,5 +90,4 @@ También puede agregar una referencia a Microsoft.WindowsAzure.Storage.Table.dll
 [store-apps-storage-vs-project]: ./media/storage-use-store-apps/store-apps-storage-vs-project.png
 [store-apps-storage-choose-library]: ./media/storage-use-store-apps/store-apps-storage-choose-library.png
 [store-apps-storage-package-manager]: ./media/storage-use-store-apps/store-apps-storage-package-manager.png
-
 <!--HONumber=42-->

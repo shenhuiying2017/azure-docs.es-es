@@ -36,9 +36,8 @@ Las nuevas API de Twitter v1.1 requieren que la aplicación se autentique para o
 
 <!-- URLs. -->
 [Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
-[WindowsAzure.com]: http://www.windowsazure.com/
+[WindowsAzure.com]: http://azure.microsoft.com/
 [Portal de administración de Microsoft Azure]: https://manage.windowsazure.com/
 [Registro de las aplicaciones para el inicio de sesión en Twitter con Servicios móviles]: /es-es/documentation/articles/mobile-services-how-to-register-twitter-authentication
 [Desarrolladores de Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
-[Configuración de aplicaciones]: http://msdn.microsoft.com/es-es/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
-<!--HONumber=42-->
+[Configuración de aplicaciones]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7<!--HONumber=42-->

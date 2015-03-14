@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Uso de un servicio móvil back-end de JavaScript" description="Proporciona ejemplos acerca de cómo definir, registrar y usar scripts de servidor en Servicios móviles de Azure." services="mobile-services" documentationCenter="" authors="RickSaling" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Uso de un servicio móvil back-end de JavaScript" 
+	description="Proporciona ejemplos acerca de cómo definir, registrar y usar scripts de servidor en Servicios móviles de Azure." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="ricksal"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="ricksal"/>
 
 
 # Uso de un servicio móvil back-end de JavaScript
@@ -231,7 +245,8 @@ A estos parámetros de consulta personalizados se tiene acceso como valores JSON
 		    }
 
 		    function insertItemIfNotComplete(existingItems) {
-		        if (existingItems.length > 0) {
+		        if (existingIte
+	ms.length > 0) {
 		            request.respond(statusCodes.CONFLICT, 
                         "Duplicate items are not allowed.");
 		        } else {
@@ -945,34 +960,34 @@ Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas 
 [4]: ./media/mobile-services-how-to-use-server-scripts/4-mobile-source-local-cli.png
 
 <!-- URLs. -->
-[Referencia del script de servidor de Servicios móviles]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554226.aspx
+[Referencia del script de servidor de Servicios móviles]: http://msdn.microsoft.com/library/windowsazure/jj554226.aspx
 [Programación de trabajos de back-end en Servicios móviles]: /es-es/develop/mobile/tutorials/schedule-backend-tasks/
-[request object]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554218.aspx
-[response object]: http://msdn.microsoft.com/es-es/library/windowsazure/dn303373.aspx
-[User object]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554220.aspx
-[push object]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554217.aspx
-[función insert]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554229.aspx
-[insert]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554229.aspx
-[función update]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554214.aspx
-[función delete]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554215.aspx
-[función read]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554224.aspx
-[update]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554214.aspx
-[delete]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554215.aspx
-[read]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554224.aspx
-[objeto de consulta]: http://msdn.microsoft.com/es-es/library/windowsazure/jj613353.aspx
-[apns, objeto]: http://msdn.microsoft.com/es-es/library/windowsazure/jj839711.aspx
-[mpns, objeto]: http://msdn.microsoft.com/es-es/library/windowsazure/jj871025.aspx
-[wns, objeto]: http://msdn.microsoft.com/es-es/library/windowsazure/jj860484.aspx
-[objeto de tabla]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554210.aspx
-[objeto de tablas]: http://msdn.microsoft.com/es-es/library/windowsazure/jj614364.aspx
-[objeto mssql]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554212.aspx
-[objeto de consola]: http://msdn.microsoft.com/es-es/library/windowsazure/jj554209.aspx
-[Lectura y escritura de datos]: http://msdn.microsoft.com/es-es/library/windowsazure/jj631640.aspx
-[Validación de datos]: http://msdn.microsoft.com/es-es/library/windowsazure/jj631638.aspx
-[Modificación de la solicitud]: http://msdn.microsoft.com/es-es/library/windowsazure/jj631635.aspx
-[Modificación de la respuesta]: http://msdn.microsoft.com/es-es/library/windowsazure/jj631631.aspx
+[request object]: http://msdn.microsoft.com/library/windowsazure/jj554218.aspx
+[response object]: http://msdn.microsoft.com/library/windowsazure/dn303373.aspx
+[User object]: http://msdn.microsoft.com/library/windowsazure/jj554220.aspx
+[push object]: http://msdn.microsoft.com/library/windowsazure/jj554217.aspx
+[función insert]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[insert]: http://msdn.microsoft.com/library/windowsazure/jj554229.aspx
+[función update]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[función delete]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[función read]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[update]: http://msdn.microsoft.com/library/windowsazure/jj554214.aspx
+[delete]: http://msdn.microsoft.com/library/windowsazure/jj554215.aspx
+[read]: http://msdn.microsoft.com/library/windowsazure/jj554224.aspx
+[objeto de consulta]: http://msdn.microsoft.com/library/windowsazure/jj613353.aspx
+[apns, objeto]: http://msdn.microsoft.com/library/windowsazure/jj839711.aspx
+[mpns, objeto]: http://msdn.microsoft.com/library/windowsazure/jj871025.aspx
+[wns, objeto]: http://msdn.microsoft.com/library/windowsazure/jj860484.aspx
+[objeto de tabla]: http://msdn.microsoft.com/library/windowsazure/jj554210.aspx
+[objeto de tablas]: http://msdn.microsoft.com/library/windowsazure/jj614364.aspx
+[objeto mssql]: http://msdn.microsoft.com/library/windowsazure/jj554212.aspx
+[objeto de consola]: http://msdn.microsoft.com/library/windowsazure/jj554209.aspx
+[Lectura y escritura de datos]: http://msdn.microsoft.com/library/windowsazure/jj631640.aspx
+[Validación de datos]: http://msdn.microsoft.com/library/windowsazure/jj631638.aspx
+[Modificación de la solicitud]: http://msdn.microsoft.com/library/windowsazure/jj631635.aspx
+[Modificación de la respuesta]: http://msdn.microsoft.com/library/windowsazure/jj631631.aspx
 [Portal de administración]: https://manage.windowsazure.com/
-[Programación de trabajos]: http://msdn.microsoft.com/es-es/library/windowsazure/jj860528.aspx
+[Programación de trabajos]: http://msdn.microsoft.com/library/windowsazure/jj860528.aspx
 [Validación y modificación de datos en los Servicios móviles mediante los scripts del servidor]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet/
 [Comandos para administrar Servicios móviles de Azure]: /es-es/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services/#Mobile_Scripts
 [Inserción de la Tienda Windows]: /es-es/develop/mobile/tutorials/get-started-with-push-dotnet/
@@ -980,7 +995,7 @@ Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas 
 [Inserción de iOS]: /es-es/develop/mobile/tutorials/get-started-with-push-ios/
 [Inserción de Android]: /es-es/develop/mobile/tutorials/get-started-with-push-android/
 [SDK de Azure para Node.js]: http://go.microsoft.com/fwlink/p/?LinkId=275539
-[Envío de solicitud HTTP]: http://msdn.microsoft.com/es-es/library/windowsazure/jj631641.aspx
+[Envío de solicitud HTTP]: http://msdn.microsoft.com/library/windowsazure/jj631641.aspx
 [Envío de correo electrónico desde Servicios móviles con SendGrid]: /es-es/develop/mobile/tutorials/send-email-with-sendgrid/
 [Introducción a la autenticación]: http://go.microsoft.com/fwlink/p/?LinkId=287177
 [API de criptografía]: http://go.microsoft.com/fwlink/p/?LinkId=288802
@@ -989,16 +1004,16 @@ Para evitar la sobrecarga del registro, debe quitar o deshabilitar las llamadas 
 [API de url]: http://go.microsoft.com/fwlink/p/?LinkId=288805
 [API de util]: http://go.microsoft.com/fwlink/p/?LinkId=288806
 [API de zlib]: http://go.microsoft.com/fwlink/p/?LinkId=288807
-[API personalizada]: http://msdn.microsoft.com/es-es/library/windowsazure/dn280974.aspx
+[API personalizada]: http://msdn.microsoft.com/library/windowsazure/dn280974.aspx
 [Llamada a una API personalizada desde el cliente]: /es-es/develop/mobile/tutorials/call-custom-api-dotnet/#define-custom-api
 [biblioteca express.js]: http://go.microsoft.com/fwlink/p/?LinkId=309046
 [Definición de una API personalizada que admita notificaciones periódicas]: /es-es/develop/mobile/tutorials/create-pull-notifications-dotnet/
 [objeto express en express.js]: http://expressjs.com/api.html#express
 [Almacenamiento de scripts de servidor en control de fuente]: /es-es/develop/mobile/tutorials/store-scripts-in-source-control/
 [Aprovechamiento del código compartido y de módulos Node.js en los scripts del servidor]: /es-es/develop/mobile/tutorials/store-scripts-in-source-control/#use-npm
-[objeto de servicio]: http://msdn.microsoft.com/es-es/library/windowsazure/dn303371.aspx
-[Configuración de aplicaciones]: http://msdn.microsoft.com/es-es/library/dn529070.aspx
-[módulo config]: http://msdn.microsoft.com/es-es/library/dn508125.aspx
+[objeto de servicio]: http://msdn.microsoft.com/library/windowsazure/dn303371.aspx
+[Configuración de aplicaciones]: http://msdn.microsoft.com/library/dn529070.aspx
+[módulo config]: http://msdn.microsoft.com/library/dn508125.aspx
 [Compatibilidad con package.json en Servicios móviles de Azure]: http://go.microsoft.com/fwlink/p/?LinkId=391036
 
 

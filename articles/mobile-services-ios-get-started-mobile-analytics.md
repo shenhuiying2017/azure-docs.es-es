@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción al análisis móvil | Centro de desarrollo móvil" description="Introducción al análisis móvil" documentationCenter="ios" authors="mattchenderson" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Introducción al análisis móvil | Centro de desarrollo móvil" 
+	description="Introducción al análisis móvil" 
+	documentationCenter="ios" 
+	authors="mattchenderson" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="multiple" ms.topic="article" ms.date="10/10/2014" ms.author="mahender"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="mahender"/>
 
 # Introducción al análisis móvil (Capptain)
 

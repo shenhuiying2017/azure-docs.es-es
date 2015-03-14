@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción a la autenticación (Windows Phone) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación de Windows Phone a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." services="mobile-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Introducción a la autenticación (Windows Phone) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación de Windows Phone a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
+	services="mobile-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="09/23/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/23/2014" 
+	ms.author="glenga"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles
 
@@ -67,7 +81,8 @@ En el siguiente tutorial, [Autorización en el servicio de los usuarios de Servi
 [2]: ./media/mobile-services-wp8-get-started-users/mobile-service-uri.png
 [3]: ./media/mobile-services-wp8-get-started-users/mobile-identity-tab.png
 [4]: ./media/mobile-services-wp8-get-started-users/mobile-portal-data-tables.png
-[5]: ./media/mobile-services-wp8-get-started-users/mobile-portal-change-table-perms.png
+[5]: ./media/mobile-services-wp8-get-started-users/mobile-portal-change-table-per
+	ms.png
 
 <!-- URLs. -->
 [Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582

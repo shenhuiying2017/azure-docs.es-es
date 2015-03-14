@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Conceptos clave de Administración de API" metaKeywords="" description="Obtenga información sobre las API, productos, roles, grupos y otros conceptos claves de Administración de API." metaCanonical="" services="api-management" documentationCenter="API Management" title="API Management key concepts" authors="sdanie" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Conceptos clave de Administración de API" 
+	description="Obtenga información acerca de las API, los productos, los roles, los grupos y otros conceptos clave de Administración de API." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/18/2014" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 #Conceptos clave de Administración de API
 
@@ -90,3 +104,5 @@ Puede personalizar el aspecto y apariencia del portal para desarrolladores agreg
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

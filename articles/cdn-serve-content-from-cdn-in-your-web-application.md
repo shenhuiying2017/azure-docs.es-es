@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Use Content from a CDN in Your Web Application" pageTitle="Uso de contenido desde una red CDN en su aplicación web" metaKeywords="Azure tutorial, Azure web app tutorial, ASP.NET, CDN" description="Un tutorial que le enseña a usar el contenido de una CDN para mejorar el rendimiento de su aplicación web." metaCanonical="" services="cdn" documentationCenter=".NET" title="Use Content from a CDN in Your Web Application" authors="cephalin" solutions="" manager="wpickett" editor="tysonn" />
+﻿<properties 
+	pageTitle="Uso de contenido desde una red CDN en su aplicación web" 
+	description="Un tutorial que le enseña a usar el contenido de una CDN para mejorar el rendimiento de su aplicación web." 
+	services="cdn" 
+	documentationCenter=".net" 
+	authors="cephalin" 
+	manager="wpickett" 
+	editor="tysonn"/>
 
-<tags ms.service="cdn" ms.workload="web" ms.tgt_pltfrm="na" ms.devlang="dotnet" ms.topic="article" ms.date="10/02/2014" ms.author="cephalin" />
+<tags 
+	ms.service="cdn" 
+	ms.workload="web" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="10/02/2014" 
+	ms.author="cephalin"/>
 
 # Entrega de contenido desde la red CDN de Azure en su aplicación web #
 
@@ -25,7 +39,7 @@ En este tutorial, aprenderá los siguientes procedimientos:
 
 Este tutorial cuenta con los siguientes requisitos previos:
 
--	Una cuenta de [Microsoft Azure activa](http://azure.microsoft.com/es-es/account/). Puede registrarse para una cuenta de prueba.
+-	Una cuenta de [Microsoft Azure activa](http://azure.microsoft.com/account/). Puede registrarse para una cuenta de prueba.
 -	Visual Studio 2013 con el [SDK de Azure](http://go.microsoft.com/fwlink/p/?linkid=323510&clcid=0x409) para GUI de administración de blobs
 -	[Azure PowerShell](http://go.microsoft.com/?linkid=9811175&clcid=0x409) (utilizado por [Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN](#upload))
 
@@ -33,8 +47,8 @@ Este tutorial cuenta con los siguientes requisitos previos:
   <span class="wa-icon-bulb"></span>
   <h5><a name="note"></a>Para completar este tutorial, deberá tener una cuenta de Azure:</h5>
   <ul>
-    <li>Puede <a href="http://azure.microsoft.com/es-es/pricing/free-trial/?WT.mc_id=A261C142F">abrir una cuenta de Azure de manera gratuita</a> - Obtiene crédito que puede utilizar para probar los servicios de Azure de pago, e incluso una vez agotado este podrá mantener la cuenta y utilizar servicios gratuitos de Azure, como Sitios web.</li>
-    <li>Puede <a href="http://azure.microsoft.com/es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activar las ventajas de suscriptor de MSDN</a> - Su suscripción a MSDN le proporciona crédito todos los meses que puede utilizar para servicios de Azure de pago.</li>
+    <li>Puede <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F">abrir una cuenta de Azure de manera gratuita</a> - Obtiene crédito que puede utilizar para probar los servicios de Azure de pago, e incluso una vez agotado este podrá mantener la cuenta y utilizar servicios gratuitos de Azure, como Sitios web.</li>
+    <li>Puede <a href="http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F">activar las ventajas de suscriptor de MSDN</a> - Su suscripción a MSDN le proporciona crédito todos los meses que puede utilizar para servicios de Azure de pago.</li>
   <ul>
 </div>
 
@@ -76,7 +90,7 @@ Vamos a verlo. Siga los pasos siguientes para comenzar a utilizar la red CDN de 
 
 	![](media/cdn-serve-content-from-cdn-in-your-web-application/cdn-static-4.PNG)
 
-	Para obtener una lista actualizada de todas las ubicaciones de nodos de la red CDN, consulte [Ubicaciones del nodo de la red de entrega de contenido (CDN) de Azure](http://msdn.microsoft.com/es-es/library/azure/gg680302.aspx).
+	Para obtener una lista actualizada de todas las ubicaciones de nodos de la red CDN, consulte [Ubicaciones del nodo de la red de entrega de contenido (CDN) de Azure](http://msdn.microsoft.com/library/azure/gg680302.aspx).
 
 3. De vuelta en el portal de Azure, en la pestaña **CDN**, haga clic en el nombre del extremo de red CDN que acaba de crear.
 
@@ -140,7 +154,7 @@ En esta sección, ha aprendido a crear un extremo de red CDN, cargar contenido e
 <a name="upload"></a>
 ## Carga de contenido automatizada desde la aplicación ASP .NET al extremo de la red CDN ##
 
-Si desea cargar fácilmente todo el contenido estático a su aplicación web de ASP .NET a su extremo de red CDN, o si implementa su aplicación web usando la entrega continua (para ver un ejemplo, consulte [Entrega continua para Servicios en la nube de Azure](http://azure.microsoft.com/es-es/documentation/articles/cloud-services-dotnet-continuous-delivery/)), puede usar Azure PowerShell para automatizar la sincronización de los últimos archivos de contenido en los blobs de Azure cada vez que implemente la aplicación web. Por ejemplo, puede ejecutar el script en [Carga de archivos de contenido desde la aplicación ASP .NET a los blobs de Azure](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) para cargar todos los archivos de contenido en una aplicación de ASP .NET. Para utilizar este script:
+Si desea cargar fácilmente todo el contenido estático a su aplicación web de ASP .NET a su extremo de red CDN, o si implementa su aplicación web usando la entrega continua (para ver un ejemplo, consulte [Entrega continua para Servicios en la nube de Azure](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-continuous-delivery/)), puede usar Azure PowerShell para automatizar la sincronización de los últimos archivos de contenido en los blobs de Azure cada vez que implemente la aplicación web. Por ejemplo, puede ejecutar el script en [Carga de archivos de contenido desde la aplicación ASP .NET a los blobs de Azure](http://gallery.technet.microsoft.com/scriptcenter/Upload-Content-Files-from-41c2142a) para cargar todos los archivos de contenido en una aplicación de ASP .NET. Para utilizar este script:
 
 4. En el menú **Inicio**, ejecute **Windows Azure PowerShell**.
 5. En la ventana de Azure PowerShell, ejecute `Get-AzurePublishSettingsFile` para descargar un archivo de configuración de publicación para la cuenta de Azure.
@@ -171,7 +185,7 @@ Cuando el contenido haya finalizado la carga, puede vincularlo a cualquier eleme
 
 	<img alt="Mugshot" src="http://az623979.vo.msecnd.net/MyMvcApp/Content/cephas_lin.png" />
 
-Para un ejemplo de la integración de scripts de PowerShell en su configuración de entrega continua, consulte [Entrega continua para Servicio en la nube de Azure](http://azure.microsoft.com/es-es/documentation/articles/cloud-services-dotnet-continuous-delivery/). 
+Para un ejemplo de la integración de scripts de PowerShell en su configuración de entrega continua, consulte [Entrega continua para Servicio en la nube de Azure](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-continuous-delivery/). 
 
 <a name="update"></a>
 ## Configuración del caché de la red CDN para reflejar la actualización deseada del contenido ##
@@ -242,17 +256,17 @@ Si cambia el número de ensamblado como parte de cada ciclo de publicación, pue
 
 ## Información acerca de scripts y hojas de estilos integrados en ASP.NET ##
 
-Con [Sitios web Azure](http://azure.microsoft.com/es-es/services/websites/) y [Servicios en la nube de Azure](http://azure.microsoft.com/es-es/services/cloud-services/), obtendrá la mejor integración de red CDN de Azure con [unión y minificación ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification). .
+Con [Sitios web Azure](http://azure.microsoft.com/services/websites/) y [Servicios en la nube de Azure](http://azure.microsoft.com/services/cloud-services/), obtendrá la mejor integración de red CDN de Azure con [unión y minificación ASP.NET](http://www.asp.net/mvc/tutorials/mvc-4/bundling-and-minification). .
 
 La integración de Sitios web Azure o Servicios en la nube de Azure con la red CDN de Azure le ofrece las siguientes ventajas:
 
-- Integración de la implementación de contenido (imágenes, scripts y hojas de estilo) como parte del proceso de [implementación continua](http://azure.microsoft.com/es-es/documentation/articles/web-sites-publish-source-control/) de su sitio web Azure
+- Integración de la implementación de contenido (imágenes, scripts y hojas de estilo) como parte del proceso de [implementación continua](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/) de su sitio web Azure
 - Actualización sencilla de los paquetes de NuGet servidos por CDN, como versiones de jQuery o Bootstrap 
 - Administración de la aplicación web y del contenido servido por CDN desde la misma interfaz de Visual Studio
 
 Para ver tutoriales relacionados, consulte:
-- [Integración de un sitio web de Azure con la red CDN de Azure](http://azure.microsoft.com/es-es/documentation/articles/cdn-websites-with-cdn/)
-- [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](http://azure.microsoft.com/es-es/Documentation/Articles/cdn-cloud-service-with-cdn/)
+- [Integración de un sitio web de Azure con la red CDN de Azure](http://azure.microsoft.com/documentation/articles/cdn-websites-with-cdn/)
+- [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](http://azure.microsoft.com/Documentation/Articles/cdn-cloud-service-with-cdn/)
 
 Sin la integración con Sitios web de Azure o Servicios en la nube de Azure, es posible utilizar la red CDN de Azure para sus uniones de scripts, con las siguientes reservas:
 
@@ -263,7 +277,9 @@ Sin la integración con Sitios web de Azure o Servicios en la nube de Azure, es 
 
 # Más información #
 - [Información general de la red de entrega de contenido (CDN) de Azure](http://msdn.microsoft.com/library/azure/ff919703.aspx)
-- [Integración de un sitio web de Azure con la red CDN de Azure](http://azure.microsoft.com/es-es/documentation/articles/cdn-websites-with-cdn/)
-- [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](http://azure.microsoft.com/es-es/Documentation/Articles/cdn-cloud-service-with-cdn/)
+- [Integración de un sitio web de Azure con la red CDN de Azure](http://azure.microsoft.com/documentation/articles/cdn-websites-with-cdn/)
+- [Integración de un servicio en la nube con la Red de entrega de contenido (CDN) de Azure](http://azure.microsoft.com/Documentation/Articles/cdn-cloud-service-with-cdn/)
 - [Asignación del contenido de la Red de entrega de contenido (CDN) a un dominio personalizado](http://msdn.microsoft.com/library/azure/gg680307.aspx)
-- [Uso de la red CDN en Azure](http://azure.microsoft.com/es-es/documentation/articles/cdn-how-to-use/)
+- [Uso de la red CDN en Azure](http://azure.microsoft.com/documentation/articles/cdn-how-to-use/)
+
+<!--HONumber=46--> 

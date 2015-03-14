@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a Linux en Azure - Tutorial de Azure" 
 	description="Aprenda a utilizar máquinas virtuales de Linux en Azure." 
 	services="virtual-machines" 
@@ -34,7 +34,7 @@ En este tema se ofrece información general acerca de algunos aspectos relaciona
 * [Captura de imagen de máquina virtual](#virtualmachine)
 * [Acoplamiento de discos](#attachingdisks)
 
-## <a id="authentication"></a>Autenticación:  nombres de usuario, contraseñas y claves SSH
+## <a id="authentication"></a>Autenticación: nombres de usuario, contraseñas y claves SSH
 
 Al crear una máquina virtual con Linux con el Portal de administración de Azure, se le pedirá que facilite un nombre de usuario, una contraseña y (opcionalmente) una clave pública SSH. La elección de un nombre de usuario para implementar una máquina virtual Linux en Azure está sujeta a la siguiente limitación: no se admiten los nombres de cuentas del sistema (UID <100) ya existentes en la máquina virtual, como por ejemplo,  'root'.
 
@@ -59,7 +59,7 @@ La versión actual del Portal de administración solo acepta claves públicas SS
 
 		openssl  x509 -outform der -in myCert.pem -out myCert.cer
 
-4. Cargue  `myCert.cer` mientras se crea la máquina virtual con Linux. El proceso de aprovisionamiento instalará automáticamente la clave pública del certificado en el archivo `~/.ssh/authorized_keys`para el usuario especificado en la máquina virtual.
+4. Cargue  `myCert.cer` mientras se crea la máquina virtual con Linux. El proceso de aprovisionamiento instalará automáticamente la clave pública del certificado en el archivo `~/.ssh/authorized_keys` para el usuario especificado en la máquina virtual.
 
 5. Conéctese a la máquina virtual con Linux mediante ssh.
 
@@ -67,7 +67,7 @@ La versión actual del Portal de administración solo acepta claves públicas SS
 
 	La primera vez que inicie sesión, se le solicitará que acepte la huella digital de la clave pública del host.
 
-6. Opcionalmente, puede copiar `myPrivateKey.key` en `~/.ssh/id_rsa` para que su cliente openssh pueda recuperarla automáticamente sin usar la opción -i.
+6. Opcionalmente, puede copiar  `myPrivateKey.key` en `~/.ssh/id_rsa` para que su cliente OpenSSH pueda recuperarla automáticamente sin usar la opción -i.
    También puede modificar `~/.ssh/config` para incluir una sección para su máquina virtual:
 
         Host servicename.cloudapp.net
@@ -130,14 +130,14 @@ Azure ofrece la capacidad de capturar el estado de una máquina virtual existent
 
 2. Cierre o apague la máquina virtual.
 
-3. Haga clic en  *Capture* en el Portal de administración o use Powershell o las herramientas de la CLI para capturar la máquina virtual como una imagen.
+3. Haga clic en  *Capturar* en el Portal de administración o use Powershell o las herramientas de la CLI para capturar la máquina virtual como una imagen.
 
  - Consulte: [Captura de una máquina virtual de Linux para usar como plantilla](../virtual-machines-linux-capture-image/)
 
 
 ## <a id="attachingdisks"></a>Acoplamiento de discos
 
-Cada máquina virtual tiene un disco de recursos ( *resource disk*) temporal y local adjunto. Debido a que los datos de un disco de recursos podrían no resistir los diversos reinicios, muchas veces los usan aplicaciones y procesos que se ejecutan en la máquina virtual para un almacenamiento de datos transitorio y**temporal**. También se usan para almacenar archivos de intercambio o de paginación para el sistema operativo.
+Las máquinas virtuales disponen de un  *disco de recursos* local y temporal acoplado. Debido a que los datos de un disco de recursos podrían no resistir los diversos reinicios, muchas veces los usan aplicaciones y procesos que se ejecutan en la máquina virtual para un almacenamiento de datos transitorio y**temporal**. También se usan para almacenar archivos de intercambio o de paginación para el sistema operativo.
 
 En Linux, el disco de recursos se administra generalmente mediante el Agente de Linux de Azure y se monta automáticamente en **/mnt/resource** (o **/mnt** en las imágenes de Ubuntu).
 
@@ -148,4 +148,7 @@ En Linux el kernel debe poner al disco de datos el nombre  `/dev/sdc` y los usua
  - Consulte también: [Configuración del software RAID en Linux](../virtual-machines-linux-configure-raid/)
 
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

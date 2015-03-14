@@ -1,6 +1,20 @@
-﻿<properties title="How to create a cloud collection of RemoteApp" pageTitle="Cómo crear una colección en la nube de RemoteApp" description="Aprenda a crear una implementación de RemoteApp que guarda datos en la nube de Azure." metaKeywords="" services="" solutions="" documentationCenter="" authors="elizapo" manager="kathyw" />
+﻿<properties 
+	pageTitle="Cómo crear una colección en la nube de RemoteApp" 
+	description="Aprenda a crear una implementación de RemoteApp que guarda datos en la nube de Azure." 
+	services="remoteapp" 
+	documentationCenter="" 
+	authors="lizap" 
+	manager="mbaldwin" 
+	editor=""/>
 
-<tags ms.service="remoteapp" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/12/2014" ms.author="elizapo" ms.manager="kathyw" />
+<tags 
+	ms.service="remoteapp" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/17/2015" 
+	ms.author="elizapo"/>
 
 #Cómo crear una colección en la nube de RemoteApp
 
@@ -20,10 +34,10 @@ Este tutorial le guía en el proceso de creación de una colección en la nube. 
 
 Necesita llevar a cabo los pasos siguientes antes de crear la colección:
 
-- Suscríbase a RemoteApp. Puede hacerlo en la dirección [http://azure.microsoft.com/es-es/services/remoteapp/](http://azure.microsoft.com/es-es/services/remoteapp/).
+- Suscríbase a RemoteApp. Puede hacerlo en la dirección [http://azure.microsoft.com/services/remoteapp/](http://azure.microsoft.com/services/remoteapp/).
 - Recopile información sobre los usuarios a los que quiera conceder acceso. Esta información puede ser información de cuentas de Microsoft o información de cuentas de trabajo de Active Directory de usuarios.
 - En este procedimiento se supone que va a usar una de las imágenes de plantilla que se proporcionan con la suscripción o que ya ha cargado la imagen de plantilla que quiere usar. Si tiene que cargar una imagen de plantilla diferente, puede hacerlo desde la página Imágenes de plantilla. Haga clic en **Cargar imagen de plantilla** y siga los pasos del asistente. 
-- ¿Desea proporcionar aplicaciones personalizadas o programas LOB? Cree una nueva [imagen de plantilla personalizada](http://azure.microsoft.com/es-es/documentation/articles/remoteapp-create-custom-image/) y úsela en su colección en la nube.
+- ¿Desea proporcionar aplicaciones personalizadas o programas LOB? Cree una nueva [imagen de plantilla personalizada](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/) y úsela en su colección en la nube.
 
 ## **Paso 1: Crear una colección de RemoteApp** ##
 
@@ -36,7 +50,7 @@ Necesita llevar a cabo los pasos siguientes antes de crear la colección:
 4. Seleccione el plan que quiere usar: Standard o Basic.
 5. Elija la plantilla que se usará para esta colección. 
 
-	**Sugerencia:** la suscripción de RemoteApp incluye [imágenes de plantilla](http://azure.microsoft.com/es-es/documentation/articles/remoteapp-images/) que contienen programas de Office 365 o de Office 2013 (para uso de prueba), algunos publicados (por ejemplo, Word) y otros listos para publicar. También puede crear una nueva [imagen de plantilla personalizada](http://azure.microsoft.com/es-es/documentation/articles/remoteapp-create-custom-image/) y usarla en su colección en la nube.
+	**Sugerencia:** la suscripción de RemoteApp incluye [imágenes de plantilla](http://azure.microsoft.com/documentation/articles/remoteapp-images/) que contienen programas de Office 365 o de Office 2013 (para uso de prueba), algunos publicados (por ejemplo, Word) y otros listos para publicar. También puede crear una nueva [imagen de plantilla personalizada](http://azure.microsoft.com/documentation/articles/remoteapp-create-custom-image/) y usarla en su colección en la nube.
 
 
 1. Haga clic en **Crear colección de RemoteApp**.
@@ -48,7 +62,7 @@ Después de crear la colección RemoteApp, vaya a la página **Inicio rápido** 
 
 ## **Paso 2: Configuración de sincronización de directorios de Active Directory (opcional)** ##
 
-Si quiere usar Active Directory, RemoteApp requiere sincronización de directorios entre Azure Active Directory y su implementación local de Active Directory para sincronizar usuarios, contactos y contraseñas con su inquilino de Azure Active Directory. Consulte [Configuración de Active Directory para Azure RemoteApp](http://azure.microsoft.com/es-es/documentation/articles/remoteapp-ad/) para obtener información sobre la planificación.
+Si quiere usar Active Directory, RemoteApp requiere sincronización de directorios entre Azure Active Directory y su implementación local de Active Directory para sincronizar usuarios, contactos y contraseñas con su inquilino de Azure Active Directory. Consulte [Configuración de Active Directory para Azure RemoteApp](http://azure.microsoft.com/documentation/articles/remoteapp-ad/) para obtener información sobre la planificación.
 
 ## **Paso 3: Publicar aplicaciones de RemoteApp** ##
 
@@ -80,3 +94,5 @@ Eso es todo, ha creado e implementado correctamente su colección en la nube de 
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

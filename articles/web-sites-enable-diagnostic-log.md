@@ -49,13 +49,13 @@ Los diagnósticos del sitio le permiten habilitar o deshabilitar lo siguiente:
 
 ###Diagnósticos de aplicaciones
 
-El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/es-es/library/36hhw2t6.aspx) para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo:
+El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo:
 
 	System.Diagnostics.Trace.TraceError("Si está viendo esto, ha surgido algún problema");
 
 El diagnóstico de la aplicación le permite solucionar los problemas de la aplicación en ejecución mediante la emisión de información cuando se usan determinadas piezas de código. Esto resulta especialmente útil al tratar de terminar por qué el código usa una ruta de acceso específica, normalmente si la ruta de acceso genera un error u otro comportamiento no deseado.
 
-Para obtener información acerca de cómo trabajar con diagnósticos de aplicaciones mediante Visual Studio, consulte [Solución de problemas de Sitios web Azure en Visual Studio](http://www.windowsazure.com/es-es/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
+Para obtener información acerca de cómo trabajar con diagnósticos de aplicaciones mediante Visual Studio, consulte [Solución de problemas de Sitios web Azure en Visual Studio](http://azure.microsoft.com/develop/net/tutorials/troubleshoot-web-sites-in-visual-studio/).
 
 > [AZURE.NOTE] Al contrario de lo que ocurre al cambiar el archivo web.config, habilitar Diagnóstico de aplicaciones o cambiar los niveles del registro de diagnóstico no recicla el dominio de la aplicación en el que esta se ejecuta.
 
@@ -69,7 +69,7 @@ Al habilitar el **diagnóstico de aplicaciones**, también debe seleccionar el *
 
 Si habilita los **diagnósticos del sitio**, debe seleccionar **almacenamiento** o **sistema de archivos** para el **registro del servidor web**. Si selecciona **storage**, tiene la opción de seleccionar una cuenta de almacenamiento y, a continuación, un contenedor de blob en el que se escribirán los registros. Todos los demás registros de **diagnósticos del sitio** se escriben solo en el sistema de archivos.
 
-> [AZURE.NOTE] Solo se puede obtener acceso a la información almacenada en **almacenamiento de tablas** o **almacenamiento de blobs** mediante un cliente de almacenamiento o una aplicación que puedan funcionar directamente con estos sistemas de almacenamiento. Por ejemplo, Visual Studio 2013 contiene un Explorador de almacenamiento que se puede usar para explorar el almacenamiento de tabla o de blobs y HDInsight puede obtener acceso a los datos almacenados en el almacenamiento de blobs. También puede escribir una aplicación que obtiene acceso al servicio Almacenamiento de Azure mediante alguno de los [SDK de Azure](http://www.windowsazure.com/es-es/downloads/#).
+> [AZURE.NOTE] Solo se puede obtener acceso a la información almacenada en **almacenamiento de tablas** o **almacenamiento de blobs** mediante un cliente de almacenamiento o una aplicación que puedan funcionar directamente con estos sistemas de almacenamiento. Por ejemplo, Visual Studio 2013 contiene un Explorador de almacenamiento que se puede usar para explorar el almacenamiento de tabla o de blobs y HDInsight puede obtener acceso a los datos almacenados en el almacenamiento de blobs. También puede escribir una aplicación que obtiene acceso al servicio Almacenamiento de Azure mediante alguno de los [SDK de Azure](http://azure.microsoft.com/downloads/#).
 
 A continuación se indica la configuración disponible al habilitar **Diagnóstico de aplicaciones**:
 
@@ -81,7 +81,7 @@ A continuación se indica la configuración disponible al habilitar **Diagnósti
 
 > [AZURE.NOTE]  Al mismo tiempo se puede habilitar cualquier combinación de sistema de archivos, almacenamiento de tablas o almacenamiento de blobs, y estas opciones tiene configuraciones de nivel de registro individuales. Por ejemplo, puede registrar errores y advertencias en el almacenamiento de blobs como una solución de registro a largo plazo, mientras habilita el registro en el sistema de archivos con un nivel detallado.
 
-> [AZURE.NOTE] Los diagnósticos también se pueden habilitar desde Azure PowerShell con el cmdlet **Set-AzureWebsite**. Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Los diagnósticos también se pueden habilitar desde Azure PowerShell con el cmdlet **Set-AzureWebsite**. Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 <a name="download"></a><h2>Cómo: registros</h2>
 
@@ -113,7 +113,7 @@ Para descargar los archivos de registro, inicie una nueva instancia de Azure Pow
 
 Este comando guardará los registros del sitio web especificados mediante el parámetro **-Name** en un archivo con nombre **logs.zip** en el directorio actual.
 
-> [AZURE.NOTE] Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ###Descarga con las herramientas de línea de comandos de Azure
 
@@ -123,7 +123,7 @@ Para descargar los archivos de registro mediante las herramientas de línea de c
 
 Este comando guardará los registros en el sitio web denominado 'websitename' en un archivo con nombre **diagnostics.zip** en el directorio actual.
 
-> [AZURE.NOTE] Si no tiene instaladas las herramientas de línea de comandos de Azure o las ha configurado para que usen la suscripción de Azure, consulte [Uso de las herramientas de línea de comandos de Azure](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/command-line-tools/).
+> [AZURE.NOTE] Si no tiene instaladas las herramientas de línea de comandos de Azure o las ha configurado para que usen la suscripción de Azure, consulte [Uso de las herramientas de línea de comandos de Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/command-line-tools/).
 
 <a name="streamlogs"></a><h2>Cómo: registros</h2>
 
@@ -151,7 +151,7 @@ Para filtrar tipos de registros específicos, como HTTP, use el parámetro **-Pa
 
 Para ver una lista de rutas de acceso disponibles, use el parámetro -ListPath.
 
-> [AZURE.NOTE] Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> [AZURE.NOTE] Si no tiene instalado Azure PowerShell o si no lo ha configurado para utilizar su suscripción a Azure, consulte [Uso de Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 
 ###Transmisión con las herramientas de línea de comandos de Azure
 
@@ -169,7 +169,7 @@ Para filtrar tipos de registros específicos, como HTTP, use el parámetro **--P
 
 	azure site log tail websitename --path http
 
-> [AZURE.NOTE] Si no tiene instaladas las herramientas de línea de comandos de Azure o las ha configurado para que usen la suscripción de Azure, consulte [Uso de las herramientas de línea de comandos de Azure](http://www.windowsazure.com/es-es/develop/nodejs/how-to-guides/command-line-tools/).
+> [AZURE.NOTE] Si no tiene instaladas las herramientas de línea de comandos de Azure o las ha configurado para que usen la suscripción de Azure, consulte [Uso de las herramientas de línea de comandos de Azure](http://azure.microsoft.com/develop/nodejs/how-to-guides/command-line-tools/).
 
 <a name="understandlogs"></a><h2>Cómo: de los registros de diagnóstico</h2>
 

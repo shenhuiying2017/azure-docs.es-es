@@ -103,7 +103,7 @@ Para obtener información sobre la implementación en Sitios web Azure desde Vis
 * [Introducción a Azure y ASP.NET](../web-sites-dotnet-get-started/). Creación e implementación de un proyecto web ASP.NET MVC simple mediante Visual Studio y Web Deploy.
 * [Implementación de WebJobs de Azure a Sitios web de Azure](../websites-dotnet-deploy-webjobs/). Configuración de proyectos de aplicación de consola para que se implementen como trabajos web.  
 * [Implementación de una aplicación ASP.NET MVC 5 segura con suscripción, OAuth y Base de datos SQL en un sitio web de Azure](../web-sites-dotnet-deploy-aspnet-mvc-app-membership-oauth-sql-database/). Creación e implementación de un proyecto web ASP.NET MVC con una base de datos SQL mediante Visual Studio, Web Deploy y migraciones de Entity Framework Code First.
-* [Información general sobre la implementación de proyectos de aplicación web para Visual Studio y ASP.NET](http://msdn.microsoft.com/es-es/library/dd394698.aspx). Una introducción básica a la implementación web con Visual Studio. Artículo antiguo, pero que incluye información que sigue siendo pertinente, incluida información general de las opciones para implementar una base de datos junto con la aplicación web, además de una lista de tareas adicionales de implementación que podría tener que hacer o configurar manualmente Visual Studio para que las haga. Este tema trata sobre implementación en general, no solo sobre implementación en Sitios web Azure.
+* [Información general sobre la implementación de proyectos de aplicación web para Visual Studio y ASP.NET](http://msdn.microsoft.com/library/dd394698.aspx). Una introducción básica a la implementación web con Visual Studio. Artículo antiguo, pero que incluye información que sigue siendo pertinente, incluida información general de las opciones para implementar una base de datos junto con la aplicación web, además de una lista de tareas adicionales de implementación que podría tener que hacer o configurar manualmente Visual Studio para que las haga. Este tema trata sobre implementación en general, no solo sobre implementación en Sitios web Azure.
 * [Implementación web de ASP.NET con Visual Studio](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/introduction). Una serie de 12 tutoriales que abarca un rango más completo de tareas de implementación que otros de esta lista. Desde que se escribió el tutorial, se han agregado algunas características de implementación de Azure, pero existen notas agregadas posteriormente que explican lo que falta. 
 * [Deploying an ASP.NET Website to Azure in Visual Studio 2012 from a Git Repository directly](http://www.dotnetcurry.com/ShowArticle.aspx?ID=881). Explica cómo implementar un proyecto web de ASP.NET en Visual Studio, con el complemento Git para confirmar el código en Git y conectar Azure al repositorio Git. A partir de Visual Studio 2013, la compatibilidad con Git está integrada y no requiere la instalación de un complemento.
 
@@ -111,9 +111,9 @@ Para obtener información sobre la implementación en Sitios web Azure desde Vis
 
 Para obtener información sobre la implementación en Sitios web Azure desde WebMatrix, consulte los siguientes recursos:
 
-* [Desarrollo e implementación de un sitio web con Microsoft WebMatrix](http://www.windowsazure.com/es-es/documentation/articles/web-sites-dotnet-using-webmatrix/). Creación de un sitio web simple de ASP.NET con una plantilla de WebMatrix y su implementación en un sitio web de Azure mediante WebMatrix y Web Deploy.
-* [Compilación e implementación de un sitio web Node.js en Azure con WebMatrix](http://www.windowsazure.com/es-es/documentation/articles/web-sites-nodejs-use-webmatrix/).
-* [Creación de un sitio web Azure de PHP-MySQL e implementación mediante WebMatrix](http://www.windowsazure.com/es-es/documentation/articles/web-sites-php-mysql-use-webmatrix/).
+* [Desarrollo e implementación de un sitio web con Microsoft WebMatrix](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-using-webmatrix/). Creación de un sitio web simple de ASP.NET con una plantilla de WebMatrix y su implementación en un sitio web de Azure mediante WebMatrix y Web Deploy.
+* [Compilación e implementación de un sitio web Node.js en Azure con WebMatrix](http://azure.microsoft.com/documentation/articles/web-sites-nodejs-use-webmatrix/).
+* [Creación de un sitio web Azure de PHP-MySQL e implementación mediante WebMatrix](http://azure.microsoft.com/documentation/articles/web-sites-php-mysql-use-webmatrix/).
 * [WebMatrix 3: Integrated Git and Deployment to Azure](http://www.codeproject.com/Articles/577581/Webmatrixplus3-3aplusIntegratedplusGitplusandplusD). Uso de WebMatrix para implementar desde un repositorio de control de código fuente de Git.
 
 ##<a name="ftp"></a>Implementación mediante el uso de una utilidad de FTP
@@ -186,12 +186,12 @@ Para obtener más información, consulte el siguiente recurso:
 
 ###<a name="powershell"></a>Windows PowerShell
 
-Puede realizar funciones de implementación MSBuild o FTP desde [Windows PowerShell](http://msdn.microsoft.com/es-es/library/dd835506.aspx). Si lo hace, también puede usar una recopilación de cmdlets de Windows PowerShell que hacen que sea fácil llamar a la API REST de administración de Azure.
+Puede realizar funciones de implementación MSBuild o FTP desde [Windows PowerShell](http://msdn.microsoft.com/library/dd835506.aspx). Si lo hace, también puede usar una recopilación de cmdlets de Windows PowerShell que hacen que sea fácil llamar a la API REST de administración de Azure.
 
 Para obtener más información, consulte el siguiente recurso:
 
 * [Building Real-World Cloud Apps with Azure - Automate Everything](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything). Capítulo de un libro electrónico que explica cómo la aplicación de ejemplo que aparece en el libro electrónico usa scripts de Windows PowerShell para crear un entorno de prueba de Azure e implementar en él. Consulte la sección [Resources](http://asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/automate-everything#resources) para ver vínculos a documentación adicional sobre Azure PowerShell.
-* [Utilizar scripts de Windows PowerShell para la publicación en entornos de desarrollo y pruebas](http://msdn.microsoft.com/es-es/library/dn642480.aspx). Cómo usar los scripts de implementación de Windows PowerShell que genera Visual Studio.
+* [Utilizar scripts de Windows PowerShell para la publicación en entornos de desarrollo y pruebas](http://msdn.microsoft.com/library/dn642480.aspx). Cómo usar los scripts de implementación de Windows PowerShell que genera Visual Studio.
 
 ###<a name="api"></a>API de administración de .NET
 
@@ -216,7 +216,7 @@ Para obtener más información, consulte el siguiente recurso:
 Para obtener más información, consulte el siguiente recurso:
 
 * [Sitios web Azure simples: Implementación](http://azure.microsoft.com/blog/2014/07/28/simple-azure-websites-deployment/). Blog de David Ebbo acerca de una herramienta que escribió para que Web Deploy resulte más fácil de usar.
-* [Web Deployment Tool](http://technet.microsoft.com/es-es/library/dd568996). Documentación oficial sobre el sitio de Microsoft TechNet. Información antigua, pero sigue siendo un buen lugar para comenzar.
+* [Web Deployment Tool](http://technet.microsoft.com/library/dd568996). Documentación oficial sobre el sitio de Microsoft TechNet. Información antigua, pero sigue siendo un buen lugar para comenzar.
 * [Using Web Deploy](http://www.iis.net/learn/publish/using-web-deploy). Documentación oficial sobre el sitio de Microsoft IIS.NET. También es información antigua, pero es un buen lugar para comenzar.
 * [StackOverflow](http://www.stackoverflow.com). El mejor sitio para visitar y obtener información más actualizada sobre el uso de Web Deploy desde la línea de comandos.
 * [Implementación web de ASP.NET con Visual Studio. Command Line Deployment](http://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/command-line-deployment). MSBuild es el motor de compilación que emplea Visual Studio y que también se puede usar desde la línea de comandos para implementar aplicaciones web en sitios web de Azure. Este tutorial forma parte de una serie que se refiere principalmente a la implementación de Visual Studio.

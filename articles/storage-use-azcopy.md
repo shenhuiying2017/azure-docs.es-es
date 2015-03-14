@@ -425,7 +425,7 @@ Los ejemplos siguientes muestran diversos escenarios para copiar blobs con AzCop
 
 	AzCopy /Source:https://myaccount.blob.core.windows.net/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 
-Para obtener más información sobre cómo trabajar con las claves de acceso de almacenamiento, consulte [Copia y regeneración de claves de acceso de almacenamiento]( http://azure.microsoft.com/es-es/documentation/articles/storage-create-storage-account/#regeneratestoragekeys).
+Para obtener más información sobre cómo trabajar con las claves de acceso de almacenamiento, consulte [Copia y regeneración de claves de acceso de almacenamiento]( http://azure.microsoft.com/documentation/articles/storage-create-storage-account/#regeneratestoragekeys).
 
 ### Copia de un blob a través de la copia del lado del servidor
 
@@ -885,9 +885,9 @@ Para obtener más información acerca de Almacenamiento de Azure y AzCopy, consu
 
 ### Documentación de Almacenamiento de Azure:
 
-- [Introducción al Almacenamiento de Azure](http://azure.microsoft.com/es-es/documentation/articles/storage-introduction/)
-- [Almacenamiento de archivos en el almacenamiento de blobs](http://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-how-to-use-blobs/)
-- [Creación de un recurso compartido de archivos SMB en Azure con Almacenamiento de archivos](http://azure.microsoft.com/es-es/documentation/articles/storage-dotnet-how-to-use-files/)
+- [Introducción al Almacenamiento de Azure](http://azure.microsoft.com/documentation/articles/storage-introduction/)
+- [Almacenamiento de archivos en el almacenamiento de blobs](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/)
+- [Creación de un recurso compartido de archivos SMB en Azure con Almacenamiento de archivos](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files/)
 
 ### Publicaciones en blobs de Almacenamiento de Azure:
 - [AzCopy: Introducción a copia sincrónica y el tipo de contenido personalizado](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
@@ -898,6 +898,5 @@ Para obtener más información acerca de Almacenamiento de Azure y AzCopy, consu
 - [AzCopy: Transferencia de datos con modo reiniciable y token SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 - [AzCopy: Uso de copia de blobs entre cuentas](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 - [AzCopy: Carga y descarga de archivos para blobs de Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-
 
 <!--HONumber=42-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Uso del servicio de colas (Node.js) | Microsoft Azure" 
 	description="Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Ejemplos escritos en Node.js." 
 	services="storage" 
@@ -55,7 +55,7 @@ eliminación de colas**. Para obtener más información acerca de las colas, con
 
 ## <a name="create-app"></a>Creación de una aplicación Node.js
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube de Node.js][Servicio en la nube Node.js] (usando Windows PowerShell) o [Sitio web con WebMatrix].
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube de Node.js][] (usando Windows PowerShell) o [Sitio web con WebMatrix].
 
 ## <a name="configure-access"> </a>Configuración de la aplicación para acceder al almacenamiento
 
@@ -352,28 +352,28 @@ para obtener información sobre cómo hacer tareas de almacenamiento más comple
 -   Visite el [blog del equipo de almacenamiento de Azure][].
 -   Visite el repositorio del [SDK de almacenamiento de Azure para Node.js][] en GitHub.
 
-  [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
-  [Next Steps]: #next-steps
-  [What is the Queue Service?]: #what-is
-  [Concepts]: #concepts
-  [Create an Azure Storage Account]: #create-account
-  [Create a Node.js Application]: #create-app
-  [Configure your Application to Access Storage]: #configure-access
-  [Setup an Azure Storage Connection String]: #setup-connection-string
-  [How To: Create a Queue]: #create-queue
-  [How To: Insert a Message into a Queue]: #insert-message
-  [How To: Peek at the Next Message]: #peek-message
-  [How To: Dequeue the Next Message]: #get-message
-  [How To: Change the Contents of a Queued Message]: #change-contents
-  [How To: Additional Options for Dequeuing Messages]: #advanced-get
-  [How To: Get the Queue Length]: #get-queue-length
-  [How To: Delete a Queue]: #delete-queue
-  [How To: Working with Shared Access Signatures]: #sas
-  [using the REST API]: http://msdn.microsoft.com/es-es/library/windowsazure/hh264518.aspx
+  [SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node
+  [Pasos siguientes]: #next-steps
+  [¿Qué es el servicio Cola?]: #what-is
+  [Conceptos]: #concepts
+  [Creación de una cuenta de almacenamiento de Azure]: #create-account
+  [Creación de una aplicación Node.js]: #create-app
+  [Configuración de la aplicación para acceder al almacenamiento]: #configure-access
+  [Configuración de una cadena de conexión de almacenamiento de Azure]: #setup-connection-string
+  [Adición de una cola]: #create-queue
+  [Adición de un mensaje en una cola]: #insert-message
+  [Adición de siguiente mensaje]: #peek-message
+  [Adición de siguiente mensaje de la cola]: #get-message
+  [Adición de contenido de un mensaje en cola]: #change-contents
+  [Adición de quitar mensajes de la cola]: #advanced-get
+  [Adición de la longitud de la cola]: #get-queue-length
+  [Adición de una cola]: #delete-queue
+  [Adición de firmas de acceso compartido]: #sas
+  [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
   [Azure Management Portal]: http://manage.windowsazure.com
-  [Create and deploy a Node.js application to an Azure Web Site]: /es-es/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [Node.js Cloud Service with Storage]: /es-es/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
-  [Node.js Web Application with Storage]: /es-es/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: /es-es/documentation/articles/web-sites-nodejs-develop-deploy-mac/
+  [Servicio en la nube de Node.js]: /es-es/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
+  [Aplicación web de Node.js con almacenamiento]: /es-es/documentation/articles/storage-nodejs-use-table-storage-web-site/
 
   
   [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
@@ -382,9 +382,8 @@ para obtener información sobre cómo hacer tareas de almacenamiento más comple
   
   
   
-  [Node.js Cloud Service]: /es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Storing and Accessing Data in Azure]: http://msdn.microsoft.com/es-es/library/windowsazure/gg433040.aspx
-  [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
- [Web Site with WebMatrix]: /es-es/documentation/articles/web-sites-nodejs-use-webmatrix/
-
+  [Servicio en la nube de Node.js]: /es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/
+  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
+  [blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+ [Sitio web con WebMatrix]: /es-es/documentation/articles/web-sites-nodejs-use-webmatrix/
 <!--HONumber=42-->

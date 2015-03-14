@@ -1,12 +1,26 @@
-﻿<properties pageTitle="Uso de la eliminación temporal en Servicios móviles (Tienda Windows) | Centro de desarrollo móvil" description="Aprenda a usar la característica de eliminación temporal de Servicios móviles de Azure en su aplicación." documentationCenter="" authors="wesmc7777" manager="dwrede" editor="" services="mobile-services"/>
+﻿<properties 
+	pageTitle="Uso de la eliminación temporal en Servicios móviles (Tienda Windows) | Centro de desarrollo móvil" 
+	description="Aprenda a usar la característica de eliminación temporal de Servicios móviles de Azure en su aplicación." 
+	documentationCenter="" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services="mobile-services"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="09/25/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="wesmc"/>
 
 # Uso de la eliminación temporal en Servicios móviles
 
 Las tablas creadas con el back-end de JavaScript o de .NET pueden tener habilitada opcionalmente la eliminación temporal. Al usar la eliminación temporal, una nueva columna llamada *__deleted* de [tipo de bit de SQL] se agrega a la base de datos. Con la eliminación temporal habilitada, una operación de eliminación no elimina físicamente filas de la base de datos, sino que establece el valor de la columna eliminada en TRUE.
 
-Al consultar registros en una tabla con la eliminación temporal habilitada, las filas eliminadas no se devuelven de forma predeterminada en la consulta. Para solicitar estas filas, debe pasar un parámetro de consulta *__includeDeleted=true* en la [operación de consulta REST](http://msdn.microsoft.com/es-es/library/azure/jj677199.aspx). En el SDK de cliente para .NET, también puede usar el método auxiliar  `IMobileServiceTable.IncludeDeleted()`.
+Al consultar registros en una tabla con la eliminación temporal habilitada, las filas eliminadas no se devuelven de forma predeterminada en la consulta. Para solicitar estas filas, debe pasar un parámetro de consulta *__includeDeleted=true* en la [operación de consulta REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). En el SDK de cliente para .NET, también puede usar el método auxiliar  `IMobileServiceTable.IncludeDeleted()`.
 
 La compatibilidad con la eliminación temporal en el back-end de .NET se publicó por primera vez en la versión 1.0.402 del back-end de .NET de Servicios móviles de Microsoft Azure. Los últimos paquetes de NuGet están disponibles aquí, [Back-end de .NET de Servicios móviles de Microsoft Azure.](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -87,8 +101,10 @@ El siguiente trabajo programado purga los registros eliminados temporalmente que
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
      
-            var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
-            context.TodoItems.RemoveRange(toDelete);
+            var toDelete = context.TodoIte
+	ms.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
+            context.TodoIte
+	ms.RemoveRange(toDelete);
             context.SaveChanges();
      
             return Task.FromResult(true);
@@ -153,7 +169,7 @@ Para obtener información sobre los trabajos programados con Servicios móviles 
 [2]: ./media/mobile-services-using-soft-delete/enable-soft-delete-new-table.png
 
 <!-- URLs. -->
-[Tipo de bit SQL]: http://msdn.microsoft.com/es-es/library/ms177603.aspx
+[Tipo de bit SQL]: http://msdn.microsoft.com/library/ms177603.aspx
 [Sincronización para Servicios móviles de datos sin conexión]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
 [Portal de administración]: https://manage.windowsazure.com/
 

@@ -1,6 +1,20 @@
-﻿<properties title="Get started with scoring profiles in Azure Search" pageTitle="Introducción a los perfiles de puntuación en la Búsqueda de Azure" description="Introducción a los perfiles de puntuación en la Búsqueda de Azure" metaKeywords="" services="" solutions="" documentationCenter="" authors="Heidist" manager="mblythe" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Uso de los perfiles de puntuación en la Búsqueda de Azure" 
+	description="Introducción a los perfiles de puntuación en la Búsqueda de Azure" 
+	services="search" 
+	documentationCenter="" 
+	authors="HeidiSteen" 
+	manager="mblythe" 
+	editor=""/>
 
-<tags ms.service="azure-search" ms.devlang="" ms.workload="search" ms.topic="article"  ms.tgt_pltfrm="" ms.date="10/16/2014" ms.author="heidist" />
+<tags 
+	ms.service="search" 
+	ms.devlang="rest-api" 
+	ms.workload="search" 
+	ms.topic="article" 
+	ms.tgt_pltfrm="na" 
+	ms.date="02/10/2015" 
+	ms.author="heidist"/>
 
 # Introducción a los perfiles de puntuación en la Búsqueda de Azure
 
@@ -43,7 +57,7 @@ Cuando haya terminado de agregar la dirección URL y la "clave de API" a app.con
 
 Está casi listo para compilar y ejecutar la aplicación, pero antes de hacerlo, examine los archivos JSON utilizados para crear y rellenar el índice.
 
-**Schema.json** define el índice, incluidos los perfiles de puntuación que se destacan en esta demostración. Observe que el esquema define todos los campos utilizados en el índice, incluidos los campos que no se pueden buscar, como "margen", que puede usar en un perfil de puntuación. La sintaxis del perfil de puntuación se documenta en [Incorporación de un perfil de puntuación a un índice de Búsqueda de Azure](http://msdn.microsoft.com/es-es/library/azure/dn798928.aspx).
+**Schema.json** define el índice, incluidos los perfiles de puntuación que se destacan en esta demostración. Observe que el esquema define todos los campos utilizados en el índice, incluidos los campos que no se pueden buscar, como "margen", que puede usar en un perfil de puntuación. La sintaxis del perfil de puntuación se documenta en [Incorporación de un perfil de puntuación a un índice de Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx).
 
 **Data1-3.json** proporciona los datos, 246 álbumes de un conjunto de géneros. Los datos son una combinación del álbum real y la información del intérprete, con campos ficticios como "precio" y "margen" usados para ilustrar las operaciones de búsqueda. Los archivos de datos se ajustan al índice y se cargan en el servicio de Búsqueda de Azure. Después de que los datos se cargan e indizan, puede realizar consultas de dichos datos.
 
@@ -85,9 +99,9 @@ Ahora que experimentó con perfiles de puntuación, pruebe a cambiar el programa
 
 <h2 id="next-steps">Pasos siguientes</h2>
 
-Obtenga más información sobre los perfiles de puntuación. Consulte [Incorporación de un perfil de puntuación a un índice de Búsqueda de Azure](http://msdn.microsoft.com/es-es/library/azure/dn798928.aspx) para obtener información detallada.
+Obtenga más información sobre los perfiles de puntuación. Consulte [Incorporación de un perfil de puntuación a un índice de Búsqueda de Azure](http://msdn.microsoft.com/library/azure/dn798928.aspx) para obtener información detallada.
 
-Obtenga más información sobre la sintaxis de búsqueda y los parámetros de consulta. Consulte [Búsqueda en documentos (API de REST de Búsqueda de Azure)](http://msdn.microsoft.com/es-es/library/azure/dn798927.aspx) para obtener información detallada.
+Obtenga más información sobre la sintaxis de búsqueda y los parámetros de consulta. Consulte [Búsqueda en documentos (API de REST de Búsqueda de Azure)](http://msdn.microsoft.com/library/azure/dn798927.aspx) para obtener información detallada.
 
 ¿Necesita volver atrás para obtener información sobre la creación de índices? [Vea este vídeo](http://channel9.msdn.com/Shows/Cloud+Cover/Cloud-Cover-152-Azure-Search-with-Liam-Cavanagh) para comprender los conceptos básicos.
 
@@ -104,3 +118,5 @@ Obtenga más información sobre la sintaxis de búsqueda y los parámetros de co
 [11]: ./media/search-get-started-scoring-profiles/AzureSearch_Scoring_AppConfig.PNG
 [10]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX1.PNG
 [9]: ./media/search-get-started-scoring-profiles/AzureSearch_XLSX2.PNG
+
+<!--HONumber=46--> 

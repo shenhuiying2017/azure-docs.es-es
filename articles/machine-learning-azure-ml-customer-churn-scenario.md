@@ -1,6 +1,20 @@
-﻿<properties title="Analyzing Customer Churn using Microsoft Azure Machine Learning" pageTitle="Análisis del abandono de clientes mediante el Aprendizaje automático de Microsoft | Azure" description="Caso práctico de desarrollo de un modelo integrado para analizar y puntuar la renovación de clientes" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Análisis del abandono de clientes mediante el Aprendizaje automático de Microsoft | Azure" 
+	description="Caso práctico de desarrollo de un modelo integrado para analizar y puntuar la renovación de clientes" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="barga" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="barga"/>
 
 # Análisis del abandono de clientes mediante el Aprendizaje automático de Microsoft Azure
 
@@ -211,3 +225,5 @@ Estos comentarios nos ayudarán a mejorar la calidad de los documentos técnicos
 [8]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/machine-learning-azure-ml-customer-churn-scenario/churn-10.png
+
+<!--HONumber=46--> 

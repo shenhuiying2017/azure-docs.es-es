@@ -1,6 +1,20 @@
-<properties pageTitle="Cómo proporcionar HTTP Live Streaming (HLS) de Apple para Azure" description="Aprenda a crear un localizador para el contenido de HTTP Live Streaming (HLS) de Apple en un servidor de origen de Servicios multimedia. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Cómo proporcionar HTTP Live Streaming (HLS) de Apple para Azure" 
+	description="Aprenda a crear un localizador para el contenido de HTTP Live Streaming (HLS) de Apple en un servidor de origen de Servicios multimedia. Los ejemplos de código están escritos en C# y utilizan el SDK de Servicios multimedia para .NET." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -65,8 +79,8 @@ static ILocator GetStreamingHLSOriginLocator( string targetAssetID)
 
 Para obtener más información acerca de la entrega de recursos, consulte:
 <ul>
-<li><a href="http://msdn.microsoft.com/es-es/library/jj129575.aspx">Entrega de recursos con los Servicios multimedia para .NET</a></li>
-<li><a href="http://msdn.microsoft.com/es-es/library/jj129578.aspx">Entrega de recursos con la API de REST de Media Services</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129575.aspx">Entrega de recursos con los Servicios multimedia para .NET</a></li>
+<li><a href="http://msdn.microsoft.com/library/jj129578.aspx">Entrega de recursos con la API de REST de Media Services</a></li>
 </ul>
 
 <h2>Pasos siguientes</h2>

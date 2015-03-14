@@ -1,6 +1,18 @@
-﻿<properties title="Search diagnostic logs with Application Insights" pageTitle="Buscar registros de diagnóstico" description="Busque registros generados con Seguimiento, NLog o Log4Net." metaKeywords="analytics web test" authors="awills"  manager="kamrani" />
+﻿<properties 
+	pageTitle="Buscar registros de diagnóstico" 
+	description="Busque registros generados con Seguimiento, NLog o Log4Net." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-09-24" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
  
 # Búsqueda de diagnóstico en Application Insights
 
@@ -306,3 +318,5 @@ Todavía no, pero todas estas características se encuentran entre las tareas pe
 
 
 
+
+<!--HONumber=46--> 

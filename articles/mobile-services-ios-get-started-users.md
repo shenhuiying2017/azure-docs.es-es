@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Introducción a la autenticación (iOS) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación iOS a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." services="mobile-services" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Introducción a la autenticación (iOS) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo utilizar Servicios móviles para autenticar usuarios de su aplicación iOS a través de una variedad de proveedores de identidad, incluidos Google, Facebook, Twitter y Microsoft." 
+	services="mobile-services" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles
 
@@ -71,7 +85,8 @@ En el siguiente tutorial, [Autorización en el servicio de los usuarios de Servi
 
 [13]: ./media/mobile-services-ios-get-started-users/mobile-identity-tab.png
 [14]: ./media/mobile-services-ios-get-started-users/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-ios-get-started-users/mobile-portal-change-table-perms.png
+[15]: ./media/mobile-services-ios-get-started-users/mobile-portal-change-table-per
+	ms.png
 
 
 <!-- URLs. -->

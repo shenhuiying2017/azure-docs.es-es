@@ -1,6 +1,20 @@
-﻿<properties title="Sample Web Services Built with R on Azure ML and Published to Marketplace" pageTitle="Compilación de servicios web de muestra con R en el Aprendizaje automático de Azure y publicación en Marketplace | Azure" description="Compilación de servicios web de muestra con R en el Aprendizaje automático de Azure y publicación en Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Compilación de servicios web de muestra con R en el Aprendizaje automático de Azure y publicación en Marketplace | Azure" 
+	description="Compilación de servicios web de muestra con R en el Aprendizaje automático de Azure y publicación en Marketplace" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/13/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 #Compilación de servicios web de muestra con R en el Aprendizaje automático de Azure y publicación en Marketplace
@@ -19,13 +33,13 @@ Considere los siguientes escenarios:
 ####Escenario 1: modelo genérico 
 Un usuario trabaja con un modelo genérico que se puede aplicar a los datos de un nuevo usuario, como una previsión básica de datos de serie temporal o un método de R personalizado e integrado con análisis avanzado. Este usuario publica el modelo como un servicio web para que otros usuarios puedan utilizar sus datos.
 
-* [Clasificador binario](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-r-csharp-binary-classifier/)
-* [Modelo de clúster](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-r-csharp-cluster-model/)
-* [Regresión lineal multivariada](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-r-csharp-multivariate-linear-regression/)
-* [Previsión-Suavizado exponencial](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-r-csharp-forecasting-exponential-smoothing/)
-* [Previsión con ETS + STL](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-r-csharp-retail-demand-forecasting/)
-* [Previsión - Media móvil integrada autorregresiva (ARIMA)](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-r-csharp-arima/)
-* [Análisis de supervivencia](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-r-csharp-survival-analysis/)
+* [Clasificador binario](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-binary-classifier/)
+* [Modelo de clúster](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-cluster-model/)
+* [Regresión lineal multivariada](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-multivariate-linear-regression/)
+* [Previsión-Suavizado exponencial](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-forecasting-exponential-smoothing/)
+* [Previsión con ETS + STL](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-retail-demand-forecasting/)
+* [Previsión - Media móvil integrada autorregresiva (ARIMA)](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-arima/)
+* [Análisis de supervivencia](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-survival-analysis/)
 
 ####Escenario 2: Modelo entrenado - datos específicos 
 Un usuario tiene datos que proporcionan útiles predicciones a través del código R, como un gran ejemplo de cuestionarios de personalidad agrupados mediante un algoritmo k-means para predecir el tipo de personalidad del usuario o los datos de encuestas de salud que pueden utilizarse para predecir el riesgo de que un individuo padezca cáncer de pulmón mediante un paquete de análisis de supervivencia basado en R. El usuario publica los datos a través de un servicio web que predice el resultado del nuevo usuario.
@@ -33,18 +47,20 @@ Un usuario tiene datos que proporcionan útiles predicciones a través del códi
 ####Escenario 3: Modelo entrenado - datos genéricos 
 Un usuario tiene datos genéricos (por ejemplo, un conjunto de texto) que permiten crear un servicio web que pueda aplicarse de manera general en diferentes tipos de escenarios y casos de uso.
 
-* [Análisis de opiniones basado en léxico](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-r-csharp-lexicon-based-sentiment-analysis/)
+* [Análisis de opiniones basado en léxico](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-lexicon-based-sentiment-analysis/)
 
 ####Escenario 4: Calculadora avanzada 
 Un usuario proporciona cálculos avanzados o simulaciones, que no requieren ningún modelo entrenado o ajuste de un modelo a los datos del usuario.
 
-* [Diferencia en la prueba de proporciones](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-r-csharp-difference-in-two-proportions/)
-* [Conjunto de distribución normal](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-r-csharp-normal-distribution/)
-* [Conjunto de distribución binomial](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-r-csharp-binomial-distribution/)
+* [Diferencia en la prueba de proporciones](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-difference-in-two-proportions/)
+* [Conjunto de distribución normal](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-normal-distribution/)
+* [Conjunto de distribución binomial](http://azure.microsoft.com/documentation/articles/machine-learning-r-csharp-binomial-distribution/)
 
 ##P+F
-Para ver las preguntas más frecuentes sobre el uso del servicio web o la publicación en Marketplace, haga clic [aquí](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-marketplace-faq).
+Para ver las preguntas más frecuentes sobre el uso del servicio web o la publicación en Marketplace, haga clic [aquí](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-web-service-examples/base1.png
 
 
+
+<!--HONumber=46--> 

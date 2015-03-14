@@ -1,6 +1,20 @@
-<properties title="Publishing Azure ML Web Services to the Azure Marketplace" pageTitle="Publicación de los servicios web de Aprendizaje automático de Azure en Azure Marketplace | Azure" description="Publicación de los servicios web de Aprendizaje automático de Azure en Azure Marketplace" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Publicación de los servicios web de Aprendizaje automático de Azure en Azure Marketplace | Azure" 
+	description="Publicación de un servicio web de Aprendizaje automático de Azure en Azure Marketplace" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="luisca" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/03/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/03/2014" 
+	ms.author="luisca"/>
 
 # Publicación de los servicios web de Aprendizaje automático de Azure en Azure Marketplace 
 
@@ -28,14 +42,14 @@ A continuación se muestran los pasos para publicar un servicio web de Aprendiza
 1.	Cree y publique un servicio web RRS (servicio de solicitud-respuesta) de Aprendizaje automático de Azure.
 2.	Desde el Portal de administración de Azure, implemente el servicio en producción.
 3.	Use la URL del servicio web publicado para publicar en Azure Marketplace.
-4.	Introducción a la publicación: http://msdn.microsoft.com/es-es/library/azure/hh580725.aspx 
+4.	Introducción a la publicación: http://msdn.microsoft.com/library/azure/hh580725.aspx 
 5.	Una vez enviada la oferta, se revisa y es necesario aprobarla antes de que los clientes puedan comenzar a comprarla. El proceso de publicación puede tardar varios días laborables. Estamos trabajando en acortar este tiempo lo máximo posible, y proporcionaremos una actualización en próximas comunicaciones.
 
 ## Directrices para publicar en Azure Marketplace
 
-1.	Deberá registrarse como anunciante. Para obtener información, consulte: <http://msdn.microsoft.com/es-es/library/azure/hh563872.aspx>
-2.	Deberá proporcionar información sobre su oferta, junto con un plan de precios. Decida si ofrecerá un servicio gratuito o de pago. Para obtener información, consulte: <http://msdn.microsoft.com/es-es/library/azure/hh563873.aspx> 
-3.	Para que le paguen, deberá proporcionar información de pago como su cuenta bancaria y datos fiscales. Para obtener información, consulte: <http://msdn.microsoft.com/es-es/library/azure/hh563873.aspx>
+1.	Deberá registrarse como anunciante. Para obtener información, consulte: <http://msdn.microsoft.com/library/azure/hh563872.aspx>
+2.	Deberá proporcionar información sobre su oferta, junto con un plan de precios. Decida si ofrecerá un servicio gratuito o de pago. Para obtener información, consulte: <http://msdn.microsoft.com/library/azure/hh563873.aspx> 
+3.	Para que le paguen, deberá proporcionar información de pago como su cuenta bancaria y datos fiscales. Para obtener información, consulte: <http://msdn.microsoft.com/library/azure/hh563873.aspx>
 
 ## Opciones específicas de aprendizaje automático
 
@@ -80,3 +94,5 @@ A continuación se muestran los pasos para publicar un servicio web de Aprendiza
 
 [image1]:./media/machine-learning-publish-web-service-to-azure-marketplace/image1.png
 [image2]:./media/machine-learning-publish-web-service-to-azure-marketplace/image2.png
+
+<!--HONumber=46--> 

@@ -34,7 +34,7 @@ A continuación se muestra un ejemplo de una aplicación de línea de negocio qu
 
 <div class="dev-callout">
 <strong>Nota</strong>
-<p>En esta guía se muestran algunas de las áreas y las tareas más comunes que están alineadas con las aplicaciones de línea de negocio. Sin embargo, existen otras funciones de Sitios web Azure que puede utilizar en su implementación concreta. Para obtener información acerca de estas funciones, consulte también las otras guías sobre <a href="http://www.windowsazure.com/es-es/manage/services/web-sites/global-web-presence-solution-overview/">presencia web mundial</a> y <a href="http://www.windowsazure.com/es-es/manage/services/web-sites/digital-marketing-campaign-solution-overview">campañas de marketing digital</a>.</p>
+<p>En esta guía se muestran algunas de las áreas y las tareas más comunes que están alineadas con las aplicaciones de línea de negocio. Sin embargo, existen otras funciones de Sitios web Azure que puede utilizar en su implementación concreta. Para obtener información acerca de estas funciones, consulte también las otras guías sobre <a href="http://azure.microsoft.com/manage/services/web-sites/global-web-presence-solution-overview/">presencia web mundial</a> y <a href="http://azure.microsoft.com/manage/services/web-sites/digital-marketing-campaign-solution-overview">campañas de marketing digital</a>.</p>
 </div>
 
 ### Aportación de los recursos existentes
@@ -108,8 +108,8 @@ En el plan de hospedaje **Standard**, la capacidad de respuesta del sitio de sup
 
 [escalado vertical y horizontal]:/es-es/manage/services/web-sites/how-to-scale-websites/
 [Portal de administración de Azure]:http://manage.windowsazure.com/
-[Referencia de la API de REST de administración de servicios]:http://msdn.microsoft.com/es-es/library/windowsazure/ee460799.aspx
-[Scripting de PowerShell]:http://msdn.microsoft.com/es-es/library/windowsazure/jj152841.aspx
+[Referencia de la API de REST de administración de servicios]:http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[Scripting de PowerShell]:http://msdn.microsoft.com/library/windowsazure/jj152841.aspx
 [Troy Hunt]:https://twitter.com/troyhunt
 [10 things I learned about rapidly scaling websites with Azure]:http://www.troyhunt.com/2014/09/10-things-i-learned-about-rapidly.html
 [Caché en Redis de Azure]:/blog/2014/06/05/mvc-movie-app-with-azure-redis-cache-in-15-minutes/

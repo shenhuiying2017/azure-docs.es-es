@@ -35,14 +35,17 @@ Para obtener instrucciones, descargue la "guía introductoria" disponible en la 
 
 [Inicio de sesión en una máquina virtual con Linux]
 
-[Características y extensiones de máquina virtual de Azure]
+[Administración de extensiones]
 
 <!--Link references-->
 [Nuevas integraciones con Microsoft Azure y Visual Studio]: http://puppetlabs.com/blog/new-integrations-windows-azure-and-visual-studio
 [Inicio de sesión en una máquina virtual con Windows Server]: ../virtual-machines-log-on-windows-server/
 [Inicio de sesión en una máquina virtual con Linux]: ../virtual-machines-linux-how-to-log-on
-[Características y extensiones de máquina virtual de Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Administración de extensiones]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
 
 
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

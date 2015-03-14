@@ -1,53 +1,67 @@
-﻿<properties urlDisplayName="Service Management" pageTitle="Uso de API de administración de servicios de Azure (PHP)" metaKeywords="" description="Vea cómo utilizar las API de administración de servicios PHP de Azure para administrar servicios en la nube y otras aplicaciones de Azure." metaCanonical="" services="" documentationCenter="PHP" title="How to use Service Management from PHP" authors="tomfitz" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties 
+	pageTitle="Uso de API de administración de servicios de Azure (PHP)" 
+	description="Vea cómo utilizar las API de administración de servicios PHP de Azure para administrar servicios en la nube y otras aplicaciones de Azure." 
+	services="" 
+	documentationCenter="php" 
+	authors="tfitzmac" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="PHP" ms.topic="article" ms.date="11/17/2014" ms.author="tomfitz" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="PHP" 
+	ms.topic="article" 
+	ms.date="11/17/2014" 
+	ms.author="tomfitz"/>
 
 # Uso de la Administración de servicios con PHP
 
 En esta guía se describe cómo ejecutar tareas comunes de administración de servicios mediante programación con PHP. La clase [ServiceManagementRestProxy] del [SDK de Azure para PHP][download-SDK-PHP] admite el acceso programático a gran parte de la funcionalidad relacionada con la administración de servicios que se encuentra disponible en el [portal de administración][management-portal] (como **creación, actualización y eliminación de servicios en la nube, implementaciones, servicios de almacenamiento y grupos de afinidad**). Esta funcionalidad puede resultar útil para compilar aplicaciones que precisan de acceso mediante programación a la administración de servicios. 
 
-##Tabla de contenido
+## Tabla de contenido
 
 * [Qué es la administración de servicios](#WhatIs)
 * [Conceptos](#Concepts)
 * [Creación de una aplicación PHP](#CreateApplication)
 * [Obtención de las bibliotecas de clientes de Azure](#GetClientLibraries)
 * [Conexión a la administración de servicios](#Connect)
-* [Enumeración de las ubicaciones disponibles](#ListAvailableLocations)
+* [Lista de las ubicaciones disponibles](#ListAvailableLocations)
 * [Creación de un servicio en la nube](#CreateCloudService)
 * [Eliminación de un servicio en la nube](#DeleteCloudService)
 * [Creación de una implementación](#CreateDeployment)
 * [Actualización de una implementación](#UpdateDeployment)
-* [Desplazamiento de implementaciones entre ensayo y producción](#MoveDeployments)
-* [Eliminación de una implementación](#DeleteDeployment)
+* [Mover implementaciones entre ensayo y producción](#MoveDeployments)
+* [Eliminar una implementación](#DeleteDeployment)
 * [Creación de un servicio de almacenamiento](#CreateStorageService)
 * [Eliminación de un servicio de almacenamiento](#DeleteStorageService)
 * [Creación de un grupo de afinidad](#CreateAffinityGroup)
 * [Eliminación de un grupo de afinidad](#DeleteAffinityGroup)
 
-##<a id="WhatIs"></a>Qué es la administración de servicios
-La API de administración de servicios ofrece acceso mediante programación a gran parte de la funcionalidad de administración de servicios disponible a través del [portal de administración][management-portal]. El SDK de Azure para PHP le permite administrar los servicios en la nube, las cuentas de almacenamiento y los grupos de afinidad.
+## <a id="WhatIs"></a>Qué es la administración de servicios
+La API de administración de servicios proporciona acceso mediante programación a gran parte de la funcionalidad de administración de servicios disponible a través del [portal de administración][management-portal]. El SDK de Azure para PHP le permite administrar los servicios en la nube, las cuentas de almacenamiento y los grupos de afinidad.
 
-Para usar la API de administración de servicios, necesita [crear una cuenta de Azure][win-azure-account]. 
+Para usar la API de administración de servicios, necesitará [crear una cuenta de Azure][win-azure-account]. 
 
-##<a id="Concepts"></a>Conceptos
+## <a id="Concepts"></a>Conceptos
 El SDK de Azure para PHP ajusta la [API de administración de servicios de Azure][svc-mgmt-rest-api], que es una API de REST. Todas las operaciones de la API se realizan mediante SSL y se autentican mutuamente con los certificados X.509 v3. Se puede obtener acceso al servicio de administración desde un servicio que se ejecute en Azure, o bien directamente a través de Internet desde cualquier aplicación que envíe una solicitud HTTPS y reciba una respuesta HTTPS.
 
-##<a id="CreateApplication"></a>Creación de una aplicación PHP
+## <a id="CreateApplication"></a>Creación de una aplicación PHP
 
 El único requisito a la hora de crear una aplicación PHP que usa la Administración de servicios de Azure es que el código haga referencia a clases del SDK de Azure para PHP. Puede utilizar cualquier herramienta de desarrollo para crear la aplicación, incluido el Bloc de notas.
 
 En esta guía, utilizará funciones del servicio a las que se puede llamar desde una aplicación PHP localmente o bien mediante código a través de un rol web, rol de trabajo o sitio web de Azure.
 
-##<a id="GetClientLibraries"></a>Obtención de las bibliotecas de clientes de Azure
+## <a id="GetClientLibraries"></a>Obtención de las bibliotecas de clientes de Azure
 
-[WACOM.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
+[AZURE.INCLUDE [get-client-libraries](../includes/get-client-libraries.md)]
 
-##<a id="Connect"></a>Configuración a la administración de servicios
+## <a id="Connect"></a>Entrega de a la administración de servicios
 
-Para conectarse al extremo de la Administración de servicios, necesita el identificador de la suscripción a Azure y la ruta de acceso a un certificado de administración válido. Puede obtener el identificador de la suscripción a través del [portal de administración][management-portal] y, además, puede crear certificados de administración de varias maneras. En esta guía se usa [OpenSSL](http://www.openssl.org/) , que puede [descargar para Windows](http://www.openssl.org/related/binaries.html) y ejecutarse en una consola.
+Para conectarse al extremo de la Administración de servicios, necesita el identificador de la suscripción a Azure y la ruta de acceso a un certificado de administración válido. Puede obtener el identificador de la suscripción a través del [portal de administración][management-portal] y, a continuación, puede crear certificados de administración de varias maneras. En esta guía se usa [OpenSSL](http://www.openssl.org/), que puede [descargar para Windows](http://www.openssl.org/related/binaries.html) y ejecutar en una consola.
 
-Realmente necesita crear dos certificados, uno para el servidor (un archivo `.cer`) y otro para el cliente (un archivo `.pem`). Para crear el archivo `.pem`, ejecute este comando:
+Necesitará crear dos certificados, uno para el servidor (un archivo `.cer`) y otro para el cliente (un archivo `.pem`). Para crear el archivo `.pem`, ejecute este comando:
 
 	`openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem`
 
@@ -55,7 +69,7 @@ Para crear el certificado `.cer`, ejecute este comando:
 
 	`openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer`
 
-Para obtener más información acerca de los certificados de Azure, consulte [Información general sobre los certificados de Azure](http://msdn.microsoft.com/en-us/library/azure/gg981929.aspx). Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación disponible en [http://www.openssl.org/docs/apps/openssl.html].(http://www.openssl.org/docs/apps/openssl.html).
+Para obtener más información acerca de los certificados de Azure, consulte [Información general sobre los certificados de Azure](http://msdn.microsoft.com/library/azure/gg981929.aspx). Para obtener una descripción completa de los parámetros de OpenSSL, consulte la documentación en [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
 Si ha descargado e importado el archivo de configuración de publicación con las [Herramientas de línea de comandos de Azure][command-line-tools], puede usar el archivo `.pem` que las herramientas crean en lugar de crear su propio archivo. Las herramientas crean un archivo `.cer`, lo cargan en Azure y, a continuación, colocan el archivo `.pem` correspondiente en el directorio `.azure` del equipo (en el directorio de usuarios).
 
@@ -73,7 +87,7 @@ Tras haber obtenido el identificador de la suscripción, creado un certificado y
 
 En el ejemplo anterior, `$serviceManagementRestProxy` es un objeto [ServiceManagementRestProxy]. La clase **ServiceManagementRestProxy** es la clase principal usada para administrar los servicios de Azure. 
 
-##<a id="ListAvailableLocations"></a>Configuración de las ubicaciones disponibles
+## <a id="ListAvailableLocations"></a>Configuración de las ubicaciones disponibles
 
 Para enumerar las ubicaciones disponibles para los servicios hospedados, use el método **ServiceManagementRestProxy->listLocations**:
 
@@ -96,7 +110,7 @@ Para enumerar las ubicaciones disponibles para los servicios hospedados, use el 
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -116,12 +130,12 @@ Al crear un servicio en la nube, servicio de almacenamiento o grupo de afinidad,
 - Oeste de EE. UU. 
 - Este de EE. UU.
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > En los siguientes ejemplos de código, las ubicaciones se traspasan a los métodos como cadenas. Sin embargo, también puede pasar las ubicaciones como enumeraciones con la utilización de la clase <code>WindowsAzure\ServiceManagement\Models\Locations</code> . Por ejemplo, en lugar de pasar "Oeste de EE. UU." a un método que acepta una ubicación, podría pasar <code>Locations::WEST_US</code>.
 
-##<a id="CreateCloudService"></a>Configuración de un servicio en la nube
+## <a id="CreateCloudService"></a>Configuración de un servicio en la nube
 
-Al crear una aplicación y ejecutarla en Azure, al código y a la configuración se les denomina de forma conjunta un **servicio en la nube de Azure** (conocido como un [servicio hospedado] en las versiones anteriores de Azure). El método **createHostedServices** le permite crear un nuevo servicio hospedado, para lo que debe proporcionar un nombre de servicio hospedado (que debe ser exclusivo en Azure), una etiqueta (el nombre del servicio hospedado codificado como base64) y un objeto **CreateServiceOptions**. El objeto [CreateServiceOptions] le permite definir la ubicación o el grupo de afinidad para el servicio. 
+Cuando se crea una aplicación y se ejecuta en Azure, el código y configuración en conjunto se denominan un [servicio en la nube] de Azure (conocido como un  *hosted service* en versiones anteriores de Azure). El método **createHostedServices** le permite crear un nuevo servicio hospedado, para lo que debe proporcionar un nombre de servicio hospedado (que debe ser exclusivo en Azure), una etiqueta (el nombre del servicio hospedado codificado como base64) y un objeto**CreateServiceOptions**. El objeto [CreateServiceOptions] le permite definir la ubicación *or* el grupo de afinidad para el servicio. 
 
 	require_once 'vendor\autoload.php';
 
@@ -145,13 +159,13 @@ Al crear una aplicación y ejecutarla en Azure, al código y a la configuración
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-Puede enumerar todos los servicios hospedados para la suscripción con el método **listHostedServices** que devuelve un objeto [ListHostedServicesResult]. La llamada al método **getHostedServices** le permite entonces aplicar un bucle a través de una matriz de objetos [HostedServices] y recuperar las propiedades del servicio:
+Puede enumerar todos los servicios hospedados para la suscripción con el método **listHostedServices**, que devuelve un objeto [ListHostedServicesResult]. La llamada al método **getHostedServices** le permite entonces aplicar un bucle a través de una matriz de objetos [HostedServices] y recuperar las propiedades del servicio:
 
 	$listHostedServicesResult = $serviceManagementRestProxy->listHostedServices();
 
@@ -176,28 +190,28 @@ Si desea obtener información acerca de un servicio hospedado en particular, pue
 	echo "Affinity group: ".$hosted_service->getAffinityGroup()."<br />";
 	echo "Location: ".$hosted_service->getLocation()."<br />";
 
-Después de haber creado un servicio en la nube, puede implementar el código en el servicio con el método [createDeployment].(#CreateDeployment) método.
+Después de haber creado un servicio en la nube, puede implementar el código en el servicio con el método [createDeployment](#CreateDeployment) .
 
-##<a id="DeleteCloudService"></a>Configuración de un servicio en la nube
+## <a id="DeleteCloudService"></a>Eliminación de un servicio en la nube
 
 Puede eliminar un servicio en la nube si transfiere el nombre del servicio al método **deleteHostedService**:
 
 	$serviceManagementRestProxy->deleteHostedService("myhostedservice");
 
-Tenga en cuenta que antes de eliminar un servicio, primero es necesario eliminar todas las implementaciones de dicho servicio. (Consulte [Eliminación de una implementación](#DeleteDeployment) para obtener información detallada.
+Tenga en cuenta que antes de eliminar un servicio, primero es necesario eliminar todas las implementaciones de dicho servicio. (Consulte [Eliminación implementación](#DeleteDeployment) para obtener información detallada.
 
-##<a id="CreateDeployment"></a>Configuración de una implementación
+## <a id="CreateDeployment"></a>Creación de una implementación
 
 El método **createDeployment** carga un nuevo [paquete de servicio] y crea una implementación nueva en el entorno de ensayo o producción. Los parámetros para este método son los siguientes:
 
 * **$name**: el nombre del servicio hospedado.
 * **$deploymentName**: el nombre de la implementación.
 * **$slot**: una enumeración que indica la ranura staging o production.
-* **$packageUrl**: la URL del paquete de implementación (un archivo .cspgk). El archivo del paquete debe almacenarse en una cuenta de almacenamiento de blobs de Azure con la misma suscripción que el servicio hospedado en el que se carga el paquete. Puede crear un paquete de implementación con los [cmdlets de Azure PowerShell] o con la [Herramienta de línea de comandos CSPack].
+* **$packageUrl**: la URL del paquete de implementación (un archivo .cspgk). El archivo del paquete debe almacenarse en una cuenta de almacenamiento de blobs de Azure con la misma suscripción que el servicio hospedado en el que se carga el paquete. Puede crear un paquete de implementación con los [cmdlets de Azure PowerShell] o con la [herramienta de línea de comandos cspack].
 * **$configuration**: el archivo de configuración del servicio (archivo .cscfg).
 * **$label**: el nombre del servicio codificado como base64.
 
-El ejemplo siguiente crea una nueva implementación en la ranura production de un servicio hospedado llamado `myhostedservice`:
+El ejemplo siguiente crea una nueva implementación en el espacio de producción de un servicio hospedado llamado `myhostedservice`:
 
 
 	require_once 'vendor\autoload.php';
@@ -230,7 +244,7 @@ El ejemplo siguiente crea una nueva implementación en la ranura production de u
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -238,7 +252,7 @@ El ejemplo siguiente crea una nueva implementación en la ranura production de u
 
 Observe en el ejemplo anterior que el estado de la operación **createDeployment** puede recuperarse transfiriendo el resultado devuelto por **createDeployment** al método **getOperationStatus**.
 
-Puede obtener acceso a las propiedades de implementación con el método **getDeployment**. El siguiente ejemplo recupera una implementación al especificar la ranura de implementación en el objeto [GetDeploymentOptions], pero podría en cambio especificar el nombre de la implementación. En el ejemplo también se itera a través de todas las instancias de la implementación:
+Puede obtener acceso a las propiedades de implementación con el método **getDeployment**. El siguiente ejemplo recupera una implementación al especificar el espacio de implementación en el objeto [GetDeploymentOptions], pero podría, en cambio, especificar el nombre de la implementación. En el ejemplo también se itera a través de todas las instancias de la implementación:
 
 	$options = new GetDeploymentOptions();
 	$options->setSlot(DeploymentSlot::PRODUCTION);
@@ -258,11 +272,11 @@ Puede obtener acceso a las propiedades de implementación con el método **getDe
 	}
 	echo "------<br />";
 
-##<a id="UpdateDeployment"></a>Configuración de una implementación
+## <a id="UpdateDeployment"></a>Configuración de una implementación
 
 Una implementación se puede actualizar al usar el método **changeDeploymentConfiguration** o el método **updateDeploymentStatus**.
 
-El método **changeDeploymentConfiguration** le permite cargar un nuevo archivo de configuración (`.cscfg`) del servicio, que cambiará algunas de las opciones de configuración del servicio (incluido el número de instancias de una implementación). Para obtener más información, consulte [Esquema de configuración del servicio de Azure (archivo .cscfg)]. En el siguiente ejemplo se demuestra cómo cargar el nuevo archivo de configuración del servicio:
+El método **changeDeploymentConfiguration** le permite cargar un nuevo archivo de configuración (`.cscfg`) del servicio, que cambiará algunas de las opciones de configuración del servicio (incluido el número de instancias de una implementación). Para obtener más información, consulte [Esquema de configuración del servicio de Azure (.cscfg)]. En el siguiente ejemplo se demuestra cómo cargar el nuevo archivo de configuración del servicio:
 
 	require_once 'vendor\autoload.php';
 
@@ -288,7 +302,7 @@ El método **changeDeploymentConfiguration** le permite cargar un nuevo archivo 
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -296,7 +310,7 @@ El método **changeDeploymentConfiguration** le permite cargar un nuevo archivo 
 
 Observe en el ejemplo anterior que el estado de la operación **changeDeploymentConfiguration** puede recuperarse transfiriendo el resultado devuelto por **changeDeploymentConfiguration** al método **getOperationStatus**.
 
-El método **updateDeploymentStatus** le permite definir el estado de una implementación como RUNNING o SUSPENDED. En el siguiente ejemplo se demuestra cómo definir el estado en RUNNING para una implementación en la ranura de producción de un servicio hospedado llamado `myhostedservice`:
+El método **updateDeploymentStatus** le permite definir el estado de una implementación como RUNNING o SUSPENDED. En el siguiente ejemplo se demuestra cómo definir el estado en RUNNING para una implementación en el espacio de producción de un servicio hospedado llamado `myhostedservice`:
 
 	require_once 'vendor\autoload.php';
 
@@ -318,17 +332,17 @@ El método **updateDeploymentStatus** le permite definir el estado de una implem
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="MoveDeployments"></a>Configuración de implementaciones entre ensayo y producción
+## <a id="MoveDeployments"></a>Transferencia de implementaciones entre ensayo y producción
 
 Azure proporciona dos entornos de implementación: ensayo y producción. Normalmente un servicio se implementa en el entorno de ensayo para probarlo antes de implementarlo en el entorno de producción. Cuando sea el momento de promover el servicio en ensayo al entorno de producción, puede hacerlo sin tener que volver a implementar el servicio. Esto puede hacerse mediante el intercambio de las implementaciones. (Para obtener más información acerca del intercambio de implementaciones, consulte [Información general sobre la administración de implementaciones en Azure]).
 
-En el ejemplo siguiente se muestra cómo usar el método **swapDeployment** para intercambiar dos implementaciones (con los nombres de implementación v1 y v2). En el ejemplo, antes de llamar a **swapDeployment**, la implementación v1 está en la ranura de producción y la implementación v2 está en la ranura de ensayo. Después de llamar a **swapDeployment**, v2 está en producción y v1 está en ensayo.  
+En el ejemplo siguiente se muestra cómo usar el método **swapDeployment** para intercambiar dos implementaciones (con los nombres de implementación `v1` y `v2`). En el ejemplo, antes de llamar a **swapDeployment**, la implementación `v1` está en el espacio de producción y la implementación `v2` está en el espacio de ensayo. Después de llamar a **swapDeployment**, `v2` está en producción y `v1` está en ensayo.  
 
 	require_once 'vendor\autoload.php';	
 
@@ -344,15 +358,15 @@ En el ejemplo siguiente se muestra cómo usar el método **swapDeployment** para
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="DeleteDeployment"></a>Configuración de una implementación
+## <a id="DeleteDeployment"></a>Eliminación de una implementación
 
-Para eliminar una implementación, use el método **deleteDeployment**. En el siguiente ejemplo se muestra cómo eliminar una implementación en el entorno de ensayo mediante el método **setSlot** en un objeto [GetDeploymentOptions] para transferirlo a continuación a **deleteDeployment**. En lugar de especificar una implementación por la ranura, puede utilizar el método **setName** en la clase [GetDepolymentOptions] para especificar una implementación mediante el nombre de la implementación.
+Para eliminar una implementación, use el método **deleteDeployment**. En el siguiente ejemplo se muestra cómo eliminar una implementación en el entorno de ensayo mediante el método **setSlot** en un objeto [GetDeploymentOptions] para transferirlo a continuación a **deleteDeployment**. En lugar de especificar una implementación por el espacio, puede utilizar el método **setName** en la clase [GetDepolymentOptions] para especificar una implementación mediante el nombre de la implementación.
 
 	require_once 'vendor\autoload.php';
 
@@ -373,15 +387,15 @@ Para eliminar una implementación, use el método **deleteDeployment**. En el si
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="CreateStorageService"></a>Configuración de un servicio de almacenamiento
+## <a id="CreateStorageService"></a>Configuración de un servicio de almacenamiento
 
-Un [servicio de almacenamiento] le proporciona acceso a [blobs][azure-blobs], [tablas][azure-tables] y [colas][azure-queues] de Azure. Para crear un servicio de almacenamiento, necesita un nombre para el servicio (entre 3 y 24 caracteres en minúscula y exclusivos en Azure), una etiqueta (un nombre codificado como base64 para el servicio, hasta 100 caracteres) y una ubicación o un grupo de afinidad. Proporcionar una descripción para el servicio es opcional. La ubicación, el grupo de afinidad y la descripción se encuentran en un objeto [CreateServiceOptions] que se transfiere al método **createStorageService**. En el ejemplo siguiente se muestra cómo crear un servicio de almacenamiento mediante la definición de una ubicación. Si desea usar un grupo de afinidad, primero tiene que crearlo (consulte [Creación de un grupo de afinidad](#CreateAffinityGroup)) y establecerlo con el método **CreateServiceOptions->setAffinityGroup**.
+Un [servicio de almacenamiento] le proporciona acceso a Azure [Blobs][azure-blobs], [Tablas][azure-tables] y [Colas][azure-queues]. Para crear un servicio de almacenamiento, necesita un nombre para el servicio (entre 3 y 24 caracteres en minúscula y exclusivos en Azure), una etiqueta (un nombre codificado como base64 para el servicio, hasta 100 caracteres) y una ubicación o un grupo de afinidad. Proporcionar una descripción para el servicio es opcional. La ubicación, el grupo de afinidad y la descripción se encuentran en un objeto [CreateServiceOptions], que se transfiere al método **createStorageService**. En el ejemplo siguiente se muestra cómo crear un servicio de almacenamiento mediante la definición de una ubicación. Si desea usar un grupo de afinidad, primero tiene que crearlo (consulte [Creación grupo de afinidad](#CreateAffinityGroup)) y establecerlo con el método **CreateServiceOptions->setAffinityGroup**.
 
 	require_once 'vendor\autoload.php';
 	 
@@ -408,7 +422,7 @@ Un [servicio de almacenamiento] le proporciona acceso a [blobs][azure-blobs], [t
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -431,7 +445,7 @@ Puede enumerar las cuentas de almacenamiento y sus propiedades con el método **
 		echo "------<br />";
 	}
 
-##<a id="DeleteStorageService"></a>Configuración de un servicio de almacenamiento
+## <a id="DeleteStorageService"></a>Configuración de un servicio de almacenamiento
 
 Puede eliminar un servicio de almacenamiento si transfiere el nombre de dicho servicio al método **deleteStorageService**. Con la eliminación del servicio de almacenamiento también se eliminarán todos los datos almacenados en el servicio (blobs, tablas y colas).
 
@@ -449,15 +463,15 @@ Puede eliminar un servicio de almacenamiento si transfiere el nombre de dicho se
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-##<a id="CreateAffinityGroup"></a>Configuración de un grupo de afinidad
+## <a id="CreateAffinityGroup"></a>Configuración de un grupo de afinidad
 
-Un grupo de afinidad es una agrupación lógica de los servicios de Azure que pide a Azure que localice los servicios para obtener un rendimiento optimizado. Por ejemplo, puede crear un grupo de afinidad en la ubicación "Oeste de EE. UU." y, a continuación, crear un [servicio en la nube](#CreateCloudService) en dicho grupo de afinidad. Si posteriormente crea un servicio de almacenamiento en el mismo grupo de afinidad, Azure sabe colocarlo en la ubicación "Oeste de EE. UU." y optimizarlo dentro del centro de datos para obtener el máximo rendimiento con los servicios en la nube en el mismo grupo de afinidad.
+Un grupo de afinidad es una agrupación lógica de los servicios de Azure que pide a Azure que localice los servicios para obtener un rendimiento optimizado. Por ejemplo, podría crear un grupo de afinidad en la ubicación "Oeste de EE. UU." y, a continuación, crear un [servicio en la nube](#CreateCloudService) en dicho grupo de afinidad. Si posteriormente crea un servicio de almacenamiento en el mismo grupo de afinidad, Azure sabe colocarlo en la ubicación "Oeste de EE. UU." y optimizarlo dentro del centro de datos para obtener el máximo rendimiento con los servicios en la nube en el mismo grupo de afinidad.
 
 Para crear un grupo de afinidad, necesita un nombre, una etiqueta (el nombre de codificado como base64) y la ubicación. Si lo desea, también puede proporcionar una descripción:
 
@@ -483,13 +497,13 @@ Para crear un grupo de afinidad, necesita un nombre, una etiqueta (el nombre de 
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
 	}
 
-Tras haber creado un grupo de afinidad, puede especificar el grupo (en lugar de una ubicación) al [crear un servicio de almacenamiento].(#CreateStorageService).
+Tras haber creado un grupo de afinidad, puede especificar el grupo (en lugar de una ubicación) al [crear un servicio de almacenamiento](#CreateStorageService).
 
 Puede enumerar grupos de afinidad e inspeccionar sus propiedades si llama al método **listAffinityGroups** y, a continuación, llama a los métodos adecuados en la clase [AffinityGroup]:
 
@@ -504,7 +518,7 @@ Puede enumerar grupos de afinidad e inspeccionar sus propiedades si llama al mé
 		echo "------<br />";
 	}
 
-##<a id="DeleteAffinityGroup"></a>Configuración de un grupo de afinidad
+## <a id="DeleteAffinityGroup"></a>Eliminación de un grupo de afinidad
 	
 Puede eliminar un grupo de afinidad si transfiere el nombre del grupo al método **deleteAffinityGroup**. Tenga en cuenta que para eliminar un grupo de afinidad, es necesario desasociar el grupo de afinidad de cualquier servicio (o deben eliminarse los servicios que usan el grupo de afinidad).
 
@@ -524,7 +538,7 @@ Puede eliminar un grupo de afinidad si transfiere el nombre del grupo al método
 	catch(ServiceException $e){
 		// Handle exception based on error codes and messages.
 		// Error codes and messages are here: 
-		// http://msdn.microsoft.com/en-us/library/windowsazure/ee460801
+		// http://msdn.microsoft.com/library/windowsazure/ee460801
 		$code = $e->getCode();
 		$error_message = $e->getMessage();
 		echo $code.": ".$error_message."<br />";
@@ -532,33 +546,33 @@ Puede eliminar un grupo de afinidad si transfiere el nombre del grupo al método
 
 [ServiceManagementRestProxy]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementRestProxy.php
 [management-portal]: https://manage.windowsazure.com/
-[svc-mgmt-rest-api]: http://msdn.microsoft.com/en-us/library/windowsazure/ee460799.aspx
-[win-azure-account]: /en-us/pricing/free-trial/
+[svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[win-azure-account]: /es-es/pricing/free-trial/
 [storage-account]: ../storage-create-storage-account/
 
 [download-SDK-PHP]: ../php-download-sdk/
 [command-line-tools]: ../command-line-tools/
-[Composer]: http://getcomposer.org/
+[Compositor]: http://getcomposer.org/
 [ServiceManagementSettings]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/ServiceManagementSettings.php
 
-[cloud service]: ../cloud-services-what-is/
+[servicio en la nube]: ../cloud-services-what-is/
 [CreateServiceOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/CreateServiceOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/ListHostedServicesResult.php
 
-[service package]: http://msdn.microsoft.com/en-us/library/windowsazure/gg433093
-[Cmdlets de Azure PowerShell]: ../install-configure-powershell/
-[cspack commandline tool]: http://msdn.microsoft.com/en-us/library/windowsazure/gg432988.aspx
+[paquete de servicio]: http://msdn.microsoft.com/library/windowsazure/gg433093
+[cmdlets de Azure PowerShell]: ../install-configure-powershell/
+[herramienta de línea de comandos cspack]: http://msdn.microsoft.com/library/windowsazure/gg432988.aspx
 [GetDeploymentOptions]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 [ListHostedServicesResult]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/GetDeploymentOptions.php
 
-[Información general sobre la administración de implementaciones en Azure]: http://msdn.microsoft.com/en-us/library/windowsazure/hh386336.aspx
-[storage service]: ../storage-whatis-account/
+[Información general sobre la administración de implementaciones en Azure]: http://msdn.microsoft.com/library/windowsazure/hh386336.aspx
+[servicio de almacenamiento]: ../storage-whatis-account/
 [azure-blobs]: ../storage-php-how-to-use-blobs/
 [azure-tables]: ../storage-php-how-to-use-table-storage/
 [azure-queues]: ../storage-php-how-to-use-queues/
 [AffinityGroup]: https://github.com/WindowsAzure/azure-sdk-for-php/blob/master/WindowsAzure/ServiceManagement/Models/AffinityGroup.php
 
 
-[Esquema de configuración del servicio de Azure (.cscfg)]: http://msdn.microsoft.com/en-us/library/windowsazure/ee758710.aspx
+[Esquema de configuración del servicio de Azure (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

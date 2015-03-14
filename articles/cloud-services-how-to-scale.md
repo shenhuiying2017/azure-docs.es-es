@@ -1,12 +1,26 @@
-﻿<properties urlDisplayName="How to scale" pageTitle="Escalado de un servicio en la nube - Azure" metaKeywords="Azure link resource, scaling cloud service" description="Vea cómo escalar un servicio en la nube y recursos vinculados en Azure." metaCanonical="" services="cloud-services" documentationCenter="" title="How to Scale an Application" authors="davidmu" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="Escalado de un servicio en la nube - Azure" 
+	description="Vea cómo escalar un servicio en la nube y recursos vinculados en Azure." 
+	services="cloud-services" 
+	documentationCenter="" 
+	authors="Thraka" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="cloud-services" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/21/2014" ms.author="davidmu" />
+<tags 
+	ms.service="cloud-services" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/21/2014" 
+	ms.author="adegeo"/>
 
 
 
 
 
-#Escalado de una aplicación
+# Escalado de una aplicación
 
 
 En la página Scale del Portal de administración de Azure, puede escalar su aplicación manualmente o puede establecer parámetros para escalarla automáticamente. Puede escalar aplicaciones que ejecutan roles web, roles de trabajo o máquinas virtuales. Para escalar una aplicación que ejecuta instancias de roles web o roles de trabajo, agregue o quite instancias de roles para acomodar la carga de trabajo.
@@ -15,11 +29,11 @@ Al escalar o reducir verticalmente una aplicación que ejecuta máquinas virtual
 
 Debe considerar la siguiente información antes de configurar el escalado para su aplicación:
 
-- Las máquinas virtuales que crea debe agregarlas a un conjunto de disponibilidad para escalar una aplicación que las utiliza. Las máquinas virtuales que agrega pueden inicialmente activarse o desactivarse, pero se activarán en una acción de escalado vertical y se desactivarán en una acción de reducción vertical. Para obtener más información sobre las máquinas virtuales y los conjuntos de disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales].(http://azure.microsoft.com/en-us/documentation/articles/virtual-machines-manage-availability/).
-- El uso de núcleos afecta el escalado. Las instancias de rol o las máquinas virtuales más grandes usan más núcleos. Solo puede escalar una aplicación dentro del límite de núcleos para su suscripción. Por ejemplo, si su suscripción tiene un límite de veinte núcleos y ejecuta una aplicación con dos máquinas virtuales de tamaño mediano (un total de cuatro núcleos), solo puede escalar verticalmente otras implementaciones de servicio en la nube en su suscripción con dieciséis núcleos. Todas las máquinas virtuales de un conjunto de disponibilidad que se usan al escalar una aplicación deben tener el mismo tamaño. Para obtener más información acerca del uso de núcleos y los tamaños de las máquinas, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure].(http://msdn.microsoft.com/en-us/library/dn197896.aspx).
-- Debe crear una cola y asociarla con un rol o conjunto de disponibilidad para poder escalar una aplicación según el umbral de un mensaje. Para obtener más información, consulte [Uso del servicio de almacenamiento en cola].(http://www.windowsazure.com/en-us/develop/net/how-to-guides/queue-service).
-- Puede escalar los recursos que están vinculados con su servicio en la nube. Para obtener más información acerca de los recursos de vinculación, consulte[: Vinculación de un recurso a un servicio en la nube](http://www.windowsazure.com/en-us/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources).
-- Para permitir una alta disponibilidad de la aplicación, debe asegurarse de que se implemente con dos o más instancias de rol o máquinas virtuales. Para obtener más información, consulte [Contratos de nivel de servicio].(https://www.windowsazure.com/en-us/support/legal/sla/).
+- Las máquinas virtuales que crea debe agregarlas a un conjunto de disponibilidad para escalar una aplicación que las utiliza. Las máquinas virtuales que agrega pueden inicialmente activarse o desactivarse, pero se activarán en una acción de escalado vertical y se desactivarán en una acción de reducción vertical. Para obtener más información sobre las máquinas virtuales y los conjuntos de disponibilidad, consulte [Administración de la disponibilidad de las máquinas virtuales](http://azure.microsoft.com/ documentation/articles/virtual-machines-manage-availability/).
+- El uso de núcleos afecta el escalado. Las instancias de rol o las máquinas virtuales más grandes usan más núcleos. Solo puede escalar una aplicación dentro del límite de núcleos para su suscripción. Por ejemplo, si su suscripción tiene un límite de veinte núcleos y ejecuta una aplicación con dos máquinas virtuales de tamaño mediano (un total de cuatro núcleos), solo puede escalar verticalmente otras implementaciones de servicio en la nube en su suscripción con dieciséis núcleos. Todas las máquinas virtuales de un conjunto de disponibilidad que se usan al escalar una aplicación deben tener el mismo tamaño. Para obtener más información acerca del uso de núcleos y los tamaños de las máquinas, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/dn197896.aspx).
+- Debe crear una cola y asociarla con un rol o conjunto de disponibilidad para poder escalar una aplicación según el umbral de un mensaje. Para obtener más información, consulte [Uso del servicio de almacenamiento en cola](http://azure.microsoft.com/develop/net/how-to-guides/queue-service).
+- Puede escalar los recursos que están vinculados con su servicio en la nube. Para obtener más información acerca de los recursos de vinculación, consulte[Vinculación de un recurso a un servicio en la nube](http://azure.microsoft.com/manage/services/cloud-services/how-to-manage-a-cloud-service/#linkresources)
+- Para permitir una alta disponibilidad de la aplicación, debe asegurarse de que se implemente con dos o más instancias de rol o máquinas virtuales. Para obtener más información, consulte [Contratos de nivel de servicio](https://www.windowsazure.com/es-es/support/legal/sla/).
 
 Puede realizar las siguientes acciones de escalado para un servicio en la nube:
 
@@ -33,7 +47,7 @@ Puede realizar las siguientes acciones de escalado para un servicio en la nube:
 
 En la página Scale, puede aumentar o disminuir manualmente la cantidad de instancias en ejecución en un servicio en la nube.
 
-1. En el [Portal de administración](https://manage.windowsazure.com/)haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
+1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
 
 2. Haga clic en **Escala**. El escalado automático está deshabitado de manera predeterminada para todos los roles, lo que significa que puede cambiar manualmente la cantidad de instancias que usa su aplicación.
 
@@ -51,7 +65,7 @@ En la página Scale, puede aumentar o disminuir manualmente la cantidad de insta
 	- Gris claro representa los núcleos que están disponibles para usarlos en el escalado
 	- Rosado representa un cambio hecho que no se ha guardado
 
-4. Haga clic en **Guardar**. Las instancias de rol se agregaran o quitarán según las selecciones realizadas.
+4. Haga clic en **Save**. Las instancias de rol se agregaran o quitarán según las selecciones realizadas.
 
 <h2><a id="autoscale"></a>Escalado automático de una aplicación que ejecuta roles web, roles de trabajo o máquinas virtuales</h2>
 
@@ -62,7 +76,7 @@ En la página Scale, puede configurar su servicio en la nube para aumentar o dis
 
 <h3><a id="averagecpu"></a>Uso promedio de CPU</h3>
 
-1. En el [Portal de administración](https://manage.windowsazure.com/)haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
+1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
 2. Haga clic en **Escala**.
 3. Desplácese hasta la sección correspondiente al rol o el conjunto de disponibilidad y, a continuación, haga clic en **CPU**. Esto permite el escalado automático de su aplicación, según el porcentaje promedio de recursos de CPU que utiliza.
 
@@ -105,13 +119,13 @@ En la página Scale, puede configurar su servicio en la nube para aumentar o dis
 
 	![Down time][scale_downtime]
 
-10. Haga clic en **Guardar**. La acción de escalado puede tardar hasta cinco minutos en finalizar.
+10. Haga clic en **Save**. La acción de escalado puede tardar hasta cinco minutos en finalizar.
 
 <h3><a id="queuemessages"></a>Mensajes en cola</h3>
 
-1. En el [Portal de administración](https://manage.windowsazure.com/)haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
+1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
 2. Haga clic en **Escala**.
-3. Desplácese hasta la sección correspondiente al rol o el conjunto de disponibilidad y, a continuación, haga clic en **Queue**. Esto permite el escalado automático de su aplicación según una cantidad objetivo de mensajes en cola.
+3. Desplácese hasta la sección correspondiente al rol o el conjunto de disponibilidad y, a continuación, haga clic en **Cola**. Esto permite el escalado automático de su aplicación según una cantidad objetivo de mensajes en cola.
 
 	![Scale queue][scale_queue]
 
@@ -157,13 +171,13 @@ En la página Scale, puede configurar su servicio en la nube para aumentar o dis
 
 	![Down time][scale_downtime]
 
-12. Haga clic en **Guardar**. La acción de escalado puede tardar hasta cinco minutos en finalizar.
+12. Haga clic en **Save**. La acción de escalado puede tardar hasta cinco minutos en finalizar.
 
 <h2><a id="scalelink"></a>Escalado de recursos vinculados</h2>
 
 A menudo, cuando se escala un rol, es beneficioso también escalar la base de datos que la aplicación está usando. Si vincula la base de datos con el servicio en la nube, puede cambiar la edición de Base de datos SQL y cambiar el tamaño de la base de datos en la página Scale.
 
-1. En el [Portal de administración](https://manage.windowsazure.com/)haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
+1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
 2. Haga clic en **Escala**.
 3. En la sección Linked Resources, seleccione la edición que desea usar para la base de datos.
 
@@ -176,13 +190,13 @@ A menudo, cuando se escala un rol, es beneficioso también escalar la base de da
 
 Puede programar el escalado automático de su aplicación al configurar programas para diferentes horas. Las siguientes opciones están disponibles para el escalado automático:
 
-- **Sin programación**: Esta es la opción predeterminada y permite que su aplicación se escale automáticamente de la misma manera todas las veces.
+- **Ninguna programación**: esta es la opción predeterminada y permite que su aplicación se escale automáticamente de la misma manera todas las veces.
 
-- **Día y noche**: Esta opción le permite especificar el escalado para horas específicas del día y la noche.
+- **Día y noche**: esta opción le permite especificar el escalado para horas específicas del día y noche.
 
-**Nota:** Las programaciones no están actualmente disponibles para aplicaciones que usan máquinas virtuales.
+**Nota:** las programaciones no están actualmente disponibles para aplicaciones que usan máquinas virtuales.
 
-1. En el [Portal de administración](https://manage.windowsazure.com/)haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
+1. En el [Portal de administración](https://manage.windowsazure.com/), haga clic en **Servicios en la nube** y, a continuación, haga clic en el nombre del servicio en la nube para abrir el panel.
 2. Haga clic en **Escala**.
 3. En la página Escala, haga clic en **Configurar horas de programación**.
 
@@ -213,4 +227,4 @@ Puede programar el escalado automático de su aplicación al configurar programa
 [linked_resources]: ./media/cloud-services-how-to-scale/CloudServices_ScaleLinkedResources.png
 [scale_schedule]: ./media/cloud-services-how-to-scale/CloudServices_SetUpSchedule.png
 
-<!--HONumber=35.1-->
+<!--HONumber=45--> 

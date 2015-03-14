@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Uso de datos sin conexión en Servicios móviles (Windows Phone) | Centro de desarrollo móvil" description="Obtenga información acerca de cómo usar Servicios móviles de Azure con datos sin conexión sincronizados en su aplicación de Windows Phone" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="" services=""/>
+﻿<properties 
+	pageTitle="Uso de datos sin conexión en Servicios móviles (Windows Phone) | Centro de desarrollo móvil" 
+	description="Obtenga información acerca de cómo usar Servicios móviles de Azure con datos sin conexión sincronizados en su aplicación de Windows Phone" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="" 
+	services=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-phone" ms.devlang="dotnet" ms.topic="article" ms.date="12/10/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="12/10/2014" 
+	ms.author="wesmc"/>
 
 # Uso de la sincronización de datos sin conexión en servicios móviles
 
@@ -30,7 +44,7 @@ Este tutorial requiere lo siguiente:
 * [Almacén de SQLite de Servicios móviles de Azure versión 1.0.0 (o posterior)][NuGet del almacén de SQLite]
 * [SQLite para Windows Phone 8]
 
->[AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>. 
+>[AZURE.NOTE] Necesita una cuenta de Azure para completar este tutorial. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28" target="_blank">Evaluación gratuita de Azure</a>. 
 
 ## <a name="enable-offline-app"></a>Actualización de la aplicación para que admita características sin conexión
 

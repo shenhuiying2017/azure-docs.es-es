@@ -1,4 +1,4 @@
-﻿> [AZURE.SELECTOR-LIST (Plataforma | Backend)]
+> [AZURE.SELECTOR-LIST (Plataforma | Backend)]
 - [(iOS | .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/)
 - [(iOS | JavaScript)](/es-es/documentation/articles/mobile-services-ios-get-started-data/)
 - [(C# universal para Windows| .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-universal-dotnet-get-started-data/)

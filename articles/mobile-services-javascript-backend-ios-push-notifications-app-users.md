@@ -1,7 +1,21 @@
-﻿<properties pageTitle="Envío de notificaciones de inserción a usuarios autenticados" description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos" services="mobile-services, notification-hubs" documentationCenter="ios" authors="krisragh" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Envío de notificaciones de inserción a usuarios autenticados" 
+	description="Obtenga información acerca de cómo enviar notificaciones de inserción a específicos" 
+	services="mobile-services, notification-hubs" 
+	documentationCenter="ios" 
+	authors="krisragh" 
+	manager="dwrede" 
+	editor=""/>
 
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-ios" ms.devlang="objective-c" ms.topic="article" ms.date="10/10/2014" ms.author="krisragh"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-ios" 
+	ms.devlang="objective-c" 
+	ms.topic="article" 
+	ms.date="10/10/2014" 
+	ms.author="krisragh"/>
 
 # Envío de notificaciones de inserción a usuarios autenticados
 

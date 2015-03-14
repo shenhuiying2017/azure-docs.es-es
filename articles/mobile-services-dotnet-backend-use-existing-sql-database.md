@@ -1,6 +1,20 @@
-<properties pageTitle="Creación de un servicio usando una base de datos SQL existente con el backend .NET de Servicios móviles - Servicios móviles de Azure" description="Obtener información acerca de cómo usar una base de datos SQL local o en la nube existente con su servicio móvil basado en .NET" services="mobile-services, biztalk-services" documentationCenter="windows" authors="ggailey777" manager="dwrede" editor="mollybos"/>
+<properties 
+	pageTitle="Creación de un servicio usando una base de datos SQL existente con el backend .NET de Servicios móviles - Servicios móviles de Azure" 
+	description="Obtener información acerca de cómo usar una base de datos SQL local o en la nube existente con su servicio móvil basado en .NET" 
+	services="mobile-services, biztalk-services" 
+	documentationCenter="windows" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/22/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/22/2014" 
+	ms.author="glenga"/>
 
 
 # Creación de un servicio usando una base de datos SQL existente con el backend .NET de Servicios móviles

@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Solución de problemas en el backend .NET de Servicios móviles - Servicios móviles de Azure" description="Obtenga información acerca de cómo diagnosticar y corregir problemas con los servicios móviles mediante el back-end de .NET" services="" documentationCenter="windows" authors="wesmc7777" manager="dwrede" editor="mollybos"/>
+﻿<properties 
+	pageTitle="Solución de problemas en el backend .NET de Servicios móviles - Servicios móviles de Azure" 
+	description="Obtenga información acerca de cómo diagnosticar y corregir problemas con los servicios móviles mediante el back-end de .NET" 
+	services="" 
+	documentationCenter="windows" 
+	authors="wesmc7777" 
+	manager="dwrede" 
+	editor="mollybos"/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="wesmc"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="wesmc"/>
 # Solución de problemas en el backend .NET de Servicios móviles
 
 El desarrollo con Servicios móviles suele ser sencillo y sin complicaciones, pero, aun así, pueden salir cosas mal a veces. En este tutorial se tratan algunas técnicas que le permitirán solucionar problemas comunes que pueden surgir con el extremo .NET de Servicios móviles. 
@@ -119,7 +133,7 @@ Este problema es fácil de corregir: simplemente revierta a una versión compati
 <a name="EFMigrations"></a>
 ## Solución de problemas de migraciones con Entity Framework
 
-Cuando se usa el backend .NET de Servicios móviles con Base de datos SQL, se utiliza Entity Framework (EF) como tecnología de acceso a datos que permite consultar la base de datos y almacenar objetos en ella. Un aspecto importante que EF controla en nombre del desarrollador es el modo en que cambian las columnas de la base de datos (también conocidas como  *schema*) conforme cambian las clases de modelo especificadas en el código. Este proceso se conoce como [Migraciones de Code First](http://msdn.microsoft.com/es-es/data/jj591621).
+Cuando se usa el backend .NET de Servicios móviles con Base de datos SQL, se utiliza Entity Framework (EF) como tecnología de acceso a datos que permite consultar la base de datos y almacenar objetos en ella. Un aspecto importante que EF controla en nombre del desarrollador es el modo en que cambian las columnas de la base de datos (también conocidas como  *schema*) conforme cambian las clases de modelo especificadas en el código. Este proceso se conoce como [Migraciones de Code First](http://msdn.microsoft.com/data/jj591621).
 
 Las migraciones pueden ser complejas y pueden requerir que se mantenga el estado de la base de datos sincronizado con el modelo EF para que funcionen correctamente. Para obtener instrucciones sobre el modo de controlar las migraciones con un servicio móvil y los errores que pueden surgir, consulte [Modificación del modelo de datos a un servicio móvil de back-end de .NET](/es-es/documentation/articles/mobile-services-dotnet-backend-how-to-use-code-first-migrations/).
 

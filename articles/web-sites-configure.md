@@ -56,7 +56,7 @@ Por razones técnicas, si se habilita Java para el sitio web, se deshabilitan la
 
 <strong>Plataforma</strong>. Selecciona si su aplicación se ejecuta en un entorno de 32 o 64 bits. El entorno de 64 bits requiere el modo básico o estándar. Los modos libre y compartido siempre se ejecutan en un entorno de 32 bits.
 
-<strong>Web Sockets</strong>. Seleccione **ACTIVADO** para habilitar el protocolo WebSocket; por ejemplo, si el sitio web utiliza [ASP.NET SignalR](http://www.asp.net/signalr) o [socket.io](http://azure.microsoft.com/es-es/documentation/articles/web-sites-nodejs-chat-app-socketio/).
+<strong>Web Sockets</strong>. Seleccione **ACTIVADO** para habilitar el protocolo WebSocket; por ejemplo, si el sitio web utiliza [ASP.NET SignalR](http://www.asp.net/signalr) o [socket.io](http://azure.microsoft.com/documentation/articles/web-sites-nodejs-chat-app-socketio/).
 
 <strong>Siempre disponible</strong>. De forma predeterminada, los sitios web se descargan si están inactivos durante algún tiempo. Esto permite que el sistema conserve recursos. En el modo básico o estándar puede habilitar <strong>Siempre disponible</strong> para mantener el sitio cargado continuamente. Cuando tenga trabajos web continuos en ejecución en el sitio debe habilitar la opción **Siempre disponible** de lo contrario es posible que los trabajos no se realicen de manera fiable.
 
@@ -67,17 +67,17 @@ Nota: Si habilita el control de código fuente, es posible que una implementaci�
 
 ### Certificados
 
-En modo básico o estándar puede cargar certificados SSL para un dominio personalizado. Para obtener más información, consulte [Enable HTTPS for an Azure website](http://www.windowsazure.com/es-es/documentation/articles/web-sites-configure-ssl-certificate/). 
+En modo básico o estándar puede cargar certificados SSL para un dominio personalizado. Para obtener más información, consulte [Enable HTTPS for an Azure website](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/). 
 
 Aquí se enumeran los certificados que haya cargado. Después de cargar un certificado, puede asignarlo a cualquier sitio web de su suscripción y región. Los certificados comodín se pueden utilizar para cualquier sitio dentro del dominio para el cual es válido. Un certificado solo se puede eliminar si no tiene ningún vínculo activo.
 
 ### Nombres de dominio
 
-Vea o agregue nombres de dominio adicionales para el sitio web. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado para un Sitio web Azure](http://www.windowsazure.com/es-es/documentation/articles/web-sites-custom-domain-name/).
+Vea o agregue nombres de dominio adicionales para el sitio web. Para obtener más información, consulte [Configuración de un nombre de dominio personalizado para un Sitio web Azure](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/).
 
 ### Enlaces SSL
 
-Si carga certificados SSL puede vincularlos a nombres de dominios personalizados. Para obtener más información, consulte [Enable HTTPS for an Azure website](http://www.windowsazure.com/es-es/documentation/articles/web-sites-configure-ssl-certificate/).
+Si carga certificados SSL puede vincularlos a nombres de dominios personalizados. Para obtener más información, consulte [Enable HTTPS for an Azure website](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/).
 
 ### Implementaciones
 
@@ -93,7 +93,7 @@ Para configurar la implementación desde el control de código fuente, en la pes
 
 Opciones para escribir registros de diagnóstico de una aplicación web que admita el registro: 
 
-- <strong>Sistema de archivos</strong>. Escribe registros en el sistema de archivos del sitio web. El registro del sistema de archivos dura 12 horas. Puede obtener acceso a los registros desde el recurso compartido de FTP del sitio web. (Consulte [Credenciales FTP](http://azure.microsoft.com/es-es/documentation/articles/web-sites-manage#ftp-credentials)).
+- <strong>Sistema de archivos</strong>. Escribe registros en el sistema de archivos del sitio web. El registro del sistema de archivos dura 12 horas. Puede obtener acceso a los registros desde el recurso compartido de FTP del sitio web. (Consulte [Credenciales FTP](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials)).
 - <strong>Almacenamiento de tablas</strong>. Escribe registros en el almacenamiento de Tabla de Azure. No tiene ningún límite de tiempo y permanece habilitado hasta que el usuario lo deshabilita. 
 - <strong>Almacenamiento de blobs</strong>. Escribe registros en el almacenamiento de blobs de Azure. No tiene ningún límite de tiempo y permanece habilitado hasta que el usuario lo deshabilita.
 
@@ -109,13 +109,13 @@ Opciones para recopilar la información de diagnóstico para el sitio web.
 
 <strong>Registro del servidor web</strong>. Habilita el registro de servidor web. Los registros se guardan con formato de archivo de registro W3C extendido. Puede guardar los registros en el almacenamiento de Azure o en el sistema de archivos del sitio web.
  
-- Si elige la opción <strong>Sistema de archivos</strong>, los registros se guardan en el sitio FTP que aparece en "Registros de diagnóstico de FTP" en la página del Panel. (Consulte [Credenciales FTP](http://azure.microsoft.com/es-es/documentation/articles/web-sites-manage#ftp-credentials)). 
+- Si elige la opción <strong>Sistema de archivos</strong>, los registros se guardan en el sitio FTP que aparece en "Registros de diagnóstico de FTP" en la página del Panel. (Consulte [Credenciales FTP](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials)). 
 - Si elige la opción **Sistema de archivos**, use el cuadro <strong>Cuota</strong> para definir la cantidad máxima de espacio en disco para los archivos de registro. El mínimo es de 25 MB y el máximo es de 100 MB. El valor predeterminado es de 35 MB. Cuando se alcanza la cuota, los archivos nuevos sobrescriben de manera sucesiva los archivos anteriores. Si necesita conservar un historial mayor de 100 MB, utilice el almacenamiento de Azure, que tiene una capacidad de almacenamiento mucho mayor.
 - Opcionalmente haga clic en <strong>Establecer retención</strong> para eliminar archivos automáticamente tras un periodo de tiempo. De manera predeterminada, los registros nunca se eliminan.   
 
-<strong>Mensajes de error detallados</strong>. Si la opción está habilitada, los mensajes de error detallados se guardan como archivos .htm. Para ver los archivos vaya al sitio FTP que aparece en "Registros de diagnóstico de FTP" en la página del Panel. Los archivos se guardan en /LogFiles/DetailedErrors en el sitio FTP. (Consulte [Credenciales FTP](http://azure.microsoft.com/es-es/documentation/articles/web-sites-manage#ftp-credentials)).
+<strong>Mensajes de error detallados</strong>. Si la opción está habilitada, los mensajes de error detallados se guardan como archivos .htm. Para ver los archivos vaya al sitio FTP que aparece en "Registros de diagnóstico de FTP" en la página del Panel. Los archivos se guardan en /LogFiles/DetailedErrors en el sitio FTP. (Consulte [Credenciales FTP](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials)).
 
-<strong>Error del seguimiento de solicitudes</strong>. Si se habilita esta opción, las solicitudes con errores se registran en los archivos XML. Para ver los archivos vaya al sitio FTP que aparece en "Registros de diagnóstico de FTP" en la página del Panel. (Consulte [Credenciales FTP](http://azure.microsoft.com/es-es/documentation/articles/web-sites-manage#ftp-credentials)). Los archivos se guardan en /LogFiles/W3SVC*xxx*, donde xxx es un identificador único. Esta carpeta contiene un archivo XSL y uno o varios archivos XML. Asegúrese de descargar el archivo XSL porque proporciona funcionalidad para dar formato y filtrar los contenidos de los archivos XML.
+<strong>Error del seguimiento de solicitudes</strong>. Si se habilita esta opción, las solicitudes con errores se registran en los archivos XML. Para ver los archivos vaya al sitio FTP que aparece en "Registros de diagnóstico de FTP" en la página del Panel. (Consulte [Credenciales FTP](http://azure.microsoft.com/documentation/articles/web-sites-manage#ftp-credentials)). Los archivos se guardan en /LogFiles/W3SVC*xxx*, donde xxx es un identificador único. Esta carpeta contiene un archivo XSL y uno o varios archivos XML. Asegúrese de descargar el archivo XSL porque proporciona funcionalidad para dar formato y filtrar los contenidos de los archivos XML.
 
 <strong>Depuración remota</strong> Habilita la depuración remota. Cuando esté habilitada, puede usar la depuración remota en Visual Studio para conectarse directamente a su sitio web de Azure. La depuración remota permanecerá habilitada durante 48 horas.
 
@@ -132,7 +132,7 @@ Para obtener más información, consulte [Supervisión del estado de los extremo
 
 Elija <strong>Complemento</strong> para elegir un complemento de análisis de una lista o para ir a la tienda de Azure para elegir uno. Elija <strong>Personalizado</strong> para seleccionar un proveedor de análisis, como New Relic, de una lista. Si utiliza un proveedor personalizado, debe escribir la clave de licencia en el cuadro <strong>Clave de proveedor</strong>. 
 
-Para obtener más información sobre el uso de New Relic con sitios web de Azure, consulte <a href="http://www.windowsazure.com/es-es/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/">Administración del rendimiento de la aplicación New Relic en Sitios web de Azure</a>.
+Para obtener más información sobre el uso de New Relic con sitios web de Azure, consulte <a href="http://azure.microsoft.com/documentation/articles/store-new-relic-web-sites-dotnet-application-performance-management/">Administración del rendimiento de la aplicación New Relic en Sitios web de Azure</a>.
 
 ### Configuración de aplicaciones
 
@@ -210,17 +210,17 @@ De manera alternativa, puede crear el sitio web con la opción **Creación perso
 
 ##<a name="howtodomain"></a>Cómo: nombre de dominio personalizado
 
-Para obtener información sobre la configuración del sitio web para que utilice un nombre de dominio personalizado, consulte [Configuración de un nombre de dominio personalizado para un sitio web de Azure](http://www.windowsazure.com/es-es/documentation/articles/web-sites-custom-domain-name/).
+Para obtener información sobre la configuración del sitio web para que utilice un nombre de dominio personalizado, consulte [Configuración de un nombre de dominio personalizado para un sitio web de Azure](http://azure.microsoft.com/documentation/articles/web-sites-custom-domain-name/).
 
 ##<a name="howtoconfigSSL"></a>Cómo: sitio web para utilizar SSL##
 
-Para obtener información acerca de la configuración de SSL para un dominio personalizado en Azure, consulte [Habilitación de HTTPS para un sitio web de Azure](http://www.windowsazure.com/es-es/documentation/articles/web-sites-configure-ssl-certificate/). 
+Para obtener información acerca de la configuración de SSL para un dominio personalizado en Azure, consulte [Habilitación de HTTPS para un sitio web de Azure](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/). 
 
 ##<a name="next"></a>Pasos siguientes
 
-* [Escalado de sitios web](http://www.windowsazure.com/es-es/documentation/articles/web-sites-scale/)
+* [Escalado de sitios web](http://azure.microsoft.com/documentation/articles/web-sites-scale/)
 
-* [Supervisión de sitios web](http://www.windowsazure.com/es-es/documentation/articles/web-sites-monitor/)
+* [Supervisión de sitios web](http://azure.microsoft.com/documentation/articles/web-sites-monitor/)
 
 
 

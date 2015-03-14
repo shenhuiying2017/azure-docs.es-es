@@ -1,6 +1,21 @@
-﻿<properties urlDisplayName="" pageTitle="Exploradores y dispositivos compatibles" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="Supported browsers and devices" authors="Justin Beckwith"  solutions="" writer="" manager="need to identify contact" editor=""  />
+﻿<properties 
+	pageTitle="Exploradores y dispositivos compatibles" 
+	description="" 
+	services="" 
+	documentationCenter="" 
+	authors="JustinBeckwith" 
+	writer="" 
+	manager="carolz" 
+	editor=""/>
 
-<tags ms.service="multiple" ms.workload="multiple" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="11/16/2014" ms.author="Justin Beckwith" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="multiple" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/16/2014" 
+	ms.author="justbe"/>
 
 #Exploradores y dispositivos compatibles
 El Portal de Microsoft Azure Preview se puede ejecutar en todos los exploradores y dispositivos modernos como tabletas y equipos de escritorio.
@@ -20,3 +35,5 @@ Son compatibles las últimas versiones de los siguientes exploradores:
  
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

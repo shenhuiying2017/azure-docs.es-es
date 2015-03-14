@@ -1,6 +1,20 @@
-﻿<properties pageTitle="Administración de un Servicio móvil en la línea de comandos: tutorial de Azure" description="Obtenga información acerca de cómo crear, implementar y administrar el servicio móvil de Azure mediante herramientas de línea de comandos." services="mobile-services" documentationCenter="" authors="ggailey777" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Administración de un Servicio móvil en la línea de comandos: tutorial de Azure" 
+	description="Obtenga información acerca de cómo crear, implementar y administrar el servicio móvil de Azure mediante herramientas de línea de comandos." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-multiple" ms.devlang="multiple" ms.topic="article" ms.date="11/21/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-multiple" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="glenga"/>
 
 # Automatización de servicios móviles con herramientas de línea de comandos 
 
@@ -18,9 +32,9 @@ Cuando se combinan en un archivo por lotes o un único script, estos comandos in
 
 Para usar las herramientas de línea de comandos de Azure para administrar servicios móviles, necesita una cuenta de Azure que disponga de la característica Servicios móviles de Azure habilitada.
 
-+ En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/" target="_blank">Evaluación gratuita de Azure</a>.
++ En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Evaluación gratuita de Azure</a>.
 
-+ Si tiene una cuenta existente pero necesita habilitar la vista previa de Servicios móviles de Azure, consulte <a href="http://azure.microsoft.com/es-es/documentation/articles/php-create-account/#enable" target="_blank">Habilitación de las características de vista previa de Azure</a>.
++ Si tiene una cuenta existente pero necesita habilitar la vista previa de Servicios móviles de Azure, consulte <a href="http://azure.microsoft.com/documentation/articles/php-create-account/#enable" target="_blank">Habilitación de las características de vista previa de Azure</a>.
 
 Este tema incluye una selección de tareas de administración comunes compatibles con las herramientas de línea de comandos de Azure. Para obtener más información, consulte [Documentación de herramientas de línea de comandos de Azure][reference-docs].
 
@@ -137,7 +151,8 @@ El siguiente comando elimina el servicio móvil, donde `<service-name>` es el no
 
 Tenga en cuenta que esta operación carga un archivo JavaScript (.js) desde el equipo local. El nombre del archivo debe estar compuesto por los nombres de operación y de tabla, y debe encontrarse en la subcarpeta  `table` relativa a la ubicación en la que se ejecuta el comando. Por ejemplo, la siguiente operación carga y registra un nuevo script  `insert` que pertenece a la tabla  `TodoItems`:
 
-		azure mobile script upload todolist table/todoitems.insert.js
+		azure mobile script upload todolist table/todoite
+	ms.insert.js
 
 La declaración de función en el archivo de script también debe coincidir con la operación de tabla registrada. Esto significa que para un script  `insert`, el script cargado contiene una función con la siguiente firma:
 

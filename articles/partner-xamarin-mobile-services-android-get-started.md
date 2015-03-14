@@ -35,7 +35,7 @@ Para completar este tutorial es necesario [Xamarin.Android], que instala Xamarin
 
 El proyecto de inicio rápido descargado contiene el componente de servicios móviles de Azure para Xamarin.Android. Aunque este proyecto tiene como destino Android 4.2 o una versión posterior, el SDK mencionado tan solo requiere Android 2.2 o una versión posterior.
 
-> [AZURE.IMPORTANT] Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
+> [AZURE.IMPORTANT] Para completar este tutorial, deberá tener una cuenta de Azure. Si no dispone de ninguna cuenta, puede registrarse para obtener una versión de evaluación de Azure y conseguir hasta 10 servicios móviles gratuitos que podrá seguir usando incluso después de que finalice la evaluación. Para obtener más información, consulte [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A9C9624B5"%20target="_blank).
 
 ## <a name="create-new-service"></a>Creación de un servicio móvil
 
@@ -137,7 +137,7 @@ Ahora que completó el inicio rápido, aprenda a realizar importantes tareas adi
 [Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-xamarin-android
 [Xamarin.Android]: http://xamarin.com/download
 [SDK de Android para Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=266533
-[WindowsAzure.com]: http://www.windowsazure.com/
+[WindowsAzure.com]: http://azure.microsoft.com/
 [Portal de administración]: https://manage.windowsazure.com/
 
 

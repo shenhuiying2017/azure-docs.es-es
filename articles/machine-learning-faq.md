@@ -1,6 +1,20 @@
-<properties title="Preguntas m&aacute;s frecuentes (P+F) sobre el Aprendizaje autom&aacute;tico de Microsoft Azure" pageTitle="P+F sobre el Aprendizaje autom&aacute;tico de Microsoft Azure | Azure" description="Preguntas m&aacute;s frecuentes sobre el Aprendizaje autom&aacute;tico de Microsoft Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="pamehta" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="P+F sobre el Aprendizaje automático de Microsoft Azure | Azure" 
+	description="Preguntas más frecuentes sobre el Aprendizaje automático de Microsoft Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="pablissima" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="pamehta" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/17/2015" 
+	ms.author="paulettm"/>
 
 # Preguntas más frecuentes (P+F) sobre el Aprendizaje automático de Microsoft Azure
 
@@ -36,11 +50,11 @@ Los cargos se agregan por área de trabajo en su suscripción. Dentro de cada á
 -   Horas de predicción de servicio de API: este medidor incluye los cargos de proceso acumulados por los servicios web en el entorno de producción.
 -   Predicciones de servicio de API (en 1000): este medidor incluye los cargos acumulados por llamada al servicio web de producción.
 
-Para obtener más información sobre precios, visite [http://azure.microsoft.com/es-es/pricing/details/machine-learning/][http://azure.microsoft.com/es-es/pricing/details/machine-learning/].
+Para obtener más información sobre precios, visite [http://azure.microsoft.com/pricing/details/machine-learning/][http://azure.microsoft.com/pricing/details/machine-learning/].
 
 **6. ¿Dispone el Aprendizaje automático de Azure de una evaluación gratuita?**
 
-El Aprendizaje automático de Azure forma parte de la evaluación gratuita de Azure. Cuando se registra para una evaluación gratuita de Azure, puede probar cualquier servicio de Azure durante un mes. Para obtener más información sobre la evaluación gratuita de Azure, visite [http://azure.microsoft.com/es-es/pricing/free-trial-faq/][http://azure.microsoft.com/es-es/pricing/free-trial-faq/].
+El Aprendizaje automático de Azure forma parte de la evaluación gratuita de Azure. Cuando se registra para una evaluación gratuita de Azure, puede probar cualquier servicio de Azure durante un mes. Para obtener más información sobre la evaluación gratuita de Azure, visite [http://azure.microsoft.com/pricing/free-trial-faq/][http://azure.microsoft.com/pricing/free-trial-faq/].
 
 ### ESTUDIO DE APRENDIZAJE AUTOMÁTICO
 
@@ -108,14 +122,16 @@ Iremos agregando continuamente nuevo material al Centro de Aprendizaje automáti
 
 **18. ¿Dónde puedo recibir soporte técnico para el Aprendizaje automático de Azure?**
 
-El Aprendizaje automático de Azure forma parte de la oferta de soporte técnico de Azure. Para recibir soporte técnico en el Aprendizaje automático de Azure, seleccione 'Aprendizaje automático' como servicio y se le mostrará una categoría de temas para presentar su incidencia de soporte técnico. Para obtener más información sobre la oferta de soporte técnico de Azure, visite <http://azure.microsoft.com/es-es/support/options/>
+El Aprendizaje automático de Azure forma parte de la oferta de soporte técnico de Azure. Para recibir soporte técnico en el Aprendizaje automático de Azure, seleccione 'Aprendizaje automático' como servicio y se le mostrará una categoría de temas para presentar su incidencia de soporte técnico. Para obtener más información sobre la oferta de soporte técnico de Azure, visite <http://azure.microsoft.com/support/options/>
 
 El Aprendizaje automático de Azure cuenta también con un foro de la comunidad en MSDN, donde puede plantear preguntas sobre el tema. El equipo de Aprendizaje automático de Azure es el encargado de supervisar el foro. Visite el [foro de Azure][foro de Azure].
 
   [página de inicio]: http://go.microsoft.com/fwlink/?LinkId=404226
-  [Centro de Aprendizaje automático de Azure]: http://azure.microsoft.com/es-es/documentation/services/machine-learning/
-  [http://azure.microsoft.com/es-es/pricing/details/machine-learning/]: http://azure.microsoft.com/es-es/pricing/details/machine-learning/
-  [http://azure.microsoft.com/es-es/pricing/free-trial-faq/]: http://azure.microsoft.com/es-es/pricing/free-trial-faq/
+  [Centro de Aprendizaje automático de Azure]: http://azure.microsoft.com/documentation/services/machine-learning/
+  [http://azure.microsoft.com/pricing/details/machine-learning/]: http://azure.microsoft.com/pricing/details/machine-learning/
+  [http://azure.microsoft.com/pricing/free-trial-faq/]: http://azure.microsoft.com/pricing/free-trial-faq/
   [foro de comentarios de los usuarios]: http://go.microsoft.com/fwlink/?LinkId=404231
   [1]: https://windowsazure.uservoice.com/forums/257792-machine-learning
   [foro de Azure]: http://social.msdn.microsoft.com/Forums/windowsazure/es-es/home?forum=MachineLearning
+
+<!--HONumber=46--> 

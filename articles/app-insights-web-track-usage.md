@@ -1,6 +1,18 @@
-﻿<properties title="Track usage in web applications with Application Insights" pageTitle="Seguir el uso en aplicaciones web" description="Registre las actividades del usuario." metaKeywords="analytics monitoring application insights" authors="awills" manager="kamrani" />
+﻿<properties 
+	pageTitle="Seguir el uso en aplicaciones web" 
+	description="Registre las actividades del usuario." 
+	services="application-insights" 
+	authors="alancameronwills" 
+	manager="kamrani"/>
 
-<tags ms.service="application-insights" ms.workload="tbd" ms.tgt_pltfrm="ibiza" ms.devlang="na" ms.topic="article" ms.date="2014-11-21" ms.author="awills" />
+<tags 
+	ms.service="application-insights" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="ibiza" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2015-01-09" 
+	ms.author="awills"/>
  
 # Seguir el uso de aplicaciones web
 
@@ -119,3 +131,5 @@ Seleccione el evento que desea ver con mayor detalle.
 
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

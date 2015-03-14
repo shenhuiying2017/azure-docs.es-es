@@ -1,6 +1,20 @@
-<properties pageTitle="Escalación de un servicio multimedia | Documentación de Azure" description="Aprenda a escalar Servicios multimedia mediante la especificación del número de unidades reservadas de streaming a petición y unidades reservadas de codificación con las que desea aprovisionar la cuenta." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Escalación de un servicio multimedia | Documentación de Azure" 
+	description="Aprenda a escalar Servicios multimedia mediante la especificación del número de unidades reservadas de streaming a petición y unidades reservadas de codificación con las que desea aprovisionar la cuenta." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -72,7 +86,7 @@ De manera predeterminada las cuentas de Servicios multimedia pueden escalar hast
 Para abrir una incidencia de soporte técnico, haga lo siguiente: 
 
 1. Inicie sesión en su cuenta de Azure en [Portal de administración](http://manage.windowsazure.com).
-2. Vaya a [Soporte técnico](http://www.windowsazure.com/es-es/support/contact/).
+2. Vaya a [Soporte técnico](http://azure.microsoft.com/support/contact/).
 3. Haga clic en "Obtener soporte".
 4. Seleccione su suscripción.
 5. En el tipo de soporte, seleccione "Técnico".

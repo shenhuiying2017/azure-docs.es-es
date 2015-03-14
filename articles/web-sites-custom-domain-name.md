@@ -77,7 +77,7 @@ Si está creando un registro CNAME, omita este paso. Para crear un registro A, n
 
 1.	En el explorador, abra el [Portal de administración de Azure](https://manage.windowsazure.com).
 2.	En la pestaña **Sitios web**, haga clic en el nombre del sitio y seleccione **Panel**.
-3.	Seleccione **Administrar dominios** en la parte inferior de la página. (Si esta opción está deshabilitada, asegúrese de usar el modo Compartido, Básico o Estándar. Para obtener más información, consulte [Escalación de sitios web](http://www.windowsazure.com/es-es/documentation/articles/web-sites-scale/)). 
+3.	Seleccione **Administrar dominios** en la parte inferior de la página. (Si esta opción está deshabilitada, asegúrese de usar el modo Compartido, Básico o Estándar. Para obtener más información, consulte [Escalación de sitios web](http://azure.microsoft.com/documentation/articles/web-sites-scale/)). 
 
 	![](media/web-sites-custom-domain-name/dncmntask-cname-6.png)
 

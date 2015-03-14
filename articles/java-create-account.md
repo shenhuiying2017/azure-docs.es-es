@@ -1,5 +1,21 @@
-﻿<properties title="Java create account" pageTitle="Creación de una cuenta de Java" metaKeywords="" description="Cree una cuenta en Azure." documentationCenter="Java" services="" solutions="" manager="wpickett" editor="mollybos" authors="robmcm" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Creación de una cuenta de Java" 
+	description="Cree una cuenta en Azure." 
+	documentationCenter="java" 
+	services="" 
+	manager="wpickett" 
+	editor="mollybos" 
+	authors="rmcmurray"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 [WACOM.INCLUDE [create-an-azure-account](../includes/create-an-azure-account.md)]
+
+<!--HONumber=46--> 

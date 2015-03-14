@@ -1,6 +1,20 @@
-﻿<properties title="Copy data with Azure Data Factory" pageTitle="Copia de datos con la Factoría de datos de Azure" description="Aprenda a usar Copiar actividad en Factoría de datos de Azure para copiar datos desde una origen de datos a otra." metaKeywords=""  services="data-factory" solutions=""  documentationCenter="" authors="spelluru" manager="jhubbard" editor="monicar" />
+﻿<properties 
+	pageTitle="Copia de datos con la Factoría de datos de Azure" 
+	description="Obtenga información acerca de cómo usar la actividad de copia en la factoría de datos de Azure para copiar datos desde un origen de datos a otro origen de datos." 
+	services="data-factory" 
+	documentationCenter="" 
+	authors="spelluru" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="data-factory" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/13/2014" ms.author="spelluru" />
+<tags 
+	ms.service="data-factory" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/08/2015" 
+	ms.author="spelluru"/>
 
 # Copia de datos con la Factoría de datos de Azure (actividad de copia)
 Puede usar la **actividad de copia** en una canalización para copiar datos de un origen a un receptor (destino) en un lote. La actividad de copia puede utilizarse en los escenarios siguientes:
@@ -724,3 +738,5 @@ Vea [Habilitación de las canalizaciones para que funcionen con datos locales][u
 [image-data-factory-column-mapping-2]: ./media/data-factory-copy-activity/ColumnMappingSample2.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

@@ -1,6 +1,20 @@
-﻿<properties title="Lexicon Based Sentiment Analysis" pageTitle="Paso 1: Análisis de opiniones basado en léxico | Azure" description="Análisis de opiniones basado en léxico" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="jaymathe" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Paso 1: Análisis de opiniones basado en léxico | Azure" 
+	description="Análisis de opiniones basado en léxico" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="jaymathe" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/08/2014" ms.author="jaymathe" /> 
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/11/2015" 
+	ms.author="jaymathe"/> 
 
 
 
@@ -61,7 +75,7 @@ Hay varias maneras de utilizar el servicio de forma automática ([aquí](http://
 La entrada es "Hoy es un buen día.", y el resultado es "1", que indica la idea positiva asociada con la frase de entrada. 
 
 ##Creación del servicio web
->Este servicio web se ha creado con el Aprendizaje automático de Microsoft Azure. Para obtener acceso a una prueba gratuita y a vídeos introductorios sobre la creación de experimentos y la [publicación de servicios web](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consulte [azure.com/ml](http://azure.com/ml). A continuación se muestra una captura de pantalla del experimento que creó el código de ejemplo y el servicio web para cada uno de los módulos dentro del experimento.
+>Este servicio web se ha creado con el Aprendizaje automático de Microsoft Azure. Para obtener acceso a una prueba gratuita y a vídeos introductorios sobre la creación de experimentos y la [publicación de servicios web](http://azure.microsoft.com/documentation/articles/machine-learning-publish-web-service-to-azure-marketplace/), consulte [azure.com/ml](http://azure.com/ml). A continuación se muestra una captura de pantalla del experimento que creó el código de ejemplo y el servicio web para cada uno de los módulos dentro del experimento.
 
 
 Desde el Aprendizaje automático de Microsoft Azure, se creó un nuevo experimento en blanco. En la siguiente ilustración se muestra el flujo de experimento del análisis de opiniones basado en léxico. "sent_dict.csv" es el léxico de subjetividad de MPQA y está establecido como una de las entradas de "Ejecutar scripts R". Otra entrada es una revisión muestreada del conjunto de datos de revisión de Amazon para pruebas, donde se realizan la selección, la modificación del nombre de columna y las operaciones de separación.  Usamos el paquete de hash para almacenar el léxico de subjetividad en la memoria y acelerar el proceso de cálculo de la puntuación. Todo el texto se acortará con el paquete "tm" y se comparará con la palabra del diccionario de opiniones. Por último, se calculará una puntuación agregando la ponderación de cada palabra subjetiva del texto. 
@@ -129,7 +143,7 @@ Desde el Aprendizaje automático de Microsoft Azure, se creó un nuevo experimen
 Desde la perspectiva del algoritmo, el análisis de opiniones basado en léxico es una herramienta de análisis de opiniones generales, aunque es posible que no funcione mejor que el método de clasificación para campos específicos. No se aborda en gran detalle el problema de la negación. Codificamos varias palabras de negación en nuestro programa, pero una mejor manera es usar un diccionario de negación y crear algunas reglas. El servicio web funciona mejor con frases cortas y sencillas como tweets y publicaciones de Facebook que con frases largas y complejas como las de las revisiones de Amazon. 
 
 ##P+F
-Para ver las preguntas más frecuentes sobre el uso del servicio web o la publicación en Marketplace, haga clic [aquí](http://azure.microsoft.com/es-es/documentation/articles/machine-learning-marketplace-faq).
+Para ver las preguntas más frecuentes sobre el uso del servicio web o la publicación en Marketplace, haga clic [aquí](http://azure.microsoft.com/documentation/articles/machine-learning-marketplace-faq).
 
 [1]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_1.png
 [2]: ./media/machine-learning-r-csharp-lexicon-based-sentiment-analysis/sentiment_analysis_2.png
@@ -141,3 +155,5 @@ Para ver las preguntas más frecuentes sobre el uso del servicio web o la public
 
 
 
+
+<!--HONumber=46--> 

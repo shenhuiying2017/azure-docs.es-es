@@ -1,6 +1,20 @@
-<properties title="Step 1: Create an Azure Machine Learning workspace" pageTitle="Paso 1: Creación de un área de trabajo de Aprendizaje automático | Azure" description="Paso 1: creación de una nueva área de trabajo de Estudio de aprendizaje automático de Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Paso 1: Creación de un área de trabajo de Aprendizaje automático | Azure" 
+	description="Paso 1 del tutorial de la solución: creación de una nueva área de trabajo de Estudio de aprendizaje automático de Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="01/29/2015" 
+	ms.author="garye"/>
 
 
 Este es el primer paso del tutorial [Desarrollo de una solución predictiva con el Aprendizaje automático de Azure][develop]:
@@ -47,3 +61,5 @@ Una vez creada el área de trabajo, verá que aparece en la página **aprendizaj
 **A continuación: [Carga de los datos existentes][upload-data]**
 
 [1]: ./media/machine-learning-walkthrough-1-create-ml-workspace/create1.png
+
+<!--HONumber=46--> 

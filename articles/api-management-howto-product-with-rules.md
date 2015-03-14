@@ -1,6 +1,20 @@
-<properties pageTitle="How to create and configure advanced product settings in Azure API Management" metaKeywords="" description="Learn how to configure a product with quota and rate limit policies." metaCanonical="" services="" documentationCenter="API Management" title="How to create and configure advanced product settings in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Creación y configuración de opciones de producto avanzadas en la Administración de API de Azure" 
+	description="Obtenga información acerca de cómo configurar un producto con directivas de cuotas y limitaciones." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="2/11/2015" 
+	ms.author="sdanie"/>
 
 # Creación y definición de configuraciones de productos avanzadas en Administración de API de Azure
 
@@ -255,3 +269,5 @@ Cuando la directiva de límite de tasa de 10 llamadas por minuto se aplique, las
   [Operation results]: ./media/api-management-howto-product-with-rules/api-management-http-get-results.png
   [3]: ./media/api-management-howto-product-with-rules/api-management-http-get-429.png
   [Introducción a la configuración de API avanzada]: ../api-management-get-started-advanced
+
+<!--HONumber=46--> 

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Bottle y MongoDB en Azure con Python Tools 2.1 para Visual Studio" 
 	description="Aprenda a usar las herramientas de Python para Visual Studio para crear una aplicación de Bottle que almacene datos en una instancia de base de datos MongoDB y puedan implementarse en un sitio web." 
 	services="web-sites" 
@@ -215,7 +215,7 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 
 <!--Link references-->
 [Centro para desarrolladores de Python]: /es-es/develop/python/
-[Servicios en la nube de Azure] ../cloud-services-python-ptvs/
+[Servicios en la nube de Azure]: ../cloud-services-python-ptvs/
 
 <!--External Link references-->
 [Portal de administración de Azure]: https://manage.windowsazure.com
@@ -224,8 +224,8 @@ Siga estos vínculos para obtener más información sobre las herramientas de Py
 [Python Tools 2.1 para archivos VSIX de ejemplo de Visual Studio]: http://go.microsoft.com/fwlink/?LinkId=517189
 [Herramientas del SDK de Azure para VS 2013]: http://go.microsoft.com/fwlink/?LinkId=323510
 [Herramientas del SDK de Azure para VS 2012]: http://go.microsoft.com/fwlink/?LinkId=323511
-[Python 2.7 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517190 
-[Python 3.4 32-bit]: http://go.microsoft.com/fwlink/?LinkId=517191
+[Python 2.7 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517190 
+[Python 3.4 de 32 bits]: http://go.microsoft.com/fwlink/?LinkId=517191
 [Documentación sobre Python Tools para Visual Studio]: http://pytools.codeplex.com/documentation
 [Documentación de Bottle]: http://bottlepy.org/docs/dev/index.html
 [MongoDB]: http://www.mongodb.org/

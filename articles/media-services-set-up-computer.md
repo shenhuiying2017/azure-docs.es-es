@@ -1,6 +1,20 @@
-<properties pageTitle="Configuración del equipo para Servicios multimedia de Azure" description="Conozca los requisitos previos de Servicios multimedia usando el SDK de Servicios multimedia para .NET. Aprenda también a crear una aplicación de Visual Studio." services="media-services" documentationCenter="" authors="juliako" manager="dwrede" editor=""/>
+<properties 
+	pageTitle="Configuración del equipo para Servicios multimedia de Azure" 
+	description="Conozca los requisitos previos de Servicios multimedia usando el SDK de Servicios multimedia para .NET. Aprenda también a crear una aplicación de Visual Studio." 
+	services="media-services" 
+	documentationCenter="" 
+	authors="juliako" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="media-services" ms.workload="media" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/30/2014" ms.author="juliako"/>
+<tags 
+	ms.service="media-services" 
+	ms.workload="media" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="juliako"/>
 
 
 
@@ -61,7 +75,7 @@ Para obtener una referencia al contexto de servidor, cree una instancia nueva de
 	_context = new CloudMediaContext(_cachedCredentials);
 
 
-Con frecuencia resulta útil definir una variable de nivel de módulo de tipo **CloudMediaContext** para mantener una referencia al contexto de servidor. Para obtener más información, consulte [Conexión con Servicios multimedia con el SDK de Servicios multimedia para .NET](http://msdn.microsoft.com/es-es/library/azure/jj129571.aspx).
+Con frecuencia resulta útil definir una variable de nivel de módulo de tipo **CloudMediaContext** para mantener una referencia al contexto de servidor. Para obtener más información, consulte [Conexión con Servicios multimedia con el SDK de Servicios multimedia para .NET](http://msdn.microsoft.com/library/azure/jj129571.aspx).
 
 El resto de los ejemplos de código en este tema usan una variable que se llama **_context** para referirse al contexto de servidor. 
 

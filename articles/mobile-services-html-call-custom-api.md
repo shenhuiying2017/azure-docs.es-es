@@ -1,6 +1,21 @@
-﻿<properties pageTitle="Llamada a una API personalizada desde un cliente HTML - Servicios móviles" description="Obtenga información acerca de cómo definir una API personalizada y, a continuación, llamarla desde una aplicación HTML que utiliza Servicios móviles de Microsoft Azure." services="mobile-services" documentationCenter="" authors="ggailey777" writer="jparrel" manager="dwrede" editor=""/>
+﻿<properties 
+	pageTitle="Llamada a una API personalizada desde un cliente HTML - Servicios móviles" 
+	description="Obtenga información acerca de cómo definir una API personalizada y, a continuación, llamarla desde una aplicación HTML que utiliza Servicios móviles de Microsoft Azure." 
+	services="mobile-services" 
+	documentationCenter="" 
+	authors="ggailey777" 
+	Writer="jparrel" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="mobile-html" ms.devlang="javascript" ms.topic="article" ms.date="09/26/2014" ms.author="glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-html" 
+	ms.devlang="javascript" 
+	ms.topic="article" 
+	ms.date="09/26/2014" 
+	ms.author="glenga"/>
 
 # Llamada a una API personalizada desde una aplicación HTML
 

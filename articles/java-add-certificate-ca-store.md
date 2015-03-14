@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Add a Cert to the CA Store" pageTitle="Incorporación de un certificado al almacén de CA de Azure" metaKeywords="Azure Twilio Java, Twilio Java Certificate, Azure Service Bus Certificate" description="Obtenga información acerca de cómo agregar un certificado de entidad de certificación (CA) al almacén de certificados CA de Java (cacerts) para el servicio de Twilio o el Bus de servicio de Azure." metaCanonical="" services="" documentationCenter="Java" title="Adding a Certificate to the Java CA Certificates Store" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" scriptId="" videoId="" />
+﻿<properties 
+	pageTitle="Incorporación de un certificado al almacén de CA de Azure"
+	description="Obtenga información acerca de cómo agregar un certificado de entidad de certificación (CA) al almacén de certificados CA de Java (cacerts) para el servicio de Twilio o el Bus de servicio de Azure." 
+	services="" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="09/25/2014" 
+	ms.author="robmcm"/>
 
 # Incorporación de un certificado al almacén de certificados CA de Java
 Los siguientes pasos le muestran la manera de agregar un certificado de una entidad de certificación (CA) al almacén de certificados CA (cacert) de Java. El ejemplo hace referencia al certificado CA que es necesario utilizar con el servicio Twilio. La información que se proporciona en este tema describe la forma de instalar el certificado CA para el Bus de servicio de Azure. 
@@ -38,3 +52,5 @@ Si necesita agregar el certificado Baltimore CyberTrust Root, el número de seri
 
 Para obtener más información acerca de los certificados raíz que utiliza Azure, consulte [Migración de certificados raíz de Microsoft Azure](http://blogs.msdn.com/b/windowsazure/archive/2013/03/15/windows-azure-root-certificate-migration.aspx).
 
+
+<!--HONumber=46--> 

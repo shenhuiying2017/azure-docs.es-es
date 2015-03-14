@@ -5,5 +5,4 @@
 - [(Xamarin iOS | Cualquiera)](/es-es/documentation/articles/mobile-services-xamarin-ios-get-started-offline-data/)
 - [(Xamarin Android | Cualquiera)](/es-es/documentation/articles/mobile-services-xamarin-android-get-started-offline-data/)
 
-
 <!--HONumber=42-->

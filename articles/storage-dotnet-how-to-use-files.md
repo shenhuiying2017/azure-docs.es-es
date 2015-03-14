@@ -58,7 +58,7 @@ Almacenamiento de archivos contiene los siguientes componentes:
 ![files-concepts][files-concepts]
 
 
--   **Cuenta de almacenamiento:** todo el acceso al Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Consulte [Objetivos de rendimiento y escalabilidad del Almacenamiento de Azure](http://msdn.microsoft.com/es-es/library/dn249410.aspx) para obtener más información acerca de la capacidad de la cuenta de almacenamiento.
+-   **Cuenta de almacenamiento:** todo el acceso al Almacenamiento de Azure se realiza a través de una cuenta de almacenamiento. Consulte [Objetivos de rendimiento y escalabilidad del Almacenamiento de Azure](http://msdn.microsoft.com/library/dn249410.aspx) para obtener más información acerca de la capacidad de la cuenta de almacenamiento.
 
 -   **Recurso compartido:** un recurso compartido de almacenamiento de archivos es un recurso compartido de archivos de SMB 2.1 en Azure. Todos los archivos y directorios deben crearse en un recurso compartido principal. Una cuenta puede contener un número ilimitado de recursos compartidos y un recurso compartido puede almacenar un número ilimitado de archivos, hasta los límites de capacidad de la cuenta de almacenamiento.
 
@@ -72,7 +72,7 @@ En el ejemplo siguiente, podría usarse una URL para dirigir uno de los archivos
 
 
 
-Para obtener detalles sobre cómo asignar nombre a recursos compartidos, directorios y archivos, consulte [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](http://msdn.microsoft.com/es-es/library/azure/dn167011.aspx).
+Para obtener detalles sobre cómo asignar nombre a recursos compartidos, directorios y archivos, consulte [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](http://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ##<a name="create-account"></a>Creación de una cuenta de almacenamiento de Azure
 
@@ -155,7 +155,7 @@ Una vez tenga una conexión remota con la máquina virtual, puede ejecutar el co
 	   
 	net use z: \\<storage-account>.file.core.windows.net\<share-name> /u:<storage-account> <account-key>
 
-Ahora puede trabajar con el recurso compartido de Almacenamiento de archivos desde dentro de la máquina virtual como lo haría con cualquier otra unidad. Puede emitir comandos de archivo estándar desde el símbolo del sistema o ver el recurso compartido montado y su contenido desde el explorador de archivos. También puede ejecutar código desde la máquina virtual que accede al recurso compartido de archivos usando las API de E/S de archivos Windows estándar, como por ejemplo las proporcionadas por los [espacios de nombres System.IO](http://msdn.microsoft.com/es-es/library/gg145019(v=vs.110).aspx) en .NET Framework. 
+Ahora puede trabajar con el recurso compartido de Almacenamiento de archivos desde dentro de la máquina virtual como lo haría con cualquier otra unidad. Puede emitir comandos de archivo estándar desde el símbolo del sistema o ver el recurso compartido montado y su contenido desde el explorador de archivos. También puede ejecutar código desde la máquina virtual que accede al recurso compartido de archivos usando las API de E/S de archivos Windows estándar, como por ejemplo las proporcionadas por los [espacios de nombres System.IO](http://msdn.microsoft.com/library/gg145019(v=vs.110).aspx) en .NET Framework. 
 
 También puede montar el recurso compartido de archivos desde un rol que se ejecute en un servicio en la nube de Azure mediante una conexión remota con el rol.
 
@@ -248,7 +248,7 @@ para obtener información más detallada.
   <ul>
     <li><a href="http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409">Referencia acerca de la biblioteca de clientes de almacenamiento para .NET</a>
     </li>
-    <li><a href="http://msdn.microsoft.com/es-es/library/azure/dn167006.aspx">Referencia de la API REST del servicio de archivos</a></li>
+    <li><a href="http://msdn.microsoft.com/library/azure/dn167006.aspx">Referencia de la API REST del servicio de archivos</a></li>
   </ul>
 </li>
 <li>Consulte las publicaciones en blogs del equipo de almacenamiento de Azure relacionadas con el servicio de archivos:
@@ -276,6 +276,5 @@ para obtener información más detallada.
 [Creación de una aplicación local para tener acceso a Almacenamiento de archivos]: #create-console-app
 
 [files-concepts]: ./media/storage-dotnet-how-to-use-files/files-concepts.png
-
 
 <!--HONumber=42-->

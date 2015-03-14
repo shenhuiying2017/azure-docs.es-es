@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="squillace" 
 	manager="timlt" 
-	editor="tysonn"/>
+	editor=""/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.workload="infrastructure-services" 
-	ms.date="02/02/2015" 
+	ms.date="10/21/2014" 
 	ms.author="rasquill"/>
 # Uso de la extensión de VM Docker desde la interfaz entre plataformas de Azure (xplat-cli)
 En este tema se describe cómo crear una máquina virtual con la extensión de VM Docker desde xplat-cli en cualquier plataforma. [Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que utilizan los [contenedores de Linux](http://en.wikipedia.org/wiki/LXC) en lugar de máquinas virtuales como una forma de aislar datos y calcular recursos compartidos. Puede usar la extensión de VM Docker para que el [agente Linux de Azure](http://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/) cree una VM Docker que hospede cualquier número de contenedores para sus aplicaciones de Azure. Para ver un análisis de alto nivel de contenedores y sus ventajas, consulte [Documento de alto nivel de Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard).
@@ -96,7 +96,7 @@ donde *<vm-name-you-used>* es el nombre de la máquina virtual que ha utilizado 
 ### Autenticación de máquina virtual de host de Docker
 Además de crear la VM Docker, el comando  `azure vm docker create` también crea automáticamente los certificados necesarios para permitir a su equipo cliente de Docker conectarse al host del contenedor de Azure mediante HTTPS y los certificados se almacenan tanto en el equipo cliente como en el host, según corresponda. En las siguientes ejecuciones, se vuelven a utilizar los certificados existentes y se comparten con el nuevo host.
 
-De forma predeterminada, los certificados se ubican en `~/.docker` y Docker está configurado para ejecutarse en el puerto **4243**. Si desea utilizar un puerto o directorio diferente, entonces puede utilizar una de las siguientes opciones de línea de comando  `azure vm docker create` para configurar su VM host de contenedor Docker para que utilice un puerto diferente o diferentes certificados para conectarse con los clientes:
+De forma predeterminada, los certificados se colocan en `~/.docker` y Docker se configurará para ejecutarse en el puerto **4243**. Si desea utilizar un puerto o directorio diferente, entonces puede utilizar una de las siguientes opciones de línea de comando  `azure vm docker create` para configurar su VM host de contenedor Docker para que utilice un puerto diferente o diferentes certificados para conectarse con los clientes:
 
 ```
 -dp, --docker-port [port]              Port to use for docker [4243]
@@ -115,9 +115,9 @@ El demonio de Docker del host está configurado para que realice escuchas y aute
 Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. Para crear una máquina virtual con la funcionalidad Docker en el nuevo portal, consulte [Uso de la extensión de VM Docker con el portal].
 
 <!--Anchors-->
-[Subtítulo 1]: #subheading-1
-[Subtítulo 2]: #subheading-2
-[Subtítulo 3]: #subheading-3
+[Subheading 1]: #subheading-1
+[Subheading 2]: #subheading-2
+[Subheading 3]: #subheading-3
 [Pasos siguientes]: #next-steps
 
 [Uso de la extensión de VM Docker con Azure]: #How-to-use-the-Docker-VM-Extension-with-Azure
@@ -131,13 +131,14 @@ Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. 
 
 
 <!--Link references-->
-[Vínculo 1 a otro tema de documentación de azure.microsoft.com]: ../virtual-machines-windows-tutorial/
+[Link 1 to another azure.microsoft.com documentation topic]: ../virtual-machines-windows-tutorial/
 [Vínculo 2 a otro tema de documentación de azure.microsoft.com]: ../web-sites-custom-domain-name/
 [Vínculo 3 a otro tema de documentación de azure.microsoft.com]: ../storage-whatis-account/
-[Cómo usar la extensión de la máquina virtual Docker con el Portal]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 [Uso de la extensión de VM Docker con el portal]: http://azure.microsoft.com/documentation/articles/virtual-machines-docker-with-portal/
 
-[Guía de usuario de Docker]: https://docs.docker.com/userguide/
 [Guía del usuario de Docker]: https://docs.docker.com/userguide/
 
-<!--HONumber=45--> 
+
+
+
+<!--HONumber=42-->

@@ -1,6 +1,20 @@
-﻿<properties title="How to Create a DocumentDB Account" pageTitle="Crear una cuenta de base de datos | Azure" description="Aprenda a crear una cuenta de base de datos de documentos NoSQL de Base de datos de documentos y elija la configuración de la cuenta en el Portal de vista previa de Azure."  metaKeywords="NoSQL, DocumentDB, database, document-orientated database, JSON, account" services="documentdb"  solutions="data-management" documentationCenter=""  authors="mimig" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Crear una cuenta de base de datos | Azure" 
+	description="Obtenga información acerca de cómo crear una cuenta de Base de datos de documentos NoSQL y de cómo elegir la configuración de la cuenta en el Portal de vista previa de Azure." 
+	services="documentdb" 
+	documentationCenter="" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar"/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="12/09/2014" ms.author="mimig" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/09/2014" 
+	ms.author="mimig"/>
 
 #Creación de una cuenta de base de datos
 Para usar Base de datos de documentos de Microsoft Azure, debe crear una cuenta de Base de datos de documentos.  En este tema se describe cómo crear una cuenta de Base de datos de documentos en el portal de administración de vista previa de Azure.  
@@ -25,7 +39,7 @@ Para usar Base de datos de documentos de Microsoft Azure, debe crear una cuenta 
 
 	- El modo **Configuración opcional** se usa para especificar la capacidad inicial asignada a su cuenta de Base de datos de documentos.  Base de datos de documentos aprovecha las unidades de capacidad para permitirle escalar su cuenta de Base de datos de documentos, donde cada unidad de capacidad incluye almacenamiento y rendimiento de base de datos reservados.  De manera predeterminada, se aprovisiona una unidad de capacidad.  Puede ajustar el número de unidades de capacidad disponibles para su cuenta de Base de datos de documentos en cualquier momento mediante el [portal de administración de vista previa](https://portal.azure.com/#gallery/Microsoft.DocumentDB). Para obtener detalles acerca de la capacidad y el rendimiento de la cuenta de Base de datos de documentos, vea el artículo [Administración de capacidad y rendimiento de Base de datos de documentos][documentdb-manage].
 
-	- En **Grupo de recursos**, seleccione o cree un grupo de recursos para su cuenta de Base de datos de documentos.  De forma predeterminada, se creará un nuevo grupo de recursos.  Puede, sin embargo, optar por seleccionar un grupo de recursos existente al que agregar su cuenta de Base de datos de documentos. Para obtener más información, vea [Uso de los grupos de recursos para administrar los recursos de Azure](http://azure.microsoft.com/es-es/documentation/articles/azure-preview-portal-using-resource-groups/).
+	- En **Grupo de recursos**, seleccione o cree un grupo de recursos para su cuenta de Base de datos de documentos.  De forma predeterminada, se creará un nuevo grupo de recursos.  Puede, sin embargo, optar por seleccionar un grupo de recursos existente al que agregar su cuenta de Base de datos de documentos. Para obtener más información, vea [Uso de los grupos de recursos para administrar los recursos de Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/).
 
 	- En **Suscripción**, seleccione la suscripción a Azure que quiere usar para la cuenta de Base de datos de documentos. Si la cuenta tiene solo una suscripción, dicha cuenta se seleccionará automáticamente.*
  
@@ -73,3 +87,5 @@ Para obtener más información sobre Base de datos de documentos, vea la documen
 [8]: ./media/documentdb-create-account/ca8.png
 
 <!--HONumber=35.2-->
+
+<!--HONumber=46--> 

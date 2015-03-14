@@ -1,6 +1,20 @@
-<properties pageTitle="How to edit the contents of a page in Azure API Management" metaKeywords="" description="How to edit the contents of a page in Azure API Management." metaCanonical="" services="" documentationCenter="API Management" title="How to edit the contents of a page in Azure API Management" authors="sdanie" solutions="" manager="" editor="" />
+﻿<properties 
+	pageTitle="Edición del contenido de una página en Administración de API de Azure" 
+	description="Edición del contenido de una página en Administración de API de Azure." 
+	services="api-management" 
+	documentationCenter="" 
+	authors="steved0x" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="api-management" ms.workload="mobile" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="sdanie" />
+<tags 
+	ms.service="api-management" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="11/18/2014" 
+	ms.author="sdanie"/>
 
 # Edición del contenido de una página en Administración de API de Azure
 
@@ -15,3 +29,5 @@ Haga clic en la página "Bienvenido" para editar lo que se muestra en la página
 > La página principal utiliza un diseño especial que permite mostrar un banner en la parte superior. Este banner no se puede editar en la sección Contenido. Para editarlo, haga clic en **Widgets** en el menú **Portal de desarrolladores**, seleccione a continuación **Página principal** en el menú desplegable **Capa actual** y por último abra el elemento **Banner** en la sección Destacados. Los contenidos de este widget se pueden editar del mismo modo que cualquier otra página.
 
   [Manage content]: ./media/api-management-howto-edit-contents-of-page/api-management-customization-manage-content.png
+
+<!--HONumber=46--> 

@@ -33,7 +33,7 @@ El Administrador de tráfico de Azure utiliza tres métodos de equilibrio de car
 	
 * **Rendimiento**: El método Rendimiento distribuye el tráfico según el tiempo de ida y vuelta más breve para los clientes. El método Rendimiento también se puede utilizar para sitios web dentro de la misma región o en regiones distintas. 
 
-Para obtener información detallada acerca del equilibrio de carga en el Administrador de tráfico de Azure, consulte [Acerca de los métodos de equilibrio de carga de Traffic Manager](http://msdn.microsoft.com/es-es/library/windowsazure/dn339010.aspx).
+Para obtener información detallada acerca del equilibrio de carga en el Administrador de tráfico de Azure, consulte [Acerca de los métodos de equilibrio de carga de Traffic Manager](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx).
 
 ##Sitios web Azure y perfles de Traffic Manager 
 Para configurar el control del tráfico de sitio web, puede crear un perfil en el Administrador de tráfico de Azure que utilice uno de los tres métodos de equilibrio de carga anteriormente descritos y, a continuación, agregar los extremos (en este caso, los sitios web) para los que desea controlar el tráfico al perfil. El estado del sitio web (en ejecución, detenido o eliminado) se comunica de manera regular al perfil para que el Administrador de tráfico de Azure pueda dirigir el tráfico como corresponda.
@@ -56,11 +56,11 @@ Cuando utilice el Administrador de tráfico de Azure con Azure, tenga en cuenta 
 
 ## Pasos siguientes
 
-Si desea obtener información general de carácter técnico y conceptual del Administrador de tráfico de Azure, consulte [Información general sobre Traffic Manager](http://msdn.microsoft.com/es-es/library/windowsazure/hh744833.aspx). 
+Si desea obtener información general de carácter técnico y conceptual del Administrador de tráfico de Azure, consulte [Información general sobre Traffic Manager](http://msdn.microsoft.com/library/windowsazure/hh744833.aspx). 
 
-Para obtener información sobre cómo configurar el Administrador de tráfico de Azure, incluido para el uso de Sitios web Azure, consulte [Tareas de configuración de Traffic Manager](http://msdn.microsoft.com/es-es/library/windowsazure/hh744830.aspx).
+Para obtener información sobre cómo configurar el Administrador de tráfico de Azure, incluido para el uso de Sitios web Azure, consulte [Tareas de configuración de Traffic Manager](http://msdn.microsoft.com/library/windowsazure/hh744830.aspx).
 
-Para obtener información detallada acerca del equilibrio de carga en el Administrador de tráfico de Azure, consulte [Acerca de los métodos de equilibrio de carga de Traffic Manager](http://msdn.microsoft.com/es-es/library/windowsazure/dn339010.aspx).
+Para obtener información detallada acerca del equilibrio de carga en el Administrador de tráfico de Azure, consulte [Acerca de los métodos de equilibrio de carga de Traffic Manager](http://msdn.microsoft.com/library/windowsazure/dn339010.aspx).
 
 Para obtener más información sobre el uso del Administrador de tráfico con Sitios web Azure, consulte las publicaciones del blog 
 [Using Azure Traffic Manager with Azure Web Sites](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) y [Azure Traffic Manager can now integrate with Azure Web sites](http://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).

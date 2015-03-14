@@ -1,6 +1,20 @@
-<properties urlDisplayName="Localized Breaking News" pageTitle="Tutorial de últimas noticias localizadas sobre los Centros de notificaciones" metaKeywords="" description="Obtenga información acerca de los centros de notificaciones del Bus de servicio de Azure para enviar notificaciones de noticias de última hora localizadas." metaCanonical="" services="mobile-services,notification-hubs" documentationCenter="" title="Use Notification Hubs to send localized breaking news" authors="ricksal" solutions="" manager="dwrede" editor="" />
+﻿<properties 
+	pageTitle="Tutorial de últimas noticias localizadas sobre los Centros de notificaciones" 
+	description="Obtenga información acerca de los Centros de notificaciones del Bus de servicio de Azure para enviar notificaciones de noticias de última hora localizadas." 
+	services="notification-hubs" 
+	documentationCenter="windows" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="notification-hubs" ms.workload="mobile" ms.tgt_pltfrm="mobile-windows-store" ms.devlang="dotnet" ms.topic="article" ms.date="01/01/1900" ms.author="ricksal" />
+<tags 
+	ms.service="notification-hubs" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="" 
+	ms.devlang="dotnet" 
+	ms.topic="article" 
+	ms.date="11/21/2014" 
+	ms.author="ricksal"/>
 # Uso de los Centros de notificaciones para enviar noticias de última hora localizadas
 
 <div class="dev-center-tutorial-selector sublanding"> 
@@ -12,31 +26,31 @@ Este tema muestra cómo usar la característica de **plantilla** de los Centros 
 Este tutorial le guiará a través de estos pasos básicos para habilitar este escenario:
 
 1. [Conceptos de plantilla] 
-2. [La interfaz de usuario de la aplicación]
-3. [Creación de la aplicación cliente de la Tienda Windows]
-4. [Envío de notificaciones desde su back-end]
+2. [Interfaz de usuario de la aplicación]
+3. [Compilación de la aplicación cliente de la Tienda Windows]
+4. [Envío de notificaciones desde el back-end]
 
 
 Este escenario tiene dos partes:
 
 - La aplicación de la Tienda Windows permite que los dispositivos cliente especifiquen un idioma y se suscriban a distintas categorías de noticias de última hora. 
 
-- El backend difunde las notificaciones, mediante las características de **etiqueta** y **plantilla** de los Centros de notificaciones de Azure.
+- El back-end difunde las notificaciones, mediante las características de **etiqueta** y **plantilla** de los Centros de notificaciones de Azure.
 
 
 
-## Requisitos previos ##
+##Requisitos previos ##
 
-Debe haber completado el tutorial [Uso de Centros de notificaciones para enviar noticias de última hora] y debe tener disponible el código, porque este tutorial se basa directamente en ese código. 
+Debe haber completado el tutorial [Uso de Centros de notificaciones para enviar noticias de última hora] y tener disponible el código, porque este tutorial se basa directamente en ese código. 
 
 También necesita Visual Studio 2012.
 
 
 <h2><a name="concepts"></a>Conceptos de plantilla</h2>
 
-En el tutorial [Uso de Centros de notificaciones para enviar noticias de última hora], creó una aplicación que utilizó **etiquetas** para suscribirse a notificaciones para distintas categorías de noticias.
+En el tutorial [Uso de Centros de notificaciones para enviar noticias de última hora] creó una aplicación que usó **etiquetas** para suscribirse a las notificaciones de distintas categorías de noticias.
 Sin embargo, muchas aplicaciones están dirigidas a varios mercados y requieren localización. Esto significa que el contenido de las notificaciones mismas se debe localizar y entregar al conjunto de dispositivos correcto.
-En este tema podremos mostrar cómo usar la característica de **plantilla** de los Centros de notificaciones para entregar fácilmente notificaciones de noticias de última hora localizadas.
+En este tema mostraremos cómo usar la característica de **plantilla** de los Centros de notificaciones para entregar fácilmente notificaciones de noticias de última hora localizadas.
 
 Nota: una forma de enviar notificaciones localizadas es crear varias versiones de cada etiqueta. Por ejemplo, para admitir inglés, francés y chino mandarín, necesitaríamos tres etiquetas distintas para noticias mundiales: "mundo_in", "mundo_fr" y "mundo_ch". Luego tendríamos que enviar una versión localizada de las noticias mundiales a cada una de estas etiquetas. En este tema usamos plantillas para evitar la proliferación de etiquetas y el requisito de enviar varios mensajes.
 
@@ -60,15 +74,15 @@ Esto garantizará que los dispositivos se registren con una plantilla que hace r
 
 
 
-Las plantillas son una característica muy potente de la que puede aprender más en nuestro artículo [Información general acerca de los Centros de notificaciones de Azure]. Asimismo, podrá consultar información de referencia sobre el lenguaje de expresión de las plantillas en los [procedimientos de los Centros de notificaciones para la Tienda Windows].
+Las plantillas son una característica muy eficaz de la que puede obtener más información en nuestro artículo [Orientación sobre los Centros de notificaciones]. Asimismo, podrá consultar información de referencia sobre el lenguaje de expresión de las plantillas en los [Procedimientos de los Centros de notificaciones para la Tienda Windows].
 
 
-<h2><a name="ui"></a>La interfaz de usuario de la aplicación</h2>
+<h2><a name="ui"></a>Interfaz de usuario de la aplicación</h2>
 
-Ahora modificaremos la aplicación de noticias de última hora que creó en el tema [Uso de los Centros de notificaciones para enviar noticias de última hora] para enviar noticias de última hora localizadas con plantillas.
+Ahora modificaremos la aplicación de noticias de última hora que creó en el tema [Uso de los Centros de notificaciones para enviar noticias de última hora] a fin de enviar noticias de última hora localizadas con plantillas.
 
 
-Con la finalidad de adaptar sus aplicaciones clientes para que reciban mensajes localizados, debe reemplazar sus registros *nativos* (es decir, registros que especifica en una plantilla) por registros de plantilla.
+Para adaptar las aplicaciones cliente de forma que reciban mensajes localizados, debe reemplazar los registros *native* (es decir, registros que especifica en una plantilla) por registros de plantilla.
 
 
 En la aplicación de la Tienda Windows:
@@ -104,9 +118,9 @@ Modifique el archivo MainPage.xaml para que incluya un cuadro combinado de confi
         <Button Content="Subscribe" HorizontalAlignment="Center" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Click="Button_Click" />
     </Grid>
 
-<h2><a name="building-client"></a><span class="building app">IU de la aplicación</span>Creación de la aplicación cliente de la Tienda Windows</h2>
+<h2><a name="building-client"></a><span class="building app">Interfaz de usuario de aplicación</span>Compilación de la aplicación cliente de la Tienda Windows</h2>
 
-1. En la clase Notifications, agregue un parámetro de configuración regional a los métodos *StoreCategoriesAndSubscribe* y *SubscribeToCategories*.
+1. En la clase Notifications, agregue un parámetro de configuración regional a los métodos  *StoreCategoriesAndSubscribe* y *SubscribeToCateories*.
 
 		public async Task StoreCategoriesAndSubscribe(string locale, IEnumerable<string> categories)
         {
@@ -154,14 +168,14 @@ Modifique el archivo MainPage.xaml para que incluya un cuadro combinado de confi
          await dialog.ShowAsync();
 
 4. Por último, en el archivo App.xaml.cs, asegúrese de actualizar la llamada al singleton 
-Notifications en el método *OnLaunched*:
+Singleton Notifications en el método *OnLaunched*:
 
 		Notifications.SubscribeToCategories(Notifications.RetrieveLocale(), Notifications.RetrieveCategories());
 
 
-<h2><a name="send"></a>Envío de notificaciones localizadas desde su backend</h2>
+<h2><a name="send"></a>Envío de notificaciones localizadas desde el back-end</h2>
 
-[WACOM.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
+[AZURE.INCLUDE [notification-hubs-localized-back-end](../includes/notification-hubs-localized-back-end.md)]
 
 
 
@@ -169,16 +183,32 @@ Notifications en el método *OnLaunched*:
 
 ## Pasos siguientes
 
-Para obtener más información acerca del uso de las plantillas, consulte [Notificación a los usuarios con los Centros de notificaciones: ASP.NET], [Notificación a los usuarios con los Centros de notificaciones: Servicios móviles] e [Información general acerca de los centros de notificaciones de Azure]. Como referencia sobre el lenguaje de expresión de las plantillas, puede consultar los [procedimientos de los Centros de notificaciones para la Tienda Windows].
+Para obtener más información acerca del uso de las plantillas, consulte [Notificación a los usuarios con los Centros de notificaciones: ASP.NET], [Notificación a los usuarios con los Centros de notificaciones: Servicios móviles] y [Orientación sobre los Centros de notificaciones]. Como referencia sobre el lenguaje de expresión de las plantillas, puede consultar los [Procedimientos de los Centros de notificaciones para la Tienda Windows].
 
 <!-- Anchors. -->
 [Conceptos de plantilla]: #concepts
-[La interfaz de usuario de la aplicación]: #ui
-[Creación de la aplicación cliente de la Tienda Windows]: #building-client
-[Envío de notificaciones desde su back-end]: #send
+[Interfaz de usuario de la aplicación]: #ui
+[Compilación de la aplicación cliente de la Tienda Windows]: #building-client
+[Envío de notificaciones desde el back-end]: #send
 [Pasos siguientes]:#next-steps
 
 <!-- Images. -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -188,22 +218,23 @@ Para obtener más información acerca del uso de las plantillas, consulte [Notif
 [Servicio móvil]: /es-es/develop/mobile/tutorials/get-started
 [Notificación a los usuarios con los Centros de notificaciones: ASP.NET]: /es-es/manage/services/notification-hubs/notify-users-aspnet
 [Notificación a los usuarios con los Centros de notificaciones: Servicios móviles]: /es-es/manage/services/notification-hubs/notify-users
-[Uso de Centros de notificaciones para enviar noticias de última hora]: /es-es/manage/services/notification-hubs/breaking-news-dotnet 
-[Uso de los Centros de notificaciones para enviar noticias de última hora]: /es-es/manage/services/notification-hubs/breaking-news-dotnet
+[Uso de los Centros de notificaciones para enviar noticias de última hora]: /es-es/manage/services/notification-hubs/breaking-news-dotnet 
 
 [Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introducción a Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
+[Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
 [Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-dotnet
 [Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-dotnet
 [Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-dotnet
 [Notificaciones de inserción para usuarios de la aplicación]: /es-es/develop/mobile/tutorials/push-notifications-to-app-users-dotnet
-[Autorización a los usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
+[Autorización de usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [JavaScript y HTML]: /es-es/develop/mobile/tutorials/get-started-with-push-js
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[wns, objeto]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Información general acerca de los Centros de notificaciones de Azure]: http://msdn.microsoft.com/es-es/library/jj927170.aspx
-[Procedimientos de los Centros de notificaciones para iOS]: http://msdn.microsoft.com/es-es/library/jj927168.aspx
-[Procedimientos de los Centros de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/es-es/library/jj927172.aspx
+[Objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
+[Información general acerca de los Centros de notificaciones ]: http://msdn.microsoft.com/library/jj927170.aspx
+[Procedimientos de los Centros de notificaciones para iOS]: http://msdn.microsoft.com/library/jj927168.aspx
+[Procedimientos de los Centros de notificaciones para la Tienda Windows]: http://msdn.microsoft.com/library/jj927172.aspx
+
+<!--HONumber=45--> 

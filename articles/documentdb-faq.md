@@ -1,6 +1,20 @@
-﻿<properties title="Frequently asked questions about DocumentDB" pageTitle="Preguntas más frecuentes sobre Base de datos de documentos | Azure" description="Respuestas a las preguntas frecuentes acerca del servicio de base de datos de documentos nosql de Base de datos de documentos de Azure. Obtenga información acerca de las unidades de solicitudes y capacidad, y comprenda cómo escalar para satisfacer sus necesidades de aplicación." metaKeywords="NoSQL, DocumentDB,  database, document-orientated database, JSON, faq"   services="documentdb" solutions="data-management"   authors="spelluru" manager="jhubbard" editor="monicar" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Preguntas más frecuentes sobre Base de datos de documentos | Azure" 
+	description="Respuestas a las preguntas frecuentes acerca del servicio de base de datos de documentos nosql de Base de datos de documentos de Azure. Obtenga información acerca de las unidades de solicitudes y capacidad, y comprenda cómo escalar para satisfacer sus necesidades de aplicación." 
+	services="documentdb" 
+	authors="mimig1" 
+	manager="jhubbard" 
+	editor="monicar" 
+	documentationCenter=""/>
 
-<tags ms.service="documentdb" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/20/2014" ms.author="spelluru" />
+<tags 
+	ms.service="documentdb" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/22/2014" 
+	ms.author="mimig"/>
 
 
 #Preguntas más frecuentes sobre Base de datos de documentos
@@ -32,7 +46,7 @@ Sí, Base de datos de documentos admite transacciones entre documentos expresada
 Base de datos de documentos es una buena opción para nuevas aplicaciones web y móviles en las que la escala, el rendimiento y la consulta a través de datos sin esquemas son importantes. Se presta muy bien a un desarrollo rápido y admite la iteración continua de modelos de datos de aplicaciones. Casos de uso comunes de Base de datos de documentos son las aplicaciones que administran contenido y datos generados por el usuario.  
 
 ###¿Cuáles son la escala y los límites de capacidad?
-Cada cuenta de Base de datos de documentos de Azure admite un número máximo de unidades de capacidad que se pueden configurar a través del portal de Azure. Si necesita unidades de capacidad adicionales, póngase en contacto con el soporte técnico para que le aumenten la cuota de la cuenta.  Para obtener más información sobre las cuotas de recursos, consulte [el artículo sobre los límites de servicio de Base de datos de documentos.](http://azure.microsoft.com/en-us/documentation/articles/documentdb-limits/) 
+Cada cuenta de Base de datos de documentos de Azure admite un número máximo de unidades de capacidad que se pueden configurar a través del portal de Azure. Si necesita unidades de capacidad adicionales, póngase en contacto con el soporte técnico para que le aumenten la cuota de la cuenta.  Para obtener más información sobre las cuotas de recursos, consulte [el artículo sobre los límites de servicio de Base de datos de documentos.](http://azure.microsoft.com/documentation/articles/documentdb-limits/) 
 
 
 ###¿Cuánto cuesta Base de datos de documentos de Microsoft Azure?
@@ -87,3 +101,5 @@ Sí. Como Base de datos de documentos es un servicio RESTful, los vínculos de r
 
 [preview-portal]: https://portal.azure.com
 [query]: ../documentdb-sql-query/
+
+<!--HONumber=46--> 

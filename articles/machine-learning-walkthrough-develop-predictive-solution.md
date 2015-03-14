@@ -1,6 +1,20 @@
-<properties title="Desarrollo de una soluci&oacute;n predictiva con Aprendizaje autom&aacute;tico de Azure." pageTitle="Desarrollo de una soluci&oacute;n predictiva con Aprendizaje autom&aacute;tico | Azure" description="Tutorial sobre la creaci&oacute;n de un experimento de an&aacute;lisis predictivo en Estudio de aprendizaje autom&aacute;tico de Microsoft Azure" metaKeywords="" services="machine-learning" solutions="" documentationCenter="" authors="garye" manager="paulettm" editor="cgronlun" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Desarrollo de una solución predictiva con Aprendizaje automático | Azure" 
+	description="Tutorial sobre la creación de un experimento de análisis predictivo en Estudio de aprendizaje automático de Microsoft Azure" 
+	services="machine-learning" 
+	documentationCenter="" 
+	authors="garyericson" 
+	manager="paulettm" 
+	editor="cgronlun"/>
 
-<tags ms.service="machine-learning" ms.workload="data-services" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="08/06/2014" ms.author="garye" />
+<tags 
+	ms.service="machine-learning" 
+	ms.workload="data-services" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="08/06/2014" 
+	ms.author="garye"/>
 
 # Desarrollo de una solución predictiva con Aprendizaje automático de Azure.
 
@@ -29,3 +43,5 @@ Este tutorial se basa en una versión simplificada del
   [Publicación del servicio web]: ../machine-learning-walkthrough-5-publish-web-service/
   [Acceso al servicio web]: ../machine-learning-walkthrough-6-access-web-service/
   [experimento de ejemplo de predicción de riesgo de crédito]: ../machine-learning-sample-credit-risk-prediction/
+
+<!--HONumber=46--> 
