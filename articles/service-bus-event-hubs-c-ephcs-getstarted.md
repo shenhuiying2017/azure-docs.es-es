@@ -1,7 +1,20 @@
-﻿<properties pageTitle="Introducción a los Centros de eventos" metaKeywords="Bus de servicio de Azure, Centro de eventos, introducción a los Centros de eventos" description="Siga este tutorial para empezar a usar eventos de envío de centros de eventos de Azure con C y recibir en C# mediante EventProcessorHost" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+﻿<properties
+	pageTitle="Introducción a los Centros de eventos" 
+	description="Siga este tutorial para empezar a usar eventos de envío de centros de eventos de Azure con C y recibir en C# mediante EventProcessorHost" 
+	services="service-bus" 
+	documentationCenter="" 
+	authors="fsautomata" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="c" ms.devlang="csharp" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
-
+<tags 
+	ms.service="service-bus" 
+	ms.workload="core" 
+	ms.tgt_pltfrm="c" 
+	ms.devlang="csharp" 
+	ms.topic="hero-article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 # <a name="getting-started"> </a>Introducción a los Centros de eventos
 
 [WACOM.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
@@ -87,4 +100,4 @@ Ahora está listo para ejecutar las aplicaciones.
 <!-- Links -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Host del procesador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Información general de los Centros de eventos]: http://msdn.microsoft.com/es-es/library/azure/dn836025.aspx
+[Información general de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
