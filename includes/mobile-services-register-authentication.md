@@ -4,11 +4,11 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
 
 1. Inicie sesión en el [Portal de administración de Azure], haga clic en **Servicios móviles** y luego en su servicio móvil.
 
-   	![](./media/mobile-services-register-authentication/mobile-services-selection.png)
+   
 
 2. Haga clic en la pestaña **Panel** y anote el valor de **Dirección URL del servicio móvil**.
 
-   	![](./media/mobile-services-register-authentication/mobile-service-uri.png)
+
 
     Es posible que tenga que proporcionar ese valor al proveedor de identidades cuando registre la aplicación.
 
@@ -21,13 +21,10 @@ Para poder autenticar usuarios, debe registrar la aplicación con un proveedor d
  - <a href="/es-es/documentation/articles/mobile-services-how-to-register-active-directory-authentication/" target="_blank">Azure Active Directory</a>
 
 
-    Recuerde anotar los valores secretos y la identidad del cliente que genera el proveedor.
 
     > [AZURE.IMPORTANT] El secreto que genera el proveedor es una credencial de seguridad importante. por lo que no debe compartirlo con nadie ni distribuirlo con su aplicación.
 
 4. Vuelva al Portal de administración, haga clic en la pestaña **Identidad**, especifique el identificador de la aplicación y los valores secretos compartidos que le proporcionó el proveedor de identidades y haga clic en **Guardar**.
-
-   	![](./media/mobile-services-register-authentication/mobile-identity-tab.png)
 
 	El servicio móvil y la aplicación están ahora configurados para que funcionen con el proveedor de autenticación seleccionado.
 
