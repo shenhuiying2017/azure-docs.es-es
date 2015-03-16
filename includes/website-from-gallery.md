@@ -76,8 +76,7 @@ Después de hacer clic en **Completar**, Azure iniciará las operaciones de comp
 [8]: ./media/website-from-gallery/wordpressgallery-04.png
 [9]: ./media/website-from-gallery/wordpressgallery-05.png
 [10]: ./media/website-from-gallery/wordpressgallery-06.png
-[11]: ./media/website-from-gallery/wordpressgallery-07.png
-[12]: ./media/website-from-gallery/wordpressgallery-08.png
+
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
 
 

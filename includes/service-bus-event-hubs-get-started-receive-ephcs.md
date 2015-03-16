@@ -1,4 +1,4 @@
-## Recepción de mensajes con EventProcessorHost
+﻿## Recepción de mensajes con EventProcessorHost
 
 **EventProcessorHost** es una clase de .NET que simplifica la recepción de eventos desde los Centros de eventos mediante la administración de puntos de control persistentes y recepciones paralelas desde tales Centros de eventos. Con **EventProcessorHost**, puede dividir eventos entre varios destinatarios, incluso cuando están hospedados en distintos nodos. Este ejemplo muestra cómo usar **EventProcessorHost** para un solo destinatario. El [ejemplo de procesamiento de eventos escalados horizontalmente] muestra cómo usar **EventProcessorHost** con varios destinatarios.
 
@@ -120,4 +120,6 @@ Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento d
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Guía del desarrollador de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn789972.aspx<!--HONumber=42-->
+[Guía del desarrollador de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+
+<!--HONumber=42-->
