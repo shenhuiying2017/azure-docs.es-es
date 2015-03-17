@@ -47,7 +47,7 @@ Entre los escenarios descritos se incluyen la**inserción**, **inspección**, **
 
 ## <a id="CreateAccount"></a>Creación de una cuenta de almacenamiento de Azure
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a id="create-a-ruby-application"></a>Creación de una aplicación de Ruby
 

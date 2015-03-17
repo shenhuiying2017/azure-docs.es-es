@@ -42,7 +42,7 @@ Esta guía le indicará cómo actuar en situaciones habituales usando el servici
 [AZURE.INCLUDE [howto-table-storage](../includes/howto-table-storage.md)]
 
 ## <a name="create-account">Creación de una cuenta de almacenamiento de Azure</a>
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 **Nota:** si necesita instalar Python o las bibliotecas de cliente, consulte la [Guía de instalación de Python](../python-how-to-install/).
 

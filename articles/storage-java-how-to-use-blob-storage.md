@@ -38,11 +38,11 @@ Nota: hay un SDK disponible para los desarrolladores que usen el almacenamiento 
 * [Establecimiento un contenedor de blobs](#DeleteContainer)
 * [Pasos siguientes](#NextSteps)
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
 <h2><a id="CreateAccount"></a>Creación de una cuenta de almacenamiento de Azure</h2>
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="CreateApplicationCreación de una aplicación Java"></a>
 

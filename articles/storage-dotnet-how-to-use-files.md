@@ -80,7 +80,7 @@ Almacenamiento de archivos de Azure se encuentra actualmente en vista previa. Pa
 
 > [AZURE.NOTE] Actualmente, Almacenamiento de archivos solamente está disponible para nuevas cuentas de almacenamiento. Después de que se haya concedido acceso a su suscripción a Almacenamiento de archivos, cree una nueva cuenta de almacenamiento para utilizar con esta guía.
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ##<a name="use-cmdlets"></a>Uso de PowerShell para crear un recurso compartido de archivos
 

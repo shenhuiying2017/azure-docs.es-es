@@ -41,7 +41,7 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del servicio 
 
 [AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 [AZURE.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 

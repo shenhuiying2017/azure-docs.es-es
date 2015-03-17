@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a Búsqueda de Azure" 
 	description="Introducción a Búsqueda de Azure" 
 	services="search" 
@@ -405,7 +405,7 @@ Si necesita un actualizador sobre dónde buscar las páginas de configuración, 
 [19]: ./media/search-get-started/AzureSearch_Configure1_14_GETQueryResponse.PNG
 [20]: ./media/search-get-started/AzureSearch_Configure1_15_Stats.PNG
 [21]: ./media/search-get-started/AzureSearch_Configure1_16_StatsResponse.PNG
-[22]: ./media/search-get-started/AzureSearch_Configure1_17_HomeDashboard.PNG
+[22]: ./media/search-get-started/AzureSearch_Configure1_17_BrowseEverything.PNG
 [23]: ./media/search-get-started/AzureSearch_Configure1_18_Explore.PNG
 
 
@@ -416,5 +416,3 @@ Si necesita un actualizador sobre dónde buscar las páginas de configuración, 
 [Creación de una aplicación de búsqueda geoespacial mediante Búsqueda de Azure]: ../search-create-geospatial/
 
 <!--HONumber=35.2-->
-
-<!--HONumber=46--> 

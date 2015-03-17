@@ -27,8 +27,8 @@ Para usar Almacenamiento de Azure, necesitará una suscripción a Azure. Siga es
 
 6.  Haga clic en **CREAR CUENTA DE ALMACENAMIENTO**.
 
-[Mediante la API de REST]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
+[API de REST]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
 [Portal de administración de Azure]: http://manage.windowsazure.com
-[plus-new]: ./media/create-storage-account/plus-new.png
-[quick-create-storage]: ./media/create-storage-account/quick-storage-2.png
+[plus-new]: ./media/storage-create-account-include/plus-new.png
+[quick-create-storage]: ./media/storage-create-account-include/quick-storage-2.png
 <!--HONumber=42-->

@@ -43,7 +43,7 @@ Esta guía le indicará cómo actuar en situaciones habituales usando el servici
 
 <h2><a name="create-account"></a>Creación de una cuenta de almacenamiento de Azure</h2>
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="create-app"> </a>Creación de una aplicación Node.js
 

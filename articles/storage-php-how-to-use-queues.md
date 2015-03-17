@@ -42,7 +42,7 @@ Esta guía muestra cómo realizar algunas tareas comunes a través del servicio 
 
 <h2><a id="create-account"></a>Creación de una cuenta de almacenamiento de Azure</h2>
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 <h2><a id="create-app"></a>Creación de una aplicación PHP</h2>
 

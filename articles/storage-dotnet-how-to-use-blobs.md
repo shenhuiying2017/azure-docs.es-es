@@ -37,9 +37,9 @@ Esta guía demuestra cómo realizar algunas tareas comunes a través del servici
 -   [Enumeración de los blobs en las páginas de manera asincrónica][]
 -   [Pasos siguientes][]
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 [AZURE.INCLUDE [storage-configure-connection-string](../includes/storage-configure-connection-string.md)]
 

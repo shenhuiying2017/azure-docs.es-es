@@ -45,10 +45,10 @@ consulte la sección [Pasos siguientes][].
 * [Adición de firmas de acceso compartido][]     
 * [Pasos siguientes][]
 
-[AZURE.INCLUDE [howto-blob-storage](../includes/howto-blob-storage.md)]
+[AZURE.INCLUDE [storage-blob-concepts-include](../includes/storage-blob-concepts-include.md)]
 
 ##<a name="create-account"></a>Creación de una cuenta de almacenamiento de Azure
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="create-app"></a>Creación de una aplicación Node.js
 

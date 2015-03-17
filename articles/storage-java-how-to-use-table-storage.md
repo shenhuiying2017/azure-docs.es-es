@@ -48,7 +48,7 @@ Nota: hay un SDK disponible para los desarrolladores que usen el almacenamiento 
 
 ##<a name="CreateAccount"></a>Creación de una cuenta de almacenamiento de Azure
 
-[AZURE.INCLUDE [create-storage-account](../includes/create-storage-account.md)]
+[AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
 ## <a name="CreateApplicationCreación de una aplicación Java"></a>
 
