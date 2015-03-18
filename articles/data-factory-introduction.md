@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a la Factoría de datos de Azure" 
 	description="Obtenga información acerca de cómo puede usar el servicio de la factoría de datos de Azure para componer el procesamiento de datos, el almacenamiento de datos y los servicios de movimiento de datos para crear canalizaciones que generen información de confianza." 
 	services="data-factory" 
@@ -177,9 +177,9 @@ Microsoft Data Management Gateway es software que conecta orígenes de datos loc
 
 [image-data-factory-introduction-todays-diverse-processing-landspace]:./media/data-factory-introduction/TodaysDiverseDataProcessingLandscape.PNG
 
-[image-data-factory-introduction-secenario1-source-datahub]:./media/data-factory-introduction/Scenario1SourceDataHub.png
+[image-data-factory-introduction-secenario1-source-datahub]:./media/data-factory-common-scenarios/Scenario1SourceDataHub.png
 
-[image-data-factory-introduction-secenario2-operationalize-infoproduction]:./media/data-factory-introduction/Scenario2-OperationalizeInformationProduction.png
+[image-data-factory-introduction-secenario2-operationalize-infoproduction]:./media/data-factory-common-scenarios/Scenario2-OperationalizeInformationProduction.png
 
 [image-data-factory-application-model]:./media/data-factory-introduction/DataFactoryApplicationModel.png
 
