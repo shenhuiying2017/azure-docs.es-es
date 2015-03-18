@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
     pageTitle="Generación de una aplicación web con Python y Flask mediante la Base de datos de documentos | Azure" 
     description="Obtenga información acerca de cómo usar la Base de datos de documentos para almacenar y acceder a los datos de una aplicación web de Python y Flask (MVC) hospedada en Azure." 
     services="documentdb" 
@@ -186,7 +186,7 @@ pip.
 Amplíe el nodo de entornos Python en el Explorador de soluciones, haga clic con el botón secundario en
 su entorno y seleccione "Instalar paquete Python..."
 
-![Alt text](./media/documentdb-python-application/image13.png)
+![Alt text](./media/documentdb-python-application/image11.png)
 
 Escriba "--pre pydocumentdb", que es el nombre del paquete PyPi. De manera opcional,
 puede proporcionar una versión conocida si desea controlar qué versión
@@ -194,7 +194,7 @@ le gustaría instalar; si lo deja sin versión se asegurará de que se instale
 la versión estable más reciente. Tenga en cuenta que tendrá que escribir el
 nombre completo "--pre pydocumentdb".
 
-![Alt text](./media/documentdb-python-application/image14.png)
+![Alt text](./media/documentdb-python-application/image12.png)
 
 Esto descargará e instalará el paquete de pydocumentdb en su
 entorno y una vez completado debería ver pydocumentdb en la lista como un
