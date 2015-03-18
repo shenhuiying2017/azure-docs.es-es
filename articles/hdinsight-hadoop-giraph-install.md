@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Usar la acción de script en HDInsight para instalar Giraph en el clúster de Hadoop| Azure" 
 	description="Obtenga información acerca de cómo personalizar el clúster de HDInsight para instalar Giraph. Va a utilizar una opción de configuración de la acción de script para usar un script para instalar Giraph" 
 	services="hdinsight" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/19/2014" 
+	ms.date="03/03/2015" 
 	ms.author="nitinme"/>
 
 # Instalación y uso de Giraph en clústeres de Hadoop de HDInsight
@@ -21,15 +21,6 @@
 Puede instalar Giraph en cualquier tipo de clúster de Hadoop en HDInsight mediante la personalización de clústeres de **acción de script**. La acción de script le permite ejecutar scripts para personalizar un clúster, conforme se crea el clúster. Para obtener más información, consulte [Personalización de un clúster de HDInsight mediante la acción de script][hdinsight-cluster-customize].
 
 En este tema aprenderá a instalar Giraph con la acción de script. Una vez haya instalado Giraph, aprenderá cómo utilizar Giraph en las aplicaciones más habituales, como procesar gráficos de gran escala.
-
-
-## En este artículo
-
-- [¿Qué es Giraph?](#whatis)
-- [¿Cómo instalo Giraph?](#install)
-- [¿Cómo uso Giraph en HDInsight?](#usegiraph)
-- [Instalar Giraph en clústeres de Hadoop de HDInsight mediante PowerShell](#usingPS)
-- [Instalar Giraph en clústeres de Hadoop de HDInsight mediante el SDK de .NET](#usingSDK) 
 
 
 ## <a name="whatis"></a>¿Qué es Giraph?
@@ -360,4 +351,8 @@ Proporcione un nombre de clúster y presione ENTRAR para aprovisionar un clúste
 [hdinsight-provision]: ../hdinsight-provision-clusters/
 [hdinsight-install-r]: ../hdinsight-hadoop-r-scripts/
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
-[hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster<!--HONumber=42-->
+[hdinsight-cluster-customize]: ../hdinsight-hadoop-customize-cluster
+
+
+
+<!--HONumber=42-->
