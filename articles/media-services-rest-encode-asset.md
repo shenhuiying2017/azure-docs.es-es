@@ -17,27 +17,27 @@
 	ms.author="juliako"/>
 
 
-#Codificación de un recurso mediante el Codificador multimedia de Azure
+# Codificación de un recurso mediante el Codificador multimedia de Azure
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow). 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) . 
 
-##Información general
+## Información general
 Para entregar vídeo digital a través de Internet, debe comprimir los archivos multimedia. Los archivos de vídeo digital son bastante grandes y pueden ser demasiado pesados para entregarlos a través de Internet o para que los dispositivos de sus clientes los muestren correctamente. La codificación es el proceso de compresión de vídeo y audio para que los clientes puedan ver el contenido multimedia.
 
-Los trabajos de codificación son una de las operaciones de procesamiento más habituales en los Servicios multimedia. Los trabajos de codificación se crean para convertir archivos multimedia de una codificación a otra. Al codificar, puede usar el Codificador multimedia integrado de Servicios multimedia. También puede usar un codificador proporcionado por un socio de Servicios multimedia; los codificadores de terceros están disponibles a través de Azure Marketplace. Puede especificar los detalles de las tareas de codificación mediante cadenas preestablecidas definidas para el codificador o mediante archivos de configuración preestablecidos. Para ver los tipos de valores preestablecidos disponibles, vea Valores preestablecidos de tarea para los Servicios multimedia de Azure. Si usó un codificador de terceros, debe [validar los archivos](https://msdn.microsoft.com/es-es/library/azure/dn750842.aspx).
+Los trabajos de codificación son una de las operaciones de procesamiento más habituales en los Servicios multimedia. Los trabajos de codificación se crean para convertir archivos multimedia de una codificación a otra. Al codificar, puede usar el Codificador multimedia integrado de Servicios multimedia. También puede usar un codificador proporcionado por un socio de Servicios multimedia; los codificadores de terceros están disponibles a través de Azure Marketplace. Puede especificar los detalles de las tareas de codificación mediante cadenas preestablecidas definidas para el codificador o mediante archivos de configuración preestablecidos. Para ver los tipos de valores preestablecidos disponibles, vea Valores preestablecidos de tarea para los Servicios multimedia de Azure. Si usó un codificador de terceros, debe [validar los archivos](https://msdn.microsoft.com/library/azure/dn750842.aspx).
 
-Se recomienda codificar siempre los archivos intermedios en un conjunto de archivos MP4 de velocidad de bits adaptable y, a continuación, convertirlo al formato deseado con el [empaquetado dinámico](https://msdn.microsoft.com/es-es/library/azure/jj889436.aspx).
+Se recomienda codificar siempre los archivos intermedios en un conjunto de archivos MP4 de velocidad de bits adaptable y, a continuación, convertirlo al formato deseado con el [empaquetado dinámico](https://msdn.microsoft.com/library/azure/jj889436.aspx).
 
-##Creación de un trabajo con una sola tarea de codificación 
+## Creación de un trabajo con una sola tarea de codificación 
 
 >[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 >
 >Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración de desarrollo de la API de REST de Servicios multimedia](../media-services-rest-how-to-use).
 
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST de Servicios multimedia](../media-services-rest-connect_programmatically/). 
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST](../media-services-rest-connect_programmatically/). 
 
 
-En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. Al codificar con el Codificador multimedia de Azure, puede usar los valores preestablecidos de configuración de tarea especificados [aquí](https://msdn.microsoft.com/es-es/library/azure/dn619389.aspx).
+En el ejemplo siguiente se muestra cómo crear y publicar un trabajo con un conjunto de tareas para codificar un vídeo con una resolución y calidad específicas. Al codificar con el Codificador multimedia de Azure, puede usar los valores preestablecidos de configuración de tarea especificados [aquí](https://msdn.microsoft.com/library/azure/dn619389.aspx).
 	
 Solicitud:
 
@@ -70,7 +70,7 @@ Respuesta:
 	
 	{"d":{"__metadata":{"id":"https://media.windows.net/api/Jobs('nb%3Ajid%3AUUID%3A40dc7bef-6bd9-2247-9f3d-d80bc257d715')","uri":"https://media.windows.net/api/Jobs('nb%3Ajid%3AUUID%3A40dc7bef-6bd9-2247-9f3d-d80bc257d715')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.Job"},"Tasks":{"__deferred":{"uri":"https://media.windows.net/api/Jobs('nb%3Ajid%3AUUID%3A40dc7bef-6bd9-2247-9f3d-d80bc257d715')/Tasks"}},"OutputMediaAssets":{"__deferred":{"uri":"https://media.windows.net/api/Jobs('nb%3Ajid%3AUUID%3A40dc7bef-6bd9-2247-9f3d-d80bc257d715')/OutputMediaAssets"}},"InputMediaAssets":{"__deferred":{"uri":"https://media.windows.net/api/Jobs('nb%3Ajid%3AUUID%3A40dc7bef-6bd9-2247-9f3d-d80bc257d715')/InputMediaAssets"}},"Id":"nb:jid:UUID:40dc7bef-6bd9-2247-9f3d-d80bc257d715","Name":"NewTestJob","Created":"\/Date(1336771959431)\/","LastModified":"\/Date(1336771959431)\/","EndTime":null,"Priority":0,"RunningDuration":0,"StartTime":null,"State":0,"TemplateId":null}}
 
-##Creación de un trabajo con tareas encadenadas
+## Creación de un trabajo con tareas encadenadas
 
 En muchos escenarios de aplicaciones, los desarrolladores desean crear una serie de tareas de procesamiento. En Servicios multimedia, puede crear una serie de tareas encadenadas. Cada tarea realiza distintos pasos de procesamiento diferentes y puede usar diferentes procesadores multimedia. Las tareas encadenadas pueden entregar un recurso de una tarea a otra, realizando una secuencia lineal de tareas en el recurso. Sin embargo, no es necesario que las tareas realizadas en un trabajo estén en una secuencia. Al crear una tarea encadenada, los objetos **ITask** encadenados se crean en un solo objeto **IJob**.
 
@@ -109,15 +109,15 @@ En muchos escenarios de aplicaciones, los desarrolladores desean crear una serie
 	}
 
 
-##Pasos siguientes
-Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [Comprobación del progreso del trabajo con los Servicios multimedia](../media-services-rest-check-job-progress/) .
+## Pasos siguientes
+Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [Comprobación del progreso del trabajo con Servicios multimedia](../media-services-rest-check-job-progress/) .
 
 [Azure Marketplace]: https://datamarket.azure.com/
-[Valor preestablecido del codificador]: http://msdn.microsoft.com/library/dn619392.aspx
-[Procedimiento: Obtención de una instancia de procesador multimedia]:http://go.microsoft.com/fwlink/?LinkId=301732
-[Procedimiento: Carga de un recurso cifrado]:http://go.microsoft.com/fwlink/?LinkId=301733
-[Procedimiento: Entrega de un recurso mediante descarga]:http://go.microsoft.com/fwlink/?LinkId=301734
+[Valores preestablecidos del codificador]: http://msdn.microsoft.com/library/dn619392.aspx
+[Obtención de una instancia de procesador multimedia]:http://go.microsoft.com/fwlink/?LinkId=301732
+[Carga de un recurso cifrado]:http://go.microsoft.com/fwlink/?LinkId=301733
+[Entrega de un recurso mediante descarga]:http://go.microsoft.com/fwlink/?LinkId=301734
 [Comprobación del progreso del trabajo]:http://go.microsoft.com/fwlink/?LinkId=301737
 [Valores predefinidos de tarea para Azure Media Packager]:http://msdn.microsoft.com/library/windowsazure/hh973635.aspx
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -73,7 +73,8 @@
 [Características de SendGrid]: http://sendgrid.com/features
 [Portal de administración de Azure]: https://manage.windowsazure.com
 [Introducción a SendGrid]: http://sendgrid.com/docs
-[Proceso de aprovisionamiento de SendGrid]: https://support.sendgrid.com/hc/es-es/articles/200181628-Why-is-my-account-being-provisioned-
+[Proceso de aprovisionamiento de SendGrid]: https://support.sendgrid.com/hc/articles/200181628-Why-is-my-account-being-provisioned-
 [todas las API]: https://sendgrid.com/docs/API_Reference/index.html
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

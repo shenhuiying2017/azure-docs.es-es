@@ -1,5 +1,5 @@
-<properties
-   pageTitle="Desarrollo de trabajos de MapReduce para Python con HDInsight | Azure"
+﻿<properties
+   pageTitle="Desarrollo de trabajos de MapReduce para Python con HDInsight | Aure"
    description="Aprenda a crear y ejecutar trabajos de MapReduce para Python en clústeres de HDInsight basado en Linux."
    services="hdinsight"
    documentationCenter=""
@@ -16,13 +16,13 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# Desarrollo de programas de streaming para HDInsight
+#Desarrollo de programas de streaming para HDInsight
 
 Hadoop proporciona una API de streaming para MapReduce que le permite escribir mapas y reducir funciones en lenguajes distintos de Java. En este documento, aprenderá a usar Python para realizar operaciones de MapReduce.
 
 > [AZURE.NOTE] Este artículo se basa en información y ejemplos publicados por Michael Noll en [http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/](http://www.michael-noll.com/tutorials/writing-an-hadoop-mapreduce-program-in-python/).
 
-## Requisitos
+##Requisitos
 
 * Un clúster de Hadoop en HDInsight basado en Linux
 
@@ -30,7 +30,7 @@ Hadoop proporciona una API de streaming para MapReduce que le permite escribir m
 
 * Para clientes Windows, PuTTY y PSCP. Estas utilidades se encuentran disponibles en <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>
 
-## Recuento de palabras
+##Recuento de palabras
 
 Para este ejemplo, implementará un recuento de palabras básico mediante el uso de un asignador y un reductor. El asignador dividirá las oraciones en palabras individuales y el reductor agregará las palabras y los recuentos para generar la salida.
 
@@ -38,13 +38,13 @@ A continuación se ilustra lo que sucede durante las fases de asignación y redu
 
 ![illustration of map reduce](./media/hdinsight-hadoop-streaming-python/HDI.WordCountDiagram.png)
 
-## Por qué Python
+##Por qué Python
 
 Python es un lenguaje de programación de uso general y alto nivel que le permite expresar conceptos en menos líneas de código que muchos de los otros lenguajes. Se volvió popular recientemente entre los científicos de datos como un lenguaje para la creación de prototipos, debido a que su naturaleza interpretada, sus tipos dinámicos y su sintaxis elegante lo hacen apto para un desarrollo de aplicaciones rápido.
 
 Python está instalado en todos los clústeres de HDInsight.
 
-## Transmisión de MapReduce
+##Transmisión de MapReduce
 
 Hadoop le permite especificar un archivo que contiene la lógica de asignación y reducción que usa un trabajo. Los requisitos específicos de la lógica de asignación y reducción son:
 
@@ -56,11 +56,11 @@ Hadoop le permite especificar un archivo que contiene la lógica de asignación 
 
 Python puede controlar fácilmente estos requisitos si usa el módulo **sys** para leer desde STDIN e **print** para imprimir a STDOUT. El resto es, simplemente, dar formato a los datos con un carácter de tabulación (`\t`) entre la clave y el valor.
 
-## Creación del asignador y del reductor
+##Creación del asignador y del reductor
 
 El asignador y el reductor solo son archivos de texto, en este caso, **mapper.py** y **reducer.py**, por lo que es claro qué hace cada uno. Puede crearlos con el editor que prefiera.
 
-### Mapper.py
+###Mapper.py
 
 Cree un archivo nuevo llamado **mapper.py** y use los siguientes elementos como el contenido.
 
@@ -90,7 +90,7 @@ Cree un archivo nuevo llamado **mapper.py** y use los siguientes elementos como 
 
 Dedique un momento para leer el código y comprender lo que hace.
 
-### Reducer.py
+###Reducer.py
 
 Cree un archivo nuevo llamado **reducer.py** y use los siguientes elementos como el contenido.
 
@@ -129,7 +129,7 @@ Cree un archivo nuevo llamado **reducer.py** y use los siguientes elementos como
 	if __name__ == "__main__":
 	    main()
 
-## Carga de los archivos
+##Carga de los archivos
 
 Tanto **mapper.py** como **reducer.py** deben estar en el nodo principal del clúster antes de poder ejecutarlos. La forma más simple de cargarlos es usando **scp** (**pscp** si usa un cliente Windows).
 
@@ -139,15 +139,15 @@ Desde el cliente, en el mismo directorio en que se encuentran **mapper.py** y **
 
 Esta acción copiará los archivos del sistema local al nodo principal.
 
-> [AZURE.NOTE] Si usó una contraseña para proteger la cuenta SSH, se le preguntará la contraseña. Si usó una clave SSH, es posible que deba utilizar el parámetro `-i` y la ruta de acceso a la clave privada. Por ejemplo, `scp -i /path/to/private/key mapper.py reducer.py nombredeusuario@nombredelclúster-ssh.azurehdinsight.net:`
+> [AZURE.NOTE] Si usó una contraseña para proteger la cuenta SSH, se le preguntará la contraseña. Si usó una clave SSH, es posible que deba usar el parámetro `-i` y la ruta de acceso a la clave privada. Por ejemplo, `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`
 
-## Ejecución de MapReduce
+##Ejecución de MapReduce
 
 1. Conéctese al clúster con SSH.
 
 		ssh username@clustername-ssh.azurehdinsight.net
 
-	> [AZURE.NOTE] Si usó una contraseña para proteger la cuenta SSH, se le preguntará la contraseña. Si usó una clave SSH, es posible que deba utilizar el parámetro `-i` y la ruta de acceso a la clave privada. Por ejemplo, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
+	> [AZURE.NOTE] Si usó una contraseña para proteger la cuenta SSH, se le preguntará la contraseña. Si usó una clave SSH, es posible que deba usar el parámetro `-i` y la ruta de acceso a la clave privada. Por ejemplo, `ssh -i /path/to/private/key username@clustername-ssh.azurehdinsight.net`
 
 2. Use el comando siguiente para iniciar el trabajo de MapReduce.
 
@@ -177,7 +177,7 @@ Debiera ver gran cantidad de instrucciones **INFO** cuando el trabajo se inicie 
 
 Finalmente, recibir información sobre el estado del trabajo cuando finalice.
 
-## Visualización de la salida
+##Visualización de la salida
 
 Una vez que se finalice el trabajo, use el siguiente comando para ver la salida.
 
@@ -192,12 +192,11 @@ Esta acción debiera mostrar una lista de palabras y cuántas veces aparecieron.
 	wrinkles        2
 	wrinkling       2
 
-## Pasos siguientes
+##Pasos siguientes
 
 Ahora que aprendió a usar los trabajos de transmisión de MapReduce con HDInsight, use los vínculos que aparecen a continuación para explorar otras formas de trabajar con HDInsight de Azure.
 
 * [Uso de Hive con HDInsight](../hdinsight-use-hive/)
 * [Uso de Pig con HDInsight](../hdinsight-use-pig/)
 * [Uso de trabajos de MapReduce con HDInsight](../hdinsight-use-mapreduce)
-
-<!--HONumber=45--> 
+<!--HONumber=47-->

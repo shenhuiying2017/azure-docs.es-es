@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Lo que necesita saber acerca de Hadoop en HDInsight basado en Linux | Azure"
    description="Los clústeres de HDInsight basado en Linux proporcionan Hadoop en un entorno conocido de Linux, que se ejecuta en la nube de Azure."
    services="hdinsight"
@@ -22,11 +22,11 @@ Los clústeres de HDInsight basado en Linux proporcionan Hadoop en un entorno co
 
 ## Nombres de dominio
 
-El nombre de dominio completo que se utiliza al conectarse con el clúster es **&lt;nombre del clúster>.azurehdinsight.net** o (solo para SSH) **&lt;nombre del clúster>.aurehdinsight.net**.
+El nombre de dominio completo (FQDN) que se usa al conectarse con el clúster es **&lt;nombre del clúster>.azurehdinsight.net** o (solo para SSH) **&lt;nombre del clúster>.aurehdinsight.net**.
 
 ## Servicios accesibles de manera remota
 
-* **Ambari (web)** - https://&lt;nombre del clúster>.azurehdinsight.net
+* **Ambari (web)**: https://&lt;clustername>.azurehdinsight.net
 
 	> [AZURE.NOTE] Realice la autenticación con el usuario y la contraseña del administrador de clúster y, a continuación, inicie sesión en Ambari. Aquí también se usa el usuario y la contraseña del administrador de clúster.
 	> 
@@ -36,23 +36,23 @@ El nombre de dominio completo que se utiliza al conectarse con el clúster es **
 
 	Para solucionar este problema, use un túnel SSH para autorizar el tráfico web al nodo principal del clúster. Use los siguientes artículos para crear un túnel SSH desde un puerto en la máquina local al clúster.
 
-	* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X</a> : pasos para crear un túnel SSH con el comando `ssh`.
+	* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X</a>: pasos para crear un túnel SSH con el comando `ssh`.
 
-	* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows</a> : pasos para usar PuTTY para crear un túnel SSH.
+	* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows</a>: pasos para usar Putty a fin de crear un túnel SSH.
 
-* **Ambari (REST)**: https://&lt;nombre del clúster>.azurehdinsight.net/ambari
-
-	> [AZURE.NOTE] Realice la autenticación con el usuario y la contraseña del administrador de clúster.
-	> 
-	> La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
-
-* **WebHCat (Templeton)**: https://&lt;nombre del clúster>.azurehdinsight.net/templeton
+* **Ambari (REST)**: https://&lt;clustername>.azurehdinsight.net/ambari
 
 	> [AZURE.NOTE] Realice la autenticación con el usuario y la contraseña del administrador de clúster.
 	> 
 	> La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
 
-* **SSH**: &lt;nombre del clúster>-ssh.azurehdinsight.net en el puerto 22
+* **WebHCat (Templeton)**: https://&lt;clustername>.azurehdinsight.net/templeton
+
+	> [AZURE.NOTE] Realice la autenticación con el usuario y la contraseña del administrador de clúster.
+	> 
+	> La autenticación es texto no cifrado: use siempre HTTPS para asegurarse de que la conexión sea segura.
+
+* **SSH**: &lt;nombre del clúster>-ssh.azurehdinsight.net en el puerto 22.
 
 	> [AZURE.NOTE] Solo puede tener acceso al nodo principal del clúster a través de SSH desde un equipo cliente. Una vez conectado, puede tener acceso a los nodos de trabajo mediante el uso de SSH desde el nodo principal.
 
@@ -60,7 +60,7 @@ El nombre de dominio completo que se utiliza al conectarse con el clúster es **
 
 Puede encontrar los archivos relacionados con Hadoop en los nodos de clúster en `/usr/hdp/current`.
 
-Puede encontrar datos de ejemplo y archivos jar en HDFS (WASB) en "/example" o 'wasb:///example'.
+Puede encontrar datos de ejemplo y archivos jar en HDFS (WASB) en '/example' o 'wasb:///example'.
 
 ## Procedimientos recomendados de HDFS, WASB y almacenamiento
 
@@ -88,7 +88,7 @@ Durante la creación del clúster, selecciona usar un contenedor y una cuenta de
 
 **Portal de Azure**
 
-1. En el <a href="https://manage.windowsazure.com/" target="_blank">Portal de administración de Azure</a>, seleccione su clúster de HDInsight.
+1. En el <a href="https://manage.windowsazure.com/" target="_blank">portal de administración de Azure</a>, seleccione el clúster de HDInsight.
 
 2. Seleccione **Panel** en la parte superior de la página.
 
@@ -104,7 +104,7 @@ Durante la creación del clúster, selecciona usar un contenedor y una cuenta de
 
 Además de mediante el comando Hadoop desde el clúster, existe una variedad de formas para tener acceso a los blobs:
 
-* <a href="http://azure.microsoft.com/ documentation/articles/xplat-cli/" target="_blank">Interfaz de la línea de comandos multiplataforma de Azure</a> : después de la instalación, consulte `azure storage` para obtener ayuda sobre el uso del almacenamiento o `azure blob` para comandos específicos para los blobs.
+* <a href="http://azure.microsoft.com/documentation/articles/xplat-cli/" target="_blank">Interfaz de la línea de comandos multiplataforma de Azure</a>: después de la instalación, consulte `azure storage` para obtener ayuda sobre el uso del almacenamiento o `azure blob` para comandos específicos de los blobs.
 
 * Una variedad de SDK:
 
@@ -120,7 +120,7 @@ Además de mediante el comando Hadoop desde el clúster, existe una variedad de 
 
 	* <a href="https://github.com/Azure/azure-sdk-for-net" target="_blank">.NET</a>
 
-* <a href="https://msdn.microsoft.com/es-es/library/azure/dd135733.aspx" target="_blank">API de REST de almacenamiento</a>
+* <a href="https://msdn.microsoft.com/library/azure/dd135733.aspx" target="_blank">API de REST de almacenamiento</a>
 
 
 ## Pasos siguientes
@@ -130,4 +130,4 @@ Además de mediante el comando Hadoop desde el clúster, existe una variedad de 
 * [Uso de trabajos de MapReduce con HDInsight](../hdinsight-use-mapreduce)
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

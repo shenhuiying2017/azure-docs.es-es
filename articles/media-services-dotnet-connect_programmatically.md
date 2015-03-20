@@ -19,7 +19,7 @@
 
 # Conexión con la cuenta de Servicios multimedia con el SDK de Servicios multimedia para .NET.
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow)  y [Flujo de trabajo de streaming en vivo de Servicios multimedia](../media-services-live-streaming-workflow). 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](../media-services-live-streaming-workflow) . 
 
 En este tema se describe cómo obtener una conexión mediante programación con los Servicios multimedia de Microsoft Azure al programar con el SDK de Servicios multimedia para. NET.
 
@@ -61,9 +61,9 @@ En el ejemplo siguiente se usa el constructor CloudMediaContext(MediaServicesCre
 En esta sección se muestra cómo reutilizar los tokens del Servicio de control de acceso con el uso de constructores CloudMediaContext que toman MediaServicesCredentials como un parámetro.
 
 
-[Azure Active Directory Access Control](https://msdn.microsoft.com/es-es/library/hh147631.aspx) (también conocido como Servicio de control de acceso o ACS) es un servicio en la nube que proporciona una manera sencilla de autenticar y autorizar a los usuarios para que tengan acceso a sus aplicaciones web. Los Servicios multimedia de Microsoft Azure controlan el acceso a sus servicios aunque el protocolo de OAuth necesita un token de ACS. Los Servicios multimedia reciben los tokens de ACS desde un servidor de autorización.
+[Azure Active Directory Access Control](https://msdn.microsoft.com/library/hh147631.aspx) (también conocido como Servicio de control de acceso o ACS) es un servicio en la nube que proporciona una manera sencilla de autenticar y autorizar a los usuarios para que tengan acceso a sus aplicaciones web. Los Servicios multimedia de Microsoft Azure controlan el acceso a sus servicios aunque el protocolo de OAuth necesita un token de ACS. Los Servicios multimedia reciben los tokens de ACS desde un servidor de autorización.
 
-Al desarrollar con el SDK de Servicios multimedia, puede optar por no tratar los tokens porque el código del SDK los administra. Sin embargo, permitir que el SDK administre por completo los tokens da lugar a solicitudes de token innecesarias. La solicitud de tokens lleva tiempo y consume los recursos del servidor y del cliente. Además, el servidor de ACS limita las solicitudes si la velocidad es demasiado alta. El límite es de 30 solicitudes por segundo. Consulte [Limitaciones del servicio ACS](https://msdn.microsoft.com/es-es/library/gg185909.aspx) para obtener más detalles.
+Al desarrollar con el SDK de Servicios multimedia, puede optar por no tratar los tokens porque el código del SDK los administra. Sin embargo, permitir que el SDK administre por completo los tokens da lugar a solicitudes de token innecesarias. La solicitud de tokens lleva tiempo y consume los recursos del servidor y del cliente. Además, el servidor de ACS limita las solicitudes si la velocidad es demasiado alta. El límite es de 30 solicitudes por segundo. Consulte [Limitaciones del servicio ACS](https://msdn.microsoft.com/library/gg185909.aspx) para obtener más detalles.
 
 A partir de la versión 3.0.0.0 del SDK de Servicios multimedia, puede reutilizar los tokens de ACS. Los constructores **CloudMediaContext** que toman **MediaServicesCredentials** como un parámetro permiten el uso compartido de los tokens de ACS entre varios contextos. La clase MediaServicesCredentials encapsula las credenciales de Servicios multimedia. Si un token de ACS está disponible y se conoce la hora de expiración, puede crear una nueva instancia de MediaServicesCredentials con el token y pasarla al constructor de CloudMediaContext. Tenga en cuenta que el SDK de Servicios multimedia actualiza automáticamente los tokens cuando estos expiran. Hay dos formas de reutilizar los tokens de ACS, tal como se muestra en los ejemplos siguientes.
 
@@ -83,7 +83,7 @@ A partir de la versión 3.0.0.0 del SDK de Servicios multimedia, puede reutiliza
 		
 		CloudMediaContext context = new CloudMediaContext(_cachedCredentials);
 
-- También puede almacenar en caché la cadena AccessToken y los valores de TokenExpiration. Los valores se pueden usar más adelante para crear un nuevo objeto MediaServicesCredentials con los datos del token almacenados en caché.  Esto es especialmente útil para escenarios en que el token se puede compartir con seguridad entre varios procesos o equipos.
+- También puede almacenar en caché la cadena AccessToken y los valores de TokenExpiration. Los valores se pueden usar más adelante para crear un nuevo objeto MediaServicesCredentials con los datos del token almacenados en caché.  Esto es especialmente útil para escenarios en que el token se puede compartir de forma segura entre varios procesos o equipos.
 
 	Los siguientes fragmentos de código llaman a los métodos SaveTokenDataToExternalStorage, GetTokenDataFromExternalStorage y UpdateTokenDataInExternalStorageIfNeeded, que no se definen en este ejemplo. Puede definir estos métodos para almacenar, recuperar y actualizar datos del token en un almacenamiento externo. 
 
@@ -99,7 +99,7 @@ A partir de la versión 3.0.0.0 del SDK de Servicios multimedia, puede reutiliza
 		// If it is not valid, call MediaServicesCredentials's RefreshToken before caching.
 		SaveTokenDataToExternalStorage(accessToken, tokenExpiration);
 		
-	Use the saved token values to create MediaServicesCredentials.
+	Use los valores de símbolo (token) guardados para crear MediaServicesCredentials.
 
 
 		var accessToken = "";
@@ -117,7 +117,7 @@ A partir de la versión 3.0.0.0 del SDK de Servicios multimedia, puede reutiliza
 		
 		CloudMediaContext context2 = new CloudMediaContext(credentials);
 
-	Update the token copy in case the token was updated by the Media Services SDK. 
+	Actualice la copia del token en caso de que el SDK de Servicios multimedia actualizara el token. 
 	
 		if(tokenExpiration != context2.Credentials.TokenExpiration)
 		{
@@ -166,7 +166,7 @@ Por ejemplo:
 
 ## Almacenar valores de conexión en la configuración
 
-Es muy recomendable almacenar los valores de conexión, especialmente aquellos valores confidenciales como el nombre de cuenta y la contraseña, en la configuración. Además, es una práctica recomendada cifrar los datos de configuración confidenciales. Puede cifrar el archivo de configuración completo mediante el sistema de cifrado de archivos (EFS) de Windows. Para habilitar EFS en un archivo, haga clic en el archivo, seleccione **Propiedades** y habilite el cifrado en la ficha de configuración **Avanzadas** . O bien, puede crear una solución personalizada para cifrar las partes seleccionadas de un archivo de configuración mediante la configuración protegida. Consulte [Cifrar información de configuración mediante una configuración protegida](https://msdn.microsoft.com/es-es/library/53tyfkaw.aspx).
+Es muy recomendable almacenar los valores de conexión, especialmente aquellos valores confidenciales como el nombre de cuenta y la contraseña, en la configuración. Además, es una práctica recomendada cifrar los datos de configuración confidenciales. Puede cifrar el archivo de configuración completo mediante el sistema de cifrado de archivos (EFS) de Windows. Para habilitar EFS en un archivo, haga clic en el archivo, seleccione **Propiedades** y habilite el cifrado en la ficha de configuración **Avanzadas** . O bien, puede crear una solución personalizada para cifrar las partes seleccionadas de un archivo de configuración mediante la configuración protegida. Vea [Cifrar información de configuración mediante una configuración protegida](https://msdn.microsoft.com/library/53tyfkaw.aspx).
 
 El siguiente archivo App.config contiene los valores de conexión necesarios. Los valores del elemento <appSettings> son los valores necesarios que obtuvo en el proceso de configuración de la cuenta de Servicios multimedia.
 
@@ -191,4 +191,4 @@ Para recuperar los valores de conexión de la configuración, use la clase **Con
 
 <!-- URLs. -->
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

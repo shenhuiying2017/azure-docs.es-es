@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Administrar una cuenta de Base de datos de documentos | Azure" 
 	description="Obtenga información acerca de cómo administrar la cuenta de Base de datos de documentos." 
 	services="documentdb" 
@@ -16,152 +16,125 @@
 	ms.date="02/12/2015" 
 	ms.author="stbaro"/>
 
-# Cómo administrar una cuenta de la Base de datos de documentos
+# Administración de una cuenta de Base de datos de documentos
 
-## Tabla de contenido
+Obtenga información sobre cómo trabajar con claves, la configuración de coherencia y la configuración de capacidad, y conozca cómo eliminar una cuenta.
 
--   [Direccionamiento del Ver, copiar y regenerar las claves de acceso de la Base de datos de documentos](#keys)
--   [Direccionamiento del Administrar la configuración de coherencia de la Base de datos de documentos](#consistency)
--   [Direccionamiento del Administrar la configuración de capacidad de la Base de datos de documentos](#capacity)
--   [Direccionamiento del Eliminar una cuenta de la Base de datos de documentos](#delete)
--   [Pasos siguientes](#next)
+## <a id="keys"></a>Ver, copiar y regenerar las claves de acceso
+Cuando se crea una cuenta de Base de datos de documentos, el servicio genera dos claves de acceso principal que se pueden usar para la autenticación cuando se tiene acceso a la cuenta de Base de datos de documentos. Al proporcionar dos claves de acceso, Base de datos de documentos permite regenerar las claves sin interrupción en la cuenta de esta base de datos.
 
-## <span id="keys"></span></a>Direccionamiento del Ver, copiar y regenerar las claves de acceso
-
-Cuando se crea una cuenta de la Base de datos de documentos, se generan dos claves maestras de acceso que se pueden usar para la autenticación cuando se accede a esta base de datos. Al proporcionar dos claves de acceso, la Base de datos de documentos permite regenerar las claves sin interrupción en la cuenta de esta base de datos.
-
-En el [Portal de vista previa de administración de Azure](https://portal.azure.com/)[](http://manage.windowsazure.com), acceda al elemento **Claves** de la hoja de cuenta de la Base de datos de documentos para ver, copiar y regenerar las claves de acceso que se usan para acceder a la cuenta de esta base de datos.
+En el [Portal de vista previa de administración](https://portal.azure.com/), obtenga acceso al elemento **Claves** de la hoja de **cuenta de Base de datos de documentos** para ver, copiar y regenerar las claves de acceso que se usan para obtener acceso a la cuenta de
+de la Base de datos de documentos recién creada.
 
 ![](./media/documentdb-manage-account/image002.jpg)
 
 ### Ver y copiar una clave de acceso
 
-1.      En el [Portal de vista previa de administraciónde Azure](https://portal.azure.com/), acceda a la cuenta de la Base de datos de documentos. 
+1.      En el [Portal de vista previa de Azure](https://portal.azure.com/), obtenga acceso a su cuenta de Base de datos de documentos. 
 
-2.      En modo Resumen, haga clic en **Claves**.
+2.      En el modo **Resumen**, haga clic en **Claves**.
 
-3.      En la hoja Claves, haga clic en el botón **Copiar**, a la derecha de la clave que quiere copiar.
+3.      En la hoja **Claves**, haga clic en el botón **Copiar**, a la derecha de la clave que quiere copiar.
 
-4.      Presione Ctrl+C para copiar la clave.
-
-  ![](./media/documentdb-manage-account/image004.jpg)
+  ![](./media/documentdb-manage-account/image004.jpg)
 
 ### Regenerar las claves de acceso
 
-Cambie las claves de acceso de la cuenta de la Base de datos de documentos de forma periódica para mantener sus conexiones más seguras. Se asignan dos claves de acceso para que pueda mantener las conexiones con la cuenta de la Base de datos de documentos, de modo que puede usar una clave de acceso mientras regenera la otra.
+Cambie las claves de acceso de la cuenta de Base de datos de documentos de forma periódica para mantener sus conexiones más seguras. Se asignan dos claves de acceso para que pueda mantener las conexiones con la cuenta de Base de datos de documentos, de modo que puede usar una clave de acceso mientras regenera la otra.
 
-**Advertencia**
+> [AZURE.WARNING] La regeneración de las claves de acceso afecta a las aplicaciones que dependen de una clave actual. Todos los clientes que usan la clave de acceso para obtener acceso a la cuenta de Base de datos de documentos deben estar actualizados para usar la nueva clave.
 
-La regeneración de las claves de acceso afecta a las aplicaciones que dependen de una clave actual. Todos los clientes que usan la clave de acceso para acceder a la cuenta de la Base de datos de documentos deben estar actualizados para usar la nueva clave.
+Si cuenta con aplicaciones o servicios en la nube que usan la cuenta de Base de datos de documentos y regenera las claves, perderá las conexiones. Para evitarlo, sustituya las claves. Los siguientes pasos describen el proceso de distribución de las claves.
 
-Si cuenta con aplicaciones o servicios en la nube que usan la cuenta de la Base de datos de documentos y regenera las claves, perderá las conexiones. Para evitarlo, sustituya las claves. Para ello, puede hacer lo siguiente:
+1.      Actualice la clave de acceso en el código de aplicación para hacer referencia a la clave de acceso secundaria de la cuenta de Base de datos de documentos.
 
-1.      Actualice la clave de acceso en el código de aplicación para hacer referencia a la clave de acceso secundaria de la cuenta de la Base de datos de documentos.
+2.      Vuelva a generar la clave de acceso primaria para su cuenta de Base de datos de documentos.
+En el [Portal de vista previa de administración de Azure](https://portal.azure.com/), obtenga acceso a la cuenta de Base de datos de documentos.
 
-2.      Regenere la clave de acceso principal de la cuenta de la Base de datos de documentos. En el [Portal de vista previa de administración de Azure](https://portal.azure.com/), acceda a dicha cuenta.
+3.      En el modo Resumen, haga clic en **Claves**.
 
-3.      En modo Resumen, haga clic en **Claves**.
-
-4.      En la hoja Claves, haga clic en el comando **Regenerar principal** y en **Aceptar** para confirmar que quiere generar una clave nueva.
+4.      En la hoja **Claves**, haga clic en el comando **Regenerar principal** y haga clic en **Aceptar** para confirmar que quiere generar una clave nueva.
 
 5.      Tras comprobar que la clave nueva está disponible para su uso (aproximadamente 5 minutos después de la regeneración), actualice la clave de acceso en el código de aplicación para hacer referencia a la nueva clave de acceso principal.
 
-6.      Regenere la clave de acceso secundaria.
+6.      Vuelva a generar la clave de acceso secundaria.
 
-*Tenga en cuenta que pueden pasar varios minutos antes de poder acceder a la cuenta
-de la Base de datos de documentos con la clave que acaba de crear.*
+*Tenga en cuenta que pueden pasar varios minutos antes de poder obtener acceso a la cuenta de Base de datos de documentos con la clave que acaba de crear.*
 
-## <span id="consistency"></span></a>Direccionamiento del Administrar la configuración de coherencia de la Base de datos de documentos
+## <a id="consistency"></a>Administración de la configuración de coherencia de Base de datos de documentos
+Base de datos de documentos admite cuatro niveles diferenciados de coherencia de datos que el usuario puede configurar para que los desarrolladores puedan equilibrar la coherencia, la disponibilidad y la latencia de forma predecible.
 
-La Base de datos de documentos admite cuatro niveles diferenciados de coherencia de datos que el usuario puede configurar para que los desarrolladores puedan equilibrar la coherencia, la disponibilidad y la latencia de forma predecible.
+- Una coherencia **fuerte** garantiza que las operaciones de lectura siempre devolverán el último valor que se escribió.
 
-·         Una coherencia **fuerte** garantiza que las operaciones de lectura siempre devolverán el último valor que se escribió.
+- La coherencia de **uso vinculado** garantiza que las lecturas no quedarán obsoletas. Garantiza de forma específica que les lecturas serán, como máximo, de K versiones anteriores a la última versión que se escribió. 
 
-·         La coherencia de **uso vinculado** garantiza que las lecturas no quedarán obsoletas. Garantiza de forma específica que les lecturas serán, como máximo, de K versiones anteriores a la última versión que se escribió.
+- La coherencia de **sesión** garantiza lecturas monotónicas (nunca se leen datos antiguos, nuevos y antiguos en ese orden), operaciones de escritura monotónicas (las operaciones se ordenan) y que usted leerá los elementos escritos más recientes desde un único punto de vista del cliente.
 
-·         La coherencia de **sesión** garantiza lecturas monotónicas (nunca se leen datos antiguos, nuevos y antiguos en ese orden), operaciones de escritura monotónicas (las operaciones se ordenan) y que usted leerá los elementos escritos más recientes desde un único punto de vista del cliente.
+- La coherencia **ocasional** garantiza que las operaciones de lectura siempre procesarán un subconjunto válido de las operaciones de escritura y que pueden converger de forma ocasional.
 
-·         La coherencia **ocasional** garantiza que las operaciones de lectura siempre procesarán un subconjunto válido de las operaciones de escritura y que pueden converger de forma ocasional.
-
-*Tenga en cuenta que, de forma predeterminada, las cuentas de la Base de datos de documentos disponen de un nivel de coherencia de sesión. Para obtener más información sobre la configuración de coherencia de esta base de datos, consulte esta sección sobre el [nivel de coherencia](http://go.microsoft.com/fwlink/p/?LinkId=402365).*
+*Tenga en cuenta que, de forma predeterminada, se realiza el aprovisionamiento de las cuentas de Base de datos de documentos con coherencia de nivel de sesión.  Para obtener información adicional sobre la configuración de coherencia de Base de datos de documentos, consulte la sección [Nivel de
+coherencia](http://go.microsoft.com/fwlink/p/?LinkId=402365).*
 
 ### Para especificar la coherencia predeterminada de una cuenta de la Base de datos de documentos:
 
-1.      En el [Portal de vista previa de administración de Azure](https://portal.azure.com/), acceda a la cuenta de la Base de datos de documentos. 
+1.      En el [Portal de vista previa de administración de Azure](https://portal.azure.com/), obtenga acceso a la cuenta de Base de datos de documentos. 
 
-2.      En modo Configuración, haga clic en **Coherencia**.
+2.      En el modo **Configuración**, haga clic en **Coherencia predeterminada**.
 
-3.      En la hoja Coherencia predeterminada, seleccione el nivel de coherencia predeterminado que quiere para la cuenta de la Base de datos de documentos.
+3.      En la hoja **Coherencia predeterminada**, seleccione el nivel de coherencia predeterminado que quiere para la cuenta de Base de datos de documentos.
 
-4.      Haga clic en **Guardar**.
+![](./media/documentdb-manage-account/image005.png)
+
+![](./media/documentdb-manage-account/image006.png)
+
+4.      Haga clic en **Save**.
 
 5.      Puede supervisar el progreso de la operación a través del Centro de notificaciones del Portal de vista previa de administración de Azure.
 
- ![](./media/documentdb-manage-account/image005.png)
+*Tenga en cuenta que pueden pasar varios minutos antes de que los cambios en la configuración de coherencia predeterminada se hagan efectivos en la cuenta de Base de datos de documentos.*
 
- ![](./media/documentdb-manage-account/image006.png)
+## <a id="capacity"></a>Administrar la configuración de capacidad de la Base de datos de documentos
 
-*Tenga en cuenta que pueden pasar varios minutos antes de que los cambios en la
-configuración de coherencia predeterminada se hagan efectivos en la cuenta de la Base de datos de documentos.*
+La Base de datos de documentos de Microsoft Azure permite escalar con elasticidad, según evoluciona la demanda de la aplicación a lo largo de su ciclo de vida. Para realizar el escalado de Base de datos de documentos, se aumenta la capacidad de la cuenta de esta base de datos a través del Portal de vista previa de administración de Azure.
 
-## <span id="capacity"></span></a>Direccionamiento del Administrar la configuración de capacidad de la Base de datos de documentos
-
-La Base de datos de documentos de Microsoft Azure permite escalar con elasticidad, según evoluciona la demanda de la aplicación a lo largo de su ciclo de vida. Para realizar el escalado de la Base de datos de documentos, se aumenta la capacidad de la cuenta de esta base de datos a través del Portal de vista previa de administración de Azure.
-
-Cuando se crea una cuenta de base de datos, esta dispone de rendimiento reservado y almacenamiento de base de datos. Puede cambiar el rendimiento y el almacenamiento de base de datos disponible para la cuenta en cualquier momento. Para ello, agregue o quite unidades de capacidad en el Portal de vista previa de administración de Azure. 
+Cuando se crea una cuenta de base de datos, esta dispone de rendimiento reservado y almacenamiento de base de datos. Puede cambiar el rendimiento y el almacenamiento de base de datos disponible para la cuenta en cualquier momento. Para ello, agregue o quite unidades de capacidad en el Portal de vista previa de administración de Azure. 
 
 ### Para agregar o quitar unidades de capacidad:
+1.      En el [Portal de vista previa de administración de Azure](https://portal.azure.com/), obtenga acceso a la cuenta de Base de datos de documentos. 
 
-1.      En el [Portal de vista previa de administración de Azure](https:portal.azure.com/), acceda a la cuenta de la Base de datos de documentos. 
+2.      En el modo **Uso**, haga clic en **Escala**.
 
-2.      En modo Uso, haga clic en **Escala**.
+3.      En la hoja **Escala**, especifique el número de unidades de capacidad para la cuenta de Base de datos de documentos.
 
-3.      En la hoja Escala, especifique el número de unidades de capacidad para la cuenta de la Base de datos de documentos.
-
-4.      Haga clic en **Guardar** (tenga en cuenta que pueden pasar varios minutos antes de que la operación de escalado se complete. Puede supervisar su progreso a través del Centro de notificaciones del Portal de vista previa de administración de Azure.
-
-*Tenga en cuenta que la vista previa de la Base de datos de documentos admite un máximo de 5 unidades de capacidad por cada cuenta de esta base de datos.*
 
 ![](./media/documentdb-manage-account/image007.png)
 
- 
+4.      Haga clic en **Guardar** (tenga en cuenta que pueden pasar varios minutos antes de que la operación de escalado se complete. Puede supervisar su progreso a través del Centro de notificaciones del Portal de vista previa de administración de Azure.
 
-## <span id="delete"></span></a>Direccionamiento del Eliminar una cuenta de la Base de datos de documentos
+ *Tenga en cuenta que la vista previa de Base de datos de documentos admite un máximo de 5 unidades de capacidad por cada cuenta de esta base de datos.*
+ 
 
-Para quitar una cuenta de la Base de datos de documentos que ya no usa, ejecute el comando
-**Eliminar** en la hoja de cuenta de esta base de datos.
+## <a id="delete"></a> Eliminación de cuentas de Base de datos de documentos 
+Para quitar una cuenta de Base de datos de documentos que ya no se usa, utilice el comando **Eliminar** en la hoja **Cuenta de Base de datos de documentos**.
 
-**Advertencia**
-
-*En la vista previa no se puede restaurar el contenido de una cuenta de la Base de datos de documentos que se eliminó. Al eliminar esta cuenta, se eliminan también todos los recursos correspondientes, incluidos documentos, bases de datos, colecciones y datos adjuntos.*
+> [AZURE.WARNING] En la versión preliminar, no hay ninguna manera de restaurar el contenido de una cuenta de Base de datos de documentos eliminada.  Si se elimina una cuenta de Base de datos de documentos, se eliminarán todos los recursos de la cuenta, incluidas las bases de datos, colecciones, documentos y datos adjuntos.*
 
 ![](./media/documentdb-manage-account/image009.png)
 
-1.      En el [Portal de vista previa de administración de Azure](https://portal.azure.com/), acceda a la cuenta de la Base de datos de documentos que quiere eliminar. 
+1.      En el [Portal de vista previa de administración de Azure](https://portal.azure.com/), obtenga acceso a la cuenta de Base de datos de documentos que quiere eliminar. 
 
-2.      En la hoja de cuenta, haga clic en el comando **Eliminar**.
+2.      En la hoja **Cuenta de base de datos de documentos**, haga clic en el comando **Eliminar**.
 
-3.      En la hoja de confirmación que aparece, escriba el nombre de la cuenta de la Base de datos de documentos para confirmar que quiere eliminarla.
+3.      En la hoja de confirmación que aparece, escriba el nombre de la cuenta de Base de datos de documentos para confirmar que quiere eliminarla.
 
 4.      En la hoja de confirmación, haga clic en el botón **Eliminar**.
 
-## <span id="next"></span></a>Pasos siguientes
+## <a id="next"></a>Pasos siguientes
 
--   Descubra cómo [dar sus primeros pasos con una cuenta de la Base de datos de
-    documentos](http://go.microsoft.com/fwlink/p/?LinkId=402364).
--   Para obtener más información sobre la Base de datos de documentos,
-    consulte la documentación correspondiente de Azure en
-    [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
+Descubra cómo dar sus [primeros pasos con una cuenta de Base de datos de documentos](http://go.microsoft.com/fwlink/p/?LinkId=402364).
 
- 
+Para obtener más información sobre Base de datos de documentos, vea la documentación correspondiente en [azure.com](http://go.microsoft.com/fwlink/?LinkID=402319&clcid=0x409).
 
-  [Direccionamiento del Ver, copiar y regenerar las claves de acceso de la Base de datos de documentos]: #keys
-  [Direccionamiento del Administrar la configuración de coherencia de la Base de datos de documentos]: #consistency
-  [Direccionamiento del Administrar la configuración de capacidad de la Base de datos de documentos]: #capacity
-  [Direccionamiento del Eliminar una cuenta de la Base de datos de documentos]: #delete
-  [Pasos siguientes]: #next
-  []: http://manage.windowsazure.com
-  []: ./media/documentdb-manage-account/image002.jpg
+ 
 
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

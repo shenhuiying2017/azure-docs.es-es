@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Comprobación del progreso del trabajo mediante el Portal de administración de Azure" 
 	description="Aprenda a realizar un seguimiento del progreso del trabajo mediante el Portal de administración de Azure." 
 	services="media-services" 
@@ -16,9 +16,9 @@
 	ms.date="02/10/2015" 
 	ms.author="juliako"/>
 
-# Procedimiento: comprobación del progreso del trabajo
+# Comprobación del progreso del trabajo
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow). 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) . 
 
 ## Uso del Portal para comprobar el estado del trabajo
 
@@ -36,4 +36,4 @@ Publique el contenido. Para obtener más información, consulte [Inserción de C
 
 [checkstatus]: ./media/media-services-monitor-job-progress/media-services-monitor-job-progress.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

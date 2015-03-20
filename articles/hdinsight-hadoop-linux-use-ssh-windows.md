@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Utilización de claves SSH con Hadoop en HDInsight basado en Linux desde Windows | Azure"
    description="Aprenda a crear y usar claves SSH para autenticarse en clústeres de HDInsight basado en Linux."
    services="hdinsight"
@@ -20,7 +20,7 @@
 
 Los clústeres de HDInsight basado en Linux proporcionan la opción de proteger el acceso SSH a través de una contraseña o una clave de SSH. Este documento proporciona información sobre cómo conectarse a HDInsight desde clientes Windows usando el cliente SSH PuTTy.
 
-> [AZURE.NOTE] Los pasos que aparecen en este artículo suponen que está usando un cliente Windows. Si usa un cliente Linux, Unix u OS X, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](/es-es/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/).
+> [AZURE.NOTE] Los pasos que aparecen en este artículo suponen que está usando un cliente Windows. Si usa un cliente Linux, Unix u OS X, consulte [Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X](/documentation/articles/hdinsight-hadoop-linux-use-ssh-unix/).
 
 ## Requisitos previos
 
@@ -78,7 +78,7 @@ Cuando cree un clúster de HDInsight basado en Linux, deberá proporcionar la **
 
 * **Interfaz de la línea de comandos multiplataforma de Azure (xplat-cli)**: usa comandos de la línea de comandos para crear el clúster.
 
-Cada uno de estos métodos requerirá la **clave pública**. Para obtener información completa sobre la creación de un clúster de HDInsight basado en Linux, consulte <a href="./hdinsight-hadoop-provision-linux-clusters/" target="_blank">Aprovisionamiento de clústeres de HDInsight basado en Linux</a>.
+Cada uno de estos métodos requerirá la **clave pública**. Para obtener información completa sobre la creación de un clúster de HDInsight basado en Linux, consulte <a href="./hdinsight-hadoop-provision-linux-clusters/" target="_blank">Aprovisionamiento de clústeres de HDInsight basados en Linux</a>.
 
 ### Portal de administración de Azure
 
@@ -90,9 +90,9 @@ Esta acción crea un inicio de sesión para el usuario especificado y le permite
 
 ### Interfaz de la línea de comandos multiplataforma de Azure
 
-Puede usar la <a href="../xplat-cli/" target="_brad">Interfaz de la línea de comandos multiplataforma de Azure</a>para crear un clúster nuevo mediante el comando `azure hdinsight cluzter create`.
+Puede usar la <a href="../xplat-cli/" target="_brad">interfaz de la línea de comandos multiplataforma de Azure</a> para crear un nuevo clúster mediante el comando `azure hdinsight cluzter create`.
 
-Para obtener más información sobre el uso de este comando, consulte <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">Aprovisionamiento de clústeres de Hadoop Linux en HDInsight usando opciones personalizadas.</a>
+Para obtener más información acerca del uso de este comando, consulte <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">Aprovisionamiento de clústeres de Hadoop Linux en HDInsight con opciones personalizadas</a>
 
 ## <a id="connect"></a>Conexión a un clúster de HDInsight basado en Linux
 
@@ -152,7 +152,7 @@ Esto resulta muy útil cuando se obtiene acceso a servicios basados en Web en el
 
 Use los siguientes pasos para crear un túnel SSH y configure el explorador para que lo use para conectarse al clúster.
 
-1. Abra PuTTY y escriba la información de conexión como aparece en [Connect](#connect) (Conectar) .
+1. Abra PuTTY y escriba la información de conexión como aparece en [Connect] (Conectar)(#connect) .
 
 2. En la sección **Category** (Categoría) que se encuentra a la izquierda del cuadro de diálogo, expanda **Connection** (Conexión), **SSH** y, finalmente, seleccione **Tunnels** (Túneles).
 
@@ -176,11 +176,11 @@ Use los siguientes pasos para crear un túnel SSH y configure el explorador para
 
 	> [AZURE.NOTE] Seleccionar **DNS remoto** resolverá las solicitudes de DNS mediante el uso del clúster de HDInsight. Si no se selecciona, el DNS se resolverá de manera local.
 
-	Para comprobar que el tráfico se esté enrutando a través del túnel, visite un sitio como <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> con la configuración de proxy habilitada y deshabilitada en Firefox. Cuando esté habilitada, la dirección IP será la de un equipo en el centro de datos de Microsoft Azure.
+	Puede comprobar que el tráfico se enruta a través del túnel mediante la visita a un sitio como <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> con la configuración del proxy habilitada y deshabilitada en Firefox. Cuando esté habilitada, la dirección IP será la de un equipo en el centro de datos de Microsoft Azure.
 
 ### Extensiones del explorador
 
-A pesar de que la configuración del explorador para que use el túnel funciona, normalmente no desearía enrutar todo el tráfico a través del túnel. Extensiones para el explorador, como <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a>  , son compatibles con la coincidencia de patrones para las solicitudes de dirección URL (FoxyProxy Standard o Plus solamente), de manera tal que solo las solicitudes para direcciones URL específicas se enviarán a través del túnel.
+A pesar de que la configuración del explorador para que use el túnel funciona, normalmente no desearía enrutar todo el tráfico a través del túnel. Las extensiones del explorador como <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a> son compatibles con la coincidencia de patrones para las solicitudes de dirección URL (FoxyProxy Standard o Plus solamente), de manera tal que solo las solicitudes para direcciones URL específicas se enviarán a través del túnel.
 
 Si instaló **FoxyProxy Standard**, use los siguientes pasos para configurarlo para que solo desvíe tráfico para HDInsight a través del túnel.
 
@@ -208,7 +208,7 @@ Si instaló **FoxyProxy Standard**, use los siguientes pasos para configurarlo p
 
 	* **Nombre de patrón** - **headnode**: es solo un nombre fácil de usar para el patrón.
 
-	* **Patrón de dirección URL** - **\*headnode\*** : define un patrón que coincide con cualquier dirección URL que contenga la palabra **headnode**.
+	* **Patrón de dirección URL** - **\*headnode\***: define un patrón que coincide con cualquier dirección URL que contenga la palabra **headnode**.
 
 	![foxyproxy pattern](./media/hdinsight-hadoop-linux-use-ssh-windows/foxypattern.png)
 
@@ -230,4 +230,4 @@ Ahora que sabe cómo autenticarse con una clave SSH, aprenda a usar MapReduce co
 
 * [Uso de trabajos de MapReduce con HDInsight](../hdinsight-use-mapreduce/)
  
-<!--HONumber=45--> 
+<!--HONumber=47-->

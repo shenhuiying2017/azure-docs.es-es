@@ -17,15 +17,15 @@
 	ms.author="juliako"/>
 
 
-#Creación de claves de contenido con .NET
+# Creación de claves de contenido con .NET
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](../media-services-live-streaming-workflow).  
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](../media-services-live-streaming-workflow) .  
 
 Los Servicios multimedia permiten crear nuevos recursos y entregar recursos cifrados. Una **clave de contenido** proporciona acceso seguro a los **recursos**s. 
 
-Al crear un nuevo recurso (por ejemplo, antes de [cargar archivos](../media-services-rest-upload-files/)), puede especificar las siguientes opciones de cifrado: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
+Cuando se crea un nuevo recurso (por ejemplo, antes de [cargar archivos](../media-services-rest-upload-files/)), puede especificar las siguientes opciones de cifrado: **StorageEncrypted**, **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. 
 
-Al enviar recursos a los clientes, puede [configurar que los recursos se cifren de forma dinámica](../media-services-rest-configure-asset-delivery-policy) con uno de los dos cifrados siguientes: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
+Al entregar recursos a los clientes, puede [configurar que los recursos se cifren de manera dinámica](../media-services-rest-configure-asset-delivery-policy) con uno de los dos cifrados siguientes: **DynamicEnvelopeEncryption** o **DynamicCommonEncryption**.
 
 Los recursos cifrados tienen que estar asociados con **clave**s de contenido. En este artículo se describe cómo crear una clave de contenido.
 
@@ -34,7 +34,7 @@ A continuación se muestran los pasos generales para generar claves de contenido
 1. Genere de forma aleatoria una clave AES de 16 bytes (para el cifrado común y de sobre) o una clave AES de 32 bytes (para el cifrado de almacenamiento). 
 
 	Esta será la clave de contenido de su recurso, lo que significa que todos los archivos asociados a dicho recurso deberán usar la misma clave de contenido durante el descifrado. 
-2.	Llame a los métodos [GetProtectionKeyId](https://msdn.microsoft.com/es-es/library/azure/jj683097.aspx#getprotectionkeyid) y [GetProtectionKey](https://msdn.microsoft.com/es-es/library/azure/jj683097.aspx#getprotectionkey) para obtener el certificado X.509 correcto que debe usarse para cifrar la clave de contenido.
+2.	Llame a los métodos [GetProtectionKeyId](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkeyid) y [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obtener el certificado X.509 correcto que debe usarse para cifrar la clave de contenido.
 3.	Cifre la clave de contenido con la clave pública del certificado X.509. 
 
 	El SDK de Servicios multimedia para .NET SDK usa RSA con OAEP al realizar el cifrado.  Puede ver un ejemplo en la función [EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Encryption/EncryptionUtils.cs).
@@ -69,9 +69,9 @@ Tenga en cuenta que en este tema se han omitido los ejemplos que generan una cla
 >
 >Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración de desarrollo de la API de REST de Servicios multimedia](../media-services-rest-how-to-use).
 
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST de Servicios multimedia](../media-services-rest-connect_programmatically/). 
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST](../media-services-rest-connect_programmatically/). 
 
-##Recuperación de ProtectionKeyId 
+## Recuperación de ProtectionKeyId 
  
 
 En el ejemplo siguiente se muestra cómo recuperar ProtectionKeyId, una huella digital de certificado, para el certificado que debe usar al cifrar la clave de contenido. Realice este paso para asegurarse de que ya tiene el certificado apropiado en el equipo.
@@ -107,7 +107,7 @@ Respuesta:
 	
 	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
-##Recuperación de ProtectionKey para ProtectionKeyId
+## Recuperación de ProtectionKey para ProtectionKeyId
 
 En el ejemplo siguiente se muestra cómo recuperar el certificado X.509 mediante la entidad ProtectionKeyId que recibió en el paso anterior.
 
@@ -144,7 +144,7 @@ Respuesta:
 	{"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String",
 	"value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
-##Creación de ContentKey 
+## Creación de ContentKey 
 
 Después de recuperar el certificado X.509 y usar su clave pública para cifrar la clave de contenido, cree una entidad **ContentKey** y establezca su propiedad valores según corresponda.
 
@@ -234,7 +234,7 @@ Respuesta:
 	"ProtectionKeyType":0,
 	"Checksum":"calculated checksum"}
 
-##Asociación de la entidad ContentKey a un recurso
+## Asociación de la entidad ContentKey a un recurso
 
 Después de crear la entidad ContentKey, asóciela a su recurso mediante la operación $links, tal como se muestra en el ejemplo siguiente:
 	
@@ -256,4 +256,4 @@ Solicitud:
 Respuesta:
 
 	HTTP/1.1 204 No Content
-<!--HONumber=45--> 
+<!--HONumber=47-->

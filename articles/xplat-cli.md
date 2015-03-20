@@ -16,13 +16,13 @@
 	ms.date="1/16/2015" 
 	ms.author="rasquill"/>
 
-#Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure
+# Instalación y configuración de la interfaz de la línea de comandos entre plataformas de Azure
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/es-es/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">CLI entre plataformas</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/manage/install-and-configure-windows-powershell/" title="PowerShell">PowerShell</a><a href="/manage/install-and-configure-cli/" title="Cross-Platform CLI" class="current">CLI entre plataformas</a></div>
 
 La interfaz de la línea de comandos entre plataformas de Azure (xplat-cli) proporciona un conjunto de comandos de código abierto de varias plataformas para trabajar con la plataforma Azure. La xplat-cli proporciona muchas de las mismas funciones del Portal de administración de Azure, como la posibilidad de administrar sitios web, máquinas virtuales y servicios móviles, Base de datos SQL y otros servicios ofrecidos por la plataforma Azure.
 
-La xplat-cli se escribe en JavaScript y precisa Node.js; se implementa usando el SDK de Azure para Node.js y se lanza con la licencia de Apache 2.0. El repositorio de proyectos se encuentra en [https://github.com/WindowsAzure/azure-sdk-tools-xplat](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
+La xplat-cli se escribe en JavaScript y requiere Node.js. Se implementa mediante el SDK de Azure para Node.js y se lanza con una licencia de Apache 2.0. El repositorio de proyectos se encuentra en [https://github.com/WindowsAzure/azure-sdk-tools-xplat](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
 Este documento indica cómo instalar y configurar la interfaz de la línea de comandos entre plataformas de Azure, además de cómo usarla para realizar tareas básicas con la plataforma Azure.
 
@@ -34,13 +34,9 @@ Este documento indica cómo instalar y configurar la interfaz de la línea de co
 * [Script de la interfaz de la línea de comandos entre plataformas de Azure](#script)
 * [Recursos adicionales](#additional-resources)
 
-<h2><a id="install"></a>Instalación de la interfaz de la línea de comandos entre plataformas de Azure</h2>
+## <a id="install">Instalación de la interfaz de la línea de comandos entre plataformas de Azure</a>
 
-Hay dos formas de instalar la xplat-cli: usando paquetes del instalador para Windows y OS X; o bien, si tiene instalado Node.js en su sistema, el comando **npm**.
-
-En el caso de los sistemas Linux, debe tener instalado Node.js y usar **npm** para instalar la xplat-cli como se indica a continuación, o bien crearla desde el origen. El origen está disponible en [http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409). Para obtener más información acerca de la creación desde el origen, consulte el archivo INSTALL que se incluye en el archivo.
-
-Una vez instalada la xplat-cli, podrá usar el comando **azure** desde su interfaz de la línea de comandos (Bash, Terminal, símbolo del sistema) para tener acceso a sus comandos.
+Hay dos formas de instalar la xplat-cli: usando paquetes del instalador para Windows y OS X; o bien, si tiene instalado Node.js en su sistema, el comando **npm**. Una vez instalada la xplat-cli, podrá usar el comando **azure** desde su interfaz de la línea de comandos (Bash, Terminal, símbolo del sistema) para tener acceso a sus comandos.
 
 ###Uso de un instalador
 
@@ -56,9 +52,42 @@ Si tiene instalado Node.js en su sistema, utilice el comando siguiente para inst
 
 	npm install azure-cli -g
 
->[WACOM.NOTE] Puede que necesite usar `sudo` para ejecutar correctamente el comando __npm__.
+>[AZURE.NOTE] Es posible que deba usar  `sudo` para ejecutar correctamente el comando __npm__.
 
-De este modo, se instalará la xplat-cli y las dependencias necesarias. Al final de la instalación, debería ver algo parecido a esto:
+Si no tiene instalado node.js, va a tener que instalarlo primero. En el caso de los sistemas Linux, debe tener instalado Node.js y usar **npm** para instalar la xplat-cli como se indica a continuación, o bien crearla desde el origen. El origen está disponible en [http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409](http://go.microsoft.com/fwlink/?linkid=253472&clcid=0x409). Para obtener más información acerca de la creación desde el origen, consulte el archivo INSTALL que se incluye en el archivo.
+
+####Instalación de node.js y npm en distribuciones que usan administración de paquetes [dpkg](http://en.wikipedia.org/wiki/Dpkg) 
+Las distribuciones más habituales usan [herramienta de empaquetado avanzado (apt)](http://en.wikipedia.org/wiki/Advanced_Packaging_Tool) u otras herramientas en función del formato del paquete  `.deb`. Algunos ejemplos son Ubuntu y Debian, pero hay muchos otros. 
+
+La mayoría de las distribuciones más recientes requieren la instalación de **nodejs-legacy** para obtener una herramienta **npm** correctamente configurada para instalar azure-cli. En el código siguiente se muestran los comandos que instala **npm** correctamente en Ubuntu 14.04.
+	
+	sudo apt-get install nodejs-legacy
+	sudo apt-get install npm
+	sudo npm install -g azure-cli
+
+Algunas de las distribuciones anteriores, como Ubuntu 12.04, requieren la instalación de la distribución actual binaria de node.js. En el código siguiente se muestra cómo hacer esto mediante la instalación y el uso de **curl**. 
+
+>[AZURE.NOTE] Los comandos que se muestran aquí se toman de las instrucciones de instalación de Joyent que encontrará [aquí](https://github.com/joyent/node/wiki/installing-node.js-via-package-manager). Sin embargo, al usar **sudo** como un destino de canalización siempre debe tener cuidado y comprobar las secuencias de comandos que va a instalar y validar que hacen exactamente lo que se espera antes de ejecutarlas a través de **sudo**.
+	
+	sudo apt-get install curl
+	curl -sL https://deb.nodesource.com/setup | sudo bash -
+	sudo apt-get install -y nodejs
+	sudo npm install -g azure-cli
+
+####Instalación de node.js y npm en distribuciones que usan administración de paquetes [rpm](http://en.wikipedia.org/wiki/RPM_Package_Manager)
+
+La instalación de node.js en distribuciones basadas en RPM requiere la habilitación del repositorio EPEL. En el código siguiente se muestran las prácticas recomendadas para la instalación en CentOS 7. (Tenga en cuenta que en la primera línea, a continuación, el '-' (guión) es importante)
+
+	su -     
+	yum update [enter]
+	yum upgrade -y [enter] 
+	yum install epel-release [enter]
+	yum install nodejs [enter] 
+	yum install npm [enter] 
+	npm install -g azure-cli  [enter]
+
+
+Una vez instalada la xplat-cli, podrá usar el comando **azure** desde su interfaz de la línea de comandos (Bash, Terminal, símbolo del sistema) para tener acceso a sus comandos. Al final de la instalación, debería ver algo parecido a esto:
 
 	azure-cli@0.8.0 ..\node_modules\azure-cli
 	|-- easy-table@0.0.1
@@ -78,9 +107,9 @@ De este modo, se instalará la xplat-cli y las dependencias necesarias. Al final
 	|-- kuduscript@0.1.2 (commander@1.1.1, streamline@0.4.11)
 	|-- azure@0.7.13 (dateformat@1.0.2-1.2.3, envconf@0.0.4, mpns@2.0.1, mime@1.2.10, validator@1.4.0, xml2js@0.2.8, wns@0.5.3, request@2.25.0)
 
-> [WACOM.NOTE] Node.js se puede instalar desde <a href="http://nodejs.org/">http://nodejs.org/</a>.
+> [AZURE.NOTE] Node.js y npm también pueden instalarse en Windows desde <a href="http://nodejs.org/">http://nodejs.org/</a>.
 
-<h2><a id="Configure"></a>Conexión con su suscripción de Azure</h2>
+## <a id="configure">Conexión con su suscripción de Azure</a>
 
 Aunque algunos comandos proporcionados por la xplat-cli funcionan sin una suscripción de Azure, la mayoría de ellos sí la requieren. Para configurar la xplat-cli a fin de que funcione con su suscripción, puede hacer lo siguiente:
 
@@ -88,27 +117,27 @@ Aunque algunos comandos proporcionados por la xplat-cli funcionan sin una suscri
 
 O bien
 
-* Iniciar sesión en Azure usando una cuenta organizativa. Al iniciar sesión, se usa Azure Active Directory para autenticar las credenciales.
+* Iniciar sesión en Azure usando una cuenta profesional. Al iniciar sesión, se usa Azure Active Directory para autenticar las credenciales.
 
 Para elegir el método de autenticación más adecuado a sus necesidades, tenga en cuenta lo siguiente:
 
 *  El método de inicio de sesión puede facilitar la administración del acceso a la suscripción, aunque puede interrumpir la automatización, ya que las credenciales podrían agotar el tiempo de espera y requerir que vuelva a iniciar sesión.
 
-	> [WACOM.NOTE] El método de inicio de sesión solo funciona con la cuenta organizativa.  Una cuenta profesional es un usuario administrado por su organización y definido en su inquilino de Azure Active Directory de la organización. Si actualmente no tiene una cuenta organizativa y usa una cuenta Microsoft para iniciar sesión en su suscripción de Azure, puede crear una fácilmente siguiendo los pasos que se indican a continuación.
+	> [AZURE.NOTE] El método de inicio de sesión solo funciona con la cuenta organizativa.  Una cuenta profesional es un usuario administrado por su organización y definido en su inquilino de Azure Active Directory de la organización. Si actualmente no tiene una cuenta profesional y usa una cuenta Microsoft para iniciar sesión en su suscripción de Azure, puede crear una fácilmente siguiendo los pasos que se indican a continuación.
 	> 
-	> 1. Inicie sesión en el [Portal de administración de Azure][portal] y haga clic en Active Directory**Active Directory**.
+	> 1. Inicie sesión en el [Portal de administración de Azure][ y haga clic en **Active Directory**.
 	> 
-	> 2. Si no hay ningún directorio, seleccione **Cree su directorio** y proporcione la información que se le pida.
+	> 2. Si no hay ningún directorio, seleccione **Create your directory** y proporcione la información que se le pida.
 	> 
-	> 3. Seleccione su directorio y agregue un nuevo usuario. Este nuevo usuario es una cuenta organizativa.
+	> 3. Seleccione su directorio y agregue un nuevo usuario. Este nuevo usuario es una cuenta profesional.
 	> 
 	> Durante la creación del usuario, se le proporcionará una dirección de correo electrónico para el usuario y una contraseña temporal. Guarde esta información porque la usará en otro paso.
 	> 
-	> 4. En el portal de administración, seleccione**Configuración** y, a continuación, **Administradores**. Seleccione **Add** y agregue el nuevo usuario como coadministrador. Así permite a la cuenta organizativa administrar su suscripción de Azure.
+	> 4. En el portal de administración, seleccione **Settings** y, a continuación, **Administrators**. Seleccione **Add** y agregue el nuevo usuario como coadministrador. Así permite a la cuenta profesional administrar su suscripción de Azure.
 	> 
-	> 5. Finalmente, cierre sesión en el portal de Azure y, a continuación, vuelva a iniciarla usando la nueva cuenta organizativa. Si es la primera vez que inicia sesión con esta cuenta, se le pedirá que cambie la contraseña.
+	> 5. Finalmente, cierre sesión en el portal de Azure y, a continuación, vuelva a iniciarla usando la nueva cuenta profesional. Si es la primera vez que inicia sesión con esta cuenta, se le pedirá que cambie la contraseña.
 	>
-	>Para obtener más información acerca de la cuenta organizativa con Microsoft Azure, consulte [Registro como organización en Microsoft Azure][signuporg].
+	>Para obtener más información acerca de la cuenta profesional con Microsoft Azure, consulte [Inicio de sesión como organización en Microsoft Azure][signuporg].
 
 *  El método del archivo de configuración de publicación instala un certificado que le permite realizar tareas de administración durante el periodo de validez de la suscripción y el certificado. Este método facilita el uso de la automatización para las tareas de ejecución prolongada. Una vez que descarga e importa la información, no tiene que volver a facilitarla. Sin embargo, este método dificulta la administración del acceso a una suscripción, ya que cualquier persona con acceso al certificado podría administrar la suscripción.
 
@@ -120,19 +149,25 @@ En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en t
 
 Para iniciar sesión usando una cuenta profesional, utilice el comando siguiente:
 
-	azure login [nombredeusuario] [contraseña]
+	azure login -u username -p password
 
-> [WACOM.NOTE] Si es la primera vez que inicia sesión con estas credenciales, se le pedirá que verifique que desea copiar en caché un token de autenticación. Este aviso también aparecerá si ha usado anteriormente el comando `azure logout` que se indica a continuación. Para omitir este aviso en escenarios de automatización, utilice el parámetro `-q` con el comando `azure login`.
+Si desea iniciar sesión escribiendo interactivamente (por ejemplo, si desea la contraseña enmascarada en la pantalla), use el comando siguiente:
+
+	azure login
+
+se le pedirán sus credenciales y los caracteres de la contraseña se enmascaran.
+
+> [AZURE.NOTE] Si es la primera vez que inicia sesión con estas credenciales, se le pedirá que verifique que desea copiar en caché un token de autenticación. Este aviso también aparecerá si ha usado anteriormente el comando `azure logout` que se indica a continuación. Para omitir este aviso en escenarios de automatización, utilice el parámetro '-q' con el comando  `azure login`.
 >
-> Cuando se autentique con una cuenta organizativa, la información de acceso a su suscripción de Azure se almacena en un directorio `.azure` ubicado en el directorio `user`. El sistema operativo protege su directorio `user`; no obstante, es recomendable que tome medidas adicionales para cifrar su directorio `user`. Puede hacerlo de las siguientes maneras:
+> Cuando se autentique con una cuenta profesional, la información de acceso a su suscripción de Azure se almacena en un directorio  `.azure` ubicado en el directorio  `user`. El sistema operativo protege su directorio  `user`; no obstante, es recomendable que tome medidas adicionales para cifrar su directorio  `user`. Puede hacerlo de las siguientes maneras:
 
 Para cerrar sesión, utilice el comando siguiente:
 
-	azure logout [nombredeusuario]
+	azure logout -u <username>
 
-> [WACOM.NOTE] Si las suscripciones asociadas a la cuenta solo se autenticaron con Active Directory, al cerrar sesión se eliminará la información de la suscripción del perfil local. Sin embargo, si el archivo de configuración de publicación también se ha importado para las suscripciones, al cerrar sesión se eliminará solo la información relacionada con Active Directory del perfil local.
+> [AZURE.NOTE] Si las suscripciones asociadas a la cuenta solo se autenticaron con Active Directory, al cerrar sesión se eliminará la información de la suscripción del perfil local. Sin embargo, si el archivo de configuración de publicación también se ha importado para las suscripciones, al cerrar sesión se eliminará solo la información relacionada con Active Directory del perfil local.
 
-> [WACOM.NOTE] Los comandos siguientes no funcionarán correctamente al autenticarse usando una cuenta:
+> [AZURE.NOTE] Los comandos siguientes no funcionarán correctamente al autenticarse usando una cuenta:
 > 
 > * `azure vm`
 > * `azure network`
@@ -140,91 +175,91 @@ Para cerrar sesión, utilice el comando siguiente:
 > 
 > Si tiene que trabajar con estos comandos, use un archivo de configuración de publicación para autenticarse en Azure como se indica en la sección siguiente.
 
-###Uso del método del archivo de configuración de publicación
+### Uso del método del archivo de configuración de publicación
 
 Para descargar la configuración de publicación de su cuenta, use el comando siguiente:
 
 	azure account download
 
-Esto abrirá su explorador predeterminado y le solicitará que inicie sesión en el Portal de administración de Azure. Después de iniciar sesión, se descargará un archivo `.publishsettings`. Tome nota de dónde se guarda este archivo.
+Esto abrirá su explorador predeterminado y le solicitará que inicie sesión en el Portal de administración de Azure. Después de iniciar sesión, se descargará un archivo  `.publishsettings`. Tome nota de dónde se guarda este archivo.
 
-> [WACOM.NOTE] Si su cuenta está asociada a varios inquilinos de Azure Active Directory, puede que se le pida que seleccione para qué Active Directory desea descargar el archivo de configuración de publicación.
+> [AZURE.NOTE] Si su cuenta está asociada a varios inquilinos de Azure Active Directory, puede que se le pida que seleccione para qué Active Directory desea descargar el archivo de configuración de publicación.
 > 
 > Una vez seleccionado usando la página de descarga, o visitando el Portal de administración de Azure, el Active Directory seleccionado se convierte en el predeterminado que usan tanto el portal como la página de descarga. Cuando se haya establecido el predeterminado, verá el texto '__click here to return to the selection page__ en la parte superior de la página de descarga. Utilice el vínculo proporcionado para volver a la página de selección.
 
-A continuación, importe el archivo `.publishsettings` ejecutando el siguiente comando y reemplace `[path to .publishsettings file]` por la ruta hacia el archivo `.publishsettings`:
+A continuación, importe el archivo  `.publishsettings` ejecutando el siguiente comando y reemplace la ruta al archivo `[.publishsettings]` por la ruta hacia el archivo  `.publishsettings`:
 
-	azure account import [ruta de acceso al archivo .publishsettings]
+	azure account import [path to .publishsettings file]
 
-> [WACOM.NOTE] Cuando importe la configuración de publicación, la información de acceso a su suscripción de Azure se almacena en un directorio `.azure` ubicado en el directorio `user`. El sistema operativo protege su directorio `user`; no obstante, es recomendable que tome medidas adicionales para cifrar su directorio `user`. Puede hacerlo de las siguientes maneras:
+> [AZURE.NOTE] Al importar la configuración de publicación, la información de acceso a su suscripción de Azure se almacena en un directorio  `.azure` ubicado en su directorio  `user`. El sistema operativo protege su directorio  `user`; no obstante, es recomendable que tome medidas adicionales para cifrar su directorio  `user`. Puede hacerlo de las siguientes maneras:
 >
 > * En Windows, modifique las propiedades del directorio o use BitLocker.
 > * En Mac, active FileVault para el directorio.
 > * En Ubuntu, use la característica del directorio de inicio (home) cifrado. Otras distribuciones de Linux ofrecen características equivalentes.
 
-Después de importar su configuración de publicación, debe eliminar el archivo `.publishsettings`, porque ya no se necesitan las herramientas de línea de comandos y suponen un riesgo para la seguridad, ya que se puede usar para obtener acceso a su suscripción.
+Después de importar su configuración de publicación, debe eliminar el archivo  `.publishsettings`, porque ya no se necesitan las herramientas de línea de comandos y suponen un riesgo para la seguridad, ya que se puede usar para obtener acceso a su suscripción.
 
 ###Varias suscripciones
 
-Si tiene varias suscripciones de Azure, iniciar sesión le dará acceso a todas las suscripciones asociadas a sus credenciales. Si utiliza un archivo de configuración de publicación, el archivo `.publishsettings` contendrá la información de todas las suscripciones. Con cualquiera de los métodos, se seleccionará una suscripción como predeterminada para su uso por parte de xplat-cli al realizar operaciones. Podrá ver las suscripciones, así como cuál es la predeterminada, pero no podrá usar el comando `azure account list`. Este comando devolverá información similar a la siguiente:
+Si tiene varias suscripciones de Azure, iniciar sesión le dará acceso a todas las suscripciones asociadas a sus credenciales. Si utiliza un archivo de configuración de publicación, el archivo  `.publishsettings` contendrá la información de todas las suscripciones. Con cualquiera de los métodos, se seleccionará una suscripción como predeterminada para su uso por parte de xplat-cli al realizar operaciones. Podrá ver las suscripciones, así como cuál es la predeterminada, pero no podrá usar el comando  `azure account list`. Este comando devolverá información similar a la siguiente:
 
- info:    Executing command account list
- datos:    Name              Id                                    Current
- datos:    ----------------  ------------------------------------  -------
- datos:    Azure-sub-1       ####################################  true
- datos:    Azure-sub-2       ####################################  false
+	info:    Executing command account list
+	data:    Name              Id                                    Current
+	data:    ----------------  ------------------------------------  -------
+	data:    Azure-sub-1       ####################################  true
+	data:    Azure-sub-2       ####################################  false
 
-En la lista de arriba, la columna **Current** indica las suscripciones predeterminadas actuales como Azure-sub-1. Para cambiar la suscripción predeterminada, utilice el comando `azure account set` y especifique qué suscripción quiere que sea la predeterminada. Por ejemplo:
+En la lista anterior, la columna **Current** indica las suscripciones predeterminadas actuales como Azure-sub-1. Para cambiar la suscripción predeterminada, utilice el comando  `azure account set` y especifique qué suscripción quiere que sea la predeterminada. Por ejemplo:
 
 	azure account set Azure-sub-2
 
 Esto cambiará la suscripción predeterminada a Azure-sub-2. 
 
-> [WACOM.NOTE] El cambio de la suscripción predeterminada surte efecto de forma inmediata y es global; la nueva xplat-commands, ya se ejecute desde la misma instancia de línea de comandos o desde una diferente, usará la nueva suscripción predeterminada.
+> [AZURE.NOTE] El cambio de la suscripción predeterminada surte efecto de forma inmediata y es global; la nueva xplat-commands, ya se ejecute desde la misma instancia de línea de comandos o desde una diferente, usará la nueva suscripción predeterminada.
 
 Si desea usar una suscripción no predeterminada con la xplat-cli, pero no quiere cambiar la que es predeterminada actualmente, puede usar la opción `--subscription` y proporcionar el nombre de la suscripción que desee usar para la operación.
 
 <h2><a id="use"></a>Uso de la interfaz de la línea de comandos entre plataformas de Azure</h2>
 
-Se puede acceder a la xplat-cli usando el comando `azure`. Para ver una lista de los comandos disponibles, use el comando `azure` sin parámetros. Debería ver una información de ayuda similar a la siguiente:
+Se puede acceder a la xplat-cli usando el comando  `azure`. Para ver una lista de los comandos disponibles, use el comando  `azure` sin parámetros. Debería ver una información de ayuda similar a la siguiente:
 
- info:             _    _____   _ ___ ___
- info:            /_\  |_  / | | | _ \ __|
- info:      _ ___/ _ \__/ /| |_| |   / _|___ _ _
- info:    (___  /_/ \_\/___|\___/|_|_\___| _____)
- info:       (_______ _ _)         _ ______ _)_ _
- info:              (______________ _ )   (___ _ _)
+	info:             _    _____   _ ___ ___
+	info:            /_\  |_  / | | | _ \ __|
+	info:      _ ___/ _ \__/ /| |_| |   / _|___ _ _
+	info:    (___  /_/ \_\/___|\___/|_|_\___| _____)
+	info:       (_______ _ _)         _ ______ _)_ _
+	info:              (______________ _ )   (___ _ _)
 	info:
- info:    Windows Azure: plataforma en la nube de Microsoft
+	info:    Windows Azure: Microsoft's Cloud Platform
 	info:
- info:    versión de la herramienta 0.8.0
+	info:    Tool version 0.8.0
 	help:
-	help:    muestra ayuda para un comando determinado
+	help:    Display help for a given command
 	help:      help [options] [command]
 	help:
-	help:    abre el portal en un explorador
+	help:    Opens the portal in a browser
 	help:      portal [options]
 	help:
 	help:    Commands:
-	help:      account        comandos para administrar la información de la cuenta y la configuración de publicación
-	help:      config         comandos para administrar la configuración local
-	help:      hdinsight      comandos para administrar las cuentas de HDInsight
-	help:      mobile         comandos para administrar los Servicios móviles
-	help:      network        comandos para administrar sus Redes
-	help:      sb             comandos para administrar la configuración del Bus de servicio
-	help:      service        comandos para administrar los Servicios en la nube
-	help:      site           comandos para administrar sus Sitios web
-	help:      sql            comandos para administrar las cuentas de SQL Server
-	help:      storage        comandos para administrar los objetos de Almacenamiento
-	help:      vm             comandos para administrar sus Máquinas virtuales
+	help:      account        Commands to manage your account information and publish settings
+	help:      config         Commands to manage your local settings
+	help:      hdinsight      Commands to manage your HDInsight accounts
+	help:      mobile         Commands to manage your Mobile Services
+	help:      network        Commands to manage your Networks
+	help:      sb             Commands to manage your Service Bus configuration
+	help:      service        Commands to manage your Cloud Services
+	help:      site           Commands to manage your Web Sites
+	help:      sql            Commands to manage your SQL Server accounts
+	help:      storage        Commands to manage your Storage objects
+	help:      vm             Commands to manage your Virtual Machines
 	help:
 	help:    Options:
-	help:      -h, --help     produce información de uso
-	help:      -v, --version  produce información sobre la versión de la aplicación
+	help:      -h, --help     output usage information
+	help:      -v, --version  output the application version
 
-Los anteriores comandos de nivel máximo contienen comandos para trabajar con un área específica de Azure. Por ejemplo, el comando `azure account` contiene comandos relacionados con su suscripción de Azure, como las configuraciones `download` e `import` usadas anteriormente.
+Los anteriores comandos de nivel máximo contienen comandos para trabajar con un área específica de Azure. Por ejemplo, el comando  `azure account` contiene comandos relacionados con su suscripción de Azure, como las configuraciones  `download` e  `import` usadas anteriormente.
 
-La mayoría de los comandos tienen el formato `azure <command> <operation> [parameters] y realizan una operación en un servicio u objeto como su configuración de cuenta. Otros comandos proporcionan subcomandos y siguen el formato `azure <command> <subcommand> <operation> [parameters]`. Los ejemplos siguientes son comandos que funcionan con la configuración de su cuenta:
+La mayoría de los comandos tienen el formato `azure <command> <operation> [parameters]` y realizan una operación en un servicio u objeto como su configuración de cuenta. Otros comandos proporcionan subcomandos y siguen el formato `azure <command> <subcommand> <operation> [parameters]`. Los ejemplos siguientes son comandos que funcionan con su configuración de cuenta:
 
 * Para ver las suscripciones que ha importado, utilice el siguiente:
 
@@ -234,7 +269,7 @@ La mayoría de los comandos tienen el formato `azure <command> <operation> [para
 
 		azure account set <subscription>
 
-Los parámetros `--help` o `-h` se pueden usar para ver la ayuda de comandos específicos. También puede usar el formato [command] [options]` para devolver la misma información. Por ejemplo, todos los comandos siguientes devuelven la misma información:
+Los parámetros `--help` o `-h` se pueden usar para ver la ayuda de comandos específicos. También puede usar el formato [command][options]` para devolver la misma información. Por ejemplo, todos los comandos siguientes devuelven la misma información:
 
 	azure account set --help
 
@@ -250,11 +285,11 @@ La xplat-cli le permite realizar operaciones de administración en _recursos_ co
 
 Para poder administrar un grupo de recursos como una sola unidad lógica, o _grupo de recursos_, hemos introducido una vista previa de **Administrador de recursos** como una nueva forma de administrar los recursos de Azure. 
 
->[WACOM.NOTE] El Administrador de recursos está actualmente en vista previa y no proporciona el mismo nivel de capacidades de administración que la Administración de servicios de Azure.
+>[AZURE.NOTE] Resource Manager está actualmente en vista previa y no proporciona el mismo nivel de capacidades de administración que Azure Service Management.
 
-Para obtener compatibilidad con el nuevo Administrador de recursos, la xplat-cli le permite alternar entre estos "modos" de administración usando el comando `azure config mode`.
+Para obtener compatibilidad con el nuevo Resource Manager, la xplat-cli le permite alternar entre estos  'modes' de administración usando el comando  `azure config mode`.
 
-La xplat-cli propone de forma predeterminada el modo Administración de servicios de Azure. Para pasar al modo Administrador de recursos, utilice lo siguiente para habilitar el comando:
+La xplat-cli propone de forma predeterminada el modo Administración de servicios de Azure. Para pasar al modo Resource Manager, utilice el siguiente comando:
 
 	azure config mode arm
 
@@ -262,7 +297,7 @@ Para volver al modo Azure Service Management, utilice el siguiente comando:
 
 	azure config mode asm 
 
->[WACOM.NOTE] Los modos Administrador de recursos y Administración de servicios de Azure se excluyen mutuamente. Es decir, los recursos creados en un modo no se pueden administrar desde el otro.
+>[AZURE.NOTE] Los modos Resource Manager y Azure Service Management se excluyen mutuamente. Es decir, los recursos creados en un modo no se pueden administrar desde el otro.
 
 Para obtener más información acerca de cómo trabajar con el Administrador de recursos usando la xplat-cli, consulte [Uso de la interfaz de la línea de comandos entre plataformas de Azure con Administrador de recursos][xplatarm].
 
@@ -276,9 +311,9 @@ La xplat-cli le permite administrar fácilmente los servicios de Azure. En este 
 
 	Se le pedirá que especifique la región en la que se creará el sitio web. A continuación, seleccione una región que esté geográficamente próxima a la suya. Cuando este comando se complete, el sitio web estará disponible en http://mywebsite.azurewebsites.net (reemplace **mywebsite** por el nombre que ha especificado).
 
-	> [WACOM.NOTE] Si usa Git para controlar el origen del proyecto, puede especificar el parámetro `--git` para crear un repositorio Git en Azure para este sitio web. Así, también se inicializa un repositorio Git en el directorio desde el cual se ejecutó el comando, si todavía no hay ninguno. También se creará un Git remoto llamado __azure__, que se puede usar para insertar implementaciones en el sitio web de Azure usando el comando `git push azure master`.
+	> [AZURE.NOTE] Si usa Git para controlar el origen del proyecto, puede especificar el parámetro `--git` para crear un repositorio Git en Azure para este sitio web. Así, también se inicializa un repositorio Git en el directorio desde el cual se ejecutó el comando, si todavía no hay ninguno. También se creará un Git remoto llamado __azure__, que se puede usar para insertar implementaciones en el sitio web de Azure usando el comando  `git push azure master`.
 
-	> [WACOM.NOTE] Si recibe un error que indica que 'site' no es un comando de azure, es muy probable que la xplat-cli esté en modo de grupo de recursos. Para volver a cambiar al modo de recursos, use el comando `azure config mode asm`.
+	> [AZURE.NOTE]  Si recibe un error que indica que  'site' no es un comando de azure, es muy probable que la xplat-cli esté en modo de grupo de recursos. Para volver a cambiar al modo de recursos, use el comando  `azure config mode asm`.
 
 2. Utilice el comando siguiente para enumerar los sitios web para su suscripción:
 
@@ -286,13 +321,13 @@ La xplat-cli le permite administrar fácilmente los servicios de Azure. En este 
 
 	La lista debería contener el sitio creado en el paso anterior.
 
-2. Utilice el comando siguiente para detener el sitio web. Reemplace **mywebsite** por el nombre del sitio.
+2. Utilice el comando siguiente para detener el sitio web: Reemplace **mywebsite** por el nombre del sitio.
 
 		azure site stop mywebsite
 
 	Cuando el comando se complete, podrá actualizar el explorador para verificar que el sitio se ha detenido.
 
-3. Utilice el comando siguiente para iniciar el sitio web. Reemplace **mywebsite** por el nombre del sitio.
+3. Utilice el comando siguiente para iniciar el sitio web: Reemplace **mywebsite** por el nombre del sitio.
 
 		azure site start mywebsite
 
@@ -302,7 +337,7 @@ La xplat-cli le permite administrar fácilmente los servicios de Azure. En este 
 
 		azure site delete mywebsite
 
-	Cuando el comando se complete, utilice el comando `azure site list` para verificar que el sitio web ya no existe.
+	Cuando el comando se complete, utilice el comando  `azure site list` para verificar que el sitio web ya no existe.
 
 <h2><a id="script"></a>Script de la interfaz de la línea de comandos entre plataformas de Azure</h2>
 
@@ -310,7 +345,7 @@ Aunque puede usar la xplat-cli para emitir comandos manualmente, también puede 
 
 	azure site list | grep 'Running' | awk '{system("azure site stop "$2)}'
 
-Este ejemplo proporciona una lista de sitios web para el comando `grep`, que inspecciona cada línea en busca de la cadena 'Running'. Todas las líneas que coincidan se canalizan al comando `awk`, que llama a `azure site stop` y usa la segunda columna que pasa a él (el nombre del sitio en ejecución) como el nombre del sitio que hay que detener.
+Este ejemplo proporciona una lista de sitios web para el comando  `grep`, que inspecciona cada línea en busca de la cadena  'Running'. Todas las líneas que coincidan se canalizan al comando  `awk`, que llama  `azure site stop` y usa la segunda columna que pasa a él (el nombre del sitio en ejecución) como el nombre del sitio que hay que detener.
 
 Aunque esto demuestra cómo se pueden encadenar unos comandos a otros, también puede crear scripts más elaborados usando las funciones de scripting proporcionadas por su intérprete de línea de comandos. Los diferentes intérpretes de línea de comandos tienen distintas características y sintaxis de scripting. Bash es probablemente el intérprete de línea de comandos más usado para los sistemas basados en UNIX, incluyendo Linux y OS X.
 
@@ -322,20 +357,20 @@ Para obtener información acerca del scripting de los sistemas basados en Window
 
 ### Interpretación de los resultados
 
-Al crear scripts, a menudo tendrá que capturar el resultado de un comando y pasarlo a otro, o realizar una operación en el resultado, como la comprobación de un valor concreto. La xplat-cli genera resultados para STDOUT y STDERR. Cada línea lleva como prefijo las cadenas `info:` en el caso de mensajes de información o data:` en el caso de los datos devueltos sobre un servicio; no obstante, puede ordenar a la xplat-cli que devuelva información más detallada usando los parámetros `--verbose` o `-v`. El prefijo de la cadena `verbose:` devolverá información adicional.
+Al crear scripts, a menudo tendrá que capturar el resultado de un comando y pasarlo a otro, o realizar una operación en el resultado, como la comprobación de un valor concreto. La xplat-cli genera resultados para STDOUT y STDERR. Cada línea tiene como prefijo las cadenas  `info:` for informational status messages, or `data:` for data returned about a service; however, you can instruct the xplat-cli to return more verbose information by using the `--verbose` o el parámetro `-v`. El prefijo de la cadena  `verbose:`. devolverá información adicional
 
-Por ejemplo, el resultado siguiente se devuelve desde el comando `azure site list`:
+comando For example, the following output is returned from the `azure site list`:
 
- info:    Executing command site list
+	info:    Executing command site list
 	+ Enumerating sites
- datos:    Name           Status   Mode  Host names
- datos:    -------------  -------  ----  -------------------------------
- datos:    myawesomesite  Running  Free  myawesomesite.azurewebsites.net
- info:    site list command OK
+	data:    Name           Status   Mode  Host names
+	data:    -------------  -------  ----  -------------------------------
+	data:    myawesomesite  Running  Free  myawesomesite.azurewebsites.net
+	info:    site list command OK
 
 Si se han especificado los parámetros `--verbose` or `-v`, se devolverá información similar a la siguiente:
 
- info:    Executing command site list
+	info:    Executing command site list
 	verbose: Subscription ####################################
 	verbose: Enumerating sites
 	verbose: [
@@ -360,33 +395,33 @@ Si se han especificado los parámetros `--verbose` or `-v`, se devolverá inform
 	verbose:                     ToUpdate: {
 	verbose:                         $: { i:nil: 'true' }
 	verbose:                     },
-	verbose:                     Nombre: 'myawesomesite.azurewebsites.net'
+	verbose:                     Name: 'myawesomesite.azurewebsites.net'
 	verbose:                 },
 	...
 	verbose:     }
 	verbose: ]
- datos:    Name           Status   Mode  Host names
- datos:    -------------  -------  ----  -------------------------------
- datos:    myawesomesite  Running  Free  myawesomesite.azurewebsites.net
- info:    site list command OK
+	data:    Name           Status   Mode  Host names
+	data:    -------------  -------  ----  -------------------------------
+	data:    myawesomesite  Running  Free  myawesomesite.azurewebsites.net
+	info:    site list command OK
 
-Observe que la información de `verbose:` parece ser datos en formato JSON. Puede usar el parámetro `--json` para devolver la información en formato JSON si trabaja con las utilidades que entienden de forma nativa JSON, como [jsawk](https://github.com/micha/jsawk) o [jq](http://stedolan.github.io/jq/). Por ejemplo:
+Puede usar el parámetro  `verbose:` information appears to be JSON formatted data. You can use the `--json` para devolver la información en formato JSON si trabaja con las utilidades que entienden de forma nativa JSON, como [jsawk](https://github.com/micha/jsawk) o [jq](http://stedolan.github.io/jq/). Por ejemplo:
 
 	azure site list --json | jsawk -n 'out(this.Name)' | xargs -L 1 azure site delete -q 
 
 El comando anterior recupera una lista de sitios web como JSON, a continuación, usa jsawk para recuperar los nombres de los sitios y, finalmente, usa xargs para ejecutar un comando de eliminación en cada sitio, pasando el nombre del sitio como parámetro.
 
->[WACOM.NOTE] El parámetro `--json` bloquea la generación de información de estado o de datos (cadenas con el prefijo ' `info:` y `data:`). Por ejemplo, si se usa el parámetro `--json` con `azure site create`, no se devuelven resultados porque este comando no devuelve datos diferentes de `info:`.
+>[AZURE.NOTE] El parámetro `--json` bloquea la generación de información de estado o de datos (cadenas con el parámetro  `info:` and `data:`). For example, if the `--json` como prefijo se utilizan con el  `azure site create`, no se devuelven resultados porque este comando no devuelve ningún dato distinto de `info:`.
 
 ###Trabajo con errores
 
 Aunque la xplat-cli registra la información de los errores en STDERR, la información adicional acerca de los errores también podría quedar registrada en un archivo **azure.err** del directorio desde el que se ejecutó el script. Si la información está registrada en este archivo, se escribirá lo siguiente en STDOUT:
 
- info:    Error information has been recorded to azure.err
+	info:    Error information has been recorded to azure.err
 
 ###Estado de salida
 
-Algunos de los comandos de xplat-cli no devuelven un estado de salida distinto de cero en caso de que falten los parámetros obligatorios. En lugar de ello, le pedirán al usuario que introduzca la información. Por ejemplo, al usar el comando `azure site create` para crear un sitio web, si no se especifica un nombre de sitio o parámetro `--location`, se le pedirá que especifique estos valores.
+Algunos de los comandos de xplat-cli no devuelven un estado de salida distinto de cero en caso de que falten los parámetros obligatorios. En lugar de ello, le pedirán al usuario que introduzca la información. Por ejemplo, al usar el comando  `azure site create` para crear un sitio web, si no se especifica un nombre de sitio o parámetro `--location`, se le pedirá que especifique estos valores.
 
 Si crea un script basado en el estado de salida, verifique que los comandos de xplat-cli que use no pidan al usuario que introduzca información.
 
@@ -394,7 +429,7 @@ Si crea un script basado en el estado de salida, verifique que los comandos de x
 
 * Para obtener más información acerca de la xplat-cli, para descargar el código fuente, informar de problemas o colaborar con el proyecto, visite el [Repositorio de GitHub para la interfaz de la línea de comandos entre plataformas de Azure](https://github.com/WindowsAzure/azure-sdk-tools-xplat).
 
-* Si tiene problemas al usar la xplat-cli, o Azure, visite los [Foros de Azure](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home).
+* Si tiene problemas al usar la xplat-cli, o Azure, visite los [Foros de Azure](http://social.msdn.microsoft.com/Forums/windowsazure/home).
 
 * Para obtener más información acerca de Azure, consulte [http://azure.microsoft.com/](http://azure.microsoft.com).
 
@@ -408,12 +443,12 @@ Si crea un script basado en el estado de salida, verifique que los comandos de x
 [Sitio web de Azure]: ../media/freetrial.png
 [seleccionar una característica de vista previa]: ../media/antares-iaas-preview-02.png
 [seleccionar suscripción]: ../media/antares-iaas-preview-03.png
-[free-trial]: http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A7171371E
+[free-trial]: http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=A7171371E
 [advanced-bash]: http://tldp.org/LDP/abs/html/
 [script]: http://en.wikipedia.org/wiki/Shell_script
-[lote]: http://technet.microsoft.com/library/bb490890.aspx
-[xplatarm]: /es-es/documentation/articles/xplat-cli-azure-resource-manager/
+[batch]: http://technet.microsoft.com/library/bb490890.aspx
+[xplatarm]: /documentation/articles/xplat-cli-azure-resource-manager/
 [portal]: https://manage.windowsazure.com
-[signuporg]: http://azure.microsoft.com/documentation/articles/sign-up-organization/
+[signuporg]: http://www.windowsazure.com/documentation/articles/sign-up-organization/
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

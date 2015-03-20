@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Escalado de clúster en HDInsight | Azure"
    description="Cambie la cantidad de nodos de datos de un clúster que se ejecuta en HDInsight sin la necesidad de eliminar y volver a crear el clúster."
    services="hdinsight"
@@ -66,7 +66,7 @@ En este momento, la operación de escalado de clúster no es compatible con los 
 
 * Solo son compatibles los clústeres con una versión 3.1.3 de HDInsight, o superior. Si no está seguro de la versión del clúster, puede comprobarla en el portal de Azure; para ello, haga clic en el nombre del clúster de HDInsight o ejecute el comando `Get-AzureHDInsightCluster -name <clustername>` desde Azure PowerShell.
 
-* Se requiere Azure PowerShell versión 0.8.14 o superior para realizar la operación desde PowerShell. Puede descargar la versión más reciente de PowerShell desde la sección de herramientas de la línea de comandos en el sitio web [Descargas de Azure Downloads](http://azure.microsoft.com/ downloads/). Puede comprobar la versión de Azure PowerShell que tiene instalada con el siguiente comando desde una ventana de PowerShell: `(get-module Azure).Version`
+* Se requiere Azure PowerShell versión 0.8.14 o superior para realizar la operación desde PowerShell. Puede descargar la versión más reciente de PowerShell desde la sección de herramientas de la línea de comandos en el sitio web [Descargas de Azure Downloads](http://azure.microsoft.com/downloads/). Puede comprobar la versión de Azure PowerShell que tiene instalada con el siguiente comando desde una ventana de PowerShell: `(get-module Azure).Version`
 
 ## Uso del escalador de clúster
 
@@ -140,5 +140,5 @@ El siguiente es un código de ejemplo que muestra cómo usar la versión asincr�
 	}
 
 
-Consulte el tema [Aprovisionamiento de clústeres de Hadoop en HDInsight con opciones personalizadas](http://azure.microsoft.com/ documentation/articles/hdinsight-provision-clusters/) para obtener más información sobre el uso del SDK .NET de HDInsight.
-<!--HONumber=45--> 
+Consulte el tema [Aprovisionamiento de clústeres de Hadoop en HDInsight con opciones personalizadas](http://azure.microsoft.com/documentation/articles/hdinsight-provision-clusters/) para obtener más información sobre el uso del SDK .NET de HDInsight.
+<!--HONumber=47-->

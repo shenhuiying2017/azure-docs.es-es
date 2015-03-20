@@ -1,5 +1,5 @@
 <properties 
-   pageTitle="Introducción al uso de Hadoop con Hive en HDInsight en Linux | Azure" 
+   pageTitle="Introducción al uso de Hadoop con Hive en HDInsight en Linux |  Azure" 
    description="Introducción al uso de Hadoop en HDInsight en Linux. Sepa cómo aprovisionar clústeres de HDInsight Hadoop en ejecución en Linux y consulte datos con Hive." 
    services="hdinsight" 
    documentationCenter="" 
@@ -21,7 +21,7 @@
 Este tutorial le permite comenzar rápidamente con HDInsight en Linux al mostrarle cómo aprovisionar un clúster de HDInsight Hadoop en Linux y ejecutar una consulta Hive para extraer información importante desde datos no estructurados. A continuación, analizará los resultados en una herramienta de Business Intelligence (BI), como Tableau.
 
 
-> [AZURE.NOTE] Si no está familiarizado con Hadoop y los grandes datos, puede leer más sobre los términos <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a>y <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. Para comprender cómo HDInsight habilita Hadoop en Azure, consulte [Introducción a Hadoop en HDInsight](../hdinsight-hadoop-introduction/).
+> [AZURE.NOTE] Si todavía no conoce Hadoop y Big Data, puede obtener más información sobre los términos <a href="http://go.microsoft.com/fwlink/?LinkId=510084" target="_blank">Apache Hadoop</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510086" target="_blank">MapReduce</a>, <a href="http://go.microsoft.com/fwlink/?LinkId=510087" target="_blank">HDFS</a> y <a href="http://go.microsoft.com/fwlink/?LinkId=510085" target="_blank">Hive</a>. Para entender cómo HDInsight habilita Hadoop en Azure, consulte [Introducción a Hadoop en HDInsight](../hdinsight-hadoop-introduction/).
 
 
 ## ¿Cuál es el objetivo de este tutorial? ##
@@ -36,9 +36,9 @@ Supongamos que tiene un gran conjunto de datos no estructurados y desea ejecutar
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 
-- Una suscripción de Azure. Para obtener más información sobre cómo obtener una suscripción, consulte <a href="http://azure.microsoft.com/ pricing/purchase-options/" target="_blank">Opciones de compra</a>, <a href="http://azure.microsoft.com/ pricing/member-offers/" target="_blank">Ofertas para miembros</a>o <a href="http://azure.microsoft.com/ pricing/free-trial/" target="_blank">Versión de prueba gratuita</a>.
+- Una suscripción de Azure. Para obtener más información acerca de cómo obtener una suscripción, consulte <a href="http://azure.microsoft.com/pricing/purchase-options/" target="_blank">Opciones de compra</a>, <a href="http://azure.microsoft.com/pricing/member-offers/" target="_blank">Ofertas para miembros</a> o <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Prueba gratuita</a>.
 
-**Duración aproximada:** 30 minutos
+**Tiempo estimado para completar el tutorial:** 30 minutos
 
 ## Apartados de este tutorial
 
@@ -49,7 +49,7 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 
 ## <a name="storage"></a>Creación de una cuenta de almacenamiento de Azure
 
-HDInsight usa el almacenamiento de blobs de Azure para almacenar datos. Se denomina *WASB* o *Azure Storage - Blob*. WASB es la implementación del sistema de archivos distribuido de Hadoop (HDFS) de Microsoft en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](../hdinsight-use-blob-storage/).
+HDInsight usa el almacenamiento de blobs de Azure para almacenar datos. Se llama *WASB* o *Almacenamiento de Azure - Blob*. WASB es la implementación del sistema de archivos distribuido de Hadoop (HDFS) de Microsoft en el almacenamiento de blobs de Azure. Para obtener más información, consulte [Uso del almacenamiento de blobs de Azure con HDInsight](../hdinsight-use-blob-storage/).
 
 Cuando aprovisiona un clúster de HDInsight, especifica una cuenta de Almacenamiento de Azure Storage. Un contenedor de almacenamiento de blobs de esa cuenta se designa como el sistema de archivos predeterminado, justo como HDFS. El clúster de HDInsight se aprovisiona de forma predeterminada en el mismo centro de datos que la cuenta de almacenamiento que especifique.
 
@@ -66,7 +66,7 @@ Para simplificar este tutorial, solamente se usan el contenedor de blobs y la cu
 
 3. Introduzca la **URL**, **UBICACIÓN** y **REPLICACIÓN** y después haga clic en **CREAR CUENTA DE ALMACENAMIENTO**. No se admiten grupos de afinidad. La nueva cuenta de almacenamiento aparecerá en la lista de almacenamiento.
 
-	>[AZURE.NOTE]  La opción de creación rápida para aprovisionar un clúster de HDInsight Linux, como el que se usa en este tutorial, no solicita una ubicación cuando se aprovisiona el clúster. De manera predeterminada, coloca el clúster en el mismo centro de datos que la cuenta de almacenamiento. Por tanto, asegúrese de que crea la cuenta de almacenamiento en las ubicaciones admitidas para el clúster, que son:  **Asia oriental**, **Sudeste de Asia**, **Norte de Europa**, **Oeste de Europa**, **Este de EE. UU.**, **Oeste de EE. UU.**, **Centro y norte de EE. UU.**, **Centro y sur de EE. UU**.
+	>[AZURE.NOTE]  La opción de creación rápida para aprovisionar un clúster de HDInsight Linux, como el que se usa en este tutorial, no solicita una ubicación cuando se aprovisiona el clúster. De manera predeterminada, coloca el clúster en el mismo centro de datos que la cuenta de almacenamiento. Por tanto, asegúrese de que crea la cuenta de almacenamiento en las ubicaciones admitidas para el clúster, que son:  **Asia oriental**, **sudeste de Asia**, **norte de Europa**, **oeste de Europa**, **este de EE. UU.**, **oeste de EE. UU.**, **centro y norte de EE. UU.**, **centro y sur de EE. UU**.
 
 4. Espere hasta que la característica **ESTADO** de la nueva cuenta de almacenamiento cambie a **En línea**.
 5. Seleccione la nueva cuenta de almacenamiento en la lista y haga clic en **ADMINISTRAR CLAVES DE ACCESO** en la parte inferior de la página.
@@ -74,16 +74,16 @@ Para simplificar este tutorial, solamente se usan el contenedor de blobs y la cu
 
 
 Para obtener más información, consulte
-[Creación de una cuenta de almacenamiento](../storage-create-storage-account/) y [Use Uso del almacenamiento de blobs de Azure con HDInsight](../hdinsight-use-blob-storage/).
+[Creación de una cuenta de almacenamiento](../storage-create-storage-account/) y [Uso del almacenamiento de blobs de Azure con HDInsight](../hdinsight-use-blob-storage/).
 	
 ## <a name="provision"></a>Aprovisionamiento de un clúster de HDInsight en Linux
 
-Cuando aprovisiona un clúster de HDInsight, aprovisiona recursos de proceso de Azure que contienen aplicaciones de Hadoop y aplicaciones relacionadas. En esta sección aprovisionará un clúster de HDInsight en Linux con la opción de creación rápida. Esta opción usa nombres de usuario predeterminados y contenedores de almacenamiento de Azure; además, configura un clúster con HDInsight versión 3.2 (Hadoop versión 2.5, HDP versión 2.2) en ejecución en Ubuntu 12.04 LTS. Para obtener información acerca de las diferentes versiones de HDInsight y sus contratos de nivel de servicio, consulte la página [Control de versiones de componentes de HDInsight](http://azure.microsoft.com/ documentation/articles/hdinsight-component-versioning/).
+Cuando aprovisiona un clúster de HDInsight, aprovisiona recursos de proceso de Azure que contienen aplicaciones de Hadoop y aplicaciones relacionadas. En esta sección aprovisionará un clúster de HDInsight en Linux con la opción de creación rápida. Esta opción usa nombres de usuario predeterminados y contenedores de almacenamiento de Azure; además, configura un clúster con HDInsight versión 3.2 (Hadoop versión 2.5, HDP versión 2.2) en ejecución en Ubuntu 12.04 LTS. Para obtener información acerca de las diferentes versiones de HDInsight y sus contratos de nivel de servicio, consulte la página [Control de versiones de componentes de HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 
 >[AZURE.NOTE]  También puede crear clústeres de Hadoop que ejecutan el sistema operativo Windows Server. Para obtener instrucciones, consulte [Introducción a HDInsight en Windows](../hdinsight-get-started/).
 
 
-**Para aprovisionar un clúster de HDInsight** 
+**Para aprovisionar un clúster de HDInsight**
 
 1. Inicie sesión en el <a href="https://manage.windowsazure.com/" target="_blank">Portal de administración de Azure</a>. 
 
@@ -95,9 +95,9 @@ Cuando aprovisiona un clúster de HDInsight, aprovisiona recursos de proceso de 
 
 	<table border="1">
 	<tr><th>Nombre</th><th>Valor</th></tr>
-	<tr><td>Nombre del clúster</td><td>Nombre del clúster.</td></tr>
-	<tr><td>Tamaño del clúster</td><td>Número de nodos de datos que desea implementar. El valor predeterminado es 4. Pero también están disponibles las opciones para usar 1 o 2 nodos de datos en la lista desplegable. Con la opción Creación personalizada puede especificarse mediante la opción <strong>Creación personalizada</strong> . Hay disponible información sobre las tarifas de facturación para varios tamaños de clúster. Haga clic en el símbolo <strong>?</strong> justo encima del cuadro desplegable y siga el vínculo del elemento emergente.</td></tr>
-	<tr><td>Constraseña</td><td>La contraseña de la cuenta <i>HTTP</i> (nombre de usuario predeterminado: admin) y la cuenta <i>SSH</i> (nombre de usuario predeterminado: hdiuser). Tenga en cuenta que estas NO son las cuentas de administrador para las máquinas virtuales en las que se aprovisionan los clústeres. </td></tr>
+	<tr><td>Cluster Name</td><td>Nombre del clúster.</td></tr>
+	<tr><td>Cluster Size</td><td>Número de nodos de datos que desea implementar. El valor predeterminado es 4. Pero también están disponibles las opciones para usar 1 o 2 nodos de datos en la lista desplegable. Con la opción <strong>Creación personalizada</strong> puede especificarse un número cualquiera de nodos de clúster. Hay disponible información sobre las tarifas de facturación para varios tamaños de clúster. Haga clic en el símbolo <strong>?</strong> justo encima del cuadro desplegable y siga el vínculo del elemento emergente.</td></tr>
+	<tr><td>Password</td><td>La contraseña de la cuenta <i>HTTP</i> (nombre de usuario predeterminado: admin) y la cuenta <i>SSH</i> (nombre de usuario predeterminado: hdiuser). Tenga en cuenta que estas NO son las cuentas de administrador para las máquinas virtuales en las que se aprovisionan los clústeres. </td></tr>
 	
 	<tr><td>Cuenta de almacenamiento</td><td>Seleccione la cuenta de almacenamiento que ha creado en el cuadro desplegable. <br/>
 
@@ -175,7 +175,7 @@ Una vez que se conecte al clúster con SSH, use los siguientes comandos para eje
 	Estas instrucciones realizan las acciones siguientes.
 
 	- **DROP TABLE**: elimina la tabla y los archivos de datos, en caso de que la tabla ya exista.
-	- **CREATE EXTERNAL TABLE**: crea una tabla  'external' en Hive. Las tablas externas solo almacenan la definición de tabla en Hive; los datos quedan en la ubicación original.
+	- **CREATE EXTERNAL TABLE**: crea una tabla "externa" nueva en Hive. Las tablas externas solo almacenan la definición de tabla en Hive; los datos quedan en la ubicación original.
 	- **ROW FORMAT**: indica cómo se da formato a los datos de Hive. En este caso, los campos de cada registro se separan mediante un espacio.
 	- **STORED AS TEXTFILE LOCATION**: indica a Hive dónde se almacenan los datos (el directorio de ejemplos/datos) y que se almacenen como texto.
 	- **SELECT**: seleccione un recuento de todas las filas donde la columna t4 contiene el valor [ERROR]. 
@@ -209,7 +209,7 @@ Una vez que se conecte al clúster con SSH, use los siguientes comandos para eje
 		[ERROR]    3
 		Time taken: 60.991 seconds, Fetched: 1 row(s)
 
-	Observe que la salida contiene **[ERROR] 3**, debido a que son tres filas que contienen este valor.
+	Observe que la salida contiene **[ERROR]  3**, debido a que son tres filas las que contienen este valor.
 
 3. Use las siguientes instrucciones para crear una tabla "interna" nueva denominada **errorLogs**.
 
@@ -219,11 +219,11 @@ Una vez que se conecte al clúster con SSH, use los siguientes comandos para eje
 
 	Estas instrucciones realizan las acciones siguientes.
 
-	- **CREATE TABLE IF NOT EXISTS**: crea una tabla, si todavía no existe. Debido a que la palabra clave EXTERNAL no se usa, esta es una tabla 'internal', que se almacena en el almacén de datos de Hive y es administrada completamente por Hive. A diferencia de las tablas **EXTERNAL**, la eliminación de una tabla interna también eliminará los datos subyacentes.
+	- **CREATE TABLE IF NOT EXISTS**: crea una tabla, si todavía no existe. Dado que la palabra clave EXTERNAL no se usa, se trata de una tabla 'internal' que se conserva en el almacén de datos de Hive y se administra en Hive por completo. A diferencia de las tablas **EXTERNAL**, la eliminación de una tabla interna también eliminará los datos subyacentes.
 	- **STORED AS ORC**: almacena los datos en el formato Optimized Row Columnar (ORC). Se trata de un formato altamente optimizado y eficiente para almacenar datos de Hive.
 	- **INSERT OVERWRITE ... SELECT**: selecciona filas de la tabla **log4jLogs** que contienen [ERROR] y, a continuación, inserta los datos en la tabla **errorLogs**.
 
-4. Para comprobar que solo las filas que contienen **[ERROR]** en la columna t4 se almacenan en la tabla **errorLogs**, use la siguiente instrucción para devolver todas las filas desde errorLogs.
+4. Para comprobar que solamente las filas que contienen **[ERROR]** en la columna t4 se almacenaron en la tabla **errorLogs**, use la siguiente instrucción para devolver todas las filas de errorLogs.
 
 		SELECT * from errorLogs;
 
@@ -246,7 +246,7 @@ En este tutorial, ha aprendido cómo aprovisionar un clúster Hadoop Linux con H
 - [Uso de MapReduce con HDInsight][hdinsight-use-mapreduce]
 - [Uso de Hive con HDInsight][hdinsight-use-hive]
 - [Uso de Pig con HDInsight][hdinsight-use-pig]
-- [Uso de almacenamiento de blobs de Azure con HDInsight](../hdinsight-use-blob-storage)
+- [Uso del almacenamiento de blobs de Azure con HDInsight](../hdinsight-use-blob-storage)
 - [Carga de datos en HDInsight][hdinsight-upload-data]
 
 
@@ -271,4 +271,4 @@ En este tutorial, ha aprendido cómo aprovisionar un clúster Hadoop Linux con H
 [image-hdi-clusterstatus]: ./media/hdinsight-get-started/HDI.ClusterStatus.png
 [image-hdi-gettingstarted-powerquery-importdata]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData.png
 [image-hdi-gettingstarted-powerquery-importdata2]: ./media/hdinsight-get-started/HDI.GettingStarted.PowerQuery.ImportData2.png
-<!--HONumber=45--> 
+<!--HONumber=47-->

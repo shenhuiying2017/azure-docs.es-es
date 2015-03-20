@@ -18,26 +18,31 @@
 
 
 
-#Carga de archivos en una cuenta de Servicios multimedia mediante API de REST
+# Carga de archivos en una cuenta de Servicios multimedia mediante API de REST
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow). 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) . 
 
+En Servicios multimedia, cargue los archivos digitales en un recurso. La entidad [Recurso](https://msdn.microsoft.com/library/azure/hh974277.aspx) puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos).  Una vez cargados los archivos en el recurso, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. 
+
+
+>[AZURE.NOTE]Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Además, solo puede haber un '.' para la extensión del nombre de archivo.
+
+El flujo de trabajo básico para la ingesta de recursos se divide en las secciones siguientes:
+
+- Creación de un recurso
+- Cifrado de un recurso (opcional)
+- Carga de un archivo al almacenamiento de blobs
+
+
+## Creación de un recurso
 
 >[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 >
 >Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración de desarrollo de la API de REST de Servicios multimedia](../media-services-rest-how-to-use).
 
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST de Servicios multimedia](../media-services-rest-connect_programmatically/). 
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST](../media-services-rest-connect_programmatically/). 
  
-
-## <a id="upload"></a>Creación de un nuevo recurso y carga de un archivo de vídeo con la API de REST
-
-En Servicios multimedia, cargue los archivos digitales en un recurso. La entidad [Recurso](https://msdn.microsoft.com/es-es/library/azure/hh974277.aspx) puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos).  Una vez cargados los archivos en el recurso, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. 
-
-
-### Creación de un recurso
-
 Un recurso es un contenedor para varios tipos o conjuntos de objetos en Servicios multimedia, como vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y archivos de subtítulos. En la API de REST, crear un recurso requiere el envío de una solicitud POST a Servicios multimedia y colocar la información sobre cualquier propiedad del recurso en el cuerpo de solicitud.
 
 Una de las propiedades que se pueden especificar al crear un recurso es **Options**. **Options** es un valor de enumeración que describe las opciones de cifrado con las que se puede crear un recurso. Un valor válido es uno de los valores de la lista siguiente, no una combinación de valores. 
@@ -51,7 +56,7 @@ Una de las propiedades que se pueden especificar al crear un recurso es **Option
 
 - **EnvelopeEncryptionProtected** = **4**: Especifique si va a cargar cifrado HLS con archivos AES. Tenga en cuenta que los archivos deben haberse codificado y cifrado con Transform Manager.
 
-Si el recurso usa cifrado, debe crear una **ContentKey** y vincularla al recurso, tal como se describe en el siguiente tema:[Creación de ContentKey](../media-services-rest-create-contentkey). Tenga en cuenta que después de cargar los archivos en el recurso, debe actualizar las propiedades de cifrado en la entidad **AssetFile** con los valores que obtuvo durante el cifrado del **recurso**. Para ello, use la solicitud HTTP **MERGE**. 
+>[AZURE.NOTE]Si el recurso usa cifrado, debe crear una **ContentKey** y vincularla al recurso, tal como se describe en el siguiente tema: [Creación de ContentKey](../media-services-rest-create-contentkey). Tenga en cuenta que después de cargar los archivos en el recurso, debe actualizar las propiedades de cifrado en la entidad **AssetFile** con los valores que obtuvo durante el cifrado del **recurso**. Para ello, use la solicitud HTTP **MERGE**. 
 
 
 En el ejemplo siguiente se muestra cómo crear un recurso.
@@ -101,7 +106,7 @@ Si se realiza correctamente, se devuelve lo siguiente:
 	   "StorageAccountName":"storagetestaccount001"
 	}
 	
-### Creación de AssetFile
+## Creación de AssetFile
 
 La entidad [AssetFile](http://msdn.microsoft.com/library/azure/hh974275.aspx) representa un archivo de audio o vídeo que se almacena en un contenedor de blobs. Un archivo de recursos siempre está asociado a un recurso y un recurso puede contener uno o varios archivos de recursos. La tarea de Servicios multimedia produce un error si un objeto de archivo de recursos no está asociado a un archivo digital de un contenedor de blobs.
 
@@ -166,7 +171,7 @@ Después de cargar el archivo multimedia digital en un contenedor de blobs, usar
 	}
 
 
-### Creación de AccessPolicy con permiso de escritura. 
+## Creación de AccessPolicy con permiso de escritura. 
 
 Antes de cargar los archivos en el almacenamiento de blobs, establezca los derechos de la directiva de acceso para escribir en un recurso. Para ello, envíe una solicitud HTTP al conjunto de entidades AccessPolicies. Defina un valor DurationInMinutes durante la creación o recibirá un mensaje de error de servidor interno 500 como respuesta. Para obtener más información sobre AccessPolicies, vea [AccessPolicy](http://msdn.microsoft.com/library/azure/hh974297.aspx).
 
@@ -213,7 +218,7 @@ En el ejemplo siguiente se muestra cómo crear una entidad AccessPolicy:
 	   "Permissions":2
 	}
 
-### Obtención de la dirección URL de carga
+## Obtención de la dirección URL de carga
 
 Para recibir la dirección URL de carga real, cree un localizador de SAS. Los localizadores definen la hora de inicio y el tipo de extremo de conexión para los clientes que desean tener acceso a archivos de un recurso. Puede crear varias entidades Locator para un par AccessPolicy y Asset determinado a fin de controlar las distintas solicitudes y necesidades del cliente. Cada uno de estos localizadores usa el valor StartTime más el valor DurationInMinutes de AccessPolicy para determinar la cantidad de tiempo que se puede usar una dirección URL. Para obtener más información, consulte [Localizador](http://msdn.microsoft.com/library/azure/hh974308.aspx).
 
@@ -281,16 +286,16 @@ Si se realiza correctamente, se devuelve la respuesta siguiente:
 	   "Name":null
 	}
 
-### Cargar un archivo en un contenedor de almacenamiento de blobs
+## Carga de un archivo en un contenedor de almacenamiento de blobs
 	
 Una vez establecidas AccessPolicy y Locator, el archivo real se carga en un contenedor de almacenamiento de blobs de Azure mediante las API de REST de almacenamiento de Azure. Puede cargar en la página o blobs en bloques. 
 
->[AZURE.NOTE] Debe agregar el nombre de archivo para el archivo que desea cargar en el valor **Path** del localizador recibido en la sección anterior. Por ejemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . . 
+>[AZURE.NOTE] Debe agregar el nombre de archivo para el archivo que desea cargar en el valor **Path** del localizador recibido en la sección anterior. Por ejemplo, https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4 . . . 
 
 Para obtener más información sobre cómo trabajar con blobs de almacenamiento de Azure, consulte [API de REST del servicio Blob](http://msdn.microsoft.com/library/azure/dd135733.aspx).
 
 
-### Actualización de AssetFile 
+## Actualización de AssetFile 
 
 Ahora que ha cargado el archivo, actualice la información de tamaño de FileAsset (y otro tipo de información). Por ejemplo:
 	
@@ -359,10 +364,6 @@ Si se realiza correctamente, se devuelve lo siguiente:
 	...
 
  
-
-##Pasos siguientes
-Ahora que ha cargado un recurso en los Servicios multimedia, vaya al tema [Obtención de un procesador multimedia][].
-
 [Obtención de un procesador multimedia]: ../media-services-get-media-processor/
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

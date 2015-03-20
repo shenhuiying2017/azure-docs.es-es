@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Temas más destacados de Twitter con Apache Storm en HDInsight | Azure"
    description="Aprenda a usar Trident para crear una topología de Storm que determine los temas más destacados basados en hashtags."
    services="hdinsight"
@@ -80,17 +80,17 @@ Hace lo siguiente:
 
 ### El spout
 
-El spout **TwitterSpout** utiliza <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a> para recuperar tweets de Twitter. Se crea un filtro (love, music y coffee,) y los tweets entrantes (estado) que coinciden con el filtro se almacenan en un <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank">LinkedBlockingQueue</a>. Por último, los elementos se sacan de la cola y se envían a la topología.
+El spout, **TwitterSpout**, utiliza <a href="http://twitter4j.org/en/" target="_blank">Twitter4j</a> para recuperar tweets desde Twitter. Se crea un filtro (amor, música y café) y los tweets entrantes (estado) que coinciden con el filtro se almacenan en una <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/LinkedBlockingQueue.html" target="_blank">LinkedBlockingQueue</a>. Por último, los elementos se sacan de la cola y se envían a la topología.
 
 ### El HashtagExtractor
 
-Para extraer hashtags, se utiliza <a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities</a> para recuperar todos los hashtags contenidos en el tweet. Después se envían a la secuencia.
+Para extraer hashtags, se usa <a href="http://twitter4j.org/javadoc/twitter4j/EntitySupport.html#getHashtagEntities--" target="_blank">getHashtagEntities</a> para recuperar todos los hashtags contenidos en el tweet. Después se envían a la secuencia.
 
 ## Habilitación de Twitter
 
 Utilice los pasos siguientes para registrar una nueva aplicación de Twitter y obtener la información del token de acceso y de consumidor necesario para leer desde Twitter.
 
-1. Vaya a <a href="" target="_blank">https://apps.twitter.com/</a> y utilice el botón **Crear nueva aplicación**. Al rellenar el formulario, deje el valor de **URL de devolución de llamada** vacío.
+1. Vaya a <a href="" target="_blank">https://apps.twitter.com/</a> y use el botón **Crear nueva aplicación**. Al rellenar el formulario, deje el valor de **URL de devolución de llamada** vacío.
 
 2. Una vez creada la aplicación, seleccione la pestaña **Claves y tokens de acceso**.
 
@@ -127,11 +127,17 @@ Una vez iniciada la topología, debería ver la información de depuración que 
 
 ## Pasos siguientes
 
-Ahora que ha probado localmente la topología, descubra cómo [implementar esta topología en Storm en HDInsight](../hdinsight-storm-deploy-monitor-topology/).
+Ahora que probó localmente la topología, descubra cómo [implementar esta topología en Storm en HDInsight](../hdinsight-storm-deploy-monitor-topology/).
 
 También se puede interesar en los siguientes temas de Storm:
 
 * [Desarrollo de las topologías de Java para Storm en HDInsight con Maven](../hdinsight-storm-develop-java-topology/)
 
 * [Desarrollo de las topologías de C# para Storm en HDInsight con Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)
-<!--HONumber=45--> 
+
+Para obtener más ejemplos de Storm para HDInsight:
+
+* [Ejemplos de Storm en HDInsight](https://github.com/hdinsight/hdinsight-storm-examples)
+
+* [Análisis de los datos de sensor de Centro de eventos con Storm en HDInsight](../hdinsight-storm-sensor-data-analysis/)
+<!--HONumber=47-->

@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Uso de Pig con Hadoop en HDInsight | Azure"
    description="Aprenda a usar Pig con Hadoop en HDInsight a través de Escritorio remoto."
    services="hdinsight"
@@ -32,9 +32,9 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 ## <a id="connect"></a>Conexión con el Escritorio remoto
 
-Habilite el Escritorio remoto para el clúster de HDInsight y, a continuación, conéctese a él siguiendo las instrucciones de <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
+Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él siguiendo las instrucciones dadas en <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
 
-## <a id="pig"></a>Uso del comando de Pig
+## <a id="pig"></a>Uso del comando Pig
 
 2. Una vez conectado, inicie la **línea de comandos de Hadoop** mediante el icono del escritorio.
 
@@ -42,7 +42,7 @@ Habilite el Escritorio remoto para el clúster de HDInsight y, a continuación, 
 
 		%pig_home%\bin\pig
 
-	Aparecerá con un símbolo del sistema de `grunt>`. 
+	Aparecerá un símbolo del sistema de  `grunt>`. 
 
 3. Introduzca la siguiente instrucción.
 
@@ -78,7 +78,7 @@ Habilite el Escritorio remoto para el clúster de HDInsight y, a continuación, 
 	</tr>
 	</table>
 
-6. También puede guardar los resultados de una transformación mediante la instrucción `STORE`. Por ejemplo, lo siguiente guarda el valor de `RESULT` en el directorio **/example/data/pigout** en el contenedor de almacenamiento predeterminado para el clúster.
+6. También puede guardar los resultados de una transformación mediante la instrucción `STORE`. Por ejemplo, lo siguiente guarda el valor `RESULT` en el directorio **/example/data/pigout** en el contenedor de almacenamiento predeterminado para el clúster.
 
 		STORE RESULT into 'wasb:///example/data/pigout'
 
@@ -108,7 +108,7 @@ También puede usar el comando de Pig para ejecutar Pig Latin contenido en un ar
 
 		pig %PIG_HOME%\pigbatch.pig
 
-	Una vez completado el trabajo por lotes, debería ver el resultado siguiente, que debe ser el mismo que cuando ha utilizado `DUMP RESULT;` en los pasos anteriores.
+	Una vez completado el trabajo por lotes, debiera ver el siguiente resultado, que debe ser el mismo que cuando ha utilizado `DUMP RESULT;` en los pasos anteriores.
 
 		(TRACE,816)
 		(DEBUG,434)
@@ -132,4 +132,4 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 * [Uso de Hive con Hadoop en HDInsight](../hdinsight-use-hive/)
 
 * [Uso de MapReduce con Hadoop en HDInsight](../hdinsight-use-mapreduce/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

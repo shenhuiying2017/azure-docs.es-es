@@ -1,5 +1,5 @@
 <properties
-   pageTitle="Uso de Pig con Hadoop en HDInsight | Azure"
+   pageTitle="Uso de Hadoop Pig en HDInsight | Azure"
    description="Sepa cómo enviar remotamente trabajos de Pig a HDInsight mediante el uso de Curl."
    services="hdinsight"
    documentationCenter=""
@@ -16,7 +16,7 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# Ejecución de consultas de Hive con Hadoop en HDInsight con Curl
+#Ejecución de consultas de Hive con Hadoop en HDInsight con Curl
 
 [AZURE.INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
@@ -24,9 +24,9 @@ En este documento, aprenderá a usar Curl para ejecutar consultas de Hive en un 
 
 Curl se usa para mostrar cómo se puede interactuar con HDInsight usando solicitudes HTTP sin procesar para ejecutar, supervisar y recuperar los resultados de las consultas de Hive. Esto funciona mediante la API de REST de WebHCat (conocida anteriormente como Templeton) proporcionada por el clúster de HDInsight.
 
-> [AZURE.NOTE] Si ya está familiarizado con el uso de servidores de Hadoop basado en Linux, pero recién conoce HDInsight, consulte <a href="../hdinsight-hadoop-linux-information/" target="_blank">Lo que necesita saber acerca de Hadoop en HDInsight basado en Linux</a>.
+> [AZURE.NOTE] Si ya está familiarizado con el uso de servidores de Hadoop basado en Linux, pero no conoce HDInsight, consulte <a href="../hdinsight-hadoop-linux-information/" target="_blank">Lo que necesita saber acerca de Hadoop en HDInsight basado en Linux</a>.
 
-## <a id="prereq"></a>Requisitos previos
+##<a id="prereq"></a>Requisitos previos
 
 Necesitará lo siguiente para completar los pasos de este artículo.
 
@@ -36,13 +36,13 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 * <a href="http://stedolan.github.io/jq/" target="_blank">jq</a>
 
-## <a id="curl"></a>Ejecución de consultas de Hive con Curl
+##<a id="curl"></a>Ejecución de consultas de Hive con Curl
 
 > [AZURE.NOTE] Cuando use Curl o cualquier otra comunicación de REST con WebHCat, debe proporcionar el nombre de usuario y la contraseña del administrador del clúster de HDInsight para autenticar las solicitudes. También debe usar el nombre del clúster como parte del URI que se usa para enviar las solicitudes al servidor.
 > 
 > En el caso de los comandos que aparecen en esta sección, reemplace **NOMBREDEUSUARIO** por el usuario para autenticación en el clúster y **CONTRASEÑA** por la contraseña de la cuenta de usuario. Reemplace **NOMBREDELCLÚSTER** por el nombre de su clúster.
 > 
-> La API de REST está protegida con <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">autenticación básica</a>. Siempre debe crear solicitudes usando HTTPS para así garantizar que las credenciales se envían de manera segura al servidor.
+> La API de REST se protege con la <a href="http://en.wikipedia.org/wiki/Basic_access_authentication" target="_blank">autenticación básica</a>. Siempre debe crear solicitudes usando HTTPS para así garantizar que las credenciales se envían de manera segura al servidor.
 
 1. Desde una línea de comandos, use el siguiente comando para comprobar que puede conectarse al clúster de HDInsight.
 
@@ -57,7 +57,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
     * **-u**: el nombre de usuario y la contraseña que se utilizan para autenticar la solicitud.
     * **-G**: indica que esta es una solicitud GET.
 
-    El comienzo de la dirección URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será el mismo en todas las solicitudes. La ruta de acceso, **/status**, indica que la solicitud es para devolver el estado de WebHCat (también conocido como Templeton) para el servidor. También puede solicitar la versión de Hive con el siguiente comando.
+    El comienzo de la dirección URL, **https://CLUSTERNAME.azurehdinsight.net/templeton/v1**, será el mismo para todas las solicitudes. La ruta de acceso, **/status**, indica que la solicitud debe devolver el estado de WebHCat (también conocido como Templeton) al servidor. También puede solicitar la versión de Hive con el siguiente comando.
 
         curl -u USERNAME:PASSWORD -G https://CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
 
@@ -71,19 +71,19 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
     Los parámetros que se utilizan en este comando son los siguientes.
 
-    * **-d**: como `-G` no se usa, la solicitud establece como valor determinado el método POST. `-d` especifica los valores de datos que se envían con la solicitud.
+    * **-d**: como `-G` no se usa, la solicitud establece como valor predeterminado el método POST. `-d` especifica los valores de datos que se envían con la solicitud.
 
         * **user.name**: el usuario que ejecuta el comando.
         
-        * **execute**: las instrucciones de HiveQL que se van a ejecutar.
+        * **execute**: las instrucciones HiveQL para ejecutar
         
-        * **statusdir**: el directorio en el que se escribirá el estado de este trabajo.
+        * **statusdir**: el directorio en el que se escribirá el estado de este trabajo
 
     Estas instrucciones realizan las acciones siguientes.
 
     * **DROP TABLE**: elimina la tabla y el archivo de datos si la tabla ya existe.
     
-    * **CREATE EXTERNAL TABLE**: crea una tabla  'external' en Hive. Las tablas externas solamente almacenan la definición de tabla en Hive (los datos se dejan en la ubicación original).
+    * **CREATE EXTERNAL TABLE**: crea una tabla "externa" nueva en Hive. Las tablas externas solamente almacenan la definición de tabla en Hive (los datos se dejan en la ubicación original).
 
 		> [AZURE.NOTE] Las tablas externas se deben usar cuando espera que un origen externo, como por ejemplo un proceso de carga de datos automático, u otra operación MapReduce, actualice los datos subyacentes, pero siempre desea que las consultas de Hive usen los datos más recientes.
 		>
@@ -93,11 +93,11 @@ Necesitará lo siguiente para completar los pasos de este artículo.
     
     * **STORED AS TEXTFILE LOCATION**: indica a Hive dónde se almacenan los datos (el directorio de ejemplos/datos) y que se almacenen como texto.
     
-    * **SELECT**: seleccione un recuento de todas las columnas donde la columna **t4** contiene el valor **[ERROR]**. Esto debe devolver un valor de **3** ya que hay tres filas que contienen este valor.
+    * **SELECT**: permite seleccionar un número de todas las filas donde la columna **t4** contiene el valor **[ERROR]**. Esto debe devolver un valor de **3** ya que hay tres filas que contienen este valor.
 
-    > [AZURE.NOTE] Observe que los espacios entre las instrucciones de HiveQL se reemplazan por el carácter `+` cuando se usa Curl. Los valores entre comillas que contengan un espacio, como el delimitador, no se reemplazarán por `+`.
+    > [AZURE.NOTE] Observe que los espacios entre las instrucciones HiveQL se reemplazan por el carácter `+` cuando se usa con Curl. Los valores entre comillas que contengan un espacio, como el delimitador, no se reemplazarán por `+`.
 
-    Este comando debe devolver un identificador de trabajo que se puede usar para comprobar el estado del trabajo.
+    Este comando debe devolver un identificador de trabajo que se pueda usar para comprobar el estado del trabajo.
 
         {"id":"job_1415651640909_0026"}
 
@@ -111,7 +111,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 4. Una vez que el estado del trabajo cambió a **SUCCEEDED**, puede recuperar los resultados del trabajo desde el almacenamiento de blobs de Azure. El parámetro `statusdir` transmitido con la consulta contiene la ubicación del archivo de salida; en este caso, **wasb:///example/curl**. Esta dirección almacena la salida del trabajo en el directorio **example/curl** en el contenedor de almacenamiento predeterminado que su clúster de HDInsight usa.
 
-    Puede listar y descargar estos archivos con la <a href="../xplat-cli/" target="_blank">Interface de la línea de comandos multiplataforma de Azure (xplat-cli)</a>. Por ejemplo, para listar los archivos existentes en **example/curl**, use el comando siguiente.
+    Puede enumerar y descargar estos archivos mediante la <a href="../xplat-cli/" target="_blank">interfaz de línea de comandos multiplataforma de Azure (xplat-cli)</a>. Por ejemplo, para enumerar los archivos existentes en **example/curl**, use el siguiente comando.
 
 		azure storage blob list <container-name> example/curl
 
@@ -119,7 +119,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 		azure storage blob download <container-name> <blob-name> <destination-file>
 
-	> [AZURE.NOTE] Debe especificar el nombre de la cuenta de almacenamiento que contiene el blob usando los parámetros `-a` y `-k`, o bien, debe definir las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS\_KEY**. Consulte <a href="../hdinsight-upload-data/" target="_blank" for more information..
+	> [AZURE.NOTE] Debe especificar el nombre de la cuenta de almacenamiento que contiene el blob mediante los parámetros `-a` y `-k`, o bien, definir las variables de entorno **AZURE\_STORAGE\_ACCOUNT** y **AZURE\_STORAGE\_ACCESS\_KEY**. Consulte <a href="../hdinsight-upload-data/" target="_blank" for more information.
 
 6. Use las siguientes instrucciones para crear una nueva tabla "interna" llamada **errorLogs**.
 
@@ -127,24 +127,24 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
     Estas instrucciones realizan las acciones siguientes.
 
-    * **CREATE TABLE IF NOT EXISTS**: crea una tabla, si todavía no existe. Dado que la palabra clave**EXTERNAL** no se usa, se trata de una tabla "interna", que se almacena en el almacén de datos de Hive y es administrada por Hive.
+    * **CREATE TABLE IF NOT EXISTS** : crea una tabla, si todavía no existe. Dado que la palabra clave**EXTERNAL** no se usa, se trata de una tabla "interna", que se almacena en el almacén de datos de Hive y es administrada por Hive.
 
-		> [AZURE.NOTE] A diferencia de las tablas **EXTERNAL**, la eliminación de una tabla interna también eliminará los datos subyacentes.
+		> [AZURE.NOTE] A diferencia de las tablas **EXTERNAL**, la eliminación de una tabla interna eliminará también los datos subyacentes.
 
-    * **STORED AS ORC**: almacena los datos en el formato Optimized Row Columnar (ORC). Se trata de un formato altamente optimizado y eficiente para almacenar datos de Hive
-    * **INSERT OVERWRITE ... SELECT**: selecciona filas desde la tabla **log4jLogs** que contengan **[ERROR]** y, a continuación, inserta los datos en la tabla **errorLogs**.
-    * **SELECT * **: selecciona todas las filas de la nueva tabla **errorLogs**.
+    * **STORED AS ORC**: almacena los datos en formato Optimized Row Columnar (ORC). Se trata de un formato altamente optimizado y eficiente para almacenar datos de Hive
+    * **INSERT OVERWRITE ... SELECT**: selecciona filas desde la tabla **log4jLogs** que contiene **[ERROR]** y, a continuación, inserta los datos en la tabla **errorLogs**.
+    * **SELECT**: selecciona todas las filas de la nueva tabla **errorLogs**.
 
 7. Use el identificador de trabajo devuelto para revisar el estado del trabajo. Una vez que lo haya hecho con éxito, use la xplat-cli tal como se describió anteriormente para descargar y ver los resultados. La salida debe contener tres líneas, todas las cuales contienen **[ERROR]**.
 
 
-## <a id="summary"></a>Resumen
+##<a id="summary"></a>Resumen
 
 Tal como se demostró en este documento, puede usar una solicitud HTTP sin procesar para ejecutar, supervisar y ver los resultados de los trabajos de Hive en su clúster de HDInsight.
 
-Para obtener más información sobre la interfaz de REST que se usa en este artículo, consultes la <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">referencia de WebHCat.</a>.
+Para obtener más información sobre la interfaz REST utilizada en este artículo, consulte la <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference" target="_blank">referencia de WebHCat</a>.
 
-## <a id="nextsteps"></a>Pasos siguientes
+##<a id="nextsteps"></a>Pasos siguientes
 
 Si desea obtener información general sobre Hive con HDInsight.
 
@@ -157,17 +157,17 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 * [Uso de MapReduce con Hadoop en HDInsight](../hdinsight-use-mapreduce/)
 
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/es-es/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/ pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/ documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -189,4 +189,4 @@ Para obtener información sobre otras formas en que puede trabajar con Hadoop en
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

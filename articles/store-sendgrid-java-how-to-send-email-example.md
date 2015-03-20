@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="Request Azure Store Integration" pageTitle="Envío de correo electrónico con SendGrid desde Java en una implementación de Azure" metaKeywords="" description="" metaCanonical="" services="" documentationCenter="" title="How to Send Email Using SendGrid from Java in an Azure Deployment" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+﻿<properties 
+	pageTitle="Envío de correo electrónico con SendGrid desde Java en una implementación de Azure" 
+	description="" 
+	services="" 
+	documentationCenter="java" 
+	authors="thinkingserious" 
+	manager="sendgrid" 
+	editor="mollybos"/>
 
-<tags ms.service="multiple" ms.workload="na" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="10/30/2014" ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork" />
+<tags 
+	ms.service="multiple" 
+	ms.workload="na" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="10/30/2014" 
+	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 # Envío de correo electrónico con SendGrid desde Java en una implementación de Azure
 
@@ -21,7 +35,7 @@ Tendrá que hacer lo siguiente para utilizar el código de este tema:
 
 También debe tener su propio nombre de usuario y contraseña de SendGrid para poder enviar el correo electrónico. Para comenzar con SendGrid, consulte [Envío de correo electrónico con SendGrid desde Java](../store-sendgrid-java-how-to-send-email).
 
-Además, se recomienda estar familiarizado con la información que encontrará en [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/es-es/library/windowsazure/hh690944) o con otras técnicas para hospedar aplicaciones Java en Azure si no está utilizando Eclipse.
+Además, se recomienda estar familiarizado con la información que encontrará en [Creación de una aplicación Hello World para Azure en Eclipse](http://msdn.microsoft.com/library/windowsazure/hh690944) o con otras técnicas para hospedar aplicaciones Java en Azure si no está utilizando Eclipse.
 
 ## Creación de un formulario web para el envío del correo electrónico
 
@@ -199,10 +213,12 @@ Implemente la aplicación en el emulador de proceso y, en un explorador, ejecute
 
 Este código se incluye para mostrar cómo utilizar SendGrid de Java en Azure. Antes de implementarlo en Azure en producción, es posible que desee agregar más controles de errores u otras características. Por ejemplo: 
 
-* Puede utilizar los blogs de almacenamiento de Azure o la Base de datos SQL para almacenar direcciones de correo electrónico y mensajes de correo electrónico, en lugar de utilizar un formulario web. Para obtener más información acerca de cómo utilizar los blobs de almacenamiento de Azure en Java, consulte [Uso del servicio de almacenamiento de blobs desde Java](http://www.windowsazure.com/es-es/develop/java/how-to-guides/blob-storage/). Para obtener más información acerca de cómo utilizar la Base de datos SQL en Java, consulte [Uso de Base de datos SQL en Java](http://www.windowsazure.com/es-es/develop/java/how-to-guides/using-sql-azure-in-java/).
-* Puede usar para recuperar el nombre de usuario y la contraseña de SendGrid de la configuración de implementación, en lugar de utilizar el formulario web para recuperar estos valores. Para obtener información sobre la clase `RoleEnvironment`, consulte [Uso de la biblioteca de tiempo de ejecución del servicio de Azure en JSP](http://msdn.microsoft.com/es-es/library/windowsazure/hh690948) y la documentación del paquete de tiempo de ejecución del servicio de Azure en <http://dl.windowsazure.com/javadoc>.
+* Puede utilizar los blogs de almacenamiento de Azure o la Base de datos SQL para almacenar direcciones de correo electrónico y mensajes de correo electrónico, en lugar de utilizar un formulario web. Para obtener más información acerca de cómo utilizar los blobs de almacenamiento de Azure en Java, vea [Uso del servicio de almacenamiento de blobs desde Java](http://www.windowsazure.com/develop/java/how-to-guides/blob-storage/). Para obtener más información acerca de cómo utilizar la Base de datos SQL en Java, vea [Uso de bases de datos SQL en Java](http://www.windowsazure.com/develop/java/how-to-guides/using-sql-azure-in-java/).
+* Puede utilizar  `RoleEnvironment.getConfigurationSettings` para recuperar el nombre de usuario y la contraseña de SendGrid de la configuración de implementación, en lugar de utilizar el formulario web para recuperar estos valores. Para obtener información sobre la clase  `RoleEnvironment`, consulte [Uso de la biblioteca de tiempo de ejecución del servicio de Azure en JSP](http://msdn.microsoft.com/library/windowsazure/hh690948) y la documentación del paquete de tiempo de ejecución del servicio de Azure en <http://dl.windowsazure.com/javadoc>
 * Para obtener más información acerca de cómo utilizar SendGrid en Java, consulte [Envío de correo electrónico con SendGrid desde Java](../store-sendgrid-java-how-to-send-email).
 
 [emailform]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailform.jpg
 [emailsent]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaEmailSent.jpg
 [emailresult]: ./media/store-sendgrid-java-how-to-send-email-example/SendGridJavaResult.jpg
+
+<!--HONumber=47-->

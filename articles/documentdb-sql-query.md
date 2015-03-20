@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="Consulta con SQL de Base de datos de documentos | Azure"
+<properties 
+	pageTitle="Consulta con SQL en Base de datos de documentos | Azure" 
 	description="La Base de datos de documentos, un servicio de base de datos de documentos NoSQL, admite consultas con gramática de estilo SQL en documentos JSON jerárquicos, sin necesidad explícita de un esquema o de crear índices secundarios." 
 	services="documentdb" 
 	documentationCenter="" 
@@ -13,21 +13,23 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/02/2015" 
+	ms.date="02/24/2015" 
 	ms.author="mimig"/>
 
-#Base de datos de documentos de consulta
+# Base de datos de documentos de consulta
 Base de documentos de Azure admite la consulta de documentos con SQL (lenguaje de consulta estructurado) en documentos JSON jerárquicos. Base de documentos realmente no tiene esquemas. En virtud de su compromiso con el modelo de datos JSON que se encuentra directamente en el motor de base de datos, proporciona índices automáticos de documentos JSON sin necesidad de un esquema explícito o de la creación de índices secundarios. 
 Durante el diseño del lenguaje de consulta de Base de datos de documentos, teníamos dos objetivos en mente:
 
--	<strong>Adoptar SQL:</strong> en lugar de inventar un nuevo lenguaje de consulta, queríamos adoptar el lenguaje SQL. Después de todo, SQL es uno de los lenguajes de consulta más familiares y populares. El lenguaje de consulta SQL de Base de datos de documentos de Azure proporciona un modelo de programación formal para consultas enriquecidas en documentos JSON.
--	<strong>Ampliar SQL:</strong> igual que una base de datos de documentos JSON capaz de ejecutar JavaScript directamente en el motor de base de datos, queríamos usar el modelo de programación de JavaScript como base para nuestro lenguaje de consulta SQL. El lenguaje de consulta SQL DocumentDB se basa en el sistema de tipos de JavaScript, la evaluación de expresiones y la invocación de funciones. A su vez, este proporciona un modelo de programación natural para proyecciones relacionales, navegación jerárquica por documentos JSON, autocombinaciones e invocación de funciones definidas por el usuario (UDF) escritas íntegramente en JavaScript, entre otras características. 
+-	<strong>Adoptar SQL</strong>: en lugar de inventar un nuevo lenguaje de consulta, queríamos adoptar el lenguaje SQL. Después de todo, SQL es uno de los lenguajes de consulta más familiares y populares. El lenguaje de consulta SQL de Base de datos de documentos de Azure proporciona un modelo de programación formal para consultas enriquecidas en documentos JSON.
+-	<strong>Ampliar SQL</strong>: igual que una base de datos de documentos JSON capaz de ejecutar JavaScript directamente en el motor de base de datos, queríamos usar el modelo de programación de JavaScript como base para nuestro lenguaje de consulta SQL. El lenguaje de consulta SQL DocumentDB se basa en el sistema de tipos de JavaScript, la evaluación de expresiones y la invocación de funciones. A su vez, este proporciona un modelo de programación natural para proyecciones relacionales, navegación jerárquica por documentos JSON, autocombinaciones e invocación de funciones definidas por el usuario (UDF) escritas íntegramente en JavaScript, entre otras características. 
 
 Creemos que estas capacidades son clave para reducir la fricción entre la aplicación y la base de datos, y que son cruciales para la productividad de los desarrolladores.
 
-En este tutorial, presentamos las capacidades y la gramática del lenguaje de consulta de Base de datos de documentos a través de una serie de ejemplos. Asimismo, abordamos el modo en que se puede consultar Base de datos de documentos usando la API de REST y los SDK (incluido LINQ).
+Para obtener más información acerca de las capacidades y la gramática del lenguaje de consulta de Base de datos de documentos , vea el vídeo siguiente o complete el tutorial a continuación en este artículo. 
 
-#Tareas iniciales
+> [AZURE.VIDEO dataexposedqueryingdocumentdb]
+
+## Introducción
 Para consultar SQL de Base de datos de documentos trabajando, empezaremos con unos documentos JSON sencillos y realizaremos algunas consultas fáciles con él. Tenga en cuenta estos dos documentos JSON sobre dos familias. No olvide que, con Base de datos de documentos, no es preciso que creemos ningún esquema ni índice secundario de forma explícita. Simplemente tenemos que insertar los documentos JSON en una colección DocumentDB y posteriormente realizar una consulta. 
 Aquí tenemos un documento JSON sencillo para la familia Andersen, los padres, los hijos (y sus mascotas), la dirección y la información de registro. El documento tiene cadenas, números, booleanos, matrices y propiedades anidadas. 
 
@@ -51,7 +53,7 @@ Aquí tenemos un documento JSON sencillo para la familia Andersen, los padres, l
 	}
 
 
-Este es un segundo documento con una diferencia sutil: se usan 'givenName' y 'familyName' en lugar de "firstName" y "lastName".
+Aquí se muestra un segundo documento con una sutil diferencia: se usan `givenName` y `familyName` en lugar de `firstName` y `lastName`.
 
 **Documento**  
 
@@ -83,7 +85,7 @@ Este es un segundo documento con una diferencia sutil: se usan 'givenName' y 'fa
 
 
 
-Ahora realicemos algunas consultas con estos datos para entender algunos aspectos clave de SQL de Base de datos de documentos. Por ejemplo, la siguiente consulta devolverá los documentos en los que el campo de id. coincide con `AndersenFamily`. Puesto que es un `SELECT *`, el resultado de la consulta es el documento JSON completo:
+Ahora realicemos algunas consultas con estos datos para entender algunos aspectos clave de SQL de Base de datos de documentos. Por ejemplo, la consulta siguiente devolverá los documentos en los que el campo id coincida con `AndersenFamily`. Puesto que es `SELECT *`, el resultado de la consulta es el documento JSON completo:
 
 **Consulta**
 
@@ -129,7 +131,7 @@ Ahora preste atención al caso donde debemos cambiar el formato al resultado JSO
 	}]
 
 
-La consulta siguiente devuelve todos los nombres proporcionados de los niños de la familia cuyo id. coincida con `WakefieldFamily`.
+La consulta siguiente devuelve todos los nombres proporcionados de los niños de la familia cuyo identificador coincida con `WakefieldFamily`.
 
 **Consulta**
 
@@ -148,12 +150,12 @@ La consulta siguiente devuelve todos los nombres proporcionados de los niños de
 
 Nos gustaría llamar la atención sobre algunos aspectos destacados del lenguaje de consulta de Base de datos de documentos a través de los ejemplos que hemos visto hasta el momento:  
  
--	Como SQL de Base de datos de documentos trabaja en valores JSON, trata entidades en forma de árbol en lugar de filas y columnas. Por consiguiente, el lenguaje permite que se haga referencia a los nodos del árbol a cualquier profundidad arbitraria, como `Node1.Node2.Node3.....Nodem`, similar al lenguaje SQL relacional que hace alusión a la referencia de dos partes de `<table>.<column>`.   
+-	Como SQL de Base de datos de documentos trabaja en valores JSON, trata entidades en forma de árbol en lugar de filas y columnas. Por consiguiente, el lenguaje permite que se haga referencia a los nodos del árbol a cualquier profundidad arbitraria, como `Node1.Node2.Node3.....Nodem`, de forma similar al lenguaje SQL relacional que hace alusión a la referencia de dos partes de `<table>.<column>`.   
 -	El lenguaje trabaja con datos sin esquemas. Por lo tanto, es necesario que el sistema de tipo se enlace dinámicamente. La misma expresión podría producir diversos tipos en distintos documentos. El resultado de una consulta es un valor JSON válido, pero no se garantiza que sea de un esquema fijo.  
 -	Base de datos de documentos solo admite documentos JSON estrictos. Esto significa que el sistema de tipo y las expresiones se restringen para tratar únicamente tipos JSON. Consulte la [especificación de JSON](http://www.json.org/) para obtener más detalles.  
 -	Una recopilación de Base de datos de documentos es un contenedor sin esquemas de documentos JSON. Las relaciones en las entidades de datos dentro de los documentos de una colección y entre ellos se capturan de manera implícita por contención y no por relaciones entre clave principal y clave externa. Se trata de un aspecto importante que merece la pena señalar teniendo en cuenta las combinaciones internas descritas posteriormente en este artículo.
 
-#Índices de Base de datos de documentos
+## Índices de Base de datos de documentos
 
 Antes de entrar en el lenguaje SQL de Base de datos de documentos, vale la pena explorar el diseño de indización en DocumentDB. 
 
@@ -174,7 +176,7 @@ Por lo tanto, al diseñar el subsistema de indización de Base de datos de docum
 Consulte los [ejemplos de Base de datos de documentos](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content) en MSDN para ver ejemplos en los que se muestra cómo configurar la directiva de indización para una colección. Adentrémonos ahora en los detalles del lenguaje SQL de Base de datos de documentos.
 
 
-#Aspectos básicos de la consulta de Base de datos de documentos
+## Aspectos básicos de la consulta de Base de datos de documentos
 Todas las consultas constan de una cláusula SELECT y cláusulas FROM y WHERE opcionales por estándares ANSI-SQL. Normalmente, para cada consulta, se enumera el origen de la cláusula FROM. A continuación, el filtro de la cláusula WHERE se aplica en el origen para recuperar un subconjunto de documentos JSON. Por último, la cláusula SELECT se usa para proyectar los valores JSON solicitados en la lista seleccionada.
     
     SELECT <select_list> 
@@ -182,19 +184,19 @@ Todas las consultas constan de una cláusula SELECT y cláusulas FROM y WHERE op
     [WHERE <filter_condition>]    
 
 
-#Cláusula FROM
+## Cláusula FROM
 La cláusula `FROM <from_specification>` es opcional a menos que se filtre el origen o se proyecte posteriormente en la consulta. El objetivo de esta cláusula es especificar el origen de datos sobre el que debe operar la consulta. Normalmente, toda la recopilación es el origen pero, en su lugar, puede especificarse un subconjunto de la recopilación. 
 
-Una consulta como `SELECT * FROM Families` indica que toda la recopilación Familias es el origen sobre el que se va a enumerar. Se puede usar una RAÍZ de identificador especial para representar la colección en lugar de usar el nombre de la colección. 
+Una consulta como `SELECT * FROM Families` indica que toda la colección Families es el origen a partir del que se va a enumerar. Se puede usar una RAÍZ de identificador especial para representar la colección en lugar de usar el nombre de la colección. 
 La lista siguiente contiene las reglas que se aplican por consulta:
 
-- La colección puede ser un alias, como 'SELECT f.id FROM Families AS f' o simplemente 'SELECT f.id Families f'. Aquí 'f' es el equivalente de las `Families`. `AS` es una palabra clave opcional para establecer un alias para el identificador.
+- La colección puede ser un alias, como `SELECT f.id FROM Families AS f` o simplemente `SELECT f.id FROM Families f`. Aquí `f` es el equivalente de `Families`. `AS` es una palabra clave opcional para establecer un alias para el identificador.
 
 -	Tenga en cuenta que, una vez establecido un alias, no podrá enlazarse el origen original. Por ejemplo, `SELECT Familes.id FROM Families f` no es válido sintácticamente puesto que el identificador "Families" ya no se puede resolver.
 
 -	Todas las propiedades a las que es necesario hacer referencia deben estar completas. A falta de un cumplimiento del esquema estricto, esto se impone para evitar cualquier enlace ambiguo. Por tanto, `SELECT id FROM Families f` no es válido sintácticamente puesto que la propiedad `id` no está enlazada.
 	
-##Subdocumentos
+### Subdocumentos
 El origen también se puede reducir a un subconjunto más pequeño. Por ejemplo, para enumerar únicamente un subárbol en cada documento, la subraíz podría convertirse en el origen, como se muestra en el ejemplo siguiente.
 
 **Consulta**
@@ -233,7 +235,7 @@ El origen también se puede reducir a un subconjunto más pequeño. Por ejemplo,
 	  ]
 	]
 
-Aunque en el ejemplo anterior se usó una matriz como origen, también podría usarse un objeto como origen como se muestra en el ejemplo siguiente. Cualquier valor JSON válido (que no sea Undefined) que se pueda encontrar en el origen se tendrá en cuenta para su inclusión en el resultado de la consulta. Si algunas familias no tienen un valor 'address.state', se excluirán del resultado de consulta.
+Aunque en el ejemplo anterior se usó una matriz como origen, también podría usarse un objeto como origen como se muestra en el ejemplo siguiente. Cualquier valor JSON válido (que no sea Undefined) que se pueda encontrar en el origen se tendrá en cuenta para su inclusión en el resultado de la consulta. Si algunas familias no tienen un valor `address.state`, se excluirán en el resultado de la consulta.
 
 **Consulta**
 
@@ -248,10 +250,10 @@ Aunque en el ejemplo anterior se usó una matriz como origen, también podría u
 	]
 
 
-#Cláusula WHERE
+## Cláusula WHERE
 La cláusula WHERE (**`WHERE <filter_condition>`**) es opcional. Especifica las condiciones de que los documentos JSON proporcionados por el origen deben satisfacer para incluirse como parte del resultado. Cualquier documento JSON debe evaluar las condiciones especificadas en "true" para su consideración para el resultado. La capa de índice usa la cláusula WHERE para determinar el subconjunto más pequeño absoluto de documentos de origen que pueden formar parte del resultado. 
 
-En la consulta siguiente se solicitan documentos que contienen una propiedad de nombre cuyo valor es `AndersenFamily`. Cualquier otro documento que no tenga una propiedad de nombre o en el que no coincida el valor `AndersenFamily`, se excluirá. 
+En la consulta siguiente se solicitan documentos que contienen una propiedad de nombre cuyo valor es `AndersenFamily`. Cualquier otro documento que no tenga una propiedad de nombre o en el que no coincida el valor `AndersenFamily` se excluye. 
 
 **Consulta**
 
@@ -280,7 +282,7 @@ Actualmente se admiten los siguientes operadores binarios y pueden usarse en con
 </tr>
 <tr>
 <td>Bit a bit</td>	
-<td>|, &, ^</td>
+<td>|, &, ^, <<, >>, >>> (desplazamiento a la derecha con relleno de ceros) </td>
 </tr>
 <tr>
 <td>Lógicos</td>
@@ -323,9 +325,9 @@ También se admiten los operadores unarios +,-, ~ y NOT, y se pueden usar dentro
 
 
 
-Además de los operadores unarios y binarios, también se permiten referencias de propiedad. Por ejemplo, `SELECT * FROM Families f WHERE f.isRegistered` devuelve el documento JSON que contiene la propiedad 'isRegistered' donde el valor de la propiedad es igual que el valor 'true' JSON. Cualquier otro valor (false, null, Undefined, '<número>', '<cadena>', '<objeto>', '<array>', etc.) lleva al documento de origen a excluirse del resultado. 
+Además de los operadores unarios y binarios, también se permiten referencias de propiedad. Por ejemplo, `SELECT * FROM Families f WHERE f.isRegistered` devuelve el documento JSON que contiene la propiedad `isRegistered` donde el valor de la propiedad es igual que el valor `true` JSON. Cualquier otro valor (false, null, Undefined, `<number>`, `<string>`, `<object>`, `<array>`, etc.) hace que el documento de origen se excluya del resultado. 
 
-##Operadores de igualdad y comparación
+### Operadores de igualdad y comparación
 En la siguiente tabla se muestra el resultado de las comparaciones de igualdad en el lenguaje SQL de Base de datos de documentos entre dos tipos JSON cualesquiera.
 <table style = "width:300px">
    <tbody>
@@ -340,19 +342,19 @@ En la siguiente tabla se muestra el resultado de las comparaciones de igualdad e
             <strong>Null</strong>
          </td>
          <td valign="top">
-            <strong>Boolean</strong>
+            <strong>Booleano</strong>
          </td>
          <td valign="top">
-            <strong>Number</strong>
+            <strong>Número</strong>
          </td>
          <td valign="top">
-            <strong>String</strong>
+            <strong>Cadena</strong>
          </td>
          <td valign="top">
-            <strong>Object</strong>
+            <strong>Objeto</strong>
          </td>
          <td valign="top">
-            <strong>Array</strong>
+            <strong>Matriz</strong>
          </td>
       </tr>
       <tr>
@@ -389,7 +391,7 @@ En la siguiente tabla se muestra el resultado de las comparaciones de igualdad e
             Undefined
          </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>Aceptar</strong>
          </td>
          <td valign="top">
             Undefined
@@ -409,7 +411,7 @@ En la siguiente tabla se muestra el resultado de las comparaciones de igualdad e
       </tr>
       <tr>
          <td valign="top">
-            <strong>Boolean<strong>
+            <strong>Booleano<strong>
          </td>
          <td valign="top">
             Undefined
@@ -418,7 +420,7 @@ En la siguiente tabla se muestra el resultado de las comparaciones de igualdad e
             Undefined
          </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>Aceptar</strong>
          </td>
          <td valign="top">
             Undefined
@@ -435,7 +437,7 @@ En la siguiente tabla se muestra el resultado de las comparaciones de igualdad e
       </tr>
       <tr>
          <td valign="top">
-            <strong>Number<strong>
+            <strong>Número<strong>
          </td>
          <td valign="top">
             Undefined
@@ -447,7 +449,7 @@ En la siguiente tabla se muestra el resultado de las comparaciones de igualdad e
             Undefined
          </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>Aceptar</strong>
          </td>
          <td valign="top">
             Undefined
@@ -461,7 +463,7 @@ En la siguiente tabla se muestra el resultado de las comparaciones de igualdad e
       </tr>
       <tr>
          <td valign="top">
-            <strong>String<strong>
+            <strong>Cadena<strong>
          </td>
          <td valign="top">
             Undefined
@@ -476,7 +478,7 @@ En la siguiente tabla se muestra el resultado de las comparaciones de igualdad e
             Undefined
          </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>Aceptar</strong>
          </td>
          <td valign="top">
             Undefined
@@ -487,7 +489,7 @@ En la siguiente tabla se muestra el resultado de las comparaciones de igualdad e
       </tr>
       <tr>
          <td valign="top">
-            <strong>Object<strong>
+            <strong>Objeto<strong>
          </td>
          <td valign="top">
             Undefined
@@ -505,7 +507,7 @@ En la siguiente tabla se muestra el resultado de las comparaciones de igualdad e
             Undefined
          </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>Aceptar</strong>
          </td>
          <td valign="top">
             Undefined
@@ -513,7 +515,7 @@ En la siguiente tabla se muestra el resultado de las comparaciones de igualdad e
       </tr>
       <tr>
          <td valign="top">
-            <strong>Array<strong>
+            <strong>Matriz<strong>
          </td>
          <td valign="top">
             Undefined
@@ -534,7 +536,7 @@ En la siguiente tabla se muestra el resultado de las comparaciones de igualdad e
             Undefined
          </td>
          <td valign="top">
-            <strong>OK</strong>
+            <strong>Aceptar</strong>
          </td>
       </tr>
    </tbody>
@@ -547,7 +549,26 @@ Para otros operadores de comparación como >, >=, !=, < y <=, se aplican las sig
 
 Si el resultado de la expresión escalar del filtro es Undefined, el documento correspondiente no se incluiría en el resultado, pues Undefined no es igual lógicamente a "true".
 
-##Operadores lógicos (Y, O y NO)
+### Palabra clave BETWEEN
+También puede usar la palabra clave BETWEEN para expresar consultas en intervalos de valores como en ANSI SQL. BETWEEN puede usarse en cualquier tipo primitivo JSON (números, cadenas, booleanos y null). 
+
+Por ejemplo, esta consulta devuelve todos los documentos de la familia en los que el curso del primer hijo se encuentra entre 1 y 5 (ambos inclusive). 
+
+    SELECT *
+    FROM Families.children[0] c
+    WHERE c.grade BETWEEN 1 AND 5
+
+Al contrario que en ANSI SQL, también se puede usar la cláusula BETWEEN en la cláusula FROM, como en el ejemplo siguiente.
+
+    SELECT (c.grade BETWEEN 0 AND 10)
+    FROM Families.children[0] c
+
+Para que la consulta se ejecute de forma más rápida, no olvide crear una directiva de indexación que use un tipo de índice de intervalo en cualquier ruta o propiedad numérica que se filtre en la cláusula BETWEEN. 
+
+La principal diferencia entre usar BETWEEN en Base de datos de documentos y ANSI SQL es que puede expresar consultas por rangos en propiedades de tipos mixtos. Por ejemplo, "grade" podría ser un número (5) en algunos documentos y una cadena ("grade4") en otros. En estos casos, al igual que en JavaScript, una comparación entre dos tipos distintos da como resultado "undefined" y el documento se omitirá.
+
+
+### Operadores lógicos (Y, O y NO)
 Los operadores lógicos operan en valores booleanos. Las tablas de verdad lógica para estos operadores se muestran en las siguientes tablas.
 
 <table style = "width:300px">
@@ -555,7 +576,7 @@ Los operadores lógicos operan en valores booleanos. Las tablas de verdad lógic
         <tr>
             <td width="55" valign="top">
                 <p>
-                    <strong>O bien</strong>
+                    <strong>OR</strong>
                 </p>
             </td>
             <td width="45" valign="top">
@@ -648,7 +669,7 @@ Los operadores lógicos operan en valores booleanos. Las tablas de verdad lógic
         <tr>
             <td width="55" valign="top">
                 <p>
-                    <strong>Y</strong>
+                    <strong>AND</strong>
                 </p>
             </td>
             <td width="54" valign="top">
@@ -741,7 +762,7 @@ Los operadores lógicos operan en valores booleanos. Las tablas de verdad lógic
         <tr>
             <td valign="top">
                 <p>
-                    <strong>NO</strong>
+                    <strong>NOT</strong>
                 </p>
             </td>
             <td valign="top">
@@ -789,10 +810,36 @@ Los operadores lógicos operan en valores booleanos. Las tablas de verdad lógic
     </tbody>
 </table>
 
-#Cláusula SELECT
+### Operador ternario (?) y de combinación (??):
+El operador ternario y el operador de combinación pueden usarse para crear expresiones condicionales, de forma similar a lenguajes de programación populares como C# y JavaScript. 
+
+El operador ternario (?) puede ser muy útil al construir nuevas propiedades JSON sobre la marcha. Así, ahora puede escribir consultas para clasificar los niveles de clase en formato de lenguaje natural, por ejemplo Principiante/Intermedio/Avanzado, como se muestra a continuación.
+ 
+     SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
+     FROM Families.children[0] c
+
+También puede anidar las llamadas al operador como en la consulta siguiente.
+ 
+    SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
+    FROM Families.children[0] c
+
+Como ocurre con otros operadores de consulta, si las propiedades a las que se hace referencia en la expresión condicional faltan en cualquier documento, o si los tipos que se comparan son diferentes, esos documentos se excluirán de los resultados de la consulta.
+
+El operador de combinación (??) se puede usar para comprobar eficazmente la presencia de una propiedad (es decir, si se ha definido) en un documento. Esto es útil cuando se consultan datos semiestructurados o de tipos combinados. Por ejemplo, esta consulta devuelve el valor "lastName" si está presente o "surname" si no lo está.
+
+    SELECT f.lastName ?? f.surname AS familyName
+    FROM Families f
+
+De forma similar, también se puede consultar la ausencia de una propiedad ("undefined") como en el ejemplo siguiente.
+
+    SELECT *
+    FROM classes c
+    WHERE c.lastName ?? true
+
+## Cláusula SELECT
 La cláusula SELECT (**`SELECT <select_list>`**) es obligatoria y especifica qué valores se recuperarán de la consulta, como en ANSI-SQL. El subconjunto que se ha filtrado en la parte superior de los documentos de origen pasa a la fase de proyección, en la cual se recuperan los valores JSON especificados y se construye un nuevo objeto JSON para cada una de las entradas que pasan a él. 
 
-En el siguiente ejemplo se muestra una consulta SELECT típica: 
+En el ejemplo siguiente se muestra una consulta SELECT típica: 
 
 **Consulta**
 
@@ -811,8 +858,8 @@ En el siguiente ejemplo se muestra una consulta SELECT típica:
 	}]
 
 
-##Propiedades anidadas
-En el ejemplo siguiente, estamos proyectando dos propiedades anidadas `f.address.state` y `f.address.city`.
+### Propiedades anidadas
+En el ejemplo siguiente, proyectamos dos propiedades `f.address.state` y `f.address.city` anidadas.
 
 **Consulta**
 
@@ -847,7 +894,7 @@ La proyección también admite experiencias JSON, como se muestra en el siguient
 	}]
 
 
-Echemos un vistazo al rol de "$1" aquí. La cláusula `SELECT` debe crear un objeto JSON y, como no se proporciona ninguna clave, usamos nombres de las variables de argumentos implícitos que empiezan por `$1`. Por ejemplo, esta consulta devuelve dos variables de argumento implícito, con la etiqueta '1' y '$2'.
+Analicemos el rol de `$1` aquí. La cláusula `SELECT` debe crear un objeto JSON y, como no se proporciona ninguna clave, usamos nombres de variables de argumentos implícitos que empiezan por `$1`. Por ejemplo, esta consulta devuelve dos variables de argumentos implícitos, etiquetadas como `$1` y `$2`.
 
 **Consulta**
 
@@ -869,7 +916,7 @@ Echemos un vistazo al rol de "$1" aquí. La cláusula `SELECT` debe crear un obj
 	}]
 
 
-##Establecimiento de alias
+### Establecimiento de alias
 Ampliemos ahora el ejemplo anterior con un establecimiento de alias explícito para valores. AS es la palabra clave usada para el establecimiento de alias. Tenga en cuenta que es opcional, como se muestra al proyectarse el segundo valor como `NameInfo`. 
 
 En caso de que una consulta tenga dos propiedades con el mismo nombre, el establecimiento de alias debe usarse para cambiar el nombre de las propiedades de modo que se elimine su ambigüedad en el resultado proyectado.
@@ -895,7 +942,7 @@ En caso de que una consulta tenga dos propiedades con el mismo nombre, el establ
 	}]
 
 
-##Expresiones escalares
+### Expresiones escalares
 Además de las referencias de propiedad, la cláusula SELECT también admite expresiones escalares como constantes, expresiones aritméticas, expresiones lógicas, etc. Por ejemplo, aquí hay una sencilla consulta "Hola mundo".
 
 **Consulta**
@@ -941,7 +988,7 @@ En el ejemplo siguiente, el resultado de la expresión escalar es un valor boole
 	]
 
 
-##Creación de objetos y matrices
+### Creación de objetos y matrices
 Otra característica clave del lenguaje SQL de Base de datos de documentos es la creación de matrices u objetos. En el ejemplo anterior, observe que creamos un nuevo objeto JSON. De manera similar, uno también puede construir matrices como se muestra en los siguientes ejemplos.
 
 **Consulta**
@@ -966,8 +1013,8 @@ Otra característica clave del lenguaje SQL de Base de datos de documentos es la
 	  }
 	]
 
-##Palabra clave VALUE
-La palabra clave **VALUE** proporciona una forma de devolver un valor JSON. Por ejemplo, la consulta que se muestra a continuación devuelve la expresión escalar "Hola mundo" en lugar de `{$1: "Hola mundo"}'.
+### Palabra clave VALUE
+La palabra clave **VALUE** proporciona una forma de devolver un valor JSON. Por ejemplo, la consulta que se muestra a continuación devuelve la expresión escalar `"Hello World"` en lugar de `{$1: "Hello World"}`.
 
 **Consulta**
 
@@ -980,7 +1027,7 @@ La palabra clave **VALUE** proporciona una forma de devolver un valor JSON. Por 
 	]
 
 
-La consulta siguiente devuelve el valor JSON sin la etiqueta `"address"` en los resultados.
+La consulta siguiente devuelve el valor JSON sin la etiqueta  `"address"` en los resultados.
 
 **Consulta**
 
@@ -1017,8 +1064,8 @@ El ejemplo siguiente se amplía para mostrar cómo devolver valores primitivos J
 	]
 
 
-##Operador *
-Se admite el operador especial (*) para proyectar el documento tal cual. Al usarse, debe ser el único campo proyectado. Mientras que una consulta como `SELECT * FROM Families f` es válida, `SELECT VALUE * FROM Families f ` y `SELECT *, f.id FROM Families f` no lo son.
+### Operador *
+Se admite el operador especial (*) para proyectar el documento tal cual. Al usarse, debe ser el único campo proyectado. Mientras que una consulta como `SELECT * FROM Families f` es válida, `SELECT VALUE * FROM Families f ` y `SELECT *, f.id FROM Families f ` no lo son.
 
 **Consulta**
 
@@ -1045,8 +1092,8 @@ Se admite el operador especial (*) para proyectar el documento tal cual. Al usar
 	    "isRegistered": true
 	}]
 
-#Conceptos avanzados
-##Iteración
+## Conceptos avanzados
+### Iteración
 Se ha agregado una nueva construcción mediante la palabra clave **IN** en SQL de Base de datos de documentos para proporcionar compatibilidad para recorrer en iteración las matrices JSON. El origen FROM proporciona compatibilidad con la iteración. Empecemos con el ejemplo siguiente:
 
 **Consulta**
@@ -1081,7 +1128,7 @@ Se ha agregado una nueva construcción mediante la palabra clave **IN** en SQL d
 	  ]
 	]
 
-Analicemos ahora otra consulta que realice una iteración sobre elementos secundarios de la recopilación. Observe la diferencia en la matriz de salida. Este ejemplo divide los `elementos secundarios` y se quita el formato de los resultados, convirtiéndose en una sola matriz.  
+Analicemos ahora otra consulta que realice una iteración sobre elementos secundarios de la recopilación. Observe la diferencia en la matriz de salida. Este ejemplo divide el valor `children` y acopla los resultados en una sola matriz.  
 
 **Consulta**
 
@@ -1125,7 +1172,7 @@ Esto puede usarse más veces para filtrar por cada entrada individual de la matr
 	  "givenName": "Lisa"
 	}]
 
-##Combinaciones
+### Combinaciones
 En una base de datos relacional, la necesidad de combinar en tablas es muy importante. Es la consecuencia lógica de diseñar esquemas normalizados. Al contrario que esto, Base de datos de documentos aborda el modelo de datos desnormalizado de documentos sin esquemas. Este es el equivalente lógico de una "autocombinación".
 
 La sintaxis que el lenguaje admite es <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>. Generalmente, esto devuelve un conjunto de tuplas **N** (tupla con **N** valores). Cada tupla tiene valores generados por sus respectivos conjuntos en iteración de todos los alias de colección. En otras palabras, se trata de un producto cruzado completo de los conjuntos que participan en la combinación.
@@ -1144,7 +1191,7 @@ En los ejemplos siguientes se muestra cómo funciona la cláusula JOIN. En el si
 	}]
 
 
-En el ejemplo siguiente, la combinación está entre la raíz del documento y la subraíz `children`. Es un producto cruzado entre dos objetos JSON. El hecho de que los elementos secundarios sean una matriz no funciona en JOIN porque abordamos una sola raíz que es la matriz secundaria. Así pues, en el resultado se incluyen únicamente dos resultados, pues el producto cruzado de cada documento con la matriz produce exactamente solo un documento.
+En el ejemplo siguiente, la combinación se produce entre la raíz del documento y la subraíz `children`. Es un producto cruzado entre dos objetos JSON. El hecho de que los elementos secundarios sean una matriz no funciona en JOIN porque abordamos una sola raíz que es la matriz secundaria. Así pues, en el resultado se incluyen únicamente dos resultados, pues el producto cruzado de cada documento con la matriz produce exactamente solo un documento.
 
 **Consulta**
 
@@ -1188,13 +1235,13 @@ En el ejemplo siguiente se muestra una combinación más convencional:
 
 
 
-Lo primero que hay que tener en en cuenta que 'from_source' de la cláusula **UNIR** es un iterador. Por lo tanto, el flujo en este caso es como sigue:  
+Lo primero que hay que tener en cuenta es que el elemento `from_source` de la cláusula **JOIN** es un iterador. Por lo tanto, el flujo en este caso es como sigue:  
 
 -	Expanda cada elemento secundario **c** en la matriz.
 -	Aplique un producto cruzado con la raíz del documento **f** con cada elemento secundario **c** del que se quitó el formato en el primer paso.
 -	Por último, proyecte solo la propiedad de nombre **f** del objeto raíz. 
 
-El primer documento (`AndersenFamily`) incluye únicamente un elemento secundario, de modo que el conjunto de resultados contiene solo un objeto correspondiente a este documento. El segundo documento ('WakefieldFamily') contiene dos elementos secundarios. De este modo, el producto cruzado produce un objeto independiente para cada elemento secundario, lo que da lugar a dos objetos, uno para cada elemento secundario correspondiente a este documento. Tenga en cuenta que los campos raíces de estos dos documentos serán los mismos, justo como esperaría en un producto cruzado.
+El primer documento (`AndersenFamily`) incluye únicamente un elemento secundario, de modo que el conjunto de resultados contiene solo un objeto correspondiente a este documento. El segundo documento (`WakefieldFamily`) contiene dos elementos secundarios. De este modo, el producto cruzado produce un objeto independiente para cada elemento secundario, lo que da lugar a dos objetos, uno para cada elemento secundario correspondiente a este documento. Tenga en cuenta que los campos raíces de estos dos documentos serán los mismos, justo como esperaría en un producto cruzado.
 
 La utilidad real de JOIN es la formación de tuplas a partir del producto cruzado con una forma que de otro modo es difícil de proyectar. Además, como veremos en el siguiente ejemplo, podría filtrarse por la combinación de una tupla que permite que el usuario elija una condición satisfecha por las tuplas en general.
 
@@ -1274,13 +1321,13 @@ En el ejemplo siguiente, hay un filtro adicional por `pet`. Este excluye todas l
 	]
 
 
-#Integración de JavaScript
+## Integración de JavaScript
 Base de datos de documentos proporciona un modelo de programación para ejecutar una lógica de aplicación basada en JavaScript directamente en las recopilaciones en términos de procedimientos y desencadenadores almacenados. Esto les proporciona:
 
 -	La posibilidad de realizar operaciones CRUD transaccionales de alto rendimiento y consultas en los documentos de una recopilación en virtud de una mayor integración del tiempo de ejecución de JavaScript directamente en el motor de base de datos. 
 -	Un modelo natural de flujo de control, ámbito variable, asignación e integración de primitivas de control de excepciones con transacciones de base de datos. Para obtener más detalles sobre la compatibilidad de Base de datos de documentos con la integración de JavaScript, consulta la documentación de programación del servidor de JavaScript.
 
-##Funciones definidas por el usuario (UDF)
+### Funciones definidas por el usuario (UDF)
 Junto con los tipos ya definidos en este artículo, el lenguaje SQL de Base de datos de documentos ofrece compatibilidad para las funciones definidas por el usuario (UDF). En particular, se admiten las UDF escalares allí donde los desarrolladores puedan proporcionar cero o muchos argumentos y devolver un solo resultado de argumento. Cada uno de estos argumentos se comprueba para ver si se trata de valores JSON legales.  
 
 La gramática del lenguaje SQL de Base de datos de documentos se amplía para admitir una lógica de aplicación personalizada usando estas funciones definidas por el usuario. Las funciones definidas por el usuario pueden registrarse con Base de datos de documentos y, a continuación, se puede hacer referencia a ellas como parte de una consulta de SQL. De hecho, las UDF están exquisitamente diseñadas para su invocación por parte de las consultas. Como resultado de esta opción, las UDF no tienen acceso al objeto de contexto que los otros tipos de JavaScript (procedimientos y desencadenadores almacenados) tienen. Puesto que las consultas se ejecutan como de solo lectura, pueden ejecutarse en réplicas principales o secundarias. Por consiguiente, las UDF están diseñadas para ejecutarse en réplicas secundarias, a diferencia de otros tipos de JavaScript.
@@ -1299,14 +1346,14 @@ A continuación, vemos un ejemplo de cómo puede registrarse una UDF en la base 
 	       collectionSelfLink/* link of the parent collection*/, 
 	       sqrtUdf).Result;  
                                                                              
-El ejemplo anterior crea una UDF cuyo nombre es `SQRT`. Acepta un solo `number` de valor JSON y calcula la raíz cuadrada del número usando la biblioteca Math.
+El ejemplo anterior crea una UDF cuyo nombre es `SQRT`. Acepta un solo valor `number` JSON y calcula la raíz cuadrada del número usando la biblioteca Math.
 
 
 Ahora podemos usar esta UDF en una consulta de una proyección.
 
 **Consulta**
 
-	SELECT SQRT(c.grade)
+	SELECT udf.SQRT(c.grade)
 	FROM c IN Families.children
 
 **Resultados**
@@ -1329,7 +1376,7 @@ La UDF también puede usarse en un filtro como se muestra en el ejemplo siguient
 
 	SELECT c.grade
 	FROM c IN Familes.children
-	WHERE SQRT(c.grade) = 1
+	WHERE udf.SQRT(c.grade) = 1
 
 **Resultados**
 
@@ -1361,14 +1408,14 @@ Para expandir el poder de las UDF, echemos un vistazo a otro ejemplo con lógica
             UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(collection.SelfLink, seaLevelUdf);
 	
 	
-Below is an example that exercises the UDF.
+A continuación se muestra un ejemplo que ejerce la UDF.
 
-**Query**
+**Consulta**
 
-	SELECT f.address.city, SEALEVEL(f.address.city) AS seaLevel
+	SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
 	FROM Families f	
 
-**Results**
+**Resultados**
 
 	 [
 	  {
@@ -1388,15 +1435,37 @@ El lenguaje SQL de Base de datos de documentos proporciona los argumentos a las 
 
 En resumen, las UDF son excelentes herramientas para hacer lógica de negocios como parte de la consulta.
 
-##Evaluación de operadores
+### Evaluación de operadores
 Base de datos de documentos, en virtud de ser una base de datos JSON, establece paralelismos con los operadores de JavaScript y su semántica de evaluación. Aunque Base de datos de documentos intenta conservar la semántica de JavaScript en términos de soporte para JSON, la evaluación de operaciones se desvía en algunas instancias.
 
 En el lenguaje de consulta SQL de Base de datos de documentos, a diferencia del lenguaje SQL tradicional, los tipos de valores no suelen conocerse hasta que los valores se recuperan realmente de la base de datos. Para ejecutar consultas de forma eficaz, la mayoría de los operadores tienen requisitos de tipo estrictos. 
 
-El lenguaje SQL de Base de datos de documentos no realiza conversiones implícitas a diferencia de JavaScript. Por ejemplo, una consulta como `SELECT * FROM Person p WHERE p.Age = 21` coincide con documentos que contienen una propiedad Age cuyo valor es 21. Cualquier otro documento cuya propiedad Age coincida con la cadena "21", u otras variaciones posiblemente infinitas, como "021", "21,0", "0021", "00021", etc. no producirán coincidencias. 
+El lenguaje SQL de Base de datos de documentos no realiza conversiones implícitas a diferencia de JavaScript. Por ejemplo, una consulta como `SELECT * FROM Person p WHERE p.Age = 21` coincide con los documentos que contienen una propiedad Age cuyo valor es 21. Cualquier otro documento cuya propiedad Age coincida con la cadena "21", u
+otras variaciones posiblemente infinitas, como "021", "21,0", "0021", "00021", etc. no producirán coincidencias. 
 Esto es en contraste al JavaScript donde los valores de cadena se convierten de manera implícita en números (en función del operador, por ejemplo, ==). Esta opción es fundamental para conseguir una coincidencia de índices eficaz en el lenguaje SQL de Base de datos de documentos. 
 
-#LINQ para lenguaje SQL de Base de datos de documentos
+## SQL con parámetros
+Base de datos de documentos admite las consultas con parámetros que se expresen con la notación @ ya conocida. El uso de SQL con parámetros permite controlar y evitar de forma sólida la entrada por parte de los usuarios, impidiendo así la exposición accidental de datos a través de la inyección de código SQL. 
+
+Por ejemplo, puede escribir una consulta que acepte los apellidos y el estado de la dirección como parámetros y, a continuación, ejecutarla para distintos valores de los parámetros mencionados en función de la entrada del usuario.
+
+    SELECT * 
+    FROM Families f
+    WHERE f.lastName = @lastName AND f.address.state = @addressState
+
+Después, esta solicitud puede enviarse a Base de datos de documentos como consulta JSON con parámetros, como se muestra a continuación.
+
+    {      
+        "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
+        "parameters": [          
+            {"name": "@lastName", "value": "Wakefield"},         
+            {"name": "@addressState", "value": "NY"},           
+        ] 
+    }
+
+Los valores de los parámetros pueden ser cualquier tipo de JSON válido (cadenas, números, booleanos, null o incluso matrices o JSON anidado). Además, como Base de datos de documentos no tiene ningún esquema, los parámetros no se validan respecto a ningún tipo.
+
+## LINQ para lenguaje SQL de Base de datos de documentos
 LINQ es un modelo de programación de .NET que expresa cálculos como consultas de secuencias de objetos. Base de datos de documentos proporciona una biblioteca del cliente para interactuar con LINQ facilitando una conversión entre objetos JSON y .NET y una asignación a partir de un subconjunto de consultas de LINQ a consultas de Base de datos de documentos. 
 
 En la imagen que se muestra a continuación vemos la arquitectura de consultas compatibles con LINQ que usa Base de datos de documentos.  Al usar el cliente de Base de datos de documentos, los desarrolladores pueden crear un objeto **IQueryable** que consulta directamente al proveedor de consulta de Base de datos de documentos que, a continuación, traduce la consulta de LINQ como una consulta de Base de datos de documentos. La consulta pasa entonces al servidor de Base de datos de documentos para recuperar un conjunto de resultados en formato JSON. Los resultados devueltos se deserializan en una secuencia de objetos .NET en el cliente.
@@ -1405,7 +1474,7 @@ En la imagen que se muestra a continuación vemos la arquitectura de consultas c
  
 
 
-##Asignación de .NET y JSON
+### Asignación de .NET y JSON
 La asignación entre objetos .NET y documentos JSON es natural (cada campo del miembro de datos se asigna a un objeto JSON, donde el nombre del campo se asigna a la parte "clave" del objeto y la parte de "valor" se asigna de forma recursiva a la parte de valor del objeto. Considere el ejemplo siguiente. El objeto Familia creado se asigna al documento JSON como se muestra a continuación. Y viceversa, el documento JSON se reasigna de nuevo a un objeto .NET.
 
 **Clase de C#**
@@ -1487,7 +1556,7 @@ La asignación entre objetos .NET y documentos JSON es natural (cada campo del m
 
 
 
-##LINQ para traducción de lenguaje SQL
+### LINQ para traducción de lenguaje SQL
 El proveedor de consulta de Base de datos de documentos realiza una mejor opción de asignación desde una consulta de LINQ a una consulta de Base de datos de documentos. En la siguiente descripción, asumimos la familiaridad básica del lector con LINQ.
 
 En primer lugar, para el sistema de tipos, admitimos todos los tipos primitivos JSON (tipos numéricos, booleanos, de cadena y null). Solo se admiten estos tipos JSON. Se admiten las siguientes expresiones escalares.
@@ -1517,10 +1586,10 @@ En primer lugar, para el sistema de tipos, admitimos todos los tipos primitivos 
 		new { first = 1, second = 2 }; //an anonymous type with 2 fields              
 		new int[] { 3, child.grade, 5 };
 
-##Operadores de consulta
+### Operadores de consulta
 A continuación, vemos algunos ejemplos que ilustran la traducción de algunos de los operadores de consulta de LINQ estándar a consultas de Base de datos de documentos.
 
-###Operador Select
+#### Operador Select
 La sintaxis es `input.Select(x => f(x))`, donde `f` es una expresión escalar.
 
 **Expresión Lambda de LINQ**
@@ -1563,7 +1632,7 @@ La sintaxis es `input.Select(x => f(x))`, donde `f` es una expresión escalar.
 
 
 
-###Operador SelectMany
+#### Operador SelectMany
 La sintaxis es `input.SelectMany(x => f(x))`, donde `f` es una expresión escalar que devuelve un tipo de colección.
 
 **Expresión Lambda de LINQ**
@@ -1577,7 +1646,7 @@ La sintaxis es `input.SelectMany(x => f(x))`, donde `f` es una expresión escala
 
 
 
-###Operador Where
+#### Operador Where
 La sintaxis es `input.Where(x => f(x))`, donde `f` es una expresión escalar que devuelve un valor booleano.
 
 **Expresión Lambda de LINQ**
@@ -1606,12 +1675,12 @@ La sintaxis es `input.Where(x => f(x))`, donde `f` es una expresión escalar que
 	AND f.children[0].grade < 3
 
 
-##Consultas compuestas
+### Consultas compuestas
 Los operadores anteriores pueden ser compuestos para formar consultas más eficaces. Como Base de datos de documentos admite recopilaciones anidadas, la composición puede concatenarse o anidarse.
 
-###Concatenación 
+#### Concatenación 
 
-La sintaxis es `input(.|.SelectMany())(.Select()|.Where())*`. Una consulta concatenada puede empezar por una consulta 'SelectMany' opcional seguida de varios operadores 'Select' o 'Where'.
+La sintaxis es `input(.|.SelectMany())(.Select()|.Where())*`. Una consulta concatenada puede empezar por una consulta `SelectMany` opcional seguida de varios operadores `Select` o `Where`.
 
 
 **Expresión Lambda de LINQ**
@@ -1666,7 +1735,7 @@ La sintaxis es `input(.|.SelectMany())(.Select()|.Where())*`. Una consulta conca
 
 
 
-###Anidamiento
+#### Anidamiento
 
 La sintaxis es `input.SelectMany(x=>x.Q())` donde Q es un operador `Select`, `SelectMany` o `Where`.
 
@@ -1711,16 +1780,16 @@ En una consulta anidada, la consulta interna se aplica a cada uno de los element
 	WHERE c.familyName = f.parents[0].familyName
 
 
-#Ejecución de consultas
+## Ejecución de consultas
 Base de datos de documentos expone recursos mediante la API de REST, que puede invocar cualquier lenguaje capaz de realizar solicitudes de HTTP/HTTPS. Además, Base de datos de documentos ofrece bibliotecas de programación para varios lenguajes populares como .NET, Node.js, JavaScript y Python. La API de REST y las diversas bibliotecas admiten la realización de consultas a través de SQL. El SDK de .NET admite la realización de consultas de LINQ, además del lenguaje SQL.
 
 En los ejemplos siguientes se muestra cómo crear una consulta y enviarla a una cuenta de la base de datos de Base de datos de documentos.
-##API de REST
+### API de REST
 Base de datos de documentos ofrece un modelo de programación RESTful sobre HTTP. Las cuentas de la base de datos pueden aprovisionarse usando una suscripción de Azure. El modelo de recursos de Base de datos de documentos consta de un conjunto de recursos en una cuenta de la base de datos, cada uno de los cuales pudiendo dirigirse mediante un URI lógico y estable. En este documento, se hace referencia a un conjunto de recursos como fuente. Una cuenta de la base de datos consta de un conjunto de bases de datos, cada una incluyendo varias recopilaciones que, a su vez, contienen documentos, UDF y otros tipos de recursos.
 
 El modelo de interacción básico con estos recursos se lleva a cabo a través de los verbos de HTTP GET, PUT, POST y DELETE con su interpretación estándar. El verbo POST se usa para la creación de un nuevo recurso, para ejecutar un procedimiento almacenado o para emitir una consulta de Base de datos de documentos. Las consultas siempre son operaciones de solo lectura sin efectos secundarios.
 
-En los ejemplos siguientes se muestra POST para una consulta de Base de datos de documentos realizada a una recopilación que incluye los dos documentos de ejemplo que hemos revisado hasta el momento. La consulta tiene un filtro sencillo por la propiedad de nombre JSON. Tenga en cuenta el uso de `x-ms-documentdb-isquery` y el tipo de contenido: encabezados `application/sql` que van a denotar que la operación es una consulta.
+En los ejemplos siguientes se muestra POST para una consulta de Base de datos de documentos realizada a una recopilación que incluye los dos documentos de ejemplo que hemos revisado hasta el momento. La consulta tiene un filtro sencillo por la propiedad de nombre JSON. Tenga en cuenta el uso de los encabezados `x-ms-documentdb-isquery` y Content-Type: `application/query+json` que denotan que la operación es una consulta.
 
 
 **Solicitud**
@@ -1728,9 +1797,15 @@ En los ejemplos siguientes se muestra POST para una consulta de Base de datos de
 	POST https://<REST URI>/docs HTTP/1.1
 	...
 	x-ms-documentdb-isquery: True
-	Content-Type: application/sql
+	Content-Type: application/query+json
+
+    {      
+        "query": "SELECT * FROM Families f WHERE f.id = @familyId",     
+        "parameters": [          
+            {"name": "@familyId", "value": "AndersenFamily"}         
+        ] 
+    }
 	
-	SELECT * FROM Families f WHERE f.id = "AndersenFamily"
 
 **Resultados**
 
@@ -1790,16 +1865,20 @@ En el segundo ejemplo se muestra una consulta más compleja que devuelve varios 
 	POST https://<REST URI>/docs HTTP/1.1
 	...
 	x-ms-documentdb-isquery: True
-	Content-Type: application/sql
+	Content-Type: application/query+json
 	
-	SELECT 
-	     f.id AS familyName, 
-	     c.givenName AS childGivenName, 
-	     c.firstName AS childFirstName, 
-	     p.givenName AS petName 
-	FROM Families f 
-	JOIN c IN f.children 
-	JOIN p in c.pets
+    {      
+        "query": "SELECT 
+				     f.id AS familyName, 
+				     c.givenName AS childGivenName, 
+				     c.firstName AS childFirstName, 
+				     p.givenName AS petName 
+				  FROM Families f 
+				  JOIN c IN f.children 
+				  JOIN p in c.pets",     
+        "parameters": [] 
+    }
+
 
 **Resultados**
 
@@ -1833,13 +1912,13 @@ En el segundo ejemplo se muestra una consulta más compleja que devuelve varios 
 	}
 
 
-Si los resultados de una consulta no concuerdan en una sola página de resultados, la API de REST devuelve un token de continuación a través del encabezado de respuesta `x-ms-continuation-token`. Los clientes pueden paginar los resultados incluyendo el encabezado en resultados posteriores. El número de resultados por página también se puede controlar a través del encabezado de número `x-ms-max-item-count`.
+Si los resultados de una consulta no se ajustan a una sola página de resultados, la API de REST devuelve un token de continuación a través del encabezado de respuesta `x-ms-continuation-token`. Los clientes pueden paginar los resultados incluyendo el encabezado en resultados posteriores. El número de resultados por página también se puede controlar a través del encabezado de número `x-ms-max-item-count`.
 
-Para administrar la directiva de coherencia de datos para consultas, use el encabezado 'x-ms-nivel de coherencia' como todas las solicitudes de la API de REST. Para que la sesión sea coherente, también es necesario enviar el último encabezado de cookie `x-ms-session-token` de la solicitud de la consulta. Tenga en cuenta que la directiva de índices de la recopilación consultada también puede afectar a la coherencia de los resultados de la consulta. En el caso de las recopilaciones, con la configuración de la directiva de índices predeterminada, el índice siempre es actual con el contenido del documento y los resultados de la consulta coincidirán con la coherencia elegida para los datos. Si la directiva de índices se suaviza para los perezosos, las consultas pueden devolver resultados obsoletos. Para obtener más información, consulte [Niveles de coherencia de Base de datos de documentos] [consistency-levels].
+Para administrar la directiva de coherencia de datos para consultas, use el encabezado `x-ms-consistency-level` como todas las solicitudes de la API de REST. Para que la sesión sea coherente, también es necesario enviar el último encabezado de cookie `x-ms-session-token` de la solicitud de la consulta. Tenga en cuenta que la directiva de índices de la recopilación consultada también puede afectar a la coherencia de los resultados de la consulta. En el caso de las recopilaciones, con la configuración de la directiva de índices predeterminada, el índice siempre es actual con el contenido del documento y los resultados de la consulta coincidirán con la coherencia elegida para los datos. Si la directiva de índices se suaviza para los perezosos, las consultas pueden devolver resultados obsoletos. Para obtener más información, consulte [Niveles de coherencia de Base de datos de documentos] [consistency-levels].
 
-Si la directiva de índices configurada de la recopilación no puede admitir la consulta especificada, el servidor de Base de datos de documentos devuelve 400 de "solicitud incorrecta". Esto se devuelve para las consultas por rango en rutas de acceso configuradas para búsquedas hash (igualdad) y rutas de acceso excluidas de forma explícita de los índices. El encabezado `x-ms-documentdb-query-enable-scan` puede especificarse para permitir que la consulta realice un análisis si no está disponible un índice.
+Si la directiva de índices configurada de la recopilación no puede admitir la consulta especificada, el servidor de Base de datos de documentos devuelve 400 de "solicitud incorrecta". Esto se devuelve para las consultas por rango en rutas de acceso configuradas para búsquedas hash (igualdad) y rutas de acceso excluidas de forma explícita de los índices. El encabezado `x-ms-documentdb-query-enable-scan` puede especificarse para permitir que la consulta realice un análisis si no hay un índice disponible.
 
-##SDK de C# (.NET)
+### SDK de C# (.NET)
 El SDK de .NET admite la realización de consultas de LINQ y SQL. En el ejemplo siguiente se muestra cómo realizar la consulta de filtro simple incluida anteriormente en este documento.
 
 
@@ -1849,6 +1928,15 @@ El SDK de .NET admite la realización de consultas de LINQ y SQL. En el ejemplo 
 	    Console.WriteLine("\tRead {0} from SQL", family);
 	}
 	
+    SqlQuerySpec query = new SqlQuerySpec("SELECT * FROM Families f WHERE f.id = @familyId");
+    query.Parameters = new SqlParameterCollection();
+    query.Parameters.Add(new SqlParameter("@familyId", "AndersenFamily"));
+
+    foreach (var family in client.CreateDocumentQuery(collectionLink, query))
+    {
+        Console.WriteLine("\tRead {0} from parameterized SQL", family);
+    }
+
 	foreach (var family in (
 	    from f in client.CreateDocumentQuery(collectionLink)
 	    where f.Id == "AndersenFamily"
@@ -1918,13 +2006,13 @@ En el ejemplo siguiente se muestran combinaciones, expresadas a través de Selec
 
 
 
-El cliente de .NET se itera automáticamente a través de todas las páginas de resultados de la consulta de los bloques foreach, como se muestra anteriormente. Las opciones de consulta incluidas en la sección de la API de REST también están disponibles en el SDK de .NET usando las clases `FeedOptions` y `FeedResponse` en el método CreateDocumentQuery. El número de páginas puede controlarse usando la configuración 'MaxItemCount'. 
+El cliente de .NET se itera automáticamente a través de todas las páginas de resultados de la consulta de los bloques foreach, como se muestra anteriormente. Las opciones de consulta incluidas en la sección de la API de REST también están disponibles en el SDK de .NET mediante el uso de las clases `FeedOptions` y `FeedResponse` en el método CreateDocumentQuery. El número de páginas puede controlarse con el valor `MaxItemCount`. 
 
-Los desarrolladores pueden controlar explícitamente la paginación creando 'IDocumentQueryable' con el objeto 'IQueryable" y, a continuación, leyendo los valores ' ResponseContinuationToken' y devolviéndolos como 'RequestContinuationToken' en 'FeedOptions'. `EnableScanInQuery` puede establecerse para permitir análisis si la consulta no se admite por la directiva de indización configurada.
+Los desarrolladores también pueden controlar explícitamente la paginación creando `IDocumentQueryable` con el objeto `IQueryable` y, a continuación, leyendo los valores `ResponseContinuationToken`  y devolviéndolos como `RequestContinuationToken` en `FeedOptions`. `EnableScanInQuery` puede establecerse para permitir el análisis si la directiva de indexación configurada no admite la consulta.
 
 Consulte los [ejemplos de .NET de Base de datos de documentos](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content) para obtener más ejemplos que contienen consultas. 
 
-##API del servidor de JavaScript 
+### API del servidor de JavaScript 
 Base de datos de documentos proporciona un modelo de programación para ejecutar una lógica de aplicación basada en JavaScript directamente en las recopilaciones usando procedimientos y desencadenadores almacenados. La lógica de JavaScript registrada en un nivel de recopilación puede emitir operaciones de base de datos en las operaciones de los documentos de la recopilación especificada. Estas operaciones se incluyen en transacciones ACID ambientales.
 
 En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servidor de JavaScript para realizar consultas a partir de procedimientos y desencadenadores almacenados dentro.
@@ -1961,26 +2049,24 @@ En el ejemplo siguiente se muestra cómo usar queryDocuments en la API del servi
 	}
 
 
-#Referencias
+## Referencias
 1.	[Introducción a Base de datos de documentos de Azure][introduction]
 2.	[Especificación del lenguaje de SQL de Base de datos de documentos](http://go.microsoft.com/fwlink/p/?LinkID=510612)
 3.	[Ejemplos de .NET de Base de datos de documentos](http://code.msdn.microsoft.com/Azure-DocumentDB-NET-Code-6b3da8af#content)
-4.	[Niveles de coherencia de Base de datos de documentos][consistency-levels]
+4.	[Niveles de coherencia en Base de datos de documentos][consistency-levels]
 5.	SQL ANSI 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6.	JSON [http://json.org/](http://json.org/)
-7.	Especificación de JavaScript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+7.	Especificación de Javascript [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 8.	LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
 9.	Técnicas de evaluación de consultas para bases de datos de gran tamaño [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
 10.	Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994
 11.	Lu, Ooi, Tan, Query Processing in Parallel Relational Database Systems, IEEE Computer Society Press, 1994.
 12.	Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
-13.     G. Graefe. El marco de cascadas para la optimización de consultas. IEEE Data Eng. Bull., 18(3): 1995
+13.     G. Graefe. El marco de cascadas para la optimización de consultas. IEEE Data Eng. Bull., 18(3): 1995.
 
 
 [1]: ./media/documentdb-sql-query/sql-query1.png
 [introduction]: ../documentdb-introduction
 [consistency-levels]: ../documentdb-consistency-levels
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

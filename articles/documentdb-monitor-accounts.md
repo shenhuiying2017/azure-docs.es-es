@@ -16,127 +16,93 @@
 	ms.date="01/13/2015" 
 	ms.author="mimig"/>
 
-# Supervisión de una cuenta de Base de datos de documentos
+# Supervisión de una cuenta de Base de datos de documentos  
 
-Puede supervisar sus cuentas de Base de datos de documentos en el [Portal de vista previa de Azure][Portal de vista previa de Azure]. Para cada cuenta de Base de datos de documentos, existen métricas de rendimiento (como solicitudes y errores de servidor) y métricas de uso (como consumo de almacenamiento).
+Puede supervisar sus cuentas de Base de datos de documentos en el [Portal de vista previa de Azure](https://portal.azure.com/). Para cada cuenta de Base de datos de documentos, existen métricas de rendimiento (como solicitudes y errores de servidor) y métricas de uso (como consumo de almacenamiento).
 
-## En este artículo
+## <a id="metrics"></a>  Visualización de métricas de rendimiento para una cuenta de Base de datos de documentos
+1.	En el [Portal de vista previa de Azure](https://portal.azure.com/), haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta de Base de datos de documentos cuyas métricas de rendimiento desee ver.
+2.	En el modo **Supervisión** puede ver estos datos de forma predeterminada:
+	*	El total de solicitudes del día actual.
+	*	La media de solicitudes por segundo del día actual. 
+	
+	![](./media/documentdb-monitor-accounts/madocdb1.png)
 
--   [Visualización de métricas de rendimiento para una cuenta de Base de datos de documentos][Visualización de métricas de rendimiento para una cuenta de Base de datos de documentos]
--   [Personalización de las vistas de métricas de rendimiento para una cuenta de Base de datos de documentos][Personalización de las vistas de métricas de rendimiento para una cuenta de Base de datos de documentos]
--   [Creación de gráficos de métricas de rendimiento paralelos][Creación de gráficos de métricas de rendimiento paralelos]
--   [Visualización de métricas de uso para una cuenta de Base de datos de documentos][Visualización de métricas de uso para una cuenta de Base de datos de documentos]
--   [Configuración de alertas de métricas de rendimiento para una cuenta de Base de datos de documentos][Configuración de alertas de métricas de rendimiento para una cuenta de Base de datos de documentos]
--   [Pasos siguientes][Pasos siguientes]
 
-## <span id="metrics"></span></a>Visualización de métricas de rendimiento para una cuenta de Base de datos de documentos
+3.	Al hacer clic en **Total de solicitudes** o **Promedio de solicitudes por segundo**, se abre una hoja detallada denominada **Métrica**.
+4.	La hoja **Métrica** muestra los detalles sobre las métricas que se pueden seleccionar.  En la parte superior de la hoja hay un gráfico y, debajo, una tabla que muestra los valores de agregación de las métricas seleccionadas, como el promedio o el valor máximo y el mínimo.  El cuadro Métrica muestra también la lista de alertas que se han definido, filtrada por las métricas que aparecen en el cuadro actual (de esta forma, si tiene un número de alertas, solo verá aquí las pertinentes).   
 
-1.  En el [Portal de vista previa de Azure][Portal de vista previa de Azure], haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta cuyas métricas de rendimiento desea ver.
-2.  En el modo **Supervisión** puede ver de forma predeterminada:
+	![](./media/documentdb-monitor-accounts/madocdb2.png)
 
-    -   El total de solicitudes del día actual.
-    -   La media de solicitudes por segundo del día actual.
 
-    ![][0]
+## <a id="custom"></a>Personalización de las vistas de métricas de rendimiento para una cuenta de Base de datos de documentos
 
-3.  Al hacer clic en la parte **Total o promedio de solicitudes por segundo** se abre un cuadro de **Métrica** detallado.
-4.  El cuadro Métrica muestra los detalles de las métricas seleccionadas. En la parte superior del cuadro hay un gráfico y, debajo, una tabla que muestra valores de agregación de las métricas seleccionadas, como el promedio, el valor máximo y el mínimo. El cuadro Métrica muestra también la lista de alertas que se han definido, filtrada por las métricas que aparecen en el cuadro actual (de esta forma, si tiene un número de alertas, solo verá aquí las pertinentes).
+1.	Para personalizar las métricas que se muestran en una determinada parte, haga clic con el botón derecho en el gráfico de métricas y, a continuación, elija **Editar gráfico**.  
+	![](./media/documentdb-monitor-accounts/madocdb3.png)
 
-    ![][1]
+2.	En la hoja **Editar gráfico**, hay opciones para modificar las métricas que se muestran en esa parte, junto con su intervalo de tiempo.  
+	![](./media/documentdb-monitor-accounts/madocdb4.png)
 
-## <span id="custom"></span></a>Personalización de las vistas de métricas de rendimiento para una cuenta de Base de datos de documentos
+3.	Para cambiar las métricas que se muestran en la parte, solo tiene que marcar o desmarcar las métricas de rendimiento disponibles y luego hacer clic en **Guardar** en la parte inferior de la hoja.  
+4.	Para cambiar el intervalo de tiempo, elija un intervalo diferente (por ejemplo, **Hora pasada**) y, acto seguido, haga clic en **Guardar** en la parte inferior de la hoja.  
 
-1.  Para personalizar las métricas que se muestran en una determinada parte, haga clic con el botón secundario en el gráfico de métricas y luego seleccione **Editar gráfico**.
-    ![][2]
+	![](./media/documentdb-monitor-accounts/madocdb5.png) 
 
-2.  En el cuadro **Editar gráfico**, hay opciones para modificar las métricas que se muestran en la parte, junto con su intervalo de tiempo.
 
-    ![][3]
+## <a id="create"></a>Creación de gráficos de métricas de rendimiento paralelos
+El Portal de vista previa de Azure le permite crear gráficos de métricas paralelos.  
 
-3.  Para cambiar las métricas que se muestran en la parte, solo tiene que marcar o desmarcar las métricas de rendimiento disponibles y luego hacer clic en **Guardar** en la parte inferior del cuadro.
-4.  Para cambiar el intervalo de tiempo, elija un intervalo diferente (por ejemplo, **Hora pasada**) y luego haga clic en **Guardar** en la parte inferior del cuadro.
+1.	En primer lugar, haga doble clic en el gráfico que desea clonar y modificar. Después, elija **Personalizar**. 
 
-    ![][4]
+	![](./media/documentdb-monitor-accounts/madocdb6.png)
 
-5.  El intervalo de tiempo personalizado le permite elegir cualquier período de tiempo de las dos últimas semanas.
-6.  Cuando haga clic en **Guardar**, los cambios continuarán hasta que salga del cuadro Cuenta de Base de datos de documentos. Cuando regrese en otro momento, verá la métrica y el intervalo de tiempo originales.
+2.	Haga clic en **Clonar** en el menú para copiar la parte y, a continuación, haga clic en **Personalización efectuada**. 
 
-## <span id="create"></span></a>Creación de gráficos paralelos
+	![](./media/documentdb-monitor-accounts/madocdb7.png)  
 
-El Portal de vista previa de Azure le permite crear gráficos de métricas paralelos.
 
-1.  En primer lugar, haga clic con el botón secundario en el gráfico que desea iniciar y seleccione **Personalizar**.
-    ![][5]
+Ahora puede tratar esta parte como otra parte de métricas y personalizar las métricas y el intervalo de tiempo que se muestra en la parte.  De esta forma, puede ver dos gráficos de métricas diferentes en paralelo al mismo tiempo.  
+	![](./media/documentdb-monitor-accounts/madocdb8.png)  
 
-2.  Haga clic en **Clonar** en el menú para copiar la parte.
+## <a id="view"></a>Visualización de métricas de uso para una cuenta de Base de datos de documentos
+1.	En el [Portal de vista previa de Azure](https://portal.azure.com/), haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta cuyas métricas de uso desee ver.
+2.	En el modo **Uso**, puede ver la siguiente información de forma predeterminada:
+	*	Coste estimado
+	*	Almacenamiento consumido en la cuenta
+	*	Máximo almacenamiento disponible en la cuenta
+	*	Usuario y permiso de uso
+	*	Asignación de la unidad de capacidad (CU)
+	*	Uso de datos adjuntos
 
-    ![][6]
+	![](./media/documentdb-monitor-accounts/madocdb9.png)
+ 
+## <a id="setup"></a>Configuración de alertas de métricas de rendimiento para una cuenta de Base de datos de documentos
+1.	En el [Portal de vista previa de Azure](https://portal.azure.com/), haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta de Base de datos de documentos para la que desea configurar alertas de métricas de rendimiento.
+2.	En el modo **Operaciones**, haga clic en la parte **Reglas de alerta**.  
+	![](./media/documentdb-monitor-accounts/madocdb10.png)
 
-3.  Finalmente, haga clic en **Done** en la barra de herramientas, en la parte superior de la pantalla. Ahora puede tratar esta parte como otra parte de métricas y personalizar las métricas y el intervalo de tiempo que se muestra en la parte. De esta forma, puede ver dos gráficos de métricas diferentes en paralelo al mismo tiempo.
+3.	En la hoja Reglas de alerta, haga clic en **Agregar alerta**.  
+	![](./media/documentdb-monitor-accounts/madocdb11.png)
 
-    ![][7]
+4.	En la hoja **Agregar una regla de alerta**, especifique:
+	*	El nombre de la regla de alerta que va a configurar.
+	*	Una descripción de la nueva regla de alerta.
+	*	La métrica de la regla de alerta.
+	*	La condición, el umbral y el período que determinan cuándo se activa la alerta. Por ejemplo, un número de errores de servidor mayor que cinco durante los últimos 15 minutos.
+	*	Si se envía un correo electrónico al administrador del servicio y a los coadministradores cuando la alerta de dispara.
+	*	Direcciones de correo electrónico adicionales para las notificaciones de alerta.  
+	![](./media/documentdb-monitor-accounts/madocdb12.png)
 
-> Tenga en cuenta que el intervalo de tiempo del gráfico y las métricas seleccionadas se restablecen a los valores predeterminados de la parte cuando sale del Portal de vista previa de Azure.
-
-## <span id="view"></span></a>Visualización de las métricas de uso para una cuenta de Base de datos de documentos
-
-1.  En el [Portal de vista previa de Azure][Portal de vista previa de Azure], haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta cuyas métricas de uso desea ver.
-2.  En el modo **Uso** puede ver de forma predeterminada:
-
-    -   El almacenamiento consumido en la cuenta
-    -   El almacenamiento máximo disponible de la cuenta
-    -   El uso de datos adjuntos
-    -   El uso de usuarios y permisos
-    -   La asignación de unidades de capacidad
-    -   El uso de datos adjuntos dentro de la cuenta.
-        ![][8]
-
-## <span id="setup"></span></a>Configuración de alertas de métricas de rendimiento para una cuenta de Base de datos de documentos
-
-1.  En el [Portal de vista previa de Azure][Portal de vista previa de Azure], haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta cuyas alertas de métricas de rendimiento desea configurar.
-2.  En el modo **Operaciones**, haga clic en la parte **Reglas de alerta**.
-
-    ![][9]
-
-3.  En el cuadro Reglas de alerta, haga clic en **Agregar alerta**.
-
-    ![][10]
-
-4.  En el cuadro **Agregar una regla de alerta**, especifique:
-
-    -   El nombre de la regla de alerta que va a configurar.
-    -   Una descripción de la nueva regla de alerta.
-    -   La métrica de la regla de alerta.
-    -   La condición, el umbral y el período que determinan cuándo se activa la alerta. Por ejemplo, un número de errores de servidor mayor que cinco durante los últimos 15 minutos.
-    -   Si se envía un correo electrónico al administrador del servicio y a los coadministradores cuando la alerta de dispara.
-    -   Direcciones de correo electrónico adicionales para las notificaciones de alerta.
-        ![][11]
-
-## <span id="next"></span></a>Pasos siguientes
-
--   Para obtener más información sobre Base de datos de documentos, consulte la documentación correspondiente en [azure.com][azure.com]
+ 
+## <a id="next"></a>Pasos siguientes
+Para obtener más información acerca de la capacidad y el rendimiento de Base de datos de documentos, consulte [Administración del rendimiento y la capacidad de Base de datos de documentos](../documentdb-manage/). 
 
 <!--Anchors-->
+[Visualización de las métricas de rendimiento para una cuenta de Base de datos de documentos]: #How-to-view-performance-metrics-for-a-DocumentDB-account
+[Personalización de las vistas de métricas de rendimiento para una cuenta de Base de datos de documentos]: #Customize-performance-metric-views-for-a-DocumentDB-account
+[Creación de gráficos de métricas de rendimiento paralelos]: #How-to-create-side-by-side-performance-metric-charts
+[Visualización de las métricas de uso para una cuenta de Base de datos de documentos]: #How-to-view-usage-metrics-for-a-DocumentDB-account
+[Configuración de alertas de métricas de rendimiento para una cuenta de Base de datos de documentos]: #How-to-setup-performance-metric-alerts-for-a-DocumentDB-account
+[Pasos siguientes]: #Next-steps
 
-  [Portal de vista previa de Azure]: https://portal.azure.com/
-  [Visualización de métricas de rendimiento para una cuenta de Base de datos de documentos]: #metrics
-  [Personalización de las vistas de métricas de rendimiento para una cuenta de Base de datos de documentos]: #custom
-  [Creación de gráficos de métricas de rendimiento paralelos]: #create
-  [Visualización de métricas de uso para una cuenta de Base de datos de documentos]: #view
-  [Configuración de alertas de métricas de rendimiento para una cuenta de Base de datos de documentos]: #setup
-  [Pasos siguientes]: #next
-  [0]: http://i.imgur.com/y7pigTT.png
-  [1]: http://i.imgur.com/6rBNPBL.png
-  [2]: http://i.imgur.com/tRZEHk1.png
-  [3]: http://i.imgur.com/G4UTi5U.png
-  [4]: ./media/documentdb-monitor-accounts/madocdb5.png
-  [5]: http://i.imgur.com/vLXWftF.png
-  [6]: ./media/documentdb-monitor-accounts/madocdb7.png
-  [7]: ./media/documentdb-monitor-accounts/madocdb8.png
-  [8]: http://i.imgur.com/sL5inOu.png
-  [9]: ./media/documentdb-monitor-accounts/madocdb10.png
-  [10]: ./media/documentdb-monitor-accounts/madocdb11.png
-  [11]: http://i.imgur.com/Inra4Po.png
-  [azure.com]: http://go.microsoft.com/fwlink/p/?LinkID=402319
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

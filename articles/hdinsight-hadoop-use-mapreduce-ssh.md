@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="MapReduce con Hadoop en HDInsight | Azure"
    description="Obtenga más información sobre cómo usar SSH para ejecutar trabajos de MapReduce mediante Hadoop en HDInsight."
    services="hdinsight"
@@ -48,9 +48,9 @@ Conéctese con el nombre de dominio completo (FQDN) de su clúster de HDInsight 
 
 Windows no proporciona ningún cliente SSH integrado. Se recomienda usar **Putty**, que se puede descargar en <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a>.
 
-Para obtener más información acerca del uso de Putty, consulte la sección **Uso de Putty para conectarse a un equipo Linux** de <a href="http://azure.microsoft.com/ documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Utilización de SSH con Linux en Azure</a>.
+Para obtener más información acerca del uso de Putty, consulte la sección **Uso de Putty para conectarse a un equipo Linux** de <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Utilización de SSH con Linux en Azure</a>.
 
-> [AZURE.NOTE] Si utiliza un certificado para la autenticación de SSH para el clúster de HDInsight, también necesitará consultar la sección **Creación de un PPK para Putty** de <a href="http://azure.microsoft.com/ documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Utilización de SSH con Linux en Azure</a>
+> [AZURE.NOTE] Si utiliza un certificado para la autenticación de SSH para el clúster de HDInsight, también necesitará consultar la sección **Creación de un PPK para Putty** de <a href="http://azure.microsoft.com/documentation/articles/virtual-machines-linux-use-ssh-key/" target="_blank">Utilización de SSH con Linux en Azure</a>
 
 ## <a id="hadoop"></a>Uso del comando de Hadoop
 

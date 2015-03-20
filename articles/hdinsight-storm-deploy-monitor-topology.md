@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
    pageTitle="Implementación y administración de topologías de Storm en HDInsight | Azure" 
    description="Aprenda a implementar, supervisar y administrar topologías de Storm mediante el panel de Storm incluido con Apache Storm en HDInsight." 
    services="hdinsight" 
@@ -24,19 +24,19 @@ Tanto el panel de Storm como las características de Storm de las herramientas d
 
 ## Requisitos previos
 
-* **Apache Storm en HDInsight**: consulte <a href="../hdinsight-storm-getting-started/" target="_blank">Introducción a Apache Storm en HDInsight</a> para obtener información acerca de la creación de un clúster
+* **Apache Storm en HDInsight**: consulte <a href="../hdinsight-storm-getting-started/" target="_blank">Introducción a Apache Storm en HDInsight</a> para conocer los pasos para la creación de un clúster.
 
 * Para el **panel de Storm**: un explorador web moderno compatible con HTML5
 
-* Para **Visual Studio**: Azure SDK 2.5.1 o versiones más recientes y las herramientas de HDInsight para Visual Studio. Consulte <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Introducción al uso de herramientas de HDInsight para Visual Studio</a> para instalar y configurar las herramientas de HDInsight para Visual Studio.
+* Para **Visual Studio**: Azure SDK 2.5.1 o versiones más recientes y las herramientas de HDInsight para Visual Studio. Consulte <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Introducción a las herramientas de HDInsight para Visual Studio</a> para instalar y configurar las herramientas de HDInsight para Visual Studio.
 
 	Una de las siguientes versiones de Visual Studio:
 
-	* Visual Studio 2012 con <a href="http://www.microsoft.com/es-es/download/details.aspx?id=39305" target="_blank">Actualización 4</a>
+	* Visual Studio 2012 con la <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">actualización 4</a>
 
-	* Visual Studio 2013 con <a href="http://www.microsoft.com/es-es/download/details.aspx?id=44921" target="_blank">Actualización 4</a> o <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Comunidad de Visual Studio 2013</a>
+	* Visual Studio 2013 con la <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">actualización 4</a> o <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
 
-	* <a href="http://visualstudio.com/es-es/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
+	* <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
 
 	> [AZURE.NOTE] Actualmente las herramientas de HDInsight para Visual Studio solo admiten Storm en el clúster de HDInsight versión 3.2.
 
@@ -56,25 +56,27 @@ En el panel de Storm, seleccione el vínculo **UI de Storm**. Se mostrará infor
 
 ![the storm ui][storm-dashboard-ui] 
 
+> [AZURE.NOTE] Con algunas versiones de Internet Explorer, es posible que descubra que la interfaz de usuario de Strom no se actualiza después de visitarla por primera vez. Por ejemplo, es posible que no muestre topologías nuevas que haya enviado o que muestre una topología como activa luego de que la haya cerrado. Microsoft conoce este problema y está trabajando para conseguir una solución.
+
 #### Página principal
 
 La página principal de la interfaz de usuario de Storm ofrece la siguiente información.
 
-* **Cluster Summary** (Resumen del clúster): información básica sobre el clúster de Storm
+* **Resumen del clúster**: información básica acerca del clúster de Stom.
 
-* **Topology summary** (Resumen de la topología): una lista de las topologías en ejecución Use los vínculos de esta sección para obtener más información acerca de las topologías específicas
+* **Resumen de las topologías**: una lista de las topologías en ejecución. Use los vínculos de esta sección para obtener más información acerca de las topologías específicas
 
-* **Supervisor summary** (Resumen de supervisor): información sobre el supervisor de Storm
+* **Resumen de supervisor**: información acerca del supervisor de Storm.
 
-* **Nimbus Configuration** (Configuración de Nimbus): configuración de Nimbus para el clúster
+* **Configuración de Nimbus**: configuración de Nimbus para el clúster.
 
 #### Resumen de la topología
 
 Si selecciona un vínculo desde la sección **Topology summary** (Resumen de la topología), se mostrará la siguiente información acerca de la topología.
 
-* **Topology summary** (Resumen de la topología): información básica acerca de la topología
+* **Resumen de la topología**: información básica acerca de la topología.
 
-* **Topology actions** (Acciones de topología): acciones de administración que puede realizar para la topología
+* **Acciones de topología**: acciones de administración que puede realizar para la topología.
 
 	* **Activate** (Activar): reanuda el procesamiento de una topología desactivada
 	
@@ -82,25 +84,25 @@ Si selecciona un vínculo desde la sección **Topology summary** (Resumen de la 
 	
 	* **Rebalance** (Reequilibrar): ajusta el paralelismo de la topología. Debe volver a equilibrar las topologías en ejecución después de haber cambiado el número de nodos del clúster. Esto permite que la topología ajuste el paralelismo para compensar el mayor o menor número de los nodos del clúster
 	
-		Para obtener más información, consulte <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Descripción del paralelismo de una topología de Storm</a>
+		Para obtener más información, consulte <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Descripción del paralelismo de una topología de Storm</a>.
 	
 	* **Kill** (Eliminar): finaliza una topología de Storm tras el tiempo de espera especificado
 
-* **Topology stats** (Estadísticas de topología): estadísticas acerca de la topología Use los vínculos de la columna **Window** (Ventana) para establecer el plazo de tiempo para las entradas restantes en la página.
+* **Estadísticas de topología**: estadísticas sobre la topología. Use los vínculos de la columna **Window** (Ventana) para establecer el plazo de tiempo para las entradas restantes en la página.
 
 * **Spouts**: los spouts utilizados por la topología. Utilice los vínculos de esta sección para obtener más información acerca de spouts específicos
 
 * **Bolts**: los bolts usados por la topología. Utilice los vínculos de esta sección para obtener más información acerca de bolts específicos
 
-* **Topology configuration** (Configuración de la topología): la configuración de la topología seleccionada
+* **Configuración de la topología**: la configuración de la topología seleccionada.
 
 #### Resumen de spouts y bolts
 
 Si se selecciona un spout en la sección **Spouts** o **Bolts**, se mostrará la siguiente información acerca del elemento seleccionado.
 
-* **Component summary** (Resumen de componentes): información básica acerca del spout o bolt
+* **Resumen de componentes**: información básica acerca del spout o bolt.
 
-* **Spout/Bolt stats** (Estadísticas de spouts/bolts): las estadísticas sobre el spout o bolt. Utilice los vínculos de la columna **Window** (Ventana) para establecer el plazo de tiempo para las entradas restantes de la página
+* **Estadísticas de spouts/bolts**: estadísticas sobre el spout o bolt. Utilice los vínculos de la columna **Window** (Ventana) para establecer el plazo de tiempo para las entradas restantes de la página
 
 * **Input stats** (Estadísticas de entrada) (solo bolt): información sobre las secuencias de entrada consumidas por el bolt
 
@@ -112,25 +114,25 @@ Si se selecciona un spout en la sección **Spouts** o **Bolts**, se mostrará la
 
 ## Herramientas de HDInsight para Visual Studio
 
-Las herramientas de HDInsight puede utilizarse para enviar las topologías de C# o híbridas al clúster de Storm. Los pasos siguientes usan una aplicación de muestra. Para obtener información acerca de cómo crear sus propias topologías mediante las herramientas de HDInsight, consulte [Desarrollo de las topologías de C# mediante las herramientas de HDInsight para Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/).
+Las herramientas de HDInsight puede utilizarse para enviar las topologías de C# o híbridas al clúster de Storm. Los pasos siguientes usan una aplicación de muestra. Para obtener información sobre cómo crear sus propias topologías con las herramientas de HDInsight, consulte [Desarrollo de las topologías de C# mediante las herramientas de HDInsight para Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/).
 
 Utilice los siguientes pasos para implementar una muestra en el clúster de Storm en HDInsight y, a continuación, ver y administrar la topología.
 
-1. Si no ha instalado la versión más reciente de las herramientas de HDInsight para Visual Studio, consulte <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Introducción al uso de herramientas de HDInsight para Visual Studio</a>.
+1. Si todavía no tiene instalada la versión más reciente de las herramientas de HDInsight para Visual Studio, consulte <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Introducción al uso de las herramientas de HDInsight para Visual Studio</a>.
 
 2. Abra Visual Studio, seleccione **Archivo**, **Nuevo** y, a continuación, **Proyecto**.
 
-3. Desde el cuadro de diálogo **Nuevo proyecto**, expanda **Instalado**, **Plantillas** y seleccione **HDInsight**. En la lista de plantillas, seleccione **Muestra de Storm**. En la parte inferior del cuadro de diálogo, escriba un nombre para la aplicación.
+3. En el cuadro de diálogo **Nuevo proyecto**, expanda **Instalado**, **Plantillas** y seleccione **HDInsight**. En la lista de plantillas, seleccione **Muestra de Storm**. En la parte inferior del cuadro de diálogo, escriba un nombre para la aplicación.
 
 	![image](./media/hdinsight-storm-deploy-monitor/sample.png)
 
 1. En el **Explorador de soluciones**, haga doble clic en el proyecto y seleccione **Enviar a Storm en HDInsight**.
 
-	> [AZURE.NOTE] Si se le pide, introduzca las credenciales de inicio de sesión de la suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contiene el clúster de Storm en HDInsight.
+	> [AZURE.NOTE] Si se le solicita, introduzca las credenciales de inicio de sesión de su suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contenga el clúster de Storm en HDInsight.
 
-2. Seleccione el clúster de Storm en HDInsight desde el menú desplegable **Clúster de Storm** y, a continuación, seleccione **Enviar**. Puede supervisar si la presentación es correcta o no mediante la ventana **Salida**.
+2. Seleccione el clúster de Storm en HDInsight desde el menú desplegable **Clúster de Storm** y, a continuación, seleccione **Enviar**. Puede supervisar si el envío es correcto o no mediante la ventana **Salida**.
 
-3. Una vez que se ha enviado correctamente la topología, debe aparecer **Topologías de Storm** para el clúster. Seleccione la topología de la lista para ver información acerca de la topología de ejecución.
+3. Una vez enviada correctamente la topología, debe aparecer **Topologías de Storm** para el clúster. Seleccione la topología de la lista para ver información acerca de la topología de ejecución.
 
 	![visual studio monitor](./media/hdinsight-storm-deploy-monitor/vsmonitor.png)
 
@@ -140,7 +142,7 @@ Utilice los siguientes pasos para implementar una muestra en el clúster de Stor
 
 4. Desde la vista **Topology Summary** (Resumen de la topología), seleccione **Kill** (Eliminar) para detener la topología.
 
-	> [AZURE.NOTE] Topologías de Storm continúan ejecutándose hasta que se eliminen o se elimine el clúster.
+	> [AZURE.NOTE] Las topologías de Storm continúan ejecutándose hasta que se eliminen o se elimine el clúster.
 
 ## API de REST
 
@@ -164,11 +166,11 @@ La información devuelta por la API de REST solo se puede utilizar desde dentro 
 
 ## Pasos siguientes
 
-Ahora que ha aprendido a implementar y supervisar topologías mediante el panel de Storm, aprenda a [desarrollar las topologías de C# mediante las herramientas de HDInsight para Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/), o cómo [desarrollar topologías basadas en Java con Maven](../hdinsight-storm-develop-java-topology/).
+Ahora que ha aprendido cómo implementar y supervisar mediante el panel de Storm, aprenda a [desarrollar las topologías de C# mediante las herramientas de HDInsight para Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)o cómo [desarrollar topologías basadas en Java con Maven](../hdinsight-storm-develop-java-topology/).
 
 
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor/dashboard-link.png
 [storm-dashboard-submit]: ./media/hdinsight-storm-deploy-monitor/submit.png
 [storm-dashboard-ui]: ./media/hdinsight-storm-deploy-monitor/storm-ui-summary.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

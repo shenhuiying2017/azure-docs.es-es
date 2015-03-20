@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Desarrollo de las topologías de C# para Storm en HDInsight con Visual Studio | Azure"
    description="Aprenda a crear topologías de Storm en C# mediante la creación de una topología de recuento de palabras simple en Visual Studio mediante las herramientas de HDInsight para Visual Studio."
    services="hdinsight"
@@ -26,23 +26,23 @@ También aprenderá a crear topologías híbridas que utilizan componentes de C#
 
 * Una de las siguientes versiones de Visual Studio
 
-	* Visual Studio 2012 con <a href="http://www.microsoft.com/es-es/download/details.aspx?id=39305" target="_blank">Actualización 4</a>
+	* Visual Studio 2012 con la <a href="http://www.microsoft.com/download/details.aspx?id=39305" target="_blank">actualización 4</a>
 
-	* Visual Studio 2013 con <a href="http://www.microsoft.com/es-es/download/details.aspx?id=44921" target="_blank">Actualización 4</a> o <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Comunidad de Visual Studio 2013</a>
+	* Visual Studio 2013 con la <a href="http://www.microsoft.com/download/details.aspx?id=44921" target="_blank">actualización 4</a> o <a href="http://go.microsoft.com/fwlink/?LinkId=517284" target="_blank">Visual Studio 2013 Community</a>
 
-	* <a href="http://visualstudio.com/es-es/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
+	* <a href="http://visualstudio.com/downloads/visual-studio-2015-ctp-vs" target="_blank">Visual Studio 2015 CTP6</a>
 
 * SDK de Azure 2.5.1 o posterior
 
-* Herramientas de HDInsight para Visual Studio - consulte <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Introducción al uso de herramientas de HDInsight para Visual Studio</a> para instalar y configurar las herramientas de HDInsight para Visual Studio.
+* Herramientas de HDInsight para Visual Studio: consulte <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Introducción al uso de las herramientas de HDInsigh para Visual Studio</a> para instalar y configurar las herramientas de HDInsight para Visual Studio.
 
-* Apache Storm en clúster de HDInsight - consulte <a href="../hdinsight-storm-getting-started/" target="_blank">Introducción a Apache Storm en HDInsight</a> para obtener información acerca de la creación de un clúster
+* Clúster de Apache Storm en HDInsight: consulte <a href="../hdinsight-storm-getting-started/" target="_blank">Introducción a Apache Storm en HDInsight</a> para conocer los pasos para crear un clúster.
 
 	> [AZURE.NOTE] Actualmente las herramientas de HDInsight para Visual Studio solo admiten Storm en el clúster de HDInsight versión 3.2.
 
 ## Creación de una topología de C#
 
-1. Si no ha instalado la versión más reciente de las herramientas de HDInsight para Visual Studio, consulte <a href="../hdinsight-hadoop-visual-studio-tools-getting-started/" target="_blank">Introducción al uso de herramientas de HDInsight para Visual Studio</a>.
+1. Si todavía no tiene instalada la versión más reciente de las herramientas de HDInsight para Visual Studio, consulte <a href="../hdinsight-hadoop-visual-studio-tools-get-started/" target="_blank">Introducción al uso de las herramientas de HDInsight para Visual Studio</a>.
 
 2. Abra Visual Studio, seleccione **Archivo**, **Nuevo** y, a continuación, **Proyecto**.
 
@@ -58,7 +58,7 @@ También aprenderá a crear topologías híbridas que utilizan componentes de C#
 
 	* **Bolt.cs**: un bolt de ejemplo que mantiene un recuento de números emitidos por el spout
 
-	Como parte de la creación del proyecto, los <a href="https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/" target="_blank">paquetes de SCP.NET más recientes</a> se descargarán desde Nuget.
+	Como parte de la creación del proyecto, los <a href="https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/" target="_blank">paquetes SCP.NET</a> más recientes se descargarán de NuGet.
 
 En las secciones siguientes, modificará este proyecto en una aplicación básica de WordCount.
 
@@ -245,7 +245,7 @@ En las secciones siguientes, modificará este proyecto en una aplicación básic
             Context.Logger.Info("Execute exit");
         }
 
-	Take a moment to read through the code to understand what this code does.
+	Dedique un momento a leer el código para entender lo que hace.
 
 ### Definición de la topología
 
@@ -320,7 +320,7 @@ Dedique un momento a leer el código para entender lo que hace.
 
 1. En el **Explorador de soluciones**, haga doble clic en el proyecto y seleccione **Enviar a Storm en HDInsight**.
 
-	> [AZURE.NOTE] Si se le solicita, introduzca las credenciales de inicio de sesión de la suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contenga el clúster de Storm en HDInsight.
+	> [AZURE.NOTE] Si se le solicita, introduzca las credenciales de inicio de sesión de su suscripción de Azure. Si tiene más de una suscripción, inicie sesión en la que contenga el clúster de Storm en HDInsight.
 
 2. Seleccione el clúster de Storm en HDInsight desde el menú desplegable **Clúster de Storm** y, a continuación, seleccione **Enviar**. Puede supervisar si el envío es correcto o no mediante la ventana **Salida**.
 
@@ -342,11 +342,11 @@ Las topologías transaccionales implementan lo siguiente para que admitan la rep
 
 * **Almacenamiento en caché de metadatos**: el spout debe almacenar metadatos sobre los datos emitidos, para que los datos puedan recuperarse y volver a emitirse si se produce un error. Puesto que los datos emitidos por la muestra son pequeños, los datos sin procesar de cada tupla se almacenan en un diccionario para la reproducción.
 
-* **Ack** (Confirmación): cada bolt de la topología puede llamar a `this.ctx.Ack(tuple)` para confirmar si el procesamiento de una tupla se ha realizado correctamente. Una vez que todos los bolts han confirmado la tupla, se llama al método `Ack` del spout. Esto permite que el spout quite los datos almacenados en caché para la reproducción, ya que los datos se han procesado completamente.
+* **Ack**: cada bolt de la topología puede llamar a `this.ctx.Ack(tuple)` para confirmar si el proceso de una tupla se ha realizado correctamente. Una vez que todos los bolts han confirmado la tupla, se invoca al método `Ack` del spout. Esto permite que el spout quite los datos almacenados en caché para la reproducción, ya que los datos se han procesado completamente.
 
-* **Fail** (Error): cada bolt puede llamar a `this.ctx.Fail(tuple)` para indicar que el procesamiento ha producido un error para una tupla. El error se propaga al método `Fail` del spout, donde la tupla puede reproducirse mediante metadatos almacenados en caché.
+* **Fail**: cada bolt puede llamar a `this.ctx.Fail(tuple)` para indicar que se produjo un error al procesar una tupla. El error se propaga al método `Fail` del spout, donde se puede reproducir la tupla mediante metadatos almacenados en caché.
 
-* **Sequence ID** (Id. de secuencia): al emitir una tupla, se puede especificar un identificador de secuencia. Debe ser un valor que identifique la tupla para el procesamiento de reproducción (Ack y Fail). Por ejemplo, el spout del proyecto **Storm Sample** utiliza los siguiente al emitir datos:
+* **Id. de secuencia**: al emitir una tupla, se puede especificar un identificador de secuencia. Debe ser un valor que identifique la tupla para el procesamiento de reproducción (Ack y Fail). Por ejemplo, el spout del proyecto **Storm Sample** utiliza los siguiente al emitir datos:
 
 		this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);
 
@@ -500,7 +500,7 @@ Aunque es fácil implementar una topología en un clúster, en algunos casos pue
 
 3. Guarde los cambios y utilice **F5** o **Depurar**, **Iniciar depuración** para iniciar el proyecto. Debe aparecer una ventana de consola y el estado del registro a medida que progresen las pruebas. Cuando se muestre **Pruebas finalizadas**, presione cualquier tecla para cerrar la ventana.
 
-4. Con el **Explorador**, vaya al directorio que contiene el proyecto. Por ejemplo, **C:\Users\<su nombre de usuario>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. En este directorio, abra **Bin** y, a continuación, **Depurar**. Debería ver los archivos de texto que se producen cuando las pruebas se ejecutan: sentences.txt, counter.txt y splitter.txt. Abra cada archivo de texto e inspeccione los datos.
+4. Con el **Explorador**, vaya al directorio que contiene el proyecto. Por ejemplo, **C:\Users\<su_nombre_de_usuario>\Documents\Visual Studio 2013\Projects\WordCount\WordCount**. En este directorio, abra **Bin** y, a continuación, **Depurar**. Debería ver los archivos de texto que se producen cuando las pruebas se ejecutan: sentences.txt, counter.txt y splitter.txt. Abra cada archivo de texto e inspeccione los datos.
 
 	> [AZURE.NOTE] Los datos de cadena se almacenan como una matriz de valores decimales en estos archivos. Por ejemplo, [[97,103,111]] en el archivo **splitter.txt** es la palabra 'and'.
 
@@ -533,15 +533,23 @@ Para ver los errores que se han producido en una topología en ejecución, utili
 
 ## Pasos siguientes
 
-Ahora que ha aprendido a desarrollar e implementar topologías de Storm en las herramientas de HDInsight para Visual Studio, aprenda sobre otras formas de trabajar con HDInsight.
+Ahora que ha aprendido a desarrollar e implementar topologías de Storm desde las herramientas de HDInsight para Visual Studio, aprenda sobre el [Procesamiento de eventos desde Centro de eventos de Azure con Storm en HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/).
+
+Para obtener más información acerca de cómo crear topologías de C#, visite [https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
+
+Para conocer más formas de trabajar con HDInsight o para obtener más ejemplos de Storm en HDInsight, consulte lo siguiente.
 
 **Apache Storm en HDInsight**
 
-* [Implementación y supervisión de las topologías con Apache Storm en HDInsight](../hdinsight-storm-deploy-monitor-topology/)
+* [Implementación y supervisión de topologías con Apache Storm en HDInsight](../hdinsight-storm-deploy-monitor-topology/)
+
+* [Procesamiento de eventos desde Centro de eventos de Azure con Storm en HDInsight](../hdinsight-storm-develop-csharp-event-hub-topology/)
 
 * [Desarrollo basado en topologías de Java para Apache Storm en HDInsight](../hdinsight-storm-develop-java-topology/)
 
 * [Hashtags más destacados de Twitter con Apache Storm en HDInsight](../hdinsight-storm-twitter-trending/)
+
+* [Ejemplos de Storm en HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md)
 
 **Apache Hadoop en HDInsight**
 
@@ -555,4 +563,4 @@ Ahora que ha aprendido a desarrollar e implementar topologías de Storm en las h
 
 * [Introducción a HBase en HDInsight](../hdinsight-hbase-get-started/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

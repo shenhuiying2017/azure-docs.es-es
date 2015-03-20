@@ -42,7 +42,7 @@ En los pasos siguientes se describe el flujo de trabajo más común al usar la A
 
 	Debe registrar las llamadas posteriores de API en https://wamsbayclus001rest-hs.cloudapp.net/api/.
 
-##Obtención de un token de acceso
+## Obtención de un token de acceso
 
 Para obtener acceso a los Servicios multimedia directamente a través de la API de REST, recupere un token de acceso de ACS y úselo en todas las solicitudes HTTP que realice en el servicio. Este token es similar a otros tokens proporcionados por ACS basados en notificaciones de acceso proporcionadas en el encabezado de una solicitud HTTP y que usan el protocolo OAuth v2. No es necesario ningún otro requisito previo antes de conectarse directamente a los Servicios multimedia.
 
@@ -99,11 +99,11 @@ Se recomienda almacenar en memoria caché los valores "access_token" y "expires_
 
 Asegúrese de supervisar el valor "expires_in" del token de acceso y actualice las llamadas de API de REST con nuevos tokens según sea necesario.
 
-###Conexión al URI de Servicios multimedia
+### Conexión al URI de Servicios multimedia
 
 El URI raíz de Servicios multimedia es https://media.windows.net/. Inicialmente, debe conectarse a este URI y, si obtiene una redirección 301 como respuesta, debe realizar las llamadas posteriores al nuevo URI. Además, no use ninguna lógica de redirección automática/seguimiento en las solicitudes. Los verbos HTTP y los cuerpos de solicitud no se enviarán al nuevo URI.
 
-Tenga en cuenta que el URI raíz para cargar y descargar archivos de recursos es https://yourstorageaccount.blob.core.windows.net/, donde el nombre de la cuenta de almacenamiento es el mismo que usó al configurar la cuenta de Servicios multimedia.
+Tenga en cuenta que el URI raíz para cargar y descargar archivos de recursos es https://yourstorageaccount.blob.core.windows.net/ , donde el nombre de la cuenta de almacenamiento es el mismo que usó al configurar la cuenta de Servicios multimedia.
 
 En el ejemplo siguiente se muestra la solicitud HTTP al URI raíz de Servicios multimedia (https://media.windows.net/). La solicitud obtiene una redirección 301 como respuesta. La solicitud posterior usa el nuevo URI (https://wamsbayclus001rest-hs.cloudapp.net/api/).     
 
@@ -169,4 +169,4 @@ En el ejemplo siguiente se muestra la solicitud HTTP al URI raíz de Servicios m
 
 <!-- URLs. -->
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

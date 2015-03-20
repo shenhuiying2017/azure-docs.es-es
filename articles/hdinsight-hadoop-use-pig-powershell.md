@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Uso de Pig con Hadoop en HDInsight | Azure"
    description="Aprenda a enviar trabajos de Pig a Hadoop en HDInsight con PowerShell."
    services="hdinsight"
@@ -22,7 +22,7 @@
 
 Este documento proporciona un ejemplo de uso de PowerShell para enviar trabajos de Pig a un clúster de Hadoop en HDInsight. Pig le permite escribir trabajos de MapReduce mediante un lenguaje (Pig Latin) que modela las transformaciones de datos, en lugar de asignar y reducir las funciones.
 
-> [AZURE.NOTE] Este documento no proporciona una descripción detallada de lo que hacen las instrucciones de Pig Latin usadas en los ejemplos. Para obtener información sobre el Pig Latin utilizado en este ejemplo, consulte <a href="../hdinsight-use-pig/" target="_blank">Uso de Pig con Hadoop en HDInsight</a>.
+> [AZURE.NOTE] Este documento no proporciona una descripción detallada de lo que hacen las instrucciones de Pig Latin usadas en los ejemplos. Para obtener información sobre Pig Latin usado en este ejemplo, consulte <a href="../hdinsight-use-pig/" target="_blank">Uso de Pig con Hadoop en HDInsight</a>.
 
 ## <a id="prereq"></a>Requisitos previos
 
@@ -30,20 +30,20 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 * Un clúster de HDInsight de Azure (Hadoop en HDInsight) (Windows o Linux)
 
-* <a href="http://azure.microsoft.com/ documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 
 ## <a id="powershell"></a>Ejecución de trabajos de Pig mediante PowerShell
 
-Azure PowerShell ofrece *cmdlets* que permiten ejecutar de manera remota trabajos de Pig en HDInsight. Internamente, esto se logra mediante el uso de las llamadas de REST a <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (anteriormente denominado Templeton), que se ejecutan en el clúster de HDInsight.
+Azure PowerShell proporciona *cmdlets* que le permiten ejecutar de manera remota trabajos de Pig en HDInsight. De manera interna, esto se logra mediante llamadas REST a <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (anteriormente llamado Templeton), que se ejecuta en el clúster de HDInsight.
 
 Los cmdlets siguientes se utilizan cuando se ejecutan trabajos de Pig en un clúster de HDInsight remoto.
 
 * **Add-AzureAccount**: autentica PowerShell para la suscripción de Azure
 
-* **New-AzureHDInsightPigJobDefinition**: crea una nueva *job definition* con las instrucciones de Pig Latin especificadas
+* **New-AzureHDInsightPigJobDefinition**: crea una nueva *definición de trabajo* con las instrucciones de Pig Latin especificadas.
 
-* **Start-AzureHDInsightJob**: envía la definición del trabajo en HDInsight, inicia el trabajo y devuelve un objeto *job* que puede utilizarse para comprobar el estado del trabajo
+* **Start-AzureHDInsightJob**: envía la definición del trabajo a HDInsight, inicia el trabajo y devuelve un objeto de *trabajo* que se puede utilizar para comprobar el estado del trabajo.
 
 * **Wait-AzureHDInsightJob**: utiliza el objeto de trabajo para comprobar el estado del trabajo. Esperará hasta que el trabajo se haya completado o haya superado el tiempo de espera
 
@@ -141,4 +141,4 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 * [Uso de Hive con Hadoop en HDInsight](../hdinsight-use-hive/)
 
 * [Uso de MapReduce con Hadoop en HDInsight](../hdinsight-use-mapreduce/)
-<!--HONumber=45--> 
+<!--HONumber=47-->

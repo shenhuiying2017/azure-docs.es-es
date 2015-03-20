@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Uso de Hive de Hadoop en HDInsight | Azure"
    description="Obtenga información acerca de cómo utilizar Hive con HDInsight a través de Escritorio remoto."
    services="hdinsight"
@@ -22,21 +22,21 @@
 
 En este artículo, obtendrá información sobre cómo conectarse a un clúster de HDInsight mediante Escritorio remoto y, a continuación, ejecutar consultas de Hive usando la interfaz de línea de comandos (CLI) de Hive.
 
-> [AZURE.NOTE] Este documento no ofrece una descripción detallada de las instrucciones de HiveQL que se usan en los ejemplos. Para obtener información sobre HiveQL utilizado en este ejemplo, consulte <a href="../hdinsight-use-hive/" target="_blank">Uso de Hive con Hadoop en HDInsight</a>.
+> [AZURE.NOTE] Este documento no proporciona una descripción detallada de lo que hacen las instrucciones HiveQL que se usan en los ejemplos. Para obtener información sobre HiveQL que se utiliza en este ejemplo, consulte <a href="../hdinsight-use-hive/" target="_blank">Uso de Hive con Hadoop en HDInsight</a>.
 
 ## <a id="prereq"></a>Requisitos previos
 
 Necesitará lo siguiente para completar los pasos de este artículo.
 
-* Un clúster HDInsight basado en Windows (Hadoop en HDInsight)
+* Un clúster de HDInsight basado en Windows (Hadoop en HDInsight)
 
 * Windows 7 o un sistema operativo de cliente más reciente.
 
 ## <a id="connect"></a>Conexión con el Escritorio remoto
 
-Habilite el Escritorio remoto para el clúster de HDInsight y, a continuación, conéctese a él siguiendo las instrucciones de <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
+Habilite el Escritorio remoto para el clúster de HDInsight y conéctese a él siguiendo las instrucciones dadas en <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
 
-## <a id="hive"></a>Uso del comando de Hive
+## <a id="hive"></a>Uso del comando Hive
 
 Una vez conectado al escritorio para el clúster de HDInsight, utilice los pasos siguientes para trabajar con Hive.
 
@@ -46,7 +46,7 @@ Una vez conectado al escritorio para el clúster de HDInsight, utilice los pasos
 
         %hive_home%\bin\hive
 
-    Una vez que se inició la CLI, verá el aviso de la CLI de Hive - `hive>`.
+    Una vez que se inicia la CLI, verá el símbolo del sistema de la CLI de Hive:  `hive>`.
 
 3. Con la CLI, introduzca las siguientes instrucciones para crear una nueva tabla denominada **log4jLogs** con los datos de ejemplo.
 
@@ -60,7 +60,7 @@ Una vez conectado al escritorio para el clúster de HDInsight, utilice los pasos
 
     * **DROP TABLE**: elimina la tabla y el archivo de datos si la tabla ya existe.
     
-    * **CREATE EXTERNAL TABLE**: crea una tabla  'external' en Hive. Las tablas externas solamente almacenan la definición de tabla en Hive (los datos se dejan en la ubicación original).
+    * **CREATE EXTERNAL TABLE**: crea una tabla  'externa' nueva en Hive. Las tablas externas solamente almacenan la definición de tabla en Hive (los datos se dejan en la ubicación original).
 
 		> [AZURE.NOTE] Las tablas externas se deben usar cuando espera que un origen externo, como por ejemplo un proceso de carga de datos automático, u otra operación MapReduce, actualice los datos subyacentes, pero siempre desea que las consultas de Hive usen los datos más recientes.
     	>
@@ -70,10 +70,10 @@ Una vez conectado al escritorio para el clúster de HDInsight, utilice los pasos
 	
     * **STORED AS TEXTFILE LOCATION**: indica a Hive dónde se almacenan los datos (el directorio de ejemplos/datos) y que se almacenen como texto.
     
-    * **SELECT**: permite seleccionar un número de todas las filas donde la columna **t4** contiene el valor **[ERROR]** Esto debe devolver un valor de **3** ya que hay tres filas que contienen este valor.
+    * **SELECT**: permite seleccionar un número de todas las filas donde la columna **t4** contiene el valor **[ERROR]**. Esto debe devolver un valor de **3** ya que hay tres filas que contienen este valor.
 
 
-4. Utilice las instrucciones siguientes para crear una nueva tabla 'internal' denominada **errorLogs**.
+4. Use las siguientes instrucciones para crear una nueva tabla 'interna' llamada **errorLogs**.
 
         CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
         INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]';
@@ -104,7 +104,7 @@ Para obtener información general acerca de Hive en HDInsight.
 
 * [Uso de Hive con Hadoop en HDInsight](../hdinsight-use-hive/)
 
-Para obtener información sobre otras maneras en que puede trabajar con Hadoop en HDInsight.
+Para obtener información sobre otras formas en que puede trabajar con Hadoop en HDInsight:
 
 * [Uso de Pig con Hadoop en HDInsight](../hdinsight-use-pig/)
 
@@ -113,17 +113,17 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 [1]: ../hdinsight-hadoop-visual-studio-tools-get-started/
 
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/es-es/library/dn479185.aspx
+[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
-[azure-purchase-options]: http://azure.microsoft.com/ pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/ pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/ pricing/free-trial/
+[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [apache-tez]: http://tez.apache.org
 [apache-hive]: http://hive.apache.org/
 [apache-log4j]: http://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/ documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: ../hdinsight-use-oozie/
@@ -145,4 +145,4 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png
 [image-hdi-hive-architecture]: ./media/hdinsight-use-hive/HDI.Hive.Architecture.png
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Uso de MapReduce con Hadoop en HDinsight | Azure"
    description="Obtenga información acerca de cómo ejecutar de manera remota trabajos de MapReduce con Hadoop en HDInsight con Curl."
    services="hdinsight"

@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Uso de Pig con Hadoop en HDInsight | Azure"
    description="Aprenda a usar el SDK de .NET de Hadoop para enviar trabajos de Pig a Hadoop en HDInsight."
    services="hdinsight"
@@ -44,7 +44,7 @@ Para obtener instrucciones sobre cómo hacerlo, consulte <a href="http://go.micr
 
 Cada suscripción de Azure se identifica por un valor GUID, conocido como el identificador de suscripción. Utilice los pasos siguientes para encontrar este valor.
 
-1. Visite la <a href="https://manage.windowsazure.com/" target="_blank">Consola de administración de Azure</a>.
+1. Visite la <a href="https://manage.windowsazure.com/" target="_blank">consola de administración de Azure</a>.
 
 2. En la barra de la izquierda del portal, seleccione **Configuración**.
 
@@ -67,7 +67,7 @@ Guarde el identificador de suscripción, pues se utilizará más adelante.
 	</tr>
 	<tr>
 	<th>Categoría</th>
-	<th>Templates/Visual C#/Windows</th>
+	<th>Plantillas/Visual C#/Windows</th>
 	</tr>
 	<tr>
 	<th>Plantilla</th>
@@ -229,4 +229,4 @@ Para obtener información sobre otras maneras en que puede trabajar con Hadoop e
 
 * [Uso de MapReduce con Hadoop en HDInsight](../hdinsight-use-mapreduce/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

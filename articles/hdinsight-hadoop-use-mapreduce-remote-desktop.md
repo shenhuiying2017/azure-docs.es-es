@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="MapReduce con Hadoop en HDInsight | Azure"
    description="Obtenga información acerca de cómo usar Escritorio remoto para conectarse a Hadoop en HDInsight y ejecutar trabajos de MapReduce."
    services="hdinsight"
@@ -32,7 +32,7 @@ Necesitará lo siguiente para completar los pasos de este artículo.
 
 ## <a id="connect"></a>Conexión con el Escritorio remoto
 
-Habilite el Escritorio remoto para el clúster de HDInsight y, a continuación, conéctese a él siguiendo las instrucciones de <a href="http://azure.microsoft.com/ documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
+Habilite el Escritorio remoto para el clúster de HDInsight y, a continuación, conéctese a él siguiendo las instrucciones de <a href="http://azure.microsoft.com/documentation/articles/hdinsight-administer-use-management-portal/#rdp" target="_blank">Conexión a los clústeres de HDInsight con RDP</a>.
 
 ## <a id="hadoop"></a>Uso del comando de Hadoop
 

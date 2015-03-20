@@ -16,37 +16,37 @@
    ms.date="02/18/2015"
    ms.author="larryfr"/>
 
-# Ejecución de las consultas de Hive usando PowerShell
+#Ejecución de las consultas de Hive usando PowerShell
 
 [AZURE.INCLUDE [hive-selector](../includes/hdinsight-selector-use-hive.md)]
 
 Este documento proporciona un ejemplo de uso de PowerShell para ejecutar consultas de Hive en un Hadoop en clúster de HDInsight.
 
-> [AZURE.NOTE] Este documento no ofrece una descripción detallada de las instrucciones de HiveQL que se usan en los ejemplos. Para obtener información sobre HiveQL utilizado en este ejemplo, consulte <a href="../hdinsight-use-hive/" target="_blank">Uso de Hive con Hadoop en HDInsight</a>.
+> [AZURE.NOTE] Este documento no proporciona una descripción detallada de lo que hacen las instrucciones HiveQL que se usan en los ejemplos. Para obtener información sobre HiveQL que se utiliza en este ejemplo, consulte <a href="../hdinsight-use-hive/" target="_blank">Uso de Hive con Hadoop en HDInsight</a>.
 
 
-## <a id="prereq"></a>Requisitos previos
+##<a id="prereq"></a>Requisitos previos
 
 Necesitará lo siguiente para completar los pasos de este artículo.
 
 * Un clúster de HDInsight de Azure (Hadoop en HDInsight) (Windows o Linux)
 
-* <a href="http://azure.microsoft.com/ documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
+* <a href="http://azure.microsoft.com/documentation/articles/install-configure-powershell/" target="_blank">Azure PowerShell</a>
 
 
-## <a id="powershell"></a>Ejecución de las consultas de Hive usando PowerShell
+##<a id="powershell"></a>Ejecución de consultas de Hive con PowerShell
 
-Azure PowerShell ofrece *cmdlets* que permiten ejecutar de forma remota las consultas de Hive en HDInsight. Internamente, esto se logra mediante el uso de las llamadas de REST a  <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (anteriormente denominado Templeton), que se ejecutan en el clúster de HDInsight.
+Azure PowerShell proporciona *cmdlets* que le permiten ejecutar de manera remota las consultas de Hive en HDInsight. De manera interna, esto se logra mediante llamadas REST a <a href="https://cwiki.apache.org/confluence/display/Hive/WebHCat" target="_blank">WebHCat</a> (anteriormente llamado Templeton), que se ejecuta en el clúster de HDInsight.
 
 Los siguientes cmdlets se utilizan al ejecutar las consultas de Hive en un clúster de HDInsight remoto.
 
 * **Add-AzureAccount**: autentica PowerShell para la suscripción de Azure
 
-* **New-AzureHDInsightHiveJobDefinition**: crea una nueva *job definition* con las instrucciones especificadas de HiveQL
+* **New-AzureHDInsightHiveJobDefinition**: crea una nueva *definición de trabajo* con las instrucciones especificadas HiveQL.
 
-* **Start-AzureHDInsightJob**: envía la definición del trabajo en HDInsight, se inicia el trabajo y devuelve un objeto *job* que puede utilizarse para comprobar el estado del trabajo
+* **Start-AzureHDInsightJob**: envía la definición del trabajo a HDInsight, inicia el trabajo y devuelve un objeto de *trabajo* que se puede utilizar para comprobar el estado del trabajo.
 
-* **Wait-AzureHDInsightJob**: utiliza el objeto job para comprobar el estado del trabajo. Esperará hasta que el trabajo se haya completado o ha superado el tiempo de espera
+* **Wait-AzureHDInsightJob**: utiliza el objeto de trabajo para comprobar el estado del trabajo. Esperará hasta que el trabajo se haya completado o haya superado el tiempo de espera
 
 * **Get-AzureHDInsightJobOutput**: se usa para recuperar el resultado del trabajo
 
@@ -113,15 +113,15 @@ Los pasos siguientes muestran cómo usar estos cmdlets para ejecutar un trabajo 
 		2012-02-03	18:55:54	SampleClass1	[ERROR]	incorrect	id	
 		2012-02-03	19:25:27	SampleClass4	[ERROR]	incorrect	id
 
-	> [AZURE.NOTE] Para consultas de HiveQL más extensas, puede usar PowerShell Here-Strings o archivos de script de HiveQL. El siguiente fragmento indica cómo usar el cmdlet  *Invoke-Hive* para ejecutar un archivo de script de HiveQL. El archivo de script de HiveQL debe cargarse en WASB.
+	> [AZURE.NOTE] Para consultas de HiveQL más extensas, puede usar PowerShell Here-Strings o archivos de script de HiveQL. El siguiente fragmento de código muestra cómo usar el cmdlet  *Invoke-Hive* para ejecutar un archivo de script de HiveQL. El archivo de script de HiveQL debe cargarse en WASB.
 	>
 	> `Invoke-Hive -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
 	>
-	> Para obtener más información sobre Here-Strings, consulte <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Uso de Here-Strings de Windows PowerShell</a>.
+	> Para obtener más información acerca de Here-Strings, consulte <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Uso de Windows PowerShell Here-Strings</a>.
 
-## <a id="troubleshooting"></a>Solución de problemas
+##<a id="troubleshooting"></a>Solución de problemas
 
-Si no se devuelve información cuando se completa el trabajo, pudo haberse producido un error durante el procesamiento. Para ver información de error para este trabajo, agregue lo siguiente al final del archivo **hivejob.ps1**, guárdelo y, a continuación, ejecútelo de nuevo.
+Si no se devuelve ninguna información cuando se completa el trabajo, pudo haberse producido un error durante el procesamiento. Para ver información de error para este trabajo, agregue lo siguiente al final del archivo **hivejob.ps1**, guárdelo y, a continuación, ejecútelo de nuevo.
 
 	# Print the output of the Hive job.
 	Write-Host "Display the standard output ..." -ForegroundColor Green
@@ -129,20 +129,20 @@ Si no se devuelve información cuando se completa el trabajo, pudo haberse produ
 
 Se devolverá la información escrita en STDERR en el servidor cuando se ejecuta el trabajo y puede ayudar a determinar por qué se ha producido el error en el trabajo.
 
-## <a id="summary"></a>Resumen
+##<a id="summary"></a>Resumen
 
 Como puede ver, Azure PowerShell proporciona una manera fácil de ejecutar consultas de Hive en un clúster de HDInsight, de supervisar el estado del trabajo y de recuperar el resultado.
 
-## <a id="nextsteps"></a>Pasos siguientes
+##<a id="nextsteps"></a>Pasos siguientes
 
 Para obtener información general acerca de Hive en HDInsight.
 
 * [Uso de Hive con Hadoop en HDInsight](../hdinsight-use-hive/)
 
-Para obtener información sobre otras maneras en que puede trabajar con Hadoop en HDInsight.
+Para obtener información sobre otras formas en que puede trabajar con Hadoop en HDInsight:
 
 * [Uso de Pig con Hadoop en HDInsight](../hdinsight-use-pig/)
 
 * [Uso de MapReduce con Hadoop en HDInsight](../hdinsight-use-mapreduce/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

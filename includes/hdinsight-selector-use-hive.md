@@ -1,10 +1,10 @@
 ﻿> [AZURE.SELECTOR]
-- [Información general](/es-es/documentation/articles/hdinsight-use-hive/)
-- [Consola de consultas](/es-es/documentation/articles/hdinsight-hadoop-use-hive-query-console/)
-- [Visual Studio](/es-es/documentation/articles/hdinsight-hadoop-use-hive-visual-studio/)
-- [PowerShell](/es-es/documentation/articles/hdinsight-hadoop-use-hive-powershell/)
-- [SSH](/es-es/documentation/articles/hdinsight-hadoop-use-hive-ssh/)
-- [Escritorio remoto](/es-es/documentation/articles/hdinsight-hadoop-use-hive-remote-desktop/)
-- [Curl](/es-es/documentation/articles/hdinsight-hadoop-use-hive-curl/)
+- [Información general](/documentation/articles/hdinsight-use-hive/)
+- [Consola de consultas](/documentation/articles/hdinsight-hadoop-use-hive-query-console/)
+- [Visual Studio](/documentation/articles/hdinsight-hadoop-use-hive-visual-studio/)
+- [PowerShell](/documentation/articles/hdinsight-hadoop-use-hive-powershell/)
+- [SSH](/documentation/articles/hdinsight-hadoop-use-hive-ssh/)
+- [Escritorio remoto](/documentation/articles/hdinsight-hadoop-use-hive-remote-desktop/)
+- [Curl](/documentation/articles/hdinsight-hadoop-use-hive-curl/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

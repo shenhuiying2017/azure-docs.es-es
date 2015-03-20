@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Cargar archivos en una cuenta de Servicios multimedia mediante .NET" 
 	description="Aprenda a obtener contenido multimedia en Servicios multimedia mediante la creación y carga de recursos." 
 	services="media-services" 
@@ -18,10 +18,10 @@
 
 
 
-#Cargar archivos en una cuenta de Servicios multimedia mediante .NET
+# Cargar archivos en una cuenta de Servicios multimedia mediante .NET
 [AZURE.INCLUDE [media-services-selector-upload-files](../includes/media-services-selector-upload-files.md)]
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow). 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) . 
 
 En Servicios multimedia, cargará (o introducirá) los archivos digitales en un recurso. La entidad **Recurso** puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos acerca de estos archivos).  Una vez cargados los archivos, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming.
 
@@ -41,7 +41,7 @@ Si se especifica que el recurso se cifre con una opción **CommonEncrypted** o u
 
 Si especifica que el recurso se cifre con una opción **StorageEncrypted**, el SDK de Servicios multimedia para .NET creará una **StorateEncrypted****ContentKey** para el recurso.
 
->[AZURE.NOTE] Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Además, solo puede haber un '.' para la extensión del nombre de archivo.
+>[AZURE.NOTE]Los Servicios multimedia usan el valor de la propiedad IAssetFile.Name al generar direcciones URL para el contenido de streaming (por ejemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters). Por esta razón, no se permite la codificación porcentual. El valor de la propiedad **Name** no puede tener ninguno de los siguientes [caracteres reservados para la codificación porcentual](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters): !*'();:@&=+$,/?%#[]". Además, solo puede haber un '.' para la extensión del nombre de archivo.
 
 En este tema se muestra cómo usar el SDK de Servicios multimedia para .NET, así como las extensiones del SDK de Servicios multimedia para .NET para cargar archivos en un recurso de Servicios multimedia.
 
@@ -92,7 +92,7 @@ El código de ejemplo siguiente usa el SDK de .NET para realizar las tareas sigu
             return inputAsset;
 		}
 
-###Cargar varios archivos
+### Cargar varios archivos
 
 El código siguiente muestra cómo crear un activo y cargar varios archivos.
 
@@ -179,7 +179,7 @@ Al cargar un número elevado de recursos, tenga en cuenta lo siguiente.
  
 - Mantenga ParallelTransferThreadCount en el valor predeterminado de 10.
  
-###Ingesta de recursos en masa 
+### Ingesta de recursos en masa 
 
 La carga de archivos de recursos de gran tamaño puede ser un obstáculo durante la creación de recursos. La ingesta de recursos en masa o "Ingesta en masa" implica la separación de la creación de recursos del proceso de carga. Para adoptar un enfoque de ingesta en masa, cree un manifiesto (IngestManifest) que describa el recurso y sus archivos asociados. A continuación, use el método de carga que prefiera para cargar los archivos asociados al contenedor de blobs del manifiesto. Los Servicios multimedia de Microsoft Azure ven el contenedor de blobs asociado al manifesto. Una vez que se carga un archivo en el contenedor de blobs, los Servicios multimedia de Microsoft Azure completan la creación de recursos según la configuración del recurso en el manifiesto (IngestManifestAsset).
 
@@ -276,7 +276,7 @@ En el ejemplo siguiente se muestra cómo sondear un IngestManifest por su **Id**
 	
 
 
-##Cargar archivos con extensiones del SDK de .NET 
+## Cargar archivos con extensiones del SDK de .NET 
 
 En el ejemplo siguiente se muestra cómo cargar un solo archivo con extensiones del SDK de .NET. En este caso, se usa el método **CreateFromFile**, pero también está disponible la versión asincrónica (**CreateFromFileAsync**). El método **CreateFromFile** le permite especificar el nombre de archivo, la opción de cifrado y una devolución de llamada para notificar el progreso de carga del archivo.
 
@@ -302,9 +302,9 @@ En el ejemplo siguiente se llama a la función UploadFile y se especifica el cif
 	var asset = UploadFile(@"C:\VideoFiles\BigBuckBunny.mp4", AssetCreationOptions.StorageEncrypted);
 
 
-##Pasos siguientes
-Ahora que ha cargado un recurso en los Servicios multimedia, vaya al tema [Obtención de un procesador de multimedia][].
+## Pasos siguientes
+Ahora que ha cargado un recurso en los Servicios multimedia, vaya al tema [Obtención de un procesador multimedia][].
 
-[Obtención de un procesador de multimedia]: ../media-services-get-media-processor/
+[Obtención de un procesador multimedia]: ../media-services-get-media-processor/
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

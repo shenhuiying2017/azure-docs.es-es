@@ -1,5 +1,5 @@
-<properties
-   pageTitle="Administración de clústeres de HDInsight con Ambari | Aure"
+﻿<properties
+   pageTitle="Administración de clústeres de HDInsight con Ambari | Azure"
    description="Aprenda a usar Ambari para supervisar y administrar clústeres de HDInsight basado en Linux."
    services="hdinsight"
    documentationCenter=""
@@ -20,11 +20,11 @@
 
 Aprenda a usar Ambari para administrar y supervisar clústeres de HDInsight basado en Linux.
 
-> [AZURE.NOTE] Gran parte de la información de este artículo solo se aplica a clústeres de HDInsight basado en Linux. En el caso de los clústeres de HDInsight basado en Windows, solo se encuentra disponible la supervisión a través de la API de REST de Ambari. Consulte [Supervisión de Hadoop en HDInsight basado en Windows con la API de Ambari](../hdinsight-monitor-use-ambari-api/).
+> [AZURE.NOTE] Gran parte de la información de este artículo solo se aplica a clústeres de HDInsight basado en Linux. En el caso de los clústeres de HDInsight basado en Windows, solo se encuentra disponible la supervisión a través de la API de REST de Ambari. Consulte [Supervisión de clústeres de Hadoop basados en Windows en HDInsight con la API de Ambari](../hdinsight-monitor-use-ambari-api/).
 
 ## <a id="whatis"></a>¿Qué es Ambari?
 
-<a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> simplifica la administración de Hadoop al proporcionar una interfaz de usuario web fácil de usar y que se puede utilizar para aprovisionar, administrar y supervisar clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">API de REST de Ambari</a>. 
+<a href="http://ambari.apache.org" target="_blank">Apache Ambari</a> simplifica la administración de Hadoop al proporcionar una interfaz de usuario web fácil de usar que se puede utilizar para aprovisionar, administrar y supervisar clústeres de Hadoop. Los desarrolladores pueden integrar estas funcionalidades en sus aplicaciones mediante el uso de las <a href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md" target="_blank">API de REST de Ambari</a>. 
 
 De manera predeterminada, Ambari viene con los clústeres de HDInsight basado en Linux. Los clústeres de HDInsight basado en Windows proporcionan la funcionalidad de supervisión a través de las API de REST de Ambari.
 
@@ -34,13 +34,13 @@ De manera predeterminada, Ambari viene con los clústeres de HDInsight basado en
 
 Para evitar este problema, utilice un túnel SSH para canalizar el tráfico web para el nodo principal del clúster, que se puede resolver correctamente los nombres de dominio interno. Use los siguientes artículos para crear un túnel SSH desde un puerto en la máquina local al clúster.
 
-* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X</a> : pasos para crear un túnel SSH con el comando `ssh`.
+* <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X</a>: pasos sobre cómo crear un túnel SSH con el comando `ssh`.
 
-* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows</a> : pasos para usar PuTTY para crear un túnel SSH.
+* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows</a>: pasos para usar PuTTY a fin de crear un túnel SSH.
 
 ## Interfaz de usuario web de Ambari
 
-La interfaz de usuario web de Ambari está disponible en cada clúster de HDInsight basado en Linux que crea en **https://&lt;nombre del clúster>.azurehdinsight.net**. También puede llegar a esta página si usa el botón **Ambari Web** que se encuentra en la parte inferior del panel del clúster en el portal de Azure.
+La interfaz de usuario web de Ambari está disponible en cada clúster de HDInsight basado en Linux que se crea en **https://&lt;clustername>.azurehdinsight.net**. También puede llegar a esta página si usa el botón **Ambari Web** que se encuentra en la parte inferior del panel del clúster en el portal de Azure.
 
 ![ambari web icon](./media/hdinsight-hadoop-manage-ambari/ambari-web.png)
 
@@ -80,7 +80,7 @@ Cuando se abra la página, observe la barra que se encuentra en la parte superio
 
 Ambari proporciona muchas alertas, las que tendrán uno de los siguientes estados:
 
-* **OK** (Correcto)
+* **OK** (Aceptar)
 
 * **Warning** (Advertencia)
 
@@ -144,9 +144,9 @@ Seleccione cualquiera de estos vínculos para abrir una pestaña nueva del explo
 > 
 > Para obtener información sobre cómo usar el túnel SSL con HDInsight, consulte uno de los siguientes elementos.
 > 
-> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X</a> : pasos para crear un túnel SSH con el comando `ssh`.
+> * <a href="../hdinsight-hadoop-linux-use-ssh-unix/#tunnel" target="_blank">Utilización de SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X</a>: pasos sobre cómo crear un túnel SSH con el comando `ssh`.
 >
->* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows</a> : pasos para usar PuTTY para crear un túnel SSH.
+>* <a href="../hdinsight-hadoop-linux-use-ssh-windows/#tunnel" target="_blank">Utilización de SSH con Hadoop en HDInsight basado en Linux desde Windows</a>: pasos para usar Putty a fin de crear un túnel SSH.
 
 ### Administración
 
@@ -254,4 +254,4 @@ Ambari Web se basa en una API de REST subyacente, que puede aprovechar para crea
 Para obtener una referencia completa de la API de REST, consulte [Referencia de API de Ambari V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

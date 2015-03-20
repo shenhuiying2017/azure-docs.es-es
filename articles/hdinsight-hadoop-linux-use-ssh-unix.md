@@ -1,4 +1,4 @@
-<properties
+﻿<properties
    pageTitle="Utilización de claves SSH con Hadoop en HDInsight basado en Linux desde Linux, Unix u OS X | Azure"
    description="Aprenda a crear y usar claves SSH para autenticarse en clústeres de HDInsight basado en Linux."
    services="hdinsight"
@@ -20,7 +20,7 @@
 
 Los clústeres de HDInsight basado en Linux proporcionan la opción de proteger el acceso SSH a través de una contraseña o una clave de SSH. Este documento proporciona información sobre el uso de SSH con HDInsight desde clientes Linux, Unix u OS X.
 
-> [AZURE.NOTE] Los pasos que aparecen en este artículo suponen que está usando un cliente Linux, Unix u OS X. A pesar de que estos pasos se podrían realizar en un cliente Windows si tiene instalado un paquete que proporciona `ssh` y `ssh-keygen` (como Git para Windows), recomendamos que los clientes Windows sigan los pasos que aparecen en [Utilización de SSH con HDInsight basado en Linux (Hadoop) desde Windows](/es-es/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/).
+> [AZURE.NOTE] Los pasos que aparecen en este artículo suponen que está usando un cliente Linux, Unix u OS X. A pesar de que estos pasos se pueden realizar en un cliente Windows si tiene instalado un paquete que proporcione `ssh` y `ssh-keygen` (como Git para Windows), recomendamos que los clientes Windows sigan los pasos que aparecen en [Utilización de SSH con HDInsight basado en Linux (Hadoop) desde Windows](/documentation/articles/hdinsight-hadoop-linux-use-ssh-windows/).
 
 ## Requisitos previos
 
@@ -72,7 +72,7 @@ Cuando cree un clúster de HDInsight basado en Linux, deberá proporcionar la **
 
 * **Interfaz de la línea de comandos multiplataforma de Azure (xplat-cli)**: usa comandos de la línea de comandos para crear el clúster.
 
-Cada uno de estos métodos requerirá una **contraseña** o una **clave pública**. Para obtener información completa sobre la creación de un clúster de HDInsight basado en Linux, consulte <a href="/es-es/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">Aprovisionamiento de clústeres de HDInsight basado en Linux</a>.
+Cada uno de estos métodos requerirá una **contraseña** o una **clave pública**. Para obtener información completa sobre la creación de un clúster de HDInsight basado en Linux, consulte <a href="/documentation/articles/hdinsight-hadoop-provision-linux-clusters/" target="_blank">Aprovisionamiento de clústeres de HDInsight basados en Linux</a>.
 
 ### Portal de administración de Azure
 
@@ -89,9 +89,9 @@ Con esto se crea un inicio de sesión para el usuario especificado, mediante la 
 
 ### Interfaz de la línea de comandos multiplataforma de Azure
 
-Puede usar la <a href="../xplat-cli/" target="_brad">Interfaz de la línea de comandos multiplataforma de Azure</a>para crear un clúster nuevo mediante el comando `azure hdinsight cluster create`.
+Puede usar la <a href="../xplat-cli/" target="_brad">interfaz de la línea de comandos multiplataforma de Azure</a> para crear un nuevo clúster con el comando `azure hdinsight cluster create`.
 
-Para obtener más información sobre el uso de este comando, consulte <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">Aprovisionamiento de clústeres de Hadoop Linux en HDInsight usando opciones personalizadas.</a>
+Para obtener más información acerca del uso de este comando, consulte <a href="../hdinsight-hadoop-provision-linux-clusters/" target="_blank">Aprovisionamiento de clústeres de Hadoop Linux en HDInsight con opciones personalizadas</a>
 
 ## Conexión a un clúster de HDInsight basado en Linux
 
@@ -109,7 +109,7 @@ Si usó una **contraseña** para la cuenta del usuario, se le solicitará escrib
 
 Si usó una **clave SSH** protegida con una frase de contraseña, se le pedirá que escriba la frase de contraseña; de lo contrario, SSH intentará autenticarse automáticamente con una de las claves privadas locales existentes en el cliente.
 
-> [AZURE.NOTE] Si SSH no se autentica automáticamente con la **clave privada** correcta, use el parámetro **-i** y especifique la ruta de acceso a la clave privada. El siguiente ejemplo cargará la **clave privada** desde `~/.ssh/id_rsa`.
+> [AZURE.NOTE] Si SSH no se autentica automáticamente con la **clave privada** correcta, use el parámetro **-i** y especifique la ruta de acceso a la clave privada. En el ejemplo siguiente se cargará la **clave privada** desde `~/.ssh/id_rsa`.
 > 
 > `ssh -i ~/.ssh/id_rsa me@mycluster-ssh.azurehdinsight.net`
 
@@ -171,7 +171,7 @@ Use los siguientes pasos para crear un túnel SSH y configure el explorador para
 
 	* **f**: ejecutar en segundo plano.
 
-	Si configuró el clúster con una **clave SSH**, es posible que necesite usar el parámetro `-i` y especifique la ruta de acceso a la clave SSH privada.
+	Si ha configurado el clúster con una **clave SSH**, es posible que tenga que usar el parámetro `-i` y especificar la ruta de acceso a la clave SSH privada.
 
 	Una vez que se completa el comando, el tráfico enviado al puerto 9876 del equipo local se enrutará sobre SSL al nodo principal del clúster y aparecerá como originado ahí.
 
@@ -181,11 +181,11 @@ Use los siguientes pasos para crear un túnel SSH y configure el explorador para
 
 	> [AZURE.NOTE] Seleccionar **DNS remoto** resolverá las solicitudes de DNS mediante el uso del clúster de HDInsight. Si no se selecciona, el DNS se resolverá de manera local.
 
-	Para comprobar que el tráfico se esté enrutando a través del túnel, visite un sitio como <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> con la configuración de proxy habilitada y deshabilitada en Firefox. Cuando esté habilitada, la dirección IP será la de un equipo en el centro de datos de Microsoft Azure.
+	Puede comprobar que el tráfico se enruta a través del túnel mediante la visita a un sitio como <a href="http://www.whatismyip.com/" target="_blank">http://www.whatismyip.com/</a> con la configuración del proxy habilitada y deshabilitada en Firefox. Cuando esté habilitada, la dirección IP será la de un equipo en el centro de datos de Microsoft Azure.
 
 ### Extensiones del explorador
 
-A pesar de que la configuración del explorador para que use el túnel funciona, normalmente no desearía enrutar todo el tráfico a través del túnel. Extensiones para el explorador, como <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a>  , son compatibles con la coincidencia de patrones para las solicitudes de dirección URL (FoxyProxy Standard o Plus solamente), de manera tal que solo las solicitudes para direcciones URL específicas se enviarán a través del túnel.
+A pesar de que la configuración del explorador para que use el túnel funciona, normalmente no desearía enrutar todo el tráfico a través del túnel. Las extensiones del explorador como <a href="http://getfoxyproxy.org/" target="_blank">FoxyProxy</a> son compatibles con la coincidencia de patrones para las solicitudes de dirección URL (FoxyProxy Standard o Plus solamente), de manera tal que solo las solicitudes para direcciones URL específicas se enviarán a través del túnel.
 
 Si instaló **FoxyProxy Standard**, use los siguientes pasos para configurarlo para que solo desvíe tráfico para HDInsight a través del túnel.
 
@@ -213,7 +213,7 @@ Si instaló **FoxyProxy Standard**, use los siguientes pasos para configurarlo p
 
 	* **Nombre de patrón** - **headnode**: es solo un nombre fácil de usar para el patrón.
 
-	* **Patrón de dirección URL** - **\*headnode\*** : define un patrón que coincide con cualquier dirección URL que contenga la palabra **headnode**.
+	* **Patrón de dirección URL** - **\*headnode\***: define un patrón que coincide con cualquier dirección URL que contenga la palabra **headnode**.
 
 	![foxyproxy pattern](./media/hdinsight-hadoop-linux-use-ssh-unix/foxypattern.png)
 
@@ -235,4 +235,4 @@ Ahora que sabe cómo autenticarse con una clave SSH, aprenda a usar MapReduce co
 
 * [Uso de trabajos de MapReduce con HDInsight](../hdinsight-use-mapreduce/)
  
-<!--HONumber=45--> 
+<!--HONumber=47-->

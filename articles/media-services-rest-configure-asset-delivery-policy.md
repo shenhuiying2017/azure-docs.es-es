@@ -16,10 +16,10 @@
 	ms.date="02/06/2015" 
 	ms.author="juliako"/>
 
-#Procedimiento: configuración de directivas de entrega de recursos
+# Configuración de directivas de entrega de recursos
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](../media-services-live-streaming-workflow). 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](../media-services-live-streaming-workflow) . 
 
 Uno de los pasos del flujo de trabajo de entrega de contenido de Servicios multimedia consiste en configurar directivas de entrega para los recursos que desea transmitir. La directiva de entrega de recursos indica a los Servicios multimedia cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común). 
 
@@ -59,15 +59,15 @@ Para obtener instrucciones sobre cómo publicar un recurso y generar una direcci
 >
 >Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración de desarrollo de la API de REST de Servicios multimedia](../media-services-rest-how-to-use).
 
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST de Servicios multimedia](../media-services-rest-connect_programmatically/). 
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST](../media-services-rest-connect_programmatically/). 
 
 
-##Directiva de entrega de recursos sin cifrar 
+## Directiva de entrega de recursos sin cifrar 
 
-###<a id="create_asset_delivery_policy"></a>Creación de directiva de entrega de recursos
+### <a id="create_asset_delivery_policy"></a>Creación de directiva de entrega de recursos
 La solicitud HTTP siguiente crea una directiva de entrega de recursos que especifica que no se aplique el cifrado dinámico y que se entregue la secuencia en cualquiera de los siguientes protocolos:  MPEG DASH, HLS y Smooth Streaming. 
 
-Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte los [Tipos que se usan al definir AssetDeliveryPolicy](#types) .   
+Para obtener información sobre los valores que puede especificar al crear una entidad AssetDeliveryPolicy, consulte la sección [Tipos que se usan al definir AssetDeliveryPolicy](#types) .   
 
 
 Solicitud:
@@ -114,7 +114,7 @@ Respuesta:
 	"Created":"2015-02-08T06:21:27.6908329Z",
 	"LastModified":"2015-02-08T06:21:27.6908329Z"}
 	
-###<a id="link_asset_with_asset_delivery_policy"></a>Vincular recurso con la directiva de entrega de recursos
+### <a id="link_asset_with_asset_delivery_policy"></a>Vincular recurso con la directiva de entrega de recursos
 
 La siguiente solicitud HTTP vincula el recurso especificado con la directiva de entrega de recursos.
 
@@ -138,14 +138,14 @@ Respuesta:
 	HTTP/1.1 204 No Content
 
 
-##Directiva de entrega de recursos DynamicEnvelopeEncryption 
+## Directiva de entrega de recursos DynamicEnvelopeEncryption 
 
-###Crear clave de contenido del tipo EnvelopeEncryption y vincularla al recurso
+### Crear clave de contenido del tipo EnvelopeEncryption y vincularla al recurso
 
 Al especificar la directiva de entrega de DynamicEnvelopeEncryption, asegúrese de vincular el recurso a una clave de contenido del tipo EnvelopeEncryption. Para obtener más información, consulte: [Creación de una clave de contenido](../media-services-rest-create-contentkey)).
 
 
-###<a id="get_delivery_url"></a>Obtención de dirección URL de entrega
+### <a id="get_delivery_url"></a>Obtención de dirección URL de entrega
 
 Obtenga la dirección URL de entrega para el método de entrega especificado de la clave de contenido que creó en el paso anterior. Un cliente usa la dirección URL devuelta para solicitar una clave AES o una licencia de PlayReady para reproducir el contenido protegido.
 
@@ -184,7 +184,7 @@ Respuesta:
 	{"odata.metadata":"media.windows.net/api/$metadata#Edm.String","value":"https://amsaccount1.keydelivery.mediaservices.windows.net/?KID=dc88f996-2859-4cf7-a279-c52a9d6b2f04"}
 
 
-###Creación de directiva de entrega de recursos
+### Creación de directiva de entrega de recursos
 
 La solicitud HTTP siguiente crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado de sobre dinámico (**DynamicEnvelopeEncryption**) en el protocolo **HLS** (en este ejemplo, se bloquearán los protocolos para la transmisión). 
 
@@ -227,22 +227,22 @@ Respuesta:
 	{"odata.metadata":"media.windows.net/api/$metadata#AssetDeliveryPolicies/@Element","Id":"nb:adpid:UUID:ec9b994e-672c-4a5b-8490-a464eeb7964b","Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":4,"AssetDeliveryPolicyType":3,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\\/\"}]","Created":"2015-02-09T05:24:38.9167436Z","LastModified":"2015-02-09T05:24:38.9167436Z"}
 
 
-###Vincular recurso con la directiva de entrega de recursos
+### Vincular recurso con la directiva de entrega de recursos
 
 Vea [Vincular recurso con la directiva de entrega de recursos](#link_asset_with_asset_delivery_policy)
 
-##Directiva de entrega de recursos DynamicCommonEncryption 
+## Directiva de entrega de recursos DynamicCommonEncryption 
 
-###Crear clave de contenido del tipo CommonEncryption y vincularla al recurso
+### Crear clave de contenido del tipo CommonEncryption y vincularla al recurso
 
 Al especificar la directiva de entrega de DynamicCommonEncryption, asegúrese de vincular el recurso a una clave de contenido del tipo CommonEncryption. Para obtener más información, consulte: [Creación de una clave de contenido](../media-services-rest-create-contentkey)).
 
 
-###Obtención de dirección URL de entrega
+### Obtención de dirección URL de entrega
 
 Obtenga la dirección URL de entrega para el método de entrega de PlayReady de la clave de contenido que creó en el paso anterior. Un cliente usa la dirección URL devuelta para solicitar una licencia de PlayReady para reproducir el contenido protegido. Para obtener más información, consulte [Obtención de dirección URL de entrega](#get_delivery_url).
 
-###Creación de directiva de entrega de recursos
+### Creación de directiva de entrega de recursos
 
 La solicitud HTTP siguiente crea la entidad **AssetDeliveryPolicy** que se configura para aplicar el cifrado común dinámico (**DynamicCommonEncryption**) en el protocolo **Smooth Streaming** (en este ejemplo, se bloquearán otros protocolos para la transmisión). 
 
@@ -266,14 +266,14 @@ Solicitud:
 	{"Name":"AssetDeliveryPolicy","AssetDeliveryProtocol":1,"AssetDeliveryPolicyType":4,"AssetDeliveryConfiguration":"[{\"Key\":2,\"Value\":\"https:\\/\\/amsaccount1.keydelivery.mediaservices.windows.net\/PlayReady\/"}]"}
 
 
-###Vincular recurso con la directiva de entrega de recursos
+### Vincular recurso con la directiva de entrega de recursos
 
 Vea [Vincular recurso con la directiva de entrega de recursos](#link_asset_with_asset_delivery_policy)
 
 
-##<a id="types"></a>Tipos que se usan al definir AssetDeliveryPolicy
+## <a id="types"></a>Tipos usados al definir AssetDeliveryPolicy
 
-###<a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol 
+### AssetDeliveryProtocol 
 
     /// <summary>
     /// Delivery protocol for an asset delivery policy.
@@ -312,7 +312,7 @@ Vea [Vincular recurso con la directiva de entrega de recursos](#link_asset_with_
         All = 0xFFFF
     }
 
-###<a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
+### AssetDeliveryPolicyType
 
     /// <summary>
     /// Policy type for dynamic encryption of assets.
@@ -346,7 +346,7 @@ Vea [Vincular recurso con la directiva de entrega de recursos](#link_asset_with_
         DynamicCommonEncryption
     }
 
-###<a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
+### ContentKeyDeliveryType
 
     /// <summary>
     /// Delivery method of the content key to the client.
@@ -369,7 +369,7 @@ Vea [Vincular recurso con la directiva de entrega de recursos](#link_asset_with_
         BaselineHttp
     }
 
-###<a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
+### AssetDeliveryPolicyConfigurationKey
 
     /// <summary>
     /// Keys used to get specific configuration for an asset delivery policy.
@@ -412,4 +412,4 @@ Vea [Vincular recurso con la directiva de entrega de recursos](#link_asset_with_
         EnvelopeEncryptionIV,
     }
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

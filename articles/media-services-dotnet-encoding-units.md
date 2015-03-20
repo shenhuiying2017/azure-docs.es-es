@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Cómo agregar unidades de codificación" 
 	description="Información sobre cómo agregar unidades de codificación con .NET"  
 	services="media-services" 
@@ -19,13 +19,13 @@
 
 
 
-# Cómo agregar unidades de codificación con el SDK de .NET
+# Escalado de codificación con el SDK de .NET
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow).
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) .
   
 ## Información general
 
-Una cuenta de Servicios multimedia está asociada con un tipo de unidad reservada que determina la rapidez con la que se procesan los trabajos de codificación. Puede elegir uno de los siguientes tipos de unidad reservada: Basic, Standard o Premium. Por ejemplo, el mismo trabajo de codificación se ejecuta más rápido cuando se usa el tipo de unidad reservada Standard en comparación con el tipo Basic. Para obtener más información, consulte el blog de "Codificación de tipos de unidad reservada" escrito por [Milan Gada](http://azure.microsoft.com/blog/author/milanga/).
+Una cuenta de Servicios multimedia está asociada con un tipo de unidad reservada que determina la rapidez con la que se procesan los trabajos de codificación. Puede elegir uno de los siguientes tipos de unidad reservada: Basic, Standard o Premium. Por ejemplo, el mismo trabajo de codificación se ejecuta más rápido cuando se usa el tipo de unidad reservada Standard en comparación con el tipo Basic. Para obtener más información, consulte el blog acerca de los tipos de unidades reservadas de codificación escrito por [Milan Gada](http://azure.microsoft.com/blog/author/milanga/).
 
 Además de especificar el tipo de unidad reservada, puede especificar el aprovisionamiento de su cuenta con unidades reservadas de codificación. El número de unidades reservadas de codificación aprovisionadas determina el número de tareas multimedia que se pueden procesar de forma simultánea en una cuenta determinada. Por ejemplo, si la cuenta tiene cinco unidades reservadas, se ejecutarán simultáneamente cinco tareas multimedia siempre que haya tareas para procesar. Las tareas restantes esperarán en la cola y se elegirán para el procesamiento secuencialmente tan pronto como finalice la tarea en ejecución. Si una cuenta no tiene ninguna unidad reservada aprovisionada, las tareas se elegirán de manera secuencial. En este caso, el tiempo de espera entre la finalización de una tarea y el inicio de la siguiente dependerá de la disponibilidad de los recursos del sistema.
 
@@ -47,8 +47,8 @@ De manera predeterminada las cuentas de Servicios multimedia pueden escalar hast
 
 Para abrir una incidencia de soporte técnico, haga lo siguiente: 
 
-1. Inicie sesión en su cuenta de Azure en el [Portal de administración](http://manage.windowsazure.com).
-2. Vaya a [Soporte técnico](http://azure.microsoft.com/support/contact/).
+1. Inicie sesión en su cuenta de Azure en [Portal de administración](http://manage.windowsazure.com).
+2. Vaya a [Soporte técnico](http://www.windowsazure.com/support/contact/).
 3. Haga clic en "Obtener soporte".
 4. Seleccione su suscripción.
 5. En el tipo de soporte, seleccione "Técnico".
@@ -60,4 +60,4 @@ Para abrir una incidencia de soporte técnico, haga lo siguiente:
 11. Haga clic en Submit para abrir la incidencia.
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->
