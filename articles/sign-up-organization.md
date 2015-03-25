@@ -1,10 +1,27 @@
-<properties linkid="manage-services-identity-organization-account" urlDisplayName="Organization accounts" pageTitle="Sign up for Azure as an organization" metaKeywords="" description="Learn how you can use an organizational account to leverage the existing user accounts, policies, settings, or on-premise server deployments you already have improve efficiencies between your organization's on-premises identity infrastructure and Azure AD." metaCanonical="" services="active-directory" documentationCenter="" title="Sign up for Azure as an organization" authors="terrylan" solutions="" manager="terrylan" editor="" />
+<properties 
+	pageTitle="Sign up for Azure as an organization" 
+	description="Learn how you can use a work or school account to leverage the existing user accounts, policies, settings, or on-premise server deployments you already have and improve efficiency between your organization's on-premises identity infrastructure and Azure AD." 
+	services="active-directory" 
+	documentationCenter="" 
+	authors="TerryLanfear" 
+	manager="terrylan" 
+	editor="Lisatoft"/>
 
-<tags ms.service="active-directory" ms.workload="identity" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="01/01/1900" ms.author="terrylan" />
+<tags 
+	ms.service="active-directory" 
+	ms.workload="identity" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="12/01/2014" 
+	ms.author="terrylan"/>
+
+
+
 
 # Inicio de sesión en Azure como una organización
 
-[WACOM.INCLUDE [disclaimer][WACOM.INCLUDE [disclaimer]
+[AZURE.INCLUDE [disclaimer](../includes/disclaimer.md)]
 
 Hasta hace poco, solo era posible registrarse para obtener una suscripción a Azure con su cuenta Microsoft (Windows Live ID). Azure ahora es compatible con cualquiera de los dos métodos de cuenta siguientes para registrarse:
 
@@ -22,8 +39,8 @@ Hasta hace poco, solo era posible registrarse para obtener una suscripción a Az
 -   [Biblioteca de Azure AD en TechNet][Biblioteca de Azure AD en TechNet]
 -   [Biblioteca de Azure AD en MSDN][Biblioteca de Azure AD en MSDN]
 
-  [Más información]: http://windows.microsoft.com/es-es/windows-live/sign-in-what-is-microsoft-account
-  [1]: http://technet.microsoft.com/es-es/library/jj573650
+  [Más información]: http://windows.microsoft.com/windows-live/sign-in-what-is-microsoft-account
+  [1]: http://technet.microsoft.com/library/jj573650
   [**Regístrese ahora**]: http://go.microsoft.com/fwlink/?LinkId=269967
   [¿Qué es Azure AD?]: /es-es/manage/services/identity/what-is-windows-azure-active-directory/
   [Biblioteca de Azure AD en TechNet]: http://technet.microsoft.com/es-es/library/hh967619.aspx
