@@ -1,5 +1,5 @@
-Para conocer los límites de Servicios multimedia, consulte el tema siguiente:
+﻿Para conocer los límites de Servicios multimedia, consulte el tema siguiente:
 
--   [Cuotas y límites de Servicios multimedia][Cuotas y límites de Servicios multimedia]
+ - [Cuotas y límites de Servicios multimedia](../media-services-quotas-and-limitations)
 
-  [Cuotas y límites de Servicios multimedia]: http://msdn.microsoft.com/es-es/library/azure/jj945161.aspx
+<!--HONumber=47-->

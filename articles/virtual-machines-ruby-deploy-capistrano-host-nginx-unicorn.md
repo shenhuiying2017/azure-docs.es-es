@@ -1,7 +1,7 @@
-<properties 
+﻿<properties 
 	pageTitle="Implementación de una aplicación web de Ruby on Rails en una máquina virtual de Azure con Capistrano - Tutorial" 
 	description="Aprenda a implementar una aplicación de Ruby on Rails en una máquina virtual de Azure con Capistrano, Unicorn y Nginx." 
-	authors="blackmist" 
+	authors="wpickett" 
 	manager="wpickett" 
 	editor="" 
 	services="virtual-machines" 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="ruby" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="larryfr"/>
+	ms.date="02/19/2015" 
+	ms.author="wpickett"/>
 
 
 #Implementación de una aplicación web de Ruby on Rails en una máquina virtual de Azure con Capistrano
@@ -67,17 +67,17 @@ La siguiente es una captura de pantalla de la aplicación completa:
 
 1. Instale Ruby en su entorno de desarrollo. Los pasos pueden variar según el sistema operativo.
 
-	* **Apple OS X** - Existen varias distribuciones de Ruby para OS X. Este tutorial se validó en OS X mediante [Homebrew](http://brew.sh/) para instalar **rbenv**, **ruby-build** y **Ruby 2.0.0-p451**. Puede encontrar información sobre la instalación en [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
+	* **Apple OS X**: Puede haber varias distribuciones de Ruby para OS X. Este tutorial se validó en OS X mediante [Homebrew](http://brew.sh/) para instalar **rbenv**, **ruby-build** y **Ruby 2.0.0-p451**. Puede encontrar información sobre la instalación en [https://github.com/sstephenson/rbenv/](https://github.com/sstephenson/rbenv/).
 
-	* **Linux** - Use su sistema de administración de paquetes de distribución. Este tutorial se validó en Ubuntu 12.10 usando **rbenv**, **ruby-build** y **Ruby 2.0.0-p451**.
+	* **Linux**: Use su sistema de administración de paquetes de distribución. Este tutorial se validó en Ubuntu 12.10 usando **rbenv**, **ruby-build** y **Ruby 2.0.0-p451**.
 
-	* **Windows** - Existen varias distribuciones de Ruby para Windows. Este tutorial se validó usando [RubyInstaller](http://RubyInstaller.org/) para instalar **Ruby 2.0.0-p451**. Los comandos se emitieron con la línea de comandos de **GitBash** disponible con [Git para Windows](http://git-scm.com/download/win).
+	* **Windows**: Existen varias distribuciones de Ruby para Windows. Este tutorial se validó usando [RubyInstaller](http://RubyInstaller.org/) para instalar **Ruby 2.0.0-p451**. Los comandos se emitieron con la línea de comandos de **GitBash** disponible con [Git para Windows](http://git-scm.com/download/win).
 
 2. Abra una nueva línea de comandos o sesión de terminal y escriba el siguiente comando para instalar Ruby on Rails:
 
 		gem install rails --no-rdoc --no-ri
 
-	> [AZURE.NOTE] Es posible que este comando requiera privilegios de administrador o raíz en algunos sistemas operativos. Si recibe un error mientras se ejecuta este comando, pruebe a usar  'sudo' como sigue.
+	> [AZURE.NOTE] Es posible que este comando requiera privilegios de administrador o raíz en algunos sistemas operativos. Si recibe un error mientras se ejecuta este comando, pruebe a usar 'sudo' como sigue.
 	> 
 	> `sudo gem install rails`
 
@@ -109,7 +109,7 @@ La siguiente es una captura de pantalla de la aplicación completa:
 
 	Este comando creará el esquema de la base de datos para almacenar publicaciones usando el proveedor de base de datos predeterminado para Rails, que es [SQLite3 Database][sqlite3].
 
-4. Para mostrar un índice de publicaciones como página principal, modifique el archivo **config/routes.rb** y agregue lo siguiente después de la línea  `resources :posts`.
+4. Para mostrar un índice de publicaciones como página principal, modifique el archivo **config/routes.rb** y agregue lo siguiente después de la línea `resources :posts`.
 
 		root 'posts#index'
 
@@ -205,9 +205,8 @@ Una vez creada la máquina virtual, conéctese a ella usando SSH y utilice los c
 	~/.rbenv/bin/rbenv rehash
 
 > [AZURE.NOTE] Si lo desea, puede guardar el código anterior en un script (archivo .sh) para evitar errores de escritura cuando ejecute los comandos.
-
-
-> [AZURE.NOTE] El comando **~/.rbenv/bin/rbenv install 2.0.0-p451** puede tardar varios minutos en completarse.
+> 
+> El comando **~/.rbenv/bin/rbenv install 2.0.0-p451** puede tardar varios minutos en completarse.
 
 El script **rbenv-install.sh** realiza las acciones siguientes:
 	
@@ -225,7 +224,7 @@ Una vez finalizada la instalación, use el siguiente comando para verificar que 
 
 	ruby -v
 
-Esto debería devolver 'ruby 2.0.0p451' como la versión.
+Esto debería devolver `ruby 2.0.0p451` como la versión.
 
 ###Instalación de PostgreSQL
 
@@ -323,14 +322,14 @@ En su entorno de desarrollo, modifique la aplicación para que use el servidor w
 
 	La carpeta **capistrano** contiene tareas y otros archivos que se usan como parte del proceso de implementación.
 
-5. Edite el archivo **Capfile** en la raíz de la aplicación y quite las marcas de comentario de las líneas siguientes. Para ello, quite el carácter __#__ del principio de la línea.
+5. Edite el archivo **Capfile** en la raíz de la aplicación y quite las marcas de comentario (__#__) de las líneas siguientes:
 
 		require 'capistrano/rbenv'
 		require 'capistrano/bundler'
 		require 'capistrano/rails/assets'
 		require 'capistrano/rails/migrations'
 
-	Cuando haya quitado las marcas de comentario de las líneas anteriores, agregue las líneas siguientes.
+	Cuando haya quitado las marcas de comentario de las líneas anteriores, agregue las líneas siguientes:
 
 		require 'capistrano/unicorn_nginx'
 		require 'capistrano/postgresql'
@@ -339,7 +338,7 @@ En su entorno de desarrollo, modifique la aplicación para que use el servidor w
 
 	Cuando haya realizado estos cambios, guarde el archivo.
 
-6.  Edite el archivo **config/deploy.rb** y reemplace su contenido por el siguiente. Sustituya **YourApplicationName** por el nombre de su aplicación y sustituya **https://github.com/YourGitHubName/YourRepoName.git** por la dirección URL del repositorio de GitHub para este proyecto.
+6.  Edite el archivo **config/deploy.rb** y reemplace su contenido por el siguiente. Cambie **YourApplicationName** por el nombre de su aplicación y reemplace **https://github.com/YourGitHubName/YourRepoName.git** por la dirección URL del repositorio de GitHub para este proyecto.
 
 		lock '3.1.0'
 		# application name and the github repository
@@ -448,13 +447,13 @@ En este punto, la aplicación de Ruby on Rails se debe estar ejecutando en la m�
 
 En este artículo ha aprendido a crear y publicar una aplicación básica de Rails en una máquina virtual de Azure con Capistrano. Trabajar con una aplicación básica como la de este artículo es solo una parte mínima de lo que se puede hacer con Capistrano para la implementación. Para obtener más información sobre el uso de Capistrano, consulte:
 
-* [Capistranorb.com](http://capistranorb.com) - Sitio Capistrano.
-* [Azure, Ruby on Rails, Capistrano 3 y PostgreSQL](http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql) - Enfoque alternativo a la implementación en Azure que incluye scripts de implementación personalizados.
-* [Tutorial de Capistrano 3](http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/) - Tutorial sobre cómo trabajar con Capistrano 3.
+* [Capistranorb.com](http://capistranorb.com): sitio de Capistrano.
+* [Azure, Ruby on Rails, Capistrano 3 y PostgreSQL](http://wootstudio.ca/articles/tutorial-windows-azure-ruby-on-rails-capistrano-3-postgresql): un método alternativo para la implementación en Azure que implica scripts de implementación personalizados.
+* [Tutorial de Capistrano 3](http://www.talkingquickly.co.uk/2014/01/deploying-rails-apps-to-a-vps-with-capistrano-v3/): tutorial sobre cómo trabajar con Capistrano 3.
 
 Para ver un ejemplo más básico de creación e implementación de una aplicación de Rails en una máquina virtual de Azure con solo SSH, consulte [Hospedaje de una aplicación web de Ruby o Rails mediante una máquina virtual Linux][ruby-vm].
 
-Si desea obtener más información sobre Ruby on Rails, visite las [Guías de Ruby on Rails] (en inglés).[rails-guides].
+Si desea obtener más información sobre Ruby on Rails, visite las [Guías de Ruby on Rails][rails-guides] (en inglés).
 
 Para obtener información sobre cómo usar el SDK de Azure para Ruby y así tener acceso a los servicios de Azure desde su aplicación de Ruby, consulte:
 
@@ -464,14 +463,14 @@ Para obtener información sobre cómo usar el SDK de Azure para Ruby y así tene
 
 * [Servicio de contenido de alto ancho de banda con la Red de entrega de contenido][cdn-howto]
 
-[vm-instructions]: /es-es/manage/linux/tutorials/virtual-machine-from-gallery/
+[vm-instructions]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
 
 [rails-guides]: http://guides.rubyonrails.org/
-[blobs]: /es-es/develop/ruby/how-to-guides/blob-storage/
-[tables]: /es-es/develop/ruby/how-to-guides/table-service/
-[cdn-howto]: /es-es/develop/ruby/app-services/
-[ruby-vm]: /es-es/develop/ruby/tutorials/web-app-with-linux-vm/
+[blobs]: /develop/ruby/how-to-guides/blob-storage/
+[tables]: /develop/ruby/how-to-guides/table-service/
+[cdn-howto]: /develop/ruby/app-services/
+[ruby-vm]: /develop/ruby/tutorials/web-app-with-linux-vm/
  
 [blog-rails]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/blograilslocal.png
 [blog-rails-cloud]: ./media/virtual-machines-ruby-deploy-capistrano-host-nginx-unicorn/blograilscloud.png 
@@ -487,7 +486,4 @@ Para obtener información sobre cómo usar el SDK de Azure para Ruby y así tene
 [ssh-on-azure]: http://azure.microsoft.com/documentation/articles/linux-use-ssh-key/
 [capistrano]: http://capistranorb.com
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

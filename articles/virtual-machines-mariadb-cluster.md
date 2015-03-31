@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Ejecución de un clúster MariaDB (MySQL) en Azure" 
 	description="Creación de un clúster MariaDB + Galera MySQL en máquinas virtuales de Azure" 
 	services="virtual-machines" 
@@ -20,16 +20,7 @@
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Clúster MariaDB (MySQL): tutorial de Azure
 
-Vamos a crear un clúster [Galera](http://galeracluster.com/products/) de varios maestros de [MariaDBs](https://mariadb.org/en/about/), una sustitución robusta, escalable y confiable de MySQL, para trabajar en un entorno altamente disponible en máquinas virtuales de Azure.
-
-<!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
-
-+ [Introducción a la arquitectura]
-+ [Creación de la plantilla]
-+ [Creación del clúster]
-+ [Equilibrio de carga del clúster]
-+ [Validación del clúster]
-
+<p>Vamos a crear un clúster [Galera](http://galeracluster.com/products/) de varios maestros de [MariaDBs](https://mariadb.org/en/about/), una sustitución robusta, escalable y confiable de MySQL, para trabajar en un entorno altamente disponible en máquinas virtuales de Azure.</p>
 
 ## Introducción a la arquitectura
 
@@ -156,7 +147,7 @@ esto devolverá un resultado similar a `5112500ae3b842c8b9c604889f8753c3__OpenLo
     	
 	        setenforce 0
     
-       a continuación, edite `/etc/selinux/config` para establecer el valor en `SELINUX=permissive`
+       a continuación, edite `/etc/selinux/config` para establecer `SELINUX=permissive`
        
 6. Valide las ejecuciones de MySQL
 
@@ -180,7 +171,7 @@ esto devolverá un resultado similar a `5112500ae3b842c8b9c604889f8753c3__OpenLo
             
 7. Crear el marcador de posición de configuración
 
-	- Edite la configuración de MySQL para crear un marcador de posición para la configuración del clúster. No reemplace las **`<Variables>`** ni las quite ahora. Eso sucederá después de crear una máquina virtual desde esta plantilla.
+	- Edite la configuración de MySQL para crear un marcador de posición para la configuración del clúster. En este momento, no reemplace las **`<Variables>`** ni quite la marca de comentario. Eso sucederá después de crear una máquina virtual desde esta plantilla.
 	
 			vi /etc/my.cnf.d/server.cnf
 			
@@ -271,7 +262,7 @@ Cree 3 máquinas virtuales de la plantilla que acaba de crear y, a continuación
 		--ssh 23
 		--vm-name mariadb2
         --connect mariadbha mariadb-galera-image azureuser
-y para MariaDB3
+and for MariaDB3
 
 		azure vm create
         --virtual-network-name mariadbvnet
@@ -292,7 +283,7 @@ y para MariaDB3
 
 		sudo vi /etc/my.cnf.d/server.cnf
 		
-	quitando **`wsrep_cluster_name`** y **`wsrep_cluster_address`**, eliminando **#** en la parte del principio. La validación se realizará tal y como lo desea.
+	lo que realmente desea es quitar la marca de comentario de **`wsrep_cluster_name`** y **`wsrep_cluster_address`**, eliminar el carácter **#** del principio y validar.
     Además, reemplace **`<ServerIP>`** en **`wsrep_node_address`** y **`<NodeName>`** en **`wsrep_node_name`** por la dirección IP y el nombre, respectivamente, de las máquinas virtuales, y elimine esas líneas.
 	
 5. Iniciar el clúster en MariaDB1 y dejar que se ejecute en el inicio
@@ -375,13 +366,11 @@ Puede que desee echar un vistazo a [otro modo para el clúster MySQL en Linux] y
 
 <!--Link references-->
 [Azure CLI]: http://azure.microsoft.com/documentation/articles/xplat-cli/
-[referencia de comandos de Azure CLI]: http://azure.microsoft.com/documentation/articles/command-line-tools/
-[crear una clave SSH para la autenticación]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
-[estrategia de optimización del rendimiento]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[optimizar y probar el rendimiento de MySQL en máquinas virtuales de Linux de Azure]:http://azure.microsoft.com/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
-[problema #1268 en las herramientas Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
-[otro modo para el clúster MySQL en Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
+[Referencia de comandos de Azure CLI]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/
+[creación de una clave SSH para la autenticación]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
+[estrategia de optimización del rendimiento]: http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[optimización y pruebas del rendimiento de MySQL en máquinas virtuales Linux de Azure]:http://azure.microsoft.com/sv-se/documentation/articles/virtual-machines-linux-optimize-mysql-perf/
+[problema #1268 en Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
+[otra modo de clúster MySQL en Linux]: http://azure.microsoft.com/documentation/articles/virtual-machines-linux-mysql-cluster/
 
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

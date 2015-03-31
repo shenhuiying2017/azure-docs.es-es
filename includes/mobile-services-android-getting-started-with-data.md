@@ -1,18 +1,27 @@
 ﻿Ahora que el servicio móvil está listo, puede actualizar la aplicación a fin de almacenar elementos en Servicios móviles en lugar de en la colección local. 
 
-1. Si todavía no tiene el [SDK de Android para Servicios móviles], descárguelo ya y expanda los archivos comprimidos.
+1. Compruebe que dispone de las siguientes líneas en la etiqueta **dependencies** del archivo *build.gradle (Module app)* y, de no ser así, agréguelas. Esto agrega referencias al SDK de cliente de Android de Servicios móviles.
 
-2. Copie los archivos  `.jar` de la carpeta  `mobileservices` del SDK en la carpeta  `libs` del proyecto GetStartedWithData.
+		compile 'com.android.support:support-v4:21.0.3'
+    	compile 'com.google.code.gson:gson:2.2.2'
+	    compile 'com.google.guava:guava:18.0'
+	    compile 'com.microsoft.azure:azure-mobile-services-android-sdk:2.0.2-beta'
 
-3. En explorador de paquetes de Eclipse, haga clic con el botón secundario en la carpeta  `libs`, haga clic en **Actualizar** y aparecerán los archivos jar copiados.
 
-  	De este modo, se agrega la referencia del SDK de los Servicios móviles al área de trabajo.
+2. Ahora vuelva a generar el proyecto haciendo clic en **Sincronizar proyecto con archivos de Gradle**.
 
-4. Abra el archivo AndroidManifest.xml y agregue la línea siguiente, que permite a la aplicación obtener acceso a los Servicios móviles de Azure.
+3. Abra el archivo AndroidManifest.xml y agregue la línea siguiente, que permite a la aplicación obtener acceso a los Servicios móviles de Azure.
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
-5. En el explorador de paquetes, abra el archivo TodoActivity.java ubicado en el paquete com.example.getstartedwithdata y quite la marca de comentario de las siguientes líneas de código: 
+
+6. Abra el archivo AndroidManifest.xml y agregue la línea siguiente, que permite a la aplicación obtener acceso a los Servicios móviles de Azure.
+
+		<uses-permission android:name="android.permission.INTERNET" />
+
+5. En el Explorador de proyectos, abra el archivo TodoActivity.java que se encuentra en la carpeta **GetStartedWithData => app => src => java** y elimine los comentarios de las siguientes líneas de código: 
+
+
 
 		import java.net.MalformedURLException;
 		import android.os.AsyncTask;
@@ -28,34 +37,34 @@
 		import com.microsoft.windowsazure.mobileservices.table.MobileServiceTable;
 
  
-6. Comente las líneas siguientes:
+5. Comente las líneas siguientes:
 
 		import java.util.ArrayList;
 		import java.util.List;
 
-7. Eliminaremos la lista de la memoria que utiliza actualmente la aplicación, para que podamos reemplazarla por un servicio móvil. En la clase **ToDoActivity**, comente la línea de código siguiente que define la lista **toDoItemList** existente.
+6. Eliminaremos la lista de la memoria que utiliza actualmente la aplicación, para que podamos reemplazarla por un servicio móvil. En la clase **ToDoActivity**, comente la línea de código siguiente que define la lista **toDoItemList** existente.
 
 		public List<ToDoItem> toDoItemList = new ArrayList<ToDoItem>();
 
-8. Guarde el archivo y el proyecto indicará los errores de la compilación. Busque las tres ubicaciones restantes en las que se usa la variable  `toDoItemList` y convierta en comentarios las secciones indicadas. De este modo se elimina por completo la lista de la memoria. 
+7. Guarde el archivo y el proyecto indicará los errores de la compilación. Busque las tres ubicaciones restantes en las que se usa la variable  `toDoItemList` y convierta en comentarios las secciones indicadas. De este modo se elimina por completo la lista de la memoria. 
 
-9. Ahora agregamos nuestros servicios móviles. Quite la marca de comentario de las líneas de código siguientes:
+8. Ahora agregamos nuestros servicios móviles. Quite la marca de comentario de las líneas de código siguientes:
 
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-10. Busque la clase *ProgressFilter* en la parte inferior del archivo y quite los comentarios. Esta clase muestra un indicador 'loading' mientras *MobileServiceClient* ejecuta las operaciones de red.
+9. Busque la clase *ProgressFilter* en la parte inferior del archivo y quite los comentarios. Esta clase muestra un indicador 'loading' mientras *MobileServiceClient* ejecuta las operaciones de red.
 
 
-11. En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
+10. En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
 
-12. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**, a continuación haga clic en **Administrar claves** y anote la **clave de la aplicación**.
+11. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**; a continuación, haga clic en **Administrar claves** y anote la **Clave de aplicación**.
 
    	![](./media/download-android-sample-code/mobile-dashboard-tab.png)
 
   	Necesitará estos valores para obtener acceso al servicio móvil desde su código de aplicación.
 
-13. En el método **onCreate**, quite la marca de comentario de las líneas de código siguientes que definen la variable **MobileServiceClient**:
+12. En el método **onCreate**, quite la marca de comentario de las líneas de código siguientes que definen la variable **MobileServiceClient**:
 
 		try {
 		// Create the Mobile Service Client instance, using the provided
@@ -73,11 +82,11 @@
 
   	Esto crea una nueva instancia de *MobileServiceClient* que se usa para acceder a su servicio móvil. Además, se crea la instancia *MobileServiceTable* que se usa para el almacenamiento de datos de proxy en el servicio móvil.
 
-14. En el código de arriba, reemplace  `MobileServiceUrl` y  `AppKey` por la URL y la clave de la aplicación de su servicio móvil, por ese orden.
+13. En el código de arriba, reemplace  `MobileServiceUrl` y  `AppKey` por la URL y la clave de la aplicación de su servicio móvil, por ese orden.
 
 
 
-15. Quite la marca de comentario de estas líneas del método **checkItem**:
+14. Quite la marca de comentario de estas líneas del método **checkItem**:
 
 	    new AsyncTask<Void, Void, Void>() {
 	        @Override
@@ -101,7 +110,7 @@
 
    	De este modo se envía una actualización del elemento al servicio móvil y se eliminan los elementos marcados del adaptador.
     
-16. Quite la marca de comentario de estas líneas del método **addItem**:
+15. Quite la marca de comentario de estas líneas del método **addItem**:
 	
 		// Insert the new item
 		new AsyncTask<Void, Void, Void>() {
@@ -126,7 +135,7 @@
 
   	Este código crea un elemento y lo inserta en la tabla del servicio móvil remoto.
 
-18. Quite la marca de comentario de estas líneas del método **refreshItemsFromTable**:
+16. Quite la marca de comentario de estas líneas del método **refreshItemsFromTable**:
 
 		// Get the items that weren't marked as completed and add them in the adapter
 	    new AsyncTask<Void, Void, Void>() {
@@ -155,4 +164,5 @@
 		
 
 <!-- URLs. -->
-[SDK de Android para Servicios móviles]: http://aka.ms/Iajk6q<!--HONumber=42-->
+[SDK de Android para Servicios móviles]: http://aka.ms/Iajk6q
+<!--HONumber=47-->

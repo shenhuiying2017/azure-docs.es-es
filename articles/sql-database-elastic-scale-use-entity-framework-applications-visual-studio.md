@@ -1,10 +1,24 @@
-﻿<properties title="Using Elastic Scale with Entity Framework" pageTitle="Uso de Escalado elástico con Entity Framework" description="La Escala elástica facilita el escalado, Entity Framework es sencillo de usar para codificar bases de datos " metaKeywords="Using Elastic Scale with Entity Framework, Azure SQL Database sharding, elastic scale, Entity Framework and Elastic Scale" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties 
+	pageTitle="Uso de Escalado elástico con Entity Framework" 
+	description="La Escala elástica facilita el escalado, Entity Framework es sencillo de usar para codificar bases de datos" 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="Joseidz" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="Joseidz@microsoft.com"/>
 
-#Uso de Escalado elástico con Entity Framework 
+# Uso de Escalado elástico con Entity Framework 
  
-Puede usar Escalado elástico de Base de datos SQL de Azure con Microsoft Entity Framework (EF) para compilar aplicaciones. Escalado elástico permite aumentar y disminuir la capacidad mediante particionamiento y escalado horizontal de la capa de datos de la aplicación. Este documento muestra los cambios que es necesario realizar en una aplicación de Entity Framework para su integración con la funcionalidad de Escalado elástico. Se centra en la composición de [administración de particionamiento de Escalado elástico](http://go.microsoft.com/?linkid=9862595) y [enrutamiento dependiente de datos](./sql-database-elastic-scale-data-dependent-routing.md) con el método Entity Framework **Code First**. El tutorial [Code First - Nueva base de datos](http://msdn.microsoft.com/es-es/data/jj193542.aspx) para EF funciona como nuestro ejemplo en ejecución a través de este documento. El código de ejemplo que acompaña a este documento forma parte de los ejemplos de Escalado elástico en los ejemplos de código de Visual Studio.
+Puede usar Escalado elástico de Base de datos SQL de Azure con Microsoft Entity Framework (EF) para compilar aplicaciones. Escalado elástico permite aumentar y disminuir la capacidad mediante particionamiento y escalado horizontal de la capa de datos de la aplicación. Este documento muestra los cambios que es necesario realizar en una aplicación de Entity Framework para su integración con la funcionalidad de Escalado elástico. Va orientado a cómo componer [administración de particiones de Escalado elástico](http://go.microsoft.com/?linkid=9862595) y [enrutamiento dependiente de los datos](./sql-database-elastic-scale-data-dependent-routing.md) con el enfoque **Code First** de Entity Framework. El tutorial [Code First - Nueva base de datos](http://msdn.microsoft.com/data/jj193542.aspx) para EF sirve como ejemplo en ejecución en este documento. El código de ejemplo que acompaña a este documento forma parte de los ejemplos de Escalado elástico en los ejemplos de código de Visual Studio.
   
 ## Descarga y ejecución del código de ejemplo
 Para descargar el código de este artículo:
@@ -12,11 +26,11 @@ Para descargar el código de este artículo:
 * Se requiere Visual Studio 2012 o posterior. 
 * Inicie Visual Studio. 
 * En Visual Studio, seleccione Archivo -> Nuevo proyecto. 
-* En el cuadro de diálogo 'Nuevo proyecto', vaya a **Ejemplos en línea** para **Visual C#** y escriba "escalado elástico" en el cuadro de búsqueda situado en la esquina superior derecha.
+* En el cuadro de diálogo 'Nuevo proyecto', vaya a los **ejemplos en línea** de **Visual C#** y escriba "escalado elástico" en el cuadro de búsqueda de la parte superior derecha.
     
     ![Entity Framework and elastic scale sample app][1] 
 
-    Seleccione el ejemplo denominado **Escalado elástico de Base de datos SQL de Azure - Integración con Entity Framework**. Después de aceptar la licencia, el ejemplo se carga. 
+    Seleccione el ejemplo llamado **Escalado elástico con Base de datos SQL de Azure - Integración con Entity Framework**. Después de aceptar la licencia, el ejemplo se carga. 
 
 Para ejecutar el ejemplo, debe crear tres bases de datos vacías en Base de datos SQL de Azure:
 
@@ -24,20 +38,20 @@ Para ejecutar el ejemplo, debe crear tres bases de datos vacías en Base de dato
 * Base de datos de partición 1
 * Base de datos de partición 2
 
-Cuando haya creado estas bases de datos, rellene los marcadores de posición en **Program.cs** con el nombre del servidor de Base de datos SQL de Azure, los nombres de base de datos y las credenciales para conectarse a las bases de datos. Compile la solución en Visual Studio. Visual Studio descargará los paquetes de NuGet necesarios para Escalado elástico, Entity Framework y control de errores transitorios como parte del proceso de compilación. Asegúrese de que la restauración de paquetes de NuGet está habilitada para la solución. Puede habilitar esta configuración haciendo clic con el botón secundario en el archivo de solución en el Explorador de soluciones de Visual Studio. 
+Cuando haya creado estas bases de datos, rellene los marcadores de posición en **Program.cs** con el nombre del servidor de Base de datos SQL de Azure, los nombres de base de datos y las credenciales para conectarse a las bases de datos. Compile la solución en Visual Studio. Visual Studio descargará los paquetes de NuGet necesarios para Escalado elástico, Entity Framework y control de errores transitorios como parte del proceso de compilación. Asegúrese de que la restauración de paquetes de NuGet está habilitada para la solución. Puede habilitar esta configuración haciendo clic con el botón derecho en el archivo de solución en el Explorador de soluciones de Visual Studio. 
 
-##Flujos de trabajo de Entity Framework 
+## Flujos de trabajo de Entity Framework 
 
 Los desarrolladores de Entity Framework se basan en uno de los cuatro flujos de trabajo siguientes para compilar aplicaciones y garantizar la persistencia de los objetos de la aplicación: 
 
-* **Code First (nueva base de datos)**: El desarrollador de EF crea el modelo en el código de aplicación y luego EF genera la base de datos a partir de él. 
+* **Code First (nueva base de datos)**: el desarrollador de EF crea el modelo en el código de aplicación y luego EF genera la base de datos a partir de él. 
 * **Code First (base de datos existente)**: El desarrollador permite que EF genere el código de aplicación para el modelo de una base de datos existente.
-* **Model First**: El desarrollador crea el modelo en el diseñador de EF y luego EF crea la base de datos a partir del modelo.
+* **Model First**: el desarrollador crea el modelo en el diseñador de EF y luego EF crea la base de datos a partir del modelo.
 * **Database First**: El desarrollador usa las herramientas de EF para deducir el modelo a partir de una base de datos existente. 
 
 Todos estos métodos se basan en la clase DbContext para administrar de forma transparente las conexiones de base de datos y el esquema de base de datos de una aplicación. Como se explica con más detalle más adelante en el documento, diferentes constructores de la clase base DbContext permiten distintos niveles de control sobre la creación de la conexión, el arranque de base de datos y la creación del esquema. Los problemas surgen principalmente del hecho de que la administración de conexiones de base de datos proporcionada por EF interfiere con la funcionalidad de administración de conexiones de las interfaces de enrutamiento dependientes de datos proporcionadas por Escalado elástico de base de datos de Azure. 
 
-##Suposiciones de Escalado elástico 
+## Suposiciones de Escalado elástico 
 
 Para obtener definiciones de términos, consulte el [Glosario de Escalado elástico](./sql-database-elastic-scale-glossary.md).
 
@@ -46,7 +60,7 @@ Con Escalado elástico de Base de datos SQL de Azure, se definen particiones de 
 El Administrador de mapas de particiones de Escalado elástico protege a los usuarios de vistas incoherentes en datos de shardlet que se pueden producir cuando se producen operaciones de administración de shardlets simultáneas (por ejemplo, la reubicación de datos de una partición a otra). Para ello, la partición asigna las conexiones de base de datos en el agente de Escalado elástico para una aplicación de Escalado elástico. Esto permite que la funcionalidad de asignación de mapas elimine automáticamente una conexión de base de datos cuando las operaciones de administración de particiones puedan afectar al shardlet para el que se ha creado la conexión. Este enfoque debe integrarse con parte de la funcionalidad de EF, como la creación de nuevas conexiones a partir de otra existente, para comprobar la existencia de la base de datos. En general, hemos observado que los constructores de DbContext estándar solo funcionan de forma confiable con las conexiones de base de datos cerradas que pueden clonarse para el funcionamiento de EF. En lugar de ello, el principio de diseño de Escalado elástico solo se destina a conexiones abiertas de agente. Se podría pensar que cerrando una conexión negociada por Escalado elástico antes de entregarla a DbContext de EF resolvería este problema. Sin embargo, al cerrar la conexión y depender de EF para volver a abrirla, se renuncia a las comprobaciones de validación y coherencia que realiza Escalado elástico. Sin embargo, la funcionalidad de migraciones de EF usa estas conexiones para administrar el esquema de base de datos subyacente de forma transparente a la aplicación. Idealmente, desearíamos conservar y combinar todas estas capacidades de Escalado elástico y EF en la misma aplicación. En la siguiente sección se describen estas propiedades y los requisitos con más detalle. 
 
 
-##Requisitos 
+## Requisitos 
 
 Cuando se trabaja con Escalado elástico y las API de Entity Framework, queremos conservar las propiedades siguientes: 
 
@@ -71,7 +85,7 @@ Las conexiones de base de datos con Entity Framework se suelen administrar media
 Para integrar **DbContexts** con enrutamiento dependiente de datos para escalado horizontal:
 
 1. Cree conexiones de base de datos física a través de las interfaces de Escalado elástico del Administrador de mapas de particiones. 
-2. Ajuste la conexión con la subclase **DbContext**.
+2. Ajuste la conexión con la subclase **DbContext**
 3. Transfiera la conexión a las clases base **DbContext** para asegurarse de que también se produce todo el procesamiento del lado EF. 
 
 En el ejemplo de código siguiente se muestra este método. (Este código también se encuentra en el proyecto de Visual Studio adjunto).
@@ -107,7 +121,7 @@ En el ejemplo de código siguiente se muestra este método. (Este código tambi�
             return conn;
         }    
 
-#### Puntos principales
+## Puntos principales
 * Un nuevo constructor reemplaza al constructor predeterminado en la subclase DbContext 
 * El nuevo constructor adopta los argumentos necesarios para el enrutamiento dependiente de datos a través de Escalado elástico: 
     * El mapa de particiones para acceder a las interfaces de enrutamiento dependiente de datos. 
@@ -141,10 +155,10 @@ Use en el código el nuevo constructor para la subclase DbContext en lugar del c
      ... 
     }
 
-El nuevo constructor abre la conexión con la partición que contiene los datos para el shardlet identificado por el valor de **tenantid1**. El código del bloque **using** permanece sin modificar para acceder al **DbSet** de los blogs que usan EF en la partición para **tenantid1**. Esto cambia la semántica para el código del bloque using de modo que todas las operaciones de base de datos ahora se limitan a la partición donde se guarda **tenantid1**. Por ejemplo, una consulta LINQ en los blogs de **DbSet** solo devolvería los blogs almacenados en la partición actual, pero no los almacenados en otras particiones.  
+El nuevo constructor abre la conexión con la partición que contiene los datos para el shardlet identificado por el valor de **tenantid1**. El código en el bloque **using** permanece sin cambios para acceder al **DbSet** de los blogs que usan EF en la partición de **tenantid1**. Esto cambia la semántica para el código del bloque using de modo que todas las operaciones de base de datos ahora se limitan a la partición donde se guarda **tenantid1**. Por ejemplo, una consulta LINQ en los blogs de **DbSet** solo devolvería los blogs almacenados en la partición actual, pero no los almacenados en otras particiones.  
 
 ####Control de errores transitorios
-El equipo Microsoft Patterns & Practices publicó el [Bloque de aplicación de control de errores transitorios](http://msdn.microsoft.com/es-es/library/dn440719(v=pandp.60).aspx). La biblioteca se usa con Escalado elástico conjuntamente con EF. Sin embargo, asegúrese de que cualquier excepción transitoria se devuelve a un lugar donde podamos garantizar que después de un error transitorio se usa el nuevo constructor para que cualquier nuevo intento de conexión se realice con los constructores que hemos ajustado. De lo contrario, no se garantiza una conexión a la partición correcta y no hay ninguna certeza de que la conexión se mantiene cuando se producen cambios en el mapa de particiones. 
+El equipo de Microsoft Patterns & Practices publicó el [bloque de aplicación de gestión de errores transitorios](http://msdn.microsoft.com/library/dn440719(v=pandp.60.aspx)). La biblioteca se usa con Escalado elástico conjuntamente con EF. Sin embargo, asegúrese de que cualquier excepción transitoria se devuelve a un lugar donde podamos garantizar que después de un error transitorio se usa el nuevo constructor para que cualquier nuevo intento de conexión se realice con los constructores que hemos ajustado. De lo contrario, no se garantiza una conexión a la partición correcta y no hay ninguna certeza de que la conexión se mantiene cuando se producen cambios en el mapa de particiones. 
 
 El ejemplo de código siguiente muestra cómo se puede usar una directiva de reintentos SQL en torno a los nuevos constructores de subclase **DbContext**: 
 
@@ -162,22 +176,25 @@ El ejemplo de código siguiente muestra cómo se puede usar una directiva de rei
             } 
         }); 
 
-En el código anterior, **SqlDatabaseUtils.SqlRetryPolicy** se define como una **SqlDatabaseTransientErrorDetectionStrategy** con un número de reintentos de 10 y un tiempo de espera de 5 segundos entre reintentos. Este método coincide con la instrucciones de transacciones iniciadas por el usuario y EF (consulte [Limitaciones en cuanto al reintento de estrategias de ejecución (EF6 y posteriores)](http://msdn.microsoft.com/es-es/data/dn307226). Ambas situaciones requieren que el programa de aplicación controle el ámbito al que devuelve la excepción transitoria: Para volver a abrir la transacción o (como se indica) volver a crear el contexto desde el constructor adecuado que usa las bibliotecas de Escalado elástico.  
+**SqlDatabaseUtils.SqlRetryPolicy** en el código anterior se define como **SqlDatabaseTransientErrorDetectionStrategy** con un número de reintentos de 10 y un tiempo de espera de 5 segundos entre reintentos. Este enfoque es parecido a las instrucciones para EF y las transacciones iniciadas por el usuario (consulte las [limitaciones con las estrategias de ejecución de reintentos (EF6 en adelante)](http://msdn.microsoft.com/data/dn307226). En ambas situaciones es necesario que el programa de la aplicación controle el ámbito en el que se devuelve la excepción transitoria: para volver a abrir la transacción o (como se muestra) volver a crear el contexto a partir del constructor adecuado que usa las bibliotecas de Escalado elástico.
 
+La necesidad de controlar dónde las excepciones transitorias nos llevan de vuelta en el ámbito también impide el uso de la **SqlAzureExecutionStrategy** integrada que se incluye con EF. **SqlAzureExecutionStrategy** volvería a abrir la conexión pero no utiliza **OpenConnectionForKey** y, por tanto, pasa por alto toda la validación que se realiza como parte de la llamada **OpenConnectionForKey**. En su lugar, el código de ejemplo usa **DefaultExecutionStrategy** integrada que también se incluye con EF. Al contrario que **SqlAzureExecutionStrategy**, funciona correctamente en combinación con la directiva de reintentos de gestión de errores transitorios. La directiva de ejecución se establece en la clase **ElasticScaleDbConfiguration**. Tenga en cuenta que hemos decidido no usar **DefaultSqlExecutionStrategy** dado que sugiere el uso de **SqlAzureExecutionStrategy** si se producen excepciones transitorias, lo que podría llevar a un comportamiento erróneo, como hemos comentado. Para obtener más información sobre las diferentes directivas de reintento y EF, consulte [Resistencia de conexión en EF](http://msdn.microsoft.com/data/dn456835.aspx).     
+
+#### Reescrituras del constructor
 Los ejemplos de código anteriores muestran las reescrituras del constructor predeterminado que requiere la aplicación para usar enrutamiento dependiente de datos de Escalado elástico con Entity Framework. La siguiente tabla generaliza este método para otros constructores. 
 
 
-Constructor actual | Constructor reescrito para datos | Constructor base | Notas
+Constructor actual  | Constructor reescrito para datos | Constructor base | Notas
 ---------- | ----------- | ------------|----------
-MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |La conexión debe estar determinada por el mapa de particiones y la clave de enrutamiento dependiente de datos. Se debe omitir la creación de conexión automática por parte de EF y usar en su lugar el mapa de particiones para negociar la conexión. 
-MyContext(string)|ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |La conexión está determinada por el mapa de particiones y la clave de enrutamiento dependiente de datos. Una cadena de nombre de base de datos o de conexión fija no funcionará ya que omite la validación por parte del mapa de particiones. 
-MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |La conexión se crea para la clave de particionamiento y el mapa de particiones que se especifiquen con el modelo proporcionado. El modelo compilado se transferirá al constructor base.
-MyContext(DbConnection, bool) |ElasticScaleContext(ShardMap, TKey, bool) |DbContext(DbConnection, bool) |La conexión debe deducirse a partir del mapa de particiones y la clave. No se puede especificar como entrada (a menos que la entrada ya use el mapa de particiones y la clave). Se transferirá el valor booleano. 
-MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |La conexión debe deducirse a partir del mapa de particiones y la clave. No se puede especificar como entrada (a menos que la entrada use el mapa de particiones y la clave). Se transferirá el modelo compilado. 
-MyContext(ObjectContext, bool) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext(ObjectContext, bool) |El nuevo constructor debe asegurarse de que todas las conexiones de ObjectContext transferidas como entrada vuelvan a enrutarse a una conexión administrada por Escalado elástico. No es el objetivo de este documento dar una explicación detallada de ObjectContext.
-MyContext(DbConnection, DbCompiledModel,bool) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool)| DbContext(DbConnection, DbCompiledModel, bool); |La conexión debe deducirse a partir del mapa de particiones y la clave. La conexión no se puede especificar como entrada (a menos que la entrada ya use el mapa de particiones y la clave). El modelo y los valores booleanos se transfieren al constructor de clase base. 
+MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |La conexión debe ser una función de la asignación de particiones y la clave de enrutamiento dependiente de datos. Se debe omitir la creación de conexión automática por parte de EF y usar en su lugar el mapa de particiones para negociar la conexión. 
+MyContext(string)|ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |La conexión es una función del mapa de particiones y la clave de enrutamiento dependiente de datos. Una cadena de nombre de base de datos o de conexión fija no funcionará ya que omite la validación por parte del mapa de particiones. 
+MyContext(DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |La conexión se creará para el mapa de particiones determinado y la clave de particionamiento con el modelo proporcionado. El modelo compilado se transferirá al constructor base.
+MyContext(DbConnection, bool) |ElasticScaleContext(ShardMap, TKey, bool) |DbContext(DbConnection, bool) |La conexión se tiene que deducir del mapa de particiones y la clave. No se puede especificar como entrada (a menos que la entrada ya use el mapa de particiones y la clave). Se transferirá el valor booleano. 
+MyContext(string, DbCompiledModel) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel) |DbContext(DbConnection, DbCompiledModel, bool) |La conexión se tiene que deducir del mapa de particiones y la clave. No se puede especificar como entrada (a menos que la entrada use el mapa de particiones y la clave). Se transferirá el modelo compilado. 
+MyContext(ObjectContext, bool) |ElasticScaleContext(ShardMap, TKey, ObjectContext, bool) |DbContext(ObjectContext, bool) |El nuevo constructor debe asegurarse de que las conexiones de ObjectContext pasado como entrada se vuelve a enrutar a una conexión administrada por el escalado elástico. No es el objetivo de este documento dar una explicación detallada de ObjectContext.
+MyContext(DbConnection, DbCompiledModel,bool) |ElasticScaleContext(ShardMap, TKey, DbCompiledModel, bool)| DbContext(DbConnection, DbCompiledModel, bool); |La conexión se tiene que deducir del mapa de particiones y la clave. La conexión no se puede especificar como entrada (a menos que la entrada ya use el mapa de particiones y la clave). El modelo y los valores booleanos se transfieren al constructor de clase base. 
 
-###Implementación del esquema de partición mediante Migraciones de EF 
+## Implementación del esquema de partición mediante Migraciones de EF 
 
 La administración automática de esquemas es una ventaja que ofrece Entity Framework. En el contexto de aplicación de Escalado elástico, queremos conservar esta capacidad para aprovisionar automáticamente el esquema a las particiones recién creadas cuando se agregan bases de datos a la aplicación particionada. El principal caso de uso es aumentar la capacidad en la capa de datos para aplicaciones particionadas con EF. Al basarse en la funcionalidad de EF para la administración de esquemas se reducen las tareas de administración de base de datos con una aplicación particionada que esté integrada en EF. 
 
@@ -219,7 +236,7 @@ Una vez satisfechos estos requisitos previos, podemos crear una **SqlConnection*
         } 
  
 
-Este ejemplo muestra el método **RegisterNewShard** que registra la partición en el mapa de particiones de Escalado elástico, implementa el esquema mediante migraciones de EF y almacena la asignación de una clave de particionamiento en la partición. Se basa en un constructor de la subclase **DbContext** (**ElasticScaleContext** en el ejemplo) que adopta una cadena de conexión SQL como entrada. El código de este constructor es sencillo, como se muestra en el ejemplo siguiente: 
+Este ejemplo muestra el método **RegisterNewShard** que registra la partición en el mapa de particiones de Escalado elástico, implementa el esquema mediante migraciones de EF y almacena la asignación de una clave de particionamiento en la partición. Se basa en un constructor de la subclase **DbContext** (**ElasticScaleContext** en el ejemplo) que toma una cadena de conexión SQL como entrada. El código de este constructor es sencillo, como se muestra en el ejemplo siguiente: 
 
 
         // C'tor to deploy schema and migrations to a new shard 
@@ -241,19 +258,19 @@ Este ejemplo muestra el método **RegisterNewShard** que registra la partición 
 Se podría haber usado la versión del constructor heredado de la clase base. Pero el código debe garantizar que el inicializador predeterminado para EF se usa al conectarse. De ahí el breve desvío del método estático antes de llamar al constructor de clase base con la cadena de conexión. Tenga en cuenta que el registro de particiones debe ejecutarse en un dominio de aplicación diferente o procesarse para garantizar que los valores de configuración del inicializador para EF no entren en conflicto. 
 
 
-##Limitaciones 
+## Limitaciones 
 
 Los métodos descritos en este documento implican un par de limitaciones: 
 
-* Las aplicaciones de EF que usen **LocalDb** deben migrar en primer lugar a una base de datos de SQL Server normal antes de utilizar Escalado elástico. El escalado horizontal de una aplicación mediante particionamiento con Escalado elástico no es posible con **LocalDb**. Tenga en cuenta que desarrollo puede seguir usando **LocalDb**. 
+* Las aplicaciones de EF que usen **LocalDb** deben migrar en primer lugar a una base de datos de SQL Server normal antes de utilizar Escalado elástico. El escalado horizontal de una aplicación mediante particionamiento con Escalado elástico no es posible con **LocalDb**. Tenga en cuenta que los desarrolladores pueden seguir usando **LocalDb**. 
 
-* Los cambios efectuados a la aplicación que implican cambios al esquema de base de datos deben pasar por migraciones de EF en todas las particiones. El código de ejemplo de este documento no muestra cómo hacerlo. Considere el uso de Update-Database con un parámetro ConnectionString para iterar en todas las particiones; o extraiga el script T-SQL para la migración pendiente usando Update-Database con la opción -Script y aplique el script T-SQL en sus particiones.  
+* Los cambios efectuados en la aplicación que implican cambios en el esquema de base de datos deben pasar por migraciones de EF en todas las particiones. El código de ejemplo de este documento no muestra cómo hacerlo. Considere el uso de Update-Database con un parámetro ConnectionString para iterar en todas las particiones; o extraiga el script T-SQL para la migración pendiente usando Update-Database con la opción -Script y aplique el script T-SQL en sus particiones.  
 
-* Dada una solicitud, se supone que todo el procesamiento de la base de datos está contenido en una sola partición que se identifica con la clave de particionamiento especificada por la solicitud. Sin embargo, esta suposición no siempre es cierta. Por ejemplo, cuando no se puede disponer de una clave de particionamiento. Para solucionar este problema, las bibliotecas de Escalado elástico proporcionan la clase **MultiShardQuery** que implementa una abstracción de conexión para realizar consultas en varias particiones. No es el objetivo de este documento aprender a usar **MultiShardQuery** conjuntamente con EF.
+* Dada una solicitud, se supone que todo el procesamiento de la base de datos está contenido en una sola partición que se identifica con la clave de particionamiento especificada por la solicitud. Sin embargo, esta suposición no siempre es cierta. Por ejemplo, cuando no se puede disponer de una clave de particionamiento. Para solucionar este problema, las bibliotecas de Escalado elástico proporcionan la clase **MultiShardQuery** que implementa una abstracción de conexión para realizar consultas en varias particiones. No es el objetivo de este documento aprender a usar **MultiShardQuery** junto con EF
 
 
 
-##Conclusiones 
+## Conclusiones 
 
 Las aplicaciones de Entity Framework pueden beneficiarse fácilmente de Escalado elástico de Base de datos SQL de Azure. Con los pasos descritos en este documento, las aplicaciones de EF pueden utilizar la capacidad de enrutamiento dependiente de datos de Escalado elástico mediante la refactorización de constructores de las subclases **DbContext** que se usan en la aplicación de EF. Esto limita los cambios necesarios en los lugares donde ya existen clases **DbContext**. Además, las aplicaciones de EF pueden seguir aprovechando la implementación automática de esquemas mediante la combinación de los pasos que invocan las migraciones de EF necesarias con el registro de nuevas particiones y asignaciones en el mapa de particiones de Escalado elástico. 
 
@@ -262,3 +279,5 @@ Las aplicaciones de Entity Framework pueden beneficiarse fácilmente de Escalado
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-scale-using-entity-framework/sample.png
+
+<!--HONumber=47-->

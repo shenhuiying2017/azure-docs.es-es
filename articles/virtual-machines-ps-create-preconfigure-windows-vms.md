@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows
@@ -26,7 +26,7 @@ Para consultar el tema paralelo sobre máquinas virtuales basadas en Linux, vea 
 
 ##Paso 1: Azure PowerShell
 
-Si aún no lo ha hecho, siga las instrucciones de [Instalación y configuración de Azure PowerShell](../install-configure-powershell/) para instalar Azure PowerShell en un equipo local. A continuación, abra un símbolo del sistema de Azure PowerShell con nivel de administrador.
+Si aún no lo ha hecho, siga las instrucciones de [Instalación y configuración de Azure PowerShell](../install-configure-powershell/) para instalar Azure PowerShell en un equipo local. A continuación, abra un símbolo del sistema de Azure PowerShell.
 
 ##Paso 2: Establecimiento de la cuenta de suscripción y almacenamiento
 
@@ -98,7 +98,7 @@ De forma opcional, en un equipo de Windows independiente, especifique la cuenta 
 	$localadminpassword="<local administrator account password>"
 	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $localadminusername -Password $localadminpassword
 
-Opcionalmente, para agregar el equipo de Windows a un dominio de Active Directory existente, especifique la cuenta y contraseña del administrador local, el dominio y las credenciales de cuenta de una cuenta de dominio.
+Opcionalmente, para agregar el equipo de Windows a un dominio de Active Directory existente, especifique la cuenta del administrador local y la contraseña, el dominio, y el nombre y contraseña de una cuenta de dominio.
 
 	$localadminusername="<local administrator account name>"
 	$localadminpassword="<local administrator account password>"
@@ -108,7 +108,7 @@ Opcionalmente, para agregar el equipo de Windows a un dominio de Active Director
 	$domacctpassword="<password of the domain account that has permission to add the machine to the domain>"
 	$vm1 | Add-AzureProvisioningConfig -AdminUserName $localadminusername -Password $localadminpassword -WindowsDomain -Domain $domacctdomain -DomainUserName $domacctname -DomainPassword $domacctpassword -JoinDomain $domaindns
 
-Tenga en cuenta que esto requiere que especifique el nombre de cuenta y la contraseña de una cuenta de dominio de Active Directory. Si va a guardar el conjunto de comandos resultante como un archivo, asegúrese de almacenarlo en una ubicación segura para proteger el nombre y la contraseña de la cuenta de dominio.
+Tenga en cuenta que ambas opciones requieren que especifique nombres de cuenta y contraseñas. Si va a guardar el conjunto de comandos resultante en un archivo, almacénelo en una ubicación segura para protegerlo.
 
 Para ver opciones adicionales de configuración previa de máquinas virtuales basadas en Linux, consulte la sintaxis del conjunto de parámetros **Windows** y **WindowsDomain** en [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx).
 
@@ -269,4 +269,4 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux](../virtual-machines-ps-create-preconfigure-linux-vms/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

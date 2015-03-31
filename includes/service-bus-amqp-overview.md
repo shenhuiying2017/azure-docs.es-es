@@ -1,15 +1,15 @@
 ﻿# Soporte de AMQP 1.0 en el Bus de servicio
 
 
->Tanto el Bus de servicio de Azure como el Bus de Servicio para Windows Server (Bus de servicio 1.1) admiten el protocolo AMQP (Advanced Message Queueing Protocol) 1.0. AMQP le permite construir aplicaciones híbridas, entre plataformas, utilizando un protocolo estándar abierto. Puede construir aplicaciones mediante componentes creados con distintos lenguajes y marcos, y que se ejecutan en diferentes sistemas operativos. Todos estos componentes se pueden conectar al Bus de servicio e intercambiar directamente mensajes empresariales estructurados de manera eficaz y con total fidelidad.
+Tanto el servicio en la nube del Bus de servicio de Azure como el Bus de Servicio para Windows Server (Bus de servicio 1.1) admiten el protocolo AMQP (Advanced Message Queueing Protocol) 1.0. AMQP le permite construir aplicaciones híbridas, entre plataformas, utilizando un protocolo estándar abierto. Puede construir aplicaciones mediante componentes creados con distintos lenguajes y marcos, y que se ejecutan en diferentes sistemas operativos. Todos estos componentes se pueden conectar al Bus de servicio e intercambiar directamente mensajes empresariales estructurados de manera eficaz y con total fidelidad.
 
 ## Introducción: ¿Qué es AMQP 1.0 y por qué es tan importante?
 
-Tradicionalmente, los productos de middleware orientados a mensajes utilizaban protocolos propietarios para la comunicación entre las aplicaciones cliente y los agentes. Esto significa que una vez seleccionado el agente de mensajes de un proveedor particular, usted debía utilizar las bibliotecas de dicho proveedor para conectar las aplicaciones cliente con ese agente. Esto ocasionaba un cierto grado de dependencia con ese proveedor, ya que la portabilidad de una aplicación a otro producto requería que se volvieran a codificar todas las aplicaciones relacionadas. 
+Tradicionalmente, los productos de middleware orientados a mensajes utilizaban protocolos propietarios para la comunicación entre las aplicaciones cliente y los agentes. Esto significa que una vez seleccionado el agente de mensajes de un proveedor particular, usted debía utilizar las bibliotecas de dicho proveedor para conectar las aplicaciones cliente con ese agente. Esto ocasionaba un cierto grado de dependencia de ese proveedor, ya que la portabilidad de una aplicación a otro producto requería cambios en la codificación de todas las aplicaciones relacionadas. 
 
-Es más, la conexión de agentes de mensajes desde proveedores diferentes es compleja y por lo general requiere un puente a nivel de la aplicación para pasar los mensajes de un sistema a otro y para convertirlos a sus formatos de mensajes propietarios. Es un requisito habitual, por ejemplo, cuando se proporciona una nueva interfaz unificada a diversos sistemas más antiguos o al integrar sistemas de TI después de una fusión.
+Además, es difícil conectar entre sí los agentes de mensajes de diferentes proveedores. Normalmente, esto requiere el establecimiento de un puente en el nivel de la aplicación para mover los mensajes de un sistema a otro y para traducir entre sus formatos de mensajes en propiedad. Es un requisito habitual, por ejemplo, cuando hay que proporcionar una nueva interfaz unificada para sistemas heterogéneos más antiguos o al integrar sistemas de TI después de una fusión.
 
-La industria del software es un negocio muy dinámico; nuevos lenguajes de programación y marcos de aplicaciones se inventan a veces a un ritmo enloquecido. De igual forma, los requisitos de los sistemas de TI evolucionan con el tiempo y los desarrolladores desean sacar partido de los lenguajes y los marcos. Sin embargo, a veces el proveedor de mensajes seleccionado no admite estas plataformas. Como los protocolos son propietarios, no es posible que otros proporcionen bibliotecas para estas nuevas plataformas. Por tanto, está limitado a construir puertas de enlace, puentes y otros métodos.
+La industria del software es un negocio muy dinámico; nuevos lenguajes de programación y marcos de aplicaciones se inventan a veces a un ritmo enloquecido. De igual forma, los requisitos de los sistemas de TI evolucionan con el tiempo y los desarrolladores desean sacar partido las características de las plataformas más recientes. Sin embargo, a veces el proveedor de mensajes seleccionado no admite estas plataformas. Como los protocolos de los productos de mensajería son en propiedad, no es posible que otros proporcionen bibliotecas para estas nuevas plataformas. Por lo tanto, hay que utilizar métodos como crear puertas de enlace o puentes para poder seguir usando el producto de mensajería.
 
 Estos problema motivaron el desarrollo de AMQP (Advanced Message Queuing Protocol) 1.0. Tuvo su origen en JP Morgan Chase, que, al igual que la mayoría de empresas de servicios financieros, consume una gran cantidad de middleware orientado a mensajes. El objetivo era sencillo: crear un protocolo de mensajes de estándar abierto que hiciera posible crear aplicaciones basadas en mensajes utilizando componentes construidos con otros lenguajes, marcos y sistemas operativos, usando todos ellos los mejores componentes de una variedad de proveedores.
 
@@ -42,7 +42,7 @@ Algunos de los beneficios que se mencionan con más frecuencia de los estándare
 
 ## AMQP 1.0 y Bus de servicio
 
-La incorporación de AMQP 1.0 implica que ahora puede sacar partido de las características de encolamiento y publicación/suscripción de mensajes de agentes del Bus de servicio desde una amplia variedad de plataformas mediante un eficaz protocolo binario. Además, puede crear aplicaciones compuestas de componentes creados con una mezcla de idiomas, marcos y sistemas operativos.
+La incorporación de la compatibilidad con AMQP 1.0 al Bus de servicio implica que ahora puede sacar partido de sus características de encolamiento y publicación/suscripción de mensajes de agentes desde una amplia variedad de plataformas mediante un eficaz protocolo binario. Además, puede crear aplicaciones compuestas de componentes creados con una mezcla de idiomas, marcos y sistemas operativos.
 
 En el diagrama siguiente se muestra un desarrollo de ejemplo en el que clientes de Java que se ejecutan en Linux, escritos usando la API estándar Java Message Service (JMS), y clientes .NET que se ejecutan en Windows intercambian mensajes a través del Bus de servicio mediante AMQP 1.0.
 
@@ -80,20 +80,21 @@ En este momento las siguientes bibliotecas de cliente están trabajando con el B
 
 **Ilustración 2: Tabla de bibliotecas de cliente de AMQP 1.0**
 
-Para obtener más información sobre cómo obtener y usar estas bibliotecas con el Bus de servicio, consulte la guía del desarrollador de AMQP del Bus de servicio. Consulte a continuación la sección "Referencias" para más información.
+Para obtener más información sobre cómo obtener y usar estas bibliotecas con el Bus de servicio, consulte la [Guía del desarrollador de AMQP del Bus de servicio][]. Consulte a continuación la sección "Referencias" para más información.
 
 ## Resumen
 
 *    AMQP 1.0 es un protocolo de mensajes confiable y abierto que se puede utilizar para crear aplicaciones híbridas, entre plataformas. AMQP 1.0 es un estándar de OASIS.
-*    El soporte de AMQP 1.0 ahora está disponible en el Bus de servicio de Azure y en el Bus de servicio para Windows Server (Bus de servicio 1.1). El precio es el mismo que el de los protocolos existentes.
+*    La compatibilidad con AMQP 1.0 ahora está disponible en el Bus de servicio de Azure, así como en el Bus de servicio para Windows Server (Bus de servicio 1.1). El precio es el mismo que el de los protocolos existentes.
 
 ## Referencias
 
 *    [Uso de AMQP 1.0 con la API .NET del Bus de servicio](http://aka.ms/lym3vk)
 *    [Uso de la API de Java Message Service (JMS) con el Bus de servicio y AMQP 1.0](http://aka.ms/ll1fm3)
-*    [Guía para desarrolladores sobre AMQP 1.0 del Bus de servicio](http://msdn.microsoft.com/library/jj841071.aspx)
+*    [Guía para desarrolladores sobre AMQP del Bus de servicio](http://msdn.microsoft.com/library/jj841071.aspx)
 *    [Especificación de la versión 1.0 del Protocolo de colas de mensajes avanzados de OASIS (AMQP)](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 
 [0]: ./media/service-bus-amqp-overview/Example1.png
+[Guía para desarrolladores sobre AMQP del Bus de servicio]: http://msdn.microsoft.com/library/jj841071.aspx
 
-<!--HONumber=42-->
+<!--HONumber=47-->

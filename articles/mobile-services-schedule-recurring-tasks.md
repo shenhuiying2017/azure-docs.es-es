@@ -10,17 +10,17 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
-	ms.date="09/26/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 # Programación de trabajos periódicos en Servicios móviles 
 
-<div class="dev-center-tutorial-subselector">
-	<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/" title=".NET backend">Back-end de .NET</a> | <a href="/es-es/documentation/articles/mobile-services-schedule-recurring-tasks/"  title="JavaScript backend" class="current">Back-end de JavaScript</a>
-</div>
+> [AZURE.SELECTOR-LIST (Plataforma | Backend)]
+- [(Cualquiera | .NET)](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/)
+- [(Cualquiera | Javascript))](/documentation/articles/mobile-services-schedule-recurring-tasks/)
  
 Este tema le muestra cómo usar la funcionalidad del programador de trabajos en el Portal de administración para definir el código de script de servidor que se ejecuta según el programa que establezca. En este caso, se realiza una comprobación periódica del script con un servicio remoto (Twitter) y se almacenan los resultados en una nueva tabla. Entre las demás tareas periódicas que pueden programarse se incluyen las siguientes:
 
@@ -44,15 +44,7 @@ A continuación, tendrá que crear una nueva tabla en la que almacenar tweets.
 
 2. En el Portal de administración, haga clic en la pestaña **Datos** para el servicio móvil y, a continuación, haga clic en **+Crear**.
 
-   	![][2]
-
-   	Esto muestra el cuadro de diálogo **Create new table**.
-
 3. En **Nombre de tabla** escriba _Updates_ y haga clic en el botón de comprobación.
-
-   	![][3]
-
-  	De esta forma, se creará una nueva tabla de almacenamiento **Updates**. 
 
 ##<a name="add-job"></a>Creación de un nuevo trabajo programado  
 
@@ -60,21 +52,13 @@ Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena 
 
 2. Haga clic en la pestaña **Programador** y, a continuación, en **+Crear**. 
 
-   	![][4]
-
-    >[AZURE.NOTE]Cuando ejecute el servicio móvil en el nivel <em>Gratis</em>, solo podrá ejecutar un trabajo programado a la vez. En los niveles de pago, puede ejecutar hasta diez trabajos programados a la vez.
+    >[AZURE.NOTE]Cuando se ejecuta el servicio móvil en el nivel <em>Gratuito</em> ,solo son capaces de ejecutar un trabajo programado a la vez. En los niveles de pago, puede ejecutar hasta diez trabajos programados a la vez.
 
 3. En el cuadro de diálogo del programador, especifique _getUpdates_ para **Nombre de trabajo**, establezca el intervalo de programación y las unidades, y haga clic en el botón de comprobación. 
-   
-   	![][5]
 
    	De esta forma, se crea un nuevo trabajo con el nombre **getUpdates**. 
 
-4. Haga clic en el nuevo trabajo que acaba de crear y haga clic en la pestaña **Script**.
-
-   	![][6] 
-
-5. Reemplace la función de marcador de posición **getUpdates** por el siguiente código:
+4. Haga clic en el nuevo trabajo que acaba de crear, haga clic en la ficha **Script** y reemplace la función de marcador de posición **getUpdates** por el código siguiente:
 
 		var updatesTable = tables.getTable('Updates');
 		var request = require('request');
@@ -152,21 +136,15 @@ Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena 
 
    	Este script llama a la API de consulta de Twitter mediante las credenciales almacenadas para solicitar los tweets recientes que contienen el hashtag `#mobileservices`. Las respuestas y tweets duplicados se quitan de los resultados antes de almacenarse en la tabla.
 
-    >[AZURE.NOTE]En este ejemplo se presupone que solo se insertan algunas filas en la tabla durante cada ejecución programada. En los casos en los que se inserten muchas filas en un bucle, es posible que se agoten las conexiones con el nivel gratis. En ese caso, debe realizar inserciones en los lotes. Para obtener más información, consulte <a href="/es-es/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">Inserción de inserciones en masa</a>.
+    >[AZURE.NOTE]En este ejemplo se presupone que solo se insertan algunas filas en la tabla durante cada ejecución programada. En los casos en los que se inserten muchas filas en un bucle, es posible que se agoten las conexiones con el nivel gratis. En ese caso, debe realizar inserciones en los lotes. Para obtener más información, consulte <a href="/develop/mobile/how-to-guides/work-with-server-scripts/#bulk-inserts">Inserción de inserciones en masa</a>.
 
 6. Haga clic en **Ejecutar una vez** para probar el script. 
-
-  	![][7]
 
    	De esta forma, se guarda y ejecuta el trabajo mientras se mantiene deshabilitado en el programador.
 
 7. Haga clic en el botón de retroceso, en **Datos**, en la tabla **Updates**, en **Examinar** y compruebe que se han insertado los datos de Twitter en la tabla.
 
-   	![][8]
-
 8. Haga clic en el botón de retroceso y en **Programador**, seleccione **getUpdates** y haga clic en **Habilitar**.
-
-   	![][9]
 
    	De esta forma, el trabajo se puede ejecutar según la programación especificada, en este caso cada hora.
 
@@ -174,7 +152,7 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 
 ## <a name="nextsteps"> </a>Pasos siguientes
 
-* [Referencia del script de servidor de Servicios móviles]
+* [Referencia del script del servidor de servicios móviles]
   <br/>Obtenga más información acerca del registro y del uso de scripts de servidor.
 
 <!-- Anchors. -->
@@ -198,12 +176,11 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [11]: ./media/mobile-services-schedule-recurring-tasks/mobile-identity-tab-twitter-only.png
 
 <!-- URLs. -->
-[Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
-[MicrosoftAzure.com]: http://azure.microsoft.com/
+[Referencia del script del servidor de servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+[WindowsAzure.com]: http://www.windowsazure.com/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Registro de las aplicaciones para el inicio de sesión en Twitter con Servicios móviles]: /es-es/develop/mobile/how-to-guides/register-for-twitter-authentication
+[Registro de las aplicaciones para el inicio de sesión en Twitter con Servicios móviles]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Desarrolladores de Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Configuración de aplicaciones]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

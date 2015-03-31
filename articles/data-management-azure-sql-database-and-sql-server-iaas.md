@@ -1,19 +1,19 @@
-<properties 
+﻿<properties 
 	pageTitle="Descripción de Base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure" 
 	description="Obtenga información acerca de la base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure. Revise los factores de motivación comunes del negocio para determinar la tecnología de SQL que funciona mejor en el caso de la aplicación." 
-	services="virtual-machines" 
+	services="sql-database, virtual-machines" 
 	documentationCenter="" 
 	authors="Selcin" 
 	manager="jeffreyg" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="virtual-machines" 
-	ms.workload="infrastructure-services" 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="09/26/2014" 
+	ms.date="02/23/2015" 
 	ms.author="selcint"/>
 
 # Descripción de Base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure
@@ -53,9 +53,9 @@ En las siguientes secciones, obtendremos más información sobre las dos última
 
 ##<a name="close"></a>Base de datos SQL de Azure y SQL Server en máquinas virtuales de Azure en detalle
 
-**La base de datos SQL de Microsoft Azure SQL (Base de datos de SQL de Azure)** es una base de datos relacional como servicio, que se engloba en la categoría del sector *Platform as a Service (PaaS)*. Base de datos SQL de Azure se compila en hardware y software estandarizado que Microsoft posee, hospeda y mantiene. Con Base de datos SQL, podrá desarrollar directamente en el servicio mediante funcionalidad y características integradas. Al utilizar Base de datos SQL, se emplea el método de pago por uso de opciones para escalar vertical u horizontalmente a fin de aumentar la potencia.
+**Base de datos SQL de Microsoft Azure (Base de datos SQL de Azure)** es una base de datos relacional como servicio, que se engloba en la categoría del sector denominada  *Plataforma como servicio (PaaS)*. Base de datos SQL de Azure se compila en hardware y software estandarizado que Microsoft posee, hospeda y mantiene. Con Base de datos SQL, podrá desarrollar directamente en el servicio mediante funcionalidad y características integradas. Al utilizar Base de datos SQL, se emplea el método de pago por uso de opciones para escalar vertical u horizontalmente a fin de aumentar la potencia.
 
-**SQL Server en máquinas virtuales de Azure (VM)** que se engloba en la categoría del sector denominada *Infrastructure as a Service (IaaS)* y permite ejecutar SQL Server en una máquina virtual en la nube. De manera similar a Base de datos SQL de Azure, se compila en hardware estandarizado que Microsoft posee, hospeda y mantiene. Si usa SQL Server en una máquina virtual, puede incorporar su propia licencia de SQL Server a Azure o utilizar una de la imágenes preconfiguradas de SQL Server en el portal de Azure.
+**SQL Server en máquinas virtuales de Azure (VM)** que se engloba en la categoría del sector denominada  *Infraestructura como servicio (IaaS)* y permite ejecutar SQL Server en una máquina virtual en la nube. De manera similar a Base de datos SQL de Azure, se compila en hardware estandarizado que Microsoft posee, hospeda y mantiene. Si usa SQL Server en una máquina virtual, puede incorporar su propia licencia de SQL Server a Azure o utilizar una de la imágenes preconfiguradas de SQL Server en el portal de Azure.
 
 Por lo general, estas dos opciones SQL se optimizan con diferentes fines:
 
@@ -90,7 +90,7 @@ En la siguiente tabla se resumen las principales características de Base de dat
       <li type=round>Aplicaciones de SQL Server que requieren acceso a recursos locales (como, por ejemplo, Active Directory) desde Azure a través de un túnel seguro. 
       <li type=round>Cuando se requiere un entorno de TI personalizado con derechos administrativos completos.
       <li type=round>Escenarios de desarrollo rápido y pruebas cuando no se desea comprar hardware de SQL Server de no producción local.
-      <li type=round>Recuperación ante desastres para las aplicaciones de SQL Server local mediante <a href="http://msdn.microsoft.com/library/jj919148.aspx">una copia de seguridad en el almacenamiento de Azure</a> o <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">réplicas AlwaysOn en máquinas virtuales de Azure</a>.
+      <li type=round>Recuperación ante desastres para aplicaciones de SQL Server locales con <a href="http://msdn.microsoft.com/library/jj919148.aspx">copia de seguridad en almacenamiento de Azure</a> o con <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">réplicas AlwaysOn en máquinas virtuales de Azure</a>.
       <li type=round>Bases de datos grandes con más de 1 TB de tamaño.
       </ul></td>
    
@@ -113,16 +113,16 @@ En la siguiente tabla se resumen las principales características de Base de dat
 </tr>
 <tr>
    <td valign="middle"><p><b>Continuidad del negocio</b></p></td>
-   <td valign="middle"><ul><li type=round>Además de capacidades integradas de infraestructura de tolerancia a fallos, Base de datos SQL de Azure proporciona características como, por ejemplo, Restauración a un momento dado, Restauración geográfica y Replicación geográfica para aumentar la continuidad del negocio. Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/azure/hh852669.aspx">Continuidad de negocio de base de datos SQL de Azure</a>.</ul></td>
-   <td valign="middle"><ul><li type=round>SQL Server en máquinas virtuales de Azure permite configurar una solución de recuperación ante desastres y alta disponibilidad para las necesidades específicas de la base de datos. Por consiguiente, podrá tener un sistema altamente optimizado para la aplicación. Podrá probar y ejecutar conmutaciones por error cuando sea necesario. Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure</a>.</ul></td>
+   <td valign="middle"><ul><li type=round>Además de capacidades integradas de infraestructura de tolerancia a fallos, Base de datos SQL de Azure proporciona características como, por ejemplo, Restauración a un momento dado, Restauración geográfica y Replicación geográfica para aumentar la continuidad del negocio. Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/azure/hh852669.aspx">Continuidad del negocio en Base de datos SQL de Azure.</a></ul></td>
+   <td valign="middle"><ul><li type=round>SQL Server en máquinas virtuales de Azure permite configurar una solución de recuperación ante desastres y alta disponibilidad para las necesidades específicas de la base de datos. Por consiguiente, podrá tener un sistema altamente optimizado para la aplicación. Podrá probar y ejecutar conmutaciones por error cuando sea necesario. Para obtener más información, vea <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">Alta disponibilidad y recuperación ante desastres para SQL Server en máquinas virtuales de Azure</a>.</ul></td>
    
 </tr>
 <tr>
    <td valign="middle"><p><b>Nube híbrida</b></p></td>
    <td valign="middle"><ul><li type=round>La aplicación local puede obtener acceso a datos de Base de datos de SQL de Azure.</ul></td>
    <td valign="middle"><ul>
-      <li type=round>Con SQL Server en máquinas virtuales de Azure, se pueden tener aplicaciones que se ejecuten parcialmente en la nube y parcialmente en la instalación local. Por ejemplo, puede ampliar la red local y Active Directory del dominio a la nube a través de los <a href="http://msdn.microsoft.com/library/azure/gg433091.aspx">Servicios de red de Azure</a>. Además, se pueden almacenar archivos de datos locales en Almacenamiento de Azure con la característica <a href="http://msdn.microsoft.com/library/dn385720.aspx">Archivos de datos de SQL Server en Azure</a>. Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/dn606154.aspx">Introducción a la nube híbrida de SQL Server 2014</a>.
-      <li type=round>Admite la recuperación ante desastres para las aplicaciones de SQL Server locales  mediante  <a href="http://msdn.microsoft.com/library/jj919148.aspx">una copia de seguridad en el almacenamiento de Azure</a> o <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">réplicas AlwaysOn en máquinas virtuales de Azure</a>.
+      <li type=round>Con SQL Server en máquinas virtuales de Azure, se pueden tener aplicaciones que se ejecuten parcialmente en la nube y parcialmente en la instalación local. Por ejemplo, se puede ampliar la red local y el dominio de Active Directory a la nube a través de <a href="http://msdn.microsoft.com/library/azure/gg433091.aspx">Servicios de red de Azure</a>. Además, se pueden almacenar archivos de datos locales en Almacenamiento de Azure con la característica <a href="http://msdn.microsoft.com/library/dn385720.aspx">Archivos de datos de SQL Server en Azure</a>. Para obtener más información, consulte <a href="http://msdn.microsoft.com/library/dn606154.aspx">Introducción a la nube híbrida de SQL Server 2014</a>.
+      <li type=round>Compatible con la recuperación ante desastres para aplicaciones de SQL Server locales con <a href="http://msdn.microsoft.com/library/jj919148.aspx">copia de seguridad en almacenamiento de Azure</a> o con <a href="http://msdn.microsoft.com/library/azure/jj870962.aspx">réplicas AlwaysOn en máquinas virtuales de Azure</a>.
       </ul></td>
    
 </tr>
@@ -253,4 +253,4 @@ Este artículo del grupo Servicios de contenido empresarial y en la nube de Micr
 <!--Image references-->
 [1]: ./media/data-management-azure-sql-database-and-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png
 
-<!--HONumber=42-->
+<!--HONumber=47-->

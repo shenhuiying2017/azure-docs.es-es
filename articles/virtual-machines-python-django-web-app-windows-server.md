@@ -14,7 +14,7 @@
 	ms.tgt_pltfrm="vm-windows" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/05/2015" 
 	ms.author="huvalo"/>
 
 
@@ -22,18 +22,16 @@
 
 # Aplicación web Django Hello World
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/es-es/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac/Linux</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows" class="current">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="MacLinux">Mac o Linux:</a></div>
 
-Este tutorial describe cómo hospedar un sitio web basado en Django en Microsoft 
-Uso de una máquina virtual de Windows Server en Azure. En este tutorial se asume que no tiene ninguna experiencia previa con Azure. Al término de esta guía, tendrá una aplicación basada en Django funcionando en la nube.
+Este tutorial describe cómo hospedar un sitio web basado en Django en Microsoft Uso de una máquina virtual de Windows Server en Azure. En este tutorial se asume que no tiene ninguna experiencia previa con Azure. Al término de esta guía, tendrá una aplicación basada en Django funcionando en la nube.
 
 Aprenderá a:
 
 * Configurar una máquina virtual de Azure para hospedar Django. Aunque este tutorial explica cómo llevar a cabo esta acción en **Windows Server**, también se puede hacer lo mismo con una máquina virtual de Linux hospedada en Azure. 
 * Crear una nueva aplicación Django desde Windows.
 
-Este tutorial le mostrará cómo compilar una aplicación web Hello World.
-aplicación. que se hospedará en una máquina virtual de Azure.
+Este tutorial le mostrará cómo compilar una aplicación web Hello World. que se hospedará en una máquina virtual de Azure.
 
 A continuación se muestra una captura de pantalla de la aplicación completada:
 
@@ -43,18 +41,18 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 ## Creación y configuración de una máquina virtual de Azure para hospedar Django
 
-1. Siga las instrucciones que se proporcionan [aquí][portal-vm] para crear una máquina virtual de Azure de la *Windows Server 2012 R2 Datacenter* distribución.
+1. Siga las instrucciones que se proporcionan [aquí][portal-vm] para crear una máquina virtual de Azure de la distribución*Windows Server 2012 R2 Datacenter*.
 
 1. Indique a Azure que dirija el tráfico del puerto **80** de la Web al puerto **80** de la máquina virtual:
- - Diríjase a la máquina virtual recién creada en el Portal de Azure y haga clic en la pestaña  *ENDPOINTS*.
- - Haga clic en el botón  *ADD* situado en la parte inferior de la pantalla.
+ - Diríjase a la máquina virtual recién creada en el Portal de Azure y haga clic en la pestaña *ENDPOINTS*.
+ - Haga clic en el botón *ADD* de la parte inferior de la pantalla.
 	![add endpoint](./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-addendpoint.png)
 
- - Abra el puerto  *PUBLIC PORT 80* del protocolo  *TCP* como  *PRIVATE PORT 80*.
+ - Abra el *TCP* del protocolo *PUBLIC PORT 80* como *PRIVATE PORT 80*.
 ![][port80]
-1. Desde la pestaña  *PANEL*, haga clic en  *CONECTAR* para usar el  *Escritorio remoto* e iniciar sesión de forma remota en la máquina virtual de Azure recién creada.  
+1. Desde la pestaña*DASHBOARD*, haga clic en*CONNECT* para usar*Remote Desktop* para iniciar sesión de forma remota en la máquina virtual de Azure recién creada.  
 
-**Nota importante:** En las instrucciones que aparecen a continuación se asume que no tuvo problemas para iniciar sesión en la máquina virtual y que está generando comandos desde allí y no desde la máquina local.
+**Nota importante:** En las instrucciones que aparecen a continuación se asume que no tuvo problemas para iniciar sesión en la máquina virtual y que está generando comandos desde allí y no desde la máquina local. 
 
 ## <a id="setup"> </a>Configuración de Python y Django
 
@@ -65,7 +63,6 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 	1. Inicie el Instalador de la plataforma web.
 	1. Escriba WFastCGI en la barra de búsqueda. 
 	1. Seleccione la entrada WFactCGI para la versión de Python que desea utilizar (2.7 o 3.4).  Tenga en cuenta que de este modo se instalará Python como una dependencia de WFastCGI. 
-1. Si instaló Python 2.7, [siga estas instrucciones para instalar pip manualmente](https://pip.pypa.io/en/latest/installing.html) (Python 3.4 ya incluye pip).
 1. Instale Django mediante pip.
 
     Python 2.7:
@@ -153,7 +150,7 @@ Ejecute estos comandos solo si está utilizando Python 3.4.
 ## Creación de una nueva aplicación Django
 
 
-1.  Desde  *C:\inetpub\wwwroot*, escriba el comando siguiente para crear un nuevo proyecto Django:
+1.  Desde *C:\inetpub\wwwroot*, escriba el comando siguiente para crear un nuevo proyecto Django:
 
     Python 2.7:
 
@@ -199,10 +196,9 @@ Cuando finalice este tutorial, apague o quite la máquina virtual de Azure reci�
 
 [port80]: ./media/virtual-machines-python-django-web-app-windows-server/django-helloworld-port80.png
 
-[portal-vm]: /es-es/manage/windows/tutorials/virtual-machine-from-gallery/
+[portal-vm]: /manage/windows/tutorials/virtual-machine-from-gallery/
 
 [Instalador de la plataforma web]: http://www.microsoft.com/web/downloads/platform.aspx
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

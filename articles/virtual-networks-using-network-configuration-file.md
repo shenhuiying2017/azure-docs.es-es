@@ -16,7 +16,7 @@
 	ms.date="02/18/2015"
 	ms.author="cherylmc"/>
 
-#Configuración de una red virtual con un archivo de configuración de red
+# Configuración de una red virtual con un archivo de configuración de red
 
 ## Información general
 
@@ -26,14 +26,14 @@ Es preferible usar el Asistente del Portal de administración para crear inicial
 
 O bien, si desea realizar cambios en los ajustes de configuración de red antes de implementar servicios en la nube o máquinas virtuales en la red, puede exportar el archivo, modificarlo y, a continuación, importarlo de nuevo en Azure. También puede utilizar un archivo de configuración de red para hacer una copia de seguridad de las opciones de configuración de red si desea recrear la red virtual.
 
-##Creación y modificación de un archivo de configuración de red 
+## Creación y modificación de un archivo de configuración de red 
 La manera más fácil de crear un archivo de configuración de red es exportar la configuración de red desde una configuración de red virtual existente, modificar el archivo para que contenga los ajustes con los que desea configurar las redes virtuales. También puede obtener un archivo de ejemplo y modificarlo.
 
 Para editar el archivo de configuración de red, puede simplemente abrir el archivo, realzar los cambios adecuados y guardarlos. Puede usar cualquier editor *xml* para realizar cambios en el archivo de configuración de red. 
 
 Se deben seguir meticulosamente las instrucciones sobre los ajustes del esquema del archivo de configuración de red. Al crear el archivo de configuración de red, la configuración del archivo sobrescribirá la configuración que tenga actualmente para esa suscripción en Azure. Si realiza cambios en los valores en el archivo que no sean compatibles con las instrucciones de configuración, la red virtual podría no configurarse de la manera prevista y, en algunos casos, Azure no le permitirá importar el archivo. Para obtener información acerca de la configuración concreta contenida en un archivo de configuración de red, consulte [Esquema de configuración de redes virtuales de Azure](https://msdn.microsoft.com/library/azure/jj157100.aspx). 
 
-Azure considera que una subred que tiene algo implementado en ella como "en uso". Cuando una subred está en uso, no puede modificarse. Antes de la modificación, mueva todo lo que haya implementado en la subred a una subred diferente que no se esté modificando.   Consulte [Mover una máquina virtual o una instancia de rol a una subred diferente](https://msdn.microsoft.com/es-es/library/azure/dn643636.aspx).
+Azure considera que una subred que tiene algo implementado en ella como "en uso". Cuando una subred está en uso, no puede modificarse. Antes de la modificación, mueva todo lo que haya implementado en la subred a una subred diferente que no se esté modificando.   Consulte [Mover una máquina virtual o una instancia de rol a una subred diferente](https://msdn.microsoft.com/library/azure/dn643636.aspx).
 
 
 
@@ -70,4 +70,4 @@ Para obtener más información acerca de las redes virtuales, consulte:
 
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -4,7 +4,7 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
 >[AZURE.NOTE]Puede almacenar en caché el token emitido por los servicios móviles con independencia de si es una autenticación administrada por el cliente o por el servicio. Este tutorial utiliza la autenticación administrada por el servicio.
 
 
-1. En Eclipse, abra el archivo ToDoActivity.java y agregue las siguientes instrucciones de importación:
+1. Abra el archivo ToDoActivity.java y agregue las siguientes instrucciones de importación:
 
         import android.content.Context;
         import android.content.SharedPreferences;
@@ -89,4 +89,5 @@ En el ejemplo anterior se mostró un inicio de sesión estándar, que requiere q
 
 
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

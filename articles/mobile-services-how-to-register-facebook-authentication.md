@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -20,11 +20,11 @@
 
 En este tema se muestra cómo registrar las aplicaciones a fin de poder usar Facebook para la autenticación con Servicios móviles de Azure. 
 
-> [AZURE.NOTE] En este tutorial se describen los [Servicios móviles de Azure], una solución que le ayuda a crear aplicaciones móviles escalables para cualquier plataforma. La solución Servicios móviles facilita la sincronización de datos, la autenticación de usuarios y el envío de notificaciones de inserción. En esta página se incluye el tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Introducción a la autenticación</a> en el que se muestra cómo registrar usuarios en la aplicación. Si esta es la primera vez que usa Servicios móviles, complete el tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Introducción a los Servicios móviles</a>.
+> [AZURE.NOTE] En este tutorial se describen los [Servicios móviles de Azure], una solución que le ayuda a crear aplicaciones móviles escalables para cualquier plataforma. La solución Servicios móviles facilita la sincronización de datos, la autenticación de usuarios y el envío de notificaciones de inserción. Esta página admite el tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started-users/">Introducción a la autenticación</a> que muestra cómo registrar usuarios en su aplicación. Si esta es la primera vez que usa Servicios móviles, complete el tutorial <a href="http://azure.microsoft.com/documentation/articles/mobile-services-ios-get-started/">Introducción a los Servicios móviles</a>.
 	
 Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta de Facebook asociada a una dirección de correo electrónico verificada y a un número de teléfono móvil. Para crear una nueva cuenta de Facebook, vaya a <a href="http://go.microsoft.com/fwlink/p/?LinkId=268285" target="_blank">facebook.com</a>.
 
-1. Desplácese hasta el sitio web para <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">desarrolladores de Facebook</a> e inicie sesión con las credenciales de su cuenta de Facebook.
+1. Navegue al sitio web de <a href="http://go.microsoft.com/fwlink/p/?LinkId=268286" target="_blank">Desarrolladores de Facebook</a> e inicie sesión con sus credenciales de cuenta de Facebook.
 
 2. (Opcional) Si aún no está registrado, haga clic en **Apps** (Aplicaciones), luego en **Register as a Developer** (Registrarse como desarrollador), acepte la política y siga los pasos de registro. 
 
@@ -52,13 +52,13 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
 
    	![][5]
 
-	> [AZUTE.NOTE] **Nota de seguridad**
+	> [AZURE.NOTE] **Nota de seguridad**
 	El secreto de aplicación es una credencial de seguridad importante, por lo que no debe compartirlo con nadie ni distribuirlo con su aplicación.
 
 
-8. Haga clic en la pestaña **Advanced** (Opciones avanzadas), escriba la URL de su servicio móvil anexada a la ruta de acceso _/login/facebook_ en **Valid OAuth redirect URIs** (URI de redirección OAuth válidos) y luego haga clic en **Save Changes** (Guardar cambios). 
+8. Haga clic en la pestaña **Avanzado**, escriba la dirección URL del servicio móvil anexada a la ruta de acceso _/login/facebook_ en **URI de redireccionamiento de OAuth válidos** y haga clic en **Guardar cambios**. 
 
-	> [AZURE.NOTE] Para un servicio móvil de back-end de .NET publicado en Azure con Visual Studio, la dirección URL de redireccionamiento es la dirección URL del servicio móvil con la ruta de acceso _signin-facebook_ anexada como servicio .NET, por ejemplo <code>https://todolist.azure-mobile.net/signin-facebook</code>.  
+	> [AZURE.NOTE] Para un servicio móvil de back-end de .NET publicado en Azure con Visual Studio, la dirección URL de redireccionamiento es la dirección URL del servicio móvil anexada a la ruta de acceso _signin-facebook_ para el servicio .NET, por ejemplo <code>https://todolist.azure-mobile.net/signin-facebook</code>.  
 	
 	![][7]
 
@@ -84,9 +84,8 @@ Ahora ya puede habilitar el uso del inicio de sesión de Facebook para autentica
 
 <!-- URLs. -->
 [Desarrolladores de Facebook]: http://go.microsoft.com/fwlink/p/?LinkId=268286
-[Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-dotnet/
+[Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-dotnet/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Servicios móviles de Azure]: http://azure.microsoft.com/services/mobile-services/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

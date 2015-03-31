@@ -105,5 +105,4 @@ En esta sección se escribirá una aplicación C para enviar eventos al centro d
 		gcc sender.c -o sender -lqpid-proton
 
 > [AZURE.NOTE] En el código anterior, usamos una ventana de salida de 1 para forzar que los mensajes salgan tan pronto como sea posible. En general la aplicación debe probar con los mensajes por lotes para aumentar el rendimiento. Consulte la [página Qpid AMQP Messenger](http://qpid.apache.org/components/messenger/index.html) para obtener más información sobre cómo usar la biblioteca de Qpid Proton en este y otros entornos y desde las plataformas para las que se proporcionan enlaces (actualmente, Perl, PHP, Python y Ruby).
-
-<!--HONumber=42-->
+<!--HONumber=47-->

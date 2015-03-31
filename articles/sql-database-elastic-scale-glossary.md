@@ -1,6 +1,20 @@
-﻿<properties title="Azure Elastic Scale Glossary" pageTitle="Glosario de Escalado elástico de Azure" description="Explicación de los términos utilizados en la característica Escalado elástico de Base de datos SQL de Azure" metaKeywords="sharding,elastic scale, Azure SQL DB sharding" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties 
+	pageTitle="Glosario de Escalado elástico de Azure" 
+	description="Explicación de los términos usados en la característica de Escalado elástico de Base de datos SQL de Azure" 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="jhubbard" 
+	authors="sidneyh" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="sidneyh@microsoft.com"/>
 
 #Glosario de Escalado elástico
 Los siguientes términos se definen para la característica Escalado elástico de Base de datos SQL de Azure.
@@ -9,16 +23,16 @@ Los siguientes términos se definen para la característica Escalado elástico d
 
 **Base de datos**: una base de datos SQL de Azure. 
 
-**Enrutamiento dependiente de datos**: La funcionalidad que permite que una aplicación se conecta a una partición dada una clave de partición específica. Comparar con **Consulta a través de particiones múltiples**.
+**Enrutamiento dependiente de los datos**: La funcionalidad que permite que una aplicación se conecta a una partición dada una clave de partición específica. Comparar con **Consulta a través de particiones múltiples**.
 
-**Mapa de particiones global**: el conjunto de asignaciones entre las claves de particionamiento y sus respectivas particiones dentro de un **conjunto de particiones**. GSM está almacenado en el **administrador de mapa de particiones**. Comparar con **mapa de particiones local**.
+**Mapa de particiones global**: el conjunto de asignaciones entre las claves de particionamiento y sus respectivas particiones dentro de un **conjunto de particiones**. El GSM se almacena en el **Administrador de asignación de particiones**. Comparar con **mapa de particiones local**.
 
-**Mapa de particiones global**: un mapa de particiones en el que las claves de particionamiento se asignan de manera individual. Comparar con **Mapa de particiones de intervalo**.   
+**Mapa de particiones de lista**: un mapa de particiones en el que las claves de particionamiento se asignan de manera individual. Comparar con **Mapa de particiones de intervalo**.   
 
 **Mapa de particiones local**: almacenado en una partición, el mapa de particiones local contiene asignaciones para los shardlets que residen en la partición.
 
 
-**Consulta a través de particiones múltiples**: la capacidad de emitir una consulta a través de varias particiones; los conjuntos de resultados se devuelven usando la semántica UNION ALL (conocida también como "consulta de distribución ramificada"). Comparar con **Enrutamiento dependiente de datos**.
+**Consulta de varias particiones**: la capacidad de emitir una consulta a través de varias particiones; los conjuntos de resultados se devuelven usando la semántica UNION ALL (conocida también como "consulta de distribución ramificada"). Comparar con **Enrutamiento dependiente de datos**.
 
 **Mapa de particiones de intervalo**: un mapa de particiones en el que la estrategia de distribución de particiones se basa en varios intervalos de valores contiguos. 
 
@@ -27,7 +41,7 @@ Los siguientes términos se definen para la característica Escalado elástico d
 
 **Partición**: una base de datos SQL de Azure que almacena datos desde un conjunto de datos particionados. 
 
-**Elasticidad de partición** (SE): la capacidad de realizar tanto **escalado horizontal** como **escalado vertical**.
+**Elasticidad de partición** (SE): la posibilidad de realizar **escalado horizontal** y **escalado vertical**.
 
 **Tablas particionadas**: tablas que se particionan, es decir, cuyos datos se distribuyen entre particiones según sus valores de clave de particionamiento. 
 
@@ -46,15 +60,15 @@ Los siguientes términos se definen para la característica Escalado elástico d
 
 ##Verbos
 
-**Escalado horizontal**: el acto de escalar (o reducir) horizontalmente una recopilación de particiones agregando o quitando particiones de un mapa de particiones.
+**Escala do horizontal**: el acto de escalar (o reducir) horizontalmente una recopilación de particiones agregando o quitando particiones de un mapa de particiones.
 
 **Combinar**: el acto de mover shardlets desde dos particiones a una partición y actualizar el mapa de particiones como corresponda.
 
 **Desplazamiento de shardlets**: el acto ve mover un shardlet a una partición distinta. 
 
-**Particionar**: el acto de particionar de manera horizontal datos estructurados de manera idéntica entre varias bases de datos según una clave de particionamiento.
+**Partición**: el acto de particionar de manera horizontal datos estructurados de manera idéntica entre varias bases de datos según una clave de particionamiento.
 
-**Dividir**: el acto de mover varios shardlets desde una partición a otra (normalmente nueva). El usuario proporciona una clave de particionamiento como el punto de división.
+**División**: el acto de mover varios shardlets desde una partición a otra (normalmente nueva). El usuario proporciona una clave de particionamiento como el punto de división.
 
 **Escalado vertical**: el acto de escalar (o reducir) verticalmente el nivel de rendimiento de una partición individual. Por ejemplo, cambiando una partición de Standard a Premium (según lo requerido por motivos de rendimiento). 
 
@@ -66,4 +80,4 @@ Los siguientes términos se definen para la característica Escalado elástico d
 
 
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

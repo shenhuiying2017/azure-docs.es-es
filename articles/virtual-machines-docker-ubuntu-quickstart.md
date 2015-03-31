@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Cómo usar Docker rápidamente con una imagen de máquina virtual de Ubuntu-Docker" 
 	description="Se describe y se muestra cómo usar Docker en Ubuntu Server directamente desde la Galería de imágenes de Azure en minutos" 
 	services="virtual-machines" 
@@ -31,37 +31,37 @@ En este tema:
 - [Creación de una máquina virtual con la imagen de Docker de Canonical y MSOpenTech]
 - [Conexión con SSH y a disfrutar]
 
-## <a id='logon'>Inicio de sesión en el Portal</a>
+## <a id='logon'></a>Inicio de sesión en el Portal
 
 Esta parte es fácil, a menos que no disponga de una cuenta de Azure. [Obtenga una también con facilidad](http://azure.microsoft.com/pricing/free-trial/).
 
-## <a id='createvm'>Creación de una máquina virtual con la imagen de Docker de Canonical y MSOpenTech</a>
+## <a id='createvm'></a>Creación de una máquina virtual con la imagen de Docker de Canonical y MSOpenTech
 
 1. Ahora que ya ha iniciado sesión, haga clic en **Nueva** en la esquina inferior izquierda para crear una nueva imagen de máquina virtual. Es posible que vea la imagen adecuada en el banner inmediatamente:
 
-> ![Choose the Docker Ubuntu image in the banner](./media/virtual-machines-docker-ubuntu-quickstart/CreateNewDockerBanner.png)
+	![Choose the Docker Ubuntu image in the banner](./media/virtual-machines-docker-ubuntu-quickstart/CreateNewDockerBanner.png)
 
 2. Pero si no es así, búsquela en la Galería de imágenes: 
 
-> ![Locate the image in the Image Gallery](./media/virtual-machines-docker-ubuntu-quickstart/DockerOnUbuntuServerMSOpenTech.png)
+	![Locate the image in the Image Gallery](./media/virtual-machines-docker-ubuntu-quickstart/DockerOnUbuntuServerMSOpenTech.png)
 
 3. Proporcione el nombre de usuario y la contraseña para la instancia, o un archivo **.pem** para habilitar SSH con un certificado. (En el gráfico siguiente se muestra cómo se especifica una combinación de nombre de usuario y contraseña). A continuación, presione **Crear** en la parte inferior.
 
-> ![Configure the vm instance](./media/virtual-machines-docker-ubuntu-quickstart/CreateVMDockerUbuntuPwd.png)
+	![Configure the vm instance](./media/virtual-machines-docker-ubuntu-quickstart/CreateVMDockerUbuntuPwd.png)
 
 4. Y espere hasta que esté en ejecución. No debería tardar demasiado.
 
-> ![Docker image running in portal](./media/virtual-machines-docker-ubuntu-quickstart/DockerUbuntuRunning.png)
+	![Docker image running in portal](./media/virtual-machines-docker-ubuntu-quickstart/DockerUbuntuRunning.png)
 
-## <a id='havingfun'>Conexión con SSH y a disfrutar</a>
+## <a id='havingfun'></a>Conexión con SSH y a disfrutar
 
 Ahora empieza la diversión. Puede conectarse inmediatamente a la máquina virtual mediante SSH:
 
-> ![Connecting with SSH](./media/virtual-machines-docker-ubuntu-quickstart/SSHToDockerUbuntu.png)
+	![Connecting with SSH](./media/virtual-machines-docker-ubuntu-quickstart/SSHToDockerUbuntu.png)
 
 y empezar a emitir comandos Docker, sin olvidar que en esta máquina virtual de Azure la configuración predeterminada requiere **`sudo`**:
 
-> ![Pulling images](./media/virtual-machines-docker-ubuntu-quickstart/DockerPullSmallImages.png)
+	![Pulling images](./media/virtual-machines-docker-ubuntu-quickstart/DockerPullSmallImages.png)
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
@@ -82,4 +82,4 @@ Va a comenzar a usar [Docker].
 [MSOpenTech]: http://msopentech.com/
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

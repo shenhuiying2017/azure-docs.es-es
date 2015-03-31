@@ -5,7 +5,7 @@ En esta sección se escribirá una aplicación de consola Windows para enviar ev
 
    	![][7]
 
-2. En el Explorador de soluciones, haga clic con el botón secundario en la solución y luego haga clic en **Administrar paquetes de NuGet para la solución...**. 
+2. En el Explorador de soluciones, haga clic con el botón derecho en la solución y luego haga clic en **Administrar paquetes de NuGet para la solución...**. 
 
 	Esto muestra el cuadro de diálogo Administrar paquetes de NuGet.
 
@@ -61,4 +61,4 @@ En esta sección se escribirá una aplicación de consola Windows para enviar ev
 <!-- Images -->
 [7]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 [8]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp2.png
-<!--HONumber=42-->
+<!--HONumber=47-->

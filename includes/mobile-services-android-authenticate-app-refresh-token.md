@@ -4,7 +4,7 @@ Tenemos que ser capaces de detectar un token caducado y actualizarlo. Para ello,
 
 En esta sección definirá un ServiceFilter que detectará una respuesta 401 del código de estado HTTP y desencadenará una actualización del token y de la caché del token. Además, este ServiceFilter bloqueará otras solicitudes salientes durante la autenticación para que dichas solicitudes puedan usar el token actualizado.
 
-1. En Eclipse, abra el archivo ToDoActivity.java y agregue las siguientes instrucciones de importación:
+1. Abra el archivo ToDoActivity.java y agregue las siguientes instrucciones de importación:
  
         import java.util.concurrent.atomic.AtomicBoolean;
 		import java.util.concurrent.ExecutionException;
@@ -186,8 +186,6 @@ En esta sección definirá un ServiceFilter que detectará una respuesta 401 del
 	                                    public void run() {
 	                                        // Force a token refresh during authentication.
 	                                        authenticate(true);
-				// ToDoActivity.mMainActivity.authenticate(true);
-	
 	                                    }
 	                                });
 	                            }
@@ -240,4 +238,5 @@ En esta sección definirá un ServiceFilter que detectará una respuesta 401 del
        En este código, `RefreshTokenCacheFilter` se usa junto con `ProgressFilter`. También, durante  `onCreate` queremos cargar la caché del token. Así, se pasa `false` al método `authenticate`.
 
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

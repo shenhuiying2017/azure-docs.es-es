@@ -19,21 +19,21 @@
 # Configurar un clúster de proceso híbrido con Microsoft HPC Pack
 Este tutorial le indica cómo usar Microsoft HPC Pack 2012 R2 y Azure para configurar un pequeño clúster híbrido de informática de alto rendimiento (HPC). El clúster constará de un nodo principal local (un equipo con el sistema operativo Windows Server y HPC Pack) y otros nodos de ejecución que implemente localmente como instancias de rol de trabajo en un servicio en la nube de Azure. A continuación, podrá ejecutar trabajos informáticos en el clúster híbrido.
  
-![Hybrid HPC cluster][Overview] 
+![Hybrid HPC cluster][Información general] 
 
 Este tutorial muestra un enfoque, en ocasiones denominado clúster "ráfaga en la nube", para usar recursos informáticos escalables y bajo demanda en Azure a fin de ejecutar aplicaciones informáticas que consumen numerosos recursos.
 
-En este tutorial se supone que no cuenta con experiencia previa con los clústeres informáticos o con HPC Pack. Únicamente está destinado a ayudarle a implementar un clúster de proceso híbrido rápidamente con fines de demostración. Para obtener más información, así como pasos para implementar un clúster híbrido HPC Pack a mayor escala en un entorno de producción, consulte la [información detallada](http://go.microsoft.com/fwlink/p/?LinkID=200493) Si desea configurar un clúster de HPC Pack completamente en Azure, consulte [Microsoft HPC Pack en máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?linkid=330375). 
+En este tutorial se supone que no cuenta con experiencia previa con los clústeres informáticos o con HPC Pack. Únicamente está destinado a ayudarle a implementar un clúster de proceso híbrido rápidamente con fines de demostración. Para obtener más información, así como pasos para implementar un clúster híbrido HPC Pack a mayor escala en un entorno de producción, consulte la [información detallada](http://go.microsoft.com/fwlink/p/?LinkID=200493). Si desea configurar un clúster de HPC Pack completamente en Azure, consulte [Microsoft HPC Pack en máquinas virtuales de Azure](http://go.microsoft.com/fwlink/p/?linkid=330375). 
 
->[AZURE.NOTE] Azure ofrece una [serie de tamaños](http://go.microsoft.com/fwlink/p/?LinkId=389844) para los recursos informáticos, adecuados para las diferentes cargas de trabajo. Por ejemplo, las instancias A8 y A9 combinan alto rendimiento y acceso a baja latencia, aunque se necesita una red de aplicaciones de alto rendimiento para determinadas aplicaciones de HPC. Para obtener más información, consulte [Acerca de las instancias informáticas intensivas A8 y A9](http://go.microsoft.com/fwlink/p/?Linkid=328042) 
+>[AZURE.NOTE] Azure ofrece una [serie de tamaños](http://go.microsoft.com/fwlink/p/?LinkId=389844) para los recursos informáticos, adecuados para las diferentes cargas de trabajo. Por ejemplo, las instancias A8 y A9 combinan alto rendimiento y acceso a baja latencia, aunque se necesita una red de aplicaciones de alto rendimiento para determinadas aplicaciones de HPC. Para obtener más información, consulte [Sobre las instancias informáticas intensivas A8 y A9](http://go.microsoft.com/fwlink/p/?Linkid=328042). 
 
 <h2 id="BKMK_Prereq">Requisitos previos</h2>
 
->[AZURE.NOTE]para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Creación de una cuenta de Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/)
+>[AZURE.NOTE]para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Creación de una cuenta de Azure](http://www.windowsazure.com/develop/php/tutorials/create-a-windows-azure-account/).
 
 Además, necesitará satisfacer los siguientes requisitos previos para este tutorial:
 
-* Un equipo local que ejecute una edición de Windows Server 2012 R2 o Windows Server 2012. Este equipo será el nodo principal del clúster de HPC. Si todavía no tiene Windows Server, puede descargar e instalar una [versión de evaluación](http://technet.microsoft.com/evalcenter/dn205286.aspx)
+* Un equipo local que ejecute una edición de Windows Server 2012 R2 o Windows Server 2012. Este equipo será el nodo principal del clúster de HPC. Si todavía no tiene Windows Server, puede descargar e instalar una [versión de evaluación](http://technet.microsoft.com/evalcenter/dn205286.aspx).
 
 	* El equipo debe estar unido a un dominio de Active Directory.
 
@@ -92,12 +92,12 @@ Utilice el [Portal de administración](https://manage.windowsazure.com) para rea
 
 - Creación de una cuenta de almacenamiento de Azure
 	
-	>[AZURE.NOTE]Anote también el Id. de la suscripción de Azure, ya que lo necesitará más adelante. Podrá encontrarlo en la información de su <a href="[https://account.windowsazure.com/Subscriptions">cuenta de Azure</a>.
+	>[AZURE.NOTE]Anote también el Id. de la suscripción de Azure, ya que lo necesitará más adelante. Podrá encontrarlo en la <a href="[https://account.windowsazure.com/Subscriptions">información de la cuenta</a> de Azure.
 
 <h3>Cargar el certificado de administración predeterminado</h3>
 HPC Pack instala un certificado autofirmado en el nodo principal, llamado Default Microsoft HPC Azure Management, que podrá cargar como certificado de administración de Azure. Este certificado se proporciona con fines de prueba e implementaciones de prueba de concepto.
 
-1. En el equipo del nodo principal, inicie sesión en el [Portal de administración](https://manage.windowsazure.com)
+1. En el equipo del nodo principal, inicie sesión en el [Portal de administración](https://manage.windowsazure.com).
 
 2. Haga clic en **Configuración** y, a continuación, en **Certificados de administración**.
 
@@ -171,21 +171,21 @@ Para usar el administrador de clústeres de HPC para implementar nodos de Azure 
 
 10. En el asistente de creación de plantillas de nodo, siga estos pasos:
 
-	a. En la página **Elegir tipo de plantilla de nodo**, haga clic en **Plantilla de nodo de Azure** y, a continuación, haga clic en **Siguiente**.
+	a. En la página **Elegir el tipo de plantilla de nodo**, haga clic en la **plantilla de nodo de Azure** y después haga clic en **Siguiente**.
 
 	![Node Template][config_hpc10]
 
 	b. Haga clic en **Siguiente** para aceptar el nombre de plantilla predeterminado.
 
-	c. En la página **Proporcionar información de suscripción**, escriba su Id. de suscripción de Azure (disponible en la información de <a href="[https://account.windowsazure.com/Subscriptions">cuenta de Azure</a>). A continuación, en **Certificado de administración**, haga clic en **Examinar** y seleccione **Administración de Azure de HPC predeterminada.** A continuación, haga clic en **Siguiente**.
+	c. En la página **Provide Subscription Information**, introduzca su Id. de suscripción de Azure (disponible en la <a href="[https://account.windowsazure.com/Subscriptions">información de cuenta</a> de Azure). A continuación, en **Management certificate**, haga clic en **Browse** y seleccione **Default HPC Azure Management**. A continuación, haga clic en **Siguiente**.
 
 	![Node Template][config_hpc12]
 
-	d. En la página **Proporcionar información del servicio**, seleccione el servicio en la nube y la cuenta de almacenamiento que ha creado en un paso anterior. A continuación, haga clic en **Siguiente**.
+	d. En la pagina **Proporcionar información de servicio**, seleccione el servicio en la nube y la cuenta de almacenamiento que creó con anterioridad. A continuación, haga clic en **Siguiente**.
 
 	![Node Template][config_hpc13]
 
-	e. Haga clic en **Siguiente** para aceptar los valores predeterminados en las páginas restantes del asistente. A continuación, en la pestaña **Revisar**, haga clic en **Crear** para crear la plantilla de nodo.
+	e. Haga clic en **Siguiente** para aceptar los valores predeterminados de las páginas restantes del asistente. A continuación, en la pestaña **Revisar**, haga clic en **Crear** para crear la plantilla de nodo.
 
 	>[AZURE.NOTE]De forma predeterminada, la plantilla de nodo de Azure incluye la configuración para que pueda iniciar (aprovisionar) y detener los nodos manualmente. También puede configurar una programación para iniciar y detener los nodos de Azure automáticamente. 
 	
@@ -207,7 +207,7 @@ En este tutorial, agregará dos nodos pequeños.
 
 	![Specify Nodes][add_node2]
 
-	Para obtener más información acerca de los tamaños disponibles de las máquinas virtuales, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx)
+	Para obtener más información acerca de los tamaños disponibles de las máquinas virtuales, consulte [Tamaños de máquinas virtuales y servicios en la nube de Azure](http://msdn.microsoft.com/library/windowsazure/dn197896.aspx).
 
 4. En la página **Finalización del asistente para agregar nodos**, haga clic en **Finalizar**. 
 
@@ -232,7 +232,7 @@ Cuando quiera usar los recursos del clúster de Azure, use el administrador de c
 
 3. Después de unos minutos, los nodos de Azure terminan de aprovisionarse y pasan al estado **Sin conexión**. Las instancias de rol se ejecutan en este estado, pero no aceptan los trabajos de clúster.
 
-4. Para confirmar que las instancias de rol se estén ejecutando, en el [Portal de administración](https://manage.windowsazure.com), haga clic en **Servicios en la nube**, después en el nombre de su servicio en la nube y, a continuación, en **Instancias**. 
+4. Para confirmar que las instancias de rol se estén ejecutando, en el [Portal de administración](https://manage.windowsazure.com), haga clic en **Servicios en la nube**, después en el nombre de su servicio en la nube y, a continuación, en **Instances**. 
 
 	![Running Instances][view_instances1]
 
@@ -265,7 +265,7 @@ Puede enviar un trabajo de prueba que se ejecute en el clúster híbrido. Este e
 
 	![New Job][test_job1]
 
-2. En el cuadro de diálogo **Nuevo trabajo de barrido paramétrico**, en la **línea de comandos**, escriba `set /a *+*` (sobrescribiendo la línea de comandos predeterminada que aparezca). Deje los valores predeterminados para el resto de la configuración y, a continuación, haga clic en **Enviar** para enviar el trabajo.
+2. En el cuadro de diálogo **New Parametric Sweep Job**, en la **línea de comandos**, escriba `set /a *+*` (sobrescribiendo la línea de comandos predeterminada que aparezca). Deje los valores predeterminados para el resto de la configuración y, a continuación, haga clic en **Enviar** para enviar el trabajo.
 
 	![Parametric Sweep][param_sweep1]
 
@@ -283,7 +283,7 @@ Puede enviar un trabajo de prueba que se ejecute en el clúster híbrido. Este e
 
 Después de probar el clúster, puede usar el administrador de clústeres de HPC para detener los nodos de Azure e impedir que se produzcan cargas innecesarias en la cuenta. De este modo se detiene el servicio en la nube y se eliminan las instancias de rol de Azure. 
 
-1. En el administrador de clústeres de HPC, en **Administración de nodos,** seleccione ambos nodos de Azure. A continuación, en el panel **Acciones**, haga clic en **Detener**. 
+1. En el administrador de clústeres de HPC, en **Node Management**, seleccione ambos nodos de Azure. A continuación, en el panel **Acciones**, haga clic en **Detener**. 
 
 	![Stop Nodes][stop_node1]
 
@@ -295,7 +295,7 @@ Después de probar el clúster, puede usar el administrador de clústeres de HPC
 
 	![Not Deployed Nodes][stop_node4]
 
-4. Para confirmar que las instancias de rol ya no se están ejecutando en Azure, en el [Portal de administración](https://manage.windowsazure.com), haga clic en **Servicios en la nube**, después en el nombre de su servicio en la nube y, a continuación, en **Instancias**. No se implementarán instancias en el entorno de producción.
+4. Para confirmar que las instancias han dejado de ejecutarse en Azure, en el [Portal de administración](https://manage.windowsazure.com), haga clic en **Servicios en la nube**, después en el nombre de su servicio en la nube y, a continuación, en **Instances**. No se implementarán instancias en el entorno de producción.
 
 	![No Instances][view_instances2]
 
@@ -309,7 +309,7 @@ Después de probar el clúster, puede usar el administrador de clústeres de HPC
 * [Azure Big Compute: HPC y lote](http://azure.microsoft.com/solutions/big-compute/)
 
 
-[Overview]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/hybrid_cluster_overview.png
+[Información general]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/hybrid_cluster_overview.png
 [install_hpc1]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/install_hpc1.png
 [install_hpc2]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/install_hpc2.png
 [install_hpc3]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/install_hpc3.png
@@ -346,4 +346,4 @@ Después de probar el clúster, puede usar el administrador de clústeres de HPC
 [stop_node4]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/stop_node4.png
 [view_instances2]: ./media/set-up-hybrid-cluster-microsoft-hpc-pack-2012-sp1/view_instances2.png
 
-<!--HONumber=42-->
+<!--HONumber=47-->

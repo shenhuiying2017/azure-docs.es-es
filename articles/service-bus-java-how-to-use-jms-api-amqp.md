@@ -1,29 +1,46 @@
-﻿<properties urlDisplayName="Service Bus AMQP" pageTitle="Uso de AMQP 1.0 con la API del bus de servicio de Java - Azure" metaKeywords="AMQP para mensajes Java, AMQP del bus de servicio, descargar biblioteca JMS de AMQP" description="Obtenga información acerca de cómo usar Java Message Service (JMS) con Service Bus de Azure y Advanced Message Queuing Protodol (AMQP) 1.0." metaCanonical="" services="service-bus" documentationCenter="Java" title="How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0" authors="sethm"  solutions="" writer="sethm" manager="timlt" editor="mattshel"  />
+﻿<properties 
+	pageTitle="Uso de AMQP 1.0 con la API del Bus de servicio de Java - Azure" 
+	description="Obtenga información acerca de cómo usar Java Message Service (JMS) con Service Bus de Azure y Advanced Message Queuing Protodol (AMQP) 1.0." 
+	services="service-bus" 
+	documentationCenter="java" 
+	authors="sethmanheim" 
+	writer="sethm" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 
 
 
-# Uso de la API de Java Message Service (JMS) con el bus de servicio y AMQP 1.0
+# Uso de la API de Java Message Service (JMS) con el Bus de servicio y AMQP 1.0
 
 ##Introducción
 
 Advanced Message Queuing Protocol (AMQP) 1.0 es un protocolo de mensajes a nivel de red, confiable y eficaz que se puede utilizar para crear aplicaciones de mensajería robustas y compatibles con varias plataformas.
 
-La compatibilidad con AMQP 1.0 del bus de servicio implica que puede utilizar las funciones de colas y publicación/suscripción de mensajería asíncrona desde una amplia variedad de plataformas mediante un eficaz protocolo binario. Además, puede desarrollar aplicaciones formadas por componentes creados con una mezcla de lenguajes, marcos y sistemas operativos.
+La compatibilidad con AMQP 1.0 del Bus de servicio implica que puede utilizar las funciones de colas y publicación/suscripción de mensajería asíncrona desde una amplia variedad de plataformas mediante un eficaz protocolo binario. Además, puede desarrollar aplicaciones formadas por componentes creados con una mezcla de lenguajes, marcos y sistemas operativos.
 
-En esta guía de instrucciones se explica cómo utilizar las funciones de mensajería asíncrona del bus de servicio (colas y publicación/suscripción a temas) desde aplicaciones Java utilizando la popular API estándar Java Message Service (JMS). Existe otra guía de instrucciones complementaria en la que se explica cómo hacer lo mismo utilizando la API de .NET del bus de servicio. Puede utilizar estas dos guías conjuntamente para obtener información acerca de la mensajería entre diferentes plataformas mediante AMQP 1.0.
+En esta guía de instrucciones se explica cómo utilizar las funciones de mensajería asíncrona del Bus de servicio (colas y publicación/suscripción a temas) desde aplicaciones Java utilizando la popular API estándar Java Message Service (JMS). Existe otra guía de instrucciones complementaria en la que se explica cómo hacer lo mismo utilizando la API de .NET del Bus de servicio. Puede utilizar estas dos guías conjuntamente para obtener información acerca de la mensajería entre diferentes plataformas mediante AMQP 1.0.
 
-##Introducción al bus de servicio
+##Introducción al Bus de servicio
 
-En esta guía se asume que ya dispone de un espacio de nombres del bus de servicio con una cola denominada "queue1". Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de administración de Azure](http://manage.windowsazure.com). Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio](https://www.windowsazure.com/es-es/develop/net/how-to-guides/service-bus-queues/).
+En esta guía se asume que ya dispone de un espacio de nombres del Bus de servicio con una cola denominada "queue1". Si no es así, puede crear el espacio de nombres y la cola con ayuda del [Portal de administración de Azure](http://manage.windowsazure.com). Para obtener más información acerca de cómo crear espacios de nombres y colas del bus de servicio, consulte la guía de instrucciones titulada [Utilización de las colas del bus de servicio.](https://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
+
+**Nota**: para crear la cola, deshabilite la creación de particiones, ya que las colas y los temas con particiones aún no son compatibles con AMQP. Para obtener más información, consulte [Creación de particiones de entidades de mensajería](http://msdn.microsoft.com/library/azure/dn520246.aspx).
 
 ##Descarga de la biblioteca de cliente AMQP 1.0 JMS
 
 Para obtener información acerca de dónde descargar la versión más reciente de la biblioteca de cliente Apache Qpid JMS AMQP 1.0, visite [http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html](http://people.apache.org/~rgodfrey/qpid-java-amqp-1-0-client-jms.html).
 
-Debe agregar los cuatro archivos JAR siguientes del archivo de distribución de Apache Qpid JMS AMQP 1.0 al CLASSPATH de Java cuando vaya a crear y ejecutar aplicaciones JMS con el bus de servicio:
+Debe agregar los cuatro archivos JAR siguientes del archivo de distribución de Apache Qpid JMS AMQP 1.0 al CLASSPATH de Java cuando vaya a crear y ejecutar aplicaciones JMS con el Bus de servicio:
 
 *    geronimo-jms\_1.1\_spec-1.0.jar
 *    qpid-amqp-1-0-client-[version].jar
@@ -70,20 +87,20 @@ El formato de **ConnectionURL** es el siguiente:
 
 	amqps://[username]:[password]@[namespace].servicebus.windows.net
 
-Donde [espacio de nombres], [nombre de usuario] y [contraseña] tienen los significados siguientes:
+Donde [namespace], [username] y [password] tienen los significados siguientes:
 
 <table>
   <tr>
-    <td>[espacio de nombres]</td>
-    <td>El espacio de nombres del bus de servicio obtenido del Portal de administración de Azure.</td>
+    <td>[namespace]</td>
+    <td>El espacio de nombres del Bus de servicio obtenido del Portal de administración de Azure.</td>
   </tr>
   <tr>
-    <td>[nombre de usuario]</td>
-    <td>El nombre del emisor del bus de servicio obtenido del Portal de administración de Azure.</td>
+    <td>[username]</td>
+    <td>El nombre del emisor del Bus de servicio obtenido del Portal de administración de Azure.</td>
   </tr>
   <tr>
-    <td>[contraseña]</td>
-    <td>Formulario codificado como URL de la clave del emisor del bus de servicio obtenido del Portal de administración de Azure.</td>
+    <td>[password]</td>
+    <td>Formulario codificado como URL de la clave del emisor del Bus de servicio obtenido del Portal de administración de Azure.</td>
   </tr>
 </table>
 
@@ -106,7 +123,7 @@ Por ejemplo, si la información obtenida del Portal de administración de Azure 
   </tr>
 </table>
 
-A continuación, para definir un **ConnectionFactory** llamado "SBCF", la cadena de configuración tendrá el aspecto siguiente:
+A continuación, para definir un objeto **ConnectionFactory** llamado "SBCF", la cadena de configuración tendrá el aspecto siguiente:
 
 	connectionfactory.SBCF = amqps://owner:j9VYv1q33Ea%2BcbahWsHFYnLkEzrF0yA5SAqcLNvU7KM%3D@foo.servicebus.windows.net
 
@@ -128,15 +145,15 @@ Donde [jndi\_name] y [physical\_name] tienen los significados siguientes:
   </tr>
   <tr>
     <td>[physical_name]</td>
-    <td>El nombre de la entidad del bus de servicio a la que la aplicación envía mensajes o de la que los recibe.</td>
+    <td>El nombre de la entidad del Bus de servicio a la que la aplicación envía mensajes o de la que los recibe.</td>
   </tr>
 </table>
 
-**Nota**: al recibir de una suscripción al tema del bus de servicio, el nombre físico especificado en JNDI debe ser el nombre del tema. El nombre de la suscripción se proporciona cuando la suscripción duradera se crea en el código de aplicación JMS. La [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/jj841071.aspx) proporciona más información acerca de cómo trabajar con las suscripciones a temas del bus de servicio desde JMS.
+**Nota**: al recibir de una suscripción al tema del Bus de servicio, el nombre físico especificado en JNDI debe ser el nombre del tema. El nombre de la suscripción se proporciona cuando la suscripción duradera se crea en el código de aplicación JMS. La [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/library/jj841071.aspx) proporciona más información acerca de cómo trabajar con las suscripciones a temas del bus de servicio desde JMS.
 
 ### Escritura de la aplicación JMS
 
-No hay API especiales ni opciones obligatorias al usar JMS con el bus de servicio. Sin embargo, hay una serie de restricciones que se tratarán más adelante. Como con cualquier otra aplicación JMS, el primer requisito necesario es configurar el entorno JNDI para poder resolver **ConnectionFactory** y los destinos.
+No hay API especiales ni opciones obligatorias al usar JMS con el Bus de servicio. Sin embargo, hay una serie de restricciones que se tratarán más adelante. Como con cualquier otra aplicación JMS, el primer requisito necesario es configurar el entorno JNDI para poder resolver **ConnectionFactory** y los destinos.
 
 <p><strong>Configuración de JNDI InitialContext</strong></p>
 
@@ -147,9 +164,9 @@ El entorno JNDI se configura pasando una tabla hash con información de configur
 	env.put(Context.PROVIDER_URL, "servicebus.properties"); 
 	InitialContext context = new InitialContext(env); 
 
-### Una aplicación JMS sencilla que utiliza una cola del bus de servicio
+### Aplicación JMS sencilla que usa una cola del Bus de servicio
 
-El programa de ejemplo siguiente envía JMS TextMessages a una cola de bus de servicio con el nombre lógico JNDI de QUEUE y recibe los mensajes de vuelta.
+El programa de ejemplo siguiente envía JMS TextMessages a una cola de Bus de servicio con el nombre lógico JNDI de QUEUE y recibe los mensajes de vuelta.
 
 	// SimpleSenderReceiver.java
 	
@@ -265,11 +282,11 @@ Al ejecutar la aplicación se obtienen resultados del tipo:
 
 ##Mensajería de diferentes plataformas entre JMS y .NET
 
-Esta guía le ha mostrado cómo enviar y recibir mensajes con el bus de servicio como origen y destino usando JMS. Sin embargo, una de las ventajas principales de AMQP 1.0 es que permite que las aplicaciones estén formadas por componentes escritos en diferentes lenguajes, a la vez que garantiza que los mensajes se intercambien con total seguridad y fidelidad.
+Esta guía le ha mostrado cómo enviar y recibir mensajes con el Bus de servicio como origen y destino usando JMS. Sin embargo, una de las ventajas principales de AMQP 1.0 es que permite que las aplicaciones estén formadas por componentes escritos en diferentes lenguajes, a la vez que garantiza que los mensajes se intercambien con total seguridad y fidelidad.
 
-Utilizando la aplicación JMS de ejemplo descrita anteriormente y una aplicación .NET similar tomada de la guía complementaria  [Uso de la API de .NET con el bus de servicio .NET y AMQP 1.0](http://aka.ms/lym3vk), es posible intercambiar mensajes entre .NET y Java. 
+Utilizando la aplicación JMS de ejemplo descrita anteriormente y una aplicación .NET similar tomada de la guía complementaria [Uso de la API de .NET con el bus de servicio .NET y AMQP 1.0](http://aka.ms/lym3vk), es posible intercambiar mensajes entre .NET y Java. 
 
-Para obtener más información acerca de la mensajería entre diferentes plataformas utilizando el bus de servicio y AMQP 1.0, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/jj841071.aspx).
+Para obtener más información acerca de la mensajería entre distintas plataformas mediante el Bus de servicio y AMQP 1.0, consulte la [Guía para desarrolladores sobre AMQP 1.0 del Bus de servicio](http://msdn.microsoft.com/library/jj841071.aspx)
 
 ### De JMS a .NET
 
@@ -304,7 +321,7 @@ Para comprobar cómo funciona la mensajería de .NET a JMS:
 
 * Inicie la aplicación de ejemplo .NET con el argumento de línea de comandos "sendonly". De esta manera, la aplicación no recibirá mensajes de la cola, sino que solo los enviará.
 * Inicie la aplicación de ejemplo Java sin argumentos de línea de comandos.
-* Presione **Entrar** unas cuantas veces en la consola de la aplicación Java para enviar los mensajes.
+* Presione **Entrar** unas cuantas veces en la consola de la aplicación .NET para enviar los mensajes.
 * Estos mensajes los recibe la aplicación Java.
 
 <p><strong>Resultados de la aplicación .NET</strong></p>
@@ -328,24 +345,26 @@ Para comprobar cómo funciona la mensajería de .NET a JMS:
 
 ##Características no admitidas y restricciones
 
-Existen las restricciones siguientes al usar JMS sobre AMQP 1.0 con el bus de servicio, a saber:
+Existen las restricciones siguientes al usar JMS sobre AMQP 1.0 con el Bus de servicio, a saber:
 
-* Solo se admiten **MessageProducer** o **MessageConsumer** por **Sesión**. Si tiene que crear varios elementos **MessageProducers** o **MessageConsumers** en una aplicación, cree una **sesión** para cada uno de ellos.
-* Actualmente no se admiten las suscripciones a temas volátiles.
-Actualmente no se admiten elementos * **MessageSelectors**.
-* Actualmente no se admiten destinos temporales como **TemporaryQueue** o **TemporaryTopic**, junto con las API **QueueRequestor** y **TopicRequestor** que los usan.
+* Solo se permite un elemento **MessageProducer** o **MessageConsumer** por cada **sesión**. Si tiene que crear varios elementos **MessageProducers** o **MessageConsumers** en una aplicación, cree una **sesión** dedicada para cada uno de ellos.
+* Actualmente no se admiten las suscripciones a temas volátiles. Tampoco se admiten
+* **MessageSelectors**.
+* Actualmente no se admiten destinos temporales, como **TemporaryQueue** y **TemporaryTopic**, junto con las API **QueueRequestor** y **TopicRequestor** que los usan.
 * No se admiten las sesiones de transacción ni las transacciones distribuidas.
 
 ##Resumen
 
-En esta guía de instrucciones se indica cómo usar las características de mensajería asíncrona del bus de servicio (colas y publicación/suscripción a temas) desde Java utilizando las populares JMS API y AMQP 1.0.
+En esta guía de instrucciones se indica cómo usar las características de mensajería asíncrona del Bus de servicio (colas y publicación/suscripción a temas) desde Java utilizando las populares JMS API y AMQP 1.0.
 
-También puede utilizar AMQP 1.0 del bus de servicio desde otros lenguajes, como .NET, C, Python y PHP. Los componentes creados utilizando estos lenguajes pueden intercambiar mensajes con seguridad y fidelidad gracias a la compatibilidad de AMQP 1.0 en el bus de servicio. Para obtener más información, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/jj841071.aspx).
+También puede utilizar AMQP 1.0 del Bus de servicio desde otros lenguajes, como .NET, C, Python y PHP. Los componentes creados utilizando estos lenguajes pueden intercambiar mensajes con seguridad y fidelidad gracias a la compatibilidad de AMQP 1.0 en el bus de servicio. Para obtener más información, consulte la [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/library/jj841071.aspx).
 
 ##Más información
 
-* [Compatibilidad de AMQP 1.0 en el bus de servicio de Azure](http://aka.ms/pgr3dp)
-* [Uso de AMQP 1.0 con la API .NET del bus de servicio](http://aka.ms/lym3vk)
-* [Guía para desarrolladores sobre AMQP 1.0 del bus de servicio](http://msdn.microsoft.com/es-es/library/windowsazure/jj841071.aspx)
-* [Utilización de las colas del bus de servicio](http://www.windowsazure.com/es-es/develop/net/how-to-guides/service-bus-queues/)
+* [Compatibilidad de AMQP 1.0 en el Bus de servicio de Azure](http://aka.ms/pgr3dp)
+* [Uso de AMQP 1.0 con la API .NET del Bus de servicio](http://aka.ms/lym3vk)
+* [Guía para desarrolladores sobre AMQP 1.0 del Bus de servicio](http://msdn.microsoft.com/library/jj841071.aspx)
+* [Utilización de las colas del Bus de servicio](http://azure.microsoft.com/develop/net/how-to-guides/service-bus-queues/)
 
+
+<!--HONumber=47-->

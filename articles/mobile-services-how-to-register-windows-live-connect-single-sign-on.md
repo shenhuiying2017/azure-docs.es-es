@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Registro para inicio de sesión único - Servicios móviles de Azure" 
 	description="Obtenga información acerca de cómo registrarse para la autenticación de inicio de sesión único en la aplicación de Servicios móviles de Azure." 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -20,13 +20,13 @@
 
 En este tema se explica cómo registrar la aplicación con la Tienda Windows para poder usar Live Connect para el inicio de sesión único como el proveedor de identidades de Servicios móviles de Azure. Este paso también es necesario para usar notificaciones de inserción.
 
-> [AZURE.IMPORTANT] No es necesario que registre la aplicación con la Tienda Windows para poder usar la cuenta Microsoft para la autenticación antes de publicar la aplicación. Cuando la aplicación de la Tienda Windows no requiere inicio de sesión único o notificaciones de inserción, puede simplemente registrar la aplicación con Live Connect para usar un inicio de sesión de la cuenta Microsoft.  Para obtener más información, consulte [Registro de sus aplicaciones de la Tienda Windows para usar un inicio de sesión de la cuenta Microsoft](/es-es/develop/mobile/how-to-guides/register-for-microsoft-authentication).
+> [AZURE.IMPORTANT] No es necesario que registre la aplicación con la Tienda Windows para poder usar la cuenta Microsoft para la autenticación antes de publicar la aplicación. Cuando la aplicación de la Tienda Windows no requiere inicio de sesión único o notificaciones de inserción, puede simplemente registrar la aplicación con Live Connect para usar un inicio de sesión de la cuenta Microsoft.  Para obtener más información, consulte [Registro de sus aplicaciones de la Tienda Windows para usar un inicio de sesión de la cuenta Microsoft](/develop/mobile/how-to-guides/register-for-microsoft-authentication).
 
 1. Si aún no ha registrado la aplicación, vaya a la página [Enviar una aplicación] en el Centro de desarrollo de aplicaciones de la Tienda Windows, inicie sesión en su cuenta Microsoft y, a continuación, haga clic en **Nombre de la aplicación**.
 
    	![][0]
 
-2. Escriba el nombre de la aplicación en **Nombre de la aplicación**, haga clic en **Reservar nombre de aplicación** y luego en **Guardar**.
+2. Escriba el nombre de la aplicación en **Nombre de la aplicación**, haga clic en **Reservar nombre de aplicación** y, a continuación, haga clic en **Guardar**..
 
    	![][1]
 
@@ -40,7 +40,7 @@ En este tema se explica cómo registrar la aplicación con la Tienda Windows par
 
    	Se muestra el asistente para **asociar la aplicación con la Tienda Windows**.
 
-5. En el asistente, haga clic en **Iniciar sesión** y, a continuación, inicie sesión con su cuenta Microsoft.
+5. En el asistente, haga clic en **Iniciar sesión** y, a continuación, inicie sesión con su cuenta de Microsoft.
 
 6. Seleccione la aplicación que ha registrado en el paso 2, haga clic en **Siguiente** y luego en **Asociar**.
 
@@ -81,15 +81,14 @@ Ahora está preparado para integrar la autenticación a su aplicación mediante 
 
 
 <!-- URLs. -->
-[Inicio de sesión único para aplicaciones de la Tienda Windows mediante Live Connect]: /es-es/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Inicio de sesión único para aplicaciones de la Tienda Windows mediante Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started
-[Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-dotnet
-[Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Autorización de usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
-[JavaScript y HTML]: /es-es/develop/mobile/tutorials/get-started-with-users-js/
+[Introducción a los Servicios móviles]: /develop/mobile/tutorials/get-started
+[Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-dotnet/
+[Autorización de usuarios con scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet/
+[JavaScript y HTML]: /develop/mobile/tutorials/get-started-with-users-js/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

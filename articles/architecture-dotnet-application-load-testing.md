@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Patrón de prueba de carga de aplicación - Patrones de arquitectura de Azure" 
 	description="Encuentre información general de arquitectura y patrones de diseño que describan cómo implementar un sistema de pruebas de carga en Azure." 
 	services="" 
@@ -18,7 +18,7 @@
 
 # Prueba de carga en Azure
 
-El servicio de prueba de carga basado en la nube puede probar la carga de sus aplicaciones web. Use Visual Studio para crear una prueba de carga a fin de determinar la capacidad y el rendimiento de su aplicación web; no es necesario usar sus máquinas virtuales de Azure. En vez de eso, puede dejar que el [servicio de prueba de carga basado en la nube](http://tfs.visualstudio.com/es-es/learn/load-testing) las cree por usted.
+El servicio de prueba de carga basado en la nube puede probar la carga de sus aplicaciones web. Use Visual Studio para crear una prueba de carga a fin de determinar la capacidad y el rendimiento de su aplicación web; no es necesario usar sus máquinas virtuales de Azure. En vez de eso, puede dejar que el [servicio de prueba de carga basado en la nube](http://tfs.visualstudio.com/learn/load-testing) las cree por usted.
 
 <!--links-->
 
@@ -29,8 +29,6 @@ El servicio de prueba de carga basado en la nube puede probar la carga de sus ap
 <!--images-->
 
 
- 
 
-<!--HONumber=35.2-->
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

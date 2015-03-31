@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Habilitación de Google Cloud Messaging" 
 	description="Siga este tutorial para crear un nuevo servicio mediante los Servicios móviles de Azure." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -31,12 +31,11 @@ Ahora ya puede usar el valor de esta clave de API para habilitar servicios para 
 
 
 <!-- URLs. -->
-[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-android-get-started-push/
+[Introducción a las notificaciones de inserción]: /documentation/articles/mobile-services-javascript-backend-android-get-started-push/
 [Visual Studio 2012 Express para Windows Phone]: https://go.microsoft.com/fwLink/p/?LinkID=268374
-[SDK de servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=268375
+[SDK de Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [Portal de administración]: https://manage.windowsazure.com/
-[Versión para el back-end de .NET]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
+[Versión para el back-end de .NET]: /documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

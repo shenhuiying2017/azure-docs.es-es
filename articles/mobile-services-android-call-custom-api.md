@@ -1,6 +1,21 @@
-﻿<properties writer="ricksal" pageTitle="Llamada a una API personalizada desde un cliente Android | Centro de desarrollado móvil" description="Obtenga información acerca de cómo definir una API personalizada y, a continuación, llamarla desde una aplicación Android que utiliza Servicios móviles de Azure." services="mobile-services" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties 
+	writer="ricksal" 
+	pageTitle="Llamada a una API personalizada desde un cliente Android | Centro de desarrollado móvil" 
+	description="Obtenga información acerca de cómo definir una API personalizada y, a continuación, llamarla desde una aplicación Android que utiliza Servicios móviles de Azure." 
+	services="mobile-services" 
+	documentationCenter="android" 
+	authors="RickSaling" 
+	manager="dwrede" 
+	editor=""/>
 
-<tags ms.service="mobile-services" ms.workload="mobile" ms.tgt_pltfrm="Mobile-Android" ms.devlang="Java" ms.topic="article" ms.date="10/16/2014" ms.author="ricksal,glenga"/>
+<tags 
+	ms.service="mobile-services" 
+	ms.workload="mobile" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="ricksal,glenga"/>
 
 # Llamada a una API personalizada desde el cliente
 
@@ -10,16 +25,12 @@ En este tema se muestra cómo realizar una llamada a una API personalizada desde
 
 La API personalizada que se creó en este tema le ofrece la posibilidad de enviar una sola solicitud POST que establece la marca  *completed* en  `true` para todos los elementos de la tabla del servicio móvil. Sin esta API personalizada, el cliente tendría que enviar consultas individuales para actualizar la marca para cada elemento todo en la tabla.
 
-Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el tutorial [Introducción a los Servicios móviles] o [Introducción a los datos]. Para hacer esto, debe completar los siguientes pasos:
-
-1. [Definición de la API personalizada]
-2. [Actualización de la aplicación para llamar a la API personalizada]
-3. [Prueba de la aplicación] 
+Podrá agregar esta funcionalidad a la aplicación que creó cuando completó el tutorial de [Introducción a los Servicios móviles] o de [Introducción a los datos]. 
 
 
->[AZURE.NOTE] Si desea ver el código fuente de la aplicación finalizada, haga clic <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/CallCustomApi/Android" target="_blank">aquí</a>.
+>[AZURE.NOTE] Si desea ver el código fuente de la aplicación final, vaya <a href="https://github.com/RickSaling/mobile-services-samples/tree/futures/CallCustomApi/Android" target="_blank">aquí</a>.
 
-##Requisitos previos
+## Requisitos previos
 
 [AZURE.INCLUDE [mobile-services-android-prerequisites](../includes/mobile-services-android-prerequisites.md)]
 
@@ -37,8 +48,8 @@ Ahora que ha creado una API personalizada y la llamó desde su aplicación de An
 
 
 
-* [Referencia del script de servidor de Servicios móviles]
-  <br/>Más información acerca de la creación de API personalizadas.
+* [Referencia del script del servidor de servicios móviles]
+  <br/>Obtenga más información sobre cómo crear API personalizadas.
 
 * [Almacenamiento de scripts de servidor en control de fuente]
   <br/> Aprenda a usar la característica de control de código fuente para desarrollar y publicar código script de API personalizadas de manera más fácil y segura.
@@ -51,14 +62,13 @@ Ahora que ha creado una API personalizada y la llamó desde su aplicación de An
 
 <!-- URLs. -->
 [SDK de Android para Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkID=280126
-[Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Referencia del script del servidor de servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
 [Panel Mis aplicaciones]: http://go.microsoft.com/fwlink/?LinkId=262039
-[Introducción a los Servicios móviles]: /es-es/documentation/articles/mobile-services-android-get-started/
-[Introducción a los datos]: /es-es/documentation/articles/mobile-services-android-get-started-data/
-[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-android-get-started-users/
-[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-android-get-started-push/
+[Introducción a los Servicios móviles]: /documentation/articles/mobile-services-android-get-started/
+[Introducción a los datos]: /documentation/articles/mobile-services-android-get-started-data/
+[Introducción a la autenticación]: /documentation/articles/mobile-services-android-get-started-users/
+[Introducción a las notificaciones de inserción]: /documentation/articles/mobile-services-android-get-started-push/
 
-[Almacenamiento de scripts de servidor en control de fuente]: /es-es/documentation/articles/mobile-services-store-scripts-source-control
+[Almacenamiento de scripts de servidor en control de fuente]: /documentation/articles/mobile-services-store-scripts-source-control
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

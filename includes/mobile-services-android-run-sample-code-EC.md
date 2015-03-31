@@ -10,9 +10,9 @@
 	>
 	> Para ejecutar el proyecto en el emulador de Android, debe definir por lo menos un dispositivo virtual Android (AVD). Use el administrador AVD para crear y administrar estos dispositivos.
 
-3. En la aplicación, escriba texto con sentido, como _Realice el tutorial_ y luego haga clic en **Agregar**.
+3. En la aplicación, escriba un texto significativo, como "Realice el tutorial" y, a continuación, haga clic en **Agregar**.
 
    	![](./media/download-android-sample-code/mobile-quickstart-startup-android.png)
 
    	Tenga en cuenta que el texto guardado se almacena en una colección de la memoria y se muestra en la lista de abajo.
-<!--HONumber=45--> 
+<!--HONumber=47-->

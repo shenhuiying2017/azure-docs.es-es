@@ -2,19 +2,15 @@
 
 1. En Visual Studio 2013, abra el Explorador de soluciones, haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows, haga clic en **Agregar** y, a continuación, haga clic en **Notificación de inserción...**. 
 
-	![Add Push Notification wizard in Visual Studio 2013](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png)
+	![Add Push Notification wizard in Visual Studio 2013](./media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013.png)
 
 	De este modo, se inicia el Asistente para agregar notificaciones de inserción.
 
 2. Haga clic en **Siguiente**, inicie sesión en su cuenta de la Tienda Windows, proporcione un nombre en **Reservar un nombre nuevo** y haga clic en **Reservar**.
 
-	![Select an app name in the Add Push Notification wizard](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-2.png) 
-
 	Se crea un nuevo registro de aplicaciones.
 
 3. Haga clic en el nuevo registro en la lista **Nombre de aplicación** y, a continuación, en **Siguiente**.
-
-	![mobile-add-push-notifications-vs2013-3](../includes/media/mobile-services-create-new-push-vs2013/mobile-add-push-notifications-vs2013-3.png)
 
 4. En la página **Seleccionar un servicio** y haga clic en el nombre del servicio móvil. A continuación, haga clic en **Siguiente** y en **Finalizar**. 
 
@@ -24,10 +20,11 @@
 
 5. Al completar el asistente, se abre la página **La configuración de las inserciones casi se ha completado** en Visual Studio. En esta página se incluyen detalles sobre un método alternativo con el fin configurar el proyecto de servicio móvil para enviar notificaciones que difiere de este tutorial. 
 
-	>[AZURE.NOTE]El código que el Asistente para agregar notificaciones de inserción agrega a su solución de aplicación de Windows es específico de la plataforma. Más adelante en esta sección, quitará esta redundancia al compartir el código del cliente de Servicios móviles, lo que facilita el mantenimiento de la aplicación universal.  
+	El código que el Asistente para agregar notificaciones de inserción agrega a su solución de aplicación de Windows es específico de la plataforma. Más adelante en esta sección, quitará esta redundancia al compartir el código del cliente de Servicios móviles, lo que facilita el mantenimiento de la aplicación universal.  
 
 <!-- URLs. -->
-[Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/
-[Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-dotnet/
-[Importación del archivo publishsettings en Visual Studio 2013]: /es-es/documentation/articles/mobile-services-windows-how-to-import-publishsettings/
-<!--HONumber=42-->
+[Introducción a los Servicios móviles]: /develop/mobile/tutorials/get-started/
+[Introducción a los datos]: /develop/mobile/tutorials/get-started-with-data-dotnet/
+[Importación del archivo publishsettings en Visual Studio 2013]: /documentation/articles/mobile-services-windows-how-to-import-publishsettings/
+
+<!--HONumber=47-->

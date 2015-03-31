@@ -1,7 +1,7 @@
 ﻿
 ##<a name="update-app"></a>Actualización de la aplicación para llamar a la API personalizada
 
-1. Agregaremos un botón llamado "Complete All" al lado del botón existente y moveremos ambos botones una línea hacia abajo. En Eclipse, abra el archivo *res\layout\activity_to_do.xml* en su proyecto de inicio rápido y busque el elemento **LinearLayout** que contiene el elemento **Button** llamado  `buttonAddToDo`. Copie **LinearLayout** y péguelo inmediatamente después del original. Elimine el elemento **Button** del primer **LinearLayout**.
+1. Agregaremos un botón llamado "Complete All" al lado del botón existente y moveremos ambos botones una línea hacia abajo. En Android Studio, abra el archivo  *res\layout\activity_to_do.xml* en su proyecto de inicio rápido, encuentre el elemento **LinearLayout** que contiene el elemento **Button** denominado `buttonAddToDo`. Copie **LinearLayout** y péguelo inmediatamente después del original. Elimine el elemento **Button** del primer **LinearLayout**.
 
 2. En el segundo **LinearLayout**, elimine el elemento **EditText** y agregue el siguiente código inmediatamente después del elemento **Button** existente: 
 
@@ -42,7 +42,7 @@
 
 
 
-5. En el Explorador de paquetes, haga clic con el botón secundario en el nombre del proyecto en la carpeta  *src* (`com.example.{your projects name}`), seleccione **New** y, a continuación, **Class**. En el cuadro de diálogo, escriba **MarkAllResult** en el campo de nombre de clase, seleccione OK y reemplace la definición de clase resultante por el siguiente código:
+5. En el Explorador de proyectos, haga clic con el botón secundario en el nombre del proyecto de la carpeta  *src* (`com.example.{your projects name}`), elija **Nueva** y, a continuación, en **Clase**. En el cuadro de diálogo, escriba **MarkAllResult** en el campo de nombre de clase, seleccione OK y reemplace la definición de clase resultante por el siguiente código:
 
 		import com.google.gson.annotations.SerializedName;
 		
@@ -97,7 +97,7 @@
 
 ## Prueba de la aplicación
 
-1. Haga clic en la opción **Ejecutar**, haga clic en **Ejecutar** para iniciar el proyecto en el emulador de Android.
+1. En el menú **Ejecutar**, haga clic en **Ejecutar aplicación** para iniciar el proyecto en el emulador de Android o en un dispositivo Android conectado.
 
 	De este modo se ejecuta su aplicación, que se ha creado con el SDK de Android, y se usa la biblioteca del cliente para enviar una consulta que devuelve los elementos desde su servicio móvil.
 
@@ -111,4 +111,4 @@
   	![](./media/mobile-services-android-call-custom-api/mobile-custom-api-android-completed.png)
 
 	Aparece un cuadro de diálogo de mensaje que indica el número de elementos marcados como completos y la consulta filtrada se vuelve a ejecutar, con lo que se borran todos los elementos de la lista.
-\<!--HONumber=42-->
+<!--HONumber=47-->

@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -26,17 +26,16 @@ La autenticación administrada por clientes se puede usar para brindar una exper
 
 [AZURE.INCLUDE [mobile-services-register-windows-store-app](../includes/mobile-services-register-windows-store-app.md)]
 
-Después de haber registrado el paquete de aplicación, recuerde que debe proporcionar un valor de <strong>true</strong> para el <em>useSingleSignOn</em> cuando llama al método <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a>. Con esto se ofrece a los usuarios una mejor experiencia de inicio de sesión cuando usan una cuenta Microsoft.
+Después de haber registrado el paquete de la aplicación, recuerde proporcionar un valor de <strong>true</strong> para el parámetro <em>useSingleSignOn</em> cuando llame al método <a href="http://go.microsoft.com/fwlink/p/?LinkId=311594" target="_blank">LoginAsync</a> . Con esto se ofrece a los usuarios una mejor experiencia de inicio de sesión cuando usan una cuenta Microsoft.
 
 <!-- Anchors. -->
 <!-- Images. -->
 
 
 <!-- URLs. -->
-[Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-dotnet/
-[Autenticación de una aplicación de la Tienda Windows con el inicio de sesión único de Live Connect]: /es-es/develop/mobile/tutorials/single-sign-on-windows-8-dotnet
-[Introducción a usuarios de C#]: /es-es/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Introducción a usuarios de JavaScript]: /es-es/develop/mobile/tutorials/get-started-with-users-js/
+[Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-dotnet/
+[Autenticación de una aplicación de la Tienda Windows con el inicio de sesión único de Live Connect]: /develop/mobile/tutorials/single-sign-on-windows-8-dotnet
+[Introducción a usuarios de C#]: /develop/mobile/tutorials/get-started-with-users-dotnet/
+[Introducción a usuarios de JavaScript]: /develop/mobile/tutorials/get-started-with-users-js/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

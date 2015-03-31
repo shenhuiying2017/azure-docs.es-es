@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas
@@ -41,11 +41,11 @@ Hay tres fases principales para configurar este entorno de prueba de nube híbri
 2.	Configuración de la versión de prueba de Office 365 FastTrack.
 3.	Configuración del servidor DirSync (DS1).
 
-Si todavía no dispone de una suscripción a Azure, puede registrarse para una prueba gratuita en [Probar Azure](http://www.windowsazure.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si todavía no dispone de una suscripción a Azure, puede registrarse para una prueba gratuita en [Probar Azure](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ##Fase 1: Configuración del entorno de nube híbrida
 
-Utilice las instrucciones del tema [Configuración de un entorno de nube híbrida para pruebas](../virtual-networks-setup-hybrid-cloud-environment-testing/). Dado que este entorno de prueba no requiere la presencia del servidor APP1 en la subred de la red corporativa, no dude en cerrarlo por ahora.
+Utilice las instrucciones del tema [Configuración de un entorno de nube híbrida para pruebas](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Dado que este entorno de prueba no requiere la presencia del servidor APP1 en la subred de la red corporativa, no dude en cerrarlo por ahora.
 
 Esta es su configuración actual.
 
@@ -78,9 +78,9 @@ Esta es su configuración actual.
 
 En primer lugar, cree una máquina virtual de Azure de DS1 con estos comandos en el símbolo del sistema de Azure PowerShell en el equipo local. Antes de ejecutar estos comandos, introduzca los valores de las variables y quite los caracteres < y >.
 
-	$ServiceName="<The cloud service name for your TestVNET virtual network>"
+	$ServiceName="<The cloud service name for your TestVNET virtual network>"	
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DS1 -InstanceSize Medium -ImageName $image
@@ -96,7 +96,7 @@ A continuación, conéctese a la máquina virtual de DS1.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan credenciales, utilice estas:
 	- Nombre: **CORP\User1**
-	- Contraseña:  [Contraseña de la cuenta User1]
+	- Contraseña: [Contraseña de la cuenta User1]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto que haga referencia a certificados, haga clic en **Sí**.
 
 A continuación, configure una regla del Firewall de Windows para permitir el tráfico para probar la conectividad básica. Desde un símbolo del sistema de Windows PowerShell con nivel de administrador en DS1, ejecute estos comandos.
@@ -128,7 +128,7 @@ A continuación, habilite la sincronización de directorios de la versión de pr
 4.	Cuando se le pregunte **¿Desea activar la sincronización de Active Directory?**, haga clic en **Activar**. Después de hacer esto, aparece **se ha activado la sincronización de Active Directory** en el paso 3.
 5.	Deje la página **Configuración y administración de la sincronización de Active Directory** abierta en CLIENT1.
 
-A continuación, inicie sesión en DC1 con la cuenta CORP\User1 y abra un símbolo del sistema de Windows PowerShell con nivel de administrador. Ejecute estos comandos para crear una nueva unidad organizativa denominada contoso_users y agregue dos cuentas de usuario nuevas para Marci Kaufman y Lynda Meyer.
+A continuación, inicie sesión en DC1 con la cuenta CORP\User1 y abra un símbolo del sistema de Windows PowerShell con nivel de administrador. Ejecute estos comandos uno por uno para crear una nueva unidad organizativa denominada contoso_users y agregue dos cuentas de usuario nuevas para Marci Kaufman y Lynda Meyer.
 
 	New-ADOrganizationalUnit -Name contoso_users -Path "DC=corp,DC=contoso,DC=com"
 	New-ADUser -SamAccountName marcik -AccountPassword (Read-Host "Set user password" -AsSecureString) -name "Marci Kaufman" -enabled $true -PasswordNeverExpires $true -ChangePasswordAtLogon $false -Path "OU=contoso_users,DC=corp,DC=contoso,DC=com"
@@ -186,5 +186,6 @@ Este entorno ya está preparado para realizar pruebas de aplicaciones de Office 
 
 [Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
+[Configuración de un entorno de nube híbrida simulado para pruebas](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

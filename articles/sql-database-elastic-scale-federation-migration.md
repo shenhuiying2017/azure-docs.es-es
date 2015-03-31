@@ -1,6 +1,20 @@
-﻿<properties title="Federations Migration" pageTitle="Migración de federaciones" description="Describe los pasos para migrar una aplicación existente basada con la característica Federaciones al modelo de Escalado elástico." metaKeywords="sharding scaling, federations, Azure SQL DB sharding, Elastic Scale" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh"/>
+﻿<properties 
+	pageTitle="Migración de federaciones" 
+	description="Describe los pasos para migrar una aplicación existente creada con la característica Federaciones al modelo de Escalado elástico." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="Joseidz" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="11/30/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/16/2015" 
+	ms.author="Joseidz@microsoft.com"/>
 
 #Migración de federaciones 
 
@@ -8,22 +22,22 @@ La característica Federaciones de Base de datos SQL de Azure se retirará en se
 
 Hay tres pasos importantes para la migración de una aplicación de Federaciones existente a una que usa API de Escalado elástico.
 
-1. [Creación de un administrador de mapa de particiones desde una raíz de federación] 
+1. [Creación de un Administrador de asignación de particiones desde una raíz de federación] 
 2. [Modificación de la aplicación existente]
 3. [Desactivación de los miembros de una federación existente]
     
 
 ### La herramienta de migración de ejemplo
-Para ayudar en este proceso, se creó una [utilidad de Migración de federaciones](http://go.microsoft.com/?linkid=9862613) . La utilidad realiza los pasos 1 y 3. 
+Para ayudar en este proceso, se creó una [utilidad de Migración de federaciones](http://go.microsoft.com/?linkid=9862613). La utilidad realiza los pasos 1 y 3. 
 
-## <a name="create-shard-map-manager"></a>Creación de un administrador de mapa de particiones desde una raíz de federación
+## <a name="create-shard-map-manager"></a>Creación de un Administrador de asignación de particiones desde una raíz de federación
 El primer paso para migrar una aplicación de Federaciones es clonar los metadatos de una raíz de federación a las construcciones de un administrador de mapa de particiones. 
 
 ![Clone the federation root to the shard map manager][1]
  
 Comience con una aplicación de Federaciones existente en un entorno de prueba.
  
-Use la **utilidad de Migración de federaciones** para clonar los metadatos de raíz de federación en las construcciones del [Administrador de mapas de particiones](http://go.microsoft.com/?linkid=9862595) de escalado elástico. Análoga a una raíz de federación, la base de datos del Administrador de mapa de partición es una base de datos independiente que contiene los mapas de particiones (es decir, las federaciones), referencias a particiones (es decir, miembros de la federación) y las asignaciones de intervalos respectivas. 
+Use la **utilidad de Migración de federaciones** para clonar los metadatos raíz de federación en las construcciones del [Administrador de asignación de particiones](http://go.microsoft.com/?linkid=9862595) de Escalado elástico. Análoga a una raíz de federación, la base de datos del Administrador de mapa de partición es una base de datos independiente que contiene los mapas de particiones (es decir, las federaciones), referencias a particiones (es decir, miembros de la federación) y las asignaciones de intervalos respectivas. 
 
 La clonación de la raíz de federación en el Administrador de mapa de particiones es una copia y una traducción de los metadatos. En la raíz de federación no se altera ningún metadato. Tenga en cuenta que la clonación de la raíz de federación con la utilidad Migración de federaciones es una operación que se realiza en un momento específico y cualquier cambio en la raíz de federación o en los mapas de particiones no se reflejará en los demás almacenes de datos respectivos. Si se realizan cambios en la raíz de federación durante las pruebas de las nuevas API, es posible usar la utilidad Migración de federaciones para actualizar los mapas de particiones para que representen el estado actual. 
 
@@ -38,7 +52,7 @@ Durante la migración de la aplicación, se deberá realizar dos modificaciones 
 
 #### Cambio 1: crear una instancia de un objeto del Administrador de mapa de particiones: 
 
-A diferencia de Federaciones, las API de Escalado elástico interactúan con el Administrador de mapa de particiones a través de la clase **ShardMapManager**. La creación de instancias de un objeto **ShardMapManager** y un mapa de particiones se puede hacer de la siguiente manera:
+A diferencia de las federaciones, las API de Escalado elástico interactúan con el Administrador de asignación de particiones a través de la clase **ShardMapManager**. La creación de instancias de un objeto **ShardMapManager** y un mapa de particiones se puede hacer de la siguiente manera:
      
     //Instantiate ShardMapManger Object 
     ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(
@@ -51,7 +65,7 @@ Con Federaciones, se establece una conexión a un miembro de federación en espe
 
     USE FEDERATION CustomerFederation(cid=100) WITH RESET, FILTERING=OFF`
 
-Con las API de Escalado elástico, se establece una conexión a una partición determinada a través del [enrutamiento dependiente de los datos](./sql-database-elastic-scale-data-dependent-routing.md) con el método **OpenConnectionForKey** en la clase **RangeShardMap**. 
+Con las API de Escalado elástico, una conexión a una partición determinada se establece a través de [enrutamiento dependiente de los datos](./sql-database-elastic-scale-data-dependent-routing.md) Con el método **OpenConnectionForKey** en la clase **RangeShardMap**. 
 
     //Connect and issue queries on the shard with key=100 
     using (SqlConnection conn = rangeShardMap.OpenConnectionForKey(100, csb))  
@@ -74,9 +88,9 @@ Los pasos de esta sección son necesarios, pero es probable que no aborden todos
 
 ![Switch out the federation members for the shards][3]
 
-Una vez que se ha modificado la aplicación con la inclusión de las API de Escalado elástico, el último paso de la migración de una aplicación de Federaciones es desactivar (**SWITCH OUT**) a los miembros de la federación (para obtener más información, consulte la referencia de MSDN para [ALTER FEDERATION (Base de datos SQL de Azure](http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx)). El resultado final de emitir **SWITCH OUT** contra un miembro de federación determinado es la eliminación de todas las restricciones de la federación y los metadatos que presentan al miembro de la federación como una Base de datos SQL de Azure normal, no diferente de ninguna otra Base de datos SQL de Azure.  
+Una vez que se ha modificado la aplicación con la inclusión de las API de Escalado elástico, el último paso de la migración de una aplicación de Federaciones es emitir **SWITCH OUT** para los miembros de la federación (para obtener más información, consulte la referencia de MSDN para [ALTER FEDERATION (Base de datos SQL de Azure](http://msdn.microsoft.com/library/dn269988(v=sql.120).aspx)). El resultado final de emitir **SWITCH OUT** contra un miembro de federación determinado es la eliminación de todas las restricciones de la federación y los metadatos que presentan al miembro de la federación como una Base de datos SQL de Azure normal, no diferente de ninguna otra Base de datos SQL de Azure.  
 
-Tenga en cuenta que emitir **SWITCH OUT** contra un miembro de federación es una operación unidireccional y no se puede deshacer. Una vez que se realiza, la base de datos resultante no se puede volver a agrear a una federación y los comandos USE FEDERATION dejarán de funcionar para esta base de datos. 
+Tenga en cuenta que la emisión de **SWITCH OUT** contra un miembro de la federación es una operación irreversible y no se puede deshacer. Una vez que se realiza, la base de datos resultante no se puede volver a agrear a una federación y los comandos USE FEDERATION dejarán de funcionar para esta base de datos. 
 
 Para realizar el cambio, se ha agregado un argumento adicional al comando ALTER FEDERATION para así poder emitir SWITCH OUT sobre un miembro de una federación.  A pesar de que el comando se puede emitir contra miembros individuales de la Federación, la utilidad Migración de federaciones proporciona la funcionalidad para iterar de manera programática a través de cada miembro de federación y realizar la operación de cambio. 
 
@@ -115,7 +129,7 @@ Produce el mismo resultado que:
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 
 <!--Anchors-->
-[Creación de un administrador de mapa de particiones desde una raíz de federación]:#create-shard-map-manager
+[Creación de un Administrador de asignación de particiones desde una raíz de federación]:#create-shard-map-manager
 [Modificación de la aplicación existente]:#Modify-the-Existing-Application
 [Desactivación de los miembros de una federación existente]:#Switch-Out-Existing-Federation-members
 
@@ -125,4 +139,4 @@ Produce el mismo resultado que:
 [2]: ./media/sql-database-elastic-scale-federation-migration/migrate-2.png
 [3]: ./media/sql-database-elastic-scale-federation-migration/migrate-3.png
 
-<!--HONumber=35.1-->
+<!--HONumber=47-->

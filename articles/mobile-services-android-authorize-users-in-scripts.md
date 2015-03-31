@@ -1,7 +1,7 @@
-<properties 
+﻿<properties 
 	pageTitle="Autorización en el servicio (Android) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo autorizar a los usuarios en el back-end de JavaScript de Servicios móviles de Azure." 
-	services="" 
+	services="mobile-services" 
 	documentationCenter="android" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,8 +10,8 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
 	ms.date="09/29/2014" 
 	ms.author="glenga"/>
@@ -33,7 +33,7 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
 
    	![][0]
 
-2. Haga clic en la pestaña **Datos** y luego haga clic en la tabla **TodoItem**.
+2. Haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**.
 
    	![][1]
 
@@ -47,8 +47,10 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
           item.userId = user.userId;    
           request.execute();
         }
- Este script agrega un valor userId al elemento, que es el identificador de usuario del usuario autenticado, antes de que se inserte en la tabla TodoItem. 
- > [AZURE.NOTE] El esquema dinámico debe habilitarse la primera vez que se ejecute este script de inserción. Al tener habilitado dicho esquema, Servicios móviles agrega automáticamente la columna **userId** a la tabla **TodoItem** en la primera ejecución. El esquema dinámico está habilitado de forma predeterminada para un nuevo servicio móvil y debe deshabilitarse antes de publicar la aplicación en la Tienda Windows.
+
+    Este script agrega un valor userId al elemento, que es el identificador de usuario del usuario autenticado, antes de que se inserte en la tabla TodoItem. 
+
+    > [AZURE.NOTE] El esquema dinámico debe habilitarse la primera vez que se ejecute este script de inserción. Al tener habilitado dicho esquema, Servicios móviles agrega automáticamente la columna **userId** a la tabla **TodoItem** en la primera ejecución. El esquema dinámico está habilitado de forma predeterminada para un nuevo servicio móvil y debe deshabilitarse antes de publicar la aplicación en la Tienda Windows.
 
 
 5. Repita los pasos 3 y 4 para reemplazar la operación **Read** existente por la siguiente función:
@@ -56,23 +58,23 @@ Puesto que la aplicación de inicio rápido lee e inserta datos, tiene que regis
         function read(query, user, request) {
            query.where({ userId: user.userId });    
            request.execute();
-        }}
+        }
 
    	Este script filtra los objetos TodoItem devueltos de manera que cada usuario solo recibe los elementos que inserte.
 
 ## Prueba de la aplicación
 
-1. En Eclipse, abra el proyecto que ha modificado al completar el tutorial [Introducción a la autenticación].
+1. En Android Studio, abra el proyecto que modificó al completar el tutorial [Introducción a la autenticación].
 
-2. En el menú **Run** (Ejecutar), haga clic en **Run** (Ejecutar) para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido. 
+2. En el menú **Run (Ejecutar)**, haga clic en **Run (Ejecutar)** para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido. 
 
    	Tenga en cuenta que esta vez, aunque existan elementos ya en la tabla TodoItem de tutoriales anteriores, no se devuelven elementos. Esto ocurre porque se insertaron elementos anteriores sin la columna userID y ahora cuentan con valores nulos.
 
-3. En la aplicación, escriba texto en **Insertar TodoItem** y, a continuación, haga clic en **Guardar**.
+3. En la aplicación, escriba un texto en **Insert a TodoItem** y, a continuación, haga clic en **Save**.
 
    	De esta forma, se inserta tanto el texto como el userId en la tabla TodoItem en el servicio móvil. Puesto que el nuevo elemento cuenta con un valor userID correcto, el servicio móvil lo devuelve y se muestra en la segunda columna.
 
-5. De vuelta en la tabla **todoitem** del [Portal de administración][Portal de administración de Azure], haga clic en **Examinar** y compruebe que cada elemento recién agregado tiene ahora un valor de userId asociado.
+5. De vuelta en la tabla **todoitem** del [Portal de administración][Portal de administración de Azure], haga clic en **Examinar** y compruebe que los elementos recién agregados tienen ahora un valor userId asociado.
 
 6. (Opcional) Si dispone de cuentas de inicio de sesión adicionales, puede comprobar que los usuarios pueden solo ver sus propios datos si cierran la aplicación y, a continuación, la vuelven a ejecutar. Cuando se muestre el cuadro de diálogo de credenciales de inicio de sesión, especifique un inicio de sesión distinto y, a continuación, compruebe que no se muestran los elementos especificados en la cuenta anterior.
 
@@ -83,14 +85,14 @@ Este es el último tutorial que muestra los aspectos básicos relacionados con e
 * [Introducción a los datos]
   <br/>Obtenga más información sobre cómo almacenar y consultar datos con los Servicios móviles.
 
-* [Introducción a las notificaciones de inserción]
-  <br/>Aprenda cómo enviar una notificación de inserción muy básica a la aplicación.
+* [Introducción a las notificaciones de inserción] 
+  <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
-* [Referencia del script de servidor de Servicios móviles]
+* [Referencia del script del servidor de servicios móviles]
   <br/>Obtenga más información acerca del registro y del uso de scripts de servidor.
 
 <!-- Anchors. -->
-[Registro de scripts de servidor]: #register-scripts
+[Registrar scripts de servidor]: #register-scripts
 [Pasos siguientes]:#next-steps
 
 <!-- Images. -->
@@ -100,14 +102,13 @@ Este es el último tutorial que muestra los aspectos básicos relacionados con e
 
 
 <!-- URLs. -->
-[Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=262293
+[Referencia del script del servidor de servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=262293
 [Panel Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-android
-[Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-android
-[Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-android
-[Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-android
+[Introducción a los Servicios móviles]: /develop/mobile/tutorials/get-started-android
+[Introducción a los datos]: /develop/mobile/tutorials/get-started-with-data-android
+[Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-android
+[Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-android
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

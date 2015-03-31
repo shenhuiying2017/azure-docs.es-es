@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Granja de servidores SharePoint" 
 	description="Describe la nueva característica Granja de servidores de SharePoint disponible en el Portal de vista previa de Azure." 
 	services="virtual-machines" 
@@ -13,10 +13,10 @@
 	ms.tgt_pltfrm="vm-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="03/04/2015" 
 	ms.author="josephd"/>
 
-#Granja de servidores SharePoint#
+#Granja de servidores SharePoint
 
 Con Granja de servidores SharePoint, el portal de Microsoft Azure en vista previa crea automáticamente una granja de servidores SharePoint Server 2013 preconfigurados. Esto puede suponer un importante ahorro de tiempo si necesita una granja de SharePoint básica o de alta disponibilidad para un entorno de desarrollo y pruebas, o si va a evaluar SharePoint Server 2013 como solución de colaboración para su organización.
 
@@ -32,7 +32,7 @@ La granja de servidores de SharePoint de alta disponibilidad consta de nueve má
 
 Use esta configuración de granja para probar cargas de cliente más altas, la alta disponibilidad del sitio externo de SharePoint y la característica AlwaysOn de SQL Server para una granja de SharePoint. También puede usar esta configuración para el desarrollo de aplicaciones de SharePoint en un entorno de alta disponibilidad.
  
-Para obtener los detalles de configuración de ambas granjas, consulte [Detalles de configuración de una granja de servidores SharePoint](../virtual-machines-sharepoint-farm-config-azure-preview/).
+Para obtener los detalles de configuración de ambas granjas, consulte[Detalles de configuración de una granja de servidores SharePoint](../virtual-machines-sharepoint-farm-config-azure-preview/).
 
 ##Configuración paso a paso##
 
@@ -87,9 +87,8 @@ Granja de servidores SharePoint utiliza el Administrador de recursos de Azure y 
 
 [SharePoint en los servicios de infraestructura de Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
+[Detalles de configuración de una granja de servidores de SharePoint](../virtual-machines-sharepoint-farm-config-azure-preview/)
+
 [Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](http://azure.microsoft.com/documentation/articles/virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

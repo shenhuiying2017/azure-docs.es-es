@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Uso de grupos de recursos para administrar los recursos de Azure" 
 	description="Agrupe varios recursos como grupo lógico que se convierte en el límite del ciclo de vida de los recursos que contiene." 
 	services="multiple" 
@@ -86,6 +86,4 @@ Puesto que los grupos de recursos le permiten administrar el ciclo de vida de to
 
 ![](http://i.imgur.com/ZTXoISb.png)
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

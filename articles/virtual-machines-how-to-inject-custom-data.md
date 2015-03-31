@@ -75,7 +75,4 @@ Si la máquina virtual de Azure es una imagen de Ubuntu, entonces puede usar clo
 [Interfaz de la línea de comandos entre plataformas de Microsoft Azure](https://github.com/Azure/azure-sdk-tools-xplat)
 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

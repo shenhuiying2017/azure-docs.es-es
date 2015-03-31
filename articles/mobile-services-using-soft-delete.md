@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Uso de la eliminación temporal en Servicios móviles (Tienda Windows) | Centro de desarrollo móvil" 
 	description="Aprenda a usar la característica de eliminación temporal de Servicios móviles de Azure en su aplicación." 
 	documentationCenter="" 
@@ -10,17 +10,19 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/19/2015" 
 	ms.author="wesmc"/>
 
 # Uso de la eliminación temporal en Servicios móviles
 
-Las tablas creadas con el back-end de JavaScript o de .NET pueden tener habilitada opcionalmente la eliminación temporal. Al usar la eliminación temporal, una nueva columna llamada *__deleted* de [tipo de bit de SQL] se agrega a la base de datos. Con la eliminación temporal habilitada, una operación de eliminación no elimina físicamente filas de la base de datos, sino que establece el valor de la columna eliminada en TRUE.
+## Información general
 
-Al consultar registros en una tabla con la eliminación temporal habilitada, las filas eliminadas no se devuelven de forma predeterminada en la consulta. Para solicitar estas filas, debe pasar un parámetro de consulta *__includeDeleted=true* en la [operación de consulta REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). En el SDK de cliente para .NET, también puede usar el método auxiliar  `IMobileServiceTable.IncludeDeleted()`.
+Las tablas creadas con el back-end de JavaScript o de .NET pueden tener habilitada opcionalmente la eliminación temporal. Al usar la eliminación temporal, una nueva columna llamada *\__deleted* de [tipo de bit de SQL] se agrega a la base de datos. Con la eliminación temporal habilitada, una operación de eliminación no elimina físicamente filas de la base de datos, sino que establece el valor de la columna eliminada en TRUE.
+
+Al consultar registros en una tabla con la eliminación temporal habilitada, las filas eliminadas no se devuelven de forma predeterminada en la consulta. Para solicitar estas filas, debe pasar un parámetro de consulta *\__includeDeleted=true* en la [operación de consulta REST](http://msdn.microsoft.com/library/azure/jj677199.aspx). En el SDK de cliente para .NET, también puede usar el método auxiliar  `IMobileServiceTable.IncludeDeleted()`.
 
 La compatibilidad con la eliminación temporal en el back-end de .NET se publicó por primera vez en la versión 1.0.402 del back-end de .NET de Servicios móviles de Microsoft Azure. Los últimos paquetes de NuGet están disponibles aquí, [Back-end de .NET de Servicios móviles de Microsoft Azure.](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -34,16 +36,9 @@ Sin embargo, los registros eliminados temporalmente ocupan espacio en la base de
 
 
 
-Resumen de este tema:
-
-1. [Habilitación de la eliminación temporal para el back-end de .NET]
-2. [Habilitación de la eliminación temporal para el back-end de JavaScript]
-3. [Uso de la eliminación temporal con el back-end de .NET] 
-4. [Uso de la eliminación temporal con el back-end de JavaScript] 
 
 
-
-## <a name="enable-for-dotnet"></a>Habilitación de la eliminación temporal para el back-end de .NET
+## Habilitación de la eliminación temporal para el back-end de .NET
 
 La compatibilidad con la eliminación temporal en el back-end de .NET se publicó por primera vez en la versión 1.0.402 del back-end de .NET de Servicios móviles de Microsoft Azure. Los últimos paquetes de NuGet están disponibles aquí, [Back-end de .NET de Servicios móviles de Microsoft Azure.](http://go.microsoft.com/fwlink/?LinkId=513165).
 
@@ -52,7 +47,7 @@ Los siguientes pasos le indican cómo habilitar la eliminación temporal para un
 1. Abra el proyecto del servicio móvil de back-end de .NET en Visual Studio.
 2. Haga clic con el botón derecho en el proyecto del back-end de .NET y haga clic en **Administrar paquetes de NuGet**. 
 3. En el cuadro de diálogo del administrador de paquetes, haga clic en **Nuget.org** debajo de las actualizaciones e instale la versión 1.0.402 o posterior de los paquetes de NuGet, [Back-end de .NET de Servicios móviles de Microsoft Azure](http://go.microsoft.com/fwlink/?LinkId=513165).
-3. En el Explorador de soluciones de Visual Studio, expanda el nodo **Controladores** debajo del proyecto del back-end de .NET y abra su origen de controlador. Por ejemplo,  *TodoItemController.cs*.
+3. En el Explorador de soluciones de Visual Studio, expanda el nodo **Controladores** debajo del proyecto del back-end de .NET y abra su origen de controlador. Por ejemplo, *TodoItemController.cs*.
 4. En el método  `Initialize()` de su controlador, pase el parámetro  `enableSoftDelete: true` al constructor EntityDomainManager.
 
         protected override void Initialize(HttpControllerContext controllerContext)
@@ -63,7 +58,7 @@ Los siguientes pasos le indican cómo habilitar la eliminación temporal para un
         }
 
 
-## <a name="enable-for-javascript"></a>Habilitación de la eliminación temporal para el back-end de JavaScript
+## Habilitación de la eliminación temporal para el back-end de JavaScript
 
 Si va a crear una nueva tabla para su servicio móvil, puede habilitar la eliminación temporal en la página de creación de la tabla.
 
@@ -72,11 +67,11 @@ Si va a crear una nueva tabla para su servicio móvil, puede habilitar la elimin
 Para habilitar la eliminación temporal en una tabla existente en el back-end de JavaScript, siga estos pasos:
 
 1. En el [Portal de administración], haga clic en su servicio móvil. Luego, haga clic en la pestaña Datos.
-2. En la página de datos, haga clic para seleccionar la tabla deseada. Luego haga clic en el botón **Habilitar eliminación temporal** de la barra de comandos. Si la tabla ya se ha habilitado para la eliminación temporal, este botón no aparecerá pero podrá ver la columna *__deleted* al hacer clic en la pestaña **Examinar** o **Columnas** de la tabla.
+2. En la página de datos, haga clic para seleccionar la tabla deseada. Luego haga clic en el botón **Habilitar eliminación temporal** de la barra de comandos. Si la tabla ya se ha habilitado para la eliminación temporal, este botón no aparecerá pero podrá ver la columna *\__deleted* al hacer clic en la pestaña **Examinar** o **Columnas** de la tabla.
 
     ![][0]
 
-    Para deshabilitar la eliminación temporal en su tabla, haga clic en la pestaña **Columnas** y luego haga clic en la columna *__deleted* y en el botón **Eliminar**.  
+    Para deshabilitar la eliminación temporal en su tabla, haga clic en la pestaña **Columnas** y luego haga clic en la columna *\__deleted* y en el botón **Eliminar**.  
 
     ![][1]
 
@@ -101,22 +96,20 @@ El siguiente trabajo programado purga los registros eliminados temporalmente que
             Services.Log.Info("Purging old records");
             var monthAgo = DateTimeOffset.UtcNow.AddDays(-30);
      
-            var toDelete = context.TodoIte
-	ms.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
-            context.TodoIte
-	ms.RemoveRange(toDelete);
+            var toDelete = context.TodoItems.Where(x => x.Deleted == true && x.UpdatedAt <= monthAgo).ToArray();
+            context.TodoItems.RemoveRange(toDelete);
             context.SaveChanges();
      
             return Task.FromResult(true);
         }
     }
 
-Para obtener información sobre los trabajos programados con Servicios móviles para el back-end de .NET, consulte: [Programación de trabajos periódicos con los Servicios móviles de back-end de JavaScript](/es-es/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
+Para obtener información sobre los trabajos programados con Servicios móviles para el back-end de .NET, consulte: [Programación de trabajos recurrente con Servicios móviles para el back-end de JavaScript](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/) 
 
 
 
 
-## <a name="using-with-javascript"></a>Uso de la eliminación temporal con el back-end de JavaScript
+## Uso de la eliminación temporal con el back-end de JavaScript
 
 Los scripts de tabla se usan para agregar lógica en torno a la característica de eliminación temporal con Servicios móviles para el back-end de JavaScript.
 
@@ -125,7 +118,7 @@ Para detectar una solicitud de recuperación, use la propiedad "undelete" en el 
     function update(item, user, request) {
         if (request.undelete) { /* any undelete specific code */; }
     }
-To include deleted records in query result in a script, set the "includeDeleted" parameter to true:
+Para incluir los registros eliminados en el resultado de consulta de un script, establezca el parámetro "includeDeleted" en true:
     
     tables.getTable('softdelete_scenarios').read({
         includeDeleted: true,
@@ -152,16 +145,11 @@ Este es un trabajo programado de ejemplo que elimina los registros que se actual
         }});
     }
 
-Para obtener información sobre los trabajos programados con Servicios móviles para el back-end de JavaScript, consulte: [Programación de trabajos periódicos con Servicios móviles de back-end de JavaScript ](/es-es/documentation/articles/mobile-services-schedule-recurring-tasks/).
+Para obtener información sobre los trabajos programados con Servicios móviles para el back-end de JavaScript, consulte: [Programación de trabajos recurrente con Servicios móviles para el back-end de JavaScript](/documentation/articles/mobile-services-schedule-recurring-tasks/).
 
 
 
 
-<!-- Anchors. -->
-[Habilitación de la eliminación temporal para el back-end de .NET]: #enable-for-dotnet
-[Habilitación de la eliminación temporal para el back-end de JavaScript]: #enable-for-javascript
-[Uso de la eliminación temporal con el back-end de .NET]: #using-with-dotnet
-[Uso de la eliminación temporal con el back-end de JavaScript]: #using-with-javascript
 
 <!-- Images -->
 [0]: ./media/mobile-services-using-soft-delete/enable-soft-delete-button.png
@@ -169,11 +157,10 @@ Para obtener información sobre los trabajos programados con Servicios móviles 
 [2]: ./media/mobile-services-using-soft-delete/enable-soft-delete-new-table.png
 
 <!-- URLs. -->
-[Tipo de bit SQL]: http://msdn.microsoft.com/library/ms177603.aspx
-[Sincronización para Servicios móviles de datos sin conexión]: /es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
+[tipo de bit de SQL]: http://msdn.microsoft.com/library/ms177603.aspx
+[Sincronización de datos sin conexión para Servicios móviles]: /documentation/articles/mobile-services-windows-store-dotnet-get-started-offline-data/
 [Portal de administración]: https://manage.windowsazure.com/
 
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

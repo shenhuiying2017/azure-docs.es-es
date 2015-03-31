@@ -1,5 +1,5 @@
 ﻿
-1. En el Explorador de paquetes de Eclipse, abra el archivo ToDoActivity.java y agregue las siguientes instrucciones de importación.
+1. En el **Explorador de proyectos** en Android Studio, abra el archivo ToDoActivity.java y agregue las siguientes instrucciones de importación.
 
 		import java.util.concurrent.ExecutionException;
 		import java.util.concurrent.atomic.AtomicBoolean;
@@ -13,25 +13,25 @@
 
 2. Agregue el método siguiente a la clase **ToDoActivity**: 
 	
-	private void authenticate() {
-	    // Login using the Google provider.
-	    
-		ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
-
-    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
-    		@Override
-    		public void onFailure(Throwable exc) {
-    			createAndShowDialog((Exception) exc, "Error");
-    		}   		
-    		@Override
-    		public void onSuccess(MobileServiceUser user) {
-    			createAndShowDialog(String.format(
-                        "You are now logged in - %1$2s",
-                        user.getUserId()), "Success");
-    			createTable();	
-    		}
-    	});   	
-	}
+		private void authenticate() {
+		    // Login using the Google provider.
+		    
+			ListenableFuture<MobileServiceUser> mLogin = mClient.login(MobileServiceAuthenticationProvider.Google);
+	
+	    	Futures.addCallback(mLogin, new FutureCallback<MobileServiceUser>() {
+	    		@Override
+	    		public void onFailure(Throwable exc) {
+	    			createAndShowDialog((Exception) exc, "Error");
+	    		}   		
+	    		@Override
+	    		public void onSuccess(MobileServiceUser user) {
+	    			createAndShowDialog(String.format(
+	                        "You are now logged in - %1$2s",
+	                        user.getUserId()), "Success");
+	    			createTable();	
+	    		}
+	    	});   	
+		}
 
 
 	De este modo se crea un método para administrar el proceso de autenticación. El usuario se autentica mediante el inicio de sesión en Google. Aparecerá un diálogo que muestra el identificador del usuario autenticado. No puede continuar sin una autenticación positiva.
@@ -44,7 +44,7 @@
 
 	De este modo se llama al proceso de autenticación.
 
-4. Mueva el código restante situado detrás de `authenticate();` del método **onCreate** a un nuevo método **createTable** cuyo aspecto es el siguiente:
+4. Mueva el código restante situado detrás de "authenticate();" del método **onCreate** a un nuevo método **createTable**cuyo aspecto es el siguiente:
 
 		private void createTable() {
 	
@@ -62,7 +62,7 @@
 			refreshItemsFromTable();
 		}
 
-9. En el menú **Run (Ejecutar)**, haga clic en **Run (Ejecutar)** para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido. 
+9. En el menú **Ejecutar**, haga clic en **Ejecutar aplicación** para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido. 
 
    	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
-\<!--HONumber=42-->
+<!--HONumber=47-->

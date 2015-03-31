@@ -1,47 +1,47 @@
-<properties pageTitle="Habilitaci&oacute;n de aplicaciones h&iacute;bridas extendiendo la nube y las instalaciones" metaKeywords="Service Bus, Cloud, Hybrid" description="Aprenda a crear aplicaciones h&iacute;bridas que se extienden entre la nube y las instalaciones." services="service-bus" documentationCenter=".NET" title="Habilitaci&oacute;n de aplicaciones h&iacute;bridas extendiendo la nube y las instalaciones" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Habilitación de aplicaciones híbridas extendiendo la nube y las instalaciones" 
+	description="Aprenda a crear aplicaciones híbridas que se extienden entre la nube y las instalaciones." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
 # Habilitación de aplicaciones híbridas extendiendo la nube y las instalaciones
 
 Las aplicaciones en la nube o locales híbridas son una realidad de los entornos de TI modernos. Bus de servicio le ayuda a sacar provecho a los activos locales existentes y crear soluciones fiables y seguras para aumentar y expandir la infraestructura actual.
 
-[Creación de una aplicación híbrida local o en la nube .NET usando Retransmisión de bus de servicio][Creación de una aplicación híbrida local o en la nube .NET usando Retransmisión de bus de servicio]
+[Crear una aplicación híbrida en la nube/local .NET mediante la retransmisión del Bus de servicio](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-hybrid-app-using-service-bus-relay/)
 
 ## Exploración
 
--   [Retransmisión de bus de servicio][Retransmisión de bus de servicio]
--   [Mensajería retransmitida y asíncrona][Mensajería retransmitida y asíncrona]
+- [Retransmisión de Bus de servicio](http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-relay/)
+- [Mensajes retransmitidos e indirectos](http://msdn.microsoft.com/library/azure/hh367519.aspx)
 
 ## Creación
 
--   [Uso de Retransmisión de bus de servicio (vídeo y ejemplo de código)][Uso de Retransmisión de bus de servicio (vídeo y ejemplo de código)]
--   [Integración de un sitio web de Windows Azure con una aplicación mediante Retransmisión de bus de servicio][Integración de un sitio web de Windows Azure con una aplicación mediante Retransmisión de bus de servicio]
--   [Replicación geográfica con mensajes retransmitidos de Bus de servicio][Replicación geográfica con mensajes retransmitidos de Bus de servicio]
--   [Integración de un servicio móvil con un servicio Retransmisión de bus de servicio REST][Integración de un servicio móvil con un servicio Retransmisión de bus de servicio REST]
-
+- [Uso de la retransmisión de Bus de servicio (vídeo y código de ejemplo)](http://appfabricdemos.codeplex.com/releases/view/67597)
+- [Cómo integrar un sitio web de Azure con una aplicación LOB mediante la retransmisión del bus de servicio](http://code.msdn.microsoft.com/windowsazure/How-to-integrate-a-Windows-f1fedff8) 
+- [Replicación geográfica con mensajes retransmitidos de Bus de servicio](http://code.msdn.microsoft.com/windowsazure/Geo-replication-with-16dbfecd)
+- [Integración de un servicio móvil con un servicio Retransmisión de Bus de servicio REST](http://blogs.msdn.com/b/paolos/archive/2013/07/09/how-to-integrate-a-mobile-service-with-a-rest-service-bus-relay-service.aspx)
+ 
 ## Popular
-
--   [P+F de precios de Bus de servicio][P+F de precios de Bus de servicio]
--   [Referencia de la API de REST de Bus de servicio][Referencia de la API de REST de Bus de servicio]
--   [Suscribirse a una prueba gratuita de Azure][Suscribirse a una prueba gratuita de Azure]
-
+- [P+F de precios de Bus de servicio](http://msdn.microsoft.com/library/Hh667438.aspx)
+- [Referencia de la API de REST de Bus de servicio](http://msdn.microsoft.com/library/hh780717.aspx)
+- [Suscribirse a una prueba gratuita de Azure](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A85619ABF)
+ 
 ## Servicios relacionados
+- [Servicios de BizTalk](http://azure.microsoft.com/services/biztalk-services/)
+- [Servicios móviles](http://azure.microsoft.com/services/mobile-services/)
+- [Servicios en la nube](http://azure.microsoft.com/services/cloud-services/) 
 
--   [Servicios de BizTalk][Servicios de BizTalk]
--   [Servicios móviles][Servicios móviles]
--   [Servicios en la nube][Servicios en la nube]
-
-  [Creación de una aplicación híbrida local o en la nube .NET usando Retransmisión de bus de servicio]: http://azure.microsoft.com/es-es/documentation/articles/cloud-services-dotnet-hybrid-app-using-service-bus-relay/
-  [Retransmisión de bus de servicio]: http://azure.microsoft.com/es-es/documentation/articles/service-bus-dotnet-how-to-use-relay/
-  [Mensajería retransmitida y asíncrona]: http://msdn.microsoft.com/es-es/library/azure/hh367519.aspx
-  [Uso de Retransmisión de bus de servicio (vídeo y ejemplo de código)]: http://appfabricdemos.codeplex.com/releases/view/67597
-  [Integración de un sitio web de Windows Azure con una aplicación mediante Retransmisión de bus de servicio]: http://code.msdn.microsoft.com/windowsazure/How-to-integrate-a-Windows-f1fedff8
-  [Replicación geográfica con mensajes retransmitidos de Bus de servicio]: http://code.msdn.microsoft.com/windowsazure/Geo-replication-with-16dbfecd
-  [Integración de un servicio móvil con un servicio Retransmisión de bus de servicio REST]: http://blogs.msdn.com/b/paolos/archive/2013/07/09/how-to-integrate-a-mobile-service-with-a-rest-service-bus-relay-service.aspx
-  [P+F de precios de Bus de servicio]: http://msdn.microsoft.com/library/windowsazure/Hh667438.aspx
-  [Referencia de la API de REST de Bus de servicio]: http://msdn.microsoft.com/library/windowsazure/hh780717.aspx
-  [Suscribirse a una prueba gratuita de Azure]: http://azure.microsoft.com/es-es/pricing/free-trial/?WT.mc_id=A85619ABF
-  [Servicios de BizTalk]: http://azure.microsoft.com/es-es/services/biztalk-services/
-  [Servicios móviles]: http://azure.microsoft.com/es-es/services/mobile-services/
-  [Servicios en la nube]: http://azure.microsoft.com/es-es/services/cloud-services/
+<!--HONumber=47-->

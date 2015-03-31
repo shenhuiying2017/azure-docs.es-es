@@ -1,32 +1,48 @@
-<properties pageTitle="Introducción a los Centros de eventos" metaKeywords="Bus de servicio de Azure, Centro de eventos, introducción a los Centros de eventos" description="Siga este tutorial para empezar a usar eventos de envío de centros de eventos de Azure con Java y recibirlos en un clúster de Apache Storm" metaCanonical="" services="" documentationCenter="" title="Get Started with Event Hubs" authors="elioda" solutions="" manager="timlt" editor="" />
+<properties 
+	pageTitle="Introducción a los Centros de eventos" 
+	description="Siga este tutorial para empezar a usar eventos de envío de centros de eventos de Azure con Java y recibirlos en un clúster de Apache Storm" 
+	services="service-bus" 
+	documentationCenter="" 
+	authors="fsautomata" 
+	manager="timlt" 
+	editor=""/>
 
-<tags ms.service="service-bus" ms.workload="core" ms.tgt_pltfrm="java" ms.devlang="java" ms.topic="hero-article" ms.date="10/27/2014" ms.author="elioda" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="core" 
+	ms.tgt_pltfrm="java" 
+	ms.devlang="java" 
+	ms.topic="hero-article" 
+	ms.date="1/13/2015" 
+	ms.author="sethm"/>
 
-# <a name="getting-started"> </a>Introducción a los Centros de eventos
+# Introducción a los Centros de eventos
 
-[WACOM.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
+[AZURE.INCLUDE [service-bus-selector-get-started](../includes/service-bus-selector-get-started.md)]
 
-Centros de eventos es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez que se recopilan los datos en los Centros de eventos, puede transformar y almacenar los datos con cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
+## Introducción
 
-Para obtener más información, consulte [Información general de los Centros de eventos].
+Centros de eventos es un sistema de recopilación de alta escalabilidad que puede recibir millones de eventos por segundo, habilitando una aplicación para procesar y analizar las grandes cantidades de datos generados por las aplicaciones y los dispositivos conectados. Una vez recopilados en los Centros de eventos, puede transformar y almacenar los datos usando cualquier proveedor de análisis en tiempo real o clúster de almacenamiento.
+
+Para obtener más información, consulte [Información general sobre Centros de eventos][Información general de los Centros de eventos].
 
 En este tutorial, obtendrá información sobre cómo introducir mensajes en un Centro de eventos mediante una aplicación de consola en Java y cómo recuperarlos en paralelo mediante Apache Storm.
 
-Para completar este tutorial necesitará lo siguiente:
+Para completar este tutorial, necesitará lo siguiente:
 
 + Un entorno de desarrollo de Java configurado para ejecutar [Maven](http://maven.apache.org/). Para este tutorial, asumimos que vamos a trabajar con [Eclipse](https://www.eclipse.org/).
 
-+ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/es-es/pricing/free-trial/?WT.mc_id=A0E0E5C02&returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Evaluación gratuita de Azure</a>.
++ Una cuenta de Azure activa. <br/>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fes-es%2Fdevelop%2Fmobile%2Ftutorials%2Fget-started%2F" target="_blank">Prueba gratuita de Azure</a>.
 
-## Creación de un centro de eventos
+## Creación de un Centro de eventos
 
 1. Inicie sesión en el [Portal de administración de Azure] y haga clic en **NUEVO** en la parte inferior de la pantalla.
 
-2. Haga clic en **Servicios de aplicaciones**, en **Bus de servicio**, en **Centro de eventos** y en **Creación rápida**.
+2. Haga clic en **Servicios de aplicaciones**, **Service Bus**, **Centro de eventos** y, finalmente, en **Creación rápida**.
 
    	![][1]
 
-3. Escriba un nombre para su centro de eventos, seleccione la región deseada y, a continuación, haga clic en **Crear un centro de eventos nuevo**.
+3. Escriba un nombre para el centro de eventos, seleccione la región deseada y, a continuación, haga clic en **Crear un centro de eventos nuevo**.
 
    	![][2]
 
@@ -38,7 +54,7 @@ Para completar este tutorial necesitará lo siguiente:
 
    	![][4]
 
-6. Haga clic en la pestaña **Configurar** en la parte superior de la página, agregue una regla llamada **SendRule** con derechos *Enviar*, agregue otra regla llamada **ReceiveRule** con derechos *Escuchar* y, a continuación, haga clic en **Guardar**.
+6. Haga clic en la pestaña **Configurar** en la parte superior de la página, agregue una regla denominada **SendRule** con derechos *Send*, agregue otra regla llamada **ReceiveRule** con derechos *Listen* y, a continuación, haga clic en **Guardar**.
 
    	![][5]
 
@@ -46,30 +62,31 @@ Para completar este tutorial necesitará lo siguiente:
 
    	![][6c]
 
-Ahora ya se ha creado el Centro de eventos y ya tiene las cadenas de conexión que necesita para enviar y recibir eventos.
+Se creó el centro de eventos y cuenta con las cadenas de conexión que necesita para enviar y recibir eventos.
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-send-java](../includes/service-bus-event-hubs-get-started-send-java.md)]
+[AZURE.INCLUDE [service-bus-event-hubs-get-started-send-java](../includes/service-bus-event-hubs-get-started-send-java.md)]
 
 
-[WACOM.INCLUDE [service-bus-event-hubs-get-started-receive-storm](../includes/service-bus-event-hubs-get-started-receive-storm.md)]
+[AZURE.INCLUDE [service-bus-event-hubs-get-started-receive-storm](../includes/service-bus-event-hubs-get-started-receive-storm.md)]
 
 ## Ejecución de las aplicaciones
 
-Ahora está listo para ejecutar las aplicaciones.
+Ahora está preparado para ejecutar las aplicaciones.
 
 1.	Ejecute la clase **LogTopology** desde Eclipse y espere a que inicie los receptores para todas las particiones.
 
-2.	Ejecute el proyecto **Remitente**, presione **Entrar** en la ventana de la consola y vea los eventos que aparecen en la ventana del receptor.
+2.	Ejecute el proyecto **Remitente**, presione **Entrar** en la ventana de la consola y vea cómo los eventos aparecen en la ventana del receptor.
 
    	![][22]
 
-> [AZURE.NOTE] Solo en este tutorial, use Storm en modo local para fines de desarrollo. Consulte la [Información general de Storm en HDInsight] y la documentación oficial de [Apache Storm] para obtener información de los patrones y las implementaciones de Storm.
+> [AZURE.NOTE] Solo en este tutorial, use Storm en modo local para fines de desarrollo. Consulte la [Información general de Storm en HDinsight] y la documentación oficial de [Apache Storm] para obtener más información sobre los patrones y las implementaciones de Storm.
 
 ## Pasos siguientes
+
 Los siguientes recursos están disponibles para desarrollar aplicaciones que integran Centros de eventos y Storm.
 
-- [Análisis de los datos de sensor con Storm y HBase en HDInsight] es un escenario integral donde se usan Centros de eventos, Storm y HBase para introducir datos de sensores en un clúster de Hadoop.
-- [Desarrollo de aplicaciones de procesamiento de datos de streaming con SCP.NET y C# en Storm de HDInsight] es un tutorial donde se describe cómo escribir procesos de Storm con C#.
+- [Análisis de los datos de sensor con Storm y HBase en HDInsight] es un tutorial de escenario integral donde se usan Centros de eventos, Storm y HBase para introducir datos de sensores en un clúster de Hadoop.
+- [Desarrollo de aplicaciones de procesamiento de datos de streaming con SCP.NET y C# en Storm y HDInsight] es un tutorial donde se describe cómo escribir procesos de Storm con C#.
 
 <!-- Images. -->
 [1]: ./media/service-bus-event-hubs-getstarted/create-event-hub1.png
@@ -85,9 +102,10 @@ Los siguientes recursos están disponibles para desarrollar aplicaciones que int
 <!-- Links -->
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Host del procesador de eventos]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
-[Información general de los Centros de eventos]: http://msdn.microsoft.com/es-es/library/azure/dn836025.aspx
+[Información general de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn836025.aspx
 
 [Apache Storm]: https://storm.incubator.apache.org
-[Información general de Storm en HDinsight]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-storm-overview/
-[Análisis de los datos de sensor con Storm y HBase en HDInsight]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-storm-sensor-data-analysis/
-[Desarrollo de aplicaciones de procesamiento de datos de streaming con SCP.NET y C# en Storm de HDInsight]: http://azure.microsoft.com/es-es/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+[Información general de Storm en HDinsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-overview/
+[Análisis de los datos de sensor con Storm y HBase en HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-storm-sensor-data-analysis/
+[Desarrollo de aplicaciones de procesamiento de datos de streaming con SCP.NET y C# en Storm y HDInsight]: http://azure.microsoft.com/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/
+<!--HONumber=47-->

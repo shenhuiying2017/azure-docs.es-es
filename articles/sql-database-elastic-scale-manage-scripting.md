@@ -1,27 +1,41 @@
-﻿<properties title="Scripting Elastic Scale with Scripts" pageTitle="Scripting de Escalado elástico con scripts" description="Tareas de escala elástica de script con runbooks de PowerShell y el servicio de automatización de Azure." metaKeywords="Azure SQL Database, elastic scale, powershell scripts" services="sql-database" documentationCenter="" manager="jhubbard" authors="sidneyh@microsoft.com"/>
+<properties 
+	pageTitle="Scripting de Escalado elástico con scripts" 
+	description="Tareas de escala elástica de script con runbooks de PowerShell y el servicio de automatización de Azure." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="Joseidz" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/03/2015" 
+	ms.author="Joseidz@microsoft.com"/>
 
 # Administración de Escalado elástico con scripts
 
 
 ## Servicio de automatización de Azure 
 
-[Automatización de Azure](http://azure.microsoft.com/es-es/documentation/services/automation/) brinda un servicio de ejecución de flujo de trabajo de PowerShell poderoso y muy necesario a la plataforma de Azure. Ahora puede automatizar las tareas de mantenimiento que resultan difíciles desde dentro de la experiencia común del portal de Azure.  Simplemente cree un flujo de trabajo de PowerShell (llamado **runbook** en Automatización de Azure), cárguelo a la nube y programe cuándo desee que se ejecute el runbook. Este documento proporciona configuración de un extremo a otro de Automatización de Azure para un puñado de ejemplos de elasticidad de partición. Para obtener más información, consulte el [anuncio de vista previa](http://blogs.technet.com/b/in_the_cloud/archive/2014/04/15/announcing-the-microsoft-azure-automation-preview.aspx). O bien, puede registrarse para tener una [suscripción](https://account.windowsazure.com/PreviewFeatures?fid=automation) a Azure.
+[Automatización de Azure](http://azure.microsoft.com/documentation/services/automation/) brinda un servicio de ejecución de flujo de trabajo de PowerShell poderoso y muy necesario a la plataforma de Azure. Ahora puede automatizar las tareas de mantenimiento que resultan difíciles desde dentro de la experiencia común del portal de Azure.  Simplemente cree un flujo de trabajo de PowerShell (llamado **runbook** en Automatización de Azure), cárguelo en la nube y programe cuándo desee que se ejecute el runbook. Este documento proporciona configuración de un extremo a otro de Automatización de Azure para un puñado de ejemplos de elasticidad de partición. Para obtener más información, consulte el [anuncio de vista previa](http://blogs.technet.com/b/in_the_cloud/archive/2014/04/15/announcing-the-microsoft-azure-automation-preview.aspx). O bien, puede registrarse para obtener una [suscripción](https://account.windowsazure.com/PreviewFeatures?fid=automation) a Azure.
 
-En este ejemplo, Automatización de Azure se usa como el marco de trabajo de programación y ejecución de la carga de trabajo. Piense en Automatización de Azure como su [Agente SQL en la nube](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/). 
+En este ejemplo, Automatización de Azure se usa como el marco de trabajo de programación y ejecución de la carga de trabajo. Considere la Automatización de Azure como su [Agente SQL en la nube](http://azure.microsoft.com/blog/2014/06/26/azure-automation-your-sql-agent-in-the-cloud/). 
 
 Además de este documento, presentamos otros recursos:
 
-* [Introducción a la automatización de Azure](http://azure.microsoft.com/es-es/documentation/articles/automation-create-runbook-from-samples/)
-* [Paso a paso: Introducción a la NUEVA característica de vista previa de Automatización de Microsoft Azure](http://blogs.technet.com/b/keithmayer/archive/2014/04/04/step-by-step-getting-started-with-windows-azure-automation.aspx) 
-* [Automatización de Microsoft Azure](http://blogs.technet.com/b/cbernier/archive/2014/04/08/microsoft-azure-automation.aspx) 
-* Formule preguntas específicas sobre Automatización de Azure en el [foro sobre Automatización](http://social.msdn.microsoft.com/Forums/windowsazure/en-US/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).  
+* [Introducción a la Automatización de Azure](http://azure.microsoft.com/documentation/articles/automation-create-runbook-from-samples/)
+* [Paso a paso: Introducción a la NUEVA característica de vista previa Automatización de Microsoft Azure](http://blogs.technet.com/b/keithmayer/archive/2014/04/04/step-by-step-getting-started-with-windows-azure-automation.aspx) 
+* [Automatización de Microsoft Azure](http://blogs.technet.com/b/cbernier/archive/2014/04/08/microsoft-azure-automation.aspx)
+* Formule preguntas específicas sobre Automatización de Azure en el [foro de Automatización](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc).  
 
 
 ## Requisitos previos
 
-[Suscríbase](http://azure.microsoft.com/es-es/services/preview/) y [familiarícese](http://azure.microsoft.com/es-es/documentation/articles/automation-create-runbook-from-samples/) con el servicio de vista previa de Automatización de Microsoft Azure. 
+[Suscríbase](http://azure.microsoft.com/services/preview/) y [familiarícese](http://azure.microsoft.com/documentation/articles/automation-create-runbook-from-samples/) con el servicio de vista previa de Automatización de Microsoft Azure. 
 
 
 ## Archivos de PowerShell de elasticidad de partición
@@ -32,7 +46,7 @@ Estos ejemplos ilustran cómo usar los módulos de ejemplo de PowerShell para re
 
 **SetupShardedEnvironment.ps1**: este runbook de PowerShell realiza una configuración única de un entorno particionado completo con un administrador de mapa de particiones y un mapa de particiones de intervalos. 
 
-**ProvisionByDate.ps1**: aprovisiona una base de datos nueva antes de la carga de trabajo del día siguiente. Se crea la base de datos con nombre basada en la marca de fecha (AAAAMMDD) y se registra con el administrador de mapa de particiones como un intervalo [AAAAMMDD, AAAAMMDD + 1D). 
+**ProvisionByDate.ps1**: aprovisiona una base de datos nueva antes de la carga de trabajo del día siguiente. Se crea la base de datos y se nombra según la marca de fecha (AAAAMMDD) y se registra con el administrador de mapas de particiones como un intervalo [AAAAMMDD, AAAAMMDD + 1D). 
 
 **ProvisionBySize.ps1**: aprovisiona una base de datos nueva cuando la base de datos actual queda sin capacidad. 
 
@@ -48,31 +62,31 @@ Estos ejemplos ilustran cómo usar los módulos de ejemplo de PowerShell para re
 
 ## Costos
 
-Tenga en cuenta que la ejecución de los scripts de ejemplo de PowerShell generará la creación de bases de datos que significarán costes reales para el propietario de la suscripción. Las bases de datos de Base de datos SQL de Azure subyacentes se [cobrarán a una tarifa](http://azure.microsoft.com/es-es/pricing/details/sql-database/) no distinta a la de otra base de datos de Base de datos SQL de Azure.  A partir del 1° de noviembre, los costos son: 
+Tenga en cuenta que la ejecución de los scripts de ejemplo de PowerShell generará la creación de bases de datos que significarán costes reales para el propietario de la suscripción. Las bases de datos de Base de datos SQL de Azure subyacentes se [cobrarán a una tarifa](http://azure.microsoft.com/pricing/details/sql-database/) no distinta a la de otra base de datos de Base de datos SQL de Azure.  A partir del 1° de noviembre, los costos son: 
 
-* El runbook SetupShardedEnvironment crea el administrador de mapa de particiones en una base de datos básica (US$0,0069/hora) y aprovisiona también la primera partición en una base de datos básica (US0,0069/hora). 
+* El runbook SetupShardedEnvironment crea el administrador de mapas de particiones en una base de datos básica (US$0,0069/hora) y aprovisiona también la primera partición en una base de datos básica (US0,0069/hora). 
 
 * Tanto el runbook ProvisionBySize como el runbook ProvisionByDate aprovisionarán una base de datos S0 estándar (US$0,0208/hora).  Para contrarrestrar estos costos, si se ejecutan en conjunto con el runbook ReduceServiceTier, el nivel de servicio de la base de datos recién aprovisionada se reducirá desde un S0 estándar (US$0,0208/hora) a una básica (US$0,0069/hora) después del plazo de un día. 
 
-Por último, dentro del ámbito de los ejemplos proporcionados, el uso de [Automatización de Azure](http://azure.microsoft.com/es-es/pricing/details/automation/) actualmente no cobrará ningún cargo al propietario de la suscripción.  Consulte la [página de precios de Automatización de Azure](http://azure.microsoft.com/es-es/pricing/details/automation/) para obtener más detalles. 
+Por último, dentro del ámbito de los ejemplos proporcionados, el uso de [Automatización de Azure](http://azure.microsoft.com/pricing/details/automation/) actualmente no cobrará ningún cargo al propietario de la suscripción.  Consulte la [página de precios de Automatización de Azure](http://azure.microsoft.com/pricing/details/automation/) para obtener más información. 
 
 ## Carga de los runbooks 
 
-1. Descargue el archivo **ShardElasticity.zip** y extraiga el contenido.
-2. [Agregue referencias a los archivos binarios de Escalado elástico usando NuGet.](./sql-database-elastic-scale-add-references-visual-studio.md)
+1. Descargue el archivo **ShardElasticity.zip** y extraiga su contenido.
+2. [Incorporación de referencias a los binarios de Escalado elástico mediante NuGet](./sql-database-elastic-scale-add-references-visual-studio.md)
 3. Encuentre el binario de cliente de Escalado elástico (**Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll**).
 4. Coloque el DLL en la carpeta ShardElasticityModule y comprima la carpeta. 
 3. En la cuenta de Automatización de Azure, cargue el archivo ShardElasticityModule.zip como un **recurso**. 
-4. En Automatización de Azure, cree una **credencial de recurso** llamada *ElasticScaleCredential* que contiene el nombre de usuario y la contraseña para el servidor de Base de datos SQL de Azure. 
-5. Cree una **variable de recurso** llamada *SqlServerName* para el nombre del servidor de Base de datos SQL de Azure completo. 
-5. Cargue **SetupShardedEnvironment.ps1**, **ProvisionBySize.ps1**, **ProvisionByDate.ps1** y **ProvisionByDate.ps1** como runbooks. 
-6. Como una operación única, pruebe el runbook **SetupShardedEnvironment.ps1** para configurar el entorno particionado. 
+4. En Automatización de Azure, cree una **credencial de recurso** llamada *ElasticScaleCredential* que contenga el nombre de usuario y la contraseña de su servidor de Base de datos SQL de Azure. 
+5. Cree una **variable de recurso** llamada *SqlServerName* para su nombre completo de servidor de Base de datos SQL de Azure. 
+5. Cargue **SetupShardedEnvironment.ps1**, **ProvisionBySize.ps1**, **ProvisionByDate.ps1**y **ProvisionByDate.ps1** como runbooks. 
+6. En una operación única, pruebe el runbook **SetupShardedEnvironment.ps1** para configurar el entorno particionado. 
 7. Publique uno o más de los runbooks restantes y vincule los runbooks a una programación. 
 8. Observe la salida del runbook a través de la pestaña **TRABAJOS**. 
 
 Si las instrucciones de ejemplo rápido no fueron correctas, consulte las instrucciones de ejemplo detallado que aparecen a continuación.  
 
-##  Utilización de runbooks
+## Utilización de runbooks
 
 1. Cree y empaquete un módulo de PowerShell 
 2. Cree una cuenta de Automatización de Microsoft Azure 
@@ -93,13 +107,13 @@ El primer paso es crear un módulo de PowerShell que hace referencia a los ensam
 2. Extraiga todo el contenido.
 
     ![Extract all][1]
-3. Obtenga el DLL de cliente de Escalado elástico (es decir, Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll) y copie los siguientes archivos en la carpeta "ShardElasticityModule" local que descargó en el paso 1. Puede hacer esto de dos maneras: 1) descargue el DLL a través del paquete NuGet de Escalado elástico[vínculo] o 2) desde el proyecto Kit de inicio de Escalado elástico [vínculo] (debe estar integrado); vaya a \bin\Debug\ para obtener el DLL.
+3. Obtenga el archivo DLL del cliente de Escalado elástico (es decir, Microsoft.Azure.SqlDatabase.ElasticScale.Client.dll) y copie los siguientes archivos en la carpeta "ShardElasticityModule" local que se descargó en el paso 1.  Esto puede hacerse de dos maneras: 1) descargue el [vínculo] al archivo DLL a través del paquete de NuGet de Escalado elástico o 2) en el [vínculo] al proyecto Starter Kit de Escalado elástico (debe estar incluido), vaya a \bin\Debug\ para obtener el archivo DLL.
 
     ![Obtain Dll][2]
 
 4. Comprima la carpeta ShardElasticityModule. 
 
-Nota: Automatización de Azure requiere varias convenciones de nombres: dado el nombre del módulo ShardElasticityModule.psm1, el nombre del archivo .zip debe coincidir exactamente (ShardElasticityModule.zip). El archivo .zip contiene la carpeta ShardElasticityModule (el nombre coincide con el nombre del módulo) el que, a su vez, contiene el archivo psm1. Si no se sigue esta estructura, Automatización de Azure no podrá desempaquetar el módulo.
+    Nota: Automatización de Azure requiere varias convenciones de nombres: dado el nombre del módulo ShardElasticityModule.psm1, el nombre del archivo comprimido debe coincidir exactamente (ShardElasticityModule.zip). El archivo .zip contiene la carpeta ShardElasticityModule (el nombre coincide con el nombre del módulo) el que, a su vez, contiene el archivo psm1. Si no se sigue esta estructura, Automatización de Azure no podrá desempaquetar el módulo.
 
 5.    Una vez que haya comprobado que el contenido y la estructura de la carpeta comprimida coinciden con los requisitos, pase al siguiente paso. Debe verse de la siguiente manera:
 
@@ -108,7 +122,7 @@ Nota: Automatización de Azure requiere varias convenciones de nombres: dado el 
 
 ## Suscríbase a la vista previa de Automatización de Azure
 
-1. Vaya a [Características de vista previa de Azure](http://azure.microsoft.com/es-es/services/preview/).
+1. Vaya a [Características de vista previa de Azure](http://azure.microsoft.com/services/preview/).
     
 2. Haga clic en **Pruébelo**.
 
@@ -132,7 +146,7 @@ Cargue el módulo de PowerShell anterior a su cuenta de Automatización de Azure
 
 1. Haga clic en **RECURSOS** en la cinta que aparece en la parte superior de la pantalla.
 2. Haga clic en **IMPORTAR MÓDULO** en la parte inferior de la página. 
-3. Haga clic en **BUSCAR ARCHIVO...** y ubique el archivo **ShardElasticityModule.zip** anterior. 
+3. Haga clic en **BUSCAR ARCHIVO...** y busque el archivo **ShardElasticityModule.zip** desde arriba. 
 4. Una vez elegido el archivo correcto, haga clic en la marca de verificación que aparece en la esquina inferior derecha del cuadro para importarlo. El servicio Automatización de Azure importa el módulo. 
 5. Siga con el paso siguiente. Si se realiza correctamente, debe verse como este gráfico. Si el módulo no se importó correctamente, asegúrese de que el archivo .zip coincide con las convenciones descritas anteriormente.
 
@@ -151,10 +165,10 @@ En lugar de codificar de forma rígida las credenciales y variables de uso comú
 4. Seleccione **Credencial de Windows PowerShell** como el **TIPO DE CREDENCIAL** y **ElasticScaleCredential** como el nombre. La descripción es opcional.  
 5. Haga clic en la flecha que aparece en la esquina inferior derecha del cuadro. 
 
-Nota: Para usar los runbooks sin modificaciones, use el texto de nombres de variables indicado en las instrucciones. Los runbooks hacen referencia a los nombres de variables. 
+    Nota: Para usar los runbooks sin modificaciones, use el texto de nombres de variables indicado en las instrucciones. Los runbooks hacen referencia a los nombres de variables. 
 5. Inserte el nombre del usuario y la contraseña (dos veces) del servidor de Base de datos SQL de Azure en el que desea ejecutar los ejemplos de Elasticidad de partición. 
  
-6. Para crear el recurso variable, haga clic en **AGREGAR CONFIGURACIÓN** y, a continuación, seleccione **AGREGAR VARIABLE**. 
+6. Para crear el recurso de variable, haga clic en **AGREGAR CONFIGURACIÓN** y luego seleccione **AGREGAR VARIABLE**. 
 
     ![Add variable][7]
 7. Para este tutorial, cree una variable para el nombre de servidor de Base de datos SQL de Azure completo bajo el cual residirán el administrador de mapa de particiones y las bases de datos de particiones. Seleccione **Cadena** como el **TIPO DE VARIABLE** y escriba **SqlServerName**. Haga clic en la flecha para continuar. 
@@ -168,30 +182,30 @@ Cargue los cuatro runbooks de PowerShell de ejemplo proporcionados.
 
 1. Para cargar un nuevo runbook de Automatización de Azure, haga clic en **RUNBOOKS** en la cinta. 
 2. En la parte inferior de la pantalla, haga clic en **IMPORTAR**. 
-3. Navegue a la carpeta que contiene el archivo, seleccione **SetupShardedEnvironment.ps1** y haga clic en la marca de verificación. 
-4. Repita los pasos 2 y 3 para los tres runbooks de PowerShell restantes (**ProvisionByDate.ps1**, **ProvisionBySize.ps1** y **ReduceServiceTier.ps1**). 
+3. Vaya a la carpeta que contiene el archivo, seleccione **SetupShardedEnvironment.ps1** y haga clic en la marca de verificación. 
+4. Repita los pasos 2 y 3 con los tres restantes runbooks de PowerShell (**ProvisionByDate.ps1**, **ProvisionBySize.ps1** y **ReduceServiceTier.ps1**). 
 5. Siga con el paso siguiente. 
 
 ## Configure un entorno particionado 
 
-El siguiente paso es ejecutar el runbook **SetupShardedEnvironment** que aprovisiona un entorno particionado, completo con una base de datos de administrador de mapa de particiones, un mapa de particiones de intervalo y una partición para el día actual.   
+El siguiente paso es ejecutar el runbook **SetupShardedEnvironment** que aprovisiona un entorno particionado, junto con una base de datos de administrador de mapa de particiones, un mapa de particiones de intervalo y una partición para el día actual.   
 
 1. Para seleccionar el runbook **SetupShardedEnvironment**, haga clic en su nombre. 
 2. Haga clic en **AUTOR** en la cinta. 
-3. En esta pantalla verá el código (y podrá editarlo, si así lo desea) que compone el runbook. Para configurar el entorno particionado, haga clic en el botón **PROBAR** que aparece en la parte inferior de la pantalla. Confirme que desea guardar y probar el runbook. 
-4. Puede ver el estado del trabajo en el panel de salida. Cuando termine, el servidor de Base de datos SQL de Azure que especificó se rellenará con una base de datos de administrador de mapa de particiones, además de una base de datos de particiones. El runbook **SetupShardedEnvironment** tiene como única finalidad aprovisionar el entorno particionado y no su ejecución en una programación recurrente. Siga con el paso siguiente.  
+3. En esta pantalla verá el código (y podrá editarlo, si así lo desea) que compone el runbook. Para configurar el entorno particionado, haga clic en el botón **PROBAR** en la parte inferior de la pantalla. Confirme que desea guardar y probar el runbook. 
+4. Puede ver el estado del trabajo en el panel de salida. Cuando termine, el servidor de Base de datos SQL de Azure que especificó se rellenará con una base de datos de administrador de mapas de particiones, además de una base de datos de particiones. El runbook **SetupShardedEnvironment** tiene como única finalidad aprovisionar el entorno particionado y no su ejecución en una programación recurrente. Siga con el paso siguiente.  
 
 ## Pruebe los runbooks de Automatización 
 
 Pruebe la ejecución correcta de cada uno de los runbooks antes de publicar y programar el runbook. 
 
-1. Haga clic en **RUNBOOK** en la cinta que aparece en la parte superior de la página. 
+1. Haga clic en **RUNBOOK** en la cinta en la parte superior de la página. 
 2. Haga clic en el runbook **ProvisionByDate**.
-3. Haga clic en **AUTOR** en la cinta que aparece en la parte superior de la página. 
-4. Haga clic en **GUARDAR **y luego en **PROBAR**.
-5. Repita para **ReduceServiceTier**. 
+3. Haga clic en **AUTOR** en la cinta en la parte superior de la página. 
+4. Haga clic en **GUARDAR** y luego en **PROBAR**.
+5. Repita lo mismo con **ReduceServiceTier**. 
 
-    Tenga en cuenta que, dado que tanto **ProvisionBySize** como **ProvisionByDate** aprovisionan nuevas particiones (usando algoritmos distintos), no es necesario ejecutar **ProvisionByDate** en este momento. 
+    Observe que como **ProvisionBySize** y **ProvisionByDate** aprovisionan ambos nuevas particiones (mediante el uso de algoritmos diferentes), no es necesario ejecutar esta vez **ProvisionByDate**. 
 
 ## Publicar los runbooks 
 El siguiente paso es publicar el runbook para que se pueda programar para ejecutarse de manera periódica. 
@@ -230,3 +244,5 @@ Los ejemplos proporcionados solo describen una pequeña parte de lo que es posib
 [8]: ./media/sql-database-elastic-scale-scripting/sign-up.png
 [9]: ./media/sql-database-elastic-scale-scripting/add-credential.png
 [10]: ./media/sql-database-elastic-scale-scripting/assets.png
+
+<!--HONumber=47-->

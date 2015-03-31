@@ -10,21 +10,25 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="Mobile-Android" 
-	ms.devlang="Java" 
+	ms.tgt_pltfrm="mobile-android" 
+	ms.devlang="java" 
 	ms.topic="article" 
-	ms.date="09/24/2014" 
+	ms.date="02/03/2015" 
 	ms.author="ricksal"/>
 
-# Incorporación de Servicios móviles a una aplicación existente
+# Agregar Servicios móviles a una aplicación existente
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data](../includes/mobile-services-selector-get-started-data.md)]
 
 Este tema muestra cómo utilizar los Servicios móviles de Azure como origen de datos de back-end para una aplicación Android. En este tutorial, creará un nuevo servicio móvil, descargará un proyecto Android en Eclipse para una aplicación que almacena datos en memoria, integrará el servicio móvil a la aplicación y verá los cambios que se hicieron en los datos durante la ejecución de la aplicación.
 
-El servicio móvil que cree en este tutorial admitirá el tiempo de ejecución .NET. Esto le permitirá utilizar lenguajes .NET y Visual Studio para la lógica de negocios de servidor en el servicio móvil. Para crear un servicio móvil que permita escribir la lógica de negocios del lado servidor en JavaScript, vea la [versión back-end JavaScript] de este tema.
+El servicio móvil que cree en este tutorial admitirá el tiempo de ejecución .NET. Esto le permitirá utilizar lenguajes .NET y Visual Studio para la lógica de negocios de servidor en el servicio móvil. Si desea crear un servicio móvil que le permita escribir su lógica de negocios de servidor en JavaScript, consulte la [versión back-end de JavaScript] de este tema.
 
 > [AZURE.IMPORTANT] Este tutorial requiere Visual Studio 2013.
+
+<!-- -->
+
+> [AZURE.NOTE] Si desea ver la versión de Eclipse de este tutorial, vaya a: [Empezar a trabajar con datos (Eclipse)].
 
 Este tutorial le guiará a través de estos pasos básicos:
 
@@ -38,7 +42,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 5. [Prueba de la aplicación con el servicio móvil publicado]
 
 
-> [AZURE.IMPORTANT] para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, vea [Evaluación gratuita de Azure](http://azure.microsoft.com/pricing/free-.trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank) 
+> [AZURE.IMPORTANT] Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F"%20target="_blank). 
 
 
 <h2><a name="create-service"></a>Creación de un servicio móvil</h2>
@@ -60,16 +64,16 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 <h2><a name="download-app"></a>Descarga del proyecto GetStartedWithData</h2>
 
-###Obtención del código de ejemplo
+### Obtención del código de ejemplo
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/download-android-sample-code.md)]
 
-###Comprobación de la versión del SDK de Android
+### Comprobación de la versión del SDK de Android
 
 [AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version.md)]
 
 
-###Inspección y ejecución del código de ejemplo
+### Inspección y ejecución del código de ejemplo
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code.md)]
 
@@ -82,7 +86,7 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 Ahora que la aplicación se ha actualizado para usar los Servicios móviles para almacenamiento back-end, puede probarla con los Servicios móviles usando el emulador de Android o un teléfono Android.
 
-1. En el menú **Run**, haga clic en **Run** para iniciar el proyecto.
+1. En el menú **Ejecutar**, haga clic en **Ejecutar aplicación** para iniciar el proyecto.
 
 	De este modo se ejecuta su aplicación, que se ha creado con el SDK de Android, y se usa la biblioteca del cliente para enviar una consulta que devuelve los elementos desde su servicio móvil.
 
@@ -99,7 +103,7 @@ Ahora que la aplicación se ha actualizado para usar los Servicios móviles para
 
 5. En el Portal de administración, ejecute una consulta para ver los cambios que realiza la aplicación de la Tienda Windows. La consulta será similar a la siguiente, pero con el nombre de la base de datos en lugar de `todolist`.
 
-        SELECT * FROM [todolist].[todoitems]	
+        SELECT * FROM [todolist].[todoitems]
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/sql-azure-query.png)
 
@@ -113,11 +117,11 @@ Este tutorial muestra los aspectos básicos de la habilitación de una aplicaci�
 
 <!--A continuación, considere la realización de uno de los siguientes tutoriales que se basan en la aplicación GetStartedWithData que creó en este tutorial:
 
-* [Validar y modificar datos con scripts]
-  <br/>Obtenga más información sobre el uso de scripts de servidor en Servicios móviles para validar y cambiar los datos enviados desde su aplicación.
+* [Validación y modificación de datos con scripts]
+  <br/>Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
 
 * [Limitación de consultas con paginación]
-  <br/>Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos gestionados en una única solicitud.
+  <br/>Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se manejan en una única solicitud.
 
 Cuando haya completado la serie de datos:
 -->
@@ -127,11 +131,11 @@ Pruebe uno de estos otros tutoriales:
 * [Introducción a la autenticación]
   <br/>Aprenda la manera de autenticar a los usuarios de la aplicación.
 
-* [Introducción a las notificaciones de inserción]
-  <br/>Aprenda cómo enviar una notificación de inserción muy básica a la aplicación.
+* [Introducción a las notificaciones de inserción] 
+  <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
-* [Referencia conceptual de Servicios móviles con .NET]
-  <br/>Obtenga más información sobre el uso de Servicios móviles con .NET.
+* [Referencia conceptual de servicios móviles con .NET]
+  <br/>Obtenga más información acerca del uso de Servicios móviles con .NET.
   
 <!-- Anchors. -->
 
@@ -163,8 +167,7 @@ Pruebe uno de estos otros tutoriales:
 [13]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/new-local-todoitem.png
 [14]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/vs-show-local-table-data.png
 [15]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/local-item-checked.png
-[16]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/azure-ite
-	ms.png
+[16]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/azure-items.png
 [17]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/manage-sql-azure-database.png
 [18]: ./media/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/sql-azure-query.png
 
@@ -177,20 +180,20 @@ Pruebe uno de estos otros tutoriales:
 
 
 <!-- URLs. -->
-[Validar y modificar datos con scripts]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Limitación de consultas con paginación]: /es-es/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Introducción a los servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
-[Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-android
-[Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-android
-[JavaScript y HTML]: /es-es/develop/mobile/tutorials/get-started-with-data-js
-[Versión de back-end de JavaScript]: /es-es/develop/mobile/tutorials/get-started-with-data-android
+[Empezar a trabajar con datos (Eclipse)]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data-EC/
+[Validación y modificación de datos con scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Limitación de consultas con paginación]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[Introducción a los Servicios móviles]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-android
+[Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-android
+[JavaScript y HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[versión back-end de JavaScript]: /develop/mobile/tutorials/get-started-with-data-android
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Portal de administración]: https://manage.windowsazure.com/
 [SDK de servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Sitio de ejemplos de código para desarrolladores]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Referencia conceptual de Servicios móviles con .NET]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library
+[Referencia conceptual de Servicios móviles con .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Clase MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-[Referencia conceptual de Servicios móviles con .NET]: /es-es/documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
-
-<!--HONumber=42-->
+[Referencia conceptual de Servicios móviles con .NET]: /documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
+<!--HONumber=47-->

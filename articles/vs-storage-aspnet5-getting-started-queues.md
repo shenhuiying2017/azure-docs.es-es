@@ -1,11 +1,11 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a Almacenamiento de Azure" 
-	description="" 
+	description="Cómo empezar a usar el almacenamiento en cola de Azure en un proyecto de ASP.NET en Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
@@ -45,7 +45,7 @@ Para obtener acceso a las tablas en proyectos de ASP.NET 5, deberá agregar los 
                 .AddEnvironmentVariables();
 
 ##### Obtención de la cadena de conexión de almacenamiento
-Antes de realizar cualquier acción con una cola, debe  obtener la cadena de conexión para la cuenta de almacenamiento en la que residirán las colas. Puede usar el tipo **CloudStorageAccount** para representar la información de la cuenta de almacenamiento. Si está usando un proyecto ASP.NET 5, puede llamar al método get del objeto Configuration para obtener la información de la cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure, como se muestra en el código siguiente.
+Antes de realizar cualquier acción con una cola, debe obtener la cadena de conexión para la cuenta de almacenamiento en la que residirán las colas. Puede usar el tipo **CloudStorageAccount** para representar la información de la cuenta de almacenamiento. Si está usando un proyecto ASP.NET 5, puede llamar al método get del objeto Configuration para obtener la información de la cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure, como se muestra en el código siguiente.
 
 **NOTA:** las API que realizan llamadas al almacenamiento de Azure en ASP.NET 5 son asincrónicas. Consulte [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para obtener más información. El código siguiente supone que se están usando métodos de programación asincrónica.
 
@@ -53,14 +53,14 @@ Antes de realizar cualquier acción con una cola, debe  obtener la cadena de con
       config.Get("MicrosoftAzureStorage:<storageAccountName>_AzureStorageConnectionString"));
 
 ##### Creación de una cola
-Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. Todo el código que contiene este tema utiliza una cadena de conexión de almacenamiento almacenada en la configuración de servicios de la aplicación de Azure. También hay otras formas de crear un objeto **CloudStorageAccount**. Para obtener más información, consulte el documento [CloudStorageAccount](http://msdn.microsoft.com/library/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount").
+Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. Todo el código que contiene este tema utiliza una cadena de conexión de almacenamiento almacenada en la configuración de servicios de la aplicación de Azure. También hay otras formas de crear un objeto **CloudStorageAccount**. Para obtener más información, consulte el documento [CloudStorageAccount](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.cloudstorageaccount_methods.aspx "CloudStorageAccount").
 
 **NOTA:** las API que realizan llamadas al almacenamiento de Azure en ASP.NET 5 son asincrónicas. Consulte [Programación asincrónica con Async y Await](http://msdn.microsoft.com/library/hh191443.aspx) para obtener más información. El código siguiente supone que se están usando métodos de programación asincrónica.
 
 	// Create the queue client.
 	CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
 
-Use el objeto **queueClient** para obtener una referencia a la cola que desea usar. El código intenta hacer referencia a una cola denominada "myqueue". Si no encuentra ninguna cola con ese nombre, la crea.
+Use el objeto **queueClient** para obtener una referencia a la cola que desea usar. El código intenta hacer referencia a una cola denominada "myqueue". Si no encuentra ninguna queue con ese nombre, la crea.
 
 	// Get a reference to a queue named "myqueue".
 	CloudQueue queue = queueClient.GetQueueReference("myqueue");
@@ -71,7 +71,7 @@ Use el objeto **queueClient** para obtener una referencia a la cola que desea us
 **NOTA:** use todo este código delante del código que aparece en las secciones siguientes.
 
 ##### Inserción de un mensaje en una cola
-Para insertar un mensaje en una cola existente, cree primero un nuevo objeto **CloudQueueMessage**. A continuación, llame al método AddMessageAsync(). Se puede crear un objeto **CloudQueueMessage**  a partir de una cadena (en formato UTF-8) o de una matriz de bytes. A continuación se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje  'Hello, World'.
+Para insertar un mensaje en una cola existente, cree primero un nuevo objeto **CloudQueueMessage**. A continuación, llame al método AddMessageAsync(). Se puede crear un objeto **CloudQueueMessage**  a partir de una cadena (en formato UTF-8) o de una matriz de bytes. A continuación se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje "Hola, mundo".
 
 	// Create a message and add it to the queue.
 	CloudQueueMessage message = new CloudQueueMessage("Hello, World");
@@ -103,4 +103,5 @@ Este proceso extracción de un mensaje que consta de dos pasos garantiza que si 
 
 [Más información sobre Almacenamiento de Azure](http://azure.microsoft.com/documentation/services/storage/)
 Consulte también [Explorar y administrar recursos de almacenamiento con el Explorador de servidores](http://msdn.microsoft.com/library/azure/ff683677.aspx) y [ASP.NET 5](http://www.asp.net/vnext).
-<!--HONumber=42-->
+
+<!--HONumber=47-->

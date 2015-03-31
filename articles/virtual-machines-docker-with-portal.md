@@ -5,7 +5,7 @@
 	documentationCenter="" 
 	authors="squillace" 
 	manager="timlt" 
-	editor=""/>
+	editor="tysonn"/>
 
 <tags 
 	ms.service="virtual-machines" 
@@ -13,12 +13,12 @@
 	ms.topic="article" 
 	ms.tgt_pltfrm="vm-linux" 
 	ms.workload="infrastructure-services" 
-	ms.date="10/21/2014" 
+	ms.date="02/11/2015" 
 	ms.author="rasquill"/>
 <!--The next line, with one pound sign at the beginning, is the page title--> 
 # Uso de la extensión de VM Docker con el portal de Azure
 
-[Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que utilizan los [contenedores de Linux](http://en.wikipedia.org/wiki/LXC) en lugar de máquinas virtuales como una forma de aislar datos y calcular recursos compartidos. Puede usar la extensión de VM Docker para que el [agente Linux de Azure] cree una VM Docker que hospede cualquier número de contenedores para sus aplicaciones de Azure. 
+[Docker](https://www.docker.com/) es uno de los enfoques de virtualización más populares que utilizan los [contenedores de Linux](http://en.wikipedia.org/wiki/LXC) en lugar de máquinas virtuales como una forma de aislar datos y calcular recursos compartidos. Puede usar la extensión de máquina virtual Docker que administra el [agente de Linux de Azure] para crear una máquina virtual Docker que hospede un número cualquiera de contenedores para sus aplicaciones en Azure. 
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 En esta sección
@@ -29,24 +29,24 @@ En esta sección
 + [Comprobación del cliente Docker y del host Docker de Azure]
 + [Pasos siguientes]
 
-> [AZURE.NOTE] En este tema se describe cómo crear una máquina virtual Docker en el portal de Azure. Para ver cómo crear una VM Docker en la línea de comandos, vea [Uso de la extensión de VM Docker desde la interfaz entre plataformas de Azure (xplat-cli)]. Para ver un análisis de alto nivel de contenedores y sus ventajas, consulte [Documento de alto nivel de Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard). 
+> [AZURE.NOTE] En este tema se describe cómo crear una máquina virtual Docker desde el Portal de Azure. Para ver cómo crear una VM Docker en la línea de comandos, vea [Uso de la extensión de VM Docker desde la interfaz entre plataformas de Azure (xplat-cli)]. Para ver un análisis de alto nivel de contenedores y sus ventajas, consulte [Documento de alto nivel de Docker](http://channel9.msdn.com/Blogs/Regular-IT-Guy/Docker-High-Level-Whiteboard). 
 
-## <a id='createvm'>Creación de una nueva máquina virtual desde la galería de imágenes</a>
+## <a id='createvm'></a>Creación de una nueva máquina virtual desde la galería de imágenes
 El primer paso requiere una máquina virtual de Azure de una imagen de Linux que admita la extensión de VM Docker, usando una imagen Ubuntu 14.04 LTS de la galería de imágenes como imagen de servidor de ejemplo y el escritorio Ubuntu 14.04 como cliente. En el portal, haga clic en **+ Nuevo** en la esquina inferior izquierda para crear una nueva instancia de máquina virtual y seleccione una imagen Ubuntu 14.04 LTS entre las selecciones disponibles o en la galería de imágenes completa, tal y como se muestra a continuación. 
 
 > [AZURE.NOTE] Actualmente, solo las imágenes Ubuntu 14.04 LTS posteriores a julio de 2014 admiten la extensión de VM Docker.
 
 ![Create a new Ubuntu Image](./media/virtual-machines-docker-with-portal/ChooseUbuntu.png)
 
-## <a id'dockercerts'>Creación de certificados de Docker</a>
+## <a id'dockercerts'></a>Creación de certificados de Docker
 
 Una vez creada la máquina virtual, asegúrese de que Docker está instalado en su equipo cliente. (Para obtener detalles, consulte [Instrucciones de instalación de Docker](https://docs.docker.com/installation/#installation).) 
 
-Cree los archivos de certificado y de clave para la comunicación Docker conforme a [Ejecución de Docker con https] y colóquelos en el directorio **`~/.docker`** de su equipo cliente. 
+Cree los archivos de certificado y de clave para la comunicación Docker conforme a [Ejecución de Docker con https][Docker en ejecución con https] y colóquelos en el directorio **`~/.docker`** de su equipo cliente. 
 
 > [AZURE.NOTE] La extensión de VM Docker del portal actualmente requiere credenciales con la codificación base64.
 
-En la línea de comandos, use **`base64`** u otra herramienta de codificación que prefiera para crear temas con la codificación base64. Hacer esto con un conjunto sencillo de archivos de certificado y clave podría tener un aspecto similar al siguiente:
+En la línea de comandos, use **`base64`** u otra herramienta de codificación para crear temas con la codificación base64. Hacer esto con un conjunto sencillo de archivos de certificado y clave podría tener un aspecto similar al siguiente:
 
 ```
  ~/.docker$ l
@@ -59,8 +59,9 @@ En la línea de comandos, use **`base64`** u otra herramienta de codificación q
  ca-key.pem  cert.pem  server-cert64.pem  server-key64.pem
 ```
 
-## <a id'adddockerextension'>Adición de la extensión de VM Docker</a>
+## <a id'adddockerextension'></a>Adición de la extensión de VM Docker
 Para agregar la extensión de VM Docker, busque la instancia de máquina virtual que creó, desplácese hacia abajo hasta **Extensiones** y haga clic en ella para mostrar extensiones de VM, tal y como se muestra a continuación.
+> [AZURE.NOTE] Esta funcionalidad solo se admite en el portal de vista previa: https://portal.azure.com/
 
 ![](./media/virtual-machines-docker-with-portal/ClickExtensions.png)
 ### Adición de una extensión
@@ -91,8 +92,8 @@ Haga clic en **+ Agregar** para agregar otro extremo y, en el caso predeterminad
 ![](./media/virtual-machines-docker-with-portal/AddEndpointFormFilledOut.png)
 
 
-## <a id='testclientandserver'>Comprobación del cliente Docker y del host Docker de Azure</a>
-Busque y copie el nombre de dominio de la máquina virtual y, en la línea de comandos del equipo cliente, escriba `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:4243 info` (donde  *dockerextension* se sustituye por el subdominio para la máquina virtual). 
+## <a id='testclientandserver'></a>Comprobación del cliente Docker y del host Docker de Azure
+Busque y copie el nombre de dominio de su máquina virtual y, en la línea de comandos del equipo cliente, escriba `docker --tls -H tcp://`*dockerextension*`.cloudapp.net:4243 info` (donde  *dockerextension* se sustituye por el subdominio de su máquina virtual). 
 
 El resultado debe ser similar a esto:
 
@@ -115,10 +116,12 @@ Kernel Version: 3.13.0-36-generic
 WARNING: No swap limit support
 ```
 
+Cuando haya completado los pasos anteriores, dispondrá de un host Docker totalmente funcional que se ejecuta en una máquina virtual de Azure, configurado para conectarse remotamente desde otros clientes.
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## Pasos siguientes
 
-Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. Si desea comenzar a crear máquinas virtuales Docker rápida y repetidamente, vea [Uso de la extensión de VM Docker desde la interfaz entre plataformas de Azure (xplat-cli)].
+Está preparado para ir a la [Guía del usuario de Docker][Guía de usuario de Docker] y usar su VM Docker. Si desea automatizar la creación de hosts Docker en máquinas virtuales de Azure a través de la interfaz de línea de comandos, consulte [Cómo usar la extensión de la máquina virtual Docker desde la interfaz entre plataformas de Azure (xplat-cli)][Uso de la extensión de VM Docker desde la interfaz entre plataformas de Azure (xplat-cli)]
 
 <!--Anchors-->
 [Creación de una nueva máquina virtual desde la galería de imágenes]: #createvm
@@ -145,10 +148,7 @@ Está preparado para ir a la [Guía del usuario de Docker] y usar su VM Docker. 
 [Agente de Linux de Azure]: ../virtual-machines-linux-agent-user-guide/
 [Vínculo 3 a otro tema de documentación de azure.microsoft.com]: ../storage-whatis-account/
 
-[Ejecución de Docker con https]: http://docs.docker.com/articles/https/
-[Guía del usuario de Docker]: https://docs.docker.com/userguide/
+[Docker en ejecución con https]: http://docs.docker.com/articles/https/
+[Guía de usuario de Docker]: https://docs.docker.com/userguide/
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

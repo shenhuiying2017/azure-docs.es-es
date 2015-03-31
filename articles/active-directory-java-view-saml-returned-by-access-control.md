@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Visualización del SAML que devuelve el servicio de control de acceso (Java)" 
 	description="Obtenga información acerca de cómo ver SAML devuelto por el servicio de Control de acceso en las aplicaciones de Java hospedadas en Azure." 
 	services="" 
@@ -18,13 +18,13 @@
 
 # Visualización del SAML que devuelve el servicio de control de acceso de Azure
 
-En esta guía se explica cómo ver el lenguaje de marcado de aserción de seguridad (SAML) subyacente devuelto a la aplicación por el servicio de control de acceso de Azure (ACS). La guía se elabora a partir del tema [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse][], proporcionando código que muestra la información de SAML. La aplicación completa tendrá un aspecto similar al siguiente.
+En esta guía se explica cómo ver el lenguaje de marcado de aserción de seguridad (SAML) subyacente devuelto a la aplicación mediante el servicio de control de acceso de Azure (ACS). La guía se elabora a partir del tema [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse][], proporcionando código que muestra la información de SAML. La aplicación completa tendrá un aspecto similar al siguiente.
 
 ![Example SAML output][saml_output]
 
-Para obtener más información sobre ACS, consulte la sección [Pasos siguientes](#next_steps).
+Para obtener más información sobre ACS, consulte la sección [Pasos siguientes](#next_steps) .
 
-> [WACOM.NOTE]
+> [AZURE.NOTE]
 > El filtro de control de los servicios de acceso de Azure (de Microsoft Open Technologies) es una Community Technology Preview. Como versión preliminar de software, no cuenta formalmente con el respaldo de Microsoft Open Technologies, Inc. ni de Microsoft.
 
 ## Tabla de contenido
@@ -44,13 +44,13 @@ A fin de llevar a cabo las tareas de esta guía, complete el ejemplo de [Autenti
 
 Agregue la biblioteca que contiene la clase **javax.servlet.jsp.JspWriter** a la ruta de acceso de la compilación y el ensamblado de implementación. Si usa Tomcat, la biblioteca es **jsp-api.jar** y se ubica en la carpeta **lib** de Apache.
 
-1. En el explorador de proyectos de Eclipse, haga clic con el botón derecho en **MyACSHelloWorld**, haga clic en **Ruta de compilación**, después en **Configurar ruta de compilación**, a continuación en la pestaña **Bibliotecas** y, por último, en **Agregar JAR externos**.
-2. En el cuadro de diálogo **Selección de JAR**, navegue hasta el JAR necesario, selecciónelo y, a continuación, haga clic en **Abrir**.
-3. Con el cuadro de diálogo **Propiedades de MyACSHelloWorld** abierto, haga clic en **Ensamblado de implementación**.
-4. En el cuadro de diálogo **Ensamblado de implementación web**, haga clic en **Agregar**.
-5. En el cuadro de diálogo **Nueva directiva de ensamblado**, haga clic en **Entradas de ruta de acceso de compilación de Java** y, a continuación, en **Siguiente**.
-6. Seleccione la biblioteca pertinente y haga clic en **Finalizar**.
-7. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Propiedades de MyACSHelloWorld**.
+1. En el explorador de proyectos de Eclipse, haga clic con el botón secundario en **MyACSHelloWorld**, haga clic en **Build Path**, después en **Configure Build Path**, a continuación en la pestaña **Libraries** y, por último, en **Add External JARs**.
+2. En el cuadro de diálogo **JAR Selection**, navegue hasta el JAR necesario, selecciónelo y, a continuación, haga clic en **Open**.
+3. Con el cuadro de diálogo **Properties for MyACSHelloWorld** abierto, haga clic en **Deployment Assembly**.
+4. En el cuadro de diálogo **Web Deployment Assembly**, haga clic en **Add**.
+5. En el cuadro de diálogo **Nueva directiva de ensamblaje**, haga clic en **Entradas de ruta de acceso de compilación de Java** y haga clic en **Siguiente**.
+6. Seleccione la biblioteca pertinente y haga clic en **Finish**.
+7. Haga clic en **OK** para cerrar el cuadro de diálogo **Properties for MyACSHelloWorld**.
 
 ## <a name="modify_jsp"></a>Modificación del archivo JSP para que muestre el SAML
 
@@ -193,7 +193,7 @@ Modifique **index.jsp** para que use el código siguiente.
 
 ## <a name="next_steps"></a>Pasos siguientes
 
-Para seguir explorando la funcionalidad de ACS y experimentar con escenarios más sofisticados, consulte [Servicio de control de acceso 2.0][].
+Para seguir explorando la funcionalidad de ACS y experimentar con escenarios más sofisticados, consulte [Access Control Service 2.0][].
 
 [Requisitos previos]: #pre
 [Modificación del archivo JSP para que muestre el SAML]: #modify_jsp
@@ -203,6 +203,5 @@ Para seguir explorando la funcionalidad de ACS y experimentar con escenarios má
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [Autenticación de usuarios web con el servicio de control de acceso de Azure mediante Eclipse]: ../active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
-[Servicio de control de acceso 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

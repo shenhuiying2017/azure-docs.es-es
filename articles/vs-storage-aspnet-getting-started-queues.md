@@ -1,11 +1,11 @@
 ﻿<properties 
 	pageTitle="Introducción a Almacenamiento de Azure" 
-	description="" 
+	description="Cómo empezar a usar el almacenamiento en cola de Azure en un proyecto de ASP.NET en Visual Studio" 
 	services="storage" 
 	documentationCenter="" 
 	authors="kempb" 
 	manager="douge" 
-	editor=""/>
+	editor="tglee"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vs-getting-started" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/10/2014" 
+	ms.date="02/02/2015" 
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
@@ -35,7 +35,7 @@ Agregue las siguientes declaraciones de espacio de nombres de código en la part
 	using Microsoft.WindowsAzure.Storage.Auth;
 	using Microsoft.WindowsAzure.Storage.Queue;
 
-##### Obtención de la cadena de conexión de almacenamiento
+#####Obtención de la cadena de conexión de almacenamiento
 Antes de realizar cualquier acción con una cola, debe obtener la cadena de conexión para la cuenta de almacenamiento en la que residirán las colas. Puede usar el tipo **CloudStorageAccount** para representar la información de la cuenta de almacenamiento. En proyectos ASP.NET, puede usar el tipo **ConfigurationManager** para recuperar la información de la cuenta de almacenamiento y la cadena de conexión de almacenamiento de la configuración del servicio de Azure, como se muestra en el código siguiente.
 
 	CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -44,4 +44,4 @@ Antes de realizar cualquier acción con una cola, debe obtener la cadena de cone
 [AZURE.INCLUDE [vs-storage-getting-started-queues-include](../includes/vs-storage-getting-started-queues-include.md)]
 
 Para obtener más información, consulte [ASP.NET](http://www.asp.net).
-\<!--HONumber=42-->
+<!--HONumber=47-->

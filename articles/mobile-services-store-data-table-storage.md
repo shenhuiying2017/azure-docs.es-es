@@ -1,17 +1,17 @@
 ﻿<properties 
 	pageTitle="Uso de Servicios móviles para almacenar datos en el almacenamiento de tablas | Servicios móviles" 
 	description="Aprenda a usar Servicios móviles para almacenar datos en el almacenamiento de tablas." 
-	documentationCenter="ios" 
+	documentationCenter="" 
 	authors="ysxu" 
-	Writer="yuaxu" 
-	services="mobile-services, storage" 
+	writer="yuaxu" 
+	services="mobile-services" 
 	manager="dwrede" 
 	editor=""/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/23/2014" 
@@ -22,5 +22,4 @@
 Aprenda a trabajar con el Almacenamiento de tabla a través de Servicios móviles con el tutorial de Chris Risner [Servicios móviles y Almacenamiento de Microsoft Azure].
 
 [Servicios móviles y Almacenamiento de Microsoft Azure]: http://chrisrisner.com/Mobile-Services-and-Windows-Azure-Storage
-
-<!--HONumber=42-->
+<!--HONumber=47-->

@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="Instalación y configuración de Endpoint Protection en una máquina virtual de Azure" 
-	description="Describe la instalación y configuración de Symantec Endpoint Protection en una máquina virtual de Azure" 
+	description="Describe la instalación y la configuración de la extensión de seguridad de Symantec Endpoint Protection en una VM nueva o existente en Azure" 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-multiple" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="02/24/2015" 
 	ms.author="kathydav"/>
 
 #Instalación y configuración de Endpoint Protection en una máquina virtual de Azure
@@ -30,7 +30,7 @@ El [Portal de administración de Azure](http://manage.windowsazure.com) permite 
 
 La opción **Desde la galería** abre un asistente que le ayuda configurar la máquina virtual. Utilice la última página del asistente para instalar el Agente de máquina virtual y la extensión de seguridad de Symantec. 
 
-Para obtener instrucciones generales, consulte [Creación de una máquina virtual que ejecuta Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=403943). Cuando llegue a la última página del asistente:
+Para obtener instrucciones generales, consulte [Creación de una máquina virtual que ejecuta Windows Server](../virtual-machines-windows-tutorial/). Cuando llegue a la última página del asistente:
 
 1.	En el agente de VM, la opción **Instalar agente de VM** ya debe estar activada.
 
@@ -45,43 +45,37 @@ Para obtener instrucciones generales, consulte [Creación de una máquina virtua
 
 Antes de comenzar, necesitará lo siguiente:
 
-- El módulo de Azure PowerShell, versión 0.8.2 o posterior. Para obtener instrucciones y un vínculo a la versión más reciente, consulte [Instalación y configuración de Azure PowerShell](http://go.microsoft.com/fwlink/p/?LinkId=320552).  
+- El módulo de Azure PowerShell, versión 0.8.2 o posterior. Puede comprobar la versión de Azure PowerShell que ha instalado con el comando **Get-Module azure | format-table version**. Para obtener instrucciones y un vínculo a la versión más reciente, consulte [Instalación y configuración de Azure PowerShell](../install-configure-powershell/).  
 
-- El Agente de máquina virtual. Para obtener instrucciones y un vínculo a la descarga, consulte la entrada de blog [Agente de máquina virtual y extensiones - Parte 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
+- El Agente de máquina virtual. 
 
-Para instalar la extensión de seguridad de Symantec en una máquina virtual existente:
+En primer lugar, compruebe que el agente de máquina virtual ya está instalado. Introduzca el nombre de servicio de nube y el nombre de la máquina virtual y, a continuación, ejecute los siguientes comandos en un símbolo de sistema de Azure PowerShell con nivel de administrador. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >.
 
-1.	Obtenga el nombre de servicio de la nube y el nombre de la máquina virtual. Si no los conoce, utilice el comando **Get-AzureVM** para mostrar esa información para todas las máquinas virtuales en la suscripción actual. A continuación, reemplace todo el contenido dentro de las comillas, incluyendo los caracteres < y >, y ejecute estos comandos:
+	$CSName = "<cloud service name>"
+	$VMName = "<virtual machine name>"
+	$vm = Get-AzureVM -ServiceName $CSName -Name $VMName 
+	write-host $vm.VM.ProvisionGuestAgent
 
-	<p>`$servicename = "<YourServiceName>"`
-<p>`$name = "<YourVmName>"`
-<p>`$vm = Get-AzureVM -ServiceName $servicename -Name $name`
-<p>`Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection`
+Si no conoce el nombre del servicio en la nube y de la máquina virtual, ejecute **Get-AzureVM** para mostrar esa información para todas las máquinas virtuales de su suscripción actual.
 
-2.	Desde la pantalla del comando Get-AzureVMAvailableExtension, anote el número de versión de la propiedad Version y, a continuación, ejecute estos comandos:
+Si el comando **write-host** muestra **True**,el agente de la máquina virtual está instalado. Si muestra **False**, consulte las instrucciones y un vínculo a la descarga en la publicación del blog de Azure [Agente de máquina virtual extensiones: parte 2](http://go.microsoft.com/fwlink/p/?LinkId=403947).
 
-	<p>`$ver=<version number from the Version property>`
-<p>`Set-AzureVMExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection -Version $ver -VM $vm.VM`
-<p>`Update-AzureVM -ServiceName $servicename -Name $name -VM $vm.VM`
+Si está instalado el agente de VM, ejecute estos comandos para instalar al agente de Symantec Endpoint Protection.
+
+	$Agent = Get-AzureVMAvailableExtension -Publisher Symantec -ExtensionName SymantecEndpointProtection
+	Set-AzureVMExtension -Publisher Symantec -Version $Agent.Version -ExtensionName SymantecEndpointProtection -VM $vm | Update-AzureVM
 
 Para comprobar que la extensión de seguridad de Symantec se ha instalado y está actualizada:
 
-1.	Iniciar sesión en la nueva máquina virtual.
-2.	En Windows Server 2008 R2, haga clic en **Inicio > Todos los programas > Symantec Endpoint Protection**. En Windows Server 2012, desde la pantalla de inicio, escriba **Symantec** y, a continuación, haga clic en **Symantec Endpoint Protection**.
-3.	En la ventana de estado, aplique las actualizaciones si es necesario.
+1.	Iniciar sesión en la nueva máquina virtual. Para obtener más información, vea [Iniciar sesión en una máquina virtual que ejecuta Windows Server](../virtual-machines-log-on-windows-server/).
+2.	Para Windows Server 2008 R2, haga clic en **Inicio > Symantec Endpoint Protection**. Para Windows Server 2012 o Windows Server 2012 R2, en la pantalla de inicio, escriba **Symantec**y, a continuación, haga clic en **Symantec Endpoint Protection**.
+3.	En la pestaña **Estado** de la ventana **Status-Symantec Endpoint Protection**, aplique actualizaciones o reinicie en caso necesario.
 
 ## Recursos adicionales
-[Inicio de sesión en una máquina virtual con Windows Server]
 
-[Administración de extensiones]
+[Inicio de sesión en una máquina virtual con Windows Server](../virtual-machines-log-on-windows-server/)
 
-<!--Link references-->
-[Inicio de sesión en una máquina virtual con Windows Server]: ../virtual-machines-log-on-windows-server/
-
-[Administración de extensiones]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Administración de extensiones](https://msdn.microsoft.com/library/dn606311.aspx)
 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

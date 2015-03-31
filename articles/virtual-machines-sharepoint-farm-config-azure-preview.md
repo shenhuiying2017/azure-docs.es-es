@@ -13,11 +13,11 @@
 	ms.tgt_pltfrm="vm-sharepoint" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="1/26/2015" 
+	ms.date="03/04/2015" 
 	ms.author="josephd"/>
 
 
-#Detalles de configuración de una granja de servidores de SharePoint#
+#Detalles de configuración de una granja de servidores de SharePoint
 
 Granja de servidores de SharePoint es una característica del Portal de vista previa de Microsoft Azure que crea automáticamente una granja de SharePoint Server 2013. Hay dos configuraciones de granja:
 
@@ -28,7 +28,7 @@ En las siguientes secciones se proporcionan detalles de configuración de cada g
 
 Para obtener información adicional, consulte [Granja de servidores de SharePoint](../virtual-machines-sharepoint-farm-azure-preview/).
 
-##Granja básica de SharePoint##
+##Granja básica de SharePoint
 
 La granja de SharePoint básica consta de tres máquinas virtuales con esta configuración:
 
@@ -71,7 +71,7 @@ A continuación se indican los detalles de configuración:
 	-	Frase de contraseña de granja de SharePoint: se especifica durante la configuración inicial.
 
 
-##Granja de SharePoint de alta disponibilidad##
+##Granja de SharePoint de alta disponibilidad
 
 La granja de servidores de SharePoint de alta disponibilidad consta de nueve máquinas virtuales con esta configuración:
 
@@ -119,13 +119,10 @@ A continuación se indican los detalles de configuración:
 	-	Contraseña de cuenta de granja de SharePoint: se especifica durante la configuración inicial.		
 	-	Frase de contraseña de granja de SharePoint: se especifica durante la configuración inicial.
 
-##Recursos adicionales##
+##Recursos adicionales
 
 [Granja de servidores de SharePoint](../virtual-machines-sharepoint-farm-azure-preview/)
 
 [SharePoint en los servicios de infraestructura de Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

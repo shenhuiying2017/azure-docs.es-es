@@ -2,7 +2,7 @@
 
 **EventProcessorHost** es una clase de .NET que simplifica la recepción de eventos desde los Centros de eventos mediante la administración de puntos de control persistentes y recepciones paralelas desde tales Centros de eventos. Con **EventProcessorHost**, puede dividir eventos entre varios destinatarios, incluso cuando están hospedados en distintos nodos. Este ejemplo muestra cómo usar **EventProcessorHost** para un solo destinatario. El [ejemplo de procesamiento de eventos escalados horizontalmente] muestra cómo usar **EventProcessorHost** con varios destinatarios.
 
-Para obtener más información acerca de los patrones de recepción de los Centros de eventos , consulte la  [Guía del desarrollador de los Centros de eventos].
+Para obtener más información acerca de los patrones de recepción de los Centros de eventos , consulte la  [EGuía del desarrollador de los Centros de eventos].
 
 [EventProcessorHost] es una clase de .NET que simplifica la recepción de eventos desde los Centros de eventos mediante la administración de puntos de control persistentes y recepciones paralelas desde tales Centros de eventos. Con [EventProcessorHost], puede dividir eventos entre varios destinatarios, incluso cuando están hospedados en distintos nodos. Este ejemplo muestra cómo usar [EventProcessorHost] para un solo destinatario. El [ejemplo de procesamiento de eventos escalados horizontalmente] muestra cómo usar [EventProcessorHost] con varios destinatarios.
 
@@ -24,7 +24,7 @@ Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento d
 
    	![][14]
 
-5. En el Explorador de soluciones, haga clic con el botón secundario en la solución y, a continuación, haga clic en **Administrar paquetes de NuGet**. 
+5. En el Explorador de soluciones, haga clic con el botón derecho en la solución y, a continuación, haga clic en **Administrar paquetes de NuGet**. 
 
 	Aparecerá el cuadro de diálogo **Administrar paquetes de NuGet**.
 
@@ -120,6 +120,5 @@ Para poder usar [EventProcessorHost], debe tener una [cuenta de almacenamiento d
 [13]: ./media/service-bus-event-hubs-getstarted/create-eph-csharp1.png
 [14]: ./media/service-bus-event-hubs-getstarted/create-sender-csharp1.png
 
-[Guía del desarrollador de los Centros de eventos]: http://msdn.microsoft.com/library/azure/dn789972.aspx
-
-<!--HONumber=42-->
+[Guía de desarrolladores de Centros de eventos]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+<!--HONumber=47-->

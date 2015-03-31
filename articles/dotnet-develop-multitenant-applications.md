@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Patrón de aplicación web multiempresa: arquitectura de Azure" 
 	description="Encuentre información general de arquitectura y patrones de diseño que describan cómo implementar una aplicación web multiempresa en Azure." 
 	services="" 
@@ -15,36 +15,6 @@
 	ms.topic="article" 
 	ms.date="11/19/2014" 
 	ms.author="wpickett"/>
-
-
-<div>
-<div class="left-nav">
-<div class="static-nav">
-<ul>
-<li class="menu-nodejs-compute"><a href="/es-es/develop/net/compute/">Proceso</a></li>
-<li class="menu-nodejs-data"><a href="/es-es/develop/net/data/">Servicios de datos</a></li>
-<li class="menu-nodejs-appservices"><a href="/es-es/develop/net/app-services/">Servicios de aplicaciones</a></li>
-<li><a href="/es-es/develop/net/reference/">de referencia</a></li>
-<li><a href="/es-es/develop/net/guidance/">Guía</a></li>
-<li><a href="/es-es/develop/net/architecture/">Arquitectura</a></li>
-<li><a href="/es-es/develop/net/samples/">Muestras</a></li>
-<li><a href="/es-es/develop/net/end-to-end-Apps/">Tutoriales basados en escenarios</a></li>
-</ul>
-<ul class="links">
-<li class="forum"><a href="/es-es/support/forums/">Foros</a></li>
-</ul>
-</div>
-<div class="floating-nav jump-to"><br />
-<ul>
-<li>En esta sección (saltar a):</li>
-<li><a href="/es-es/develop/net/architecture/#overviews">Información general sobre la arquitectura de la aplicación</a></li>
-<li><strong>Patrón de aplicación: aplicaciones multiempresa</strong></li>
-<li><a href="/es-es/develop/net/architecture/load-testing-pattern/">Patrón de aplicación: pruebas de carga</a></li>
-<li><a href="/es-es/develop/net/architecture/#designpatterns">Patrones de diseño</a></li>
-</ul>
-</div>
-</div>
-</div>
 
 # Aplicaciones multiempresa en Azure
 
@@ -119,6 +89,7 @@ Azure ofrece diferentes formas de aprovisionar nuevos inquilinos para la aplicac
 	- 	Usar la importación y exportación de base de datos para aprovisionar bases de datos nuevas desde un archivo 
 
 
+
 <!--links-->
 
 [Hospedaje de una aplicación multiempresa en Azure]: http://msdn.microsoft.com/library/hh534480.aspx
@@ -126,4 +97,4 @@ Azure ofrece diferentes formas de aprovisionar nuevos inquilinos para la aplicac
 
 
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

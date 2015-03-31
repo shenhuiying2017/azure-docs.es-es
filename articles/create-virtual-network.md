@@ -27,10 +27,7 @@ Por ejemplo, el objeto FrontEndSubnet se puede usar para servidores web y el obj
 En este tutorial se asume que no tiene ninguna experiencia previa con Azure. La descripción de esta configuración de ejemplo se ha creado de modo que pueda familiarizarse con los pasos que se requieren para crear una red virtual propia. Si desea crear una red virtual solo en la nube que funcione para su configuración específica, consulte [Configurar una red virtual solo en la nube en el Portal de administración](http://msdn.microsoft.com/library/azure/dn631643.aspx). Si busca escenarios de diseño e información avanzada sobre redes virtuales, consulte [Red virtual](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx).
 
 
-<div class="dev-callout"> 
-<b>Nota:</b> 
-<p>Este tutorial no le guiará en la creación de la configuración entre ubicaciones en la que la red virtual está conectada a la red de la organización. Si desea consultar un tutorial que le guíe en la creación de una red virtual con conectividad entre ubicaciones y una conexión VPN de sitio a sitio (por ejemplo, conectividad con Active Directory o con SharePoint ubicados en su compañía), consulte el <a href="/es-es/manage/services/networking/cross-premises-connectivity/">Tutorial: Creación de una red virtual entre locales para una conectividad sitio a sitio</a>.</p> 
-</div>
+> [AZURE.NOTE] Este tutorial no le guiará en la creación de la configuración entre ubicaciones en la que la red virtual está conectada a la red de la organización. Si desea consultar un tutorial que le guíe en la creación de una red virtual con conectividad entre ubicaciones y una conexión VPN de sitio a sitio (por ejemplo, conectividad con Active Directory o con SharePoint ubicados en su compañía), consulte el [Tutorial: Creación de una red virtual entre locales para una conectividad sitio a sitio](/manage/services/networking/cross-premises-connectivity/).
 
 
 ##  Objetivos
@@ -85,28 +82,28 @@ Para crear esta red virtual de ejemplo solo en la nube, haga lo siguiente:
 
 Para seguir aprendiendo sobre los servicios de infraestructura de Azure, consulte lo siguiente:
 
-- [Creación de una máquina virtual personalizada](http://azure.microsoft.com/manage/windows/how-to-guides/custom-create-a-vm/) Use este tema para instalar una máquina virtual en su red virtual. Para obtener más información acerca de las máquinas virtuales y las opciones de instalación, consulte [Máquinas virtuales de Azure](http://azure.microsoft.com/manage/windows/).
+- [Creación de una máquina virtual personalizada](http://www.windowsazure.com/manage/windows/how-to-guides/custom-create-a-vm/) Use este tema para instalar una máquina virtual en su red virtual. Para obtener más información acerca de las máquinas virtuales y las opciones de instalación, consulte [Máquinas virtuales de Azure](http://www.windowsazure.com/manage/windows/).
 
-- [Instalación de un nuevo bosque de Active Directory en una red virtual de Azure](http://azure.microsoft.com/manage/services/networking/active-directory-forest/): use este tema para instalar un nuevo bosque de Windows Server Active Directory sin conectividad a ninguna otra red. El tutorial explica los pasos específicos requeridos para crear una máquina virtual (VM) para una nueva instalación de bosque. Si piensa utilizar este tutorial, no cree ninguna máquina virtual mediante el Portal de administración. Para obtener más información, consulte [Instrucciones para implementar Active Directory de Windows Server en máquinas virtuales de Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
+- [Instalación de un nuevo bosque de Active Directory en una red virtual de Azure](http://www.windowsazure.com/manage/services/networking/active-directory-forest/): use este tema para instalar un nuevo bosque de Windows Server Active Directory sin conectividad a ninguna otra red. El tutorial explica los pasos específicos requeridos para crear una máquina virtual (VM) para una nueva instalación de bosque. Si piensa utilizar este tutorial, no cree ninguna máquina virtual mediante el Portal de administración. Para obtener más información, consulte [Instrucciones para implementar Active Directory de Windows Server en máquinas virtuales de Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
 
 Para quitar esta red virtual, selecciónela, haga clic en **Eliminar** y luego en **Sí**.
 
 Cuando esté listo para crear una red virtual solo en la nube que funcione para su configuración específica, consulte [Configurar una red virtual solo en la nube en el Portal de administración](http://msdn.microsoft.com/library/azure/dn631643.aspx). 
 
-Si busca escenarios de diseño e información avanzada sobre redes virtuales, consulte [Información general sobre redes virtuales de Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx). 
+Si busca escenarios de diseño e información avanzada sobre redes virtuales, consulte [Red virtual](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx). 
 
 Para obtener información acerca de procedimientos y configuración de la red virtual, consulte [Tareas de configuración de Red virtual de Azure](http://go.microsoft.com/fwlink/?linkid=296652&clcid=0x409).
 
 
 ## Otras referencias
 
--  [P+F de Red virtual](http://go.microsoft.com/fwlink/?LinkId=296650)
+-  [P+F de Red virtual de Azure](http://go.microsoft.com/fwlink/?LinkId=296650)
 
 -  [Tareas de configuración de Red virtual de Azure](http://go.microsoft.com/fwlink/?LinkId=296652)
 
--  [Configurar una red virtual con archivos de configuración de red](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
+-  [Configurar una red virtual con los archivos de configuración de red](http://msdn.microsoft.com/library/windowsazure/jj156097.aspx)
 
--  [Resolución de nombres](http://go.microsoft.com/fwlink/?LinkId=248097)
+-  [Información general de resolución de nombres de Azure](http://go.microsoft.com/fwlink/?LinkId=248097)
 
 
 [Image1]: ./media/create-virtual-network/createVNet_01_OpenVirtualNetworkWizard.png
@@ -118,4 +115,4 @@ Para obtener información acerca de procedimientos y configuración de la red vi
 [Image8]: ./media/create-virtual-network/createVNet_07_VNetExampleSpaces.png
 
 
-<!--HONumber=46--> 
+<!--HONumber=47-->

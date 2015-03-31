@@ -29,8 +29,9 @@ A continuación, creará un nuevo servicio móvil para sustituir la lista en mem
     
 	> [AZURE.NOTE] Aparece una advertencia cuando la contraseña que proporciona no cumple los requisitos mínimos o cuando no coincide con su confirmación.  
 	>
-	> Se recomienda que tome nota del nombre de inicio de sesión y la contraseña del administrador que especifique, ya que necesitará esta información para volver a usar la instancia de la base de datos SQL o el servidor más adelante.
+	> Recomendamos que tome nota del nombre de inicio de sesión de administrador y la contraseña que especifique; necesitará esta información para volver a usar la instancia de la Base de datos SQL o el servidor más adelante.
 
 Ahora ha creado un servicio móvil que pueden usar sus aplicaciones móviles. A continuación, agregará una nueva tabla en la que se almacenarán los datos de aplicaciones. Esta tabla será la que utilice la aplicación en lugar de la colección en memoria.
 
-<!--HONumber=42-->
+
+<!--HONumber=47-->

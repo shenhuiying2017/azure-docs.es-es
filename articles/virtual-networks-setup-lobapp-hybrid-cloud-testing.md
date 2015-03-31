@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/04/2015" 
 	ms.author="josephd"/>
 
 #Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas
@@ -42,11 +42,11 @@ Hay tres fases principales para configurar este entorno de prueba de nube híbri
 2.	Configuración del equipo con SQL server (SQL1).
 3.	Configuración del servidor de línea de negocio (LOB1).
 
-Si todavía no dispone de una suscripción a Azure, puede registrarse para una prueba gratuita en [Probar Azure](http://www.windowsazure.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si todavía no dispone de una suscripción a Azure, puede registrarse para una prueba gratuita en [Probar Azure](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 ##Fase 1: Configuración del entorno de nube híbrida
 
-Utilice las instrucciones del tema [Configuración de un entorno de nube híbrida para pruebas](../virtual-networks-setup-hybrid-cloud-environment-testing/). Dado que este entorno de prueba no requiere la presencia del servidor APP1 en la subred de la red corporativa, no dude en cerrarlo por ahora.
+Utilice las instrucciones del tema [Configuración de un entorno de nube híbrida para pruebas](../virtual-networks-setup-hybrid-cloud-environment-testing/) . Dado que este entorno de prueba no requiere la presencia del servidor APP1 en la subred de la red corporativa, no dude en cerrarlo por ahora.
 
 Esta es su configuración actual.
 
@@ -56,12 +56,12 @@ Esta es su configuración actual.
 
 Desde el Portal de administración de Azure, inicie el equipo de DC2 si es necesario.
 
-A continuación, cree una máquina virtual de Azure para SQL1 con estos comandos en un símbolo del sistema de Azure PowerShell con nivel de administrador en el equipo local. Antes de ejecutar estos comandos, introduzca los valores de las variables y quite los caracteres < y >.
+A continuación, cree una máquina virtual de Azure para SQL1 con estos comandos en un símbolo del sistema de Azure PowerShell en el equipo local. Antes de ejecutar estos comandos, introduzca los valores de las variables y quite los caracteres < y >.
 
 	$storageacct="<Name of the storage account for your TestVNET virtual network>"
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	Set-AzureStorageAccount -StorageAccountName $storageacct
 	$image= Get-AzureVMImage | where { $_.ImageFamily -eq "SQL Server 2014 RTM Standard on Windows Server 2012 R2" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
@@ -79,7 +79,7 @@ A continuación, conéctese a la nueva máquina virtual de SQL1 *using the local
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan credenciales, utilice estas:
 	- Nombre: **SQL1\\**[Nombre de la cuenta del administrador local]
-	- Contraseña:  [Contraseña de la cuenta del administrador local]
+	- Contraseña: [Contraseña de la cuenta del administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto que haga referencia a certificados, haga clic en **Sí**.
 
 A continuación, configure reglas del Firewall de Windows para permitir el tráfico y probar la conectividad básica y SQL Server. Desde un símbolo del sistema de Windows PowerShell con nivel de administrador en SQL1, ejecute estos comandos.
@@ -137,7 +137,7 @@ En primer lugar, cree una máquina virtual de Azure de LOB1 con estos comandos e
 
 	$ServiceName="<The cloud service name for your TestVNET virtual network>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$User1Password="<The password for the CORP\User1 account>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name LOB1 -InstanceSize Medium -ImageName $image
@@ -187,4 +187,6 @@ Este entorno ya está preparado para implementar su aplicación basada en web en
 [Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
 [Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
-<!--HONumber=45--> 
+
+[Configuración de un entorno de nube híbrida simulado para pruebas](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
+<!--HONumber=47-->

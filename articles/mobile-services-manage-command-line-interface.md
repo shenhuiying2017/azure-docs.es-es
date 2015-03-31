@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Administración de un Servicio móvil en la línea de comandos: tutorial de Azure" 
 	description="Obtenga información acerca de cómo crear, implementar y administrar el servicio móvil de Azure mediante herramientas de línea de comandos." 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -32,7 +32,7 @@ Cuando se combinan en un archivo por lotes o un único script, estos comandos in
 
 Para usar las herramientas de línea de comandos de Azure para administrar servicios móviles, necesita una cuenta de Azure que disponga de la característica Servicios móviles de Azure habilitada.
 
-+ En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/" target="_blank">Evaluación gratuita de Azure</a>.
++ En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/" target="_blank">Evaluación gratuita de Azure</a>.
 
 + Si tiene una cuenta existente pero necesita habilitar la vista previa de Servicios móviles de Azure, consulte <a href="http://azure.microsoft.com/documentation/articles/php-create-account/#enable" target="_blank">Habilitación de las características de vista previa de Azure</a>.
 
@@ -63,15 +63,15 @@ Para comenzar, primero necesita descargar e importar su configuración de public
 
 Esto abrirá su explorador predeterminado y le solicitará iniciar sesión en el Portal de administración. Después de iniciar sesión, se descargará su archivo  `.publishsettings`. Anote la ubicación del archivo guardado.
 
-A continuación, importe el archivo  `.publishsettings` ejecutando el siguiente comando y reemplace `<ruta al archivo .publishsettings>` por la ruta al archivo  `.publishsettings`:
+A continuación, importe el archivo  `.publishsettings` mediante la ejecución del siguiente comando y reemplace `<path-to-settings-file>` por la ruta hacia el archivo  `.publishsettings`:
 
 		azure account import <path-to-settings-file>
 
-Puede eliminar toda la información almacenada con el comando <code>import</code> usando el comando <code>account clear</code>:
+Puede quitar toda la información almacenada por el comando <code>Importación</code> utilizando el comando <code>account clear</code> :
 
 		azure account clear
 
-Para ver una lista de opciones para los comandos  `account`, use la opción "-help":
+Para ver una lista de opciones de `account` comandos, utilice la opción `-ayuda`:
 
 		azure account -help
 
@@ -101,17 +101,17 @@ Puede usar las herramientas de línea de comandos para eliminar un servicio móv
 
 		azure mobile delete <service-name> -a -q
 
-Si incluye los parámetros `-a` y `-q` , este comando también elimina el servidor y la base de datos SQL usados por el servicio móvil sin mostrar una solicitud.
+Si incluye los parámetros `-a` y `-q`, este comando también elimina el servidor y la base de datos SQL usados por el servicio móvil sin mostrar una solicitud.
 
-> [AZURE.NOTE] Si no especifica el parámetro <code>-q</code> junto con <code>-a</code> o <code>-d</code>, la ejecución se pausa y se le solicita que seleccione las opciones de eliminación para su Base de datos SQL. Utilice únicamente el parámetro <code>-a</code> cuando ningún otro servicio use la base de datos o el servidor; de lo contrario, use el parámetro <code>-d</code> para eliminar solamente los datos que pertenezcan al servicio móvil que se vaya a eliminar.
+> [AZURE.NOTE] si no especifica el parámetro <code>-q</code> junto con <code>-a</code> o <code>-d</code>, la ejecución se pausa y se le solicita que seleccione las opciones de eliminación para su Base de datos SQL. Use solo el parámetro <code>-a</code> cuando ningún otro servicio usa la base de datos o el servidor; de lo contrario, use el parámetro <code>-d</code> para eliminar solamente los datos que pertenezcan al servicio móvil que se vaya a eliminar.
 
 <h2><a name="create-table"></a>Creación de una tabla en el servicio móvil</h2>
 
-El siguiente comando elimina el servicio móvil, donde `<service-name>` es el nombre del servicio móvil para eliminar y `<table-name>` es el nombre de la tabla que se va a crear:
+El siguiente comando crea una tabla en el servicio móvil especificado, donde `<nombre del servicio>` es el nombre del servicio móvil y `<table-name>` es el nombre de la tabla que se va a crear:
 
 		azure mobile table create <service-name> <table-name>
 
-De esta forma, se crea una nueva tabla con permisos predeterminados, `application`, para las operaciones de tabla:  `insert`,  `read`,  `update` y  `delete`. 
+De esta forma, se crea una nueva tabla con permisos predeterminados, `application`, para las operaciones de tabla: `insert`, `read`, `update` y `delete`. 
 
 El siguiente comando crea una nueva tabla con un permiso  `read` público pero con el permiso  `delete` concedido solo a administradores:
 
@@ -121,7 +121,7 @@ La siguiente tabla muestra el valor de permiso de script en comparación con el 
 
 <table border="1" width="100%"><tr><th>Valor de script</th><th>Valor del Portal de administración</th></tr>
 <tr><td><code>public</code></td><td>Todo el mundo</td></tr>
-<tr><td><code>application</code> (predeterminado)</td><td>Cualquier persona con la clave de aplicación</td></tr>
+<tr><td><code>aplicación</code> (predeterminado)</td><td>Cualquier persona con la clave de aplicación</td></tr>
 <tr><td><code>user</code></td><td>Solo usuarios autenticados</td></tr>
 <tr><td><code>admin	</code></td><td>Solo scripts y administradores</td></tr></table>
 
@@ -137,7 +137,7 @@ Este comando también muestra el número de índices en cada tabla y el número 
 
 <h2><a name="delete-table"></a>Eliminación de una tabla existente del servicio móvil</h2>
 
-El siguiente comando elimina el servicio móvil, donde `<service-name>` es el nombre del servicio móvil para eliminar y `<table-name>` es el nombre de la tabla que se va a crear:
+El comando siguiente elimina una tabla de servicio móvil, donde `<nombre del servicio>` es el nombre del servicio móvil y `<table-name>` es el nombre de la tabla que se va a eliminar:
 
 		azure mobile table delete <service-name> <table-name> -q
 
@@ -145,14 +145,13 @@ En los scripts de automatización, use el parámetro `-q` para eliminar la tabla
 
 <h2><a name="register-script"></a>Registro de un script en una operación de tabla</h2>
 
-El siguiente comando elimina el servicio móvil, donde `<service-name>` es el nombre del servicio móvil, `<table-name>` es el nombre de la tabla, y `<operation>` es la operación de tabla, que puede ser `read`,  `insert`,  `update` o  `delete`:
+El siguiente comando carga y registra una función en una operación de una tabla, donde `<service-name>` es el nombre del servicio móvil, `<table-name>` es el nombre de la tabla, y `<operation>` es la operación de tabla, que puede ser `read`, `insert`, `update` o `delete`:
 
 		azure mobile script upload <service-name> table/<table-name>.<operation>.js
 
 Tenga en cuenta que esta operación carga un archivo JavaScript (.js) desde el equipo local. El nombre del archivo debe estar compuesto por los nombres de operación y de tabla, y debe encontrarse en la subcarpeta  `table` relativa a la ubicación en la que se ejecuta el comando. Por ejemplo, la siguiente operación carga y registra un nuevo script  `insert` que pertenece a la tabla  `TodoItems`:
 
-		azure mobile script upload todolist table/todoite
-	ms.insert.js
+		azure mobile script upload todolist table/todoitems.insert.js
 
 La declaración de función en el archivo de script también debe coincidir con la operación de tabla registrada. Esto significa que para un script  `insert`, el script cargado contiene una función con la siguiente firma:
 
@@ -175,7 +174,7 @@ Pasos siguientes aquí...
 [Creación de un servicio móvil]: #create-service
 [Obtención de la clave maestra]: #get-master-key
 [Creación de una tabla]: #create-table
-[Registro de un script de tabla nuevo]: #register-script
+[Registro de un nuevo script de tabla]: #register-script
 [Eliminación de una tabla existente]: #delete-table
 [Eliminación de un servicio móvil existente]: #delete-service
 [Prueba del servicio móvil]: #test-service
@@ -203,10 +202,9 @@ Pasos siguientes aquí...
 [install-node-linux]: https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
 
 [mac-installer]: http://go.microsoft.com/fwlink/p?LinkId=252249
-[windows-installer]: http://go.microsoft.com/fwlink/p?LinkID=275464
-[reference-docs]: /es-es/manage/linux/other-resources/command-line-tools/#Commands_to_manage_mobile_services
+[windows installer]: http://go.microsoft.com/fwlink/p?LinkID=275464
+[reference-docs]: http://azure.microsoft.com/documentation/articles/virtual-machines-command-line-tools/#Commands_to_manage_mobile_services
 [Instalación de las herramientas de línea de comandos de Azure para Mac y Linux]: http://go.microsoft.com/fwlink/p/?LinkId=275795
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

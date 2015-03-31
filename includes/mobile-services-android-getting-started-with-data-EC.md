@@ -44,12 +44,12 @@
 		private MobileServiceClient mClient;
 		private private MobileServiceTable<ToDoItem> mToDoTable;
 
-10. Busque la clase *ProgressFilter* en la parte inferior del archivo y quite los comentarios. Esta clase muestra un indicador 'loading' mientras *MobileServiceClient* ejecuta las operaciones de red.
+10. Busque la clase *ProgressFilter* en la parte inferior del archivo y quite la marca de comentario.  Esta clase muestra un indicador de 'carga' mientras *MobileServiceClient* está ejecutando operaciones de red.
 
 
 11. En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
 
-12. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**, a continuación haga clic en **Administrar claves** y anote la **clave de la aplicación**.
+12. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**; a continuación, haga clic en **Administrar claves** y anote la **clave de la aplicación**.
 
    	![](./media/download-android-sample-code/mobile-dashboard-tab.png)
 
@@ -71,9 +71,9 @@
 			createAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
 		}
 
-  	Esto crea una nueva instancia de *MobileServiceClient* que se usa para acceder a su servicio móvil. Además, se crea la instancia *MobileServiceTable* que se usa para el almacenamiento de datos de proxy en el servicio móvil.
+  	De esta forma, se crea una nueva instancia de  *MobileServiceClient* que se usa para obtener acceso al servicio móvil.  Además, se crea la instancia de  *MobileServiceTable* que se usa para el almacenamiento de datos de proxy en el servicio móvil.
 
-14. En el código de arriba, reemplace  `MobileServiceUrl` y  `AppKey` por la URL y la clave de la aplicación de su servicio móvil, por ese orden.
+14. En el código de arriba, reemplace  `MobileServiceUrl` y  `AppKey` por la URL y la clave de la aplicación de su servicio móvil, en ese orden.
 
 
 
@@ -156,4 +156,4 @@
 
 <!-- URLs. -->
 [SDK de Android para Servicios móviles]: http://aka.ms/Iajk6q
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux" 
 	description="Aprenda a usar Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux en Azure." 
 	services="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Linux
@@ -26,7 +26,7 @@ Para consultar el tema suplementario sobre máquinas virtuales basadas en Window
 
 ##Paso 1: Azure PowerShell
 
-Si aún no lo ha hecho, siga las instrucciones de [Instalación y configuración de Azure PowerShell](../install-configure-powershell/) para instalar Azure PowerShell en un equipo local. A continuación, abra un símbolo del sistema de Azure PowerShell con nivel de administrador.
+Si aún no lo ha hecho, siga las instrucciones de [Instalación y configuración de Azure PowerShell](../install-configure-powershell/) para instalar Azure PowerShell en un equipo local. A continuación, abra un símbolo del sistema de Azure PowerShell.
 
 ##Paso 2: Establecimiento de la cuenta de suscripción y almacenamiento
 
@@ -83,7 +83,7 @@ Especifique el nombre de usuario y la contraseña iniciales de Linux (obligatori
 	$pass="<user account password>"
 	$vm1 | Add-AzureProvisioningConfig -Linux -LinuxUser $username -Password $pass
 
-Si va a guardar el conjunto de comandos resultante como un archivo, asegúrese de almacenarlo en una ubicación segura para proteger el nombre y la contraseña de la cuenta.
+Si va a guardar el conjunto de comandos resultante en un archivo, almacénelo en una ubicación segura para proteger el nombre de cuenta y la contraseña.
 
 Opcionalmente, puede especificar un conjunto de pares de claves SSH que ya estén implementados en la suscripción.
 
@@ -162,7 +162,7 @@ Después de crear la máquina virtual, consulte [Inicio de sesión en una máqui
 Si va a crear esta máquina virtual de nuevo o una similar, puede: 
 
 - Guardar este conjunto de comandos como un archivo de texto o como un archivo de script de PowerShell (*.ps1)
-- Guardar este conjunto de comandos como un Runbook de automatización de Azure en la sección **Automatización** del Portal de administración de Azure. 
+- Guardar este conjunto de comandos como un Runbook de automatización de Azure en la sección **Automatización** del Portal de administración de Azure 
 
 ##<a id="examples"></a>Ejemplos
 
@@ -267,4 +267,4 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](../virtual-machines-ps-create-preconfigure-windows-vms/)
 
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

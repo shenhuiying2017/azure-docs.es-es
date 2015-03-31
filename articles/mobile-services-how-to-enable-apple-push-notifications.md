@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Habilitación de notificaciones de inserción de Apple" 
 	description="Siga este tutorial para crear un nuevo servicio mediante los Servicios móviles de Azure." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="ios" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
@@ -31,11 +31,10 @@ Ahora ya puede usar este certificado .p12 para habilitar servicios para que se p
 
 
 <!-- URLs. -->
-[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
-[SDK de servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=268375
+[Introducción a las notificaciones de inserción]: /documentation/articles/mobile-services-javascript-backend-ios-get-started-push/
+[SDK de Servicios móviles]: https://go.microsoft.com/fwLink/p/?LinkID=268375
 
 [Portal de administración]: https://manage.windowsazure.com/
 
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Ofertas de seguridad para máquinas virtuales de Azure" 
 	description="Rápida visión global de las características de seguridad más importantes para las máquinas virtuales de Azure y vínculos a los detalles." 
 	services="virtual-machines" 
@@ -42,7 +42,4 @@ Las listas de control de acceso (ACL) de red ofrecen la posibilidad de permitir 
 
 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

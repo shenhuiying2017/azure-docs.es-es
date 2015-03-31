@@ -16,7 +16,7 @@
 	ms.date="01/15/2015" 
 	ms.author="kathydav"/>
 
-#Cambio de la letra de unidad del disco temporal de Windows
+# Cambio de la letra de unidad del disco temporal de Windows
 
 Si necesita utilizar la unidad D para almacenar datos, siga estas instrucciones para usar una unidad distinta para el disco temporal. Nunca use la unidad temporal para almacenar los datos que desee conservar.
 
@@ -26,7 +26,7 @@ Si desea usar un disco de datos existente en la unidad D, asegúrese de que tamb
 
 > [AZURE.WARNING] Si al modificar el tamaño de una máquina virtual se mueve la máquina virtual a otro host, la unidad temporal volverá a ser la unidad D.
 
-##Cambio de la letra de unidad
+## Cambio de la letra de unidad
 
 1. Inicie sesión en la máquina virtual. 
 
@@ -44,7 +44,7 @@ Si desea usar un disco de datos existente en la unidad D, asegúrese de que tamb
 
 8.	Mueva el archivo pagefile.sys de la otra unidad a la unidad E.
 
-##Recursos adicionales
+## Recursos adicionales
 [Inicio de sesión en una máquina virtual con Windows Server]
 
 [Desconexión de un disco de datos de una máquina virtual]
@@ -61,7 +61,4 @@ Si desea usar un disco de datos existente en la unidad D, asegúrese de que tamb
 
 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

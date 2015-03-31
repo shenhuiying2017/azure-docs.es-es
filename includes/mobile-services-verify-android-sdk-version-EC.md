@@ -18,4 +18,4 @@ Si observa alguna de estas señales, es posible que la versión del SDK de Andro
 	 	        android:targetSdkVersion="21" />
 	
 3. En el Explorador de paquetes de Eclipse, haga clic con el botón secundario en el nodo de proyecto, seleccione**Properties** (Propiedades) y, en la columna izquierda, seleccione **Android**. Asegúrese de que **Destino de compilación de proyecto** se haya establecido en la misma versión de SDK que **targetSdkVersion**.
-<!--HONumber=45--> 
+<!--HONumber=47-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Prácticas recomendadas de seguridad (.NET) - Azure" 
 	description="Introducción a la seguridad en Azure." 
 	services="web-sites, virtual-machines, sql-database, storage, service-bus, active-directory" 
@@ -22,8 +22,6 @@
 
 
 
-[WACOM.INCLUDE [SecurityRX](../includes/SecurityRX.md)]
+[AZURE.INCLUDE [SecurityRX](../includes/SecurityRX.md)]
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

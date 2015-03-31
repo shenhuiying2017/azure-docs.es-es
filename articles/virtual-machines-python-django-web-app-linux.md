@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Aplicación web Python con Django en Mac - Tutorial de Azure" 
 	description="Un tutorial que muestra cómo hospedar un sitio web basado en Django en Azure con una máquina virtual de Linux." 
 	services="virtual-machines" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="vm-linux" 
 	ms.devlang="python" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/05/2015" 
 	ms.author="huvalo"/>
 
 
@@ -22,7 +22,7 @@
 
 # Aplicación web Django Hello World (mac-linux)
 
-<div class="dev-center-tutorial-selector sublanding"><a href="/es-es/develop/python/tutorials/web-app-with-django/" title="Windows">Windows</a><a href="/es-es/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac/Linux" class="current">Mac/Linux</a></div>
+<div class="dev-center-tutorial-selector sublanding"><a href="/develop/python/tutorials/web-app-with-django/" title="Windows">Windows</a><a href="/develop/python/tutorials/django-hello-world-(maclinux)/" title="Mac/Linux" class="current">Mac o Linux:</a></div>
 
 Este tutorial describe cómo hospedar un sitio web basado en Django en Windows. 
 Uso de una máquina virtual Linux en Azure. En este tutorial se asume que no tiene ninguna experiencia previa con Azure. Al término de esta guía, tendrá una aplicación basada en Django funcionando en la nube.
@@ -43,15 +43,15 @@ A continuación se muestra una captura de pantalla de la aplicación completada:
 
 ## Creación y configuración de una máquina virtual de Azure para hospedar Django
 
-1. Siga las instrucciones que se proporcionan [aquí][portal-vm] para crear una máquina virtual de Azure de la distribución  *Ubuntu Server 14.04 LTS*.
+1. Siga las instrucciones que se proporcionan [aquí][portal-vm] para crear una máquina virtual de Azure de la distribución*Ubuntu Server 14.04 LTS*.
 
-  **Nota:** solo * necesita* crear la máquina virtual.  Deténgase en la sección titulada  *Inicio de sesión en una máquina virtual después de su creación*.
+  **Nota:** solo *only* debe crear la máquina virtual.  Se detiene en la sección *How to log on to the virtual machine after you create it*.
 
 1. Indique a Azure que dirija el tráfico del puerto **80** de la Web al puerto **80** de la máquina virtual:
-	* Diríjase a la máquina virtual recién creada en el Portal de Azure y haga clic en la pestaña  *ENDPOINTS*.
-	* Haga clic en el botón  *ADD* situado en la parte inferior de la pantalla.
+	* Diríjase a la máquina virtual recién creada en el Portal de Azure y haga clic en la pestaña *ENDPOINTS*.
+	* Haga clic en el botón *ADD* de la parte inferior de la pantalla.
 	![add endpoint](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-add-endpoint.png)
-	* Abra el puerto  *PUBLIC PORT 80* del protocolo  *TCP* como  *PRIVATE PORT 80*.
+	* Abra el *TCP* del protocolo *PUBLIC PORT 80* como *PRIVATE PORT 80*.
 	![port80](./media/virtual-machines-python-django-web-app-linux/mac-linux-django-helloworld-port80.png)
 
 ## <a id="setup"> </a>Configuración del entorno de desarrollo
@@ -107,7 +107,7 @@ La máquina virtual de Linux (Ubuntu) ya tiene preinstalado Python 2.7, pero no 
 
 ## Instalación de Apache
 
-1.  Cree un archivo de configuración del host virtual Apache **/etc/apache2/sites-available/helloworld.conf**. Configure los contenidos de la siguiente manera y asegúrese de sustituir  *yourVmUrl* por la URL real de la máquina va a usar (por ejemplo,  *pyubuntu.cloudapp.net*).
+1.  Cree un archivo de configuración del host virtual Apache **/etc/apache2/sites-available/helloworld.conf**. Configure los contenidos de la siguiente manera y asegúrese de sustituir *yourVmUrl* por la URL real de la máquina que va a usar (por ejemplo, *pyubuntu.cloudapp.net*).
 
 		<VirtualHost *:80>
 		ServerName yourVmUrl
@@ -133,9 +133,6 @@ La máquina virtual de Linux (Ubuntu) ya tiene preinstalado Python 2.7, pero no 
 Cuando finalice este tutorial, apague o quite la máquina virtual de Azure recién creada para liberar recursos para otros tutoriales y así evitar incurrir en cargos por uso de Azure.
 
 
-[portal-vm]: /es-es/manage/linux/tutorials/virtual-machine-from-gallery/
+[portal-vm]: /manage/linux/tutorials/virtual-machine-from-gallery/
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

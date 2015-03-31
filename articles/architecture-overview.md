@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Arquitectura" 
 	description="Información general de arquitectura que cubre patrones de diseño habituales." 
 	services="" 
@@ -16,19 +16,19 @@
 	ms.date="11/25/2014" 
 	ms.author="robb"/>
 
-#Arquitectura
+# Arquitectura
 Recursos para la creación de aplicaciones que usan Microsoft Azure.
 
-##Proyectos de arquitectura de Microsoft
+## Proyectos de arquitectura de Microsoft
 
-Microsoft publica ahora un conjunto de proyectos de arquitectura de alto nivel que muestran cómo crear tipos específicos de sistemas con servicios de Microsoft Azure. Cada proyecto incluye un archivo 2D basado en Visio que puede descargar y modificar, un archivo PDF 3D con más color para presentar el plano y un vídeo que explica el PDF 3D. Consulte 
+Microsoft publica ahora un conjunto de proyectos de arquitectura de alto nivel que muestran cómo crear tipos específicos de sistemas con servicios de Microsoft Azure. Cada proyecto incluye un archivo 2D basado en Visio que puede descargar y modificar, un archivo PDF 3D con más color para presentar el plano y un vídeo que explica el PDF 3D. Vea 
 [Proyectos de arquitectura de Microsoft](http://msdn.microsoft.com/dn630664).
 
 ![Microsoft Architecture Blueprint 3D diagram][BluePrint]
 
-##Conjunto de símbolos/iconos de Azure
+## Conjunto de símbolos/iconos de Azure
 
-[Descargue el conjunto de símbolos/iconos de Azure](http://www.microsoft.com/es-es/download/details.aspx?id=41937) para crear materiales técnicos que describen (o usan) Azure: elementos como diagramas de arquitectura, materiales de formación, presentaciones, hojas de datos, infografías y documentos. Puede descargar los símbolos en los formatos PPT, Visio o PNG. Deseamos saber lo que piensa; para ello, la descarga incluye instrucciones para que entregue sus comentarios.
+[Descargue el conjunto de símbolos/iconos de Azure](http://www.microsoft.com/download/details.aspx?id=41937) para crear materiales técnicos que describen (o usan) Azure: elementos como diagramas de arquitectura, materiales de formación, presentaciones, hojas de datos, infografías y documentos. Puede descargar los símbolos en los formatos PPT, Visio o PNG. Deseamos saber lo que piensa; para ello, la descarga incluye instrucciones para que entregue sus comentarios.
 
 Los diagramas 2D de [Proyectos de arquitectura de Microsoft](http://msdn.microsoft.com/dn630664) usan estos símbolos. 
 
@@ -38,13 +38,13 @@ Si ha usado los símbolos, asegúrese de rellenar la breve [encuesta](http://aka
 
 ![Azure Symbol/Icon set][azure_symbols]
 
-##Patrones de diseño
+## Patrones de diseño
 Microsoft Patterns and Practices ha publicado el libro [Cloud Design Patterns](http://msdn.microsoft.com/library/dn568099.aspx) que está disponible en MSDN y como descarga PDF. También hay disponible un póster de gran formato en el que se enumeran todos los patrones. 
 
 ![Patterns and Practices Cloud Patterns Poster][PnPPoster]
 
-##Infografías de arquitectura
-Microsoft publica varios pósteres e infografías relacionados con la arquitectura. Entre ellos, se encuentran [Creación de aplicación en la nube para el mundo real](http://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) y [Escalación de aplicaciones con Servicios en la nube](http://azure.microsoft.com/documentation/infographics/cloud-services/) . 
+## Infografías de arquitectura
+Microsoft publica varios pósteres e infografías relacionados con la arquitectura. Entre ellos, se encuentran [Creación de aplicación en la nube para el mundo real](http://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/) y [Escalación de aplicaciones con Servicios en la nube](http://azure.microsoft.com/documentation/infographics/cloud-services/). 
 
 
 ![Azure Architecture Infographics][AzureInfographic]
@@ -56,6 +56,4 @@ Microsoft publica varios pósteres e infografías relacionados con la arquitectu
 [PnPPoster]: ./media/architecture-overview/PnPPatternPosterThumb.png
 [AzureInfographic]: ./media/architecture-overview/AzureArchInfographicThumb.png
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

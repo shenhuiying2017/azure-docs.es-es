@@ -23,13 +23,13 @@ En este artículo se muestra cómo puede crear y cargar un disco duro virtual (V
 ## Requisitos previos##
 En este artículo se supone que tiene los siguientes elementos:
 
-- **Una suscripción de Azure**: si no tiene ninguna, puede crear una cuenta de evaluación gratuita en un par de minutos. Para obtener más información, consulte [Creación de una cuenta de Azure](http://azure.microsoft.com/documentation/articles/php-create-account/) 
+- **Una suscripción de Azure**: si no tiene ninguna, puede crear una cuenta de evaluación gratuita en un par de minutos. Para obtener más información, consulte [Creación de una cuenta de Azure](http://azure.microsoft.com/documentation/articles/php-create-account/). 
 
 - **Herramientas de Azure PowerShell**: dispone del módulo Microsoft Azure PowerShell instalado y configurado para usar su suscripción. Para descargar el módulo, consulte la página de [descargas de Azure](http://azure.microsoft.com/downloads/). Hay disponible un tutorial para instalar y configurar el módulo aquí. Usará el cmdlet de las [descargas de Azure](http://azure.microsoft.com/downloads/) para cargar el VHD.
 
-- **Sistema operativo FreeBSD instalado en un archivo .vhd**  - Ha instalado un sistema operativo FreeBSD compatible en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, puede utilizar una solución de virtualización como Hyper-V para crear el archivo .vhd e instalar el sistema operativo. Para obtener instrucciones, consulte [Instalar el rol Hyper-V y configurar una máquina virtual](http://technet.microsoft.com/library/hh846766.aspx). 
+- **Sistema operativo FreeBSD instalado en un archivo .vhd**. Ha instalado un sistema operativo FreeBSD compatible en un disco duro virtual. Existen varias herramientas para crear archivos .vhd; por ejemplo, puede utilizar una solución de virtualización como Hyper-V para crear el archivo .vhd e instalar el sistema operativo. Para obtener instrucciones, consulte [Instalar el rol Hyper-V y configurar una máquina virtual](http://technet.microsoft.com/library/hh846766.aspx). 
 
-> [AZURE.NOTE] el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD mediante el Administrador de Hyper-V o el cmdlet [convert-vhd](https://technet.microsoft.com/es-es/library/hh848454.aspx).
+> [AZURE.NOTE] el reciente formato VHDX no se admite en Azure. Puede convertir el disco al formato VHD mediante el Administrador de Hyper-V o el cmdlet [convert-vhd](https://technet.microsoft.com/library/hh848454.aspx).
 
 Esta tarea incluye los cinco pasos siguientes.
 
@@ -171,12 +171,12 @@ Antes de cargar el archivo .vhd, debe establecer una conexión segura entre el e
 
 4. Tipo: 
 	`Import-AzurePublishSettingsFile <PathToFile>`
-
+	
 	Donde `<PathToFile>` es la ruta completa al archivo .publishsettings. 
 
    Para obtener información, consulte [Introducción a los cmdlets de Microsoft Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx). 
 	
-   Para obtener más información acerca de la instalación y configuración de Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/). 
+   Para obtener más información acerca de la instalación y configuración de Azure PowerShell, consulte [Cómo instalar y configurar Azure PowerShell](http://www.windowsazure.com/documentation/articles/install-configure-powershell/). 
 
 ## Paso 4: Cargar el archivo .vhd ##
 
@@ -208,4 +208,4 @@ Después de cargar el archivo .vhd, puede agregarlo como una imagen a la lista d
 
 	![freebsd image in azure](./media/virtual-machines-freebsd-create-upload-vhd/freebsdimageinazure.png)
 
-<!--HONumber=45--> 
+<!--HONumber=47-->

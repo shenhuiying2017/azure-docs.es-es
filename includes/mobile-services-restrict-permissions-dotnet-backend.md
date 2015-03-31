@@ -1,31 +1,23 @@
+﻿
 
+De manera predeterminada, todas las solicitudes a recursos de servicios móviles están restringidas a clientes que presentan la clave de aplicación, lo que no protege estrictamente el acceso a los recursos. Para proteger los recursos, debe restringir el acceso solo a los clientes autenticados.
 
-De manera predeterminada, todas las solicitudes a recursos de servicios móviles están restringidas a clientes que presentan la clave de aplicación, lo que no protege estrictamente el acceso a los recursos. Para proteger los recursos, debe restringir el acceso únicamente a los clientes autenticados.
-
-1. En Visual Studio, abra el proyecto que contiene el servicio móvil. 
-
-2. En el Explorador de soluciones, expanda la carpeta Controladores y abra el archivo de proyecto TodoItemController.cs.
-
-	La clase **TodoItemController** implementa el acceso a los datos para la tabla TodoItem. 
-
-3. Agregue la siguiente instrucción `using` en la parte superior de la página de código:
+1. En Visual Studio, abra el proyecto de servicio móvil, expanda la carpeta Controllers y abra **TodoItemController.cs**. La clase **TodoItemController** implementa el acceso a los datos para la tabla TodoItem. Agregue la siguiente instrucción `using`:
 
 		using Microsoft.WindowsAzure.Mobile.Service.Security;
 
-4. Aplique el atributo AuthorizeLevel siguiente a la clase **TodoItemController**:
+2. Aplique el siguiente atributo _AuthorizeLevel_ a la clase **TodoItemController**. Esto garantiza que todas las operaciones frente a la tabla _TodoItem_ requieren un usuario autenticado.
 
-		[AuthorizeLevel(AuthorizationLevel.User)] 
+		[AuthorizeLevel(AuthorizationLevel.User)]
 
-	De esta forma, se garantiza que todas las operaciones en la tabla **TodoItem** requieren un usuario autenticado. 
+	>[AZURE.NOTE]Aplique el atributo AuthorizeLevel a métodos individuales para establecer los niveles de autorización específicos en los métodos expuestos por el controlador.
 
-	>[AZURE.NOTE] Aplique el atributo AuthorizeLevel a métodos individuales para establecer los niveles de autorización específicos en los métodos expuestos por el controlador.
-
-5. Si desea depurar la autenticación localmente, expanda la carpeta App_Start, abra el archivo de proyecto WebApiConfig.cs y, a continuación, agregue el código siguiente al método **Register**:
+3. Si desea depurar la autenticación localmente, expanda la carpeta  `App_Start`, abra **WebApiConfig.cs** y agregue el código siguiente al método **Registrar**.  
 
 		config.SetIsHosted(true);
-	
-	Esto indica al proyecto del servicio móvil local que se ejecute como si estuviera hospedado en Azure, incluyendo la autorización a la configuración de AuthorizeLevel. Sin esta configuración, todas las solicitudes HTTP a *localhost* se permiten sin autenticación, a pesar de la configuración de AuthorizeLevel.  
 
-6. Vuelva a publicar el proyecto de servicio.
+	Esto indica al proyecto del servicio móvil local que se ejecute como si estuviera hospedado en Azure, incluyendo la autorización a la configuración de  *AuthorizeLevel*. Sin esta configuración, todas las solicitudes HTTP a localhost se permiten sin autenticación, a pesar de la configuración de  *AuthorizeLevel*. 
 
-<!--HONumber=42-->
+4. Vuelva a publicar el proyecto.
+
+<!--HONumber=47-->

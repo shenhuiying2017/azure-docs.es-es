@@ -1,5 +1,5 @@
-> [WACOM.NOTE]
-> Necesita una cuenta de Azure para completar este tutorial. Puede [activar sus beneficios de suscriptor a MSDN][activar sus beneficios de suscriptor a MSDN] o [registrarse para obtener una evaluación gratuita][registrarse para obtener una evaluación gratuita].
+﻿> [AZURE.NOTE]
+> Para completar este tutorial, deberá tener una cuenta de Azure. Puede <a href="/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF" target="_blank">activar sus beneficios de suscriptor a MSDN</a> o <a href="/pricing/free-trial/?WT.mc_id=A85619ABF" target="_blank">registrarse para obtener una evaluación gratuita</a>.
 
-  [activar sus beneficios de suscriptor a MSDN]: /es-es/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF
-  [registrarse para obtener una evaluación gratuita]: /es-es/pricing/free-trial/?WT.mc_id=A85619ABF
+
+<!--HONumber=47-->

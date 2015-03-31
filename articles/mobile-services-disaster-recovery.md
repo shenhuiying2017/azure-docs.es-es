@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Recuperación del servicio móvil en caso de un desastre - Servicios móviles de Azure" 
 	description="Obtenga información acerca de cómo recuperar su servicio móvil en caso de desastre." 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/11/2014" 
@@ -25,9 +25,9 @@ Cuando utiliza los Servicios móviles de Azure para implementar una aplicación,
 Para facilitar la recuperación en caso de un problema de disponibilidad, puede prepararse por adelantado: 
 
 + **Copia de seguridad de los datos de la base de datos SQL del servicio móvil de Azure**
-	<br/>Los datos de aplicación de servicio móvil se almacenan en una Base de datos SQL de Azure. Le recomendamos que haga una copia de seguridad tal como se indica en [Continuidad empresarial de Base de datos SQL de Azure].
+	<br/>Los datos de aplicación de servicio móvil se almacenan en una Base de datos SQL de Azure. Le recomendamos que haga una copia de seguridad tal como se indica en [Continuidad empresarial de Base de datos SQL de Azure][Guía sobre continuidad empresarial de Base de datos SQL de Azure].
 + **Copia de seguridad de los scripts del servicio móvil**
-	<br/>Se recomienda almacenar los scripts de servicio móvil en un sistema de control de código fuente como [Team Foundation Service] o [GitHub] y no confiar únicamente en las copias en el propio servicio móvil. Puede descargar los scripts en el portal de Azure, con la [característica de control de código fuente] de los Servicios móviles o con la [herramienta de línea de comandos de Azure]. Preste atención a las características etiquetadas como "vista previa" en el portal, dado que la recuperación para dichos scripts no está garantizada y es posible que tenga que recuperarlos desde su propio original de control de código fuente.
+	<br/>Se recomienda que almacene las secuencias de comandos de servicio móvil en un sistema de control de código fuente como [Team Foundation Service] o [GitHub] y no confiar únicamente en las copias en el propio servicio móvil. Puede descargar los scripts en el portal de Azure, con la [característica de control de código fuente] de los Servicios móviles o con la [herramienta de línea de comandos de Azure]. Preste atención a las características etiquetadas como "vista previa" en el portal, dado que la recuperación para dichos scripts no está garantizada y es posible que tenga que recuperarlos desde su propio original de control de código fuente.
 + **Reserva de un servicio móvil secundario**
 	<br/>Si se produce un problema de disponibilidad con el servicio móvil, tendrá que volver a implementarlo en otra región de Azure. Para garantizar que la capacidad está disponible (por ejemplo, en aquellas circunstancias raras como la pérdida de una región completa), le recomendamos crear un servicio móvil secundario en una región alternativa y establecer el modo en un nivel igual o superior al modo de su servicio principal. (Si el servicio principal se encuentra en modo compartido, puede hacer que el servicio secundario sea compartido o reservado. Pero si el principal es reservado, el secundario también debe ser reservado).
 
@@ -87,14 +87,13 @@ Ahora debería encontrarse en un estado donde el servicio móvil se haya recuper
 <!-- Images. -->
 
 <!-- URLs. -->
-[Guía sobre continuidad empresarial de Base de datos SQL]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
+[Guía sobre continuidad empresarial de Base de datos SQL de Azure]: http://msdn.microsoft.com/library/windowsazure/hh852669.aspx
 [Team Foundation Service]: http://tfs.visualstudio.com/
 
-[característica de control de código fuente]: http://azure.microsoft.com/develop/mobile/tutorials/store-scripts-in-source-control/
-[uso de la herramienta de línea de comandos de Azure]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
+[característica de control de código fuente]: http://www.windowsazure.com/develop/mobile/tutorials/store-scripts-in-source-control/
+[herramienta de línea de comandos de Azure]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 [Portal de Azure]: http://manage.windowsazure.com/
-[Panel de servicios de Azure]: http://azure.microsoft.com/support/service-dashboard/
-[Automatización de servicios móviles con herramientas de línea de comandos]: http://azure.microsoft.com/develop/mobile/tutorials/command-line-administration/
+[Panel de servicios de Azure]: http://www.windowsazure.com/support/service-dashboard/
+[Automatización de servicios móviles con herramientas de línea de comandos]: http://www.windowsazure.com/develop/mobile/tutorials/command-line-administration/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

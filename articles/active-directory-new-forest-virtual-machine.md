@@ -1,167 +1,143 @@
-﻿<properties 
+<properties 
 	pageTitle="Instalación de un bosque nuevo de Active Directory en una red virtual de Azure" 
 	description="Un tutorial que explica cómo crear un nuevo bosque de Active Directory en una máquina virtual (VM) en una red virtual de Azure." 
 	services="active-directory, virtual-network" 
 	documentationCenter="" 
 	authors="Justinha" 
-	writer="Justinha" 
 	manager="TerryLan" 
 	editor="LisaToft"/>
 
 <tags 
 	ms.service="active-directory" 
-	ms.workload="identity" 
-	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="12/12/2014" 
+    ms.tgt_pltfrm="na" 
+    ms.workload="identity" 
+	ms.date="03/04/2015" 
 	ms.author="Justinha"/>
 
 
-
-
-#Instalación de un bosque nuevo de Active Directory en una red virtual de Azure
+# Instalación de un bosque nuevo de Active Directory en una red virtual de Azure
 
 En este tema se muestra la creación de un nuevo entorno de Windows Server Active Directory en una red virtual de Azure en una máquina virtual (VM) de una [red virtual de Azure](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx). En este caso, la red virtual de Azure no está conectada a una red de un entorno local. 
 
 Es posible que también le interesen los siguientes temas relacionados:
 
-- De manera opcional, puede [configurar una VPN de sitio a sitio con el asistente del Portal de administración](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx) y, a continuación, instalar un bosque nuevo o extender un bosque de entorno local hasta una red virtual de Azure. Para seguir esos pasos, consulte [Instalación de un controlador de dominio réplica de Active Directory en una red virtual de Azure](http://azure.microsoft.com/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/).
+- De manera opcional, puede [configurar una VPN de sitio a sitio con el asistente del Portal de administración](http://msdn.microsoft.com/library/windowsazure/dn133795.aspx) y, a continuación, instalar un bosque nuevo o extender un bosque de entorno local hasta una red virtual de Azure. Para seguir esos pasos, consulte [Instalación de un controlador de dominio réplica de Active Directory en una red virtual de Azure](../virtual-networks-install-replica-active-directory-domain-controller).
 -  Para obtener una orientación en cuanto a conceptos sobre la instalación de los Servicios de dominio de Active Directory (AD DS) en una red virtual de Azure, consulte [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Azure](http://msdn.microsoft.com/library/windowsazure/jj156090.aspx).
--  Para obtener una orientación paso a paso para crear un entorno de laboratorio de pruebas en Azure que incluya AD DS, consulte [Test Lab Guide: Configuración básica de Windows Server 2012 R2 en Azure](http://www.microsoft.com/es-es/download/details.aspx?id=41684).
 
 
+## ¿En qué se diferencia del entorno local?
 
-##Tabla de contenido##
-
-* [¿En qué se diferencia del entorno local?](#differ)
-* [Paso 1: Creación de una red virtual de Azure](#createvnet)
-* [Paso 2: Creación de una VM para ejecutar el controlador de dominio y los roles del servidor DNS](#createvm)
-* [Paso 3: Instalación de Windows Server Active Directory](#installad)
-* [Paso 4: Establecimiento del servidor DNS para la red virtual de Azure](#dns)
-* [Paso 5: Creación de VM para miembros del dominio y unión al dominio](#domainmembers)
-
-
-<h2><a id="differ"></a>¿En qué se diferencia del entorno local?</h2>
 No existe mucha diferencia entre instalar un controlador de dominio en Azure y una instalación en el entorno local. Las principales diferencias se mencionan en la siguiente tabla. 
 
-Para configurar...  | Local  | Red virtual de Azure	
+Para configurar...   | Local  | Red virtual de Azure	
 ------------- | -------------  | ------------
-**Dirección IP del controlador de dominio**  | Asigne la dirección IP estática en las propiedades de adaptador de red  | Ejecute el cmdlet Set-AzureStaticVNetIP para asignar una dirección IP estática
-**Solucionador de cliente DNS**  | Establezca una dirección de servidor DNS preferida y otra alternativa en las propiedades del adaptador de red de los miembros del dominio  | Configure la dirección del servidor DNS en las propiedades de la red virtual
-**Almacenamiento de base de datos de Active Directory** | Si lo desea, cambie la ubicación de almacenamiento predeterminada de C:\  | Debe cambiar la ubicación de almacenamiento predeterminada de C:\
+**Dirección IP del controlador de dominio**  | Asigne la dirección IP estática en las propiedades de adaptador de red   | Ejecute el cmdlet Set-AzureStaticVNetIP para asignar una dirección IP estática
+**Solucionador de cliente DNS**  | Establezca una dirección de servidor DNS preferida y alternativa en las propiedades del adaptador de red de los miembros del dominio   | Configure la dirección del servidor DNS en las propiedades de la red virtual
+**Almacenamiento de base de datos de Active Directory**  | Si lo desea, cambie la ubicación de almacenamiento predeterminada de C:\  |Debe cambiar la ubicación de almacenamiento predeterminada de C:\ .
 
 
 
-<h2><a id="createvnet"></a>Paso 1: Creación de una red virtual de Azure</h2>
-1. Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com).
-2. Cree una red virtual. Haga clic en <b>Redes</b> > <b>Crear una red virtual</b>. Use los valores de la tabla siguiente para completar el asistente. 
+## Creación de una red virtual de Azure
 
-	En esta página del asistente...  | Especifique estos valores
+1. Inicie sesión en el Portal de administración de Azure.
+2. Cree una red virtual. Haga clic en **Redes** > **Create a virtual network**. Use los valores de la tabla siguiente para completar el asistente. 
+
+	En esta página del asistente...  |Especifique estos valores
 	------------- | -------------
-	**Detalles de red virtual** | <p>Nombre: Escriba un nombre para la red virtual.</p><p>Region: Elija la región más cercana.</p>
+	**Detalles de red virtual**  | <p>Nombre: Escriba un nombre para la red virtual.</p><p>Region: Elija la región más cercana.</p>
 	**DNS y VPN**  | <p>Deje el servidor DNS en blanco.</p><p>No seleccione ninguna de las opciones VPN.</p>
 	**Espacios de direcciones de la red virtual**  | <p>Nombre de subred: Escriba un nombre para la subred.</p><p>Starting IP: <b>10.0.0.0</b></p><p>CIDR: <b>/24 (256)</b></p>
 
 
 
-<h2><a id="createvm"></a>Paso 2: Creación de una VM para ejecutar el controlador de dominio y los roles del servidor DNS</h2>
+## Crear máquinas virtuales para ejecutar el controlador de dominio y los roles de servidor DNS
  
-1. Haga clic en <b>Nuevo</b> > <b>Proceso</b> > <b>Máquina virtual</b> > <b>De la galería</b>. 
-2. Use los valores de la tabla siguiente para completar el asistente.
+Repita los pasos siguientes para crear máquinas virtuales para hospedar el rol de controlador de dominio según sea necesario. Debe implementar al menos dos controladores de dominio virtuales para proporcionar redundancia y tolerancia a errores. Si la red virtual de Azure incluye al menos dos controladores de dominio que están configurados de manera similar (es decir, son ambos catálogos globales, servidor DNS de ejecución y no contienen ningún rol FSMO, etc.), a continuación, coloque las máquinas virtuales que ejecutan los controladores de dominio en un conjunto de disponibilidad para aumentar la tolerancia a errores.
 
-	En esta página del asistente...  | Especifique estos valores
+1. En el portal de administración de Azure, haga clic en **Nuevo** > **Calcular** > **Máquina virtual** > **De la galería**. Utilice los valores siguientes para completar el asistente. Acepte el valor predeterminado para una configuración a menos que se sugiera o requiera otro valor.
+
+    En esta página del asistente...  | Especifique estos valores
 	------------- | -------------
-	**Sistema operativo** | Seleccione **Windows Server 2012 R2 Datacenter**
-	**Configuración de la máquina virtual** | <p>Fecha de lanzamiento: la fecha de hoy.</p><p>Nombre de máquina: especifique un valor único.</p><p>Nivel: Standard</p><p>Tamaño seleccione cualquier tamaño.</p><p>Nombre de usuario: Escriba un nombre. La cuenta de este usuario será miembro del grupo de administradores integrado. </p><p>Contraseña: debe tener al menos 8 caracteres e incluir 3 de los siguientes tipos de caracteres:</p><ul><li>una letra en mayúscula</li><li>una letra en minúscula</li><li>un número</li><li>un carácter especial</li></ul>
-	**Servicio en la nube**  | <p>Servicio en la nube: <b>cree un nuevo servicio en la nube.</b></p><p>Nombre de servicio en la nube: acepte el valor predeterminado.</p><p>Región/AffinityGroup/VirtualNetwork: seleccione la red virtual que creó.</p><p>Subred de red virtual: Seleccione la subred que creó. </p><p>Cuenta de almacenamiento: <b>Use una cuenta de almacenamiento generada de forma automática</b></p><p>Conjunto de disponibilidad: <b>None</b></p><p>Endpoints: acepte los valores predeterminados.</p>
-	**Agente de VM**  | Seleccione **Instalar el Agente de máquina virtual**
+	**Elija una imagen**  | Windows Server 2012 R2 Datacenter
+	**Configuración de la máquina virtual**  | <p>Nombre de la máquina virtual: Escriba un nombre de etiqueta única (por ejemplo, AzureDC1).</p><p>Nuevo nombre de usuario: Escriba el nombre de un usuario. Este usuario será un miembro del grupo local Administradores en la máquina virtual. Necesitará este nombre para iniciar sesión en la máquina virtual por primera vez. La cuenta integrada Administrador no funcionará.</p><p>Nueva contraseña/Confirmar: Escriba una contraseña</p>
+	**Configuración de la máquina virtual**  | <p>Servicio en la nube: Elija <b>Crear un nuevo servicio de nube</b> para la primera máquina virtual y seleccione ese mismo nombre de servicio de nube al crear más máquinas virtuales que hospedan el rol de controlador de dominio.</p><p>Nombre de DNS del servicio en la nube: Especifique un nombre único global</p><p>Región/grupo de afinidad/red virtual: Especifique el nombre de red virtual (por ejemplo, WestUSVNet).</p><p>Cuenta de almacenamiento: Elija <b>Use una cuenta de almacenamiento generada de forma automática</b> para la primera máquina virtual y, a continuación, seleccione ese mismo nombre de cuenta de almacenamiento al crear más máquinas virtuales que vayan a hospedar el rol de controlador de dominio.</p><p>Conjunto de disponibilidad: Elija <b>Crear un conjunto de disponibilidad</b>.</p><p>Nombre del conjunto de disponibilidad: Escriba un nombre para el conjunto de disponibilidad al crear la primera máquina virtual y, a continuación, seleccione ese mismo nombre al crear más máquinas virtuales.</p>
+	**Configuración de la máquina virtual**  | <p>Seleccione <b>Instale el Agente de máquina virtual</b> y cualquier otra extensión que necesite.</p>
+2. Conecte un disco a cada máquina virtual que ejecutará el rol de servidor de controlador de dominio. Se necesita el disco adicional para almacenar la base de datos, los registros y SYSVOL de AD. Especifique un tamaño para el disco (por ejemplo, 10 GB) y deje la **Preferencia de caché de host** establecida en **Ninguno**. Una vez que inicie sesión por primera vez en la máquina virtual, abra **Administrador del servidor** > **Servicios de archivos y almacenamiento** para crear un volumen en este disco con NTFS.
+3. Reserve una dirección IP estática para las máquinas virtuales que ejecutarán el rol de controlador de dominio. Para reservar una dirección IP estática, descargue el instalador de plataforma web de Microsoft, [instale Azure PowerShell](../powershell-install-configure) y ejecute el cmdlet Set-AzureStaticVNetIP. Por ejemplo:
 
-1. La dirección IP dinámica que se asigna de manera predeterminada a la VM es válida mientras dure el servicio en la nube. Sin embargo, cambiará si se apaga la VM. Asigne una dirección IP estática mediante la [ejecución del cmdlet de Azure PowerShell Set-AzureStaticVNetIP](http://msdn.microsoft.com/library/windowsazure/dn630228.aspx) de modo que la dirección IP se mantenga si alguna vez necesita apagar la VM. 
-2. Acople un disco adicional a la VM para almacenar la base de datos de Active Directory, los registros y SYSVOL. 
-  3. Haga clic en <b>VM</b> > <b>Adjuntar</b> > <b>Acoplar disco vacío</b>. 
-  4. Especifique un tamaño (por ejemplo, 10 GB) y acepte los demás valores predeterminados.
-3. Inicie sesión en la VM y formatee el disco adicional. 
-  4. Haga clic en <b>Conectar</b> para iniciar sesión en la máquina virtual, haga clic en <b>Abrir</b> para crear una sesión de RDP y haga clic en <b>Conectar</b> de nuevo.
-  4. Cambie las credenciales al nombre de usuario y contraseña nuevos que especificó.
-  5. En el Administrador del servidor, haga clic en <b>Herramientas</b> > <b>Administración de equipos</b>. 
-  6. Haga clic en <b>Administración de discos</b> y en <b>Aceptar</b> para inicializar el nuevo disco. 
-  6. Haga clic con el botón derecho en el nombre del disco y haga clic en <b>Nuevo volumen simple</b>. Complete el asistente para formatear la nueva unidad. 
+    'Get-AzureVM -ServiceName AzureDC1 -Name AzureDC1 | Set-AzureStaticVNetIP -IPAddress 10.0.0.4 | Update-AzureVM
 
-<h2><a id="installad"></a>Paso 3: Instalación de Windows Server Active Directory</h2>
-[Instale AD DS](http://technet.microsoft.com/library/jj574166.aspx) usando la misma rutina que usa en el entorno local (es decir, puede usar la interfaz de usuario, un archivo de respuestas o Windows PowerShell). Necesita proporcionar credenciales de Administrador para instalar un bosque nuevo. Para especificar la ubicación de la base de datos de Active Directory, los registros y SYSVOL, cambie la ubicación de almacenamiento predeterminada desde la unidad del sistema operativo hasta el disco de datos adicional que acopló a la VM. 
-<p>Después de finalizada la instalación del controlador de dominio, vuelva a conectarse a la VM e inicie sesión en el controlador de dominio. Recuerde especificar las credenciales del dominio.</p>
+Para obtener más información acerca de cómo establecer una dirección IP estática, consulte [Configurar una dirección IP interna estática para una máquina virtual](https://msdn.microsoft.com/library/azure/dn630228.aspx).
 
-<h2><a id="dns"></a>Paso 4: Establecimiento del servidor DNS para la red virtual de Azure</h2>
-1. Haga clic en <b>Redes virtuales</b>, haga doble clic en la red virtual que creó y haga clic en <b>Configurar</b>. 
-2. En <b>Servidores DNS</b>, escriba el nombre y la DIP del controlador de dominio y haga clic en <b>Save</B>. 
-3. Seleccione la máquina virtual y haga clic en <b>Reinicio</b> para activar la VM y definir la configuración del solucionador de DNS con la dirección IP del servidor DNS nuevo. 
+## Instalación de Windows Server Active Directory
+
+Utilice la misma rutina para [instalar AD DS](https://technet.microsoft.com/library/jj574166.aspx) que usa localmente (es decir, puede usar la interfaz de usuario, un archivo de respuesta o Windows PowerShell). Necesita proporcionar credenciales de Administrador para instalar un bosque nuevo. Para especificar la ubicación de la base de datos de Active Directory, los registros y SYSVOL, cambie la ubicación de almacenamiento predeterminada desde la unidad del sistema operativo hasta el disco de datos adicional que acopló a la VM. 
+
+Después de finalizada la instalación del controlador de dominio, vuelva a conectarse a la VM e inicie sesión en el controlador de dominio. Recuerde especificar las credenciales del dominio.
+
+## Restablezca el servidor DNS para la red virtual de Azure
+
+1. Restablezca la configuración del reenviador DNS en el nuevo servidor DC/DNS. 
+  1. En el administrador del servidor, haga clic en **Herramientas** > **DNS**. 
+  2. En **Administrador de DNS**, haga clic con el botón secundario en el nombre del servidor DNS y haga clic en **Propiedades**. 
+  3. En la ficha **Reenviadores**, haga clic en la dirección IP del reenviador y en **Editar**.  Seleccione la dirección IP y haga clic en **Eliminar**. 
+  4. Haga clic en **Aceptar** para cerrar el editor y en **Aceptar** para cerrar las propiedades del servidor DNS. 
+2. Actualice la configuración del servidor DNS para la red virtual. 
+  1. Haga clic en **Redes virtuales** > haga doble clic en la red virtual que creó > **Configurar** > **Servidores DNS**, escriba el nombre y la DIP de una de las máquinas virtuales que ejecuta el rol de servidor DC/DNS y haga clic en **Guardar**. 
+  2. Seleccione la VM y haga clic en **Restart** para activar la VM y definir la configuración del solucionador de DNS con la dirección IP del servidor DNS nuevo. 
 
 
-<h2><a id="domainmembers"></a>Paso 5: Creación de VM para miembros del dominio y unión al dominio</h2>
-<p>Cree VMS adicionales para aprovisionar equipos miembros de dominio. Puede establecer la interfaz de usuario o Azure PowerShell. Si usa la interfaz de usuario, simplemente siga los mismos pasos que utilizó para crear la primera VM. Posteriormente, una las VM al dominio igual que lo haría en el entorno local. Si usa Azure PowerShell, puede aprovisionar las VM y unirlas mediante el dominio en el primer inicio. </p><p>Este ejemplo creará una VM unida al dominio denominada DC2 que ejecuta Windows Server 2012 R2 Datacenter. Cuando se haya aprovisionado DC2, inicie sesión en ella como administrador de dominios y promuévala para convertirla en una DC de réplica. </p><p>Puede ejecutar Get-AzureVMImage para obtener los nombres de imagen. Por ejemplo, para volver a una lista de imágenes de Windows Server 2012 R2, ejecute Get-AzureVMImage | where-object {$_.ImageFamily -eq "Windows Server 2012 R2 Datacenter"}.</p>
-	'
+## Cree máquinas virtuales para miembros de dominio
 
-	cls
+1. Repita los pasos siguientes para crear VM que se ejecuten como servidores de aplicaciones. Acepte el valor predeterminado para una configuración a menos que se sugiera o requiera otro valor.
 
-	Set-AzureSubscription -SubscriptionName "Free Trial" -currentstorageaccountname 'constorageaccount'
-	Select-AzureSubscription -SubscriptionName "Free Trial"
+	En esta página del asistente...  |Especifique estos valores
+	------------- | -------------
+	**Elija una imagen**  | Windows Server 2012 R2 Datacenter
+	**Configuración de la máquina virtual**  | <p>Nombre de la máquina virtual: Escriba un nombre de etiqueta única (por ejemplo, AppServer1).</p><p>Nuevo nombre de usuario: Escriba el nombre de un usuario. Este usuario será un miembro del grupo local Administradores en la máquina virtual. Necesitará este nombre para iniciar sesión en la máquina virtual por primera vez. La cuenta integrada Administrador no funcionará.</p><p>Nueva contraseña/Confirmar: Escriba una contraseña</p>
+	**Configuración de la máquina virtual**  | <p>Servicio en la nube: Elija **Crear un nuevo servicio de nube** para la primera máquina virtual y seleccione ese mismo nombre de servicio de nube al crear más máquinas virtuales que hospedan la aplicación.</p><p>Nombre de DNS del servicio en la nube: Especifique un nombre único global</p><p>Región/grupo de afinidad/red virtual: Especifique el nombre de red virtual (por ejemplo, WestUSVNet).</p><p>Cuenta de almacenamiento: Elija **Use una cuenta de almacenamiento generada de forma automática** para la primera máquina virtual y, a continuación, seleccione ese mismo nombre de cuenta de almacenamiento al crear más máquinas virtuales que vayan a hospedar la aplicación.</p><p>Conjunto de disponibilidad: Elija **Crear un conjunto de disponibilidad**.</p><p>Nombre del conjunto de disponibilidad: Escriba un nombre para el conjunto de disponibilidad al crear la primera máquina virtual y, a continuación, seleccione ese mismo nombre al crear más máquinas virtuales.</p>
+	**Configuración de la máquina virtual**  | <p>Seleccione <b>Instale el Agente de máquina virtual</b> y cualquier otra extensión que necesite.</p>
+2. Una vez aprovisionada cada máquina virtual, inicie sesión y únalas al dominio. En **Administrador de servidores**, haga clic en **Servidor local** > **GRUPO DE TRABAJO** > **Cambiar...** y, a continuación, seleccione **Dominio** y escriba el nombre del dominio local. Proporcione las credenciales de un usuario de dominio y, a continuación, reinicie la máquina virtual para completar la unión al dominio.
 
-	#Deploy a new VM and join it to the domain
-	#-------------------------------------------
-	#Specify my DC's DNS IP (10.0.0.4)
-	$myDNS = New-AzureDNS -Name 'DC1' -IPAddress '10.0.0.4'
-	
-	# OS Image to Use
-	$image = 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201404.01-en.us-127GB.vhd'
-	$service = 'DC2'
-	$vnet = 'YourVirtualNetwork'
-	$pwd = 'P@ssw0rd'
-	$size = 'Small'
+Como alternativa al uso del portal de administración para aprovisionar máquinas virtuales, puede usar Windows PowerShell para Microsoft Azure. Utilice [New-AzureVMConfig](https://msdn.microsoft.com/library/azure/dn495159.aspx) y [Add-AzureProvisioningConfig](https://msdn.microsoft.com/library/azure/dn495299.aspx) para aprovisionar una máquina virtual como un equipo unido al dominio cuando se inicie por primera vez y usar [New-AzureVM](https://msdn.microsoft.com/library/azure/dn495254.aspx) para crear la propia máquina virtual. 
 
-	#VM Configuration
-	$vmname = 'DC2'
-	$MyVM3 = New-AzureVMConfig -name $vmname -InstanceSize $size -ImageName $image |
-    Add-AzureProvisioningConfig -AdminUserName 'PierreSettles' -WindowsDomain -Password $pwd -Domain 'Contoso' -DomainPassword 'P@ssw0rd' -DomainUserName 'PierreSettles' -JoinDomain 'contoso.com'|
-    Set-AzureSubnet -SubnetNames 'FrontEnd' 
 
-	New-AzureVM -ServiceName $service -VMs $MyVM3 -DnsSettings $myDNS -VNetName $vnet   
+Para obtener más información acerca del uso de Windows PowerShell, consulte [Empezar a usar Cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554332.aspx) y [Referencia de cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx).
 
-Si vuelve a ejecutar el script, necesita suministrar un valor único para $service. Puede ejecutar Test-AzureName -Service <i>nombre de servicio</i>, que se devuelve si el nombre ya existe. 	
 
 ## Otras referencias
 
--  [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Azure](http://msdn.microsoft.com/library/azure/jj156090.aspx)
+-  [Directrices para implementar Windows Server Active Directory en máquinas virtuales de Windows Azure](https://msdn.microsoft.com/library/azure/jj156090.aspx)
 
--  [Configurar una red virtual solo en la nube en el Portal de administración](http://msdn.microsoft.com/library/dn631643.aspx)
+-  [Configurar una red virtual solo en la nube en el Portal de administración](https://msdn.microsoft.com/library/dn631643.aspx)
 
--  [Configurar una VPN de sitio a sitio en el Portal de administración](http://msdn.microsoft.com/library/dn133795.aspx)
+-  [Configurar una VPN de sitio a sitio en el Portal de administración](https://msdn.microsoft.com/library/dn133795.aspx)
 
--  [Instalación de un controlador de dominio réplica de Active Directory en una red virtual de Azure](http://azure.microsoft.com/documentation/articles/virtual-networks-install-replica-active-directory-domain-controller/)
+-  [Instalación de un controlador de dominio réplica de Active Directory en una red virtual de Azure](../virtual-networks-install-replica-active-directory-domain-controller)
 
 -  [IaaS para profesionales de TI en Microsoft Azure: (01) Principios básicos sobre máquinas virtuales](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/01)
 
--  [IaaS para profesionales de TI en Microsoft Azure: (05) Creación de redes virtuales y conectividad entre instalaciones](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
+-  [IaaS para profesionales de TI en Windows Azure: (05) Creación de redes virtuales y conectividad entre instalaciones](http://channel9.msdn.com/Series/Windows-Azure-IT-Pro-IaaS/05)
 
--  [Red virtual](http://msdn.microsoft.com/library/windowsazure/jj156007.aspx)
+-  [Información general sobre redes virtuales](https://msdn.microsoft.com/library/azure/jj156007.aspx)
 
--  [Instalación y configuración de Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/)
+-  [Instalación y configuración de Azure PowerShell](../powershell-install-configure/)
 
--  [Azure PowerShell](http://msdn.microsoft.com/library/windowsazure/jj156055.aspx)
+-  [PowerShell de Azure](https://msdn.microsoft.com/library/azure/jj156055.aspx)
 
--  [Azure Management Cmdlets](http://msdn.microsoft.com/library/windowsazure/jj152841)
+-  [Referencia de cmdlets de Azure](https://msdn.microsoft.com/library/azure/jj554330.aspx)
 
 -  [Set Azure VM Static IP Address](http://windowsitpro.com/windows-azure/set-azure-vm-static-ip-address)
 
 -  [Asignación de direcciones IP estáticas a una VM de Azure](http://www.bhargavs.com/index.php/2014/03/13/how-to-assign-static-ip-to-azure-vm/)
 
--  [Instalación de un nuevo bosque de Active Directory](http://technet.microsoft.com/library/jj574166.aspx)
+-  [Instalación de un nuevo bosque de Active Directory](https://technet.microsoft.com/library/jj574166.aspx)
 
--  [Introducción a la virtualización de los Servicios de dominio de Active Directory (AD DS) (nivel 100)](http://technet.microsoft.com/library/hh831734.aspx)
+-  [Introducción a la virtualización de los Servicios de dominio de Active Directory (AD DS) (nivel 100)](https://technet.microsoft.com/library/hh831734.aspx)
 
--  [Test Lab Guide: Windows Server 2012 R2 Base Configuration in Azure](http://www.microsoft.com/es-es/download/details.aspx?id=41684)
+-  [Test Lab Guide: Windows Server 2012 R2 Base Configuration in Azure](http://www.microsoft.com/download/details.aspx?id=41684)
 
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Escalado de Servicios móviles respaldados por Base de datos SQL de Azure - Servicios móviles de Azure" 
 	description="Obtenga información acerca de cómo diagnosticar y corregir problemas de escalabilidad en los servicios móviles con copia de seguridad por la base de datos SQL" 
 	services="mobile-services" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="na" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/11/2014" 
@@ -73,9 +73,9 @@ Cuando se haya familiarizado con los diferentes niveles de base de datos, puede 
 4. Seleccione un nombre en **Base de datos SQL** en la sección **Configuración de base de datos**. Esta acción le llevará a la pestaña Base de datos SQL de Azure en el portal.
 5. Navegue a la pestaña **Supervisar**.
 6. Asegúrese de que se muestran las métricas correspondientes mediante el botón **Agregar métricas**. Entre las métricas se incluyen las siguientes:
-    - *Porcentaje de CPU* (solamente disponible en los niveles Básico, Estándar y Premium)
-    - *Porcentaje de lecturas de datos físicos* (solamente disponible en los niveles Básico, Estándar y Premium) 
-    - *Porcentaje de escrituras en registro* (solamente disponible en los niveles Básico, Estándar y Premium)
+    - *Porcentaje de CPU* (disponible solo en los niveles Básico, Estándar y Premium)
+    - *Porcentaje de lecturas de datos físicos* (disponible solo en los niveles Básico, Estándar y Premium) 
+    - *Porcentaje de escrituras en registro* (disponible solo en los niveles Básico, Estándar y Premium)
     - *Almacenamiento* 
 7. Inspeccione las métricas en la ventana de tiempo cuando el servicio experimente problemas. 
 
@@ -105,7 +105,7 @@ Suele resultar muy útil configurar alertas para métricas de base de datos clav
 3. Seleccione la métrica para la que desea establecer una alerta y elija **Agregar regla**.
     ![Azure Management Portal - SQL Alert][PortalSqlAddAlert]
 4. Proporcione un nombre y una descripción de la alerta.
-    ![Azure Management Portal - SQL Alert Name and Description][PortalSqlAddAlert2]
+    ![Azure Management Portal - SQL Alert Name and Descripción][PortalSqlAddAlert2]
 5. Especifique el valor para utilizar como umbral de alerta. Plantéese utilizar **80 %** para disponer de algún tiempo de reacción. Además, asegúrese de especificar una dirección de correo electrónico que supervise habitualmente. 
     ![Azure Management Portal - SQL Alert Threshold and Email][PortalSqlAddAlert3]
 
@@ -160,7 +160,7 @@ También puede quitar índices dentro de esta vista.
 
 #### Back-end de .NET
 
-Para definir un índice en Entity Framework, use el atributo `[Index]` en los campos que desea indizar. Por ejemplo:
+Para definir un índice en Entity Framework, use el atributo `[Index]` en los campos que desea indexar. Por ejemplo:
 
     public class TodoItem : EntityData
     {
@@ -170,7 +170,7 @@ Para definir un índice en Entity Framework, use el atributo `[Index]` en los ca
         public bool Complete { get; set; }
     }
 		 
-Para obtener más información sobre índices, consulte las [anotaciones de índice en Entity Framework][]. Para obtener más sugerencias sobre la optimización de índices, consulte [Indización avanzada)]#AdvancedIndexing) en la parte inferior de este documento.
+Para obtener más información sobre índices, consulte las [anotaciones de índice en Entity Framework][]. Para obtener más sugerencias sobre la optimización de índices, consulte [Indización avanzada](#AdvancedIndexing) en la parte inferior de este documento.
 
 <a name="Schema"></a>
 ## Diseño de esquemas
@@ -178,7 +178,7 @@ Para obtener más información sobre índices, consulte las [anotaciones de índ
 A continuación se indican algunos problemas que conviene conocer cuando se seleccionan los tipos de datos para los objetos, lo que, a su vez, se convierte en el esquema de la base de datos SQL. Con frecuencia, el ajuste del esquema puede significar mejoras de rendimiento importantes porque SQL tiene formas optimizadas y personalizadas de administrar la indización y el almacenamiento para diferentes tipos de datos:
 
 - **Utilice la columna de identificador proporcionada** Cada tabla de servicio móvil cuenta con una columna de identificador predeterminada configurada como la clave principal y tiene un índice definido en ella. No es necesario crear una columna de identificador adicional.
-- **Utilice los tipos de datos correctos en el modelo.** Si sabe que una determinada propiedad del modelo será un valor numérico o booleano, asegúrese de definirla de esa forma en el modelo en lugar de como una cadena. En el back-end de JavaScript, utilice literales como  `true` en lugar de "true" y '5' en lugar de "5". En el back-end de .NET, utilice los tipos  `int` y  `bool` al declarar las propiedades del modelo. Esto permite a SQL crear el esquema correcto para esos tipos, lo que hace que las consultas sean más eficaces.
+- **Utilice los tipos de datos correctos en el modelo.** Si sabe que una determinada propiedad del modelo será un valor numérico o booleano, asegúrese de definirla de esa forma en el modelo en lugar de como una cadena. En el back-end de JavaScript, utilice literales como  `true` en lugar de `"true"` y `5` en lugar de `"5"`. En el back-end de .NET, utilice los tipos  `int` y  `bool` al declarar las propiedades del modelo. Esto permite a SQL crear el esquema correcto para esos tipos, lo que hace que las consultas sean más eficaces.
 
 <a name="Query"></a>
 ## Diseño de consultas
@@ -221,11 +221,11 @@ Los siguientes pasos le guiarán a través del proceso de obtención de informac
 2. En la pestaña Servicios móviles, seleccione el servicio con el que desea trabajar.
 3. Seleccione la pestaña **Configurar**.
 4. Seleccione un nombre en **Base de datos SQL** en la sección **Configuración de base de datos**. Esta acción le llevará a la pestaña Base de datos SQL de Azure en el portal.
-5. Seleccione **Configurar reglas del firewall de Windows Azure para esta dirección IP**.
+5. Seleccione **Configurar las reglas de firewall de Azure para esta dirección IP**.
 6. Anote la dirección del servidor de la sección **Conectarse a la base de datos**, por ejemplo:  *mcml4otbb9.database.windows.net*.
 
 #### SQL Server Management Studio
-1. Navegue a [Ediciones de SQL Server SQL - Express](http://www.microsoft.com/es-es/server-cloud/products/sql-server-editions/sql-server-express.aspx).
+1. Navegue a [Ediciones de SQL Server SQL - Express](http://www.microsoft.com/server-cloud/products/sql-server-editions/sql-server-express.aspx).
 2. Busque la sección **SQL Server Management Studio** y seleccione el botón **Descargar** que hay debajo.
 3. Complete los pasos de instalación hasta que pueda ejecutar la aplicación correctamente:
 
@@ -235,24 +235,24 @@ Los siguientes pasos le guiarán a través del proceso de obtención de informac
     - Nombre de servidor:  *server address you obtained earlier*
     - Autenticación:  *SQL Server Authentication*
     - Inicio de sesión:  *login you picked when creating server*
-    - Contraseña:  *password you picked when creating server*
+    - Password *password you picked when creating server*:
 5. Ahora se debe haber conectado.
 
 #### Portal de administración de bases de datos SQL
 1. En la pestaña Base de datos SQL de Azure correspondiente a su base de datos seleccione el botón **Administrar**. 
 2. Configure la conexión con los siguientes valores:
-    - Servidor:  *should be pre-set to the right value*
-    - Base de datos:  *leave blank*
+    - Servidor *should be pre-set to the right value*:
+    - Base de datos :*leave blank*
     - Nombre de usuario:  *login you picked when creating server*
-    - Contraseña: *password you picked when creating server*
+    - Password *password you picked when creating server*:
 3. Ahora se debe haber conectado.
 
     ![Azure Management Portal - SQL Database][PortalSqlManagement]
 
 <a name="AdvancedDiagnosing" />
-### Advanced Diagnostics
+### Diagnósticos avanzados
 
-Se pueden completar numerosas tareas de diagnóstico fácilmente en el **Portal de administración de Azure**, pero algunas tareas de diagnósticos avanzados son solo posibles a través de **SQL Server Management Studio** o del **Portal de administración de bases de datos SQL**.  Aprovecharemos las vistas de administración dinámica, un conjunto de vistas que se rellenan automáticamente con información de diagnóstico acerca de la base de datos. En esta sección se proporciona un conjunto de consultas que podemos ejecutar en estas vistas para examinar varias métricas. Para obtener más información, consulte [Supervisión de Base de datos SQL de Azure mediante vistas de administración dinámica][].
+Se pueden completar numerosas tareas de diagnóstico fácilmente en el **Portal de administración de Azure**, pero algunas tareas de diagnósticos avanzados son solo posibles a través de **SQL Server Management Studio** o del **Portal de administración de bases de datos SQL**.  Aprovecharemos las vistas de administración dinámica, un conjunto de vistas que se rellenan automáticamente con información de diagnóstico acerca de la base de datos. En esta sección se proporciona un conjunto de consultas que podemos ejecutar en estas vistas para examinar varias métricas. Para obtener más información, consulte [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica][].
 
 Después de completar los pasos de la sección anterior para conectarse a su base de datos en SQL Server Management Studio, seleccione dicha base de datos en el **Explorador de objetos**. Expanda **Vistas** y **Vistas del sistema** mostrará una lista de vistas de administración. Para ejecutar las consultas siguientes, seleccione **Nueva consulta**, mientras ha seleccionado la base de datos en el **Explorador de objetos**, y después pegue la consulta y seleccione **Ejecutar**.
 
@@ -270,7 +270,7 @@ Para ejecutar cualquiera de las consultas siguientes, péguela en la ventana y s
 
 El portal de administración crea determinadas métricas fácilmente disponibles si usa los niveles Básico, Estándar y Premium. Sin embargo, si usa los niveles Web y Business, solamente la métrica Almacenamiento estará disponible a través del portal. Afortunadamente, es sencillo obtener estas y otras métricas usando la vista de administración **[sys.resource\_stats](http://msdn.microsoft.com/library/dn269979.aspx)**, independientemente del nivel que esté usando. Considere la siguiente consulta:
 
-    SELECCIÓN DEL TOP 10* 
+    SELECT TOP 10 * 
     FROM sys.resource_stats 
     WHERE database_name = 'todoitem_db' 
     ORDER BY start_time DESC
@@ -282,7 +282,7 @@ El resultado contendrá las siguientes métricas útiles: CPU (% del límite del
 
 #### Eventos de conectividad de SQL
 
-La vista **[sys.event\_log] (http://msdn.microsoft.com/library/azure/jj819229.aspx)** contiene los detalles de los eventos relacionados con la conectividad.
+La vista **[sys.event\_log](http://msdn.microsoft.com/library/azure/jj819229.aspx)** contiene detalles de eventos relacionados con la conectividad.
 
     select * from sys.event_log 
     where database_name = 'todoitem_db'
@@ -304,7 +304,7 @@ Una tabla o vista puede contener los siguientes tipos de índices:
 Para proporcionar una analogía con el mundo real, piense en un libro o manual técnico. El contenido de cada página es un registro, el número de página es el índice en clúster y el índice de temas de la parte posterior del libro es un índice no clúster. Cada entrada del índice de temas apunta al índice en clúster, el número de página.
 
 > [AZURE.NOTE] 
-> De forma predeterminada, el back-end de JavaScript de Servicios móviles de Azure establece **_createdAt** como índice agrupado. Si quita esta columna o si desea un índice agrupado diferente, asegúrese de seguir las [instrucciones de diseño de índices agrupados](#ClusteredIndexes) que se indican a continuación. En el back-end de .NET, la clase `EntityData` define  `CreatedAt` como un índice en clúster mediante la anotación `[Index(IsClustered = true)]`.
+> De forma predeterminada, el back-end de JavaScript de Servicios móviles de Azure establece **_createdAt** como índice agrupado. Si quita esta columna o si desea un índice agrupado diferente, asegúrese de seguir las [instrucciones de diseño de índices agrupados](#ClusteredIndexes) que aparecen a continuación. En el back-end de .NET, la clase `EntityData` define `CreatedAt` como un índice agrupado con la anotación `[Index(IsClustered = true)]`.
 
 <a name="ClusteredIndexes"></a>
 #### Directrices para el diseño de índices en clúster
@@ -332,7 +332,7 @@ El índice en clúster será más valioso para consultas que hagan lo siguiente:
 
 #### Creación de índices en clúster en Entity Framework
 
-Para establecer el índice en clúster en el back-end de .NET usando Entity Framework, establezca la propiedad  `IsClustered` de la anotación. Por ejemplo, esta es la definición de  `CreatedAt` en  `Microsoft.MicrosoftAzure.Mobile.Service.EntityData`:
+Para establecer el índice en clúster en el back-end de .NET usando Entity Framework, establezca la propiedad  `IsClustered` de la anotación. Por ejemplo, esta es la definición de  `CreatedAt` en  `Microsoft.WindowsAzure.Mobile.Service.EntityData`:
 
 	[Index(IsClustered = true)]
 	[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -374,7 +374,7 @@ La siguiente consulta de ejemplo ejecuta una combinación a través de estas tab
       AND migs_adv.index_advantage > 10
     ORDER BY migs_adv.index_advantage DESC;
 
-Para obtener más información, consulte [Supervisión de Base de datos SQL de Azure mediante vistas de administración dinámica][] y [Vistas de administración dinámica de índices ausentes](sys-missing-index-stats).
+Para obtener más información, consulte [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica][] y [Vistas de administración dinámica de índices ausentes](sys-missing-index-stats).
 
 <a name="AdvancedQuery" />
 ### Diseño avanzado de consultas 
@@ -400,7 +400,7 @@ El siguiente ejemplo devuelve información acerca de las cinco consultas princip
 	GROUP BY query_stats.query_hash
 	ORDER BY 2 DESC;
 
-Para obtener más información, consulte [Supervisión de Base de datos SQL de Azure mediante vistas de administración dinámica][]. Además de ejecutar la consulta, el **Portal de administración de base de datos SQL** proporciona un buen atajo para ver estos datos, seleccionando **Resumen** para la base de datos y, después, seleccionando **Rendimiento de las consultas**:
+Para obtener más información, consulte [Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica][]. Además de ejecutar la consulta, el **Portal de administración de base de datos SQL** proporciona un buen atajo para ver estos datos, seleccionando **Resumen** para la base de datos y, después, seleccionando **Rendimiento de las consultas**:
 
 ![SQL Database Management Portal - query performance][PortalSqlManagementQueryPerformance]
 
@@ -456,7 +456,7 @@ Para analizar el plan de consulta en el **Portal de administración de Base de d
 
 [Documentación de Base de datos SQL de Azure]: http://azure.microsoft.com/documentation/services/sql-database/
 [Administración de Base de datos SQL con SQL Server Management Studio]: http://go.microsoft.com/fwlink/p/?linkid=309723&clcid=0x409
-[Supervisión de Base de datos SQL de Azure mediante vistas de administración dinámica] : http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
+[Supervisar Base de datos SQL de Azure mediante vistas de administración dinámica]: http://go.microsoft.com/fwlink/p/?linkid=309725&clcid=0x409
 [Rendimiento y escalado de Base de datos SQL de Azure]: http://go.microsoft.com/fwlink/p/?linkid=397217&clcid=0x409
 [Solución de problemas de Base de datos SQL de Azure]: http://msdn.microsoft.com/library/azure/ee730906.aspx
 
@@ -475,12 +475,11 @@ Para analizar el plan de consulta en el **Portal de administración de Base de d
 [sys-missing-index-stats]: http://technet.microsoft.com/library/ms345421.aspx
 
 <!-- EF -->
-Consideraciones de rendimiento para Entity Framework 5: http://msdn.microsoft.com/data/hh949853
+[Consideraciones de rendimiento para Entity Framework 5]: http://msdn.microsoft.com/data/hh949853
 [Anotaciones de datos de Code First]: http://msdn.microsoft.com/data/jj591583.aspx
 [Anotaciones de índice en Entity Framework]:http://msdn.microsoft.com/data/jj591583.aspx#Index
 
 <!-- BLOG LINKS -->
 [¿Cuánto cuesta esa clave?]: http://www.sqlskills.com/blogs/kimberly/how-much-does-that-key-cost-plus-sp_helpindex9/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

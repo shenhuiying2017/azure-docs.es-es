@@ -18,7 +18,7 @@
 
 #Creación de una máquina virtual personalizada
 
-Una máquina virtual  *personalizada* simplemente significa una máquina virtual creada con la opción**Desde la galería** porque le ofrece más opciones de configuración que la opción **Creación rápida**. Entre estas opciones se incluyen:
+Una máquina virtual  *custom* simplemente significa una máquina virtual creada con la opción **Desde la galería** porque le ofrece más opciones de configuración que la opción **Creación rápida**. Entre estas opciones se incluyen:
 
 - Conexión de la VM a una red virtual
 - Instalación del agente de máquina virtual, por ejemplo para funciones antimalware 
@@ -31,7 +31,4 @@ Una máquina virtual  *personalizada* simplemente significa una máquina virtual
 
 
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Almacenamiento del código del proyecto en control de código fuente - Servicios móviles de Azure" 
 	description="Obtenga información acerca de cómo almacenar los módulos y los archivos de script de servidor en un repositorio Git local del equipo." 
 	services="mobile-services" 
@@ -10,14 +10,14 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-multiple" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/21/2014" 
 	ms.author="glenga"/>
 
 <div class="dev-center-tutorial-subselector">
-	<a href="/es-es/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">Back-end de .NET</a> | <a href="/es-es/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">Back-end de JavaScript</a>
+	<a href="/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/" title=".NET backend">Back-end de .NET</a> | <a href="/documentation/articles/mobile-services-store-scripts-source-control/"  title="JavaScript backend" class="current">Back-end de JavaScript</a>
 </div>
 
 # Almacenamiento del código del proyecto en control de código fuente
@@ -33,24 +33,24 @@ El tutorial le guiará a través de los siguientes pasos:
 
 Para completar este tutorial, debe haber creado un servicio móvil tras completar los tutoriales [Introducción a los servicios móviles] o [Incorporación de servicios móviles a una aplicación existente].
 
-##<a name="enable-source-control"></a>Habilitación del control de código fuente en el servicio móvil
+## <a name="enable-source-control"></a>Habilitación del control de código fuente en el servicio móvil.
 
 [AZURE.INCLUDE [mobile-services-enable-source-control](../includes/mobile-services-enable-source-control.md)]
 
-##<a name="clone-repo"></a>Instalación de Git y creación del repositorio local
+## <a name="clone-repo"></a>Instalación de Git y creación del repositorio local
 
 1. Instale Git en su equipo local. 
 
-	Los pasos requeridos para instalar Git varían según los sistemas operativos. Consulte [Installing Git] para obtener una guía sobre la instalación y las distribuciones específicas del sistema operativo.
+	Los pasos requeridos para instalar Git varían según los sistemas operativos. Consulte [Instalación de Git] para obtener una guía sobre la instalación y las distribuciones específicas del sistema operativo.
 
 	> [AZURE.NOTE]
 	> Algunos sistemas operativos disponen de versiones de Git en línea de comandos y de GUI. Las instrucciones proporcionadas en este artículo utilizan la versión en línea de comandos.
 
 2. Abra una línea de comandos, como **GitBash** (Windows) o **Bash** (shell de Unix). En los sistemas OS X puede tener acceso a la línea de comandos mediante la aplicación **Terminal**.
 
-3. Desde la línea de comandos, cambie al directorio donde almacenará los scripts. Por ejemplo,  `cd SourceControl`.
+3. Desde la línea de comandos, cambie al directorio donde almacenará los scripts. Por ejemplo, `cd SourceControl`.
 
-4. Use el comando siguiente para crear una copia local del nuevo repositorio Git. Deberá reemplazar `<su_URL_git>` por la dirección URL del repositorio Git del servicio móvil:
+4. Use el comando siguiente para crear una copia local del nuevo repositorio Git. Deberá reemplazar `<su_dirección_URL_git>` por la dirección URL del repositorio Git del servicio móvil:
 
 		git clone <your_git_URL>
 
@@ -69,11 +69,11 @@ Para completar este tutorial, debe haber creado un servicio móvil tras completa
 
 7. Abra la subcarpeta .\service\table y observe que contiene un archivo TodoItem.json, que es una representación JSON de los permisos de funcionamiento de la tabla TodoItem. 
 
-	Cuando se hayan definido scripts de servidor en esta tabla, también aparecerán uno o varios archivos denominados <code>TodoItem._&lt;operation&gt;_.js</code> que contendrán los scripts para la operación de tabla determinada.. Los scripts del programador y de la API personalizada se mantienen en carpetas independientes con esos nombres respectivos. Para obtener más información, consulte [Control de código fuente].
+	Cuando se hayan definido scripts de servidor en esta tabla, también aparecerán uno o varios archivos denominados <code>TodoItem._&lt;operation&gt;_.js</code> que contendrán los scripts para la operación de tabla determinada. Los scripts del programador y de la API personalizada se mantienen en carpetas independientes con esos nombres respectivos. Para obtener más información, consulte [Control de código fuente].
 
 Ahora que ha creado su repositorio local, puede realizar cambios en los scripts del servidor e insertarlos en el servicio móvil.
 
-##<a name="deploy-scripts"></a>Implementación de archivos de script actualizados en el servicio móvil.
+## <a name="deploy-scripts"></a>Implementación de archivos de script actualizados en el servicio móvil
 
 1. Desplácese a la subcarpeta .\service\table y, si aún no existe un archivo todoitem.insert.js, créelo en este momento.
 
@@ -101,7 +101,7 @@ Ahora que ha creado su repositorio local, puede realizar cambios en los scripts 
 	
 	Aparecerá una serie de comandos que indica que la confirmación se ha implementado en el servicio móvil.
 
-6. De vuelta en el Portal de administración, haga clic en la pestaña **Datos** y, a continuación, en la tabla **TodoItem**.
+6. Nuevamente en el Portal de administración, haga clic en la pestaña **Data** y, a continuación, en la tabla **TodoItem**.
 
 	![][5]
 
@@ -111,7 +111,7 @@ Ahora que ha creado su repositorio local, puede realizar cambios en los scripts 
 
 	Observe que el script de operación de inserción que se muestra es el mismo que el del código de JavaScript que acaba de cargar en el repositorio.
 
-##<a name="use-npm"></a>Aprovechamiento del código compartido y de módulos Node.js en los scripts del servidor
+## <a name="use-npm"></a>Aprovechamiento del código compartido y de módulos Node.js en los scripts del servidor
 
 Servicios móviles proporciona acceso a todo el conjunto de módulos Node.js básicos, que puede usar en su código mediante la función **require**. Asimismo, el servicio móvil puede usar módulos Node.js que no formen parte del paquete Node.js básico, y el usuario puede incluso definir su propio código compartido como módulos Node.js. Para obtener más información acerca de la creación de módulos, consulte la sección [Módulos][Documentación de API Node.js: Módulos] en la documentación de referencia de API Node.js.
 
@@ -154,7 +154,7 @@ Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el
 	<br/>Muestra cómo trabajar con scripts del servidor, el programador de trabajos y las API personalizadas.
 
 + [Llamada a una API personalizada desde el cliente] 
-	<br/> Muestra cómo crear las API personalizadas que se pueden llamar desde el cliente.
+	<br/> Muestra cómo crear API personalizadas que se pueden llamar desde el cliente.
 
 <!-- Anchors. -->
 [Habilitación del control de código fuente en el servicio móvil]: #enable-source-control
@@ -171,13 +171,12 @@ Ahora que ha completado este tutorial, ya sabe cómo almacenar sus scripts en el
 [Sitio web de Git]: http://git-scm.com
 [Control de código fuente]: http://msdn.microsoft.com/library/windowsazure/c25aaede-c1f0-4004-8b78-113708761643
 [Instalación de Git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[Introducción a los servicios móviles]: /es-es/documentation/articles/mobile-services-ios-get-started/
-[Incorporación de Servicios móviles a una aplicación existente]: /es-es/documentation/articles/mobile-services-ios-get-started-data/
-[Uso de scripts del servidor en Servicios móviles]: /es-es/documentation/articles/mobile-services-how-to-use-server-scripts/
+[Introducción a los Servicios móviles]: /documentation/articles/mobile-services-ios-get-started/
+[Incorporación de Servicios móviles a una aplicación existente]: /documentation/articles/mobile-services-ios-get-started-data/
+[Uso de scripts del servidor en Servicios móviles]: /documentation/articles/mobile-services-how-to-use-server-scripts/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Llamada a una API personalizada desde el cliente]: /es-es/documentation/articles/mobile-services-ios-call-custom-api/
-[Documentación sobre la API de Node.js: Módulos]: http://nodejs.org/api/modules.html
+[Llamada a una API personalizada desde el cliente]: /documentation/articles/mobile-services-ios-call-custom-api/
+[Documentación de API Node.js: Módulos]: http://nodejs.org/api/modules.html
 [node-uuid]: https://npmjs.org/package/node-uuid
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

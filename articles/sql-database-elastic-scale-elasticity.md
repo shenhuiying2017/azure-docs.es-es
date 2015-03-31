@@ -1,20 +1,34 @@
-﻿<properties title="Data Dependent Routing" pageTitle="Elasticidad de partición" description="Explica los conceptos y proporciona ejemplos tras la elasticidad de particiones, la capacidad de escalar con facilidad las bases de datos SQL de Azure." metaKeywords="sharding scaling, Azure SQL DB sharding, elastic scale, elasticity" services="sql-database" documentationCenter=""  manager="jhubbard" authors="sidneyh@microsoft.com"/>
+﻿<properties 
+	pageTitle="Elasticidad de partición" 
+	description="Explica los conceptos y proporciona ejemplos tras la elasticidad de particiones, la capacidad de escalar con facilidad las bases de datos SQL de Azure." 
+	services="sql-database" 
+	documentationCenter="" 
+	manager="stuartozer" 
+	authors="torsteng" 
+	editor=""/>
 
-<tags ms.service="sql-database" ms.workload="sql-database" ms.tgt_pltfrm="na" ms.devlang="na" ms.topic="article" ms.date="10/02/2014" ms.author="sidneyh" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="sql-database" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="na" 
+	ms.topic="article" 
+	ms.date="02/01/2015" 
+	ms.author="torsteng"/>
 
 # Elasticidad de partición 
 
-**Elasticidad de partición** permite que los desarrolladores de aplicaciones aumenten y disminuyan de manera dinámica los recursos de las bases de datos según lo dicte la necesidad, permitiendo así optimizar el rendimiento de las aplicaciones y minimizar los costos. La combinación de Escalado elástico para Base de datos SQL de Azure con los [niveles de servicio Básico, Estándar y Premium](http://msdn.microsoft.com/es-es/library/azure/dn741340.aspx) proporciona escenarios de elasticidad muy atractivos.  Escalado elástico habilita el **escalado horizontal**, un patrón de diseño en el cual las bases de datos ("particiones" en [términos de Escalado elástico](sql-database-elastic-scale-glossary.md)) se agregan o quitan de un **conjunto de particiones** para aumentar o disminuir la capacidad. De manera similar, los niveles de servicio de Base de datos SQL proporcionan capacidades de **escalado vertical**, en las que los recursos de una base de datos se pueden escalar o reducir verticalmente para satisfacer la demanda como corresponde.  En conjunto, el escalado vertical de una sola partición y el escalado horizontal de muchas particiones ofrecen a los desarrolladores de aplicaciones un entorno muy flexible que puede escalar para satisfacer las necesidades de rendimiento, capacidad y optimización de costos.
+**Elasticidad de partición** permite que los desarrolladores de aplicaciones aumenten y disminuyan de manera dinámica los recursos de las bases de datos según lo dicte la necesidad, permitiendo así optimizar el rendimiento de las aplicaciones y minimizar los costos. La combinación de Escalado elástico para Base de datos SQL de Azure con los [niveles de servicio Básico, Estándar y Premium](http://msdn.microsoft.com/library/azure/dn741340.aspx) proporciona escenarios de elasticidad muy atractivos.  La Escala elástica permite el **escalado horizontal**, un patrón de diseño en el que las bases de datos ("particiones" en [términos de Escala elástica](sql-database-elastic-scale-glossary.md)) se agregan o eliminan de un **conjunto de particiones** para aumentar o reducir la capacidad. De manera similar, los niveles de servicio de Base de datos SQL proporcionan capacidades de **escalado vertical**, en las que los recursos de una base de datos se pueden escalar o reducir verticalmente para satisfacer la demanda como corresponde.  En conjunto, el escalado vertical de una sola partición y el escalado horizontal de muchas particiones ofrecen a los desarrolladores de aplicaciones un entorno muy flexible que puede escalar para satisfacer las necesidades de rendimiento, capacidad y optimización de costos.
 
-### Ejemplo de escalado horizontal: alza en la demanda por un concierto
+## Ejemplo de escalado horizontal: alza en la demanda por un concierto
 
 Un escenario canónica del escalado horizontal es una aplicación que procesa las transacciones realizadas por las entradas a conciertos. Cuando se trata de volúmenes normales de clientes, la aplicación usa el mínimo de recursos de base de datos para manejar las transacciones de compra.  Sin embargo, cuando salen a la venta las entradas de un concierto popular, una base de datos única no puede manejar el gran alza de la demanda de los clientes. 
 
 Para procesar el considerable aumento de las transacciones, la aplicación escala horizontalmente. Ahora la aplicación puede distribuir la carga de las transacciones entre varias particiones. Cuando los recursos adicionales dejan de ser necesarios, el nivel de la base de datos se disminuye para el uso normal. Aquí el escalado horizontal permite que una aplicación escale horizontalmente para satisfacer la demanda de los clientes y reduzca horizontalmente cuando dejen de requerirse los recursos.   
 
-### Ejemplo de escalado vertical: telemetría
+## Ejemplo de escalado vertical: Telemetría
 
-Un escenario canónico para el escalado vertical es una aplicación que usa un**conjunto de particiones** para almacenar la telemetría operacional. En este escenario, se recomienda co-ubicar todos los datos de telemetría de un solo día en una partición. En esta aplicación, los datos del día actual se recopilan en una partición y se aprovisiona una partición nueva para los días subsiguientes. Los datos operacionales entonces se pueden conservar y consultar según corresponda. 
+Un escenario canónico para el escalado vertical es una aplicación que usa un **conjunto de particiones** para almacenar la telemetría operacional. En este escenario, se recomienda co-ubicar todos los datos de telemetría de un solo día en una partición. En esta aplicación, los datos del día actual se recopilan en una partición y se aprovisiona una partición nueva para los días subsiguientes. Los datos operacionales entonces se pueden conservar y consultar según corresponda. 
 
 Para recopilar los datos de telemetría en altas cargas, se recomienda emplear un nivel de servicio superior. En otras palabras, una base de datos Premium es mejor que una base de datos Básica. Una vez que la base de datos alcanza su capacidad, cambia de la recopilación al análisis y los informes. Para ello, el rendimiento del nivel Estándar es igual a la tarea. De este modo, es posible reducir verticalmente el nivel de servicio en las particiones (que no sean la creada más recientemente) para así concordar con los requisitos de rendimiento para los datos más antiguos. 
 
@@ -32,7 +46,7 @@ El escalado vertical y horizontal es una función que tiene tres componentes bá
 2. **Regla**
 3. **Acción**   
 
-## <a name="telemetry"> </a>Telemetría
+## Telemetría
 
 **La elasticidad controlada por datos** está en el centro de una aplicación de escalado elástico. Según los requisitos de rendimiento, use la telemetría para tomar decisiones controladas por datos sobre si escalar vertical u horizontalmente.  
 
@@ -40,7 +54,7 @@ El escalado vertical y horizontal es una función que tiene tres componentes bá
 En el contexto de Base de datos SQL de Azure, hay un puñado de orígenes clave que se pueden aprovechar como orígenes de datos para la elasticidad de partición. 
 
 1. **La telemetría de rendimiento** se expone en duraciones de cinco minutos en la vista **sys.resource_stats** 
-2. La **telemetría de capacidad de base de datos** por hora se expone a través de la vista **sys.resource_usage**.  
+2. La **telemetría de capacidad de base de datos** se expone a través de la vista **sys.resource_usage**.  
 
 Es posible analizar el uso de los recursos de rendimiento si consulta la base de datos maestra usando la siguiente consulta, donde "Shard_20140623" es el nombre de la base de datos de destino. 
 
@@ -93,17 +107,17 @@ Como los datos se recopilan en una partición determinada, es útil proyectar a 
     WHERE 
         Size.[order] < 8 
 
-## <a name="rule"></a>Regla  
+## Regla  
 
 La regla es el motor de decisiones que termina si se tomará o no una acción. Algunas reglas son muy simples y otras, mucho más complicadas. Tal como se muestra en el siguiente fragmento de código, es posible configurar una regla centrada en la capacidad para que cuando una partición alcance $SafetyMargin, por ejemplo, 80%, de su capacidad máxima, se aprovisione una nueva partición.
 
-    # Determine si el tamaño de la base de datos actual más el tamaño del delta diario máximo es mayor que el umbral 
+    # Determine if the current DB size plus the maximum daily delta size is greater than the threshold 
     if( ($CurrentDbSizeMb + $MaxDbDeltaMb) -gt ($MaxDbSizeMb * $SafetyMargin))  
     {#provision new shard} 
 
 Dados los orígenes de datos anteriores, es posible formular varias reglas para lograr numerosos escenarios de elasticidad de partición. 
 
-## <a name="action"></a>Acción  
+## Acción  
 
 Según el resultado de la regla, la acción (o no acción) es el resultado. Las dos acciones más comunes son:
 
@@ -122,7 +136,7 @@ El ejemplo que aparece en la ilustración que aparece a continuación resalta do
 
 Para realizar un escalado horizontal, se usa una regla (basada en la fecha o en el tamaño de la base de datos) para aprovisionar una partición nueva y registrarla con el mapa de particiones, con lo que se aumenta el nivel de la base de datos. En segundo lugar, para realizar un escalado vertical, se implementa una segunda regla en la cual cualquier partición que tenga más de un día se degrada desde la edición Premium a una edición Estándar o Básica. 
 
-Considere nuevamente el escenario de telemetría: las particiones de aplicación por fecha. Recopila continuamente los datos de la telemetría, lo que requiere una edición de alto rendimiento en el momento de la carga, pero un rendimiento inferior a medida que los datos envejecen. Los datos del día actual [Tnow] se escriben en una base de datos de alto rendimiento (Premium). Una vez que el reloj llega a la medianoche, la partición del día anterior (ahora [T-1]) ya no se usa para la recopilación. Los datos actuales los recopila el actual [Tnow]. Antes del próximo día, se debe aprovisionar una nueva partición y se debe registrar con el mapa de particiones ([T+1]).  
+Considere de nuevo el escenario de telemetría: las particiones de aplicación por fecha. Recopila continuamente los datos de la telemetría, lo que requiere una edición de alto rendimiento en el momento de la carga, pero un rendimiento inferior a medida que los datos envejecen. Los datos del día actual [Tnow] se escriben en una base de datos de alto rendimiento (Premium). Una vez que el reloj llega a la medianoche, la partición del día anterior (ahora [T-1]) ya no se usa para la recopilación. Los datos actuales los recopila el actual [Tnow]. Antes del próximo día, se debe aprovisionar una nueva partición y se debe registrar con el mapa de particiones ([T+1]).  
 
 Esto se puede hacer aprovisionando una nueva partición antes de cada día nuevo o aprovisionando una partición nueva cuando la partición actual ([Tnow]) esté cerca de su capacidad máxima. El uso de cualquiera de estos métodos conserva la localidad de los datos para toda la telemetría escrita en un día determinado. También se puede aplicar particionamiento por hora para una granularidad más fina. Una vez que se aprovisiona una partición nueva, y como [T-1] se usa para consultas e informes, se desea reducir el nivel de rendimiento de la base de datos para así reducir costos. A medida que el contenido de las bases de datos envejece, el nivel de rendimiento se puede reducir más y/o el contenido de las bases de datos se puede archivar en Almacenamiento de Azure o se pueden eliminar, dependiendo de la aplicación. 
 
@@ -137,6 +151,8 @@ Para facilitar la implementación real de ambos escenarios de escalado, horizont
 [1]: ./media/sql-database-elastic-scale-elasticity/data-ingestion.png
 
 <!--anchors-->
-[Telemetry]:#telemetry
-[Rule]:#rule
-[Action]:#action
+[Telemetría]:#telemetry
+[Regla]:#rule
+[Acción]:#action
+
+<!--HONumber=47-->

@@ -1,5 +1,5 @@
-﻿<properties 
-	pageTitle="Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones (Servicios móviles))" 
+<properties 
+	pageTitle="Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones (Servicios móviles)" 
 	description="Obtenga información acerca de cómo utilizar las plantillas de los Centros de notificaciones para enviar, en una sola solicitud, una notificación independiente de plataforma que tenga como destino todas las plataformas." 
 	services="notification-hubs" 
 	documentationCenter="" 
@@ -18,6 +18,5 @@
 
 # Envío de notificaciones entre plataformas a los usuarios con Centros de notificaciones
 
-Este tema se ha sustituido y ya no es válido. Para obtener información sobre cómo usar los Centros de notificaciones de Azure con servicios móviles de Azure para enviar notificaciones a usuarios específicos, consulte el tema [Envío de notificaciones de inserción a los usuarios autenticados](/es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/) 
-
-<!--HONumber=45--> 
+Este tema se ha sustituido y ya no es válido. Para obtener información sobre cómo usar los centros de notificaciones de Azure con servicios móviles de Azure para enviar notificaciones a usuarios específicos, consulte el tema [Envío de notificaciones de inserción a los usuarios autenticados](/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/). 
+<!--HONumber=47-->

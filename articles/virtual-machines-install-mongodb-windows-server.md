@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Instalación de MongoDB en una máquina virtual con Windows Server" 
-	description="Aprenda a instalar MongoDB en una máquina virtual de Azure con Windows Server.." 
+	description="Aprenda a instalar MongoDB en una máquina virtual de Azure con Windows Server." 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="KBDAzure" 
@@ -18,7 +18,7 @@
 
 #Instalación de MongoDB en una máquina virtual con Windows Server
 
-[MongoDB][MongoDB] es una conocida base de datos NoSQL de alto rendimiento de código abierto. En el [Portal de administración de Azure][AzureManagementPortal], puede crear una máquina virtual con Windows Server desde la Galería de imágenes. A continuación, puede instalar y configurar una base de datos MongoDB en la máquina virtual.
+[MongoDB][MongoDB] es una conocida base de datos NoSQL de alto rendimiento de código abierto.  En el [Portal de administración de Azure][AzureManagementPortal], puede crear una máquina virtual con Windows Server desde la Galería de imágenes.  A continuación, puede instalar y configurar una base de datos MongoDB en la máquina virtual.
 
 En este artículo se muestra cómo:
 
@@ -49,13 +49,10 @@ Para obtener instrucciones acerca de cómo conseguir esta información, consulte
 [AZURE.INCLUDE [install-and-run-mongo-on-win2k8-vm](../includes/install-and-run-mongo-on-win2k8-vm.md)]
 
 ##Resumen
-En este tutorial se ha facilitado información acerca de cómo crear una máquina virtual con Windows Server, conectarse a ella de forma remota y acoplar un disco de datos.  También se ha descrito cómo instalar y configurar MongoDB en la máquina virtual con Windows. Para obtener más información acerca de MongoDB, consulte la [documentación sobre MongoDB][MongoDocs]..
+En este tutorial se ha facilitado información acerca de cómo crear una máquina virtual con Windows Server, conectarse a ella de forma remota y acoplar un disco de datos.  También se ha descrito cómo instalar y configurar MongoDB en la máquina virtual con Windows. Para obtener más información acerca de MongoDB, consulte la [documentación sobre MongoDB][MongoDocs] (en inglés).
 
 [MongoDocs]: http://www.mongodb.org/display/DOCS/Home
 [MongoDB]: http://www.mongodb.org/
 [AzureManagementPortal]: http://manage.windowsazure.com
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=47-->

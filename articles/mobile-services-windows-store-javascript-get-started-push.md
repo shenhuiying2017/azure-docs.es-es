@@ -1,7 +1,7 @@
 ﻿<properties 
 	pageTitle="Introducción a las notificaciones de inserción (inserción heredada) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo usar Servicios móviles de Azure para enviar notificaciones de inserción a la aplicación de JavaScript de la Tienda Windows (inserción heredada)." 
-	services="mobile-services, notification-hubs" 
+	services="mobile-services" 
 	documentationCenter="windows" 
 	authors="ggailey777" 
 	manager="dwrede" 
@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
@@ -19,23 +19,23 @@
 # Incorporación de notificaciones de inserción a su aplicación de Servicios móviles (inserción heredada)
 
 <div class="dev-center-tutorial-selector sublanding">
-    <a href="/es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">C# para Tienda Windows</a>
-    <a href="/es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">JavaScript para Tienda Windows</a>
-    <a href="/es-es/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
-    <a href="/es-es/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
-    <a href="/es-es/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
-<!--    <a href="/es-es/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
-    <a href="/es-es/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
-	<a href="/es-es/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
+    <a href="/documentation/articles/mobile-services-windows-store-dotnet-get-started-push" title="Windows Store C#">C# para Tienda Windows</a>
+    <a href="/documentation/articles/mobile-services-windows-store-javascript-get-started-push" title="Windows Store JavaScript" class="current">JavaScript para Tienda Windows</a>
+    <a href="/documentation/articles/mobile-services-windows-phone-get-started-push" title="Windows Phone">Windows Phone</a>
+    <a href="/documentation/articles/mobile-services-ios-get-started-push" title="iOS">iOS</a>
+    <a href="/documentation/articles/mobile-services-android-get-started-push" title="Android">Android</a>
+<!--    <a href="/documentation/articles/partner-xamarin-mobile-services-ios-get-started-push" title="Xamarin.iOS">Xamarin.iOS</a>
+    <a href="/documentation/articles/partner-xamarin-mobile-services-android-get-started-push" title="Xamarin.Android">Xamarin.Android</a> -->
+	<a href="/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started-push" title="Appcelerator">Appcelerator</a>
 </div>
 
-<div class="dev-center-tutorial-subselector"><a href="/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">Back-end de .NET</a> | <a href="/es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">Back-end de JavaScript</a></div>		
+<div class="dev-center-tutorial-subselector"><a href="/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-push/" title=".NET backend">Back-end de .NET</a>|  <a href="/documentation/articles/mobile-services-windows-store-javascript-get-started-push/"  title="JavaScript backend" class="current">Back-end de JavaScript</a></div>		
 
 Este tema muestra cómo Visual Studio 2013 le permite utilizar Servicios móviles de Azure para enviar notificaciones de inserción a su aplicación de la Tienda Windows. En este tutorial aprenderá a agregar notificaciones de inserción al proyecto de inicio rápido con los servicios de notificaciones de inserción de Windows (WNS) directamente desde Visual Studio. Cuando haya finalizado, el servicio móvil le enviará una notificación de inserción cada vez que se inserte un registro.
 
->[AZURE.NOTE]En este tema se tratan móviles <em>existentes</em> que todavía <em>no se han actualizado</em> para usar la integración de Centros de notificaciones. Cuando crea un <em>nuevo</em> servicio móvil, esta funcionalidad integrada se habilita automáticamente. Para servicios móviles nuevos, consulte [Introducción a las notificaciones de inserción](/es-es/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
+>[AZURE.NOTE]En este tema se tratan móviles <em>existentes</em> que todavía <em>no se han actualizado</em> para usar la integración de Centros de notificaciones. Al crear un <em>servicio móvil</em> nuevo, esta funcionalidad integrada se habilita automáticamente. Para servicios móviles nuevos, consulte [Introducción a las notificaciones de inserción](/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
 >
->La solución Servicios móviles se integra con Centros de notificaciones de Azure para ofrecer compatibilidad con la funcionalidad de notificación de inserción adicional, como plantillas, varias plataformas y escala. <em>Debería actualizar los servicios móviles existentes para que usen Centros de notificaciones siempre que sea posible</em>. Una vez que haya realizado la actualización, consulte esta versión de [Introducción a las notificaciones de inserción](/es-es/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
+>La solución Servicios móviles se integra con Centros de notificaciones de Azure para ofrecer compatibilidad con la funcionalidad de notificación de inserción adicional, como plantillas, varias plataformas y escala. <em>Debería actualizar los servicios móviles existentes para que usen Centros de notificaciones siempre que sea posible</em>. Una vez que haya realizado la actualización, consulte esta versión de [Introducción a las notificaciones de inserción](/documentation/articles/mobile-services-javascript-backend-windows-store-javascript-get-started-push/).
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 
@@ -74,7 +74,7 @@ Aunque el código generado facilita la demostración de una notificación cuando
 
 1. En Visual Studio, presione la tecla F5 para ejecutar la aplicación.
 
-2. En la aplicación, escriba texto en **Insertar TodoItem** y, a continuación, haga clic en **Guardar**.
+2. En la aplicación, escriba un texto en **Insertar TodoItem** y, a continuación, haga clic en **Guardar**.
 
    	![][13]
 
@@ -106,7 +106,7 @@ Considere la posibilidad de profundizar más en los siguientes temas de Servicio
 * [Introducción a la autenticación]
   <br/>Aprenda a autenticar a los usuarios de su aplicación con cuenta de Windows.
 
-* [Referencia del script de servidor de Servicios móviles]
+* [Referencia del script del servidor de servicios móviles]
   <br/>Obtenga más información acerca del registro y del uso de scripts de servidor.
 
 * [Referencia conceptual de Servicios móviles con HTML/JavaScript]
@@ -136,22 +136,21 @@ Considere la posibilidad de profundizar más en los siguientes temas de Servicio
 [Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started/
-[Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-js/
-[Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-js
-[Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-js
-[Notificaciones de inserción a los usuarios de aplicaciones]: /es-es/develop/mobile/tutorials/push-notifications-to-users-js
-[Autorización de usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-js
-[JavaScript y HTML]: /es-es/develop/mobile/tutorials/get-started-with-push-js
+[Introducción a los servicios móviles]: /develop/mobile/tutorials/get-started/
+[Introducción a los datos]: /develop/mobile/tutorials/get-started-with-data-js/
+[Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-js
+[Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-js
+[Notificaciones de inserción para usuarios de la aplicación]: /develop/mobile/tutorials/push-notifications-to-users-js
+[Autorización de usuarios con scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-js
+[JavaScript y HTML]: /develop/mobile/tutorials/get-started-with-push-js
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Referencia conceptual de Servicios móviles con HTML/JavaScript]: /es-es/develop/mobile/how-to-guides/work-with-html-js-client/
-[Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
-[Introducción a los Centros de notificaciones]: /es-es/manage/services/notification-hubs/getting-started-windows-dotnet/
-[¿Qué son los Centros de notificaciones?]: /es-es/develop/net/how-to-guides/service-bus-notification-hubs/
-[Envío de notificaciones de difusión a los suscriptores]: /es-es/manage/services/notification-hubs/breaking-news-dotnet/
-[Envío de notificaciones a usuarios]: /es-es/manage/services/notification-hubs/notify-users/
-[Envío de notificaciones entre plataformas a los usuarios]: /es-es/manage/services/notification-hubs/notify-users-xplat-mobile-services/
+[Referencia conceptual de Servicios móviles con HTML/JavaScript]: /develop/mobile/how-to-guides/work-with-html-js-client/
+[Referencia del script del servidor de servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Introducción a los Centros de notificaciones]: /manage/services/notification-hubs/getting-started-windows-dotnet/
+[¿Qué son los Centros de notificaciones?]: /develop/net/how-to-guides/service-bus-notification-hubs/
+[Envío de notificaciones de difusión a los suscriptores]: /manage/services/notification-hubs/breaking-news-dotnet/
+[Envío de notificaciones a usuarios]: /manage/services/notification-hubs/notify-users/
+[Envío de notificaciones entre plataformas a los usuarios]: /manage/services/notification-hubs/notify-users-xplat-mobile-services/
 
-
-<!--HONumber=42-->
+<!--HONumber=47-->

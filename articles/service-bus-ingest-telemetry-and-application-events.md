@@ -1,31 +1,37 @@
-<properties pageTitle="Introducci&oacute;n de eventos de telemetr&iacute;a y aplicaci&oacute;n a escala" metaKeywords="Service Bus, telemetry, events" description="Aprenda a introducir eventos de telemetr&iacute;a y aplicaci&oacute;n a escala en sus soluciones de negocio." services="service-bus" documentationCenter=".NET" title="Introducci&oacute;n de eventos de telemetr&iacute;a y aplicaci&oacute;n a escala" authors="sethm" solutions="" manager="timlt" editor="mattshel" />
+﻿<properties 
+	pageTitle="Introducción de eventos de telemetría y aplicación a escala" 
+	description="Aprenda a introducir eventos de telemetría y aplicación a escala en sus soluciones de negocio." 
+	services="service-bus" 
+	documentationCenter=".net" 
+	authors="sethmanheim" 
+	manager="timlt" 
+	editor="mattshel"/>
 
-<tags ms.service="service-bus" ms.workload="tbd" ms.tgt_pltfrm="na" ms.devlang="multiple" ms.topic="article" ms.date="09/24/2014" ms.author="sethm" />
+<tags 
+	ms.service="service-bus" 
+	ms.workload="tbd" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="multiple" 
+	ms.topic="article" 
+	ms.date="02/10/2015" 
+	ms.author="sethm"/>
 
-# Telemetría de introducción y escala de eventos de aplicación
+# Introducción de eventos de telemetría y aplicación a escala
+ 
+Las aplicaciones modernas crean una cantidad ingente de información mientras se ejecutan. Tanto si se trata de acciones de usuario en una aplicación móvil como de secuencias de clic en un sitio web, estos datos de telemetría son valiosos para análisis a largo plazo y supervisión del mantenimiento en tiempo real o la ayuda a la toma de decisiones. Bus de servicio proporciona las herramientas necesarias para capturar y procesar esta información.
 
-Las aplicaciones modernas crean una cantidad ingente de información mientras se ejecutan. Tanto si se trata de acciones de usuario en una aplicación móvil como de secuencias de clic en un sitio web, estos datos de telemetría son valiosos para análisis a largo plazo y supervisión del mantenimiento en tiempo real o la ayuda a la toma de decisiones. Bus de servicio proporciona las herramientas necesarias para capturar y aprovechar esta información.
 
 ## Exploración
-
--   [Centros de eventos][Centros de eventos]
--   [Detalles de precios de centros de eventos][Detalles de precios de centros de eventos]
--   [Patrón de orígenes de eventos][Patrón de orígenes de eventos]
-
+- [Centros de eventos](http://msdn.microsoft.com/library/dn789973.aspx)
+- [Detalles de precios de los centros de eventos](http://azure.microsoft.com/pricing/details/event-hubs/)
+- [Patrón de orígenes de eventos](http://msdn.microsoft.com/library/dn589792.aspx)
+ 
 ## Creación
-
--   [Referencia de la API de REST de centros de eventos][Referencia de la API de REST de centros de eventos]
--   [Ejemplos de código de centros de eventos][Ejemplos de código de centros de eventos]
-
+- [Referencia de la API de REST de centros de eventos](http://go.microsoft.com/fwlink/?LinkId=403977)
+- [Ejemplos de código de centros de eventos](http://go.microsoft.com/fwlink/?LinkID=402449)
+ 
 ## Servicios relacionados
+- [Almacenamiento](http://azure.microsoft.com/documentation/services/storage/)
+- [HDInsight](http://azure.microsoft.com/documentation/services/hdinsight/)
 
--   [Almacenamiento][Almacenamiento]
--   [HDInsight][HDInsight]
-
-  [Centros de eventos]: http://msdn.microsoft.com/es-es/library/dn789973.aspx
-  [Detalles de precios de centros de eventos]: http://azure.microsoft.com/es-es/pricing/details/event-hubs/
-  [Patrón de orígenes de eventos]: http://msdn.microsoft.com/es-es/library/dn589792.aspx
-  [Referencia de la API de REST de centros de eventos]: http://go.microsoft.com/fwlink/?LinkId=403977
-  [Ejemplos de código de centros de eventos]: http://go.microsoft.com/fwlink/?LinkID=402449
-  [Almacenamiento]: http://azure.microsoft.com/es-es/documentation/services/storage/
-  [HDInsight]: http://azure.microsoft.com/es-es/documentation/services/hdinsight/
+<!--HONumber=47-->

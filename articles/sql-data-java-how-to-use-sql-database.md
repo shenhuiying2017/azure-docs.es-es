@@ -1,6 +1,20 @@
-﻿<properties urlDisplayName="SQL Database" pageTitle="Uso de SQL Azure (Java) - Guía de características de Azure" metaKeywords="" description="Obtenga información acerca de cómo usar la base de datos SQL de Azure desde el código de Java. " metaCanonical="" services="sql-database" documentationCenter="Java" title="How to Use Azure SQL Database in Java" authors="robmcm" solutions="" manager="wpickett" editor="mollybos" videoId="" scriptId="" />
+<properties 
+	pageTitle="Uso de SQL Azure (Java) - Guía de características de Azure" 
+	description="Obtenga información acerca de cómo usar la base de datos SQL de Azure desde el código de Java." 
+	services="sql-database" 
+	documentationCenter="java" 
+	authors="rmcmurray" 
+	manager="wpickett" 
+	editor="jimbe"/>
 
-<tags ms.service="sql-database" ms.workload="data-management" ms.tgt_pltfrm="na" ms.devlang="Java" ms.topic="article" ms.date="09/25/2014" ms.author="robmcm" />
+<tags 
+	ms.service="sql-database" 
+	ms.workload="data-management" 
+	ms.tgt_pltfrm="na" 
+	ms.devlang="Java" 
+	ms.topic="article" 
+	ms.date="02/20/2015" 
+	ms.author="robmcm"/>
 
 # Utilización de Base de datos SQL de Azure en Java
 
@@ -8,46 +22,25 @@ Los siguientes pasos muestran cómo utilizar Base de datos SQL de Azure con Java
 
 ## Qué es una base de datos SQL de Azure
 
-Base de datos SQL de Azure ofrece un sistema de administración de bases de datos relacionales para Azure y se basa en la tecnología de SQL Server. Con una instancia de base de datos SQL se pueden aprovisionar e implementar soluciones de bases de datos relacionales en la nube con toda facilidad, así como beneficiarse de un centro de datos distribuido que ofrece disponibilidad, escalabilidad y seguridad de nivel empresarial con las ventajas de contar con funciones integradas de protección de datos y recuperación automática.
+Base de datos SQL de Azure ofrece un sistema de administración de bases de datos relacionales para Azure, y se basa en la tecnología de SQL Server. Con una instancia de base de datos SQL se pueden aprovisionar e implementar soluciones de bases de datos relacionales en la nube con toda facilidad, así como beneficiarse de un centro de datos distribuido que ofrece disponibilidad, escalabilidad y seguridad de clase empresarial con las ventajas de contar con funciones de protección de datos y recuperación automática integradas.
 
-## Tabla de contenido
 
--   [Conceptos][]
--   [Requisitos previos][]
--   [Creación de una base de datos SQL de Azure][]
--   [Determinación de la cadena de conexión de Base de datos SQL][]
--   [Acceso a un rango de direcciones IP][]
--   [Uso de Base de datos SQL de Azure en Java][]
--   [Comunicación con Base de datos SQL de Azure desde el código][]
--   [Creación de una tabla][]
--   [Creación de un índice en una tabla][]
--   [Inserción de filas][]
--   [Recuperación de filas][]
--   [Recuperación de filas con una cláusula WHERE][]
--   [Recuperación de un recuento de filas][]
--   [Actualización de filas][]
--   [Eliminación de filas][]
--   [Comprobación de la existencia de una tabla][]
--   [Eliminación de un índice][]
--   [Eliminación de una tabla][]
--   [Utilización de Base de datos SQL en Java dentro de una implementación de Azure][]
--   [Pasos siguientes][]
 
-<h2><a id="concepts"></a>Conceptos</h2>
-Puesto que Base de datos SQL de Azure se basa en las tecnologías de SQL Server, el acceso a Base de datos SQL desde Java es muy similar al acceso de SQL Server desde Java. Puede desarrollar una aplicación localmente (con SQL Server) y, a continuación, conectarse a Base de datos SQL cambiando solo la cadena de conexión. Puede utilizar un controlador JDBC para SQL Server para la aplicación. Sin embargo, existen algunas diferencias entre Base de datos SQL y SQL Server que podrían afectar a su aplicación. Para obtener más información, consulte [Instrucciones y limitaciones de Base de datos SQL de Azure](http://msdn.microsoft.com/es-es/library/windowsazure/ff394102.aspx).
+## Conceptos
+Puesto que Base de datos SQL de Azure se basa en las tecnologías de SQL Server, el acceso a Base de datos SQL desde Java es muy similar al acceso de SQL Server desde Java. Puede desarrollar una aplicación localmente (con SQL Server) y, a continuación, conectarse a Base de datos SQL cambiando solo la cadena de conexión. Puede utilizar un controlador JDBC para SQL Server para la aplicación. Sin embargo, existen algunas diferencias entre Base de datos SQL y SQL Server que podrían afectar a su aplicación. Para obtener más información, consulte [Instrucciones y limitaciones (Base de datos SQL de Azure)](http://msdn.microsoft.com/library/windowsazure/ff394102.aspx).
 
 Para obtener recursos adicionales para Base de datos SQL, consulte la sección [Pasos siguientes][].
 
-<h2><a id="prerequisites"></a>Requisitos previos</h2>
+## Requisitos previos
 
 Los siguientes son requisitos previos si tiene pensado usar Base de datos SQL con Java.
 
 * Un kit para desarrolladores de Java (JDK) v1.6 o superior.
 * Una suscripción de Azure, que se puede adquirir en <http://www.microsoft.com/windowsazure/offers/>.
-* Si usa Eclipse, necesitará Eclipse IDE para los desarrolladores de Java EE, Indigo o posterior. Esto se puede descargar en <http://www.eclipse.org/downloads/>. También necesitará el complemento de Azure para Eclipse con Java (de Microsoft Open Technologies). Durante la instalación de este complemento, asegúrese de que se incluya Microsoft JDBC Driver 4.0 para SQL Server. Para obtener más información, consulte [Instalación del complemento de Azure para Eclipse con Java (de Microsoft Open Technologies)](http://msdn.microsoft.com/es-es/library/windowsazure/hh690946.aspx).
-* Si no usa Eclipse, necesitará Microsoft JDBC Driver 4.0 para SQL Server, que puede descargar desde <http://www.microsoft.com/es-es/download/details.aspx?id=11774>.
+* Si está usando Eclipse, necesitará Eclipse IDE para los desarrolladores de Java EE, Indigo o posterior. Esto se puede descargar en <http://www.eclipse.org/downloads/>. También necesitará el complemento de Azure para Eclipse con Java (de Microsoft Open Technologies). Durante la instalación de este complemento, asegúrese de que se incluya Microsoft JDBC Driver 4.0 para SQL Server. Para obtener más información, consulte [Instalación del complemento de Azure para Eclipse con Java (de Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690946.aspx).
+* Si no está usando Eclipse, necesitará Microsoft JDBC Driver 4.0 para SQL Server, que puede descargar desde <http://www.microsoft.com/download/details.aspx?id=11774>.
 
-<h2><a id="create_db"></a>Creación de una base de datos SQL de Azure</h2>
+## Creación de una base de datos SQL de Azure
 
 Antes de usar Base de datos SQL de Azure en código Java, necesitará crear un servidor de base de datos SQL de Azure.
 
@@ -56,7 +49,7 @@ Antes de usar Base de datos SQL de Azure en código Java, necesitará crear un s
 
     ![Create new SQL database][create_new]
 
-3. Haga clic en **base de datos SQL** y luego en **Creación personalizada**.
+3. Haga clic en **Base de datos SQL** y, a continuación, en **Creación personalizada**.
 
     ![Create custom SQL database][create_new_sql_db]
 
@@ -66,71 +59,72 @@ Antes de usar Base de datos SQL de Azure en código Java, necesitará crear un s
     ![SQL database settings][create_database_settings]
 
 6. Haga clic en la flecha siguiente.	
-7. En el cuadro de diálogo **Configuración del servidor**, especifique un nombre de inicio de sesión de SQL Server. Para los propósitos de esta guía, se utilizó **MySQLAdmin**. Especifique y confirme una contraseña. Especifique una región y asegúrese de que la casilla **Permitir el uso de Servicios de Azure para acceder al servidor** esté activada.
+7. En el cuadro de diálogo **Configuración del servidor**, especifique un nombre de inicio de sesión de SQL Server. Para los propósitos de esta guía, se utilizó **MySQLAdmin**. Especifique y confirme una contraseña. Especifique una región y asegúrese de que la casilla **Permitir que los servicios de Azure accedan al servidor** esté activada.
 
     ![SQL server settings][create_server_settings]
 
 8. Haga clic en el botón de finalización.
 
-<h2><a id="determine_connection_string"></a>Determinación de la cadena de conexión de Base de datos SQL</h2>
+## Determinación de la cadena de conexión de Base de datos SQL
 
 1. Inicie sesión en el [Portal de administración de Azure](https://manage.windowsazure.com).
 2. Haga clic en **Bases de datos SQL**.
 3. Haga clic en la base de datos que desea utilizar.
-4. haga clic en **Mostrar cadenas de conexión**.
+4. Haga clic en **Mostrar cadenas de conexión**.
 5. Resalte el contenido de la cadena de conexión **JDBC**.
 
     ![Determine JDBC connection string][get_jdbc_connection_string]
 
-6. Haga clic con el botón secundario en el contenido resaltado de la cadena de conexión **JDBC** y haga clic en **Copiar**.
-7. Ahora puede pegar este valor en el archivo de código para crear una cadena de conexión de la siguiente forma. Reemplace *your_server* (en dos lugares) por el texto que copió en el paso anterior y reemplace *your_password* por el valor de la contraseña que especificó cuando creó la cuenta de Base de datos SQL. (Reemplace también los valores asignados a **database** y **user** si no ha utilizado **gettingstarted** y **MySQLAdmin**, respectivamente). 
+6. Haga clic con el botón derecho en el contenido resaltado de la cadena de conexión **JDBC** y haga clic en **Copiar**.
+7. Ahora puede pegar este valor en el archivo de código para crear una cadena de conexión de la siguiente forma. Reemplace *your_server* (en dos lugares) por el texto que copió en el paso anterior y reemplace  *your_password* por el valor de la contraseña que especificó cuando creó la cuenta de Base de datos SQL. (Reemplace también los valores asignados a **database=** y **user=** si no utilizó **gettingstarted** y **MySQLAdmin**, respectivamente). 
 
-    String connectionString =
-		"jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" +  
-    	"database=gettingstarted" + ";" + 
-    	"user=MySQLAdmin@*your_server*" + ";" +  
-    	"password=*your_password*" + ";" +  
-        "encrypt=true" + ";" +
-        "hostNameInCertificate=*.int.mscds.com" + ";" +  
-        "loginTimeout=30";
+    	String connectionString =
+			"jdbc:sqlserver://*your_server*.database.windows.net:1433" + ";" +  
+	    	"database=gettingstarted" + ";" + 
+	    	"user=MySQLAdmin@*your_server*" + ";" +  
+	    	"password=*your_password*" + ";" +  
+	        "encrypt=true" + ";" +
+	        "hostNameInCertificate=*.int.mscds.com" + ";" +  
+	        "loginTimeout=30";
 
-De hecho, usaremos esta cadena más adelante en esta guía, porque ahora ya conoce los pasos para determinar la cadena de conexión. Además, en función de las necesidades de la aplicación, es posible que no sea necesario usar los valores **encrypt** y **hostNameInCertificate** y que deba modificar el valor **loginTimeout**.
+De hecho, usaremos esta cadena más adelante en esta guía, porque ahora ya conoce los pasos para determinar la cadena de conexión. Además, según sus necesidades de aplicación, puede que no necesite utilizar los valores **encrypt** y **hostNameInCertificate**. Además, puede que necesite modificar el valor **loginTimeout**.
 
-<h2><a id="specify_allowed_ips"></a>Acceso a un rango de direcciones IP</h2>
+## Acceso a un rango de direcciones IP
+
 1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com).
 2. Haga clic en **Bases de datos SQL**.
 3. Haga clic en **Servidores**.
 4. Haga clic en el servidor que desea utilizar.
 5. Haga clic en **Administrar**.
-6. haga clic en **Configurar**.
-7. En **Direcciones IP permitidas**, escriba el nombre de una nueva regla IP. Especifique el rango de comienzo y fin de las direcciones IP. Para su conveniencia, se muestra la dirección IP del cliente actual. El siguiente ejemplo permite introducir una sola dirección IP del cliente (su dirección IP será diferente).
+6. Haga clic en **Configure**.
+7. Bajo **Direcciones IP permitidas**, escriba el nombre de una nueva regla IP. Especifique el rango de comienzo y fin de las direcciones IP. Para su conveniencia, se muestra la dirección IP del cliente actual. El siguiente ejemplo permite una sola dirección IP del cliente (su dirección IP será diferente).
 
     ![Allowed IP addresses dialog][allowed_ips_dialog]
 
-8. Haga clic en el botón de finalización. A las direcciones IP que especifica se les permitirá ahora acceder a su servidor de base de datos.
+8. Haga clic en el botón de finalización. A las direcciones IP que especifica se les permitirá ahora el acceso a su servidor de base de datos.
 
-<h2><a id="use_sql_azure_in_java"></a>Uso de Base de datos SQL de Azure en Java</h2>
+## Uso de Base de datos SQL de Azure en Java
 
 1. Cree un proyecto Java. Para los propósitos de este tutorial, llámelo **HelloSQLAzure**.
 2. Agregue un archivo de clase Java llamado **HelloSQLAzure.java** al proyecto.
-3. Agregue el **Microsoft JDBC Driver para SQL Server** a la ruta de acceso de la compilación.
+3. Agregue **Microsoft JDBC Driver para SQL Server** a su ruta de acceso de compilación.
 
    Si está usando Eclipse:
 
-    1. En el Explorador de proyectos de Eclipse, haga clic en el **HelloSQLAzure** project and click **Properties**.
+    1. Dentro del Explorador de proyectos de Eclipse, haga clic con el botón derecho en el proyecto **HelloSQLAzure** y haga clic en **Propiedades**.
     2. En el panel izquierdo del cuadro de diálogo **Propiedades**, haga clic en **Ruta de compilación de Java**.
-    3. Haga clic en la pestaña **Bibliotecas** y luego en **Agregar biblioteca**.
-    4. En el cuadro de diálogo **Agregar biblioteca**, seleccione **Microsoft JDBC Driver 4.0 para SQL Server**, haga clic en **Siguiente** y luego en **Finalizar**.
+    3. Haga clic en la pestaña **Bibliotecas** y, a continuación, en **Agregar biblioteca**.
+    4. En el cuadro de diálogo **Agregar biblioteca**, seleccione **Microsoft JDBC Driver 4.0 para SQL Server**, haga clic en **Siguiente** y, acto seguido, en **Finalizar**.
     5. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Propiedades**.
 
-    Si no usa Eclipse, agregue el JAR de Microsoft JDBC Driver 4.0 para SQL Server a la ruta de acceso de la clase. Para obtener información relacionada, consulte [Uso del controlador JDBC](http://msdn.microsoft.com/es-es/library/ms378526.aspx).
+    Si no usa Eclipse, agregue el JAR de Microsoft JDBC Driver 4.0 para SQL Server a la ruta de acceso de la clase. Para obtener información relacionada, consulte [Uso del controlador JDBC](http://msdn.microsoft.com/library/ms378526.aspx).
 
-4. Dentro del código **HelloSQLAzure.java**, agregue instrucciones `import` como se muestra a continuación:
+4. Dentro de su código **HelloSQLAzure.java**, agregue instrucciones  `import` de la siguiente forma:
 
         import java.sql.*;
         import com.microsoft.sqlserver.jdbc.*;
 
-5. Especifique la cadena de conexión. El siguiente es un ejemplo. Como antes, reemplace *your_server* (en dos lugares), *your_user* y *your_password* por los valores apropiados para su servidor de Base de datos SQL.
+5. Especifique la cadena de conexión. El siguiente es un ejemplo. Como antes, reemplace *your_server* (en dos lugares) *your_user* y *your_password* por los valores adecuados para su servidor de bases de datos SQL.
 
         String connectionString =
         	"jdbc:sqlserver://your_server.database.windows.net:1433" + ";" +  
@@ -140,18 +134,18 @@ De hecho, usaremos esta cadena más adelante en esta guía, porque ahora ya cono
 
 Ahora está listo para agregar el código que se comunicará con el servidor de Base de datos SQL.
 
-<h2><a id="communicate_from_code"></a>Comunicación con Base de datos SQL de Azure desde el código</h2>
+## Comunicación con Base de datos SQL de Azure desde el código
 
 El resto de este tema muestra ejemplos que hacen lo siguiente:
 
 1. Conectarse con el servidor de Base de datos SQL.
 2. Definir una instrucción SQL, por ejemplo, para crear o eliminar una tabla, insertar/seleccionar/eliminar filas, etc.
-3. Ejecutar la instrucción SQL, a través de una llamada a **executeUpdate** o a **executeQuery**.
+3. Ejecutar la instrucción SQL, ya sea a través de una llamada a **executeUpdate** o **executeQuery**.
 4. Mostrar resultados de la consulta, si procede.
 
-Las siguientes secciones deberían leerse (tomar sus ejemplos) por orden. El primer fragmento de código es una muestra completa; los demás dependen parcialmente del marco del ejemplo completo, como las instrucciones **import**, las declaraciones **class** y **main**, el control de errores y el cierre de recursos.
+Las siguientes secciones deberían leerse (muestrearse) por orden. El primer fragmento es una muestra completa; los demás dependen de parte del marco de la muestra completa, como las instrucciones **import** y las declaraciones **class** y **main**, la administración de errores y el cierre de recursos.
 
-<h2><a id="to_create_table"></a>Creación de una tabla</h2>
+## Creación de una tabla
 
 El código siguiente muestra cómo crear una tabla llamada **Person**.
 
@@ -236,9 +230,9 @@ El código siguiente muestra cómo crear una tabla llamada **Person**.
 	}
 	
 
-<h2><a id="to_create_index"></a>Creación de un índice en una tabla</h2>
+## Creación de un índice en una tabla
 
-El código siguiente muestra cómo crear un índice llamado **index1** en la tabla **Person**, con la columna **PersonID**.
+El código siguiente muestra cómo crear un índice llamado **index1** en la tabla **Person**, mediante la columna **PersonID**.
 
 	// Connection string for your SQL Database server.
 	// Change the values assigned to your_server, 
@@ -282,7 +276,7 @@ El código siguiente muestra cómo crear un índice llamado **index1** en la tab
 
 
 
-<h2><a id="to_insert_rows"></a>Inserción de filas</h2>
+## Inserción de filas
 
 El código siguiente muestra cómo agregar filas a la tabla **Person**.
 
@@ -334,7 +328,7 @@ El código siguiente muestra cómo agregar filas a la tabla **Person**.
 	// Exception handling and resource closing not shown...
 
  
-<h2><a id="to_retrieve_rows"></a>Recuperación de filas</h2>
+## Recuperación de filas
 
 El código siguiente muestra cómo recuperar filas de la tabla **Person**.
 
@@ -389,23 +383,23 @@ El código siguiente muestra cómo recuperar filas de la tabla **Person**.
 	}
 	// Exception handling and resource closing not shown...
 
- El código anterior seleccionó las 10 primeras filas de la tabla **Person**. Si desea devolver todas las filas, modifique la instrucción SQL a la siguiente:
+ El código anterior seleccionó las 10 primeras filas de la tabla **Person**. Si desea devolver todas las filas, modifique la instrucción de SQL a lo siguiente:
 
 	String sqlString = "SELECT * FROM Person";
 
  
-<h2><a id="to_retrieve_rows_using_where"></a>Recuperación de filas con una cláusula WHERE</h2>
+## Recuperación de filas con una cláusula WHERE
 
-Para recuperar filas mediante una cláusula, utilice el código como se muestra arriba, sin cambiar la instrucción SQL para que incluya una cláusula. La siguiente instrucción SQL incluye una cláusula para las filas cuyo valor **FirstName** sea igual a **Jim**.
+Para recuperar filas mediante una cláusula, utilice el código como se muestra arriba, sin cambiar la instrucción SQL para que incluya una cláusula. La siguiente instrucción SQL incluye una cláusula para las filas cuyo valor **FirstName** es igual a **Jim**.
 
-	// Definir la cadena SQL.
+	// Define the SQL string.
 	String sqlString = "SELECT * FROM Person WHERE FirstName='Jim'";
 	
 Las cláusulas WHERE pueden utilizarse también al recuperar cuentas o actualizar o eliminar filas.
 
 <h2><a id="to_retrieve_row_count"></a>Recuperación de un recuento de filas</h2>
 
-El código siguiente muestra cómo recuperar un número de filas de la tabla **Person**.
+El código siguiente muestra cómo recuperar un recuento de filas de la tabla **Person**.
  
 	// Connection string for your SQL Database server.
 	// Change the values assigned to your_server, 
@@ -454,9 +448,9 @@ El código siguiente muestra cómo recuperar un número de filas de la tabla **P
 	}
 	// Exception handling and resource closing not shown...
 
-<h2><a id="to_update_rows"></a>Actualización de filas</h2>
+## Actualización de filas
 
-El código siguiente muestra cómo actualizar filas. En este ejemplo, el valor **LastName** se cambia a **Kim** en todas las filas donde el valor **FirstName** es **Jim**.
+El código siguiente muestra cómo actualizar filas. En este ejemplo, el valor **LastName** se cambia a **Kim** para todas las filas donde el valor **FirstName** es **Jim**.
 
 	// Connection string for your SQL Database server.
 	// Change the values assigned to your_server, 
@@ -499,9 +493,9 @@ El código siguiente muestra cómo actualizar filas. En este ejemplo, el valor *
 
  
 
-<h2><a id="to_delete_rows"></a>Eliminación de filas</h2>
+## Eliminación de filas
 
-El código siguiente muestra cómo eliminar filas. En este ejemplo, se eliminan las filas donde el valor **FirstName** sea **Jim**.
+El código siguiente muestra cómo eliminar filas. En este ejemplo, se eliminan todas las filas donde el valor **FirstName** sea **Jim**.
 
 	// Connection string for your SQL Database server.
 	// Change the values assigned to your_server, 
@@ -545,7 +539,7 @@ El código siguiente muestra cómo eliminar filas. En este ejemplo, se eliminan 
 	// Exception handling and resource closing not shown...
 	
  
-<h2><a id="to_check_table_existence"></a>Comprobación de la existencia de una tabla</h2>
+## Comprobación de la existencia de una tabla
 
 El código siguiente muestra cómo determinar si existe una tabla.
 
@@ -600,9 +594,9 @@ El código siguiente muestra cómo determinar si existe una tabla.
 	}
 	// Exception handling and resource closing not shown...
 
-<h2><a id="to_drop_index"></a>Eliminación de un índice</h2>
+## Eliminación de un índice
 
-El código siguiente muestra cómo eliminar un índice llamado **index1** de la tabla **Person**.
+El código siguiente muestra cómo eliminar un índice llamado **index1** en la tabla **Person**.
 
 	// Connection string for your SQL Database server.
 	// Change the values assigned to your_server, 
@@ -646,7 +640,7 @@ El código siguiente muestra cómo eliminar un índice llamado **index1** de la 
 	// Exception handling and resource closing not shown...
 
  
-<h2><a id="to_drop_table"></a>Eliminación de una tabla</h2>
+## Eliminación de una tabla
 
 El código siguiente muestra cómo eliminar una tabla llamada **Person**.
 
@@ -689,27 +683,27 @@ El código siguiente muestra cómo eliminar una tabla llamada **Person**.
 	}
 	// Exception handling and resource closing not shown...
 
-<h2><a id="using_in_azure"></a>Utilización de Base de datos SQL en Java dentro de una implementación de Azure</h2>
+## Utilización de Base de datos SQL en Java dentro de una implementación de Azure
 
 Para utilizar Base de datos SQL en Java dentro de una implementación de Azure, además de tener Microsoft JDBC Driver 4.0 para SQL Server como biblioteca en su ruta de acceso de clase, como se muestra arriba, necesitará empaquetarlo con su implementación.
 
 
 **Empaquetado de Microsoft JDBC Driver 4.0 SQL Server si utiliza Eclipse**
 
-1. En el Explorador de proyectos de Eclipse, haga clic con el botón secundario en el proyecto y haga clic en **Propiedades**.
-2. En el panel izquierdo del cuadro de diálogo **Propiedades**, haga clic en **Ensamblado de implementación** y luego en **Agregar**.
-3. En el cuadro de diálogo **Nueva directiva de ensamblado**, haga clic en **Entradas de ruta de acceso de compilación de Java** y, a continuación, en **Siguiente**.
-4. Seleccione **Microsoft JDBC Driver 4.0 SQL Server** y haga clic en **Finalizar**.
+1. Dentro del Explorador de proyectos de Eclipse, haga clic con el botón derecho en el proyecto y haga clic en **Propiedades**.
+2. En el panel izquierdo del cuadro de diálogo **Propiedades**, haga clic en **Ensamblaje de implementación** y, a continuación, en **Agregar**.
+3. En el cuadro de diálogo **Nueva directiva de ensamblaje**, haga clic en **Entradas de ruta de acceso de compilación de Java** y haga clic en **Siguiente**.
+4. Seleccione **Microsoft JDBC Driver 4.0 SQL Server** y, a continuación, haga clic en **Finalizar**.
 5. Haga clic en **Aceptar** para cerrar el cuadro de diálogo **Propiedades**.
-6. Exporte el archivo WAR del proyecto a la carpeta approot y vuelva a compilar el proyecto de Azure, según los pasos documentados en [Creación de una aplicación Hello World con el complemento de Azure para Eclipse con Java (de Microsoft Open Technologies)](http://msdn.microsoft.com/es-es/library/windowsazure/hh690944.aspx). En ese tema también se describe cómo ejecutar la aplicación en el emulador de proceso y en Azure.
+6. Exporte el archivo WAR del proyecto a la carpeta approot y vuelva a compilar el proyecto de Azure, según los pasos documentados en [Creación de una aplicación Hello World con el complemento de Azure para Eclipse con Java (de Microsoft Open Technologies)](http://msdn.microsoft.com/library/windowsazure/hh690944.aspx). Ese tema también describe cómo ejecutar la aplicación en el emulador de proceso y en Azure.
 
 **Empaquetado de Microsoft JDBC Driver 4.0 SQL Server si no utiliza Eclipse**
 
 * Asegúrese de que la biblioteca de Microsoft JDBC Driver 4.0 SQL Server esté incluida dentro del rol de Azure como su aplicación Java y agregada a la ruta de acceso de clase de su aplicación.
 
-<h2><a id="nextsteps"></a>Pasos siguientes</h2>
+## Pasos siguientes
 
-Para obtener más información acerca de Microsoft JDBC Driver para SQL Server, consulte [Información general de JDBC Driver](http://msdn.microsoft.com/es-es/library/ms378749.aspx). Para obtener más información sobre Base de datos SQL, consulte [Información general de Base de datos SQL](http://msdn.microsoft.com/es-es/library/windowsazure/ee336241.aspx).
+Para obtener más información acerca de Microsoft JDBC Driver para SQL Server, consulte [Información general de JDBC Driver](http://msdn.microsoft.com/library/ms378749.aspx). Para obtener más información acerca de Base de datos SQL, consulte [Información general de Base de datos SQL](http://msdn.microsoft.com/library/windowsazure/ee336241.aspx).
 
 [Conceptos]:#concepts
 [Requisitos previos]:#prerequisites
@@ -737,3 +731,5 @@ Para obtener más información acerca de Microsoft JDBC Driver para SQL Server, 
 [create_server_settings]: ./media/sql-data-java-how-to-use-sql-database/WA_CustomCreate_2.png
 [get_jdbc_connection_string]: ./media/sql-data-java-how-to-use-sql-database/WA_SQL_JDBC_ConnectionString.png
 [allowed_ips_dialog]: ./media/sql-data-java-how-to-use-sql-database/WA_Allowed_IPs.png
+
+<!--HONumber=47-->

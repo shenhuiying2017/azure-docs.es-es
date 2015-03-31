@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Comparación entre Sitios web Azure, Servicios en la nube y Máquinas virtuales" 
 	description="Aprenda cuándo utilizar Sitios web Azure, Servicios en la nube y Máquinas virtuales para hospedar aplicaciones web." 
 	services="web-sites, virtual-machines, cloud-services" 
@@ -22,7 +22,7 @@
 
 Azure ofrece varias maneras de hospedar sitios web: [Sitios web de Azure][], [Servicios en la nube][] y [Máquinas virtuales][]. Este artículo le ayuda a comprender las opciones y a tomar la decisión correcta para su aplicación web.
 
-Sitios web Azure es la opción más adecuada para la mayoría de aplicaciones web. La implementación y la administración están integradas en la plataforma, los sitios pueden escalarse rápidamente para asumir altas cargas de tráfico y el equilibrio de carga y el administrador de tráfico incluidos ofrecen una gran disponibilidad. Puede desplazar fácilmente sitios existentes a sitios web de Azure con una [herramienta de migración en línea](https://www.migratetoazure.net/), utilice una aplicación de código abierto de la galería de aplicaciones web o cree un nuevo sitio utilizando el marco y herramientas de su elección. La característica [Trabajos web][] (actualmente en vista previa) facilita la tarea de agregar procesamiento de trabajo en segundo plano a su aplicación. 
+Sitios web Azure es la opción más adecuada para la mayoría de aplicaciones web. La implementación y la administración están integradas en la plataforma, los sitios pueden escalarse rápidamente para asumir altas cargas de tráfico y el equilibrio de carga y el administrador de tráfico incluidos ofrecen una gran disponibilidad. Puede mover los sitios actuales a Sitios web Azure fácilmente con una [herramienta de migración en línea](https://www.migratetoazure.net/), utilizar una aplicación de código abierto de la galería de aplicaciones web o crear un sitio nuevo utilizando el marco y las herramientas que prefiera. La característica [Trabajos web][] (actualmente en vista previa) facilita la tarea de agregar procesamiento de trabajo en segundo plano a su aplicación. 
 
 Si necesita más control sobre el entorno del servidor web, como la posibilidad de tener acceso remoto al servidor o configurar las tareas de inicio del servidor, Servicios en la nube de Azure es por lo general la mejor opción.
 
@@ -32,13 +32,7 @@ El diagrama siguiente ilustra el control relativo de control frente a la facilid
 
 ![ChoicesDiagram][ChoicesDiagram]
 
-## Tabla de contenido
-
-- [Situaciones y recomendaciones](#scenarios)
-- [Comparación de características](#features)
-- [Pasos siguientes](#nextsteps)
-
-##<a name="scenarios"></a>Situaciones y recomendaciones
+## <a name="scenarios"></a>Situaciones y recomendaciones
 
 Aquí se presentan algunas situaciones habituales de aplicaciones con recomendaciones acerca de la opción de hospedaje web de Azure que podría ser más apropiada en cada caso.
 
@@ -54,7 +48,7 @@ Aquí se presentan algunas situaciones habituales de aplicaciones con recomendac
 - [Deseo hospedar una API de REST o un servicio web para los clientes móviles.](#mobile)
 
 
-### <a id="onprem"></a> Necesito un front-end web con procesamiento en segundo plano y back-end de base de datos para ejecutar aplicaciones empresariales integradas con activos locales.
+### <a id="onprem"></a>Necesito un front-end web con procesamiento en segundo plano y back-end de base de datos para ejecutar aplicaciones empresariales integradas con activos locales.
 
 Sitios web Azure es una excelente solución para aplicaciones empresariales complejas. Le permite desarrollar aplicaciones que se escalan automáticamente en una plataforma con equilibrio de carga, se protegen con Active Directory y se conectan con sus recursos locales. Esta opción consigue que la administración de estas aplicaciones resulte sencilla gracias a un portal y unas API de categoría superior, y le permite obtener información acerca del uso que los clientes están haciendo de ellas con herramientas específicamente diseñadas. La nueva característica [Trabajos web][] le permite ejecutar procesos y tareas en segundo plano como parte de su nivel web, mientras que la conectividad híbrida y las [características VNET](../fundamentals-introduction-to-azure/#networking/) facilita la conexión con los recursos locales. Sitios web Azure proporciona un contrato de nivel de servicio del 99,9 % que le permite lo siguiente:
 
@@ -64,7 +58,7 @@ Sitios web Azure es una excelente solución para aplicaciones empresariales comp
 * Cumplir con ISO, SOC2 y PCI.
 * Integrarse con Active Directory
 
-### <a id="corp"></a> Necesito un método confiable para hospedar mi sitio web corporativo que se escale correctamente y ofrezca un alcance global. 
+### <a id="corp"></a>Necesito un método confiable para hospedar mi sitio web corporativo que se escale correctamente y ofrezca un alcance global. 
 
 Sitios web Azure es una excelente solución para hospedar sitios web corporativos. Permite a los sitios escalarse de manera rápida y sencilla para atender con facilidad la demanda entre una red global de centros de datos. Ofrece alcance local, tolerancia a errores y administración del tráfico inteligente. Todo en una plataforma que proporciona herramientas de administración de clase superior, con lo que podrá obtener información sobre el estado y el tráfico del sitio rápidamente y con toda facilidad. Sitios web Azure proporciona un contrato de nivel de servicio del 99,9 % que le permite lo siguiente:
 
@@ -75,9 +69,9 @@ Sitios web Azure es una excelente solución para hospedar sitios web corporativo
 * Cumplir con ISO, SOC2 y PCI.
 * Integrarse con Active Directory
 
-### <a id="iis6"></a> Tengo una aplicación IIS6 ejecutándose en Windows Server 2003.
+### <a id="iis6"></a>Tengo una aplicación IIS6 ejecutándose en Windows Server 2003.
 
-Sitios web Azure permite evitar fácilmente los costes de infraestructura asociados a la migración de aplicaciones IIS6 antiguas. Microsoft ha creado [herramientas de migración fáciles de usar así como una guía de migración detallada](https://www.movemetowebsites.net/) que permiten comprobar la compatibilidad e identificar cualquier cambio que deba realizarse. La integración con Visual Studio, TFS y las herramientas CMS más habituales facilitan la implementación de aplicaciones IIS6 directamente en la nube. Una vez implementadas, el portal de administración de Azure proporciona potentes herramientas de administración que permiten reducir verticalmente para administrar costes y aumentar verticalmente para atender la demanda cuando sea necesario. Con la herramienta de migración puede hacer lo siguiente:
+Sitios web Azure permite evitar fácilmente los costes de infraestructura asociados a la migración de aplicaciones IIS6 antiguas. Microsoft ha creado [herramientas de migración fáciles de utilizar y una detallada guía sobre migración](https://www.movemetowebsites.net/) que le permiten comprobar la compatibilidad e identificar aquellos cambios que deban realizarse. La integración con Visual Studio, TFS y las herramientas CMS más habituales facilitan la implementación de aplicaciones IIS6 directamente en la nube. Una vez implementadas, el portal de administración de Azure proporciona potentes herramientas de administración que permiten reducir verticalmente para administrar costes y aumentar verticalmente para atender la demanda cuando sea necesario. Con la herramienta de migración puede hacer lo siguiente:
 
 * Migrar con rapidez y sencillez su aplicación web de Windows Server 2003 heredada a la nube.
 * Optar por dejar la base de datos SQL adjunta en el entorno local para crear una aplicación híbrida. 
@@ -92,17 +86,17 @@ Sitios web Azure es una excelente solución para este escenario, porque puede em
 - Agregar servicios y características de Azure adicionales a su aplicación, según sea necesario.
 - Proteger su sitio web con HTTPS.
 
-### <a id="designer"></a> Soy un diseñador gráfico o web y deseo diseñar y crear sitios web para mis clientes
+### <a id="designer"></a>Soy un diseñador gráfico o web y deseo diseñar y crear sitios web para mis clientes
 
 Para diseñadores y desarrolladores web, Sitios web Azure se integra fácilmente con diversos marcos y herramientas, incluye soporte para implementación de Git y FTP y ofrece una estrecha integración con herramientas y servicios como Visual Studio y Base de datos SQL. Con Sitios web, puede hacer lo siguiente:
 
 - Usar herramientas de línea de comandos para [tareas automatizadas][scripting].
 - Trabajar con lenguajes populares como [.Net][dotnet], [PHP][], [Node.js][nodejs] y [Python][].
 - Seleccionar tres niveles de escala diferentes para escalar hasta capacidades muy altas.
-- Integrarse con otros servicios de Azure, como [Base de datos SQL][sqldatabase], [Bus de servicio][servicebus] y [Almacenamiento][] u ofertas de asociados de la [Tienda de Azure][azurestore], como MySQL y MongoDB.
+- Integrar con otros servicios de Azure, como [SQL Database][sqldatabase], [Service Bus][servicebus] y [Almacenamiento][] o de ofertas asociadas de [la tienda Azure][azurestore], por ejemplo, MySQL y MongoDB.
 - Integrarse con herramientas como Visual Studio, Git, WebMatrix, WebDeploy, TFS y FTP.
 
-### <a id="multitier"></a>Estoy migrando mi aplicación de niveles múltiples con un front-end web a la nube.
+### <a id="multitier"></a>Estoy migrando mi aplicación de niveles múltiples con un front-end web a la nube
 
 Si está ejecutando una aplicación de niveles múltiples, como por ejemplo un servidor web que se conecta con una base de datos, Sitios web Azure es una excelente opción que ofrece una estrecha integración con Base de datos SQL. Y puede utilizar la característica Trabajos web para ejecutar procesos de back-end.
 
@@ -129,7 +123,7 @@ Si no se admite el marco de código abierto en Sitios web, puede ejecutar la apl
 
 ### <a id="lob"></a>Tengo una aplicación de línea de negocio que necesita conectarse a la red corporativa
 
-Si desea crear una aplicación de línea de negocio, puede que su sitio web requiera un acceso directo a los servicios o datos de la red corporativa. Es posible hacerlo en Sitios web, Servicios en la nube y Máquinas virtuales utilizando el [servicio de Red virtual de Azure](/es-es/services/virtual-network/). En los sitios web puede usar la nueva [característica de integración VNET](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), que permite que las aplicaciones de Azure se ejecuten como si estuvieran en la red corporativa.
+Si desea crear una aplicación de línea de negocio, puede que su sitio web requiera un acceso directo a los servicios o datos de la red corporativa. Es posible hacerlo en Sitios web, Servicios en la nube y Máquinas virtuales utilizando el [servicio de Red virtual de Azure](/services/virtual-network/). En Sitios web puede utilizar la nueva [característica de integración de VNET](http://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), que permite la ejecución de las aplicaciones de Azure como si se encontraran en su red corporativa.
 
 ### <a id="mobile"></a>Deseo hospedar una API de REST o un servicio web para los clientes móviles
 
@@ -140,9 +134,9 @@ Los servicios web HTTP le permiten admitir una amplia variedad de clientes, incl
 - Conseguir contratos de nivel de servicio para disponibilidad con una sola instancia, o escalar horizontalmente a varias máquinas dedicadas. 
 - Usar el sitio publicado para proporcionar API de REST a cualquier cliente HTTP, incluidos los clientes móviles.
 
-##<a name="features"></a>Comparación de características
+## <a name="features"></a>Comparación de características
 
-La siguiente tabla compara las capacidades de Sitios web, Servicios en la nube y Máquinas virtuales para ayudarle a tomar la mejor decisión. Para obtener más información acerca de los contratos de nivel de servicio para cada opción, consulte [Contratos de nivel de servicio de Azure](/es-es/support/legal/sla/).
+La siguiente tabla compara las capacidades de Sitios web, Servicios en la nube y Máquinas virtuales Machines para ayudarle a tomar la mejor decisión. Para obtener más información acerca de los contratos de nivel de servicio para cada opción, consulte [Contratos de nivel de servicio de Azure](/support/legal/sla/).
 
 <table cellspacing="0" border="1">
 <tr>
@@ -234,7 +228,7 @@ La siguiente tabla compara las capacidades de Sitios web, Servicios en la nube y
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">Los sitios web pueden hospedar fácilmente una API de REST de nivel intermedio y la característica <a href="http://go.microsoft.com/fwlink/?linkid=390226">Trabajos web</a> de los sitios web puede hospedar trabajos de procesamiento en segundo plano. Puede ejecutar Trabajos web en un sitio web dedicado para alcanzar una escalabilidad independiente para el nivel.</td>
+   <td valign="middle">Los sitios Web pueden hospedar con facilidad un nivel medio de la API de REST y la función <a href="http://go.microsoft.com/fwlink/?linkid=390226">WebJobs</a> de sitios web puede hospedar trabajos de procesamiento en segundo plano. Puede ejecutar Trabajos web en un sitio web dedicado para alcanzar una escalabilidad independiente para el nivel.</td>
 </tr>
 <tr>
    <td valign="middle"><p>Soporte integrado de MySQL como servicio</p></td>
@@ -262,7 +256,7 @@ La siguiente tabla compara las capacidades de Sitios web, Servicios en la nube y
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">En el caso de Sitios web, solo se admite SSL para nombres de dominio personalizados para el modo Básico y Estándar. Para obtener información sobre cómo usar SSL con los sitios web, consulte <a href="../web-sites-configure-ssl-certificate/">Configuración de un certificado SSL para un Sitio web de Azure</a>.</td>
+   <td valign="middle">En el caso de Sitios web, solo se admite SSL para nombres de dominio personalizados para el modo Básico y Estándar. Para obtener más información sobre el uso de SSL con Sitios web, consulte <a href="../web-sites-configure-ssl-certificate/">Configuración de un certificado SSL para un Sitio web Azure</a>.</td>
 </tr>
 <tr>
    <td valign="middle"><p>Integración de Visual Studio</p></td>
@@ -286,14 +280,14 @@ La siguiente tabla compara las capacidades de Sitios web, Servicios en la nube y
    <td valign="middle"></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Aislamiento de red con <a href="/es-es/services/virtual-network/">Red virtual</a></p></td>
+   <td valign="middle"><p>Aislamiento de red con <a href="/services/virtual-network/">Red virtual de Azure</a></p></td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
-   <td valign="middle">Otras referencias <a href="/blog/2014/09/15/azure-websites-virtual-network-integration/">Integración de redes virtuales de Sitios web Azure</a></td>
+   <td valign="middle">Consulte también <a href="/blog/2014/09/15/azure-websites-virtual-network-integration/">Integración de redes virtuales de Sitios web Azure</a></td>
 </tr>
 <tr>
-   <td valign="middle"><p>Soporte para <a href="/es-es/services/traffic-manager/">Administrador de tráfico de Azure</a></p></td>
+   <td valign="middle"><p>Soporte para el <a href="/services/traffic-manager/">Administrador de tráfico de Azure</a></p></td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
    <td valign="middle">X</td>
@@ -337,22 +331,22 @@ La siguiente tabla compara las capacidades de Sitios web, Servicios en la nube y
 </table>
 
 
-> [WACOM.NOTE]
-> Si desea empezar con Sitios web de Azure antes de registrarse para conseguir una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, donde puede crear de inmediato un sitio de inicio de ASP.NET de poca duración de manera gratuita en Sitios web de Azure. No se requiere tarjeta de crédito ni compromisos.
+> [AZURE.NOTE]
+> Si desea obtener una introducción a Sitios web Azure antes de inscribirse para abrir una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita un sitio básico de ASP.NET de corta duración en Sitios web Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 
 ## <a id="nextsteps"></a> Pasos siguientes
 
 Para obtener más información acerca de las tres opciones de hospedaje web, consulte los recursos siguientes:
 
-* [Introducción a Azure](../fundamentals-introduction-to-azure/)
-* [Modelos de ejecución de Azure](../fundamentals-application-models/)
+* [Presentación de Azure](../fundamentals-introduction-to-azure/)
+* [Cálculo de las opciones de hospedaje proporcionadas por Azure](../fundamentals-application-models/)
 
 Para conocer con mayor profundidad las opciones que ha elegido para su aplicación, consulte los recursos siguientes:
 
-* [Sitios web Azure](/es-es/documentation/services/websites/)
-* [Servicios en la nube de Azure](/es-es/documentation/services/cloud-services/)
-* [Máquinas virtuales de Azure](/es-es/documentation/services/virtual-machines/)
+* [Sitios web Azure](/documentation/services/websites/)
+* [Servicios en la nube de Azure](/documentation/services/cloud-services/)
+* [Máquinas virtuales de Azure](/documentation/services/virtual-machines/)
 
   [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
   [Sitios web de Azure]: http://go.microsoft.com/fwlink/?LinkId=306051
@@ -360,17 +354,15 @@ Para conocer con mayor profundidad las opciones que ha elegido para su aplicaci�
   [Máquinas virtuales]: http://go.microsoft.com/fwlink/?LinkID=306053
   [ClearDB]: http://www.cleardb.com/
   [Trabajos web]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
-  [Configuración de un certificado SSL para un Sitio web de Azure]: http://azure.microsoft.com/develop/net/common-tasks/enable-ssl-web-site/
-  [azurestore]: http://azure.microsoft.com/gallery/store/
-  [scripting]: http://azure.microsoft.com/documentation/scripts/?services=web-sites
-  [dotnet]: http://azure.microsoft.com/develop/net/
-  [nodejs]: http://azure.microsoft.com/develop/nodejs/
-  [PHP]: http://azure.microsoft.com/develop/php/
-  [Python]: http://azure.microsoft.com/develop/python/
-  [servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
-  [sqldatabase]: http://azure.microsoft.com/documentation/services/sql-database/
-  [Storage]: http://azure.microsoft.com/documentation/services/storage/
+  [Configuración de un certificado SSL para un Sitio web de Azure]: http://www.windowsazure.com/develop/net/common-tasks/enable-ssl-web-site/
+  [azurestore]: http://www.windowsazure.com/gallery/store/
+  [scripting]: http://www.windowsazure.com/documentation/scripts/?services=web-sites
+  [dotnet]: http://www.windowsazure.com/develop/net/
+  [nodejs]: http://www.windowsazure.com/develop/nodejs/
+  [PHP]: http://www.windowsazure.com/develop/php/
+  [Python]: http://www.windowsazure.com/develop/python/
+  [servicebus]: http://www.windowsazure.com/documentation/services/service-bus/
+  [sqldatabase]: http://www.windowsazure.com/documentation/services/sql-database/
+  [Almacenamiento]: http://www.windowsazure.com/documentation/services/storage/
 
-<!--HONumber=35.1-->
-
-<!--HONumber=46--> 
+<!--HONumber=47-->

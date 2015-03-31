@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/17/2015" 
+	ms.date="03/05/2015" 
 	ms.author="josephd"/>
 
 #Configuración de un entorno de nube híbrida para pruebas
@@ -42,7 +42,7 @@ Hay cinco fases principales para configurar este entorno de prueba de nube híbr
 4.	Creación de la conexión VPN de sitio a sitio.
 5.	Configuración de DC2. 
 
-Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una prueba gratuita en [Pruebe Azure](http://www.windowsazure.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+Si todavía no dispone de una suscripción a Azure, puede registrarse para obtener una prueba gratuita en [Pruebe Azure](http://azure.microsoft.com/pricing/free-trial/). Si tiene una suscripción a MSDN, consulte [Beneficio de Azure para los suscriptores de MSDN](http://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
 >[AZURE.NOTE] Las máquinas virtuales y las puertas de enlace de redes virtuales en Azure incurren en un coste económico constante cuando se están ejecutando. Este coste se factura en su suscripción de prueba gratuita, de MSDN o de pago. Para reducir el coste de este entorno de prueba en ejecución cuando no lo esté usando, consulte [Minimización de los costes de este entorno](#costs) en este tema y obtenga más información.
 
@@ -126,7 +126,7 @@ En primer lugar, inicie sesión en el [Portal de administración de Azure](https
 
 A continuación, siga las instrucciones de [Instalación y configuración de Azure PowerShell](../install-configure-powershell/) para instalar Azure PowerShell en el equipo local.
 
-A continuación, cree un nuevo servicio en la nube para la red virtual TestVNET. Debe elegir un nombre único. Por ejemplo, podría asignarle el nombre TestVNET-*UniqueSequence*, en el que *UniqueSequence* es una abreviatura de su organización. Por ejemplo, si el nombre de su organización es Tailspin Toys, podría asignar el nombre del servicio de nube TestVNET-Tailspin.
+A continuación, cree un nuevo servicio en la nube para la red virtual TestVNET. Debe elegir un nombre único. Por ejemplo, podría asignarle el nombre TestVNET-*UniqueSequence*, en el que*UniqueSequence* es una abreviatura de su organización. Por ejemplo, si el nombre de su organización es Tailspin Toys, podría asignar el nombre del servicio de nube TestVNET-Tailspin.
 
 Puede comprobar que el nombre sea único con el siguiente comando de Azure PowerShell en el equipo local.
 
@@ -219,10 +219,10 @@ En primer lugar, cree una máquina virtual de Azure de DC2 con estos comandos en
 
 	$ServiceName="<Your cloud service name from Phase 3>"
 	$LocalAdminName="<A local administrator account name>" 
-	$LocalAdminPW="<A password for the local administrator account>"
+	$LocalAdminPW="<The password for the local administrator account>"
 	$image = Get-AzureVMImage | where { $_.ImageFamily -eq "Windows Server 2012 R2 Datacenter" } | sort PublishedDate -Descending | select -ExpandProperty ImageName -First 1
 	$vm1=New-AzureVMConfig -Name DC2 -InstanceSize Medium -ImageName $image
-	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW
+	$vm1 | Add-AzureProvisioningConfig -Windows -AdminUsername $LocalAdminName -Password $LocalAdminPW	
 	$vm1 | Set-AzureSubnet -SubnetNames TestSubnet
 	$vm1 | Set-AzureStaticVNetIP -IPAddress 192.168.0.4
 	$vm1 | Add-AzureDataDisk -CreateNew -DiskSizeInGB 20 -DiskLabel ADFiles -LUN 0 -HostCaching None
@@ -237,7 +237,7 @@ A continuación, inicie sesión en la nueva máquina virtual de DC2.
 4.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto, haga clic en **Conectar**.
 5.	Cuando se le pidan las credenciales, utilice las siguientes:
 	- Nombre: **DC2\\**[Nombre de la cuenta del administrador local]
-	- Contraseña:  [Contraseña de la cuenta del administrador local]
+	- Contraseña: [Contraseña de la cuenta del administrador local]
 6.	Cuando aparezca un cuadro de mensaje de conexión a Escritorio remoto que haga referencia a certificados, haga clic en **Sí**.
 
 A continuación, configure una regla del Firewall de Windows para permitir el tráfico para probar la conectividad básica. Desde un símbolo del sistema de Windows PowerShell con nivel de administrador en DS2, ejecute:
@@ -287,11 +287,13 @@ Su entorno de nube híbrida ya está listo para las pruebas.
 
 ##Recursos adicionales
 
-[Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](./virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
+[Configurar una granja de servidores de intranet de SharePoint en una nube híbrida para pruebas](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
 
 [Configuración de una aplicación de LOB basada en web en una nube híbrida para pruebas](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
 
 [Configuración de la sincronización de directorios (DirSync) de Office 365 en una nube híbrida para pruebas](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+
+[Configuración de un entorno de nube híbrida simulado para pruebas](../virtual-networks-setup-simulated-hybrid-cloud-environment-testing/)
 
 ##Minimización del coste de este entorno
 
@@ -316,4 +318,4 @@ A continuación, inicie sesión en RRAS1 como administrador local y ejecute esto
 
 A continuación, vaya al Portal de administración de Azure en el equipo local y espere hasta que se muestre un estado de la red virtual TestVNET de conectado.
 
-<!--HONumber=45--> 
+<!--HONumber=47-->
