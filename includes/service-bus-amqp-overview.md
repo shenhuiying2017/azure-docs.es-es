@@ -1,4 +1,4 @@
-﻿# Soporte de AMQP 1.0 en el Bus de servicio
+# Soporte de AMQP 1.0 en el Bus de servicio
 
 
 Tanto el servicio en la nube del Bus de servicio de Azure como el Bus de Servicio para Windows Server (Bus de servicio 1.1) admiten el protocolo AMQP (Advanced Message Queueing Protocol) 1.0. AMQP le permite construir aplicaciones híbridas, entre plataformas, utilizando un protocolo estándar abierto. Puede construir aplicaciones mediante componentes creados con distintos lenguajes y marcos, y que se ejecutan en diferentes sistemas operativos. Todos estos componentes se pueden conectar al Bus de servicio e intercambiar directamente mensajes empresariales estructurados de manera eficaz y con total fidelidad.
@@ -95,6 +95,6 @@ Para obtener más información sobre cómo obtener y usar estas bibliotecas con 
 *    [Especificación de la versión 1.0 del Protocolo de colas de mensajes avanzados de OASIS (AMQP)](http://docs.oasis-open.org/amqp/core/v1.0/os/amqp-core-complete-v1.0-os.pdf)
 
 [0]: ./media/service-bus-amqp-overview/Example1.png
-[Guía para desarrolladores sobre AMQP del Bus de servicio]: http://msdn.microsoft.com/library/jj841071.aspx
+[Guía del desarrollador de AMQP del Bus de servicio]: http://msdn.microsoft.com/library/jj841071.aspx
 
 <!--HONumber=47-->
