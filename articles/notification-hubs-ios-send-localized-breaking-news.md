@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Tutorial de últimas noticias localizadas sobre los Centros de notificaciones para iOS" 
 	description="Obtenga información acerca de los Centros de notificaciones del Bus de servicio de Azure para enviar notificaciones de noticias de última hora localizadas (iOS)." 
 	services="notification-hubs" 
@@ -42,7 +42,7 @@ Este escenario tiene dos partes:
 
 ##Requisitos previos ##
 
-Debe haber completado el tutorial [Uso de Centros de notificaciones para enviar noticias de última hora] y debe tener disponible el código, porque este tutorial se basa directamente en ese código.
+Debe haber completado el tutorial [Uso de los Centros de notificaciones para enviar noticias de última hora] y debe tener disponible el código, porque este tutorial se basa directamente en ese código.
 
 También necesita Visual Studio 2012.
 
@@ -50,7 +50,7 @@ También necesita Visual Studio 2012.
 
 <h2><a name="concepts"></a>Conceptos de plantilla</h2>
 
-En el tutorial [Uso de Centros de notificaciones para enviar noticias de última hora], creó una aplicación que utilizó **etiquetas** para suscribirse a notificaciones para distintas categorías de noticias.
+En el tutorial [Uso de los Centros de notificaciones para enviar noticias de última hora], creó una aplicación que utilizó **etiquetas** para suscribirse a notificaciones para distintas categorías de noticias.
 Sin embargo, muchas aplicaciones están dirigidas a varios mercados y requieren localización. Esto significa que el contenido de las notificaciones mismas se debe localizar y entregar al conjunto de dispositivos correcto.
 En este tema podremos mostrar cómo usar la característica de **plantilla** de los Centros de notificaciones para entregar fácilmente notificaciones de noticias de última hora localizadas.
 
@@ -218,7 +218,7 @@ Puede encontrar una referencia para el lenguaje de la expresión de plantilla en
 
 
 <!-- URLs. -->
-[ Centros de notificaciones de Bus de servicio (aplicaciones iOS)].: http://msdn.microsoft.com/library/jj927168.aspx
+[Centros de notificaciones de Bus de servicio (aplicaciones iOS)]: http://msdn.microsoft.com/library/jj927168.aspx
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: /es-es/manage/services/notification-hubs/breaking-news-ios
 [Servicio móvil]: /es-es/develop/mobile/tutorials/get-started
 [Notificación a los usuarios con los Centros de notificaciones: ASP.NET]: /es-es/manage/services/notification-hubs/notify-users-aspnet

@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introducción a los Centros de notificaciones de Azure" description="Aprenda a usar los Centros de notificaciones de Azure para las notificaciones de inserción." services="notification-hubs" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
+<properties pageTitle="Introducción a los Centros de notificaciones de Azure" description="Aprenda a usar los Centros de notificaciones de Azure para las notificaciones de inserción." services="notification-hubs" documentationCenter="android" authors="RickSaling" manager="dwrede" editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -18,7 +18,7 @@ En este tutorial, puede crear una aplicación de Android en blanco que reciba no
 Este tutorial le guiará a través de estos pasos básicos para habilitar las notificaciones de inserción:
 
 * [Habilitación del servicio de mensajería en la nube de Google](#register)
-* [Configuración del Centro de notificaciones(#configure-hub)
+* [Configuración del Centro de notificaciones](#configure-hub)
 * [Conexión de la aplicación al Centro de notificaciones](#connecting-app)
 * [Envío de una notificación a la aplicación](#send)
 * [Prueba de la aplicación](#run-app)
@@ -89,7 +89,7 @@ Su Centro de notificaciones está ahora configurado para funcionar con GCM y tie
 
 1. Descargue el SDK para Android de Centros de notificaciones desde <a href="https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409">aquí</a>. Extraiga el archivo .zip y copie el archivo notificationhubs\notification-hubs-0.1.jar en el directorio \libs del proyecto en el Explorador de paquetes.
 
-2. Descargue y descomprima el [SDK de Servicios móviles de Android], abra la carpeta de **notificaciones**, copie el archivo **notifications-1.0.1.jar** en la carpeta *libs* del proyecto de Eclipse y actualice la carpeta  *libs*.
+2. Descargue y descomprima el [SDK de Android para Servicios móviles], abra la carpeta de **notificaciones**, copie el archivo **notifications-1.0.1.jar** en la carpeta *libs* del proyecto de Eclipse y actualice la carpeta  *libs*.
 
     > [AZURE.NOTE] Los números que aparecen al final del nombre del archivo pueden cambiar en versiones de SDK posteriores.
 
@@ -340,7 +340,7 @@ En este sencillo ejemplo, difunde notificaciones a todos sus dispositivos Androi
 [objeto wns]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Orientación sobre los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
 
-[Uso de los Centros de notificaciones para insertar notificaciones en los usuarios]: /es-es/manage/services/notification-hubs/notify-users-aspnet
+[Uso de Centros de notificaciones para insertar notificaciones en los usuarios]: /es-es/manage/services/notification-hubs/notify-users-aspnet
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: /es-es/manage/services/notification-hubs/breaking-news-dotnet
 
 

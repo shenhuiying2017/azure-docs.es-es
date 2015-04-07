@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Uso de los Centros de notificaciones con PHP" 
 	description="Obtenga información acerca de cómo usar los Centros de notificaciones de Azure desde un back-end de PHP." 
 	services="notification-hubs" 
@@ -43,7 +43,7 @@ Para enviar una notificación nativa de iOS:
 	$hub->sendNotification($notification);
 
 ## Implementación
-Si todavía no lo ha hecho, siga nuestro [Tutorial de introducción] hasta la última sección en la que tiene que implementar el back-end.
+Si todavía no lo ha hecho, siga nuestro [Tutorial introductorio] hasta la última sección en la que tiene que implementar el back-end.
 Asimismo, si lo desea, puede usar el código del [ejemplo de contenedor REST para PHP] e ir directamente a la sección [Finalización del tutorial](#complete-tutorial) .
 
 Puede encontrar todos los detalles para implementar un contenedor REST completo en [MSDN](http://msdn.microsoft.com/library/dn530746.aspx) En esta sección describiremos la implementación para PHP de los principales pasos requeridos para acceder a extremos REST de Centros de notificaciones:
@@ -256,7 +256,7 @@ En este tema hemos mostrado cómo crear un simple cliente REST en Java para Cent
 * Obtener más información sobre notificaciones de inserción para usuarios individuales en el [tutorial Notificación a los usuarios]
 
 
-[Ejemplo de contenedor de REST de PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[Tutorial introductorio]: http://azure.microsoft.com/ documentation/articles/notification-hubs-ios-get-started/
+[ejemplo de contenedor REST para PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
+[Tutorial introductorio]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 
 <!--HONumber=45--> 

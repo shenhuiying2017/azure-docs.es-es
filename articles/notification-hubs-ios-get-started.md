@@ -1,4 +1,4 @@
-﻿<properties pageTitle="Introducción a los Centros de notificaciones de Azure" description="Aprenda a usar los Centros de notificaciones de Azure para las notificaciones de inserción." services="notification-hubs" documentationCenter="ios" authors="ysxu" manager="dwrede" editor=""/>
+<properties pageTitle="Introducción a los Centros de notificaciones de Azure" description="Aprenda a usar los Centros de notificaciones de Azure para las notificaciones de inserción." services="notification-hubs" documentationCenter="ios" authors="ysxu" manager="dwrede" editor=""/>
 
 <tags 
 	ms.service="notification-hubs" 
@@ -172,7 +172,7 @@ Puede enviar notificaciones mediante los Centros de notificaciones desde cualqui
 
 	Debe recibir una alerta en el dispositivo. Si usa Wi-Fi, asegúrese de que la conexión funciona.
 
-Puede buscar todas las cargas posibles en la guía [de programación de notificaciones de inserción y local] de Apple.
+Puede buscar todas las cargas posibles en la [guía de programación de notificaciones de inserción y local] de Apple.
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
@@ -267,12 +267,12 @@ En este sencillo ejemplo, se difunden notificaciones a todos los dispositivos iO
 [Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-ios
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Orientación sobre los Centros de notificaciones]: http://msdn.microsoft.com/library/jj927170.aspx
-[Instalar Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
+[Instalación de Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Portal de aprovisionamiento de iOS]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 
-[Uso de los Centros de notificaciones para insertar notificaciones en los usuarios]: /es-es/manage/services/notification-hubs/notify-users-aspnet
+[Uso de Centros de notificaciones para insertar notificaciones en los usuarios]: /es-es/manage/services/notification-hubs/notify-users-aspnet
 [Uso de los Centros de notificaciones para enviar noticias de última hora]: /es-es/manage/services/notification-hubs/breaking-news-dotnet
 
-[Guía de programación de notificaciones de inserción y local]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[guía de programación de notificaciones de inserción y local]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 
 <!--HONumber=45--> 

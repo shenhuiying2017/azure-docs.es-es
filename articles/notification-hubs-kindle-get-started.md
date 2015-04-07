@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Introducción a los Centros de notificaciones de Azure" 
 	description="Obtenga información acerca de cómo usar los Centros de notificaciones de Azure para enviar notificaciones de inserción." 
 	services="notification-hubs" 
@@ -249,7 +249,7 @@ Edite el manifiesto de la aplicación para admitir ADM:
 3. Ejecute la aplicación en Eclipse.
 
 > [AZURE.NOTE] Si se produce un error, compruebe el tiempo del emulador (o del dispositivo). El valor de tiempo debe ser preciso. Para cambiar el tiempo del emulador de Kindle, puede ejecutar el comando siguiente desde el directorio de herramientas de la plataforma del SDK de Android: 
-
+[portal de desarrolladores][]
 		adb shell  date -s "yyyymmdd.hhmmss"
 
 ## Envío de un mensaje
@@ -266,7 +266,7 @@ Para enviar un mensaje con .NET:
 ![][7]
 
 <!-- URLs. -->
-[portal para desarrolladores]: https://developer.amazon.com/home.html
+[portal de desarrolladores]: https://developer.amazon.com/home.html
 [descargue el SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
 
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
