@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-ios" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/23/2014" 
@@ -72,9 +72,9 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
             }
         }
 
-> [AZURE.NOTE] Si usa un proveedor de identidades que no sea Facebook, cambie el valor que ha pasado al método **LoginAsync** anterior por uno de los siguientes: _MicrosoftAccount_, _Twitter_, _Google_ o _MicrosoftAzureActiveDirectory_.
+> [AZURE.NOTE] Si usa un proveedor de identidades que no sea Facebook, cambie el valor que ha pasado al método **LoginAsync** anterior por uno de los siguientes: _MicrosoftAccount_, _Twitter_, _Google_ o _WindowsAzureActiveDirectory_.
 
-3. Abra **QSTodoListViewController.cs**. Modifique la definición de método de **ViewDidLoad** para quitar la llamada a **RefreshAsync()** hacia el final:
+3. Abra** QSTodoListViewController.cs**. Modifique la definición del método de **ViewDidLoad** para quitar la llamada a **RefreshAsync()** cerca del final:
 
 		public override async void ViewDidLoad ()
 		{
@@ -112,9 +112,9 @@ En esta sección, modificará la aplicación para mostrar una pantalla de inicio
 
 	Despliegue la lista de tareas para actualizar la pantalla, lo que dará lugar a que aparezca la pantalla de inicio de sesión. Una vez que haya proporcionado credenciales válidas, la aplicación mostrará la lista de tareas pendientes y podrá actualizar los datos.
 
-<!-- ## <a name="next-steps"> </a>Pasos siguientes
+<!-- ## <a name="next-steps"> </a>Next steps
 
-En el siguiente tutorial, [Autorización en el servicio de los usuarios de Servicios móviles][Autorización de usuarios con scripts], usará el valor de identificador de usuario proporcionado por los Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelven los Servicios móviles. 
+In the next tutorial, [Service-side authorization of Mobile Services users][Authorize users with scripts], you will take the user ID value provided by Mobile Services based on an authenticated user and use it to filter the data returned by Mobile Services. 
  -->
  
 <!-- Anchors. -->
@@ -128,13 +128,12 @@ En el siguiente tutorial, [Autorización en el servicio de los usuarios de Servi
 [Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introducción a los servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started/
-[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-users/
-[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-dotnet-backend-xamarin-ios-get-started-push/
-[Autorización de usuarios con scripts]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts
-[JavaScript y HTML]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-users/
+[Introducción a los servicios móviles]: mobile-services-dotnet-backend-xamarin-ios-get-started.md
+[Introducción a la autenticación]: mobile-services-dotnet-backend-xamarin-ios-get-started-users.md
+[Introducción a las notificaciones de inserción]: mobile-services-dotnet-backend-xamarin-ios-get-started-push.md
+[Autorización de usuarios con scripts]: mobile-services-dotnet-backend-windows-store-dotnet-authorize-users-in-scripts.md
+[JavaScript y HTML]: mobile-services-dotnet-backend-windows-store-javascript-get-started-users.md
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

@@ -16,7 +16,7 @@
 	ms.date="01/05/2015" 
 	ms.author="mimig"/>
 
-# Niveles de coherencia en Base de datos de documentos
+#Niveles de coherencia en Base de datos de documentos
 Los desarrolladores con frecuencia se enfrentan al desafío de elegir entre los dos extremos de una coherencia alta y una coherencia ocasional. Lo cierto es que hay varios puntos intermedios entre estos dos extremos de la coherencia. En la mayoría de los escenarios reales, las aplicaciones se benefician de la realización de equilibrios muy ajustados entre la coherencia, la disponibilidad y la latencia. Base de datos de documentos ofrece cuatro niveles de coherencia bien definidos con niveles de rendimiento asociados. Esto permite a los desarrolladores de aplicaciones realizar equilibrios predecibles entre la coherencia, la disponibilidad y la latencia.  
  
 Todos los recursos del sistema, como cuentas de base de datos, bases de datos, colecciones, usuarios y permisos son siempre absolutamente coherentes para lecturas y consultas. Los niveles de coherencia se aplican únicamente a los recursos definidos por el usuario. En lo relativo a consultas y operaciones de lectura sobre recursos definidos por el usuario, como documentos, datos adjuntos, procedimientos almacenados, desencadenadores y UDF, Base de datos de documentos ofrece cuatro niveles distintos de coherencia: 
@@ -28,7 +28,7 @@ Todos los recursos del sistema, como cuentas de base de datos, bases de datos, c
 
 Estos niveles de coherencia granulares y bien definidos le permiten realizar sólidos equilibrios entre la coherencia, la disponibilidad y el rendimiento. Estos niveles de coherencia están respaldados por niveles de rendimiento predecibles que garantizan unos resultados coherentes para su aplicación.   
 
-## Niveles de coherencia
+##Niveles de coherencia
 Puede configurar el nivel de coherencia predeterminado en la cuenta de la base de datos que se aplica a todas las colecciones (en todas las bases de datos) de su cuenta de base de datos. De manera predeterminada todas las lecturas y consultas enviadas a los recursos definidos por el usuario utilizarán el nivel de coherencia predeterminado especificado en la cuenta de la base de datos. Sin embargo, puede reducir el nivel de coherencia de una solicitud de lectura o consulta concreta mediante la especificación del encabezado de solicitud [x-ms-consistency-level]. Los cuatro tipos de niveles de coherencia admitidos por el protocolo de replicación de Base de datos de documentos se describen brevemente a continuación. 
 
 >[AZURE.NOTE] En una versión futura se admitirá el reemplazo del nivel de coherencia predeterminado en cada colección individual.  
@@ -49,17 +49,17 @@ La coherencia de sesión proporciona una coherencia de datos de lectura predecib
 
 La coherencia ocasional proporciona la coherencia de lectura más débil, pero ofrece la latencia más baja tanto para lecturas como para escrituras. 
 
-## Coherencia de consultas
+##Coherencia de consultas
 De manera predeterminada, para los recursos definidos por el usuario, el nivel de coherencia de las consultas es igual al de las lecturas. De forma predeterminada, el índice se actualiza de forma sincrónica con cada inserción, reemplazo o eliminación de un documento de la colección. Esto permite a las consultas respetar el mismo nivel de coherencia que el de las lecturas de documentos. Aunque Base de datos de documentos está optimizada para escrituras y admite volúmenes sostenidos de escrituras de documentos junto con un mantenimiento sincrónico de índices y un servicio de consultas coherentes, se pueden configurar determinadas colecciones para actualizar el índice de manera diferida. La indización diferida incrementa aún más el rendimiento de las escrituras y es ideal para aquellos escenarios de ingesta en bloque en donde la carga de trabajo sea sobre todo de lecturas.  
 
-Modo de indización|	Lecturas|	Consultas  
+Modo de indexación|	Lecturas|	Consultas  
 -------------|-------|---------
-Coherente (predeterminado)|	Seleccione entre Alta, Uso vinculado, Sesión u Ocasional|	Seleccione entre Alta, Uso vinculado, Sesión u Ocasional|
-Diferida|	Seleccione entre Alta, Uso vinculado, Sesión u Ocasional|	Ocasional  
+Coherente (predeterminado)|	Seleccionar entre Alta, De uso vinculado, Sesión y Ocasional|	Seleccionar entre Alta, De uso vinculado, Sesión y Ocasional|
+Diferida|	Seleccionar entre Alta, De uso vinculado, Sesión y Ocasional|	Ocasional  
 
 Al igual que con las solicitudes de lecturas, puede bajar el nivel de coherencia de una solicitud de consulta concreta mediante la especificación del [encabezado de solicitud].  
 
-## Referencias
+##Referencias
 -	Doug Terry. Coherencia de datos replicados explicados mediante el béisbol.   
 [http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf](http://research.microsoft.com/pubs/157411/ConsistencyAndBaseballReport.pdf)
 -	Doug Terry. Garantías de sesión para datos replicados con coherencia débil.   
@@ -71,4 +71,4 @@ Al igual que con las solicitudes de lecturas, puede bajar el nivel de coherencia
 -	Werner Vogels. Ocasional uniforme: repasados.    
 [http://allthingsdistributed.com/2008/12/eventually_consistent.html](http://allthingsdistributed.com/2008/12/eventually_consistent.html)
 
-<!--HONumber=47-->
+<!--HONumber=49-->

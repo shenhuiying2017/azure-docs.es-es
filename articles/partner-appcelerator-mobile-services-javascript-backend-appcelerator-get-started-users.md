@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-appcelerator" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="multiple" 
 	ms.topic="article" 
 	ms.date="11/24/2014" 
@@ -20,7 +20,7 @@
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
-En este tema se muestra cómo autenticar a los usuarios en los Servicios móviles de Microsoft Azure desde su aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
+En este tema se muestra cómo autenticar usuarios en Servicios móviles de Microsoft Azure desde su aplicación. En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante un proveedor de identidades compatible con Servicios móviles. Una vez que Servicios móviles haya realizado la autenticación y autorización correctamente, se mostrará el valor de identificador de usuario.
 
 En este tutorial se realiza un recorrido por los pasos básicos para habilitar la autenticación en su aplicación:
 
@@ -94,7 +94,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
             }
         });
 
->[AZURE.NOTE] Si usa un proveedor de identidades distinto de Google, cambie el valor que ha pasado al método **authorizeClient** por uno de los siguientes: *microsoftaccount*, *facebook*, *twitter* o *windowsazureactivedirectory*.
+>[AZURE.NOTE] Si utiliza un proveedor de identidades que no sea Google, cambie el valor pasado a **authorizeClient** a uno de los siguientes: *microsoftaccount*, *facebook*, *twitter* o *windowsazureactivedirectory*.
 
 4.	Presione el botón Run para compilar el proyecto, inicie la aplicación en el simulador de iPhone o en el emulador de Android y después haga clic en la opción With Login para iniciar sesión con el proveedor de identidades.
 
@@ -110,10 +110,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 <!-- Images. -->
 
 <!-- URLs. -->
-[Introducción a los Servicios móviles]: /es-es/documentation/articles/partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started
+[Introducción a los Servicios móviles]: partner-appcelerator-mobile-services-javascript-backend-appcelerator-get-started.md
+<!--HONumber=49--> 
 
-
-
-
-
-<!--HONumber=42-->
+<!--HONumber=49-->

@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="02/09/2015" 
+	ms.date="03/23/2015" 
 	ms.author="stbaro"/>
 
 # Implementación de Base de datos de documentos y de un sitio web de Azure mediante una plantilla del Administrador de recursos de Azure #
@@ -25,16 +25,16 @@ Después de completar este tutorial, podrá responder a las preguntas siguientes
 -	¿Cómo puedo usar una plantilla del Administrador de recursos de Azure para implementar e integrar una cuenta de Base de datos de documentos y un sitio web de Azure?
 -	¿Cómo puedo usar una plantilla del Administrador de recursos de Azure para implementar e integrar una cuenta de Base de datos de documentos, un sitio web de Azure y una aplicación Webdeploy?
 
-## <a id="Prerequisites"></a>Requisitos previos ##
+##<a id="Prerequisites"></a>Requisitos previos ##
 > [AZURE.TIP] Si bien en este tutorial no se supone que se deba tener experiencia anterior con plantillas del Administrador de recursos de Azure, JSON o Azure PowerShell, si desea modificar las plantillas a las que se hace referencia o las opciones de implementación, sí se requerirá entonces el conocimiento de cada una de estas áreas.
 
 Antes de seguir las instrucciones de este tutorial, asegúrese de contar con lo siguiente:
 
 - Una suscripción de Azure. Azure es una plataforma basada en suscripción.  Para obtener más información acerca de cómo obtener una suscripción, consulte [Opciones de compra](http://azure.microsoft.com/pricing/purchase-options/), [Ofertas para miembros](http://azure.microsoft.com/pricing/member-offers/) o [Prueba gratuita](http://azure.microsoft.com/pricing/free-trial/).
-- Una cuenta de almacenamiento de Azure. Para obtener instrucciones, consulte [Cuentas de almacenamiento de Azure](../storage-whatis-account/).
-- Una estación de trabajo con Azure PowerShell. Para obtener instrucciones, consulte [Instalación y configuración de Azure PowerShell](http://azure.microsoft.com/documentation/articles/install-configure-powershell/).
+- Una cuenta de almacenamiento de Azure. Para obtener instrucciones, consulte [Cuentas de almacenamiento de Azure](storage-whatis-account.md)
+- Una estación de trabajo con Azure PowerShell. Para obtener más información, consulte [Instalación y configuración de Azure PowerShell](install-configure-powershell.md).
 
-## <a id="CreateDB"></a>Paso 1: Descarga y extracción de los archivos de ejemplo ##
+##<a id="CreateDB"></a>Paso 1: Descarga y extracción de los archivos de ejemplo ##
 Vamos a empezar descargando los archivos de ejemplo que usaremos en este tutorial.
 
 1. Descargue el [ejemplo Creación de una cuenta de Base de datos de documentos y un sitio web e implementación de una aplicación de demostración](https://portalcontent.blob.core.windows.net/samples/CreateDocDBWebsiteTodo.zip) en una carpeta local (por ejemplo, C:\DocumentDBTemplates) y extraiga los archivos.  En este ejemplo se implementará una cuenta de Base de datos de documentos, un sitio web de Azure y una aplicación web.  También se configurará automáticamente la aplicación web para conectar con la cuenta de Base de datos de documentos.
@@ -46,7 +46,7 @@ Vamos a empezar descargando los archivos de ejemplo que usaremos en este tutoria
 ![Screenshot of the Properties window with the Unblock button highlighted](./media/documentdb-create-documentdb-website/image1.png)
 
 
-## <a id="Build"></a>Paso 2: Implementación del ejemplo de cuenta de documento, sitio web y aplicación de demostración ##
+##<a id="Build"></a>Paso 2: Implementación del ejemplo de cuenta de documento, sitio web y aplicación de demostración ##
 
 Ahora vamos a implementar nuestra primera plantilla.
 
@@ -69,7 +69,7 @@ Ahora vamos a implementar nuestra primera plantilla.
 
     	PS C:\DocumentDBTemplates\CreateDocDBWebsiteTodo> .\CreateDocDBWebsiteTodo.ps1 -WebSiteName "mydemodocdbwebsite" -ResourceGroupName "myDemoResourceGroup" -docDBAccountName "mydemodocdbaccount" -location "West US"
 
-	> [AZURE.TIP] Tenga en cuenta que se le pedirá que escriba su nombre de usuario y contraseña de Azure como parte de la ejecución del script.  La implementación completa tardará entre 10 y 15 minutos en completarse.  	
+	> [AZURE.TIP] Tenga en cuenta que se le pedirá que escriba su nombre de usuario y contraseña de Azure como parte de la ejecución del script. La implementación completa tardará entre 10 y 15 minutos en completarse.  	
 
 4. A continuación se muestra un ejemplo de la salida resultante: 
 
@@ -145,7 +145,7 @@ Ahora vamos a implementar nuestra primera plantilla.
 	![Screenshot of the Query Explorer and Results blades showing the query results](./media/documentdb-create-documentdb-website/image5.png)
 12. No dude en explorar la experiencia del portal de Base de datos de documentos o modificar la aplicación Todo de ejemplo.  Cuando esté preparado, implementaremos otra plantilla.
 	 
-## <a id="Build"></a>Paso 3: Implementación de la cuenta de documentos y del ejemplo de sitio web ##
+##<a id="Build"></a>Paso 3: Implementación de la cuenta de documentos y del ejemplo de sitio web ##
 
 Ahora implementaremos nuestra segunda plantilla.
 
@@ -192,7 +192,7 @@ Ahora implementaremos nuestra segunda plantilla.
 	
 	
 
-## <a name="NextSteps"></a>Pasos siguientes
+##<a name="NextSteps"></a>Pasos siguientes
 
 ¡Enhorabuena! Ha implementado Base de datos de documentos, Sitios web Azure y una aplicación web de ejemplo mediante plantillas del Administrador de recursos de Azure.
 
@@ -200,4 +200,4 @@ Ahora implementaremos nuestra segunda plantilla.
 - Para obtener más información sobre Sitios web Azure, haga clic [aquí](http://go.microsoft.com/fwlink/?LinkId=325362).
 - Para obtener más información sobre las plantillas del Administrador de recursos de Azure, haga clic [aquí](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
-<!--HONumber=47-->
+<!--HONumber=49-->

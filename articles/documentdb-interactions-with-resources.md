@@ -16,7 +16,7 @@
 	ms.date="02/03/2015" 
 	ms.author="mimig"/>
 
-# Interacciones RESTful con recursos de Base de datos de documentos 
+#Interacciones RESTful con recursos de Base de datos de documentos 
 
 Base de datos de documentos admite el uso de métodos HTTP para crear, leer, reemplazar, obtener y eliminar recursos de esa base de datos.
 
@@ -28,7 +28,7 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 - ¿Cómo Base de datos de documentos admite el control de monedas?
 - ¿Cuáles son las opciones de conectividad para HTTPS y TCP?
 
-## Información general de verbos HTTP
+##Información general de verbos HTTP
 Los recursos de Base de datos de documentos admiten los siguientes verbos HTTP con su interpretación estándar:
 
 1.	POST significa crear un nuevo recurso de elementos. 
@@ -45,7 +45,7 @@ Como se ilustra en el siguiente diagrama, POST solo puede emitirse contra un rec
 
 **Modelo de interacción con los métodos HTTP estándar**
 
-## Creación de un nuevo recurso mediante POST 
+##Creación de un nuevo recurso mediante POST 
 A fin de obtener una mejor percepción para el modelo de interacción, consideremos el caso de crear un recurso nuevo (alias INSERT). Para crear un recurso nuevo, es necesario que emita una solicitud de HTTP POST con el cuerpo de la solicitud que contiene la representación del recurso contra la URI de la fuente del contenedor al que pertenece el recurso. La única propiedad requerida para la solicitud es el identificador del recurso.  
 
 Como ejemplo, para crear una base de datos nueva, usted ENVÍA un recurso de base de datos (al establecer la propiedad de identificador con un nombre único) contra /dbs, de igual manera, para crear una recopilación nueva, ENVÍA un recurso de recopilación contra /dbs/_rid/colls/ y así sucesivamente. La respuesta contiene el recurso completamente confirmado con las propiedades generadas por el sistema, incluido el vínculo _self del recurso con el que puede navegar a otros recursos. Como un ejemplo del modelo de interacción sencillo basado en HTTP, un cliente puede emitir una solicitud HTTP para crear una base de datos nueva en una cuenta.  
@@ -68,7 +68,7 @@ El servicio de Base de datos de documentos responde con una respuesta correcta y
 	      "_users": "users/"
 	}
   
-## Registro de un procedimiento almacenado mediante POST
+##Registro de un procedimiento almacenado mediante POST
 Como otro ejemplo de la creación y ejecución de un recurso, considere el siguiente procedimiento almacenado creado completamente en JavaScript.   
 
 	function sproc(docToCreate, addedPropertyName, addedPropertyValue) {
@@ -111,8 +111,8 @@ El servicio de Base de datos de documentos responde con una respuesta correcta y
 	       ...
 	}
 
-## Ejecución de un procedimiento almacenado mediante POST
-Finalmente, para ejecutar el procedimiento almacenado en el ejemplo anterior, se necesita enviar un POST contra la URI del recurso del procedimiento almacenado (/dbs/_rid-db/colls/_rid-coll/sprocs/sproc1). Esto se muestra en el código siguiente.  
+##Ejecución de un procedimiento almacenado mediante POST
+Por último, para ejecutar el procedimiento almacenado en el ejemplo anterior, se necesita emitir un POST contra la URI del recurso del procedimiento almacenado (/dbs/_rid-db/colls/_rid-coll/sprocs/sproc1). Esto se muestra en el código siguiente.  
 
 	POST /dbs/MyDb/colls/MyColl/sprocs/sproc1 HTTP/1.1
 	 [ { "id": "TestDocument", "book": "Autumn of the Patriarch"}, "Price", 200 ]
@@ -153,22 +153,22 @@ El servicio responde con los resultados de la consulta SQL.
 	{"_rid":"sehcAIE2Qy4=","Documents":[[{"firstName":"Henriette Thaulow","gender":"female","grade":5,"pets":[{"givenName":"Fluffy"}]}],[{"familyName":"Merriam","givenName":"Jesse","gender":"female","grade":1},{"familyName":"Miller","givenName":"Lisa","gender":"female","grade":8}]],"count":2}
 
 
-## Uso de PUT, GET y DELETE
+##Uso de PUT, GET y DELETE
 El reemplazo o la lectura de un recurso equivale a emitir los verbos PUT (con un cuerpo de solicitud válido) y GET contra el vínculo _self del recurso, respectivamente. Similarmente, la eliminación de un recurso equivale a emitir un verbo DELETE contra el vínculo _self del recurso. Vale la pena señalar que la organización jerárquica de los recursos en el modelo de recursos de la Base de datos de documentos necesita la compatibilidad con las eliminaciones en cascada, donde la eliminación del recurso del propietario provoca la eliminación de los recursos dependientes. Los recursos dependientes se pueden distribuir a través de otros nodos aparte de los recursos del propietario, de modo que la eliminación puede producirse lentamente. Sin considerar la mecánica de la recopilación de elementos no usados, después de la eliminación de un recurso, la cuota se libera instantáneamente y está disponible para su uso. Tenga en cuenta que el sistema mantiene la integridad referencial. Por ejemplo, no se puede insertar una recopilación en una base de datos que se eliminó ni reemplazar o consultar un documento de una recopilación que ya no existe.  
  
 Emitir un GET contra una fuente de recursos o consultar una recopilación puede tener como resultado millones de elementos, lo que dificulta que ambos servidores los materialicen y que los clientes los consuman como parte de una sola solicitud roundtrip/ e intercambio de respuestas. Para abordar esto, Base de datos de documentos permite que los clientes paginen en una fuente grande una página a la vez. Los clientes pueden usar el encabezado de respuesta [x-ms-continuationToken] como un cursor para navegar a la página siguiente.   
 
-## Control de concurrencia optimista
+##Control de concurrencia optimista
 La mayoría de las aplicaciones web dependen de una etiqueta de identidad basada en el control de concurrencia optimista para evitar los desastrosos problemas de "Actualización perdida" y "Eliminación perdida". La etiqueta de entidad es una marca de tiempo HTTP lógica y fácil de usar asociada con un recurso. La Base de datos de documentos admite de manera nativa el control de concurrencia optimista al asegurar que toda respuesta HTTP contenga la versión (de manera durable) asociada con el recurso específico. Los conflictos del control de concurrencia se detectan correctamente para los siguientes casos:  
 
 1.	Si los clientes emiten simultáneamente solicitudes mutantes (a través de los verbos PUT/DELETE) en un recurso con la última versión del recurso (especificado a través del encabezado de solicitud [if-match]), el motor de la base de datos de Base de datos de documentos los somete al control de concurrencia transaccional.
 2.	Si un cliente se presenta con una versión más antigua del recurso (especificado mediante el encabezado de solicitud [if-match]), la solicitud se rechaza.  
 
-## Opciones de conectividad
+##Opciones de conectividad
 La Base de datos de documentos expone un modelo de direccionamiento lógico donde cada recurso tiene una URI lógica y estable identificada por su vínculo _self. Como un sistema de almacenamiento distribuido desplegado en regiones, los recursos de varias cuentas de bases de datos en la Base de datos de documentos se dividen en varias máquinas y cada partición se replica para una mayor disponibilidad. Las réplicas que administran los recursos de una partición dada registran las direcciones físicas. Aun cuando las direcciones físicas cambian en el tiempo debido a errores, sus direcciones lógicas se mantienen estables y constantes. El traslado de la dirección lógica a física se mantiene en una tabla de enrutamiento que también esta disponible de manera interna como un recurso. La Base de datos de documentos expone dos modos de conectividad:  
 
-1.	**Modo de puerta de enlace:** los clientes no conocen la traducción entre direcciones lógicas a físicas o los detalles de la ruta; simplemente tratan con los valores URI y RESTfully lógicos para navegar por el modelo de recursos. Los clientes emiten las solicitudes mediante el URI lógico y los equipos perimetrales traducen el valor URI lógico a la dirección física de la réplica que administra el recurso y reenvía la solicitud. Con los equipos perimetrales almacenando en caché (y actualizando periódicamente) la tabla de enrutamiento, el enrutamiento es bastante eficaz.
-2.	**Modo de conectividad directa:** los clientes administran directamente la tabla de enrutamiento de su espacio de proceso y la actualizan periódicamente. El cliente puede conectase directamente con las réplicas y omitir los equipos perimetrales.
+1.	**Modo de puerta de enlace:** los clientes están protegidos de la conversión entre direcciones lógicas a físicas o los detalles del enrutamiento; simplemente tratan los URI lógico y se desplazan con RESTful por el modelo de recursos. Los clientes emiten las solicitudes mediante el URI lógico y las máquinas perimetrales convierten el URI lógico a la dirección física de la réplica que administra el recurso y reenvía la solicitud. Con las máquinas perimetrales almacenando en caché (y la actualización periódica) la tabla de enrutamiento, el enrutamiento es muy eficaz. 
+2.	**Modo de conectividad directa:** los clientes administran directamente la tabla de enrutamiento de su espacio de proceso y la actualizan periódicamente. El cliente puede conectase directamente con las réplicas y omitir los equipos perimetrales.   
 
 
 <table width="300">
@@ -181,7 +181,7 @@ La Base de datos de documentos expone un modelo de direccionamiento lógico dond
             </td>
             <td width="66" valign="top">
                 <p>
-                    <strong>Protocolo</strong>
+                    <strong>Protocol</strong>
                 </p>
             </td>
             <td width="264" valign="top">
@@ -248,16 +248,16 @@ La Base de datos de documentos expone un modelo de direccionamiento lógico dond
     </tbody>
 </table>
 
-## Pasos siguientes
+##Pasos siguientes
 Consulte la [referencia de la API de REST de Base de datos de documentos de Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) para obtener más información sobre cómo trabajar con recursos mediante la API de REST.
 
-## Referencias
--   [Referencia de API de REST de Base de datos de documentos de Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx)
+##Referencias
+-   [Referencia de API de REST de Base de datos de documentos de Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) 
 -	REST [http://en.wikipedia.org/wiki/Representational_state_transfer](http://en.wikipedia.org/wiki/Representational_state_transfer)
 -	Especificación de JSON  [http://www.ietf.org/rfc/rfc4627.txt](http://www.ietf.org/rfc/rfc4627.txt)
--	Especificación de HTTP [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
--	Etiquetas de entidad [http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
--	[Base de datos de documentos de consulta](../documentdb-sql-query/)
+-	Especificación HTTP[ [http://www.w3.org/Protocols/rfc2616/rfc2616.html](http://www.w3.org/Protocols/rfc2616/rfc2616.html)
+-	Etiquetas de entidad[http://en.wikipedia.org/wiki/HTTP_ETag](http://en.wikipedia.org/wiki/HTTP_ETag)
+-	[Base de datos de documentos de consulta](documentdb-sql-query.md)
 -	[Referencia SQL de Base de datos de documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 -	[Programación de Base de datos de documentos: Procedimientos almacenados, desencadenadores y UDF](../documentdb-programming/)
 -	[Documentación de referencia de Base de datos de documentos](https://msdn.microsoft.com/library/azure/dn781482.aspx)
@@ -265,4 +265,4 @@ Consulte la [referencia de la API de REST de Base de datos de documentos de Azur
 
 [1]: ./media/documentdb-interactions-with-resources/interactions-with-resources2.png
 
-<!--HONumber=47-->
+<!--HONumber=49-->

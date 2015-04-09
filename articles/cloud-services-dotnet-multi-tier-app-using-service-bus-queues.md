@@ -1,11 +1,11 @@
-<properties
+﻿<properties
 	pageTitle="Aplicación .NET de niveles múltiples - Tutorial de Azure"
 	description="Un tutorial que le ayuda a desarrollar una aplicación de varios niveles en Azure que utiliza colas del bus de servicio para comunicarse entre niveles. Ejemplos en .NET."
 	services="service-bus"
 	documentationCenter=".net"
 	authors="sethmanheim"
 	manager="timlt"
-	editor="mattshel"/>
+	editor=""/>
 
 <tags
 	ms.service="service-bus"
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="na"
 	ms.devlang="dotnet"
 	ms.topic="hero-article"
-	ms.date="02/26/2015"
+	ms.date="03/17/2015"
 	ms.author="sethm"/>
 
 
@@ -24,7 +24,7 @@
 
 ## Introducción
 
-Desarrollar para Azure es muy sencillo con Visual Studio 2013 y el SDK de Azure para .NET gratuito. Si todavía no tiene Visual Studio 2013, el SDK instalará automáticamente Visual Studio Express para que pueda comenzar a desarrollar para Azure de forma gratuita. En esta guía se asume que no tiene experiencia previa con Azure. Al finalizar esta guía, tendrá una aplicación que utiliza varios recursos de Azure ejecutándose en su entorno local y mostrando cómo funciona una aplicación de niveles múltiples.
+Desarrollar para Microsoft Azure es muy sencillo con Visual Studio 2013 y el SDK de Azure para .NET gratuito. Si todavía no tiene Visual Studio 2013, el SDK instalará automáticamente Visual Studio Express para que pueda comenzar a desarrollar para Azure de forma gratuita. En esta guía se asume que no tiene ninguna experiencia previa con Azure. Al finalizar este tutorial, tendrá una aplicación que utiliza varios recursos de Azure ejecutándose en su entorno local y mostrando cómo funciona una aplicación de niveles múltiples.
 
 Aprenderá a:
 
@@ -35,7 +35,7 @@ Aprenderá a:
 
 [AZURE.INCLUDE [create-account-note](../includes/create-account-note.md)]
 
-En este tutorial compilará y ejecutará la aplicación de niveles múltiples en un servicio en la nube de Azure. El front-end será un rol web de ASP.NET MVC y el back-end será un rol de trabajo Puede crear la misma aplicación de niveles múltiples con el front-end como un proyecto web que se puede implementar en un sitio web de Azure en lugar de en un servicio en la nube. Para obtener instrucciones acerca de cómo realizar de manera diferente un front-end de sitio web de Azure, consulte la sección [Pasos siguientes](#nextsteps).
+En este tutorial compilará y ejecutará la aplicación de niveles múltiples en un servicio en la nube de Azure. El front-end será un rol web de ASP.NET MVC y el back-end será un rol de trabajo Puede crear la misma aplicación de niveles múltiples con el front-end como un proyecto web que se puede implementar en un sitio web de Azure en lugar de en un servicio en la nube. Para obtener instrucciones acerca de cómo realizar de manera diferente un front-end de sitio web de Azure, consulte la sección [Pasos siguientes](#nextsteps) .
 
 A continuación, se muestra una captura de la pantalla de la aplicación finalizada:
 
@@ -49,8 +49,7 @@ Para enviar una orden para su procesamiento, el componente de la interfaz de usu
 
 El uso de la mensajería asíncrona entre los niveles de web e intermedio desacopla los dos componentes. Al contrario que en la mensajería directa (es decir, TCP o HTTP), el nivel web no se conecta directamente al nivel intermedio; por el contrario, inserta unidades de trabajo, como mensajes, en el bus de servicio que los conserva de manera confiable hasta que el nivel intermedio esté preparado para consumirlas y procesarlas.
 
-El bus de servicio ofrece dos entidades para admitir la mensajería asíncrona: colas y temas. Con las colas, cada mensaje enviado a la cola lo consume un único receptor. Los temas admiten el patrón de publicación/suscripción, en el cual cada mensaje publicado está disponible para cada suscripción registrada con el tema. Cada suscripción mantiene lógicamente su propia cola de mensajes. Las suscripciones también se pueden configurar con reglas de filtro que restringen el conjunto de mensajes pasados a la cola de suscripción a aquellos que coinciden con el filtro. Este ejemplo usa
-colas de Bus de servicio.
+El bus de servicio ofrece dos entidades para admitir la mensajería asíncrona: colas y temas. Con las colas, cada mensaje enviado a la cola lo consume un único receptor. Los temas admiten el patrón de publicación/suscripción, en el cual cada mensaje publicado está disponible para una suscripción registrada con el tema. Cada suscripción mantiene lógicamente su propia cola de mensajes. Las suscripciones también se pueden configurar con reglas de filtro que restringen el conjunto de mensajes pasados a la cola de suscripción a aquellos que coinciden con el filtro. En este ejemplo se utilizan las colas de bus de servicio.
 
 ![][1]
 
@@ -58,7 +57,7 @@ El mecanismo de comunicación tiene varias ventajas sobre la mensajería directa
 
 -   **Desacoplamiento temporal.** Con el patrón de mensajería asincrónico, los productores y consumidores no necesitan estar en línea al mismo tiempo. El bus de servicio almacena los mensajes de manera fiable hasta que la parte consumidora esté preparada para recibirlos. Esto permite que los componentes de la aplicación distribuida estén desconectados, ya sea voluntariamente, por ejemplo, para fines de mantenimiento o debido a un bloqueo de componente, sin afectar a todo el sistema. Además, es posible que la aplicación que consume solo deba ponerse en línea durante determinadas horas del día.
 
--   **Redistribución de carga**. En muchas aplicaciones, la carga del sistema varía con el tiempo, mientras que el tiempo de procesamiento requerido por cada unidad de trabajo suele ser constante. La intermediación de productores y consumidores de mensajes con una cola implica que la aplicación consumidora (el trabajador) solo necesita ser aprovisionada para acomodar una carga promedio en lugar de una carga pico. La profundidad de la cola aumentará y se contraerá a medida que varíe la carga entrante, lo que permite ahorrar dinero directamente en función de la cantidad de infraestructura requerida para dar servicio a la carga de la aplicación.
+-   **Nivelación de carga.** En muchas aplicaciones, la carga del sistema varía con el tiempo, mientras que el tiempo de procesamiento necesario para cada unidad de trabajo suele ser constante. La intermediación de productores y consumidores de mensajes con una cola significa que la aplicación consumidora (el trabajador) solo necesita ser aprovisionada para acomodar la carga promedio en lugar de carga máxima. La profundidad de la cola aumentará y disminuirá a medida que varía la carga entrante. Esto directamente ahorra dinero en cuanto a la cantidad de infraestructura necesaria para la carga de aplicaciones de servicio.
 
 -   **Equilibrio de carga.** A medida que aumenta la carga, se pueden agregar más procesos de trabajo para que puedan leerse desde la cola. Cada mensaje se procesa solamente mediante uno de los procesos de trabajo. Además, este equilibrio de carga basado en extracción permite la utilización óptima de los equipos de trabajo incluso si estos equipos difieren en términos de capacidad de procesamiento, ya que extraerán mensajes a su propia velocidad máxima. Este patrón se denomina a menudo el patrón de consumo de competencia.
 
@@ -90,7 +89,7 @@ Antes de comenzar a desarrollar su aplicación de Azure, descargue las herramien
 
 ## Configuración del espacio de nombres de Bus de servicio
 
-El siguiente paso es crear un espacio de nombres de servicio y obtener una clave de firma de acceso compartido (SAS). Un espacio de nombres de servicio proporciona un límite de aplicación para cada aplicación que se exponen a través del Bus de servicio. El sistema genera una clave SAS cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona una credencial de Bus de servicio para autenticar el acceso a una aplicación.
+El siguiente paso es crear un espacio de nombres de servicio y obtener una clave de firma de acceso compartido (SAS). Un espacio de nombres de servicio proporciona un límite de aplicación para cada aplicación que se exponen a través del Bus de servicio. El sistema genera una clave SAS cuando se crea un espacio de nombres de servicio. La combinación del espacio de nombres de servicio y la clave SAS proporciona las credenciales de Bus de servicio para autenticar el acceso a una aplicación.
 
 Tenga en cuenta que también puede administrar espacios de nombres y entidades de mensajería del bus de servicio mediante el Explorador de servidores de Visual Studio, pero solo puede crear nuevos espacios de nombres desde el portal.
 
@@ -127,13 +126,11 @@ Tenga en cuenta que también puede administrar espacios de nombres y entidades d
 
     ![][35]
 
-10.  Anote la clave o cópiela en el Portapapeles.
+10.  Tome nota de estas credenciales o cópielas en el Portapapeles.
 
 ## Administración de espacios de nombres y de entidades de mensajería mediante el Explorador de servidores de Visual Studio
 
-Para administrar un espacio de nombres y obtener la información de conexión utilizando Visual Studio en lugar del Portal de administración, siga el procedimiento descrito en la sección titulada **Para conectarse a Azure desde Visual Studio** en la página [Introducción a Azure Tools para Visual Studio](http://msdn.microsoft.com/library/ff687127.aspx). Al iniciar sesión Azure en **Explorador de servidores**, el nodo **Service Bus** del árbol **Microsoft Azure** se rellena automáticamente con los espacios de nombres que ya ha creado en su suscripción. Haga clic con el botón derecho en cualquier espacio de nombre y, a continuación, haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio.
-
-Para administrar un espacio de nombres y obtener la información de conexión utilizando Visual Studio en vez del Portal de administración, siga el procedimiento descrito [aquí](http://msdn.microsoft.com/library/ff687127.aspx), en la sección titulada **Para conectarse a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Microsoft Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombres que ya ha creado. Haga clic con el botón derecho en cualquier espacio de nombre y, a continuación, haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio.
+Para administrar un espacio de nombres y obtener la información de conexión utilizando Visual Studio en vez del Portal de administración de Azure, siga el procedimiento descrito [aquí](http://msdn.microsoft.com/library/ff687127.aspx), en la sección titulada **Para conectarse a Azure desde Visual Studio**. Al iniciar sesión en Azure, el nodo **Bus de servicio** bajo el árbol **Microsoft Azure** del Explorador de servidores se rellena automáticamente con los espacios de nombres que ya ha creado. Haga clic con el botón derecho en cualquier espacio de nombre y, a continuación, haga clic en **Propiedades** para ver la cadena de conexión y otros metadatos asociados a este nombre de espacio en el panel **Propiedades** de Visual Studio.
 
 Anote el valor de **SharedAccessKey** o cópielo en el Portapapeles:
 
@@ -153,13 +150,11 @@ Anote el valor de **SharedAccessKey** o cópielo en el Portapapeles:
 
 ## Creación de un rol web
 
-En esta sección, creará el front-end de la aplicación. Primero creará las distintas páginas que mostrará la aplicación.
-Después, agregará el código para enviar elementos a una cola de Bus
-de servicio y mostrar información de estado acerca de la cola.
+En esta sección, creará el front-end de la aplicación. Primero creará las distintas páginas que mostrará la aplicación. Después, agregará el código para enviar los elementos a una cola del Bus de servicio y mostrar la información de estado sobre la cola.
 
 ### Creación del proyecto
 
-1.  Con privilegios de administrador, inicie Microsoft Visual Studio 2013 o Microsoft Visual Studio Express. Para iniciar Visual Studio con privilegios de administrador, haga clic con el botón secundario en **Microsoft Visual Studio 2013 (o Microsoft Visual Studio Express)** y, a continuación, haga clic en **Ejecutar como administrador**. El emulador de proceso de Azure, descrito posteriormente en esta guía, requiere que se inicie Visual Studio con privilegios de administrador.
+1.  Con privilegios de administrador, inicie Microsoft Visual Studio 2013 o Microsoft Visual Studio Express. Para iniciar Visual Studio con privilegios de administrador, haga clic con el botón derecho en **Microsoft Visual Studio 2013 (o Microsoft Visual Studio Express)** y, a continuación, haga clic en **Ejecutar como administrador**. El emulador de proceso de Azure, descrito posteriormente en esta guía, requiere que se inicie Visual Studio con privilegios de administrador.
 
     En Visual Studio, en el menú **Archivo**, haga clic en **Nuevo** y, a continuación, en **Proyecto**.
 
@@ -174,27 +169,28 @@ de servicio y mostrar información de estado acerca de la cola.
 
     ![][10]
 
-4.  Mantenga el mouse sobre **WebRole1** en **Azure Cloud Service solution**, haga clic en el icono de lápiz y cambie el nombre del rol web a **FrontendWebRole**. A continuación, haga clic en **Aceptar**. (Asegúrese de que escribe "Frontend" con "e" minúscula, no "FrontEnd").
+4.  Mantenga el cursor sobre **WebRole1** en **Solución del servicio en la nube de Azure**, haga clic en el icono de lápiz y cambie el nombre del rol web a **FrontendWebRole**. A continuación, haga clic en **Aceptar**. (Asegúrese de que escribe "Frontend" con "e" minúscula, no "FrontEnd").
 
     ![][11]
 
-5.  En el cuadro de diálogo **New ASP.NET Project**, en la lista **Seleccionar una plantilla**, haga clic en **MVC** y, a continuación, haga clic en **Aceptar**.
+5.  En el cuadro de diálogo **Nuevo proyecto ASP.NET**, en la lista **Seleccionar una plantilla**, haga clic en **MVC** y, a continuación, haga clic en **Aceptar**.
 
     ![][12]
 
-6.  En el **Explorador de soluciones**, haga clic con el botón secundario en **Referencias** y, a continuación, haga clic en **Manage NuGet Packages...** o **Agregar referencia de paquetes de biblioteca**.
+6.  En el **Explorador de soluciones**, haga clic con el botón secundario en **Referencias** y, a continuación, haga clic en **Administrar paquetes de NuGet...** o **Agregar referencia de paquetes de biblioteca**.
 
-7.  Seleccione **En línea** a la izquierda del cuadro de diálogo. Busque "**Service Bus**" y seleccione el elemento **Microsoft Azure Service Bus**. Después finalice la instalación y cierre este cuadro de diálogo.
+7.  Seleccione **En línea** a la izquierda del cuadro de diálogo. Busque "**Bus de servicio**" y seleccione el elemento **Bus de servicio de Microsoft Azure**. Después finalice la instalación y cierre este cuadro de diálogo.
 
     ![][13]
 
 8.  Tenga en cuenta que ahora se hace referencia a los ensamblados del cliente requeridos y que se han agregado algunos archivos de código nuevos.
 
-9.  En el **Explorador de soluciones**, haga clic con el botón secundario en la carpeta **Modelos** y, a continuación, en **Add** y, por último, en **Class**. En el cuadro Nombre, escriba el nombre **OnlineOrder.cs**. A continuación, haga clic en **Agregar**.
+9.  En el **Explorador de soluciones**, haga clic con el botón secundario en **Modelos** y, a continuación, en **Agregar** y, por último, en **Clase**. En el cuadro **Nombre**, escriba el nombre **OnlineOrder.cs**. A continuación, haga clic en **Agregar**.
 
 ### Especificación del código del rol web
 
-En esta sección, creará las distintas páginas que mostrará la aplicación.
+En esta sección, creará las distintas páginas que mostrará
+la aplicación.
 
 1.  En el archivo **OnlineOrder.cs** en Visual Studio, sustituya la definición del espacio de nombres existentes por el código siguiente:
 
@@ -270,35 +266,32 @@ En esta sección, creará las distintas páginas que mostrará la aplicación.
 
     ![][14]
 
-6.  Se muestra un cuadro de diálogo para crear la vista. Seleccione la clase **OnlineOrder** en el menú desplegable **Model class** y elija **Crear** en el menú desplegable **Plantilla**.
+6.  Se muestra un cuadro de diálogo para crear la vista. Seleccione la clase **OnlineOrder** en el menú desplegable **Clase de modelo** y elija **Crear** en el menú desplegable **Plantilla**.
 
     ![][15]
 
 7.  Haga clic en **Add**.
 
-8.  Ahora, cambiará el nombre mostrado de la aplicación. En el **Explorador de soluciones**, haga doble clic en el archivo **Views\Shared\\_Layout.cshtml** para abrirlo en el editor de Visual Studio.
+8.  Ahora, cambie el nombre mostrado de la aplicación. En el **Explorador de soluciones**, haga doble clic en el archivo **Views\Shared\\_Layout.cshtml** para abrirlo en el editor de Visual Studio.
 
 9.  Reemplace todas las apariciones de **My ASP.NET Application** por **Productos de LITWARE**.
 
-11. Suprima los vínculos **Home**, **About** y **Contact**. Elimine el código resaltado:
+10. Suprima los vínculos **Home**, **About** y **Contact**. Elimine el código resaltado:
 
 	![][28]
 
-
-12. Finalmente, modifique la página de envío para incluir información sobre la cola. En el **Explorador de soluciones**, haga doble clic en el archivo **Views\Home\Submit.cshtml** para abrirlo en el editor de Visual Studio. Agregue la línea siguiente después de **&lt;h2>Submit&lt;/h2>**. De momento, **ViewBag.MessageCount** está vacío. Lo rellenará más adelante.
+11. Finalmente, modifique la página de envío para incluir información sobre la cola. En el **Explorador de soluciones**, haga doble clic en el archivo **Views\Home\Submit.cshtml** para abrirlo en el editor de Visual Studio. Agregue la línea siguiente después de **&lt;h2>Submit&lt;/h2>**. De momento, **ViewBag.MessageCount** está vacío. Lo rellenará más adelante.
 
         <p>Número actual de pedidos en la cola en espera de ser procesados: @ViewBag.MessageCount</p>
 
 
-13. Acaba de implementar su interfaz de usuario. Puede presionar **F5** para ejecutar la aplicación y confirmar que tiene el aspecto previsto.
+12. Acaba de implementar su interfaz de usuario. Puede presionar **F5** para ejecutar la aplicación y confirmar que tiene el aspecto previsto.
 
     ![][17]
 
 ### Especificación del código para enviar elementos a una cola del bus de servicio
 
-Ahora, agregará código para enviar elementos a una cola. En primer lugar creará una clase que contiene su información de conexión a la cola del bus de servicio. A continuación, inicializará la conexión en
-**Global.aspx.cs**. Finalmente, actualizará el código de envío que ha creado antes en **HomeController.cs** para enviar realmente los elementos a una
-cola de Bus de servicio.
+Ahora, agregará código para enviar elementos a una cola. En primer lugar creará una clase que contiene su información de conexión a la cola del bus de servicio. A continuación, inicializará la conexión en **Global.aspx.cs**. Finalmente, actualizará el código de envío que ha creado antes en **HomeController.cs** para enviar realmente los elementos a una cola del Bus de servicio.
 
 1.  En el Explorador de soluciones, haga clic con el botón secundario en **FrontendWebRole** (haga clic con el botón secundario en el proyecto, no en el rol). Seleccione **Add** y, a continuación, haga clic en **Class**.
 
@@ -364,7 +357,8 @@ cola de Bus de servicio.
             }
         }
 
-    **Nota** Más adelante en este tutorial aprenderá a almacenar el nombre de su **espacio de nombres** y su valor de clave SAS en un archivo de configuración.
+    **Nota:** más adelante en este tutorial aprenderá a almacenar el nombre del
+    **espacio de nombres** y el valor de clave de SAS de un archivo de configuración.
 
 4.  Ahora, se asegurará de que se llame al método **Initialize**. En el **Explorador de soluciones**, haga doble clic en **Global.asax\Global.asax.cs**.
 
@@ -379,7 +373,7 @@ cola de Bus de servicio.
         public ActionResult Submit()
         {
             // Get a NamespaceManager which allows you to perform management and
-            // diagnostic operations on your Service Bus Queues.
+            // diagnostic operations on your Service Bus queues.
             var namespaceManager = QueueConnector.CreateNamespaceManager();
 
             // Get the queue, and obtain the message count.
@@ -408,21 +402,19 @@ cola de Bus de servicio.
             }
         }
 
-9.  Ahora puede volver a ejecutar la aplicación. Cada vez que envía un
-    pedido, el recuento de mensajes aumenta.
+9.  Ahora puede volver a ejecutar la aplicación. Cada vez que envía un pedido, el contador de mensajes aumenta.
 
     ![][18]
 
 ## Administrador de configuración de nube
 
-El método **GetSettings** de la clase
-**Microsoft.WindowsAzure.Configuration.CloudConfigurationManager** le permite leer valores de configuración del almacén de configuración para su plataforma. Por ejemplo, si el código se ejecuta en un rol web o de trabajo, el método **GetSettings** lee el archivo ServiceConfiguration.cscfg y si el código se ejecuta en una aplicación de consola estándar el método **GetSettings** método lee el archivo app.config.
+El método **GetSettings** de la clase **Microsoft.WindowsAzure.Configuration.CloudConfigurationManager** permite leer valores de configuración del almacén de configuración para su plataforma. Por ejemplo, si el código se ejecuta en un rol web o de trabajo, el método **GetSettings** lee el archivo ServiceConfiguration.cscfg y si el código se ejecuta en una aplicación de consola estándar el método **GetSettings** método lee el archivo app.config.
 
 Si almacena una cadena de conexión para el espacio de nombres del Bus de servicio en un archivo de configuración, puede usar el método **GetSettings** para leer una cadena de conexión que puede usar para crear una instancia de un objeto **NamespaceMananger**. Puede usar una instancia **NamespaceMananger** para configurar el espacio de nombres del Bus de servicio mediante programación. Puede utilizar la misma cadena de conexión para crear instancias de los objetos de cliente (como el objeto **QueueClient**, **TopicClient** y **EventHubClient**) que puede utilizar para realizar operaciones de tiempo de ejecución como enviar y recibir mensajes.
 
 ### Cadena de conexión
 
-Para crear una instancia de un cliente (por ejemplo una **QueueClient** del bus de servicio), puede representar la información de configuración como una cadena de conexión. En el cliente, hay un método **CreateFromConnectionString()** que crea una instancia del tipo de cliente utilizando esa cadena de conexión. Por ejemplo, dada la sección de configuración siguiente:
+Para crear una instancia de un cliente (por ejemplo una **QueueClient** del bus de servicio), puede representar la información de configuración como una cadena de conexión. En el cliente, hay un método  CreateFromConnectionString()` que crea una instancia del tipo de cliente utilizando esa cadena de conexión. Por ejemplo, dada la sección de configuración siguiente:
 
 	<ConfigurationSettings>
     ...
@@ -451,9 +443,9 @@ El código de la sección siguiente utiliza la clase **CloudConfigurationManager
 
 ## Creación del rol de trabajo
 
-Ahora creará el rol de trabajo que procesa los envíos del pedido. Este ejemplo utiliza la plantilla de proyecto de Visual Studio de **Worker Role with Service Bus Queue**. En primer lugar, utilizará el Explorador de servidores en Visual Studio para obtener las credenciales requeridas.
+Ahora creará el rol de trabajo que procesa los envíos del pedido. Este ejemplo utiliza la plantilla de proyecto de Visual Studio de **Worker Role with Service Bus Queue**. En primer lugar, utilice el Explorador de servidores en Visual Studio para obtener las credenciales requeridas.
 
-1. Asegúrese de que se ha conectado Visual Studio a su cuenta de Azure como se describe en la sección [Administrar espacios de nombres y entidades de mensajería mediante el Explorador de servidores de Visual Studio](./cloud-services-dotnet-multi-tier-app-using-service-bus-queues/#manage-namespaces-and-messaging-entities-using-the-visual-studio-server-explorer).
+1. Asegúrese de que se ha conectado Visual Studio a su cuenta de Azure como se describe en la sección Administrar espacios de nombres y entidades de mensajería mediante el Explorador de servidores de Visual Studio
 
 2.  En Visual Studio, en el **Explorador de soluciones**, haga clic con el botón secundario en la carpeta **Roles** en el proyecto **MultiTierApp**.
 
@@ -467,7 +459,7 @@ Ahora creará el rol de trabajo que procesa los envíos del pedido. Este ejemplo
 
 5.  En el cuadro **Name**, asigne el nombre de **OrderProcessingRole** al proyecto. A continuación, haga clic en **Agregar**.
 
-6.  En el Explorador de servidores, haga clic con el botón secundario en el espacio de nombres del servicio y, a continuación, haga clic en **Propiedades**. En el panel **Propiedades** de Visual Studio, la primera entrada contiene una cadena de conexión que se rellena con el extremo del espacio de nombres del servicio que contiene las credenciales de autorización requeridas. Por ejemplo, consulte la figura siguiente. Haga doble clic en **ConnectionString** y, a continuación, presione **Ctrl+C** para copiar esta cadena en el Portapapeles.
+6.  En el Explorador de servidores, haga clic con el botón secundario en el espacio de nombres del servicio y, a continuación, haga clic en **Propiedades**. En el panel **Propiedades** de Visual Studio, la primera entrada contiene una cadena de conexión que se rellena con el extremo del espacio de nombres que contiene las credenciales de autorización requeridas. Por ejemplo, consulte la figura siguiente. Haga doble clic en **ConnectionString** y, a continuación, presione **Ctrl+C** para copiar esta cadena en el Portapapeles.
 
 	![][24]
 
@@ -481,7 +473,7 @@ Ahora creará el rol de trabajo que procesa los envíos del pedido. Este ejemplo
 
 10. Busque **FrontendWebRole\Models** en la subcarpeta y haga doble clic en **OnlineOrder.cs** para agregarla a este proyecto.
 
-11. En WorkerRole.cs, sustituya el valor de la variable **QueueName** en **WorkerRole.cs** de `"ProcessingQueue"` a `"OrdersQueue"` como en el código siguiente:
+11. En WorkerRole.cs, reemplace el valor de la variable **QueueName** en **WorkerRole.cs** de `"ProcessingQueue"` por `"OrdersQueue"` como en el código siguiente:
 
 		// The name of your queue
 		const string QueueName = "OrdersQueue";
@@ -490,7 +482,7 @@ Ahora creará el rol de trabajo que procesa los envíos del pedido. Este ejemplo
 
 		using FrontendWebRole.Models;
 
-13. En la función `Run()` , dentro de la llamada `OnMessage`, agregue el código siguiente dentro de la cláusula  `try`:
+13. En la función  `Run()`, dentro de la llamada  `OnMessage`, agregue el código siguiente dentro de la cláusula  `try`:
 
 		Trace.WriteLine("Processing", receivedMessage.SequenceNumber.ToString());
 		// View the message as an OnlineOrder
@@ -509,12 +501,12 @@ Ahora creará el rol de trabajo que procesa los envíos del pedido. Este ejemplo
 Para obtener más información sobre el bus de servicio, consulte los siguientes recursos:  
 
 * [Bus de servicio de Azure][sbmsdn]  
-* [Procedimientos del Bus de servicio][sbwacom]  
+* [Página de servicio del Bus de servicio][sbwacom]  
 * [Utilización de las colas del Bus de servicio][sbwacomqhowto]  
 
 Para obtener más información sobre los escenarios de niveles múltiples o sobre cómo implementar una aplicación en un servicio en la nube, consulte:  
 
-* [Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento][mutitierstorage]  
+* [Aplicación .NET de niveles múltiples utilizando tablas, colas y blobs de almacenamiento][mutitierstorage]    
 
 Es posible que desee implementar el front-end de una aplicación de niveles múltiples en un sitio web de Azure en lugar de en un servicio en la nube de Azure. Para obtener más información sobre la diferencia entre sitios web y servicios en la nube, consulte [Modelos de ejecución de Azure][executionmodels].
 
@@ -575,4 +567,4 @@ Para obtener información sobre cómo implementar el front-end en un sitio web d
   [mutitierstorage]: /develop/net/tutorials/multi-tier-web-site/1-overview/
   [executionmodels]: http://azure.microsoft.com/develop/net/fundamentals/compute/
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -7,12 +7,12 @@ Para obtener acceso a la interfaz de usuario de MongoLab, realice las siguientes
 1. Seleccione **Complementos**.  
 ![AddonsButton][button-addons]
 1. Busque el servicio de MongoLab en la lista de complementos  
-![EntradaMongolab][entry-mongolabaddon]
+![MongolabEntry][entry-mongolabaddon]
 1. Haga clic en el nombre del complemento para ir a la página de complementos.
 1. Haga clic en **Administrar**.  
-![BotónAdministrar][button-manage]  
+![ManageButton][button-manage]  
 Se abrirá una nueva pestaña del explorador que muestra la página principal de la base de datos MongoLab:  
-![PáginaPrincipalBD][screen-dblanding]
+![DbHome][screen-dblanding]
 
 Desde ahí puede seleccionar una colección específica y explorar en profundidad los documentos individuales. Cierre la sesión cuando haya terminado.
 
@@ -20,4 +20,5 @@ Desde ahí puede seleccionar una colección específica y explorar en profundida
 [button-manage]: ./media/howto-access-mongolab-ui/button-manage.png
 [button-addons]: ./media/howto-access-mongolab-ui/button-addons.png
 [screen-dblanding]: ./media/howto-access-mongolab-ui/screen-mongolab_dblanding.png
-<!--HONumber=42-->
+
+<!--HONumber=49-->

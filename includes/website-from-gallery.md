@@ -1,69 +1,63 @@
-La galería pone a disposición del usuario una gran variedad de populares aplicaciones web desarrolladas por Microsoft, compañías de terceros e iniciativas de software de código abierto. Las aplicaciones web creadas desde la galería no requieren la instalación de ningún software que no sea el explorador utilizado para conectarse al Portal de administración de Azure. 
+﻿Azure Marketplace pone a disposición del usuario una gran variedad de populares aplicaciones web desarrolladas por Microsoft, compañías de terceros e iniciativas de software de código abierto. Las aplicaciones web creadas desde Azure Marketplace no requieren la instalación de ningún software que no sea el explorador utilizado para conectarse al [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715). 
 
 En este tutorial, aprenderá a:
 
-- Crear un nuevo sitio mediante la galería.
+- Crear una nueva aplicación web mediante Azure Marketplace.
 
-- Implementar el sitio mediante el Portal de Azure.
+- Implementar la aplicación web mediante el Portal de Azure.
  
 Va a crear un blog de WordPress que utiliza una plantilla predeterminada. La siguiente ilustración muestra la aplicación completada:
 
 
 ![Wordpress blog][13]
 
-> [AZURE.IMPORTANT] Para completar este tutorial, deberá tener una cuenta de Azure. Puede crear una cuenta de evaluación gratuita en pocos minutos. Para obtener más información, consulte [Creación de una cuenta de Azure](http://azure.microsoft.com/develop/php/tutorials/create-a-windows-azure-account/"%20target="_blank").
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-## Creación de un sitio web en el portal
+## Creación de una aplicación web en el portal
 
-1. Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com).
+1. Inicie sesión en el Portal de Azure.
 
-2. Haga clic en el icono **Nuevo** situado en la parte inferior izquierda del panel.
+2. Abra Azure Marketplace haciendo clic en el icono **Marketplace** o en el icono **Nuevo** situado en la parte inferior izquierda del panel, seleccione **Web + móvil** y, a continuación, **Azure Marketplace** en la parte inferior.
 	
-	![Create New][5]
-
-3. Haga clic en el icono **Sitio web** y en **De la galería**.
+	<!--todo:![Create New][5]-->
 	
-	![Create From Gallery][6]
+3. En Marketplace, seleccione **Aplicaciones web**.
 
-4. Busque en el icono WordPress en la lista, haga clic en él y, a continuación, haga clic en **Siguiente**.
+4. Haga clic en el icono **WordPress escalable**.
+
+	<!--todo:![WordPress from list][7]-->
 	
-	![WordPress from list][7]
+5. Después de leer la descripción de la aplicación de WordPress, seleccione **Crear**.
 
-5. En la página **Configurar la aplicación**, escriba o seleccione los valores de todos los campos:
+6. Haga clic en cada parte (**APLICACIÓN WEB**, **BASE DE DATOS** y **SUSCRIPCIÓN**) y escriba o seleccione valores para los campos obligatorios:
 	
 - Escriba un nombre de URL de su elección.	
-- Deje seleccionado **Crear una nueva base de datos MySQL** en el campo **Base de datos**.
 - Seleccione la región más cercana a la suya.
 
-	![configure your app][8]
+	<!--todo:![configure your app][8]-->
 
-6. A continuación, haga clic en **Siguiente**.
+7. Cuando termine de definir la aplicación web, haga clic en **Crear**.
 
-7. En la página **Crear nueva base de datos**, puede especificar un nombre para su nueva base de datos MySQL o usar el nombre predeterminado. Seleccione la región más cercana a la suya como ubicación del host. Active la casilla situada en la parte inferior de la pantalla para aceptar las condiciones de uso de ClearDB con su base de datos MySQL hospedada. A continuación, haga clic en el signo de verificación para completar la creación del sitio. 
+## Inicio y administración de la aplicación web de WordPress
 	
-	![create database][9]
+1. En la hoja **Aplicaciones web**, haga clic en la nueva aplicación web para abrir el panel.
 
-Después de hacer clic en **Completar**, Azure iniciará las operaciones de compilación e implementación. Durante la compilación y la implementación del sitio web, se muestra el estado de estas operaciones en la parte inferior de la página de sitios web. Una vez realizadas todas las operaciones, se mostrará un mensaje de estado final para informar de que el sitio se ha implementado correctamente.
+	<!--todo:![launch dashboard][10]-->
 
-## Inicio y administración de su sitio WordPress
+2. En la página **Aspectos básicos**, haga clic en el vínculo situado en **URL** para abrir la página de bienvenida de la aplicación web.
 
-1. Haga clic en su nuevo sitio desde la página **Sitios web** para abrir el panel del sitio.
+	<!--todo:![site URL][11]--> 
 
-	![launch dashboard][10]
+3. Si no ha instalado WordPress, escriba la información de configuración apropiada que solicite WordPress y haga clic en **Instalar WordPress** para finalizar la configuración y abrir la página de inicio de sesión de la aplicación web.
 
-2. En la página de administración del **Panel**, desplácese hacia abajo y haga clic en el vínculo situado en el lado izquierdo, bajo **URL de sitio** para abrir la página de bienvenida del sitio.
+	<!--todo:![login to WordPress][12]-->
 
+4. Haga clic en **Inicio de sesión** y escriba sus credenciales.  
+	<!--todo:screenshot-->
 
+5. Tendrá una nueva aplicación web WordPress con un aspecto similar al de la aplicación web que se muestra a continuación.    
 
-3. Escriba la información de configuración apropiada que solicite WordPress y haga clic en **Instalar WordPress** para finalizar la configuración y abrir la página de inicio de sesión del sitio web.
-
-
-
-4. Inicie sesión en el nuevo sitio web de WordPress escribiendo el nombre de usuario y la contraseña que ha especificado en la página de **bienvenida**.
-
-5. Tendrá un nuevo sitio WordPress con un aspecto similar al del sitio que se muestra a continuación.  
-
-	![your WordPress site][13]
+	<!--todo:![your WordPress site][13]-->
 
 
 
@@ -78,8 +72,4 @@ Después de hacer clic en **Completar**, Azure iniciará las operaciones de comp
 [10]: ./media/website-from-gallery/wordpressgallery-06.png
 [13]: ./media/website-from-gallery/wordpressgallery-09.png
 
-
-
-
-
-<!--HONumber=42-->
+<!--HONumber=49-->

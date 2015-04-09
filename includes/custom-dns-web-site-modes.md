@@ -1,5 +1,5 @@
-﻿La configuración de un nombre de dominio personalizado solo está disponible para los modos Compartido, Básico y Estándar de Sitios web Azure. Antes de cambiar un sitio web del modo Gratis al modo Compartido, Básico o Estándar, primero debe quitar los límites de gasto vigentes para la suscripción del sitio web. 
+La configuración de un nombre de dominio personalizado solo está disponible en los modos **Compartido**, **Básico** y **Estándar** de Aplicaciones web. Antes de cambiar una aplicación web del modo **Gratis** al modo **Compartido**, **Básico** o **Estándar**, es preciso eliminar los límites de gasto en vigor en la suscripción de Aplicaciones web. 
 
-Para obtener más información sobre los modos de sitio web, como la manera de cambiar el modo de su sitio, consulte  [Escalación de sitios web](/es-es/documentation/articles/web-sites-scale/).
+Para obtener más información sobre los modos de plan de los Servicios de aplicaciones, incluyendo cómo cambiar el modo de un sitio, consulte [Cómo escalar aplicaciones web](web-sites-scale.md) (en inglés).
 
-<!--HONumber=42-->
+<!--HONumber=49-->

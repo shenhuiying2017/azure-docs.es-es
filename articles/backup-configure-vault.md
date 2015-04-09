@@ -1,49 +1,40 @@
 ﻿<properties 
-	pageTitle="Configuración de los Servicios de recuperación de Azure para hacer copias de seguridad de Windows Server de manera rápida y fácil" 
+	pageTitle="Configuración de los servicios de Copia de seguridad de Azure para hacer copias de seguridad de Windows Server de manera rápida y fácil" 
 	description="Use este tutorial para aprender a utilizar el servicio Copia de seguridad en la nube de Microsoft Azure para crear copias de seguridad de Windows Server en la nube." 
-	services="site-recovery" 
+	services="backup" 
 	documentationCenter="" 
 	authors="markgalioto" 
 	manager="jwhit" 
 	editor="tysonn"/>
 
 <tags 
-	ms.service="site-recovery" 
-	ms.workload="backup-recovery" 
+	ms.service="backup" 
+	ms.workload="storage-backup-recovery" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/21/2014" 
+	ms.date="03/04/2015" 
 	ms.author="markgal"/>
 
 
 
 <h1><a id="configure-a-backup-vault-tutorial"></a>Configuración de Copia de seguridad de Azure para hacer copias de seguridad de Windows Server de manera rápida y fácil</h1>
-<div class="dev-callout"> 
-<strong>Nota:</strong>
- 
-<p>para completar este tutorial, deberá tener una cuenta de Azure. Este tutorial le guiará por el proceso de habilitación de la característica Copia de seguridad de Azure. Anteriormente, era necesario crear o adquirir un certificado X.509 v3 con el fin de registrar el servidor de copia de seguridad. Los certificados aún se admiten, pero ahora, para facilitar el proceso de registro de almacenes de Azure en un servidor, puede generar una credencial de almacén directamente en la página de inicio rápido. </p>
-<ul> 
-<li>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener información, consulte <a href="/es-es/pricing/free-trial/">Evaluación gratuita de Azure</a>.</li> 
- 
 
-</ul>
- 
-
-</div>
+> [AZURE.NOTE] Para completar este tutorial, debe tener una cuenta de Azure. Este tutorial le guiará por el proceso de habilitación de la característica Copia de seguridad de Azure. Anteriormente, era necesario crear o adquirir un certificado X.509 v3 con el fin de registrar el servidor de copia de seguridad. Los certificados aún se admiten, pero ahora, para facilitar el proceso de registro de almacenes de Azure en un servidor, puede generar una credencial de almacén directamente en la página de inicio rápido. 
+<ul><li>En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="/pricing/free-trial/">Evaluación gratuita de Azure</a>.</li></ul>
   
 
-<p>Para hacer una copia de seguridad de los archivos y los datos desde Windows Server hasta Azure, debe crear un almacén para las copias de seguridad de credenciales en la región geográfica donde desea almacenar los datos. Este tutorial lo guiará por el proceso de creación del almacén que va a usar para almacenar copias de seguridad, la descarga de una credencial de almacén, la instalación de un agente de copia de seguridad y una introducción de las tareas de administración de las copias de seguridad disponibles a través del portal de administración.</p>
+<p>Para hacer una copia de seguridad de los archivos y los datos de Windows Server en Azure, debe crear un almacén de copia de seguridad en la región geográfica donde desea almacenar los datos. Este tutorial le guiará por el proceso de creación del almacén que se va a usar para las copias de seguridad, la descarga de una credencial de almacén, la instalación de un agente de copia de seguridad y una introducción a las tareas de administración de las copias de seguridad disponibles a través del portal de administración.</p>
 
 
 
-<h2><a id="create"></a>Creación de un almacén de credenciales de copia de seguridad</h2>
+<h2><a id="create"></a>Creación de un almacén de copia de seguridad</h2>
 
 1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com).
 
 2. Haga clic en **Nuevo**, seleccione **Servicios de datos** y luego **Servicios de recuperación**, haga clic en **Almacén de copia de seguridad** y luego en **Creación rápida**.
 
-3. En **Name**, escriba un nombre descriptivo para identificar el almacén de credenciales de copia de seguridad.
+3. En **Nombre**, escriba un nombre descriptivo para identificar el almacén de copia de seguridad.
 
 4. En **Región**, seleccione la región geográfica para el almacén de credenciales de copia de seguridad.  
 ![New backup vault](http://i.imgur.com/8ptgjuo.png)
@@ -55,7 +46,7 @@
 
 3. Si tiene varias suscripciones asociadas a su cuenta profesional, elija la cuenta adecuada que se asociará al almacén de copia de seguridad.
 
-<h2><a id="upload"></a>Descargar una credencial de almacén</h2>
+<h2><a id="upload"></a>Descarga de una credencial de almacén</h2>
 
 Las credenciales de almacén reemplazan los certificados como manera de registrar el servicio de Azur en el servidor. Los certificados aún se pueden usar. Sin embargo, las credenciales de almacén son más fáciles de usar porque utiliza el portal de Azure para generarlas y descargarlas.  
 
@@ -82,7 +73,7 @@ Después de que se instala el agente, puede usar la interfaz de administración 
 	
   
 
-<h2><a id="manage"></a>Administración de almacenes de credenciales de copia de seguridad y servidores</h2>
+<h2><a id="manage"></a>Administración de almacenes de copia de seguridad y servidores</h2>
 1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com).
 
 2. Haga clic en **Servicios de recuperación** y luego en el nombre del almacén de copia de seguridad para ver la página de inicio rápido. 
@@ -114,6 +105,6 @@ Después de que se instala el agente, puede usar la interfaz de administración 
 [deleted-server]: ./media/backup-configure-vault/RS_deletedserver.png
 [protected-itmes]: ./media/backup-configure-vault/RS_protecteditems.png
 
-<!--HONumber=35.2-->
+<!--HONumber=49--> 
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

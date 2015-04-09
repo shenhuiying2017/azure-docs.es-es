@@ -2,7 +2,7 @@
 
 Tras probar la aplicación cliente con el servicio móvil local, el paso final de este tutorial consiste en publicar el servicio móvil en Azure y ejecutar la aplicación en el servicio en directo.
 
->[AZURE.NOTE] En este procedimiento se explica cómo publicar el servicio móvil con las herramientas de Visual Studio. También puede publicar el servicio móvil backend de .NET con la utilización del control de origen. Para obtener más información, consulte [Almacenamiento de códigos de proyectos en control de código fuente](/documentation/articles/mobile-services-dotnet-backend-store-code-source-control/).
+>[AZURE.NOTE] En este procedimiento se explica cómo publicar el servicio móvil con las herramientas de Visual Studio. También puede publicar el servicio móvil back-end de .NET con la utilización del control de origen. Para obtener más información, consulte [Almacenamiento de códigos de proyectos en control de código fuente](../articles/mobile-services-dotnet-backend-store-code-source-control.md).
 
 1. En el Explorador de soluciones, haga clic con el botón secundario en el proyecto de servicio móvil, haga clic en**Publicar** y, a continuación, en el cuadro de diálogo **Publicación web**, haga clic en **Servicios móviles de Azure**.
 
@@ -16,4 +16,4 @@ Tras probar la aplicación cliente con el servicio móvil local, el paso final d
 
 	Una vez realizada la publicación, volverá a ver la página de confirmación de que el servicio móvil está en funcionamiento, aunque esta vez en Azure.
 
-<!--HONumber=47-->
+<!--HONumber=49-->

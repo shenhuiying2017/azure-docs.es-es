@@ -1,5 +1,5 @@
 ﻿1. Haga clic en la pestaña **Aplicaciones** en la página del directorio del [Portal de administración de Azure](https://manage.windowsazure.com/).
-  
+
 2. Haga clic en el registro de la aplicación integrado.
 
 3. Haga clic en **Configurar** en la página de la aplicación y desplácese hacia la sección **claves** de la página. 
@@ -30,6 +30,8 @@
     </tr>
     </table><br/>
 
- 
+
     ![](./media/mobile-services-generate-aad-app-registration-access-key/aad-app-settings.png)
-  <!--HONumber=42-->
+
+
+<!--HONumber=49-->

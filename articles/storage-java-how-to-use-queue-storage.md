@@ -1,11 +1,11 @@
-<properties 
-	pageTitle="Uso del servicio de colas (Java) | Microsoft Azure" 
+﻿<properties 
+	pageTitle="Uso del almacenamiento de colas de Java | Microsoft Azure" 
 	description="Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Ejemplos escritos en Java." 
 	services="storage" 
 	documentationCenter="java" 
 	authors="rmcmurray" 
 	manager="wpickett" 
-	editor=""/>
+	editor="jimbe"/>
 
 <tags 
 	ms.service="storage" 
@@ -13,47 +13,30 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="Java" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="03/11/2015" 
 	ms.author="robmcm"/>
 
-# Uso del almacenamiento de colas en Java
+# Uso del almacenamiento de colas de Java
 
-Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Azure. Los ejemplos están escritos en Java y utilizan el [SDK de almacenamiento de Azure para Java][]. Entre los escenarios descritos se incluyen la **inserción**, **inspección**, **obtención** y **eliminación** de mensajes de la cola, así como la **creación** y **eliminación de** colas. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes](#NextSteps).
+[AZURE.INCLUDE [storage-selector-queue-include](../includes/storage-selector-queue-include.md)]
 
-Nota: hay un SDK disponible para los desarrolladores que usen el almacenamiento de Azure en dispositivos Android. Para obtener más información, consulte el [SDK de almacenamiento de Azure para Android][]. 
+## Información general
 
-## <a name="Contents"> </a>Tabla de contenido
+Esta guía muestra cómo realizar algunas tareas comunes a través del servicio de almacenamiento en cola de Azure. Los ejemplos están escritos en Java y utilizan el[SDK de almacenamiento de Azure para Java][]. Entre los escenarios descritos se incluyen **insertar**, **ojear**, **obtener** y **eliminar** mensajes de la cola, así como **crear** y **eliminar** colas. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes](#NextSteps) .
 
-* [¿Qué es el almacenamiento en cola?](#what-is)
-* [Conceptos](#Concepts)
-* [Creación de una cuenta de almacenamiento de Azure](#CreateAccount)
-* [Creación de una aplicación Java](#CreateApplication)
-* [Configuración de la aplicación para obtener acceso al almacenamiento en cola](#ConfigureStorage)
-* [Configuración de una cadena de conexión de almacenamiento de Azure](#ConnectionString)
-* [Uso de de una cola](#create-queue)
-* [Uso de un mensaje a una cola](#add-message)
-* [Uso de siguiente mensaje](#peek-message)
-* [Establecimiento contenido de un mensaje en cola](#change-message)
-* [Establecimiento la longitud de la cola](#get-queue-length)
-* [Establecimiento siguiente mensaje de la cola](#dequeue-message)
-* [Opciones adicionales para quitar mensajes de la cola](#additional-options)
-* [Uso de las colas](#list-queues)
-* [Uso de una cola](#delete-queue)
-* [Pasos siguientes](#NextSteps)
+Nota: hay un SDK disponible para los desarrolladores que usen el almacenamiento de Azure en dispositivos Android. Para obtener más información, consulte el[SDK de almacenamiento de Azure para Android][]. 
 
-[AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
-
-<h2><a id="CreateAccount"></a>Creación de una cuenta de almacenamiento de Azure</h2>
+[AZURE.INCLUDE [storage-queue-concepts-include](../includes/storage-queue-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-## <a name="CreateApplication">Creación de una aplicación Java</a>
+## Creación de una aplicación Java
 
 En esta guía utilizará funciones del almacenamiento que puede ejecutar en una aplicación Java localmente o bien mediante código a través de un rol web o un rol de trabajo de Azure.
 
-Para ello, deberá instalar el Kit de desarrollo de Java (JDK) y crear una cuenta de almacenamiento de Azure en su suscripción de Azure. A continuación, deberá verificar que su sistema de desarrollo satisface los requisitos mínimos y las dependencias que se indican en el repositorio del [SDK de almacenamiento de Azure para Java][ en GitHub.] Si su sistema cumple esos requisitos, puede seguir las instrucciones para descargar e instalar las bibliotecas de almacenamiento de Azure para Java en su sistema desde ese repositorio. Cuando haya completado esas tareas, podrá crear una aplicación Java que use los ejemplos de este artículo.
+Para ello, deberá instalar el Kit de desarrollo de Java (JDK) y crear una cuenta de almacenamiento de Azure en su suscripción de Azure. A continuación, deberá verificar que su sistema de desarrollo satisface los requisitos mínimos y las dependencias que se indican en el repositorio del [SDK de almacenamiento de Azure para Java][] en GitHub. Si su sistema cumple esos requisitos, puede seguir las instrucciones para descargar e instalar las bibliotecas de almacenamiento de Azure para Java en su sistema desde ese repositorio. Cuando haya completado esas tareas, podrá crear una aplicación Java que use los ejemplos de este artículo.
 
-## <a name="ConfigureStorage">Configuración de la aplicación para obtener acceso al almacenamiento en cola</a>
+## Configuración de la aplicación para obtener acceso al almacenamiento en cola
 
 Agregue las siguientes instrucciones de importación en la parte superior del archivo Java en el que desea utilizar las API de almacenamiento de Azure para obtener acceso a las colas:
 
@@ -61,9 +44,9 @@ Agregue las siguientes instrucciones de importación en la parte superior del ar
     import com.microsoft.azure.storage.*;
     import com.microsoft.azure.storage.queue.*;
 
-## <a name="ConnectionString">Configuración de una cadena de conexión de almacenamiento de Azure</a>
+## Configuración de una cadena de conexión de almacenamiento de Azure
 
-Un cliente de almacenamiento de Azure utiliza una cadena de conexión de almacenamiento para almacenar extremos y credenciales con el fin de obtener acceso a los servicios de administración de datos. Al ejecutarse en una aplicación cliente, debe proporcionar la cadena de conexión de almacenamiento en el siguiente formato, utilizando el nombre de su cuenta de almacenamiento y la clave de acceso principal de la cuenta de almacenamiento que se muestra en el Portal de administración para los valores  *AccountName* y  *AccountKey*. En este ejemplo se muestra cómo puede declarar un campo estático para mantener la cadena de conexión:
+Un cliente de almacenamiento de Azure utiliza una cadena de conexión de almacenamiento para almacenar extremos y credenciales con el fin de obtener acceso a los servicios de administración de datos. Cuando se ejecuta en una aplicación cliente, debe proporcionar la cadena de conexión de almacenamiento en el formato siguiente, usando el nombre de la cuenta de almacenamiento y la clave de acceso principal para la cuenta de almacenamiento que aparece en el Portal de administración para los valores  *AccountName* y *AccountKey*. En este ejemplo se muestra cómo puede declarar un campo estático para mantener la cadena de conexión:
 
     // Define the connection-string with your values.
     public static final String storageConnectionString = 
@@ -79,11 +62,11 @@ En una aplicación en ejecución dentro de un rol de Microsoft Azure, esta caden
 
 En los ejemplos siguientes se supone que ha usado uno de estos dos métodos para obtener la cadena de conexión de almacenamiento.
 
-## <a name="create-queue"> </a>Procedimiento: de una cola
+## Procedimientos: Creación de una cola
 
-Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. (Nota: Hay otras maneras de crear objetos **CloudStorageAccount**. Para obtener más información, consulte **CloudStorageAccount** en la referencia del [SDK de cliente de almacenamiento de Azure]).
+Los objetos **CloudQueueClient** le permiten obtener objetos de referencia para las colas. El siguiente código crea un objeto **CloudQueueClient**. (Nota: Hay otras maneras de crear objetos **CloudStorageAccount**. Para obtener más información, consulte **CloudStorageAccount** en la [Referencia del SDK de cliente de almacenamiento de Azure]).
 
-Utilice el objeto **CloudQueueClient** para obtener una referencia a la cola que desea utilizar. En caso de que la cola no exista todavía, es posible crearla.
+Utilice el objeto**CloudQueueClient** para obtener una referencia a la cola que desea utilizar. En caso de que la cola no exista todavía, es posible crearla.
 
     try
     {
@@ -106,7 +89,7 @@ Utilice el objeto **CloudQueueClient** para obtener una referencia a la cola que
         e.printStackTrace();
     }
 
-## <a name="add-message"> </a>Procedimiento: un mensaje a una cola
+## Procedimientos: Incorporación de un mensaje a una cola
 
 Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo **CloudQueueMessage**. A continuación, llame al método **addMessage**. Se puede crear un **CloudQueueMessage** a partir de una cadena (en formato UTF-8) o de una matriz de bytes. A continuación se muestra el código con el que se crea una cola (si no existe) y se inserta el mensaje "Hola, mundo".
 
@@ -135,9 +118,9 @@ Para insertar un mensaje en una cola existente, cree en primer lugar un nuevo **
         e.printStackTrace();
     }
 
-## <a name="peek-message"> </a>Procedimiento: siguiente mensaje
+## Procedimientos: siguiente mensaje
 
-Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método **peekMessage**.
+Puede ojear el mensaje situado en la parte delantera de una cola, sin quitarlo de la cola, mediante una llamada al método **peekMessage**.
 
     try
     {
@@ -166,9 +149,9 @@ Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin qui
         e.printStackTrace();
     }
 
-## <a name="change-message"> </a>Procedimiento: contenido de un mensaje en cola
+## Procedimientos: contenido de un mensaje en cola
 
-Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje representa una tarea de trabajo, puede utilizar esta característica para actualizar el estado de la tarea de trabajo. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 60 segundos más. De este modo, se guarda el estado de trabajo asociado al mensaje y se le proporciona al cliente un minuto más para que siga elaborando el mensaje. Esta técnica se puede utilizar para realizar un seguimiento de los flujos de trabajo de varios pasos en los mensajes en cola, sin que sea necesario volver a empezar desde el principio si se produce un error en un paso del proceso a causa de un error de hardware o software. Normalmente, también se registraría el recuento de reintentos, y si el mensaje se intentara más de *n* veces, se eliminaría. Esto proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
+Puede cambiar el contenido de un mensaje local en la cola. Si el mensaje representa una tarea de trabajo, puede utilizar esta característica para actualizar el estado de la tarea de trabajo. El siguiente código actualiza el mensaje de la cola con contenido nuevo y amplía el tiempo de espera de la visibilidad en 60 segundos más. De este modo, se guarda el estado de trabajo asociado al mensaje y se le proporciona al cliente un minuto más para que siga elaborando el mensaje. Esta técnica se puede utilizar para realizar un seguimiento de los flujos de trabajo de varios pasos en los mensajes en cola, sin que sea necesario volver a empezar desde el principio si se produce un error en un paso del proceso a causa de un error de hardware o software. Normalmente, también mantendría un número de reintentos y, si el mensaje se intentara más de *n* veces, lo eliminaría. Esto proporciona protección frente a un mensaje que produce un error en la aplicación cada vez que se procesa.
 
 El siguiente código de ejemplo busca en la cola de mensajes, encuentra el primer mensaje cuyo contenido coincide con "Hola, mundo" y luego modifica el contenido del mensaje "Hola mundo" y se cierra. 
 
@@ -246,9 +229,9 @@ Como alternativa, el siguiente código de ejemplo actualiza únicamente el prime
         e.printStackTrace();
     }
 
-## <a name="get-queue-length"> </a>Procedimiento: la longitud de la cola
+## Procedimientos: la longitud de la cola
 
-Puede obtener una estimación del número de mensajes existentes en una cola. El método **downloadAttributes** pide al servicio de cola varios valores actuales, incluido un conteo de cuántos mensajes están en la cola. El recuento solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud. El método **getApproximateMessageCount** devuelve el último valor recuperado por la llamada a **downloadAttributes**, sin llamar al servicio de cola.
+Puede obtener una estimación del número de mensajes existentes en una cola. El método **downloadAttributes** pide al servicio de cola varios valores actuales, incluido un recuento de cuántos mensajes están en la cola. El recuento solo es aproximado, ya que se pueden agregar o borrar mensajes después de que el servicio de cola haya respondido su solicitud. El método **getApproximateMessageCount** devuelve el último valor recuperado por la llamada a **downloadAttributes**, sin llamar al servicio de cola.
 
     try
     {
@@ -277,9 +260,9 @@ Puede obtener una estimación del número de mensajes existentes en una cola. El
         e.printStackTrace();
     }
 
-## <a name="dequeue-message"> </a>Procedimiento: siguiente mensaje de la cola
+## Procedimientos: siguiente mensaje de la cola
 
-El código extrae un mensaje de una cola en dos pasos. Si llama a **retrieveMessage**, obtiene el siguiente mensaje en una cola. Un mensaje devuelto por **retrieveMessage** se hace invisible a cualquier otro código de lectura de mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para acabar de quitar el mensaje de la cola, también debe llamar a **deleteMessage**. Este proceso extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código llama a **deleteMessage** justo después de procesar el mensaje.
+El código extrae un mensaje de una cola en dos pasos. Al llamar a **retrieveMessage**, obtiene el siguiente mensaje de una cola. Un mensaje devuelto por **retrieveMessage** se hace invisible a cualquier otro código que lea mensajes de esta cola. De forma predeterminada, este mensaje permanece invisible durante 30 segundos. Para acabar de quitar el mensaje de la cola, también debe llamar a **deleteMessage**. Este proceso extracción de un mensaje que consta de dos pasos garantiza que si su código no puede procesar un mensaje a causa de un error de hardware o software, otra instancia de su código puede obtener el mismo mensaje e intentarlo de nuevo. El código llama a **deleteMessage** justo después de procesar el mensaje.
 
     try
     {
@@ -309,7 +292,7 @@ El código extrae un mensaje de una cola en dos pasos. Si llama a **retrieveMess
     }
 
 
-## <a name="additional-options">Opciones adicionales para quitar mensajes de la cola</a>
+## Opciones adicionales para quitar mensajes de la cola
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola. En primer lugar, puede obtener un lote de mensajes (hasta 32). En segundo lugar, puede establecer un tiempo de espera de la invisibilidad más largo o más corto para que el código disponga de más o menos tiempo para procesar cada mensaje.
 
@@ -340,9 +323,9 @@ El siguiente ejemplo de código utiliza el método **retrieveMessage** para obte
         e.printStackTrace();
     }
 
-## <a name="list-queues"> </a>Procedimiento: las colas
+## Procedimientos: las colas
 
-Para obtener una lista de las colas actuales, llame al método **CloudQueueClient.listQueues()**, el cual devolverá una colección de objetos **CloudQueue**. 
+Para obtener una lista de las colas actuales, llame al método **CloudQueueClient.listQueues()**, que devolverá una colección de objetos **CloudQueue**. 
 
     try
     {
@@ -367,7 +350,7 @@ Para obtener una lista de las colas actuales, llame al método **CloudQueueClien
         e.printStackTrace();
     }
 
-## <a name="delete-queue"> </a>Procedimiento: una cola
+## Procedimientos: Eliminación de una cola
 
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método **deleteIfExists** en el objeto **CloudQueue**.
 
@@ -392,9 +375,9 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
         e.printStackTrace();
     }
 
-## <a name="NextSteps"> </a>Pasos siguientes
+## Pasos siguientes
 
-Ahora que está familiarizado con los aspectos básicos del almacenamiento en cola, utilice estos vínculos para obtener más información acerca de cómo realizar tareas de almacenamiento más complejas.
+Ahora que está familiarizado con los aspectos básicos del almacenamiento de colas, utilice estos vínculos para obtener más información acerca de tareas de almacenamiento más complejas.
 
 - [SDK de almacenamiento de Azure para Java]
 - [Referencia del SDK de cliente de almacenamiento de Azure]
@@ -407,4 +390,5 @@ Ahora que está familiarizado con los aspectos básicos del almacenamiento en co
 [Referencia del SDK de cliente de almacenamiento de Azure]: http://dl.windowsazure.com/storage/javadoc/
 [API de REST de almacenamiento de Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
-<!--HONumber=42-->
+
+<!--HONumber=49-->

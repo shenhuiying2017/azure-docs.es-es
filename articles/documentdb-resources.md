@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Modelo de recursos y conceptos de Base de datos de documentos | Azure" 
+	pageTitle="Modelo de recursos y conceptos de la Base de datos de documentos | Azure" 
 	description="La Base de datos de documentos de Microsoft Azure es una base de datos de documentos NoSQL totalmente administrada que usa un modelo jerárquico de cuentas de base de datos, bases de datos, colecciones, procedimientos almacenados, desencadenadores, funciones definidas por el usuario, documentos, datos adjuntos, medios, usuarios y permisos para administrar los recursos."  
 	services="documentdb" 
 	documentationCenter="" 
@@ -16,7 +16,7 @@
 	ms.date="02/03/2015" 
 	ms.author="mimig"/>
 
-# Modelo de recursos y conceptos de Base de datos de documentos
+#Modelo de recursos y conceptos de Base de datos de documentos
 
 Las entidades de base de datos que administra Base de datos de documentos se conocen como **recursos**. Cada recurso se identifica mediante un URI lógico. Se puede interactuar con los recursos mediante verbos HTTP estándar, encabezados de solicitud/respuesta y códigos de estado. 
 
@@ -29,31 +29,31 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 - ¿Cómo se trabaja con las colecciones?
 - ¿Cómo se trabaja con procedimientos almacenados, desencadenadores y UDF?
 
-## Modelo jerárquico de recursos
+##Modelo jerárquico de recursos
 Tal y como muestra el siguiente diagrama, el **modelo de recursos** de Base de datos de documentos consta de conjuntos de recursos en una cuenta de base de datos, cada uno de ellos direccionable mediante un URI lógico y estable. En este artículo, los conjuntos de recursos se denominan **fuentes**. 
 
 >[AZURE.NOTE] Base de datos de documentos ofrece también un protocolo de TCP sumamente eficaz que también es RESTful en su modelo de comunicación, y está disponible a través del [SDK de cliente de .NET](https://msdn.microsoft.com/library/azure/dn781482.aspx).
 
 ![][1]  
-**Hierarchical resource model under a database account**   
+**Modelo de recursos jerárquico en una cuenta de base de datos**   
 
-Para empezar a trabajar con los recursos, debe [crear una cuenta para la base de datos de Base de datos de documentos](./documentdb-create-account.md) usando su suscripción a Azure. Una cuenta de base de datos puede constar de un grupo de **bases de datos**, cada una con varias **colecciones**, que a su vez pueden contener **procedimientos almacenados, desencadenadores, UDF, documentos** y **datos adjuntos** relacionados. Una base de datos también tiene **usuarios** asociados, cada uno con un conjunto de **permisos** para obtener acceso a las colecciones, procedimientos almacenados, desencadenadores, UDF, documentos o datos adjuntos. Mientras las bases de datos, usuarios, permisos y colecciones son recursos definidos por el sistema con esquemas, documentos y datos adjuntos conocidos con contenido arbitrario JSON definido por el usuario.  
+Para empezar a trabajar con los recursos, debe [crear una cuenta de base de datos para Base de datos de documentos](documentdb-create-account.md) mediante su suscripción a Azure. Una cuenta de base de datos puede constar de un grupo de **bases de datos**, cada una con varias **colecciones**, que a su vez pueden contener **procedimientos almacenados, desencadenadores, UDF, documentos** y **datos adjuntos** relacionados. Una base de datos también tiene **usuarios** asociados, cada uno con un conjunto de **permisos** para obtener acceso a las colecciones, procedimientos almacenados, desencadenadores, UDF, documentos o datos adjuntos. Mientras las bases de datos, usuarios, permisos y colecciones son recursos definidos por el sistema con esquemas, documentos y datos adjuntos conocidos con contenido arbitrario JSON definido por el usuario.  
 
 |Recurso 	|Descripción
 |-----------|-----------
-|Cuenta de base de datos	|Una cuenta de base de datos está asociada con una o más unidades de capacidad que representan el almacenamiento de documentos aprovisionado y la capacidad de proceso, un conjunto de bases de datos y almacenamiento de blobs. Puede crear una o más cuentas de base de datos mediante su suscripción a Azure.
-|Base de datos	|Una base de datos es un contenedor lógico de almacenamiento de documentos particionado en colecciones. Es también un contenedor de usuarios.
-|Usuario	|El espacio de nombres lógico para permisos de ámbito/partición. 
+|Cuenta de base de datos	|Una cuenta de base de datos está asociada con una o más unidades de capacidad que representan un almacenamiento de documentos aprovisionado y rendimiento, un conjunto de bases de datos y almacenamiento de blobs. Puede crear una o más cuentas de base de datos mediante su suscripción a Azure.
+|Database	|Una base de datos es un contenedor lógico de almacenamiento de documentos particionado en recopilaciones. Es también un contenedor de usuarios.
+|Usuario	|El espacio de nombres lógico para ámbito/partición de permisos. 
 |Permiso	|Un token de autorización asociado con un usuario para el acceso autorizado a un recurso específico.
 |Colección	|Una colección es un contenedor de documentos JSON asociado a la lógica de aplicación de JavaScript.
 |Procedimiento almacenado	|Lógica de aplicaciones creada en JavaScript que se registra con una recopilación y se ejecuta de manera transaccional en el motor de la base de datos.
 |Desencadenador	|Lógica de aplicaciones creada en JavaScript que modela los efectos secundarios asociados con las operaciones de inserción, reemplazo o eliminación.
 |UDF	|Una lógica de aplicaciones sin efectos secundarios creada en JavaScript. Las UDF le permiten modelar un operador de consultas personalizado y con ello ampliar el lenguaje de consultas de la Base de datos de documentos central.
-|Documento	|Contenido JSON (arbitrario) definido por el usuario. De manera predeterminada, no es necesario definir esquemas ni proporcionar índices secundarios para todos los documentos agregados a una recopilación.
+|Documento	|Contenido JSON definido por el usuario (arbitrario). De manera predeterminada, no es necesario definir esquemas ni proporcionar índices secundarios para todos los documentos agregados a una recopilación.
 |Datos adjuntos	|Los datos adjuntos son documentos especiales que contienen referencias y metadatos asociados con blobs/medios externos. El desarrollador puede decidir administrar los blobs a través de Base de datos de documentos o almacenarlos con un proveedor de servicios de blobs externos como OneDrive, Dropbox, etc. 
 
 
-## Recursos del sistema frente a recursos definidos por el usuario
+##Recursos del sistema frente a recursos definidos por el usuario
 Los recursos (por ejemplo, las cuentas de bases de datos, las bases de datos, las colecciones, los usuarios, los permisos, los procedimientos almacenados, los desencadenadores y las UDF) tienen todos un esquema fijo y se les denomina "recursos del sistema". En cambio, los recursos como documentos y datos adjuntos no tienen restricciones de esquema y son ejemplos de recursos definidos por el usuario. En la Base de datos de documentos, tanto los recursos del sistema como los definidos por el usuario se representan y controlan como JSON compatibles con el estándar. Todos los recursos ya sean definidos por el sistema o el usuario tienen las siguientes propiedades en común.
 
 >[AZURE.NOTE] Tenga en cuenta que todas las propiedades generadas por el sistema en un recurso tienen un prefijo con subrayado (_) en su representación de JSON.  
@@ -100,15 +100,15 @@ Los recursos (por ejemplo, las cuentas de bases de datos, las bases de datos, la
 </tbody>
 </table>  
 
-### Representación de conexión de los recursos
+###Representación de conexión de los recursos
 La Base de datos de documentos no exige ninguna extensión propietaria a la norma JSON ni codificaciones especiales; funciona con documentos JSON según la norma.  
  
-### Direccionamiento de un recurso
+###Direccionamiento de un recurso
 Todos los recursos se pueden diseccionar mediante URI. El valor de la propiedad **_self** de un recurso representa la URI relativa del recurso. El formato de la URI consta de los segmentos de ruta /\<feed\>/{_rid}:  
 
-|Valor de la descripción |_self
+|Valor de _self	|Descripción
 |-------------------|-----------
-|/dbs|Fuente de bases de datos bajo una cuenta de base de datos.
+|/dbs	|Fuente de bases de datos en una cuenta de base de datos.
 |/dbs/{_rid-db}	|Base de datos con la propiedad de identificador único con el valor {_rid-db}.
 |/dbs/{_rid-db}/colls/	|Fuente de colecciones en una base de datos.
 |/dbs/{_rid-db}/colls/{_rid-coll}	|Colección con la propiedad de identificador único con el valor {_rid-coll}.
@@ -123,16 +123,16 @@ Cada recurso tiene también un identificador de recursos jerárquico generado po
 
 Los valores de las propiedades _self y _rid son representaciones alternativas y canónicas de un recurso.  
 
-## Cuentas de la base de datos
+##Cuentas de la base de datos
 Puede aprovisionar una o más cuentas de la base de datos de Base de datos de documentos mediante su suscripción a Azure. Para su cuenta de base de datos, puede adquirir unidades apilables de almacenamiento de documentos con respaldo SSD y capacidad de proceso en términos de unidades de capacidad (CU), tal y como se muestra en el siguiente diagrama.    
 
 ![][2] 
 
 Según su escala de aplicaciones y necesidades de rendimiento, puede agregar o eliminar CU de forma incremental. Cada CU viene con un conjunto de colecciones elásticas, almacenamiento de documentos aprovisionado respaldado de SSD y capacidad de proceso aprovisionada. El almacenamiento y la capacidad de proceso aprovisionados asociados con una CU se distribuyen en todas las colecciones de la Base de datos de documentos que cree en diferentes bases de datos de su cuenta de base de datos. La capacidad aprovisionada con una cuenta de base de datos está disponible para todas las bases de datos y colecciones que existen o se han creado dentro de la cuenta. Prácticamente no hay límite de escala en el tamaño de una cuenta de base de datos; se puede agregar cualquier número de unidades de capacidad con el tiempo en función de las restricciones de la oferta. Los recursos gestionados en una CU se escalan mediante particiones y se replican para obtener una alta disponibilidad. 
 
-También puede [crear y administrar cuentas de base de datos de Base de datos de documentos](./documentdb-create-account.md) mediante el portal de Azure en [http://portal.azure.com/](http://portal.azure.com/). Crear y controlar una cuenta de base de datos requiere acceso administrativo y solo se puede realizar con su suscripción a Azure. 
+Puede [crear y administrar cuentas de base de datos de Base de datos de documentos](documentdb-create-account.md) mediante el portal de Azure en [http://portal.azure.com/](http://portal.azure.com/). Crear y controlar una cuenta de base de datos requiere acceso administrativo y solo se puede realizar con su suscripción a Azure. 
 
-### Propiedades de la cuenta de base de datos
+###Propiedades de la cuenta de base de datos
 Como parte del aprovisionamiento y control de una cuenta de base de datos, puede configurar y leer las siguientes propiedades:  
 
 <table border="1" cellspacing="0" cellpadding="0" > 
@@ -192,9 +192,9 @@ Como parte del aprovisionamiento y control de una cuenta de base de datos, puede
 </tbody>
 </table>
 
-Tenga en cuenta que, además del aprovisionamiento, la configuración y el control de su cuenta de base de datos desde el portal de Azure, también puede crear y controlar de forma programática cuentas de base de datos de Base de datos de documentos mediante las [API REST de Base de datos de documentos de Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx), así como los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx).  
+Tenga en cuenta que, además del aprovisionamiento, la configuración y la administración de su cuenta de base de datos desde el portal de Azure, también puede crear y administrar mediante programación cuentas de base de datos de Base de datos de documentos mediante las [API REST de Base de datos de documentos de Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx), así como los [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx).  
 
-## Bases de datos
+##Bases de datos
 Una base de datos de Base de datos de documentos es un contenedor lógico de una o varias colecciones o usuarios, como se muestra en el diagrama siguiente. Puede crear cualquier número de bases de datos en la cuenta de base de datos de Base de datos de documentos en función de los límites de la oferta.  
 
 ![][3]  
@@ -202,7 +202,7 @@ Una base de datos de Base de datos de documentos es un contenedor lógico de una
 
 Una base de datos puede contener almacenamiento de documentos prácticamente ilimitado particionado por colecciones, que forman los dominios de transacción para los documentos que las contienen. 
 
-### Escala elástica de una base de datos de Base de datos de documentos
+###Escala elástica de una base de datos de Base de datos de documentos
 Una base de datos de la Base de datos de documentos es elástica de forma predeterminada, desde unos pocos GB hasta petabytes de almacenamiento de documentos respaldado y capacidad de proceso aprovisionada de SSD. 
 
 A diferencia de una base de datos en RDBMS tradicional, una base de datos en la Base de datos de documentos no está dirigida a un único equipo. Con la Base de datos de documentos, a medida que aumenten sus necesidades de escala de la aplicación, podrá crear más colecciones, bases de datos o ambas. De hecho, varias aplicaciones propias dentro de Microsoft han utilizado la Base de datos de documentos a nivel de consumidor creando bases de datos de la Base de datos de documentos extremadamente grandes conteniendo cada una miles de colecciones con terabytes de almacenamiento de documentos. Puede ampliar o reducir una base de datos agregando o eliminando colecciones para cumplir con los requisitos de escala de su aplicación. 
@@ -211,18 +211,18 @@ Puede crear cualquier número de colecciones dentro de una base de datos en func
 
 Una base de datos de la Base de datos de documentos también es un contenedor de usuarios. Un usuario, a su vez, es un espacio de nombres lógico para un conjunto de permisos que proporciona autorización y acceso detallado a colecciones, documentos y datos adjuntos.  
  
-Como con otros recursos en el modelo de recursos de Base de datos de documentos, las bases de datos se pueden crear, reemplazar, eliminar, leer o enumerar fácilmente mediante las [API REST de Base de datos de documentos de Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) o con cualquier [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). La Base de datos de documentos garantiza una gran coherencia para leer o consultar los metadatos de un recurso de base de datos. Eliminar una base de datos automáticamente garantiza que no puede obtener acceso a ninguna colección o usuario contenidos en la misma. Incluso aunque la Base de datos de documentos reclame el almacenamiento y capacidad de proceso aprovisionada como parte de la base de datos eliminada en segundo plano, tanto el almacenamiento como la capacidad de proceso aprovisionada de la base de datos eliminada estarán disponibles inmediatamente para su uso.   
+Como con otros recursos en el modelo de recursos de Base de datos de documentos, las bases de datos se pueden crear, reemplazar, eliminar, leer o enumerar fácilmente mediante las [API REST de Base de datos de documentos de Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) o cualquier [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). La Base de datos de documentos garantiza una gran coherencia para leer o consultar los metadatos de un recurso de base de datos. Eliminar una base de datos automáticamente garantiza que no puede obtener acceso a ninguna colección o usuario contenidos en la misma. Incluso aunque la Base de datos de documentos reclame el almacenamiento y capacidad de proceso aprovisionada como parte de la base de datos eliminada en segundo plano, tanto el almacenamiento como la capacidad de proceso aprovisionada de la base de datos eliminada estarán disponibles inmediatamente para su uso.   
 
-## Colecciones
+##Colecciones
 Una colección de la Base de datos de documentos es un contenedor de sus documentos JSON. Una colección también es una unidad de escala para transacciones y consultas. Puede escalar horizontalmente una base de datos de la Base de datos de documentos agregando más colecciones. Si su aplicación necesita escalar más, puede aprovisionar más almacenamiento de documentos respaldado por SSD (y capacidad de proceso) y distribuirlo por todas las colecciones de una o más bases de datos de su cuenta de base de datos.
  
-### Almacenamiento de documentos respaldado con SSD elástico
+###Almacenamiento de documentos respaldado con SSD elástico
 Una colección es elástica de forma intrínseca; crece y se reduce automáticamente a medida que agrega o elimina documentos. Aunque el uso propio de la Base de datos de documentos se ha probado con miles de colecciones de una base de datos, variando entre ellas desde unos pocos gigabytes a terabytes de tamaño, la oferta de Versión preliminar estándar de la Base de datos de documentos actualmente limita la elasticidad de una colección determinada a 10 GB. 
 
-### Indexación automática de las colecciones
+###Indexación automática de las colecciones
 La Base de datos de documentos es un sistema de bases de datos verdadero libre de esquemas. No asume ni requiere ningún esquema para los documentos JSON. A medida que agrega documentos a una colección, la Base de datos de documentos los indexa automáticamente y están disponibles para que los consulte. La indexación automática de documentos sin requerir esquema o índices secundarios es una capacidad clave de la Base de datos de documentos y se habilita mediante técnicas de mantenimiento de índices de escritura optimizada, sin bloqueo y estructuradas por registros. La Base de datos de documentos es compatible con un volumen constante de operaciones de escritura muy rápidas mientras sigue dando servicio a consultas consistentes. Tanto el almacenamiento de documentos como de índices se utilizan para calcular el almacenamiento consumido por cada colección. Puede controlar el equilibrio entre almacenamiento y rendimiento asociado con la indexación configurando la directiva de indexación de una colección. 
 
-### Configuración de la directiva de indexación de una colección
+###Configuración de la directiva de indexación de una colección
 La directiva de indexación de cada colección le permite realizar equilibrios entre rendimiento y almacenamiento relacionados con la indexación. Tiene las siguientes opciones disponibles como parte de la configuración de indexación:  
 
 -	Seleccione si la colección indexa o no todos los documentos automáticamente. De forma predeterminada, se indexan todos los documentos automáticamente. Puede seleccionar desactivar la indexación automática y agregar únicamente documentos de forma selectiva al índice. Al contrario, puede seleccionar de forma selectiva excluir únicamente documentos específicos. Puede lograr esto estableciendo la propiedad automática en verdadera o falsa en indexingPolicy de una colección y utilizando el encabezado de solicitud [x-ms-indexingdirective] al insertar, reemplazar o eliminar un documento.  
@@ -231,16 +231,16 @@ La directiva de indexación de cada colección le permite realizar equilibrios e
 
 En la versión preliminar de la Base de datos de documentos, la directiva de indexación solo se puede configurar durante la creación de una colección. Una vez que se haya creado la colección, no se podrá actualizar la directiva.
 
-### Consulta de una colección
-Los documentos de una colección pueden tener esquemas arbitrarios y puede consultar documentos de una colección sin proporcionar por adelantando ningún esquema o índice secundario. Puede consultar la colección mediante el [lenguaje de consulta SQL de la Base de datos de documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx) que proporciona grandes operadores jerárquicos y relacionales y extensibilidad mediante las UDF basadas en JavaScript. La gramática de JSON permite el modelado de documentos JSON como árboles con etiquetas como los nodos del árbol. Esto lo aprovechan tanto las técnicas de indexación automática de Base de datos de documentos, así como el dialecto de consultas SQL de la Base de datos de documentos. El lenguaje de consulta de Base de datos de documentos consta de tres aspectos principales:   
+###Consulta de una colección
+Los documentos de una colección pueden tener esquemas arbitrarios y puede consultar documentos de una colección sin proporcionar por adelantando ningún esquema o índice secundario. Puede consultar la colección mediante el [lenguaje de consulta SQL de Base de datos de documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx), que proporciona grandes operadores jerárquicos y relacionales y extensibilidad mediante las UDF basadas en JavaScript. La gramática de JSON permite el modelado de documentos JSON como árboles con etiquetas como los nodos del árbol. Esto lo aprovechan tanto las técnicas de indexación automática de Base de datos de documentos, así como el dialecto de consultas SQL de la Base de datos de documentos. El lenguaje de consulta de Base de datos de documentos consta de tres aspectos principales:   
 
 1.	Un pequeño conjunto de operaciones de consulta que se asignan de forma natural a la estructura de árbol, incluiidas las consultas jerárquicas y las proyecciones. 
 2.	Un subconjunto de operaciones relacionales incluyendo composición, filtro, proyecciones, agregados y autocombinaciones. 
 3.	UDF basadas puramente en JavaScript que se funcionan con (1) y (2)  
 
-El modelo de consulta de la Base de datos de documentos intenta lograr un equilibrio entre funcionalidad, eficacia y simplicidad. El motor de la base de datos de Base de datos de documentos compila y ejecuta instrucciones de consultas SQL de forma nativa. También puede consultar una colección mediante las [API REST de Base de datos de documentos de Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) o cualquier SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). El SDK de .NET viene con un proveedor LINQ. En versiones futuras, se proporcionarán asignaciones con subrayado nativas que se podrán utilizar desde el [SDK de JavaScript de Base de datos de documentos](https://github.com/Azure/azure-documentdb-js), así como con los procedimientos almacenados y los desencadenadores del servidor.   
+El modelo de consulta de la Base de datos de documentos intenta lograr un equilibrio entre funcionalidad, eficacia y simplicidad. El motor de la base de datos de Base de datos de documentos compila y ejecuta instrucciones de consultas SQL de forma nativa. Puede consultar una colección mediante las [API REST de Base de datos de documentos de Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) o cualquier [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). El SDK de .NET viene con un proveedor LINQ. En versiones futuras, se proporcionarán asignaciones con subrayado nativas que se podrán utilizar desde el [SDK de JavaScript de Base de datos de documentos](https://github.com/Azure/azure-documentdb-js), así como con los procedimientos almacenados y los desencadenadores del servidor.   
 
-### Transacciones de documentos múltiples
+###Transacciones de documentos múltiples
 Las transacciones de la base de datos proporcionan un modelo de programación seguro y predecible para tratar cambios concurrentes en los datos. En RDBMS, la forma tradicional de escribir lógica empresarial es escribir **procedimientos almacenados** o **desencadenadores** y enviarlos al servidor de la base de datos para la ejecución transaccional. En RDBMS, es necesario el programador de aplicaciones para tratar con dos lenguajes de programación dispares: 
 
 - El lenguaje de programación de aplicaciones (no transaccional), por ejemplo, JavaScript, Python, C#, Java, etc. 
@@ -255,7 +255,7 @@ La lógica de JavaScript registrada a nivel de colección puede entonces emitir 
 
 La capacidad de ejecutar JavaScript directamente en el motor de la base de datos en el mismo espacio de dirección que el grupo de búferes, permite la ejecución transaccional y con mayor rendimiento de las operaciones de base de datos en los documentos de una colección. Además, debido a que el motor de base de datos de la Base de datos de documentos tiene un fuerte compromiso con JSON y JavaScript, elimina cualquier error de coincidencia de impedancia entre los sistemas tipo de la aplicación y la base de datos.   
 
-Tras crear una colección, puede registrar procedimientos almacenados, desencadenadores y UDF con una colección mediante las [API REST de Base de datos de documentos](https://msdn.microsoft.com/library/azure/dn781481.aspx) y cualquier [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). Tras el registro, puede hacer referencia a los mismos y ejecutarlos. Tenga en cuenta el siguiente procedimiento almacenado escrito completamente en JavaScript, toma dos argumentos (nombre del libro y nombre del autor) y crea un nuevo documento, consulta un documento y lo actualiza; todo bajo los auspicios de una transacción ACID implícita. En cualquier punto de la ejecución, si se lanza una excepción de JavaScript, se cancelará toda la transacción.
+Tras crear una colección, puede registrar procedimientos almacenados, desencadenadores y UDF con una colección mediante las [API REST de Base de datos de documentos de Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) o cualquier [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). Tras el registro, puede hacer referencia a los mismos y ejecutarlos. Tenga en cuenta el siguiente procedimiento almacenado escrito completamente en JavaScript, toma dos argumentos (nombre del libro y nombre del autor) y crea un nuevo documento, consulta un documento y lo actualiza; todo bajo los auspicios de una transacción ACID implícita. En cualquier punto de la ejecución, si se lanza una excepción de JavaScript, se cancelará toda la transacción.
 
 	function businessLogic(name, author) {
 	    var context = getContext();
@@ -288,7 +288,7 @@ Tras crear una colección, puede registrar procedimientos almacenados, desencade
 	        })
 	};
 
-El cliente puede "enviar" la lógica de JavaScript anterior a la base de datos para la ejecución transaccional mediante POST HTTP. Para obtener más información acerca del uso de los métodos HTTP, consulte [Interacciones de RESTful con recursos de Base de datos de documentos](../documentdb-interactions-with-resources/). 
+El cliente puede "enviar" la lógica de JavaScript anterior a la base de datos para la ejecución transaccional mediante POST HTTP. Para obtener más información acerca del uso de los métodos HTTP, consulte [Interacciones RESTful con recursos de Base de datos de documentos](documentdb-interactions-with-resources.md). 
 
 	client.createStoredProcedureAsync(collection._self, {id: "CRUDProc", body: businessLogic})
 	   .then(function(createdStoredProcedure) {
@@ -308,12 +308,12 @@ Tenga en cuenta que debido a que la base de datos comprende JSON y JavaScript de
 
 Los procedimientos almacenados y desencadenadores interactúan con una colección y los documentos de la misma a través de un modelo de objetos bien definido que se expone al contexto de colección actual.  
 
-Las colecciones de Base de datos de documentos se pueden crear, eliminar, leer o enumerar fácilmente con las [API REST de Base de datos de documentos Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) o con cualquier [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). La Base de datos de documentos siempre proporciona una alta coherencia para leer o consultar los metadatos de una colección. Eliminar una colección automáticamente garantiza que no puede obtener acceso a ningún documento, dato adjunto, procedimiento almacenado, desencadenador o UDF contenido en la misma. Incluso aunque la Base de datos de documentos reclame el almacenamiento y la capacidad de proceso aprovisionada como parte de la colección eliminada en segundo plano, tanto el almacenamiento como la capacidad de proceso aprovisionada para la colección eliminada estarán de nuevo disponibles al instante para su uso.   
+Las colecciones de Base de datos de documentos se pueden crear, eliminar, leer o enumerar fácilmente con las [API REST de Base de datos de documentos de Azure](https://msdn.microsoft.com/library/azure/dn781481.aspx) o con cualquier [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). La Base de datos de documentos siempre proporciona una alta coherencia para leer o consultar los metadatos de una colección. Eliminar una colección automáticamente garantiza que no puede obtener acceso a ningún documento, dato adjunto, procedimiento almacenado, desencadenador o UDF contenido en la misma. Incluso aunque la Base de datos de documentos reclame el almacenamiento y la capacidad de proceso aprovisionada como parte de la colección eliminada en segundo plano, tanto el almacenamiento como la capacidad de proceso aprovisionada para la colección eliminada estarán de nuevo disponibles al instante para su uso.   
  
-## Procedimientos almacenados, desencadenadores y UDF
-Como se describe en la sección anterior, puede escribir lógica de aplicación para ejecutarla directamente en una transacción dentro del motor de base de datos. La lógica de la aplicación se puede escribir totalmente en JavaScript y se puede modelar como un procedimiento almacenado, desencadenador o UDF. El código de JavaScript de un procedimiento almacenado o desencadenador puede insertar, reemplazar, eliminar, leer o consultar documentos de una colección. Por otro lado, el JavaScript dentro de una UDF solo puede realizar computación sin efectos secundarios enumerando los documentos del conjunto de resultados de la consulta y producir otro conjunto de resultados. Para los servicios multiinquilino, Base de datos de documentos impone una estricta reserva basada en la gobernanza de los recursos. Cada procedimiento almacenado, desencadenador o UDF obtiene un cuanto de recursos del sistema operativo para realizar su trabajo. Además, los procedimientos almacenados, desencadenadores o UDF no se pueden vincular con bibliotecas externas de JavaScript y están en la lista negra si superan el presupuesto de recursos que se les ha asignado. Puede registrar y anular el registro de los procedimientos almacenados, los desencadenadores o las UDF de una colección mediante las API REST.  Tras el registro de un procedimiento almacenado, desencadenador o UDF, se compila de forma previa y almacena como código byte que se ejecutará más tarde. La siguiente sección ilustra cómo puede utilizar el SDK de JavaScript de Base de datos de documentos para registrar, ejecutar o anular el registro de un procedimiento almacenado, un desencadenador o una UDF. El SDK de JavaScript es un contenedor sencillo de las [API REST de la Base de datos de documentos](https://msdn.microsoft.com/library/azure/dn781481.aspx). 
+##Procedimientos almacenados, desencadenadores y UDF
+Como se describe en la sección anterior, puede escribir lógica de aplicación para ejecutarla directamente en una transacción dentro del motor de base de datos. La lógica de la aplicación se puede escribir totalmente en JavaScript y se puede modelar como un procedimiento almacenado, desencadenador o UDF. El código de JavaScript de un procedimiento almacenado o desencadenador puede insertar, reemplazar, eliminar, leer o consultar documentos de una colección. Por otro lado, el JavaScript dentro de una UDF solo puede realizar computación sin efectos secundarios enumerando los documentos del conjunto de resultados de la consulta y producir otro conjunto de resultados. Para los servicios multiinquilino, Base de datos de documentos impone una estricta reserva basada en la gobernanza de los recursos. Cada procedimiento almacenado, desencadenador o UDF obtiene un cuanto de recursos del sistema operativo para realizar su trabajo. Además, los procedimientos almacenados, desencadenadores o UDF no se pueden vincular con bibliotecas externas de JavaScript y están en la lista negra si superan el presupuesto de recursos que se les ha asignado. Puede registrar y anular el registro de los procedimientos almacenados, los desencadenadores o las UDF de una colección mediante las API REST.  Tras el registro de un procedimiento almacenado, desencadenador o UDF, se compila de forma previa y almacena como código byte que se ejecutará más tarde. La siguiente sección ilustra cómo puede utilizar el SDK de JavaScript de Base de datos de documentos para registrar, ejecutar o anular el registro de un procedimiento almacenado, un desencadenador o una UDF. El SDK de JavaScript es un contenedor sencillo de las [API REST de Base de datos de documentos](https://msdn.microsoft.com/library/azure/dn781481.aspx). 
 
-### Registro de un procedimiento almacenado
+###Registro de un procedimiento almacenado
 El registro de un procedimiento almacenado crea un nuevo recurso de procedimiento almacenado en una colección mediante POST HTTP.  
 
 	var storedProc = {
@@ -339,7 +339,7 @@ El registro de un procedimiento almacenado crea un nuevo recurso de procedimient
 	        console.log("Error");
 	    });
 
-### Ejecución de un procedimiento almacenado
+###Ejecución de un procedimiento almacenado
 La ejecución de un procedimiento almacenado se realiza emitiendo un POST HTTP en un recurso de procedimiento almacenado existente pasando parámetros al procedimiento en el cuerpo de la solicitud.
 
 	var inputDocument = {id : "document1", author: "G. G. Marquez"};
@@ -350,8 +350,8 @@ La ejecución de un procedimiento almacenado se realiza emitiendo un POST HTTP e
 	        console.log("Error");
 	    });
 
-### Anulación del registro de un procedimiento almacenado
-Anular el registro de un procedimiento almacenado es sencillo mediante la emisión de un DELETE HTTP en un recurso de procedimiento almacenado existente.   
+###Unregistering a stored procedure
+Un-registering a stored procedure is simply done by issuing an HTTP DELETE against an existing stored procedure resource.   
 
 	client.deleteStoredProcedureAsync(createdStoredProcedure.resource._self)
 	    .then(function (response) {
@@ -361,7 +361,7 @@ Anular el registro de un procedimiento almacenado es sencillo mediante la emisi�
 	    });
 
 
-### Registro de un desencadenador previo
+###Registro de un desencadenador previo
 El registro de un desencadenador se realiza creando un nuevo recurso de desencadenador en una colección mediante POST HTTP. Puede especificar si el desencadenador es previo o posterior y el tipo de operación con la que se puede asociar; por ejemplo, Crear, Reemplazar, Eliminar o Todas.   
 
 	var preTrigger = {
@@ -382,7 +382,7 @@ El registro de un desencadenador se realiza creando un nuevo recurso de desencad
 	        console.log("Error");
 	    });
 
-### Ejecución de un desencadenador previo
+###Ejecución de un desencadenador previo
 La ejecución de un desencadenador se realiza especificando el nombre de un desencadenador existente en el momento de emitir la solicitud POST/PUT/DELETE de un recurso de documento mediante el encabezado de solicitud.  
  
 	client.createDocumentAsync(collection._self, { id: "doc1", key: "Love in the Time of Cholera" }, { preTriggerInclude: "upperCaseId" })
@@ -392,7 +392,7 @@ La ejecución de un desencadenador se realiza especificando el nombre de un dese
 	        console.log("Error");
 	    });
 
-### Anulación del registro de un desencadenador previo
+###Anulación del registro de un desencadenador previo
 Anular el registro de un desencadenador es sencillo mediante la emisión de un DELETE HTTP en un recurso de desencadenador existente.  
 
 	client.deleteTriggerAsync(createdPreTrigger._self);
@@ -402,7 +402,7 @@ Anular el registro de un desencadenador es sencillo mediante la emisión de un D
 	        console.log("Error");
 	    });
 
-### Registro de una UDF
+###Registro de una UDF
 El registro de una UDF se realiza creando un nuevo recurso de UDF en una colección mediante POST HTTP.  
 
 	var udf = { 
@@ -418,7 +418,7 @@ El registro de una UDF se realiza creando un nuevo recurso de UDF en una colecci
 	        console.log("Error");
 	    });
 
-### Ejecución de una UDF como parte de la consulta
+###Ejecución de una UDF como parte de la consulta
 Una UDF se puede especificar como parte de la consulta SQL y se utiliza como una forma de ampliar el núcleo del [lenguaje de consulta SQL de Base de datos de documentos](https://msdn.microsoft.com/library/azure/dn782250.aspx).   
 
 	var filterQuery = "SELECT mathSqrt(r.Age) AS sqrtAge FROM root r WHERE r.FirstName='John'";
@@ -429,7 +429,7 @@ Una UDF se puede especificar como parte de la consulta SQL y se utiliza como una
 	        console.log("Error");
 	    });
 
-### Anulación del registro de una UDF 
+###Anulación del registro de una UDF 
 Anular el registro de una UDF es sencillo mediante la emisión de un DELETE HTTP en un recurso de UDF existente.  
 
 	client.deleteUserDefinedFunctionAsync(createdUdf._self)
@@ -439,16 +439,16 @@ Anular el registro de una UDF es sencillo mediante la emisión de un DELETE HTTP
 	        console.log("Error");
 	    });
 
-Aunque los fragmentos de código anteriores mostraban el registro (POST), anulación del registro (PUT), lectura/enumeración (GET) y ejecución (POST) mediante el [SDK de JavaScript de Base de datos de documentos](https://github.com/Azure/azure-documentdb-js), también puede utilizar las [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) u otro [SDK del cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
+Aunque los fragmentos de código anteriores mostraban el registro (POST), anulación del registro (PUT), lectura/enumeración (GET) y ejecución (POST) mediante el [SDK de JavaScript de Base de datos de documentos](https://github.com/Azure/azure-documentdb-js), también puede utilizar las [API REST](https://msdn.microsoft.com/library/azure/dn781481.aspx) u otro [SDK de cliente](https://msdn.microsoft.com/library/azure/dn781482.aspx). 
 
-## Documentos
+##Documentos
 Puede insertar, reemplazar, eliminar, leer, enumerar y consultar documentos JSON arbitrarios de una colección. La Base de datos de documentos no impone ningún esquema y no requiere índices secundarios para ser compatible con las consultas de documentos en una colección.   
 
 Al ser un servicio de base de datos totalmente abierto, la Base de datos de documentos no crea ningún tipo de datos especializados, como fecha y hora, o codificaciones específicas para documentos JSON. Tenga en cuenta que la Base de datos de documentos no necesita ninguna convención JSON especial para codificar las relaciones entre varios documentos; el lenguaje de consulta SQL de la Base de datos de documentos proporciona operadores de consulta jerárquica y relacional muy eficaz para consultar y proyectar documentos sin ninguna anotación especial o necesidad de codificar relaciones entre documentos utilizando propiedades importantes.  
  
 Como con el resto de recursos, se pueden crear, reemplazar, eliminar, leer, enumerar y consultar documentos fácilmente mediante las API REST o con cualquier SDK de cliente. Al eliminar un documento se libera inmediatamente la cuota correspondiente a todos los datos adjuntos anidados. El nivel de coherencia de lectura de documentos sigue la Directiva de coherencia de la cuenta de base de datos. Esta directiva se puede reemplazar en función de la solicitud dependiendo de los requisitos de coherencia de datos de su aplicación. Al consultar documentos, la coherencia de lectura sigue el modo de indexación establecido en la colección. Para ser "coherente", sigue la Directiva de coherencia de la cuenta. 
 
-## Datos adjuntos y multimedia
+##Datos adjuntos y multimedia
 La Base de datos de documentos le permite almacenar blobs binarios/multimedia en la misma Base de datos de documentos o en su almacén multimedia remoto. También le permite representar los metadatos de un archivo multimedia en términos de un documento especial llamado dato adjunto. Un dato adjunto en la Base de datos de documentos es un documento especial (JSON) que hace referencia al archivo multimedia/blob almacenado en cualquier parte. Un dato adjunto es sencillamente un documento especial que captura los metadatos (por ejemplo, ubicación, autor, etc.) de un archivo multimedia almacenado en un almacenamiento multimedia remoto. 
 
 Considere una aplicación de lectura social que utilice la Base de datos de documentos para almacenar anotaciones manuscritas y metadatos como comentarios, texto resaltado, marcadores, clasificaciones, gustos y preferencias, etc., asociados a un libro electrónico o usuario determinado.   
@@ -463,7 +463,7 @@ Para los archivos multimedia gestionados por la Base de datos de documentos, la 
 
 Como con el resto de recursos, se pueden crear, reemplazar, eliminar, leer o enumerar datos adjuntos fácilmente mediante las API REST o con cualquier SDK de cliente. Como con los documentos, el nivel de coherencia de lectura de datos adjuntos sigue la Directiva de coherencia en la cuenta de base de datos. Esta directiva se puede reemplazar en función de la solicitud dependiendo de los requisitos de coherencia de datos de su aplicación. Al consultar datos adjuntos, la coherencia de lectura sigue el modo de indexación establecido en la colección. Para ser "coherente", sigue la Directiva de coherencia de la cuenta. 
  
-## Usuarios
+##Usuarios
 Un usuario de Base de datos de documentos representa un espacio de nombres lógico para agrupar permisos. Un usuario de Base de datos de documentos puede corresponder a un usuario en un sistema administración de identidades o a un rol de aplicaciones predefinido. Para la Base de datos de documentos, un usuario simplemente representa una abstracción para agrupar un conjunto de permisos de una base de datos.   
 
 Para implementar servicios multiinquilino en su aplicación, puede crear usuarios en la Base de datos de documentos que correspondan a sus usuarios o inquilinos de la aplicación. Entonces puede crear permisos para un usuario determinado que se corresponda con el control de acceso de varias colecciones, documentos, datos adjuntos, etc.   
@@ -482,15 +482,15 @@ Independientemente de la estrategia de partición específica que seleccione, pu
 
 Como con el resto de recursos, los usuarios de la Base de datos de documentos se pueden crear, reemplazar, eliminar, leer o enumerar fácilmente mediante las API REST o con cualquier SDK de cliente. La Base de datos de documentos siempre proporciona una alta coherencia para leer o consultar los metadatos de un recurso de usuario. Es importante señalar que eliminar un usuario garantiza automáticamente que no podrá obtener acceso a ningún permiso contenido en el mismo. Incluso aunque la Base de datos de documentos reclame la cuota de permisos como parte del usuario eliminado en segundo plano, los permisos eliminados estarán de nuevo disponibles al instante para su uso.  
 
-## Permisos
-Desde la perspectiva de control de acceso, los recursos como las cuentas de bases de datos, las bases de datos, los usuarios y los permisos se consideran recursos  *administrativos* dado que estos requieren permisos administrativos. Por otro lado, los recursos que incluyen colecciones, documentos, datos adjuntos, procedimientos almacenados, desencadenadores y UDF se dirigen a una base de datos dada y se consideran  *recursos de aplicación*. Conforme a los dos tipos de recursos y a los roles a los que obtienen acceso (a saber, el administrador y usuario), el modelo de autorización define dos tipos de  *claves de acceso*: *clave maestra* y *clave de recursos*. La clave maestra forma parte de la cuenta de base de datos y se proporciona al desarrollador (o administrador) que está aprovisionando la cuenta de base de datos. Esta clave maestra tiene semánticas de administrador y se pueden utilizar para autorizar acceso a recursos tanto administrativos como de aplicación. Al contrario, una clave de recurso es una clave de acceso granular que permite el acceso a recursos de aplicación  *específicos*. Por lo tanto, captura la relación entre el usuario de una base de datos y los permisos que tiene el usuario para un recurso específico (por ejemplo, colección, documento, dato adjunto, procedimiento almacenado, desencadenador o UDF).   
+##Permisos
+Desde la perspectiva de control de acceso, los recursos como las cuentas de bases de datos, las bases de datos, los usuarios y los permisos se consideran recursos *administrative* dado que estos requieren permisos administrativos. Por otro lado, los recursos que incluyen colecciones, documentos, datos adjuntos, procedimientos almacenados, desencadenadores y UDF se dirigen a una base de datos dada y se consideran *application resources*. Conforme a los dos tipos de recursos y a los roles que obtienen acceso a estos (a saber, el administrador y usuario), el modelo de autorización define dos tipos de *access keys*: *master key* y *resource key*. La clave maestra forma parte de la cuenta de base de datos y se proporciona al desarrollador (o administrador) que está aprovisionando la cuenta de base de datos. Esta clave maestra tiene semánticas de administrador y se pueden utilizar para autorizar acceso a recursos tanto administrativos como de aplicación. Al contrario, una clave de recurso es una clave de acceso granular que permite el acceso a recursos de aplicación *specific*. Por lo tanto, captura la relación entre el usuario de una base de datos y los permisos que tiene el usuario para un recurso específico (por ejemplo, colección, documento, dato adjunto, procedimiento almacenado, desencadenador o UDF).   
 
 La única forma de obtener una clave de recurso es creando un recurso de permiso para un usuario determinado. Tenga en cuenta que para poder crear o recuperar un permiso, se debe presentar una clave maestra en el encabezado de autorización. Un recurso de permiso está relacionado con el recurso, su acceso y el usuario. Tras crear un recurso de permiso, el usuario solo necesita presentar la clave de recurso asociada para obtener acceso al recurso relevante. Así, una clave de recurso se puede visualizar como una representación lógica y compacta del recurso de permiso.  
 
 Como con el resto de recursos, los permisos de la Base de datos de documentos se pueden crear, reemplazar, eliminar, leer o enumerar fácilmente mediante las API REST o con cualquier SDK de cliente. La Base de datos de documentos siempre proporciona una coherencia para leer o consultar los metadatos de un permiso. 
 
-## Pasos siguientes
-Obtenga más información sobre cómo trabajar con recursos usando comandos HTTP en [Interacciones de RESTful con recursos de Base de datos de documentos](../documentdb-interactions-with-resources/).
+##Pasos siguientes
+Obtenga más información sobre cómo trabajar con recursos usando comandos HTTP en [Interacciones RESTful con recursos de Base de datos de documentos](documentdb-interactions-with-resources.md).
 
 
 [1]: ./media/documentdb-resources/resources1.png
@@ -498,4 +498,4 @@ Obtenga más información sobre cómo trabajar con recursos usando comandos HTTP
 [3]: ./media/documentdb-resources/resources3.png
 [4]: ./media/documentdb-resources/resources4.png
 
-<!--HONumber=47-->
+<!--HONumber=49-->

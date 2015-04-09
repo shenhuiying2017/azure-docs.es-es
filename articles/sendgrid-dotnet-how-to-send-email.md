@@ -1,19 +1,19 @@
-﻿<properties 
+<properties 
 	pageTitle="Cómo usar el servicio de correo electrónico SendGrid (.NET) - Azure" 
 	description="Obtenga información acerca de cómo enviar correo electrónico con el servicio de correo electrónico SendGrid en Azure. Los ejemplos de código están escritos en C# y utilizan la API .NET." 
-	services="" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="thinkingserious" 
 	manager="sendgrid" 
 	editor="erikre"/>
 
 <tags 
-	ms.service="multiple" 
+	ms.service="app-service-web" 
 	ms.workload="na" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="10/29/2014" 
+	ms.date="02/24/2015" 
 	ms.author="elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork"/>
 
 
@@ -22,21 +22,13 @@
 
 # Envío de correos electrónicos con SendGrid y Azure
 
-Última actualización: lunes, 27 de octubre de 2014
+Última actualización: 24 de febrero de 2015
 
-Esta guía describe cómo realizar tareas comunes de programación con el servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos en C\# y usan la API de .NET. Entre los escenarios descritos, se incluyen la **creación de correos electrónicos**, el **envío de correos electrónicos**, la **incorporación de datos adjuntos** y el **uso de filtros**. Para obtener más información acerca de SendGrid y el envío de correos electrónicos, consulte la sección [Pasos siguientes][].
+<h2><a name="overview"></a><span  class="short-header">Información general</span></h2>
 
-<h2><a name="toc"></a>Tabla de contenido</h2>
-
-[¿Qué es el servicio de correo electrónico SendGrid?][]   
-[Creación de una cuenta de SendGrid][]   
-[Referencia de la biblioteca de clases .NET de SendGrid][]   
-[Creación de un correo electrónico][]   
-[Envío de un correo electrónico][]   
-[Adición de un archivo adjunto][]   
-[Uso de aplicaciones para habilitar pies de página, seguimiento y análisis][]   
-[Uso de servicios adicionales de SendGrid][]   
-[Pasos siguientes][]
+Esta guía muestra cómo realizar tareas comunes de programación con el
+servicio de correo electrónico SendGrid en Azure. Los ejemplos están escritos en C\# y usan la API de .NET. Entre los escenarios descritos, se incluyen la **creación de correos electrónicos**, el **envío de correos electrónicos**, la **incorporación de datos adjuntos** y el **uso de filtros**. Para obtener más información acerca de SendGrid y el envío de correo electrónico, consulte
+la sección [Pasos siguientes][].
 
 <h2><a name="whatis"></a><span  class="short-header">¿Qué es el servicio de correo electrónico SendGrid?</span></h2>
 
@@ -53,18 +45,14 @@ Para obtener más información, consulte [https://sendgrid.com](https://sendgrid
 
 <h2><a name="createaccount"></a>Creación de una cuenta de SendGrid</h2>
 
-[WACOM.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
+[AZURE.INCLUDE [sendgrid-sign-up](../includes/sendgrid-sign-up.md)]
 
 <h2><a name="reference"></a>Referencia de la biblioteca de clases .NET de SendGrid</h2>
 
-El [paquete NuGet de SendGrid](https://www.nuget.org/packages/Sendgrid) es la forma más fácil de obtener la API de SendGrid y configurar su aplicación con todas las dependencias. NuGet es una extensión de Visual Studio incluida en Microsoft Visual Studio 2012 que facilita la instalación y la actualización de las bibliotecas y las herramientas. 
+El [paquete NuGet de SendGrid](https://www.nuget.org/packages/Sendgrid) es la forma más fácil de obtener la API de SendGrid y configurar su aplicación con todas las dependencias. NuGet es una
+extensión de Visual Studio incluida en Microsoft Visual Studio 2012 que facilita la instalación y la actualización de las bibliotecas y las herramientas. 
 
-<div class="dev-callout">
-<b>Nota:</b>
-<p>Para
-instalar NuGet, si está ejecutando una versión de Visual Studio anterior a Visual Studio 2012, visite <a href="http://www.nuget.org">http://www.nuget.org</a>y haga clic en el botón <b>Instalación
-NuGet</b> .</p>
-</div>
+> [AZURE.NOTE] Para instalar NuGet, si está ejecutando una versión de Visual Studio anterior a Visual Studio 2012, visite [http://www.nuget.org](http://www.nuget.org) y haga clic en el botón **Instalar NuGet**.
 
 Realice los pasos siguientes para instalar el paquete NuGet de SendGrid en su aplicación:
 
@@ -83,19 +71,19 @@ La biblioteca de clases .NET de SendGrid se llama **SendGridMail**. Contiene los
 -   **SendGridMail** para la creación y el trabajo con elementos de correo electrónico.
 -   **SendGridMail.Transport** para el envío de correo electrónico mediante el protocolo **SMTP** o el protocolo HTTP 1.1 con **Web/REST**.
 
-Agregue las siguientes declaraciones de espacio de nombres de código en la parte superior de todo archivo C\# en el que quiera obtener acceso al servicio de correo electrónico SendGrid mediante programación: **System.Net** y **System.Net.Mail** son los espacios de nombres de .NET Framework que están incluidos porque contienen los tipos que usará normalmente con las API de SendGrid.
+Agregue las siguientes declaraciones de espacio de nombres de código en la parte superior de todo archivo C\# en el que quiera obtener acceso al servicio de correo electrónico SendGrid mediante programación:
+**System.Net** y **System.Net.Mail** son los espacios de nombres de .NET Framework que están incluidos porque contienen los tipos que usará normalmente con las API de SendGrid.
 
     using System;
     using System.Net;
     using System.Net.Mail;
     using SendGrid;
 
-<h2><a name="createemail"></a>Reproducción de un correo electrónico</h2>
+<h2><a name="createemail"></a>Procedimientos: Creación de un correo electrónico</h2>
 
-Use el método **SendGrid.GetInstance** estático para crear un mensaje de correo electrónico del tipo **SendGrid**. Una vez creado el mensaje, puede usar las propiedades y los métodos de **SendGrid** para establecer valores como el remitente, el destinatario, el asunto y el cuerpo del correo electrónico.
+Utilice el objeto **SendGridMessage** para crear un mensaje de correo electrónico. Una vez creado el objeto de mensaje, establecer propiedades y métodos, incluidos el remitente, el destinatario, el asunto y el cuerpo del correo electrónico.
 
-En el siguiente ejemplo se muestra cómo crear un objeto de correo electrónico
-completo:
+El siguiente ejemplo muestra la forma de crear un objeto de correo electrónico completo:
 
     // Create the email object first, then add the properties.
     var myMessage = new SendGridMessage();
@@ -119,9 +107,10 @@ completo:
     myMessage.Html = "<p>Hello World!</p>";
     myMessage.Text = "Hello World plain text!";
 
-Para obtener más información acerca de todas las propiedades y métodos admitidos por el tipo **SendGrid**, consulte [sendgrid-csharp][] (en inglés) en GitHub.
+Para obtener más información sobre todas las propiedades y métodos admitidos por el
+tipo **SendGrid**, consulte [sendgrid-csharp][] en GitHub.
 
-<h2><a name="sendemail"></a>Reproducción de un correo electrónico</h2>
+<h2><a name="sendemail"></a>Procedimientos: un correo electrónico</h2>
 
 Después de crear un mensaje de correo electrónico, puede enviarlo con la API web que proporciona SendGrid. Como alternativa puede [usar la biblioteca incorporada en .NET](https://sendgrid.com/docs/Code_Examples/csharp.html).
 
@@ -160,9 +149,10 @@ En los siguientes ejemplos se muestra la forma de enviar un mensaje con la API W
     // You can also use the **DeliverAsync** method, which returns an awaitable task.
     transportWeb.Deliver(myMessage);
 
-<h2><a name="addattachment"></a>Reproducción de un archivo adjunto</h2>
+<h2><a name="addattachment"></a>Procedimientos: un archivo adjunto</h2>
 
-Es posible agregar datos adjuntos a un mensaje mediante la llamada al método **AddAttachment** y la especificación del nombre y la ruta del archivo que desea adjuntar. Puede incluir múltiples datos adjuntos mediante la llamada a este método, que debe utilizar una vez por cada archivo que desee adjuntar. El siguiente ejemplo demuestra la incorporación de datos adjuntos a un mensaje:
+Es posible agregar datos adjuntos a un mensaje mediante la llamada al método **AddAttachment** y la especificación del nombre y la ruta del archivo que desea adjuntar.
+Puede incluir múltiples datos adjuntos mediante la llamada a este método, que debe utilizar una vez por cada archivo que desee adjuntar. El siguiente ejemplo demuestra la incorporación de datos adjuntos a un mensaje:
 
     SendGridMessage myMessage = new SendGridMessage();
     myMessage.AddTo("anna@example.com");
@@ -186,9 +176,10 @@ También puede agregar datos adjuntos desde la **Transmisión** de datos. Se pue
     }
 
 
-<h2><a name="usefilters"></a><span  class="short-header">Reproducción de aplicaciones para habilitar pies de página, seguimiento y análisis</span></h2>
+<h2><a name="usefilters"></a><span  class="short-header">Procedimientos: Uso de aplicaciones para habilitar pies de página, seguimiento y análisis</span></h2>
 
-SendGrid proporciona funciones de correo electrónico adicionales mediante el uso de aplicaciones. Todos ellos son parámetros que se pueden agregar a un mensaje de correo electrónico para habilitar funciones específicas, como el seguimiento por clics, Google Analytics, el seguimiento de suscripciones, etc. Si quiere obtener una lista completa de las aplicaciones, consulte la [configuración de la aplicación][].
+SendGrid proporciona funciones de correo electrónico adicionales mediante el uso de aplicaciones. Todos ellos son parámetros que se pueden agregar a un mensaje de correo electrónico para habilitar funciones específicas, como el seguimiento por clics, Google Analytics, el seguimiento de suscripciones, etc. Para obtener una lista completa de las aplicaciones, consulte
+[Configuración de aplicaciones][].
 
 Es posible aplicar aplicaciones a los mensajes de correo electrónico de **SendGrid** con métodos implementados como parte de una clase de **SendGrid**.
 
@@ -220,9 +211,9 @@ Los siguientes ejemplos demuestran el uso de los filtros de pie de página y seg
     // should also be overwritten for link tracking purposes. 
     myMessage.EnableClickTracking(true);
 
-<h2><a name="useservices"></a>Reproducción de servicios adicionales de SendGrid</h2>
+<h2><a name="useservices"></a>Procedimientos: servicios adicionales de SendGrid</h2>
 
-SendGrid ofrece API basadas en web y enlaces web que puede usar para aprovechar la funcionalidad adicional de SendGrid desde su aplicación de Azure. Para obtener toda la información al respecto, consulte [SendGrid API documentation][].
+SendGrid ofrece API basadas en web y enlaces web que puede usar para aprovechar la funcionalidad adicional de SendGrid desde su aplicación de Azure. Para obtener toda la información al respecto, consulte [Documentación sobre la API de SendGrid][].
 
 <h2><a name="nextsteps"></a>Pasos siguientes</h2>
 
@@ -236,11 +227,11 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
   [¿Qué es el servicio de correo electrónico SendGrid?]: #whatis
   [Creación de una cuenta de SendGrid]: #createaccount
   [Referencia de la biblioteca de clases .NET de SendGrid]: #reference
-  [Creación de un correo electrónico]: #createemail
-  [Envío de un correo electrónico]: #sendemail
-  [Adición de un archivo adjunto]: #addattachment
-  [Uso de filtros para habilitar pies de página, seguimiento y Twitter]: #usefilters
-  [Uso de servicios adicionales de SendGrid]: #useservices
+  [Procedimientos: Creación de un correo electrónico]: #createemail
+  [Procedimientos: Envío de un correo electrónico]: #sendemail
+  [Procedimientos: Incorporación de un archivo adjunto]: #addattachment
+  [Procedimientos: Uso de filtros para habilitar pies de página, seguimiento y Twitter]: #usefilters
+  [Procedimientos: Uso de servicios adicionales de SendGrid]: #useservices
   
   
   [oferta especial]: https://www.sendgrid.com/windowsazure.html
@@ -253,9 +244,7 @@ Ahora que conoce los fundamentos del servicio de correo electrónico SendGrid, s
   [Configuración de aplicaciones]: https://sendgrid.com/docs/API_Reference/SMTP_API/apps.html
   [Documentación sobre la API de SendGrid]: https://sendgrid.com/docs
   
-  [servicio de correo electrónico basado en la nube]: https://sendgrid.com/email-solutions
+  [cloud-based email service]: https://sendgrid.com/email-solutions
   [entrega de correo electrónico transaccional]: https://sendgrid.com/transactional-email
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=49-->

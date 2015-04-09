@@ -1,4 +1,4 @@
-
+﻿
 1. Asegúrese de detener el servicio móvil si actualmente se está ejecutando en IIS Express. Haga clic con el botón secundario en el icono de bandeja de IIS Express y, a continuación, haga clic en la opción de **detener** el servicio móvil.
 
     ![](./media/mobile-services-how-to-configure-iis-express/iis-express-tray-stop-site.png)
@@ -27,15 +27,16 @@
             </bindings>
         </site>
 
-5. Abra la consola del Firewall de Windows y cree una nueva regla de puerto para permitir las conexiones al puerto. Para obtener más información acerca de cómo crear una nueva regla de puerto del Firewall de Windows, consulte [Incorporación de un regla de puerto de Firewall de Windows].
+5. Abra la consola del Firewall de Windows y cree una nueva regla de puerto para permitir las conexiones al puerto. Para obtener más información acerca de cómo crear una nueva regla de puerto del Firewall de Windows, consulte [Incorporación de una regla de puerto en un equipo local].
 
-    >[AZURE.NOTE]  Si la máquina de pruebas está asociada a un dominio, es posible que las excepciones de firewall estén controladas por una directiva de dominio. En este caso, tendría que ponerse en contacto con el administrador del dominio para obtener una exención para el puerto en su máquina.
+    >[AZURE.NOTE] Si la máquina de pruebas está asociada a un dominio, es posible que las excepciones de firewall estén controladas por una directiva de dominio. En este caso, tendría que ponerse en contacto con el administrador del dominio para obtener una exención para el puerto en su máquina.
 
     Ahora debería estar listo para realizar pruebas del hospedaje del servicio móvil por parte de IIS Express. 
 
-    >[AZURE.NOTE]  Cuando acabe de probar el servicio localmente, debe eliminar la regla del Firewall de Windows que creó. 
+    >[AZURE.NOTE] Cuando acabe de probar el servicio localmente, debe eliminar la regla del Firewall de Windows que creó. 
 
 
 <!-- URLs. -->
 [Incorporación de un regla de puerto de Firewall de Windows]:  http://go.microsoft.com/fwlink/?LinkId=392240
-<!--HONumber=42-->
+
+<!--HONumber=49-->

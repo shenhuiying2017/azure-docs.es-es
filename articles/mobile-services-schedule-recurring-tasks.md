@@ -19,8 +19,8 @@
 # Programación de trabajos periódicos en Servicios móviles 
 
 > [AZURE.SELECTOR-LIST (Plataforma | Backend)]
-- [(Cualquiera | .NET)](/documentation/articles/mobile-services-dotnet-backend-schedule-recurring-tasks/)
-- [(Cualquiera | Javascript))](/documentation/articles/mobile-services-schedule-recurring-tasks/)
+- [(Cualquiera | .NET)](mobile-services-dotnet-backend-schedule-recurring-tasks.md)
+- [(Cualquiera | Javascript)](mobile-services-schedule-recurring-tasks.md)
  
 Este tema le muestra cómo usar la funcionalidad del programador de trabajos en el Portal de administración para definir el código de script de servidor que se ejecuta según el programa que establezca. En este caso, se realiza una comprobación periódica del script con un servicio remoto (Twitter) y se almacenan los resultados en una nueva tabla. Entre las demás tareas periódicas que pueden programarse se incluyen las siguientes:
 
@@ -52,7 +52,7 @@ Ahora puede crear el trabajo programado que obtiene acceso a Twitter y almacena 
 
 2. Haga clic en la pestaña **Programador** y, a continuación, en **+Crear**. 
 
-    >[AZURE.NOTE]Cuando se ejecuta el servicio móvil en el nivel <em>Gratuito</em> ,solo son capaces de ejecutar un trabajo programado a la vez. En los niveles de pago, puede ejecutar hasta diez trabajos programados a la vez.
+    >[AZURE.NOTE]Cuando ejecute el servicio móvil en el nivel <em>Gratis</em>, solo podrá ejecutar un trabajo programado a la vez. En los niveles de pago, puede ejecutar hasta diez trabajos programados a la vez.
 
 3. En el cuadro de diálogo del programador, especifique _getUpdates_ para **Nombre de trabajo**, establezca el intervalo de programación y las unidades, y haga clic en el botón de comprobación. 
 
@@ -152,7 +152,7 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 
 ## <a name="nextsteps"> </a>Pasos siguientes
 
-* [Referencia del script del servidor de servicios móviles]
+* [Referencia del script de servidor de Servicios móviles]
   <br/>Obtenga más información acerca del registro y del uso de scripts de servidor.
 
 <!-- Anchors. -->
@@ -176,11 +176,11 @@ Enhorabuena, ha creado correctamente un nuevo trabajo programado en el servicio 
 [11]: ./media/mobile-services-schedule-recurring-tasks/mobile-identity-tab-twitter-only.png
 
 <!-- URLs. -->
-[Referencia del script del servidor de servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
+[Referencia del script de servidor de Servicios móviles]: http://go.microsoft.com/fwlink/?LinkId=262293
 [WindowsAzure.com]: http://www.windowsazure.com/
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Registro de las aplicaciones para el inicio de sesión en Twitter con Servicios móviles]: /develop/mobile/how-to-guides/register-for-twitter-authentication
 [Desarrolladores de Twitter]: http://go.microsoft.com/fwlink/p/?LinkId=268300
 [Configuración de aplicaciones]: http://msdn.microsoft.com/library/windowsazure/b6bb7d2d-35ae-47eb-a03f-6ee393e170f7
 
-<!--HONumber=47-->
+<!--HONumber=49-->

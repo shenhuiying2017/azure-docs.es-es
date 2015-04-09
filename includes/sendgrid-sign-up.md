@@ -4,7 +4,7 @@
 
 1. Inicie sesión en el [Portal de administración de Azure][].
 
-2. En el panel inferior del portal de administración, haga clic en **New**.
+2. En el panel inferior del portal de administración, haga clic en **Nuevo**.
 
 	![command-bar-new][command-bar-new]
 
@@ -77,4 +77,4 @@
 [todas las API]: https://sendgrid.com/docs/API_Reference/index.html
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

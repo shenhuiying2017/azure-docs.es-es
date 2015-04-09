@@ -1,0 +1,32 @@
+﻿
+El ejemplo anterior muestra un inicio de sesión estándar, que requiere que el cliente se ponga en contacto tanto con el proveedor de identidades como con el Servicio de aplicaciones cada vez que se inicia la aplicación. Este método es ineficaz, por lo que sería aconsejable almacenar en la caché el token de autorización devuelto por el Servicio de aplicaciones e intentar usarlo antes de utilizar un inicio de sesión basado en proveedor.
+
+1. Para cifrar y almacenar tokens de autenticación en un cliente iOS, se recomienda usar iOS Keychain. En este tutorial se usa [SSKeychain](https://github.com/soffes/sskeychain) (un contenedor simple de iOS Keychain). Siga las instrucciones de la página de SSKeychain para agregarlo al proyecto. Compruebe que el valor **Habilitar módulos** está habilitado en la opción **Configuración de compilación** del proyecto (sección **Apple LLVM - Idiomas - Módulos**)-
+
+2. Abra **QSTodoListViewController.m** y agregue el siguiente código:
+
+
+		- (void) saveAuthInfo {
+				[SSKeychain setPassword:self.todoService.client.currentUser.mobileServiceAuthenticationToken forService:@"AzureMobileServiceTutorial" account:self.todoService.client.currentUser.userId]
+		}
+
+
+		- (void)loadAuthInfo {
+				NSString *userid = [[SSKeychain accountsForService:@"AzureMobileServiceTutorial"][0] valueForKey:@"acct"];
+		    if (userid) {
+		        NSLog(@"userid: %@", userid);
+		        self.todoService.client.currentUser = [[MSUser alloc] initWithUserId:userid];
+		         self.todoService.client.currentUser.mobileServiceAuthenticationToken = [SSKeychain passwordForService:@"AzureMobileServiceTutorial" account:userid];
+
+		    }
+		}
+
+3. Al final del método **viewDidAppear** de **QSTodoListViewController.m** agregue una llamada a **saveAuthInfo** inmediatamente antes de la línea `[self refresh]`. Con esta llamada, simplemente se almacenan el Id. de usuario y las propiedades del token:
+
+				[self saveAuthInfo];
+
+4. También se cargan el Id. de usuario y las propiedades del token cuando se inicia la aplicación. En el método **viewDidLoad** en **QSTodoListViewController.m**, agregue una llamada a loadAuthInfo inmediatamente después de que se haya inicializado **self.todoService**.
+
+				[self loadAuthInfo];
+
+<!--HONumber=49-->

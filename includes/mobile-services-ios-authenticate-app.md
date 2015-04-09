@@ -1,6 +1,4 @@
-﻿
-
-1. Abra el archivo de proyecto QSTodoListViewController.m y, en el método **viewDidLoad**, quite el siguiente código que vuelve a cargar los datos en la tabla:
+﻿1. Abra **QSTodoListViewController.m** y en el método **viewDidLoad**, quite la siguiente línea:
 
         [self refresh];
 
@@ -9,19 +7,18 @@
         - (void)viewDidAppear:(BOOL)animated
         {
             MSClient *client = self.todoService.client;
-            
+
             if (client.currentUser != nil) {
                 return;
             }
-            
+
             [client loginWithProvider:@"facebook" controller:self animated:YES completion:^(MSUser *user, NSError *error) {
                 [self refresh];
             }];
         }
 
-    > [AZURE.NOTE] Si usa un proveedor de identidades que no sea Facebook, cambie el valor que ha pasado al método **loginWithProvider** anterior por uno de los siguientes: _microsoftaccount_, _facebook_, _twitter_, _google_ o _windowsazureactivedirectory_.
-		
-3. Presione el botón **Run** para compilar el proyecto, inicie la aplicación en el emulador de iPhone e inicie sesión con su proveedor de identidades elegido.
+    > [AZURE.NOTE] Si usa un proveedor de identidades que no sea Facebook, cambie el valor pasado a **loginWithProvider**. Los valores admitidos son: _microsoftaccount_, _facebook_, _twitter_, _google_ o _windowsazureactivedirectory_.
 
-   	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
-\<!--HONumber=42-->
+3. Presione  **Ejecutar** para iniciar la aplicación y, a continuación, inicie sesión en el proveedor de identidades elegido. Una vez que haya iniciado sesión, debería poder ver la lista de tareas pendientes y realizar actualizaciones en ella.
+
+<!--HONumber=49-->

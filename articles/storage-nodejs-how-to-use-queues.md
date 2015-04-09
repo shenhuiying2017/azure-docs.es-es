@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Uso del servicio de colas (Node.js) | Microsoft Azure" 
+	pageTitle="Uso del almacenamiento de colas de Node.js | Microsoft Azure" 
 	description="Aprenda a utilizar el servicio Cola de Azure para crear y eliminar colas e insertar, obtener y eliminar mensajes. Ejemplos escritos en Node.js." 
 	services="storage" 
 	documentationCenter="nodejs" 
@@ -13,54 +13,33 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
+	ms.date="03/11/2015" 
 	ms.author="mwasson"/>
 
 
+# Uso del almacenamiento de colas de Node.js
 
+[AZURE.INCLUDE [storage-selector-queue-include](../includes/storage-selector-queue-include.md)]
 
-
-# Uso del servicio Cola desde Node.js
+## Información general
 
 Esta guía le indicará cómo actuar en situaciones habituales usando el
 de Azure de Windows. Los ejemplos están escritos usando la API
 Python. Entre los escenarios descritos se incluyen la **inserción**, **inspección**,
 **obtención** y **eliminación** de los mensajes en cola, así como la **creación y
-eliminación de colas**. Para obtener más información acerca de las colas, consulte la sección [Pasos siguientes][].
+eliminación de colas**.
 
-## Tabla de contenido
-
-* [¿Qué es el servicio Cola?][]   
-* [Conceptos][]   
-* [Creación de una cuenta de almacenamiento de Azure][]
-* [Creación de una aplicación Node.js][]
-* [Configuración de la aplicación para acceder al almacenamiento][]   
-* [Configuración de una cadena de conexión de almacenamiento de Azure][]
-* [Adición de una cola][]   
-* [Adición de un mensaje en una cola][]   
-* [Adición de siguiente mensaje][]   
-* [Adición de siguiente mensaje de la cola][]   
-* [Adición de contenido de un mensaje en cola][]   
-* [Adición de quitar mensajes de la cola][]   
-* [Adición de la longitud de la cola][]   
-* [Adición de una cola][]   
-* [Adición de firmas de acceso compartido][]
-* [Pasos siguientes][]
-
-[AZURE.INCLUDE [howto-queue-storage](../includes/howto-queue-storage.md)]
-
-<h2><a name="create-account"></a>Creación de una cuenta de almacenamiento de Azure</h2>
+[AZURE.INCLUDE [storage-queue-concepts-include](../includes/storage-queue-concepts-include.md)]
 
 [AZURE.INCLUDE [storage-create-account-include](../includes/storage-create-account-include.md)]
 
-## <a name="create-app"></a>Creación de una aplicación Node.js
+## Creación de una aplicación Node.js
 
-Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube de Node.js][] (usando Windows PowerShell) o [Sitio web con WebMatrix].
+Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure], [Servicio en la nube de Node.js][Servicio en la nube de Node.js] (usando Windows PowerShell) o [Sitio web con WebMatrix].
 
-## <a name="configure-access"> </a>Configuración de la aplicación para acceder al almacenamiento
+## Configuración de su aplicación para obtener acceso al almacenamiento
 
-Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azure para Node.js, que incluye un conjunto de útiles bibliotecas que
-se comunican con los servicios REST de almacenamiento.
+Para usar el almacenamiento de Azure necesitará el SDK de almacenamiento de Azure para Node.js, que incluye un conjunto de útiles bibliotecas que se comunican con los servicios REST de almacenamiento.
 
 ### Uso del Administrador de paquetes para Node (NPM) para obtener el paquete
 
@@ -91,13 +70,13 @@ Con el Bloc de notas u otro editor de texto, agregue lo siguiente en la parte su
 
     var azure = require('azure-storage');
 
-## <aConfiguración de una conexión de almacenamiento de Azure name="setup-connection-string"></a>
+## Configuración de una conexión de almacenamiento de Azure
 
-El módulo azure leerá las variables de AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING para obtener la información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta mediante la llamada a**createQueueService**.
+El módulo azure leerá las variables de AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY o AZURE\_STORAGE\_CONNECTION\_STRING para obtener la información necesaria para conectarse a su cuenta de almacenamiento de Azure. Si no se configuran estas variables de entorno, debe especificar la información de la cuenta al llamar a **createQueueService**.
 
 Para ver un ejemplo de cómo configurar las variables de entorno del Portal de administración para un sitio web de Azure, consulte [Aplicación web de Node.js con almacenamiento].
 
-## <a name="create-queue"> </a>Procedimiento: de una cola
+## Trabajo de una cola
 
 El código siguiente crea un objeto **QueueService**, el que le permite
 trabajar con colas.
@@ -116,7 +95,7 @@ si todavía no existe.
 
 Si la cola se crea,  `result` es verdadero. Si la cola existe,  `result` es falso.
 
-###Filtros
+### Filtros
 
 Las operaciones de filtrado opcionales pueden aplicarse a las tareas realizadas utilizando **QueueService**. Las operaciones de filtrado pueden incluir el registro y el reintento automático, entre otros. Los filtros son objetos que implementan un método con la firma siguiente:
 
@@ -133,7 +112,7 @@ Se incluyen dos filtros que implementan la lógica de reintento con el SDK de Az
 	var retryOperations = new azure.ExponentialRetryPolicyFilter();
 	var queueSvc = azure.createQueueService().withFilter(retryOperations);
 
-## <a name="insert-message"> </a>Procedimiento: un mensaje en una cola
+## Trabajo Inserción de un mensaje en una cola
 
 Para insertar un mensaje en una cola, use el método **createMessage** para
 crear un nuevo mensaje y agregarlo a la cola.
@@ -144,7 +123,7 @@ crear un nuevo mensaje y agregarlo a la cola.
 	  }
 	});
 
-## <a name="peek-message"> </a>Procedimiento: siguiente mensaje
+## Trabajo Inspección del siguiente mensaje
 
 Puede inspeccionar el mensaje situado en la parte delantera de una cola, sin quitarlo
 de la cola, mediante una llamada al método **peekMessages**. De forma predetermianda,
@@ -160,7 +139,7 @@ El  `result` contiene el mensaje.
 
 > [AZURE.NOTE] Si se utiliza**peekMessages** cuando no existen mensajes en la cola, no se devolverá un error, pero tampoco se devolverán mensajes.
 
-## <a name="get-message"> </a>Procedimiento: siguiente mensaje de la cola
+## Trabajo siguiente mensaje de la cola
 
 El procesamiento de un mensaje es un proceso que consta de dos etapas:
 
@@ -168,7 +147,7 @@ El procesamiento de un mensaje es un proceso que consta de dos etapas:
 
 2. Eliminación del mensaje.
 
-Para quitar un mensaje de la cola, use **getMessage**. De esta forma el mensaje se hace invisible en la cola, así que ningún otro cliente puede procesarlo. Después de que la aplicación ha procesado el mensaje, llame a **deleteMessage** para eliminarlo de la cola. En el siguiente ejemplo se obtiene un mensaje y luego se elimina:
+Para quitar un mensaje de la cola, use **getMessage**. De esta forma el mensaje se hace invisible en la cola, así que ningún otro cliente puede procesarlo. Después de que la aplicación haya procesado el mensaje, llame a **deleteMessage** para eliminarlo de la cola. En el siguiente ejemplo se obtiene un mensaje y luego se elimina:
 
 	queueSvc.getMessages('myqueue', function(error, result, response){
       if(!error){
@@ -187,7 +166,7 @@ Para quitar un mensaje de la cola, use **getMessage**. De esta forma el mensaje 
 > [AZURE.NOTE]
 > Si utiliza <b>getMessages</b> cuando no existen mensajes en la cola, no se devolverá un error, pero tampoco se devolverán mensajes.
 
-## <a name="change-contents"> </a>Procedimiento: contenido de un mensaje en cola
+## Trabajo contenido de un mensaje en cola
 
 Puede cambiar el contenido de un mensaje local en la cola mediante**updateMessage**. En el ejemplo siguiente se actualiza el texto de un mensaje:
 
@@ -203,12 +182,12 @@ Puede cambiar el contenido de un mensaje local en la cola mediante**updateMessag
 	  }
 	});
 
-## <a name="advanced-get"> </a>Procedimiento: quitar mensajes de la cola
+## Trabajo Opciones adicionales para quitar mensajes de la cola
 
 Hay dos formas de personalizar la recuperación de mensajes de una cola:
 
-* `options.numOfMessages` - Recuperar un lote de mensajes (hasta 32).
-* `options.visibilityTimeout` - Establecer un tiempo de espera de invisibilidad más largo o más corto.
+* "options.numOfMessages" - Recuperar un lote de mensajes (hasta 32)
+* "options.visibilityTimeout" - Establecer un tiempo de espera de invisibilidad más largo o más corto.
 
 En el siguiente ejemplo se usa el método **getMessages** para obtener 15 mensajes en una llamada. A continuación,
 procesa cada mensaje con un bucle for. También se establece el tiempo de espera de invisibilidad en cinco minutos para todos los mensajes que devuelve este método.
@@ -228,7 +207,7 @@ procesa cada mensaje con un bucle for. También se establece el tiempo de espera
 	  }
 	});
 
-## <a name="get-queue-length"> </a>Procedimiento: la longitud de la cola
+## Trabajo la longitud de la cola
 
 El método **getQueueMetadata** devuelve metadatos sobre la cola, junto con el número aproximado de mensajes que esperan en la cola.
 
@@ -238,7 +217,7 @@ El método **getQueueMetadata** devuelve metadatos sobre la cola, junto con el n
 	  }
 	});
 
-## <a name="list-queue"> </a>Procedimiento: de colas
+## Trabajo de colas
 
 Para recuperar una lista de colas, use **listQueuesSegmented**. Para recuperar una lista filtrada por un prefijo determinado, use **listQueuesSegmentedWithPrefix**.
 
@@ -248,9 +227,9 @@ Para recuperar una lista de colas, use **listQueuesSegmented**. Para recuperar u
 	  }
 	});
 
-Si todas las colas no se pueden devolver,  `result.continuationToken` se puede usar como el primer parámetro de **listQueuesSegmented** o el segundo parámetro de **listQueuesSegmentedWithPrefix** para recuperar más resultados.
+Si no se pueden devolver todas las colas, se puede usar `result.continuationToken` como el primer parámetro de **listQueuesSegmented** o el segundo parámetro de **listQueuesSegmentedWithPrefix** para recuperar más resultados.
 
-## <a name="delete-queue"> </a>Procedimiento: una cola
+## Trabajo una cola
 
 Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 **deleteQueue** en el objeto de cola.
@@ -263,7 +242,7 @@ Para eliminar una cola y todos los mensajes contenidos en ella, llame al método
 
 Para borrar todos los mensajes de una cola sin eliminarla, use **clearMessages**.
 
-## <a name="sas"></a>Procedimiento: con firmas de acceso compartido
+## Procedimientos: Trabajo con firmas de acceso compartido
 
 Las firmas de acceso compartido (SAS) constituyen una manera segura de ofrecer acceso granular a las colas sin proporcionar el nombre o las claves de su cuenta de almacenamiento. Las SAS se usan con frecuencia para proporcionar acceso limitado a sus colas, por ejemplo, para permitir que una aplicación móvil envíe mensajes.
 
@@ -300,11 +279,11 @@ La aplicación cliente usa entonces la SAS con **QueueServiceWithSAS** para real
 
 Dado que la SAS se generó solo con acceso para agregar, si se realizara un intento para leer, actualizar o eliminar mensajes, se devolvería un error.
 
-###Listas de control de acceso
+### Listas de control de acceso
 
 Se puede usar una lista de control de acceso (ACL) para definir la directiva de acceso para una SAS. Esto es útil si desea permitir que varios clientes accedan a la cola, pero cada uno con directivas de acceso diferentes.
 
-Una ACL se implementa mediante el uso de un conjunto de directivas de acceso, con un Id. asociado a cada directiva. En los siguientes ejemplos se definen dos directivas; una para "user1" y otra para "user2":
+Una ACL se implementa mediante el uso de un conjunto de directivas de acceso, con un Id. asociado a cada directiva. En los siguientes ejemplos se definen dos directivas; una para 'user1' y otra para 'user2':
 
 	var sharedAccessPolicy = [
 	  {
@@ -325,7 +304,7 @@ Una ACL se implementa mediante el uso de un conjunto de directivas de acceso, co
 	  }
 	];
 
-En el siguiente ejemplo se obtiene la ACL actual para**myqueue** y luego se agregan las nuevas directivas mediante **setQueueAcl**. Este enfoque permite lo siguiente:
+En el siguiente ejemplo se obtiene la ACL actual para **myqueue** y luego se agregan las nuevas directivas mediante **setQueueAcl**. Este enfoque permite lo siguiente:
 
 	queueSvc.getQueueAcl('myqueue', function(error, result, response) {
       if(!error){
@@ -343,47 +322,32 @@ Después de establecer una ACL, puede crear luego una SAS basada en el Id. de un
 
 	queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 
-## <a name="next-steps"> </a>Pasos siguientes
+## Pasos siguientes
 
 Ahora que ha aprendido los conceptos básicos de Almacenamiento de colas, siga estos vínculos
-para obtener información sobre cómo hacer tareas de almacenamiento más complejas.
+para obtener información sobre tareas de almacenamiento más complejas.
 
 -   Consulte la referencia de MSDN: [Almacenamiento de datos y acceso a los mismos en Azure][].
--   Visite el [blog del equipo de almacenamiento de Azure][].
+-   Visite el [Blog del equipo de almacenamiento de Azure][].
 -   Visite el repositorio del [SDK de almacenamiento de Azure para Node.js][] en GitHub.
 
   [SDK de almacenamiento de Azure para Node.js]: https://github.com/Azure/azure-storage-node
-  [Pasos siguientes]: #next-steps
-  [¿Qué es el servicio Cola?]: #what-is
-  [Conceptos]: #concepts
-  [Creación de una cuenta de almacenamiento de Azure]: #create-account
-  [Creación de una aplicación Node.js]: #create-app
-  [Configuración de la aplicación para acceder al almacenamiento]: #configure-access
-  [Configuración de una cadena de conexión de almacenamiento de Azure]: #setup-connection-string
-  [Adición de una cola]: #create-queue
-  [Adición de un mensaje en una cola]: #insert-message
-  [Adición de siguiente mensaje]: #peek-message
-  [Adición de siguiente mensaje de la cola]: #get-message
-  [Adición de contenido de un mensaje en cola]: #change-contents
-  [Adición de quitar mensajes de la cola]: #advanced-get
-  [Adición de la longitud de la cola]: #get-queue-length
-  [Adición de una cola]: #delete-queue
-  [Adición de firmas de acceso compartido]: #sas
-  [using the REST API]: http://msdn.microsoft.com/library/windowsazure/hh264518.aspx
-  [Azure Management Portal]: http://manage.windowsazure.com
-  [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: /es-es/documentation/articles/web-sites-nodejs-develop-deploy-mac/
-  [Servicio en la nube de Node.js]: /es-es/documentation/articles/storage-nodejs-use-table-storage-cloud-service-app/
-  [Aplicación web de Node.js con almacenamiento]: /es-es/documentation/articles/storage-nodejs-use-table-storage-web-site/
+  [Uso de la API de REST]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+  [Portal de administración de Azure]: http://manage.windowsazure.com
+  [Creación e implementación de una aplicación Node.js en un sitio web de Azure]: web-sites-nodejs-develop-deploy-mac.md
+  [Servicio en la nube de Node.js con almacenamiento]: storage-nodejs-use-table-storage-cloud-service-app.md
+  [Aplicación web Node.js con almacenamiento]: storage-nodejs-use-table-storage-web-site.md
 
   
-  [Queue1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
+  [Cola1]: ./media/storage-nodejs-how-to-use-queues/queue1.png
   [plus-new]: ./media/storage-nodejs-how-to-use-queues/plus-new.png
   [quick-create-storage]: ./media/storage-nodejs-how-to-use-queues/quick-storage.png
   
   
   
-  [Servicio en la nube de Node.js]: /es-es/documentation/articles/cloud-services-nodejs-develop-deploy-app/
-  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/windowsazure/gg433040.aspx
-  [blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
- [Sitio web con WebMatrix]: /es-es/documentation/articles/web-sites-nodejs-use-webmatrix/
-<!--HONumber=42-->
+  [Servicio en la nube de Node.js]: cloud-services-nodejs-develop-deploy-app.md
+  [Almacenamiento de datos y acceso a los mismos en Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
+  [Blog del equipo de almacenamiento de Azure]: http://blogs.msdn.com/b/windowsazurestorage/
+ [Sitio web con WebMatrix]: web-sites-nodejs-use-webmatrix.md
+
+<!--HONumber=49-->

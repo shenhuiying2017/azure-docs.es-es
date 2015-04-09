@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="utorial: Configuración de la protección entre un sitio de VMM local y Azure" 
+	pageTitle="Tutorial: Configuración de la protección entre un sitio de VMM local y Azure" 
 	description="Azure Site Recovery coordina la replicación, la conmutación por error y la recuperación de máquinas virtuales de Hyper-V ubicadas en nubes VMM o en instalaciones locales a Azure." 
 	services="site-recovery" 
 	documentationCenter="" 
@@ -16,31 +16,26 @@
 	ms.date="02/18/2015" 
 	ms.author="raynew"/>
 
+# Tutorial: Configuración de la protección entre un sitio de VMM local y Azure
 
-# Introducción a la recuperación de sitios de Azure: Protección local de sitio de VMM a Azure con replicación de Hyper-V
-
-
-
-<div class="dev-callout"> 
-
+<h2><a id="overview" name="overview" href="#overview"></a>Información general</h2>
 <p>Azure Site Recovery contribuye a su estrategia de continuidad de negocio y carga de trabajo mediante la organización de la replicación, la conmutación por error y la recuperación de máquinas virtuales en varios escenarios de implementación.<p>
 
 <P>En este tutorial se describe cómo implementar Azure Site Recovery para organizar la protección entre un sitio de VMM local y Azure con la replicación de Hyper-V.  El tutorial usa la ruta de acceso de implementación más rápida y la configuración predeterminada cuando sea posible.</P>
 
 <UL>
-<LI>Si desea obtener más información para una implementación lea las guías de <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Planeación</a> e <a href="http://go.microsoft.com/fwlink/?LinkId=402679">Implementación</a>.</LI>
+<LI>Si desea obtener más información para una implementación completa, lea las Guías de <a href="http://go.microsoft.com/fwlink/?LinkId=321294">planeación</a> e <a href="http://go.microsoft.com/fwlink/?LinkId=402679">implementación</a>.</LI>
 <LI>Encontrará información acerca de escenarios de implementación de Azure Site Recovery en <a href="http://go.microsoft.com/fwlink/?LinkId=518690">Introducción a Azure Site Recovery</a>.</LI>
-<LI>Si experimenta problemas durante este tutorial, revise el artículo de wiki <a href="http://go.microsoft.com/fwlink/?LinkId=389879">Azure Site Recovery: Escenarios de error comunes y soluciones</a>, o publique sus preguntas en el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Foro de servicios de recuperación de Azure</a>.</LI>
+<LI>Si experimenta problemas durante este tutorial, revise el artículo de wiki <a href="http://go.microsoft.com/fwlink/?LinkId=389879">Azure Site Recovery: escenarios de error comunes y soluciones</a>, o publique sus preguntas en el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">foro de Servicios de recuperación de Azure</a>.</LI>
 </UL>
-</div>
 
 
-<h2><a id="before"></a>Requisitos previos</h2> 
+<h2><a id="prerequisites" name="prerequisites" href="#prerequisites"></a>Requisitos previos</h2>
 <div class="dev-callout"> 
 <P>Asegúrese de que tiene todo colocado antes de comenzar el tutorial.</P>
 
 <UL>
-<LI><b>Cuenta de Azure</b>: necesitará una cuenta de Azure. Si no tiene una, consulte <a href="http://aka.ms/try-azure">Evaluación gratuita de Azure</a>. Obtenga información acerca de los precios de suscripción en <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Detalles de precios de Azure Site Recovery Manager</a>.</LI>
+<LI><b>Cuenta de Azure</b>: necesitará una cuenta de Azure. Si no dispone de una, consulte <a href="http://aka.ms/try-azure">Evaluación gratuita de Azure</a>. Puede obtener información sobre precios de suscripción en <a href="http://go.microsoft.com/fwlink/?LinkId=378268">Detalles de precios de Azure Site Recovery Manager</a>.</LI>
 
 <LI><b>Cuenta de almacenamiento de Azure</b>: necesitará una cuenta de almacenamiento de Azure para almacenar los datos replicados en Azure. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el servicio Azure Site Recovery y estar asociada a la misma suscripción. Para obtener más información sobre la configuración del almacenamiento de Azure, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=398704">Introducción al almacenamiento de Microsoft Azure</a>.</LI><LI><b>Servidor VMM</b>: un servidor VMM que se ejecute en System Center 2012 R2.</LI>
 <LI><b>Nubes VMM</b>: una nube al menos en el servidor VMM que contenga:
@@ -52,26 +47,25 @@
 <LI><b>Máquina virtual</b>: necesitará máquinas virtuales que cumplan con los requisitos de Azure. Consulte <a href="http://go.microsoft.com/fwlink/?LinkId=402602">Requisitos previos y compatibilidad</a> en la Guía de planeación.</LI>
 <LI>Para obtener una lista completa de los requisitos de máquinas virtuales para conmutación por error a Azure, lea  </LI>
 </UL>
+</div>
 
-
-<h2><a id="tutorial"></a>Pasos del tutorial</h2> 
-
+<h2><a id="tutorial" name="tutorial" href="#tutorial"></a>Pasos del tutorial</h2>
 Después de comprobar los requisitos previos, realice las siguientes tareas:
 <UL>
 
-<LI><a href="#vault">Paso 1: Crear una almacén</a>: Crear un almacén para Azure Site Recovery.</LI>
+<LI><a href="#vault">Paso 1: Creación de un almacén</a>: cree un almacén de Azure Site Recovery.</LI>
 <LI><a href="#download">Paso 2: Instalar la aplicación de proveedor en el servidor VMM</a>: permite generar una clave de registro en el almacén y descargar el archivo de instalación del proveedor. Ejecute el programa de instalación en el servidor VMM para instalar el proveedor y registrar el servidor de VMM en el almacén.</LI>
-<LI><a href="#storage">Paso 3: Agregar una cuenta de almacenamiento de Azure</a>: si no tiene una cuenta, cree una. </LI>
+<LI><a href="#storage">Paso 3: Agregar una cuenta de almacenamiento de Azure</a>: cree una cuenta si no tiene una. </LI>
 <LI><a href="#agent">Paso 4: Instalar la aplicación del agente</a>: instale el agente de servicios de recuperación de Microsoft Azure en cada host de Hyper-V ubicado en nubes de VMM que desea proteger.</LI>
-<LI><a href="#clouds">Paso 5: Configurar la protección de la nube</a>: Configure los parámetros de protección para las nubes VMM.</LI>
-<LI><a href="#NetworkMapping">Paso 6: Configurar la asignación de red</a>: opcionalmente puede configurar la asignación de red para asignar redes VM de origen a redes Azure de destino.</LI>
-<LI><a href="#virtualmachines">Paso 7: Habilitar protección para las máquinas virtuales</a>: habilite la protección para las máquinas virtuales ubicadas en las nubes VMM.</LI>
-<LI><a href="#test">Paso 8: Probar la implementación</a>: puede ejecutar una conmutación por error de prueba para una sola máquina virtual o puede crear un plan de recuperación y ejecutar una conmutación por error de prueba para el plan para asegurarse de que está funcionando.</LI>
+<LI><a href="#clouds">Paso 5: Configurar la protección de la nube</a>: defina la configuración de la protección para las nubes de VMM.</LI>
+<LI><a href="#NetworkMapping">Paso 6: Configurar asignación de red</a>: opcionalmente puede configurar la asignación de red para asignar redes de VM de origen a redes Azure de destino.</LI>
+<LI><a href="#virtualmachines">Paso 7: Habilitar protección para las máquinas virtuales</a>: habilite la protección para las máquinas virtuales ubicadas en las nubes de VMM protegidas.</LI>
+<LI><a href="#test">Paso 8: Prueba de la implementación</a>: puede ejecutar una conmutación por error de prueba para una sola máquina virtual o puede crear un plan de recuperación y ejecutar una conmutación por error de prueba para el plan para asegurarse de que está funcionando.</LI>
 </UL>
 
 
 
-<a name="vault"></a> <h2>Paso 1: Creación de un almacén</h2>
+<a name="vault"></a> <h3>Paso 1: Creación de un almacén</h3>
 
 1. Inicie sesión en el [Portal de administración](https://manage.windowsazure.com).
 
@@ -94,7 +88,7 @@ Después de comprobar los requisitos previos, realice las siguientes tareas:
 
 
 
- <a name="download"></a> <h2>Paso 2: Generación de una clave de registro e instalación del proveedor de Azure Site Recovery</h2>
+ <a name="download"></a> <h3>Paso 2: Generación de una clave de registro e instalación del proveedor de Azure Site Recovery</h3>
  
 
 1. En la página <b>Servicios de recuperación</b>, haga clic en el almacén para abrir la página de inicio rápido. El inicio rápido también se puede abrir en cualquier momento mediante el icono.
@@ -102,7 +96,7 @@ Después de comprobar los requisitos previos, realice las siguientes tareas:
 	![Quick Start Icon](./media/hyper-v-recovery-manager-configure-vault/SR_QuickStartIcon.png)
 
 2. En la lista desplegable seleccione **Entre un sitio Hyper-V local y Microsoft Azure**.
-3. En **Preparar servidores VMM**, haga clic en el archivo **Generar clave de registro**. La clave será válida para 5 días a partir del momento en que se genera. Copie el archivo al servidor VMM. Lo necesitará al configurar el proveedor.
+3. En **Preparar servidores VMM**, haga clic en **Generar archivo de clave de registro**. La clave será válida para 5 días a partir del momento en que se genera. Copie el archivo al servidor VMM. Lo necesitará al configurar el proveedor.
 
 	![Registration key](./media/hyper-v-recovery-manager-configure-vault/SR_E2ARegisterKey.png)
 
@@ -111,7 +105,7 @@ Después de comprobar los requisitos previos, realice las siguientes tareas:
 2. Ejecute este archivo en el servidor VMM de origen.
 
 
-3. En la **Comprobación de requisitos previos** seleccione detener el servicio VMM para iniciar la configuración del proveedor. Este servicio se detendrá y se volverá a iniciar automáticamente cuando finalice la configuración.
+3. En **Comprobación de requisitos previos** seleccione detener el servicio VMM para iniciar la configuración del proveedor. Este servicio se detendrá y se volverá a iniciar automáticamente cuando finalice la configuración.
 
 	![Prerequisites](./media/hyper-v-recovery-manager-configure-vault/SR_ProviderPrereq.png)
 
@@ -142,14 +136,14 @@ Esta opción no es relevante si está replicando desde un sitio local a otro.
 
 8. Haga clic en <b>Register</b> para finalizar el proceso. Después del registro, la Recuperación del sitio de Azure recupera los metadatos del servidor VMM. El servidor se mostrará en el extremo de la pestaña <b>Recursos</b> en la página **Servidores** del almacén.
 
-<h2><a id="storage"></a>Paso 3: Crear una cuenta de almacenamiento de Azure</h2>
+<h3><a id="storage"></a>Paso 3: Creación de una cuenta de almacenamiento de Azure</h3>
 Si no dispone de una cuenta de almacenamiento de Azure, haga clic en **Agregar una cuenta de almacenamiento de Azure**. La cuenta debe tener habilitada la replicación geográfica. Además, debe estar en la misma región que el servicio Azure Site Recovery y estar asociada a la misma suscripción.
 
 <P>Utilice este tutorial para configurar una prueba de concepto rápida para Azure Site Recovery en una implementación de local a Azure. Se utiliza la ruta más rápida y la configuración predeterminada siempre que es posible. Creará un almacén de Azure Site Recovery, instalará el proveedor de Azure Site Recovery en el servidor VMM, instalará el agente de los Servicios de recuperación de Azure en servidores host de Hyper-V situados en nubes VMM, configurará los parámetros de protección de la nube, habilitará la protección de máquinas virtuales y comprobará su implementación.</P>
 
 ![Storage account](./media/hyper-v-recovery-manager-configure-vault/SR_E2AStorageAgent.png)
 
-<h2><a id="agent"></a>Paso 4: Instalación del agente de los Servicios de recuperación de Azure en servidores host de Hyper-V</h2>
+<h3><a id="agent"></a>Paso 4: Instalación del agente de los Servicios de recuperación de Azure en servidores host de Hyper-V</h3>
 
 Instale el agente de los Servicios de recuperación de Azure en cada servidor host de Hyper-V situado en las nubes VMM que desea proteger.
 
@@ -162,10 +156,10 @@ Instale el agente de los Servicios de recuperación de Azure en cada servidor ho
 
 	![Prerequisites Recovery Services Agent](./media/hyper-v-recovery-manager-configure-vault/SR_AgentPrereqs.png)
 
-4. En la página **Configuración de la instalación**, especifique dónde desea instalar el agente y seleccione la ubicación de la caché en la que se instalarán los metadatos de copia de seguridad. Luego haga clic en <b>Instalar</b>.
+4. En la página **Configuración de la instalación**, especifique dónde desea instalar el agente y seleccione la ubicación de la caché en la que se instalarán los metadatos de copia de seguridad. A continuación, haga clic en <b>Instalar</b>.
 
 
-<h2><a id="clouds"></a>Paso 5: Configurar la protección de la nube</h2>
+<h3><a id="clouds"></a>Paso 5: Configurar la protección de la nube</h3>
 
 Una vez que los servidores VMM están registrados, puede configurar la protección de la nube. La opción **Sincronizar datos de nube con el almacén** se habilita cuando se instala el proveedor, de modo que todas las nubes del servidor VMM aparecerán en la pestaña <b>Elementos protegidos</b> del almacén.
 
@@ -188,14 +182,14 @@ Tras guardar la configuración, se creará un trabajo que se podrá supervisar e
 
 Tras guardar, puede modificar la configuración de la nube en la pestaña <b>Configurar</b>. Para modificar la ubicación de destino o el almacenamiento de destino, deberá eliminar la configuración de la nube y luego volver a configurar la nube. Tenga en cuenta que si cambia la cuenta de almacenamiento, el cambio solo se aplicará a las máquinas virtuales que tengan la protección habilitada después de que la cuenta de almacenamiento se ha modificado. Las máquinas virtuales existentes no se migrarán a la nueva cuenta de almacenamiento.</p>
 
-<h2><a id="networkmapping"></a>Paso 6: Configurar asignación de red</h2>
+<h3><a id="networkmapping"></a>Paso 6: Configurar asignación de red</h3>
 
-<p>En este tutorial se describe la ruta más sencilla para implementar Azure Site Recovery en un entorno de prueba. Para configurar la asignación de red como parte de este tutorial, lea <a href="http://go.microsoft.com/fwlink/?LinkId=324817">Preparar la asignación de red</a> en la Guía de planeación. Para configurar la asignación siga los pasos hasta <a href="http://go.microsoft.com/fwlink/?LinkId=402533">Configurar la asignación de red</a> en la guía de implementación.</p>
-
-
+<p>En este tutorial se describe la ruta más sencilla para implementar Azure Site Recovery en un entorno de prueba. Para configurar la asignación de red como parte de este tutorial, lea <a href="http://go.microsoft.com/fwlink/?LinkId=324817">Preparación de la asignación de red</a> en la Guía de planeación. Para configurar la asignación, siga los pasos hasta <a href="http://go.microsoft.com/fwlink/?LinkId=402533">Configuración de la asignación de red</a> en la Guía de implementación.</p>
 
 
-<h2><a id="virtualmachines"></a>Paso 7: Habilitar protección para las máquinas virtuales</h2>
+
+
+<h3><a id="virtualmachines"></a>Paso 7: Habilitar protección para las máquinas virtuales</h3>
 
 Una vez que los servidores, las nubes y las redes se configuran correctamente, puede habilitar la protección para las máquinas virtuales en la nube. Tenga en cuenta lo siguiente:
 
@@ -207,7 +201,7 @@ Una vez que los servidores, las nubes y las redes se configuran correctamente, p
 ![Modify virtual machine properties](./media/hyper-v-recovery-manager-configure-vault/SR_EnableVMME2AExisting.png)
 
 
-1. Para habilitar la protección, en la pestaña <b>Máquinas virtuales</b> de la nube en la que se encuentra la máquina virtual, haga clic en <b>Habilitar protección</b> y luego seleccione <b>Agregar máquinas virtuales</b>
+1. Para habilitar la protección, en la pestaña <b>Máquinas virtuales</b> de la nube en la que se encuentra la máquina virtual, haga clic en <b>Habilitar protección</b> y seleccione <b>Agregar máquinas virtuales</b>.
 2. En la lista de máquinas virtuales de la nube, seleccione la que desea proteger. 
 
 	![Enable virtual machine protection](./media/hyper-v-recovery-manager-configure-vault/SR_EnableVMME2ASelectVM.png)
@@ -222,7 +216,7 @@ Siga el progreso de la acción de habilitación de la protección en la pestaña
 ![Virtual machine protection job](./media/hyper-v-recovery-manager-configure-vault/SR_VMJobs.png)
 
 
-<h2><a id="test"></a>Paso 8: Prueba de la implementación</h2>
+<h3><a id="test"></a>Paso 8: Prueba de la implementación</h3>
 Para probar la implementación puede realizar una prueba de conmutación por error para una máquina virtual individual o crear un plan de recuperación que incluya numerosas máquinas virtuales y realizar una conmutación por error de prueba para el plan.  La conmutación por error de prueba simula su mecanismo de conmutación por error y recuperación en una red aislada. Tenga en cuenta lo siguiente:
 <UL>
 <li>Si después de la conmutación por error desea conectarse a la máquina virtual de Azure mediante Escritorio remoto, habilite Conexión a Escritorio remoto en la máquina virtual antes de ejecutar la prueba.</li>
@@ -233,7 +227,7 @@ Para probar la implementación puede realizar una prueba de conmutación por err
 
 	![Create recovery plan](./media/hyper-v-recovery-manager-configure-vault/SRAzure_RP1.png)
 
-2. En la página **Confirmar conmutación por error de prueba** seleccione **Ninguno**. Tenga en cuenta que una conmutación por error de prueba con esta configuración comprobará que la máquina virtual se replicó correctamente en Azure, pero no comprobará la configuración de red de replicación. Si desea ejecutar la prueba con una red de Azure especificada, vea href="http://go.microsoft.com/fwlink/?LinkId=522292">Probar una instalación local en Azure</a>.
+2. En la página **Confirmar conmutación por error de prueba** seleccione **Ninguno**. Tenga en cuenta que una conmutación por error de prueba con esta configuración comprobará que la máquina virtual se replicó correctamente en Azure, pero no comprobará la configuración de red de replicación. Si desea ejecutar la prueba con una red de Azure especificada, vea <a href="http://go.microsoft.com/fwlink/?LinkId=522292">Prueba de una implementación local en Azure</a>.
 
 	![No network](./media/hyper-v-recovery-manager-configure-vault/SRAzure_TestFailoverNoNetwork.png)
 
@@ -246,23 +240,22 @@ Para probar la implementación puede realizar una prueba de conmutación por err
 5. Después de la conmutación por error podrá ver la réplica de prueba de la máquina virtual en el portal de Azure. Si está configurando para acceder a máquinas virtuales desde la red local puede iniciar una conexión de Escritorio remoto a la máquina virtual.
 
 
-<h3><a id="runtest"></a>Supervisión de la actividad</h3>
+
+<h2><a id="runtest" name="runtest" href="#runtest"></a>Supervisión de la actividad</h2>
 <p>Puede usar la pestaña <b>Trabajos</b> y el <b>Panel</b> para ver y supervisar los principales trabajos que se realizan en el almacén de Azure Site Recovery, como la configuración de la protección para una nube, la habilitación y deshabilitación de la protección para una máquina virtual, la ejecución de una conmutación por error (planificada, no planificada o de prueba) y la realización de una conmutación por error no planificada.</p>
 
 <p>En la pestaña <b>Trabajos</b>, puede ver los trabajos, profundizar en los detalles y los errores del trabajo, ejecutar consultas del trabajos para recuperar aquellos que coincidan con criterios específicos, exportar trabajos a Excel y reiniciar los trabajos con errores.</p>
 
 <p>En el <b>Panel</b>, puede descargar las versiones más recientes de los archivos de instalación del proveedor y el agente, obtener información de configuración del almacén, ver el número de máquinas virtuales cuya protección se gestiona en el almacén, ver los trabajos recientes, administrar el certificado del almacén y volver a sincronizar las máquinas virtuales.</p>
 
-<p>Para obtener más información sobre la interacción con los trabajos y el panel, consulte la <a href="http://go.microsoft.com/fwlink/?LinkId=398534">guía de operaciones y supervisión</a>.</p>
+<p>Para obtener más información sobre la interacción con los trabajos y el panel, consulte la <a href="http://go.microsoft.com/fwlink/?LinkId=398534">Guía de operaciones y supervisión</a>.</p>
 
-<h2><a id="next"></a>Pasos siguientes</h2>
+<h2><a id="next" name="next" href="#next"></a>Pasos siguientes</h2>
 <UL>
-<LI>Para planificar e implementar Azure Site Recovery en un entorno completo de producción, consulte <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guía de planificación de Azure Site Recovery</a> y <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guía de implementación de Azure Site Recovery</a>.</LI>
+<LI>Para planear e implementar Azure Site Recovery en un entorno completo de producción, consulte la <a href="http://go.microsoft.com/fwlink/?LinkId=321294">Guía de planeación de Azure Site Recovery</a> y la <a href="http://go.microsoft.com/fwlink/?LinkId=321295">Guía de implementación de Azure Site Recovery</a>.</LI>
 
 
-<LI>Si tiene preguntas, visite el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">Foro de servicios de recuperación de Azure</a>.</LI> 
+<LI>Si tiene preguntas, visite el <a href="http://go.microsoft.com/fwlink/?LinkId=313628">foro de Servicios de recuperación de Azure</a>.</LI> 
 </UL>
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=49-->

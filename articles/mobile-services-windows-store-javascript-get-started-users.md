@@ -10,10 +10,10 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/26/2015" 
 	ms.author="glenga"/>
 
 # Incorporación de autenticación a la aplicación de Servicios móviles
@@ -38,7 +38,7 @@ Este tutorial está basado en el inicio rápido de Servicios móviles. Primero d
 [AZURE.INCLUDE [mobile-services-register-authentication](../includes/mobile-services-register-authentication.md)] 
 
 <ol start="5">
-<li><p>(Opcional) Complete los pasos en <a href="/es-es/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft</a>.</p>
+<li><p>(Opcional) Complete los pasos en <a href="/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication/">Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft</a>.</p>
 
     
 	<p>Tenga en cuenta que este paso es opcional porque solo se aplica al proveedor de inicio de sesión de la cuenta Microsoft. Cuando registre la información del paquete de la aplicación de la Tienda Windows con Servicios móviles, el cliente podrá volver a usar las credenciales de inicio de sesión de la cuenta Microsoft para conseguir una experiencia de inicio de sesión único. Si no realiza este procedimiento, los usuarios de inicio de sesión de la cuenta Microsoft visualizarán una solicitud de inicio de sesión cada vez que se llame al método de inicio de sesión. Complete este paso cuando tenga previsto utilizar el proveedor de identidades de la cuenta Microsoft.</p>
@@ -51,7 +51,7 @@ El servicio móvil y la aplicación están ahora configurados para que funcionen
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 <ol start="3">
-<li><p>En Visual Studio 2012 Express para Windows 8, abra el proyecto que creó cuando completó el tutorial <a href="/es-es/develop/mobile/tutorials/get-started/">Introducción a los Servicios móviles</a>.</p></li> 
+<li><p>En Visual Studio 2012 Express para Windows 8, abra el proyecto que creó cuando completó el tutorial <a href="/develop/mobile/tutorials/get-started/">Introducción a los Servicios móviles</a>.</p></li> 
 <li><p>Presione la tecla F5 para ejecutar esta aplicación basada en el inicio rápido; compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación.</p>
    
    	<p>Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla <em>TodoItem</em> requiere ahora autenticación.</p></li>
@@ -69,7 +69,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
 ## <a name="next-steps"> </a>Pasos siguientes
 
-En el siguiente tutorial, [Autorización en el servicio de los usuarios de Servicios móviles][Autorización de usuarios con scripts], usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. 
+En el siguiente tutorial, [Autorización en el servicio de usuarios de Servicios móviles][Autorización de usuarios con scripts], usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. 
 
 
 <!-- Anchors. -->
@@ -83,15 +83,14 @@ En el siguiente tutorial, [Autorización en el servicio de los usuarios de Servi
 <!-- URLs. -->
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Inicio de sesión único para aplicaciones de la Tienda Windows mediante Live Connect]: /es-es/documentation/articles/mobile-services-windows-store-javascript-single-sign-on
-[Introducción a los servicios móviles]: /es-es/documentation/articles/mobile-services-windows-store-get-started/
-[Introducción a los datos]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-users/
-[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-push/
-[Autorización de usuarios con scripts]: /es-es/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts
+[Inicio de sesión único para aplicaciones de la Tienda Windows mediante Live Connect]: mobile-services-windows-store-javascript-single-sign-on.md
+[Introducción a los Servicios móviles]: mobile-services-windows-store-get-started.md
+[Introducción a los datos]: mobile-services-windows-store-javascript-get-started-data.md
+[Introducción a la autenticación]: mobile-services-windows-store-javascript-get-started-users.md
+[Introducción a las notificaciones de inserción]: mobile-services-windows-store-javascript-get-started-push.md
+[Autorización de usuarios con scripts]: mobile-services-windows-store-javascript-authorize-users-in-scripts.md
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft]: /es-es/develop/mobile/how-to-guides/register-windows-store-app-package
+[Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft]: /develop/mobile/how-to-guides/register-windows-store-app-package
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

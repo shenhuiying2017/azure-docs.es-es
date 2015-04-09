@@ -1,6 +1,6 @@
 ﻿<properties 
-	pageTitle="Equilibrio de carga para Servicios de infraestructura de Azure" 
-	description="Describe los dos tipos diferentes de equilibrio de carga admitidos en Azure: equilibrador de carga para servicios en la nube y Administrador de tráfico de Azure para el tráfico del cliente." 
+	pageTitle="Equilibrio de carga para servicios de infraestructura de Azure" 
+	description="Describe los dos tipos diferentes de equilibrio de carga admitidos en Azure: equilibrador de carga para servicios en la nube y Administrador de tráfico de Azure para el tráfico del cliente". 
 	services="virtual-machines" 
 	documentationCenter="" 
 	authors="cherylmc" 
@@ -34,13 +34,13 @@ El Administrador de tráfico de Azure utiliza tres métodos de equilibrio de car
 
 - **Conmutación por error**:  use este método cuando desee usar un extremo principal para todo el tráfico, pero proporcionar copias de seguridad en caso de que el extremo principal pierda disponibilidad.
 - **Rendimiento**:  UUtilice este método cuando tenga extremos en diferentes ubicaciones geográficas y desee solicitar a los clientes que usen el extremo "más cercano" en términos de la latencia más baja.
-- **Round robin**:  use este método cuando desee distribuir la carga entre un conjunto de servicios en la nube en el mismo centro de datos o entre servicios en la nube o sitios en diferentes centros de datos.
+- **Round Robin:** use este método cuando desee distribuir la carga entre un conjunto de servicios en la nube en el mismo centro de datos o entre servicios en la nube o sitios en diferentes centros de datos.
 
 Para obtener más información, consulte [Acerca de los métodos de equilibrio de carga del Administrador de tráfico](http://msdn.microsoft.com/library/azure/dn339010.aspx).
 
 En la figura siguiente se muestra un ejemplo del método de equilibrio de carga Round Robin para la distribución del tráfico entre diferentes servicios en la nube.
 
-![loadbalancing](./media/load-balancing-vms/TMSummary.png)
+![equilibrio de carga](./media/load-balancing-vms/TMSummary.png)
 
 El proceso básico es el siguiente:
 
@@ -59,9 +59,9 @@ El Equilibrador de carga de Azure distribuye de forma aleatoria un tipo específ
 
 En la siguiente ilustración se muestra un extremo con equilibrio de carga para el tráfico web (sin cifrar) estándar que se comparte entre tres máquinas virtuales para el puerto TCP público y privado de 80. Estas tres máquinas virtuales se encuentran en un conjunto con equilibrio de carga.
 
-![loadbalancing](./media/load-balancing-vms/LoadBalancing.png)
+![equilibrio de carga](./media/load-balancing-vms/LoadBalancing.png)
 
-Para obtener más información, consulte [Equilibrador de carga de Azure](http://msdn.microsoft.com/library/azure/dn655058.aspx). Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un conjunto de carga equilibrada](http://msdn.microsoft.com/library/azure/dn655055.aspx).
+Para obtener más información, consulte [Equilibrador de carga de Azure](http://msdn.microsoft.com/library/azure/dn655058.aspx). Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un conjunto de carga equilibradahttp://msdn.microsoft.com/library/azure/dn655055.aspx).
 
 Azure también puede equilibrar la carga en un servicio en la nube o una red virtual. Esto se conoce como equilibrio de carga interno y se puede usar de las siguientes maneras:
 
@@ -73,11 +73,11 @@ Simular al equilibrio de carga de Azure, el equilibrio de carga interno se facil
 
 En la figura siguiente se muestra un ejemplo de un extremo con carga equilibrada de una aplicación de línea de negocios (LOB) que se comparte entre tres máquinas virtuales en una red virtual de varias instalaciones. 
 
-![loadbalancing](./media/load-balancing-vms/LOBServers.png)
+![equilibrio de carga](./media/load-balancing-vms/LOBServers.png)
 
-Para obtener más información, consulte [Equilibrio de carga interno](http://msdn.microsoft.com/library/azure/dn690121.aspx). Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un equilibrio de carga interno establecido](http://msdn.microsoft.com/library/azure/dn690125.aspx).
+Para obtener más información, consulte [Equilibrio de carga interno](http://msdn.microsoft.com/library/azure/dn690121.aspx). Para conocer los pasos para crear un conjunto de carga equilibrada, consulte [Configurar un conjunto de carga equilibrada interno](http://msdn.microsoft.com/library/azure/dn690125.aspx).
 
 <!-- LINKS -->
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

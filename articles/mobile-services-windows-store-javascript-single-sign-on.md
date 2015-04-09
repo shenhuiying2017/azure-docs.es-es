@@ -10,7 +10,7 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="javascript" 
 	ms.topic="article" 
 	ms.date="11/22/2014" 
@@ -18,13 +18,13 @@
 
 # Autenticación de una aplicación de la Tienda Windows con el inicio de sesión único de Live Connect
 <div class="dev-center-tutorial-selector sublanding"> 
-	<a href="/es-es/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">C# para Tienda Windows</a><a href="/es-es/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript" class="current">JavaScript para Tienda Windows</a><a href="/es-es/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone">Windows Phone</a>
+	<a href="/documentation/articles/mobile-services-windows-store-dotnet-single-sign-on/" title="Windows Store C#">C# para Tienda Windows</a><a href="/documentation/articles/mobile-services-windows-store-javascript-single-sign-on/" title="Windows Store JavaScript" class="current">JavaScript para Tienda Windows</a><a href="/documentation/articles/mobile-services-windows-phone-single-sign-on/" title="Windows Phone">Windows Phone</a>
 </div>	
 
 
 En este tema se muestra cómo autenticar usuarios en Servicios móviles de Azure desde una aplicación de la Tienda Windows.  En este tutorial podrá agregar la autenticación al proyecto de inicio rápido mediante Live Connect. Una vez que Live Connect haya realizado la autenticación correctamente, se dará la bienvenida al usuario que ha iniciado sesión por su nombre y se mostrará el valor de identificador de usuario.  
 
->[AZURE.NOTE]Este tutorial muestra las ventajas de usar la experiencia de inicio de sesión único que ofrece Live Connect para las aplicaciones de la Tienda Windows. Esto le permite autenticar más fácilmente a un usuario que ya haya iniciado sesión en el servicio móvil. Para ver una experiencia de autenticación más generalizada que admita varios proveedores de autenticación, consulte el tema <a href="/es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-users/">Introducción a la autenticación</a>.
+>[AZURE.NOTE]Este tutorial muestra las ventajas de usar la experiencia de inicio de sesión único que ofrece Live Connect para las aplicaciones de la Tienda Windows. Esto le permite autenticar más fácilmente a un usuario que ya haya iniciado sesión en el servicio móvil. Para ver una experiencia de autenticación más generalizada que admita varios proveedores de autenticación, consulte el tema <a href="mobile-services-windows-store-javascript-get-started-users.md/">Introducción a la autenticación</a>.
 
 Este tutorial le guiará a través de estos pasos básicos para habilitar la autenticación de Live Connect:
 
@@ -49,7 +49,7 @@ Para poder autenticar a los usuarios, debe enviar la aplicación a la Tienda Win
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 <ol start="3">
-<li><p>En Visual Studio 2012 Express para Windows 8, abra el proyecto que creó cuando completó el tutorial <a href="/es-es/documentation/articles/mobile-services-windows-store-get-started">Introducción a los Servicios móviles</a>.</p></li> 
+<li><p>En Visual Studio 2012 Express para Windows 8, abra el proyecto que creó cuando completó el tutorial <a href="/documentation/articles/mobile-services-windows-store-get-started">Introducción a los Servicios móviles</a>.</p></li> 
 <li><p>Presione la tecla F5 para ejecutar esta aplicación basada en el inicio rápido; compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación.</p>
    
    	<p>Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla <em>TodoItem</em> requiere ahora autenticación.</p></li>
@@ -67,7 +67,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
   	De esta forma se agrega al proyecto una referencia al SDK de Live.
 
-3. Abra el archivo de proyecto default.html y agregue el siguiente elemento &lt;script&gt; en el elemento &lt;&gthead&gt;. 
+3. Abra el archivo de proyecto default.html y agregue el siguiente elemento &lt;script&gt; en el elemento &lt;head&gt;. 
 
         <script src="///LiveSDKHTML/js/wl.js"></script>
 
@@ -123,10 +123,10 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
         }
 
         var authenticate = function () {
-            // Force a logout to make it easier to test with multiple Microsoft Accounts
+            // Forzar el cierre de sesión para facilitar las pruebas con varias cuentas Microsoft
             logout().then(login).then(function () {
                 if (session === null) {
-                    // Authentication failed, try again.
+                    // Error de autenticación, vuelva a intentarlo.
                     authenticate();
                 }
             });
@@ -140,7 +140,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
     De este modo se inicializa el cliente Live Connect, se fuerza el cierre de sesión, se envía una nueva solicitud de inicio de sesión a Live Connect, se envía el token de autenticación devuelto a Servicios móviles y, a continuación, se muestra la información del usuario que ha iniciado sesión. Este código fuerza un cierre de sesión, cuando sea posible, para asegurarse de que se solicitan las credenciales al usuario cada vez que se ejecute la aplicación. Esto hace más fácil probar la aplicación con diversas cuentas Microsoft a fin de asegurarse de que la autenticación funciona correctamente. Este mecanismo solo funcionará si el usuario que ha iniciado sesión no tiene una cuenta Microsoft conectada.
 
-	>[AZURE.NOTE]No debería solicitar los tokens de autenticación de Live Connection o los tokens de autorización de Servicios móviles cada vez que se ejecute la aplicación. Esto no solo es ineficaz, sino que también puede enfrentarse a problemas relacionados con el uso si varios clientes inician la aplicación al mismo tiempo. Un mejor método sería almacenar en caché los tokens y primero intentar usar el token de Servicios móviles almacenado en caché antes de llamar a **LoginWithMicrosoftAccountAsync**. Para obtener un ejemplo de cómo almacenar en caché este token, consulte [Introducción a la autenticación](/es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-users/#tokens)
+	>[AZURE.NOTE]No debería solicitar los tokens de autenticación de Live Connection o los tokens de autorización de Servicios móviles cada vez que se ejecute la aplicación. Esto no solo es ineficaz, sino que también puede enfrentarse a problemas relacionados con el uso si varios clientes inician la aplicación al mismo tiempo. Un mejor método sería almacenar en caché los tokens y primero intentar usar el token de Servicios móviles almacenado en caché antes de llamar a **LoginWithMicrosoftAccountAsync**. Para obtener un ejemplo de cómo almacenar este token en caché, consulte [Introducción a la autenticación](mobile-services-windows-store-javascript-get-started-users.md#tokens).
 	
 7. Actualice la cadena _<< INSERT REDIRECT DOMAIN HERE >>_ del paso anterior con el dominio de redirección que se especificó al configurar la aplicación en Live Connect, con el formato **https://_service-name_.azure-mobile.net/**.
 		
@@ -174,19 +174,17 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 
 [13]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-identity-tab-ma-only.png
 [14]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-portal-data-tables.png
-[15]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-portal-change-table-per
-	ms.png
+[15]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-portal-change-table-perms.png
 [16]: ./media/mobile-services-windows-store-javascript-single-sign-on/mobile-add-reference-live-js.png
 
 <!-- URLs. -->
-[Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Envío de una página de aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Incorporación de Servicios móviles a una aplicación existente]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-data/
-[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-users
-[Autorización de usuarios con scripts]: /es-es/documentation/articles/mobile-services-windows-store-javascript-authorize-users-in-scripts/
+[Incorporación de Servicios móviles a una aplicación existente]: mobile-services-windows-store-javascript-get-started-data.md
+[Introducción a la autenticación]: mobile-services-windows-store-javascript-get-started-users.md
+[Autorización a los usuarios con scripts]: mobile-services-windows-store-javascript-authorize-users-in-scripts.md
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

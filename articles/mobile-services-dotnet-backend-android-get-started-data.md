@@ -1,6 +1,6 @@
-<properties 
+﻿<properties 
 	pageTitle="Introducción a los datos (Android) | Centro de desarrollo móvil" 
-	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación Android." 
+	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación Android.." 
 	services="mobile-services" 
 	documentationCenter="android" 
 	authors="RickSaling" 
@@ -64,16 +64,16 @@ Este tutorial le guiará a través de estos pasos básicos:
 
 <h2><a name="download-app"></a>Descarga del proyecto GetStartedWithData</h2>
 
-### Obtención del código de ejemplo
+###Obtención del código de ejemplo
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/download-android-sample-code.md)]
 
-### Comprobación de la versión del SDK de Android
+###Comprobación de la versión del SDK de Android
 
 [AZURE.INCLUDE [mobile-services-verify-android-sdk-version](../includes/mobile-services-verify-android-sdk-version.md)]
 
 
-### Inspección y ejecución del código de ejemplo
+###Inspección y ejecución del código de ejemplo
 
 [AZURE.INCLUDE [mobile-services-android-run-sample-code](../includes/mobile-services-android-run-sample-code.md)]
 
@@ -94,7 +94,7 @@ Ahora que la aplicación se ha actualizado para usar los Servicios móviles para
 
    	Esto envía un elemento nuevo como inserción al servicio móvil.
 
-    Puede reiniciar la aplicación para ver si los cambios se aplicaron en la base de datos de Azure. También puede examinar la base de datos mediante el Portal de administración de Azure:  en los dos pasos siguientes se hará esto para ver los cambios en la base de datos.
+    Puede reiniciar la aplicación para ver si los cambios se aplicaron en la base de datos de Azure. También puede examinar la base de datos mediante el Portal de administración de Azure: realice los dos pasos siguientes para ver los cambios en la base de datos.
 
 
 4. En el Portal de administración de Azure, haga clic en la opción Administrador correspondiente a la base de datos asociada con el servicio móvil.
@@ -115,15 +115,15 @@ Así concluye el tutorial **Introducción a los datos** para Android.
 
 Este tutorial muestra los aspectos básicos de la habilitación de una aplicación Android para que funcione con los datos de los Servicios móviles. 
 
-<!--A continuación, considere la realización de uno de los siguientes tutoriales que se basan en la aplicación GetStartedWithData que creó en este tutorial:
+<!--Next, consider completing one of the following tutorials that is based on the GetStartedWithData app that you created in this tutorial:
 
-* [Validación y modificación de datos con scripts]
-  <br/>Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
+* [Validate and modify data with scripts]
+  <br/>Learn more about using server scripts in Mobile Services to validate and change data sent from your app.
 
-* [Limitación de consultas con paginación]
-  <br/>Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se manejan en una única solicitud.
+* [Refine queries with paging]
+  <br/>Learn how to use paging in queries to control the amount of data handled in a single request.
 
-Cuando haya completado la serie de datos:
+Once you have completed the data series, try
 -->
 
 Pruebe uno de estos otros tutoriales:
@@ -131,7 +131,7 @@ Pruebe uno de estos otros tutoriales:
 * [Introducción a la autenticación]
   <br/>Aprenda la manera de autenticar a los usuarios de la aplicación.
 
-* [Introducción a las notificaciones de inserción] 
+* [Introducción a las notificaciones de inserción]
   <br/>Aprenda a enviar una notificación de inserción muy básica a la aplicación.
 
 * [Referencia conceptual de servicios móviles con .NET]
@@ -180,20 +180,21 @@ Pruebe uno de estos otros tutoriales:
 
 
 <!-- URLs. -->
-[Empezar a trabajar con datos (Eclipse)]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data-EC/
+[Empezar a trabajar con datos (Eclipse)]: mobile-services-dotnet-backend-android-get-started-data-EC.md
 [Validación y modificación de datos con scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
 [Limitación de consultas con paginación]: /develop/mobile/tutorials/add-paging-to-data-dotnet
-[Introducción a los Servicios móviles]: /documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started/
+[Introducción a los Servicios móviles]: mobile-services-dotnet-backend-windows-store-dotnet-get-started.md
 [Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-android
 [Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-android
 [JavaScript y HTML]: /develop/mobile/tutorials/get-started-with-data-js
-[versión back-end de JavaScript]: /develop/mobile/tutorials/get-started-with-data-android
+[Versión de back-end de JavaScript]: /develop/mobile/tutorials/get-started-with-data-android
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Portal de administración]: https://manage.windowsazure.com/
-[SDK de servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=257545
+[SDK de Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Sitio de ejemplos de código para desarrolladores]:  http://go.microsoft.com/fwlink/p/?LinkId=328660
-[Referencia conceptual de Servicios móviles con .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Referencia conceptual de servicios móviles con .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Clase MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
-[Referencia conceptual de Servicios móviles con .NET]: /documentation/articles/mobile-services-windows-dotnet-how-to-use-client-library  
-<!--HONumber=47-->
+[Referencia conceptual de servicios móviles con .NET]: mobile-services-windows-dotnet-how-to-use-client-library.md  
+
+<!--HONumber=49-->

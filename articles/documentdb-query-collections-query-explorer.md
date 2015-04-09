@@ -26,7 +26,7 @@ Después de completar este tutorial, podrá responder a las preguntas siguientes
 -	¿Cómo puedo navegar fácilmente por las páginas de resultados de la consultas de Base de datos de documentos mediante un explorador web?
 -	¿Cómo puedo solucionar los errores de sintaxis mediante una consulta de Base de datos de documentos? 
 
-## <a id="Launch"></a>Explorador de consultas: inicio y navegación##
+##<a id="Launch"></a>Explorador de consultas: inicio y navegación##
 
 El Explorador de consulta se puede iniciar desde cualquier hoja, colección, base de datos o cuenta de Base de datos de documentos.
   
@@ -40,11 +40,11 @@ El Explorador de consulta se puede iniciar desde cualquier hoja, colección, bas
 
 	![Screenshot of Query Explorer](./media/documentdb-query-collections-query-explorer/queryexplorerinitial.png)
 
-## <a id="Create"></a>Creación, edición y ejecución de consultas con el Explorador de consultas##
+##<a id="Create"></a>Creación, edición y ejecución de consultas con el Explorador de consultas##
 
 El Explorador de consultas permite crear, editar y ejecutar consultas fácilmente en una colección de Base de datos de documentos. Incluye palabras clave básicas y valores destacados para mejorar la experiencia de creación de consultas.  
 
-- Cuando se abre por primera vez el Explorador de consultas, se proporciona una consulta predeterminada de SELECT * FROM c.  Puede aceptar la consulta predeterminada o crear la suya propia. A continuación, haga clic en el botón **Ejecutar consulta** para ver los resultados. El Explorador de consultas es compatible con el lenguaje de consultas SQL de Base de datos de documentos, tal y como se describe en [Base de datos de documentos de consulta](../documentdb-sql-query/).
+- Cuando se abre por primera vez el Explorador de consultas, se proporciona una consulta predeterminada de SELECT * FROM c.  Puede aceptar la consulta predeterminada o crear la suya propia. A continuación, haga clic en el botón **Ejecutar consulta** para ver los resultados. El Explorador de consultas es compatible con el lenguaje de consultas SQL de Base de datos de documentos, tal y como se describe en [Base de datos de documentos de consulta](documentdb-sql-query.md).
 
 	![Screenshot of Query Explorer query results](./media/documentdb-query-collections-query-explorer/queryresults1.png) 
 
@@ -60,9 +60,9 @@ El Explorador de consultas permite crear, editar y ejecutar consultas fácilment
 
 	![Screenshot of Query Explorer query errors](./media/documentdb-query-collections-query-explorer/queryerror.png)
 
-## <a name="NextSteps"></a>Pasos siguientes
+##<a name="NextSteps"></a>Pasos siguientes
 
 - Para obtener más información acerca de Base de datos de documentos, haga clic [aquí](http://azure.com/docdb).
-- Para obtener más información acerca de la gramática de SQL compatible con Base de datos de documentos en el Explorador de consultas, haga clic [aquí](../documentdb-sql-query/).
+- Para obtener más información acerca de la gramática de SQL compatible con Base de datos de documentos en el Explorador de consultas, haga clic [aquí](documentdb-sql-query.md).
 
-<!--HONumber=47-->
+<!--HONumber=49-->

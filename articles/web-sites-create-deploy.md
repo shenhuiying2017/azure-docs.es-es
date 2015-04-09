@@ -1,72 +1,72 @@
-﻿<properties 
-	pageTitle="Creación de sitios web - Administración de servicios de Azure" 
-	description="Obtenga información sobre cómo crear un sitio web con el Portal de administración de Azure." 
-	services="web-sites" 
-	documentationCenter="" 
-	authors="cephalin" 
-	manager="wpickett" 
+﻿<properties
+	pageTitle="Cómo crear una aplicación web: administración de servicios de Azure"
+	description="Obtenga información sobre cómo crear una aplicación web con el Portal de Azure."
+	services="app-service\web"
+	documentationCenter=""
+	authors="cephalin"
+	manager="wpickett"
 	editor=""/>
 
-<tags 
-	ms.service="web-sites" 
-	ms.workload="web" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/24/2014" 
+<tags
+	ms.service="app-service-web"
+	ms.workload="web"
+	ms.tgt_pltfrm="na"
+	ms.devlang="na"
+	ms.topic="article"
+	ms.date="03/24/2015"
 	ms.author="cephalin"/>
 
-#Creación de un sitio web
+#Cómo crear una aplicación web
 
-Este tema muestra cómo puede crear un sitio web desde la galería o con el portal de administración.
+En este tema se muestra cómo puede crear una aplicación web desde la galería o con el Portal de Azure.
 
-Para obtener información acerca de cómo implementar contenidos en un sitio web Azure que haya creado previamente, consulte la sección **Implementar** en [Sitios web Azure](/es-es/documentation/services/web-sites/).
+Para obtener información sobre cómo implementar su contenido en una aplicación web que ha creado, consulte la sección **Implementación** en [Aplicaciones web de Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
-## Tabla de contenido ##
+>[AZURE.NOTE] Si quiere empezar a trabajar con el servicio de aplicaciones de Azure antes de contratar una cuenta de Azure, vaya a [Probar el servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde puede crear inmediatamente una aplicación web de inicio de corta duración en el servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-- [Uso de un Sitio web con el Portal de administración](#createawebsiteportal)
-- [Uso de un Sitio web desde la galería](#howtocreatefromgallery)
-- [Uso de un Sitio web](#deleteawebsite)
-- [Pasos siguientes](#nextsteps)
+##<a name="createawebsiteportal"></a>Cómo: Crear una aplicación web con el Portal de Azure
 
-##<a name="createawebsiteportal"></a>Cómo: Creación de un sitio web con el Portal de administración
+Siga estos pasos para crear una aplicación web en Azure.
 
-Siga estos pasos para crear un sitio web en Azure.
-	
-1. Inicie sesión en el [Portal de administración de Azure](http://manage.windowsazure.com/).
+1. Inicie sesión en el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715).
 
-2. Haga clic en el botón **Crear nuevo**, situado en la parte inferior izquierda del Portal de administración.
+2. Haga clic en el icono **Nueva**, situado en la parte inferior izquierda del portal.
 
-3. Haga clic en el icono **Website**, en el icono **Creación rápida**, escriba un valor para la dirección URL y, a continuación, haga clic en la marca de verificación situada junto a **Crear sitio web** en la esquina inferior derecha de la página.
+3. Haga clic en el icono **Web y móvil**, haga clic en el icono **Aplicación web**, escriba un valor para la dirección URL y luego haga clic en **Crear** en la esquina inferior derecha de la hoja Crear.
 
-4. Cuando se ha creado el sitio Web, se mostrará el texto **sitio Web de creación <*nombre del sitio Web*> correcta**. Puede explorar el sitio web; para ello, haga clic en **Examinar** en la parte inferior de la página del portal.
+4. Cuando se haya creado la aplicación web, se mostrará el texto **La implementación en el grupo de recursos <nombre del grupo de recursos> se realizó correctamente**.
 
-5. En el portal, haga clic en el nombre del sitio web que se muestra en la lista para abrir la página de administración**Inicio rápido** del sitio web.
+5. En el portal, haga clic en el nombre de la aplicación web que se muestra en la lista de aplicaciones web para abrir la hoja de la aplicación web.
 
-6. En la página **Inicio rápido**, se le proporciona la posibilidad de obtener herramientas de desarrollo de sitios web, configurar las publicaciones de su sitio web o configurar la implementación desde un proveedor de control de código fuente como TFS o Git. La publicación FTP está configurada para sitios web de manera predeterminada, y el nombre del host FTP se muestra en la sección **Vista rápida** de la página **Panel** en **Nombre del host FTP**. Antes de publicar con FTP o Git, elija la opción**Restablecer credenciales de implementación** en la página **Panel** para poder autenticarse en el host FTP o el repositorio Git al implementar contenidos en su sitio web.
+6. En la hoja, se le proporciona la posibilidad de obtener herramientas de desarrollo de aplicaciones web, configurar las publicaciones de su aplicación web o configurar la implementación desde un proveedor de control de código fuente como TFS o Git. Publicación FTP está configurada de forma predeterminada para las aplicaciones web y el nombre de FTP Host se muestra en la sección **Essentials** de la hoja de la aplicación web. Antes de publicar con FTP o Git, elija la opción de **Restablecer perfil de publicación** en la hoja de la aplicación web para que pueda autenticarse en el FTP Host o en el repositorio al distribuir contenido a la aplicación web.
 
-7. La página de administración **Configurar** expone la configuración del sitio web, como:
+7. La hoja **Configuración** expone la configuración de la aplicación web, como:
 
-	- La versión de .NET Framework o PHP para la aplicación web
+	- versión de. NET, PHP, Java o Python para la edición de la aplicación web
+	- en Visual Studio Online.
 	- Enlaces SSL
 	- Nombres de dominio personalizados
+	- autenticación y autorización
+	- diagnóstico de aplicaciones y sitios
+	- supervisión de extremos
 	- Opciones de registro
-	- La configuración de la aplicación para el entorno de Azure (por ejemplo, mediante el reemplazo <appSettings> en el archivo Web.config de su entorno de desarrollo)
-	- Las cadenas de conexión (por ejemplo, mediante el reemplazo <connectionStrings> en el archivo Web.config de su entorno de desarrollo)
+	- configuración de la aplicación para el entorno de Azure (sobrescribiendo <appSettings> en el archivo Web.config del entorno de desarrollo, por ejemplo)
+	- cadenas de conexión (sobrescribiendo <connectionStrings> en el archivo Web.config del entorno de desarrollo, por ejemplo)
 	- procesadores de scripts para extensiones de archivo específicas como *.php
 
-##<a name="howtocreatefromgallery"></a>Cómo: Creación de un sitio web desde la galería
+##<a name="howtocreatefromgallery"></a> Eliminación Creación de una aplicación web desde la Galería
 
 [AZURE.INCLUDE [website-from-gallery](../includes/website-from-gallery.md)]
 
-##<a name="deleteawebsite"></a>Cómo: Eliminación de un sitio web
-Los sitios web se eliminan mediante el icono**Eliminar** del Portal de administración de Azure. El icono **Eliminar** está disponible en el portal de Azure al hacer clic en **Sitios web** para visualizar todos sus sitios web y en la parte inferior de todas las páginas de administración del sitio web.
+##<a name="deleteawebsite"></a>Cómo: Eliminar una aplicación web
+Las aplicaciones web se eliminan con el icono **Eliminar** del Portal de Azure. El icono **Eliminar** se encuentra en la parte superior de la hoja de la aplicación web.
 
-##<a name="nextstepsPasos siguientes"></a>
+##<a name="nextsteps"></a> Pasos siguientes
 
-Para obtener más información, consulte [Sitios web Azure](/es-es/documentation/services/web-sites/).
+Para obtener más información, consulte [Servicio de aplicaciones de Azure](http://go.microsoft.com/fwlink/?LinkId=529714).
 
+## Lo que ha cambiado
+* Para obtener instrucciones sobre el cambio de sitios web al servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obtener instrucciones sobre el cambio del portal antiguo al nuevo portal, consulte: [Referencia para navegar por el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
-
-
-<!--HONumber=42-->
+<!--HONumber=49-->

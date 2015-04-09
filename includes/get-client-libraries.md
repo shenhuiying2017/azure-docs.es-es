@@ -7,18 +7,21 @@
 
 2. Cree un archivo con el nombre **composer.json** en la raíz del proyecto y agréguele el código siguiente:
 
-		{
-			"require": {
-				"microsoft/windowsazure": "*"
-			},			
-			"repositories": [
-				{
-					"type": "pear",
-					"url": "http://pear.php.net"
-				}
-			],
-			"minimum-stability": "dev"
-		}
+        {
+            "repositories": [
+                {
+                    "type": "pear",
+                    "url": "http://pear.php.net"
+                }
+            ],
+            "require": {
+                "pear-pear.php.net/mail_mime" : "*",
+                "pear-pear.php.net/http_request2" : "*",
+                "pear-pear.php.net/mail_mimedecode" : "*",
+                "microsoft/windowsazure": "*"
+            }
+        }
+
 
 3. Descargue **[composer.phar][composer-phar]** en la raíz del proyecto.
 
@@ -43,7 +46,7 @@ Para obtener más información sobre la instalación de bibliotecas de cliente P
 
 [php-sdk-github]: http://go.microsoft.com/fwlink/?LinkId=252719
 [install-git]: http://git-scm.com/book/en/Getting-Started-Installing-Git
-[download-SDK-PHP]: ../php-download-sdk/
+[download-SDK-PHP]: ../articles/php-download-sdk.md
 [composer-phar]: http://getcomposer.org/composer.phar
 
-<!--HONumber=47-->
+<!--HONumber=49-->

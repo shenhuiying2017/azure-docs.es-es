@@ -27,7 +27,7 @@ Después de leer dicha información, podrá responder a las preguntas siguientes
 -	¿Qué son los tokens de recursos de Base de datos de documentos?
 -	¿Cómo puedo utilizar los usuarios y permisos de Base de datos de documentos para proteger el acceso a los datos de dicha base?
 
-## <a id="Sub1"></a>Conceptos de control de acceso a Base de datos de documentos##
+##<a id="Sub1"></a>Conceptos de control de acceso a Base de datos de documentos##
 
 Base de datos de documentos proporciona conceptos de primera clase para controlar el acceso a sus recursos.  Para la finalidad de este tema, los recursos de Base de datos de documentos se agrupan en dos categorías:
 
@@ -64,7 +64,7 @@ Teniendo en cuenta las categorías y los recursos mencionados, el modelo de cont
 
 ![DocumentDB resource tokens illustration](./media/documentdb-secure-access-to-data/resourcekeys.png)
 
-## <a id="Sub2"></a>Trabajar con claves maestras y de solo lectura de Base de datos de documentos ##
+##<a id="Sub2"></a>Trabajo con claves maestras y de solo lectura de Base de datos de documentos ##
 Como se mencionó anteriormente, las claves maestras de Base de datos de documentos proporcionan acceso administrativo completo a todos los recursos de una cuenta de este tipo, mientras que las claves de solo lectura habilitan el acceso de lectura a todos los recursos de la cuenta.  El fragmento de código siguiente muestra cómo usar un extremo y la clave principal de la cuenta de Base de datos de documentos para crear una instancia de DocumentClient y una nueva base de datos. 
 
     //Read the DocumentDB endpointUrl and authorization keys from config.
@@ -84,7 +84,7 @@ Como se mencionó anteriormente, las claves maestras de Base de datos de documen
         });
 
 
-## <a id="Sub3"></a>Información general de los tokens de recursos de Base de datos de documentos ##
+##<a id="Sub3"></a>Información general de tokens de recursos de Base de datos de documentos ##
 Si desea proporcionar acceso a los recursos de su cuenta de Base de datos de documentos a un cliente que no es de confianza con la clave maestra, puede usar un token de recurso (mediante la creación de usuarios y permisos de Base de datos de documentos). Las claves maestras de Base de datos de documentos incluyen una clave principal y una secundaria, cada una de las cuales concede acceso administrativo a la cuenta y a todos los recursos incluidos en esta. La exposición de alguna de las claves maestras posibilita que se haga un uso negligente o malintencionado de la cuenta. 
 
 Del mismo modo, las claves de solo lectura de Base de datos de documentos proporcionan acceso de lectura a todos los recursos (excepto, por supuesto, los recursos de permisos) de una cuenta de este tipo y no se pueden usar para proporcionar un acceso más específico a recursos concretos de dicha base de datos.
@@ -104,7 +104,7 @@ Este es un patrón de diseño típico mediante el cual los tokens de recursos se
 
 ![DocumentDB resource tokens workflow](./media/documentdb-secure-access-to-data/resourcekeyworkflow.png)
 
-## <a id="Sub4"></a>Trabajar con usuarios y permisos de Base de datos de documentos ##
+##<a id="Sub4"></a>Trabajo con usuarios y permisos de Base de datos de documentos ##
 Un recurso de usuario de Base de datos de documentos se asocia a una base de datos de este tipo.  Cada base de datos puede contener cero o más usuarios de Base de datos de documentos.  El fragmento de código siguiente muestra cómo crear un recurso de usuario de Base de datos de documentos:
 
 	//Create a user.
@@ -157,10 +157,10 @@ Para poder obtener fácilmente todos los recursos de permiso asociados a un usua
 
 > [AZURE.TIP] Los tokens de recursos tienen un intervalo de tiempo válido predeterminado de 1 hora.  Sin embargo, la vigencia del token puede especificarse explícitamente hasta un máximo de 5 horas.
 
-## <a name="NextSteps"></a>Pasos siguientes
+##<a name="NextSteps"></a>Pasos siguientes
 
 - Para obtener más información acerca de Base de datos de documentos, haga clic [aquí](http://azure.com/docdb).
-- Para obtener más información acerca de cómo administrar las claves maestras y de solo lectura, haga clic [aquí](http://azure.microsoft.com/documentation/articles/documentdb-manage-account/).
+- Para obtener más información acerca de cómo administrar las claves maestras y de solo lectura, haga clic [aquí](documentdb-manage-account.md).
 - Para obtener más información acerca de cómo construir tokens de autorización de Base de datos de documentos, haga clic [aquí](https://msdn.microsoft.com/library/azure/dn783368.aspx)
 
-<!--HONumber=47-->
+<!--HONumber=49-->

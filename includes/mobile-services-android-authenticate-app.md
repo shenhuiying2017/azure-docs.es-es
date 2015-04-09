@@ -48,21 +48,22 @@
 
 		private void createTable() {
 	
-			// Get the Mobile Service Table instance to use
+			// Obtenga la instancia de la tabla de Servicios móviles que haya que usar.
 			mToDoTable = mClient.getTable(ToDoItem.class);
 	
 			mTextNewToDo = (EditText) findViewById(R.id.textNewToDo);
 	
-			// Create an adapter to bind the items with the view
+			// Cree un adaptador para enlazar los elementos con la vista.
 			mAdapter = new ToDoItemAdapter(this, R.layout.row_list_to_do);
 			ListView listViewToDo = (ListView) findViewById(R.id.listViewToDo);
 			listViewToDo.setAdapter(mAdapter);
 	
-			// Load the items from the Mobile Service
+			// Cargue los elementos desde el servicio móvil.
 			refreshItemsFromTable();
 		}
 
 9. En el menú **Ejecutar**, haga clic en **Ejecutar aplicación** para iniciar la aplicación e inicie sesión con el proveedor de identidades que haya elegido. 
 
    	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
-<!--HONumber=47-->
+
+<!--HONumber=49-->

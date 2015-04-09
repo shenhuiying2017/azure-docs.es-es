@@ -1,107 +1,109 @@
-<properties 
-	pageTitle="Sitio web PHP con MySQL y Git - Tutorial de Azure" 
-	description="Un tutorial en el que se muestra cómo crear un sitio web de PHP que almacene datos en MySQL y usar la implementación de Git en Azure." 
-	services="web-sites" 
+﻿<properties 
+	pageTitle="Creación de una aplicación web PHP-MySQL en el Servicio de aplicaciones de Azure e implementación mediante Git" 
+	description="Tutorial en el que se muestra cómo crear una aplicación web PHP que almacena datos en MySQL y usar la implementación de Git en Azure." 
+	services="app-service\web" 
 	documentationCenter="php" 
 	authors="tfitzmac" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="PHP" 
 	ms.topic="article" 
-	ms.date="11/14/2014" 
+	ms.date="03/24/2015" 
 	ms.author="tomfitz"/>
 
-#Creación de un sitio web Azure de PHP-MySQL e implementación mediante Git
+#Creación de una aplicación web PHP-MySQL en el Servicio de aplicaciones de Azure e implementación mediante Git
 
-En este tutorial se muestra cómo crear un sitio web PHP-MySQL de Azure y cómo implementarlo mediante Git. Usará [PHP][install-php], la herramienta de línea de comandos de MySQL (parte de [MySQL](install-mysql)), un servidor web y [Git][install-git] instalados en su equipo. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo, incluidos Windows, Mac y Linux. Una vez completada esta guía, tendrá un sitio web PHP/MySQL ejecutándose en Azure.
+En este tutorial se muestra cómo crear una aplicación web PHP-MySQL y cómo implementarla en el [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) mediante Git. Utilizará [PHP][install-php], la herramienta de línea de comandos MySQL (parte de [MySQL][install-mysql]), un servidor web y [Git][install-git] instalados en el equipo. Las instrucciones de este tutorial se pueden seguir en cualquier sistema operativo, incluidos Windows, Mac y Linux. Una vez completada esta guía, tendrá una aplicación web PHP/MySQL que se ejecutará en Azure.
  
 Aprenderá a:
 
-* Creación de un Sitio web Azure y una base de datos MySQL a través del Portal de administración de Azure. Dado que PHP está habilitado en Sitios web Azure de forma predeterminada, no existen requisitos especiales para ejecutar el código PHP.
+* Crear una aplicación web y una base de datos MySQL con el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715). Dado que PHP está habilitado en [Aplicaciones web del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) de forma predeterminada, no existen requisitos especiales para ejecutar el código PHP.
 * Publicar y volver a publicar la aplicación en Azure con Git.
  
-Mediante este tutorial, se compilará una aplicación web de registro sencilla en PHP Que se hospedará en un sitio web de Azure. A continuación se muestra una captura de pantalla de la aplicación completada:
+Mediante este tutorial, se compilará una aplicación web de registro sencilla en PHP. La aplicación se hospedará en aplicaciones web. A continuación se muestra una captura de pantalla de la aplicación completada:
 
 ![Azure PHP web site][running-app]
 
-> [AZURE.NOTE]
-> Para completar este tutorial, necesita una cuenta de Azure que tenga habilitada la característica Sitios web Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A74E0F923" target="_blank">Evaluación gratuita de Azure</a>.
-> 
-> Si desea obtener una introducción a Sitios web Azure antes de inscribirse para abrir una cuenta, vaya a <a href="https://trywebsites.azurewebsites.net/?language=php">https://trywebsites.azurewebsites.net</a>, donde puede crear inmediatamente y de forma gratuita un sitio básico de ASP.NET de corta duración en Sitios web Azure. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
-
 ##Configuración del entorno de desarrollo
 
-En este tutorial se supone que tiene instalados en el equipo [PHP][install-php], la herramienta de línea de comandos de MySQL (parte de [MySQL](install-mysql)), un servidor web y [Git](install git).
+En este tutorial se supone que tiene [PHP][install-php], la herramienta de línea de comandos MySQL (parte de [MySQL][install-mysql]), un servidor web y [Git][install-git] instalados en el equipo.
 
 > [AZURE.NOTE]
-> Si el tutorial se está realizando en Windows, puede configurarse la máquina para PHP y configurar IIS (el servidor web integrado en Windows) automáticamente mediante la instalación del <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">SDK de Azure para PHP</a>.
+> Si está realizando este tutorial en Windows, puede configurar el equipo para PHP y configurar automáticamente IIS (el servidor web integrado en Windows) mediante la instalación del <a href="http://www.microsoft.com/web/handlers/webpi.ashx/getinstaller/azurephpsdk.appids">SDK de Azure para PHP</a>.
 
-##<a id="create-web-site-and-set-up-git"></a>Creación de un Sitio web Azure y configuración de la publicación Git
+##<a id="create-web-site-and-set-up-git"></a>Creación de una aplicación web y configuración de la publicación Git
 
-Siga estos pasos para crear un sitio web de Azure y una base de datos MySQL:
+Siga estos pasos para crear una aplicación web y una base de datos MySQL:
 
-1. Inicie sesión en el [Portal de administración de Azure][management-portal].
-2. Haga clic en el icono **Nuevo**, situado en la parte inferior izquierda del portal.
+1. Inicie sesión en el [Portal de Azure][management-portal].
+2. Haga clic en el icono **Nuevo** situado en la parte inferior izquierda del portal.
 
 	![Create New Azure web site][new-website]
 
-3. Haga clic en **Sitio web** y, a continuación, en **Creación personalizada**.
+3. Haga clic en **Web + móvil** y, a continuación, en **Aplicación web + MySQL**.
 
 	![Custom Create a new web site][custom-create]
 	
-	Especifique un valor para **URL**, seleccione **Crear una nueva base de datos MySQL** en la lista desplegable **Base de datos** y seleccione el centro de datos del sitio web en la lista desplegable **Región**. Haga clic en la flecha que aparece en la parte inferior del cuadro de diálogo.
+4. Escriba un nombre válido para el grupo de recursos.
 
-	![Fill in web site details][website-details]
+    ![Set resource group name][resource-group]
 
-4. Escriba un valor para **Nombre** para la base de datos, seleccione el centro de datos de esta en la lista desplegable **Región** y active la casilla que indica que acepta las condiciones legales. Haga clic en la marca de verificación de la parte inferior del cuadro de diálogo.
+5. Escriba valores para la nueva aplicación web.
+
+    ![Create web app][new-web-app]
+
+6. Especifique los valores para la nueva base de datos, incluida la aceptación de los términos legales.
 
 	![Create new MySQL database][new-mysql-db]
 
-	Una vez creado el sitio web, se mostrará el texto**La creación del sitio web "[NOMBRE DEL SITIO]" se ha realizado correctamente**. Ahora puede habilitarse la publicación Git.
+7. Una vez creada la aplicación web, verá el nuevo grupo de recursos. Haga clic en el nombre de la aplicación web para configurar las opciones.
 
-6. Haga clic en el nombre del sitio web que se muestra en la lista para abrir el panel **Inicio rápido**.
+	![Open web app][go-to-webapp]
 
-	![Open web site dashboard][go-to-dashboard]
+7. Haga clic en **Configurar la implementación continua**. 
+
+	![Set up Git publishing][setup-publishing]
+
+8. Seleccione **Repositorio de Git local** para el origen.
+
+    ![Set up Git repository][setup-repository]
 
 
-7. En la parte inferior de la página **Inicio rápido**, haga clic en **Configuración de la publicación Git**. 
-
-	![Set up Git publishing][setup-git-publishing]
-
-8. Para habilitar la publicación Git, debe proporcionar un nombre de usuario y una contraseña. Tome nota de ambos. (Si ya ha configurado un repositorio Git anteriormente, este paso se omitirá).
+9. Para habilitar la publicación Git, debe proporcionar un nombre de usuario y una contraseña. Tome nota de ambos. (Si ya ha configurado un repositorio de Git anteriormente, este paso se omitirá).
 
 	![Create publishing credentials][credentials]
 
-	Se tardará unos segundos en configurar el repositorio.
-
-9. Una vez listo, aparecerán instrucciones para publicar los archivos de aplicación en el repositorio. Tome nota de estas instrucciones, las necesitará más adelante.
-
-	![Git instructions][git-instructions]
 
 ##Obtención de información de la conexión MySQL remota
 
-Para conectarse a la base de datos MySQL que se ejecuta en Sitios web Azure, se requerirá la información de conexión. Si desea obtener la información de conexión de MySQL, siga estos pasos:
+Para conectarse a la base de datos MySQL que se ejecuta en aplicaciones web, necesita información de conexión. Si desea obtener la información de conexión de MySQL, siga estos pasos:
 
-1. Desde el panel del sitio web, haga clic en el vínculo **Ver cadenas de conexión** que aparece a la derecha de la página:
+1. En el grupo de recursos, haga clic en la base de datos:
 
-	![Get database connection information][connection-string-info]
+	![Select database][select-database]
+
+2. En el resumen de base de datos, seleccione **Propiedades**.
+
+    ![Select properties][select-properties]
 	
-2. Anote los valores de  `Database`,  `Data Source`,  `User Id` y  `Password`.
+2. Tome nota de los valores de  `Database`,  `Host`,  `User Id` y  `Password`.
 
-##Compilación y comprobación de la aplicación localmente
+    ![Note properties][note-properties]
 
-Ahora que ha creado un sitio web de Azure, puede desarrollar la aplicación localmente e implementarla a continuación, una vez realizadas las pruebas correspondientes. 
+##Compilación y prueba local de la aplicación
+
+Ahora que ha creado una aplicación web, puede desarrollarla localmente e implementarla después de las pruebas. 
 
 Registration es una sencilla aplicación PHP que permite registrarse en un evento con solo proporcionar el nombre y la dirección de correo electrónico. La información de los usuarios inscritos anteriormente se muestra en una tabla. La información de registro se almacena en una base de datos MySQL. La aplicación se compone de un archivo (código para copiar y pegar disponible más abajo).
 
 * **index.php**: muestra un formulario de registro y una tabla que contiene la información de los usuarios inscritos.
 
-Para compilar y ejecutar la aplicación localmente, realice los pasos siguientes. Tenga en cuenta que en estos pasos se supone que tiene PHP, la herramienta de línea de comandos MySQL (parte de MySQL) y un servidor web configurado en la máquina local, además de tener habilitada la [extensión PDO para MySQL][pdo-mysql].
+Para compilar y ejecutar la aplicación localmente, realice los pasos siguientes. Tenga en cuenta que en estos pasos se supone que tiene PHP, la herramienta de línea de comandos MySQL (parte de MySQL) y un servidor web instalados en el equipo local, además de tener habilitada la [extensión PDO para MySQL][pdo-mysql].
 
 1. Conéctese al servidor MySQL remoto usando los valores de  `Data Source`,  `User Id`,  `Password` y  `Database` recuperados anteriormente:
 
@@ -209,21 +211,19 @@ Ahora puede dirigirse a **http://localhost/registration/index.php** para probar 
 
 ##Publicación de la aplicación
 
-Una vez que se haya probado la aplicación localmente, esta puede publicarse en el sitio web de Azure mediante Git. Será necesario inicializar el repositorio Git local y publicar la aplicación.
+Una vez que se haya probado la aplicación localmente, esta puede publicarse en Aplicaciones web mediante Git. Será necesario inicializar el repositorio de Git local y publicar la aplicación.
 
 > [AZURE.NOTE]
-> Estos son los mismos pasos que se muestran en el portal al final de la sección Creación de un sitio web de Azure y configuración de la publicación Git, más arriba.
+> Estos son los mismos pasos que se muestran en el portal al final de la sección Creación de una aplicación web y configuración de la publicación Git, más arriba.
 
-1. (Opcional) Si ha olvidado la dirección URL del repositorio Git remoto o no lo encuentra, vaya a la pestaña Implementaciones del portal.
+1. (Opcional) Si ha olvidado la dirección URL del repositorio de Git remoto o no lo encuentra, vaya a las propiedades de la aplicación web del portal.
 	
-	![Get Git URL][git-instructions]
-
 1. Abra GitBash (o un terminal, si Git está en su  `PATH`), cambie los directorios al directorio raíz de la aplicación y ejecute los siguientes comandos:
 
 		git init
 		git add .
 		git commit -m "initial commit"
-		git remote add azure [URL for remote repository]
+		git remote add azure [URL del repositorio remoto]
 		git push azure master
 
 	Se le solicitará la contraseña que ha creado anteriormente.
@@ -244,46 +244,52 @@ Para publicar los cambios de la aplicación, siga estos pasos:
 2. Abra GitBash (o un terminal, si Git está en su  `PATH`), cambie los directorios al directorio raíz de la aplicación y ejecute los siguientes comandos:
 
 		git add .
-		git commit -m "comment describing changes"
+		git commit -m "comentario que describe los cambios"
 		git push azure master
 
 	Se le solicitará la contraseña que ha creado anteriormente.
 
 	![Pushing site changes to Azure via Git][git-change-push]
 
-3. Vaya a **http://[nombre del sitio].azurewebsites.net/index.php** para ver la aplicación y cualquier cambio realizado en esta:
+3. Vaya a **http://[site name].azurewebsites.net/index.php** para ver la aplicación y cualquier cambio que haya hecho:
 
 	![Azure PHP web site][running-app]
 
-4. También podrá ver la nueva implementación en la pestaña 'Deployments' del Portal de administración de Azure:
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
-	![List of web site deployments][deployments-list]
+## ¿Qué ha cambiado?
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obtener una guía del cambio del portal antiguo al nuevo, consulte: [Referencia para navegar por el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 [install-php]: http://www.php.net/manual/en/install.php
-[install-SQLExpress]: http://www.microsoft.com/es-es/download/details.aspx?id=29062
-[install-Drivers]: http://www.microsoft.com/es-es/download/details.aspx?id=20098
+[install-SQLExpress]: http://www.microsoft.com/download/details.aspx?id=29062
+[install-Drivers]: http://www.microsoft.com/download/details.aspx?id=20098
 [install-git]: http://git-scm.com/
+[install-mysql]: http://dev.mysql.com/downloads/mysql/
 
 [pdo-mysql]: http://www.php.net/manual/en/ref.pdo-mysql.php
 [running-app]: ./media/web-sites-php-mysql-deploy-use-git/running_app_2.png
-[new-website]: ./media/web-sites-php-mysql-deploy-use-git/new_website.jpg
-[custom-create]: ./media/web-sites-php-mysql-deploy-use-git/custom_create.png
+[new-website]: ./media/web-sites-php-mysql-deploy-use-git/new_website2.png
+[custom-create]: ./media/web-sites-php-mysql-deploy-use-git/create_web_mysql.png
 [website-details]: ./media/web-sites-php-mysql-deploy-use-git/website_details.jpg
-[new-mysql-db]: ./media/web-sites-php-mysql-deploy-use-git/new_mysql_db.jpg
-[go-to-dashboard]: ./media/web-sites-php-mysql-deploy-use-git/go_to_dashboard.png
+[new-mysql-db]: ./media/web-sites-php-mysql-deploy-use-git/create_db.png
+[go-to-webapp]: ./media/web-sites-php-mysql-deploy-use-git/select_webapp.png
 [setup-git-publishing]: ./media/web-sites-php-mysql-deploy-use-git/setup_git_publishing.png
-[credentials]: ./media/web-sites-php-mysql-deploy-use-git/git-deployment-credentials.png
-
+[credentials]: ./media/web-sites-php-mysql-deploy-use-git/save_credentials.png
+[resource-group]: ./media/web-sites-php-mysql-deploy-use-git/set_group.png
+[new-web-app]: ./media/web-sites-php-mysql-deploy-use-git/create_wa.png
+[setup-publishing]: ./media/web-sites-php-mysql-deploy-use-git/setup_deploy.png
+[setup-repository]: ./media/web-sites-php-mysql-deploy-use-git/select_local_git.png
+[select-database]: ./media/web-sites-php-mysql-deploy-use-git/select_database.png
+[select-properties]: ./media/web-sites-php-mysql-deploy-use-git/select_properties.png
+[note-properties]: ./media/web-sites-php-mysql-deploy-use-git/note-properties.png
 
 [git-instructions]: ./media/web-sites-php-mysql-deploy-use-git/git-instructions.png
 [git-change-push]: ./media/web-sites-php-mysql-deploy-use-git/php-git-change-push.png
 [git-initial-push]: ./media/web-sites-php-mysql-deploy-use-git/php-git-initial-push.png
 [deployments-list]: ./media/web-sites-php-mysql-deploy-use-git/php-deployments-list.png
 [connection-string-info]: ./media/web-sites-php-mysql-deploy-use-git/connection_string_info.png
-[management-portal]: https://manage.windowsazure.com
+[management-portal]: https://portal.azure.com
 [sql-database-editions]: http://msdn.microsoft.com/library/windowsazure/ee621788.aspx
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=49-->

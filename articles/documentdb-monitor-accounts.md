@@ -16,11 +16,11 @@
 	ms.date="01/13/2015" 
 	ms.author="mimig"/>
 
-# Supervisión de una cuenta de Base de datos de documentos  
+#Supervisión de una cuenta de Base de datos de documentos  
 
 Puede supervisar sus cuentas de Base de datos de documentos en el [Portal de vista previa de Azure](https://portal.azure.com/). Para cada cuenta de Base de datos de documentos, existen métricas de rendimiento (como solicitudes y errores de servidor) y métricas de uso (como consumo de almacenamiento).
 
-## <a id="metrics"></a>  Visualización de métricas de rendimiento para una cuenta de Base de datos de documentos
+## <a id="metrics"></a>  Instrucciones acerca de cómo: métricas de rendimiento para una cuenta de Base de datos de documentos
 1.	En el [Portal de vista previa de Azure](https://portal.azure.com/), haga clic en **Examinar**, luego en **Cuentas de Base de datos de documentos** y, después, haga clic en el nombre de la cuenta de Base de datos de documentos cuyas métricas de rendimiento desee ver.
 2.	En el modo **Supervisión** puede ver estos datos de forma predeterminada:
 	*	El total de solicitudes del día actual.
@@ -52,7 +52,7 @@ Puede supervisar sus cuentas de Base de datos de documentos en el [Portal de vis
 ## <a id="create"></a>Creación de gráficos de métricas de rendimiento paralelos
 El Portal de vista previa de Azure le permite crear gráficos de métricas paralelos.  
 
-1.	En primer lugar, haga doble clic en el gráfico que desea clonar y modificar. Después, elija **Personalizar**. 
+1.	En primer lugar, haga clic con el botón secundario en el gráfico que desea clonar y modificar. Después, seleccione **Personalizar**. 
 
 	![](./media/documentdb-monitor-accounts/madocdb6.png)
 
@@ -95,7 +95,7 @@ Ahora puede tratar esta parte como otra parte de métricas y personalizar las m�
 
  
 ## <a id="next"></a>Pasos siguientes
-Para obtener más información acerca de la capacidad y el rendimiento de Base de datos de documentos, consulte [Administración del rendimiento y la capacidad de Base de datos de documentos](../documentdb-manage/). 
+Para obtener más información acerca de la capacidad y el rendimiento de Base de datos de documentos, consulte [Administración del rendimiento y la capacidad de Base de datos de documentos](documentdb-manage.md). 
 
 <!--Anchors-->
 [Visualización de las métricas de rendimiento para una cuenta de Base de datos de documentos]: #How-to-view-performance-metrics-for-a-DocumentDB-account
@@ -105,4 +105,4 @@ Para obtener más información acerca de la capacidad y el rendimiento de Base d
 [Configuración de alertas de métricas de rendimiento para una cuenta de Base de datos de documentos]: #How-to-setup-performance-metric-alerts-for-a-DocumentDB-account
 [Pasos siguientes]: #Next-steps
 
-<!--HONumber=47-->
+<!--HONumber=49-->

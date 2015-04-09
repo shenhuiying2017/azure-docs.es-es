@@ -1,249 +1,201 @@
 ﻿<properties 
-	pageTitle="Escalación de sitios web" 
-	description="requerido" 
-	services="web-sites" 
+	pageTitle="Escalado de una aplicación web en el Servicio de aplicaciones de Azure" 
+	description="Aprenda a ampliar y escalar horizontalmente una aplicación web en el Servicio de aplicaciones de Azure, incluido el escalado automático." 
+	services="app-service\web" 
 	documentationCenter="" 
 	authors="cephalin" 
 	manager="wpickett" 
 	editor="mollybos"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="web" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="11/24/2014" 
+	ms.date="03/24/2015" 
 	ms.author="cephalin"/>
 
-# Escalación de sitios web #
+# Escalado de una aplicación web en el Servicio de aplicaciones de Azure #
 
-Para conseguir un mejor rendimiento en los sitios web de Microsoft Azure, puede usar el Portal de administración de Azure para escalar el modo del plan de hospedaje web de libre a compartido, básico o estándar. 
+Para aumentar el rendimiento y la capacidad de las aplicaciones web de Microsoft Azure, puede usar el [Portal de Azure](http://go.microsoft.com/fwlink/?LinkId=529715) para escalar el plan del [Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=529714) del modo **Gratis** al modo **Compartido**, **Básico**, **Estándar** o **Premium**. 
 
-El escalado vertical en Sitios web Azure implica dos acciones relacionadas: el cambio de su modo de plan de hospedaje web a un mayor nivel de servicio y la configuración de ciertas opciones de ajustes después de que haya cambiado al nivel superior del servicio. En este artículo se incluyen ambos temas. Los niveles de servicio más altos como el modo estándar ofrecen una mayor robustez y flexibilidad en la determinación de cómo se usan los recursos en Azure.
+El escalado de las aplicaciones web de Azure implica dos acciones relacionadas: cambiar el modo del plan del Servicio de aplicaciones a un nivel de servicio más alto y configurar ciertas opciones de configuración después de pasar al nivel de servicio superior. En este artículo se incluyen ambos temas. Los niveles de servicio superiores como los modos **Estándar** y **Premium** ofrecen una mayor robustez y flexibilidad a la hora de determinar cómo se utilizan los recursos en Azure.
 
-El cambio de modos y la configuración de estos se realiza fácilmente en la pestaña Scale del portal de administración. Puede escalar o reducir verticalmente según sea necesario. Estos cambios tardan solo segundos en aplicarse y afectan a todos los sitios web en el plan de hospedaje web. No requieren que el código se cambie o que las aplicaciones tengan que volver a implementarse.
+El cambio de modos y la configuración de estos se realiza fácilmente en la pestaña Escalar del portal de administración. Puede ampliar o escalar horizontalmente según sea necesario. Estos cambios tardan solo unos segundos en aplicarse y afectan a todas las aplicaciones web del plan del Servicio de aplicaciones. No requieren que el código se cambie o que las aplicaciones tengan que volver a implementarse.
 
-Para obtener información sobre los planes de hospedaje web, vea [What is a Web Hosting Plan?](http://azure.microsoft.com/documentation/articles/web-sites-web-hosting-plan-overview/) y [Azure Websites Web Hosting Plans In-Depth Overview](http://www.azure.microsoft.com/es-es/Documentation/Articles/azure-web-sites-web-hosting-plans-in-depth-overview/). Para obtener más información acerca de los precios y las características de los planes de hospedaje web individuales, vea [Detalles de precios de Sitios web](http://azure.microsoft.com/pricing/details/web-sites/).  
+Para obtener información acerca de los planes del Servicio de aplicaciones, consulte [¿Qué es un plan del Servicio de aplicaciones?](web-sites-web-hosting-plan-overview.md) e [Información detallada sobre planes del Servicio de aplicaciones de Azure](azure-web-sites-web-hosting-plans-in-depth-overview.md).. Para obtener información acerca de los precios y características de los planes del Servicio de aplicaciones individuales, consulte [Detalles de precios de Servicio de aplicaciones](/pricing/details/web-sites/).  
 
-> [AZURE.NOTE] Antes de cambiar un sitio web del modo de plan de hospedaje web **libre** al modo de plan de hospedaje web **básico** o **estándar**, primero debe quitar los límites de gasto establecidos para la suscripción al sitio web de Azure. Para ver o cambiar opciones para la suscripción a sitios web de Microsoft Azure, consulte [Microsoft Azure Subscriptions][azuresubscriptions].
-
-En este artículo:
-
-- [Escalado al modo de plan compartido o básico](#scalingsharedorbasic)
-- [Escalado al modo de plan estándar](#scalingstandard)
-- [Escalado de una base de datos SQL Server conectada a su sitio](#ScalingSQLServer)
-- [Características de desarrollador](#devfeatures)
-- [Otras características](#OtherFeatures)
+> [AZURE.NOTE] Antes de cambiar una aplicación web del modo **Gratis** al modo **Básico**, **Estándar** o **Premium**, primero debe quitar los límites de gasto vigentes para la suscripción al Servicio de aplicaciones de Azure. Para ver o cambiar opciones para la suscripción al Servicio de aplicaciones de Microsoft Azure, consulte [Suscribirse a Microsoft Azure][azuresubscriptions].
 
 <a name="scalingsharedorbasic"></a>
 <!-- ===================================== -->
-## Escalación al modo de plan compartido o básico
+## Escalado al modo Compartido o Básico
 <!-- ===================================== -->
 
-1. En el explorador, abra el [Portal de administración][portal].
+1. En el explorador, abra el [Portal de Azure][portal].
 	
-2. En la pestaña **Sitios web**, seleccione su sitio web.
+2. En la hoja de la aplicación web, haga clic en **Todas las configuraciones**, en **Escalar** y en **Actualizar desde un plan Gratis para agregar instancias y obtener un mejor rendimiento**.
 	
-	![Selecting a website][SelectWebsite]
+	![Choose Plan][ChooseWHP]
 	
-3. Haga clic en la pestaña **Escalar**.
+4. En la hoja **Elegir el nivel de precios**, elija el modo **Compartido** o **Básico** y, a continuación, haga clic en **Seleccionar**.
 	
-	![The scale tab][SelectScaleTab]
+	La pestaña **Notificaciones** parpadeará en verde **CORRECTO** una vez completada la operación. 
 	
-4. En la sección **Web Hosting Plan Mode**, seleccione **SHARED** o **BASIC**. En el ejemplo de la imagen se selecciona Basic.
+5. Deslice la barra de **Instancia** de izquierda a derecha para aumentar el número de instancias y, a continuación, haga clic en **Guardar** en la barra de comandos. La opción del tamaño de instancia no está disponible en el modo **Compartido**. Para obtener más información sobre los tamaños de instancias, consulte [Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure][vmsizes].
 	
-	![Choose Web Hosting Plan][ChooseWHP]
+	![Instance size for Basic mode][ChooseBasicInstances]
 	
-	La sección **Web Hosting Plan Sites** muestra una breve lista de sitios en el plan actual. Todos los sitios del plan actual se cambiarán al modo de plan de hospedaje web que seleccione.
-	
-5. En la sección **Capacity**, seleccione **Instance Size**. Las opciones disponibles son **Small**, **Medium** o **Large**. La opción del tamaño de instancia no está disponible en el modo compartido. Para obtener más información sobre los tamaños de instancias, consulte [Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure][vmsizes].
-	
-	![Instance size for Basic mode][ChooseBasicInstanceSize]
-	
-6. Use el control deslizante para seleccionar el **recuento de instancias** que desee.
-	
-	![Instance count for Basic mode][ChooseBasicInstanceCount]
-	
-7. En la barra de comandos, haga clic en **Save**. 
-	
-	![Save button][SaveButton]
- 	
-	> [AZURE.NOTE] Puede configurar y guardar los valores del **plan de hospedaje web**, **tamaño de instancia** y **recuento de instancias** de forma independiente si lo desea.
-	
-8. Un mensaje de confirmación le recordará que los sitios en el mismo plan de hospedaje web, como el sitio web actual, también cambiarán al nuevo modo. Seleccione **Yes** para completar el cambio. 
-	
-	En el ejemplo, el modo de plan se cambia a **básico**:
-	
-	![Plan change complete][BasicComplete]
+	La pestaña **Notificaciones** parpadeará en verde **CORRECTO** una vez completada la operación. 
 	
 <a name="scalingstandard"></a>
 <!-- ================================= -->
-## Escalación al modo de plan estándar
+## Escalado al modo Estándar o Premium
 <!-- ================================= -->
 
-> [AZURE.NOTE] Antes de cambiar un plan de hospedaje web al modo estándar, debe quitar las limitaciones de gasto establecidas para la suscripción a sitios web de Microsoft Azure. De lo contrario, se arriesga a que su sitio no esté disponible si alcanza los límites antes de la finalización del período de facturación. Para ver o cambiar opciones para la suscripción a sitios web de Microsoft Azure, consulte [Microsoft Azure Subscriptions][azuresubscriptions].
+> [AZURE.NOTE] Antes de cambiar un plan del Servicio de aplicaciones previsto al modo **Estándar** o **Premium**, debe quitar los límites de gasto vigentes para la suscripción al Servicio de aplicaciones de Microsoft Azure. De lo contrario, se arriesga a que su aplicación web no esté disponible si alcanza los límites antes de la finalización del período de facturación. Para ver o cambiar opciones para la suscripción al Servicio de aplicaciones de Microsoft Azure, consulte [Suscribirse a Microsoft Azure][azuresubscriptions].
 
-1. Para escalar al modo estándar, siga los mismos pasos iniciales que cuando se escala a compartido o básico y, a continuación, seleccione **Standard** en **Web Hosting Plan Mode**. 
+1. Para escalar al modo **Estándar** o **Premium**, siga los mismos pasos iniciales que al escalar a **Compartido** o **Básico**, a continuación, elija un modo **Estándar** o **Premium** en **Elegir el nivel de precios** y haga clic en **Seleccionar**. 
 	
-	![Choose Standard Plan][ChooseStandard]
+	La pestaña **Notificaciones** parpadeará en verde **CORRECTO** una vez completada la operación y se habilitará el **Modo de escalado automático**.
 	
-	Como ocurría anteriormente, la sección **Web Hosting Plan Sites** muestra una breve lista de sitios en el plan actual. En este caso, todos los sitios del plan actual se cambiarán al modo estándar.
+	![Scale in Standard or Premium Mode][ScaleStandard]
 	
-2. Si selecciona **Standard**, se expande la sección **Capacity** para mostrar las opciones **Instance Size** e **Instance Count**, que también se encuentran disponibles en el modo básico. Las opciones **Edit Scale Settings for Schedule** y **Scale by Metric** solo están disponibles en el modo estándar.
+	También puede deslizar la barra de **Instancia** para escalar manualmente a más instancias, igual que en el modo **Básico**, tal como se mostró anteriormente. No obstante, a continuación, aprenderá a usar el **Modo de escalado automático**. 
 	
-	![Capacity section in Standard][CapacitySectionStandard]
+2. En el **Modo de escalado automático**, seleccione **Rendimiento** para ajustar la escaña automáticamente en función de las métricas de rendimiento.
 	
-3. Configure el **tamaño de instancia**. Las opciones disponibles son **Small**, **Medium** o **Large**.
+	![Autoscale Mode set to Performance][Autoscale]
 	
-	![Choose instance size][ChooseInstanceSize]
+3. En **Intervalo de instancias**, mueva los dos controles deslizantes para definir el número mínimo y máximo de instancias que se van a escalar automáticamente para el plan del Servicio de aplicaciones. Para este tutorial, mueva el control deslizante máximo a **6** instancias.
 	
-	Para obtener más información sobre los tamaños de instancias, consulte [Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure][vmsizes].
+4. Haga clic en **Guardar** en la barra de comandos.
 	
-4. Si desea escalar automáticamente (autoescalar) recursos según el horario diurno frente al nocturno, día de la semana frente a fin de semana o fechas y horas específicas, seleccione **Set up schedule times** en la opción **Edit Scale Settings for Schedule**.
+4. En **Métricas de destino**, haga clic en **>** para configurar reglas de escalado automático para la métrica predeterminada.  
 	
-	![Set up schedule times][SetUpScheduleTimesButton]
+	![Set Target Metrics][SetTargetMetrics]
 	
-5. El cuadro de diálogo **Set up schedule times** proporciona un número de opciones de configuración útiles.
+	Puede configurar reglas de escalado automático para distintas métricas de rendimiento, incluidos CPU, memoria, cola de disco, cola HTTP y flujo de datos. A continuación, configurará el escalado automático para el porcentaje de CPU que hace lo siguiente:
 	
-	![SetUpScheduleTimesDialog][SetUpScheduleTimesDialog]
+	- Ampliar en 1 instancia si la CPU está por encima del 70% en los últimos 10 minutos
+	- Ampliar en 3 instancias si la CPU está por encima del 90% en los últimos 5 minutos
+	- Reducir en 1 instancia si la CPU está por debajo del 50% en los últimos 30 minutos 
 	
-6. En **Recurring Schedules**, seleccione **Differing scale between Day and Night** o **Differing Scale between Weekday and Weekend** para escalar recursos basados en programaciones de horario diurno y nocturno independientes o programas de días de la semana frente a fines de semana independientes.
 	
-	> [AZURE.NOTE] Para los propósitos de esta característica, el fin de semana comienza al final del viernes (8:00 p.m. de forma predeterminada) y finaliza a principios del lunes (8:00 a.m. de forma predeterminada). El perfil de fin de semana usa el mismo inicio y final de día que definirá en la opción **Time**.
+4. Deje la opción desplegable **Métrica** en **Porcentaje de CPU**.
 	
-7. En **Time**, seleccione una fecha de inicio y fin para el día en incrementos de media hora, y una zona horaria. De forma predeterminada, el día comienza a las 8:00 a.m. y finaliza a las 8:00 p.m. Se respeta el horario de verano según la zona horaria que seleccione. 
+5. En **Reglas de ampliación**, configure la primera regla estableciendo **Condición** en **Mayor que**, **Umbral** en **70** (%), **En los últimos** en **10** (minutos), **Ampliar en** en **1** (instancia) y **Espera** en **10** (minutos). 
 	
-8. En **Specific Dates**, puede crear uno o más plazos de tiempo con nombre para el que puede escalar recursos. Por ejemplo, es posible que desee proporcionar recursos adicionales para una venta o iniciar un evento durante el que puede tener picos largos en el tráfico web.
+	![Set First Autoscale Rule][SetFirstRule]
 	
-9. Una vez que haya realizado su selección, haga clic en **OK** para cerrar el cuadro de diálogo **Schedule Times**.
+	>[AZURE.NOTE] La opción **Espera** especifica el tiempo que tiene que esperar esta regla después de una acción de escalado anterior para volver a escalar.
 	
-10.   La casilla **Edit Scale Settings for Schedule** muestra ahora programas configurables o eventos basados en los cambios que ha realizado. Seleccione una de las programaciones recurrentes o fechas específicas para configurarla. 
+6. En **Agregar regla de ampliación**, configure la segunda regla estableciendo **Condición** en **Mayor que**, **Umbral** en **90** (%), **En los últimos** en **1** (minutos), **Ampliar en** en **3** (instancia) y **Espera** en **1** (minutos).
 	
-	![Edit scale settings for schedule][EditScaleSettingsForSchedule]
+	![Set Second Autoscale Rule][SetSecondRule]
 	
-	Ahora puede usar las características **Scale by Metric** e **Instance Count** para ajustar la escalación de recursos para cada programación que seleccione. 
+5. En **Reglas de reducción**, configure la tercera regla estableciendo **Condición** en **Menor que**, **Umbral** en **50** (%), **En los últimos** en **30** (minutos), **Reducir en** en **1** (instancia) y **Espera** en **60** (minutos). 
 	
-11.  Para ajustar de forma dinámica el número de instancias que usa el sitio web si se cambia la carga, habilite la opción **Scale by Metric** seleccionando **CPU**.
+	![Set Third Autoscale Rule][SetThirdRule]
 	
-	![Scale By Metric][ScaleByMetric]
+7. Haga clic en **Guardar** en la barra de comandos. La regla de escalado automático debe estar reflejada ahora en la hoja **Escalar**. 
 	
-	El gráfico muestra el número de instancias usado durante la semana pasada. Puede usar el gráfico para supervisar la actividad de escalación.
-	
-12. **Scale by Metric** modifica la característica **Instance Count** para que pueda establecer el número mínimo y máximo de máquinas virtuales que usar para la escalación automática. Azure nunca sobrepasará los límites superiores e inferiores que establezca.
-	
-	![Instance count][InstanceCount]
-	
-13. **Scale by Metric** también habilita la opción **Target CPU** para que pueda especificar un rango objetivo para el uso de la CPU. Este rango representa el uso de la CPU medio para su sitio web. Azure agregará o quitará las instancias estándar para mantener su sitio web en este rango.
-	
-€
-	
-	**Nota**: Cuando se habilita **Scale by Metric**, Microsoft Azure comprueba la CPU del sitio web una vez cada cinco minutos y agrega instancias según corresponda en ese momento. Si el uso de la CPU es bajo, Microsoft Azure quitará las instancias una vez cada dos horas para garantizar que el sitio web sigue siendo eficiente. Normalmente, lo adecuado es establecer el recuento de instancia mínimo en 1. Sin embargo, si tiene picos de uso repentinos en el sitio web, asegúrese de que dispone de un número mínimo suficiente de instancias para administrar la carga. Por ejemplo, si se produce un pico repentino de tráfico durante el intervalo de 5 minutos, antes de que Microsoft Azure compruebe el uso de la CPU, es posible que el sitio no responda durante ese período. Si espera que se produzca una gran cantidad de tráfico repentino, establezca el recuento de instancia mínimo en un valor más alto para anticiparse a esas ráfagas. 
-	
-14. Una vez que finalice la realización de cambios de los elementos en **Edit Scale Settings for Schedule**, haga clic en el icono **Save** de la barra de comandos en la parte inferior de la página para guardar toda la configuración de la programación a la vez (no tiene que guardar cada programación individualmente).
-
-> [AZURE.NOTE] En el [Azure Preview Portal](https://portal.azure.com/), puede escalar no solo por porcentaje de CPU, sino también por la métrica adicional del porcentaje de memoria, la longitud de cola del disco, longitud de cola HTTP, entrada de datos y salida de datos. También puede crear una o más reglas de incremento y reducción de escala que le proporcionarán un control mayor sobre el escalado. Para obtener más información, vea [How to Scale a Website](http://azure.microsoft.com/documentation/articles/insights-how-to-scale/) en la documentación del Portal de Azure en vista previa.
+	![Set Autoscale Rule Result][SetRulesFinal]
 
 <a name="ScalingSQLServer"></a>
-##Escalación de una base de datos SQL Server conectada a su sitio	
-Si dispone de una o más base de datos SQL Server vinculadas a su sitio web (con independencia del modo de plan de hospedaje web), aparecerán en la sección **Linked Resources** en la parte inferior de la página Scaling.
+##Escalado de una base de datos SQL Server conectada a la aplicación web
+Si tiene una o más bases de datos de SQL Server vinculadas a la aplicación web (independientemente del modo del plan del Servicio de aplicaciones), puede escalarlas rápidamente en función de sus necesidades.
 
-1. Para escalar una de las bases de datos, en la sección **Linked Resources**, haga clic en el vínculo **Manage scale for this database** junto al nombre de la base de datos.
+1. Para escalar una de las bases de datos vinculadas, abra la hoja de la aplicación web en el [Portal de Azure][portal]. En la opción contraíble **Aspectos básicos**, haga clic en el vínculo **Grupo de recursos**. A continuación, en la parte **Resumen** de la hoja del grupo de recursos, haga clic en una de las bases de datos vinculadas.
+
+	![Linked database][ResourceGroup]
 	
-	![Linked database][LinkedResources]
+2. En la hoja Base de datos SQL vinculada, haga clic en la parte **Nivel de precios**, seleccione uno de los niveles en función de sus requisitos de rendimiento y haga clic en **Seleccionar**. 
 	
-2. El vínculo le lleva a la pestaña SQL Server del Portal de administración de Azure, donde puede configurar la **edición** y el **tamaño máximo** de la base de datos:
+	![Scale your SQL Database][ScaleDatabase]
 	
-	![Scale your SQL Server database][ScaleDatabase]
+3. También puede configurar la replicación geográfica para aumentar las capacidades de alta disponibilidad y recuperación ante desastres de la base de datos SQL. Para ello, haga clic en la parte **Replicación geográfica**.
 	
-	Para **Edition**, elija **BASIC**, **STANDARD**, o **PREMIUM**, según la capacidad de almacenamiento que necesite. Para el futuro de las ediciones **Web** y **BUSINESS**, consulte [Preguntas más frecuentes sobre la retirada de las ediciones Web y Business](http://msdn.microsoft.com/library/azure/dn741330.aspx).
-	
-	El valor que seleccione para **Max Size** especifica un límite superior para la base de datos. Los cargos de base de datos se basan en la cantidad de datos que realmente almacena, por lo que cambiar la propiedad **Max Size** no afecta por sí misma a dichos cargos. Para obtener más información, consulte [Cuentas y facturación en Base de datos SQL de Microsoft Azure][SQLaccountsbilling].
+	![Set up geo-replication for SQL Database][GeoReplication]
 
 <a name="devfeatures"></a>
 ## Características del desarrollador
-Según el modo de plan de hospedaje web, se encuentran disponibles las siguientes características orientadas al desarrollador:
+Según el modo de aplicación web, se encuentran disponibles las siguientes características orientadas al desarrollador:
 
-**Valor de bits**
+### Valor de bits ###
 
-- Los modos de planes básico y estándar son compatibles con aplicaciones de 32 y 64 bits.
-- Los modos de plan libre y compartido solo son compatibles con aplicaciones de 32 bits.
+- Los modos **Básico**, **Estándar** y **Premium** son compatibles con aplicaciones de 32 y 64 bits.
+- Los modos **Gratis** y **Compartido** solo son compatibles con aplicaciones de 32 bits.
 
-**Compatibilidad con el depurador**
+### Compatibilidad con el depurador ###
 
-- Se ofrece compatibilidad con el depurador para los modos de plan de hospedaje web libre, compartido y básico en una conexión simultánea por aplicación.
-- Se ofrece compatibilidad con el depurador para el modo de plan de hospedaje web estándar en 5 conexiones simultáneas por aplicación.
+- La compatibilidad con el depurador está disponible para los modos **Gratis**, **Compartido** y **Básico** en 1 conexión simultánea por cada plan del Servicio de aplicaciones.
+- La compatibilidad con el depurador está disponible para los modos **Estándar** y **Premium** en 5 conexiones simultáneas por cada plan del Servicio de aplicaciones.
 
 <a name="OtherFeatures"></a>
 ## Otras características
 
-**Supervisión de extremos web**
+### Supervisión de extremos web ###
 
-- La supervisión de extremos web está disponible en los modos de plan de hospedaje básico y estándar. Para obtener más información sobre la supervisión de extremos web, consulte [Supervisión de sitios web](http://azure.microsoft.com/documentation/articles/web-sites-monitor/).
+- La supervisión de extremos web está disponible en los modos **Básico**, **Estándar** y **Premium**. Para obtener más información sobre la supervisión de extremos web, consulte [Supervisión de aplicaciones web](web-sites-monitor.md).
 
-- Para obtener información detallada sobre las características restantes en los planes de hospedaje web, incluido el precio y las características de interés para todos los usuarios (incluidos los desarrolladores), consulte [Detalles de precios de Sitios web](http://azure.microsoft.com/pricing/details/web-sites/).
+- Para obtener información detallada sobre las características restantes en los planes del Servicio de aplicaciones, también el precio y las características de interés para todos los usuarios (incluidos los desarrolladores), consulte [Detalles de precios de Servicio de aplicaciones](/pricing/details/web-sites/).
+
+>[AZURE.NOTE] Si desea empezar a trabajar con el Servicio de aplicaciones de Azure antes de registrarse para abrir una cuenta de Azure, vaya a [Prueba del Servicio de aplicaciones](http://go.microsoft.com/fwlink/?LinkId=523751), donde podrá crear inmediatamente una aplicación web de inicio de corta duración en el Servicio de aplicaciones. No es necesario proporcionar ninguna tarjeta de crédito ni asumir ningún compromiso.
 
 <a name="Next Steps"></a>	
 ## Pasos siguientes
 
-- Para comenzar con Azure, puede usar una [evaluación gratuita de Microsoft Azure](http://azure.microsoft.com/pricing/free-trial/).
-
+- Para comenzar con Azure, consulte [Evaluación gratuita de Microsoft Azure](/pricing/free-trial/).
 - Para obtener información sobre el precio, soporte técnico y contrato de nivel de servicio, consulte los siguientes vínculos.
 	
-	[Detalle de precios de transferencias de datos](http://azure.microsoft.com/pricing/details/data-transfers/)
+	[Detalles de precios de Transferencias de datos](/pricing/details/data-transfers/)
 	
-	[Planes de soporte técnico de Microsoft Azure](http://azure.microsoft.com/support/plans/)
+	[Planes de soporte técnico de Microsoft Azure](/support/plans/)
 	
-	[Contratos de nivel de servicio](http://azure.microsoft.com/support/legal/sla/)
+	[Contratos de nivel de servicio](/support/legal/sla/)
 	
-	[Detalles de precios de Base de datos SQL](http://azure.microsoft.com/pricing/details/sql-database/)
+	[Detalles de precios de Base de datos SQL](/pricing/details/sql-database/)
 	
 	[Tamaños de máquinas virtuales y servicios en la nube de Microsoft Azure][vmsizes]
 	
-	[Detalles de precios de Sitios web](http://azure.microsoft.com/pricing/details/web-sites/)
+	[Detalles de precios de Servicio de aplicaciones](/pricing/details/web-sites/)
 	
-	[Detalles de precios de Sitios web: conexiones SSL](http://azure.microsoft.com/pricing/details/web-sites/#ssl-connections)
+	[Detalles de precios de Servicio de aplicaciones: Conexiones SSL](/pricing/details/web-sites/#ssl-connections)
 
-- Para obtener información sobre las prácticas recomendadas de sitios web de Azure, incluida la creación de una arquitectura resistente y escalable, consulte [Best Practices: Azure Websites (WAWS)](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
+- Para obtener información sobre los procedimiento recomendados del Servicio de aplicaciones de Azure, incluida la creación de una arquitectura resistente y escalable, consulte [Prácticas recomendadas: Aplicaciones web del Servicio de aplicaciones de Azure](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx).
 
-- Vídeos para la escalación de sitios web de Azure:
+- Vídeos sobre cómo escalar aplicaciones web:
 	
-	[Cuándo escalar Sitios web Azure, con Stefan Schackow](http://azure.microsoft.com/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
-	
-	[Ajuste de escala de Sitios web Azure mediante CPU o programación, con Stefan Schackow](http://azure.microsoft.com/documentation/videos/auto-scaling-azure-web-sites/)
+	- [Cuándo escalar sitios web de Azure (When to Scale Azure Websites): con Stefan Schackow](/documentation/videos/azure-web-sites-free-vs-standard-scaling/)
+	- [Autoescalado de sitios web de Azure mediante CPU o programación (Auto Scaling Azure Websites, CPU or Scheduled): con Stefan Schackow](/documentation/videos/auto-scaling-azure-web-sites/)
+	- [Escalado de sitios web de Azure (How Azure Websites Scale): con Stefan Schackow](/documentation/videos/how-azure-web-sites-scale/)
 
-	[Escalado de Sitios web Azure, con Stefan Schackow](http://azure.microsoft.com/documentation/videos/how-azure-web-sites-scale/)
-
-
+## ¿Qué ha cambiado?
+* Para obtener una guía del cambio de Sitios web a Servicio de aplicaciones, consulte: [Servicio de aplicaciones de Azure y su impacto en los servicios de Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Para obtener una guía del cambio del portal antiguo al nuevo, consulte: [Referencia para navegar por el portal de vista previa](http://go.microsoft.com/fwlink/?LinkId=529715)
 
 <!-- LINKS -->
 [vmsizes]:http://go.microsoft.com/fwlink/?LinkId=309169
 [SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
-[portal]: https://manage.windowsazure.com/
+[portal]: https://portal.azure.com/
 
 <!-- IMAGES -->
-[SelectWebsite]: ./media/web-sites-scale/01SelectWebSite.png
-[SelectScaleTab]: ./media/web-sites-scale/02SelectScaleTab.png
-
-[ChooseWHP]: ./media/web-sites-scale/03aChooseWHP.png
-[ChooseBasicInstanceSize]: ./media/web-sites-scale/03bChooseBasicInstanceSize.png
-[ChooseBasicInstanceCount]: ./media/web-sites-scale/04ChooseBasicInstanceCount.png
+[ChooseWHP]: ./media/web-sites-scale/scale1ChooseWHP.png
+[ChooseBasicInstances]: ./media/web-sites-scale/scale2InstancesBasic.png
 [SaveButton]: ./media/web-sites-scale/05SaveButton.png
 [BasicComplete]: ./media/web-sites-scale/06BasicComplete.png
-[ChooseStandard]: ./media/web-sites-scale/07ChooseStandard.png
-[CapacitySectionStandard]: ./media/web-sites-scale/08CapacitySectionStandard.png
-[ChooseInstanceSize]: ./media/web-sites-scale/09ChooseInstanceSize.png
-[SetUpScheduleTimesButton]: ./media/web-sites-scale/10SetUpScheduleTimesButton.png
-[SetUpScheduleTimesDialog]: ./media/web-sites-scale/11SetUpScheduleTimesDialog.png
-[EditScaleSettingsForSchedule]: ./media/web-sites-scale/12EditScaleSettingsForSchedule.png
-[ScaleByMetric]: ./media/web-sites-scale/13ScaleByMetric.png
-[InstanceCount]: ./media/web-sites-scale/14InstanceCount.png
-[TargetCPU]: ./media/web-sites-scale/15TargetCPU.png
-[LinkedResources]: ./media/web-sites-scale/16LinkedResources.png
-[ScaleDatabase]: ./media/web-sites-scale/17ScaleDatabase.png
+[ScaleStandard]: ./media/web-sites-scale/scale3InstancesStandard.png
+[Autoscale]: ./media/web-sites-scale/scale4AutoScale.png
+[SetTargetMetrics]: ./media/web-sites-scale/scale5AutoScaleTargetMetrics.png
+[SetFirstRule]: ./media/web-sites-scale/scale6AutoScaleFirstRule.png
+[SetSecondRule]: ./media/web-sites-scale/scale7AutoScaleSecondRule.png
+[SetThirdRule]: ./media/web-sites-scale/scale8AutoScaleThirdRule.png
+[SetRulesFinal]: ./media/web-sites-scale/scale9AutoScaleFinal.png
+[ResourceGroup]: ./media/web-sites-scale/scale10ResourceGroup.png
+[ScaleDatabase]: ./media/web-sites-scale/scale11SQLScale.png
+[GeoReplication]: ./media/web-sites-scale/scale12SQLGeoReplication.png
 
-
-
-
-<!--HONumber=42-->
+<!--HONumber=49-->

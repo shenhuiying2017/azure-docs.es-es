@@ -11,7 +11,7 @@ Si aparece cualquiera de estos mensajes, es posible que la versión del SDK de A
 
 1. En Android Studio, haga clic en **Herramientas** = > **Android** = > **Administrador de SDK**. Si no ha instalado la última versión de la plataforma de SDK, haga clic para instalarla. Anote el número de versión.
 
-2. En la pestaña Explorador de proyectos, en **Scripts de Gradle**, abra el archivo **gradle.build (modeule: app)**. Asegúrese de que **compileSdkVersion** y **buildToolsVersion** se establecen en la versión más reciente del SDK instalada. Es posible que las etiquetas tengan este aspecto:
+2. En la pestaña Explorador de proyectos, en **Scripts de Gradle**, abra el archivo **build.gradle (modeule: app)**. Asegúrese de que **compileSdkVersion** y **buildToolsVersion** se establecen en la versión más reciente del SDK instalada. Es posible que las etiquetas tengan este aspecto:
  
 	 	    compileSdkVersion 'Google Inc.:Google APIs:21'
     		buildToolsVersion "21.1.2"
@@ -19,4 +19,5 @@ Si aparece cualquiera de estos mensajes, es posible que la versión del SDK de A
 3. En el Explorador de proyectos de Android Studio, haga clic con el botón secundario en el nodo del proyecto, elija **Propiedades** y en la columna izquierda, seleccione **Android**. Asegúrese de que **Destino de compilación de proyecto** se haya establecido en la misma versión de SDK que **targetSdkVersion**.
 
 4. En Android Studio, el archivo de manifiesto ya no se utiliza para especificar el SDK de destino y la versión del SDK mínima, al contrario que ocurre con Eclipse.
-<!--HONumber=47-->
+
+<!--HONumber=49-->

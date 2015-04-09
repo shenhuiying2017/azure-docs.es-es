@@ -1,8 +1,8 @@
-<properties 
+﻿<properties 
 	pageTitle="Compilación de una aplicación web con ASP.NET MVC usando Base de datos de documentos | Azure" 
 	description="Aprenda a usar Base de datos de documentos con .NET para crear una aplicación web de lista de tareas pendientes. Podrá almacenar y tener acceso a datos desde una aplicación web de ASP.NET MVC hospedada en Sitios web Azure." 
 	services="documentdb" 
-	documentationCenter="" 
+	documentationCenter=".net" 
 	authors="ryancrawcour" 
 	manager="jhubbard" 
 	editor="cgronlun"/>
@@ -14,10 +14,10 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
-	ms.date="02/26/2015" 
+	ms.date="03/23/2015" 
 	ms.author="ryancraw"/>
 
-# <a name="_Toc395809351"></a>Crear una aplicación web con ASP.NET MVC mediante Base de datos de documentos
+#<a name="_Toc395809351"></a>Creación de una aplicación web con ASP.NET MVC mediante Base de datos de documentos
 
 Para resaltar cómo pueden aprovechar eficazmente Base de datos de documentos de Azure para almacenar y consultar documentos JSON, este artículo proporciona un tutorial completo que muestra cómo crear una aplicación de web de lista todo mediante Base de datos de documentos de Azure. Las tareas se almacenarán como documentos JSON en la Base de datos de documentos de Azure.
 
@@ -25,13 +25,13 @@ Para resaltar cómo pueden aprovechar eficazmente Base de datos de documentos de
 
 Este tutorial muestra cómo utilizar el servicio de Base de datos de documentos proporcionado por Azure para almacenar y tener acceso a datos desde una aplicación web de ASP.NET MVC hospedada en Azure.
 
-> [AZURE.TIP] En este tutorial se supone que tiene experiencia previa con ASP.NET MVC y Sitios web Azure. Si está familiarizado con ASP.NET o las [herramientas de requisitos previos](#_Toc395637760), se recomienda descargar el proyecto de tutorial [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) completo de [GitHub](https://github.com/Azure/azure-documentdb-net) y crearlo mediante las [instrucciones al final de este artículo](#GetProject). Una vez compilado, puede revisar el artículo para obtener información sobre el código en el contexto del proyecto.
+> [AZURE.TIP] En este tutorial se supone que tiene experiencia previa con ASP.NET MVC y Sitios web Azure. Si no está familiarizado con ASP.NET o con las [herramientas de requisitos previos](#_Toc395637760), se recomienda que descargue el proyecto del tutorial [todo](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/todo) completo de [GitHub](https://github.com/Azure/azure-documentdb-net) y lo cree mediante las [instrucciones que se encuentran al final de este artículo](#GetProject). Una vez compilado, puede revisar el artículo para obtener información sobre el código en el contexto del proyecto.
 
 ## <a name="_Toc395637760"></a>Requisitos previos
 
 Antes de seguir las instrucciones del presente artículo, debe asegurarse de tener lo siguiente:
 
-- Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure.](../../pricing/free-trial/)
+- Una cuenta de Azure activa. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](../../pricing/free-trial/).
 - [Visual Studio 2013](http://www.visualstudio.com/) o superior, o [Visual Studio Express], que es la versión gratuita.
 - Azure SDK para .NET versión 2.3 o posterior, disponible a través del [instalador de plataforma Web de Microsoft][].
 
@@ -39,7 +39,7 @@ Todas las capturas de pantalla en este artículo se han tomado con Visual Studio
 
 ## <a name="_Toc395637761"></a>Paso 1: Creación de una cuenta de base de datos de la Base de datos de documentos
 
-Comenzaremos por crear una cuenta de Base de datos de documentos. Si ya tiene una cuenta, puede ir a [Crear una nueva aplicación ASP.NET MVC](#_Toc395637762).
+Comenzaremos por crear una cuenta de Base de datos de documentos. Si ya tiene una cuenta, puede ir a [Creación de una nueva aplicación ASP.NET MVC](#_Toc395637762)
 
 [AZURE.INCLUDE [documentdb-create-dbaccount](../includes/documentdb-create-dbaccount.md)]
 
@@ -103,7 +103,7 @@ esta solución. Vayamos ahora al objetivo real de este tutorial, la adición de 
   	![Sreen shot of the two references added to the project in Solution Explorer.](./media/documentdb-dotnet-application/image22.png)
 
 
-## <a name="_Toc395637763"></a>Paso 4: Configuración de la aplicación ASP.NET MVC
+##<a name="_Toc395637763"></a>Paso 4: Configuración de la aplicación ASP.NET MVC
  
 Ahora vamos a agregar a esta aplicación de MVC modelos, vistas y controladores:
 
@@ -178,7 +178,7 @@ Por último, vamos a crear la **V** de MVC, las vistas.
 
 #### <a name="AddItemIndexView"></a>Adición de una vista de índice de elementos
 
-1. En el **Explorador de soluciones**, expanda la carpeta ***Vistas***, haga con el botón derecho en la carpeta **Elemento** vacía que ha creado Visual Studio para usted cuando agregó **ItemController** anteriormente, haga clic en **Agregar** y, a continuación, haga clic en **Vista**.
+1. En el ** Explorador de soluciones**, expanda la carpeta ***Vistas***, haga con el botón derecho en la carpeta **Elemento** vacía que ha creado Visual Studio para usted cuando agregó **ItemController** anteriormente, haga clic en **Agregar** y, a continuación, haga clic en **Vista**.
 
 ![Screen shot of Solution Explorer showing the Item folder with the Add View commands highlighted](./media/documentdb-dotnet-application/image17.png)
 
@@ -397,7 +397,7 @@ En esta sección, agregaremos código para controlar lo siguiente:
 
 	Si ejecuta la aplicación ahora, irá al **controlador de inicio** y a la vista de **índice** de ese controlador. Este es el comportamiento predeterminado para el proyecto de plantillas MVC que seleccionamos al comienzo, pero no queremos eso. Cambiemos el enrutamiento en esta aplicación MVC para modificar este comportamiento.
 
-11. Abra ***App\_Start\RouteConfig.cs*** y busque la línea que empieza con "defaults:" y cámbiela para que se parezca a lo siguiente.
+11. Abra ***App\_Start\RouteConfig.cs***, busque la línea que empieza con "defaults:" y cámbiela para que se parezca a lo siguiente.
 
     	defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
 
@@ -437,7 +437,7 @@ Ya tenemos una vista para **Crear** y un botón en la vista **Índice** que llev
 			return View(item);   
 		}
 
-	**Nota de seguridad**: El atributo **ValidateAntiForgeryToken** se usa aquí para ayudarle a proteger esta aplicación contra ataques de falsificación de solicitud entre sitios. Es más que solo agregar este atributo, sus vistas también necesitan trabajar con este token antifalsificación. Para obtener más información acerca del tema, así como ejemplos de cómo implementarlo correctamente, consulte [Prevención de la falsificación de solicitud entre sitios][]. El código de origen proporcionado en [Github][] tiene la implementación completa en su lugar.
+	**Nota de seguridad**: El atributo **ValidateAntiForgeryToken** se usa aquí para ayudarle a proteger esta aplicación contra ataques de falsificación de solicitud entre sitios. Es más que solo agregar este atributo, sus vistas también necesitan trabajar con este token antifalsificación. Para obtener más información acerca del tema, así como ejemplos de cómo implementarlo correctamente, consulte [Prevención de la falsificación de solicitud entre sitios][]. El código de origen proporcionado en [GitHub][] tiene la implementación completa en su lugar.
 
 	**Nota de seguridad**: También usamos el atributo **Bind** en el parámetro de método para ayudar a proteger contra ataques de publicación en exceso. Para obtener más información, consulte [Operaciones CRUD básicas en ASP.NET MVC][].
 
@@ -562,7 +562,7 @@ Lleve a cabo los siguientes pasos para probar la aplicación en su máquina loca
 
 4. Una vez que haya probado la aplicación, presione Ctrl+F5 para detener la depuración de la aplicación. Está listo para la implementación.
 
-## <a name="_Toc395637774"></a>Paso 7: Implementación de la aplicación en Sitios web Azure
+##<a name="_Toc395637774"></a>Paso 7: Implementación de la aplicación en Sitios web Azure
 
 Ahora que tiene la aplicación completa funcionando correctamente con Base de datos de documentos, vamos a implementar esta aplicación web en Sitios web Azure. Si seleccionó **Hospedar en la nube** cuando creó el proyecto vacío ASP.NET MVC, Visual Studio realmente facilita la tarea y hace gran parte del trabajo por usted. 
 
@@ -576,17 +576,17 @@ Todo debería estar configurado según sus credenciales; de hecho, el sitio web 
 
 En pocos segundos, Visual Studio terminará de publicar su aplicación web y ejecutará un explorador donde podrá ver su útil trabajo ejecutándose en Azure.
 
-## <a name="_Toc395637775"></a>Pasos siguientes
+##<a name="_Toc395637775"></a>Pasos siguientes
 
-¡Enhorabuena! Acaba de compilar su primera aplicación ASP.NET MVC usando Base de datos de documentos de Azure y la ha publicado en Sitios web Azure. El código fuente de la aplicación completa, incluida la funcionalidad de detalle y eliminación que no se incluyeron en este tutorial, se puede descargar o clonar desde [Github][]. Por lo tanto, si está interesado en agregarlo a la aplicación, seleccione el código y agréguelo a esta aplicación.
+¡Enhorabuena! Acaba de compilar su primera aplicación ASP.NET MVC usando Base de datos de documentos de Azure y la ha publicado en Sitios web Azure. El código fuente de la aplicación completa, incluida la funcionalidad de detalle y eliminación que no se incluyeron en este tutorial, se puede descargar o clonar desde [GitHub][]. Por lo tanto, si está interesado en agregarlo a la aplicación, seleccione el código y agréguelo a esta aplicación.
 
 Para agregar la funcionalidad adicional a la aplicación, revise las API disponibles en la [biblioteca de .NET de Base de datos de documentos](http://msdn.microsoft.com/library/azure/dn783362.aspx) y haga sus aportaciones libremente a la biblioteca de .NET de Base de datos de documentos en [GitHub][]. 
 
-## <a id="GetProject"></a>Obtenga la solución de GitHub
+##<a id="GetProject"></a>Obtención de la solución de GitHub
 
 Si desea para ahorrar tiempo y simplemente desea crear la solución de lista todo completa y no tener que agregar el código, está de suerte. La solución completa está disponible en GitHub y puede generarla e implementarla en pocos minutos mediante las siguientes instrucciones.
 
-1. Asegúrese de que dispone del [software de requisitos previos](#_Toc395637760) instalado, que incluye Visual Studio y el SDK de Azure para la versión 2.3 o superior de .NET.
+1. Asegúrese de que tiene el [software de los requisitos previos](#_Toc395637760) instalado, que incluye Visual Studio y SDK de Azure para .NET versión 2.3 o posterior.
 
 2. Clone el repositorio azure-documentdb-net mediante Git para Windows ([http://www.git-scm.com/](http://www.git-scm.com/)) o descargue el archivo zip de [GitHub](https://github.com/Azure/azure-documentdb-net/).
 
@@ -597,9 +597,9 @@ Si desea para ahorrar tiempo y simplemente desea crear la solución de lista tod
 4. Recupere los valores **URI** y **PRIMARY KEY** o **SECONDARY KEY** de la hoja **Claves** de su cuenta de _Base de datos de documentos en el [Portal de vista previa de Azure](https://portal.azure.com/). 
 
 	
-	Si no dispone de una cuenta, consulte [Creación de una cuenta de base de datos] (/documentation/articles/documentdb-create-account/) para configurar una.
+	Si no dispone de una cuenta, consulte [Creación de una cuenta de base de datos](documentdb-create-account.md) para configurar una.
 
-	![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS tile highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](./media/documentdb-dotnet-application/keys.png)
+	![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the Keys button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade](../includes/media/documentdb-keys/keys.png)
 
 5. En el archivo Web.config, actualice los valores predeterminados para las claves **endpoint** y **authKey**.
 
@@ -611,16 +611,14 @@ Si desea para ahorrar tiempo y simplemente desea crear la solución de lista tod
 	
 
 
-7. Ahora puede [ejecutar la aplicación localmente](#_Toc395637773) y, a continuación, [implementarla en Sitios web Azure](#_Toc395637774).
+7. Ahora puede [ejecutar la aplicación localmente](#_Toc395637773) y después [implementarla en Sitios web de Azure](#_Toc395637774).
 
 
 [\*]: https://microsoft.sharepoint.com/teams/DocDB/Shared%20Documents/Documentation/Docs.LatestVersions/PicExportError
 [Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Instalador de plataforma web de Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
-[instalador de plataforma Web de Microsoft]: http://www.microsoft.com/web/downloads/platform.aspx
-[Github]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
 [GitHub]: http://go.microsoft.com/fwlink/?LinkID=509838&clcid=0x409
 [Prevención de la falsificación de solicitud entre sitios]: http://go.microsoft.com/fwlink/?LinkID=517254
 [Operaciones CRUD básicas en ASP.NET MVC]: http://go.microsoft.com/fwlink/?LinkId=317598
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -41,7 +41,7 @@
 
 	Esto impide que los datos se carguen antes de que el usuario se haya autenticado.
 
-	>[AZURE.NOTE] Para autenticarse correctamente desde una aplicación de la Tienda Windows Phone 8.1, debe llamar a LoginAsync después de llamar al método **OnNavigated** y después de que el evento **Loaded** de la página se haya generado. En este tutorial, esto se hace agregando un botón **Iniciar sesión** a la aplicación.
+	>[AZURE.NOTE]Para autenticarse correctamente desde una aplicación de la Tienda Windows Phone 8.1, debe llamar a LoginAsync después de llamar al método **OnNavigated** y después de que el evento **Loaded** de la página se haya generado. En este tutorial, esto se hace agregando un botón **Iniciar sesión** a la aplicación.
 
 4. Agregue el siguiente fragmento de código a la clase MainPage:
 
@@ -83,10 +83,12 @@
             base.OnActivated(args);
         }
 
-	Si el método **OnActivated** ya existe, solo tiene que agregar el bloque de código `#if...#endif`.
+	Si el método **OnActivated** ya existe, agregue el bloque de código `#if...#endif`.
 
 8. Presione la tecla F5 para ejecutar la aplicación de la Tienda Windows, haga clic en el botón **Iniciar sesión** e inicie sesión en la aplicación con el proveedor de identidad que haya elegido. 
 
    	Cuando haya iniciado sesión correctamente, la aplicación debe ejecutarse sin errores y debe poder consultar a Servicios móviles y realizar actualizaciones de datos.
 
-9. Haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows Phone, haga clic en **Establecer como proyecto de inicio** y repita el paso anterior para comprobar que la aplicación de la Tienda Windows Phone también se ejecuta correctamente.  <!--HONumber=42-->
+9. Haga clic con el botón secundario en el proyecto de aplicación de la Tienda Windows Phone, haga clic en **Establecer como proyecto de inicio** y repita el paso anterior para comprobar que la aplicación de la Tienda Windows Phone también se ejecuta correctamente.  
+
+<!--HONumber=49-->

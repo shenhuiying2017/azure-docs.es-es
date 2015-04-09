@@ -50,7 +50,7 @@ Este tutorial le guiará a través de los pasos básicos para habilitar la auten
 
 4. En el menú **Run** (Ejecutar), haga clic en **Run app** (Ejecutar aplicación). A continuación, compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación. 
 
-	 Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla _TodoItem_ requiere ahora autenticación.
+	 Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla _TodoItem_  requiere ahora autenticación.
 
 A continuación, actualizará la aplicación para autenticar usuarios antes de solicitar recursos del servicio móvil.
 
@@ -76,7 +76,7 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 [Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
 [Restricción de los permisos de tabla a usuarios autenticados]: #permissions
 [Incorporación de autenticación a la aplicación]: #add-authentication
-[Almacenar tokens de autenticación en el cliente]: #cache-tokens
+[Almacenamiento de tokens de autenticación en el cliente]: #cache-tokens
 [Actualización de los tokens expirados]: #refresh-tokens
 [Pasos siguientes]:#next-steps
 
@@ -113,4 +113,4 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=47-->
+<!--HONumber=49-->

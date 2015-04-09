@@ -1,5 +1,5 @@
 <properties 
-	pageTitle="Introducción a los datos (Windows Phone) | Centro de desarrollo móvil" 
+	pageTitle="Incorporación de Servicios móviles a una aplicación existente (Windows Phone) | Centro de desarrollo móvil" 
 	description="Obtenga información acerca de cómo empezar a usar Servicios móviles para aprovechar datos en su aplicación de Windows Phone." 
 	services="mobile-services" 
 	documentationCenter="windows" 
@@ -10,45 +10,39 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-phone" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/25/2014" 
+	ms.date="02/20/2015" 
 	ms.author="wesmc"/>
 
-# Incorporación de Servicios móviles a una aplicación existente
+# Agregar Servicios móviles a una aplicación existente
+
+##Información general
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-data-legacy](../includes/mobile-services-selector-get-started-data-legacy.md)]
 
 En este tema se muestra cómo agregar Servicios móviles de Azure como origen de datos back-end para una aplicación Silverlight de Windows Phone 8.1. En este tutorial descargará un proyecto de Visual Studio para una aplicación que almacena datos en memoria, creará un nuevo servicio móvil, integrará el servicio móvil a la aplicación y verá los cambios que se hicieron en los datos durante la ejecución de la aplicación.
 
-El servicio móvil que cree en este tutorial admitirá el tiempo de ejecución .NET. Esto le permitirá utilizar lenguajes .NET y Visual Studio para la lógica de negocios de servidor en el servicio móvil. Para crear un servicio móvil que permita escribir la lógica de negocios del lado de servidor en JavaScript, consulte la [versión back-end JavaScript] de este tema.
+El servicio móvil que cree en este tutorial admitirá el tiempo de ejecución .NET. Esto le permitirá utilizar lenguajes .NET y Visual Studio para la lógica de negocios de servidor en el servicio móvil. Si desea crear un servicio móvil que le permita escribir su lógica de negocios de servidor en JavaScript, consulte la [versión back-end de JavaScript] de este tema.
 
 
-Este tutorial le guiará a través de estos pasos básicos:
-
-1. [Descarga del proyecto de la aplicación de Windows Phone 8] 
-2. [Creación de un servicio móvil]
-3. [Descarga del servicio móvil de manera local]
-4. [Actualización de la aplicación de Windows Phone para que utilice el servicio móvil]
-5. [Prueba de la aplicación de Windows Phone con el servicio hospedado de manera local]
-6. [Publicación del servicio móvil en Azure]
-7. [Prueba de la aplicación de Windows Phone con el servicio hospedado en Azure]
+##Requisitos previos
 
 Este tutorial requiere lo siguiente:
 
 + Visual Studio Professional 2013 Update 2 o una versión posterior.
-+ Una cuenta de Microsoft Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Evaluación gratuita de Azure</a>.</p></div>
++ Una cuenta de Microsoft Azure. En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte <a href="http://www.windowsazure.com/pricing/free-trial/?WT.mc_id=AE564AB28&amp;returnurl=http%3A%2F%2Fwww.windowsazure.com%2Fes-es%2Fdocumentation%2Farticles%2Fmobile-services-dotnet-backend-windows-store-dotnet-get-started-data%2F" target="_blank">Evaluación gratuita de Azure</a>.</p></div> 
 
-##<a name="download-app"></a>Descarga del proyecto GetStartedWithData
+##Descarga del proyecto GetStartedWithData
 
 Este tutorial se basa en la [aplicación GetStartedWithMobileServices][sitio de ejemplos de código para desarrolladores], que es un proyecto de aplicación de Windows Phone Silverlight 8.1 para Visual Studio 2013.  
 
-1. Descargue la versión de C# de la aplicación de ejemplo GetStartedWithMobileServices desde el [sitio de Muestras de código para desarrollador (en inglés)]. 
+1. Descargue la versión de C# de la aplicación de ejemplo GetStartedWithMobileServices desde el [sitio de ejemplos de código para desarrolladores] (en inglés). 
 
    	![][1]
 
-	>[AZURE.NOTE] Para crear una aplicación Silverlight de Windows Phone 8.1, en Windows Phone 8.1 cambie el SO de destino en el proyecto de aplicación Silverlight de Windows Phone 8 descargado. Para crear una aplicación de la Tienda de Windows Phone, descargue la [versión de la aplicación de Windows Phone ](http://go.microsoft.com/fwlink/p/?LinkId=397372) del proyecto de aplicación de ejemplo GetStartedWithData.
+	>[AZURE.NOTE]Para crear una aplicación Silverlight de Windows Phone 8.1, en Windows Phone 8.1 cambie el SO de destino en el proyecto de aplicación Silverlight de Windows Phone 8 descargado. Para crear una aplicación de la Tienda de Windows Phone, descargue la [versión de la aplicación de Windows Phone](http://go.microsoft.com/fwlink/p/?LinkId=397372) del proyecto de aplicación de ejemplo GetStartedWithData.
 
 2. Ejecute Visual Studio con privilegios administrativos haciendo clic con el botón derecho en Visual Studio y, a continuación, haciendo clic en **Ejecutar como administrador**.
 
@@ -66,14 +60,14 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices][sitio de 
 
    	![][0]  
 
-   	Observe que el texto correspondiente a cada `TodoItem` aparece debajo del botón de actualización, junto con una casilla para marcar el elemento como completado.
+   	Observe que el texto correspondiente a cada  `TodoItem`  aparece debajo del botón de actualización, junto con una casilla para marcar el elemento como completado.
 
-<h2><a name="create-service"></a>Creación de un servicio móvil</h2>
+##Creación de un servicio móvil
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-create-new-service](../includes/mobile-services-dotnet-backend-create-new-service.md)]
 
 
-<h2><a name="download-the-service-locally"></a>Descarga del proyecto de servicio móvil y agregarlo a la solución</h2>
+##Descarga del proyecto de servicio móvil e incorporación a la solución
 
 1. En el [Portal de administración de Azure], haga clic en el nuevo servicio móvil o en la pestaña del icono de nube para ir a la página de información general.
 
@@ -90,7 +84,7 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices][sitio de 
     ![][5]
 
 
-4. Descomprima el proyecto inicial personalizado de servicio descargado. Copie las carpetas incluidas en el archivo zip en el mismo directorio **C#** donde se encuentra el archivo de la solución Introducción a los datos (.sln). Esto permitirá al Administrador de paquetes NuGet mantener todos los paquetes sincronizados más fácilmente.
+4. Descomprima el proyecto inicial personalizado de servicio descargado. Copie las carpetas que se encontraban en el archivo comprimido en el mismo directorio **C#** en que está ubicado el archivo de la solución Introducción a los datos (.sln). Esto permitirá al Administrador de paquetes NuGet mantener todos los paquetes sincronizados más fácilmente.
 
     ![][26]
 
@@ -103,11 +97,11 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices][sitio de 
 
     ![][6]
 
-7. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en el proyecto de servicio que acaba de agregar y, a continuación, haga clic en **Compilar** para comprobar que se compile sin errores. Durante la compilación, el Administrador de paquetes NuGet puede necesitar restaurar algunos paquetes NuGet a los que se hace referencia en el proyecto.
+7. En el Explorador de soluciones de Visual Studio, haga clic con el botón secundario en el proyecto de servicio que acaba de agregar y luego haga clic en **Compilar** para comprobar que se compile sin errores. Durante la compilación, el Administrador de paquetes NuGet puede necesitar restaurar algunos paquetes NuGet a los que se hace referencia en el proyecto.
 
     ![][20]
 
-8. Haga clic con el botón derecho de nuevo en el proyecto de servicio. En esta ocasión, haga clic en **Iniciar nueva instancia** en el menú contextual **Depurar**.
+8. Haga clic con el botón derecho de nuevo en el proyecto de servicio. En esta ocasión, haga clic en **Iniciar nueva instancia** en el menú **Depurar**.
 
     ![][21]
 
@@ -120,7 +114,7 @@ Este tutorial se basa en la [aplicación GetStartedWithMobileServices][sitio de 
     ![][23]
 
 
-##<a name="update-app"></a>Actualización de la aplicación de Windows Phone para que utilice el servicio móvil
+##Actualización de la aplicación Windows Phone para que utilice el servicio móvil
 
 En esta sección, actualizará la aplicación de Windows Phone para utilizar el servicio móvil como servicio back-end de la aplicación.
 
@@ -129,28 +123,28 @@ En esta sección, actualizará la aplicación de Windows Phone para utilizar el 
 
     ![][7]
 
-2. En el cuadro de diálogo Administrar paquetes de NuGet, busque **MicrosoftAzure.MobileServices** en la colección de paquetes en línea y haga clic para instalar el paquete NuGet de Servicios móviles de Azure. A continuación, cierre el cuadro de diálogo.
+2. En el cuadro de diálogo Administrar paquetes de NuGet, busque **WindowsAzure.MobileServices** en la recopilación de paquetes en línea y haga clic para instalar el paquete de NuGet de Servicios móviles de Azure. A continuación, cierre el cuadro de diálogo.
 
     ![][8]
 
-3. De vuelta en el Portal de administración de Azure, busque el paso con la etiqueta **Conectar la aplicación y almacenar datos en el servicio**. Copie el fragmento de código que crea la conexión de `MobileServiceClient`.
+3. De vuelta en el Portal de administración de Azure, busque el paso con la etiqueta **Conectar la aplicación y almacenar datos en el servicio**. Copie el fragmento de código que crea la conexión de  `MobileServiceClient`.
 
     ![][9]
 
-4. En Visual Studio, abra App.xaml.cs. Pegue el fragmento de código al principio de la definición de clase `App`. Además, agregue la siguiente instrucción `using` en la parte superior de ese archivo y guarde el archivo.
+4. En Visual Studio, abra App.xaml.cs. Pegue el fragmento de código al principio de la definición de clase  `App`. Además, agregue la siguiente instrucción  `using` en la parte superior de ese archivo y guarde el archivo.
 
-		using Microsoft.MicrosoftAzure.MobileServices.
+		using Microsoft.WindowsAzure.MobileServices;
 
     ![][10]
 
 
 5. En Visual Studio, abra MainPage.xaml.cs y agregue la instrucción using en la parte superior del archivo: 
 
-		using Microsoft.MicrosoftAzure.MobileServices;
+		using Microsoft.WindowsAzure.MobileServices;
 
-6. En Visual Studio, en MainPage.xaml.cs, reemplace la definición de clase `MainPage` por la definición siguiente y guarde el archivo.
+6. En Visual Studio, en MainPage.xaml.cs, reemplace la definición de clase  `MainPage` por la definición siguiente y guarde el archivo.
 
-    Este código utiliza el SDK de Servicios móviles a fin de habilitar la aplicación para almacenar los datos en una tabla proporcionada por el servicio en lugar de en la memoria local. Los tres métodos principales son `InsertTodoItem`, `RefreshTodoItems` y `UpdateCheckedTodoItem`. Estos tres métodos permiten, de forma asíncrona, insertar la colección de datos en una tabla de Azure, consultarla y actualizarla. 
+    Este código utiliza el SDK de Servicios móviles a fin de habilitar la aplicación para almacenar los datos en una tabla proporcionada por el servicio en lugar de en la memoria local. Los tres métodos principales son  `InsertTodoItem`,  `RefreshTodoItems` y  `UpdateCheckedTodoItem`. Estos tres métodos permiten, de forma asíncrona, insertar la colección de datos en una tabla de Azure, consultarla y actualizarla. 
 
         public sealed partial class MainPage : PhoneApplicationPage
         {
@@ -164,15 +158,13 @@ En esta sección, actualizará la aplicación de Windows Phone para utilizar el 
             private async void InsertTodoItem(TodoItem todoItem)
             {
                 await todoTable.InsertAsync(todoItem); 
-                ite
-	ms.Add(todoItem);
+                items.Add(todoItem);
             }
             private async void RefreshTodoItems()
             {
                 items = await todoTable 
                     .ToCollectionAsync(); 
-                ListIte
-	ms.ItemsSource = items;
+                ListItems.ItemsSource = items;
             }
             private async void UpdateCheckedTodoItem(TodoItem item)
             {
@@ -203,7 +195,7 @@ En esta sección, actualizará la aplicación de Windows Phone para utilizar el 
 
 
 
-##<a name="test-locally-hosted"></a>Prueba de la aplicación Windows Phone con el servicio hospedado localmente</h2>
+##Prueba de la aplicación de Windows Phone con el servicio hospedado de manera local</h2>
 
 En esta sección, utilizará Visual Studio para probar la aplicación y el servicio móvil localmente en la estación de trabajo de desarrollo. Para probar el servicio móvil hospedado de manera local en IIS Express desde un dispositivo con Windows Phone o uno de los emuladores de Windows Phone, debe configurar IIS Express y la estación de trabajo para permitir las conexiones a la dirección IP y el puerto de la estación de trabajo. Los dispositivos con Windows Phone y los emuladores de Windows Phone se conectan como clientes de red no locales.
 
@@ -213,7 +205,7 @@ En esta sección, utilizará Visual Studio para probar la aplicación y el servi
 
 #### Prueba de la aplicación con el servicio móvil en IIS Express
 
-6. En Visual Studio, abra el archivo App.xaml.cs y convierta en comentario la definición `MobileService` que recientemente pegó en el archivo. Agregue una nueva definición para realizar la conexión en función de la dirección IP y el puerto que configuró en la estación de trabajo. A continuación, guarde el archivo. El código debe ser similar al siguiente...
+6. En Visual Studio, abra el archivo App.xaml.cs y convierta en comentario la definición  `MobileService` que recientemente pegó en el archivo. Agregue una nueva definición para realizar la conexión en función de la dirección IP y el puerto que configuró en la estación de trabajo. A continuación, guarde el archivo. El código debe ser similar al siguiente...
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
             "http://192.168.111.11:54321");
@@ -228,7 +220,7 @@ En esta sección, utilizará Visual Studio para probar la aplicación y el servi
 
     ![][11]
 
-8. En Visual Studio, presione la tecla F5 o haga clic en **Iniciar depuración** en el menú contextual Depurar para ejecutar la aplicación y hospedar el servicio móvil de manera local en IIS Express. 
+8. En Visual Studio, presione la tecla F5 o haga clic en **Iniciar depuración** en el menú Depurar para ejecutar la aplicación y hospedar el servicio móvil de manera local en IIS Express. 
 
     >[AZURE.NOTE] Asegúrese de ejecutar Visual Studio con la opción **Ejecutar como administrador**. De lo contrario, puede que IIS Express no cargue los cambios de applicationhost.config.
 
@@ -239,21 +231,21 @@ En esta sección, utilizará Visual Studio para probar la aplicación y el servi
 
     ![][15]
 
-10. En Visual Studio, detenga la depuración de la aplicación. Puede ver los cambios en la base de datos creada para el servicio back-end abriendo el Explorador de servidores y expandiendo las conexiones de datos. Haga clic con el botón derecho en la tabla de TodoItems situada debajo de **MS_TableConnectionString** y, a continuación, haga clic en **Mostrar datos de tabla**.
+10. En Visual Studio, detenga la depuración de la aplicación. Puede ver los cambios en la base de datos creada para el servicio back-end abriendo el Explorador de servidores y expandiendo las conexiones de datos. Haga clic con el botón secundario en la tabla TodoItems situada debajo de **MS_TableConnectionString** y, a continuación, haga clic en **Mostrar datos de tabla**.
 
     ![][14]
 
 11. Cuando acabe de probar el servicio móvil hospedado de manera local, elimine la regla del Firewall de Windows que creó para abrir el puerto de la estación de trabajo.
 
 
-##<a name="publish-mobile-service"></a>Publicación del servicio móvil en Azure
+##Publicación del servicio móvil en Azure
 
 [AZURE.INCLUDE [mobile-services-dotnet-backend-publish-service](../includes/mobile-services-dotnet-backend-publish-service.md)]
 
 
 ##<a name="test-azure-hosted"></a>Prueba del servicio móvil publicado en Azure
 
-1. En Visual Studio, abra App.xaml.cs.  Convierta en comentario el código que crea el cliente `MobileServiceClient` que se conecta al servicio móvil hospedado de manera local. Quite la marca de comentario del código que crea el cliente `MobileServiceClient` que se conecta al servicio de Azure. Guarde los cambios del archivo.
+1. En Visual Studio, abra App.xaml.cs.  Convierta en comentario el código que crea el  `MobileServiceClient` que se conecta al servicio móvil hospedado de manera local. Quite la marca de comentario del código que crea el  `MobileServiceClient` que se conecta al servicio de Azure. Guarde los cambios del archivo.
 
         sealed partial class App : Application
         {
@@ -267,7 +259,7 @@ En esta sección, utilizará Visual Studio para probar la aplicación y el servi
             );        
             ....
 
-2. En Visual Studio, presione la tecla F5 o haga clic en **Iniciar depuración** en el menú contextual Depurar. De este modo, la aplicación se volverá a compilar con el cambio anterior antes de ejecutarla para establecer conexión con el servicio móvil hospedado de manera remota en Azure. 
+2. En Visual Studio, presione la tecla F5 o haga clic en **Iniciar depuración** en el menú Depurar. De este modo, la aplicación se volverá a compilar con el cambio anterior antes de ejecutarla para establecer conexión con el servicio móvil hospedado de manera remota en Azure. 
 
     ![][12]
 
@@ -290,15 +282,15 @@ En esta sección, utilizará Visual Studio para probar la aplicación y el servi
 
 Con esto concluye el tutorial **Introducción a los datos**.
 
-## <a name="next-steps"> </a>Pasos siguientes
+##Pasos siguientes
 
 En este tutorial se demostraron los aspectos básicos de la habilitación de una aplicación Windows Phone 8 para trabajar con datos en servicios móviles creados utilizando el tiempo de ejecución .NET. A continuación, considere la realización de uno de los siguientes tutoriales que se basan en la aplicación GetStartedWithData que creó en este tutorial:
 
-* [Validar y modificar datos con scripts]
-  <br/>Obtenga más información sobre el uso de scripts de servidor en Servicios móviles para validar y cambiar los datos enviados desde su aplicación.
+* [Validación y modificación de datos con scripts]
+  <br/>Obtenga más información acerca del uso de scripts de servidor en Servicios móviles para validar y cambiar datos enviados desde su aplicación.
 
 * [Limitación de consultas con paginación]
-  <br/>Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos gestionados en una única solicitud.
+  <br/>Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos que se manejan en una única solicitud.
 
 Una vez que haya completado la serie de datos, intente con uno de estos otros tutoriales:
 
@@ -306,23 +298,14 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
   <br/>Aprenda la manera de autenticar a los usuarios de la aplicación.
 
 <!--
-* [Introducción a las notificaciones de inserción]
-  <br/>Aprenda cómo enviar una notificación de inserción muy básica a la aplicación.
+* [Get started with push notifications] 
+  <br/>Learn how to send a very basic push notification to your app.
 -->
 
-* [Referencia conceptual de servicios móviles con .NET]
-  <br/>Obtenga más información sobre el uso de Servicios móviles con .NET.
+* [Referencia conceptual de Servicios móviles con .NET]
+  <br/>Obtenga más información acerca del uso de Servicios móviles con .NET.
   
-<!-- Anchors. -->
 
-[Descarga del proyecto de la aplicación de Windows Phone 8]: #download-app
-[Creación de un servicio móvil]: #create-service
-[Descarga del servicio móvil de manera local]: #download-the-service-locally
-[Actualización de la aplicación de Windows Phone para que utilice el servicio móvil]: #update-app
-[Prueba de la aplicación de Windows Phone con el servicio hospedado de manera local]: #test-locally-hosted
-[Publicación del servicio móvil en Azure]: #publish-mobile-service
-[Prueba de la aplicación de Windows Phone con el servicio hospedado en Azure]: #test-azure-hosted
-[Pasos siguientes]:#next-steps
 
 <!-- Images. -->
 [0]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/app-view.png
@@ -341,8 +324,7 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
 [13]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/new-local-todoitem.png
 [14]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-show-local-table-data.png
 [15]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/local-item-checked.png
-[16]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/azure-ite
-	ms.png
+[16]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/azure-items.png
 [17]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/manage-sql-azure-database.png
 [18]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/sql-azure-query.png
 [19]: ./media/mobile-services-dotnet-backend-windows-phone-get-started-data/vs-deployment-target.png
@@ -355,23 +337,23 @@ Una vez que haya completado la serie de datos, intente con uno de estos otros tu
 
 
 <!-- URLs. -->
-[Validar y modificar datos con scripts]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-wp8
-[Limitación de consultas con paginación]: /es-es/develop/mobile/tutorials/add-paging-to-data-wp8
-[Introducción a los servicios móviles]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started/
-[Introducción a los datos]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/
-[Introducción a la autenticación]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-users/
-[Introducción a las notificaciones de inserción]: /es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-push/
-[JavaScript y HTML]: /es-es/develop/mobile/tutorials/get-started-with-data-js
-[Versión de back-end de JavaScript]: /es-es/develop/mobile/tutorials/get-started-with-data-wp8
+[Validación y modificación de datos con scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-wp8
+[Limitación de consultas con paginación]: /develop/mobile/tutorials/add-paging-to-data-wp8
+[Introducción a los Servicios móviles]: mobile-services-dotnet-backend-windows-phone-get-started.md
+[Introducción a los datos]: mobile-services-dotnet-backend-windows-phone-get-started-data.md
+[Introducción a la autenticación]: mobile-services-dotnet-backend-windows-phone-get-started-users.md
+[Introducción a las notificaciones de inserción]: mobile-services-dotnet-backend-windows-phone-get-started-push.md
+[JavaScript y HTML]: /develop/mobile/tutorials/get-started-with-data-js
+[Versión de back-end de JavaScript]: /develop/mobile/tutorials/get-started-with-data-wp8
 
 [SDK de Windows Phone 8]: http://go.microsoft.com/fwlink/p/?linkid=268374
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Portal de administración]: https://manage.windowsazure.com/
-[SDK de servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=257545
+[SDK de Servicios móviles]: http://go.microsoft.com/fwlink/p/?LinkId=257545
 [Sitio de ejemplos de código para desarrolladores]:  https://code.msdn.microsoft.com/Add-Azure-Mobile-to-a-8b906f72
-[Referencia conceptual de servicios móviles con .NET]: /es-es/develop/mobile/how-to-guides/work-with-net-client-library
+[Referencia conceptual de servicios móviles con .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
 [Clase MobileServiceClient]: http://go.microsoft.com/fwlink/p/?LinkId=302030
 [Incorporación de un regla de puerto de Firewall de Windows]:  http://go.microsoft.com/fwlink/?LinkId=392240
   
 
-<!--HONumber=42-->
+<!--HONumber=49-->

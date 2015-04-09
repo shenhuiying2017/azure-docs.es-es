@@ -1,15 +1,15 @@
-﻿> [AZURE.SELECTOR-LIST (Plataforma | Backend)]
-- [(iOS | .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-ios-get-started-data/)
-- [(iOS | JavaScript)](/es-es/documentation/articles/mobile-services-ios-get-started-data/)
-- [(C# de Tienda Windows | .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-data/)
-- [(C# de Tienda Windows | Javascript)](/es-es/documentation/articles/mobile-services-windows-store-dotnet-get-started-data/)
-- [(JavaScript de Tienda Windows | .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-javascript-get-started-data/)
-- [(JavaScript de Tienda Windows | Javascript)](/es-es/documentation/articles/mobile-services-windows-store-javascript-get-started-data/)
-- - [(Windows Phone | .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/)
-- [(Windows Phone | Javascript)](/es-es/documentation/articles/mobile-services-windows-phone-get-started-data/)
-- [(Android | .NET)](/es-es/documentation/articles/mobile-services-dotnet-backend-android-get-started-data/)
-- [(Android | Javascript)](/es-es/documentation/articles/mobile-services-android-get-started-data/)
-- [(Xamarin iOS | Javascript)](/es-es/documentation/articles/partner-xamarin-mobile-services-ios-get-started-data/)
-- [(Xamarin Android | Javascript)](/es-es/documentation/articles/partner-xamarin-mobile-services-android-get-started-data/)
-- [(HTML | Javascript)](/es-es/documentation/articles/mobile-services-html-get-started-data/)
-<!--HONumber=42-->
+﻿> [AZURE.SELECTOR-LIST (Plataformaa | Back-end)]
+- [(iOS | .NET)](../articles/mobile-services-dotnet-backend-ios-get-started-data.md)
+- [(iOS | JavaScript)](../articles/mobile-services-ios-get-started-data.md)
+- [(C# universal para Windows| .NET)](../articles/mobile-services-dotnet-backend-windows-store-universal-get-started-data.md)
+- [(C# universal para Windows | Javascript)](../articles/mobile-services-javascript-backend-windows-universal-dotnet-get-started-data.md)
+- [(JavaScript de Tienda Windows | Javascript)](../articles/mobile-services-windows-store-javascript-get-started-data.md)
+- - [(Windows Phone | .NET)](../articles/mobile-services-dotnet-backend-windows-phone-get-started-data.md)
+- [(Windows Phone | Javascript)](../articles/mobile-services-windows-phone-get-started-data.md)
+- [(Android | .NET)](../articles/mobile-services-dotnet-backend-android-get-started-data.md)
+- [(Android | Javascript)](../articles/mobile-services-android-get-started-data.md)
+- [(Xamarin iOS | Javascript)](../articles/partner-xamarin-mobile-services-ios-get-started-data.md)
+- [(Xamarin Android | Javascript)](../articles/partner-xamarin-mobile-services-android-get-started-data.md)
+- [(HTML | Javascript)](../articles/mobile-services-html-get-started-data.md)
+
+<!--HONumber=49-->

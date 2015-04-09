@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="El complemento Smooth Streaming para Open Source Media Framework" 
 	description="Aprenda a usar el complemento Smooth Streaming de Servicios multimedia de Azure para Adobe Open Source Media Framework." 
 	services="media-services" 
@@ -20,7 +20,7 @@
 
 # Uso del complemento Smooth Streaming de Microsoft para Open Source Media Framework de Adobe #
 
-## Información general ##
+##Información general ##
 El complemento Smooth Streaming de Microsoft para Open Source Media Framework 2.0 (SS para OSMF) amplía las capacidades predeterminadas de OSMF y agrega la reproducción del contenido Smooth Streaming de Microsoft a los reproductores con OSMF nuevos y existentes. El complemento también agrega las capacidades de reproducción de Smooth Streaming para Strobe Media Playback (SMP).
 
 SS para OSMF incluye dos versiones del complemento:
@@ -31,7 +31,7 @@ SS para OSMF incluye dos versiones del complemento:
 
 En este documento se asume que el lector tiene un conocimiento general acerca del funcionamiento de los complementos OSMF y OSMF. Para obtener más información acerca de OSMF, consulte la documentación disponible en el [sitio oficial de OSMF](http://osmf.org/) (en inglés).
 
-### Complemento Smooth Streaming para OSMF 2.0
+###Complemento Smooth Streaming para OSMF 2.0
 
 El complemento admite la carga y reproducción de contenido Smooth Streaming bajo demanda con las siguientes características:
 
@@ -55,8 +55,7 @@ A continuación se indican las características no compatibles:
 
 A continuación se expone una lista de problemas conocidos:
 
-- La reproducción de contenido Smooth Streaming con pistas de audio de 48 KHz presenta problemas. El tiempo de ejecución flash experimenta un problema conocido para representar contenido de audio de 48 KHz. Debido a este problema, es posible que el contenido Smooth Streaming codificado con una configuración de 48 KHz no funcione según lo previsto. Consulte: [Utilización de Flash Player](http://foru
-	ms.adobe.com/message/4483498#4483498) y [Adobe Flash Player 11.3  -  Error 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964) para obtener más información.
+- La reproducción de contenido Smooth Streaming con pistas de audio de 48 KHz presenta problemas. El tiempo de ejecución flash experimenta un problema conocido para representar contenido de audio de 48 KHz. Debido a este problema, es posible que el contenido Smooth Streaming codificado con una configuración de 48 KHz no funcione según lo previsto. Consulte: [Uso de Flash Player](http://forums.adobe.com/message/4483498#4483498) y [Adobe Flash Player 11.3  -  Error 3210964](https://bugbase.adobe.com/index.cfm?event=bug&id=3210964) para obtener más información.
 - La reproducción múltiple de contenido Smooth Streaming en una única página puede causar problemas. Se trata de un problema conocido con OSMF.
 - La reproducción de Stage Video puede ocasionar problemas y que no se reproduzca ningún vídeo en algunas máquinas. Como solución alternativa, puede deshabilitar la aceleración de hardware o Stage Video.
 
@@ -69,7 +68,7 @@ Los complementos de OSMF se pueden cargar estáticamente (en el momento de la co
 
 Para obtener más información acerca de la carga estática y dinámica, consulte la [página oficial del complemento de OSMF](http://osmf.org/dev/osmf/OtherPDFs/osmf_plugin_dev_guide.pdf) (en inglés).
 
-### Carga estática de SS para OSMF
+###Carga estática de SS para OSMF
 El fragmento de código siguiente muestra cómo cargar estáticamente el complemento SS para OSMF y reproducir vídeo básico con la utilización de la clase MediaFactory de OSMF. Antes de incluir el código SS para OSMF, asegúrese de que la referencia del proyecto incluye el complemento estático "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc".
 
 <pre><code>
@@ -205,9 +204,9 @@ package
 </code></pre>
 
 
-### Carga dinámica de SS para OSMF
+###Carga dinámica de SS para OSMF
 
-El fragmento de código siguiente muestra cómo cargar dinámicamente el complemento SS para OSMF y reproducir vídeo básico con la utilización de la clase MediaFactory de OSMF. Antes de incluir el código SS para OSMF, copie el complemento "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" a la carpeta del proyecto si desea realizar la carga con el protocolo FILE, o bien cópielo en un servidor web para cargas HTTP. No es necesario incluir "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" en las referencias del proyecto.
+El fragmento de código siguiente muestra cómo cargar dinámicamente el complemento SS para OSMF y reproducir vídeo básico con la utilización de la clase MediaFactory de OSMF. Antes de incluir el código SS para OSMF, copie el complemento "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" en la carpeta del proyecto si desea realizar la carga con el protocolo FILE o bien cópielo en un servidor web para cargas HTTP. No es necesario incluir "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swc" en las referencias del proyecto.
 
 <pre><code>
 package 
@@ -343,7 +342,7 @@ package
 }
 </code></pre>
 
-## Strobe Media  Playback con el complemento dinámico SS para ODMF
+##Strobe Media Playback con el complemento dinámico SS para ODMF
 El complemento dinámico Smooth Streaming para OSMF es compatible con [Strobe Media Playback (SMP)](http://osmf.org/strobe_mediaplayback.html). Puede usar el complemento SS para OSMF para agregar la reproducción de contenido Smooth Streaming a SMP. Para ello, copie "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf" en un servidor web para cargas HTTP mediante estos pasos:
 
 1.	Examine la [página de configuración de Strobe Media Playback](http://osmf.org/dev/2.0gm/setup.html) (en inglés). 
@@ -405,4 +404,4 @@ El complemento dinámico Smooth Streaming para OSMF es compatible con [Strobe Me
 
 Para obtener más información acerca del desarrollo de OSMF general, consulte la [página oficial de desarrollo de OSMF](http://osmf.org/resources.html) (en inglés).
 
-<!--HONumber=42-->
+<!--HONumber=49-->

@@ -1,4 +1,4 @@
-1. En el [Portal de administración de Azure], haga clic en el nuevo servicio móvil o en la pestaña del icono de nube para ir a la página de información general.
+﻿1. En el [Portal de administración de Azure], haga clic en el nuevo servicio móvil o en la pestaña del icono de nube para ir a la página de información general.
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/mobile-portal-quickstart-android.png)
 
@@ -6,7 +6,7 @@
 
     ![](./media/mobile-services-dotnet-backend-android-get-started-data/download-service-project.png)
 
-3. Si todavía no lo tiene, descargue e instale [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934), o una versión posterior.
+3. Si todavía no lo ha hecho, descargue e instale [Visual Studio Professional 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) o una versión posterior.
 
 4. Haga clic en **Descargar** en **Descargar y publicar el servicio en la nube**.
 
@@ -27,4 +27,4 @@
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [SDK de Android]: https://go.microsoft.com/fwLink/p/?LinkID=280125
 
-<!--HONumber=47-->
+<!--HONumber=49-->

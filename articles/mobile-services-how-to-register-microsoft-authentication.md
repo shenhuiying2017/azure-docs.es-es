@@ -20,9 +20,9 @@
 
 Este tema indica cómo registrar su aplicación para que pueda usar Live Connect como proveedor de autenticación para Servicios móviles de Azure. 
 
->[AZURE.NOTE]Para configurar la autenticación de cuentas de Microsoft para una aplicación universal de Windows o para proporcionar una experiencia de inicio de sesión único para una aplicación de la Tienda Windows, consulte [Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft](/documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication).
+>[AZURE.NOTE]Para configurar la autenticación de cuentas de Microsoft para una aplicación universal de Windows o para proporcionar una experiencia de inicio de sesión único para una aplicación de la Tienda Windows, consulte [Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft](mobile-services-how-to-register-store-app-package-microsoft-authentication.md).
 
-1. Navegue al sitio web de <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">Mis aplicaciones</a> del Centro para desarrolladores de Live Connect e inicie sesión con cuenta Microsoft, si procede. 
+1. Vaya a la página <a href="http://go.microsoft.com/fwlink/p/?LinkId=262039" target="_blank">Mis aplicaciones</a> del Centro para desarrolladores de Live Connect e inicie sesión con su cuenta Microsoft, si procede. 
 
 2. Haga clic en **Create application** y, a continuación, escriba el **nombre de la aplicación** y haga clic en **I accept**.
 
@@ -62,4 +62,4 @@ De este modo ya estará listo para usar una cuenta Microsoft para autenticarse e
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-<!--HONumber=47-->
+<!--HONumber=49-->

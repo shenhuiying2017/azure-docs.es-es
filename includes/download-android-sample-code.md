@@ -7,7 +7,7 @@
 
 3. Abra Android Studio. Si está trabajando con un proyecto diferente y aparece, cierre el proyecto (**Archivo => Cerrar proyecto**).
 
-4. Seleccione **Abrir un proyecto de Android Studio existente**, vaya a la ubicación del proyecto en la carpeta  *AndroidStudio* de  *GettingStartedWithData* y, a continuación, haga clic en **Aceptar.** 
+4. Seleccione **Abrir un proyecto de Android Studio existente**, desplácese hasta la ubicación del proyecto en la carpeta de  *AndroidStudio*  *GettingStartedWithData* y haga clic en **Aceptar.** 
 
 
  	![](./media/mobile-services-android-get-started/android-studio-import-project.png)
@@ -18,4 +18,5 @@
 
 <!-- URLs. -->
 [GitHub]:  http://go.microsoft.com/fwlink/p/?LinkID=282122
-<!--HONumber=47-->
+
+<!--HONumber=49-->

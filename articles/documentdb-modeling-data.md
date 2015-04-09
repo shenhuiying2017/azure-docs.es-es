@@ -16,7 +16,7 @@
 	ms.date="02/23/2015" 
 	ms.author="ryancraw"/>
 
-# Modelado de datos en Base de datos de documentos#
+#Modelado de datos en Base de datos de documentos#
 Mientras que las bases de datos libres de esquemas, como Base de datos de documentos, facilitan notablemente la adopción de cambios en el modelo de datos, debe dedicar algo de tiempo a pensar en los datos. 
 
 ¿Cómo se van a almacenar los datos? ¿Cómo la aplicación va a recuperar y consultar los datos? ¿La aplicación realiza muchas operaciones de lectura o escritura?
@@ -29,7 +29,7 @@ Después de leer este artículo, podrá responder a las siguientes preguntas:
 - ¿Cómo expreso relaciones de datos en una base de datos no relacional?
 - ¿Cuándo se incrustan datos y cuándo realizo vinculaciones a los datos?
 
-## Incrustación de datos##
+##Incrustación de datos##
 Al comenzar a modelar datos en un almacén de documentos, como Base de datos de documentos, intente tratar las entidades como **documentos independientes** representados en JSON.
 
 Antes de adentrarnos demasiado, nos gustaría volver a realizar algunos pasos y echar un vistazo a cómo podríamos modelar algo en una base de datos relacional, un asunto con el que muchos de nosotros ya estamos familiarizados. En el ejemplo siguiente se muestra puede almacenarse una persona en una base de datos relacional. 
@@ -38,7 +38,7 @@ Antes de adentrarnos demasiado, nos gustaría volver a realizar algunos pasos y 
 
 Al trabajar con bases de datos relacionales, hemos aprendido durante años a normalizar constantemente.
 
-La normalización de los datos implica normalmente tomar una entidad, como una persona, y dividirla en piezas de datos discretas. En el ejemplo anterior, una persona puede tener varios registros de información de contacto, así como varios registros de dirección. Podemos ir incluso un paso más allá y desglosar detalles de contacto extrayendo aún más campos comunes, como un tipo. Al igual que ocurre con la dirección, cada registro aquí tiene un tipo como  *doméstico* o  *empresarial*. 
+La normalización de los datos implica normalmente tomar una entidad, como una persona, y dividirla en piezas de datos discretas. En el ejemplo anterior, una persona puede tener varios registros de información de contacto, así como varios registros de dirección. Podemos ir incluso un paso más allá y desglosar detalles de contacto extrayendo aún más campos comunes, como un tipo. Al igual que ocurre con la dirección, cada registro aquí tiene un tipo como *doméstico* o *empresarial*. 
 
 La premisa principal cuando se normalizan datos es la de **evitar el almacenamiento de datos redundantes** en cada registro y, en su lugar, hacer referencia a los datos. En este ejemplo, para leer a una persona, con toda su información de contacto y direcciones, tendrá que utilizar CONEXIONES para agregar de forma eficaz los datos en tiempo de ejecución.
 
@@ -78,7 +78,7 @@ Recuperar un registro de persona completa de la base de datos es ahora una únic
 
 Mediante la desnormalización de datos, es posible que la aplicación tenga que emitir menos consultas y actualizaciones para completar operaciones frecuentes. 
 
-### Cuándo se debe realizar la incrustación
+###Cuándo se debe realizar la incrustación
 
 Por lo general, use los modelos de datos de incrustación cuando:
 
@@ -90,7 +90,7 @@ Por lo general, use los modelos de datos de incrustación cuando:
 
 > [AZURE.NOTE] Los modelos de datos desnormalizados normalmente proporcionan un mejor rendimiento de **lectura**.
 
-### Cuándo no se debe incrustar
+###Cuándo no se debe incrustar
 
 Puesto que la regla general en una base de datos de documentos es desnormalizarlo todo e incrustar todos los datos en un único documento, es posible que se produzcan situaciones que se deben evitar.
 
@@ -114,7 +114,7 @@ Seleccione este fragmento JSON.
 
 Este podría el aspecto de una entidad de publicación con comentarios incrustados si se ha modelado un sistema, CMS o blog normales. El problema con este ejemplo es que la matriz de comentarios **no está limitada**, lo que significa que no hay ningún límite (práctico) para el número de comentarios que puede tener cualquier publicación única. Esto será un problema, ya que el tamaño del documento puede aumentar notablemente.
 
-> [AZURE.TIP] Los documentos de Base de datos de documentos tienen un tamaño máximo. Para obtener más información sobre esto, consulte [Límites de Base de datos de documentos](../documentdb-limits).
+> [AZURE.TIP] Los documentos de Base de datos de documentos tienen un tamaño máximo. Para obtener más información sobre esto, consulte [Límites de Base de datos de documentos](documentdb-limits.md)
 
 Puesto que el tamaño del documento aumenta la capacidad de transmisión de los datos a través de la conexión, así como la lectura y actualización del documento, a escala, se producirá un impacto en ellos.
 
@@ -177,7 +177,7 @@ Esto podría representar la cartera de acciones de una persona. Hemos elegido in
 
 Es posible negociar con la acción  *zaza* cientos de veces en un solo día y miles de usuarios pueden tener  *zaza* en su cartera. Con un modelo de datos como el anterior, tendríamos que actualizar miles de documentos de cartera varias veces al día, por lo que daría lugar a una escalación del sistema no muy buena. 
 
-## <a id="Refer"></a>Datos de referencia##
+##<a id="Refer"></a>Datos de referencia##
 
 Por lo tanto, la incrustación de datos funciona bien en muchos casos, pero está claro que hay escenarios en los que la desnormalización de los datos provocará más problemas que ventajas. ¿Qué hacemos ahora? 
 
@@ -226,7 +226,7 @@ Sin embargo, una desventaja de este enfoque inmediato es si la aplicación es ne
 ### ¿Qué sucede con las claves externas?
 Puesto que actualmente no hay ningún concepto de restricción, clave externa o de otra índole, las relaciones entre documentos que tienen en los documentos son efectivamente "puntos débiles" y  la base de datos no los comprobará. Si desea asegurarse de que los datos a los que hace referencia un documento existen realmente, debe hacerlo en la aplicación o mediante el uso de desencadenadores de servidor o procedimientos almacenados en Base de datos de documentos.
 
-### Cuándo se debe establecer referencias
+###Cuándo se debe establecer referencias
 Por lo general, se deben utilizar modelos de datos normalizados cuando:
 
 - Se realiza una representación de relaciones de **uno a varios**.
@@ -236,7 +236,7 @@ Por lo general, se deben utilizar modelos de datos normalizados cuando:
 
 > [AZURE.NOTE] Normalmente, la normalización proporciona un mejor rendimiento de **escritura**.
 
-### ¿Dónde coloco la relación?
+###¿Dónde coloco la relación?
 El crecimiento de la relación le ayudará a determinar en qué documento almacenar la referencia.
 
 Si observamos el JSON siguiente que sirve como modelo para los publicadores y los libros.
@@ -264,7 +264,7 @@ Cambiar las cosas un poco provocaría la creación de un modelo que seguiría re
 	Publisher document: 
 	{
 	    "id": "mspress",
-	    "name": "Microsoft Press
+	    "name": "Microsoft Press"
 	}
 	
 	Book documents: 
@@ -278,8 +278,8 @@ Cambiar las cosas un poco provocaría la creación de un modelo que seguiría re
 
 En el ejemplo anterior, hemos eliminado la colección ilimitada en el documento del publicador. En su lugar, solo tenemos una referencia al publicador en cada documento del libro.
 
-### ¿Cómo se puede modelar las relaciones de varios a varios?
-En una base de datos relacional, las relaciones  *varios a varios* modelan con frecuencia con tablas de unión, que simplemente unen registros de otras tablas. 
+###¿Cómo se puede modelar las relaciones de varios a varios?
+En una base de datos relacional, las relaciones  *many:many* modelan con frecuencia con tablas de unión, que simplemente unen registros de otras tablas. 
 
 ![Join tables](./media/documentdb-modeling-data/join-table.png)
 
@@ -319,7 +319,7 @@ Tenga en cuenta lo siguiente.
 
 Ahora, si tuviera un autor, sabría de inmediato qué libros ha escrito y, a la inversa, si tuviera un documento del libro cargado sabría los identificadores de los autores. Esto ahorra la consulta intermedia de la tabla de unión, por lo que se reduce el número de viajes de ida y vuelta al servidor que tiene que realizar la aplicación. 
 
-## <a id="WrapUp"></a>Modelos de datos híbridos##
+##<a id="WrapUp"></a>Modelos de datos híbridos##
 Ya hemos observado la incrustación (o desnormalización) y el establecimiento de referencias (o normalización). Cada opción tiene sus ventajas y compromisos, como hemos visto. 
 
 No tiene por qué ser siempre una u otra. No tenga miedo de mezclarlas un poco. 
@@ -371,7 +371,7 @@ Considere el siguiente JSON.
 
 Aquí hemos seguido principalmente el modelo de incrustación, donde los datos de otras entidades se incrustan en el documento de nivel superior, pero se establece la referencia en otros datos. 
 
-Si observa el documento del libro, podemos ver algunos campos interesantes cuando nos centramos en la matriz de autores. Hay un campo  *id.* que es el campo que se utiliza para volver a hacer referencia a un documento de autor, una práctica estándar en un modelo normalizado, pero también tenemos a continuación  *nombre* y  *direcciónURLenminiatura*. Podríamos habernos parado en  *id.* y dejar la aplicación para obtener información adicional que necesita a partir del documento de autor correspondiente mediante el "vínculo", pero como nuestra aplicación muestra el nombre del autor y una imagen en miniatura con cada libro mostrado, podemos ahorrar un viaje de ida y vuelta al servidor por libro en una lista mediante la desnormalización de **algunos** datos del autor.
+Si observa el documento del libro, podemos ver algunos campos interesantes cuando nos centramos en la matriz de autores. Hay un campo  *id* que es el campo que se utiliza para volver a hacer referencia a un documento de autor, una práctica estándar en un modelo normalizado, pero también tenemos  *name* y  *thumbnailUrl*. Podríamos habernos parado en  *id* y dejar la aplicación para obtener información adicional que necesita a partir del documento de autor correspondiente mediante el "vínculo", pero como nuestra aplicación muestra el nombre del autor y una imagen en miniatura con cada libro mostrado, podemos ahorrar un viaje de ida y vuelta al servidor por libro en una lista mediante la desnormalización de **algunos** datos del autor.
 
 Por supuesto, si cambia el nombre del autor o desean actualizar sus fotos, tendríamos que realizar una actualización de cada libro publicado, pero para nuestra aplicación, que se basa en la suposición de que los autores no cambian sus nombres muy a menudo, se trata de una decisión de diseño aceptable.  
 
@@ -379,17 +379,18 @@ En el ejemplo hay valores de **adiciones calculadas previamente** para ahorrar u
 
 La capacidad de tener un modelo con campos calculados previamente es posible porque Base de datos de documentos admite **transacciones de varios documentos**. Muchos almacenes NoSQL no pueden realizar transacciones en documentos y, por lo tanto, recomiendan las decisiones de diseño, por ejemplo, "siempre incrustar todo", debido a esa limitación. Con Base de datos de documentos, puede utilizar los desencadenadores del servidor o los procedimientos almacenados que insertan los libros y actualizan los autores dentro de una transacción ACID. Ahora no **tiene** que incrustar todo en un documento para asegurarse de que los datos sigan siendo coherentes.
 
-## <a name="NextSteps"></a>Pasos siguientes
+##<a name="NextSteps"></a>Pasos siguientes
 
 Lo más importante de este artículo es comprender que el modelado de datos en un mundo sin esquemas es más importante que nunca. 
 
 Como no hay ninguna manera única de representar un elemento de datos en una pantalla, no hay una única forma de modelar los datos. Necesita comprender la aplicación y saber cómo producirá, consumirá y procesará los datos. A continuación, mediante la aplicación de algunas directrices presentadas aquí, puede crear un modelo que aborde las necesidades inmediatas de la aplicación. Cuando las aplicaciones necesitan cambiar, puede aprovechar la flexibilidad de una base de datos sin esquemas para adoptar ese cambio y que el modelo de datos evolucione con facilidad. 
 
-Para obtener más información acerca de Base de datos de documentos de Azure, la página de [documentación]( ../../services/documentdb/) del servicio. 
+Para obtener más información acerca de Base de datos de documentos de Azure, la página de [documentación]( ../../services/documentdb/) 
 
-Para obtener información sobre el ajuste de índices en Base de datos de documentos de Azure, consulte el artículo sobre [indexación de directivas](../documentdb-indexing-policies).
+Para obtener información sobre el ajuste de índices en Base de datos de documentos de Azure, consulte el artículo sobre [indización de directivas](documentdb-indexing-policies.md).
 
-Para comprender cómo particionar los datos en varias particiones, consulte [Partición de datos en Base de datos de documentos](../documentdb-partition-data). 
+Para comprender cómo particionar los datos en varias particiones, consulte [Partición de datos en Base de datos de documentos](documentdb-partition-data.md). 
 
 Y por último, para obtener información sobre el particionamiento y el modelado de datos para aplicaciones de varios inquilinos, consulte [Escalación de una aplicación de varios inquilinos con Base de datos de documentos de Azure](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx).
-<!--HONumber=47-->
+
+<!--HONumber=49-->

@@ -34,7 +34,7 @@ Edite requirements.txt para agrgar la opción `--find-links` al principio. Esto 
 
     --find-links wheelhouse
     azure==0.8.4
-			
+
 Si desea incluir todas las dependencias en la carpeta \wheelhouse y no utilizar el índice de paquetes Python, puede forzar el pip para omitir el índice de paquetes agregando `--no-index` en la parte superior de requirements.txt.
 
     --no-index
@@ -65,6 +65,7 @@ Se recomienda eliminar el entorno virtual existente en el sitio para evitar que 
 
 
 [Creación de una máquina virtual que ejecuta Windows]: http://azure.microsoft.com/documentation/articles/virtual-machines-windows-tutorial/
-[Compilador de Microsoft Visual C++ para Python 2.7]: http:://aka.ms/vcpython27
+[Compilador de Microsoft Visual C++ para Python 2.7]: http://aka.ms/vcpython27
 [Microsoft Visual C++ 2010 Express]: http://go.microsoft.com/?linkid=9709949
-<!--HONumber=42-->
+
+<!--HONumber=49-->

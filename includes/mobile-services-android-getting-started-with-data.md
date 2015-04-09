@@ -19,7 +19,7 @@
 
 		<uses-permission android:name="android.permission.INTERNET" />
 
-5. En el Explorador de proyectos, abra el archivo TodoActivity.java que se encuentra en la carpeta **GetStartedWithData => app => src => java** y elimine los comentarios de las siguientes líneas de código: 
+5. En el Explorador de proyectos, abra el archivo TodoActivity.java, que se encuentra en la carpeta **GetStartedWithData => app => src => java**, y elimine los comentarios de las siguientes líneas de código: 
 
 
 
@@ -58,7 +58,7 @@
 
 10. En el Portal de administración, haga clic en **Servicios móviles** y, a continuación, en el servicio móvil que acaba de crear.
 
-11. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**; a continuación, haga clic en **Administrar claves** y anote la **Clave de aplicación**.
+11. Haga clic en la pestaña **Panel** y anote la **dirección URL del sitio**; a continuación, haga clic en **Administrar claves** y anote la **clave de la aplicación**.
 
    	![](./media/download-android-sample-code/mobile-dashboard-tab.png)
 
@@ -165,4 +165,5 @@
 
 <!-- URLs. -->
 [SDK de Android para Servicios móviles]: http://aka.ms/Iajk6q
-<!--HONumber=47-->
+
+<!--HONumber=49-->

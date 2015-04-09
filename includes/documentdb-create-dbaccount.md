@@ -19,7 +19,7 @@
 
 	- El modo **Configuración opcional** se usa para especificar la capacidad inicial asignada a su cuenta de Base de datos de documentos.  Base de datos de documentos aprovecha las unidades de capacidad para permitirle escalar su cuenta de Base de datos de documentos, donde cada unidad de capacidad incluye almacenamiento y rendimiento de base de datos reservados.  De manera predeterminada, se aprovisiona una unidad de capacidad.  Puede ajustar el número de unidades de capacidad disponibles para su cuenta de Base de datos de documentos en cualquier momento mediante el [portal de administración de vista previa](https://portal.azure.com/#gallery/Microsoft.DocumentDB). Para obtener más información acerca de la capacidad y el rendimiento de la cuenta de Base de datos de documentos, vea el artículo [Administración de capacidad y rendimiento de Base de datos de documentos][documentdb-manage].
 
-	- En **Grupo de recursos**, seleccione o cree un grupo de recursos para su cuenta de Base de datos de documentos.  De forma predeterminada, se creará un nuevo grupo de recursos.  Puede, sin embargo, optar por seleccionar un grupo de recursos existente al que agregar su cuenta de Base de datos de documentos. Para obtener más información, vea [Uso de los grupos de recursos para administrar los recursos de Azure](http://azure.microsoft.com/documentation/articles/azure-preview-portal-using-resource-groups/).
+	- En **Grupo de recursos**, seleccione o cree un grupo de recursos para su cuenta de Base de datos de documentos.  De forma predeterminada, se creará un nuevo grupo de recursos.  Puede, sin embargo, optar por seleccionar un grupo de recursos existente al que agregar su cuenta de Base de datos de documentos. Para obtener más información, consulte [Uso de grupos de recursos para administrar los recursos de Azure](azure-preview-portal-using-resource-groups.md).
 
 	- En **Suscripción**, seleccione la suscripción a Azure que quiere usar para la cuenta de Base de datos de documentos. Si la cuenta tiene solo una suscripción, dicha cuenta se seleccionará automáticamente.*
  
@@ -36,7 +36,7 @@
 
 4.	Después de crear la cuenta de Base de datos de documentos, ya se puede usar con la configuración predeterminada.
 
-	*Tenga en cuenta que la coherencia predeterminada de la cuenta se establecerá en Sesión.  Puede ajustar la configuración de coherencia predeterminada a través del [portal de administración de vista previa](https://portal.azure.com/#gallery/Microsoft.DocumentDB).*  
+	*Tenga en cuenta que la coherencia predeterminada de la cuenta de Base de datos de documentos se establecerá en Sesión.  Puede ajustar la configuración de coherencia predeterminada a través del [portal de administración de vista previa](https://portal.azure.com/#gallery/Microsoft.DocumentDB). *  
 	![Screen shot of the Resource Group blade][7]  
 
 
@@ -51,5 +51,6 @@
 
 [Procedimiento: de una cuenta de Base de datos de documentos]: #Howto
 [Pasos siguientes]: #NextSteps
-[documentdb-manage]:../documentdb-manage/
-<!--HONumber=47-->
+[documentdb-manage]:../articles/documentdb-manage.md
+
+<!--HONumber=49-->

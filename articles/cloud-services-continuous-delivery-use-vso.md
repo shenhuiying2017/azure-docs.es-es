@@ -1,14 +1,14 @@
 ﻿<properties 
 	pageTitle="Entrega continua con Visual Studio Online en Azure" 
 	description="Aprenda a configurar los proyectos de equipo de Visual Studio Online para que se compilen y se implementen automáticamente en los sitios web de Azure o en los servicios en la nube." 
-	services="web-sites" 
+	services="app-service\web" 
 	documentationCenter=".net" 
 	authors="kempb" 
 	manager="douge" 
 	editor="tglee"/>
 
 <tags 
-	ms.service="web-sites" 
+	ms.service="app-service-web" 
 	ms.workload="tbd" 
 	ms.tgt_pltfrm="na" 
 	ms.devlang="dotnet" 
@@ -19,7 +19,7 @@
 
 # Entrega continua a Azure con Visual Studio Online
 
-  Puede configurar los proyectos de equipo de Visual Studio Online para que se compilen y se implementen automáticamente en los sitios web Azure o en los servicios en la nube.  (Para obtener información acerca de cómo configurar un sistema de compilación e implementación continuas con Team Foundation Server *on-premises*, consulte [Entrega continua para Servicios en la nube de Azure](../cloud-services-dotnet-continuous-delivery).)
+  Puede configurar los proyectos de equipo de Visual Studio Online para que se compilen y se implementen automáticamente en las aplicaciones web de Azure o en los servicios en la nube.  (Para obtener información acerca de cómo configurar un sistema de compilación e implementación continuas con Team Foundation Server *on-premises*, consulte [Entrega continua para Servicios en la nube de Azure](cloud-services-dotnet-continuous-delivery.md).)
 
 En este tutorial se supone que tiene instalados Visual Studio 2013 y el SDK de Azure. Si aún no tiene Visual Studio 2013, descárguelo; para ello, haga clic en el vínculo **Empezar de forma gratuita** en [www.visualstudio.com](http://www.visualstudio.com). Instale el SDK de Azure desde [aquí](http://go.microsoft.com/fwlink/?LinkId=239540).
 
@@ -28,7 +28,7 @@ En este tutorial se supone que tiene instalados Visual Studio 2013 y el SDK de A
 
 Para configurar un servicio en la nube que se compile e implemente automáticamente en Azure con Visual Studio Online, siga los pasos que aparecen a continuación:
 
--   [Paso 1: Cree un proyecto de equipo][]
+-   [Paso 1: Cree un proyecto de equipo.][]
 
 -   [Paso 2: Registre un proyecto para el control de código fuente][]
 
@@ -52,7 +52,7 @@ Siga las instrucciones que se describen [aquí](http://go.microsoft.com/fwlink/?
 Puede implementar un sitio web o un servicio en la nube (aplicación de Azure) siguiendo los pasos que se ofrecen en este tutorial.
 Si desea crear una nueva solución, cree un proyecto de Servicio de nube de Azure
 o un proyecto de MVC de ASP.NET. Asegúrese de que el proyecto se dirige a .NET Framework 4 o 4.5. Si está creando un proyecto de Servicio de nube, agregue un rol web de MVC de ASP.NET y un rol de trabajo y seleccione una aplicación de Internet para el rol web. Cuando se le solicite, elija **Aplicación de Internet**.
-Si desea crear un sitio web, seleccione la plantilla de proyecto de aplicación web ASP.NET y, a continuación, MVC. Consulte [Introducción a Azure y ASP.NET](http://azure.microsoft.com/documentation/articles/web-sites-dotnet-get-started/).
+Si desea crear un sitio web, seleccione la plantilla de proyecto de aplicación web ASP.NET y, a continuación, MVC. Consulte [Introducción a Azure y ASP.NET](web-sites-dotnet-get-started.md).
 
 2. Abra el menú contextual de la solución y seleccione **Agregar solución al control de código fuente**.<br/>
 ![][5]
@@ -67,12 +67,12 @@ Si desea crear un sitio web, seleccione la plantilla de proyecto de aplicación 
 ![][8]
 
 <br/>
-Observe las opciones para incluir o excluir cambios específicos al proteger. Si los cambios deseados se excluyen, haga clic en el vínculo **Includir todo**.<br/>
+Observe las opciones para incluir o excluir cambios específicos al proteger. Si los cambios deseados se excluyen, haga clic en el vínculo **Incluir todo**.<br/>
 ![][9]
 
 <h2> <a name="step3"> </a>Paso 3: Conecte el proyecto a Azure</h2>
 
-1. Ahora que tiene un proyecto de equipo de VSO con código fuente en él, esta en disposición de conectar el proyecto de equipo a Azure.  En el [Portal de Azure](http://manage.windowsazure.com), seleccione su servicio en la nube o sitio web, o bien cree uno nuevo. Para ello, seleccione el icono + en la parte inferior izquierda y elija **Servicio en la nube** o **Sitio web** y, a continuación, **Creación rápida**. Haga clic en el vínculo **Configurar publicación con Visual Studio Online**.<br/>
+1. Ahora que tiene un proyecto de equipo de VSO con código fuente en él, está en disposición de conectar el proyecto de equipo a Azure.  En el [Portal de Azure](http://manage.windowsazure.com), seleccione su servicio en la nube o sitio web, o bien cree uno nuevo. Para ello, seleccione el icono + en la parte inferior izquierda y elija **Servicio en la nube** o **Sitio web** y, a continuación, **Creación rápida**. Haga clic en el vínculo **Configurar publicación con Visual Studio Online**.<br/>
 ![][10]
 
 2. En el asistente, escriba el nombre de la cuenta de Visual Studio Online en el cuadro de texto y haga clic en el vínculo **Autorizar ahora**. Puede que se le solicite que inicie sesión.<br/>
@@ -137,7 +137,7 @@ En la tabla siguiente se muestran las propiedades disponibles en la sección Imp
 ><tr><td>No eliminar</td><td>Si el valor es true, no sobrescriba una implementación no relacionada existente (la actualización está permitida).</td></tr>
 <tr><td>Ruta de acceso a la configuración de implementación</td><td>La ruta de acceso al archivo .pubxml de un sitio web, en relación con la carpeta raíz del repositorio. Se ignora para los servicios en la nube.</td></tr>
 <tr><td>Entorno de implementación de SharePoint</td><td>La misma que el nombre de servicio</td></tr>
-<tr><td>Entorno de implementación de Windows Azure</td><td>Nombre del sitio web del servicio en la nube</td></tr>
+<tr><td>Entorno de implementación de Azure</td><td>Nombre del sitio web del servicio en la nube</td></tr>
 </table>
 <br/>
 
@@ -241,9 +241,9 @@ Este paso se aplica únicamente a los sitios web, no a los servicios en la nube.
 
 Para obtener más información sobre las pruebas unitarias en Visual Studio Online, consulte [Ejecutar pruebas unitarias en una compilación](http://go.microsoft.com/fwlink/p/?LinkId=510474).
 
-Para obtener más información, consulte [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). Si usa Git, consulte [Uso compartido del código en Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) y [Publicación en Sitios web Azure desde el control de código fuente](http://azure.microsoft.com/documentation/articles/web-sites-publish-source-control).
+Para obtener más información, consulte [Visual Studio Online](http://go.microsoft.com/fwlink/?LinkId=253861). Si usa Git, vea [Compartir su código en Git](http://www.visualstudio.com/get-started/share-your-code-in-git-vs.aspx) y [Publicación en sitios web de Azure con Git](web-sites-publish-source-control.md).
 
-[Paso 1: Cree un proyecto de equipo]: #step1
+[Paso 1: Cree un proyecto de equipo.]: #step1
 [Paso 2: Registre un proyecto para el control de código fuente]: #step2
 [Paso 3: Conecte el proyecto a Azure]: #step3
 [Paso 4: Realice cambios, desencadene una recompilación y vuelva a implementar]: #step4
@@ -302,4 +302,4 @@ Para obtener más información, consulte [Visual Studio Online](http://go.micros
 [49]: ./media/cloud-services-continuous-delivery-use-vso/TestsFailed.PNG
 [50]: ./media/cloud-services-continuous-delivery-use-vso/TestsResultsFailed.PNG
 
-<!--HONumber=45--> 
+<!--HONumber=49-->

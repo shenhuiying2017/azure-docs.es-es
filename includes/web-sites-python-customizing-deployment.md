@@ -32,4 +32,5 @@ Puede utilizar la [interfaz de línea de comandos de Azure][] para crear los arc
 Cuando estos archivos no existen, Azure crea un script de implementación temporal y lo ejecuta.  Es idéntico al que se crea con el comando anterior.
 
 [Interfaz de línea de comandos de Azure]: http://azure.microsoft.com/downloads/
-<!--HONumber=42-->
+
+<!--HONumber=49-->

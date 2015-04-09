@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Ver, editar, crear y cargar documentos JSON con el Explorador de documentos de Base de datos de documentos | Azure" 
+	pageTitle="Visualización, edición, creación y carga de documentos JSON con el Explorador de documentos de Base de datos de documentos | Azure" 
 	description="Obtenga información sobre el Explorador de documentos de Base de datos de documentos, una herramienta del Portal de vista previa de Azure para ver, editar, crear y cargar documentos JSON con Base de datos de documentos." 
 	services="documentdb" 
 	authors="stephbaron" 
@@ -26,7 +26,7 @@ Después de completar este tutorial, podrá responder a las preguntas siguientes
 -	¿Cómo puedo ver fácilmente las propiedades del sistema de un documento de Base de datos de documentos mediante un explorador web?
 -	¿Cómo puedo realizar fácilmente una ingesta en bloque de documentos de Base de datos de documentos mediante un explorador web?
 
-## <a id="Launch"></a>Iniciar el Explorador de documentos y navegar por este##
+##<a id="Launch"></a>Inicio del Explorador de documentos y navegación por este##
 
 El Explorador de documentos se puede iniciar desde cualquier cuenta, base de datos y hoja de colecciones de Base de datos de documentos.  
 
@@ -53,14 +53,14 @@ El Explorador de documentos se puede iniciar desde cualquier cuenta, base de dat
 	![Screenshot of Document Explorer with filtered results](./media/documentdb-view-JSON-document-explorer/documentexplorerfilterresults.png)
 
 
-	> [AZURE.IMPORTANTE] La funcionalidad de filtro del Explorador de documentos solo filtra desde el conjunto de documentos cargado ***actualmente*** y no realiza una consulta en la colección seleccionada.
+	> [AZURE.IMPORTANT] La funcionalidad de filtro del Explorador de documentos solo filtra desde el conjunto de documentos cargado ***actualmente*** y no realiza ninguna consulta en la colección seleccionada.
 
 6. Para actualizar la lista de documentos cargados en el Explorador de documentos, simplemente haga clic en el comando **Actualizar** en la parte superior de la hoja.
 
 	![Screenshot of Document Explorer refresh command](./media/documentdb-view-JSON-document-explorer/documentexplorerrefresh.png)
 
 
-## <a id="Create"></a>Ver, crear y editar documentos con el Explorador de documentos##
+##<a id="Create"></a>Visualización, creación y edición de documentos con el Explorador de documentos##
 
 El Explorador de documentos permite crear, editar y eliminar documentos con toda facilidad.  
 
@@ -100,7 +100,7 @@ El Explorador de documentos permite crear, editar y eliminar documentos con toda
 
 	> [AZURE.NOTE] La propiedad de marca de tiempo (_ts) se representa internamente como tiempo de época, pero el Explorador de documentos muestra el valor en formato GMT en lenguaje natural.
 
-## <a id="BulkAdd"></a>Agregar documentos en masa con el Explorador de documentos##
+##<a id="BulkAdd"></a>Adición en masa de documentos con el Explorador de documentos##
 
 El Explorador de documentos admite la ingesta en bloque de uno o más documentos JSON existentes.  
 
@@ -120,8 +120,8 @@ El Explorador de documentos admite la ingesta en bloque de uno o más documentos
 
 4. Una vez completada la operación, puede seleccionar hasta 100 documentos más para cargar.
 
-## <a name="NextSteps"></a>Pasos siguientes
+##<a name="NextSteps"></a>Pasos siguientes
 
 Para obtener más información acerca de Base de datos de documentos, haga clic [aquí](http://azure.com/docdb).
 
-<!--HONumber=47-->
+<!--HONumber=49-->

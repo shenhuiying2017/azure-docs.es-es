@@ -1,10 +1,10 @@
 ﻿<properties 
 	pageTitle="Sitio web Node.js con MongoDB en MongoLab - Azure" 
-	description="Obtenga información acerca de cómo crear un sitio web de Azure de Node.js que se conecte a una instancia de MongoDB hospedada en MongoLab." 
+	description="Aprenda a crear un sitio web de Azure de Node.js que se conecta a una instancia de MongoDB hospedada en MongoLab." 
 	services="web-sites, virtual-machines" 
 	documentationCenter="nodejs" 
 	authors="chrischang12" 
-	manager="partners@mongolab.com" 
+	manager="wpickett" 
 	editor=""/>
 
 <tags 
@@ -13,8 +13,8 @@
 	ms.tgt_pltfrm="na" 
 	ms.devlang="nodejs" 
 	ms.topic="article" 
-	ms.date="09/17/2014" 
-	ms.author="chris@mongolab.com"/>
+	ms.date="02/04/2014" 
+	ms.author="mwasson"/>
 
 
 
@@ -25,12 +25,12 @@
 
 <p><em>Por Eric Sedor, MongoLab</em></p>
 
-¡Saludos, aventurero! Bienvenido a MongoDB como servicio. En este tutorial, hará lo siguiente:
+¡Saludos, aventurero! Bienvenido a MongoDB como servicio. En este tutorial, aprenderá lo siguiente:
 
-1. [Aprovisionar la base de datos][aprovisionar]: el complemento [MongoLab](http://mongolab.com) de la Tienda de Azure proporcionará una base de datos MongoDB hospedada en la nube de Azure y administrada por la plataforma de base de datos en la nube de MongoLab.
-2. [Crear la aplicación][crear]: se tratará de una aplicación Node.js sencilla para mantener una lista de tareas.
-3. [Implementar la aplicación][implementar]: al unir algunos enlaces de configuración, haremos la implementación de nuestro código en un abrir y cerrar de ojos.
-4. [Administrar la base de datos][administrar]: finalmente, le mostraremos el portal de administración de base de datos basado en web de MongoLab donde puede buscar, visualizar y modificar los datos con facilidad.
+1. [Aprovisionar la base de datos][provisión]: el complemento [MongoLab](http://mongolab.com) de la Tienda de Azure proporcionará una base de datos MongoDB hospedada en la nube de Azure y administrada por la plataforma de base de datos en la nube de MongoLab.
+2. [Crear la aplicación][crear]: será una aplicación Node.js sencilla para mantener una lista de tareas.
+3. [Implementación de la aplicación][implementar]: al unir unos pocos enlaces de configuración, haremos la implementación de nuestro código en un abrir y cerrar de ojos.
+4. [Administración de la base de datos][administrar]: finalmente, le mostraremos el portal de administración de base de datos basado en web de MongoLab donde puede buscar, visualizar y modificar los datos con facilidad.
 
 En cualquier momento de este tutorial puede enviar un correo electrónico a [support@mongolab.com](mailto:support@mongolab.com) si tiene alguna pregunta.
 
@@ -43,23 +43,23 @@ Antes de continuar, asegúrese de tener instalados los siguientes elementos:
 [AZURE.INCLUDE [create-account-and-websites-note](../includes/create-account-and-websites-note.md)]
 
 ## Inicio rápido
-Si tiene algún conocimiento de la Tienda de Azure, use esta sección para comenzar rápidamente. En caso contrario, siga con [Aprovisionamiento de la base de datos][aprovisionar] más adelante.
+Si tiene algún conocimiento de la Tienda de Azure, use esta sección para comenzar rápidamente. De lo contrario, vaya a la sección [Aprovisionar la base de datos][provisión] a continuación.
  
 1. Abra la Tienda de Azure.  
 ![Store][button-store]
 2. Haga clic en el complemento MongoLab.  
 ![MongoLab][entry-mongolab]
-3. Haga clic en el complemento MongoLab en la lista de complementos y haga clic en **Información de la conexión**.  
+3. Haga clic en el complemento MongoLab en la lista de complementos y haga clic en **Connection Info**.  
 ![ConnectionInfoButton][button-connectioninfo]  
-4. Copie MONGOLAB_URI en su portapapeles.  
+4. Copie MONGOLAB_URI en el Portapapeles.  
 ![ConnectionInfoScreen][screen-connectioninfo]  
-**El URI contiene el nombre del usuario de la base de datos y la contraseña.  Dele el mismo tratamiento que a la información confidencial y no lo comparta.**
-5. Agregue el valor a la lista Connection Strings en el menú Configuration de su aplicación web de Azure:  
+**El URI contiene el nombre del usuario de la base de datos y la contraseña.  Déle el mismo tratamiento que a la información confidencial y no lo comparta.**
+5. Agregue el valor a la lista Cadenas de conexión en el menú Configuración de su aplicación web de Azure:  
 ![WebSiteConnectionStrings][focus-website-connectinfo]
 6. Para **Nombre**, escriba MONGOLAB\_URI.
 7. Para **Value**, pegue la cadena de conexión que se obtuvo en la sección anterior.
-8. Seleccione **Personalizado** en la lista desplegable Tipo (en lugar de la opción predeterminada **SQLAzure**).
-9. Ejecute `npm install mongoose` para obtener Mongoose, un controlador de nodos de MongoDB.
+8. Seleccione **Custom** en la lista desplegable Type (en lugar del valor predeterminado **SQLAzure**).
+9. Ejecute `npm install mongoose` para obtener Mongoose, un controlador de nodo de MongoDB.
 10. Configure un enlace en su código para obtener su URI de conexión de MongoLab desde una variable de entorno y conéctese:
 
         var mongoose = require('mongoose');  
@@ -68,7 +68,7 @@ Si tiene algún conocimiento de la Tienda de Azure, use esta sección para comen
  		...
  		mongoose.connect(connectionString);
 
-Nota: Azure agrega el prefijo **CUSTOMCONNSTR\_** a la cadena de conexión declarada originalmente, que es el motivo por el que el código hace referencia a **CUSTOMCONNSTR\_MONGOLAB\_URI.** en lugar de a **MONGOLAB\_URI**.
+Nota: Azure agrega el prefijo **CUSTOMCONNSTR\_** a la cadena de conexión declarada originalmente, razón por la cual el código hace referencia a **CUSTOMCONNSTR\_MONGOLAB\_URI.** en vez de a **MONGOLAB\_URI**.
 
 Ahora, continuemos con el tutorial completo...
 
@@ -89,7 +89,7 @@ En esta sección podrá configurar su entorno de desarrollo y poner el código p
 
 		npm install express -g
  
-	`-g` indica el modo global, que usamos para que el módulo <strong>express</strong> esté disponible sin especificar una ruta de directorio. Si recibe <strong>Error: EPERM, chmod '/usr/local/bin/express'</strong>, use <strong>sudo</strong> para ejecutar npm en un nivel de privilegio más elevado.
+	`-g` indica el modo global, que usamos para que el módulo <strong>express</strong> esté disponible sin especificar una ruta de directorio. Si recibe <strong>Error: EPERM, chmod '/usr/local/bin/express'</strong>, use <strong>sudo</strong> para ejecutar npm con un nivel de privilegio más alto.
 
     El resultado de este comando debe ser similar al siguiente:
 
@@ -120,15 +120,15 @@ En esta sección podrá configurar su entorno de desarrollo y poner el código p
  
 3. Para crear el scaffolding que se usará para esta aplicación, use el comando **express**:
 
-    express
+    	express
 
     Tenga en cuenta que este tutorial usa Express v4.x.x. Si ya tiene el generador de aplicación Express 3 instalado en el sistema, debe desinstalarlo primero:
 
-    npm uninstall -g express
+    	npm uninstall -g express
 
-    Instale ahora el nuevo generador de la versión 4.x.x:
+    Now install the new generator for version 4.x.x:
 
-    npm install -g express-generator
+    	npm install -g express-generator
 
 	Una vez que el comando **express** se ejecuta, el resultado debería ser similar al siguiente:
 
@@ -248,7 +248,7 @@ Ahora que nuestro entorno y scaffolding están listos, extenderemos la aplicaci�
 
 #### Crear el modelo
 
-1. En el directorio **tasklist**, cree el directorio nuevo con el nombre **models**.
+1. En el directorio **tasklist**, cree un directorio nuevo con el nombre **models**.
 
 2. En el directorio **models**, cree un archivo nuevo con el nombre **models**. Este archivo contendrá el modelo para las tareas que se crean con su aplicación.
 
@@ -325,7 +325,7 @@ Ahora que nuestro entorno y scaffolding están listos, extenderemos la aplicaci�
 
 #### Modificar la vista de índice
 
-1. Cambie los directorios por el directorio **views** y abra el archivo **index.jade** en un editor de texto.
+1. Cambie los directorios al directorio **views** y abra el archivo **index.jade** en un editor de texto.
 
 2. Reemplace el contenido del archivo **index.jade** por el código siguiente. De esta manera se define la vista para mostrar las tareas existentes, además de un formulario para agregar tareas nuevas y marcar las existentes como terminadas.
 
@@ -371,7 +371,7 @@ Ahora que nuestro entorno y scaffolding están listos, extenderemos la aplicaci�
 		var TaskList = require('./routes/tasklist');
 		var taskList = new TaskList(process.env.CUSTOMCONNSTR_MONGOLAB_URI);
 
- 	Observe la segunda línea; obtiene acceso a una variable de entorno que configurará más tarde, que contiene la información de conexión para su instancia de mongo. Si tiene una instancia de mongo local que se ejecuta para fines de desarrollo, es posible que desee establecer temporalmente este valor en "localhost" en vez de  `process.env.CUSTOMCONNSTR_MONGOLAB_URI`.
+ 	Observe la segunda línea; obtiene acceso a una variable de entorno que configurará más tarde, que contiene la información de conexión para su instancia de mongo. Si tiene una instancia de mongo local que se ejecuta para fines de desarrollo, es posible que desee establecer temporalmente este valor en "localhost", en vez de `process.env.CUSTOMCONNSTR_MONGOLAB_URI`.
 
 3. Busque estas líneas:
 		
@@ -405,7 +405,7 @@ Para instalar las herramientas de línea de comandos, use el siguiente comando:
 	
 	npm install azure-cli -g
 
-Si ya instaló <strong>SDK de Azure para Node.js</strong> desde el <a href="/es-es/develop/nodejs/">Centro para desarrolladores de Azure</a>, las herramientas de línea de comandos ya deberían estar instaladas. Para obtener más información, consulte <a href="/es-es/develop/nodejs/how-to-guides/command-line-tools/">Herramienta de línea de comandos de Azure para Mac y Linux</a>.
+Si ya instaló el <strong>SDK de Azure para Node.js</strong> desde el <a href="/develop/nodejs/">Centro para desarrolladores de Azure</a>, las herramientas de línea de comandos ya deberían estar instaladas. Para obtener más información, consulte <a href="virtual-machines-command-line-tools.md">Herramienta de línea de comandos de Azure para Mac y Linux</a>.
 
 A pesar de que las herramientas de línea de comandos de Azure se crearon principalmente para los usuarios de Mac y Linux, están basadas en Node.js y deberían funcionar en cualquier sistema capaz de ejecutar Node.
 
@@ -454,13 +454,13 @@ La creación de un sitio web en Azure es muy fácil. Si este es su primer sitio 
 7. Si creó el sitio web usando los pasos anteriores, el proceso se completará con el siguiente comando. Sin embargo, si ya tiene más de un sitio web de Azure, puede omitir los pasos anteriores y crear un sitio web nuevo usando este mismo comando. Desde su directorio de proyectos **tasklist**: 
 
 		azure site create myuniquesitename --git  
-	Reemplace 'myuniquesitename' por el nombre de sitio único de su sitio web. Si el sitio web se crea como parte de este comando, se le solicitará el centro de datos en el que estará ubicado el sitio. Seleccione el centro de datos que se encuentra geográficamente cerca de su base de datos MongoLab.
+	Reemplace  'myuniquesitename' por el nombre de sitio único para su sitio web. Si el sitio web se crea como parte de este comando, se le solicitará el centro de datos en el que estará ubicado el sitio. Seleccione el centro de datos que se encuentra geográficamente cerca de su base de datos MongoLab.
 	
-	El parámetro `--git` creará:
-	A. un repositorio de Git de manera local en la carpeta **tasklist**, si no existe ninguno.
-	A. un [Git remoto] denominado 'azure', que se usará para publicar la aplicación en Azure.
-	A. un archivo [iisnode.yml] que contiene la configuración usada por Azure para hospedar aplicaciones Node.
-	A. un archivo .gitignore para evitar que la carpeta de módulos de Node se publique en .git.  
+	El parámetro '--git' creará:
+	* un repositorio de Git local en la carpeta **tasklist**, si no existe ninguno.
+	* un [Git remoto] denominado  'azure', que se usará para publicar la aplicación en Azure.
+	* un archivo [iisnode.yml] que contiene la configuración usada por Azure para hospedar aplicaciones Node.
+	* un archivo .gitignore para evitar que la carpeta de módulos de Node se publique en .git.  
 	  
 	Después de que este comando se haya completado, verá un resultado similar al siguiente. Observe que la línea que comienza con **Sitio web creado en** contiene la dirección URL del sitio web.
 
@@ -518,7 +518,7 @@ La creación de un sitio web en Azure es muy fácil. Si este es su primer sitio 
 
 ## ¡Éxito!
 
-Ejecute  `azure site browse` desde su directorio de proyectos para abrir automáticamente un explorador o abra un explorador y diríjase manualmente a la dirección URL de su sitio web (myuniquesite.azurewebsites.net):
+Ejecute `azure site browse` desde su directorio de proyectos para abrir automáticamente un explorador o abra un explorador y diríjase manualmente a la dirección URL de su sitio web (myuniquesite.azurewebsites.net):
 
 ![A webpage displaying an empty tasklist][node-mongo-finished]
 
@@ -538,25 +538,25 @@ Ejecute  `azure site browse` desde su directorio de proyectos para abrir automá
 [button-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/button-connectioninfo.png
 [screen-connectioninfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/dialog-mongolab_connectioninfo.png
 [focus-website-connectinfo]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/focus-mongolab-websiteconnectionstring.png
-[provision]: #provision
-[create]: #create
-[deploy]: #deploy
-[manage]: #manage
+[provisión]: #provision
+[crear]: #create
+[implementar]: #deploy
+[administrar]: #manage
 [Node.js]: http://nodejs.org
 [MongoDB]: http://www.mongodb.org
 [Git]: http://git-scm.com
 [Express]: http://expressjs.com
 [Mongoose]: http://mongoosejs.com
-[de forma gratuita]: /es-es/pricing/free-trial
+[de forma gratuita]: /pricing/free-trial
 [GIT remoto]: http://git-scm.com/docs/git-remote
 [azure-sdk-for-node]: https://github.com/WindowsAzure/azure-sdk-for-node
 [iisnode.yml]: https://github.com/WindowsAzure/iisnode/blob/master/src/samples/configuration/iisnode.yml
-[Herramienta de línea de comandos de Azure para Mac y Linux]: /es-es/develop/nodejs/how-to-guides/command-line-tools/
-[Centro para desarrolladores de Azure]: /es-es/develop/nodejs/
-[Creación e implementación de una aplicación Node.js en sitios web Azure]: /es-es/develop/nodejs/tutorials/create-a-website-(mac)/
-[Publicación en sitios web de Azure con Git]: /es-es/develop/nodejs/common-tasks/publishing-with-git/
+[Herramienta de línea de comandos de Azure para Mac y Linux]: virtual-machines-command-line-tools.md
+[Centro para desarrolladores de Azure]: /develop/nodejs/
+[Creación e implementación de una aplicación Node.js en sitios web Azure]: /develop/nodejs/tutorials/create-a-website-(mac)/
+[Publicación en sitios web de Azure con Git]: /develop/nodejs/common-tasks/publishing-with-git/
 [MongoLab]: http://mongolab.com
-[Aplicación web Node.js con almacenamiento en MongoDB (máquina virtual)]: /es-es/develop/nodejs/tutorials/website-with-mongodb-(mac)/
+[Aplicación web Node.js con almacenamiento en MongoDB (máquina virtual)]: /develop/nodejs/tutorials/website-with-mongodb-(mac)/
 [node-mongo-finished]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/todo_list_noframe.png
 [node-mongo-express-results]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/express_output.png
 [download-publishing-settings]: ./media/store-mongolab-web-sites-nodejs-store-data-mongodb/azure-account-download-cli.png
@@ -567,9 +567,4 @@ Ejecute  `azure site browse` desde su directorio de proyectos para abrir automá
 
 
 
-
-
-
-
-
-<!--HONumber=42-->
+<!--HONumber=49-->

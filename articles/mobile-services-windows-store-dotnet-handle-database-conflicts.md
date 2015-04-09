@@ -5,34 +5,29 @@
 	authors="wesmc7777" 
 	manager="dwrede" 
 	editor="" 
-	services=""/>
+	services="mobile-services"/>
 
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-windows-store" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="09/23/2014" 
+	ms.date="02/25/2015" 
 	ms.author="wesmc"/>
 
 # Control de conflictos de escritura de bases de datos
 
-<div class="dev-center-tutorial-selector sublanding">
-<a href="/es-es/develop/mobile/tutorials/handle-database-write-conflicts-dotnet/" title="Windows Store C#" class="current">C# para Tienda Windows</a>
-<a href="/es-es/documentation/articles/mobile-services-windows-store-javascript-handle-database-conflicts/" title="Windows Store JavaScript">JavaScript para Tienda Windows</a>
-<a href="/es-es/develop/mobile/tutorials/handle-database-write-conflicts-wp8/" title="Windows Phone">Windows Phone</a></div>	
 
+
+##Información general
 
 Este tutorial se ha elaborado para ayudarle a comprender mejor cómo controlar los conflictos que se producen cuando dos o más clientes escriben en el mismo registro de la base de datos en una aplicación de la Tienda Windows. En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. Los Servicios móviles de Azure ofrecen soporte para detectar y resolver estos conflictos. Este tema le guiará a través de los pasos que le permitirán controlar los conflictos de escritura de bases de datos tanto en el servidor como en la aplicación.
 
-En este tutorial agregará funcionalidad a la aplicación de inicio rápido para controlar los conflictos que se produzcan al actualizar la base de datos TodoItem. Este tutorial le guiará a través de estos pasos básicos:
+En este tutorial agregará funcionalidad a la aplicación de inicio rápido para controlar los conflictos que se produzcan al actualizar la base de datos TodoItem. 
 
-1. [Actualización de la aplicación para permitir actualizaciones]
-2. [Habilitación de la detección de conflictos en la aplicación]
-3. [Prueba de conflictos de escritura de bases de datos en la aplicación]
-4. [Control automático de la resolución de conflictos en los scripts del servidor]
 
+##Requisitos previos
 
 Este tutorial requiere lo siguiente:
 
@@ -51,7 +46,7 @@ Este tutorial requiere lo siguiente:
 
  
 
-<h2><a name="uiupdate"></a>Actualización de la aplicación para permitir actualizaciones</h2>
+##Actualización de la aplicación para permitir actualizaciones
 
 En esta sección, actualizará la interfaz de usuario TodoList para permitir la actualización del texto de cada elemento en un control ListBox. ListBox contendrá un control de CheckBox y TextBox para cada elemento en la tabla de la base de datos. Podrá actualizar el campo de texto de TodoItem. La aplicación controlará el evento  `LostFocus` desde TextBox para actualizar el elemento en la base de datos.
 
@@ -113,9 +108,9 @@ En esta sección, actualizará la interfaz de usuario TodoList para permitir la 
 
 Ahora la aplicación escribe los cambios del texto en cada elemento devuelto a la base de datos cuando TextBox pierde el enfoque.
 
-<h2><a name="enableOC"></a>Habilitación de la detección de conflictos en la aplicación</h2>
+##Habilitación de la detección de conflictos en la aplicación
 
-En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. [El control de simultaneidad optimista] asume que cada transacción puede confirmarse y, por lo tanto, no usa ningún bloqueo de recursos. Antes de confirmar una transacción, el control de simultaneidad optimista comprueba que ninguna otra transacción haya modificado los datos. Si los datos se han modificado, la transacción de confirmación se desecha. Servicios móviles de Azure es compatible con el control de simultaneidad optimista mediante el seguimiento de cambios en cada elemento con la columna de propiedades del sistema `__version` que se agrega en cada tabla. En esta sección, habilitaremos la aplicación para detectar estos conflictos de escritura a través de la propiedad del sistema `__version`. La aplicación recibirá una notificación mediante una excepción  `MobileServicePreconditionFailedException` durante un intento de actualización si el registro ha cambiado desde la última consulta. Entonces podrá elegir si confirmar el cambio realizado en la base de datos o dejar intacto el último cambio realizado en la base de datos. Para obtener más información acerca de las propiedades del sistema para Servicios móviles, consulte las [propiedades del sistema].
+En algunos casos, dos o más clientes pueden escribir cambios en el mismo elemento y al mismo tiempo. Si no se produjera la detección de conflictos, la última escritura sobrescribiría cualquier actualización anterior incluso si no fuese el resultado deseado. [El control de simultaneidad optimista] asume que cada transacción puede confirmarse y, por lo tanto, no usa ningún bloqueo de recursos. Antes de confirmar una transacción, el control de simultaneidad optimista comprueba que ninguna otra transacción haya modificado los datos. Si los datos se han modificado, la transacción de confirmación se desecha. Servicios móviles de Azure es compatible con el control de simultaneidad optimista mediante el seguimiento de cambios en cada elemento con la columna de propiedades del sistema `__version` que se agrega en cada tabla. En esta sección, activaremos la aplicación para detectar estos conflictos de escritura a través de la propiedad del sistema `__version`. La aplicación recibirá una notificación mediante una excepción  `MobileServicePreconditionFailedException` durante un intento de actualización si el registro ha cambiado desde la última consulta. Entonces podrá elegir si confirmar el cambio realizado en la base de datos o dejar intacto el último cambio realizado en la base de datos. Para obtener más información acerca de las propiedades del sistema para Servicios móviles, consulte las [propiedades del sistema].
 
 1. En MainPage.xaml.cs, actualice la definición de clase de **TodoItem** con el siguiente código para incluir la propiedad del sistema **__version** y activar el soporte para la detección de conflictos de escritura.
 
@@ -204,7 +199,7 @@ todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 
 
 
-<h2><a name="test-app"></a>Prueba de conflictos de escritura de bases de datos en la aplicación</h2>
+##Prueba de conflictos de escritura de bases de datos en la aplicación
 
 En esta sección, compilará un paquete de aplicación de la Tienda Windows para instalar la aplicación en un segundo equipo o en una máquina virtual. A continuación ejecutará la aplicación en los dos equipos con el objetivo de generar un conflicto de escritura para probar el código. Las dos instancias de la aplicación intentarán actualizar la misma propiedad  `text` del elemento, lo cual exigirá que el usuario resuelva el conflicto.
 
@@ -246,7 +241,7 @@ En esta sección, compilará un paquete de aplicación de la Tienda Windows para
 	Instancia 2 de la aplicación	
 	![][2]
 
-7. En este punto, el elemento correspondiente en la instancia 2 de la aplicación tiene una versión anterior del elemento. En la instancia de la aplicación, escriba **Test Write 2** para la propiedad  `text`. A continuación, haga clic en otro cuadro de texto para que el controlador del evento  `LostFocus` intente actualizar la base de datos con la propiedad `_version` anterior.
+7. En este punto, el elemento correspondiente en la instancia 2 de la aplicación tiene una versión anterior del elemento. En la instancia de la aplicación, escriba **Test Write 2** para la propiedad  `text`. A continuación, haga clic en otro cuadro de texto para que el controlador del evento `LostFocus` intente actualizar la base de datos con la propiedad `_version` anterior.
 
 	Instancia 1 de la aplicación	
 	![][4]
@@ -264,12 +259,12 @@ En esta sección, compilará un paquete de aplicación de la Tienda Windows para
 
 
 
-<h2><a name="scriptsexample"></a>Control automático de la resolución de conflictos en los scripts del servidor</h2>
+##Control automático de la resolución de conflictos en los scripts del servidor
 
 Puede detectar y resolver conflictos de escritura en los scripts del servidor. Es una buena idea si puede utilizar la lógica de los scripts en lugar de la interacción del usuario para resolver el conflicto. En esta sección, agregará un script del servidor a la tabla TodoItem para la aplicación. La lógica que este script utilizará para resolver conflictos es la siguiente:
 
-+  Si el campo ` complete` de TodoItem está establecido en true, se considerará completado y  `text` no se podrá modificar.
-+  Si el campo `complete` de TodoItem aún es false, tratará de actualizarse y  `text` se confirmará.
++  Si el campo ` complete` de TodoItem está establecido en true, se considerará completado y el  `texto` no se podrá modificar.
++  Si el campo ` complete` de TodoItem sigue siendo false, tratará de actualizarse y el  `texto` se confirmará.
 
 Los siguientes pasos describen la incorporación del script de actualización del servidor y su prueba.
 
@@ -277,7 +272,7 @@ Los siguientes pasos describen la incorporación del script de actualización de
 
    	![][7]
 
-2. Haga clic en la pestaña **Datos** y, a continuación, haga clic en la tabla **TodoItem**.
+2. Haga clic en la pestaña **Datos** y luego en la tabla **TodoItem**.
 
    	![][8]
 
@@ -285,7 +280,7 @@ Los siguientes pasos describen la incorporación del script de actualización de
 
    	![][9]
 
-4. Sustituya el script existente por la siguiente función y, a continuación, haga clic en **Guardar**.
+4. Sustituya el script existente por la siguiente función y luego haga clic en **Guardar**.
 
 		function update(item, user, request) { 
 			request.execute({ 
@@ -342,30 +337,17 @@ Los siguientes pasos describen la incorporación del script de actualización de
 	Instancia 2 de la aplicación	
 	![][18]
 
-## <a name="next-steps"> </a>Pasos siguientes
+##Pasos siguientes
 
-Este tutorial le ha mostrado cómo habilitar la aplicación de Tienda Windows para controlar los conflictos de escritura al trabajar con datos en Servicios móviles. A continuación, plantéese completar uno de los siguientes tutoriales en nuestra serie de datos:
+Este tutorial le ha mostrado cómo habilitar la aplicación de Tienda Windows para controlar los conflictos de escritura al trabajar con datos en Servicios móviles. A continuación, considere la posibilidad de completar uno de los siguientes tutoriales de Tienda Windows:
 
-* [Validar y modificar datos con scripts]
-  <br/>Obtenga más información sobre el uso de scripts de servidor en Servicios móviles para validar y cambiar los datos enviados desde su aplicación.
-
-* [Limitación de consultas con paginación]
-  <br/>Aprenda a utilizar la paginación en consultas para controlar la cantidad de datos gestionados en una única solicitud.
-
-Una vez que haya completado la serie de datos, también puede probar uno de los siguientes tutoriales de la Tienda Windows:
-
-* [Introducción a la autenticación] 
+* [Incorporación de autenticación a la aplicación]
   <br/>Aprenda la manera de autenticar a los usuarios de la aplicación.
 
-* [Introducción a las notificaciones de inserción]
+* [Incorporación de notificaciones de inserción a la aplicación]
   <br/>Aprenda la manera de enviar una notificación de inserción muy básica a la aplicación con Servicios móviles.
  
-<!-- Anchors. -->
-[Actualización de la aplicación para permitir actualizaciones]: #uiupdate
-[Habilitación de la detección de conflictos en la aplicación]: #enableOC
-[Prueba de conflictos de escritura de bases de datos en la aplicación]: #test-app
-[Control automático de la resolución de conflictos en los scripts del servidor]: #scriptsexample
-[Pasos siguientes]:#next-steps
+
 
 <!-- Images. -->
 [0]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-create-app-package1.png
@@ -385,22 +367,21 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
 [14]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-app2-write3.png
 [15]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-write3.png
 [16]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-checkbox.png
-[17]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-2-ite
-	ms.png
+[17]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-2-items.png
 [18]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/Mobile-oc-store-already-complete.png
 [19]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-VS.png
 [20]: ./media/mobile-services-windows-store-dotnet-handle-database-conflicts/mobile-manage-nuget-packages-dialog.png
 
 <!-- URLs. -->
 [Control de concurrencia optimista]: http://go.microsoft.com/fwlink/?LinkId=330935
-[Introducción a los servicios móviles]: /es-es/develop/mobile/tutorials/get-started/#create-new-service
-[Cuenta de Azure]: http://azure.microsoft.com/pricing/free-trial/
-[Validar y modificar datos con scripts]: /es-es/develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
-[Limitación de consultas con paginación]: /es-es/develop/mobile/tutorials/add-paging-to-data-dotnet
-[Introducción a los servicios móviles]: /es-es/develop/mobile/tutorials/get-started
-[Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-dotnet
-[Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-dotnet
-[Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-dotnet
+[Introducción a los Servicios móviles]: /develop/mobile/tutorials/get-started/#create-new-service
+[Cuenta de Azure]: http://www.windowsazure.com/pricing/free-trial/
+[Validación y modificación de datos con scripts]: /develop/mobile/tutorials/validate-modify-and-augment-data-dotnet
+[Limitación de consultas con paginación]: /develop/mobile/tutorials/add-paging-to-data-dotnet
+[Introducción a los Servicios móviles]: /develop/mobile/tutorials/get-started
+[Introducción a los datos]: /develop/mobile/tutorials/get-started-with-data-dotnet
+[Incorporación de autenticación a la aplicación]: /develop/mobile/tutorials/get-started-with-users-dotnet
+[Incorporación de notificaciones de inserción a la aplicación]: /develop/mobile/tutorials/get-started-with-push-dotnet
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 [Portal de administración]: https://manage.windowsazure.com/
@@ -409,5 +390,4 @@ Una vez que haya completado la serie de datos, también puede probar uno de los 
 [Sitio de ejemplos de código para desarrolladores]:  http://go.microsoft.com/fwlink/p/?LinkId=271146
 [Propiedades del sistema]: http://go.microsoft.com/fwlink/?LinkId=331143
 
-
-<!--HONumber=42-->
+<!--HONumber=49-->

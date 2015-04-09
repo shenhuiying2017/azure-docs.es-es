@@ -1,6 +1,6 @@
 ﻿<properties 
 	pageTitle="Creación de un sitio web de Umbraco desde la galería en Microsoft Azure" 
-	description="requerido" 
+	description="Cree un sistema de administración de contenido de Umbraco e impleméntelo en un sitio web de Azure." 
 	services="web-sites" 
 	documentationCenter="" 
 	authors="tfitzmac" 
@@ -13,7 +13,7 @@
 	ms.tgt_pltfrm="ibiza" 
 	ms.devlang="na" 
 	ms.topic="article" 
-	ms.date="10/21/2014" 
+	ms.date="02/25/2015" 
 	ms.author="tomfitz"/>
 
 #Creación de un sitio web de Umbraco desde la galería en Microsoft Azure#
@@ -35,7 +35,7 @@ En este tutorial, aprenderá a:
 	
 	![Choose Web Gallery][01Startboard]
 	
-3. En la **Galería**, seleccione la pestaña **Web** y, a continuación, seleccione **CMS de Umbraco**.
+3. En **Galería**, seleccione la pestaña **Web** y después **CMS de Umbraco**.
 	
 	![Select Umbraco in the Web Gallery][02WebGallery]
 	
@@ -51,7 +51,7 @@ En este tutorial, aprenderá a:
 	
 	![Create a SQL Server on Azure][05NewServer]
 	
-7. Ahora que el sitio web y la base de datos están configurados, puede comenzar a implementar la aplicación haciendo clic en **Crear** en la parte inferior del primer cuadro **CMS de Umbraco** que aparece en la imagen anterior.
+7. Ahora que el sitio web y la base de datos están configurados, puede comenzar a implementar la aplicación haciendo clic en **Crear** en la parte inferior de la primera hoja **CMS de Umbraco** que aparece en la imagen anterior.
 	
 	![Click Create][06UmbracoCMSGroup]
 	
@@ -102,11 +102,11 @@ Una vez completada la implementación, el panel de inicio del portal muestra que
 
 [Tutoriales de vídeo de Umbraco](https://umbraco.com/help-and-support/video-tutorials.aspx)
 
-[Introducción al Portal de vista previa de Microsoft Azure](http://azure.microsoft.com/overview/preview-portal/)
+[Información general al Portal de vista previa de Microsoft Azure](http://azure.microsoft.com/overview/preview-portal/)
 
 [Documentación del Portal de vista previa de Microsoft Azure](http://azure.microsoft.com/documentation/preview-portal/)
 
-[Portal de vista previa de Azure (Channel 9)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal) 
+[Portal de vista previa de Azure (Channel 9)](http://channel9.msdn.com/Blogs/Windows-Azure/Azure-Preview-portal)
 
 [Documentación de Sitios web Microsoft Azure](http://azure.microsoft.com/documentation/services/web-sites/)
 
@@ -129,4 +129,4 @@ Una vez completada la implementación, el panel de inicio del portal muestra que
 [16EnterAName]: ./media/web-sites-gallery-umbraco/16EnterAName.PNG
 [17MyPage]: ./media/web-sites-gallery-umbraco/17MyPage.PNG
 
-<!--HONumber=46--> 
+<!--HONumber=49-->

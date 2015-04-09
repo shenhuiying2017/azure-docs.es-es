@@ -16,7 +16,7 @@
 	ms.date="02/16/2015" 
 	ms.author="ricksal,mahender"/>
 
-# Agregar autenticación a la aplicación de Servicios móviles
+# Incorporación de autenticación a la aplicación de Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
@@ -60,26 +60,26 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
 ##<a name="next-steps"></a>Pasos siguientes
 
-En el siguiente tutorial, [Autorización en el servicio de los usuarios de Servicios móviles][Autorización de usuarios con scripts], usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. 
+En el siguiente tutorial, [Autorización en el servicio de usuarios de Servicios móviles][Autorización de usuarios con scripts], usará el valor de identificador de usuario proporcionado por Servicios móviles basado en un usuario autenticado para filtrar los datos que devuelve Servicios móviles. 
 
 
 <!-- Anchors. -->
 [Registro de la aplicación para la autenticación y configuración de Servicios móviles]: #register
 [Restricción de los permisos de tabla a usuarios autenticados]: #permissions
 [Incorporación de autenticación a la aplicación]: #add-authentication
-[Almacenar tokens de autenticación en el cliente]: #cache-tokens
+[Almacenamiento de tokens de autenticación en el cliente]: #cache-tokens
 [Actualización de los tokens expirados]: #refresh-tokens
 [Pasos siguientes]:#next-steps
 
 <!-- URLs. -->
-[Introducción a los Servicios móviles]: /documentation/articles/mobile-services-dotnet-backend-android-get-started/
-[Introducción a los datos]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-data/
-[Introducción a la autenticación]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-users/
-[Introducción a las notificaciones de inserción]: /documentation/articles/mobile-services-dotnet-backend-android-get-started-push/
-[Autorización de usuarios con scripts]: /documentation/articles/mobile-services-dotnet-backend-android-authorize-users-in-scripts
+[Introducción a los Servicios móviles]: mobile-services-dotnet-backend-android-get-started.md
+[Introducción a los datos]: mobile-services-dotnet-backend-android-get-started-data.md
+[Introducción a la autenticación]: mobile-services-dotnet-backend-android-get-started-users.md
+[Introducción a las notificaciones de inserción]: mobile-services-dotnet-backend-android-get-started-push.md
+[Autorización de usuarios con scripts]: mobile-services-dotnet-backend-android-authorize-users-in-scripts.md
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
-[Referencia conceptual de Servicios móviles con .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
-[Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft]: /documentation/articles/mobile-services-how-to-register-store-app-package-microsoft-authentication
+[Referencia conceptual de servicios móviles con .NET]: /develop/mobile/how-to-guides/work-with-net-client-library
+[Registro del paquete de la aplicación de la Tienda Windows para la autenticación de Microsoft]: mobile-services-how-to-register-store-app-package-microsoft-authentication.md
 
-<!--HONumber=47-->
+<!--HONumber=49-->

@@ -2,7 +2,7 @@
 	pageTitle="Introducción al SDK de .NET de Base de datos de documentos | Azure" 
 	description="Obtenga información acerca de cómo crear y configurar una cuenta de Base de datos de documentos de Azure, crear bases de datos, crear colecciones y almacenar documentos JSON en la cuenta de base de datos de documentos NoSQL." 
 	services="documentdb" 
-	documentationCenter="" 
+	documentationCenter=".net" 
 	authors="mimig1" 
 	manager="jhubbard" 
 	editor="monicar"/>
@@ -11,20 +11,24 @@
 	ms.service="documentdb" 
 	ms.workload="data-services" 
 	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
+	ms.devlang="dotnet" 
 	ms.topic="article" 
-	ms.date="03/04/2015" 
-	ms.author="mimig"/>
+	ms.date="03/23/2015" 
+	ms.author="anhoh"/>
 
-# Introducción al SDK de .NET de Base de datos de documentos  
+#Introducción al SDK de .NET de Base de datos de documentos  
 
-En esta guía se muestra cómo empezar a usar [Base de datos de documentos de Microsoft Azure (vista previa)](https://portal.azure.com/#gallery/Microsoft.DocumentDB) y el [SDK de .NET de Base de datos de documentos](http://go.microsoft.com/fwlink/p/?linkid=402989). Base de datos de documentos es un servicio de base de datos de documento NoSQL, [que tiene varias API y varios SDK disponibles](http://go.microsoft.com/fwlink/p/?linkid=522476). Los ejemplos de código de este artículo están escritos en C# y usan el SDK de .NET de Base de datos de documentos, que se empaqueta y distribuye como paquete de NuGet. 
+En esta guía se muestra cómo empezar a usar [Base de datos de documentos de Microsoft Azure (vista previa)](https://portal.azure.com/#gallery/Microsoft.DocumentDB) y el [SDK de .NET de Base de datos de documentos](https://go.microsoft.com/fwlink/p/?linkid=402989). Base de datos de documentos es un servicio de base de datos de documento NoSQL, [que tiene varias API y varios SDK disponibles](https://go.microsoft.com/fwlink/p/?linkid=522476). Los ejemplos de código de este artículo están escritos en C# y usan el SDK de .NET de Base de datos de documentos, que se empaqueta y distribuye como paquete de NuGet. 
 
-Entre los escenarios descritos en este artículo se incluyen la creación y la configuración de una cuenta de Base de datos de documentos, la creación de bases de datos, la creación de colecciones y el almacenamiento de documentos JSON dentro de la cuenta. Cada uno de estos ejemplos forma parte de una solución completa disponible en [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). Puede [descargar la solución](#GetSolution) para ver el código de ejemplo en contexto, o bien puede revisar simplemente los ejemplos de este artículo.
+Entre los escenarios descritos en este artículo se incluyen la creación y la configuración de una cuenta de Base de datos de documentos, la creación de bases de datos, la creación de colecciones y el almacenamiento de documentos JSON dentro de la cuenta. Cada uno de estos ejemplos forma parte de una solución completa disponible en [GitHub](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started). También puede [descargar la solución](#GetSolution) para ver el código de ejemplo en contexto, o bien puede revisar los ejemplos de este artículo.
 
-## <a id="Connect"></a>Conexión a una cuenta de Base de datos de documentos
+##<a id="CreateAccount"></a>Creación de una cuenta de Base de datos de documentos
 
-Comenzaremos por crear una nueva instancia de la clase [DocumentClient](http://go.microsoft.com/fwlink/p/?linkid=522477) para establecer una conexión a nuestra cuenta de Base de datos de documentos.   Necesitaremos las siguientes referencias en nuestra aplicación de C#:  
+[AZURE.INCLUDE [documentdb-create-dbaccount](../includes/documentdb-create-dbaccount.md)]
+
+##<a id="Connect"></a>Conexión a una cuenta de Base de datos de documentos
+
+Comenzaremos por crear una nueva instancia de la clase [DocumentClient](https://go.microsoft.com/fwlink/p/?linkid=522477) para establecer una conexión a nuestra cuenta de Base de datos de documentos. Necesitaremos las siguientes referencias en nuestra aplicación de C#:  
 
     using Microsoft.Azure.Documents;
     using Microsoft.Azure.Documents.Client;
@@ -38,18 +42,18 @@ A continuación, se puede crear una instancia de un **DocumentClient** mediante 
     // Create a new instance of the DocumentClient.
     var client = new DocumentClient(new Uri(EndpointUrl), AuthorizationKey);  
 
-> [AZURE.WARNING] Nunca almacene credenciales en el código fuente. Para que este ejemplo resulte sencillo, las credenciales se muestran en el código fuente. Consulte [Sitios Web Azure: Funcionamiento de las cadenas de aplicación y las cadenas de conexión](http://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) para obtener información sobre cómo almacenar credenciales en un entorno de producción. 
+> [AZURE.WARNING] Nunca almacene credenciales en código fuente. Para que este ejemplo resulte sencillo, las credenciales se muestran en el código fuente. Consulte [Sitios Web Azure: Funcionamiento de las cadenas de aplicación y las cadenas de conexión](https://azure.microsoft.com/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) para obtener información sobre cómo almacenar credenciales en un entorno de producción. 
 
 Los valores de EndpointUrl y AuthorizationKey son URI y PRIMARY KEY para la cuenta de Base de datos de documentos, que se puede obtener de la hoja [Portal de administración de vista previa de Azure](https://portal.azure.com) para su cuenta de Base de datos de documentos. 
 
-![][1]
+![Screen shot of the Azure Preview portal, showing a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][1]
  
-Estas claves conceden acceso administrativo a su cuenta de Base de datos de documentos y los recursos contenidos en ella. Base de datos de documentos también admite el uso de claves de recursos que permiten a los clientes leer, escribir y eliminar recursos de la cuenta de Base de datos de documentos en función de los permisos concedidos, sin necesidad de una clave de cuenta. Para obtener más información acerca de las claves de recursos, vea la sección Permisos de [Modelo de recursos y conceptos de Base de datos de documentos](../documentdb-resources/).
+Estas claves conceden acceso administrativo a su cuenta de Base de datos de documentos y los recursos contenidos en ella. Base de datos de documentos también admite el uso de claves de recursos que permiten a los clientes leer, escribir y eliminar recursos de la cuenta de Base de datos de documentos en función de los permisos concedidos, sin necesidad de una clave de cuenta. Para obtener más información acerca de las claves de recursos, vea la sección Permisos de [Modelo de recursos y conceptos de Base de datos de documentos](documentdb-resources.md).
 
 Ahora que sabe cómo conectarse a una cuenta de Base de datos de documentos y crear una instancia de la clase **DocumentClient**, vamos a echar un vistazo a cómo trabajar con recursos de Base de datos de documentos.  
 
-## <a id="CreateDB"></a>Creación de una base de datos
-Puede crearse una base de datos de Base de datos de documentos mediante el método [CreateDatabaseAsync](http://go.microsoft.com/fwlink/p/?linkid=522478) de la clase **DocumentClient**.  
+##<a id="CreateDB"></a>Creación de una base de datos
+Puede crearse una base de datos mediante el método [CreateDatabaseAsync](https://go.microsoft.com/fwlink/p/?linkid=522478) de la clase **DocumentClient**.  
 
 	// Create a database.
 	Database database = await client.CreateDatabaseAsync(
@@ -58,9 +62,9 @@ Puede crearse una base de datos de Base de datos de documentos mediante el méto
 			    Id = "FamilyRegistry"
 		    });
 
-## <a id="CreateColl"></a>Creación de una colección  
+##<a id="CreateColl"></a>Creación de una colección  
 
-Una colección de Base de datos de documentos puede crearse mediante el método [CreateDocumentCollectionAsync](http://go.microsoft.com/fwlink/p/?linkid=522479) de la clase **DocumentClient**.  La base de datos creada en el paso anterior tiene una serie de propiedades, una de las cuales es [CollectionsLink](http://go.microsoft.com/fwlink/p/?linkid=522481).  Con esa información, ahora podemos crear una colección.  
+Una colección puede crearse mediante el método [CreateDocumentCollectionAsync](https://go.microsoft.com/fwlink/p/?linkid=522479) de la clase **DocumentClient**.  La base de datos creada en el paso anterior tiene una serie de propiedades, una de las cuales es [CollectionsLink](https://go.microsoft.com/fwlink/p/?linkid=522481).  Con esa información, ahora podemos crear una colección.  
 
   	// Create a document collection.
   	DocumentCollection documentCollection = await client.CreateDocumentCollectionAsync(database.CollectionsLink,
@@ -69,8 +73,8 @@ Una colección de Base de datos de documentos puede crearse mediante el método 
   			    Id = "FamilyCollection"
   		    });
     
-## <a id="CreateDoc"></a>Creación de documentos	
-Un documento de Base de datos de documentos puede crearse mediante el método [CreateDocumentAsync](http://go.microsoft.com/fwlink/p/?linkid=522482) de la clase **DocumentClient**.  La colección creada en el paso anterior tiene una serie de propiedades, una de las cuales es [DocumentsLink](http://go.microsoft.com/fwlink/p/?linkid=522483).  Con esa información, puede insertar ahora uno o varios documentos.  En este ejemplo, vamos a suponer que tenemos una clase Family que describe los atributos de una familia como nombre, género y edad.  
+##<a id="CreateDoc"></a>Creación de documentos	
+Un documento puede crearse mediante el método [CreateDocumentAsync](https://go.microsoft.com/fwlink/p/?linkid=522482) de la clase **DocumentClient**.  La colección creada en el paso anterior tiene una serie de propiedades, una de las cuales es [DocumentsLink](https://go.microsoft.com/fwlink/p/?linkid=522483).  Con esa información, puede insertar ahora uno o varios documentos.  En este ejemplo, vamos a suponer que tenemos una clase Family que describe los atributos de una familia como nombre, género y edad. Si desea ver nuestra clase de familia de ejemplo, visite nuestro [repositorio de GitHub](https://github.com/Azure/azure-documentdb-net/blob/master/tutorials/get-started/src/Program.cs). 
 
     // Create the Andersen family document.
 	Family AndersenFamily = new Family
@@ -130,8 +134,9 @@ Un documento de Base de datos de documentos puede crearse mediante el método [C
     await client.CreateDocumentAsync(documentCollection.DocumentsLink, WakefieldFamily);
  
 
-## <a id="Query"></a>Consulta de recursos de Base de datos de documentos
-Base de datos de documentos admite consultas enriquecidas contra los documentos JSON almacenados en cada colección.  En el siguiente ejemplo se muestran diversas consultas (usando tanto la sintaxis SQL de Base de datos de documentos como LINQ) que podemos ejecutar con los documentos que hemos insertado en el paso anterior.  
+##<a id="Query"></a>Consulta de recursos de Base de datos de documentos
+
+Base de datos de documentos admite consultas enriquecidas contra los documentos JSON almacenados en cada colección.  En el siguiente ejemplo se muestran diversas consultas (usando tanto la sintaxis SQL de Base de datos de documentos como LINQ) que podemos ejecutar con los documentos que hemos insertado en el paso anterior. 
 
     // Query the documents using DocumentDB SQL for the Andersen family.
     var families = client.CreateDocumentQuery(documentCollection.DocumentsLink,
@@ -190,17 +195,18 @@ Base de datos de documentos admite consultas enriquecidas contra los documentos 
         Console.WriteLine(item);
     }
 	
-## <a id="GetSolution"></a>Obtención de la solución completa
+##<a id="GetSolution"></a>Obtención de la solución completa
 Para compilar la solución GetStarted que contiene todos los ejemplos de este artículo, necesitará lo siguiente:
 
--   [Cuenta de Base de datos de documentos][documentdb-create-account].
+-   [Cuenta de la Base de datos de documentos][documentdb-create-account]
 -   La solución [GetStarted](https://github.com/Azure/azure-documentdb-net/tree/master/tutorials/get-started) está disponible en GitHub. 
 
-Para restaurar las referencias al SDK de .NET de Base de datos de documentos de Visual Studio 2013, haga clic con el botón secundario en la solución GetStarted en el Explorador de soluciones y, a continuación haga clic en Habilitar la restauración del paquete NuGet, que restaurará las referencias. A continuación, en el archivo App.config, actualice los valores EndpointUrl y AuthorizationKey como se describe en [Conexión a una cuenta de Base de datos de documentos](#Connect). 
+Para restaurar las referencias al SDK de .NET de Base de datos de documentos de Visual Studio 2013, haga clic con el botón secundario en la solución GetStarted en el Explorador de soluciones y, a continuación haga clic en Habilitar la restauración del paquete NuGet. A continuación, en el archivo App.config, actualice los valores EndpointUrl y AuthorizationKey como se describe en [Conexión a una cuenta de Base de datos de documentos](#Connect). 
 
-## <a id="NextSteps"></a>Pasos siguientes
--	Aprenda a [supervisar una cuenta de Base de datos de documentos](http://go.microsoft.com/fwlink/p/?LinkId=402378).
--	Para obtener detalles sobre el modelo de programación, vea la sección Desarrollar en la [página de documentación de Base de datos de documentos](http://go.microsoft.com/fwlink/p/?LinkID=402319).
+##<a id="NextSteps"></a>Pasos siguientes
+-	Aprenda a [supervisar una cuenta de Base de datos de documentos](https://go.microsoft.com/fwlink/p/?LinkId=402378).
+-	Ejecute las consultas en nuestro conjunto de datos de ejemplo en el [área de consultas](http://www.documentdb.com/sql/demo).
+-	Obtenga más información sobre el modelo de programación en la sección de desarrollo de la [página de documentación de Base de datos de documentos](../documentation/services/documentdb/).
 
 
 [Conexión a una cuenta de Base de datos de documentos]: #Connect
@@ -210,9 +216,10 @@ Para restaurar las referencias al SDK de .NET de Base de datos de documentos de 
 [Consulta de recursos de Base de datos de documentos]: #Query
 [Pasos siguientes]: #NextSteps
 [doc-landing-page]: ../documentation/services/documentdb/
-[documentdb-create-account]: ../documentdb-create-account/
-[documentdb-manage]: ../documentdb-manage/
+[documentdb-create-account]: documentdb-create-account.md
+[documentdb-manage]: documentdb-manage.md
 
-[1]: ./media/documentdb-get-started/gs1.png
+[1]: ../includes/media/documentdb-keys/keys.png
 
-<!--HONumber=47-->
+
+<!--HONumber=49-->

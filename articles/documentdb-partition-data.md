@@ -1,4 +1,4 @@
-<properties      
+﻿<properties      
     pageTitle="Creación de particiones en Base de datos de documentos | Azure"      
     description="Obtenga información sobre crear particiones de datos en Base de datos de documentos y cuándo utilizar las particiones por búsqueda, rangos y hash."          services="documentdb"      
     authors="arramac"      
@@ -14,9 +14,9 @@
     ms.date="02/20/2015"      
     ms.author="arramac"/> 
 
-# Partición de datos en Base de datos de documentos
+# Creación de particiones en Base de datos de documentos
 
-[Base de datos de documentos de Microsoft Azure](../../services/documentdb/) se ha diseñado para ayudarlo a lograr un rendimiento rápido y predecible. Además, permite  *escalar horizontalmente* sin problemas junto con su aplicación a medida que esta crezca. Base de datos de documentos se ha utilizado para mejorar los servicios de producción a gran escala en Microsoft, por ejemplo, el almacén de datos de usuario que se utiliza con la suite MSN de aplicaciones móviles y web. 
+[Base de datos de documentos de Microsoft Azure](../../services/documentdb/) se ha diseñado para ayudar a lograr un rendimiento rápido y predecible. Además, permite *scale-out* sin problemas junto con su aplicación a medida que esta crece. Base de datos de documentos se ha utilizado para mejorar los servicios de producción a gran escala en Microsoft, por ejemplo, el almacén de datos de usuario que se utiliza con la suite MSN de aplicaciones móviles y web. 
 
 Puede lograr una escala casi infinita en términos de almacenamiento y capacidad de proceso para su aplicación de Base de datos de documentos efectuando una partición horizontal de los datos: un concepto conocido comúnmente como **particionamiento**.  Las cuentas de Base de datos de documentos se pueden escalar linealmente con el costo mediante unidades agrupables denominadas **colecciones**. La mejor forma de dividir los datos en colecciones dependerá del formato de los datos y de los patrones de acceso. 
 
@@ -28,13 +28,13 @@ Después de leer este artículo, podrá responder a las preguntas siguientes:
 
 ## Colecciones = Particiones
 
-Antes de profundizar más en las técnicas de partición de datos, es importante entender qué es y qué no es una colección. Como ya sabrá, una colección es un contenedor para los documentos JSON. Las colecciones en Base de datos de documentos no son simplemente contenedores  *lógicos*, sino también  *físicos*. Constituyen el límite de la transacción para los desencadenadores y procedimientos almacenados, además de ser el punto de entrada para las consultas y las operaciones CRUD. Cada colección tiene asignada una cantidad reservada de capacidad de proceso que no se comparte con otras colecciones de la misma cuenta. Por lo tanto, puede escalar horizontalmente la aplicación, tanto en términos de almacenamiento como de capacidad de proceso, mediante la adición de más colecciones y la posterior distribución de documentos en ellas.
+Antes de profundizar más en las técnicas de partición de datos, es importante entender qué es y qué no es una colección. Como ya sabrá, una colección es un contenedor para los documentos JSON. Las colecciones en Base de datos de documentos no son simplemente contenedores *logical*, sino también *physical*. Constituyen el límite de la transacción para los desencadenadores y procedimientos almacenados, además de ser el punto de entrada para las consultas y las operaciones CRUD. Cada colección tiene asignada una cantidad reservada de capacidad de proceso que no se comparte con otras colecciones de la misma cuenta. Por lo tanto, puede escalar horizontalmente la aplicación, tanto en términos de almacenamiento como de capacidad de proceso, mediante la adición de más colecciones y la posterior distribución de documentos en ellas.
 
 Las colecciones son distintas de las tablas incluidas en las bases de datos relacionales. Las colecciones no aplican un esquema. Por lo tanto, se pueden almacenar distintos tipos de documentos con esquemas diferentes en la misma colección. Sin embargo, puede optar por utilizar las colecciones para almacenar objetos de un solo tipo, como se haría con las tablas. El mejor modelo depende solo de la forma en que aparezcan los datos juntos en las consultas y las transacciones.
 
 ## Creación de particiones con Base de datos de documentos
 
-Las técnicas más comunes para crear particiones de datos con Base de datos de documentos de Azure son:  *particiones por rangos*,  *particiones por búsquedas* y  *particiones por hash*. Normalmente, se designa un único nombre de propiedad JSON dentro del documento como clave de partición, por ejemplo, "timestamp" o "userID". En algunos casos, en lugar de estos valores, podría usarse una propiedad interna de JSON o un nombre de propiedad diferente para cada tipo concreto de documento.
+Las técnicas de creación de particiones de datos que se usan de forma más habitual en Base de documentos de Azure son *range partitioning*, *lookup partitioning* y *hash partitioning*. Normalmente, se designa un único nombre de propiedad JSON dentro del documento como clave de partición, por ejemplo, "timestamp" o "userID". En algunos casos, en lugar de estos valores, podría usarse una propiedad interna de JSON o un nombre de propiedad diferente para cada tipo concreto de documento.
 
 Veamos estas técnicas más detalladamente.
 
@@ -42,19 +42,19 @@ Veamos estas técnicas más detalladamente.
 
 En la creación de particiones por rangos, las particiones se asignan en función de si la clave de partición está dentro de un rango determinado. Esto se utiliza normalmente para las particiones con propiedades *time stamp*, por ejemplo, la hora de un evento (eventTime) entre el 1 y el 2 de febrero de 2015. 
 
-> [AZURE.SUGERENCIA] La partición por rangos se debe usar si las consultas están restringidas a determinados rangos de valores con respecto a la clave de partición.
+> [AZURE.TIP] La partición por rangos se debe usar si las consultas están restringidas a determinados rangos de valores con respecto a la clave de partición.
 
 ## Creación de particiones por búsquedas
 
 Cuando se crean particiones por búsquedas, las particiones se asignan según un mapa de búsquedas que adjudica valores distintos a particiones específicas (lo que se conoce como "partición" o "mapa de particiones"). Normalmente, se utiliza para crear particiones por región (por ejemplo, la partición de Escandinavia contiene Noruega, Dinamarca y Suecia).
 
-> [AZURE.SUGERENCIA] Las particiones por búsquedas ofrecen el mayor grado de control en la administración de una aplicación de varios inquilinos. Puede asignar varios inquilinos a una sola colección, un solo inquilino a una sola colección o, incluso, un solo inquilino a varias colecciones. 
+> [AZURE.TIP] Las particiones por búsquedas ofrecen el mayor grado de control en la administración de una aplicación de varios inquilinos. Puede asignar varios inquilinos a una sola colección, un solo inquilino a una sola colección o, incluso, un solo inquilino a varias colecciones. 
 
 ## Creación de particiones por hash
 
 En la creación de particiones por hash, las particiones se asignan en función del valor de una función hash, lo que permite distribuir uniformemente las solicitudes y los datos entre una cantidad determinada de particiones. Normalmente, esto se utiliza para la partición de datos producidos o consumidos desde un gran número de clientes distintos, y es útil para almacenar perfiles de usuario, elementos de catálogos y datos de telemetría de IoT ("Internet de las cosas"). 
 
-> [AZURE.SUGERENCIA] La creación de particiones por hash se debe usar siempre que haya demasiadas entidades para enumerarlas mediante las particiones por búsquedas (por ejemplo, si se trata de usuarios o dispositivos) y también cuando la tasa de solicitudes sea bastante uniforme entre las entidades.
+> [AZURE.TIP] La creación de particiones por hash se debe usar siempre que haya demasiadas entidades para enumerarlas mediante las particiones por búsquedas (por ejemplo, si se trata de usuarios o dispositivos) y también cuando la tasa de solicitudes sea bastante uniforme entre las entidades.
 
 ## Elección de la técnica adecuada para crear las particiones
 
@@ -62,9 +62,9 @@ Entonces, ¿qué técnica de partición es la adecuada para usted? Todo depende 
 
 - **La creación de particiones por rangos** se usa generalmente en el contexto de las fechas, puesto que ofrece un mecanismo fácil y natural para determinar la antigüedad de las particiones en función de la marca de tiempo. También es útil cuando las consultas suelen estar limitadas a un rango de tiempo, ya que este se alinea con los límites de la partición. 
 - **La creación de particiones por búsquedas** permite agrupar y organizar conjuntos de datos desordenados y sin relacionar de una forma natural, por ejemplo, agrupar los inquilinos por organización o estados en función de la región geográfica. La búsqueda también ofrece un control detallado a la hora de migrar los datos entre una colección y otra. 
-- **La creación de particiones por hash** es útil a fin de lograr un equilibrio de carga uniforme de las solicitudes y hacer un uso eficaz de la capacidad de proceso y del almacenamiento aprovisionado. El uso coherente de  *algoritmos de hash* permite minimizar la cantidad de datos que se deben mover cuando se agrega o elimina una partición.
+- **La creación de particiones por hash** es útil a fin de lograr un equilibrio de carga uniforme de las solicitudes y hacer un uso eficaz de la capacidad de proceso y del almacenamiento aprovisionado. El uso de algoritmos *consistent hashing* permite minimizar la cantidad de datos que se deben mover cuando se agrega o elimina una partición.
 
-No tiene por qué elegir solo una técnica de partición. Una *combinación* de estas técnicas también puede ser útil, según la situación. Por ejemplo, si almacena los datos de telemetría de un vehículo, un buen enfoque podría ser dividir los datos de telemetría del dispositivo por rangos según la marca de tiempo para facilitar la administración de las particiones y, a continuación, subdividir los datos según el número de identificación del vehículo con el fin de lograr un escalado horizontal para la capacidad de proceso (partición combinada por rango y hash).
+No tiene por qué elegir solo una técnica de partición. Una *composite* de estas técnicas también puede ser útil, según la situación. Por ejemplo, si almacena los datos de telemetría de un vehículo, un buen enfoque podría ser dividir los datos de telemetría del dispositivo por rangos según la marca de tiempo para facilitar la administración de las particiones y, a continuación, subdividir los datos según el número de identificación del vehículo con el fin de lograr un escalado horizontal para la capacidad de proceso (partición combinada por rango y hash).
 
 ## Desarrollo de una aplicación con particiones
 Hay que tener en cuenta tres áreas de diseño clave a la hora de desarrollar una aplicación particionada en Base de datos de documentos.
@@ -79,7 +79,7 @@ Profundicemos un poco en estas áreas.
 
 El enrutamiento de las solicitudes de creación de documentos es directo para las tres técnicas que hemos analizado hasta ahora. El documento se crea en la partición a partir del valor de hash, de la búsqueda o del rango que corresponda a la clave de partición.
 
-Normalmente, las consultas y las lecturas deberían tener un ámbito de una clave de partición única, por lo que las consultas pueden aplicarse solo a las particiones coincidentes. Las consultas referidas a todos los datos, sin embargo, requieren la  *dispersión* de la solicitud por varias particiones y la posterior combinación de los resultados. Tenga en cuenta que es posible que algunas consultas tengan que aplicar una lógica personalizada para combinar los resultados, por ejemplo, a la hora recuperar los N resultados principales.
+Normalmente, las consultas y las lecturas deberían tener un ámbito de una clave de partición única, por lo que las consultas pueden aplicarse solo a las particiones coincidentes. Las consultas referidas a todos los datos, sin embargo, requieren *fan-out* de la solicitud por varias particiones y la posterior combinación de los resultados. Tenga en cuenta que es posible que algunas consultas tengan que aplicar una lógica personalizada para combinar los resultados, por ejemplo, a la hora recuperar los N resultados principales.
 
 ## Administración del mapa de particiones
 
@@ -98,10 +98,10 @@ Es muy fácil agregar y eliminar una nueva partición con los procesos de creaci
 
 El método hash es relativamente más complicado para agregar y eliminar particiones. Las técnicas de hash simples provocan un orden aleatorio. Además, requieren la mayoría de los datos para moverse. El uso de **hashing de forma coherente** garantiza que solo hay que mover una fracción de los datos.
 
-Una manera relativamente fácil de agregar nuevas particiones sin necesidad de mover datos es "derramar" los datos a una nueva colección y, a continuación, dispersar las solicitudes por la colección nueva y la antigua. Sin embargo, este enfoque, debe usarse en pocas ocasiones (por ejemplo, para repartir los datos en momentos de picos de trabajo y para almacenar los datos temporalmente hasta que se puedan mover).
+Una manera relativamente fácil de agregar nuevas particiones sin necesidad de mover datos es "derramar" los datos a una nueva colección y, a continuación, dispersar las solicitudes entre la colección nueva y la antigua. Sin embargo, este enfoque, debe usarse en pocas ocasiones (por ejemplo, para repartir los datos en momentos de picos de trabajo y para almacenar los datos temporalmente hasta que se puedan mover).
 
 ### Pasos siguientes
-En este artículo, hemos presentado algunas técnicas habituales para efectuar particiones de datos con Base de datos de documentos y hemos señalado cuándo se debe usar cada técnica o combinación de técnicas. Comience a trabajar con uno de los [SDK admitidos ](https://msdn.microsoft.com/library/azure/dn781482.aspx)y póngase en contacto con nosotros a través de los [foros de soporte técnico de MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) si tiene alguna duda.
+En este artículo, hemos presentado algunas técnicas habituales para efectuar particiones de datos con Base de datos de documentos y hemos señalado cuándo se debe usar cada técnica o combinación de técnicas. Comience a trabajar con uno de los [SDK admitidos](https://msdn.microsoft.com/library/azure/dn781482.aspx) y póngase en contacto con nosotros a través de los [foros de soporte técnico de MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureDocumentDB) si tiene alguna duda.
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

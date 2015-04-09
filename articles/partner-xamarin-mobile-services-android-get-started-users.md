@@ -10,13 +10,13 @@
 <tags 
 	ms.service="mobile-services" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="mobile-xamarin-android" 
+	ms.tgt_pltfrm="" 
 	ms.devlang="dotnet" 
 	ms.topic="article" 
 	ms.date="09/23/2014" 
 	ms.author="donnam"/>
 
-# Agregar autenticación a la aplicación de Servicios móviles
+# Incorporación de autenticación a la aplicación de Servicios móviles
 
 [AZURE.INCLUDE [mobile-services-selector-get-started-users](../includes/mobile-services-selector-get-started-users.md)]
 
@@ -42,9 +42,9 @@ Para completar este tutorial necesita Xamarin.Android y el SDK de Android 4.2 o 
 [AZURE.INCLUDE [mobile-services-restrict-permissions-javascript-backend](../includes/mobile-services-restrict-permissions-javascript-backend.md)] 
 
 
-3. En Eclipse, abra el proyecto que ha creado al completar el tutorial [Introducción a Servicios móviles]. 
+3. En Eclipse, abra el proyecto que ha creado al completar el tutorial [Introducción a los Servicios móviles]. 
 
-4. En el menú **Ejecutar**, haga clic en **Ejecutar** para iniciar la aplicación y, a continuación, compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación. 
+4. En el menú **Run** (Ejecutar), haga clic en **Run** (Ejecutar) para iniciar la aplicación y, a continuación, compruebe que se lleva a cabo una excepción no controlada con el código de estado 401 (No autorizado) después de que se inicie la aplicación. 
 
 	 Esto se produce porque la aplicación intenta obtener acceso a Servicios móviles como usuario sin autenticar, pero la tabla _TodoItem_ requiere ahora autenticación.
 
@@ -56,7 +56,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
 			private MobileServiceUser user;
 
-2. Agregue el método siguiente a la clase **TodoActivity**: 
+2. Agregue el método siguiente a la clase **ToDoActivity**: 
 
 	        private async Task Authenticate()
 	        {
@@ -75,13 +75,13 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 
     > [AZURE.NOTE] Si usa un proveedor de identidades que no sea Microsoft, cambie el valor que ha pasado al método **login** anterior por uno de los siguientes: _Facebook_, _Google_, _Twitter_, o _WindowsAzureActiveDirectory_.
 
-3. En el método **onCreate**, agregue la línea de código siguiente después del código que crea instancias en el objeto  `MobileServiceClient`.
+3. En el método **OnCreate**, agregue la siguiente línea de código después del código que crea una instancia del objeto  `MobileServiceClient`.
 
 		await Authenticate();
 
 	Esta llamada inicia el proceso de autenticación y lo espera de manera asincrónica.
 
-4. Mueva el código restante situado detrás de `await Authenticate();` del método **OnCreate** a un nuevo método **CreateTable** cuyo aspecto es el siguiente:
+4. Mueva el código restante situado detrás de `await Authenticate();` del método **onCreate** a un nuevo método **createTable**, cuyo aspecto es el siguiente:
 
 	        private async Task CreateTable()
 	        {
@@ -99,7 +99,7 @@ A continuación, actualizará la aplicación para autenticar usuarios antes de s
 	            await RefreshItemsFromTableAsync();
 	        }
 
-5. A continuación, llame al nuevo método **CreateTable** en **OnCreate** después de la llamada de **autenticación** que agregó en el paso 2:
+5. A continuación, llame al nuevo método **CreateTable** en **OnCreate** después de la llamada a **Authenticate** que se agregó en el paso 2:
 
 		await CreateTable();
 
@@ -131,22 +131,19 @@ En el siguiente tutorial, [Autorización de usuarios con scripts], usará el val
 
 <!-- URLs. -->
 
-[Página Enviar una aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
+[Enviar una página de aplicación]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [Mis aplicaciones]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [SDK de Live para Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Introducción a los Servicios móviles]: /es-es/develop/mobile/tutorials/get-started-xamarin-android
-[Introducción a los datos]: /es-es/develop/mobile/tutorials/get-started-with-data-xamarin-android
-[Introducción a la autenticación]: /es-es/develop/mobile/tutorials/get-started-with-users-xamarin-android
-[Introducción a las notificaciones de inserción]: /es-es/develop/mobile/tutorials/get-started-with-push-xamarin-android
-[Autorizar a los usuarios con scripts]: /es-es/develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
+[Introducción a los Servicios móviles]: /develop/mobile/tutorials/get-started-xamarin-android
+[Introducción a los datos]: /develop/mobile/tutorials/get-started-with-data-xamarin-android
+[Introducción a la autenticación]: /develop/mobile/tutorials/get-started-with-users-xamarin-android
+[Introducción a las notificaciones de inserción]: /develop/mobile/tutorials/get-started-with-push-xamarin-android
+[Autorización de usuarios con scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-xamarin-android
 
 [Portal de administración de Azure]: https://manage.windowsazure.com/
 
-[proyecto de ejemplo completado]: http://go.microsoft.com/fwlink/p/?LinkId=331328
+[proyecto de ejemplo completo]: http://go.microsoft.com/fwlink/p/?LinkId=331328
 
+<!--HONumber=49--> 
 
-
-
-
-
-<!--HONumber=42-->
+<!--HONumber=49-->

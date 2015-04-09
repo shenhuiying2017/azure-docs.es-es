@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Directivas de indexación de la Base de datos de documentos | Azure" 
 	description="Obtenga información acerca de cómo funciona la indexación en DocumentDB y sobre cómo configurar la directiva de indexación." 
 	services="documentdb" 
@@ -9,11 +9,11 @@
 
 <tags 
 	ms.service="documentdb" 
-	ms.devlang="may be required" 
+	ms.devlang="na" 
 	ms.topic="article" 
 	ms.tgt_pltfrm="na" 
 	ms.workload="data-services" 
-	ms.date="02/23/2015" 
+	ms.date="03/13/2015" 
 	ms.author="mimig"/>
 
 
@@ -32,14 +32,13 @@ El subsistema de indexación de la Base de datos de documentos está diseñado p
 
 ·         Eficacia de almacenamiento. para obtener rentabilidad, se enlaza la sobrecarga de almacenamiento en el disco del índice y es predecible.
 
-·         Multiempresa. Las actualizaciones del índice se realizan según la asignación de recursos de sistema asignados por la recopilación de la Base de datos de documentos. 
+·         Multiempresa. Las actualizaciones del índice se realizan según la asignación de recursos de sistema asignados por la recopilación de la Base de datos de documentos.
 
-Es posible utilizar la directiva de indexación automática predeterminada para la mayoría de las aplicaciones, ya que ofrece la máxima flexibilidad y proporciona un justo equilibrio entre rendimiento y eficacia en el almacenamiento. Por otro lado, especificar una directiva de indexación personalizada permite lograr un equilibrio granular entre el rendimiento de las consultas, el rendimiento en la escritura y la sobrecarga de almacenamiento del índice.  
+Es posible utilizar la directiva de indexación automática predeterminada para la mayoría de las aplicaciones, ya que ofrece la máxima flexibilidad y proporciona un justo equilibrio entre rendimiento y eficacia en el almacenamiento. Por otro lado, especificar una directiva de indexación personalizada permite lograr un equilibrio granular entre el rendimiento de las consultas, el rendimiento en la escritura y la sobrecarga de almacenamiento del índice.
 
-Por ejemplo, si se excluye determinados documentos o rutas de acceso de los documentos de la indexación, es posible reducir el espacio de almacenamiento utilizado para la indexación, así como el tiempo de inserción para el mantenimiento del índice. Es posible cambiar el tipo de índice para adaptarlo a las consultas, o bien incrementar la precisión del índice en bytes para mejorar el rendimiento de las consultas. En este artículo se describen las distintas opciones de configuración de indexación disponibles en
-Base de datos de documentos y cómo personalizar la directiva de indexación para las cargas de trabajo.
+Por ejemplo, si se excluye determinados documentos o rutas de acceso de los documentos de la indexación, es posible reducir el espacio de almacenamiento utilizado para la indexación, así como el tiempo de inserción para el mantenimiento del índice. Es posible cambiar el tipo de índice para adaptarlo a las consultas, o bien incrementar la precisión del índice en bytes para mejorar el rendimiento de las consultas. Este artículo describe las distintas opciones de indexación disponibles en la Base de datos de documentos, así como la personalización de las directivas de indexación a sus cargas de trabajo.
 
-<a id="HowWorks"></a>Funcionamiento de la indexación de la Base de datos de documentos
+<a id="HowWorks"></a>Funcionamiento de la indización de la Base de datos de documentos
 -----------------------------
 
 La indexación en Base de datos de documentos aprovecha el hecho de que la gramática de JSON permite que los documentos se **representen como árboles**. Para representar un documento JSON como un árbol, es necesario crear un nodo raíz ficticio que actúe como elemento principal para el resto de nodos reales del documento que dependen de dicho nodo ficticio. Cada etiqueta, que incluye los índices de la matriz en un documento JSON, se convierte en un nodo del árbol. La ilustración siguiente muestra un ejemplo de documento JSON y de su representación de árbol correspondiente.
@@ -49,14 +48,14 @@ La indexación en Base de datos de documentos aprovecha el hecho de que la gram�
 
 Por ejemplo, la propiedad JSON {"headquarters": "Belgium"} en el ejemplo anterior corresponde con la ruta de acceso /"headquarters"/"Belgium". La matriz JSON {"exports": [{"city": "Moscow"}, {"city": Athens"}]} corresponden a las rutas de acceso /"exports"/0/"city"/"Moscow" y /"exports"/1/"city"/"Athens".
 
-**Nota** La representación de la ruta de acceso difumina el límite entre el esquema/estructura y los valores de instancia en los documentos, lo que permite Que Base de datos de documentos no presente realmente ningún esquema.
+**Nota** La representación de la ruta de acceso difumina el límite entre el esquema/la estructura y los valores de instancia de los documentos, lo que permite a la Base de datos de documentos utilizar un modelo libre de esquemas.
 
 En la Base de datos de documentos, los documentos se organizan en recopilaciones que se pueden consultar mediante SQL o que procesan en el ámbito de una sola transacción. Cada recopilación puede configurarse con su propia directiva de indexación expresada en términos de rutas de acceso. En la siguiente sección, analizaremos cómo configurar el comportamiento de la indexación de una recopilación de la Base de datos de documentos.
 
 <a id="ConfigPolicy"></a>Configuración de la directiva de indexación de una colección
 -------------------------------------------
 
-En el ejemplo siguiente se muestra cómo establecer una directiva de indexación personalizada durante la creación de una colección mediante la API de REST de Base de datos de documentos. El ejemplo muestra la directiva de indexación expresada en rutas de acceso, tipos de índices y precisiones.
+En el ejemplo siguiente se muestra cómo establecer una directiva de indización personalizada durante la creación de una colección, mediante la API de REST de Base de datos de documentos. El ejemplo muestra la directiva de indización expresada en rutas de acceso, tipos de índices y precisiones.
 
 
 	POST https://<REST URI>/colls HTTP/1.1                                                  
@@ -64,7 +63,7 @@ En el ejemplo siguiente se muestra cómo establecer una directiva de indexación
  	Accept: application/json 
                                                                                                                          
  	{                                                                     
-	 "name":"customIndexCollection",                                     
+	 "id":"customIndexCollection",                                     
 	 "indexingPolicy":{                                                 
      "automatic":true,                                            
 	 "indexingMode":"Consistent",                                     
@@ -85,16 +84,15 @@ En el ejemplo siguiente se muestra cómo establecer una directiva de indexación
 	 HTTP/1.1 201 Created                                                     
 
 
-**Nota:** La directiva de indexación de una colección debe especificarse en el momento de la creación. No se permite la modificación de la directiva de indexación después de la creación de la colección, pero se admitirá en una versión futura de Base de datos de documentos.
+**Nota:** la directiva de indización de una colección debe especificarse en el momento de la creación. No se permite la modificación de la directiva de indización después de la creación de la colección, pero se admitirá en una versión futura de Base de datos de documentos.
 
-**Nota:** de forma predeterminada, la Base de datos de documentos indexa todas las rutas de los documentos de forma homogénea con un índice hash. La ruta de acceso interna de marca de tiempo (\_ts) se almacena con un índice de intervalo.
+**Nota:** de forma predeterminada, la Base de datos de documentos indiza todas las rutas de los documentos de forma homogénea con un índice hash. La ruta de acceso interna de marca de tiempo (\_ts) se almacena con un índice de intervalo.
 
 ### Indexación automática
 
 Puede elegir si desea que la recopilación de todos los documentos se indexe automáticamente o no. De forma predeterminada, todos los documentos se indexan automáticamente, pero puede desactivarla. Cuando se desactiva la indexación, solo se puede tener acceso a documentos a través de sus propios vínculos o mediante consultas con Id.
 
-Cuando se desactiva la indexación automática, podrá agregar al índice de manera selectiva solo algunos documentos específicos. Por el contrario, puede dejar activada la indexación automática y excluir de forma selectiva solo algunos documentos específicos.
-Las configuraciones de indexación activada/desactivada son útiles cuando solo tiene un subconjunto de los documentos que necesita consultar.
+Cuando se desactiva la indexación automática, podrá agregar al índice de manera selectiva solo algunos documentos específicos. Por el contrario, puede dejar activada la indexación automática y excluir de forma selectiva solo algunos documentos específicos. Las configuraciones de indexación activada/desactivada son útiles cuando solo tiene un subconjunto de los documentos que necesita consultar.
 
 Puede configurar la directiva predeterminada especificando el valor de la propiedad automática como verdadero/falso. Para anular la operación de un único documento, puede establecer el encabezado de solicitud x-ms-indexingdirective durante la inserción o la sustitución de un documento.
 
@@ -105,7 +103,7 @@ Por ejemplo, en el ejemplo siguiente muestra cómo incluir un documento de forma
 	// use the RequestOptions.IndexingDirective property.                                  
 	                                                                         
 	client.CreateDocumentAsync(defaultCollection.SelfLink,  
-	    new { Name = "AndersenFamily", isRegistered = true },                            
+	    new { Id = "AndersenFamily", isRegistered = true },                            
 		new RequestOptions                               
 		    {                                                                    
 			    IndexingDirective = IndexingDirective.Include                                                                                      
@@ -117,16 +115,16 @@ Por ejemplo, en el ejemplo siguiente muestra cómo incluir un documento de forma
 
 Puede elegir entre las actualizaciones de índices sincrónicas (**Homogéneas**) y asincrónicas (**Diferida**). De forma predeterminada, el índice se actualiza de forma sincrónica en cada acción de inserción, sustitución o eliminación realizada en un documento de la colección. Esto permite que las consultas tengan el mismo nivel de homogeneidad que el de las lecturas de los documentos sin demoras en la actualización de los índices.
 
-Aunque la Base de datos de documentos es de escritura optimizada y admite volúmenes constantes de escrituras de documentos junto con capacidades sincrónicas de mantenimiento del índice, es posible configurar determinadas recopilaciones para que su índice se actualice de forma diferida. La indexación diferida es perfecta para escenarios en los que los datos se escriben en ráfagas y desea amortizar el trabajo necesario para indexar el contenido durante un período de tiempo prolongado. Esto permite utilizar de forma eficaz el rendimiento aprovisionado y atender a las solicitudes de escritura en las horas punta con una latencia mínima.    Con la indexación diferida activada, los resultados de la consulta serán coherentes con el tiempo independientemente del nivel de coherencia configurado para la cuenta de base de datos.
+Aunque la Base de datos de documentos es de escritura optimizada y admite volúmenes constantes de escrituras de documentos junto con capacidades sincrónicas de mantenimiento del índice, es posible configurar determinadas recopilaciones para que su índice se actualice de forma diferida. La indexación diferida es perfecta para escenarios en los que los datos se escriben en ráfagas y desea amortizar el trabajo necesario para indexar el contenido durante un período de tiempo prolongado. Esto permite utilizar de forma eficaz el rendimiento aprovisionado y atender a las solicitudes de escritura en las horas punta con una latencia mínima. Con la indexación diferida activada, los resultados de la consulta serán coherentes con el tiempo independientemente del nivel de coherencia configurado para la cuenta de base de datos.
 
-La siguiente muestra indica cómo crear una colección de Base de datos de documentos mediante el SDK de .NET con la indexación automática coherente en todas las inserciones de documento.
+El siguiente programa de ejemplo muestra cómo crear una colección de Base de datos de documentos mediante el SDK de .NET con la indización automática coherente en todas las inserciones de documentos.
 
 
 	 // Default collection creates a hash index for all string and numeric    
 	 // fields. Hash indexes are compact and offer efficient                                                                                           
 	 // performance for equality queries.                                     
 	                                                                          
-	 var defaultCollection = new DocumentCollection { Name ="defaultCollection" };                                                   
+	 var defaultCollection = new DocumentCollection { Id ="defaultCollection" };                                                   
 	                                                                          
 	 // Optional. Override Automatic to false for opt-in indexing of documents.                                                                
 	                                                                          
@@ -144,7 +142,8 @@ La siguiente muestra indica cómo crear una colección de Base de datos de docum
 
 El tipo o el esquema utilizado para las entradas de índice repercute directamente en el rendimiento y almacenamiento del índice. En esquemas que utilizan mayor precisión, las consultas suelen ser más rápidas. Sin embargo, la sobrecarga en el almacenamiento también es mayor para el índice. Elegir una precisión menor implica la posibilidad de procesar más documentos durante la ejecución de la consulta, aunque la sobrecarga del almacenamiento será menor.
 
-La precisión del índice de los valores en cualquier ruta de acceso puede ser de entre 3 y 7 bytes. Puesto que la misma ruta de acceso puede tener valores numéricos y de cadena en distintos documentos, estos se pueden controlar por separado. En el SDK. NET, estos valores se corresponden con las propiedades [NumericPrecision](http://msdn.microsoft.com/library/microsoft.azure.documents.indexingpath.numericprecision.aspx) y [StringPrecision](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpath.stringprecision.aspx).
+La precisión del índice de los valores en cualquier ruta de acceso puede ser de entre 3 y 7 bytes.
+Puesto que la misma ruta de acceso puede tener valores numéricos y de cadena en distintos documentos, estos se pueden controlar por separado. En el SDK. NET, estos valores corresponden a las propiedades [NumericPrecision](http://msdn.microsoft.com/library/microsoft.azure.documents.indexingpath.numericprecision.aspx) y [StringPrecision](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.indexingpath.stringprecision.aspx).
 
 Hay dos tipos de índices admitidos: De hash e intervalo. El tipo de índice **Hash** permite realizar consultas de igualdad eficaz. Para la mayoría de los casos de uso, los índices hash no requieren una precisión mayor que el valor predeterminado de 3 bytes.
 
@@ -161,7 +160,7 @@ En el ejemplo siguiente se muestra cómo aumentar la precisión de los índices 
 	 // against ranges (>,>=,<=,<), then you can configure the collection to 
 	 // use range queries for all numeric values.                                                                                                      
  
-	var rangeDefault = new DocumentCollection { Name = "rangeCollection" };                                                              
+	var rangeDefault = new DocumentCollection { Id = "rangeCollection" };                                                              
 	rangeDefault.IndexingPolicy.IncludedPaths.Add(                                                             
 												 new IndexingPath {   
 													IndexType = IndexType.Range, Path = "/", 
@@ -174,9 +173,9 @@ En el ejemplo siguiente se muestra cómo aumentar la precisión de los índices 
 
 En los documentos, puede elegir qué rutas de acceso se deben incluir o excluir del índice. Esto puede mejorar el rendimiento de escritura y reducir el almacenamiento necesario para índice en escenarios en los que se conocen de antemano los patrones de consulta.
 
-Las rutas de acceso del índice comenzar con la raíz (/) y normalmente finalizan con el operador comodín ?, que indica que hay varios posibles valores para el prefijo. Por ejemplo, para servir SELECT * FROM Families F WHERE F.familyName = "Andersen", debe incluir una ruta de acceso de índice para /"familyName"/? en la directiva de índice de la colección.
+Las rutas de acceso del índice comenzar con la raíz (/) y normalmente finalizan con el operador comodín ?, que indica que hay varios posibles valores para el prefijo. Por ejemplo, para atender a la consulta SELECT * FROM Families F WHERE F.familyName = "Andersen", debe incluir una ruta de acceso del índice para /"familyName"/? en la directiva de índice de la recopilación.
 
-Las rutas de acceso del índice también pueden utilizar el operador comodín * para especificar el comportamiento de las rutas de acceso de forma recursiva en el prefijo. Por ejemplo: /"payload"/* puede usarse para excluir todo el contenido de la propiedad payload de la indexación.
+Las rutas de acceso del índice también pueden utilizar el operador comodín * para especificar el comportamiento de las rutas de acceso de forma recursiva en el prefijo. Por ejemplo, /"payload"/* puede usarse para excluir de la indexación todo el contenido de la propiedad payload.
 
 Estos son los patrones comunes para especificar las rutas de acceso del índice:
 
@@ -269,7 +268,7 @@ Estos son los patrones comunes para especificar las rutas de acceso del índice:
     </tbody>
 </table>
 
-> [AZURE.NOTE] Al configurar las rutas de acceso de índice personalizado, es necesario especificar la regla de indexación predeterminada para el árbol de todo el documento indicada mediante la ruta de acceso especial "/". 
+> [AZURE.NOTE] Al configurar las rutas de acceso de índice personalizado, es necesario especificar la regla de indexación predeterminada para el árbol de todo el documento indicada mediante la ruta de acceso especial "/".
 
 En el ejemplo siguiente se configura una ruta de acceso específica con indexación de intervalo y un valor de precisión personalizado de 7 bytes:
 
@@ -281,7 +280,7 @@ En el ejemplo siguiente se configura una ruta de acceso específica con indexaci
  	// /"CreatedTimestamp"/?    
  	// allowing queries of the form WHERE CreatedTimestamp [>] X            
 	
-	var pathRange = new DocumentCollection { Name = "rangeSinglePathCollection" };    
+	var pathRange = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 	
 	pathRange.IndexingPolicy.IncludedPaths.Add(
 								new IndexingPath { 
@@ -299,12 +298,12 @@ En el ejemplo siguiente se configura una ruta de acceso específica con indexaci
 	 pathRange = await client.CreateDocumentCollectionAsync(database.SelfLink, pathRange);      
 
 
-La Base de datos de documentos devuelve un error cuando una consulta usa un operador de intervalo pero no tiene ningún índice de intervalo en la ruta de acceso consultada y no dispone de todos los filtros que pueden obtenerse desde el índice. Pero estas consultas todavía se pueden realizar sin un índice de intervalo con el encabezado x-ms-documentdb-allow-scans en la API de REST o la opción
-AllowScanInQueryrequest mediante el SDK de .NET.
+La Base de datos de documentos devuelve un error cuando una consulta usa un operador de intervalo pero no tiene ningún índice de intervalo en la ruta de acceso consultada y no dispone de todos los filtros que pueden obtenerse desde el índice. Sin embargo, estas consultas se pueden realizar sin un índice de intervalo mediante el uso del encabezado x-ms-documentdb-allow-scans en la API REST o con la opción AllowScanInQueryrequest mediante el SDK de .NET.
 
-En el ejemplo siguiente se excluye un árbol secundario de rutas de acceso de la indexación mediante el comodín "*".
+En el ejemplo siguiente se excluye un árbol secundario de rutas de acceso de la indexación mediante el comodín
+"*".
 
-	var excluded = new DocumentCollection { Name = "excludedPathCollection" };                                                                       
+	var excluded = new DocumentCollection { Id = "excludedPathCollection" };                                                                       
   	excluded.IndexingPolicy.IncludedPaths.Add(
 	newIndexingPath {  Path = "/" });  
 
@@ -326,7 +325,7 @@ Para comprobar la cuota de almacenamiento y el uso de una colección, ejecute un
 	 Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentSizeQuota, collectionInfo.DocumentSizeUsage);                                       
 
 
-Para medir la sobrecarga de la indexación en cada operación de escritura (crear, actualizar o eliminar), inspeccione el encabezado x-ms-request-charge (o la propiedad equivalente [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) en [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) en el SDK de .NET) para medir el número de unidades de solicitud consumidas por estas operaciones.
+Para medir la sobrecarga de la indización en cada operación de escritura (crear, actualizar o eliminar), inspeccione el encabezado x-ms-request-charge (o la propiedad [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) equivalente en [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) en el SDK de .NET para medir el número de unidades de solicitudes utilizadas por estas operaciones.
 
 
  	// Measure the performance (request units) of writes.     
@@ -346,4 +345,4 @@ Para medir la sobrecarga de la indexación en cada operación de escritura (crea
 
 
 
-<!--HONumber=47-->
+<!--HONumber=49-->

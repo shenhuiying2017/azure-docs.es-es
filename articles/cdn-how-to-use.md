@@ -1,5 +1,5 @@
 ﻿<properties 
-	pageTitle="Uso de CDN - Guía de características de Azure" 
+	pageTitle="Uso de la red CDN - Guía de características de Azure" 
 	description="Obtenga información acerca del uso de la Red de entrega de contenido (CDN) de Azure para ofrecer contenido con alto ancho de banda mediante el almacenamiento en caché de blobs y contenidos estáticos." 
 	services="cdn" 
 	documentationCenter=".net" 
@@ -20,8 +20,6 @@
 
 
 
-[WACOM.INCLUDE [cdn](../includes/cdn.md)]
+[AZURE.INCLUDE [cdn](../includes/cdn.md)]
 
-<!--HONumber=35.2-->
-
-<!--HONumber=46--> 
+<!--HONumber=49-->

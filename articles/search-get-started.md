@@ -1,4 +1,4 @@
-<properties 
+﻿<properties 
 	pageTitle="Introducción a Búsqueda de Azure" 
 	description="Introducción a Búsqueda de Azure" 
 	services="search" 
@@ -18,21 +18,14 @@
 
 # Introducción a Búsqueda de Azure
 
-[WACOM.INCLUDE [En este artículo se usa el Portal de vista previa de Azure](../includes/preview-portal-note.md)]
+[AZURE.INCLUDE [En este artículo se usa el Portal de vista previa de Azure](../includes/preview-portal-note.md)]
 
-Búsqueda de Microsoft Azure (vista previa pública) es un nuevo servicio que le permite incorporar funciones de búsqueda a aplicaciones personalizadas. Proporciona un motor de búsqueda y almacenamiento para sus datos, que administra, y a los cuales tiene acceso, mediante una API de REST. Para obtener más información sobre las razones de usar Búsqueda de Azure, consulte [Supuestos y funciones de Búsqueda de Azure](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/).  
+Búsqueda de Microsoft Azure es un nuevo servicio que le permite incrustar funcionalidad de búsqueda en aplicaciones personalizadas. Proporciona un motor de búsqueda y almacenamiento para sus datos, que administra, y a los cuales tiene acceso, mediante un SDK de .NET o una API de REST. Para obtener más información sobre las razones de usar Búsqueda de Azure, consulte [Supuestos y funciones de Búsqueda de Azure](http://azure.microsoft.com/blog/2014/08/28/azure-search-scenarios-and-capabilities/).  
 
 Como administrador, puede agregar un servicio de búsqueda a una suscripción existente sin coste alguno al seleccionar el servicio compartido o a un precio reducido cuando se opta por los recursos dedicados. Este artículo contiene las siguientes secciones:
 
-<!--Table of contents -->
-
-+ [Comienzo con el servicio gratuito](#sub-1)
-+ [Actualización a una búsqueda estándar](#sub-2)
-+ [Prueba de operaciones del servicio](#sub-3)
-+ [Exploración del panel del servicio de búsqueda](#sub-4)
-+ [Prueba](#next-steps)
-
-<h2 id="sub-1">Comienzo con el servicio gratuito</h2>
+<a id="sub-1"></a>
+## Comienzo con el servicio gratuito
 
 Los suscriptores obtienen acceso gratuito automáticamente a un servicio de búsqueda compartido multiempresa que puede usar para fines de aprendizaje, pruebas de prueba de concepto o pequeños proyectos de búsqueda de desarrollo. Regístrese para usar la versión gratuita con los siguientes pasos.
 
@@ -46,21 +39,17 @@ Los suscriptores obtienen acceso gratuito automáticamente a un servicio de bús
 
   	![][7]
 
-4. En la galería, haga clic en **Datos, almacenamiento, caché, + copia de seguridad**.
+4. En la galería, haga clic en **Datos + análisis**.
  
   	![][8]
 
-5. Haga clic en **Ver todo** para ampliar la lista de todos los servicios relacionados con datos. 
-
-  	![][9]
-
-6. En los servicios de datos, haga clic en **Búsqueda**.
+5. En los servicios de datos, haga clic en **Búsqueda**.
  
   	![][10]
 
 7. En la parte inferior de la página, haga clic en **CREAR**.
 
-8. Escriba un nombre de servicio en minúscula para usarlo en la URL de servicio, evite usar guiones y espacios, y respete el límite de cadena de 15 caracteres.
+8. Escriba un nombre de servicio en minúscula para usarlo en la URL de servicio, evite espacios y respete el límite de cadena de 15 caracteres.
  
   	![][11]
 
@@ -78,7 +67,7 @@ Los suscriptores obtienen acceso gratuito automáticamente a un servicio de bús
 
 El servicio se crea en unos pocos minutos. Puede volver a los ajustes de configuración para obtener la URL o las claves de API. Las conexiones con el servicio de búsqueda requieren que tenga la URL y una clave de API para autenticar la llamada. A continuación se presenta como buscar estos valores rápidamente:
 
-14. Vaya a **Examinar** | **Todo** | **Datos, almacenamiento, caché, + copia de seguridad** | **Ver todo** | **Servicios de búsqueda**, haga clic en el servicio de búsqueda para abrir el panel de servicio. 
+14. Vaya a **Inicio** para abrir el panel. Haga clic en el servicio de búsqueda para abrir el panel del servicio. 
 
   	![][13]
 
@@ -94,8 +83,8 @@ El servicio se crea en unos pocos minutos. Puede volver a los ajustes de configu
 
 Ir a [Prueba de operaciones del servicio](#sub-3) para obtener instrucciones sobre cómo conectarse al servicio con estos valores.
 
-
-<h2 id="sub-2">Actualización a una búsqueda estándar</h2>
+<a id="sub-2"></a>
+## Actualización a una búsqueda estándar
 
 La búsqueda estándar obtiene recursos dedicados en un centro de datos de Azure que solo usted puede usar. Las cargas de trabajo de búsqueda requieren réplicas de almacenamiento y servicio. Al registrarse para una búsqueda estándar, puede optimizar la configuración del servicio para usar más de cualquier recurso que sea el más importante para su escenario.
 
@@ -113,9 +102,7 @@ La configuración de recursos dedicados puede tardar unos minutos (15 minutos o 
 
 3. Haga clic en **Todo** en la parte superior de la página.
 
-4. En la galería, haga clic en **Datos, almacenamiento, caché, + copia de seguridad**.
-
-5. Haga clic en **Ver todo** para ampliar la lista de todos los servicios relacionados con datos.
+4. En la galería, haga clic en **Datos + análisis**.
 
 6. En los servicios de datos, haga clic en **Búsqueda**.
 
@@ -135,18 +122,20 @@ La búsqueda estándar comienza con una réplica y una partición, pero se puede
 
 2.	Use los controles deslizantes para agregar réplicas, particiones o ambos. 
 
-Las réplicas y las particiones adicionales se cobran en unidades de búsqueda. El total de unidades de búsqueda necesario para admitir una configuración de recursos en particular se muestra en la página, a medida que agrega recursos. Puede consultar [Detalles de precios](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obtener la información de facturación por unidad.
+Las réplicas y las particiones adicionales se cobran en unidades de búsqueda. El total de unidades de búsqueda necesario para admitir una configuración de recursos en particular se muestra en la página, a medida que agrega recursos. 
+
+Puede consultar [Detalles de precios](http://go.microsoft.com/fwlink/p/?LinkID=509792) para obtener la información de facturación por unidad. Consulte [Límites y restricciones](http://msdn.microsoft.com/library/azure/dn798934.aspx) para obtener ayuda para decidir cómo configurar las combinaciones de partición y de réplica.
 
  ![][15]
 
-  
-<h2 id="sub-3">Prueba de operaciones del servicio</h2>
+<a id="sub-3"></a>
+## Prueba de operaciones del servicio
 
 La confirmación de que su servicio está operativo y que puede obtenerse acceso a él desde una aplicación cliente es el paso final en la configuración de la búsqueda. Este procedimiento usa Fiddler, disponible como una [descarga gratuita en Telerik](http://www.telerik.com/fiddler), para emitir solicitudes HTTP y ver respuestas. Al usar Fiddler, puede probar la API inmediatamente, sin tener que crear ningún código. 
 
 El siguiente procedimiento funciona para la búsqueda compartida y estándar. En los siguientes pasos, podrá crear un índice, cargar documentos, consultar el índice y, a continuación, consultar el sistema en busca de información de servicio.
 
-<h3>Creación de un índice</h3>
+### Creación de un índice
 
 1. Inicie Fiddler. En el menú Archivo, desactive **Capturar tráfico** para ocultar actividad HTTP irrelevante que no está relacionada con la tarea actual. En la pestaña Compositor, formulará una solicitud que se ve similar a lo siguiente: 
 
@@ -156,7 +145,7 @@ El siguiente procedimiento funciona para la búsqueda compartida y estándar. En
 
 3. Escriba una URL que especifica la URL de servicio (que puede encontrar en la página Propiedades), solicite los atributos y la versión de API. Algunos indicadores que tener en cuenta:
    + Use HTTPS como el prefijo
-   + El atributo de solicitud es "/índices/hoteles". Esto le indica a la búsqueda que cree un índice llamado "hoteles".
+   + El atributo de solicitud es "/índices/hoteles". Esto le indica a la búsqueda que cree un índice llamado  'hotels'.
    + La versión de API es en minúsculas y se específica como "?api-version=2014-07-31-preview". Las versiones de API son importantes porque Búsqueda de Azure implementa actualizaciones regularmente. En raras ocasiones, una actualización de servicio puede presentar un cambio innovador en la API. Al usar las versiones de API, puede seguir usando la versión actual y actualizar a una más nueva cuando sea conveniente.
 
     La URL completa debe ser similar al siguiente ejemplo:
@@ -195,7 +184,7 @@ En algunos segundos, debe ver una respuesta HTTP 201 en la lista de sesiones, qu
 
 Si obtiene HTTP 504, compruebe que la URL especifique HTTPS. Si se muestra el error HTTP 400 o 404, compruebe el cuerpo de la solicitud para verificar que no haya errores al copiar/pegar. Un HTTP 403 indica normalmente que hay un problema con la clave de API (es una clave no válida o un problema de sintaxis sobre cómo se específica la clave de API).
 
-<h3>Carga de documentos</h3>
+### Carga de documentos
 
 En la pestaña Compositor, se verá su solicitud para enviar documentos como a continuación. El cuerpo de la solicitud contiene los datos de búsqueda de cuatro hoteles.
 
@@ -281,7 +270,7 @@ En la pestaña Compositor, se verá su solicitud para enviar documentos como a c
 
 En unos pocos segundos debe ver una respuesta HTTP 200 en la lista de sesiones. Esto indica que los documentos se crearon correctamente. Si obtiene un 207, al menos un documento no pudo cargarse. Si obtiene un error 404, se ha producido un error de sintaxis en el encabezado o en el cuerpo de la solicitud.
 
-<h3>Consultas al índice</h3>
+### Consultas al índice
 
 Ahora que se han cargado el índice y los documentos, puede emitir consultas con ellos.  En la pestaña Compositor, el comando GET que consulta su servicio tendrá la siguiente apariencia:
 
@@ -308,7 +297,7 @@ El código de respuesta debe ser 200 y el resultado de la respuesta debe ser sim
 
 La siguiente consulta de ejemplo proviene de la [operación de índice de búsqueda (API de Búsqueda de Azure)](http://msdn.microsoft.com/library/dn798927.aspx) en MSDN. Muchas de las consultas de ejemplo en este tema incluyen espacios, que no están permitidos en Fiddler. Reemplace cada espacio por un carácter + antes de pegar la cadena de la consulta e intentar la consulta en Fiddler: 
 
-**Los espacios anteriores se reemplazan:**
+**Los espacios anteriores se reemplazan:*
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2014-07-31-Preview
 
@@ -316,7 +305,7 @@ La siguiente consulta de ejemplo proviene de la [operación de índice de búsqu
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2014-07-31-Preview
 
-<h3>Consultas al sistema</h3>
+### Consultas al sistema
 
 También puede consultar al sistema para obtener recuentos de documentos y consumo de almacenamiento. En la pestaña Compositor, su solicitud tendrá la siguiente apariencia y la respuesta devolverá un recuento de la cantidad de documentos y el espacio usado.
 
@@ -343,33 +332,36 @@ También puede consultar al sistema para obtener recuentos de documentos y consu
 
  	![][21]
 
-<h2 id="sub-4">Exploración del panel del servicio de búsqueda</h2>
+<a id="sub-4"></a>
+## Exploración del panel del servicio de búsqueda
 
 Si necesita un actualizador sobre dónde buscar las páginas de configuración, siga los siguientes pasos para ubicar el panel de servicio.
 
 1.	Inicie sesión en el [Portal de vista previa de Azure](https://portal.azure.com) con su suscripción actual. 
-2.	Haga clic en **Examinar** | **Todo**.
+2.	Haga clic en **Inicio** y, a continuación, haga clic en el icono del servicio de búsqueda.
 
  	![][22]
 
-3.	Seleccione **Servicios de búsqueda** de la lista. Debe ver una lista de todos los servicios de búsqueda que se crearon en sus suscripciones.
+4.	Se abrirá el panel de servicio. Tenga en cuenta que los comandos de **inicio**, **detención** y **eliminación** están en la parte superior. El panel de servicio incluye iconos para ver propiedades, claves y un inicio rápido con vínculos a la información y las instrucciones. Desplácese hacia abajo para ver el uso.
 
-4.	Haga clic en un servicio para abrir su panel. Tenga en cuenta que los comandos de **inicio**, **detención** y **eliminación** están en la parte superior. El panel de servicio incluye iconos para ver propiedades, claves y un inicio rápido con vínculos a la información y las instrucciones. Desplácese hacia abajo para ver el uso.
-
-5.	Haga clic en **PROPIEDADES**. Tenga en cuenta que la página de propiedades se abre a la derecha. La URL de servicio se encuentra en la parte superior de la página. Para obtener claves de API usadas para autenticarse con el servicio, haga clic en **CLAVES**.
+5.	Haga clic en **PROPIEDADES**. Tenga en cuenta que la página de propiedades se abre a la derecha. La URL de servicio se encuentra en la parte superior de la página. Necesitará esta dirección URL para conectarse a su servicio de búsqueda de Azure.
 
  	![][23]
+	
+7.	Haga clic en **CLAVES** para ver las claves de la API. Necesitará una clave de administración para autenticar el servicio. También puede utilizar el servidor principal o secundario. Si lo desea, puede crear claves de consulta para obtener acceso de solo lectura al servicio.
+
 
 <!--Next steps and links -->
-<h2 id="next-steps">Prueba</h2>
+<a id="next-steps"></a>
+## Prueba
 
 ¿Está listo para el siguiente paso? Los siguientes vínculos lo llevan a material adicional que muestra cómo compilar y administrar aplicaciones de búsqueda que usan Búsqueda de Azure.
 
-- [Creación de la primera solución de búsqueda de Azure](../search-create-first-solution/) 
+- [Creación de la primera solución de búsqueda de Azure](search-create-first-solution.md) 
 
-- [Creación de un ejemplo de búsqueda geográfica con Búsqueda de Azure](../search-create-geospatial/)
+- [Creación de un ejemplo de búsqueda geográfica con Búsqueda de Azure](search-create-geospatial.md)
 
-- [Administración de la solución de búsqueda en Microsoft Azure](../search-manage/) 
+- [Administración de la solución de búsqueda en Microsoft Azure](search-manage.md) 
 
 - [Información técnica sobre Búsqueda de Azure](http://msdn.microsoft.com/library/dn798933.aspx)
 
@@ -405,14 +397,16 @@ Si necesita un actualizador sobre dónde buscar las páginas de configuración, 
 [19]: ./media/search-get-started/AzureSearch_Configure1_14_GETQueryResponse.PNG
 [20]: ./media/search-get-started/AzureSearch_Configure1_15_Stats.PNG
 [21]: ./media/search-get-started/AzureSearch_Configure1_16_StatsResponse.PNG
-[22]: ./media/search-get-started/AzureSearch_Configure1_17_BrowseEverything.PNG
+[22]: ./media/search-get-started/AzureSearch_Configure1_17_HomeDashboard.PNG
 [23]: ./media/search-get-started/AzureSearch_Configure1_18_Explore.PNG
 
 
 <!--Link references-->
-[Administración de la solución de búsqueda en Microsoft Azure]: ../search-manage/
-[Flujo de trabajo de desarrollo de Búsqueda de Azure]: ../search-workflow/
-[Creación de la primera solución de búsqueda de Azure]: ../search-create-first-solution/
-[Creación de una aplicación de búsqueda geoespacial mediante Búsqueda de Azure]: ../search-create-geospatial/
+[Administración de la solución de búsqueda en Microsoft Azure]: search-manage.md
+[Flujo de trabajo de desarrollo de Búsqueda de Azure]: search-workflow.md
+[Creación de la primera solución de búsqueda de Azure]: search-create-first-solution.md
+[Crear una aplicación de búsqueda geoespacial usando Búsqueda de Azure]: search-create-geospatial.md
 
-<!--HONumber=35.2-->
+<!--HONumber=49--> 
+
+<!--HONumber=49-->

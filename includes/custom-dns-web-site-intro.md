@@ -1,2 +1,3 @@
-﻿Cuando se crea un sitio web, Microsoft Azure proporciona un subdominio descriptivo en el dominio azurewebsites.net  para que los usuarios puedan tener acceso al sitio web con una dirección URL como http://&lt;mysite&gt;.azurewebsites.net. También puede asociar un nombre de dominio personalizado, como contoso.com, a su sitio web con el fin de proporcionar un nombre de dominio más reconocible para los usuarios.
-\<!--HONumber=42-->
+﻿Cuando se crea una aplicación web, Microsoft Azure proporciona un subdominio descriptivo en el dominio azurewebsites.net para que los usuarios puedan obtener acceso a la aplicación web con una dirección URL como http://&lt;miaplicacionweb&gt;.azurewebsites.net. También es posible asociar un nombre de dominio personalizado, como contoso.com, a una aplicación web con el fin de proporcionar a los usuarios un nombre de dominio que sea más fácil de reconocer.
+
+<!--HONumber=49-->

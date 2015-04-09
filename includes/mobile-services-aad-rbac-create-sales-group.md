@@ -3,7 +3,7 @@
 ### Creación de usuarios
 
 
-1. En el [Portal de administración de Azure], vaya al directorio que configuró previamente para autenticación cuando realizó el tutorial [Introducción a la autenticación].
+1. En el [Portal de administración de Azure], navegue hasta el directorio que configuró previamente para la autenticación cuando realizó el tutorial para agregar la autenticación a una aplicación.
 2. Haga clic en **Usuarios** en la parte superior de la página. A continuación, haga clic en el botón **Agregar usuario** de la parte inferior. 
 3. Complete los cuadros de diálogo de nuevo usuario para crear un usuario llamado **Roberto**. Anote la contraseña temporal de ese usuario. 
 4. Cree otro usuario llamado **David**. Anote la contraseña temporal de ese usuario.
@@ -28,9 +28,13 @@
 
     ![](./media/mobile-services-aad-rbac-create-sales-group/group-membership.png)
 
-3. En la página del grupo de ventas, haga clic en **Configurar** y, a continuación, fíjese en el **Id. de objeto** del grupo de ventas. En realidad, este tutorial se fija en el identificador del objeto del grupo utilizando las API de Graph. Así pues, no necesitará el identificador. Sin embargo, en algunos casos es mejor no utilizar el nombre del grupo porque podría cambiar (mientras que el identificador permanece igual). Si desea almacenar el identificador de grupo como una configuración de aplicación en el servicio móvil, o codificarlo de forma rígida en su código, es aquí donde lo encontrará.
+3. En la página Grupo de ventas, haga clic en **Propiedades** y copie el **Id. de objeto** para el grupo de ventas en la parte inferior de la página. 
 
+   
     ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id.png)
 
+4. Vuelva a la página de configuración de su servicio móvil y agregue el Id. de objeto en forma de valor de la aplicación llamado **AAD\_SALES\_GROUP\_ID**. Este tutorial usa el Id. de objeto del grupo como un valor de la aplicación, en lugar de buscar el Id. basándose en el nombre del grupo. Esto se debe a que el nombre del grupo puede cambiar, mientras que el Id. no varía.
 
-<!--HONumber=42-->
+    ![](./media/mobile-services-aad-rbac-create-sales-group/sales-group-id-app-setting.png)
+
+<!--HONumber=49-->
