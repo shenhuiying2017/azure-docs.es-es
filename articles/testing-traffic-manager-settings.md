@@ -1,6 +1,6 @@
 ﻿<properties
-   pageTitle="Comprobación de la configuración de Administrador de tráfico "
-   Descripción="Este artículo le ayudará a probar la configuración de Administrador de tráfico."
+   pageTitle="Comprobación de la configuración de Administrador de tráfico"
+   description="Este artículo le ayudará a probar la configuración de Administrador de tráfico."
    services="traffic-manager"
    documentationCenter="na"
    authors="cherylmc"
