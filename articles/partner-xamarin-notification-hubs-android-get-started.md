@@ -1,16 +1,16 @@
 ﻿<properties 
 	pageTitle="Introducción a los Centros de notificaciones para aplicaciones Xamarin.Android" 
-	description="Obtenga información acerca de cómo usar los Centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación Xamarin Android. 
-	authors="lindydonna" 
+	description="Obtenga información acerca de cómo usar los Centros de notificaciones de Azure para enviar notificaciones de inserción a una aplicación Xamarin Android."
+	authors="yuaxu" 
 	manager="dwrede" 
 	editor="" 
-	services="mobile-services" 
+	services="notification-hubs" 
 	documentationCenter="xamarin"/>
 
 <tags 
 	ms.service="notification-hubs" 
 	ms.workload="mobile" 
-	ms.tgt_pltfrm="" 
+	ms.tgt_pltfrm="mobile-xamarin-android" 
 	ms.devlang="dotnet" 
 	ms.topic="hero-article" 
 	ms.date="11/11/2014" 
