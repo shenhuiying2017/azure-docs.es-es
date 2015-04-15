@@ -1,4 +1,4 @@
-﻿<properties 
+<properties 
 	pageTitle="Uso del control de acceso (.NET) - Guía de características de Azure" 
 	description="Aprenda a usar el servicio de control de acceso (ACS) en la aplicación de Azure para autenticar a los usuarios cuando intentan obtener acceso a una aplicación web." 
 	services="active-directory" 
@@ -374,7 +374,7 @@ Para seguir explorando la funcionalidad de ACS y experimentar con más escenario
   [vpp]: #bkmk_VP
 
   [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
-  [Herramienta de identidad y acceso]: http://go.microsoft.com/fwlink/?LinkID=245849
+  [Identity and Access Tool]: http://go.microsoft.com/fwlink/?LinkID=245849
   [Portal de administración de Azure]: http://manage.WindowsAzure.com
 
   [0]: ./media/active-directory-dotnet-how-to-use-access-control/acs-01.png
