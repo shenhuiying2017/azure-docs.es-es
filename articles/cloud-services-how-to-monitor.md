@@ -56,13 +56,13 @@ Utilice los siguientes procedimientos para configurar la supervisión detallada 
 - Cree una cuenta de almacenamiento para almacenar los datos de supervisión. Puede utilizar cuentas de almacenamiento diferentes para roles diferentes. Para obtener más información, consulte la ayuda de **Cuentas de almacenamiento** o consulte [Creación de una cuenta de almacenamiento](/es-es/manage/services/storage/how-to-create-a-storage-account/).
 
 
-- Active Diagnósticos de Azure en sus roles de servicios en la nube. <br />Para obtener más información, consulte [Habilitación de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](/es-es/documentation/articles/cloud-services-dotnet-diagnostics/).
+- Active Diagnósticos de Azure en sus roles de servicios en la nube. <br />Para obtener más información, consulte [Habilitación de Diagnósticos en Servicios en la nube y Máquinas virtuales de Azure](cloud-services-dotnet-diagnostics.md).
 
 En el Portal de administración, puede agregar o modificar las cadenas de conexión de diagnósticos que Diagnósticos de Azure utiliza para tener acceso a las cuentas de almacenamiento que almacenan datos de supervisión detallada, y puede configurar el nivel de supervisión a detallado o mínimo. Dado que la supervisión detallada almacena los datos en una cuenta de almacenamiento, debe configurar las cadenas de conexión de diagnósticos antes de configurar la supervisión en un nivel detallado.
 
 ### Para configurar las cadenas de conexiones de diagnósticos de la supervisión detallada###
 
-1. Copie una clave de acceso de almacenamiento para la cuenta de almacenamiento que va a utilizar para almacenar los datos de la supervisión detallada. En el [Portal de administración de Azure](https://manage.windowsazure.com/), puede usar **Administrar claves** en la página **Cuentas de almacenamiento**. Para obtener más información, consulte [Administración de servicios en la nube](/es-es/documentation/articles/cloud-services-how-to-manage/) o la ayuda de la página **Cuentas de almacenamiento**. 
+1. Copie una clave de acceso de almacenamiento para la cuenta de almacenamiento que va a utilizar para almacenar los datos de la supervisión detallada. En el [Portal de administración de Azure](https://manage.windowsazure.com/), puede usar **Administrar claves** en la página **Cuentas de almacenamiento**. Para obtener más información, consulte [Administración de servicios en la nube](cloud-services-how-to-manage.md) o la ayuda de la página **Cuentas de almacenamiento**. 
 
 2. Abra **Servicios en la nube**. A continuación, para abrir el panel, haga clic en el nombre del servicio en la nube que desee configurar.
 

@@ -115,7 +115,7 @@ Este código se ha proporcionado para mostrar la funcionalidad básica usando Tw
 Para obtener más información acerca de Twilio, consulte [https://www.twilio.com/docs][twilio_docs].
 
 ## Otras referencias
-* [Uso de Twilio para capacidades de voz y SMS en PHP](../partner-twilio-php-how-to-use-voice-sms)
+* [Uso de Twilio para capacidades de voz y SMS en PHP](partner-twilio-php-how-to-use-voice-sms.md)
 
 [twilio_pricing]: http://www.twilio.com/pricing
 [try_twilio]: http://www.twilio.com/try-twilio

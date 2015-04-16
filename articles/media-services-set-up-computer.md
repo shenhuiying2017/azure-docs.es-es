@@ -26,7 +26,7 @@ Esta sección contiene los requisitos previos generales para el desarrollo de Se
 
 ### Requisitos previos
 
--   Una cuenta de Servicios multimedia en una suscripción de Azure nueva o existente. Consulte el tema [Creación de una cuenta de Servicios multimedia](../media-services-create-account/).
+-   Una cuenta de Servicios multimedia en una suscripción de Azure nueva o existente. Consulte el tema [Creación de una cuenta de Servicios multimedia](media-services-create-account.md).
 -   Sistemas operativos: Windows 7, Windows 2008 R2 o Windows 8.
 -   .NET Framework 4.
 -   Visual Studio 2013, Visual Studio 2012 o Visual Studio 2010 SP1 (Professional, Premium, Ultimate o Express). 

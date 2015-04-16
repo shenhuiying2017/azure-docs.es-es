@@ -28,7 +28,7 @@ La aplicación de ejemplo demuestra los comportamientos de puntuación con la ut
 
 La aplicación de ejemplo está escrita en C# con Visual Studio 2013. Pruebe la edición gratuita de [Visual Studio 2013 Express](http://www.visualstudio.com/es-es/products/visual-studio-express-vs.aspx) si aún no tiene una copia de Visual Studio.
 
-Necesitará una suscripción de Azure y un servicio de Búsqueda de Azure para completar el tutorial. Consulte [Introducción a Búsqueda de Azure](../search-get-started/) para obtener ayuda con la configuración del servicio.
+Necesitará una suscripción de Azure y un servicio de Búsqueda de Azure para completar el tutorial. Consulte [Introducción a Búsqueda de Azure](search-get-started.md) para obtener ayuda con la configuración del servicio.
 
 [WACOM.INCLUDE [Para completar este tutorial, deberá tener una cuenta de Azure:](../includes/free-trial-note.md)]
 

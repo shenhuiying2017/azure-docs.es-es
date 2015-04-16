@@ -95,7 +95,7 @@ Puede ver los extremos de la cuenta de almacenamiento en el Panel de almacenamie
 
 La dirección URL para el acceso a un objeto en una cuenta de almacenamiento se crea anexando la ubicación del objeto en la cuenta de almacenamiento al extremo. Por ejemplo, una dirección de blob podría tener el siguiente formato: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
 
-También puede configurar un nombre de dominio personalizado para usar con la cuenta de almacenamiento. Consulte [Configuración de un nombre de dominio personalizado para datos de blobs en una cuenta de almacenamiento](../storage-custom-domain-name/) para obtener más detalles.
+También puede configurar un nombre de dominio personalizado para usar con la cuenta de almacenamiento. Consulte [Configuración de un nombre de dominio personalizado para datos de blobs en una cuenta de almacenamiento](storage-custom-domain-name.md) para obtener más detalles.
 
 ### <a id="affinity-group"></a>Coubicación de servicios con un grupo de afinidad 
 
@@ -113,7 +113,7 @@ Un *grupo de afinidad* es un grupo geográfico de los servicios de Azure y máqu
 
 Al crear una cuenta de almacenamiento, Azure genera dos claves de acceso de almacenamiento de 512 bits que se usan para autenticación cuando se obtiene acceso a la cuenta de almacenamiento. Al brindar dos claves de acceso de almacenamiento, Azure le permite volver a generar las claves sin interrupción en su servicio de almacenamiento, o bien, tener acceso a ese servicio.
 
-> [AZURE.NOTE] Se recomienda no compartir con nadie las claves de acceso de la cuenta de almacenamiento. Para permitir el acceso a los recursos de almacenamiento sin proporcionar sus claves de acceso, puede usar una *firma de acceso compartido*. Una firma de acceso compartido proporciona acceso a un recurso de su cuenta durante un intervalo que defina y con los permisos que especifique. Para obtener más información, consulte el [tutorial sobre firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1/).
+> [AZURE.NOTE] Se recomienda no compartir con nadie las claves de acceso de la cuenta de almacenamiento. Para permitir el acceso a los recursos de almacenamiento sin proporcionar sus claves de acceso, puede usar una *firma de acceso compartido*. Una firma de acceso compartido proporciona acceso a un recurso de su cuenta durante un intervalo que defina y con los permisos que especifique. Para obtener más información, consulte el [tutorial sobre firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).
 
 En el [Portal de administración](http://manage.windowsazure.com), use **Manage Keys** en el panel o la página **Almacenamiento** para ver, copiar y regenerar las claves de acceso de almacenamiento que se usan para tener acceso a los servicios de Blob, Tabla y Cola. 
 

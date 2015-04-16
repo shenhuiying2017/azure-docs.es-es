@@ -141,8 +141,8 @@ Para comenzar, HDInsight proporciona scripts de ejemplo que permiten instalar lo
 
 - **Instalar Spark**. Consulte [Instalación de Spark en clústeres de HDInsight][hdinsight-install-spark].
 - **Instalar R**. Consulte [Instalación de R en clústeres de HDInsight][hdinsight-install-r].
-- **Instalar Solr**. [Instalación y uso de Solr en clústeres de HDInsight](../hdinsight-hadoop-solr-install)
-- **Instalar Giraph**. [Instalación y uso de Giraph en clústeres de HDInsight](../hdinsight-hadoop-giraph-install)
+- **Instalar Solr**. [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md)
+- **Instalar Giraph**. [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md)
 
 ## <a name="support"></a>Soporte técnico para software de código abierto utilizado en clúster de HDInsight
 El servicio Microsoft Azure HDInsight es una plataforma flexible que permite compilar aplicaciones con grandes volúmenes de datos en una nube mediante el ecosistema de tecnologías de código abierto formadas en torno a Hadoop. Microsoft Azure proporciona el nivel general de soporte técnico para las tecnologías de código abierto, tal como se describe en la <a href="http://azure.microsoft.com/support/faq/" target="_blank">sección del ámbito de soporte del sitio web de preguntas más frecuentes de soporte técnico de Azure</a>. Además, el servicio HDInsight ofrece nivel adicional de soporte técnico para algunos de los componentes que se describen a continuación.

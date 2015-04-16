@@ -38,7 +38,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 Después de crear la máquina virtual, puede adjuntar un disco de datos adicional de forma opcional. Esto se recomienda para las cargas de trabajo de producción y para evitar quedarse sin espacio en la unidad de sistema operativo (C:), que actualmente está limitada a 127 GB e incluye el sistema operativo.
 
-Consulte [Acoplamiento de un disco de datos a una máquina virtual de Windows](../storage-windows-attach-disk/) y siga las instrucciones para conectar un disco vacío. Establezca la configuración de la caché de host en **ninguna** o **solo lectura**.
+Consulte [Acoplamiento de un disco de datos a una máquina virtual de Windows](storage-windows-attach-disk.md) y siga las instrucciones para conectar un disco vacío. Establezca la configuración de la caché de host en **ninguna** o **solo lectura**.
 
 ## Iniciar sesión en la nueva máquina virtual
 
@@ -91,7 +91,7 @@ Siga estos pasos para instalar, configurar y ejecutar la versión de la comunida
 Si desea que el servicio de MySQL Server esté disponible para los equipos de cliente de MySQL en Internet, debe configurar un extremo del puerto TCP en el que escucha el servicio MySQL Server y crear una regla adicional de Firewall de Windows. Este es el puerto TCP 3306 a menos que se especifique un puerto diferente en la página de Tipos y redes (paso 10 del procedimiento anterior). 
 
 
-> [AZURE.NOTE] Debe considerar detenidamente las implicaciones de seguridad de hacer esto, ya que haría que el servicio de MySQL Server esté disponible para todos los equipos en Internet. Puede definir el conjunto de direcciones IP de origen que tienen permiso para usar el extremo con una lista de control de acceso (ACL). Para obtener más información, vea [Cómo establecer extremos en una máquina virtual](../virtual-machines-set-up-endpoints/).
+> [AZURE.NOTE] Debe considerar detenidamente las implicaciones de seguridad de hacer esto, ya que haría que el servicio de MySQL Server esté disponible para todos los equipos en Internet. Puede definir el conjunto de direcciones IP de origen que tienen permiso para usar el extremo con una lista de control de acceso (ACL). Para obtener más información, vea [Cómo establecer extremos en una máquina virtual](virtual-machines-set-up-endpoints.md).
 
 
 Para configurar un extremo del servicio de MySQL Server:

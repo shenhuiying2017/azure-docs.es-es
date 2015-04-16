@@ -238,7 +238,7 @@ La mayor parte del uso del administrador de mapas de particiones procede de las 
 
 Tenga en cuenta que estas aplicaciones (mediante **ShardMapManager** abierto con credenciales de solo lectura) no podrán realizar cambios en los mapas ni las asignaciones.  Para cubrir esas necesidades, cree aplicaciones específicas de administración o scripts de PowerShell que proporcionen credenciales con más privilegios, como se explicó anteriormente.   
 
-Para obtener más detalles, consulte [Enrutamiento dependiente de los datos](./sql-database-elastic-scale-data-dependent-routing.md). 
+Para obtener más detalles, consulte [Enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md). 
 
 ## Modificación de un mapa de particiones 
 
@@ -270,9 +270,9 @@ Estos métodos funcionan en conjunto como los bloques de creación disponibles p
 
 Con frecuencia, las aplicaciones simplemente necesitan agregar nuevas particiones para controlar los datos que se esperan de nuevas claves o intervalos de claves, en un mapa de particiones que ya existe. Por ejemplo, es posible que una aplicación particionada por identificador de inquilino necesite aprovisionar una nueva partición para un nuevo inquilino o que datos particionados mensualmente necesiten que se aprovisione una nueva partición antes del inicio de cada nuevo mes. 
 
-Si el nuevo intervalo de valores de clave ya no forma parte de una asignación existente y no se requiere ningún movimiento de datos, es muy sencillo agregar la nueva partición y asociar la nueva clave o el nuevo intervalo a dicha partición. Para obtener más información sobre cómo agregar nuevas particiones, consulte [Incorporación de una nueva partición](./sql-database-elastic-scale-add-a-shard.md).
+Si el nuevo intervalo de valores de clave ya no forma parte de una asignación existente y no se requiere ningún movimiento de datos, es muy sencillo agregar la nueva partición y asociar la nueva clave o el nuevo intervalo a dicha partición. Para obtener más información sobre cómo agregar nuevas particiones, consulte [Incorporación de una nueva partición](sql-database-elastic-scale-add-a-shard.md).
 
-Sin embargo, para escenarios que requieren movimiento de datos, se necesita el servicio de división y combinación para coordinar el movimiento de datos entre particiones con las actualizaciones necesarias de mapas de particiones. Para obtener más información sobre cómo utilizar el servicio División y combinación, consulte [Información general sobre División y combinación](./sql-database-elastic-scale-overview-split-and-merge.md) 
+Sin embargo, para escenarios que requieren movimiento de datos, se necesita el servicio de división y combinación para coordinar el movimiento de datos entre particiones con las actualizaciones necesarias de mapas de particiones. Para obtener más información sobre cómo utilizar el servicio División y combinación, consulte [Información general sobre División y combinación](sql-database-elastic-scale-overview-split-and-merge.md) 
 
 [AZURE.INCLUDE [elastic-scale-include](../includes/elastic-scale-include.md)]
 

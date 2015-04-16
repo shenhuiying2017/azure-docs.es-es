@@ -25,14 +25,14 @@ Servicios multimedia de Azure admite muchos formatos de streaming populares como
 
 En este tema se muestran los reproductores existentes con los que puede reproducir contenido.
 
->[AZURE.NOTE]Para reproducir contenido empaquetado o cifrado dinámicamente, asegúrese de obtener al menos una unidad de streaming para el extremo de streaming desde el que planea entregar el contenido. Para obtener información sobre la escalación de unidades de streaming, vea: [Cómo escalar unidades de streaming](../media-services-manage-origins#scale_streaming_endpoints).
+>[AZURE.NOTE]Para reproducir contenido empaquetado o cifrado dinámicamente, asegúrese de obtener al menos una unidad de streaming para el extremo de streaming desde el que planea entregar el contenido. Para obtener información sobre la escalación de unidades de streaming, vea: [Cómo escalar unidades de streaming](media-services-manage-origins#scale_streaming_endpoints.md).
 
 
 ### Reproductor de contenido de Servicios de multimedia del Portal de administración de Azure
 
 El **Portal de administración de Azure** proporciona un reproductor de contenido que puede usar para probar el vídeo.
 
-Haga clic en el vídeo deseado (asegúrese de que se [publicó](../media-services-manage-content#publish)) y haga clic en el botón **Reproducir** situado en la parte inferior del portal. 
+Haga clic en el vídeo deseado (asegúrese de que se [publicó](media-services-manage-content#publish.md)) y haga clic en el botón **Reproducir** situado en la parte inferior del portal. 
  
 Se aplican algunas consideraciones:
 
@@ -48,7 +48,7 @@ Use el [Reproductor de Servicios multimedia de Azure](http://amsplayer.azurewebs
 
 ## Desarrollo de reproductores de vídeo
 
-Para obtener información sobre cómo desarrollar sus propios reproductores, consulte [Desarrollo de reproductores de vídeo](../media-services-develop-video-players)
+Para obtener información sobre cómo desarrollar sus propios reproductores, consulte [Desarrollo de reproductores de vídeo](media-services-develop-video-players.md)
  
 [AMSPlayer]: ./media/media-services-players/media-services-portal-player.png
 <!--HONumber=47-->

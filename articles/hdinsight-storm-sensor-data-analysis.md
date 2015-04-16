@@ -1353,7 +1353,7 @@ Ahora ha aprendido a utilizar Storm para leer datos desde el Centro de eventos, 
 
 * Para obtener más información sobre D3.js, consulte [D3.js - Documentos orientados a datos](http://d3js.org/)
 
-* Para obtener información sobre la creación de topologías en .NET, consulte [Desarrollo de aplicaciones de procesamiento de datos de transmisión por secuencias con SCP.NET y C# en Storm en HDInsight](/es-es/documentation/articles/hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application/)
+* Para obtener información sobre la creación de topologías en .NET, consulte [Desarrollo de aplicaciones de procesamiento de datos de transmisión por secuencias con SCP.NET y C# en Storm en HDInsight](hdinsight-hadoop-storm-scpdotnet-csharp-develop-streaming-data-processing-application.md)
 
 [azure-portal]: https://manage.windowsazure.com/
 <!--HONumber=42-->

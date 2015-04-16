@@ -24,7 +24,7 @@ Para diseñar tablas escalables y de rendimiento debe tener en cuenta una serie 
 
 ## Acerca del servicio Tabla de Azure
 
-En esta sección se resaltan algunas de las características clave del servicio Tabla que son especialmente importantes para obtener un diseño que confiera rendimiento y escalabilidad. Si no está familiarizado con Almacenamiento de Azure y el servicio Tabla, lea primero [Introducción a Almacenamiento de Microsoft Azure](../storage-introduction/) y [Cómo usar Almacenamiento de tablas en .NET](../storage-dotnet-how-to-use-tables/) antes de leer el resto de este artículo. Aunque el enfoque de esta guía se encuentra en el servicio Tabla, incluirá información sobre los servicios de cola de Azure y Blob, y cómo puede usarlos junto con el servicio Tabla en una solución.  
+En esta sección se resaltan algunas de las características clave del servicio Tabla que son especialmente importantes para obtener un diseño que confiera rendimiento y escalabilidad. Si no está familiarizado con Almacenamiento de Azure y el servicio Tabla, lea primero [Introducción a Almacenamiento de Microsoft Azure](storage-introduction.md) y [Cómo usar Almacenamiento de tablas en .NET](storage-dotnet-how-to-use-tables.md) antes de leer el resto de este artículo. Aunque el enfoque de esta guía se encuentra en el servicio Tabla, incluirá información sobre los servicios de cola de Azure y Blob, y cómo puede usarlos junto con el servicio Tabla en una solución.  
  
 ¿Qué es el servicio Tabla? Como cabría esperar del nombre, el servicio Tabla usa un formato tabular para almacenar los datos. En la terminología estándar, cada fila de la tabla representa una entidad y las columnas almacenan las distintas propiedades de la entidad. Cada entidad tiene un par de claves para identificar de forma exclusiva y una columna de marca de tiempo que el servicio Tabla utiliza para realizar un seguimiento de cuando la entidad se ha actualizado por última vez (esto ocurre automáticamente y no se puede sobrescribir manualmente la marca de tiempo con un valor arbitrario). El servicio Tabla usa esta última marca de tiempo modificada (LMT) para administrar la simultaneidad optimista.  
 
@@ -1133,7 +1133,7 @@ También debe considerar cómo afecta su diseño a la forma en que la aplicació
 
 #### Administrar la simultaneidad  
 
-De forma predeterminada, el servicio Tabla implementa comprobaciones de concurrencia optimista en el nivel de entidades individuales para operaciones de **Insertar**, **Mezcla** y **Eliminar**, aunque es posible que un cliente fuerce al servicio Tabla a omitir estas comprobaciones. Para obtener más información acerca de cómo el servicio Tabla administra la simultaneidad, consulte [Administrar la simultaneidad en Almacenamiento de Microsoft Azure](../storage-concurrency/) en el sitio web de Microsoft Azure.  
+De forma predeterminada, el servicio Tabla implementa comprobaciones de concurrencia optimista en el nivel de entidades individuales para operaciones de **Insertar**, **Mezcla** y **Eliminar**, aunque es posible que un cliente fuerce al servicio Tabla a omitir estas comprobaciones. Para obtener más información acerca de cómo el servicio Tabla administra la simultaneidad, consulte [Administrar la simultaneidad en Almacenamiento de Microsoft Azure](storage-concurrency.md) en el sitio web de Microsoft Azure.  
 
 #### Combinar o reemplazar  
 
@@ -1449,7 +1449,7 @@ Puede utilizar tokens de firma de acceso compartido (SAS) para permitir a las ap
 -	Puede descargar parte del trabajo que realizan los roles de web y trabajador en la administración de las entidades en dispositivos cliente como los equipos de usuario final y los dispositivos móviles.  
 -	Puede asignar un conjunto de permisos restringido y con limitación de tiempo a un cliente (por ejemplo, para permitir el acceso de solo lectura a recursos específicos).  
 
-Para obtener más información acerca del uso de tokens SAS con el servicio Tabla, consulte [Firmas de acceso compartido, parte 1: Descripción del modelo de firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1/).  
+Para obtener más información acerca del uso de tokens SAS con el servicio Tabla, consulte [Firmas de acceso compartido, parte 1: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md).  
 
 Sin embargo, todavía debe generar los tokens SAS que concedan una aplicación cliente a las entidades en el servicio Tabla: debe hacerlo en un entorno que tenga acceso seguro a las claves de la cuenta de almacenamiento. Normalmente, se utiliza un rol web o de trabajador para generar los tokens SAS y entregarlos a las aplicaciones cliente que necesitan tener acceso a las entidades. Dado que todavía hay una sobrecarga implicada en la generación y entrega tokens SAS a los clientes, debería considerar cómo reducir mejor esta sobrecarga, especialmente en escenarios de gran volumen.  
 

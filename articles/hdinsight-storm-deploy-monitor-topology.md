@@ -114,7 +114,7 @@ Si se selecciona un spout en la sección **Spouts** o **Bolts**, se mostrará la
 
 ## Herramientas de HDInsight para Visual Studio
 
-Las herramientas de HDInsight puede utilizarse para enviar las topologías de C# o híbridas al clúster de Storm. Los pasos siguientes usan una aplicación de muestra. Para obtener información sobre cómo crear sus propias topologías con las herramientas de HDInsight, consulte [Desarrollo de las topologías de C# mediante las herramientas de HDInsight para Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/).
+Las herramientas de HDInsight puede utilizarse para enviar las topologías de C# o híbridas al clúster de Storm. Los pasos siguientes usan una aplicación de muestra. Para obtener información sobre cómo crear sus propias topologías con las herramientas de HDInsight, consulte [Desarrollo de las topologías de C# mediante las herramientas de HDInsight para Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 Utilice los siguientes pasos para implementar una muestra en el clúster de Storm en HDInsight y, a continuación, ver y administrar la topología.
 
@@ -166,7 +166,7 @@ La información devuelta por la API de REST solo se puede utilizar desde dentro 
 
 ## Pasos siguientes
 
-Ahora que ha aprendido cómo implementar y supervisar mediante el panel de Storm, aprenda a [desarrollar las topologías de C# mediante las herramientas de HDInsight para Visual Studio](../hdinsight-storm-develop-csharp-visual-studio-topology/)o cómo [desarrollar topologías basadas en Java con Maven](../hdinsight-storm-develop-java-topology/).
+Ahora que ha aprendido cómo implementar y supervisar mediante el panel de Storm, aprenda a [desarrollar las topologías de C# mediante las herramientas de HDInsight para Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)o cómo [desarrollar topologías basadas en Java con Maven](hdinsight-storm-develop-java-topology.md).
 
 
 [hdinsight-dashboard]: ./media/hdinsight-storm-deploy-monitor/dashboard-link.png

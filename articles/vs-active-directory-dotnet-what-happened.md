@@ -17,8 +17,8 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Introducción](/documentation/articles/vs-active-directory-dotnet-getting-started/)
-> - [¿Qué ha ocurrido?](/documentation/articles/vs-active-directory-dotnet-what-happened/)
+> - [Introducción](vs-active-directory-dotnet-getting-started.md)
+> - [¿Qué ha ocurrido?](vs-active-directory-dotnet-what-happened.md)
 
 ###<span id="whathappened">¿Qué le ha ocurrido a mi proyecto?</span>
  

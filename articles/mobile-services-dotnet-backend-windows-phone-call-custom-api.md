@@ -25,13 +25,13 @@ En este tema se muestra cómo realizar una llamada a una API personalizada desde
 
 La API personalizada que se creó en este tema le ofrece la posibilidad de enviar una sola consulta de POST que establece la marca completado en `true` para todos los elementos todo de la tabla. Sin esta API personalizada, el cliente tendría que enviar consultas individuales para actualizar la marca para cada elemento todo en la tabla.
 
-Esta funcionalidad se agregará a la aplicación que creó cuando completó el tutorial [Agregar servicios móviles a una aplicación existente](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/) . Para ello, debe completar los siguientes pasos:
+Esta funcionalidad se agregará a la aplicación que creó cuando completó el tutorial [Agregar servicios móviles a una aplicación existente](mobile-services-dotnet-backend-windows-phone-get-started-data.md) . Para ello, debe completar los siguientes pasos:
 
 1. [Definición de la API personalizada]
 2. [Actualización de la aplicación para llamar a la API personalizada]
 3. [Prueba de la aplicación] 
 
-Este tutorial se basa en el ejemplo GetStartedWithData, una simple aplicación TodoList. Antes de iniciar este tutorial, primero debe completar el tutorial [Agregar servicios móviles a una aplicación existente](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-phone-get-started-data/).
+Este tutorial se basa en el ejemplo GetStartedWithData, una simple aplicación TodoList. Antes de iniciar este tutorial, primero debe completar el tutorial [Agregar servicios móviles a una aplicación existente](mobile-services-dotnet-backend-windows-phone-get-started-data.md).
 
 ## <a name="define-custom-api"></a>Definición de la API personalizada
 

@@ -36,7 +36,7 @@ La siguiente publicación describe flujos de trabajo de Servicios multimedia de 
 
 ## Conceptos
 
-Para obtener más información, consulte [Conceptos](../media-services-concepts).
+Para obtener más información, consulte [Conceptos](media-services-concepts.md).
 
 ## Elección de la experiencia multimedia
 
@@ -126,7 +126,7 @@ En la siguiente tabla se muestra cada tipo de dispositivo y las tecnologías cli
 1. Publique el recurso.
 1. Descargue contenido de forma progresiva.
 
-[Vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) contiene vínculos a temas que muestran cómo realizar las tareas mencionadas anteriormente.
+[Vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) contiene vínculos a temas que muestran cómo realizar las tareas mencionadas anteriormente.
 
 ### Streaming en vivo
 
@@ -142,7 +142,7 @@ En la siguiente tabla se muestra cada tipo de dispositivo y las tecnologías cli
 1. Detenga el programa cuando quiera detener el streaming y el archivo del evento.
 1. Elimine el programa (y, opcionalmente, elimine el recurso).
 
-[Streaming en vivo de Servicios multimedia](../media-services-live-streaming-wrokflow) contiene vínculos a temas que muestran cómo realizar las tareas mencionadas anteriormente.
+[Streaming en vivo de Servicios multimedia](media-services-live-streaming-wrokflow.md) contiene vínculos a temas que muestran cómo realizar las tareas mencionadas anteriormente.
 
 ## Clientes
 
@@ -157,7 +157,7 @@ Servicios multimedia de Azure proporciona las herramientas que necesita para cre
 - Creación de aplicaciones de vídeo en Windows 8 
 - [Desarrollo de aplicaciones de vídeo de XBOX](http://xbox.create.msdn.com/)
 
-Para obtener más información, consulte [Desarrollo de aplicaciones de reproductor de vídeo](../media-services-develop-video-players)
+Para obtener más información, consulte [Desarrollo de aplicaciones de reproductor de vídeo](media-services-develop-video-players.md)
 
 ## Guía de patrones y prácticas
 

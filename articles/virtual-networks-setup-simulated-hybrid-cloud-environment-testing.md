@@ -78,7 +78,7 @@ En primer lugar, cree una nueva red virtual denominada TestVNET.
 	- En la columna **CIDR (recuento de direcciones)** de TestSubnet, haga clic en **/24 (256)**.
 7.	Haga clic en el icono Completar. Espere a que se haya creado la red virtual antes de continuar.
 
-A continuación, siga las instrucciones de [Instalación y configuración de Azure PowerShell para instalar Azure PowerShell en el equipo local](../install-configure-powershell/).
+A continuación, siga las instrucciones de [Instalación y configuración de Azure PowerShell para instalar Azure PowerShell en el equipo local](install-configure-powershell.md).
 
 A continuación, cree un nuevo servicio en la nube para la red virtual TestVNET. Debe elegir un nombre único. Por ejemplo, podría asignarle el nombre **TestVNET-***UniqueSequence*, en el que *UniqueSequence* es una abreviatura de su organización. Por ejemplo, si el nombre de su organización es Tailspin Toys, podría asignar el nombre del servicio de nube **TestVNET-Tailspin**.
 
@@ -220,20 +220,20 @@ Su entorno de nube híbrida simulado ya está listo para las pruebas.
 
 También puede crear estas configuraciones en este entorno de prueba:
 
-- [Granja de intranet de SharePoint](../virtual-networks-setup-sharepoint-hybrid-cloud-testing/)
-- [Aplicación de LOB basada en web](../virtual-networks-setup-lobapp-hybrid-cloud-testing/)
-- [Servidor de sincronización de directorios (DirSync) de Office 365](../virtual-networks-setup-dirsync-hybrid-cloud-testing/)
+- [Granja de intranet de SharePoint](virtual-networks-setup-sharepoint-hybrid-cloud-testing.md)
+- [Aplicación de LOB basada en web](virtual-networks-setup-lobapp-hybrid-cloud-testing.md)
+- [Servidor de sincronización de directorios (DirSync) de Office 365](virtual-networks-setup-dirsync-hybrid-cloud-testing.md)
 
 ##Recursos adicionales
 
-[Configuración de un entorno de nube híbrida para pruebas](../virtual-networks-setup-hybrid-cloud-environment-testing/)
+[Configuración de un entorno de nube híbrida para pruebas](virtual-networks-setup-hybrid-cloud-environment-testing.md)
 
 [Configuración de una conexión de red virtual a red virtual](http://msdn.microsoft.com/library/azure/dn690122.aspx)
 
 
 ##<a id="costs"></a>Minimización del coste de este entorno
 
-Para minimizar el coste de la ejecución de las máquinas virtuales en este entorno, realice las pruebas y las demostraciones necesarias tan pronto como sea posible y, a continuación, elimínelas o apague las máquinas virtuales cuando no las esté utilizando. Por ejemplo, podría utilizar la automatización de Azure y un Runbook para apagar automáticamente las máquinas virtuales en las redes virtuales TestLab y Test_VNET al final de cada día laborable. Para obtener información, consulte [Introducción a la automatización de Azure](../automation-create-runbook-from-samples/). Cuando vuelva a iniciar las máquinas virtuales en la subred de la red corporativa, inicie en primer lugar DC1.
+Para minimizar el coste de la ejecución de las máquinas virtuales en este entorno, realice las pruebas y las demostraciones necesarias tan pronto como sea posible y, a continuación, elimínelas o apague las máquinas virtuales cuando no las esté utilizando. Por ejemplo, podría utilizar la automatización de Azure y un Runbook para apagar automáticamente las máquinas virtuales en las redes virtuales TestLab y Test_VNET al final de cada día laborable. Para obtener información, consulte [Introducción a la automatización de Azure](automation-create-runbook-from-samples.md). Cuando vuelva a iniciar las máquinas virtuales en la subred de la red corporativa, inicie en primer lugar DC1.
 
 Una puerta de enlace VPN de Azure se implementa como un conjunto de dos máquinas virtuales de Azure que incurren en un coste económico continuo. Para obtener detalles, consulte [Precios: red virtual](http://azure.microsoft.com/pricing/details/virtual-network/). Para minimizar el coste de las dos puertas de enlace VPN (una para TestLab y otra para TestVNET), cree el entorno de prueba y realice las pruebas y demostraciones necesarias tan rápido como sea posible o elimine las puertas de enlace con estos pasos.
  

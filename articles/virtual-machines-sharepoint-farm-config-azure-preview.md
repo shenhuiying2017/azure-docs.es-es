@@ -26,7 +26,7 @@ Granja de servidores de SharePoint es una característica del Portal de vista pr
 
 En las siguientes secciones se proporcionan detalles de configuración de cada granja.
 
-Para obtener información adicional, consulte [Granja de servidores de SharePoint](../virtual-machines-sharepoint-farm-azure-preview/).
+Para obtener información adicional, consulte [Granja de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md).
 
 ##Granja básica de SharePoint
 
@@ -121,7 +121,7 @@ A continuación se indican los detalles de configuración:
 
 ##Recursos adicionales
 
-[Granja de servidores de SharePoint](../virtual-machines-sharepoint-farm-azure-preview/)
+[Granja de servidores de SharePoint](virtual-machines-sharepoint-farm-azure-preview.md)
 
 [SharePoint en los servicios de infraestructura de Azure](http://msdn.microsoft.com/library/azure/dn275955.aspx)
 

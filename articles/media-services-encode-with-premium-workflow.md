@@ -26,15 +26,15 @@ Servicios multimedia de Microsoft Azure presenta la vista previa del procesador 
 
 Los siguientes temas describen los detalles relacionados con el **flujo de trabajo del Codificador multimedia Premium**: 
 
-- [Formatos que admite el flujo de trabajo del Codificador multimedia Premium](../media-services-premium-workflow-encoder-formats) - Trata los formatos de archivo y códecs admitidos por el **flujo de trabajo del Codificador multimedia Premium**.
+- [Formatos que admite el flujo de trabajo del Codificador multimedia Premium](media-services-premium-workflow-encoder-formats.md) - Trata los formatos de archivo y códecs admitidos por el **flujo de trabajo del Codificador multimedia Premium**.
 
-- En la sección [Comparación de códecs](../media-services-encode-asset#compare_encoders) se comparan las funciones de codificación del **flujo de trabajo del Codificador multimedia Premium** y del **Codificador multimedia de Azure**.
+- En la sección [Comparación de códecs](media-services-encode-asset#compare_encoders.md) se comparan las funciones de codificación del **flujo de trabajo del Codificador multimedia Premium** y del **Codificador multimedia de Azure**.
 
 En este tema se muestra cómo codificar con el **flujo de trabajo del Codificador multimedia Premium** usando .NET.
 
 ## Codificación
 
-Las tareas de codificación para el **flujo de trabajo del Codificador multimedia Premium** requieren un archivo de configuración independiente, denominado archivo de flujo de trabajo. Estos archivos tienen una extensión .workflow y se crean mediante la herramienta [Diseñador de flujo de trabajo](../media-services-workflow-designer) .
+Las tareas de codificación para el **flujo de trabajo del Codificador multimedia Premium** requieren un archivo de configuración independiente, denominado archivo de flujo de trabajo. Estos archivos tienen una extensión .workflow y se crean mediante la herramienta [Diseñador de flujo de trabajo](media-services-workflow-designer.md) .
 
 También puede obtener los archivos de flujo de trabajo predeterminados [aquí](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). La carpeta también contiene la descripción de estos archivos.
 
@@ -59,7 +59,7 @@ La cadena de configuración para esta tarea debe estar vacía.
 
 6. Envíe el trabajo de codificación.
 
-El siguiente ejemplo es un ejemplo completo. Para obtener información sobre cómo configurar con el desarrollo de .NET de Servicios multimedia, consulte [Desarrollo de Servicios multimedia con .NET](../media-services-dotnet-how-to-use).
+El siguiente ejemplo es un ejemplo completo. Para obtener información sobre cómo configurar con el desarrollo de .NET de Servicios multimedia, consulte [Desarrollo de Servicios multimedia con .NET](media-services-dotnet-how-to-use.md).
 
 
  	using System; 

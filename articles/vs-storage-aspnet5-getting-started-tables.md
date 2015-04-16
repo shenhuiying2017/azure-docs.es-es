@@ -17,15 +17,15 @@
 	ms.author="kempb"/>
 
 > [AZURE.SELECTOR]
-> - [Introducción](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
-> - [¿Qué ha ocurrido?](/documentation/articles/vs-storage-aspnet5-what-happened/)
+> - [Introducción](vs-storage-aspnet5-getting-started-tables.md)
+> - [¿Qué ha ocurrido?](vs-storage-aspnet5-what-happened.md)
 
 ## Introducción a Almacenamiento de Azure (proyectos ASP.NET vNext)
 
 > [AZURE.SELECTOR]
-> - [Blobs](/documentation/articles/vs-storage-aspnet5-getting-started-blobs/)
-> - [Colas](/documentation/articles/vs-storage-aspnet5-getting-started-queues/)
-> - [Tablas](/documentation/articles/vs-storage-aspnet5-getting-started-tables/)
+> - [Blobs](vs-storage-aspnet5-getting-started-blobs.md)
+> - [Colas](vs-storage-aspnet5-getting-started-queues.md)
+> - [Tablas](vs-storage-aspnet5-getting-started-tables.md)
 
 El servicio de almacenamiento de tabla de Azure permite almacenar una gran cantidad de datos estructurados. El servicio es un almacén de datos NoSQL que acepta llamadas autenticadas desde dentro y fuera de la nube de Azure. Las tablas de Azure son ideales para el almacenamiento de datos estructurados no relacionales.  Para obtener más información, consulte [Uso del almacenamiento de tablas en .NET](http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-tables/#create-table "How to use Table Storage from .NET").
 

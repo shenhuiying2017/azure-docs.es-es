@@ -21,7 +21,7 @@
 En este tema se explica cómo cargar un sitio web de Java personalizado en Azure. Se incluye información que se aplica a cualquier sitio web de Java, así como algunos ejemplos de aplicaciones específicas.
 
 Tenga en cuenta que Azure proporciona un medio para la creación de sitios web de Java con la interfaz de usuario de configuración del portal de Azure y la galería de aplicaciones de Azure, como se documenta en [Introducción a sitios web de Azure y Java.
-](../web-sites-java-get-started). Este tutorial se destina a situaciones en las que no desea utilizar la interfaz de usuario de configuración de Azure ni la galería de aplicaciones de Azure.  
+](web-sites-java-get-started.md). Este tutorial se destina a situaciones en las que no desea utilizar la interfaz de usuario de configuración de Azure ni la galería de aplicaciones de Azure.  
 
 # Directrices de configuración
 

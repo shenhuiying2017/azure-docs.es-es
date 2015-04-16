@@ -19,7 +19,7 @@
 
 # Conexión con la cuenta de Servicios multimedia mediante la API de REST
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](../media-services-live-streaming-workflow) . 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](media-services-live-streaming-workflow.md) . 
 
 En este tema se describe cómo obtener una conexión mediante programación a los Servicios multimedia de Microsoft Azure al programar con la API de REST de Servicios multimedia.
 

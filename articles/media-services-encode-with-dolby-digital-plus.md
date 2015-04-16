@@ -25,7 +25,7 @@ El Codificador multimedia de Azure admite la codificación **Dolby (r) Digital P
 
 ### Obtención del procesador del codificador multimedia de Azure 
 
-Dolby Digital Plus es compatible con el Codificador multimedia de Azure. Para obtener una referencia del **Codificador de Servicios multimedia**, consulte [Obtención de procesadores multimedia](../media-services-get-media-processor) .
+Dolby Digital Plus es compatible con el Codificador multimedia de Azure. Para obtener una referencia del **Codificador de Servicios multimedia**, consulte [Obtención de procesadores multimedia](media-services-get-media-processor.md) .
 
 ### <a id="configure_preset"></a>Configuración de opciones del Codificador multimedia de Azure
 
@@ -46,7 +46,7 @@ Para codificar a Dolby Digital Plus 5.1 multicanal, establezca los atributos Cod
 
 El siguiente valor preestablecido XML contiene un valor preestablecido XML completo del Codificador multimedia de Azure que genera un archivo MP4 con vídeo H264 de banda ancha en 1.080 p y audio Dolby Digital Plus 5.1 multicanal. Este valor preestablecido también especifica la codificación de un canal de efectos de baja frecuencia (LFE), que se especifica estableciendo el atributo LFEOn en true. Cualquier atributo no especificado tendrá sus valores predeterminados.
 
-Este valor preestablecido XML se debe pasar al **Codificador de Servicios multimedia** para crear un trabajo de codificación, como se describe en [este](../media-services-dotnet-encode-asset) tema (solo que en lugar de una cadena preestablecida predefinida, pasará todo el valor preestablecido XML predefinido, como se describe [aquí](#configure_preset)).
+Este valor preestablecido XML se debe pasar al **Codificador de Servicios multimedia** para crear un trabajo de codificación, como se describe en [este](media-services-dotnet-encode-asset.md) tema (solo que en lugar de una cadena preestablecida predefinida, pasará todo el valor preestablecido XML predefinido, como se describe [aquí](#configure_preset)).
 
 
 	<?xml version="1.0" encoding="utf-16"?>
@@ -129,7 +129,7 @@ Este valor preestablecido XML se debe pasar al **Codificador de Servicios multim
 
 Para codificar en Dolby Digital Plus Stereo, establezca los atributos Codec y EncoderMode en "DolbyDigitalPlus". El número de canales codificados se especifica con el atributo AudioCodingMode. Para una codificación estéreo, establezca AudioCodingMode en "Mode20". El siguiente ejemplo XML preestablecido muestra el elemento <DolbyDigitalPlusAudioProfile> usado para codificar a audio 5.1. Cualquier atributo no especificado tendrá sus valores predeterminados.
 
-Este valor preestablecido XML se debe pasar al **Codificador de Servicios multimedia** para crear un trabajo de codificación, como se describe en [este](../media-services-dotnet-encode-asset) tema (solo que en lugar de una cadena preestablecida predefinida, pasará todo el valor preestablecido XML predefinido, como se describe [aquí](#configure_preset)).
+Este valor preestablecido XML se debe pasar al **Codificador de Servicios multimedia** para crear un trabajo de codificación, como se describe en [este](media-services-dotnet-encode-asset.md) tema (solo que en lugar de una cadena preestablecida predefinida, pasará todo el valor preestablecido XML predefinido, como se describe [aquí](#configure_preset)).
 
 	<?xml version="1.0" encoding="utf-16"?>
 	<!--Created for Azure Media Encoder, May 26 2013 -->

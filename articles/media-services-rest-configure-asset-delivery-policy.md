@@ -19,13 +19,13 @@
 # Configuración de directivas de entrega de recursos
 [AZURE.INCLUDE [media-services-selector-asset-delivery-policy](../includes/media-services-selector-asset-delivery-policy.md)]
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](../media-services-live-streaming-workflow) . 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) y [Flujo de trabajo de streaming en vivo de Servicios multimedia](media-services-live-streaming-workflow.md) . 
 
 Uno de los pasos del flujo de trabajo de entrega de contenido de Servicios multimedia consiste en configurar directivas de entrega para los recursos que desea transmitir. La directiva de entrega de recursos indica a los Servicios multimedia cómo desea usted que se entregue el recurso: en qué protocolo de streaming se debe empaquetar de forma dinámica el recurso (por ejemplo, MPEG DASH, HLS, Smooth Streaming o todos) o si desea o no cifrar de forma dinámica el recurso y de qué manera (cifrado de sobre o común). 
 
 En este tema se explica por qué y cómo crear y configurar directivas de entrega de recursos. 
 
->[AZURE.NOTE]Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad de escalación (denominada también unidad de streaming). Para obtener más información, consulte [Escalación de un servicio multimedia](../media-services-manage-origins#scale_streaming_endpoints). 
+>[AZURE.NOTE]Para poder usar el empaquetado dinámico y el cifrado dinámico, debe asegurarse de tener al menos una unidad de escalación (denominada también unidad de streaming). Para obtener más información, consulte [Escalación de un servicio multimedia](media-services-manage-origins#scale_streaming_endpoints.md). 
 >
 >Además, el recurso debe contener un conjunto de archivos MP4 de velocidad de bits adaptable o archivos Smooth Streaming de velocidad de bits adaptable.  
 
@@ -53,13 +53,13 @@ HDS
 
 	{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
 
-Para obtener instrucciones sobre cómo publicar un recurso y generar una dirección URL de streaming, vea [Creación de una dirección URL de streaming](../media-services-deliver-streaming-content).
+Para obtener instrucciones sobre cómo publicar un recurso y generar una dirección URL de streaming, vea [Creación de una dirección URL de streaming](media-services-deliver-streaming-content.md).
 
 >[AZURE.NOTE] Al trabajar con la API de REST de Servicios multimedia, se aplican las consideraciones siguientes:
 >
->Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración de desarrollo de la API de REST de Servicios multimedia](../media-services-rest-how-to-use).
+>Al obtener acceso a las entidades de Servicios multimedia, debe establecer los campos de encabezado específicos y los valores en las solicitudes HTTP. Para obtener más información, consulte [Configuración de desarrollo de la API de REST de Servicios multimedia](media-services-rest-how-to-use.md).
 
->Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST](../media-services-rest-connect_programmatically/). 
+>Después de conectarse correctamente a https://media.windows.net, recibirá una redirección 301 que especifica otro URI de Servicios multimedia. Debe realizar las llamadas posteriores al nuevo URI tal como se describe en [Conexión a Servicios multimedia con la API de REST](media-services-rest-connect_programmatically.md). 
 
 
 ## Directiva de entrega de recursos sin cifrar 
@@ -142,7 +142,7 @@ Respuesta:
 
 ### Crear clave de contenido del tipo EnvelopeEncryption y vincularla al recurso
 
-Al especificar la directiva de entrega de DynamicEnvelopeEncryption, asegúrese de vincular el recurso a una clave de contenido del tipo EnvelopeEncryption. Para obtener más información, consulte: [Creación de una clave de contenido](../media-services-rest-create-contentkey)).
+Al especificar la directiva de entrega de DynamicEnvelopeEncryption, asegúrese de vincular el recurso a una clave de contenido del tipo EnvelopeEncryption. Para obtener más información, consulte: [Creación de una clave de contenido](media-services-rest-create-contentkey.md)).
 
 
 ### <a id="get_delivery_url"></a>Obtención de dirección URL de entrega
@@ -235,7 +235,7 @@ Vea [Vincular recurso con la directiva de entrega de recursos](#link_asset_with_
 
 ### Crear clave de contenido del tipo CommonEncryption y vincularla al recurso
 
-Al especificar la directiva de entrega de DynamicCommonEncryption, asegúrese de vincular el recurso a una clave de contenido del tipo CommonEncryption. Para obtener más información, consulte: [Creación de una clave de contenido](../media-services-rest-create-contentkey)).
+Al especificar la directiva de entrega de DynamicCommonEncryption, asegúrese de vincular el recurso a una clave de contenido del tipo CommonEncryption. Para obtener más información, consulte: [Creación de una clave de contenido](media-services-rest-create-contentkey.md)).
 
 
 ### Obtención de dirección URL de entrega

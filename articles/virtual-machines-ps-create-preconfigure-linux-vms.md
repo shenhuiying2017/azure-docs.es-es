@@ -22,11 +22,11 @@ En estos pasos se muestra cómo personalizar un conjunto de comandos de Azure Po
 
 En estos pasos se sigue un enfoque consistente en atar cabos para crear conjuntos de comandos de Azure PowerShell. Este enfoque puede ser útil si está familiarizado con PowerShell o desea conocer los valores que debe especificar para una configuración correcta. Los usuarios avanzados de PowerShell pueden tomar los comandos y sustituir sus propios valores de las variables (las líneas que comienzan con "$").
 
-Para consultar el tema suplementario sobre máquinas virtuales basadas en Windows, vea [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](../virtual-machines-ps-create-preconfigure-windows-vms/).
+Para consultar el tema suplementario sobre máquinas virtuales basadas en Windows, vea [Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-ps-create-preconfigure-windows-vms.md).
 
 ##Paso 1: Azure PowerShell
 
-Si aún no lo ha hecho, siga las instrucciones de [Instalación y configuración de Azure PowerShell](../install-configure-powershell/) para instalar Azure PowerShell en un equipo local. A continuación, abra un símbolo del sistema de Azure PowerShell.
+Si aún no lo ha hecho, siga las instrucciones de [Instalación y configuración de Azure PowerShell](install-configure-powershell.md) para instalar Azure PowerShell en un equipo local. A continuación, abra un símbolo del sistema de Azure PowerShell.
 
 ##Paso 2: Establecimiento de la cuenta de suscripción y almacenamiento
 
@@ -89,7 +89,7 @@ Opcionalmente, puede especificar un conjunto de pares de claves SSH que ya esté
 
 	$vm1 | Add-AzureProvisioningConfig -Linux -SSHKeyPairs "<SSH key pairs>"
 
-Para obtener más información, consulte [Uso de SSH con Linux en Azure](../virtual-machines-linux-use-ssh-key/).
+Para obtener más información, consulte [Uso de SSH con Linux en Azure](virtual-machines-linux-use-ssh-key.md).
 
 Opcionalmente, especifique una lista de claves públicas SSH que ya estén implementadas en la suscripción.
 
@@ -157,7 +157,7 @@ Revise el conjunto de comandos de Azure PowerShell creado en el editor de texto,
 
 Copie el conjunto de comandos en el Portapapeles y haga clic en el símbolo del sistema de Azure PowerShell abierto. Así, se emitirá el conjunto de comandos como una serie de comandos de PowerShell y se creará la máquina virtual de Azure. Si crea la máquina virtual en una suscripción, una cuenta de almacenamiento, un servicio en la nube, un conjunto de disponibilidad, una red virtual o una subred incorrectos, elimine la máquina virtual, corrija la sintaxis del bloque de comandos y, a continuación, ejecute el conjunto de comandos corregido. 
 
-Después de crear la máquina virtual, consulte [Inicio de sesión en una máquina virtual con Linux](../virtual-machines-linux-how-to-log-on/). 
+Después de crear la máquina virtual, consulte [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md). 
 
 Si va a crear esta máquina virtual de nuevo o una similar, puede: 
 
@@ -260,11 +260,11 @@ Este es el comando de Azure PowerShell correspondiente para crear esta máquina 
 
 [Información general sobre las máquinas virtuales de Azure](http://msdn.microsoft.com/library/azure/jj156143.aspx)
 
-[Instalación y configuración de Azure PowerShell](../install-configure-powershell/)
+[Instalación y configuración de Azure PowerShell](install-configure-powershell.md)
 
-[Inicio de sesión en una máquina virtual con Linux](../virtual-machines-linux-how-to-log-on/)
+[Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md)
 
-[Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](../virtual-machines-ps-create-preconfigure-windows-vms/)
+[Uso de Azure PowerShell para crear y preconfigurar máquinas virtuales basadas en Windows](virtual-machines-ps-create-preconfigure-windows-vms.md)
 
 
 <!--HONumber=47-->

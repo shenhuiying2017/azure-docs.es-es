@@ -25,8 +25,8 @@
 
 La compatibilidad con las notificaciones de inserción en Azure le permite tener acceso a una infraestructura multiplataforma y de escalamiento horizontal fácil de usar, que simplifica considerablemente la implementación de notificaciones de inserción tanto en aplicaciones de consumidor, como en aplicaciones empresariales para plataformas móviles. Este tutorial muestra cómo puede utilizar los Centros de notificaciones de Azure para enviar notificaciones de inserción a un usuario de aplicaciones determinado en un dispositivo concreto. Un back-end de ASP.NET WebAPI se usa para autenticar clientes y generar notificaciones, tal y como se muestra en el tema de referencia [Registro desde el back-end de la aplicación](http://msdn.microsoft.com/library/dn743807.aspx). Este tutorial se basa en el Centro de notificaciones que creó en el tutorial **Introducción a los Centros de notificaciones**.
 
-> [AZURE.NOTE] Este tutorial asume que se ha creado y configurado el Centro de notificaciones tal como se describe en [Introducción a los Centros de notificaciones (Android)](/es-es/documentation/articles/notification-hubs-android-get-started/). 
-> Si usa Servicios móviles como su servicio back-end, consulte la [versión de Servicios móviles](/es-es/documentation/articles/mobile-services-javascript-backend-android-push-notifications-app-users/) de este tutorial.
+> [AZURE.NOTE] Este tutorial asume que se ha creado y configurado el Centro de notificaciones tal como se describe en [Introducción a los Centros de notificaciones (Android)](notification-hubs-android-get-started.md). 
+> Si usa Servicios móviles como su servicio back-end, consulte la [versión de Servicios móviles](mobile-services-javascript-backend-android-push-notifications-app-users.md) de este tutorial.
 
 [AZURE.INCLUDE [notification-hubs-aspnet-backend-notifyusers](../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -34,7 +34,7 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 
 El paso siguiente es crear la aplicación Android.
 
-1. Siga el tutorial [Introducción a los Centros de notificaciones (Android)](/es-es/documentation/articles/notification-hubs-android-get-started/) para crear y configurar la aplicación para recibir notificaciones de inserción desde GCM.
+1. Siga el tutorial [Introducción a los Centros de notificaciones (Android)](notification-hubs-android-get-started.md) para crear y configurar la aplicación para recibir notificaciones de inserción desde GCM.
 
 2. Abra el archivo res/layout/activity_main.xml y sustituya el contenido por lo siguiente:
 			

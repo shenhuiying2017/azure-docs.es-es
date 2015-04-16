@@ -28,7 +28,7 @@ La compatibilidad con las notificaciones de inserción en Azure le permite tener
 Este tutorial también es el requisito previo para el tutorial **Inserción segura**. Una vez completados los pasos del tutorial de **notificación a los usuarios**, puede continuar con el tutorial **Inserción segura**, en el que se muestra cómo modificar el código de **Notificar a los usuarios** para enviar una notificación de inserción de forma segura. 
 
 > [AZURE.NOTE] Este tutorial asume que ha creado y configurado el Centro de notificaciones tal como se describe en [Introducción a los Centros de notificaciones (Tienda Windows)](http://azure.microsoft.com/ documentation/articles/notification-hubs-windows-store-dotnet-get-started/)
-> Si usa Servicios móviles como su servicio back-end, consulte la [versión de Servicios móviles(/es-es/documentation/articles/mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users/) de este tutorial.
+> Si usa Servicios móviles como su servicio back-end, consulte la [versión de Servicios móviles(mobile-services-javascript-backend-windows-store-dotnet-push-notifications-app-users.md) de este tutorial.
 >Asimismo, tenga en cuenta que este tutorial creará una aplicación Windows Phone Store 8.1. Puede usar el mismo código para aplicaciones universales de Windows y de la Tienda Windows. Todas estas aplicaciones tienen que usar credenciales de Windows (no de Windows Phone).
 
 ## Creación y configuración del Centro de notificaciones

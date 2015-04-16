@@ -18,7 +18,7 @@
 
 # Consultas a través de particiones múltiples
 ## Información general
-**Consultas a través de particiones múltiples** se usa para tareas como informes y recopilación de datos que requieren ejecutar una consulta que abarca varias particiones. (Compárelo con el [enrutamiento dependiente de los datos](./sql-database-elastic-scale-data-dependent-routing.md), que realiza todo el trabajo en una sola partición). 
+**Consultas a través de particiones múltiples** se usa para tareas como informes y recopilación de datos que requieren ejecutar una consulta que abarca varias particiones. (Compárelo con el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md), que realiza todo el trabajo en una sola partición). 
 
 La biblioteca de cliente de Escalado elástico introduce un nuevo espacio de nombres llamado **Microsoft.Azure.SqlDatabase.ElasticScale.Query** que proporciona la capacidad de consultar varias particiones usando una sola solicitud y resultado. Brinda una abstracción de consulta sobre una recopilación de particiones. También proporciona directivas de ejecución alternativas, en especial resultados parciales, para abordar errores cuando se consulte sobre muchas particiones.  
 

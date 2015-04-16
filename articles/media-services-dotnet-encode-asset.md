@@ -19,7 +19,7 @@
 
 # Codificación de un recurso mediante el Codificador multimedia de Azure
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) . 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) . 
 
 ## Información general
 
@@ -207,7 +207,7 @@ El método **CreateChainedTaskEncodingJob** siguiente crea un trabajo que contie
 
 
 ## Pasos siguientes
-Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [Comprobación del progreso del trabajo con Servicios multimedia](../media-services-check-job-progress/) .
+Ahora que sabe cómo crear un trabajo para codificar un recurso, vaya al tema [Comprobación del progreso del trabajo con Servicios multimedia](media-services-check-job-progress.md) .
 
 [Azure Marketplace]: https://datamarket.azure.com/
 [Valores preestablecidos del codificador]: http://msdn.microsoft.com/library/dn619392.aspx

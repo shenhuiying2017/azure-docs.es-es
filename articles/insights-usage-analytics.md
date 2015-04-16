@@ -18,7 +18,7 @@
 
 ¿Se pregunta cuántos usuarios han visitado su sitio?  ¿Se hace una idea del tiempo de carga medio de la página o de los exploradores que se están utilizando?  Con la inserción de unas pocas líneas de script en sus páginas web, podrá recopilar datos acerca de cómo sus clientes utilizan el sitio web. 
 
-*Esto también lo puede hacer para sitios web que no son de Azure: [Supervisión del uso de aplicaciones web con Application Insights](../app-insights-web-track-usage/).*
+*Esto también lo puede hacer para sitios web que no son de Azure: [Supervisión del uso de aplicaciones web con Application Insights](app-insights-web-track-usage.md).*
 
 ![End User Analytics](./media/insights-usage-analytics/Insights_ConfiguredExperience.png)
 

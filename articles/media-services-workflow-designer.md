@@ -27,7 +27,7 @@ Esta herramienta también se puede usar para modificar [flujos de trabajo existe
 >[AZURE.NOTE]Para obtener una copia de la herramienta Diseñador de flujo de trabajo, póngase en contacto con mepd@microsoft.com.
 
 
-Una vez que creado un archivo de flujo de trabajo, se puede cargar como un activo y, a continuación, usarse para la codificación de archivos multimedia. Para obtener información sobre cómo codificar con el **flujo de trabajo del Codificador multimedia Premium** mediante **.NET**, consulte [Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium](../media-services-encode-with-premium-workflow).
+Una vez que creado un archivo de flujo de trabajo, se puede cargar como un activo y, a continuación, usarse para la codificación de archivos multimedia. Para obtener información sobre cómo codificar con el **flujo de trabajo del Codificador multimedia Premium** mediante **.NET**, consulte [Codificación avanzada con el flujo de trabajo del Codificador multimedia Premium](media-services-encode-with-premium-workflow.md).
 
 ## <a id="existing_workflows"></a>Modificación de flujos de trabajo existentes
 

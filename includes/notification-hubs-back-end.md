@@ -1,6 +1,6 @@
 
 En esta sección se muestra cómo enviar notificaciones desde una aplicación de consola .NET y desde cualquier otra aplicación.
-Si está usando Servicios móviles, consulte los tutoriales de [Introducción a las notificaciones push](/es-es/documentation/articles/mobile-services-dotnet-backend-windows-store-dotnet-get-started-push/). Si desea utilizar Java o PHP, consulte [Uso de Centro de notificaciones desde Java/PHP](/es-es/documentation/articles/notification-hubs-java-backend-how-to/). Puede enviar notificaciones desde cualquier back-end mediante la [interfaz de REST de Centros de notificaciones].
+Si está usando Servicios móviles, consulte los tutoriales de [Introducción a las notificaciones push](mobile-services-dotnet-backend-windows-store-dotnet-get-started-push.md). Si desea utilizar Java o PHP, consulte [Uso de Centro de notificaciones desde Java/PHP](notification-hubs-java-backend-how-to.md). Puede enviar notificaciones desde cualquier back-end mediante la [interfaz de REST de Centros de notificaciones].
 
 El código siguiente envía notificaciones a dispositivos de la Tienda Windows, Windows Phone, iOS y Android. 
 

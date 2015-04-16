@@ -120,8 +120,8 @@ Microsoft proporciona scripts de ejemplo para instalar los componentes en un cl�
 
 - [Instalación y uso de Spark 1.0 en clústeres de HDInsight][hdinsight-install-spark]
 - [Instalación y uso de R en clústeres de Hadoop para HDInsight][hdinsight-r-scripts]
-- [Instalación y uso de Solr en clústeres de HDInsight](../hdinsight-hadoop-solr-install)
-- [Instalación y uso de Giraph en clústeres de HDInsight](../hdinsight-hadoop-giraph-install)  
+- [Instalación y uso de Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md)
+- [Instalación y uso de Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md)  
 
 > [AZURE.NOTE] El script de muestra solo funciona con el clúster de HDInsight versión 3.1 o superior. Para obtener más información acerca de las versiones de clústeres de HDInsight, consulte las [versiones de clústeres de HDInsight](http://azure.microsoft.com/documentation/articles/hdinsight-component-versioning/).
 

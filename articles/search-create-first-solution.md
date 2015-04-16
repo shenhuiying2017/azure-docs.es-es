@@ -44,7 +44,7 @@ Esta demostración le introduce en el uso de Búsqueda de Azure a través de est
 <h2 id="sub-1">Requisitos previos</h2>
 
 +	Visual Studio 2012 o posterior con ASP.NET MVC 4 y SQL Server instalados. Puede descargar las ediciones Express gratuitas si aún no tiene instalado el software: [Visual Studio 2013 Express](http://www.visualstudio.com/es-es/products/visual-studio-express-vs.aspx) y [Microsoft SQL Server 2014 Express](http://msdn.microsoft.com/evalcenter/dn434042.aspx).
-+	Un servicio de Búsqueda de Azure. Necesitará el nombre del servicio de búsqueda y la clave de administrador. Vea [Introducción a Búsqueda de Azure](../search-get-started/) para obtener más información.
++	Un servicio de Búsqueda de Azure. Necesitará el nombre del servicio de búsqueda y la clave de administrador. Vea [Introducción a Búsqueda de Azure](search-get-started.md) para obtener más información.
 +	[Proyecto Adventure Works para la demostración de la función de Búsqueda de Azure en CodePlex](http://go.microsoft.com/fwlink/p/?LinkID=510972). En la pestaña Origen, haga clic en **Descargar** para obtener un archivo zip de la solución. 
 
     ![][12]

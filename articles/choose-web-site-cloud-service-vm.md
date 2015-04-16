@@ -339,8 +339,8 @@ La siguiente tabla compara las capacidades de Sitios web, Servicios en la nube y
 
 Para obtener más información acerca de las tres opciones de hospedaje web, consulte los recursos siguientes:
 
-* [Presentación de Azure](../fundamentals-introduction-to-azure/)
-* [Cálculo de las opciones de hospedaje proporcionadas por Azure](../fundamentals-application-models/)
+* [Presentación de Azure](fundamentals-introduction-to-azure.md)
+* [Cálculo de las opciones de hospedaje proporcionadas por Azure](fundamentals-application-models.md)
 
 Para conocer con mayor profundidad las opciones que ha elegido para su aplicación, consulte los recursos siguientes:
 

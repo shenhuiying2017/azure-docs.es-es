@@ -155,8 +155,8 @@ Cuando se sigue el procedimiento de integración que aquí se describe, el servi
 
 Para beneficiarse de la inserción "en cualquier momento", debe usar uno o más servicios de inserción nativa, dependiendo de los dispositivos a los que se oriente:
 
-  - Dispositivos de Google Play: Use [Servicio de mensajería en la nube de Google] siguiendo la guía [Integración de GCM con Engagement](../mobile-engagement-android-gcm-integrate/) .
-  - Dispositivos de Amazon: Use [Amazon Device Messaging] siguiendo la guía [Integración de ADM con Engagement](../mobile-engagement-android-adm-integrate/) .
+  - Dispositivos de Google Play: Use [Servicio de mensajería en la nube de Google] siguiendo la guía [Integración de GCM con Engagement](mobile-engagement-android-gcm-integrate.md) .
+  - Dispositivos de Amazon: Use [Amazon Device Messaging] siguiendo la guía [Integración de ADM con Engagement](mobile-engagement-android-adm-integrate.md) .
 
 Si desea orientarse a dispositivos de Amazon y de Google Play, es posible que todo esté dentro de un AndroidManifest.xml/APK para desarrollo. Pero al enviar a Amazon, es posible que se rechace la aplicación si se encuentra código de GCM.
 

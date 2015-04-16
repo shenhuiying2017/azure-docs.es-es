@@ -261,13 +261,13 @@ El [Portal de administración de Azure](/es-es/services/management-portal/) es u
 
 4. Haga clic en la pestaña **Configurar**.
 
-	La pestaña [Configurar](/es-es/documentation/articles/web-sites-configure//) permite controlar la versión de .NET que se usa para el sitio, habilitar características como [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) y [registros de diagnóstico](/es-es/documentation/articles/web-sites-enable-diagnostic-log/), establecer [connection string values](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) y mucho más. 
+	La pestaña [Configurar](/es-es/documentation/articles/web-sites-configure//) permite controlar la versión de .NET que se usa para el sitio, habilitar características como [WebSockets](/blog/2013/11/14/introduction-to-websockets-on-windows-azure-web-sites/) y [registros de diagnóstico](web-sites-enable-diagnostic-log.md), establecer [connection string values](/blog/2013/07/17/windows-azure-web-sites-how-application-strings-and-connection-strings-work/) y mucho más. 
 
 	![Portal web site configure tab](./media/web-sites-dotnet-get-started-vs2013/portalconfigure.png)
   
 5. Haga clic en la pestaña **Escalar**.
 
-	Para los niveles de pago del servicio Sitios web, la pestaña [Escalar](/es-es/documentation/articles/web-sites-scale/) permite controlar el tamaño y el número de máquinas que sustentan su aplicación web para controlar las variaciones del tráfico.
+	Para los niveles de pago del servicio Sitios web, la pestaña [Escalar](web-sites-scale.md) permite controlar el tamaño y el número de máquinas que sustentan su aplicación web para controlar las variaciones del tráfico.
 
 	Puede escalar manualmente o configurar programaciones para escalado automático.
 
@@ -303,7 +303,7 @@ En este tutorial, ha aprendido a crear una aplicación web sencilla e implementa
 
 	Para obtener información acerca de cómo utilizar SSL y su propio dominio (por ejemplo www.contoso.com en lugar de contoso.azurewebsites.net), consulte los siguientes recursos:
 
-	* [Configuración de un nombre de dominio personalizado para un sitio web de Azure](/es-es/documentation/articles/web-sites-custom-domain-name/). 
+	* [Configuración de un nombre de dominio personalizado para un sitio web de Azure](web-sites-custom-domain-name.md). 
 	* [Habilitación de HTTPS en un sitio web de Azure](http://azure.microsoft.com/documentation/articles/web-sites-configure-ssl-certificate/)
 
 * Cómo evitar el tiempo de reactivación después de períodos de inactividad 

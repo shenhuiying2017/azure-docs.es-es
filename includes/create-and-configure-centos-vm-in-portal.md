@@ -74,6 +74,6 @@ Especifique la contraseña de nuevo. Espere a que las actualizaciones se instale
 
   [Información general sobre redes virtuales de Azure]: http://go.microsoft.com/fwlink/p/?LinkID=294063
   [Crear una máquina virtual]: ./media/create-and-configure-centos-vm-in-portal/CreateVM.png
-  [contraseña segura]: http://msdn.microsoft.com/es-es/library/ms161962.aspx
+  [contraseña segura]: http://msdn.microsoft.com/library/ms161962.aspx
   [página de descarga de PuTTY (en inglés)]: http://www.puttyssh.org/download.html
   [Pantalla de PuTTY]: ./media/create-and-configure-centos-vm-in-portal/putty.png

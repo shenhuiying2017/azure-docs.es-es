@@ -35,5 +35,5 @@ Servicios multimedia de Azure proporciona las herramientas que necesita para cre
 
 ## Reproducción de contenido con reproductores existentes
 
-Para obtener más información, consulte [Reproducción de contenido con reproductores existentes](../media-services-playback-content-with-existing-players).
+Para obtener más información, consulte [Reproducción de contenido con reproductores existentes](media-services-playback-content-with-existing-players.md).
 <!--HONumber=47-->

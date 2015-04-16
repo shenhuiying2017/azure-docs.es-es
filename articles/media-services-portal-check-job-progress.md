@@ -18,7 +18,7 @@
 
 # Comprobación del progreso del trabajo
 
-Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](../media-services-video-on-demand-workflow) . 
+Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda de Servicios multimedia](media-services-video-on-demand-workflow.md) . 
 
 ## Uso del Portal para comprobar el estado del trabajo
 
@@ -31,7 +31,7 @@ Este artículo forma parte de la serie [Flujo de trabajo de vídeo bajo demanda 
 
 ## Paso siguiente
 
-Publique el contenido. Para obtener más información, consulte [Inserción de Codificación de un recurso](../media-services-manage-content#publish). 
+Publique el contenido. Para obtener más información, consulte [Inserción de Codificación de un recurso](media-services-manage-content#publish.md). 
 
 
 [checkstatus]: ./media/media-services-monitor-job-progress/media-services-monitor-job-progress.png

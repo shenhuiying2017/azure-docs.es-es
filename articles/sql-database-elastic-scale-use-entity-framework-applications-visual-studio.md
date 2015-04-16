@@ -18,7 +18,7 @@
 
 # Uso de Escalado elástico con Entity Framework 
  
-Puede usar Escalado elástico de Base de datos SQL de Azure con Microsoft Entity Framework (EF) para compilar aplicaciones. Escalado elástico permite aumentar y disminuir la capacidad mediante particionamiento y escalado horizontal de la capa de datos de la aplicación. Este documento muestra los cambios que es necesario realizar en una aplicación de Entity Framework para su integración con la funcionalidad de Escalado elástico. Va orientado a cómo componer [administración de particiones de Escalado elástico](http://go.microsoft.com/?linkid=9862595) y [enrutamiento dependiente de los datos](./sql-database-elastic-scale-data-dependent-routing.md) con el enfoque **Code First** de Entity Framework. El tutorial [Code First - Nueva base de datos](http://msdn.microsoft.com/data/jj193542.aspx) para EF sirve como ejemplo en ejecución en este documento. El código de ejemplo que acompaña a este documento forma parte de los ejemplos de Escalado elástico en los ejemplos de código de Visual Studio.
+Puede usar Escalado elástico de Base de datos SQL de Azure con Microsoft Entity Framework (EF) para compilar aplicaciones. Escalado elástico permite aumentar y disminuir la capacidad mediante particionamiento y escalado horizontal de la capa de datos de la aplicación. Este documento muestra los cambios que es necesario realizar en una aplicación de Entity Framework para su integración con la funcionalidad de Escalado elástico. Va orientado a cómo componer [administración de particiones de Escalado elástico](http://go.microsoft.com/?linkid=9862595) y [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) con el enfoque **Code First** de Entity Framework. El tutorial [Code First - Nueva base de datos](http://msdn.microsoft.com/data/jj193542.aspx) para EF sirve como ejemplo en ejecución en este documento. El código de ejemplo que acompaña a este documento forma parte de los ejemplos de Escalado elástico en los ejemplos de código de Visual Studio.
   
 ## Descarga y ejecución del código de ejemplo
 Para descargar el código de este artículo:
@@ -53,7 +53,7 @@ Todos estos métodos se basan en la clase DbContext para administrar de forma tr
 
 ## Suposiciones de Escalado elástico 
 
-Para obtener definiciones de términos, consulte el [Glosario de Escalado elástico](./sql-database-elastic-scale-glossary.md).
+Para obtener definiciones de términos, consulte el [Glosario de Escalado elástico](sql-database-elastic-scale-glossary.md).
 
 Con Escalado elástico de Base de datos SQL de Azure, se definen particiones de los datos de la aplicación denominadas shardlets.  Los shardlets se identifican mediante una clave de particionamiento y se asignan a bases de datos específicas. Una aplicación puede tener tantas bases de datos como sea necesario y distribuir los shardlets para proporcionar suficiente capacidad o rendimiento en función de los requisitos del negocio actuales. La asignación de valores de clave de particionamiento a las bases de datos se almacena en un mapa de particiones que proporcionan las API de Escalado elástico. A esta capacidad la denominamos Administración de mapas de particiones o, para abreviar, SMM. El mapa de particiones también funciona como el agente de conexiones de base de datos para las solicitudes que llevan una clave de particionamiento. A esta capacidad nos referimos como enrutamiento dependiente de datos. 
  

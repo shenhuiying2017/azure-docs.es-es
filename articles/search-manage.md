@@ -51,7 +51,7 @@ Para planificar la capacidad y entender el impacto de facturación, recomendamos
 +	[Límites y restricciones](http://msdn.microsoft.com/library/dn798934.aspx)
 +	[Detalles de precios](http://go.microsoft.com/fwlink/p/?LinkdID=509792)
 
-Cuando esté listo para suscribirse, consulte [Introducción a Búsqueda de Azure](../search-get-started/).
+Cuando esté listo para suscribirse, consulte [Introducción a Búsqueda de Azure](search-get-started.md).
 
 
 <h2 id="sub-2">Tareas administrativas</h2>

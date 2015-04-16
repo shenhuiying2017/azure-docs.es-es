@@ -19,7 +19,7 @@
 
 # Firmas de acceso compartido, parte 2: Creación y uso de una firma de acceso compartido con el servicio BLOB
 
-En la [parte 1](../storage-dotnet-shared-access-signature-part-1/) de este tutorial se analizaron las firmas de acceso compartido (SAS) y se explicaron los procedimientos recomendados para su uso. En la parte 2 se muestra cómo generar este tipo de firmas para, a continuación, usarlas con el servicio BLOB de Azure. Los ejemplos están escritos en C# y usan la biblioteca del cliente de almacenamiento de Azure para .NET. Entre los escenarios descritos se incluyen los siguientes aspectos del uso de firmas de acceso compartido:
+En la [parte 1](storage-dotnet-shared-access-signature-part-1.md) de este tutorial se analizaron las firmas de acceso compartido (SAS) y se explicaron los procedimientos recomendados para su uso. En la parte 2 se muestra cómo generar este tipo de firmas para, a continuación, usarlas con el servicio BLOB de Azure. Los ejemplos están escritos en C# y usan la biblioteca del cliente de almacenamiento de Azure para .NET. Entre los escenarios descritos se incluyen los siguientes aspectos del uso de firmas de acceso compartido:
 
 - Generación de una firma de acceso compartido en un contenedor
 - Generación de una firma de acceso compartido en un blob
@@ -533,7 +533,7 @@ Ejecute la aplicación de consola y observe el resultado para ver qué operacion
 
 # Pasos siguientes #
 
-[Firmas de acceso compartido, parte 1: Descripción del modelo de firmas de acceso compartido](../storage-dotnet-shared-access-signature-part-1/)
+[Firmas de acceso compartido, parte 1: Descripción del modelo de firmas de acceso compartido](storage-dotnet-shared-access-signature-part-1.md)
 
 [Administración del acceso a los recursos de almacenamiento de Azure](http://msdn.microsoft.com/library/windowsazure/ee393343.aspx)
 

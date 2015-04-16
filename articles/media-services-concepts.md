@@ -99,7 +99,7 @@ Los códecs tienen dos componentes: uno para comprimir archivos multimedia digit
 
 ### Codificadores de Servicios multimedia
 
-Para obtener información acerca de los codificadores compatibles, consulte [Codificadores](../media-services-encode-asset).
+Para obtener información acerca de los codificadores compatibles, consulte [Codificadores](media-services-encode-asset.md).
 
 
 ## Streaming en vivo
@@ -166,7 +166,7 @@ Al trabajar con Servicios multimedia, se recomienda codificar los archivos inter
 
 Un StreamingEndpoint representa un servicio de streaming que puede entregar contenido directamente a una aplicación de reproductor de cliente o a una red de entrega de contenido (CDN) para su posterior distribución (Servicios multimedia de Azure ahora proporciona la integración de CDN de Azure). La secuencia de salida de un servicio de StreamingEndpoint puede ser una secuencia en vivo o un recurso de vídeo bajo demanda en su cuenta de Servicios multimedia. Además, puede controlar la capacidad del servicio StreamingEndpoint para manejar las crecientes necesidades de ancho de banda mediante el ajuste de las unidades de escalado (también conocidas como unidades de streaming). Se recomienda asignar una o más unidades de escalado para las aplicaciones en el entorno de producción. Las unidades de escalado proporcionan capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps y funcionalidad adicional que actualmente incluye el uso de empaquetado dinámico. 
 
-Si piensa utilizar el empaquetado dinámico y/o el cifrado dinámico, debe tener, al menos, una unidad de streaming para el extremo desde el cual piensa transmitir. Para obtener más información, consulte [Escalado de unidades de streaming](../media-services-manage-origins#scale_streaming_endpoints).
+Si piensa utilizar el empaquetado dinámico y/o el cifrado dinámico, debe tener, al menos, una unidad de streaming para el extremo desde el cual piensa transmitir. Para obtener más información, consulte [Escalado de unidades de streaming](media-services-manage-origins#scale_streaming_endpoints.md).
 
 ### Directiva de entrega de recursos
 

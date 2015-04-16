@@ -31,7 +31,7 @@ En este ejemplo, usará Hive para procesar datos de historial producidos por sis
 
 ##Requisitos previos:
 
-* Un clúster de HDInsight (Hadoop): consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight](/es-es/documentation/articles/hdinsight-provision-clusters/) para obtener información sobre la creación de un clúster.
+* Un clúster de HDInsight (Hadoop): consulte [Aprovisionamiento de clústeres de Hadoop en HDInsight](hdinsight-provision-clusters.md) para obtener información sobre la creación de un clúster.
 
 * Microsoft Excel 2013
 

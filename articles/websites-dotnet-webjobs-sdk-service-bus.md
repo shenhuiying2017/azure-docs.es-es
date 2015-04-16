@@ -18,9 +18,9 @@
 
 # Cómo trabajar con servicio de bus de Azure mediante el SDK de WebJobs
 
-En esta guía se proporcionan ejemplos de código de C# que muestran cómo desencadenar un proceso cuando se crea o se actualiza un blob de Azure. Los ejemplos de código usan la [SDK de WebJobs](../websites-dotnet-webjobs-sdk/)versión 1.x.
+En esta guía se proporcionan ejemplos de código de C# que muestran cómo desencadenar un proceso cuando se crea o se actualiza un blob de Azure. Los ejemplos de código usan la [SDK de WebJobs](websites-dotnet-webjobs-sdk.md)versión 1.x.
 
-En la guía se supone que conoce [cómo crear un proyecto de WebJob en Visual Studio con cadenas de conexión que señalen a su cuenta de almacenamiento](../websites-dotnet-webjobs-sdk-get-started/).
+En la guía se supone que conoce [cómo crear un proyecto de WebJob en Visual Studio con cadenas de conexión que señalen a su cuenta de almacenamiento](websites-dotnet-webjobs-sdk-get-started.md).
 
 Los fragmentos de código muestran solo las funciones, no el código que crea el objeto `JobHost`, como en este ejemplo:
 
@@ -138,7 +138,7 @@ Para crear un mensaje en un tema, use el atributo `ServiceBus` con el nombre de 
 
 ## <a id="queues"></a>Temas relacionados tratados en el artículo de procedimientos de las colas de almacenamiento
 
-Para obtener información acerca de los escenarios del SDK de WebJobs que no son específicos del bus de servicio, consulte [Cómo usar el almacenamiento de la cola de Azure con el SDK de WebJobs](../websites-dotnet-webjobs-sdk-storage-queues-how-to/). 
+Para obtener información acerca de los escenarios del SDK de WebJobs que no son específicos del bus de servicio, consulte [Cómo usar el almacenamiento de la cola de Azure con el SDK de WebJobs](websites-dotnet-webjobs-sdk-storage-queues-how-to.md). 
 
 Los temas que se tratan en este artículo incluyen lo siguiente:
 

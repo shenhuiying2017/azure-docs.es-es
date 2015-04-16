@@ -286,8 +286,8 @@ Proporcione un nombre de clúster y presione ENTRAR para aprovisionar un clúste
 ## <a name="seeAlso"></a>Consulte también
 
 - [Instale y use Spark en clústeres de HDInsight][hdinsight-install-spark] para obtener instrucciones acerca de cómo usar la personalización del clúster para instalar y usar Spark en clústeres de Hadoop de HDInsight. Spark es un marco de procesamiento paralelo de código abierto que admite el procesamiento en memoria para mejorar el rendimiento de las aplicaciones analíticas de Big Data.
-- [Instale Giraph en clústeres de HDInsight](../hdinsight-hadoop-giraph-install). Use la personalización del clúster para instalar Giraph en clústeres de Hadoop para HDInsight. Giraph permite realizar un procesamiento gráfico mediante Hadoop, y se puede usar con Azure HDInsight.
-- [Instale Solr en clústeres de HDInsight](../hdinsight-hadoop-solr-install). Use la personalización del clúster para instalar Solr en clústeres de Hadoop para HDInsight. Solr le permite realizar potentes operaciones de búsqueda en los datos almacenados.
+- [Instale Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install.md). Use la personalización del clúster para instalar Giraph en clústeres de Hadoop para HDInsight. Giraph permite realizar un procesamiento gráfico mediante Hadoop, y se puede usar con Azure HDInsight.
+- [Instale Solr en clústeres de HDInsight](hdinsight-hadoop-solr-install.md). Use la personalización del clúster para instalar Solr en clústeres de Hadoop para HDInsight. Solr le permite realizar potentes operaciones de búsqueda en los datos almacenados.
 
 
 [hdinsight-provision]: ../hdinsight-provision-clusters/

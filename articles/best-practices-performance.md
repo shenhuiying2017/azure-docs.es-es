@@ -218,7 +218,7 @@ Azure ofrece compatibilidad directa con Hadoop, además de permitir el uso de ot
 
 * [Big Data](/es-es/solutions/big-data/) 
 * [Servicio HDInsight de Azure](/es-es/documentation/services/hdinsight/)
-* [Introducción al servicio HDInsight de Azure](/es-es/documentation/articles/hdinsight-get-started/)
+* [Introducción al servicio HDInsight de Azure](hdinsight-get-started.md)
 
 En los siguientes documentos podrá encontrar información sobre los problemas relacionados con los diferentes métodos de almacenamiento NoSQL: 
 

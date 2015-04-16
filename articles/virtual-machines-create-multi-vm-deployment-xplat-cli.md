@@ -63,7 +63,7 @@ Aunque puede encontrar más información sobre cualquiera de los comandos CLI de
 ## Pasos siguientes
 
  
-* [Informática de código abierto y Linux en Azure](../virtual-machines-linux-opensource/)
-* [Inicio de sesión en una máquina virtual con Linux](../virtual-machines-linux-how-to-log-on/)
+* [Informática de código abierto y Linux en Azure](virtual-machines-linux-opensource.md)
+* [Inicio de sesión en una máquina virtual con Linux](virtual-machines-linux-how-to-log-on.md)
 
 <!--HONumber=47-->

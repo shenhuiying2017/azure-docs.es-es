@@ -38,7 +38,7 @@ En este tema se ofrece información general acerca de algunos aspectos relaciona
 
 Al crear una máquina virtual con Linux con el Portal de administración de Azure, se le pedirá que facilite un nombre de usuario, una contraseña y (opcionalmente) una clave pública SSH. La elección de un nombre de usuario para implementar una máquina virtual Linux en Azure está sujeta a la siguiente limitación: no se admiten los nombres de cuentas del sistema (UID <100) ya existentes en la máquina virtual, como por ejemplo,  'root'.
 
- - Consulte [Utilización de SSH con Linux en Azure](../linux-use-ssh-key/)
+ - Consulte [Utilización de SSH con Linux en Azure](linux-use-ssh-key.md)
 
 
 ### <a id="keygeneration"></a>Generación de claves SSH
@@ -92,14 +92,14 @@ La cuenta de usuario especificada durante la implementación de la instancia de 
 
 También puede obtener un shell root con **sudo -s**.
 
-- Consulte [Uso de privilegios raíz en máquinas virtuales con Linux en Azure](../virtual-machines-linux-use-root-privileges/)
+- Consulte [Uso de privilegios raíz en máquinas virtuales con Linux en Azure](virtual-machines-linux-use-root-privileges.md)
 
 
 ## <a id="firewallconfiguration"></a>Configuración del firewall
 
 Azure ofrece un filtro de paquetes de entrada que restringe la conectividad a los puertos especificados en el Portal de administración. De forma predeterminada, el único puerto permitido es SSH. Puede abrir el acceso a puertos adicionales de la máquina virtual con Linux con la configuración de extremos en el Portal de administración.
 
- - Consulte: [Configuración de extremos en una máquina virtual](../virtual-machines-set-up-endpoints/)
+ - Consulte: [Configuración de extremos en una máquina virtual](virtual-machines-set-up-endpoints.md)
 
 Las imágenes de Linux en la Galería de Azure no habilitan el *iptables* firewall de forma predeterminada. Si lo desea, el firewall puede configurarse para proporcionar filtrado adicional.
 
@@ -114,7 +114,7 @@ Si desea realizar cambios en el nombre de host después de la implementación de
 
 El Agente de Linux de Azure incluye la funcionalidad para detectar automáticamente este cambio de nombre y configurar correctamente la máquina virtual para que mantenga este cambio y publica este cambio en los servidores DNS de la plataforma.
 
- - [Guía de usuario del Agente de Linux de Azure](../virtual-machines-linux-agent-user-guide/)
+ - [Guía de usuario del Agente de Linux de Azure](virtual-machines-linux-agent-user-guide.md)
 
 ### Imágenes de Ubuntu
 Las imágenes de Ubuntu usan cloud-init, que proporciona funcionalidades adicionales para arrancar una máquina virtual.
@@ -132,7 +132,7 @@ Azure ofrece la capacidad de capturar el estado de una máquina virtual existent
 
 3. Haga clic en  *Capturar* en el Portal de administración o use Powershell o las herramientas de la CLI para capturar la máquina virtual como una imagen.
 
- - Consulte: [Captura de una máquina virtual de Linux para usar como plantilla](../virtual-machines-linux-capture-image/)
+ - Consulte: [Captura de una máquina virtual de Linux para usar como plantilla](virtual-machines-linux-capture-image.md)
 
 
 ## <a id="attachingdisks"></a>Acoplamiento de discos
@@ -143,9 +143,9 @@ En Linux, el disco de recursos se administra generalmente mediante el Agente de 
 
 	>[AZURE.NOTE] Tenga en cuenta que el disco de recursos es un disco **temporal**, que debe eliminarse y reformatearse cuando se reinicia la máquina virtual.
 
-En Linux el kernel debe poner al disco de datos el nombre  `/dev/sdc` y los usuarios tendrán que particionar ese recurso, darle formato y montarlo. Esto se explica paso a paso en el tutorial: [Acoplamiento de un disco de datos a una máquina virtual](../virtual-machines-linux-how-to-attach-disk/).
+En Linux el kernel debe poner al disco de datos el nombre  `/dev/sdc` y los usuarios tendrán que particionar ese recurso, darle formato y montarlo. Esto se explica paso a paso en el tutorial: [Acoplamiento de un disco de datos a una máquina virtual](virtual-machines-linux-how-to-attach-disk.md).
 
- - Consulte también: [Configuración del software RAID en Linux](../virtual-machines-linux-configure-raid/)
+ - Consulte también: [Configuración del software RAID en Linux](virtual-machines-linux-configure-raid.md)
 
 
 
